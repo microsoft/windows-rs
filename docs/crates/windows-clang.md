@@ -16,9 +16,11 @@ then compiles and publishes both surfaces.
 
 `cargo run -p tool-win32 -- --compile` compiles the existing `metadata/win32` RDL and metadata
 attribute definitions against `Windows.winmd`, then compiles `metadata/wdk` against both references.
-It merges the results with same-named enums unioned and writes
-`crates/libs/default/Windows.Win32.winmd` only after compilation and merging succeed.
-Intermediate WinMDs are written under `target/win32`.
+It checks each input for duplicate per-target items before merging with same-named enums unioned.
+The merged output is checked again, then renamed over `crates/libs/default/Windows.Win32.winmd`.
+Compilation, validation and merge failures leave the published WinMD unchanged. Intermediate WinMDs
+are written under `target/win32`; replacement requires that directory and the destination to share
+a filesystem.
 
 This command does not scrape headers, refresh WDK declarations, or rewrite RDL. It cannot be combined
 with scrape options. Publication does not establish complete SDK or WDK coverage. Unsupported
@@ -38,7 +40,9 @@ typedef evidence. That distinction remains an omission, including dependent `OBJ
 APIs. Typedef-owned return contracts through `PNTSTATUS` also remain unproven.
 
 The final merge rejects overlapping non-enum ownership, conflicting shared enum values and duplicate
-items on any target before replacing the default WinMD.
+items on any target before replacing the default WinMD. Generated RDL directories are updated before
+final publication and are not transactional; a failed run can leave RDL changes for review without
+replacing the default WinMD.
 
 ## Architecture
 
@@ -638,8 +642,8 @@ caller storage contract or changing layout. NativeDeprecated retains messages/re
 including empty payloads and original typedef ownership, but does not request Rust diagnostics.
 Unknown kinds/payloads remain errors, never inferred from empty tokens or matching layouts.
 
-The stock LLVM 23.1.3 C API also lacks the packing payload accessor. ClangSharp's getMaxAlignment
-reads explicit AlignedAttr, not pragma packing. Runtime/resource-header upgrades remain separate
+The stock C API also lacks the packing payload accessor; the companion reads
+`MaxFieldAlignmentAttr`, not explicit `AlignedAttr`. Runtime/resource-header upgrades remain separate
 from declaration work. See [windows-clang-sys](windows-clang-sys.md), `opaque_packing`,
 `opaque_callbacks`, `visibility*`, `initialization` and `deprecations` for native boundary checks.
 

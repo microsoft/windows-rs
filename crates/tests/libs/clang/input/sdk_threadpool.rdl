@@ -1,5 +1,9 @@
 #[win32]
 mod Fixture {
+    type BOOL = i32;
+}
+#[win32]
+mod Fixture {
     type DWORD = u32;
     type ULONG = u32;
     #[arch(X64 | Arm64)]
@@ -9,26 +13,22 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    type BOOL = i32;
-}
-#[win32]
-mod Fixture {
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[must_use]
     #[library("KERNEL32.dll")]
-    extern fn CreateThreadpoolIo(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] fl: HANDLE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnio: PTP_WIN32_IO_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_IO;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    extern fn CreateThreadpoolIo(#[in] fl: HANDLE, #[in] pfnio: PTP_WIN32_IO_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_IO;
+    #[must_use]
     #[library("KERNEL32.dll")]
-    extern fn CreateThreadpoolTimer(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnti: PTP_TIMER_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_TIMER;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    extern fn CreateThreadpoolTimer(#[in] pfnti: PTP_TIMER_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_TIMER;
+    #[must_use]
     #[library("KERNEL32.dll")]
-    extern fn CreateThreadpoolWait(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnwa: PTP_WAIT_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WAIT;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    extern fn CreateThreadpoolWait(#[in] pfnwa: PTP_WAIT_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WAIT;
+    #[must_use]
     #[library("KERNEL32.dll")]
-    extern fn CreateThreadpoolWork(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfnwk: PTP_WORK_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WORK;
+    extern fn CreateThreadpoolWork(#[in] pfnwk: PTP_WORK_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> PTP_WORK;
     extern fn PTP_WIN32_IO_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] #[opt] Overlapped: PVOID, #[in] IoResult: ULONG, #[in] NumberOfBytesTransferred: ULONG_PTR, #[in] #[out] Io: PTP_IO);
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[must_use]
     #[library("KERNEL32.dll")]
-    extern fn TrySubmitThreadpoolCallback(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pfns: PTP_SIMPLE_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pcbe: PTP_CALLBACK_ENVIRON) -> BOOL;
+    extern fn TrySubmitThreadpoolCallback(#[in] pfns: PTP_SIMPLE_CALLBACK, #[in] #[out] #[opt] pv: PVOID, #[in] #[opt] pcbe: PTP_CALLBACK_ENVIRON) -> BOOL;
 }
 #[win32]
 mod Fixture {
@@ -58,10 +58,11 @@ mod Fixture {
         u: union {
             Flags: DWORD,
             s: struct {
-                #[Windows::Win32::Metadata::NativeBitfield("LongFunction", 0, 1, MemberType = DWORD)]
-                #[Windows::Win32::Metadata::NativeBitfield("Persistent", 1, 1, MemberType = DWORD)]
-                #[Windows::Win32::Metadata::NativeBitfield("Private", 2, 30, MemberType = DWORD)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    LongFunction: DWORD: 1,
+                    Persistent: DWORD: 1,
+                    Private: DWORD: 30,
+                },
             },
         },
         CallbackPriority: TP_CALLBACK_PRIORITY,

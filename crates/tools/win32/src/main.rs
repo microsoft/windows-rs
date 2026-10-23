@@ -444,12 +444,14 @@ fn compile_metadata(root: &Path) -> Result<(), Box<dyn std::error::Error>> {
         .reference(&winrt)
         .output(&um)
         .write()?;
+    wdk::validate_unique_items(&um)?;
     windows_rdl::reader()
         .input(root.join("metadata\\wdk"))
         .reference(&um)
         .reference(&winrt)
         .output(&km)
         .write()?;
+    wdk::validate_unique_items(&km)?;
     wdk::validate_additions(&um, &km)?;
     windows_metadata::merge()
         .input(&um)
@@ -460,7 +462,7 @@ fn compile_metadata(root: &Path) -> Result<(), Box<dyn std::error::Error>> {
         .merge()?;
     wdk::validate_unique_items(&merged)?;
     let destination = root.join("crates\\libs\\default\\Windows.Win32.winmd");
-    std::fs::copy(merged, &destination)?;
+    std::fs::rename(merged, &destination)?;
     println!(
         "Compiled existing Win32 and WDK RDL into {}",
         destination.display()
@@ -512,9 +514,17 @@ fn compile_existing_metadata() {
     for invalid in [
         "#[win32] mod Windows { mod Win32 { struct User { wrong: i32, } } }",
         "#[win32] mod Windows { mod Win32 { #[repr(i32)] enum Mode { Common = 7, } } }",
+        "#[win32] mod Windows { mod Win32 {
+            struct Duplicate { first: i32, }
+            struct Duplicate { second: i64, }
+        } }",
+        "#[win32] mod Windows { mod Win32 {
+            #[repr(i32)] enum Duplicate { First = 0, }
+            #[repr(i32)] enum Duplicate { Second = 1, }
+        } }",
     ] {
         std::fs::write(root.join("metadata\\wdk\\kernel.rdl"), invalid).unwrap();
-        assert!(compile_metadata(&root).is_err());
+        assert!(compile_metadata(&root).is_err(), "{invalid}");
         assert_eq!(bytes, std::fs::read(&destination).unwrap());
     }
     std::fs::write(root.join("metadata\\wdk\\kernel.rdl"), "invalid RDL").unwrap();
@@ -524,6 +534,23 @@ fn compile_existing_metadata() {
         std::fs::read_to_string(root.join("metadata\\win32\\user.rdl")).unwrap(),
         user
     );
+    std::fs::write(root.join("metadata\\wdk\\kernel.rdl"), kernel).unwrap();
+    for invalid in [
+        "invalid RDL",
+        "#[win32] mod Windows { mod Win32 {
+            struct Duplicate { first: i32, }
+            struct Duplicate { second: i64, }
+        } }",
+    ] {
+        std::fs::write(
+            root.join("metadata\\win32\\user.rdl"),
+            format!("{user}\n{invalid}"),
+        )
+        .unwrap();
+        assert!(compile_metadata(&root).is_err(), "{invalid}");
+        assert_eq!(bytes, std::fs::read(&destination).unwrap());
+    }
+    std::fs::write(root.join("metadata\\win32\\user.rdl"), user).unwrap();
 }
 
 fn configure_roots(inputs: &mut [Input], headers: &[String], include: &Path) {

@@ -1,13 +1,22 @@
 # windows-clang-sys
 
 Unpublished raw bindings used by `windows-clang`, `windows-clang`, and generator helpers. See the
-[readme](../../crates/libs/clang-sys/readme.md) for setup and thread binding.
+[readme](../../crates/libs/clang-sys/readme.md) for setup and loading.
 
 ## Native boundary
 
-The crate loads a matched `libclang.dll` and `libClangSharp.dll` pair. The companion adds a small
-C API to pinned ClangSharp sources and links against the official LLVM development archive. Rust
-does not inspect private cursor fields or depend on Clang C++ class layouts.
+The crate loads a matched `libclang.dll` and `windows_clang.dll` pair. The companion is one C++
+source file exposing a small C API. It links against the official LLVM development archive and
+imports stock libclang. Rust does not inspect private cursor fields or depend on Clang C++ class
+layouts.
+
+The companion reads the AST nodes behind libclang handles from the pinned libclang handle layouts:
+cursors carry the declaration or parent declaration, the attribute or statement, and the unit;
+types carry a `QualType` and the unit. Returned types are built by stock `clang_getPointeeType`
+on a synthesized pointer, so libclang assigns their kind. Returned expression cursors come from
+stock child visitation. Owned strings use libclang's `free`-released string flag; both modules
+link the static UCRT, which allocates from the process heap. These layouts are checked by the
+semantics fixture and pinned with `LIBCLANG_VERSION`.
 
 | Query | Result |
 | --- | --- |
@@ -151,14 +160,13 @@ Unknown attributes and unsupported function properties remain explicit errors or
 
 Attribute-name strings are borrowed from the library. Query cursors and types must belong to a
 live translation unit created by the matching runtime. Wrong-kind and null-output status failures
-leave output arguments unchanged. Raw API calls retain the library for the duration of the call,
-including callbacks, but native handles must not outlive their library owner.
+leave output arguments unchanged. The libraries stay loaded for the life of the process.
 
 ## Building and generation
 
-`LIBCLANG_VERSION` in `src/lib.rs` pins LLVM. `native/build.ps1` separately pins a matching
-ClangSharp commit. The script downloads their archives, builds the companion with the static
-MSVC runtime used by the LLVM libraries, and copies both DLLs and license notices into
+`LIBCLANG_VERSION` in `src/lib.rs` pins LLVM. `native/build.ps1` downloads its archive, builds
+the companion with the static MSVC runtime used by the LLVM libraries, and copies both DLLs and the
+LLVM license into
 `target\tool-clang\native\<version>\<host-triple>\bin`. The initial x64 LLVM archive is about
 862 MB. Visual Studio C++ tools and its CMake/Ninja component are required.
 
@@ -170,7 +178,7 @@ cargo run -p tool-clang-sys
 The first command forces a native rebuild. Helper provisioning invokes the same script with
 `-Ensure`, reusing a build only when its freshness stamp matches SHA-256 hashes of every file under
 `native`, the LLVM version and host target, and both deployed DLLs. This includes the build recipe
-and its ClangSharp pin. A stale build is cleaned before compilation, so preserved source timestamps
+A stale build is cleaned before compilation, so preserved source timestamps
 cannot hide changed contents from Ninja. Downloads remain cached.
 
 The script holds an exclusive cache lock through checking, building, and deployment. It removes
@@ -206,7 +214,8 @@ produced by the native build, not independently sourced DLLs.
 `regparm`, `noreturn`, attributed calling conventions, and unsupported prototype properties.
 Qualifier cases include CVR, typedef inheritance, `__unaligned`, and address-space detection.
 Type-visibility cases include Clang's implicit default attribute on `_GUID`.
-It also covers query errors, shared library thread binding, and missing-library errors.
+It also covers query errors and calls from several threads. A unit test covers missing-library
+errors.
 `cargo test -p helpers native_freshness` exercises provisioning without an SDK, including input
 changes with preserved timestamps, missing or replaced DLLs, and failed builds.
 

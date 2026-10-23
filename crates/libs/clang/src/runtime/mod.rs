@@ -3,7 +3,7 @@
 use super::*;
 use native::text;
 use std::ffi::CString;
-use std::sync::{Arc, Mutex};
+use std::sync::Mutex;
 use windows_clang_sys::*;
 
 mod macros;
@@ -90,8 +90,7 @@ fn capture_impl(
         })
         .collect::<Result<Vec<_>, Error>>()?;
     let _batch = BATCH.lock().map_err(|error| Error(error.to_string()))?;
-    let library = Arc::new(load_manually().map_err(Error)?);
-    let _binding = Binding::new(Arc::clone(&library));
+    load().map_err(Error)?;
     let compiler = text(unsafe { clang_getClangVersion() });
     let indices = targets
         .iter()
@@ -109,25 +108,14 @@ fn capture_impl(
             .into_iter()
             .zip(targets)
             .map(|(index, &target)| {
-                let library = Arc::clone(&library);
                 let compiler = &compiler;
                 let sources = &sources;
                 scope.spawn(move || {
-                    let _binding = Binding::new(library);
-                    // Dispose before restoring bindings if this worker unwinds.
-                    let owned_index = index;
                     let mut results = Batch::default();
                     for (source, input) in sources.iter().zip(inputs) {
-                        results.push(parse(
-                            &owned_index,
-                            source,
-                            input,
-                            target,
-                            compiler,
-                            partial,
-                        ));
+                        results.push(parse(&index, source, input, target, compiler, partial));
                     }
-                    (owned_index, results)
+                    (index, results)
                 })
             })
             .collect();
@@ -221,20 +209,6 @@ impl Batch {
             }
             Err(error) => self.errors.push(error.to_string()),
         }
-    }
-}
-
-struct Binding(Option<Arc<SharedLibrary>>);
-
-impl Binding {
-    fn new(library: Arc<SharedLibrary>) -> Self {
-        Self(set_library(Some(library)))
-    }
-}
-
-impl Drop for Binding {
-    fn drop(&mut self) {
-        set_library(self.0.take());
     }
 }
 

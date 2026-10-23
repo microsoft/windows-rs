@@ -7,9 +7,9 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[library("SHELL32.dll")]
-    extern fn ILClone(#[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPCITEMIDLIST) -> LPITEMIDLIST;
+    extern fn ILClone(#[in] pidl: LPCITEMIDLIST) -> LPITEMIDLIST;
     #[library("SHELL32.dll")]
-    extern fn ILFree(#[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pidl: LPITEMIDLIST);
+    extern fn ILFree(#[in] #[opt] pidl: LPITEMIDLIST);
 }
 #[win32]
 mod Fixture {
@@ -48,7 +48,7 @@ mod Fixture {
         iMaxUdpDg: u16,
         lpVendorInfo: *mut i8,
     }
-    #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")]
+    #[must_use]
     #[library("WS2_32.dll")]
     extern fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
 }

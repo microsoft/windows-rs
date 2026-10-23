@@ -502,11 +502,11 @@ or vtables, so default type visibility needs no emitted attribute. Ordinary `Vis
 other undecoded attributes remain rejected. Do not identify unknown attributes from empty tokens
 or infer requests from layout.
 
-The runtime pin is `windows-clang-sys::LIBCLANG_VERSION`. LLVM 23.1.3's stock C API also lacks
-the packing payload accessor.
+The runtime pin is `windows-clang-sys::LIBCLANG_VERSION`. The stock C API lacks the packing
+payload accessor.
 Track runtime/resource-header upgrades and binding refreshes separately from declaration work.
-The companion builds against a matching LLVM SDK and pinned ClangSharp sources. Its extra packing
-query reads `MaxFieldAlignmentAttr`; ClangSharp's `getMaxAlignment` reads explicit alignment.
+The `windows_clang.dll` companion builds against the matching LLVM SDK. Its packing query reads
+`MaxFieldAlignmentAttr`, not explicit `AlignedAttr` alignment.
 
 Independent declaration coverage can proceed while opaque attributes and their dependents remain
 explicitly omitted. Resolve this boundary before claiming full coverage, or before a feature needs

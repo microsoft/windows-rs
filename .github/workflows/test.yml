@@ -78,7 +78,7 @@ jobs:
         with:
           key: ${{ matrix.target }}
       - name: Provision libclang (Windows)
-        # Build the pinned LLVM/ClangSharp pair used by the scrapers and native tests.
+        # Build the pinned libclang/windows_clang pair used by the scrapers and native tests.
         # After rust-cache so the tool-clang build is cache-accelerated.
         if: runner.os == 'Windows'
         run: echo "LIBCLANG_PATH=$(cargo run -q -p tool-clang -- path)" >> "$GITHUB_ENV"

@@ -1,8 +1,4 @@
 #include "extension.h"
-#include "CXCursor.h"
-#include "CXString.h"
-#include "CXType.h"
-#include "CXTranslationUnit.h"
 #include <clang/AST/Attr.h>
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Expr.h>
@@ -22,6 +18,7 @@
 #include <clang/Parse/Parser.h>
 #include <clang/Sema/Sema.h>
 #include <llvm/Config/llvm-config.h>
+#include <llvm/Support/MemAlloc.h>
 #include <llvm/Support/MemoryBuffer.h>
 #include <llvm/Support/VirtualFileSystem.h>
 #include <mutex>
@@ -37,12 +34,118 @@ void LLVMInitializeAArch64TargetMC();
 void LLVMInitializeAArch64AsmParser();
 }
 
+// Stock libclang has no accessors for the AST nodes behind its handles. These follow the handle
+// layouts of the pinned libclang: cursors carry {parent or declaration, attribute or statement,
+// unit}, and types carry {QualType, unit}.
+namespace {
+
+const clang::Decl* cursorDecl(CXCursor cursor) {
+    return static_cast<const clang::Decl*>(cursor.data[0]);
+}
+
+const clang::Attr* cursorAttr(CXCursor cursor) {
+    return static_cast<const clang::Attr*>(cursor.data[1]);
+}
+
+const clang::Expr* cursorExpr(CXCursor cursor) {
+    if (!clang_isExpression(cursor.kind)) {
+        return nullptr;
+    }
+    return llvm::dyn_cast_or_null<clang::Expr>(static_cast<const clang::Stmt*>(cursor.data[1]));
+}
+
+clang::ASTContext& cursorContext(CXCursor cursor) {
+    return cursorDecl(cursor)->getASTContext();
+}
+
+clang::QualType typeValue(CXType type) {
+    return clang::QualType::getFromOpaquePtr(type.data[0]);
+}
+
+CXTranslationUnit typeUnit(CXType type) {
+    return static_cast<CXTranslationUnit>(type.data[1]);
+}
+
+clang::ASTContext& unitContext(CXTranslationUnit unit) {
+    return cursorContext(clang_getTranslationUnitCursor(unit));
+}
+
+// libclang builds the handle, including its kind, for the pointee of a synthesized pointer.
+CXType makeType(clang::ASTContext& context, clang::QualType type, CXTranslationUnit unit) {
+    return clang_getPointeeType(
+        CXType{ CXType_Pointer, { context.getPointerType(type).getAsOpaquePtr(), unit } });
+}
+
+// libclang's string flags: 0 is unmanaged and 1 is released with free. Both modules link the
+// static UCRT, which allocates from the process heap.
+CXString emptyString() {
+    return { "", 0 };
+}
+
+CXString makeString(llvm::StringRef text) {
+    auto data = static_cast<char*>(llvm::safe_malloc(text.size() + 1));
+    memcpy(data, text.data(), text.size());
+    data[text.size()] = 0;
+    return { data, 1 };
+}
+
+// libclang builds expression cursors only while visiting; find the one for a child expression.
+CXCursor expressionCursor(CXCursor parent, const clang::Expr* expression) {
+    struct Search {
+        const clang::Expr* expression;
+        CXCursor found;
+    } search{ expression, clang_getNullCursor() };
+    clang_visitChildren(parent, [](CXCursor child, CXCursor, CXClientData data) {
+        auto search = static_cast<Search*>(data);
+        if (cursorExpr(child) == search->expression) {
+            search->found = child;
+            return CXChildVisit_Break;
+        }
+        return CXChildVisit_Recurse;
+    }, &search);
+    return search.found;
+}
+
+}
+
 static const char* attributeName(clang::attr::Kind kind) {
     switch (kind) {
 #define ATTR(Name) case clang::attr::Name: return #Name;
 #include <clang/Basic/AttrList.inc>
     }
     return nullptr;
+}
+
+static WindowsClangStatus functionInfo(clang::QualType value, WindowsClangFunctionInfo* info) {
+    if (value.isNull()) {
+        return WindowsClangWrongKind;
+    }
+    auto function = value->getAs<clang::FunctionType>();
+    if (!function) {
+        return WindowsClangWrongKind;
+    }
+    auto extension = function->getExtInfo();
+    unsigned properties = 0;
+    if (auto prototype = llvm::dyn_cast<clang::FunctionProtoType>(function)) {
+        if (prototype->hasExtParameterInfos()) properties |= WindowsClangExtendedParameters;
+        if (prototype->getExtraAttributeInfo()) properties |= WindowsClangExtraAttributes;
+        if (prototype->getAArch64SMEAttributes()) properties |= WindowsClangArmSMEAttributes;
+        if (!prototype->getFunctionEffects().empty()) properties |= WindowsClangFunctionEffects;
+        if (!prototype->getMethodQuals().empty()) properties |= WindowsClangMethodQualifiers;
+        if (prototype->getRefQualifier() != clang::RQ_None) properties |= WindowsClangRefQualifier;
+        if (prototype->hasCFIUncheckedCallee()) properties |= WindowsClangCFIUncheckedCallee;
+    }
+    *info = {
+        extension.getHasRegParm(),
+        extension.getRegParm(),
+        extension.getNoReturn(),
+        extension.getProducesResult(),
+        extension.getNoCallerSavedRegs(),
+        extension.getNoCfCheck(),
+        extension.getCmseNSCall(),
+        properties
+    };
+    return WindowsClangSuccess;
 }
 
 unsigned windows_clang_getABIVersion(void) {
@@ -58,11 +161,11 @@ WindowsClangStatus windows_clang_getImportConvention(
         return WindowsClangWrongKind;
     }
     auto declaration = llvm::dyn_cast_or_null<clang::FunctionDecl>(
-        clang::cxcursor::getCursorDecl(cursor));
+        cursorDecl(cursor));
     if (!declaration) {
         return WindowsClangWrongKind;
     }
-    *info = { WindowsClangConventionUnknown, {}, clang::cxstring::createEmpty() };
+    *info = { WindowsClangConventionUnknown, {}, emptyString() };
     auto source = declaration->getTypeSourceInfo();
     if (!source) {
         return WindowsClangSuccess;
@@ -100,9 +203,7 @@ WindowsClangStatus windows_clang_getImportConvention(
         return WindowsClangSuccess;
     }
     WindowsClangFunctionInfo original{};
-    auto status = windows_clang_getFunctionInfo(
-        clang::cxtype::MakeCXType(declaration->getType(), clang::cxcursor::getCursorTU(cursor)),
-        &original);
+    auto status = functionInfo(declaration->getType(), &original);
     if (status != WindowsClangSuccess) {
         return status;
     }
@@ -135,8 +236,8 @@ WindowsClangStatus windows_clang_getImportConvention(
     if (symbol.empty()) {
         return WindowsClangWrongKind;
     }
-    info->stdcall_type = clang::cxtype::MakeCXType(type, clang::cxcursor::getCursorTU(cursor));
-    info->stdcall_symbol = clang::cxstring::createDup(symbol);
+    info->stdcall_type = makeType(context, type, clang_Cursor_getTranslationUnit(cursor));
+    info->stdcall_symbol = makeString(symbol);
     return WindowsClangSuccess;
 }
 
@@ -148,7 +249,7 @@ WindowsClangStatus windows_clang_getTypeOfOperand(CXCursor cursor, CXCursor* exp
         cursor.kind != CXCursor_TypedefDecl) {
         return WindowsClangWrongKind;
     }
-    auto declaration = clang::cxcursor::getCursorDecl(cursor);
+    auto declaration = cursorDecl(cursor);
     clang::QualType declared;
     if (auto variable = llvm::dyn_cast_or_null<clang::VarDecl>(declaration)) {
         declared = variable->getType();
@@ -163,16 +264,15 @@ WindowsClangStatus windows_clang_getTypeOfOperand(CXCursor cursor, CXCursor* exp
     if (operand->isTypeDependent() || operand->isValueDependent()) {
         return WindowsClangDependent;
     }
-    *expression = clang::cxcursor::MakeCXCursor(
-        operand, declaration, clang::cxcursor::getCursorTU(cursor));
-    return WindowsClangSuccess;
+    *expression = expressionCursor(cursor, operand);
+    return clang_Cursor_isNull(*expression) ? WindowsClangWrongKind : WindowsClangSuccess;
 }
 
 WindowsClangStatus windows_clang_getPredefinedType(CXType type, CXType* underlying) {
     if (!underlying) {
         return WindowsClangInvalidArgument;
     }
-    auto value = GetQualType(type);
+    auto value = typeValue(type);
     if (value.isNull() || !llvm::isa<clang::PredefinedSugarType>(value.getTypePtr())) {
         return WindowsClangWrongKind;
     }
@@ -188,7 +288,7 @@ WindowsClangStatus windows_clang_getVirtualMethodSlot(
     if (cursor.kind != CXCursor_CXXMethod) {
         return WindowsClangWrongKind;
     }
-    auto method = llvm::dyn_cast<clang::CXXMethodDecl>(clang::cxcursor::getCursorDecl(cursor));
+    auto method = llvm::dyn_cast<clang::CXXMethodDecl>(cursorDecl(cursor));
     if (!method || !method->isVirtual() || !clang::VTableContextBase::hasVtableSlot(method)) {
         return WindowsClangWrongKind;
     }
@@ -215,11 +315,11 @@ WindowsClangStatus windows_clang_getUuid(CXCursor cursor, CXString* uuid) {
     if (!clang_isAttribute(cursor.kind)) {
         return WindowsClangWrongKind;
     }
-    auto attribute = llvm::dyn_cast<clang::UuidAttr>(clang::cxcursor::getCursorAttr(cursor));
+    auto attribute = llvm::dyn_cast<clang::UuidAttr>(cursorAttr(cursor));
     if (!attribute) {
         return WindowsClangWrongKind;
     }
-    *uuid = clang::cxstring::createDup(attribute->getGuid());
+    *uuid = makeString(attribute->getGuid());
     return WindowsClangSuccess;
 }
 
@@ -232,12 +332,12 @@ WindowsClangStatus windows_clang_getDeprecation(
         return WindowsClangWrongKind;
     }
     auto attribute = llvm::dyn_cast<clang::DeprecatedAttr>(
-        clang::cxcursor::getCursorAttr(cursor));
+        cursorAttr(cursor));
     if (!attribute) {
         return WindowsClangWrongKind;
     }
-    *message = clang::cxstring::createDup(attribute->getMessage());
-    *replacement = clang::cxstring::createDup(attribute->getReplacement());
+    *message = makeString(attribute->getMessage());
+    *replacement = makeString(attribute->getReplacement());
     return WindowsClangSuccess;
 }
 
@@ -249,7 +349,7 @@ WindowsClangStatus windows_clang_getLanguageLinkage(
     if (!clang_isDeclaration(cursor.kind)) {
         return WindowsClangWrongKind;
     }
-    auto declaration = clang::cxcursor::getCursorDecl(cursor);
+    auto declaration = cursorDecl(cursor);
     clang::LanguageLinkage value;
     if (auto function = llvm::dyn_cast<clang::FunctionDecl>(declaration)) {
         value = function->getLanguageLinkage();
@@ -278,13 +378,13 @@ WindowsClangStatus windows_clang_getIntegerConstantInitializer(
     if (!clang_isDeclaration(cursor.kind)) {
         return WindowsClangWrongKind;
     }
-    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
+    auto declaration = llvm::dyn_cast<clang::VarDecl>(cursorDecl(cursor));
     if (!declaration) {
         return WindowsClangWrongKind;
     }
     auto initializer = declaration->getInit();
     *is_constant = initializer &&
-        initializer->isIntegerConstantExpr(clang::cxcursor::getCursorContext(cursor));
+        initializer->isIntegerConstantExpr(cursorContext(cursor));
     return WindowsClangSuccess;
 }
 
@@ -296,12 +396,12 @@ WindowsClangStatus windows_clang_getConstantInitializer(
     if (!clang_isDeclaration(cursor.kind)) {
         return WindowsClangWrongKind;
     }
-    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
+    auto declaration = llvm::dyn_cast<clang::VarDecl>(cursorDecl(cursor));
     if (!declaration) {
         return WindowsClangWrongKind;
     }
     auto initializer = declaration->getInit();
-    auto& context = clang::cxcursor::getCursorContext(cursor);
+    auto& context = cursorContext(cursor);
     *is_constant = 0;
     if (initializer && initializer->isConstantInitializer(context, false)) {
         clang::Expr::EvalResult evaluated;
@@ -319,12 +419,12 @@ WindowsClangStatus windows_clang_getConstantPointerInitializer(
     if (cursor.kind != CXCursor_VarDecl) {
         return WindowsClangWrongKind;
     }
-    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
+    auto declaration = llvm::dyn_cast<clang::VarDecl>(cursorDecl(cursor));
     if (!declaration || !declaration->getType()->isPointerType() ||
         declaration->getType()->isFunctionPointerType() || !declaration->getInit()) {
         return WindowsClangWrongKind;
     }
-    auto& context = clang::cxcursor::getCursorContext(cursor);
+    auto& context = cursorContext(cursor);
     auto initializer = declaration->getInit();
     if (!initializer->isConstantInitializer(context, false)) {
         return WindowsClangDependent;
@@ -359,11 +459,11 @@ WindowsClangStatus windows_clang_getConstantIntegerElement(
     if (!clang_isDeclaration(cursor.kind)) {
         return WindowsClangWrongKind;
     }
-    auto declaration = llvm::dyn_cast<clang::VarDecl>(clang::cxcursor::getCursorDecl(cursor));
+    auto declaration = llvm::dyn_cast<clang::VarDecl>(cursorDecl(cursor));
     if (!declaration || !declaration->getInit()) {
         return WindowsClangWrongKind;
     }
-    auto& context = clang::cxcursor::getCursorContext(cursor);
+    auto& context = cursorContext(cursor);
     auto initializer = declaration->getInit();
     if (!initializer->isCXX11ConstantExpr(context)) {
         return WindowsClangDependent;
@@ -397,11 +497,11 @@ const char* windows_clang_getAttributeKindName(CXCursor cursor) {
     if (!clang_isAttribute(cursor.kind)) {
         return nullptr;
     }
-    return attributeName(clang::cxcursor::getCursorAttr(cursor)->getKind());
+    return attributeName(cursorAttr(cursor)->getKind());
 }
 
 const char* windows_clang_getTypeAttributeKindName(CXType type) {
-    auto value = GetQualType(type);
+    auto value = typeValue(type);
     if (value.isNull()) {
         return nullptr;
     }
@@ -425,7 +525,7 @@ WindowsClangStatus windows_clang_getTypeQualifiers(CXType type, unsigned* qualif
     if (!qualifiers) {
         return WindowsClangInvalidArgument;
     }
-    auto value = GetQualType(type);
+    auto value = typeValue(type);
     if (value.isNull()) {
         return WindowsClangWrongKind;
     }
@@ -437,7 +537,7 @@ WindowsClangStatus windows_clang_getPointerInfo(CXType type, WindowsClangPointer
     if (!info) {
         return WindowsClangInvalidArgument;
     }
-    auto value = GetQualType(type);
+    auto value = typeValue(type);
     auto pointer = value.isNull() ? nullptr : value->getAs<clang::PointerType>();
     if (!pointer) {
         return WindowsClangWrongKind;
@@ -451,8 +551,8 @@ WindowsClangStatus windows_clang_getPointerInfo(CXType type, WindowsClangPointer
     case clang::LangAS::ptr32_uptr: representation = WindowsClangUnsignedPointer32; break;
     default: representation = WindowsClangOtherPointer; break;
     }
-    auto unit = GetTypeTU(type);
-    auto& context = clang::cxtu::getASTUnit(unit)->getASTContext();
+    auto unit = typeUnit(type);
+    auto& context = unitContext(unit);
     for (auto written = value;;) {
         if (auto attributed = llvm::dyn_cast<clang::AttributedType>(written.getTypePtr())) {
             auto kind = attributed->getAttrKind();
@@ -475,7 +575,7 @@ WindowsClangStatus windows_clang_getPointerInfo(CXType type, WindowsClangPointer
     if (clang::isPtrSizeAddressSpace(pointee.getAddressSpace())) {
         pointee = context.removeAddrSpaceQualType(pointee);
     }
-    *info = { representation, clang::cxtype::MakeCXType(pointee, unit) };
+    *info = { representation, makeType(context, pointee, unit) };
     return WindowsClangSuccess;
 }
 
@@ -483,7 +583,7 @@ WindowsClangStatus windows_clang_getMethodQualifiers(CXType type, unsigned* qual
     if (!qualifiers) {
         return WindowsClangInvalidArgument;
     }
-    auto value = GetQualType(type);
+    auto value = typeValue(type);
     auto prototype = value.isNull() ? nullptr : value->getAs<clang::FunctionProtoType>();
     if (!prototype) {
         return WindowsClangWrongKind;
@@ -501,7 +601,7 @@ WindowsClangStatus windows_clang_getParameterDefaultArgument(
         return WindowsClangWrongKind;
     }
     const auto* parameter = llvm::dyn_cast<clang::ParmVarDecl>(
-        clang::cxcursor::getCursorDecl(cursor));
+        cursorDecl(cursor));
     if (!parameter) {
         return WindowsClangWrongKind;
     }
@@ -510,20 +610,22 @@ WindowsClangStatus windows_clang_getParameterDefaultArgument(
     }
     if (!parameter->hasDefaultArg()) {
         *expression = clang_getNullCursor();
-        *spelling = clang::cxstring::createEmpty();
+        *spelling = emptyString();
         return WindowsClangSuccess;
     }
     const auto* argument = parameter->getDefaultArg();
     if (argument->isValueDependent() || argument->isTypeDependent()) {
         return WindowsClangDependent;
     }
-    *expression = clang::cxcursor::MakeCXCursor(
-        argument, parameter, clang::cxcursor::getCursorTU(cursor));
+    *expression = expressionCursor(cursor, argument);
+    if (clang_Cursor_isNull(*expression)) {
+        return WindowsClangWrongKind;
+    }
     std::string text;
     llvm::raw_string_ostream stream(text);
     argument->printPretty(stream, nullptr,
-        clang::cxcursor::getCursorContext(cursor).getPrintingPolicy());
-    *spelling = clang::cxstring::createDup(text);
+        cursorContext(cursor).getPrintingPolicy());
+    *spelling = makeString(text);
     return WindowsClangSuccess;
 }
 
@@ -535,7 +637,7 @@ WindowsClangStatus windows_clang_getMaxFieldAlignment(CXCursor cursor, unsigned*
         return WindowsClangWrongKind;
     }
     auto attribute = llvm::dyn_cast<clang::MaxFieldAlignmentAttr>(
-        clang::cxcursor::getCursorAttr(cursor));
+        cursorAttr(cursor));
     if (!attribute) {
         return WindowsClangWrongKind;
     }
@@ -550,7 +652,7 @@ WindowsClangStatus windows_clang_getAlignment(CXCursor cursor, WindowsClangAlign
     if (!clang_isAttribute(cursor.kind)) {
         return WindowsClangWrongKind;
     }
-    auto attribute = llvm::dyn_cast<clang::AlignedAttr>(clang::cxcursor::getCursorAttr(cursor));
+    auto attribute = llvm::dyn_cast<clang::AlignedAttr>(cursorAttr(cursor));
     if (!attribute) {
         return WindowsClangWrongKind;
     }
@@ -567,7 +669,7 @@ WindowsClangStatus windows_clang_getAlignment(CXCursor cursor, WindowsClangAlign
     } else {
         return WindowsClangWrongKind;
     }
-    *info = {attribute->getAlignment(clang::cxcursor::getCursorContext(cursor)), kind};
+    *info = {attribute->getAlignment(cursorContext(cursor)), kind};
     return WindowsClangSuccess;
 }
 
@@ -579,7 +681,7 @@ WindowsClangStatus windows_clang_getTypeVisibility(CXCursor cursor, CXVisibility
         return WindowsClangWrongKind;
     }
     auto attribute = llvm::dyn_cast<clang::TypeVisibilityAttr>(
-        clang::cxcursor::getCursorAttr(cursor));
+        cursorAttr(cursor));
     if (!attribute) {
         return WindowsClangWrongKind;
     }
@@ -609,7 +711,7 @@ WindowsClangStatus windows_clang_getTypedefDefinition(CXCursor cursor, unsigned*
         return WindowsClangWrongKind;
     }
     auto declaration = llvm::dyn_cast<clang::TypedefNameDecl>(
-        clang::cxcursor::getCursorDecl(cursor));
+        cursorDecl(cursor));
     if (!declaration || !declaration->getTypeSourceInfo()) {
         return WindowsClangWrongKind;
     }
@@ -627,7 +729,7 @@ WindowsClangStatus windows_clang_getTypedefImplicit(CXCursor cursor, unsigned* i
         return WindowsClangWrongKind;
     }
     auto declaration = llvm::dyn_cast<clang::TypedefNameDecl>(
-        clang::cxcursor::getCursorDecl(cursor));
+        cursorDecl(cursor));
     if (!declaration) {
         return WindowsClangWrongKind;
     }
@@ -645,8 +747,8 @@ WindowsClangStatus windows_clang_getLayoutExpression(
          cursor.kind != CXCursor_TypedefDecl && cursor.kind != CXCursor_TypeAliasDecl)) {
         return WindowsClangWrongKind;
     }
-    const auto* declaration = clang::cxcursor::getCursorDecl(cursor);
-    const auto* expr = clang::cxcursor::getCursorExpr(expression);
+    const auto* declaration = cursorDecl(cursor);
+    const auto* expr = cursorExpr(expression);
     const clang::TypeSourceInfo* source = nullptr;
     if (const auto* value = llvm::dyn_cast<clang::DeclaratorDecl>(declaration)) {
         source = value->getTypeSourceInfo();
@@ -688,7 +790,7 @@ WindowsClangStatus windows_clang_getFieldInitializer(CXCursor cursor, unsigned* 
         return WindowsClangWrongKind;
     }
     const auto* field = llvm::dyn_cast<clang::FieldDecl>(
-        clang::cxcursor::getCursorDecl(cursor));
+        cursorDecl(cursor));
     if (!field) {
         return WindowsClangWrongKind;
     }
@@ -700,36 +802,7 @@ WindowsClangStatus windows_clang_getFunctionInfo(CXType type, WindowsClangFuncti
     if (!info) {
         return WindowsClangInvalidArgument;
     }
-    auto value = GetQualType(type);
-    if (value.isNull()) {
-        return WindowsClangWrongKind;
-    }
-    auto function = value->getAs<clang::FunctionType>();
-    if (!function) {
-        return WindowsClangWrongKind;
-    }
-    auto extension = function->getExtInfo();
-    unsigned properties = 0;
-    if (auto prototype = llvm::dyn_cast<clang::FunctionProtoType>(function)) {
-        if (prototype->hasExtParameterInfos()) properties |= WindowsClangExtendedParameters;
-        if (prototype->getExtraAttributeInfo()) properties |= WindowsClangExtraAttributes;
-        if (prototype->getAArch64SMEAttributes()) properties |= WindowsClangArmSMEAttributes;
-        if (!prototype->getFunctionEffects().empty()) properties |= WindowsClangFunctionEffects;
-        if (!prototype->getMethodQuals().empty()) properties |= WindowsClangMethodQualifiers;
-        if (prototype->getRefQualifier() != clang::RQ_None) properties |= WindowsClangRefQualifier;
-        if (prototype->hasCFIUncheckedCallee()) properties |= WindowsClangCFIUncheckedCallee;
-    }
-    *info = {
-        extension.getHasRegParm(),
-        extension.getRegParm(),
-        extension.getNoReturn(),
-        extension.getProducesResult(),
-        extension.getNoCallerSavedRegs(),
-        extension.getNoCfCheck(),
-        extension.getCmseNSCall(),
-        properties
-    };
-    return WindowsClangSuccess;
+    return functionInfo(typeValue(type), info);
 }
 
 namespace {
@@ -866,7 +939,7 @@ protected:
             }
             auto location = sources.getExpansionLoc(macro->getDefinitionLoc());
             clang_disposeString(probe.file);
-            probe.file = clang::cxstring::createDup(sources.getFilename(location));
+            probe.file = makeString(sources.getFilename(location));
             probe.line = sources.getExpansionLineNumber(location);
             probe.column = sources.getExpansionColumnNumber(location);
             if (macro->isFunctionLike()) {
@@ -882,7 +955,7 @@ protected:
             if (!balanced(*macro)) {
                 probe.kind = WindowsClangMacroRejected;
                 clang_disposeString(probe.diagnostics);
-                probe.diagnostics = clang::cxstring::createDup(std::string(probe_location(location))
+                probe.diagnostics = makeString(std::string(probe_location(location))
                     + "error: macro replacement list has unbalanced brackets");
                 continue;
             }
@@ -917,7 +990,7 @@ protected:
             } else {
                 probe.kind = WindowsClangMacroRejected;
                 clang_disposeString(probe.diagnostics);
-                probe.diagnostics = clang::cxstring::createDup(diagnostics.text);
+                probe.diagnostics = makeString(diagnostics.text);
                 compiler.getDiagnostics().Reset(true);
             }
             diagnostics.reset();
@@ -1005,13 +1078,13 @@ WindowsClangStatus windows_clang_probeMacros(const char* source_filename,
         || (num_names && (!names || !probes))) {
         return WindowsClangInvalidArgument;
     }
-    *error = clang::cxstring::createEmpty();
+    *error = emptyString();
     for (unsigned index = 0; index != num_names; ++index) {
         if (!names[index]) {
             return WindowsClangInvalidArgument;
         }
-        probes[index] = { WindowsClangMacroUndefined, clang::cxstring::createEmpty(), 0, 0,
-            clang::cxstring::createEmpty() };
+        probes[index] = { WindowsClangMacroUndefined, emptyString(), 0, 0,
+            emptyString() };
     }
     static std::once_flag targets;
     std::call_once(targets, [] {
@@ -1045,7 +1118,7 @@ WindowsClangStatus windows_clang_probeMacros(const char* source_filename,
     auto invocation = clang::createInvocation(arguments, creation);
     if (!invocation) {
         clang_disposeString(*error);
-        *error = clang::cxstring::createDup(diagnostics.text);
+        *error = makeString(diagnostics.text);
         return WindowsClangParseFailed;
     }
     invocation->getLangOpts().IncrementalExtensions = 1;
@@ -1063,7 +1136,7 @@ WindowsClangStatus windows_clang_probeMacros(const char* source_filename,
     MacroProbeAction action(diagnostics, names, num_names, probes);
     if (!compiler.ExecuteAction(action) || action.failed) {
         clang_disposeString(*error);
-        *error = clang::cxstring::createDup(diagnostics.text);
+        *error = makeString(diagnostics.text);
         return WindowsClangParseFailed;
     }
     return WindowsClangSuccess;

@@ -1,18 +1,5 @@
 #[win32]
 mod Fixture {
-    type BYTE = u8;
-    type DWORD = u32;
-    #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
-    type HRESULT = i32;
-    type UINT = u32;
-    type ULONG = u32;
-    #[arch(X64 | Arm64)]
-    type ULONG_PTR = u64;
-    #[arch(X86)]
-    type ULONG_PTR = u32;
-}
-#[win32]
-mod Fixture {
     struct GUID {
         Data1: u32,
         Data2: u16,
@@ -50,93 +37,68 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
+    type BYTE = u8;
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type UINT = u32;
+    type ULONG = u32;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+}
+#[win32]
+mod Fixture {
     #[no_guid]
     interface IStiDevice: IUnknown {
-        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut LPVOID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        #[override_slot(0)]
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+        #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
-        #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        #[override_slot(2)]
         fn Release(&self) -> ULONG;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hinst: HINSTANCE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPCWSTR, #[in] dwVersion: DWORD, #[in] dwMode: DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Initialize(&self, #[in] hinst: HINSTANCE, #[in] pwszDeviceName: LPCWSTR, dwVersion: DWORD, dwMode: DWORD) -> HRESULT;
         fn GetCapabilities(&self, #[in] #[out] pDevCaps: PSTI_DEV_CAPS) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn GetStatus(&self, #[in] #[out] pDevStatus: PSTI_DEVICE_STATUS) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn DeviceReset(&self) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn Diagnostic(&self, #[in] #[out] pBuffer: LPSTI_DIAG) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Escape(&self, #[in] EscapeFunction: STI_RAW_CONTROL_CODE, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(2)] lpInData: LPVOID, #[in] cbInDataSize: DWORD, #[in] #[out] #[size_param(4)] #[Windows::Win32::Metadata::NativeInitializedLength(CountParamIndex = 5, IsByteCount = true, Dereference = true)] pOutData: LPVOID, #[in] dwOutDataSize: DWORD, #[out] pdwActualData: LPDWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[in] #[readable(entry, bytes(cbInDataSize))] lpInData: LPVOID, cbInDataSize: DWORD, #[in] #[out] #[readable(entry, bytes(dwOutDataSize))] #[writable(entry, bytes(dwOutDataSize))] #[readable(success, bytes(*pdwActualData))] pOutData: LPVOID, dwOutDataSize: DWORD, #[out] pdwActualData: LPDWORD) -> HRESULT;
         fn GetLastError(&self, #[out] pdwLastDeviceError: LPDWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn LockDevice(&self, #[in] dwTimeOut: DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn LockDevice(&self, dwTimeOut: DWORD) -> HRESULT;
         fn UnLockDevice(&self) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn RawReadData(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "*lpdwNumberOfBytes", "*lpdwNumberOfBytes")] #[in] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn RawWriteData(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpBuffer: LPVOID, #[in] nNumberOfBytes: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn RawReadCommand(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "*lpdwNumberOfBytes", "*lpdwNumberOfBytes")] #[in] #[out] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn RawWriteCommand(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(1)] lpBuffer: LPVOID, #[in] nNumberOfBytes: DWORD, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn RawReadData(&self, #[in] #[out] #[writable(entry, bytes(*lpdwNumberOfBytes))] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        fn RawWriteData(&self, #[in] #[readable(entry, bytes(nNumberOfBytes))] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        fn RawReadCommand(&self, #[in] #[out] #[writable(entry, bytes(*lpdwNumberOfBytes))] lpBuffer: LPVOID, #[in] #[out] lpdwNumberOfBytes: LPDWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        fn RawWriteCommand(&self, #[in] #[readable(entry, bytes(nNumberOfBytes))] lpBuffer: LPVOID, nNumberOfBytes: DWORD, #[in] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
         fn Subscribe(&self, #[in] #[out] lpSubsribe: LPSTISUBSCRIBE) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn GetLastNotificationData(&self, #[out] lpNotify: LPSTINOTIFY) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn UnSubscribe(&self) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
         fn GetLastErrorInfo(&self, #[out] pLastErrorInfo: *mut STI_ERROR_INFO) -> HRESULT;
     }
     #[no_guid]
     interface IStillImageW: IUnknown {
-        #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn QueryInterface(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = false)] ppvObj: *mut LPVOID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeOverrideSlot(1u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        #[override_slot(0)]
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
+        #[override_slot(1)]
         fn AddRef(&self) -> ULONG;
-        #[Windows::Win32::Metadata::NativeOverrideSlot(2u32)]
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        #[override_slot(2)]
         fn Release(&self) -> ULONG;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn Initialize(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] hinst: HINSTANCE, #[in] dwVersion: DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDeviceList(&self, #[in] dwType: DWORD, #[in] dwFlags: DWORD, #[out] pdwItemsReturned: *mut DWORD, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDeviceInfo(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPWSTR, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn CreateDevice(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPWSTR, #[in] dwMode: DWORD, #[out] pDevice: *mut PSTIDEVICE, #[in] #[opt] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] punkOuter: LPUNKNOWN) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetDeviceValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pValueName: LPWSTR, #[out] pType: LPDWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "*cbData", "*cbData")] #[out] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn SetDeviceValue(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pValueName: LPWSTR, #[in] Type: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] #[size_param(4)] pData: LPBYTE, #[in] cbData: DWORD) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetSTILaunchInformation(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "128", "128")] #[out] pwszDeviceName: LPWSTR, #[out] #[opt] pdwEventCode: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "128", "128")] #[out] pwszEventName: LPWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn RegisterLaunchApplication(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszAppName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszCommandLine: LPWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn UnregisterLaunchApplication(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszAppName: LPWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn EnableHwNotifications(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPCWSTR, #[in] bNewState: BOOL) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn GetHwNotificationState(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPCWSTR, #[out] pbCurrentState: *mut BOOL) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn RefreshDeviceBus(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPCWSTR) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn LaunchApplicationForDevice(&self, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszDeviceName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pwszAppName: LPWSTR, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pStiNotify: LPSTINOTIFY) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
+        fn Initialize(&self, #[in] hinst: HINSTANCE, dwVersion: DWORD) -> HRESULT;
+        fn GetDeviceList(&self, dwType: DWORD, dwFlags: DWORD, #[out] pdwItemsReturned: *mut DWORD, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
+        fn GetDeviceInfo(&self, #[in] pwszDeviceName: LPWSTR, #[out] ppBuffer: *mut LPVOID) -> HRESULT;
+        fn CreateDevice(&self, #[in] pwszDeviceName: LPWSTR, dwMode: DWORD, #[out] pDevice: *mut PSTIDEVICE, #[in] #[opt] punkOuter: LPUNKNOWN) -> HRESULT;
+        fn GetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, #[out] pType: LPDWORD, #[out] #[writable(entry, bytes(*cbData))] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
+        fn SetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> HRESULT;
+        fn GetSTILaunchInformation(&self, #[out] #[writable(entry, 128)] pwszDeviceName: LPWSTR, #[out] #[opt] pdwEventCode: *mut DWORD, #[out] #[writable(entry, 128)] pwszEventName: LPWSTR) -> HRESULT;
+        fn RegisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR, #[in] pwszCommandLine: LPWSTR) -> HRESULT;
+        fn UnregisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR) -> HRESULT;
+        fn EnableHwNotifications(&self, #[in] pwszDeviceName: LPCWSTR, bNewState: BOOL) -> HRESULT;
+        fn GetHwNotificationState(&self, #[in] pwszDeviceName: LPCWSTR, #[out] pbCurrentState: *mut BOOL) -> HRESULT;
+        fn RefreshDeviceBus(&self, #[in] pwszDeviceName: LPCWSTR) -> HRESULT;
+        fn LaunchApplicationForDevice(&self, #[in] pwszDeviceName: LPWSTR, #[in] pwszAppName: LPWSTR, #[in] pStiNotify: LPSTINOTIFY) -> HRESULT;
         fn SetupDeviceParameters(&self, #[in] #[out] param0: PSTI_DEVICE_INFORMATIONW) -> HRESULT;
-        #[Windows::Win32::Metadata::NativeExceptionSpecification("nothrow")]
-        fn WriteToErrorLog(&self, #[in] dwMessageType: DWORD, #[in] #[Windows::Win32::Metadata::NativeInput(ReadOnly = true)] pszMessage: LPCWSTR) -> HRESULT;
+        fn WriteToErrorLog(&self, dwMessageType: DWORD, #[in] pszMessage: LPCWSTR) -> HRESULT;
     }
     type LPSTILLIMAGE = IStillImageW;
     type LPSTILLIMAGEW = IStillImageW;
@@ -164,9 +126,9 @@ mod Fixture {
     }
     type STI_RAW_CONTROL_CODE = u32;
     #[library("STI.dll", import = "StiCreateInstanceW")]
-    extern fn StiCreateInstance(#[in] hinst: HINSTANCE, #[in] dwVer: DWORD, #[out] ppSti: *mut IStillImageW, #[in] punkOuter: LPUNKNOWN) -> HRESULT;
+    extern fn StiCreateInstance(hinst: HINSTANCE, dwVer: DWORD, ppSti: *mut IStillImageW, punkOuter: LPUNKNOWN) -> HRESULT;
     #[library("STI.dll")]
-    extern fn StiCreateInstanceW(#[in] hinst: HINSTANCE, #[in] dwVer: DWORD, #[out] ppSti: *mut IStillImageW, #[in] punkOuter: LPUNKNOWN) -> HRESULT;
+    extern fn StiCreateInstanceW(hinst: HINSTANCE, dwVer: DWORD, ppSti: *mut IStillImageW, punkOuter: LPUNKNOWN) -> HRESULT;
     #[packed(8)]
     struct _STINOTIFY {
         dwSize: DWORD,
@@ -217,7 +179,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[Windows::Win32::Metadata::NativeReturnedPointer(MayBeNull = false, NullOnFailure = true)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

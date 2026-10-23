@@ -97,7 +97,7 @@ fn main() {
                         value.name.clone(),
                         projection::Import {
                             library: if extension {
-                                "libClangSharp.dll"
+                                "windows_clang.dll"
                             } else {
                                 "libclang.dll"
                             }
@@ -188,7 +188,7 @@ fn main() {
         let module = if library.value() == "libclang.dll" {
             quote! { base }
         } else {
-            assert_eq!(library.value(), "libclangsharp.dll");
+            assert_eq!(library.value(), "windows_clang.dll");
             quote! { extension }
         };
         let symbol = syn::LitByteStr::new(format!("{name}\0").as_bytes(), name.span());
@@ -198,11 +198,11 @@ fn main() {
         });
         let body = if matches!(output, syn::ReturnType::Default) {
             quote! {
-                crate::with_library(|library| unsafe { (library.functions.#name)(#(#arguments),*); });
+                unsafe { (crate::functions().#name)(#(#arguments),*); }
             }
         } else {
             quote! {
-                crate::with_library(|library| unsafe { (library.functions.#name)(#(#arguments),*) })
+                unsafe { (crate::functions().#name)(#(#arguments),*) }
             }
         };
         wrappers.extend(quote! { pub unsafe fn #name(#parameters) #output { #body } });

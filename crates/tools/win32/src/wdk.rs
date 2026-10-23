@@ -278,7 +278,8 @@ pub fn validate_unique_items(path: &Path) -> Result<(), Box<dyn std::error::Erro
                 && !items.insert((namespace, name, matches!(item, Item::Type(_)), bit))
             {
                 return Err(format!(
-                    "duplicate merged metadata item `{namespace}.{name}` on architecture {bit}"
+                    "duplicate metadata item `{namespace}.{name}` on architecture {bit} in {}",
+                    path.display(),
                 )
                 .into());
             }

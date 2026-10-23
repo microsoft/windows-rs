@@ -2,8 +2,8 @@
 
 Unpublished raw Clang C bindings and version-matched native semantic queries.
 
-The native companion builds against a pinned LLVM development package and pinned ClangSharp
-sources. Rust callers use C functions, not Clang C++ object layouts or private cursor fields.
+The native companion, `windows_clang.dll`, builds against a pinned LLVM development package.
+Rust callers use C functions, not Clang C++ object layouts or private cursor fields.
 The companion and its matching `libclang.dll` must be distributed together.
 
 From the repository root, build the native libraries and run the raw API fixtures:
@@ -16,15 +16,14 @@ cargo test -p test_clang_sys
 
 Building requires Visual Studio C++ tools and its CMake/Ninja component. Native hosts are Windows
 x64 and ARM64; either host can parse x86, x64, and ARM64 input. The first build downloads the LLVM
-development archive and ClangSharp sources. Subsequent builds reuse `target\tool-clang\native`.
+development archive. Subsequent builds reuse `target\tool-clang\native`.
 Automatic provisioning checks native source/build inputs and both DLL fingerprints before reuse.
 `--native` forces a rebuild. An explicit `LIBCLANG_PATH` remains caller-owned; `tool-clang path`
 validates that pair without rebuilding or replacing it.
 
-Call `load()` before using a raw function on a thread. For worker threads, share an
-`Arc<SharedLibrary>` from `load_manually()` and bind it with `set_library()`. Dispose every native
-handle before releasing its library owner. Raw pointers and opaque handle declarations do not
-confer ownership or make native objects safe to construct in Rust.
+Call `load()` once before using a raw function. The libraries are loaded for the whole process,
+are available on every thread, and are never unloaded. Raw pointers and opaque handle declarations
+do not confer ownership or make native objects safe to construct in Rust.
 
 The supplementary API exposes attribute identities, requested pragma packing, explicit alignment,
 type visibility, type qualifiers, and function-type properties that stock libclang does not decode.

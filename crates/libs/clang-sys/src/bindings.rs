@@ -5088,122 +5088,92 @@ impl Functions {
     }
 }
 pub unsafe fn clang_CXCursorSet_contains(cset: CXCursorSet, cursor: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXCursorSet_contains)(cset, cursor)
-    })
+    unsafe { (crate::functions().clang_CXCursorSet_contains)(cset, cursor) }
 }
 pub unsafe fn clang_CXCursorSet_insert(cset: CXCursorSet, cursor: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXCursorSet_insert)(cset, cursor)
-    })
+    unsafe { (crate::functions().clang_CXCursorSet_insert)(cset, cursor) }
 }
 pub unsafe fn clang_CXIndex_getGlobalOptions(param0: CXIndex) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXIndex_getGlobalOptions)(param0)
-    })
+    unsafe { (crate::functions().clang_CXIndex_getGlobalOptions)(param0) }
 }
 pub unsafe fn clang_CXIndex_setGlobalOptions(param0: CXIndex, options: u32) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXIndex_setGlobalOptions)(param0, options);
-    });
+    unsafe {
+        (crate::functions().clang_CXIndex_setGlobalOptions)(param0, options);
+    }
 }
 pub unsafe fn clang_CXIndex_setInvocationEmissionPathOption(param0: CXIndex, path: *const i8) {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .clang_CXIndex_setInvocationEmissionPathOption)(param0, path);
-    });
+    unsafe {
+        (crate::functions().clang_CXIndex_setInvocationEmissionPathOption)(param0, path);
+    }
 }
 pub unsafe fn clang_CXXConstructor_isConvertingConstructor(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .clang_CXXConstructor_isConvertingConstructor)(c)
-    })
+    unsafe { (crate::functions().clang_CXXConstructor_isConvertingConstructor)(c) }
 }
 pub unsafe fn clang_CXXConstructor_isCopyConstructor(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXXConstructor_isCopyConstructor)(c)
-    })
+    unsafe { (crate::functions().clang_CXXConstructor_isCopyConstructor)(c) }
 }
 pub unsafe fn clang_CXXConstructor_isDefaultConstructor(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXXConstructor_isDefaultConstructor)(c)
-    })
+    unsafe { (crate::functions().clang_CXXConstructor_isDefaultConstructor)(c) }
 }
 pub unsafe fn clang_CXXConstructor_isMoveConstructor(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXXConstructor_isMoveConstructor)(c)
-    })
+    unsafe { (crate::functions().clang_CXXConstructor_isMoveConstructor)(c) }
 }
 pub unsafe fn clang_CXXField_isMutable(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXField_isMutable)(c) })
+    unsafe { (crate::functions().clang_CXXField_isMutable)(c) }
 }
 pub unsafe fn clang_CXXMethod_isConst(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXMethod_isConst)(c) })
+    unsafe { (crate::functions().clang_CXXMethod_isConst)(c) }
 }
 pub unsafe fn clang_CXXMethod_isCopyAssignmentOperator(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXXMethod_isCopyAssignmentOperator)(c)
-    })
+    unsafe { (crate::functions().clang_CXXMethod_isCopyAssignmentOperator)(c) }
 }
 pub unsafe fn clang_CXXMethod_isDefaulted(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXMethod_isDefaulted)(c) })
+    unsafe { (crate::functions().clang_CXXMethod_isDefaulted)(c) }
 }
 pub unsafe fn clang_CXXMethod_isDeleted(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXMethod_isDeleted)(c) })
+    unsafe { (crate::functions().clang_CXXMethod_isDeleted)(c) }
 }
 pub unsafe fn clang_CXXMethod_isExplicit(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXMethod_isExplicit)(c) })
+    unsafe { (crate::functions().clang_CXXMethod_isExplicit)(c) }
 }
 pub unsafe fn clang_CXXMethod_isMoveAssignmentOperator(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_CXXMethod_isMoveAssignmentOperator)(c)
-    })
+    unsafe { (crate::functions().clang_CXXMethod_isMoveAssignmentOperator)(c) }
 }
 pub unsafe fn clang_CXXMethod_isPureVirtual(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXMethod_isPureVirtual)(c) })
+    unsafe { (crate::functions().clang_CXXMethod_isPureVirtual)(c) }
 }
 pub unsafe fn clang_CXXMethod_isStatic(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXMethod_isStatic)(c) })
+    unsafe { (crate::functions().clang_CXXMethod_isStatic)(c) }
 }
 pub unsafe fn clang_CXXMethod_isVirtual(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXMethod_isVirtual)(c) })
+    unsafe { (crate::functions().clang_CXXMethod_isVirtual)(c) }
 }
 pub unsafe fn clang_CXXRecord_isAbstract(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_CXXRecord_isAbstract)(c) })
+    unsafe { (crate::functions().clang_CXXRecord_isAbstract)(c) }
 }
 pub unsafe fn clang_Cursor_Evaluate(c: CXCursor) -> CXEvalResult {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_Evaluate)(c) })
+    unsafe { (crate::functions().clang_Cursor_Evaluate)(c) }
 }
 pub unsafe fn clang_Cursor_getArgument(c: CXCursor, i: u32) -> CXCursor {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getArgument)(c, i) })
+    unsafe { (crate::functions().clang_Cursor_getArgument)(c, i) }
 }
 pub unsafe fn clang_Cursor_getBinaryOpcode(c: CXCursor) -> CX_BinaryOperatorKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getBinaryOpcode)(c) })
+    unsafe { (crate::functions().clang_Cursor_getBinaryOpcode)(c) }
 }
 pub unsafe fn clang_Cursor_getBinaryOpcodeStr(op: CX_BinaryOperatorKind) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getBinaryOpcodeStr)(op)
-    })
+    unsafe { (crate::functions().clang_Cursor_getBinaryOpcodeStr)(op) }
 }
 pub unsafe fn clang_Cursor_getBriefCommentText(c: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getBriefCommentText)(c)
-    })
+    unsafe { (crate::functions().clang_Cursor_getBriefCommentText)(c) }
 }
 pub unsafe fn clang_Cursor_getCXXManglings(param0: CXCursor) -> *mut CXStringSet {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getCXXManglings)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getCXXManglings)(param0) }
 }
 pub unsafe fn clang_Cursor_getCommentRange(c: CXCursor) -> CXSourceRange {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getCommentRange)(c) })
+    unsafe { (crate::functions().clang_Cursor_getCommentRange)(c) }
 }
 pub unsafe fn clang_Cursor_getGCCAssemblyClobber(cursor: CXCursor, index: u32) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getGCCAssemblyClobber)(cursor, index)
-    })
+    unsafe { (crate::functions().clang_Cursor_getGCCAssemblyClobber)(cursor, index) }
 }
 pub unsafe fn clang_Cursor_getGCCAssemblyInput(
     cursor: CXCursor,
@@ -5211,24 +5181,18 @@ pub unsafe fn clang_Cursor_getGCCAssemblyInput(
     constraint: *mut CXString,
     expr: *mut CXCursor,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getGCCAssemblyInput)(cursor, index, constraint, expr)
-    })
+    unsafe {
+        (crate::functions().clang_Cursor_getGCCAssemblyInput)(cursor, index, constraint, expr)
+    }
 }
 pub unsafe fn clang_Cursor_getGCCAssemblyNumClobbers(cursor: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getGCCAssemblyNumClobbers)(cursor)
-    })
+    unsafe { (crate::functions().clang_Cursor_getGCCAssemblyNumClobbers)(cursor) }
 }
 pub unsafe fn clang_Cursor_getGCCAssemblyNumInputs(param0: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getGCCAssemblyNumInputs)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getGCCAssemblyNumInputs)(param0) }
 }
 pub unsafe fn clang_Cursor_getGCCAssemblyNumOutputs(param0: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getGCCAssemblyNumOutputs)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getGCCAssemblyNumOutputs)(param0) }
 }
 pub unsafe fn clang_Cursor_getGCCAssemblyOutput(
     cursor: CXCursor,
@@ -5236,140 +5200,100 @@ pub unsafe fn clang_Cursor_getGCCAssemblyOutput(
     constraint: *mut CXString,
     expr: *mut CXCursor,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getGCCAssemblyOutput)(cursor, index, constraint, expr)
-    })
+    unsafe {
+        (crate::functions().clang_Cursor_getGCCAssemblyOutput)(cursor, index, constraint, expr)
+    }
 }
 pub unsafe fn clang_Cursor_getGCCAssemblyTemplate(param0: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getGCCAssemblyTemplate)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getGCCAssemblyTemplate)(param0) }
 }
 pub unsafe fn clang_Cursor_getMangling(param0: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getMangling)(param0) })
+    unsafe { (crate::functions().clang_Cursor_getMangling)(param0) }
 }
 pub unsafe fn clang_Cursor_getModule(c: CXCursor) -> CXModule {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getModule)(c) })
+    unsafe { (crate::functions().clang_Cursor_getModule)(c) }
 }
 pub unsafe fn clang_Cursor_getNumArguments(c: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getNumArguments)(c) })
+    unsafe { (crate::functions().clang_Cursor_getNumArguments)(c) }
 }
 pub unsafe fn clang_Cursor_getNumTemplateArguments(c: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getNumTemplateArguments)(c)
-    })
+    unsafe { (crate::functions().clang_Cursor_getNumTemplateArguments)(c) }
 }
 pub unsafe fn clang_Cursor_getObjCDeclQualifiers(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getObjCDeclQualifiers)(c)
-    })
+    unsafe { (crate::functions().clang_Cursor_getObjCDeclQualifiers)(c) }
 }
 pub unsafe fn clang_Cursor_getObjCManglings(param0: CXCursor) -> *mut CXStringSet {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getObjCManglings)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getObjCManglings)(param0) }
 }
 pub unsafe fn clang_Cursor_getObjCPropertyAttributes(c: CXCursor, reserved: u32) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getObjCPropertyAttributes)(c, reserved)
-    })
+    unsafe { (crate::functions().clang_Cursor_getObjCPropertyAttributes)(c, reserved) }
 }
 pub unsafe fn clang_Cursor_getObjCPropertyGetterName(c: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getObjCPropertyGetterName)(c)
-    })
+    unsafe { (crate::functions().clang_Cursor_getObjCPropertyGetterName)(c) }
 }
 pub unsafe fn clang_Cursor_getObjCPropertySetterName(c: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getObjCPropertySetterName)(c)
-    })
+    unsafe { (crate::functions().clang_Cursor_getObjCPropertySetterName)(c) }
 }
 pub unsafe fn clang_Cursor_getObjCSelectorIndex(param0: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getObjCSelectorIndex)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getObjCSelectorIndex)(param0) }
 }
 pub unsafe fn clang_Cursor_getOffsetOfField(c: CXCursor) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getOffsetOfField)(c) })
+    unsafe { (crate::functions().clang_Cursor_getOffsetOfField)(c) }
 }
 pub unsafe fn clang_Cursor_getRawCommentText(c: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getRawCommentText)(c) })
+    unsafe { (crate::functions().clang_Cursor_getRawCommentText)(c) }
 }
 pub unsafe fn clang_Cursor_getReceiverType(c: CXCursor) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_getReceiverType)(c) })
+    unsafe { (crate::functions().clang_Cursor_getReceiverType)(c) }
 }
 pub unsafe fn clang_Cursor_getSpellingNameRange(
     param0: CXCursor,
     pieceindex: u32,
     options: u32,
 ) -> CXSourceRange {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getSpellingNameRange)(param0, pieceindex, options)
-    })
+    unsafe { (crate::functions().clang_Cursor_getSpellingNameRange)(param0, pieceindex, options) }
 }
 pub unsafe fn clang_Cursor_getStorageClass(param0: CXCursor) -> CX_StorageClass {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getStorageClass)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getStorageClass)(param0) }
 }
 pub unsafe fn clang_Cursor_getTemplateArgumentKind(c: CXCursor, i: u32) -> CXTemplateArgumentKind {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getTemplateArgumentKind)(c, i)
-    })
+    unsafe { (crate::functions().clang_Cursor_getTemplateArgumentKind)(c, i) }
 }
 pub unsafe fn clang_Cursor_getTemplateArgumentType(c: CXCursor, i: u32) -> CXType {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getTemplateArgumentType)(c, i)
-    })
+    unsafe { (crate::functions().clang_Cursor_getTemplateArgumentType)(c, i) }
 }
 pub unsafe fn clang_Cursor_getTemplateArgumentUnsignedValue(c: CXCursor, i: u32) -> u64 {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .clang_Cursor_getTemplateArgumentUnsignedValue)(c, i)
-    })
+    unsafe { (crate::functions().clang_Cursor_getTemplateArgumentUnsignedValue)(c, i) }
 }
 pub unsafe fn clang_Cursor_getTemplateArgumentValue(c: CXCursor, i: u32) -> i64 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getTemplateArgumentValue)(c, i)
-    })
+    unsafe { (crate::functions().clang_Cursor_getTemplateArgumentValue)(c, i) }
 }
 pub unsafe fn clang_Cursor_getTranslationUnit(param0: CXCursor) -> CXTranslationUnit {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getTranslationUnit)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_getTranslationUnit)(param0) }
 }
 pub unsafe fn clang_Cursor_getVarDeclInitializer(cursor: CXCursor) -> CXCursor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_getVarDeclInitializer)(cursor)
-    })
+    unsafe { (crate::functions().clang_Cursor_getVarDeclInitializer)(cursor) }
 }
 pub unsafe fn clang_Cursor_hasAttrs(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_hasAttrs)(c) })
+    unsafe { (crate::functions().clang_Cursor_hasAttrs)(c) }
 }
 pub unsafe fn clang_Cursor_hasVarDeclExternalStorage(cursor: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_hasVarDeclExternalStorage)(cursor)
-    })
+    unsafe { (crate::functions().clang_Cursor_hasVarDeclExternalStorage)(cursor) }
 }
 pub unsafe fn clang_Cursor_hasVarDeclGlobalStorage(cursor: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_hasVarDeclGlobalStorage)(cursor)
-    })
+    unsafe { (crate::functions().clang_Cursor_hasVarDeclGlobalStorage)(cursor) }
 }
 pub unsafe fn clang_Cursor_isAnonymous(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isAnonymous)(c) })
+    unsafe { (crate::functions().clang_Cursor_isAnonymous)(c) }
 }
 pub unsafe fn clang_Cursor_isAnonymousRecordDecl(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_isAnonymousRecordDecl)(c)
-    })
+    unsafe { (crate::functions().clang_Cursor_isAnonymousRecordDecl)(c) }
 }
 pub unsafe fn clang_Cursor_isBitField(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isBitField)(c) })
+    unsafe { (crate::functions().clang_Cursor_isBitField)(c) }
 }
 pub unsafe fn clang_Cursor_isDynamicCall(c: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isDynamicCall)(c) })
+    unsafe { (crate::functions().clang_Cursor_isDynamicCall)(c) }
 }
 pub unsafe fn clang_Cursor_isExternalSymbol(
     c: CXCursor,
@@ -5377,127 +5301,105 @@ pub unsafe fn clang_Cursor_isExternalSymbol(
     definedin: *mut CXString,
     isgenerated: *mut u32,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_isExternalSymbol)(c, language, definedin, isgenerated)
-    })
+    unsafe {
+        (crate::functions().clang_Cursor_isExternalSymbol)(c, language, definedin, isgenerated)
+    }
 }
 pub unsafe fn clang_Cursor_isFunctionInlined(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isFunctionInlined)(c) })
+    unsafe { (crate::functions().clang_Cursor_isFunctionInlined)(c) }
 }
 pub unsafe fn clang_Cursor_isGCCAssemblyHasGoto(param0: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_isGCCAssemblyHasGoto)(param0)
-    })
+    unsafe { (crate::functions().clang_Cursor_isGCCAssemblyHasGoto)(param0) }
 }
 pub unsafe fn clang_Cursor_isGCCAssemblyVolatile(cursor: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_isGCCAssemblyVolatile)(cursor)
-    })
+    unsafe { (crate::functions().clang_Cursor_isGCCAssemblyVolatile)(cursor) }
 }
 pub unsafe fn clang_Cursor_isInlineNamespace(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isInlineNamespace)(c) })
+    unsafe { (crate::functions().clang_Cursor_isInlineNamespace)(c) }
 }
 pub unsafe fn clang_Cursor_isMacroBuiltin(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isMacroBuiltin)(c) })
+    unsafe { (crate::functions().clang_Cursor_isMacroBuiltin)(c) }
 }
 pub unsafe fn clang_Cursor_isMacroFunctionLike(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Cursor_isMacroFunctionLike)(c)
-    })
+    unsafe { (crate::functions().clang_Cursor_isMacroFunctionLike)(c) }
 }
 pub unsafe fn clang_Cursor_isNull(cursor: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isNull)(cursor) })
+    unsafe { (crate::functions().clang_Cursor_isNull)(cursor) }
 }
 pub unsafe fn clang_Cursor_isObjCOptional(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isObjCOptional)(c) })
+    unsafe { (crate::functions().clang_Cursor_isObjCOptional)(c) }
 }
 pub unsafe fn clang_Cursor_isVariadic(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Cursor_isVariadic)(c) })
+    unsafe { (crate::functions().clang_Cursor_isVariadic)(c) }
 }
 pub unsafe fn clang_EnumDecl_isScoped(c: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_EnumDecl_isScoped)(c) })
+    unsafe { (crate::functions().clang_EnumDecl_isScoped)(c) }
 }
 pub unsafe fn clang_EvalResult_dispose(e: CXEvalResult) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_EvalResult_dispose)(e);
-    });
+    unsafe {
+        (crate::functions().clang_EvalResult_dispose)(e);
+    }
 }
 pub unsafe fn clang_EvalResult_getAsDouble(e: CXEvalResult) -> f64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_EvalResult_getAsDouble)(e) })
+    unsafe { (crate::functions().clang_EvalResult_getAsDouble)(e) }
 }
 pub unsafe fn clang_EvalResult_getAsInt(e: CXEvalResult) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_EvalResult_getAsInt)(e) })
+    unsafe { (crate::functions().clang_EvalResult_getAsInt)(e) }
 }
 pub unsafe fn clang_EvalResult_getAsLongLong(e: CXEvalResult) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_EvalResult_getAsLongLong)(e) })
+    unsafe { (crate::functions().clang_EvalResult_getAsLongLong)(e) }
 }
 pub unsafe fn clang_EvalResult_getAsStr(e: CXEvalResult) -> *const i8 {
-    crate::with_library(|library| unsafe { (library.functions.clang_EvalResult_getAsStr)(e) })
+    unsafe { (crate::functions().clang_EvalResult_getAsStr)(e) }
 }
 pub unsafe fn clang_EvalResult_getAsUnsigned(e: CXEvalResult) -> u64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_EvalResult_getAsUnsigned)(e) })
+    unsafe { (crate::functions().clang_EvalResult_getAsUnsigned)(e) }
 }
 pub unsafe fn clang_EvalResult_getKind(e: CXEvalResult) -> CXEvalResultKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_EvalResult_getKind)(e) })
+    unsafe { (crate::functions().clang_EvalResult_getKind)(e) }
 }
 pub unsafe fn clang_EvalResult_isUnsignedInt(e: CXEvalResult) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_EvalResult_isUnsignedInt)(e) })
+    unsafe { (crate::functions().clang_EvalResult_isUnsignedInt)(e) }
 }
 pub unsafe fn clang_File_isEqual(file1: CXFile, file2: CXFile) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_File_isEqual)(file1, file2) })
+    unsafe { (crate::functions().clang_File_isEqual)(file1, file2) }
 }
 pub unsafe fn clang_File_tryGetRealPathName(file: CXFile) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_File_tryGetRealPathName)(file)
-    })
+    unsafe { (crate::functions().clang_File_tryGetRealPathName)(file) }
 }
 pub unsafe fn clang_IndexAction_create(cidx: CXIndex) -> CXIndexAction {
-    crate::with_library(|library| unsafe { (library.functions.clang_IndexAction_create)(cidx) })
+    unsafe { (crate::functions().clang_IndexAction_create)(cidx) }
 }
 pub unsafe fn clang_IndexAction_dispose(param0: CXIndexAction) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_IndexAction_dispose)(param0);
-    });
+    unsafe {
+        (crate::functions().clang_IndexAction_dispose)(param0);
+    }
 }
 pub unsafe fn clang_Location_isFromMainFile(location: CXSourceLocation) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Location_isFromMainFile)(location)
-    })
+    unsafe { (crate::functions().clang_Location_isFromMainFile)(location) }
 }
 pub unsafe fn clang_Location_isInSystemHeader(location: CXSourceLocation) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Location_isInSystemHeader)(location)
-    })
+    unsafe { (crate::functions().clang_Location_isInSystemHeader)(location) }
 }
 pub unsafe fn clang_ModuleMapDescriptor_create(options: u32) -> CXModuleMapDescriptor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_ModuleMapDescriptor_create)(options)
-    })
+    unsafe { (crate::functions().clang_ModuleMapDescriptor_create)(options) }
 }
 pub unsafe fn clang_ModuleMapDescriptor_dispose(param0: CXModuleMapDescriptor) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_ModuleMapDescriptor_dispose)(param0);
-    });
+    unsafe {
+        (crate::functions().clang_ModuleMapDescriptor_dispose)(param0);
+    }
 }
 pub unsafe fn clang_ModuleMapDescriptor_setFrameworkModuleName(
     param0: CXModuleMapDescriptor,
     name: *const i8,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .clang_ModuleMapDescriptor_setFrameworkModuleName)(param0, name)
-    })
+    unsafe { (crate::functions().clang_ModuleMapDescriptor_setFrameworkModuleName)(param0, name) }
 }
 pub unsafe fn clang_ModuleMapDescriptor_setUmbrellaHeader(
     param0: CXModuleMapDescriptor,
     name: *const i8,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .clang_ModuleMapDescriptor_setUmbrellaHeader)(param0, name)
-    })
+    unsafe { (crate::functions().clang_ModuleMapDescriptor_setUmbrellaHeader)(param0, name) }
 }
 pub unsafe fn clang_ModuleMapDescriptor_writeToBuffer(
     param0: CXModuleMapDescriptor,
@@ -5505,188 +5407,162 @@ pub unsafe fn clang_ModuleMapDescriptor_writeToBuffer(
     out_buffer_ptr: *mut *mut i8,
     out_buffer_size: *mut u32,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_ModuleMapDescriptor_writeToBuffer)(
+    unsafe {
+        (crate::functions().clang_ModuleMapDescriptor_writeToBuffer)(
             param0,
             options,
             out_buffer_ptr,
             out_buffer_size,
         )
-    })
+    }
 }
 pub unsafe fn clang_Module_getASTFile(module: CXModule) -> CXFile {
-    crate::with_library(|library| unsafe { (library.functions.clang_Module_getASTFile)(module) })
+    unsafe { (crate::functions().clang_Module_getASTFile)(module) }
 }
 pub unsafe fn clang_Module_getFullName(module: CXModule) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_Module_getFullName)(module) })
+    unsafe { (crate::functions().clang_Module_getFullName)(module) }
 }
 pub unsafe fn clang_Module_getName(module: CXModule) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_Module_getName)(module) })
+    unsafe { (crate::functions().clang_Module_getName)(module) }
 }
 pub unsafe fn clang_Module_getNumTopLevelHeaders(
     param0: CXTranslationUnit,
     module: CXModule,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Module_getNumTopLevelHeaders)(param0, module)
-    })
+    unsafe { (crate::functions().clang_Module_getNumTopLevelHeaders)(param0, module) }
 }
 pub unsafe fn clang_Module_getParent(module: CXModule) -> CXModule {
-    crate::with_library(|library| unsafe { (library.functions.clang_Module_getParent)(module) })
+    unsafe { (crate::functions().clang_Module_getParent)(module) }
 }
 pub unsafe fn clang_Module_getTopLevelHeader(
     param0: CXTranslationUnit,
     module: CXModule,
     index: u32,
 ) -> CXFile {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Module_getTopLevelHeader)(param0, module, index)
-    })
+    unsafe { (crate::functions().clang_Module_getTopLevelHeader)(param0, module, index) }
 }
 pub unsafe fn clang_Module_isSystem(module: CXModule) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Module_isSystem)(module) })
+    unsafe { (crate::functions().clang_Module_isSystem)(module) }
 }
 pub unsafe fn clang_PrintingPolicy_dispose(policy: CXPrintingPolicy) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_PrintingPolicy_dispose)(policy);
-    });
+    unsafe {
+        (crate::functions().clang_PrintingPolicy_dispose)(policy);
+    }
 }
 pub unsafe fn clang_PrintingPolicy_getProperty(
     policy: CXPrintingPolicy,
     property: CXPrintingPolicyProperty,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_PrintingPolicy_getProperty)(policy, property)
-    })
+    unsafe { (crate::functions().clang_PrintingPolicy_getProperty)(policy, property) }
 }
 pub unsafe fn clang_PrintingPolicy_setProperty(
     policy: CXPrintingPolicy,
     property: CXPrintingPolicyProperty,
     value: u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_PrintingPolicy_setProperty)(policy, property, value);
-    });
+    unsafe {
+        (crate::functions().clang_PrintingPolicy_setProperty)(policy, property, value);
+    }
 }
 pub unsafe fn clang_Range_isNull(range: CXSourceRange) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Range_isNull)(range) })
+    unsafe { (crate::functions().clang_Range_isNull)(range) }
 }
 pub unsafe fn clang_TargetInfo_dispose(info: CXTargetInfo) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_TargetInfo_dispose)(info);
-    });
+    unsafe {
+        (crate::functions().clang_TargetInfo_dispose)(info);
+    }
 }
 pub unsafe fn clang_TargetInfo_getPointerWidth(info: CXTargetInfo) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_TargetInfo_getPointerWidth)(info)
-    })
+    unsafe { (crate::functions().clang_TargetInfo_getPointerWidth)(info) }
 }
 pub unsafe fn clang_TargetInfo_getTriple(info: CXTargetInfo) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_TargetInfo_getTriple)(info) })
+    unsafe { (crate::functions().clang_TargetInfo_getTriple)(info) }
 }
 pub unsafe fn clang_Type_getAlignOf(t: CXType) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getAlignOf)(t) })
+    unsafe { (crate::functions().clang_Type_getAlignOf)(t) }
 }
 pub unsafe fn clang_Type_getCXXRefQualifier(t: CXType) -> CXRefQualifierKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getCXXRefQualifier)(t) })
+    unsafe { (crate::functions().clang_Type_getCXXRefQualifier)(t) }
 }
 pub unsafe fn clang_Type_getClassType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getClassType)(t) })
+    unsafe { (crate::functions().clang_Type_getClassType)(t) }
 }
 pub unsafe fn clang_Type_getModifiedType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getModifiedType)(t) })
+    unsafe { (crate::functions().clang_Type_getModifiedType)(t) }
 }
 pub unsafe fn clang_Type_getNamedType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getNamedType)(t) })
+    unsafe { (crate::functions().clang_Type_getNamedType)(t) }
 }
 pub unsafe fn clang_Type_getNullability(t: CXType) -> CXTypeNullabilityKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getNullability)(t) })
+    unsafe { (crate::functions().clang_Type_getNullability)(t) }
 }
 pub unsafe fn clang_Type_getNumObjCProtocolRefs(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Type_getNumObjCProtocolRefs)(t)
-    })
+    unsafe { (crate::functions().clang_Type_getNumObjCProtocolRefs)(t) }
 }
 pub unsafe fn clang_Type_getNumObjCTypeArgs(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getNumObjCTypeArgs)(t) })
+    unsafe { (crate::functions().clang_Type_getNumObjCTypeArgs)(t) }
 }
 pub unsafe fn clang_Type_getNumTemplateArguments(t: CXType) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Type_getNumTemplateArguments)(t)
-    })
+    unsafe { (crate::functions().clang_Type_getNumTemplateArguments)(t) }
 }
 pub unsafe fn clang_Type_getObjCEncoding(r#type: CXType) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getObjCEncoding)(r#type) })
+    unsafe { (crate::functions().clang_Type_getObjCEncoding)(r#type) }
 }
 pub unsafe fn clang_Type_getObjCObjectBaseType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Type_getObjCObjectBaseType)(t)
-    })
+    unsafe { (crate::functions().clang_Type_getObjCObjectBaseType)(t) }
 }
 pub unsafe fn clang_Type_getObjCProtocolDecl(t: CXType, i: u32) -> CXCursor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Type_getObjCProtocolDecl)(t, i)
-    })
+    unsafe { (crate::functions().clang_Type_getObjCProtocolDecl)(t, i) }
 }
 pub unsafe fn clang_Type_getObjCTypeArg(t: CXType, i: u32) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getObjCTypeArg)(t, i) })
+    unsafe { (crate::functions().clang_Type_getObjCTypeArg)(t, i) }
 }
 pub unsafe fn clang_Type_getOffsetOf(t: CXType, s: *const i8) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getOffsetOf)(t, s) })
+    unsafe { (crate::functions().clang_Type_getOffsetOf)(t, s) }
 }
 pub unsafe fn clang_Type_getSizeOf(t: CXType) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getSizeOf)(t) })
+    unsafe { (crate::functions().clang_Type_getSizeOf)(t) }
 }
 pub unsafe fn clang_Type_getTemplateArgumentAsType(t: CXType, i: u32) -> CXType {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Type_getTemplateArgumentAsType)(t, i)
-    })
+    unsafe { (crate::functions().clang_Type_getTemplateArgumentAsType)(t, i) }
 }
 pub unsafe fn clang_Type_getValueType(ct: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_Type_getValueType)(ct) })
+    unsafe { (crate::functions().clang_Type_getValueType)(ct) }
 }
 pub unsafe fn clang_Type_isTransparentTagTypedef(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Type_isTransparentTagTypedef)(t)
-    })
+    unsafe { (crate::functions().clang_Type_isTransparentTagTypedef)(t) }
 }
 pub unsafe fn clang_Type_visitFields(
     t: CXType,
     visitor: CXFieldVisitor,
     client_data: CXClientData,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_Type_visitFields)(t, visitor, client_data)
-    })
+    unsafe { (crate::functions().clang_Type_visitFields)(t, visitor, client_data) }
 }
 pub unsafe fn clang_VirtualFileOverlay_addFileMapping(
     param0: CXVirtualFileOverlay,
     virtualpath: *const i8,
     realpath: *const i8,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_VirtualFileOverlay_addFileMapping)(param0, virtualpath, realpath)
-    })
+    unsafe {
+        (crate::functions().clang_VirtualFileOverlay_addFileMapping)(param0, virtualpath, realpath)
+    }
 }
 pub unsafe fn clang_VirtualFileOverlay_create(options: u32) -> CXVirtualFileOverlay {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_VirtualFileOverlay_create)(options)
-    })
+    unsafe { (crate::functions().clang_VirtualFileOverlay_create)(options) }
 }
 pub unsafe fn clang_VirtualFileOverlay_dispose(param0: CXVirtualFileOverlay) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_VirtualFileOverlay_dispose)(param0);
-    });
+    unsafe {
+        (crate::functions().clang_VirtualFileOverlay_dispose)(param0);
+    }
 }
 pub unsafe fn clang_VirtualFileOverlay_setCaseSensitivity(
     param0: CXVirtualFileOverlay,
     casesensitive: i32,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .clang_VirtualFileOverlay_setCaseSensitivity)(param0, casesensitive)
-    })
+    unsafe {
+        (crate::functions().clang_VirtualFileOverlay_setCaseSensitivity)(param0, casesensitive)
+    }
 }
 pub unsafe fn clang_VirtualFileOverlay_writeToBuffer(
     param0: CXVirtualFileOverlay,
@@ -5694,14 +5570,14 @@ pub unsafe fn clang_VirtualFileOverlay_writeToBuffer(
     out_buffer_ptr: *mut *mut i8,
     out_buffer_size: *mut u32,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_VirtualFileOverlay_writeToBuffer)(
+    unsafe {
+        (crate::functions().clang_VirtualFileOverlay_writeToBuffer)(
             param0,
             options,
             out_buffer_ptr,
             out_buffer_size,
         )
-    })
+    }
 }
 pub unsafe fn clang_annotateTokens(
     tu: CXTranslationUnit,
@@ -5709,9 +5585,9 @@ pub unsafe fn clang_annotateTokens(
     numtokens: u32,
     cursors: *mut CXCursor,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_annotateTokens)(tu, tokens, numtokens, cursors);
-    });
+    unsafe {
+        (crate::functions().clang_annotateTokens)(tu, tokens, numtokens, cursors);
+    }
 }
 pub unsafe fn clang_codeCompleteAt(
     tu: CXTranslationUnit,
@@ -5722,8 +5598,8 @@ pub unsafe fn clang_codeCompleteAt(
     num_unsaved_files: u32,
     options: u32,
 ) -> *mut CXCodeCompleteResults {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_codeCompleteAt)(
+    unsafe {
+        (crate::functions().clang_codeCompleteAt)(
             tu,
             complete_filename,
             complete_line,
@@ -5732,113 +5608,83 @@ pub unsafe fn clang_codeCompleteAt(
             num_unsaved_files,
             options,
         )
-    })
+    }
 }
 pub unsafe fn clang_codeCompleteGetContainerKind(
     results: *mut CXCodeCompleteResults,
     isincomplete: *mut u32,
 ) -> CXCursorKind {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_codeCompleteGetContainerKind)(results, isincomplete)
-    })
+    unsafe { (crate::functions().clang_codeCompleteGetContainerKind)(results, isincomplete) }
 }
 pub unsafe fn clang_codeCompleteGetContainerUSR(results: *mut CXCodeCompleteResults) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_codeCompleteGetContainerUSR)(results)
-    })
+    unsafe { (crate::functions().clang_codeCompleteGetContainerUSR)(results) }
 }
 pub unsafe fn clang_codeCompleteGetContexts(results: *mut CXCodeCompleteResults) -> u64 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_codeCompleteGetContexts)(results)
-    })
+    unsafe { (crate::functions().clang_codeCompleteGetContexts)(results) }
 }
 pub unsafe fn clang_codeCompleteGetDiagnostic(
     results: *mut CXCodeCompleteResults,
     index: u32,
 ) -> CXDiagnostic {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_codeCompleteGetDiagnostic)(results, index)
-    })
+    unsafe { (crate::functions().clang_codeCompleteGetDiagnostic)(results, index) }
 }
 pub unsafe fn clang_codeCompleteGetNumDiagnostics(results: *mut CXCodeCompleteResults) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_codeCompleteGetNumDiagnostics)(results)
-    })
+    unsafe { (crate::functions().clang_codeCompleteGetNumDiagnostics)(results) }
 }
 pub unsafe fn clang_codeCompleteGetObjCSelector(results: *mut CXCodeCompleteResults) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_codeCompleteGetObjCSelector)(results)
-    })
+    unsafe { (crate::functions().clang_codeCompleteGetObjCSelector)(results) }
 }
 pub unsafe fn clang_constructUSR_ObjCCategory(
     class_name: *const i8,
     category_name: *const i8,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_constructUSR_ObjCCategory)(class_name, category_name)
-    })
+    unsafe { (crate::functions().clang_constructUSR_ObjCCategory)(class_name, category_name) }
 }
 pub unsafe fn clang_constructUSR_ObjCClass(class_name: *const i8) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_constructUSR_ObjCClass)(class_name)
-    })
+    unsafe { (crate::functions().clang_constructUSR_ObjCClass)(class_name) }
 }
 pub unsafe fn clang_constructUSR_ObjCIvar(name: *const i8, classusr: CXString) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_constructUSR_ObjCIvar)(name, classusr)
-    })
+    unsafe { (crate::functions().clang_constructUSR_ObjCIvar)(name, classusr) }
 }
 pub unsafe fn clang_constructUSR_ObjCMethod(
     name: *const i8,
     isinstancemethod: u32,
     classusr: CXString,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_constructUSR_ObjCMethod)(name, isinstancemethod, classusr)
-    })
+    unsafe { (crate::functions().clang_constructUSR_ObjCMethod)(name, isinstancemethod, classusr) }
 }
 pub unsafe fn clang_constructUSR_ObjCProperty(property: *const i8, classusr: CXString) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_constructUSR_ObjCProperty)(property, classusr)
-    })
+    unsafe { (crate::functions().clang_constructUSR_ObjCProperty)(property, classusr) }
 }
 pub unsafe fn clang_constructUSR_ObjCProtocol(protocol_name: *const i8) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_constructUSR_ObjCProtocol)(protocol_name)
-    })
+    unsafe { (crate::functions().clang_constructUSR_ObjCProtocol)(protocol_name) }
 }
 pub unsafe fn clang_createCXCursorSet() -> CXCursorSet {
-    crate::with_library(|library| unsafe { (library.functions.clang_createCXCursorSet)() })
+    unsafe { (crate::functions().clang_createCXCursorSet)() }
 }
 pub unsafe fn clang_createIndex(
     excludedeclarationsfrompch: i32,
     displaydiagnostics: i32,
 ) -> CXIndex {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_createIndex)(excludedeclarationsfrompch, displaydiagnostics)
-    })
+    unsafe {
+        (crate::functions().clang_createIndex)(excludedeclarationsfrompch, displaydiagnostics)
+    }
 }
 pub unsafe fn clang_createIndexWithOptions(options: *const CXIndexOptions) -> CXIndex {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_createIndexWithOptions)(options)
-    })
+    unsafe { (crate::functions().clang_createIndexWithOptions)(options) }
 }
 pub unsafe fn clang_createTranslationUnit(
     cidx: CXIndex,
     ast_filename: *const i8,
 ) -> CXTranslationUnit {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_createTranslationUnit)(cidx, ast_filename)
-    })
+    unsafe { (crate::functions().clang_createTranslationUnit)(cidx, ast_filename) }
 }
 pub unsafe fn clang_createTranslationUnit2(
     cidx: CXIndex,
     ast_filename: *const i8,
     out_tu: *mut CXTranslationUnit,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_createTranslationUnit2)(cidx, ast_filename, out_tu)
-    })
+    unsafe { (crate::functions().clang_createTranslationUnit2)(cidx, ast_filename, out_tu) }
 }
 pub unsafe fn clang_createTranslationUnitFromSourceFile(
     cidx: CXIndex,
@@ -5848,8 +5694,8 @@ pub unsafe fn clang_createTranslationUnitFromSourceFile(
     num_unsaved_files: u32,
     unsaved_files: *mut CXUnsavedFile,
 ) -> CXTranslationUnit {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_createTranslationUnitFromSourceFile)(
+    unsafe {
+        (crate::functions().clang_createTranslationUnitFromSourceFile)(
             cidx,
             source_filename,
             num_clang_command_line_args,
@@ -5857,256 +5703,230 @@ pub unsafe fn clang_createTranslationUnitFromSourceFile(
             num_unsaved_files,
             unsaved_files,
         )
-    })
+    }
 }
 pub unsafe fn clang_defaultCodeCompleteOptions() -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_defaultCodeCompleteOptions)() })
+    unsafe { (crate::functions().clang_defaultCodeCompleteOptions)() }
 }
 pub unsafe fn clang_defaultDiagnosticDisplayOptions() -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_defaultDiagnosticDisplayOptions)()
-    })
+    unsafe { (crate::functions().clang_defaultDiagnosticDisplayOptions)() }
 }
 pub unsafe fn clang_defaultEditingTranslationUnitOptions() -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_defaultEditingTranslationUnitOptions)()
-    })
+    unsafe { (crate::functions().clang_defaultEditingTranslationUnitOptions)() }
 }
 pub unsafe fn clang_defaultReparseOptions(tu: CXTranslationUnit) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_defaultReparseOptions)(tu) })
+    unsafe { (crate::functions().clang_defaultReparseOptions)(tu) }
 }
 pub unsafe fn clang_defaultSaveOptions(tu: CXTranslationUnit) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_defaultSaveOptions)(tu) })
+    unsafe { (crate::functions().clang_defaultSaveOptions)(tu) }
 }
 pub unsafe fn clang_disposeCXCursorSet(cset: CXCursorSet) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeCXCursorSet)(cset);
-    });
+    unsafe {
+        (crate::functions().clang_disposeCXCursorSet)(cset);
+    }
 }
 pub unsafe fn clang_disposeCXPlatformAvailability(availability: *mut CXPlatformAvailability) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeCXPlatformAvailability)(availability);
-    });
+    unsafe {
+        (crate::functions().clang_disposeCXPlatformAvailability)(availability);
+    }
 }
 pub unsafe fn clang_disposeCXTUResourceUsage(usage: CXTUResourceUsage) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeCXTUResourceUsage)(usage);
-    });
+    unsafe {
+        (crate::functions().clang_disposeCXTUResourceUsage)(usage);
+    }
 }
 pub unsafe fn clang_disposeCodeCompleteResults(results: *mut CXCodeCompleteResults) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeCodeCompleteResults)(results);
-    });
+    unsafe {
+        (crate::functions().clang_disposeCodeCompleteResults)(results);
+    }
 }
 pub unsafe fn clang_disposeDiagnostic(diagnostic: CXDiagnostic) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeDiagnostic)(diagnostic);
-    });
+    unsafe {
+        (crate::functions().clang_disposeDiagnostic)(diagnostic);
+    }
 }
 pub unsafe fn clang_disposeDiagnosticSet(diags: CXDiagnosticSet) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeDiagnosticSet)(diags);
-    });
+    unsafe {
+        (crate::functions().clang_disposeDiagnosticSet)(diags);
+    }
 }
 pub unsafe fn clang_disposeIndex(index: CXIndex) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeIndex)(index);
-    });
+    unsafe {
+        (crate::functions().clang_disposeIndex)(index);
+    }
 }
 pub unsafe fn clang_disposeOverriddenCursors(overridden: *mut CXCursor) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeOverriddenCursors)(overridden);
-    });
+    unsafe {
+        (crate::functions().clang_disposeOverriddenCursors)(overridden);
+    }
 }
 pub unsafe fn clang_disposeSourceRangeList(ranges: *mut CXSourceRangeList) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeSourceRangeList)(ranges);
-    });
+    unsafe {
+        (crate::functions().clang_disposeSourceRangeList)(ranges);
+    }
 }
 pub unsafe fn clang_disposeString(string: CXString) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeString)(string);
-    });
+    unsafe {
+        (crate::functions().clang_disposeString)(string);
+    }
 }
 pub unsafe fn clang_disposeStringSet(set: *mut CXStringSet) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeStringSet)(set);
-    });
+    unsafe {
+        (crate::functions().clang_disposeStringSet)(set);
+    }
 }
 pub unsafe fn clang_disposeTokens(tu: CXTranslationUnit, tokens: *mut CXToken, numtokens: u32) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeTokens)(tu, tokens, numtokens);
-    });
+    unsafe {
+        (crate::functions().clang_disposeTokens)(tu, tokens, numtokens);
+    }
 }
 pub unsafe fn clang_disposeTranslationUnit(param0: CXTranslationUnit) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_disposeTranslationUnit)(param0);
-    });
+    unsafe {
+        (crate::functions().clang_disposeTranslationUnit)(param0);
+    }
 }
 pub unsafe fn clang_enableStackTraces() {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_enableStackTraces)();
-    });
+    unsafe {
+        (crate::functions().clang_enableStackTraces)();
+    }
 }
 pub unsafe fn clang_equalCursors(param0: CXCursor, param1: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_equalCursors)(param0, param1) })
+    unsafe { (crate::functions().clang_equalCursors)(param0, param1) }
 }
 pub unsafe fn clang_equalLocations(loc1: CXSourceLocation, loc2: CXSourceLocation) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_equalLocations)(loc1, loc2) })
+    unsafe { (crate::functions().clang_equalLocations)(loc1, loc2) }
 }
 pub unsafe fn clang_equalRanges(range1: CXSourceRange, range2: CXSourceRange) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_equalRanges)(range1, range2) })
+    unsafe { (crate::functions().clang_equalRanges)(range1, range2) }
 }
 pub unsafe fn clang_equalTypes(a: CXType, b: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_equalTypes)(a, b) })
+    unsafe { (crate::functions().clang_equalTypes)(a, b) }
 }
 pub unsafe fn clang_executeOnThread(
     r#fn: Option<unsafe extern "C" fn(*mut core::ffi::c_void)>,
     user_data: *mut core::ffi::c_void,
     stack_size: u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_executeOnThread)(r#fn, user_data, stack_size);
-    });
+    unsafe {
+        (crate::functions().clang_executeOnThread)(r#fn, user_data, stack_size);
+    }
 }
 pub unsafe fn clang_findIncludesInFile(
     tu: CXTranslationUnit,
     file: CXFile,
     visitor: CXCursorAndRangeVisitor,
 ) -> CXResult {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_findIncludesInFile)(tu, file, visitor)
-    })
+    unsafe { (crate::functions().clang_findIncludesInFile)(tu, file, visitor) }
 }
 pub unsafe fn clang_findIncludesInFileWithBlock(
     param0: CXTranslationUnit,
     param1: CXFile,
     param2: CXCursorAndRangeVisitorBlock,
 ) -> CXResult {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_findIncludesInFileWithBlock)(param0, param1, param2)
-    })
+    unsafe { (crate::functions().clang_findIncludesInFileWithBlock)(param0, param1, param2) }
 }
 pub unsafe fn clang_findReferencesInFile(
     cursor: CXCursor,
     file: CXFile,
     visitor: CXCursorAndRangeVisitor,
 ) -> CXResult {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_findReferencesInFile)(cursor, file, visitor)
-    })
+    unsafe { (crate::functions().clang_findReferencesInFile)(cursor, file, visitor) }
 }
 pub unsafe fn clang_findReferencesInFileWithBlock(
     param0: CXCursor,
     param1: CXFile,
     param2: CXCursorAndRangeVisitorBlock,
 ) -> CXResult {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_findReferencesInFileWithBlock)(param0, param1, param2)
-    })
+    unsafe { (crate::functions().clang_findReferencesInFileWithBlock)(param0, param1, param2) }
 }
 pub unsafe fn clang_formatDiagnostic(diagnostic: CXDiagnostic, options: u32) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_formatDiagnostic)(diagnostic, options)
-    })
+    unsafe { (crate::functions().clang_formatDiagnostic)(diagnostic, options) }
 }
 pub unsafe fn clang_free(buffer: *mut core::ffi::c_void) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_free)(buffer);
-    });
+    unsafe {
+        (crate::functions().clang_free)(buffer);
+    }
 }
 pub unsafe fn clang_getAddressSpace(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getAddressSpace)(t) })
+    unsafe { (crate::functions().clang_getAddressSpace)(t) }
 }
 pub unsafe fn clang_getAllSkippedRanges(tu: CXTranslationUnit) -> *mut CXSourceRangeList {
-    crate::with_library(|library| unsafe { (library.functions.clang_getAllSkippedRanges)(tu) })
+    unsafe { (crate::functions().clang_getAllSkippedRanges)(tu) }
 }
 pub unsafe fn clang_getArgType(t: CXType, i: u32) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getArgType)(t, i) })
+    unsafe { (crate::functions().clang_getArgType)(t, i) }
 }
 pub unsafe fn clang_getArrayElementType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getArrayElementType)(t) })
+    unsafe { (crate::functions().clang_getArrayElementType)(t) }
 }
 pub unsafe fn clang_getArraySize(t: CXType) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getArraySize)(t) })
+    unsafe { (crate::functions().clang_getArraySize)(t) }
 }
 pub unsafe fn clang_getBinaryOperatorKindSpelling(kind: CXBinaryOperatorKind) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getBinaryOperatorKindSpelling)(kind)
-    })
+    unsafe { (crate::functions().clang_getBinaryOperatorKindSpelling)(kind) }
 }
 pub unsafe fn clang_getBuildSessionTimestamp() -> u64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getBuildSessionTimestamp)() })
+    unsafe { (crate::functions().clang_getBuildSessionTimestamp)() }
 }
 pub unsafe fn clang_getCString(string: CXString) -> *const i8 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCString)(string) })
+    unsafe { (crate::functions().clang_getCString)(string) }
 }
 pub unsafe fn clang_getCXTUResourceUsage(tu: CXTranslationUnit) -> CXTUResourceUsage {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCXTUResourceUsage)(tu) })
+    unsafe { (crate::functions().clang_getCXTUResourceUsage)(tu) }
 }
 pub unsafe fn clang_getCXXAccessSpecifier(param0: CXCursor) -> CX_CXXAccessSpecifier {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCXXAccessSpecifier)(param0)
-    })
+    unsafe { (crate::functions().clang_getCXXAccessSpecifier)(param0) }
 }
 pub unsafe fn clang_getCanonicalCursor(param0: CXCursor) -> CXCursor {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCanonicalCursor)(param0) })
+    unsafe { (crate::functions().clang_getCanonicalCursor)(param0) }
 }
 pub unsafe fn clang_getCanonicalType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCanonicalType)(t) })
+    unsafe { (crate::functions().clang_getCanonicalType)(t) }
 }
 pub unsafe fn clang_getChildDiagnostics(d: CXDiagnostic) -> CXDiagnosticSet {
-    crate::with_library(|library| unsafe { (library.functions.clang_getChildDiagnostics)(d) })
+    unsafe { (crate::functions().clang_getChildDiagnostics)(d) }
 }
 pub unsafe fn clang_getClangVersion() -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getClangVersion)() })
+    unsafe { (crate::functions().clang_getClangVersion)() }
 }
 pub unsafe fn clang_getCompletionAnnotation(
     completion_string: CXCompletionString,
     annotation_number: u32,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionAnnotation)(completion_string, annotation_number)
-    })
+    unsafe {
+        (crate::functions().clang_getCompletionAnnotation)(completion_string, annotation_number)
+    }
 }
 pub unsafe fn clang_getCompletionAvailability(
     completion_string: CXCompletionString,
 ) -> CXAvailabilityKind {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionAvailability)(completion_string)
-    })
+    unsafe { (crate::functions().clang_getCompletionAvailability)(completion_string) }
 }
 pub unsafe fn clang_getCompletionBriefComment(completion_string: CXCompletionString) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionBriefComment)(completion_string)
-    })
+    unsafe { (crate::functions().clang_getCompletionBriefComment)(completion_string) }
 }
 pub unsafe fn clang_getCompletionChunkCompletionString(
     completion_string: CXCompletionString,
     chunk_number: u32,
 ) -> CXCompletionString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionChunkCompletionString)(
+    unsafe {
+        (crate::functions().clang_getCompletionChunkCompletionString)(
             completion_string,
             chunk_number,
         )
-    })
+    }
 }
 pub unsafe fn clang_getCompletionChunkKind(
     completion_string: CXCompletionString,
     chunk_number: u32,
 ) -> CXCompletionChunkKind {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionChunkKind)(completion_string, chunk_number)
-    })
+    unsafe { (crate::functions().clang_getCompletionChunkKind)(completion_string, chunk_number) }
 }
 pub unsafe fn clang_getCompletionChunkText(
     completion_string: CXCompletionString,
     chunk_number: u32,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionChunkText)(completion_string, chunk_number)
-    })
+    unsafe { (crate::functions().clang_getCompletionChunkText)(completion_string, chunk_number) }
 }
 pub unsafe fn clang_getCompletionFixIt(
     results: *mut CXCodeCompleteResults,
@@ -6114,92 +5934,74 @@ pub unsafe fn clang_getCompletionFixIt(
     fixit_index: u32,
     replacement_range: *mut CXSourceRange,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionFixIt)(
+    unsafe {
+        (crate::functions().clang_getCompletionFixIt)(
             results,
             completion_index,
             fixit_index,
             replacement_range,
         )
-    })
+    }
 }
 pub unsafe fn clang_getCompletionNumAnnotations(completion_string: CXCompletionString) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionNumAnnotations)(completion_string)
-    })
+    unsafe { (crate::functions().clang_getCompletionNumAnnotations)(completion_string) }
 }
 pub unsafe fn clang_getCompletionNumFixIts(
     results: *mut CXCodeCompleteResults,
     completion_index: u32,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionNumFixIts)(results, completion_index)
-    })
+    unsafe { (crate::functions().clang_getCompletionNumFixIts)(results, completion_index) }
 }
 pub unsafe fn clang_getCompletionParent(
     completion_string: CXCompletionString,
     kind: *mut CXCursorKind,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionParent)(completion_string, kind)
-    })
+    unsafe { (crate::functions().clang_getCompletionParent)(completion_string, kind) }
 }
 pub unsafe fn clang_getCompletionPriority(completion_string: CXCompletionString) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCompletionPriority)(completion_string)
-    })
+    unsafe { (crate::functions().clang_getCompletionPriority)(completion_string) }
 }
 pub unsafe fn clang_getCursor(param0: CXTranslationUnit, param1: CXSourceLocation) -> CXCursor {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursor)(param0, param1) })
+    unsafe { (crate::functions().clang_getCursor)(param0, param1) }
 }
 pub unsafe fn clang_getCursorAvailability(cursor: CXCursor) -> CXAvailabilityKind {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorAvailability)(cursor)
-    })
+    unsafe { (crate::functions().clang_getCursorAvailability)(cursor) }
 }
 pub unsafe fn clang_getCursorBinaryOperatorKind(cursor: CXCursor) -> CXBinaryOperatorKind {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorBinaryOperatorKind)(cursor)
-    })
+    unsafe { (crate::functions().clang_getCursorBinaryOperatorKind)(cursor) }
 }
 pub unsafe fn clang_getCursorCompletionString(cursor: CXCursor) -> CXCompletionString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorCompletionString)(cursor)
-    })
+    unsafe { (crate::functions().clang_getCursorCompletionString)(cursor) }
 }
 pub unsafe fn clang_getCursorDefinition(param0: CXCursor) -> CXCursor {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorDefinition)(param0) })
+    unsafe { (crate::functions().clang_getCursorDefinition)(param0) }
 }
 pub unsafe fn clang_getCursorDisplayName(param0: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorDisplayName)(param0) })
+    unsafe { (crate::functions().clang_getCursorDisplayName)(param0) }
 }
 pub unsafe fn clang_getCursorExceptionSpecificationType(c: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorExceptionSpecificationType)(c)
-    })
+    unsafe { (crate::functions().clang_getCursorExceptionSpecificationType)(c) }
 }
 pub unsafe fn clang_getCursorExtent(param0: CXCursor) -> CXSourceRange {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorExtent)(param0) })
+    unsafe { (crate::functions().clang_getCursorExtent)(param0) }
 }
 pub unsafe fn clang_getCursorKind(param0: CXCursor) -> CXCursorKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorKind)(param0) })
+    unsafe { (crate::functions().clang_getCursorKind)(param0) }
 }
 pub unsafe fn clang_getCursorKindSpelling(kind: CXCursorKind) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorKindSpelling)(kind) })
+    unsafe { (crate::functions().clang_getCursorKindSpelling)(kind) }
 }
 pub unsafe fn clang_getCursorLanguage(cursor: CXCursor) -> CXLanguageKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorLanguage)(cursor) })
+    unsafe { (crate::functions().clang_getCursorLanguage)(cursor) }
 }
 pub unsafe fn clang_getCursorLexicalParent(cursor: CXCursor) -> CXCursor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorLexicalParent)(cursor)
-    })
+    unsafe { (crate::functions().clang_getCursorLexicalParent)(cursor) }
 }
 pub unsafe fn clang_getCursorLinkage(cursor: CXCursor) -> CXLinkageKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorLinkage)(cursor) })
+    unsafe { (crate::functions().clang_getCursorLinkage)(cursor) }
 }
 pub unsafe fn clang_getCursorLocation(param0: CXCursor) -> CXSourceLocation {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorLocation)(param0) })
+    unsafe { (crate::functions().clang_getCursorLocation)(param0) }
 }
 pub unsafe fn clang_getCursorPlatformAvailability(
     cursor: CXCursor,
@@ -6210,8 +6012,8 @@ pub unsafe fn clang_getCursorPlatformAvailability(
     availability: *mut CXPlatformAvailability,
     availability_size: i32,
 ) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorPlatformAvailability)(
+    unsafe {
+        (crate::functions().clang_getCursorPlatformAvailability)(
             cursor,
             always_deprecated,
             deprecated_message,
@@ -6220,60 +6022,50 @@ pub unsafe fn clang_getCursorPlatformAvailability(
             availability,
             availability_size,
         )
-    })
+    }
 }
 pub unsafe fn clang_getCursorPrettyPrinted(cursor: CXCursor, policy: CXPrintingPolicy) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorPrettyPrinted)(cursor, policy)
-    })
+    unsafe { (crate::functions().clang_getCursorPrettyPrinted)(cursor, policy) }
 }
 pub unsafe fn clang_getCursorPrintingPolicy(param0: CXCursor) -> CXPrintingPolicy {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorPrintingPolicy)(param0)
-    })
+    unsafe { (crate::functions().clang_getCursorPrintingPolicy)(param0) }
 }
 pub unsafe fn clang_getCursorReferenceNameRange(
     c: CXCursor,
     nameflags: u32,
     pieceindex: u32,
 ) -> CXSourceRange {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorReferenceNameRange)(c, nameflags, pieceindex)
-    })
+    unsafe { (crate::functions().clang_getCursorReferenceNameRange)(c, nameflags, pieceindex) }
 }
 pub unsafe fn clang_getCursorReferenced(param0: CXCursor) -> CXCursor {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorReferenced)(param0) })
+    unsafe { (crate::functions().clang_getCursorReferenced)(param0) }
 }
 pub unsafe fn clang_getCursorResultType(c: CXCursor) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorResultType)(c) })
+    unsafe { (crate::functions().clang_getCursorResultType)(c) }
 }
 pub unsafe fn clang_getCursorSemanticParent(cursor: CXCursor) -> CXCursor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorSemanticParent)(cursor)
-    })
+    unsafe { (crate::functions().clang_getCursorSemanticParent)(cursor) }
 }
 pub unsafe fn clang_getCursorSpelling(param0: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorSpelling)(param0) })
+    unsafe { (crate::functions().clang_getCursorSpelling)(param0) }
 }
 pub unsafe fn clang_getCursorTLSKind(cursor: CXCursor) -> CXTLSKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorTLSKind)(cursor) })
+    unsafe { (crate::functions().clang_getCursorTLSKind)(cursor) }
 }
 pub unsafe fn clang_getCursorType(c: CXCursor) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorType)(c) })
+    unsafe { (crate::functions().clang_getCursorType)(c) }
 }
 pub unsafe fn clang_getCursorUSR(param0: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorUSR)(param0) })
+    unsafe { (crate::functions().clang_getCursorUSR)(param0) }
 }
 pub unsafe fn clang_getCursorUnaryOperatorKind(cursor: CXCursor) -> CXUnaryOperatorKind {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getCursorUnaryOperatorKind)(cursor)
-    })
+    unsafe { (crate::functions().clang_getCursorUnaryOperatorKind)(cursor) }
 }
 pub unsafe fn clang_getCursorVisibility(cursor: CXCursor) -> CXVisibilityKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_getCursorVisibility)(cursor) })
+    unsafe { (crate::functions().clang_getCursorVisibility)(cursor) }
 }
 pub unsafe fn clang_getDeclObjCTypeEncoding(c: CXCursor) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getDeclObjCTypeEncoding)(c) })
+    unsafe { (crate::functions().clang_getDeclObjCTypeEncoding)(c) }
 }
 pub unsafe fn clang_getDefinitionSpellingAndExtent(
     param0: CXCursor,
@@ -6284,8 +6076,8 @@ pub unsafe fn clang_getDefinitionSpellingAndExtent(
     endline: *mut u32,
     endcolumn: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDefinitionSpellingAndExtent)(
+    unsafe {
+        (crate::functions().clang_getDefinitionSpellingAndExtent)(
             param0,
             startbuf,
             endbuf,
@@ -6294,96 +6086,68 @@ pub unsafe fn clang_getDefinitionSpellingAndExtent(
             endline,
             endcolumn,
         );
-    });
+    }
 }
 pub unsafe fn clang_getDiagnostic(unit: CXTranslationUnit, index: u32) -> CXDiagnostic {
-    crate::with_library(|library| unsafe { (library.functions.clang_getDiagnostic)(unit, index) })
+    unsafe { (crate::functions().clang_getDiagnostic)(unit, index) }
 }
 pub unsafe fn clang_getDiagnosticCategory(param0: CXDiagnostic) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticCategory)(param0)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticCategory)(param0) }
 }
 pub unsafe fn clang_getDiagnosticCategoryName(category: u32) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticCategoryName)(category)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticCategoryName)(category) }
 }
 pub unsafe fn clang_getDiagnosticCategoryText(param0: CXDiagnostic) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticCategoryText)(param0)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticCategoryText)(param0) }
 }
 pub unsafe fn clang_getDiagnosticFixIt(
     diagnostic: CXDiagnostic,
     fixit: u32,
     replacementrange: *mut CXSourceRange,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticFixIt)(diagnostic, fixit, replacementrange)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticFixIt)(diagnostic, fixit, replacementrange) }
 }
 pub unsafe fn clang_getDiagnosticInSet(diags: CXDiagnosticSet, index: u32) -> CXDiagnostic {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticInSet)(diags, index)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticInSet)(diags, index) }
 }
 pub unsafe fn clang_getDiagnosticLocation(param0: CXDiagnostic) -> CXSourceLocation {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticLocation)(param0)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticLocation)(param0) }
 }
 pub unsafe fn clang_getDiagnosticNumFixIts(diagnostic: CXDiagnostic) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticNumFixIts)(diagnostic)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticNumFixIts)(diagnostic) }
 }
 pub unsafe fn clang_getDiagnosticNumRanges(param0: CXDiagnostic) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticNumRanges)(param0)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticNumRanges)(param0) }
 }
 pub unsafe fn clang_getDiagnosticOption(diag: CXDiagnostic, disable: *mut CXString) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticOption)(diag, disable)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticOption)(diag, disable) }
 }
 pub unsafe fn clang_getDiagnosticRange(diagnostic: CXDiagnostic, range: u32) -> CXSourceRange {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticRange)(diagnostic, range)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticRange)(diagnostic, range) }
 }
 pub unsafe fn clang_getDiagnosticSetFromTU(unit: CXTranslationUnit) -> CXDiagnosticSet {
-    crate::with_library(|library| unsafe { (library.functions.clang_getDiagnosticSetFromTU)(unit) })
+    unsafe { (crate::functions().clang_getDiagnosticSetFromTU)(unit) }
 }
 pub unsafe fn clang_getDiagnosticSeverity(param0: CXDiagnostic) -> CXDiagnosticSeverity {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticSeverity)(param0)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticSeverity)(param0) }
 }
 pub unsafe fn clang_getDiagnosticSpelling(param0: CXDiagnostic) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getDiagnosticSpelling)(param0)
-    })
+    unsafe { (crate::functions().clang_getDiagnosticSpelling)(param0) }
 }
 pub unsafe fn clang_getElementType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getElementType)(t) })
+    unsafe { (crate::functions().clang_getElementType)(t) }
 }
 pub unsafe fn clang_getEnumConstantDeclUnsignedValue(c: CXCursor) -> u64 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getEnumConstantDeclUnsignedValue)(c)
-    })
+    unsafe { (crate::functions().clang_getEnumConstantDeclUnsignedValue)(c) }
 }
 pub unsafe fn clang_getEnumConstantDeclValue(c: CXCursor) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getEnumConstantDeclValue)(c) })
+    unsafe { (crate::functions().clang_getEnumConstantDeclValue)(c) }
 }
 pub unsafe fn clang_getEnumDeclIntegerType(c: CXCursor) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getEnumDeclIntegerType)(c) })
+    unsafe { (crate::functions().clang_getEnumDeclIntegerType)(c) }
 }
 pub unsafe fn clang_getExceptionSpecificationType(t: CXType) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getExceptionSpecificationType)(t)
-    })
+    unsafe { (crate::functions().clang_getExceptionSpecificationType)(t) }
 }
 pub unsafe fn clang_getExpansionLocation(
     location: CXSourceLocation,
@@ -6392,24 +6156,22 @@ pub unsafe fn clang_getExpansionLocation(
     column: *mut u32,
     offset: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getExpansionLocation)(location, file, line, column, offset);
-    });
+    unsafe {
+        (crate::functions().clang_getExpansionLocation)(location, file, line, column, offset);
+    }
 }
 pub unsafe fn clang_getFieldDeclBitWidth(c: CXCursor) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getFieldDeclBitWidth)(c) })
+    unsafe { (crate::functions().clang_getFieldDeclBitWidth)(c) }
 }
 pub unsafe fn clang_getFile(tu: CXTranslationUnit, file_name: *const i8) -> CXFile {
-    crate::with_library(|library| unsafe { (library.functions.clang_getFile)(tu, file_name) })
+    unsafe { (crate::functions().clang_getFile)(tu, file_name) }
 }
 pub unsafe fn clang_getFileContents(
     tu: CXTranslationUnit,
     file: CXFile,
     size: *mut size_t,
 ) -> *const i8 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getFileContents)(tu, file, size)
-    })
+    unsafe { (crate::functions().clang_getFileContents)(tu, file, size) }
 }
 pub unsafe fn clang_getFileLocation(
     location: CXSourceLocation,
@@ -6418,49 +6180,43 @@ pub unsafe fn clang_getFileLocation(
     column: *mut u32,
     offset: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getFileLocation)(location, file, line, column, offset);
-    });
+    unsafe {
+        (crate::functions().clang_getFileLocation)(location, file, line, column, offset);
+    }
 }
 pub unsafe fn clang_getFileName(sfile: CXFile) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getFileName)(sfile) })
+    unsafe { (crate::functions().clang_getFileName)(sfile) }
 }
 pub unsafe fn clang_getFileTime(sfile: CXFile) -> time_t {
-    crate::with_library(|library| unsafe { (library.functions.clang_getFileTime)(sfile) })
+    unsafe { (crate::functions().clang_getFileTime)(sfile) }
 }
 pub unsafe fn clang_getFileUniqueID(file: CXFile, outid: *mut CXFileUniqueID) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getFileUniqueID)(file, outid) })
+    unsafe { (crate::functions().clang_getFileUniqueID)(file, outid) }
 }
 pub unsafe fn clang_getFullyQualifiedName(
     ct: CXType,
     policy: CXPrintingPolicy,
     withglobalnsprefix: u32,
 ) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getFullyQualifiedName)(ct, policy, withglobalnsprefix)
-    })
+    unsafe { (crate::functions().clang_getFullyQualifiedName)(ct, policy, withglobalnsprefix) }
 }
 pub unsafe fn clang_getFunctionTypeCallingConv(t: CXType) -> CXCallingConv {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getFunctionTypeCallingConv)(t)
-    })
+    unsafe { (crate::functions().clang_getFunctionTypeCallingConv)(t) }
 }
 pub unsafe fn clang_getIBOutletCollectionType(param0: CXCursor) -> CXType {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getIBOutletCollectionType)(param0)
-    })
+    unsafe { (crate::functions().clang_getIBOutletCollectionType)(param0) }
 }
 pub unsafe fn clang_getIncludedFile(cursor: CXCursor) -> CXFile {
-    crate::with_library(|library| unsafe { (library.functions.clang_getIncludedFile)(cursor) })
+    unsafe { (crate::functions().clang_getIncludedFile)(cursor) }
 }
 pub unsafe fn clang_getInclusions(
     tu: CXTranslationUnit,
     visitor: CXInclusionVisitor,
     client_data: CXClientData,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getInclusions)(tu, visitor, client_data);
-    });
+    unsafe {
+        (crate::functions().clang_getInclusions)(tu, visitor, client_data);
+    }
 }
 pub unsafe fn clang_getInstantiationLocation(
     location: CXSourceLocation,
@@ -6469,9 +6225,9 @@ pub unsafe fn clang_getInstantiationLocation(
     column: *mut u32,
     offset: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getInstantiationLocation)(location, file, line, column, offset);
-    });
+    unsafe {
+        (crate::functions().clang_getInstantiationLocation)(location, file, line, column, offset);
+    }
 }
 pub unsafe fn clang_getLocation(
     tu: CXTranslationUnit,
@@ -6479,81 +6235,65 @@ pub unsafe fn clang_getLocation(
     line: u32,
     column: u32,
 ) -> CXSourceLocation {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getLocation)(tu, file, line, column)
-    })
+    unsafe { (crate::functions().clang_getLocation)(tu, file, line, column) }
 }
 pub unsafe fn clang_getLocationForOffset(
     tu: CXTranslationUnit,
     file: CXFile,
     offset: u32,
 ) -> CXSourceLocation {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getLocationForOffset)(tu, file, offset)
-    })
+    unsafe { (crate::functions().clang_getLocationForOffset)(tu, file, offset) }
 }
 pub unsafe fn clang_getModuleForFile(param0: CXTranslationUnit, param1: CXFile) -> CXModule {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getModuleForFile)(param0, param1)
-    })
+    unsafe { (crate::functions().clang_getModuleForFile)(param0, param1) }
 }
 pub unsafe fn clang_getNonReferenceType(ct: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getNonReferenceType)(ct) })
+    unsafe { (crate::functions().clang_getNonReferenceType)(ct) }
 }
 pub unsafe fn clang_getNullCursor() -> CXCursor {
-    crate::with_library(|library| unsafe { (library.functions.clang_getNullCursor)() })
+    unsafe { (crate::functions().clang_getNullCursor)() }
 }
 pub unsafe fn clang_getNullLocation() -> CXSourceLocation {
-    crate::with_library(|library| unsafe { (library.functions.clang_getNullLocation)() })
+    unsafe { (crate::functions().clang_getNullLocation)() }
 }
 pub unsafe fn clang_getNullRange() -> CXSourceRange {
-    crate::with_library(|library| unsafe { (library.functions.clang_getNullRange)() })
+    unsafe { (crate::functions().clang_getNullRange)() }
 }
 pub unsafe fn clang_getNumArgTypes(t: CXType) -> i32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getNumArgTypes)(t) })
+    unsafe { (crate::functions().clang_getNumArgTypes)(t) }
 }
 pub unsafe fn clang_getNumCompletionChunks(completion_string: CXCompletionString) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getNumCompletionChunks)(completion_string)
-    })
+    unsafe { (crate::functions().clang_getNumCompletionChunks)(completion_string) }
 }
 pub unsafe fn clang_getNumDiagnostics(unit: CXTranslationUnit) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getNumDiagnostics)(unit) })
+    unsafe { (crate::functions().clang_getNumDiagnostics)(unit) }
 }
 pub unsafe fn clang_getNumDiagnosticsInSet(diags: CXDiagnosticSet) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getNumDiagnosticsInSet)(diags)
-    })
+    unsafe { (crate::functions().clang_getNumDiagnosticsInSet)(diags) }
 }
 pub unsafe fn clang_getNumElements(t: CXType) -> i64 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getNumElements)(t) })
+    unsafe { (crate::functions().clang_getNumElements)(t) }
 }
 pub unsafe fn clang_getNumOverloadedDecls(cursor: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getNumOverloadedDecls)(cursor)
-    })
+    unsafe { (crate::functions().clang_getNumOverloadedDecls)(cursor) }
 }
 pub unsafe fn clang_getOffsetOfBase(parent: CXCursor, base: CXCursor) -> i64 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getOffsetOfBase)(parent, base)
-    })
+    unsafe { (crate::functions().clang_getOffsetOfBase)(parent, base) }
 }
 pub unsafe fn clang_getOverloadedDecl(cursor: CXCursor, index: u32) -> CXCursor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getOverloadedDecl)(cursor, index)
-    })
+    unsafe { (crate::functions().clang_getOverloadedDecl)(cursor, index) }
 }
 pub unsafe fn clang_getOverriddenCursors(
     cursor: CXCursor,
     overridden: *mut *mut CXCursor,
     num_overridden: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getOverriddenCursors)(cursor, overridden, num_overridden);
-    });
+    unsafe {
+        (crate::functions().clang_getOverriddenCursors)(cursor, overridden, num_overridden);
+    }
 }
 pub unsafe fn clang_getPointeeType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getPointeeType)(t) })
+    unsafe { (crate::functions().clang_getPointeeType)(t) }
 }
 pub unsafe fn clang_getPresumedLocation(
     location: CXSourceLocation,
@@ -6561,40 +6301,36 @@ pub unsafe fn clang_getPresumedLocation(
     line: *mut u32,
     column: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getPresumedLocation)(location, filename, line, column);
-    });
+    unsafe {
+        (crate::functions().clang_getPresumedLocation)(location, filename, line, column);
+    }
 }
 pub unsafe fn clang_getRange(begin: CXSourceLocation, end: CXSourceLocation) -> CXSourceRange {
-    crate::with_library(|library| unsafe { (library.functions.clang_getRange)(begin, end) })
+    unsafe { (crate::functions().clang_getRange)(begin, end) }
 }
 pub unsafe fn clang_getRangeEnd(range: CXSourceRange) -> CXSourceLocation {
-    crate::with_library(|library| unsafe { (library.functions.clang_getRangeEnd)(range) })
+    unsafe { (crate::functions().clang_getRangeEnd)(range) }
 }
 pub unsafe fn clang_getRangeStart(range: CXSourceRange) -> CXSourceLocation {
-    crate::with_library(|library| unsafe { (library.functions.clang_getRangeStart)(range) })
+    unsafe { (crate::functions().clang_getRangeStart)(range) }
 }
 pub unsafe fn clang_getRemappings(param0: *const i8) -> CXRemapping {
-    crate::with_library(|library| unsafe { (library.functions.clang_getRemappings)(param0) })
+    unsafe { (crate::functions().clang_getRemappings)(param0) }
 }
 pub unsafe fn clang_getRemappingsFromFileList(param0: *mut *const i8, param1: u32) -> CXRemapping {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getRemappingsFromFileList)(param0, param1)
-    })
+    unsafe { (crate::functions().clang_getRemappingsFromFileList)(param0, param1) }
 }
 pub unsafe fn clang_getResultType(t: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getResultType)(t) })
+    unsafe { (crate::functions().clang_getResultType)(t) }
 }
 pub unsafe fn clang_getSkippedRanges(
     tu: CXTranslationUnit,
     file: CXFile,
 ) -> *mut CXSourceRangeList {
-    crate::with_library(|library| unsafe { (library.functions.clang_getSkippedRanges)(tu, file) })
+    unsafe { (crate::functions().clang_getSkippedRanges)(tu, file) }
 }
 pub unsafe fn clang_getSpecializedCursorTemplate(c: CXCursor) -> CXCursor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getSpecializedCursorTemplate)(c)
-    })
+    unsafe { (crate::functions().clang_getSpecializedCursorTemplate)(c) }
 }
 pub unsafe fn clang_getSpellingLocation(
     location: CXSourceLocation,
@@ -6603,92 +6339,72 @@ pub unsafe fn clang_getSpellingLocation(
     column: *mut u32,
     offset: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getSpellingLocation)(location, file, line, column, offset);
-    });
+    unsafe {
+        (crate::functions().clang_getSpellingLocation)(location, file, line, column, offset);
+    }
 }
 pub unsafe fn clang_getTUResourceUsageName(kind: CXTUResourceUsageKind) -> *const i8 {
-    crate::with_library(|library| unsafe { (library.functions.clang_getTUResourceUsageName)(kind) })
+    unsafe { (crate::functions().clang_getTUResourceUsageName)(kind) }
 }
 pub unsafe fn clang_getTemplateCursorKind(c: CXCursor) -> CXCursorKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_getTemplateCursorKind)(c) })
+    unsafe { (crate::functions().clang_getTemplateCursorKind)(c) }
 }
 pub unsafe fn clang_getToken(tu: CXTranslationUnit, location: CXSourceLocation) -> *mut CXToken {
-    crate::with_library(|library| unsafe { (library.functions.clang_getToken)(tu, location) })
+    unsafe { (crate::functions().clang_getToken)(tu, location) }
 }
 pub unsafe fn clang_getTokenExtent(param0: CXTranslationUnit, param1: CXToken) -> CXSourceRange {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTokenExtent)(param0, param1)
-    })
+    unsafe { (crate::functions().clang_getTokenExtent)(param0, param1) }
 }
 pub unsafe fn clang_getTokenKind(param0: CXToken) -> CXTokenKind {
-    crate::with_library(|library| unsafe { (library.functions.clang_getTokenKind)(param0) })
+    unsafe { (crate::functions().clang_getTokenKind)(param0) }
 }
 pub unsafe fn clang_getTokenLocation(
     param0: CXTranslationUnit,
     param1: CXToken,
 ) -> CXSourceLocation {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTokenLocation)(param0, param1)
-    })
+    unsafe { (crate::functions().clang_getTokenLocation)(param0, param1) }
 }
 pub unsafe fn clang_getTokenSpelling(param0: CXTranslationUnit, param1: CXToken) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTokenSpelling)(param0, param1)
-    })
+    unsafe { (crate::functions().clang_getTokenSpelling)(param0, param1) }
 }
 pub unsafe fn clang_getTranslationUnitCursor(param0: CXTranslationUnit) -> CXCursor {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTranslationUnitCursor)(param0)
-    })
+    unsafe { (crate::functions().clang_getTranslationUnitCursor)(param0) }
 }
 pub unsafe fn clang_getTranslationUnitSpelling(ctunit: CXTranslationUnit) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTranslationUnitSpelling)(ctunit)
-    })
+    unsafe { (crate::functions().clang_getTranslationUnitSpelling)(ctunit) }
 }
 pub unsafe fn clang_getTranslationUnitTargetInfo(ctunit: CXTranslationUnit) -> CXTargetInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTranslationUnitTargetInfo)(ctunit)
-    })
+    unsafe { (crate::functions().clang_getTranslationUnitTargetInfo)(ctunit) }
 }
 pub unsafe fn clang_getTypeDeclaration(t: CXType) -> CXCursor {
-    crate::with_library(|library| unsafe { (library.functions.clang_getTypeDeclaration)(t) })
+    unsafe { (crate::functions().clang_getTypeDeclaration)(t) }
 }
 pub unsafe fn clang_getTypeKindSpelling(k: CXTypeKind) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getTypeKindSpelling)(k) })
+    unsafe { (crate::functions().clang_getTypeKindSpelling)(k) }
 }
 pub unsafe fn clang_getTypePrettyPrinted(ct: CXType, cxpolicy: CXPrintingPolicy) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTypePrettyPrinted)(ct, cxpolicy)
-    })
+    unsafe { (crate::functions().clang_getTypePrettyPrinted)(ct, cxpolicy) }
 }
 pub unsafe fn clang_getTypeSpelling(ct: CXType) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getTypeSpelling)(ct) })
+    unsafe { (crate::functions().clang_getTypeSpelling)(ct) }
 }
 pub unsafe fn clang_getTypedefDeclUnderlyingType(c: CXCursor) -> CXType {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getTypedefDeclUnderlyingType)(c)
-    })
+    unsafe { (crate::functions().clang_getTypedefDeclUnderlyingType)(c) }
 }
 pub unsafe fn clang_getTypedefName(ct: CXType) -> CXString {
-    crate::with_library(|library| unsafe { (library.functions.clang_getTypedefName)(ct) })
+    unsafe { (crate::functions().clang_getTypedefName)(ct) }
 }
 pub unsafe fn clang_getUnaryOperatorKindSpelling(kind: CXUnaryOperatorKind) -> CXString {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_getUnaryOperatorKindSpelling)(kind)
-    })
+    unsafe { (crate::functions().clang_getUnaryOperatorKindSpelling)(kind) }
 }
 pub unsafe fn clang_getUnqualifiedType(ct: CXType) -> CXType {
-    crate::with_library(|library| unsafe { (library.functions.clang_getUnqualifiedType)(ct) })
+    unsafe { (crate::functions().clang_getUnqualifiedType)(ct) }
 }
 pub unsafe fn clang_hashCursor(param0: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_hashCursor)(param0) })
+    unsafe { (crate::functions().clang_hashCursor)(param0) }
 }
 pub unsafe fn clang_indexLoc_getCXSourceLocation(loc: CXIdxLoc) -> CXSourceLocation {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_indexLoc_getCXSourceLocation)(loc)
-    })
+    unsafe { (crate::functions().clang_indexLoc_getCXSourceLocation)(loc) }
 }
 pub unsafe fn clang_indexLoc_getFileLocation(
     loc: CXIdxLoc,
@@ -6698,11 +6414,11 @@ pub unsafe fn clang_indexLoc_getFileLocation(
     column: *mut u32,
     offset: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_indexLoc_getFileLocation)(
+    unsafe {
+        (crate::functions().clang_indexLoc_getFileLocation)(
             loc, indexfile, file, line, column, offset,
         );
-    });
+    }
 }
 pub unsafe fn clang_indexSourceFile(
     param0: CXIndexAction,
@@ -6718,8 +6434,8 @@ pub unsafe fn clang_indexSourceFile(
     out_tu: *mut CXTranslationUnit,
     tu_options: u32,
 ) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_indexSourceFile)(
+    unsafe {
+        (crate::functions().clang_indexSourceFile)(
             param0,
             client_data,
             index_callbacks,
@@ -6733,7 +6449,7 @@ pub unsafe fn clang_indexSourceFile(
             out_tu,
             tu_options,
         )
-    })
+    }
 }
 pub unsafe fn clang_indexSourceFileFullArgv(
     param0: CXIndexAction,
@@ -6749,8 +6465,8 @@ pub unsafe fn clang_indexSourceFileFullArgv(
     out_tu: *mut CXTranslationUnit,
     tu_options: u32,
 ) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_indexSourceFileFullArgv)(
+    unsafe {
+        (crate::functions().clang_indexSourceFileFullArgv)(
             param0,
             client_data,
             index_callbacks,
@@ -6764,7 +6480,7 @@ pub unsafe fn clang_indexSourceFileFullArgv(
             out_tu,
             tu_options,
         )
-    })
+    }
 }
 pub unsafe fn clang_indexTranslationUnit(
     param0: CXIndexAction,
@@ -6774,8 +6490,8 @@ pub unsafe fn clang_indexTranslationUnit(
     index_options: u32,
     param5: CXTranslationUnit,
 ) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_indexTranslationUnit)(
+    unsafe {
+        (crate::functions().clang_indexTranslationUnit)(
             param0,
             client_data,
             index_callbacks,
@@ -6783,162 +6499,136 @@ pub unsafe fn clang_indexTranslationUnit(
             index_options,
             param5,
         )
-    })
+    }
 }
 pub unsafe fn clang_index_getCXXClassDeclInfo(
     param0: *const CXIdxDeclInfo,
 ) -> *const CXIdxCXXClassDeclInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getCXXClassDeclInfo)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getCXXClassDeclInfo)(param0) }
 }
 pub unsafe fn clang_index_getClientContainer(
     param0: *const CXIdxContainerInfo,
 ) -> CXIdxClientContainer {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getClientContainer)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getClientContainer)(param0) }
 }
 pub unsafe fn clang_index_getClientEntity(param0: *const CXIdxEntityInfo) -> CXIdxClientEntity {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getClientEntity)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getClientEntity)(param0) }
 }
 pub unsafe fn clang_index_getIBOutletCollectionAttrInfo(
     param0: *const CXIdxAttrInfo,
 ) -> *const CXIdxIBOutletCollectionAttrInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getIBOutletCollectionAttrInfo)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getIBOutletCollectionAttrInfo)(param0) }
 }
 pub unsafe fn clang_index_getObjCCategoryDeclInfo(
     param0: *const CXIdxDeclInfo,
 ) -> *const CXIdxObjCCategoryDeclInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getObjCCategoryDeclInfo)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getObjCCategoryDeclInfo)(param0) }
 }
 pub unsafe fn clang_index_getObjCContainerDeclInfo(
     param0: *const CXIdxDeclInfo,
 ) -> *const CXIdxObjCContainerDeclInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getObjCContainerDeclInfo)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getObjCContainerDeclInfo)(param0) }
 }
 pub unsafe fn clang_index_getObjCInterfaceDeclInfo(
     param0: *const CXIdxDeclInfo,
 ) -> *const CXIdxObjCInterfaceDeclInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getObjCInterfaceDeclInfo)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getObjCInterfaceDeclInfo)(param0) }
 }
 pub unsafe fn clang_index_getObjCPropertyDeclInfo(
     param0: *const CXIdxDeclInfo,
 ) -> *const CXIdxObjCPropertyDeclInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getObjCPropertyDeclInfo)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getObjCPropertyDeclInfo)(param0) }
 }
 pub unsafe fn clang_index_getObjCProtocolRefListInfo(
     param0: *const CXIdxDeclInfo,
 ) -> *const CXIdxObjCProtocolRefListInfo {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_getObjCProtocolRefListInfo)(param0)
-    })
+    unsafe { (crate::functions().clang_index_getObjCProtocolRefListInfo)(param0) }
 }
 pub unsafe fn clang_index_isEntityObjCContainerKind(param0: CXIdxEntityKind) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_isEntityObjCContainerKind)(param0)
-    })
+    unsafe { (crate::functions().clang_index_isEntityObjCContainerKind)(param0) }
 }
 pub unsafe fn clang_index_setClientContainer(
     param0: *const CXIdxContainerInfo,
     param1: CXIdxClientContainer,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_setClientContainer)(param0, param1);
-    });
+    unsafe {
+        (crate::functions().clang_index_setClientContainer)(param0, param1);
+    }
 }
 pub unsafe fn clang_index_setClientEntity(
     param0: *const CXIdxEntityInfo,
     param1: CXIdxClientEntity,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_index_setClientEntity)(param0, param1);
-    });
+    unsafe {
+        (crate::functions().clang_index_setClientEntity)(param0, param1);
+    }
 }
 pub unsafe fn clang_isAttribute(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isAttribute)(param0) })
+    unsafe { (crate::functions().clang_isAttribute)(param0) }
 }
 pub unsafe fn clang_isBeforeInTranslationUnit(
     loc1: CXSourceLocation,
     loc2: CXSourceLocation,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_isBeforeInTranslationUnit)(loc1, loc2)
-    })
+    unsafe { (crate::functions().clang_isBeforeInTranslationUnit)(loc1, loc2) }
 }
 pub unsafe fn clang_isConstQualifiedType(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isConstQualifiedType)(t) })
+    unsafe { (crate::functions().clang_isConstQualifiedType)(t) }
 }
 pub unsafe fn clang_isCursorDefinition(param0: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isCursorDefinition)(param0) })
+    unsafe { (crate::functions().clang_isCursorDefinition)(param0) }
 }
 pub unsafe fn clang_isDeclaration(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isDeclaration)(param0) })
+    unsafe { (crate::functions().clang_isDeclaration)(param0) }
 }
 pub unsafe fn clang_isExpression(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isExpression)(param0) })
+    unsafe { (crate::functions().clang_isExpression)(param0) }
 }
 pub unsafe fn clang_isFileMultipleIncludeGuarded(tu: CXTranslationUnit, file: CXFile) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_isFileMultipleIncludeGuarded)(tu, file)
-    })
+    unsafe { (crate::functions().clang_isFileMultipleIncludeGuarded)(tu, file) }
 }
 pub unsafe fn clang_isFunctionTypeVariadic(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isFunctionTypeVariadic)(t) })
+    unsafe { (crate::functions().clang_isFunctionTypeVariadic)(t) }
 }
 pub unsafe fn clang_isInvalid(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isInvalid)(param0) })
+    unsafe { (crate::functions().clang_isInvalid)(param0) }
 }
 pub unsafe fn clang_isInvalidDeclaration(param0: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isInvalidDeclaration)(param0) })
+    unsafe { (crate::functions().clang_isInvalidDeclaration)(param0) }
 }
 pub unsafe fn clang_isPODType(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isPODType)(t) })
+    unsafe { (crate::functions().clang_isPODType)(t) }
 }
 pub unsafe fn clang_isPreprocessing(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isPreprocessing)(param0) })
+    unsafe { (crate::functions().clang_isPreprocessing)(param0) }
 }
 pub unsafe fn clang_isReference(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isReference)(param0) })
+    unsafe { (crate::functions().clang_isReference)(param0) }
 }
 pub unsafe fn clang_isRestrictQualifiedType(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isRestrictQualifiedType)(t) })
+    unsafe { (crate::functions().clang_isRestrictQualifiedType)(t) }
 }
 pub unsafe fn clang_isStatement(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isStatement)(param0) })
+    unsafe { (crate::functions().clang_isStatement)(param0) }
 }
 pub unsafe fn clang_isTranslationUnit(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isTranslationUnit)(param0) })
+    unsafe { (crate::functions().clang_isTranslationUnit)(param0) }
 }
 pub unsafe fn clang_isUnexposed(param0: CXCursorKind) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isUnexposed)(param0) })
+    unsafe { (crate::functions().clang_isUnexposed)(param0) }
 }
 pub unsafe fn clang_isVirtualBase(param0: CXCursor) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isVirtualBase)(param0) })
+    unsafe { (crate::functions().clang_isVirtualBase)(param0) }
 }
 pub unsafe fn clang_isVolatileQualifiedType(t: CXType) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_isVolatileQualifiedType)(t) })
+    unsafe { (crate::functions().clang_isVolatileQualifiedType)(t) }
 }
 pub unsafe fn clang_loadDiagnostics(
     file: *const i8,
     error: *mut CXLoadDiag_Error,
     errorstring: *mut CXString,
 ) -> CXDiagnosticSet {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_loadDiagnostics)(file, error, errorstring)
-    })
+    unsafe { (crate::functions().clang_loadDiagnostics)(file, error, errorstring) }
 }
 pub unsafe fn clang_parseTranslationUnit(
     cidx: CXIndex,
@@ -6949,8 +6639,8 @@ pub unsafe fn clang_parseTranslationUnit(
     num_unsaved_files: u32,
     options: u32,
 ) -> CXTranslationUnit {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_parseTranslationUnit)(
+    unsafe {
+        (crate::functions().clang_parseTranslationUnit)(
             cidx,
             source_filename,
             command_line_args,
@@ -6959,7 +6649,7 @@ pub unsafe fn clang_parseTranslationUnit(
             num_unsaved_files,
             options,
         )
-    })
+    }
 }
 pub unsafe fn clang_parseTranslationUnit2(
     cidx: CXIndex,
@@ -6971,8 +6661,8 @@ pub unsafe fn clang_parseTranslationUnit2(
     options: u32,
     out_tu: *mut CXTranslationUnit,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_parseTranslationUnit2)(
+    unsafe {
+        (crate::functions().clang_parseTranslationUnit2)(
             cidx,
             source_filename,
             command_line_args,
@@ -6982,7 +6672,7 @@ pub unsafe fn clang_parseTranslationUnit2(
             options,
             out_tu,
         )
-    })
+    }
 }
 pub unsafe fn clang_parseTranslationUnit2FullArgv(
     cidx: CXIndex,
@@ -6994,8 +6684,8 @@ pub unsafe fn clang_parseTranslationUnit2FullArgv(
     options: u32,
     out_tu: *mut CXTranslationUnit,
 ) -> CXErrorCode {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_parseTranslationUnit2FullArgv)(
+    unsafe {
+        (crate::functions().clang_parseTranslationUnit2FullArgv)(
             cidx,
             source_filename,
             command_line_args,
@@ -7005,12 +6695,12 @@ pub unsafe fn clang_parseTranslationUnit2FullArgv(
             options,
             out_tu,
         )
-    })
+    }
 }
 pub unsafe fn clang_remap_dispose(param0: CXRemapping) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_remap_dispose)(param0);
-    });
+    unsafe {
+        (crate::functions().clang_remap_dispose)(param0);
+    }
 }
 pub unsafe fn clang_remap_getFilenames(
     param0: CXRemapping,
@@ -7018,12 +6708,12 @@ pub unsafe fn clang_remap_getFilenames(
     param2: *mut CXString,
     param3: *mut CXString,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_remap_getFilenames)(param0, param1, param2, param3);
-    });
+    unsafe {
+        (crate::functions().clang_remap_getFilenames)(param0, param1, param2, param3);
+    }
 }
 pub unsafe fn clang_remap_getNumFiles(param0: CXRemapping) -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.clang_remap_getNumFiles)(param0) })
+    unsafe { (crate::functions().clang_remap_getNumFiles)(param0) }
 }
 pub unsafe fn clang_reparseTranslationUnit(
     tu: CXTranslationUnit,
@@ -7031,38 +6721,34 @@ pub unsafe fn clang_reparseTranslationUnit(
     unsaved_files: *mut CXUnsavedFile,
     options: u32,
 ) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_reparseTranslationUnit)(
+    unsafe {
+        (crate::functions().clang_reparseTranslationUnit)(
             tu,
             num_unsaved_files,
             unsaved_files,
             options,
         )
-    })
+    }
 }
 pub unsafe fn clang_saveTranslationUnit(
     tu: CXTranslationUnit,
     filename: *const i8,
     options: u32,
 ) -> i32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_saveTranslationUnit)(tu, filename, options)
-    })
+    unsafe { (crate::functions().clang_saveTranslationUnit)(tu, filename, options) }
 }
 pub unsafe fn clang_sortCodeCompletionResults(results: *mut CXCompletionResult, numresults: u32) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_sortCodeCompletionResults)(results, numresults);
-    });
+    unsafe {
+        (crate::functions().clang_sortCodeCompletionResults)(results, numresults);
+    }
 }
 pub unsafe fn clang_suspendTranslationUnit(param0: CXTranslationUnit) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_suspendTranslationUnit)(param0)
-    })
+    unsafe { (crate::functions().clang_suspendTranslationUnit)(param0) }
 }
 pub unsafe fn clang_toggleCrashRecovery(isenabled: u32) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_toggleCrashRecovery)(isenabled);
-    });
+    unsafe {
+        (crate::functions().clang_toggleCrashRecovery)(isenabled);
+    }
 }
 pub unsafe fn clang_tokenize(
     tu: CXTranslationUnit,
@@ -7070,65 +6756,51 @@ pub unsafe fn clang_tokenize(
     tokens: *mut *mut CXToken,
     numtokens: *mut u32,
 ) {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_tokenize)(tu, range, tokens, numtokens);
-    });
+    unsafe {
+        (crate::functions().clang_tokenize)(tu, range, tokens, numtokens);
+    }
 }
 pub unsafe fn clang_visitCXXBaseClasses(
     t: CXType,
     visitor: CXFieldVisitor,
     client_data: CXClientData,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_visitCXXBaseClasses)(t, visitor, client_data)
-    })
+    unsafe { (crate::functions().clang_visitCXXBaseClasses)(t, visitor, client_data) }
 }
 pub unsafe fn clang_visitCXXMethods(
     t: CXType,
     visitor: CXFieldVisitor,
     client_data: CXClientData,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_visitCXXMethods)(t, visitor, client_data)
-    })
+    unsafe { (crate::functions().clang_visitCXXMethods)(t, visitor, client_data) }
 }
 pub unsafe fn clang_visitChildren(
     parent: CXCursor,
     visitor: CXCursorVisitor,
     client_data: CXClientData,
 ) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_visitChildren)(parent, visitor, client_data)
-    })
+    unsafe { (crate::functions().clang_visitChildren)(parent, visitor, client_data) }
 }
 pub unsafe fn clang_visitChildrenWithBlock(parent: CXCursor, block: CXCursorVisitorBlock) -> u32 {
-    crate::with_library(|library| unsafe {
-        (library.functions.clang_visitChildrenWithBlock)(parent, block)
-    })
+    unsafe { (crate::functions().clang_visitChildrenWithBlock)(parent, block) }
 }
 pub unsafe fn windows_clang_getABIVersion() -> u32 {
-    crate::with_library(|library| unsafe { (library.functions.windows_clang_getABIVersion)() })
+    unsafe { (crate::functions().windows_clang_getABIVersion)() }
 }
 pub unsafe fn windows_clang_getAlignment(
     cursor: CXCursor,
     info: *mut WindowsClangAlignmentInfo,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getAlignment)(cursor, info)
-    })
+    unsafe { (crate::functions().windows_clang_getAlignment)(cursor, info) }
 }
 pub unsafe fn windows_clang_getAttributeKindName(cursor: CXCursor) -> *const i8 {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getAttributeKindName)(cursor)
-    })
+    unsafe { (crate::functions().windows_clang_getAttributeKindName)(cursor) }
 }
 pub unsafe fn windows_clang_getConstantInitializer(
     cursor: CXCursor,
     is_constant: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getConstantInitializer)(cursor, is_constant)
-    })
+    unsafe { (crate::functions().windows_clang_getConstantInitializer)(cursor, is_constant) }
 }
 pub unsafe fn windows_clang_getConstantIntegerElement(
     cursor: CXCursor,
@@ -7136,190 +6808,148 @@ pub unsafe fn windows_clang_getConstantIntegerElement(
     count: u32,
     value: *mut u64,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getConstantIntegerElement)(cursor, indices, count, value)
-    })
+    unsafe {
+        (crate::functions().windows_clang_getConstantIntegerElement)(cursor, indices, count, value)
+    }
 }
 pub unsafe fn windows_clang_getConstantPointerInitializer(
     cursor: CXCursor,
     value: *mut i64,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .windows_clang_getConstantPointerInitializer)(cursor, value)
-    })
+    unsafe { (crate::functions().windows_clang_getConstantPointerInitializer)(cursor, value) }
 }
 pub unsafe fn windows_clang_getDeprecation(
     cursor: CXCursor,
     message: *mut CXString,
     replacement: *mut CXString,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getDeprecation)(cursor, message, replacement)
-    })
+    unsafe { (crate::functions().windows_clang_getDeprecation)(cursor, message, replacement) }
 }
 pub unsafe fn windows_clang_getFieldInitializer(
     cursor: CXCursor,
     has_initializer: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getFieldInitializer)(cursor, has_initializer)
-    })
+    unsafe { (crate::functions().windows_clang_getFieldInitializer)(cursor, has_initializer) }
 }
 pub unsafe fn windows_clang_getFunctionInfo(
     r#type: CXType,
     info: *mut WindowsClangFunctionInfo,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getFunctionInfo)(r#type, info)
-    })
+    unsafe { (crate::functions().windows_clang_getFunctionInfo)(r#type, info) }
 }
 pub unsafe fn windows_clang_getImportConvention(
     cursor: CXCursor,
     info: *mut WindowsClangImportConvention,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getImportConvention)(cursor, info)
-    })
+    unsafe { (crate::functions().windows_clang_getImportConvention)(cursor, info) }
 }
 pub unsafe fn windows_clang_getIntegerConstantInitializer(
     cursor: CXCursor,
     is_constant: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library
-            .functions
-            .windows_clang_getIntegerConstantInitializer)(cursor, is_constant)
-    })
+    unsafe { (crate::functions().windows_clang_getIntegerConstantInitializer)(cursor, is_constant) }
 }
 pub unsafe fn windows_clang_getLLVMVersion() -> *const i8 {
-    crate::with_library(|library| unsafe { (library.functions.windows_clang_getLLVMVersion)() })
+    unsafe { (crate::functions().windows_clang_getLLVMVersion)() }
 }
 pub unsafe fn windows_clang_getLanguageLinkage(
     cursor: CXCursor,
     linkage: *mut WindowsClangLanguageLinkage,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getLanguageLinkage)(cursor, linkage)
-    })
+    unsafe { (crate::functions().windows_clang_getLanguageLinkage)(cursor, linkage) }
 }
 pub unsafe fn windows_clang_getLayoutExpression(
     declaration: CXCursor,
     expression: CXCursor,
     is_layout_expression: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getLayoutExpression)(
+    unsafe {
+        (crate::functions().windows_clang_getLayoutExpression)(
             declaration,
             expression,
             is_layout_expression,
         )
-    })
+    }
 }
 pub unsafe fn windows_clang_getMaxFieldAlignment(
     cursor: CXCursor,
     alignment_bits: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getMaxFieldAlignment)(cursor, alignment_bits)
-    })
+    unsafe { (crate::functions().windows_clang_getMaxFieldAlignment)(cursor, alignment_bits) }
 }
 pub unsafe fn windows_clang_getMethodQualifiers(
     r#type: CXType,
     qualifiers: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getMethodQualifiers)(r#type, qualifiers)
-    })
+    unsafe { (crate::functions().windows_clang_getMethodQualifiers)(r#type, qualifiers) }
 }
 pub unsafe fn windows_clang_getParameterDefaultArgument(
     parameter: CXCursor,
     expression: *mut CXCursor,
     spelling: *mut CXString,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getParameterDefaultArgument)(
+    unsafe {
+        (crate::functions().windows_clang_getParameterDefaultArgument)(
             parameter, expression, spelling,
         )
-    })
+    }
 }
 pub unsafe fn windows_clang_getPointerInfo(
     r#type: CXType,
     info: *mut WindowsClangPointerInfo,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getPointerInfo)(r#type, info)
-    })
+    unsafe { (crate::functions().windows_clang_getPointerInfo)(r#type, info) }
 }
 pub unsafe fn windows_clang_getPredefinedType(
     r#type: CXType,
     underlying: *mut CXType,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getPredefinedType)(r#type, underlying)
-    })
+    unsafe { (crate::functions().windows_clang_getPredefinedType)(r#type, underlying) }
 }
 pub unsafe fn windows_clang_getRuntimeIdentity() -> *const core::ffi::c_void {
-    crate::with_library(|library| unsafe { (library.functions.windows_clang_getRuntimeIdentity)() })
+    unsafe { (crate::functions().windows_clang_getRuntimeIdentity)() }
 }
 pub unsafe fn windows_clang_getTypeAttributeKindName(r#type: CXType) -> *const i8 {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getTypeAttributeKindName)(r#type)
-    })
+    unsafe { (crate::functions().windows_clang_getTypeAttributeKindName)(r#type) }
 }
 pub unsafe fn windows_clang_getTypeOfOperand(
     cursor: CXCursor,
     expression: *mut CXCursor,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getTypeOfOperand)(cursor, expression)
-    })
+    unsafe { (crate::functions().windows_clang_getTypeOfOperand)(cursor, expression) }
 }
 pub unsafe fn windows_clang_getTypeQualifiers(
     r#type: CXType,
     qualifiers: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getTypeQualifiers)(r#type, qualifiers)
-    })
+    unsafe { (crate::functions().windows_clang_getTypeQualifiers)(r#type, qualifiers) }
 }
 pub unsafe fn windows_clang_getTypeVisibility(
     cursor: CXCursor,
     visibility: *mut CXVisibilityKind,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getTypeVisibility)(cursor, visibility)
-    })
+    unsafe { (crate::functions().windows_clang_getTypeVisibility)(cursor, visibility) }
 }
 pub unsafe fn windows_clang_getTypedefDefinition(
     cursor: CXCursor,
     defines_tag: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getTypedefDefinition)(cursor, defines_tag)
-    })
+    unsafe { (crate::functions().windows_clang_getTypedefDefinition)(cursor, defines_tag) }
 }
 pub unsafe fn windows_clang_getTypedefImplicit(
     cursor: CXCursor,
     is_implicit: *mut u32,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getTypedefImplicit)(cursor, is_implicit)
-    })
+    unsafe { (crate::functions().windows_clang_getTypedefImplicit)(cursor, is_implicit) }
 }
 pub unsafe fn windows_clang_getUuid(cursor: CXCursor, uuid: *mut CXString) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getUuid)(cursor, uuid)
-    })
+    unsafe { (crate::functions().windows_clang_getUuid)(cursor, uuid) }
 }
 pub unsafe fn windows_clang_getVirtualMethodSlot(
     cursor: CXCursor,
     slot: *mut u64,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_getVirtualMethodSlot)(cursor, slot)
-    })
+    unsafe { (crate::functions().windows_clang_getVirtualMethodSlot)(cursor, slot) }
 }
 pub unsafe fn windows_clang_probeMacros(
     source_filename: *const i8,
@@ -7332,8 +6962,8 @@ pub unsafe fn windows_clang_probeMacros(
     probes: *mut WindowsClangMacroProbe,
     error: *mut CXString,
 ) -> WindowsClangStatus {
-    crate::with_library(|library| unsafe {
-        (library.functions.windows_clang_probeMacros)(
+    unsafe {
+        (crate::functions().windows_clang_probeMacros)(
             source_filename,
             command_line_args,
             num_command_line_args,
@@ -7344,5 +6974,5 @@ pub unsafe fn windows_clang_probeMacros(
             probes,
             error,
         )
-    })
+    }
 }

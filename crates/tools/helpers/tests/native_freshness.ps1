@@ -17,7 +17,7 @@ $action = {
     $state.Count++
     New-Item -ItemType Directory -Force $bin | Out-Null
     [IO.File]::WriteAllText((Join-Path $bin 'libclang.dll'), 'runtime')
-    [IO.File]::WriteAllText((Join-Path $bin 'libClangSharp.dll'), "companion-$($state.Count)")
+    [IO.File]::WriteAllText((Join-Path $bin 'windows_clang.dll'), "companion-$($state.Count)")
 }
 
 function Ensure-Build($Version = '1.0', $Triple = 'x64') {
@@ -77,7 +77,7 @@ try {
     Assert ($state.Count -eq $before + 1) 'Architecture change was not detected'
     Assert-Rebuild
 
-    foreach ($name in @('libclang.dll', 'libClangSharp.dll')) {
+    foreach ($name in @('libclang.dll', 'windows_clang.dll')) {
         $path = Join-Path $bin $name
         [IO.File]::WriteAllText($path, 'replaced DLL')
         Assert-Rebuild
@@ -99,7 +99,7 @@ try {
     } 'inputs changed during the build'
     Assert-FailedBuild {
         & $action
-        Remove-Item -LiteralPath (Join-Path $bin 'libClangSharp.dll')
+        Remove-Item -LiteralPath (Join-Path $bin 'windows_clang.dll')
     } 'did not produce both DLLs'
 
     $lock = [IO.File]::Open((Join-Path (Split-Path $bin) 'build.lock'), 'Open', 'ReadWrite', 'None')
