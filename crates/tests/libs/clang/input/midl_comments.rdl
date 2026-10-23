@@ -1,13 +1,13 @@
 #[win32]
 mod Fixture {
-    extern "C" fn Buffer(#[out] #[iid_is] result: *mut *mut void);
+    extern "C" fn Buffer(#[iid_is] #[out] result: *mut *mut void);
     #[library("example.dll")]
-    extern "C" fn BufferFunction(first: i32, #[out] #[retval] #[iid_is] result: *mut *mut void, nested: extern "C" fn(*mut *mut void), prose: *mut *mut void, #[out] ordinary: *mut *mut void);
+    extern "C" fn BufferFunction(first: i32, #[iid_is] #[out] #[retval] result: *mut *mut void, nested: extern "C" fn(*mut *mut void), prose: *mut *mut void, #[out] ordinary: *mut *mut void);
     struct CommentCallbackStorage {
         named: CommentOnlyCallback,
         structural: extern "C" fn(*mut *mut void),
     }
-    extern "C" fn CommentOnlyCallback(#[out] #[iid_is] value: *mut *mut void);
+    extern "C" fn CommentOnlyCallback(#[iid_is] #[out] value: *mut *mut void);
     extern "C" fn Directions(#[in] input: i32, #[out] output: *mut i32, #[in] #[out] both: *mut i32, unknown: *mut i32, prose: *mut i32);
     #[guid(0x22222222_2222_2222_2222_222222222222)]
     interface IBuffer {

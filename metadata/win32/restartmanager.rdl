@@ -96,9 +96,9 @@ mod Windows {
         #[library("RstrtMgr.DLL")]
         extern fn RmEndSession(#[in] dwSessionHandle: DWORD) -> DWORD;
         #[library("RstrtMgr.DLL")]
-        extern fn RmGetFilterList(#[in] dwSessionHandle: DWORD, #[out] #[opt] #[writable(entry, bytes(cbFilterBuf))] pbFilterBuf: PBYTE, #[in] cbFilterBuf: DWORD, #[out] cbFilterBufNeeded: LPDWORD) -> DWORD;
+        extern fn RmGetFilterList(#[in] dwSessionHandle: DWORD, #[opt] #[out] #[writable(entry, bytes(cbFilterBuf))] pbFilterBuf: PBYTE, #[in] cbFilterBuf: DWORD, #[out] cbFilterBufNeeded: LPDWORD) -> DWORD;
         #[library("RstrtMgr.DLL")]
-        extern fn RmGetList(#[in] dwSessionHandle: DWORD, #[out] pnProcInfoNeeded: *mut UINT, #[in] #[out] pnProcInfo: *mut UINT, #[in] #[out] #[opt] #[writable(entry, *pnProcInfo)] rgAffectedApps: *mut RM_PROCESS_INFO, #[out] lpdwRebootReasons: LPDWORD) -> DWORD;
+        extern fn RmGetList(#[in] dwSessionHandle: DWORD, #[out] pnProcInfoNeeded: *mut UINT, #[in] #[out] pnProcInfo: *mut UINT, #[in] #[opt] #[out] #[writable(entry, *pnProcInfo)] rgAffectedApps: *mut RM_PROCESS_INFO, #[out] lpdwRebootReasons: LPDWORD) -> DWORD;
         #[library("RstrtMgr.DLL")]
         extern fn RmJoinSession(#[out] pSessionHandle: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "sizeof(GUID)*2+1", "sizeof(GUID)*2+1")] #[in] strSessionKey: *const WCHAR) -> DWORD;
         #[library("RstrtMgr.DLL")]

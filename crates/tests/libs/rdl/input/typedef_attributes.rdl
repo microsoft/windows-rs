@@ -3,7 +3,7 @@ mod Test {
     attribute ContractAttribute {
         fn(#[in] expression: String);
     }
-    #[arch(X86)]
     #[Contract("return >= 0")]
+    #[arch(X86)]
     type Status = i32;
 }

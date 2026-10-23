@@ -2,9 +2,9 @@
 mod Windows {
     mod Media {
         mod Playlists {
-            #[guid(0x803736f5_cf44_4d97_83b3_7a089e9ab663)]
             #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Playlist)]
+            #[guid(0x803736f5_cf44_4d97_83b3_7a089e9ab663)]
             interface IPlaylist {
                 #[get]
                 Files: super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>;
@@ -17,9 +17,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SaveAsAsync(&self, #[in] saveLocation: super::super::Storage::IStorageFolder, #[in] desiredName: String, #[in] option: super::super::Storage::NameCollisionOption, #[in] playlistFormat: PlaylistFormat) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>;
             }
-            #[guid(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68)]
             #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Playlist)]
+            #[guid(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68)]
             interface IPlaylistStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn LoadAsync(&self, #[in] file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<Playlist>;
@@ -32,8 +32,8 @@ mod Windows {
             class Playlist {
                 IPlaylist,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
+            #[repr(i32)]
             enum PlaylistFormat {
                 WindowsMedia = 0,
                 Zune = 1,

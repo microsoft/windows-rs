@@ -355,9 +355,9 @@ mod Windows {
         const ET_SIGNATURE: i32 = 256;
         const ET_STANDARDDISPLAYCOLOR: i32 = 131072;
         #[library("mscms.dll")]
-        extern fn EnumColorProfilesA(#[in] #[opt] pMachineName: PCSTR, #[in] pEnumRecord: PENUMTYPEA, #[out] #[opt] #[writable(entry, bytes(*pdwSizeOfEnumerationBuffer))] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
+        extern fn EnumColorProfilesA(#[in] #[opt] pMachineName: PCSTR, #[in] pEnumRecord: PENUMTYPEA, #[opt] #[out] #[writable(entry, bytes(*pdwSizeOfEnumerationBuffer))] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[opt] #[out] pnProfiles: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn EnumColorProfilesW(#[in] #[opt] pMachineName: PCWSTR, #[in] pEnumRecord: PENUMTYPEW, #[out] #[opt] #[writable(entry, bytes(*pdwSizeOfEnumerationBuffer))] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
+        extern fn EnumColorProfilesW(#[in] #[opt] pMachineName: PCWSTR, #[in] pEnumRecord: PENUMTYPEW, #[opt] #[out] #[writable(entry, bytes(*pdwSizeOfEnumerationBuffer))] pEnumerationBuffer: PBYTE, #[in] #[out] pdwSizeOfEnumerationBuffer: PDWORD, #[opt] #[out] pnProfiles: PDWORD) -> BOOL;
         const FAST_TRANSLATE: i32 = 262144;
         const FLAG_DEPENDENTONDATA: i32 = 2;
         const FLAG_EMBEDDEDPROFILE: i32 = 1;
@@ -374,16 +374,16 @@ mod Windows {
         extern fn GetCMMInfo(#[in] hColorTransform: HTRANSFORM, #[in] param1: DWORD) -> DWORD;
         #[Windows::Win32::Metadata::NativeDeprecated("GetColorDirectoryW is deprecated and might not work on all platforms. For more info, see MSDN.", "")]
         #[library("mscms.dll")]
-        extern fn GetColorDirectoryA(#[in] #[opt] pMachineName: PCSTR, #[out] #[opt] #[writable(entry, bytes(*pdwSize))] #[readable(success, bytes(*pdwSize))] pBuffer: PSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
+        extern fn GetColorDirectoryA(#[in] #[opt] pMachineName: PCSTR, #[opt] #[out] #[readable(success, bytes(*pdwSize))] #[writable(entry, bytes(*pdwSize))] pBuffer: PSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
         #[Windows::Win32::Metadata::NativeDeprecated("GetColorDirectoryA is deprecated and might not work on all platforms. For more info, see MSDN.", "")]
         #[library("mscms.dll")]
-        extern fn GetColorDirectoryW(#[in] #[opt] pMachineName: PCWSTR, #[out] #[opt] #[writable(entry, bytes(*pdwSize))] #[readable(success, bytes(*pdwSize))] pBuffer: PWSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
+        extern fn GetColorDirectoryW(#[in] #[opt] pMachineName: PCWSTR, #[opt] #[out] #[readable(success, bytes(*pdwSize))] #[writable(entry, bytes(*pdwSize))] pBuffer: PWSTR, #[in] #[out] pdwSize: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetColorProfileElement(#[in] hProfile: HPROFILE, tag: TAGTYPE, dwOffset: DWORD, #[in] #[out] pcbElement: PDWORD, #[out] #[opt] #[writable(entry, bytes(*pcbElement))] pElement: PVOID, #[out] pbReference: PBOOL) -> BOOL;
+        extern fn GetColorProfileElement(#[in] hProfile: HPROFILE, tag: TAGTYPE, dwOffset: DWORD, #[in] #[out] pcbElement: PDWORD, #[opt] #[out] #[writable(entry, bytes(*pcbElement))] pElement: PVOID, #[out] pbReference: PBOOL) -> BOOL;
         #[library("mscms.dll")]
         extern fn GetColorProfileElementTag(#[in] hProfile: HPROFILE, dwIndex: DWORD, #[out] pTag: PTAGTYPE) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetColorProfileFromHandle(#[in] hProfile: HPROFILE, #[out] #[opt] #[writable(entry, bytes(*pcbProfile))] pProfile: PBYTE, #[in] #[out] pcbProfile: PDWORD) -> BOOL;
+        extern fn GetColorProfileFromHandle(#[in] hProfile: HPROFILE, #[opt] #[out] #[writable(entry, bytes(*pcbProfile))] pProfile: PBYTE, #[in] #[out] pcbProfile: PDWORD) -> BOOL;
         #[library("mscms.dll")]
         extern fn GetColorProfileHeader(#[in] hProfile: HPROFILE, #[out] pHeader: PPROFILEHEADER) -> BOOL;
         #[library("mscms.dll")]
@@ -391,17 +391,17 @@ mod Windows {
         #[library("mscms.dll")]
         extern fn GetNamedProfileInfo(#[in] hProfile: HPROFILE, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_updates_bytes_", "sizeof(NAMED_PROFILE_INFO)", "sizeof(NAMED_PROFILE_INFO)")] #[in] #[out] pNamedProfileInfo: PNAMED_PROFILE_INFO) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetPS2ColorRenderingDictionary(#[in] hProfile: HPROFILE, dwIntent: DWORD, #[out] #[opt] #[writable(entry, bytes(*pcbPS2ColorRenderingDictionary))] pPS2ColorRenderingDictionary: PBYTE, #[in] #[out] pcbPS2ColorRenderingDictionary: PDWORD, #[in] #[out] pbBinary: PBOOL) -> BOOL;
+        extern fn GetPS2ColorRenderingDictionary(#[in] hProfile: HPROFILE, dwIntent: DWORD, #[opt] #[out] #[writable(entry, bytes(*pcbPS2ColorRenderingDictionary))] pPS2ColorRenderingDictionary: PBYTE, #[in] #[out] pcbPS2ColorRenderingDictionary: PDWORD, #[in] #[out] pbBinary: PBOOL) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetPS2ColorRenderingIntent(#[in] hProfile: HPROFILE, dwIntent: DWORD, #[out] #[opt] #[writable(entry, bytes(*pcbPS2ColorRenderingIntent))] pBuffer: PBYTE, #[in] #[out] pcbPS2ColorRenderingIntent: PDWORD) -> BOOL;
+        extern fn GetPS2ColorRenderingIntent(#[in] hProfile: HPROFILE, dwIntent: DWORD, #[opt] #[out] #[writable(entry, bytes(*pcbPS2ColorRenderingIntent))] pBuffer: PBYTE, #[in] #[out] pcbPS2ColorRenderingIntent: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetPS2ColorSpaceArray(#[in] hProfile: HPROFILE, dwIntent: DWORD, dwCSAType: DWORD, #[out] #[opt] #[writable(entry, bytes(*pcbPS2ColorSpaceArray))] pPS2ColorSpaceArray: PBYTE, #[in] #[out] pcbPS2ColorSpaceArray: PDWORD, #[out] pbBinary: PBOOL) -> BOOL;
+        extern fn GetPS2ColorSpaceArray(#[in] hProfile: HPROFILE, dwIntent: DWORD, dwCSAType: DWORD, #[opt] #[out] #[writable(entry, bytes(*pcbPS2ColorSpaceArray))] pPS2ColorSpaceArray: PBYTE, #[in] #[out] pcbPS2ColorSpaceArray: PDWORD, #[out] pbBinary: PBOOL) -> BOOL;
+        #[library("mscms.dll")]
         #[success(return != 0)]
+        extern fn GetStandardColorSpaceProfileA(#[in] #[opt] pMachineName: PCSTR, #[in] dwSCS: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] pBuffer: PSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
         #[library("mscms.dll")]
-        extern fn GetStandardColorSpaceProfileA(#[in] #[opt] pMachineName: PCSTR, #[in] dwSCS: DWORD, #[out] #[opt] #[writable(entry, bytes(*pcbSize))] #[readable(success, bytes(*pcbSize))] pBuffer: PSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
         #[success(return != 0)]
-        #[library("mscms.dll")]
-        extern fn GetStandardColorSpaceProfileW(#[in] #[opt] pMachineName: PCWSTR, #[in] dwSCS: DWORD, #[out] #[opt] #[writable(entry, bytes(*pcbSize))] #[readable(success, bytes(*pcbSize))] pBuffer: PWSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
+        extern fn GetStandardColorSpaceProfileW(#[in] #[opt] pMachineName: PCWSTR, #[in] dwSCS: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] pBuffer: PWSTR, #[in] #[out] pcbSize: PDWORD) -> BOOL;
         type HCMTRANSFORM = *mut void;
         type HPROFILE = *mut void;
         type HTRANSFORM = *mut void;
@@ -604,7 +604,7 @@ mod Windows {
         #[library("mscms.dll")]
         extern fn WcsDisassociateColorProfileFromDevice(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] pProfileName: PCWSTR, #[in] pDeviceName: PCWSTR) -> BOOL;
         #[library("mscms.dll")]
-        extern fn WcsEnumColorProfiles(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] pEnumRecord: PENUMTYPEW, #[out] #[writable(entry, bytes(dwSize))] pBuffer: PBYTE, #[in] dwSize: DWORD, #[out] #[opt] pnProfiles: PDWORD) -> BOOL;
+        extern fn WcsEnumColorProfiles(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] pEnumRecord: PENUMTYPEW, #[out] #[writable(entry, bytes(dwSize))] pBuffer: PBYTE, #[in] dwSize: DWORD, #[opt] #[out] pnProfiles: PDWORD) -> BOOL;
         #[library("mscms.dll")]
         extern fn WcsEnumColorProfilesSize(#[in] scope: WCS_PROFILE_MANAGEMENT_SCOPE, #[in] pEnumRecord: PENUMTYPEW, #[out] pdwSize: PDWORD) -> BOOL;
         #[library("mscms.dll")]

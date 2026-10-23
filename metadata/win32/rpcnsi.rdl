@@ -116,9 +116,9 @@ mod Windows {
         #[library("RPCNS4.dll")]
         extern fn RpcNsProfileEltInqDone(InquiryContext: *mut RPC_NS_HANDLE) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsProfileEltInqNextA(#[in] InquiryContext: RPC_NS_HANDLE, #[out] #[opt] IfId: *mut RPC_IF_ID, #[out] MemberName: *mut RPC_CSTR, #[out] Priority: *mut u32, #[out] Annotation: *mut RPC_CSTR) -> RPC_STATUS;
+        extern fn RpcNsProfileEltInqNextA(#[in] InquiryContext: RPC_NS_HANDLE, #[opt] #[out] IfId: *mut RPC_IF_ID, #[out] MemberName: *mut RPC_CSTR, #[out] Priority: *mut u32, #[out] Annotation: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
-        extern fn RpcNsProfileEltInqNextW(#[in] InquiryContext: RPC_NS_HANDLE, #[out] #[opt] IfId: *mut RPC_IF_ID, #[out] MemberName: *mut RPC_WSTR, #[out] Priority: *mut u32, #[out] Annotation: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RpcNsProfileEltInqNextW(#[in] InquiryContext: RPC_NS_HANDLE, #[opt] #[out] IfId: *mut RPC_IF_ID, #[out] MemberName: *mut RPC_WSTR, #[out] Priority: *mut u32, #[out] Annotation: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]
         extern fn RpcNsProfileEltRemoveA(#[in] ProfileNameSyntax: u32, #[in] ProfileName: RPC_CSTR, #[in] #[opt] IfId: *mut RPC_IF_ID, #[in] MemberNameSyntax: u32, #[in] MemberName: RPC_CSTR) -> RPC_STATUS;
         #[library("RPCNS4.dll")]

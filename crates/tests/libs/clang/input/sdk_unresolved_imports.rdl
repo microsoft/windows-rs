@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
-    #[library("DHCPSAPI.DLL")]
     #[arch(X64 | Arm64)]
+    #[library("DHCPSAPI.DLL")]
     extern "C" fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
     type LPDHCPDS_SERVER = *mut _DHCPDS_SERVER;
     type LPDHCP_SERVER_INFO = *mut _DHCPDS_SERVER;
@@ -21,8 +21,8 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[library("OLEAUT32.dll")]
     #[arch(X64 | Arm64)]
+    #[library("OLEAUT32.dll")]
     extern fn BSTR_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut BSTR) -> u32;
     type DWORD = u32;
     type LONG = i32;
@@ -39,8 +39,8 @@ mod Fixture {
         DnsNameSrvRecord = 5,
         DnsNameValidateTld = 6,
     }
-    #[library("DNSAPI.dll")]
     #[arch(X64 | Arm64)]
+    #[library("DNSAPI.dll")]
     extern "C" fn DnsValidateName_W(#[in] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
 }
 #[win32]

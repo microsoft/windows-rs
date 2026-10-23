@@ -1,7 +1,7 @@
 #[win32]
 mod Fixture {
-    #[noreturn]
     #[library("kernel32.dll")]
+    #[noreturn]
     extern fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
 }
 #[win32]
@@ -14,11 +14,11 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[noreturn]
     #[library("kernel32.dll")]
+    #[noreturn]
     extern fn ExitProcess(#[in] uExitCode: UINT);
-    #[noreturn]
     #[library("kernel32.dll")]
+    #[noreturn]
     extern fn ExitThread(#[in] dwExitCode: DWORD);
 }
 #[win32]
@@ -28,8 +28,8 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[noreturn]
     #[library("rpcrt4.dll")]
+    #[noreturn]
     extern fn RpcRaiseException(#[in] exception: RPC_STATUS);
 }
 #[win32]

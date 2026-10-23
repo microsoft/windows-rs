@@ -1071,260 +1071,260 @@ mod Windows {
             DWord2: DWORD,
         }
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddFilterV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] AddFilterInfo: *mut DHCP_FILTER_ADD_INFO, #[in] ForceFlag: BOOL) -> DWORD;
+        extern fn DhcpAddFilterV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] AddFilterInfo: *mut DHCP_FILTER_ADD_INFO, #[in] ForceFlag: BOOL) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpAddSecurityGroup(#[in] #[opt] pServer: LPWSTR) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSubnetElement(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA) -> DWORD;
+        extern fn DhcpAddSubnetElement(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSubnetElementV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> DWORD;
+        extern fn DhcpAddSubnetElementV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpAddSubnetElementV5(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> DWORD;
+        extern fn DhcpAddSubnetElementV5(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, AddElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpAddSubnetElementV6(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, AddElementInfo: LPDHCP_SUBNET_ELEMENT_DATA_V6) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpAuditLogGetParams(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[out] #[out_ptr(nullable)] AuditLogDir: *mut LPWSTR, DiskCheckInterval: *mut DWORD, MaxLogFilesSize: *mut DWORD, MinSpaceOnDisk: *mut DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpAuditLogGetParams(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[out] #[out_ptr(nullable)] AuditLogDir: *mut LPWSTR, DiskCheckInterval: *mut DWORD, MaxLogFilesSize: *mut DWORD, MinSpaceOnDisk: *mut DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpAuditLogSetParams(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] AuditLogDir: LPWSTR, DiskCheckInterval: DWORD, MaxLogFilesSize: DWORD, MinSpaceOnDisk: DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpAuditLogSetParams(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] AuditLogDir: LPWSTR, DiskCheckInterval: DWORD, MaxLogFilesSize: DWORD, MinSpaceOnDisk: DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpCreateClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpCreateClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpCreateClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpCreateClassV6(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateClientInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO) -> DWORD;
+        extern fn DhcpCreateClientInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateClientInfoV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> DWORD;
+        extern fn DhcpCreateClientInfoV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateClientInfoVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> DWORD;
+        extern fn DhcpCreateClientInfoVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateOption(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateOption(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpCreateOptionV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpCreateOptionV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpCreateOptionV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpCreateOptionV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateSubnet(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> DWORD;
+        extern fn DhcpCreateSubnet(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpCreateSubnetV6(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpCreateSubnetVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpCreateSubnetVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpDeleteClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, #[in] ClassName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDeleteClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, #[in] ClassName: LPWSTR) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpDeleteClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, #[in] ClassName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpDeleteClassV6(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, #[in] ClassName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteClientInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_SEARCH_INFO) -> DWORD;
+        extern fn DhcpDeleteClientInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_SEARCH_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteClientInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_SEARCH_INFO_V6) -> DWORD;
+        extern fn DhcpDeleteClientInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_SEARCH_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteFilterV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] DeleteFilterInfo: *mut DHCP_ADDR_PATTERN) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteFilterV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] DeleteFilterInfo: *mut DHCP_ADDR_PATTERN) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpDeleteServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDeleteServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpDeleteServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpDeleteSubnet(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        extern fn DhcpDeleteSubnet(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpDeleteSubnetV6(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpDeleteSuperScopeV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] SuperScopeName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpDeleteSuperScopeV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] SuperScopeName: LPWSTR) -> DWORD;
         #[arch(X86)]
-        extern fn DhcpDeleteSuperScopeV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] SuperScopeName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern fn DhcpDeleteSuperScopeV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] SuperScopeName: LPWSTR) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpDsCleanup();
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpDsCleanup();
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpDsInit() -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpDsInit() -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpEnumClasses(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY, nRead: *mut DWORD, nTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumClasses(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY, nRead: *mut DWORD, nTotal: *mut DWORD) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpEnumClasses(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY, nRead: *mut DWORD, nTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpEnumClassesV6(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClassInfoArray: *mut LPDHCP_CLASS_INFO_ARRAY_V6, nRead: *mut DWORD, nTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumFilterV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] #[out] ResumeHandle: LPDHCP_ADDR_PATTERN, #[in] PreferredMaximum: DWORD, #[in] ListType: DHCP_FILTER_LIST_TYPE, #[out] EnumFilterInfo: *mut LPDHCP_FILTER_ENUM_INFO, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumFilterV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] #[out] ResumeHandle: LPDHCP_ADDR_PATTERN, #[in] PreferredMaximum: DWORD, #[in] ListType: DHCP_FILTER_LIST_TYPE, #[out] EnumFilterInfo: *mut LPDHCP_FILTER_ENUM_INFO, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumOptionValues(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumOptionValues(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpEnumOptionValuesV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumOptionValuesV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpEnumOptionValuesV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumOptionValuesV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumOptionValuesV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, OptionValues: *mut LPDHCP_OPTION_VALUE_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumOptions(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumOptions(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpEnumOptionsV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumOptionsV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpEnumOptionsV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpEnumOptionsV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, Options: *mut LPDHCP_OPTION_ARRAY, OptionsRead: *mut DWORD, OptionsTotal: *mut DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpEnumServers(Flags: DWORD, IdInfo: LPVOID, Servers: *mut LPDHCP_SERVER_INFO_ARRAY, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpEnumServers(Flags: DWORD, IdInfo: LPVOID, Servers: *mut LPDHCP_SERVER_INFO_ARRAY, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpEnumServers(Flags: DWORD, IdInfo: LPVOID, Servers: *mut LPDHCP_SERVER_INFO_ARRAY, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClients(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetClients(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsFilterStatusInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetClientsFilterStatusInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V4, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetClientsV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V4, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsV5(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V5, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetClientsV5(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V5, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, ResumeHandle: *mut DHCP_RESUME_IPV6_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V6, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetClientsV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, ResumeHandle: *mut DHCP_RESUME_IPV6_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_V6, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetClientsVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_VQ, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetClientsVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, ClientInfo: *mut LPDHCP_CLIENT_INFO_ARRAY_VQ, ClientsRead: *mut DWORD, ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetElements(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetElements(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetElementsV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetElementsV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetElementsV5(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnetElementsV5(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpEnumSubnetElementsV6(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, EnumElementType: DHCP_SUBNET_ELEMENT_TYPE_V6, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumElementInfo: *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnets(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[in] #[out] EnumInfo: *mut LPDHCP_IP_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpEnumSubnets(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[in] #[out] EnumInfo: *mut LPDHCP_IP_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpEnumSubnetsV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumInfo: *mut LPDHCPV6_IP_ARRAY, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpEnumSubnetsV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ResumeHandle: *mut DHCP_RESUME_HANDLE, PreferredMaximum: DWORD, EnumInfo: *mut LPDHCPV6_IP_ARRAY, ElementsRead: *mut DWORD, ElementsTotal: *mut DWORD) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpGetAllOptionValues(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetAllOptionValues(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetAllOptionValues(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetAllOptionValuesV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, Values: *mut LPDHCP_ALL_OPTION_VALUES) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpGetAllOptions(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetAllOptions(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetAllOptions(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetAllOptionsV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionStruct: *mut LPDHCP_ALL_OPTIONS) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpGetClassInfo(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, PartialClassInfo: LPDHCP_CLASS_INFO, FilledClassInfo: *mut LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetClassInfo(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, PartialClassInfo: LPDHCP_CLASS_INFO, FilledClassInfo: *mut LPDHCP_CLASS_INFO) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetClassInfo(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, PartialClassInfo: LPDHCP_CLASS_INFO, FilledClassInfo: *mut LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO) -> DWORD;
+        extern fn DhcpGetClientInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfoV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_V4) -> DWORD;
+        extern fn DhcpGetClientInfoV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO_V6, ClientInfo: *mut LPDHCP_CLIENT_INFO_V6) -> DWORD;
+        extern fn DhcpGetClientInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO_V6, ClientInfo: *mut LPDHCP_CLIENT_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientInfoVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_VQ) -> DWORD;
+        extern fn DhcpGetClientInfoVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SearchInfo: *const DHCP_SEARCH_INFO, ClientInfo: *mut LPDHCP_CLIENT_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetClientOptions(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientIpAddress: DHCP_IP_ADDRESS, ClientSubnetMask: DHCP_IP_MASK, ClientOptions: *mut LPDHCP_OPTION_LIST) -> DWORD;
+        extern fn DhcpGetClientOptions(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientIpAddress: DHCP_IP_ADDRESS, ClientSubnetMask: DHCP_IP_MASK, ClientOptions: *mut LPDHCP_OPTION_LIST) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetFilterV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[out] GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> DWORD;
+        extern fn DhcpGetFilterV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[out] GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetMibInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO) -> DWORD;
+        extern fn DhcpGetMibInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetMibInfoV5(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V5) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetMibInfoV5(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V5) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpGetMibInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetMibInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> DWORD;
         #[arch(X86)]
-        extern fn DhcpGetMibInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetOptionInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
+        extern fn DhcpGetMibInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, MibInfo: *mut LPDHCP_MIB_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetOptionInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpGetOptionInfoV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetOptionInfoV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetOptionInfoV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: *mut LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetOptionValue(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetOptionValue(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpGetOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpGetOptionValueV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetOptionValueV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetOptionValueV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: *mut LPDHCP_OPTION_VALUE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetServerBindingInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementsInfo: *mut LPDHCP_BIND_ELEMENT_ARRAY) -> DWORD;
+        extern fn DhcpGetServerBindingInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementsInfo: *mut LPDHCP_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetServerBindingInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementsInfo: *mut LPDHCPV6_BIND_ELEMENT_ARRAY) -> DWORD;
+        extern fn DhcpGetServerBindingInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementsInfo: *mut LPDHCPV6_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetServerSpecificStrings(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ServerSpecificStrings: *mut LPDHCP_SERVER_SPECIFIC_STRINGS) -> DWORD;
+        extern fn DhcpGetServerSpecificStrings(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ServerSpecificStrings: *mut LPDHCP_SERVER_SPECIFIC_STRINGS) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetSubnetDelayOffer(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IP_ADDRESS, TimeDelayInMilliseconds: *mut USHORT) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetSubnetInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO) -> DWORD;
+        extern fn DhcpGetSubnetInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetSubnetInfoV6(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: *mut LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpGetSubnetInfoVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[out] SubnetInfo: *mut LPDHCP_SUBNET_INFO_VQ) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSubnetInfoVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[out] SubnetInfo: *mut LPDHCP_SUBNET_INFO_VQ) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpGetSuperScopeInfoV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpGetSuperScopeInfoV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> DWORD;
         #[arch(X86)]
-        extern fn DhcpGetSuperScopeInfoV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern fn DhcpGetSuperScopeInfoV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SuperScopeTable: *mut LPDHCP_SUPER_SCOPE_TABLE) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpGetThreadOptions(pFlags: LPDWORD, Reserved: LPVOID) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetThreadOptions(pFlags: LPDWORD, Reserved: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpGetVersion(#[in] #[opt] ServerIpAddress: LPWSTR, MajorVersion: LPDWORD, MinorVersion: LPDWORD) -> DWORD;
@@ -1338,11 +1338,11 @@ mod Windows {
         extern fn DhcpHlprCreateV4Policy(#[in] PolicyName: LPWSTR, #[in] fGlobalPolicy: BOOL, #[in] Subnet: DHCP_IP_ADDRESS, #[in] ProcessingOrder: DWORD, #[in] RootOperator: DHCP_POL_LOGIC_OPER, #[in] Description: LPWSTR, #[in] Enabled: BOOL, #[out] Policy: *mut LPDHCP_POLICY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpHlprCreateV4PolicyEx(#[in] PolicyName: LPWSTR, #[in] fGlobalPolicy: BOOL, #[in] Subnet: DHCP_IP_ADDRESS, #[in] ProcessingOrder: DWORD, #[in] RootOperator: DHCP_POL_LOGIC_OPER, #[in] Description: LPWSTR, #[in] Enabled: BOOL, #[out] Policy: *mut LPDHCP_POLICY_EX) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpHlprFindV4DhcpProperty(#[in] PropertyArray: LPDHCP_PROPERTY_ARRAY, #[in] ID: DHCP_PROPERTY_ID, #[in] Type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpHlprFindV4DhcpProperty(#[in] PropertyArray: LPDHCP_PROPERTY_ARRAY, #[in] ID: DHCP_PROPERTY_ID, #[in] Type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpHlprFindV4DhcpProperty(#[in] PropertyArray: LPDHCP_PROPERTY_ARRAY, #[in] ID: DHCP_PROPERTY_ID, #[in] Type: DHCP_PROPERTY_TYPE) -> LPDHCP_PROPERTY;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpHlprFreeV4DhcpProperty(#[in] #[out] Property: LPDHCP_PROPERTY);
@@ -1366,184 +1366,184 @@ mod Windows {
         extern fn DhcpHlprModifyV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY, #[in] Operator: DHCP_POL_LOGIC_OPER) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpHlprResetV4PolicyExpr(#[in] #[out] Policy: LPDHCP_POLICY) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpModifyClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpModifyClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpModifyClass(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpModifyClassV6(#[in] #[opt] ServerIpAddress: LPWSTR, ReservedMustBeZero: DWORD, ClassInfo: LPDHCP_CLASS_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveOption(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveOption(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpRemoveOptionV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpRemoveOptionV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpRemoveOptionV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpRemoveOptionV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveOptionValue(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpRemoveOptionValue(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpRemoveOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpRemoveOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpRemoveOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpRemoveOptionValueV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveSubnetElement(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        extern fn DhcpRemoveSubnetElement(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveSubnetElementV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        extern fn DhcpRemoveSubnetElementV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpRemoveSubnetElementV5(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
+        extern fn DhcpRemoveSubnetElementV5(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, RemoveElementInfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpRemoveSubnetElementV6(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IPV6_ADDRESS, RemoveElementInfo: LPDHCP_SUBNET_ELEMENT_DATA_V6, ForceFlag: DHCP_FORCE_FLAG) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpRpcFreeMemory(BufferPointer: PVOID);
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpScanDatabase(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, FixFlag: DWORD, ScanList: *mut LPDHCP_SCAN_LIST) -> DWORD;
+        extern fn DhcpScanDatabase(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, FixFlag: DWORD, ScanList: *mut LPDHCP_SCAN_LIST) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerAuditlogParamsFree(ConfigInfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpServerBackupDatabase(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerBackupDatabase(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] Path: LPWSTR) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerBackupDatabase(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfig(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO) -> DWORD;
+        extern fn DhcpServerGetConfig(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfigV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V4) -> DWORD;
+        extern fn DhcpServerGetConfigV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfigV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V6) -> DWORD;
+        extern fn DhcpServerGetConfigV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerGetConfigVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_VQ) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerGetConfigVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ConfigInfo: *mut LPDHCP_SERVER_CONFIG_INFO_VQ) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpServerQueryAttribute(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG, DhcpAttribId: DHCP_ATTRIB_ID, pDhcpAttrib: *mut LPDHCP_ATTRIB) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerQueryAttribute(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG, DhcpAttribId: DHCP_ATTRIB_ID, pDhcpAttrib: *mut LPDHCP_ATTRIB) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpServerQueryAttributes(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG, dwAttribCount: ULONG, pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerQueryAttributes(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG, dwAttribCount: ULONG, pDhcpAttribs: *mut DHCP_ATTRIB_ID, pDhcpAttribArr: *mut LPDHCP_ATTRIB_ARRAY) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpServerQueryDnsRegCredentials(#[in] #[opt] ServerIpAddress: LPWSTR, UnameSize: ULONG, #[out] #[writable(entry, UnameSize)] Uname: LPWSTR, DomainSize: ULONG, #[out] #[writable(entry, DomainSize)] Domain: LPWSTR) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerQueryDnsRegCredentials(#[in] #[opt] ServerIpAddress: LPWSTR, UnameSize: ULONG, #[out] #[writable(entry, UnameSize)] Uname: LPWSTR, DomainSize: ULONG, #[out] #[writable(entry, DomainSize)] Domain: LPWSTR) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpServerRedoAuthorization(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerRedoAuthorization(#[in] #[opt] ServerIpAddr: LPWSTR, dwReserved: ULONG) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpServerRestoreDatabase(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerRestoreDatabase(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] Path: LPWSTR) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerRestoreDatabase(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] Path: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfig(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO) -> DWORD;
+        extern fn DhcpServerSetConfig(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfigV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V4) -> DWORD;
+        extern fn DhcpServerSetConfigV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfigV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V6) -> DWORD;
+        extern fn DhcpServerSetConfigV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpServerSetConfigVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_VQ) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpServerSetConfigVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, FieldsToSet: DWORD, ConfigInfo: LPDHCP_SERVER_CONFIG_INFO_VQ) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpServerSetDnsRegCredentials(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] #[opt] Uname: LPWSTR, #[in] #[opt] Domain: LPWSTR, #[in] #[opt] Passwd: LPWSTR) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerSetDnsRegCredentials(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] #[opt] Uname: LPWSTR, #[in] #[opt] Domain: LPWSTR, #[in] #[opt] Passwd: LPWSTR) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpServerSetDnsRegCredentialsV5(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] #[opt] Uname: LPWSTR, #[in] #[opt] Domain: LPWSTR, #[in] #[opt] Passwd: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpServerSetDnsRegCredentialsV5(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] #[opt] Uname: LPWSTR, #[in] #[opt] Domain: LPWSTR, #[in] #[opt] Passwd: LPWSTR) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpServerSetDnsRegCredentialsV5(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] #[opt] Uname: LPWSTR, #[in] #[opt] Domain: LPWSTR, #[in] #[opt] Passwd: LPWSTR) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO) -> DWORD;
+        extern fn DhcpSetClientInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfoV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> DWORD;
+        extern fn DhcpSetClientInfoV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V4) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V6) -> DWORD;
+        extern fn DhcpSetClientInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetClientInfoVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> DWORD;
+        extern fn DhcpSetClientInfoVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ClientInfo: *const DHCP_CLIENT_INFO_VQ) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetFilterV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> DWORD;
+        extern fn DhcpSetFilterV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] GlobalFilterInfo: *mut DHCP_FILTER_GLOBAL_INFO) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, OptionInfo: *const DHCP_OPTION) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpSetOptionInfoV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetOptionInfoV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpSetOptionInfoV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpSetOptionInfoV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionID: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, OptionInfo: LPDHCP_OPTION) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionValue(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *const DHCP_OPTION_DATA) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionValue(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, OptionID: DHCP_OPTION_ID, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValue: *const DHCP_OPTION_DATA) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpSetOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpSetOptionValueV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpSetOptionValueV6(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, OptionId: DHCP_OPTION_ID, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO6, OptionValue: LPDHCP_OPTION_DATA) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetOptionValues(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValues: *const DHCP_OPTION_VALUE_ARRAY) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetOptionValues(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, ScopeInfo: *const DHCP_OPTION_SCOPE_INFO, OptionValues: *const DHCP_OPTION_VALUE_ARRAY) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpSetOptionValuesV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetOptionValuesV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> DWORD;
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpSetOptionValuesV5(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, #[in] #[opt] ClassName: LPWSTR, #[in] #[opt] VendorName: LPWSTR, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, OptionValues: LPDHCP_OPTION_VALUE_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetServerBindingInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementInfo: LPDHCP_BIND_ELEMENT_ARRAY) -> DWORD;
+        extern fn DhcpSetServerBindingInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementInfo: LPDHCP_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetServerBindingInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementInfo: LPDHCPV6_BIND_ELEMENT_ARRAY) -> DWORD;
+        extern fn DhcpSetServerBindingInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, Flags: ULONG, BindElementInfo: LPDHCPV6_BIND_ELEMENT_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpSetSubnetDelayOffer(#[in] #[opt] ServerIpAddress: LPWSTR, SubnetAddress: DHCP_IP_ADDRESS, TimeDelayInMilliseconds: USHORT) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetSubnetInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetSubnetInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, SubnetInfo: *const DHCP_SUBNET_INFO) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpSetSubnetInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetSubnetInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[arch(X86)]
-        extern fn DhcpSetSubnetInfoV6(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpSetSubnetInfoVQ(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> DWORD;
+        extern fn DhcpSetSubnetInfoV6(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IPV6_ADDRESS, SubnetInfo: LPDHCP_SUBNET_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetSubnetInfoVQ(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] SubnetInfo: *const DHCP_SUBNET_INFO_VQ) -> DWORD;
         #[arch(X64 | Arm64)]
-        extern "C" fn DhcpSetSuperScopeV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[opt] SuperScopeName: LPWSTR, ChangeExisting: BOOL) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern "C" fn DhcpSetSuperScopeV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[opt] SuperScopeName: LPWSTR, ChangeExisting: BOOL) -> DWORD;
         #[arch(X86)]
-        extern fn DhcpSetSuperScopeV4(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[opt] SuperScopeName: LPWSTR, ChangeExisting: BOOL) -> DWORD;
         #[library("DHCPSAPI.DLL")]
+        extern fn DhcpSetSuperScopeV4(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, SubnetAddress: DHCP_IP_ADDRESS, #[in] #[opt] SuperScopeName: LPWSTR, ChangeExisting: BOOL) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DHCPSAPI.DLL")]
         extern "C" fn DhcpSetThreadOptions(Flags: DWORD, Reserved: LPVOID) -> DWORD;
-        #[library("DHCPSAPI.DLL")]
         #[arch(X86)]
+        #[library("DHCPSAPI.DLL")]
         extern fn DhcpSetThreadOptions(Flags: DWORD, Reserved: LPVOID) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV4AddPolicyRange(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] PolicyName: LPWSTR, #[in] Range: LPDHCP_IP_RANGE) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4CreateClientInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] ClientInfo: LPDHCP_CLIENT_INFO_PB) -> DWORD;
+        extern fn DhcpV4CreateClientInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] ClientInfo: LPDHCP_CLIENT_INFO_PB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4CreateClientInfoEx(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] ClientInfo: LPDHCP_CLIENT_INFO_EX) -> DWORD;
+        extern fn DhcpV4CreateClientInfoEx(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] ClientInfo: LPDHCP_CLIENT_INFO_EX) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV4CreatePolicy(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] pPolicy: LPDHCP_POLICY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
@@ -1555,11 +1555,11 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV4EnumPoliciesEx(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] #[out] ResumeHandle: LPDWORD, #[in] PreferredMaximum: DWORD, #[in] GlobalPolicy: BOOL, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[out] EnumInfo: *mut LPDHCP_POLICY_EX_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumSubnetClients(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_PB_ARRAY, #[out] ClientsRead: *mut DWORD, #[out] ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpV4EnumSubnetClients(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_PB_ARRAY, #[out] ClientsRead: *mut DWORD, #[out] ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumSubnetClientsEx(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_EX_ARRAY, #[out] ClientsRead: *mut DWORD, #[out] ClientsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpV4EnumSubnetClientsEx(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_EX_ARRAY, #[out] ClientsRead: *mut DWORD, #[out] ClientsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4EnumSubnetReservations(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[out] EnumElementInfo: *mut LPDHCP_RESERVATION_INFO_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
+        extern fn DhcpV4EnumSubnetReservations(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] #[out] ResumeHandle: *mut DHCP_RESUME_HANDLE, #[in] PreferredMaximum: DWORD, #[out] EnumElementInfo: *mut LPDHCP_RESERVATION_INFO_ARRAY, #[out] ElementsRead: *mut DWORD, #[out] ElementsTotal: *mut DWORD) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV4FailoverAddScopeToRelationship(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] pRelationship: LPDHCP_FAILOVER_RELATIONSHIP) -> DWORD;
         #[library("DHCPSAPI.DLL")]
@@ -1589,9 +1589,9 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV4GetAllOptionValues(#[in] #[opt] ServerIpAddress: LPWSTR, Flags: DWORD, ScopeInfo: LPDHCP_OPTION_SCOPE_INFO, Values: *mut LPDHCP_ALL_OPTION_VALUES_PB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetClientInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] SearchInfo: *const DHCP_SEARCH_INFO, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_PB) -> DWORD;
+        extern fn DhcpV4GetClientInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] SearchInfo: *const DHCP_SEARCH_INFO, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_PB) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV4GetClientInfoEx(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] SearchInfo: *const DHCP_SEARCH_INFO, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_EX) -> DWORD;
+        extern fn DhcpV4GetClientInfoEx(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] SearchInfo: *const DHCP_SEARCH_INFO, #[out] ClientInfo: *mut LPDHCP_CLIENT_INFO_EX) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV4GetFreeIPAddress(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] ScopeId: DHCP_IP_ADDRESS, #[in] StartIP: DHCP_IP_ADDRESS, #[in] EndIP: DHCP_IP_ADDRESS, #[in] NumFreeAddrReq: DWORD, #[out] IPAddrList: *mut LPDHCP_IP_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]
@@ -1617,7 +1617,7 @@ mod Windows {
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV4SetPolicyEx(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] FieldsModified: DWORD, #[in] GlobalPolicy: BOOL, #[in] SubnetAddress: DHCP_IP_ADDRESS, #[in] PolicyName: LPWSTR, #[in] Policy: LPDHCP_POLICY_EX) -> DWORD;
         #[library("DHCPSAPI.DLL")]
-        extern fn DhcpV6CreateClientInfo(#[in] #[opt] #[null_terminated(entry)] ServerIpAddress: *const WCHAR, #[in] ClientInfo: LPDHCP_CLIENT_INFO_V6) -> DWORD;
+        extern fn DhcpV6CreateClientInfo(#[in] #[null_terminated(entry)] #[opt] ServerIpAddress: *const WCHAR, #[in] ClientInfo: LPDHCP_CLIENT_INFO_V6) -> DWORD;
         #[library("DHCPSAPI.DLL")]
         extern fn DhcpV6GetFreeIPAddress(#[in] #[opt] ServerIpAddress: LPWSTR, #[in] ScopeId: DHCP_IPV6_ADDRESS, #[in] StartIP: DHCP_IPV6_ADDRESS, #[in] EndIP: DHCP_IPV6_ADDRESS, #[in] NumFreeAddrReq: DWORD, #[out] IPAddrList: *mut LPDHCPV6_IP_ARRAY) -> DWORD;
         #[library("DHCPSAPI.DLL")]

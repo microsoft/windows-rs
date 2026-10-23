@@ -31,7 +31,7 @@ mod Windows {
     mod Win32 {
         #[guid(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90)]
         interface IInspectable: IUnknown {
-            fn GetIids(&self, #[out] iidCount: *mut ULONG, #[out] #[nullable(entry, indirect)] #[writable(success, *iidCount, indirect, nullable)] #[readable(success, *iidCount, indirect, nullable)] iids: *mut *mut IID) -> HRESULT;
+            fn GetIids(&self, #[out] iidCount: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *iidCount, indirect, nullable)] #[writable(success, *iidCount, indirect, nullable)] iids: *mut *mut IID) -> HRESULT;
             fn GetRuntimeClassName(&self, #[out] #[out_ptr] className: *mut HSTRING) -> HRESULT;
             fn GetTrustLevel(&self, #[out] trustLevel: *mut TrustLevel) -> HRESULT;
         }
@@ -96,7 +96,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x00000000_0000_0000_c000_000000000046)]
         interface IUnknown {
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
             fn AddRef(&self) -> ULONG;
             fn Release(&self) -> ULONG;
         }

@@ -31,7 +31,7 @@ mod Windows {
         }
         #[guid(0xfa993889_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookup: IUnknown {
-            fn LookupService(&self, #[in] Type: MF_SERVICE_LOOKUP_TYPE, #[in] dwIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[out] #[iid_is] #[writable(entry, 1)] #[readable(success, *pnObjects)] ppvObjects: *mut LPVOID, #[in] #[out] pnObjects: *mut DWORD) -> HRESULT;
+            fn LookupService(&self, #[in] Type: MF_SERVICE_LOOKUP_TYPE, #[in] dwIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[readable(success, *pnObjects)] #[writable(entry, 1)] ppvObjects: *mut LPVOID, #[in] #[out] pnObjects: *mut DWORD) -> HRESULT;
         }
         #[guid(0xfa99388a_4383_415a_a930_dd472a8cf6f7)]
         interface IMFTopologyServiceLookupClient: IUnknown {
@@ -44,8 +44,8 @@ mod Windows {
         }
         #[guid(0xa490b1e4_ab84_4d31_a1b2_181e03b1077a)]
         interface IMFVideoDisplayControl: IUnknown {
-            fn GetNativeVideoSize(&self, #[in] #[out] #[opt] pszVideo: *mut SIZE, #[in] #[out] #[opt] pszARVideo: *mut SIZE) -> HRESULT;
-            fn GetIdealVideoSize(&self, #[in] #[out] #[opt] pszMin: *mut SIZE, #[in] #[out] #[opt] pszMax: *mut SIZE) -> HRESULT;
+            fn GetNativeVideoSize(&self, #[in] #[opt] #[out] pszVideo: *mut SIZE, #[in] #[opt] #[out] pszARVideo: *mut SIZE) -> HRESULT;
+            fn GetIdealVideoSize(&self, #[in] #[opt] #[out] pszMin: *mut SIZE, #[in] #[opt] #[out] pszMax: *mut SIZE) -> HRESULT;
             fn SetVideoPosition(&self, #[in] #[opt] pnrcSource: *const MFVideoNormalizedRect, #[in] #[opt] prcDest: LPRECT) -> HRESULT;
             fn GetVideoPosition(&self, #[out] pnrcSource: *mut MFVideoNormalizedRect, #[out] prcDest: LPRECT) -> HRESULT;
             fn SetAspectRatioMode(&self, #[in] dwAspectRatioMode: DWORD) -> HRESULT;
@@ -53,7 +53,7 @@ mod Windows {
             fn SetVideoWindow(&self, #[in] hwndVideo: HWND) -> HRESULT;
             fn GetVideoWindow(&self, #[out] #[out_ptr] phwndVideo: *mut HWND) -> HRESULT;
             fn RepaintVideo(&self) -> HRESULT;
-            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[out] #[nullable(entry, indirect)] #[writable(success, *pcbDib, indirect, nullable)] #[readable(success, *pcbDib, indirect, nullable)] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[out] #[opt] pTimeStamp: *mut LONGLONG) -> HRESULT;
+            fn GetCurrentImage(&self, #[in] #[out] pBih: *mut BITMAPINFOHEADER, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbDib, indirect, nullable)] #[writable(success, *pcbDib, indirect, nullable)] pDib: *mut *mut BYTE, #[out] pcbDib: *mut DWORD, #[in] #[opt] #[out] pTimeStamp: *mut LONGLONG) -> HRESULT;
             fn SetBorderColor(&self, #[in] Clr: COLORREF) -> HRESULT;
             fn GetBorderColor(&self, #[out] pClr: *mut COLORREF) -> HRESULT;
             fn SetRenderingPrefs(&self, #[in] dwRenderFlags: DWORD) -> HRESULT;

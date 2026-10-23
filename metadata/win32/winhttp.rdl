@@ -65,14 +65,14 @@ mod Windows {
         const ERROR_WINHTTP_UNHANDLED_SCRIPT_TYPE: i32 = 12176;
         const ERROR_WINHTTP_UNRECOGNIZED_SCHEME: i32 = 12006;
         const HTTP_STATUS_WEBDAV_MULTI_STATUS: i32 = 207;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct HTTP_VERSION_INFO {
             dwMajorVersion: DWORD,
             dwMinorVersion: DWORD,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct HTTP_VERSION_INFO {
             dwMajorVersion: DWORD,
             dwMinorVersion: DWORD,
@@ -124,8 +124,8 @@ mod Windows {
         type PWINHTTP_RESOLVER_CACHE_CONFIG = *mut WINHTTP_RESOLVER_CACHE_CONFIG;
         const SECURITY_FLAG_IGNORE_ALL_CERT_ERRORS: i32 = 13056;
         const SECURITY_FLAG_IGNORE_CERT_WRONG_USAGE: i32 = 512;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct URL_COMPONENTS {
             dwStructSize: DWORD,
             lpszScheme: LPWSTR,
@@ -143,8 +143,8 @@ mod Windows {
             lpszExtraInfo: LPWSTR,
             dwExtraInfoLength: DWORD,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct URL_COMPONENTS {
             dwStructSize: DWORD,
             lpszScheme: LPWSTR,
@@ -175,14 +175,14 @@ mod Windows {
         const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: i32 = 16777216;
         const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648;
         const WINHTTP_ADDREQ_INDEX_MASK: i32 = 65535;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_ASYNC_RESULT {
             dwResult: DWORD_PTR,
             dwError: DWORD,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_ASYNC_RESULT {
             dwResult: DWORD_PTR,
             dwError: DWORD,
@@ -210,8 +210,8 @@ mod Windows {
         const WINHTTP_AUTOPROXY_NO_CACHE_CLIENT: i32 = 524288;
         const WINHTTP_AUTOPROXY_NO_CACHE_SVC: i32 = 1048576;
         const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: i32 = 262144;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_AUTOPROXY_OPTIONS {
             dwFlags: DWORD,
             dwAutoDetectFlags: DWORD,
@@ -220,8 +220,8 @@ mod Windows {
             dwReserved: DWORD,
             fAutoLogonIfChallenged: BOOL,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_AUTOPROXY_OPTIONS {
             dwFlags: DWORD,
             dwAutoDetectFlags: DWORD,
@@ -292,8 +292,8 @@ mod Windows {
         const WINHTTP_CALLBACK_STATUS_SETTINGS_WRITE_COMPLETE: i32 = 268435456;
         const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: i32 = 67108864;
         const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: i32 = 1048576;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_CERTIFICATE_INFO {
             ftExpiry: FILETIME,
             ftStart: FILETIME,
@@ -304,8 +304,8 @@ mod Windows {
             lpszEncryptionAlgName: LPWSTR,
             dwKeySize: DWORD,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_CERTIFICATE_INFO {
             ftExpiry: FILETIME,
             ftStart: FILETIME,
@@ -316,27 +316,27 @@ mod Windows {
             lpszEncryptionAlgName: LPWSTR,
             dwKeySize: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_CONNECTION_GROUP {
             cConnections: ULONG,
             guidGroup: GUID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_CONNECTION_GROUP {
             cConnections: ULONG,
             guidGroup: GUID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_CONNECTION_INFO {
             cbSize: DWORD,
             LocalAddress: SOCKADDR_STORAGE,
             RemoteAddress: SOCKADDR_STORAGE,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_CONNECTION_INFO {
             cbSize: DWORD,
             LocalAddress: SOCKADDR_STORAGE,
@@ -347,8 +347,8 @@ mod Windows {
         const WINHTTP_CONNECTION_RETRY_CONDITION_SSL_HANDSHAKE: i32 = 2;
         const WINHTTP_CONNECTION_RETRY_CONDITION_STALE_CONNECTION: i32 = 4;
         const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_CREDS {
             lpszUserName: LPSTR,
             lpszPassword: LPSTR,
@@ -357,8 +357,8 @@ mod Windows {
             lpszHostName: LPSTR,
             dwPort: DWORD,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_CREDS {
             lpszUserName: LPSTR,
             lpszPassword: LPSTR,
@@ -367,8 +367,8 @@ mod Windows {
             lpszHostName: LPSTR,
             dwPort: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_CREDS_EX {
             lpszUserName: LPSTR,
             lpszPassword: LPSTR,
@@ -378,8 +378,8 @@ mod Windows {
             dwPort: DWORD,
             lpszUrl: LPSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_CREDS_EX {
             lpszUserName: LPSTR,
             lpszPassword: LPSTR,
@@ -389,16 +389,16 @@ mod Windows {
             dwPort: DWORD,
             lpszUrl: LPSTR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
             fAutoDetect: BOOL,
             lpszAutoConfigUrl: LPWSTR,
             lpszProxy: LPWSTR,
             lpszProxyBypass: LPWSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
             fAutoDetect: BOOL,
             lpszAutoConfigUrl: LPWSTR,
@@ -423,8 +423,8 @@ mod Windows {
         const WINHTTP_ENABLE_SSL_REVOCATION: i32 = 1;
         const WINHTTP_ERROR_BASE: i32 = 12000;
         const WINHTTP_ERROR_LAST: i32 = 12193;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_EXTENDED_HEADER {
             Anonymous: #[packed(4)] union {
                 pwszName: PCWSTR,
@@ -435,8 +435,8 @@ mod Windows {
                 pszValue: PCSTR,
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_EXTENDED_HEADER {
             Anonymous: #[packed(8)] union {
                 pwszName: PCWSTR,
@@ -448,14 +448,14 @@ mod Windows {
             },
         }
         const WINHTTP_EXTENDED_HEADER_FLAG_UNICODE: i32 = 1;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_FAILED_CONNECTION_RETRIES {
             dwMaxRetries: DWORD,
             dwAllowedRetryConditions: DWORD,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_FAILED_CONNECTION_RETRIES {
             dwMaxRetries: DWORD,
             dwAllowedRetryConditions: DWORD,
@@ -467,16 +467,16 @@ mod Windows {
             WinHttpFastForwardingStateClientSideFailed = 2,
             WinHttpFastForwardingStateServerSideFailed = 3,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_FAST_FORWARDING_STATUS {
             TransferState: WINHTTP_FAST_FORWARDING_STATE,
             NtStatus: LONG,
             dwError: DWORD,
             ullBytesTransferred: ULONGLONG,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_FAST_FORWARDING_STATUS {
             TransferState: WINHTTP_FAST_FORWARDING_STATE,
             NtStatus: LONG,
@@ -586,55 +586,55 @@ mod Windows {
         const WINHTTP_HANDLE_TYPE_REQUEST: i32 = 3;
         const WINHTTP_HANDLE_TYPE_SESSION: i32 = 1;
         const WINHTTP_HANDLE_TYPE_WEBSOCKET: i32 = 5;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         union WINHTTP_HEADER_NAME {
             pwszName: PCWSTR,
             pszName: PCSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         union WINHTTP_HEADER_NAME {
             pwszName: PCWSTR,
             pszName: PCSTR,
         }
         const WINHTTP_HEADER_NAME_BY_INDEX: i32 = 0;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_HOST_CONNECTION_GROUP {
             pwszHost: PCWSTR,
             cConnectionGroups: ULONG,
             pConnectionGroups: PWINHTTP_CONNECTION_GROUP,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_HOST_CONNECTION_GROUP {
             pwszHost: PCWSTR,
             cConnectionGroups: ULONG,
             pConnectionGroups: PWINHTTP_CONNECTION_GROUP,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_HTTP2_RECEIVE_WINDOW {
             ulStreamWindow: ULONG,
             ulStreamWindowUpdateDelta: ULONG,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_HTTP2_RECEIVE_WINDOW {
             ulStreamWindow: ULONG,
             ulStreamWindowUpdateDelta: ULONG,
         }
         const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: i32 = 0;
         const WINHTTP_LAST_OPTION: i32 = 212;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_MATCH_CONNECTION_GUID {
             ConnectionGuid: GUID,
             ullFlags: ULONGLONG,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_MATCH_CONNECTION_GUID {
             ConnectionGuid: GUID,
             ullFlags: ULONGLONG,
@@ -791,14 +791,14 @@ mod Windows {
         const WINHTTP_OPTION_WEB_SOCKET_SEND_BUFFER_SIZE: i32 = 123;
         const WINHTTP_OPTION_WORKER_THREAD_COUNT: i32 = 80;
         const WINHTTP_OPTION_WRITE_BUFFER_SIZE: i32 = 13;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROTOCOL_ASYNC_RESULT {
             AsyncResult: WINHTTP_ASYNC_RESULT,
             Operation: WINHTTP_PROTOCOL_OPERATION,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROTOCOL_ASYNC_RESULT {
             AsyncResult: WINHTTP_ASYNC_RESULT,
             Operation: WINHTTP_PROTOCOL_OPERATION,
@@ -819,46 +819,46 @@ mod Windows {
         const WINHTTP_PROXY_DISABLE_SCHEME_KERBEROS: i32 = 8;
         const WINHTTP_PROXY_DISABLE_SCHEME_NEGOTIATE: i32 = 16;
         const WINHTTP_PROXY_DISABLE_SCHEME_NTLM: i32 = 4;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_INFO {
             dwAccessType: DWORD,
             lpszProxy: LPWSTR,
             lpszProxyBypass: LPWSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_INFO {
             dwAccessType: DWORD,
             lpszProxy: LPWSTR,
             lpszProxyBypass: LPWSTR,
         }
         type WINHTTP_PROXY_INFOW = WINHTTP_PROXY_INFO;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_NETWORKING_KEY {
             pbBuffer: [u8; 128],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_NETWORKING_KEY {
             pbBuffer: [u8; 128],
         }
         const WINHTTP_PROXY_NOTIFY_CHANGE: i32 = 1;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_RESULT {
             cEntries: DWORD,
             pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_RESULT {
             cEntries: DWORD,
             pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_RESULT_ENTRY {
             fProxy: BOOL,
             fBypass: BOOL,
@@ -866,8 +866,8 @@ mod Windows {
             pwszProxy: PWSTR,
             ProxyPort: INTERNET_PORT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_RESULT_ENTRY {
             fProxy: BOOL,
             fBypass: BOOL,
@@ -875,24 +875,24 @@ mod Windows {
             pwszProxy: PWSTR,
             ProxyPort: INTERNET_PORT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_RESULT_EX {
             cEntries: DWORD,
             pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
             hProxyDetectionHandle: HANDLE,
             dwProxyInterfaceAffinity: DWORD,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_RESULT_EX {
             cEntries: DWORD,
             pEntries: *mut WINHTTP_PROXY_RESULT_ENTRY,
             hProxyDetectionHandle: HANDLE,
             dwProxyInterfaceAffinity: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_SETTINGS {
             dwStructSize: DWORD,
             dwFlags: DWORD,
@@ -911,8 +911,8 @@ mod Windows {
             cNetworkKeys: DWORD,
             pNetworkKeys: PWINHTTP_PROXY_NETWORKING_KEY,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_SETTINGS {
             dwStructSize: DWORD,
             dwFlags: DWORD,
@@ -931,8 +931,8 @@ mod Windows {
             cNetworkKeys: DWORD,
             pNetworkKeys: PWINHTTP_PROXY_NETWORKING_KEY,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_SETTINGS_EX {
             ullGenerationId: ULONGLONG,
             ullFlags: ULONGLONG,
@@ -944,8 +944,8 @@ mod Windows {
             dwInterfaceIndex: DWORD,
             pcwszConnectionName: PCWSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_SETTINGS_EX {
             ullGenerationId: ULONGLONG,
             ullFlags: ULONGLONG,
@@ -957,15 +957,15 @@ mod Windows {
             dwInterfaceIndex: DWORD,
             pcwszConnectionName: PCWSTR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_PROXY_SETTINGS_PARAM {
             ullFlags: ULONGLONG,
             pcwszConnectionName: PCWSTR,
             pcwszProbeHost: PCWSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_PROXY_SETTINGS_PARAM {
             ullFlags: ULONGLONG,
             pcwszConnectionName: PCWSTR,
@@ -994,14 +994,14 @@ mod Windows {
         const WINHTTP_QUERY_CACHE_CONTROL: i32 = 49;
         const WINHTTP_QUERY_CONNECTION: i32 = 23;
         const WINHTTP_QUERY_CONNECTION_GROUP_FLAG_INSECURE: u64 = 1;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
             cHosts: ULONG,
             pHostConnectionGroups: PWINHTTP_HOST_CONNECTION_GROUP,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
             cHosts: ULONG,
             pHostConnectionGroups: PWINHTTP_HOST_CONNECTION_GROUP,
@@ -1080,16 +1080,16 @@ mod Windows {
         const WINHTTP_QUERY_WARNING: i32 = 67;
         const WINHTTP_QUERY_WWW_AUTHENTICATE: i32 = 40;
         const WINHTTP_READ_DATA_EX_FLAG_FILL_BUFFER: u64 = 1;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_REQUEST_STATS {
             ullFlags: ULONGLONG,
             ulIndex: ULONG,
             cStats: ULONG,
             rgullStats: [ULONGLONG; 32],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_REQUEST_STATS {
             ullFlags: ULONGLONG,
             ulIndex: ULONG,
@@ -1123,14 +1123,14 @@ mod Windows {
         const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: i32 = 1;
         const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: i32 = 4;
         const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: i32 = 2;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_REQUEST_TIMES {
             cTimes: ULONG,
             rgullTimes: [ULONGLONG; 64],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_REQUEST_TIMES {
             cTimes: ULONG,
             rgullTimes: [ULONGLONG; 64],
@@ -1184,8 +1184,8 @@ mod Windows {
         const WINHTTP_RESET_STATE: i32 = 1;
         const WINHTTP_RESET_SWPAD_ALL: i32 = 4;
         const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: i32 = 2;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_RESOLVER_CACHE_CONFIG {
             ulMaxResolverCacheEntries: ULONG,
             ulMaxCacheEntryAge: ULONG,
@@ -1194,8 +1194,8 @@ mod Windows {
             ullConnResolutionWaitTime: ULONGLONG,
             ullFlags: ULONGLONG,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_RESOLVER_CACHE_CONFIG {
             ulMaxResolverCacheEntries: ULONG,
             ulMaxCacheEntryAge: ULONG,
@@ -1221,14 +1221,14 @@ mod Windows {
         const WINHTTP_SERVER_CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY: u32 = 2147483648;
         extern fn WINHTTP_STATUS_CALLBACK(hInternet: HINTERNET, dwContext: DWORD_PTR, dwInternetStatus: DWORD, lpvStatusInformation: LPVOID, dwStatusInformationLength: DWORD);
         const WINHTTP_TIME_FORMAT_BUFSIZE: i32 = 62;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {
             AsyncResult: WINHTTP_ASYNC_RESULT,
             Operation: WINHTTP_WEB_SOCKET_OPERATION,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {
             AsyncResult: WINHTTP_ASYNC_RESULT,
             Operation: WINHTTP_WEB_SOCKET_OPERATION,
@@ -1265,14 +1265,14 @@ mod Windows {
             WINHTTP_WEB_SOCKET_CLOSE_OPERATION = 2,
             WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION = 3,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct WINHTTP_WEB_SOCKET_STATUS {
             dwBytesTransferred: DWORD,
             eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct WINHTTP_WEB_SOCKET_STATUS {
             dwBytesTransferred: DWORD,
             eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
@@ -1291,9 +1291,9 @@ mod Windows {
         extern fn WinHttpCrackUrl(#[in] #[readable(entry, dwUrlLength)] pwszUrl: LPCWSTR, #[in] dwUrlLength: DWORD, #[in] dwFlags: DWORD, #[in] #[out] lpUrlComponents: LPURL_COMPONENTS) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpCreateProxyResolver(#[in] hSession: HINTERNET, #[out] phResolver: *mut HINTERNET) -> DWORD;
-        #[success(return != 0)]
         #[library("WINHTTP.dll")]
-        extern fn WinHttpCreateUrl(#[in] lpUrlComponents: LPURL_COMPONENTS, #[in] dwFlags: DWORD, #[out] #[opt] #[writable(entry, *pdwUrlLength)] #[readable(success, *pdwUrlLength)] pwszUrl: LPWSTR, #[in] #[out] pdwUrlLength: LPDWORD) -> BOOL;
+        #[success(return != 0)]
+        extern fn WinHttpCreateUrl(#[in] lpUrlComponents: LPURL_COMPONENTS, #[in] dwFlags: DWORD, #[opt] #[out] #[readable(success, *pdwUrlLength)] #[writable(entry, *pdwUrlLength)] pwszUrl: LPWSTR, #[in] #[out] pdwUrlLength: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
         extern fn WinHttpDetectAutoProxyConfigUrl(dwAutoDetectFlags: DWORD, #[out] #[out_ptr(nullable)] ppwstrAutoConfigUrl: *mut LPWSTR) -> BOOL;
         #[library("WINHTTP.dll")]
@@ -1327,13 +1327,13 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpGetProxySettingsVersion(#[in] hSession: HINTERNET, #[out] pdwProxySettingsVersion: *mut DWORD) -> DWORD;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpOpen(#[in] #[opt] #[null_terminated(entry)] pszAgentW: LPCWSTR, #[in] dwAccessType: DWORD, #[in] #[opt] #[null_terminated(entry)] pszProxyW: LPCWSTR, #[in] #[opt] #[null_terminated(entry)] pszProxyBypassW: LPCWSTR, #[in] dwFlags: DWORD) -> HINTERNET;
+        extern fn WinHttpOpen(#[in] #[null_terminated(entry)] #[opt] pszAgentW: LPCWSTR, #[in] dwAccessType: DWORD, #[in] #[null_terminated(entry)] #[opt] pszProxyW: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszProxyBypassW: LPCWSTR, #[in] dwFlags: DWORD) -> HINTERNET;
         #[library("WINHTTP.dll")]
         extern fn WinHttpOpenRequest(hConnect: HINTERNET, pwszVerb: LPCWSTR, pwszObjectName: LPCWSTR, pwszVersion: LPCWSTR, pwszReferrer: LPCWSTR, ppwszAcceptTypes: *mut LPCWSTR, dwFlags: DWORD) -> HINTERNET;
         #[library("WINHTTP.dll")]
         extern fn WinHttpProtocolCompleteUpgrade(#[in] hRequest: HINTERNET, #[in] #[opt] dwContext: DWORD_PTR) -> HINTERNET;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpProtocolReceive(#[in] ProtocolHandle: HINTERNET, #[in] Flags: ULONGLONG, #[out] #[writable(entry, bytes(dwBufferLength))] #[readable(success, bytes(*pdwBytesRead))] pvBuffer: PVOID, #[in] dwBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,dwBufferLength", "0,dwBufferLength")] pdwBytesRead: *mut DWORD) -> DWORD;
+        extern fn WinHttpProtocolReceive(#[in] ProtocolHandle: HINTERNET, #[in] Flags: ULONGLONG, #[out] #[readable(success, bytes(*pdwBytesRead))] #[writable(entry, bytes(dwBufferLength))] pvBuffer: PVOID, #[in] dwBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,dwBufferLength", "0,dwBufferLength")] pdwBytesRead: *mut DWORD) -> DWORD;
         #[library("WINHTTP.dll")]
         extern fn WinHttpProtocolSend(#[in] ProtocolHandle: HINTERNET, #[in] Flags: ULONGLONG, #[in] #[opt] #[readable(entry, dwBufferLength)] pvBuffer: PVOID, #[in] dwBufferLength: DWORD) -> DWORD;
         #[library("WINHTTP.dll")]
@@ -1342,18 +1342,18 @@ mod Windows {
         extern fn WinHttpQueryConnectionGroup(#[in] hInternet: HINTERNET, #[in] #[opt] pGuidConnection: *const GUID, #[in] ullFlags: ULONGLONG, #[in] #[out] ppResult: *mut PWINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> DWORD;
         #[library("WINHTTP.dll")]
         extern fn WinHttpQueryDataAvailable(hRequest: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] lpdwNumberOfBytesAvailable: LPDWORD) -> BOOL;
+        #[library("WINHTTP.dll")]
         #[success(return != 0)]
+        extern fn WinHttpQueryHeaders(hRequest: HINTERNET, dwInfoLevel: DWORD, pwszName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, lpdwBufferLength: LPDWORD, lpdwIndex: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryHeaders(hRequest: HINTERNET, dwInfoLevel: DWORD, pwszName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[opt] #[writable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, lpdwBufferLength: LPDWORD, lpdwIndex: LPDWORD) -> BOOL;
+        extern fn WinHttpQueryHeadersEx(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[in] ullFlags: ULONGLONG, #[in] uiCodePage: UINT, #[in] #[opt] #[out] pdwIndex: PDWORD, #[in] #[opt] pHeaderName: PWINHTTP_HEADER_NAME, #[opt] #[out] #[readable(success, bytes(*pdwBufferLength))] #[writable(entry, bytes(*pdwBufferLength))] pBuffer: PVOID, #[in] #[out] pdwBufferLength: PDWORD, #[opt] #[out] #[writable(entry, *pdwHeadersCount)] ppHeaders: *mut PWINHTTP_EXTENDED_HEADER, #[out] pdwHeadersCount: PDWORD) -> DWORD;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryHeadersEx(#[in] hRequest: HINTERNET, #[in] dwInfoLevel: DWORD, #[in] ullFlags: ULONGLONG, #[in] uiCodePage: UINT, #[in] #[out] #[opt] pdwIndex: PDWORD, #[in] #[opt] pHeaderName: PWINHTTP_HEADER_NAME, #[out] #[opt] #[writable(entry, bytes(*pdwBufferLength))] #[readable(success, bytes(*pdwBufferLength))] pBuffer: PVOID, #[in] #[out] pdwBufferLength: PDWORD, #[out] #[opt] #[writable(entry, *pdwHeadersCount)] ppHeaders: *mut PWINHTTP_EXTENDED_HEADER, #[out] pdwHeadersCount: PDWORD) -> DWORD;
         #[success(return != 0)]
+        extern fn WinHttpQueryOption(hInternet: HINTERNET, dwOption: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[opt] #[out] #[readable(success, bytes(*lpdwBufferLength))] #[writable(entry, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, lpdwBufferLength: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpQueryOption(hInternet: HINTERNET, dwOption: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[opt] #[writable(entry, bytes(*lpdwBufferLength))] #[readable(success, bytes(*lpdwBufferLength))] lpBuffer: LPVOID, lpdwBufferLength: LPDWORD) -> BOOL;
+        extern fn WinHttpReadData(hRequest: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[readable(success, bytes(*lpdwNumberOfBytesRead))] #[writable(entry, bytes(dwNumberOfBytesToRead))] lpBuffer: LPVOID, dwNumberOfBytesToRead: DWORD, lpdwNumberOfBytesRead: LPDWORD) -> BOOL;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpReadData(hRequest: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[writable(entry, bytes(dwNumberOfBytesToRead))] #[readable(success, bytes(*lpdwNumberOfBytesRead))] lpBuffer: LPVOID, dwNumberOfBytesToRead: DWORD, lpdwNumberOfBytesRead: LPDWORD) -> BOOL;
-        #[library("WINHTTP.dll")]
-        extern fn WinHttpReadDataEx(hRequest: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[writable(entry, bytes(dwNumberOfBytesToRead))] #[readable(success, bytes(*lpdwNumberOfBytesRead))] lpBuffer: LPVOID, dwNumberOfBytesToRead: DWORD, lpdwNumberOfBytesRead: LPDWORD, ullFlags: ULONGLONG, cbProperty: DWORD, #[in] #[opt] #[readable(entry, bytes(cbProperty))] pvProperty: PVOID) -> DWORD;
+        extern fn WinHttpReadDataEx(hRequest: HINTERNET, #[Windows::Win32::Metadata::NativeSal("L", "__out_data_source", "NETWORK", "NETWORK")] #[out] #[readable(success, bytes(*lpdwNumberOfBytesRead))] #[writable(entry, bytes(dwNumberOfBytesToRead))] lpBuffer: LPVOID, dwNumberOfBytesToRead: DWORD, lpdwNumberOfBytesRead: LPDWORD, ullFlags: ULONGLONG, cbProperty: DWORD, #[in] #[opt] #[readable(entry, bytes(cbProperty))] pvProperty: PVOID) -> DWORD;
         #[library("WINHTTP.dll")]
         extern fn WinHttpReadProxySettings(#[in] hSession: HINTERNET, #[in] #[opt] pcwszConnectionName: PCWSTR, #[in] fFallBackToDefaultSettings: BOOL, #[in] fSetAutoDiscoverForDefaultSettings: BOOL, #[out] pdwSettingsVersion: *mut DWORD, #[out] pfDefaultSettingsAreReturned: *mut BOOL, #[out] pWinHttpProxySettings: *mut WINHTTP_PROXY_SETTINGS) -> DWORD;
         #[library("WINHTTP.dll")]
@@ -1387,9 +1387,9 @@ mod Windows {
         #[library("WINHTTP.dll")]
         extern fn WinHttpWebSocketCompleteUpgrade(#[in] hRequest: HINTERNET, #[in] #[opt] pContext: DWORD_PTR) -> HINTERNET;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpWebSocketQueryCloseStatus(#[in] hWebSocket: HINTERNET, #[out] pusStatus: *mut USHORT, #[out] #[opt] #[writable(entry, bytes(dwReasonLength))] #[readable(success, bytes(*pdwReasonLengthConsumed))] pvReason: PVOID, #[range(entry, 0..=123)] dwReasonLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,123", "0,123")] pdwReasonLengthConsumed: *mut DWORD) -> DWORD;
+        extern fn WinHttpWebSocketQueryCloseStatus(#[in] hWebSocket: HINTERNET, #[out] pusStatus: *mut USHORT, #[opt] #[out] #[readable(success, bytes(*pdwReasonLengthConsumed))] #[writable(entry, bytes(dwReasonLength))] pvReason: PVOID, #[range(entry, 0..=123)] dwReasonLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,123", "0,123")] pdwReasonLengthConsumed: *mut DWORD) -> DWORD;
         #[library("WINHTTP.dll")]
-        extern fn WinHttpWebSocketReceive(#[in] hWebSocket: HINTERNET, #[out] #[writable(entry, bytes(dwBufferLength))] #[readable(success, bytes(*pdwBytesRead))] pvBuffer: PVOID, #[in] dwBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,dwBufferLength", "0,dwBufferLength")] pdwBytesRead: *mut DWORD, #[out] peBufferType: *mut WINHTTP_WEB_SOCKET_BUFFER_TYPE) -> DWORD;
+        extern fn WinHttpWebSocketReceive(#[in] hWebSocket: HINTERNET, #[out] #[readable(success, bytes(*pdwBytesRead))] #[writable(entry, bytes(dwBufferLength))] pvBuffer: PVOID, #[in] dwBufferLength: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,dwBufferLength", "0,dwBufferLength")] pdwBytesRead: *mut DWORD, #[out] peBufferType: *mut WINHTTP_WEB_SOCKET_BUFFER_TYPE) -> DWORD;
         #[library("WINHTTP.dll")]
         extern fn WinHttpWebSocketSend(#[in] hWebSocket: HINTERNET, #[in] eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE, #[in] #[opt] #[readable(entry, dwBufferLength)] pvBuffer: PVOID, #[in] dwBufferLength: DWORD) -> DWORD;
         #[library("WINHTTP.dll")]

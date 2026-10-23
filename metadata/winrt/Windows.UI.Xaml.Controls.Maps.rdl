@@ -4,42 +4,42 @@ mod Windows {
         mod Xaml {
             mod Controls {
                 mod Maps {
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ICustomMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class CustomMapTileDataSource: MapTileDataSource {
                         ICustomMapTileDataSource,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IHttpMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class HttpMapTileDataSource: MapTileDataSource {
                         IHttpMapTileDataSource,
                     }
-                    #[guid(0x65da384a_2db1_4be1_b155_3d0c9ecf4799)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CustomMapTileDataSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x65da384a_2db1_4be1_b155_3d0c9ecf4799)]
                     interface ICustomMapTileDataSource {
                         event BitmapRequested: super::super::super::super::Foundation::TypedEventHandler<CustomMapTileDataSource, MapTileBitmapRequestedEventArgs>;
                     }
-                    #[guid(0xc8477947_c955_4f22_9444_a1d8d744af11)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CustomMapTileDataSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xc8477947_c955_4f22_9444_a1d8d744af11)]
                     interface ICustomMapTileDataSourceFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> CustomMapTileDataSource;
                     }
-                    #[guid(0x9d03cb5c_fd79_4795_87be_7e54ca0b37d0)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(HttpMapTileDataSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x9d03cb5c_fd79_4795_87be_7e54ca0b37d0)]
                     interface IHttpMapTileDataSource {
                         UriFormatString: String;
                         #[get]
@@ -47,66 +47,66 @@ mod Windows {
                         AllowCaching: bool;
                         event UriRequested: super::super::super::super::Foundation::TypedEventHandler<HttpMapTileDataSource, MapTileUriRequestedEventArgs>;
                     }
-                    #[guid(0x53b4b107_84dc_4291_89f8_6d0bb612a055)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(HttpMapTileDataSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x53b4b107_84dc_4291_89f8_6d0bb612a055)]
                     interface IHttpMapTileDataSourceFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> HttpMapTileDataSource;
                         fn CreateInstanceWithUriFormatString(&self, #[in] uriFormatString: String, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> HttpMapTileDataSource;
                     }
-                    #[guid(0x616257b5_9108_4f12_8bf4_bb3c8f6274e5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(LocalMapTileDataSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x616257b5_9108_4f12_8bf4_bb3c8f6274e5)]
                     interface ILocalMapTileDataSource {
                         UriFormatString: String;
                         event UriRequested: super::super::super::super::Foundation::TypedEventHandler<LocalMapTileDataSource, MapTileUriRequestedEventArgs>;
                     }
-                    #[guid(0xc5cfe9fc_72ac_4839_8a0d_011f24693c79)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(LocalMapTileDataSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xc5cfe9fc_72ac_4839_8a0d_011f24693c79)]
                     interface ILocalMapTileDataSourceFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> LocalMapTileDataSource;
                         fn CreateInstanceWithUriFormatString(&self, #[in] uriFormatString: String, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> LocalMapTileDataSource;
                     }
-                    #[guid(0xdaa080da_b7f4_422c_a618_bbaa7c1d814c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xdaa080da_b7f4_422c_a618_bbaa7c1d814c)]
                     interface IMapActualCameraChangedEventArgs {
                         #[get]
                         Camera: MapCamera;
                     }
-                    #[guid(0x7ba4c7e5_10dc_455a_9d04_1d72fb6d9b93)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x7ba4c7e5_10dc_455a_9d04_1d72fb6d9b93)]
                     interface IMapActualCameraChangedEventArgs2 {
                         #[get]
                         ChangeReason: MapCameraChangeReason;
                     }
-                    #[guid(0x6b0dbed6_93f7_4682_8de5_a47a1cc7a945)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangingEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x6b0dbed6_93f7_4682_8de5_a47a1cc7a945)]
                     interface IMapActualCameraChangingEventArgs {
                         #[get]
                         Camera: MapCamera;
                     }
-                    #[guid(0xf2867897_40ac_4e8a_a927_510f3846a47e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapActualCameraChangingEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xf2867897_40ac_4e8a_a927_510f3846a47e)]
                     interface IMapActualCameraChangingEventArgs2 {
                         #[get]
                         ChangeReason: MapCameraChangeReason;
                     }
-                    #[guid(0x1694259d_0ae2_4f42_a02e_292ca835d39d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapBillboard)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x1694259d_0ae2_4f42_a02e_292ca835d39d)]
                     interface IMapBillboard {
                         Location: super::super::super::super::Devices::Geolocation::Geopoint;
                         NormalizedAnchorPoint: super::super::super::super::Foundation::Point;
@@ -115,17 +115,17 @@ mod Windows {
                         #[get]
                         ReferenceCamera: MapCamera;
                     }
-                    #[guid(0xbe45a4c5_8f09_4b86_ae28_783740eb8b31)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapBillboard)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xbe45a4c5_8f09_4b86_ae28_783740eb8b31)]
                     interface IMapBillboardFactory {
                         fn CreateInstanceFromCamera(&self, #[in] camera: MapCamera) -> MapBillboard;
                     }
-                    #[guid(0xfdf839fe_e1f7_4fb0_8887_7da68c647333)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapBillboard)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xfdf839fe_e1f7_4fb0_8887_7da68c647333)]
                     interface IMapBillboardStatics {
                         #[get]
                         LocationProperty: super::super::DependencyProperty;
@@ -134,10 +134,10 @@ mod Windows {
                         #[get]
                         CollisionBehaviorDesiredProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x53a6b623_c0f8_4d8b_ad1e_a59598ea840b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapCamera)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x53a6b623_c0f8_4d8b_ad1e_a59598ea840b)]
                     interface IMapCamera {
                         Location: super::super::super::super::Devices::Geolocation::Geopoint;
                         Heading: f64;
@@ -145,20 +145,20 @@ mod Windows {
                         Roll: f64;
                         FieldOfView: f64;
                     }
-                    #[guid(0xea3b0f16_83af_4ace_8e71_10ad9f1e9e7f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapCamera)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xea3b0f16_83af_4ace_8e71_10ad9f1e9e7f)]
                     interface IMapCameraFactory {
                         fn CreateInstanceWithLocation(&self, #[in] location: super::super::super::super::Devices::Geolocation::Geopoint) -> MapCamera;
                         fn CreateInstanceWithLocationAndHeading(&self, #[in] location: super::super::super::super::Devices::Geolocation::Geopoint, #[in] headingInDegrees: f64) -> MapCamera;
                         fn CreateInstanceWithLocationHeadingAndPitch(&self, #[in] location: super::super::super::super::Devices::Geolocation::Geopoint, #[in] headingInDegrees: f64, #[in] pitchInDegrees: f64) -> MapCamera;
                         fn CreateInstanceWithLocationHeadingPitchRollAndFieldOfView(&self, #[in] location: super::super::super::super::Devices::Geolocation::Geopoint, #[in] headingInDegrees: f64, #[in] pitchInDegrees: f64, #[in] rollInDegrees: f64, #[in] fieldOfViewInDegrees: f64) -> MapCamera;
                     }
-                    #[guid(0xfdd1b423_c961_4df2_bb57_82ee0f0bb591)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapContextRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xfdd1b423_c961_4df2_bb57_82ee0f0bb591)]
                     interface IMapContextRequestedEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -167,10 +167,10 @@ mod Windows {
                         #[get]
                         MapElements: super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
                     }
-                    #[guid(0x42d0b851_5256_4747_9e6c_0d11e966141e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x42d0b851_5256_4747_9e6c_0d11e966141e)]
                     interface IMapControl {
                         Center: super::super::super::super::Devices::Geolocation::Geopoint;
                         #[get]
@@ -230,10 +230,10 @@ mod Windows {
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn TrySetViewAsync(&self, #[in] center: super::super::super::super::Devices::Geolocation::Geopoint, #[in] zoomLevel: super::super::super::super::Foundation::IReference<f64>, #[in] heading: super::super::super::super::Foundation::IReference<f64>, #[in] desiredPitch: super::super::super::super::Foundation::IReference<f64>, #[in] animation: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                     }
-                    #[guid(0xe1fd644d_96ec_4065_b0f0_75281da3654d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xe1fd644d_96ec_4065_b0f0_75281da3654d)]
                     interface IMapControl2 {
                         BusinessLandmarksVisible: bool;
                         TransitFeaturesVisible: bool;
@@ -285,26 +285,26 @@ mod Windows {
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn TrySetSceneAsync(&self, #[in] scene: MapScene, #[in] animationKind: MapAnimationKind) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                     }
-                    #[guid(0x586328f8_8cdd_40ae_9338_af2a7be845e5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x586328f8_8cdd_40ae_9338_af2a7be845e5)]
                     interface IMapControl3 {
                         event MapRightTapped: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapRightTappedEventArgs>;
                     }
-                    #[guid(0x068f132a_1817_466d_b7ce_419b3f8e248b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x068f132a_1817_466d_b7ce_419b3f8e248b)]
                     interface IMapControl4 {
                         BusinessLandmarksEnabled: bool;
                         TransitFeaturesEnabled: bool;
                         fn GetVisibleRegion(&self, #[in] region: MapVisibleRegionKind) -> super::super::super::super::Devices::Geolocation::Geopath;
                     }
-                    #[guid(0xdd9b0ffd_7823_46a2_82c9_65ddac4f365f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xdd9b0ffd_7823_46a2_82c9_65ddac4f365f)]
                     interface IMapControl5 {
                         MapProjection: MapProjection;
                         StyleSheet: MapStyleSheet;
@@ -321,10 +321,10 @@ mod Windows {
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn TryPanToAsync(&self, #[in] location: super::super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::super::Foundation::IAsyncOperation<bool>;
                     }
-                    #[guid(0xb0da89a2_1041_4bea_b88a_12ac9a82e0e2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xb0da89a2_1041_4bea_b88a_12ac9a82e0e2)]
                     interface IMapControl6 {
                         Layers: super::super::super::super::Foundation::Collections::IVector<MapLayer>;
                         #[Windows::Foundation::Metadata::Overload("TryGetLocationFromOffset")]
@@ -332,17 +332,17 @@ mod Windows {
                         #[Windows::Foundation::Metadata::Overload("TryGetLocationFromOffsetWithReferenceSystem")]
                         fn TryGetLocationFromOffset(&self, #[in] offset: super::super::super::super::Foundation::Point, #[in] desiredReferenceSystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, #[out] location: &mut super::super::super::super::Devices::Geolocation::Geopoint) -> bool;
                     }
-                    #[guid(0x0d86e453_0c1f_4f7e_ae66_4ad0b4987857)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x0d86e453_0c1f_4f7e_ae66_4ad0b4987857)]
                     interface IMapControl7 {
                         Region: String;
                     }
-                    #[guid(0x009e9c46_724d_53ca_9421_7a48fc731523)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x009e9c46_724d_53ca_9421_7a48fc731523)]
                     interface IMapControl8 {
                         #[get]
                         CanTiltDown: bool;
@@ -353,76 +353,76 @@ mod Windows {
                         #[get]
                         CanZoomOut: bool;
                     }
-                    #[guid(0x5e464922_4a1a_4797_beb7_5cf7754cb867)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkClickEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x5e464922_4a1a_4797_beb7_5cf7754cb867)]
                     interface IMapControlBusinessLandmarkClickEventArgs {
                         #[get]
                         LocalLocations: super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
                     }
-                    #[guid(0x5e4081a6_ea98_4f95_8caf_5b42696ff504)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkPointerEnteredEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x5e4081a6_ea98_4f95_8caf_5b42696ff504)]
                     interface IMapControlBusinessLandmarkPointerEnteredEventArgs {
                         #[get]
                         LocalLocations: super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
                     }
-                    #[guid(0x2bb52caf_f24a_46d0_b463_65f719731057)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkPointerExitedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x2bb52caf_f24a_46d0_b463_65f719731057)]
                     interface IMapControlBusinessLandmarkPointerExitedEventArgs {
                         #[get]
                         LocalLocations: super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
                     }
-                    #[guid(0x59ab8ae7_f184_4ab1_b0b0_35c8bf0654b2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlBusinessLandmarkRightTappedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x59ab8ae7_f184_4ab1_b0b0_35c8bf0654b2)]
                     interface IMapControlBusinessLandmarkRightTappedEventArgs {
                         #[get]
                         LocalLocations: super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>;
                     }
-                    #[guid(0x8bb0f09c_14ab_486c_9de5_5a5def0205a2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x8bb0f09c_14ab_486c_9de5_5a5def0205a2)]
                     interface IMapControlDataHelper {
                         event BusinessLandmarkClick: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkClickEventArgs>;
                         event TransitFeatureClick: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeatureClickEventArgs>;
                         event BusinessLandmarkRightTapped: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkRightTappedEventArgs>;
                         event TransitFeatureRightTapped: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeatureRightTappedEventArgs>;
                     }
-                    #[guid(0x59ce429e_562f_4c21_a674_0f11decf0fb3)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x59ce429e_562f_4c21_a674_0f11decf0fb3)]
                     interface IMapControlDataHelper2 {
                         event BusinessLandmarkPointerEntered: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkPointerEnteredEventArgs>;
                         event TransitFeaturePointerEntered: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeaturePointerEnteredEventArgs>;
                         event BusinessLandmarkPointerExited: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlBusinessLandmarkPointerExitedEventArgs>;
                         event TransitFeaturePointerExited: super::super::super::super::Foundation::TypedEventHandler<MapControl, MapControlTransitFeaturePointerExitedEventArgs>;
                     }
-                    #[guid(0x3b70aa8e_02ef_469c_bbaf_dc2158d4289b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x3b70aa8e_02ef_469c_bbaf_dc2158d4289b)]
                     interface IMapControlDataHelperFactory {
                         fn CreateInstance(&self, #[in] map: MapControl) -> MapControlDataHelper;
                     }
-                    #[guid(0x7a6632d6_e944_4110_83cf_314d0722e2e5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlDataHelper)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x7a6632d6_e944_4110_83cf_314d0722e2e5)]
                     interface IMapControlDataHelperStatics {
                         fn CreateMapControl(&self, #[in] rasterRenderMode: bool) -> MapControl;
                     }
-                    #[guid(0xc2c61795_2147_4f0a_942a_5493a85de807)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xc2c61795_2147_4f0a_942a_5493a85de807)]
                     interface IMapControlStatics {
                         #[get]
                         CenterProperty: super::super::DependencyProperty;
@@ -469,10 +469,10 @@ mod Windows {
                         fn GetNormalizedAnchorPoint(&self, #[in] element: super::super::DependencyObject) -> super::super::super::super::Foundation::Point;
                         fn SetNormalizedAnchorPoint(&self, #[in] element: super::super::DependencyObject, #[in] value: super::super::super::super::Foundation::Point);
                     }
-                    #[guid(0x04852b93_b446_4d31_9752_1ec69a5996ae)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x04852b93_b446_4d31_9752_1ec69a5996ae)]
                     interface IMapControlStatics2 {
                         #[get]
                         BusinessLandmarksVisibleProperty: super::super::DependencyProperty;
@@ -493,20 +493,20 @@ mod Windows {
                         #[get]
                         SceneProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xfe785d97_5d13_4fa1_bf1d_84061768c183)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xfe785d97_5d13_4fa1_bf1d_84061768c183)]
                     interface IMapControlStatics4 {
                         #[get]
                         BusinessLandmarksEnabledProperty: super::super::DependencyProperty;
                         #[get]
                         TransitFeaturesEnabledProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x09626f00_b7dd_4189_a7f7_830c412deea3)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x09626f00_b7dd_4189_a7f7_830c412deea3)]
                     interface IMapControlStatics5 {
                         #[get]
                         MapProjectionProperty: super::super::DependencyProperty;
@@ -515,26 +515,26 @@ mod Windows {
                         #[get]
                         ViewPaddingProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x3ccfdd7f_24d1_40a2_8351_b3063a8c95a4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x3ccfdd7f_24d1_40a2_8351_b3063a8c95a4)]
                     interface IMapControlStatics6 {
                         #[get]
                         LayersProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x55f1ac4d_72c2_46b2_b7ae_790260be641b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x55f1ac4d_72c2_46b2_b7ae_790260be641b)]
                     interface IMapControlStatics7 {
                         #[get]
                         RegionProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xadb7a7b0_0605_592c_bf9d_d10bdc2be47b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xadb7a7b0_0605_592c_bf9d_d10bdc2be47b)]
                     interface IMapControlStatics8 {
                         #[get]
                         CanTiltDownProperty: super::super::DependencyProperty;
@@ -545,10 +545,10 @@ mod Windows {
                         #[get]
                         CanZoomOutProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x76179969_b765_4622_b08a_3072745a4541)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeatureClickEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x76179969_b765_4622_b08a_3072745a4541)]
                     interface IMapControlTransitFeatureClickEventArgs {
                         #[get]
                         DisplayName: String;
@@ -557,10 +557,10 @@ mod Windows {
                         #[get]
                         TransitProperties: super::super::super::super::Foundation::Collections::IMapView<String, Object>;
                     }
-                    #[guid(0x73911a4e_ec4f_479e_94a1_36e081d0d897)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeaturePointerEnteredEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x73911a4e_ec4f_479e_94a1_36e081d0d897)]
                     interface IMapControlTransitFeaturePointerEnteredEventArgs {
                         #[get]
                         DisplayName: String;
@@ -569,10 +569,10 @@ mod Windows {
                         #[get]
                         TransitProperties: super::super::super::super::Foundation::Collections::IMapView<String, Object>;
                     }
-                    #[guid(0x6a11258d_448d_44e7_bc69_d13d497154e9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeaturePointerExitedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x6a11258d_448d_44e7_bc69_d13d497154e9)]
                     interface IMapControlTransitFeaturePointerExitedEventArgs {
                         #[get]
                         DisplayName: String;
@@ -581,10 +581,10 @@ mod Windows {
                         #[get]
                         TransitProperties: super::super::super::super::Foundation::Collections::IMapView<String, Object>;
                     }
-                    #[guid(0xaea1cc49_a729_4eae_a59a_3ec9a125a028)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Services::Maps::LocalSearchContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapControlTransitFeatureRightTappedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xaea1cc49_a729_4eae_a59a_3ec9a125a028)]
                     interface IMapControlTransitFeatureRightTappedEventArgs {
                         #[get]
                         DisplayName: String;
@@ -593,51 +593,51 @@ mod Windows {
                         #[get]
                         TransitProperties: super::super::super::super::Foundation::Collections::IMapView<String, Object>;
                     }
-                    #[guid(0x64592866_14a3_4e5f_8883_8e9c500eeede)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapCustomExperience)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x64592866_14a3_4e5f_8883_8e9c500eeede)]
                     interface IMapCustomExperience {}
-                    #[guid(0xb9e6fb9b_8fc1_4042_ac34_a61b38bb7514)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapCustomExperienceChangedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xb9e6fb9b_8fc1_4042_ac34_a61b38bb7514)]
                     interface IMapCustomExperienceChangedEventArgs {}
-                    #[guid(0x7a403fb5_a1b1_4e7f_921e_3e6b8d8ebed6)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapCustomExperience)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x7a403fb5_a1b1_4e7f_921e_3e6b8d8ebed6)]
                     interface IMapCustomExperienceFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapCustomExperience;
                     }
-                    #[guid(0xd61fc4df_b245_47f2_9ac2_43c058b1c903)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xd61fc4df_b245_47f2_9ac2_43c058b1c903)]
                     interface IMapElement {
                         ZIndex: i32;
                         Visible: bool;
                     }
-                    #[guid(0x6619f261_fba6_4964_a7ff_f1af63ab9cb0)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x6619f261_fba6_4964_a7ff_f1af63ab9cb0)]
                     interface IMapElement2 {
                         MapTabIndex: i32;
                     }
-                    #[guid(0x13efbc59_45ed_48b4_93ad_e3f78f8cf218)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x13efbc59_45ed_48b4_93ad_e3f78f8cf218)]
                     interface IMapElement3 {
                         MapStyleSheetEntry: String;
                         MapStyleSheetEntryState: String;
                         Tag: Object;
                     }
-                    #[guid(0x827af8d5_3843_48e2_bd00_0f0644fbe6a5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement3D)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x827af8d5_3843_48e2_bd00_0f0644fbe6a5)]
                     interface IMapElement3D {
                         Location: super::super::super::super::Devices::Geolocation::Geopoint;
                         Model: MapModel3D;
@@ -646,10 +646,10 @@ mod Windows {
                         Roll: f64;
                         Scale: super::super::super::super::Foundation::Numerics::Vector3;
                     }
-                    #[guid(0x6128011a_450f_442a_b9d9_aa815c71907a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement3D)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x6128011a_450f_442a_b9d9_aa815c71907a)]
                     interface IMapElement3DStatics {
                         #[get]
                         LocationProperty: super::super::DependencyProperty;
@@ -662,17 +662,17 @@ mod Windows {
                         #[get]
                         ScaleProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x645883b6_1fc1_4ceb_93bd_dc2c960072e9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x645883b6_1fc1_4ceb_93bd_dc2c960072e9)]
                     interface IMapElement4 {
                         IsEnabled: bool;
                     }
-                    #[guid(0x40168a11_d080_4519_99a1_3149fb8999d0)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementClickEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x40168a11_d080_4519_99a1_3149fb8999d0)]
                     interface IMapElementClickEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -681,17 +681,17 @@ mod Windows {
                         #[get]
                         MapElements: super::super::super::super::Foundation::Collections::IVector<MapElement>;
                     }
-                    #[guid(0x4a30d007_0bd6_47a5_860b_7e7cf5f0c573)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x4a30d007_0bd6_47a5_860b_7e7cf5f0c573)]
                     interface IMapElementFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapElement;
                     }
-                    #[guid(0xab85dd4e_91d7_4b31_8f0a_d390c7d3a2ef)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementPointerEnteredEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xab85dd4e_91d7_4b31_8f0a_d390c7d3a2ef)]
                     interface IMapElementPointerEnteredEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -700,10 +700,10 @@ mod Windows {
                         #[get]
                         MapElement: MapElement;
                     }
-                    #[guid(0xc1a45af9_60c9_4679_9119_20abc75d931f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementPointerExitedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xc1a45af9_60c9_4679_9119_20abc75d931f)]
                     interface IMapElementPointerExitedEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -712,28 +712,28 @@ mod Windows {
                         #[get]
                         MapElement: MapElement;
                     }
-                    #[guid(0xe8c71cf2_bfef_4b49_8e99_41b5e3789fd2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xe8c71cf2_bfef_4b49_8e99_41b5e3789fd2)]
                     interface IMapElementStatics {
                         #[get]
                         ZIndexProperty: super::super::DependencyProperty;
                         #[get]
                         VisibleProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x9bf72f30_80fe_4f30_bcc1_fa894050f676)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x9bf72f30_80fe_4f30_bcc1_fa894050f676)]
                     interface IMapElementStatics2 {
                         #[get]
                         MapTabIndexProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xe11ee92f_9742_49aa_aad8_2e466bff3796)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xe11ee92f_9742_49aa_aad8_2e466bff3796)]
                     interface IMapElementStatics3 {
                         #[get]
                         MapStyleSheetEntryProperty: super::super::DependencyProperty;
@@ -742,18 +742,18 @@ mod Windows {
                         #[get]
                         TagProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xa4296f0b_dff8_467c_9315_6f6db93ee2ba)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElement)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xa4296f0b_dff8_467c_9315_6f6db93ee2ba)]
                     interface IMapElementStatics4 {
                         #[get]
                         IsEnabledProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xde79689a_01ef_46f4_ac60_7c200b552610)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xde79689a_01ef_46f4_ac60_7c200b552610)]
                     interface IMapElementsLayer {
                         MapElements: super::super::super::super::Foundation::Collections::IVector<MapElement>;
                         event MapElementClick: super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerClickEventArgs>;
@@ -761,10 +761,10 @@ mod Windows {
                         event MapElementPointerExited: super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerPointerExitedEventArgs>;
                         event MapContextRequested: super::super::super::super::Foundation::TypedEventHandler<MapElementsLayer, MapElementsLayerContextRequestedEventArgs>;
                     }
-                    #[guid(0x2ca7cf66_af1b_4c05_8c85_f74ae3d4677f)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerClickEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x2ca7cf66_af1b_4c05_8c85_f74ae3d4677f)]
                     interface IMapElementsLayerClickEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -773,10 +773,10 @@ mod Windows {
                         #[get]
                         MapElements: super::super::super::super::Foundation::Collections::IVector<MapElement>;
                     }
-                    #[guid(0xda45d0b3_7a0e_4758_808b_3a637627eb0d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerContextRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xda45d0b3_7a0e_4758_808b_3a637627eb0d)]
                     interface IMapElementsLayerContextRequestedEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -785,10 +785,10 @@ mod Windows {
                         #[get]
                         MapElements: super::super::super::super::Foundation::Collections::IVectorView<MapElement>;
                     }
-                    #[guid(0x757fc032_4694_4404_8c89_348b6b76c5e6)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerPointerEnteredEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x757fc032_4694_4404_8c89_348b6b76c5e6)]
                     interface IMapElementsLayerPointerEnteredEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -797,10 +797,10 @@ mod Windows {
                         #[get]
                         MapElement: MapElement;
                     }
-                    #[guid(0x92f3c6ad_03ed_4c39_af20_2a07ee1ccea6)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayerPointerExitedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x92f3c6ad_03ed_4c39_af20_2a07ee1ccea6)]
                     interface IMapElementsLayerPointerExitedEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
@@ -809,35 +809,35 @@ mod Windows {
                         #[get]
                         MapElement: MapElement;
                     }
-                    #[guid(0x34005727_f509_4d28_9180_911c03411d74)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapElementsLayer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x34005727_f509_4d28_9180_911c03411d74)]
                     interface IMapElementsLayerStatics {
                         #[get]
                         MapElementsProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xd2096872_23d9_4a2b_8be0_69f3a85482ab)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xd2096872_23d9_4a2b_8be0_69f3a85482ab)]
                     interface IMapIcon {
                         Location: super::super::super::super::Devices::Geolocation::Geopoint;
                         Title: String;
                         NormalizedAnchorPoint: super::super::super::super::Foundation::Point;
                         Image: super::super::super::super::Storage::Streams::IRandomAccessStreamReference;
                     }
-                    #[guid(0x611254b9_d8aa_4bbd_a316_badf06911d63)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x611254b9_d8aa_4bbd_a316_badf06911d63)]
                     interface IMapIcon2 {
                         CollisionBehaviorDesired: MapElementCollisionBehavior;
                     }
-                    #[guid(0xdcbc9e56_1190_4b5d_9e56_e5b6724aa328)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xdcbc9e56_1190_4b5d_9e56_e5b6724aa328)]
                     interface IMapIconStatics {
                         #[get]
                         LocationProperty: super::super::DependencyProperty;
@@ -846,38 +846,38 @@ mod Windows {
                         #[get]
                         NormalizedAnchorPointProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xff4c306a_cf76_46ab_a12f_b603b986c696)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapIcon)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xff4c306a_cf76_46ab_a12f_b603b986c696)]
                     interface IMapIconStatics2 {
                         #[get]
                         CollisionBehaviorDesiredProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x9fc503a0_a8a2_4394_92e9_2247764f2f49)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapInputEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x9fc503a0_a8a2_4394_92e9_2247764f2f49)]
                     interface IMapInputEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
                         #[get]
                         Location: super::super::super::super::Devices::Geolocation::Geopoint;
                     }
-                    #[guid(0x94c2c4d3_b335_42c5_b660_e6a07ec3bddc)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapItemsControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x94c2c4d3_b335_42c5_b660_e6a07ec3bddc)]
                     interface IMapItemsControl {
                         ItemsSource: Object;
                         #[get]
                         Items: super::super::super::super::Foundation::Collections::IVector<super::super::DependencyObject>;
                         ItemTemplate: super::super::DataTemplate;
                     }
-                    #[guid(0x33a859c7_789b_425c_8a0a_32385896cb4a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapItemsControl)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x33a859c7_789b_425c_8a0a_32385896cb4a)]
                     interface IMapItemsControlStatics {
                         #[get]
                         ItemsSourceProperty: super::super::DependencyProperty;
@@ -886,26 +886,26 @@ mod Windows {
                         #[get]
                         ItemTemplateProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x6d0ff9c1_a14d_4f97_8f57_46715b57683a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapLayer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x6d0ff9c1_a14d_4f97_8f57_46715b57683a)]
                     interface IMapLayer {
                         MapTabIndex: i32;
                         Visible: bool;
                         ZIndex: i32;
                     }
-                    #[guid(0xe02a2207_dee3_47c8_9825_bd029c5752f7)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapLayer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xe02a2207_dee3_47c8_9825_bd029c5752f7)]
                     interface IMapLayerFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapLayer;
                     }
-                    #[guid(0x9ca4a26b_5db9_4f0c_bdd5_b1bffdcce946)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapLayer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x9ca4a26b_5db9_4f0c_bdd5_b1bffdcce946)]
                     interface IMapLayerStatics {
                         #[get]
                         MapTabIndexProperty: super::super::DependencyProperty;
@@ -914,22 +914,22 @@ mod Windows {
                         #[get]
                         ZIndexProperty: super::super::DependencyProperty;
                     }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[guid(0xf8c541a1_ca27_4968_a2bf_9c20f06a0468)]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMapModel3D {}
-                    #[guid(0xdf7f0bcc_580a_498b_939b_0119a9dadb9e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xdf7f0bcc_580a_498b_939b_0119a9dadb9e)]
                     interface IMapModel3DFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapModel3D;
                     }
-                    #[guid(0x4834a480_8e56_4b0f_872d_7ead103187cd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapModel3D)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x4834a480_8e56_4b0f_872d_7ead103187cd)]
                     interface IMapModel3DStatics {
                         #[Windows::Foundation::Metadata::Overload("CreateFrom3MFAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
@@ -938,10 +938,10 @@ mod Windows {
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn CreateFrom3MFAsync(&self, #[in] source: super::super::super::super::Storage::Streams::IRandomAccessStreamReference, #[in] shadingOption: MapModel3DShadingOption) -> super::super::super::super::Foundation::IAsyncOperation<MapModel3D>;
                     }
-                    #[guid(0xabda2285_4926_4c3a_a5f9_19df7f69db3d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapPolygon)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xabda2285_4926_4c3a_a5f9_19df7f69db3d)]
                     interface IMapPolygon {
                         Path: super::super::super::super::Devices::Geolocation::Geopath;
                         StrokeColor: super::super::super::Color;
@@ -949,18 +949,18 @@ mod Windows {
                         StrokeDashed: bool;
                         FillColor: super::super::super::Color;
                     }
-                    #[guid(0x96c8a11e_636b_4018_9c2e_acc9122a01b2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapPolygon)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x96c8a11e_636b_4018_9c2e_acc9122a01b2)]
                     interface IMapPolygon2 {
                         #[get]
                         Paths: super::super::super::super::Foundation::Collections::IVector<super::super::super::super::Devices::Geolocation::Geopath>;
                     }
-                    #[guid(0x37f573be_097b_424c_87cc_2ee042fda6d2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapPolygon)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x37f573be_097b_424c_87cc_2ee042fda6d2)]
                     interface IMapPolygonStatics {
                         #[get]
                         PathProperty: super::super::DependencyProperty;
@@ -969,66 +969,66 @@ mod Windows {
                         #[get]
                         StrokeDashedProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0xfbad24a2_24df_4a86_8ffa_0f8f4d9ec17d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapPolyline)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xfbad24a2_24df_4a86_8ffa_0f8f4d9ec17d)]
                     interface IMapPolyline {
                         Path: super::super::super::super::Devices::Geolocation::Geopath;
                         StrokeColor: super::super::super::Color;
                         StrokeThickness: f64;
                         StrokeDashed: bool;
                     }
-                    #[guid(0x61fde44b_1ddf_4303_b809_ec87f58ad065)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapPolyline)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x61fde44b_1ddf_4303_b809_ec87f58ad065)]
                     interface IMapPolylineStatics {
                         #[get]
                         PathProperty: super::super::DependencyProperty;
                         #[get]
                         StrokeDashedProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x20943171_6fe8_40a6_ad0e_297379b575a7)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapRightTappedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x20943171_6fe8_40a6_ad0e_297379b575a7)]
                     interface IMapRightTappedEventArgs {
                         #[get]
                         Position: super::super::super::super::Foundation::Point;
                         #[get]
                         Location: super::super::super::super::Devices::Geolocation::Geopoint;
                     }
-                    #[guid(0x740eaec5_bacc_41e1_a67e_dd6513832049)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteView)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x740eaec5_bacc_41e1_a67e_dd6513832049)]
                     interface IMapRouteView {
                         RouteColor: super::super::super::Color;
                         OutlineColor: super::super::super::Color;
                         #[get]
                         Route: super::super::super::super::Services::Maps::MapRoute;
                     }
-                    #[guid(0xf083addf_0066_4628_82fe_ea78c23cec1e)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapRouteView)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xf083addf_0066_4628_82fe_ea78c23cec1e)]
                     interface IMapRouteViewFactory {
                         fn CreateInstanceWithMapRoute(&self, #[in] route: super::super::super::super::Services::Maps::MapRoute, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapRouteView;
                     }
-                    #[guid(0x8bba10a9_50e7_482c_9789_c688b178ac24)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapScene)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x8bba10a9_50e7_482c_9789_c688b178ac24)]
                     interface IMapScene {
                         #[get]
                         TargetCamera: MapCamera;
                         event TargetCameraChanged: super::super::super::super::Foundation::TypedEventHandler<MapScene, MapTargetCameraChangedEventArgs>;
                     }
-                    #[guid(0x03e4ad6c_86ec_44d9_9597_fb75b7deba0a)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapScene)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x03e4ad6c_86ec_44d9_9597_fb75b7deba0a)]
                     interface IMapSceneStatics {
                         #[Windows::Foundation::Metadata::Overload("CreateFromBoundingBox")]
                         fn CreateFromBoundingBox(&self, #[in] bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox) -> MapScene;
@@ -1048,15 +1048,15 @@ mod Windows {
                         #[Windows::Foundation::Metadata::Overload("CreateFromLocationsWithHeadingAndPitch")]
                         fn CreateFromLocations(&self, #[in] locations: super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>, #[in] headingInDegrees: f64, #[in] pitchInDegrees: f64) -> MapScene;
                     }
-                    #[guid(0xae54b2bf_8991_42ed_8d58_20473deede1d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheet)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xae54b2bf_8991_42ed_8d58_20473deede1d)]
                     interface IMapStyleSheet {}
-                    #[guid(0xc9636345_ef1a_41a4_a757_bd4f43e1e4d1)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheetEntries)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xc9636345_ef1a_41a4_a757_bd4f43e1e4d1)]
                     interface IMapStyleSheetEntriesStatics {
                         #[get]
                         Area: String;
@@ -1187,10 +1187,10 @@ mod Windows {
                         #[get]
                         DrivingRoute: String;
                     }
-                    #[guid(0x23ac5532_866d_4bfa_b481_39bea1de3506)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheetEntryStates)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x23ac5532_866d_4bfa_b481_39bea1de3506)]
                     interface IMapStyleSheetEntryStatesStatics {
                         #[get]
                         Disabled: String;
@@ -1199,10 +1199,10 @@ mod Windows {
                         #[get]
                         Selected: String;
                     }
-                    #[guid(0xabbd00ad_0a1c_4335_82f4_61d936aa197d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapStyleSheet)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xabbd00ad_0a1c_4335_82f4_61d936aa197d)]
                     interface IMapStyleSheetStatics {
                         fn Aerial(&self) -> MapStyleSheet;
                         fn AerialWithOverlay(&self) -> MapStyleSheet;
@@ -1214,41 +1214,41 @@ mod Windows {
                         fn ParseFromJson(&self, #[in] styleAsJson: String) -> MapStyleSheet;
                         fn TryParseFromJson(&self, #[in] styleAsJson: String, #[out] styleSheet: &mut MapStyleSheet) -> bool;
                     }
-                    #[guid(0xdbf00472_e953_4fa8_97d0_ea86359057cf)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTargetCameraChangedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xdbf00472_e953_4fa8_97d0_ea86359057cf)]
                     interface IMapTargetCameraChangedEventArgs {
                         #[get]
                         Camera: MapCamera;
                     }
-                    #[guid(0x97c0b332_f2b6_460b_8d91_ac020a2383dd)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTargetCameraChangedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x97c0b332_f2b6_460b_8d91_ac020a2383dd)]
                     interface IMapTargetCameraChangedEventArgs2 {
                         #[get]
                         ChangeReason: MapCameraChangeReason;
                     }
-                    #[guid(0x46733fbc_d89d_472b_b5f6_d7066b0584f4)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequest)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x46733fbc_d89d_472b_b5f6_d7066b0584f4)]
                     interface IMapTileBitmapRequest {
                         PixelData: super::super::super::super::Storage::Streams::IRandomAccessStreamReference;
                         fn GetDeferral(&self) -> MapTileBitmapRequestDeferral;
                     }
-                    #[guid(0xfe370542_a4ac_4efa_9665_0490b0cafdd2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequestDeferral)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xfe370542_a4ac_4efa_9665_0490b0cafdd2)]
                     interface IMapTileBitmapRequestDeferral {
                         fn Complete(&self);
                     }
-                    #[guid(0x337f691d_9b02_4aa2_8b1e_cc4d91719bf3)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x337f691d_9b02_4aa2_8b1e_cc4d91719bf3)]
                     interface IMapTileBitmapRequestedEventArgs {
                         #[get]
                         X: i32;
@@ -1259,30 +1259,30 @@ mod Windows {
                         #[get]
                         Request: MapTileBitmapRequest;
                     }
-                    #[guid(0x0261d114_246a_5296_bc85_590f53aa39c8)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileBitmapRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x0261d114_246a_5296_bc85_590f53aa39c8)]
                     interface IMapTileBitmapRequestedEventArgs2 {
                         #[get]
                         FrameIndex: i32;
                     }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileDataSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[guid(0xc03d9f5e_be1f_4c69_9969_79467a513c38)]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(MapTileDataSource)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMapTileDataSource {}
-                    #[guid(0xa3920fbd_e446_4648_a74d_fd2c5d557c06)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileDataSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xa3920fbd_e446_4648_a74d_fd2c5d557c06)]
                     interface IMapTileDataSourceFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapTileDataSource;
                     }
-                    #[guid(0x88a76e4e_2fdf_4567_9255_1100519c8d62)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x88a76e4e_2fdf_4567_9255_1100519c8d62)]
                     interface IMapTileSource {
                         DataSource: MapTileDataSource;
                         Layer: MapTileLayer;
@@ -1296,10 +1296,10 @@ mod Windows {
                         TilePixelSize: i32;
                         Visible: bool;
                     }
-                    #[guid(0x8e65ebbd_4095_5c15_99f1_1260b4e8b0a9)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x8e65ebbd_4095_5c15_99f1_1260b4e8b0a9)]
                     interface IMapTileSource2 {
                         #[get]
                         AnimationState: MapTileAnimationState;
@@ -1310,10 +1310,10 @@ mod Windows {
                         fn Play(&self);
                         fn Stop(&self);
                     }
-                    #[guid(0xcd7f811f_77fa_482b_9d34_71d31d465c48)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xcd7f811f_77fa_482b_9d34_71d31d465c48)]
                     interface IMapTileSourceFactory {
                         fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapTileSource;
                         fn CreateInstanceWithDataSource(&self, #[in] dataSource: MapTileDataSource, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapTileSource;
@@ -1321,10 +1321,10 @@ mod Windows {
                         fn CreateInstanceWithDataSourceZoomRangeAndBounds(&self, #[in] dataSource: MapTileDataSource, #[in] zoomLevelRange: MapZoomLevelRange, #[in] bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapTileSource;
                         fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize(&self, #[in] dataSource: MapTileDataSource, #[in] zoomLevelRange: MapZoomLevelRange, #[in] bounds: super::super::super::super::Devices::Geolocation::GeoboundingBox, #[in] tileSizeInPixels: i32, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> MapTileSource;
                     }
-                    #[guid(0x93fcc93c_7035_4603_99b1_e659921b6093)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x93fcc93c_7035_4603_99b1_e659921b6093)]
                     interface IMapTileSourceStatics {
                         #[get]
                         DataSourceProperty: super::super::DependencyProperty;
@@ -1349,10 +1349,10 @@ mod Windows {
                         #[get]
                         VisibleProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x75cdd47e_669c_50fd_ad85_5ea5174cf59b)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileSource)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x75cdd47e_669c_50fd_ad85_5ea5174cf59b)]
                     interface IMapTileSourceStatics2 {
                         #[get]
                         AnimationStateProperty: super::super::DependencyProperty;
@@ -1363,25 +1363,25 @@ mod Windows {
                         #[get]
                         FrameDurationProperty: super::super::DependencyProperty;
                     }
-                    #[guid(0x17402335_3127_45b8_87a7_99f87d4e2745)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequest)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x17402335_3127_45b8_87a7_99f87d4e2745)]
                     interface IMapTileUriRequest {
                         Uri: super::super::super::super::Foundation::Uri;
                         fn GetDeferral(&self) -> MapTileUriRequestDeferral;
                     }
-                    #[guid(0xc117ade0_bf3e_4c51_8faa_4b593cf68eb2)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequestDeferral)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xc117ade0_bf3e_4c51_8faa_4b593cf68eb2)]
                     interface IMapTileUriRequestDeferral {
                         fn Complete(&self);
                     }
-                    #[guid(0xd2147b43_1bbf_4b98_8dd3_b7834e407e0d)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xd2147b43_1bbf_4b98_8dd3_b7834e407e0d)]
                     interface IMapTileUriRequestedEventArgs {
                         #[get]
                         X: i32;
@@ -1392,18 +1392,18 @@ mod Windows {
                         #[get]
                         Request: MapTileUriRequest;
                     }
-                    #[guid(0x2302185d_33b5_5a55_92f5_74a86a22efa6)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MapTileUriRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x2302185d_33b5_5a55_92f5_74a86a22efa6)]
                     interface IMapTileUriRequestedEventArgs2 {
                         #[get]
                         FrameIndex: i32;
                     }
-                    #[guid(0xa558aec9_e30c_46c8_8116_484691675558)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(StreetsideExperience)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xa558aec9_e30c_46c8_8116_484691675558)]
                     interface IStreetsideExperience {
                         AddressTextVisible: bool;
                         CursorVisible: bool;
@@ -1412,26 +1412,26 @@ mod Windows {
                         ExitButtonVisible: bool;
                         ZoomButtonsVisible: bool;
                     }
-                    #[guid(0x7a5bcf3c_649e_4342_9995_68a6cf5961a7)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(StreetsideExperience)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x7a5bcf3c_649e_4342_9995_68a6cf5961a7)]
                     interface IStreetsideExperienceFactory {
                         fn CreateInstanceWithPanorama(&self, #[in] panorama: StreetsidePanorama) -> StreetsideExperience;
                         fn CreateInstanceWithPanoramaHeadingPitchAndFieldOfView(&self, #[in] panorama: StreetsidePanorama, #[in] headingInDegrees: f64, #[in] pitchInDegrees: f64, #[in] fieldOfViewInDegrees: f64) -> StreetsideExperience;
                     }
-                    #[guid(0x6fe00fd8_ad60_4664_b539_b1069f16c5af)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(StreetsidePanorama)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x6fe00fd8_ad60_4664_b539_b1069f16c5af)]
                     interface IStreetsidePanorama {
                         #[get]
                         Location: super::super::super::super::Devices::Geolocation::Geopoint;
                     }
-                    #[guid(0xd3b47f69_54b3_4ec5_b2a0_4f8204576507)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(StreetsidePanorama)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xd3b47f69_54b3_4ec5_b2a0_4f8204576507)]
                     interface IStreetsidePanoramaStatics {
                         #[Windows::Foundation::Metadata::Overload("FindNearbyWithLocationAsync")]
                         #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1440,12 +1440,12 @@ mod Windows {
                         #[Windows::Foundation::Metadata::RemoteAsync]
                         fn FindNearbyAsync(&self, #[in] location: super::super::super::super::Devices::Geolocation::Geopoint, #[in] radiusInMeters: f64) -> super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>;
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(ILocalMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class LocalMapTileDataSource: MapTileDataSource {
                         ILocalMapTileDataSource,
                     }
@@ -1469,9 +1469,9 @@ mod Windows {
                         #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IMapActualCameraChangingEventArgs2,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapAnimationKind {
                         Default = 0,
                         None = 1,
@@ -1495,17 +1495,17 @@ mod Windows {
                     class MapCamera: super::super::DependencyObject {
                         IMapCamera,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapCameraChangeReason {
                         System = 0,
                         UserInteraction = 1,
                         Programmatic = 2,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapColorScheme {
                         Light = 0,
                         Dark = 1,
@@ -1521,13 +1521,13 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                    #[Windows::Foundation::Metadata::Static(IMapControlStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IMapControlStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IMapControlStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IMapControlStatics5, 262144, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IMapControlStatics6, 327680, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IMapControlStatics7, 393216, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IMapControlStatics8, 524288, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics6, 327680, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapControlStatics7, 393216, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Children")]
@@ -1623,12 +1623,12 @@ mod Windows {
                     class MapControlTransitFeatureRightTappedEventArgs {
                         IMapControlTransitFeatureRightTappedEventArgs,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapCustomExperienceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class MapCustomExperience: super::super::DependencyObject {
                         IMapCustomExperience,
                     }
@@ -1640,16 +1640,16 @@ mod Windows {
                     class MapCustomExperienceChangedEventArgs {
                         IMapCustomExperienceChangedEventArgs,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IMapElementStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IMapElementStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IMapElementStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IMapElementStatics3, 327680, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IMapElementStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class MapElement: super::super::DependencyObject {
                         IMapElement,
                         #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
@@ -1676,9 +1676,9 @@ mod Windows {
                     class MapElementClickEventArgs {
                         IMapElementClickEventArgs,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapElementCollisionBehavior {
                         Hide = 0,
                         RemainVisible = 1,
@@ -1743,8 +1743,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                    #[Windows::Foundation::Metadata::Static(IMapIconStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IMapIconStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapIconStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class MapIcon: MapElement {
@@ -1760,17 +1760,20 @@ mod Windows {
                     class MapInputEventArgs: super::super::DependencyObject {
                         IMapInputEventArgs,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapInteractionMode {
                         Auto = 0,
                         Disabled = 1,
                         GestureOnly = 2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         PointerAndKeyboard = 2,
                         ControlOnly = 3,
                         GestureAndControl = 4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         PointerKeyboardAndControl = 4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                         PointerOnly = 5,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
@@ -1783,46 +1786,48 @@ mod Windows {
                     class MapItemsControl: super::super::DependencyObject {
                         IMapItemsControl,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapLayerFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Static(IMapLayerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class MapLayer: super::super::DependencyObject {
                         IMapLayer,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapLoadingStatus {
                         Loading = 0,
                         Loaded = 1,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         DataUnavailable = 2,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 524288)]
                         DownloadedMapsManagerUnavailable = 3,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapModel3DFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Static(IMapModel3DStatics, 327680, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class MapModel3D: super::super::DependencyObject {
                         IMapModel3D,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 327680)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapModel3DShadingOption {
                         Default = 0,
                         Flat = 1,
                         Smooth = 2,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapPanInteractionMode {
                         Auto = 0,
                         Disabled = 1,
@@ -1847,9 +1852,9 @@ mod Windows {
                     class MapPolyline: MapElement {
                         IMapPolyline,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapProjection {
                         WebMercator = 0,
                         Globe = 1,
@@ -1862,12 +1867,12 @@ mod Windows {
                     class MapRightTappedEventArgs {
                         IMapRightTappedEventArgs,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapRouteViewFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class MapRouteView: super::super::DependencyObject {
                         IMapRouteView,
                     }
@@ -1879,17 +1884,20 @@ mod Windows {
                     class MapScene: super::super::DependencyObject {
                         IMapScene,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapStyle {
                         None = 0,
                         Road = 1,
                         Aerial = 2,
                         AerialWithRoads = 3,
                         Terrain = 4,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         Aerial3D = 5,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                         Aerial3DWithRoads = 6,
+                        #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                         Custom = 7,
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -1922,9 +1930,9 @@ mod Windows {
                         #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                         IMapTargetCameraChangedEventArgs2,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapTileAnimationState {
                         Stopped = 0,
                         Paused = 1,
@@ -1956,18 +1964,18 @@ mod Windows {
                         #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         IMapTileBitmapRequestedEventArgs2,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapTileDataSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class MapTileDataSource: super::super::DependencyObject {
                         IMapTileDataSource,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapTileLayer {
                         LabelOverlay = 0,
                         RoadOverlay = 1,
@@ -1975,14 +1983,14 @@ mod Windows {
                         BackgroundOverlay = 3,
                         BackgroundReplacement = 4,
                     }
-                    #[unsealed]
                     #[Windows::Foundation::Metadata::Composable(IMapTileSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                    #[Windows::Foundation::Metadata::Static(IMapTileSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Static(IMapTileSourceStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IMapTileSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[unsealed]
                     class MapTileSource: super::super::DependencyObject {
                         IMapTileSource,
                         #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
@@ -2014,16 +2022,16 @@ mod Windows {
                         #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                         IMapTileUriRequestedEventArgs2,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapVisibleRegionKind {
                         Near = 0,
                         Full = 1,
                     }
-                    #[repr(i32)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[repr(i32)]
                     enum MapWatermarkMode {
                         Automatic = 0,
                         On = 1,

@@ -100,9 +100,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlIpv4AddressToStringA(#[in] Addr: *const IN_ADDR, #[out] #[writable(entry, 16)] S: PSTR) -> PSTR;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4AddressToStringExA(#[in] Address: *const IN_ADDR, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
+        extern fn RtlIpv4AddressToStringExA(#[in] Address: *const IN_ADDR, #[in] Port: USHORT, #[out] #[readable(success, *AddressStringLength)] #[writable(entry, *AddressStringLength)] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv4AddressToStringExW(#[in] Address: *const IN_ADDR, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
+        extern fn RtlIpv4AddressToStringExW(#[in] Address: *const IN_ADDR, #[in] Port: USHORT, #[out] #[readable(success, *AddressStringLength)] #[writable(entry, *AddressStringLength)] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
         extern fn RtlIpv4AddressToStringW(#[in] Addr: *const IN_ADDR, #[out] #[writable(entry, 16)] S: PWSTR) -> PWSTR;
         #[library("ntdll.dll")]
@@ -116,9 +116,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlIpv6AddressToStringA(#[in] Addr: *const IN6_ADDR, #[out] #[writable(entry, 46)] S: PSTR) -> PSTR;
         #[library("ntdll.dll")]
-        extern fn RtlIpv6AddressToStringExA(#[in] Address: *const IN6_ADDR, #[in] ScopeId: ULONG, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
+        extern fn RtlIpv6AddressToStringExA(#[in] Address: *const IN6_ADDR, #[in] ScopeId: ULONG, #[in] Port: USHORT, #[out] #[readable(success, *AddressStringLength)] #[writable(entry, *AddressStringLength)] AddressString: PSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
-        extern fn RtlIpv6AddressToStringExW(#[in] Address: *const IN6_ADDR, #[in] ScopeId: ULONG, #[in] Port: USHORT, #[out] #[writable(entry, *AddressStringLength)] #[readable(success, *AddressStringLength)] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
+        extern fn RtlIpv6AddressToStringExW(#[in] Address: *const IN6_ADDR, #[in] ScopeId: ULONG, #[in] Port: USHORT, #[out] #[readable(success, *AddressStringLength)] #[writable(entry, *AddressStringLength)] AddressString: PWSTR, #[in] #[out] AddressStringLength: PULONG) -> LONG;
         #[library("ntdll.dll")]
         extern fn RtlIpv6AddressToStringW(#[in] Addr: *const IN6_ADDR, #[out] #[writable(entry, 46)] S: PWSTR) -> PWSTR;
         #[library("ntdll.dll")]

@@ -8,85 +8,85 @@ mod Windows {
         const FLT_MGR_WIN8: bool = true;
         const FLT_MGR_WINBLUE: bool = true;
         const FLT_PORT_FLAG_SYNC_HANDLE: i32 = 1;
-        #[must_use]
         #[library("FLTLIB.DLL")]
-        extern fn FilterAttach(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR, #[in] #[opt] dwCreatedInstanceNameLength: DWORD, #[out] #[opt] #[writable(entry, bytes(dwCreatedInstanceNameLength))] lpCreatedInstanceName: LPWSTR) -> HRESULT;
         #[must_use]
+        extern fn FilterAttach(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR, #[in] #[opt] dwCreatedInstanceNameLength: DWORD, #[opt] #[out] #[writable(entry, bytes(dwCreatedInstanceNameLength))] lpCreatedInstanceName: LPWSTR) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterAttachAtAltitude(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] lpAltitude: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR, #[in] #[opt] dwCreatedInstanceNameLength: DWORD, #[out] #[opt] #[writable(entry, bytes(dwCreatedInstanceNameLength))] lpCreatedInstanceName: LPWSTR) -> HRESULT;
+        #[must_use]
+        extern fn FilterAttachAtAltitude(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] lpAltitude: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR, #[in] #[opt] dwCreatedInstanceNameLength: DWORD, #[opt] #[out] #[writable(entry, bytes(dwCreatedInstanceNameLength))] lpCreatedInstanceName: LPWSTR) -> HRESULT;
         #[library("FLTLIB.DLL")]
         extern fn FilterClose(#[in] hFilter: HFILTER) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterConnectCommunicationPort(#[in] lpPortName: LPCWSTR, #[in] dwOptions: DWORD, #[in] #[opt] #[readable(entry, bytes(wSizeOfContext))] lpContext: LPCVOID, #[in] wSizeOfContext: WORD, #[in] #[opt] lpSecurityAttributes: LPSECURITY_ATTRIBUTES, #[out] #[out_ptr] hPort: *mut HANDLE) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterCreate(#[in] lpFilterName: LPCWSTR, #[out] #[out_ptr] hFilter: *mut HFILTER) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterDetach(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterFindClose(#[in] hFilterFind: HANDLE) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
-        extern fn FilterFindFirst(#[in] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterFind: LPHANDLE) -> HRESULT;
         #[must_use]
+        extern fn FilterFindFirst(#[in] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterFind: LPHANDLE) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterFindNext(#[in] hFilterFind: HANDLE, #[in] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[must_use]
+        extern fn FilterFindNext(#[in] hFilterFind: HANDLE, #[in] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterGetDosName(#[in] lpVolumeName: LPCWSTR, #[out] #[writable(entry, dwDosNameBufferSize)] lpDosName: LPWSTR, #[in] dwDosNameBufferSize: DWORD) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
-        extern fn FilterGetInformation(#[in] hFilter: HFILTER, #[in] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[must_use]
+        extern fn FilterGetInformation(#[in] hFilter: HFILTER, #[in] dwInformationClass: FILTER_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterGetMessage(#[in] hPort: HANDLE, #[out] #[writable(entry, bytes(dwMessageBufferSize))] lpMessageBuffer: PFILTER_MESSAGE_HEADER, #[in] dwMessageBufferSize: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+        #[must_use]
+        extern fn FilterGetMessage(#[in] hPort: HANDLE, #[out] #[writable(entry, bytes(dwMessageBufferSize))] lpMessageBuffer: PFILTER_MESSAGE_HEADER, #[in] dwMessageBufferSize: DWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED) -> HRESULT;
         #[library("FLTLIB.DLL")]
         extern fn FilterInstanceClose(#[in] hInstance: HFILTER_INSTANCE) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterInstanceCreate(#[in] lpFilterName: LPCWSTR, #[in] lpVolumeName: LPCWSTR, #[in] #[opt] lpInstanceName: LPCWSTR, #[out] #[out_ptr] hInstance: *mut HFILTER_INSTANCE) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterInstanceFindClose(#[in] hFilterInstanceFind: HANDLE) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceFindFirst(#[in] lpFilterName: LPCWSTR, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterInstanceFind: LPHANDLE) -> HRESULT;
         #[must_use]
+        extern fn FilterInstanceFindFirst(#[in] lpFilterName: LPCWSTR, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpFilterInstanceFind: LPHANDLE) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceFindNext(#[in] hFilterInstanceFind: HANDLE, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[must_use]
+        extern fn FilterInstanceFindNext(#[in] hFilterInstanceFind: HANDLE, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterInstanceGetInformation(#[in] hInstance: HFILTER_INSTANCE, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[must_use]
+        extern fn FilterInstanceGetInformation(#[in] hInstance: HFILTER_INSTANCE, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterLoad(#[in] lpFilterName: LPCWSTR) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterReplyMessage(#[in] hPort: HANDLE, #[in] #[readable(entry, bytes(dwReplyBufferSize))] lpReplyBuffer: PFILTER_REPLY_HEADER, #[in] dwReplyBufferSize: DWORD) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
-        extern fn FilterSendMessage(#[in] hPort: HANDLE, #[in] #[readable(entry, bytes(dwInBufferSize))] lpInBuffer: LPVOID, #[in] dwInBufferSize: DWORD, #[out] #[opt] #[writable(entry, bytes(dwOutBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpOutBuffer: LPVOID, #[in] dwOutBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[must_use]
+        extern fn FilterSendMessage(#[in] hPort: HANDLE, #[in] #[readable(entry, bytes(dwInBufferSize))] lpInBuffer: LPVOID, #[in] dwInBufferSize: DWORD, #[opt] #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwOutBufferSize))] lpOutBuffer: LPVOID, #[in] dwOutBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[library("FLTLIB.DLL")]
+        #[must_use]
         extern fn FilterUnload(#[in] lpFilterName: LPCWSTR) -> HRESULT;
         #[library("FLTLIB.DLL")]
         extern fn FilterVolumeFindClose(#[in] hVolumeFind: HANDLE) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeFindFirst(#[in] dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeFind: PHANDLE) -> HRESULT;
         #[must_use]
+        extern fn FilterVolumeFindFirst(#[in] dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeFind: PHANDLE) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeFindNext(#[in] hVolumeFind: HANDLE, #[in] dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        #[must_use]
+        extern fn FilterVolumeFindNext(#[in] hVolumeFind: HANDLE, #[in] dwInformationClass: FILTER_VOLUME_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
         #[library("FLTLIB.DLL")]
         extern fn FilterVolumeInstanceFindClose(#[in] hVolumeInstanceFind: HANDLE) -> HRESULT;
-        #[must_use]
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeInstanceFindFirst(#[in] lpVolumeName: LPCWSTR, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeInstanceFind: LPHANDLE) -> HRESULT;
         #[must_use]
+        extern fn FilterVolumeInstanceFindFirst(#[in] lpVolumeName: LPCWSTR, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD, #[out] lpVolumeInstanceFind: LPHANDLE) -> HRESULT;
         #[library("FLTLIB.DLL")]
-        extern fn FilterVolumeInstanceFindNext(#[in] hVolumeInstanceFind: HANDLE, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[writable(entry, bytes(dwBufferSize))] #[readable(success, bytes(*lpBytesReturned))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
+        #[must_use]
+        extern fn FilterVolumeInstanceFindNext(#[in] hVolumeInstanceFind: HANDLE, #[in] dwInformationClass: INSTANCE_INFORMATION_CLASS, #[out] #[readable(success, bytes(*lpBytesReturned))] #[writable(entry, bytes(dwBufferSize))] lpBuffer: LPVOID, #[in] dwBufferSize: DWORD, #[out] lpBytesReturned: LPDWORD) -> HRESULT;
     }
 }

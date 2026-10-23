@@ -54,6 +54,10 @@ mod Contoso {
 
 ### Attributes
 
+Generated RDL sorts attributes alphabetically by their full names, using case-sensitive ordering.
+Repeated attributes with the same name retain their relative order; their arguments are not sorted.
+The shared formatter applies this rule to declarations, parameters, fields, and return types.
+
 #### `#[winrt]`
 
 Use `#[winrt]` on a module that declares WinRT types. It enables generic interfaces, generic
@@ -502,14 +506,20 @@ attributes control generated binding behavior.
 | `#[in]` | Input parameter. Data flows into the function. | `_In_`, `_In_z_`, and related forms |
 | `#[out]` | Output parameter. Data flows out of the function. | `_Out_`, `_Out_z_`, and related forms |
 | `#[opt]` | Parameter is optional and can be `NULL`. | `_In_opt_`, `_Out_opt_`, `_Inout_opt_`, and related forms |
-| Neither `#[in]` nor `#[out]` | Direction is unspecified. | No unconditional direction evidence |
+| Neither `#[in]` nor `#[out]` | Direction is unspecified (Win32 only). | No unconditional direction evidence |
 
 Direction is always explicit. Pointer mutability, reference types and named aliases do not imply
-`#[in]` or `#[out]`. Omitting both leaves both ECMA-335 direction flags unset. `#[opt]` is
-independent and does not supply a direction.
+`#[in]` or `#[out]`. In Win32 declarations, omitting both leaves both ECMA-335 direction flags
+unset. `#[opt]` is independent and does not supply a direction.
 
-When `#[in]` and `#[out]` appear on one parameter, they map to `_Inout_`. The parameter is both
-input and output.
+WinRT interface methods and delegates require exactly one of `#[in]` or `#[out]` on every explicit
+parameter other than `&self`. Missing or combined directions are errors at the parameter's source
+location. Return values do not need direction attributes. Property and event shorthand supplies
+the input flags for its implicit parameters.
+
+For Win32 declarations, write directions whenever the API contract establishes them. When `#[in]`
+and `#[out]` appear on one parameter, they map to `_Inout_`. Leave direction unspecified when it
+is unknown; do not add `#[in]` merely to obtain a more convenient projection.
 
 The formatter writes `#[in]`. The reader also accepts the Rust raw-identifier spelling
 `#[r#in]`.

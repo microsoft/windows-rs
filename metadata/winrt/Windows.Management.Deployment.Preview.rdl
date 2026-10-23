@@ -12,15 +12,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ApiContract]
                 #[Windows::Foundation::Metadata::ContractVersion(65536)]
                 struct DeploymentPreviewContract {}
-                #[guid(0xe2fad668_882c_4f33_b035_0df7b90d67e6)]
                 #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ClassicAppManager)]
+                #[guid(0xe2fad668_882c_4f33_b035_0df7b90d67e6)]
                 interface IClassicAppManagerStatics {
                     fn FindInstalledApp(&self, #[in] appUninstallKey: String) -> InstalledClassicAppInfo;
                 }
-                #[guid(0x0a7d3da3_65d0_4086_80d6_0610d760207d)]
                 #[Windows::Foundation::Metadata::ContractVersion(DeploymentPreviewContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InstalledClassicAppInfo)]
+                #[guid(0x0a7d3da3_65d0_4086_80d6_0610d760207d)]
                 interface IInstalledClassicAppInfo {
                     #[get]
                     DisplayName: String;

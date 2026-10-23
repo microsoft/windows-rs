@@ -8,18 +8,18 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn CompareStringW(#[in] Locale: LCID, #[in] dwCmpFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchCount1", "cchCount1")] lpString1: PCNZWCH, #[in] cchCount1: i32, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchCount2", "cchCount2")] lpString2: PCNZWCH, #[in] cchCount2: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn FoldStringW(#[in] dwMapFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchSrc", "cchSrc")] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[out] #[opt] #[writable(entry, cchDest)] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
+        extern fn FoldStringW(#[in] dwMapFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchSrc", "cchSrc")] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[opt] #[out] #[writable(entry, cchDest)] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetStringTypeExW(#[in] Locale: LCID, #[in] dwInfoType: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchSrc", "cchSrc")] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[out] #[writable(entry, cchSrc)] lpCharType: LPWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetStringTypeW(#[in] dwInfoType: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchSrc", "cchSrc")] lpSrcStr: LPCWCH, #[in] cchSrc: i32, #[out] lpCharType: LPWORD) -> BOOL;
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(cbMultiByte == -1) && (cchWideChar != 0),_Post_equal_to_(_String_length_(lpWideCharStr)+1)", "(cbMultiByte == -1) && (cchWideChar != 0), _Post_equal_to_(_String_length_(lpWideCharStr)+1)")]
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
-        extern fn MultiByteToWideChar(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cbMultiByte", "cbMultiByte")] lpMultiByteStr: LPCCH, #[in] cbMultiByte: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchWideChar,return", "cchWideChar,return")] #[out] #[opt] #[writable(entry, cchWideChar)] lpWideCharStr: LPWSTR, #[in] cchWideChar: i32) -> i32;
+        #[success(return != 0)]
+        extern fn MultiByteToWideChar(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cbMultiByte", "cbMultiByte")] lpMultiByteStr: LPCCH, #[in] cbMultiByte: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchWideChar,return", "cchWideChar,return")] #[opt] #[out] #[writable(entry, cchWideChar)] lpWideCharStr: LPWSTR, #[in] cchWideChar: i32) -> i32;
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(cchWideChar == -1) && (cbMultiByte != 0),_Post_equal_to_(_String_length_(lpMultiByteStr)+1)", "(cchWideChar == -1) && (cbMultiByte != 0), _Post_equal_to_(_String_length_(lpMultiByteStr)+1)")]
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
-        extern fn WideCharToMultiByte(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchWideChar", "cchWideChar")] lpWideCharStr: LPCWCH, #[in] cchWideChar: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "cbMultiByte,return", "cbMultiByte,return")] #[out] #[opt] #[writable(entry, bytes(cbMultiByte))] lpMultiByteStr: LPSTR, #[in] cbMultiByte: i32, #[in] #[opt] lpDefaultChar: LPCCH, #[out] #[opt] lpUsedDefaultChar: LPBOOL) -> i32;
+        #[success(return != 0)]
+        extern fn WideCharToMultiByte(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_In_NLS_string_", "cchWideChar", "cchWideChar")] lpWideCharStr: LPCWCH, #[in] cchWideChar: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "cbMultiByte,return", "cbMultiByte,return")] #[opt] #[out] #[writable(entry, bytes(cbMultiByte))] lpMultiByteStr: LPSTR, #[in] cbMultiByte: i32, #[in] #[opt] lpDefaultChar: LPCCH, #[opt] #[out] lpUsedDefaultChar: LPBOOL) -> i32;
     }
 }

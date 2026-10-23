@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         #[guid(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0)]
         interface IWSDXMLContext: IUnknown {
-            fn AddNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszSuggestedPrefix: LPCWSTR, #[out] #[opt] #[out_ptr] ppNamespace: *mut *mut WSDXML_NAMESPACE) -> HRESULT;
-            fn AddNameToNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszName: LPCWSTR, #[out] #[opt] #[out_ptr] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
+            fn AddNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszSuggestedPrefix: LPCWSTR, #[opt] #[out] #[out_ptr] ppNamespace: *mut *mut WSDXML_NAMESPACE) -> HRESULT;
+            fn AddNameToNamespace(&self, #[in] pszUri: LPCWSTR, #[in] pszName: LPCWSTR, #[opt] #[out] #[out_ptr] ppName: *mut *mut WSDXML_NAME) -> HRESULT;
             fn SetNamespaces(&self, #[in] #[readable(entry, wNamespacesCount)] pNamespaces: *const PCWSDXML_NAMESPACE, #[in] wNamespacesCount: WORD, #[in] bLayerNumber: BYTE) -> HRESULT;
             fn SetTypes(&self, #[in] #[readable(entry, dwTypesCount)] pTypes: *const PCWSDXML_TYPE, #[in] dwTypesCount: DWORD, #[in] bLayerNumber: BYTE) -> HRESULT;
         }

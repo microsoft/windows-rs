@@ -19,23 +19,23 @@ mod Windows {
         const DIURFLAG_RESERVED: i32 = 2;
         const DIURFLAG_VALID: i32 = 3;
         #[library("newdev.dll")]
-        extern fn DiInstallDevice(#[in] #[opt] hwndParent: HWND, #[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[opt] DriverInfoData: PSP_DRVINFO_DATA, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiInstallDevice(#[in] #[opt] hwndParent: HWND, #[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[opt] DriverInfoData: PSP_DRVINFO_DATA, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiInstallDriverA(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCSTR, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiInstallDriverA(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCSTR, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiInstallDriverW(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCWSTR, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiInstallDriverW(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCWSTR, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiRollbackDriver(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[opt] hwndParent: HWND, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiRollbackDriver(#[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] #[opt] hwndParent: HWND, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiShowUpdateDevice(#[in] #[opt] hwndParent: HWND, #[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiShowUpdateDevice(#[in] #[opt] hwndParent: HWND, #[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiShowUpdateDriver(#[in] #[opt] hwndParent: HWND, #[in] #[opt] FilePath: PCWSTR, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiShowUpdateDriver(#[in] #[opt] hwndParent: HWND, #[in] #[opt] FilePath: PCWSTR, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDevice(#[in] hwndParent: HWND, #[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiUninstallDevice(#[in] hwndParent: HWND, #[in] DeviceInfoSet: HDEVINFO, #[in] DeviceInfoData: PSP_DEVINFO_DATA, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDriverA(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCSTR, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiUninstallDriverA(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCSTR, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn DiUninstallDriverW(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCWSTR, #[in] Flags: DWORD, #[out] #[opt] NeedReboot: PBOOL) -> BOOL;
+        extern fn DiUninstallDriverW(#[in] #[opt] hwndParent: HWND, #[in] InfPath: LPCWSTR, #[in] Flags: DWORD, #[opt] #[out] NeedReboot: PBOOL) -> BOOL;
         const INSTALLFLAG_BITS: i32 = 7;
         const INSTALLFLAG_FORCE: i32 = 1;
         const INSTALLFLAG_NONINTERACTIVE: i32 = 4;
@@ -43,8 +43,8 @@ mod Windows {
         const ROLLBACK_BITS: i32 = 1;
         const ROLLBACK_FLAG_NO_UI: i32 = 1;
         #[library("newdev.dll")]
-        extern fn UpdateDriverForPlugAndPlayDevicesA(#[in] #[opt] hwndParent: HWND, #[in] HardwareId: LPCSTR, #[in] FullInfPath: LPCSTR, #[in] InstallFlags: DWORD, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
+        extern fn UpdateDriverForPlugAndPlayDevicesA(#[in] #[opt] hwndParent: HWND, #[in] HardwareId: LPCSTR, #[in] FullInfPath: LPCSTR, #[in] InstallFlags: DWORD, #[opt] #[out] bRebootRequired: PBOOL) -> BOOL;
         #[library("newdev.dll")]
-        extern fn UpdateDriverForPlugAndPlayDevicesW(#[in] #[opt] hwndParent: HWND, #[in] HardwareId: LPCWSTR, #[in] FullInfPath: LPCWSTR, #[in] InstallFlags: DWORD, #[out] #[opt] bRebootRequired: PBOOL) -> BOOL;
+        extern fn UpdateDriverForPlugAndPlayDevicesW(#[in] #[opt] hwndParent: HWND, #[in] HardwareId: LPCWSTR, #[in] FullInfPath: LPCWSTR, #[in] InstallFlags: DWORD, #[opt] #[out] bRebootRequired: PBOOL) -> BOOL;
     }
 }

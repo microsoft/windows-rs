@@ -1,13 +1,13 @@
 #[win32]
 mod Fixture {
-    #[repr(i32)]
     #[flags]
+    #[repr(i32)]
     enum GnuFlags {
         GnuNone = 0,
         GnuRead = 1,
     }
-    #[repr(u32)]
     #[flags]
+    #[repr(u32)]
     enum NativeFlags {
         NativeNone = 0,
         NativeRead = 1,
@@ -21,14 +21,14 @@ mod Fixture {
         PlainWrite = 2,
         PlainAll = 3,
     }
-    #[repr(i32)]
     #[flags]
+    #[repr(i32)]
     enum SIGNED_FLAGS {
         SignedNone = 0,
         SignedAll = -1,
     }
-    #[repr(u32)]
     #[flags]
+    #[repr(u32)]
     #[scoped]
     enum ScopedFlags {
         ScopedNone = 0,

@@ -134,7 +134,7 @@ mod Windows {
             fn SetNoProgressTimeout(&self, #[in] Seconds: ULONG) -> HRESULT;
             fn GetNoProgressTimeout(&self, #[out] Seconds: *mut ULONG) -> HRESULT;
             fn GetErrorCount(&self, #[out] Errors: *mut ULONG) -> HRESULT;
-            fn SetProxySettings(&self, #[in] ProxyUsage: BG_JOB_PROXY_USAGE, #[in] #[opt] #[null_terminated(entry)] ProxyList: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] ProxyBypassList: *const WCHAR) -> HRESULT;
+            fn SetProxySettings(&self, #[in] ProxyUsage: BG_JOB_PROXY_USAGE, #[in] #[null_terminated(entry)] #[opt] ProxyList: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] ProxyBypassList: *const WCHAR) -> HRESULT;
             fn GetProxySettings(&self, #[out] pProxyUsage: *mut BG_JOB_PROXY_USAGE, #[out] #[out_ptr] pProxyList: *mut LPWSTR, #[out] #[out_ptr] pProxyBypassList: *mut LPWSTR) -> HRESULT;
             fn TakeOwnership(&self) -> HRESULT;
         }
@@ -147,7 +147,7 @@ mod Windows {
         }
         #[guid(0xca51e165_c365_424c_8d41_24aaa4ff3c40)]
         interface IEnumBackgroundCopyFiles: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, or(*pceltFetched, celt))] rgelt: *mut IBackgroundCopyFile, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBackgroundCopyFile, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBackgroundCopyFiles) -> HRESULT;
@@ -155,7 +155,7 @@ mod Windows {
         }
         #[guid(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad)]
         interface IEnumBackgroundCopyJobs: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, or(*pceltFetched, celt))] rgelt: *mut IBackgroundCopyJob, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBackgroundCopyJob, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBackgroundCopyJobs) -> HRESULT;

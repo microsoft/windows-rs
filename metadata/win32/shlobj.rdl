@@ -300,7 +300,7 @@ mod Windows {
         const SSM_SET: i32 = 1;
         const SSM_UPDATE: i32 = 4;
         #[library("SHDOCVW.dll")]
-        extern fn SoftwareUpdateMessageBox(#[in] #[opt] hWnd: HWND, #[in] pszDistUnit: PCWSTR, dwFlags: DWORD, #[out] #[opt] psdi: LPSOFTDISTINFO) -> DWORD;
+        extern fn SoftwareUpdateMessageBox(#[in] #[opt] hWnd: HWND, #[in] pszDistUnit: PCWSTR, dwFlags: DWORD, #[opt] #[out] psdi: LPSOFTDISTINFO) -> DWORD;
         const TBIF_APPEND: i32 = 0;
         const TBIF_DEFAULT: i32 = 0;
         const TBIF_INTERNETBAR: i32 = 65536;

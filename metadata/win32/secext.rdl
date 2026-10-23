@@ -17,19 +17,19 @@ mod Windows {
             NameSurname = 14,
         }
         #[library("Secur32.dll")]
-        extern fn GetComputerObjectNameA(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[out] #[opt] #[writable(entry, *nSize)] #[readable(success, *nSize)] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn GetComputerObjectNameA(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn GetComputerObjectNameW(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[out] #[opt] #[writable(entry, *nSize)] #[readable(success, *nSize)] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn GetComputerObjectNameW(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        #[library("Secur32.dll")]
         #[success(return != 0)]
+        extern fn GetUserNameExA(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn GetUserNameExA(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[out] #[opt] #[writable(entry, *nSize)] #[readable(success, *nSize)] lpNameBuffer: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[success(return != 0)]
-        #[library("Secur32.dll")]
-        extern fn GetUserNameExW(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[out] #[opt] #[writable(entry, *nSize)] #[readable(success, *nSize)] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn GetUserNameExW(#[in] NameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpNameBuffer: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         type PEXTENDED_NAME_FORMAT = *mut EXTENDED_NAME_FORMAT;
         #[library("Secur32.dll")]
-        extern fn TranslateNameA(#[in] lpAccountName: LPCSTR, #[in] AccountNameFormat: EXTENDED_NAME_FORMAT, #[in] DesiredNameFormat: EXTENDED_NAME_FORMAT, #[out] #[opt] #[writable(entry, *nSize)] #[readable(success, *nSize)] lpTranslatedName: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn TranslateNameA(#[in] lpAccountName: LPCSTR, #[in] AccountNameFormat: EXTENDED_NAME_FORMAT, #[in] DesiredNameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpTranslatedName: LPSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
         #[library("Secur32.dll")]
-        extern fn TranslateNameW(#[in] lpAccountName: LPCWSTR, #[in] AccountNameFormat: EXTENDED_NAME_FORMAT, #[in] DesiredNameFormat: EXTENDED_NAME_FORMAT, #[out] #[opt] #[writable(entry, *nSize)] #[readable(success, *nSize)] lpTranslatedName: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
+        extern fn TranslateNameW(#[in] lpAccountName: LPCWSTR, #[in] AccountNameFormat: EXTENDED_NAME_FORMAT, #[in] DesiredNameFormat: EXTENDED_NAME_FORMAT, #[opt] #[out] #[readable(success, *nSize)] #[writable(entry, *nSize)] lpTranslatedName: LPWSTR, #[in] #[out] nSize: PULONG) -> BOOLEAN;
     }
 }

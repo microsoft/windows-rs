@@ -3,19 +3,19 @@ mod Windows {
     mod Win32 {
         const CCH_MAX_PROPSTG_NAME: i32 = 31;
         const CWCSTORAGENAME: i32 = 32;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateILockBytesOnHGlobal(#[in] #[opt] hGlobal: HGLOBAL, #[in] fDeleteOnRelease: BOOL, #[out] #[out_ptr] pplkbyt: *mut LPLOCKBYTES) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn FmtIdToPropStgName(#[in] pfmtid: *const FMTID, #[out] #[writable(entry, 32)] oszName: LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
         extern fn GetConvertStg(#[in] pStg: LPSTORAGE) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn GetHGlobalFromILockBytes(#[in] plkbyt: LPLOCKBYTES, #[out] phglobal: *mut HGLOBAL) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn PropStgNameToFmtId(#[in] oszName: LPOLESTR, #[out] pfmtid: *mut FMTID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn ReadClassStg(#[in] pStg: LPSTORAGE, #[out] pclsid: *mut CLSID) -> HRESULT;
@@ -54,41 +54,41 @@ mod Windows {
             pwcsTemplateFile: *const WCHAR,
         }
         const STGOPTIONS_VERSION: i32 = 2;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgCreateDocfile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[opt] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[reserved] reserved: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgCreateDocfileOnILockBytes(#[in] plkbyt: ILockBytes, #[in] grfMode: DWORD, #[in] reserved: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgCreatePropSetStg(#[in] pStorage: IStorage, #[reserved] dwReserved: DWORD, #[out] #[out_ptr] ppPropSetStg: *mut IPropertySetStorage) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgCreatePropStg(#[in] pUnk: IUnknown, #[in] fmtid: &IID, #[in] pclsid: *const CLSID, #[in] grfFlags: DWORD, #[reserved] dwReserved: DWORD, #[out] #[out_ptr] ppPropStg: *mut IPropertyStorage) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
-        extern fn StgCreateStorageEx(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[opt] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] #[out_ptr] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[must_use]
+        extern fn StgCreateStorageEx(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[opt] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[opt] #[out] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] #[out_ptr] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgIsStorageFile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwcsName: *const WCHAR) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgIsStorageILockBytes(#[in] plkbyt: ILockBytes) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgOpenPropStg(#[in] pUnk: IUnknown, #[in] fmtid: &IID, #[in] grfFlags: DWORD, #[reserved] dwReserved: DWORD, #[out] #[out_ptr] ppPropStg: *mut IPropertyStorage) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
-        extern fn StgOpenStorage(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[opt] pwcsName: *const WCHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[opt] #[null_terminated(entry)] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
         #[must_use]
+        extern fn StgOpenStorage(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] #[opt] pwcsName: *const WCHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[null_terminated(entry)] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn StgOpenStorageEx(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] #[out_ptr] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[must_use]
+        extern fn StgOpenStorageEx(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwcsName: *const WCHAR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] #[opt] #[out] pStgOptions: *mut STGOPTIONS, #[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] riid: &IID, #[out] #[out_ptr] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn StgOpenStorageOnILockBytes(#[in] plkbyt: ILockBytes, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[opt] #[null_terminated(entry)] snbExclude: SNB, #[reserved] reserved: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
         #[must_use]
+        extern fn StgOpenStorageOnILockBytes(#[in] plkbyt: ILockBytes, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[in] #[null_terminated(entry)] #[opt] snbExclude: SNB, #[reserved] reserved: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgSetTimes(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] lpszName: *const WCHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
         #[library("ole32.dll")]
         extern fn WriteClassStg(#[in] pStg: LPSTORAGE, #[in] rclsid: &IID) -> HRESULT;

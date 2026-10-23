@@ -407,9 +407,9 @@ mod Windows {
         extern fn GetEffectiveClientRect(#[in] hWnd: HWND, #[out] lprc: LPRECT, #[in] #[null_terminated(entry)] lpInfo: *const INT);
         #[library("COMCTL32.dll")]
         extern fn GetMUILanguage() -> LANGID;
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn GetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[out] #[opt] pdwRefData: *mut DWORD_PTR) -> BOOL;
+        #[success(return != 0)]
+        extern fn GetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[opt] #[out] pdwRefData: *mut DWORD_PTR) -> BOOL;
         const HBITMAP_CALLBACK: HBITMAP = -1;
         const HDFT_HASNOVALUE: i32 = 32768;
         const HDFT_ISDATE: i32 = 2;
@@ -790,18 +790,18 @@ mod Windows {
         extern fn ImageList_EndDrag();
         #[library("COMCTL32.dll")]
         extern fn ImageList_GetBkColor(#[in] himl: HIMAGELIST) -> COLORREF;
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetDragImage(#[out] #[opt] ppt: *mut POINT, #[out] #[opt] pptHotspot: *mut POINT) -> HIMAGELIST;
+        #[success(return != 0)]
+        extern fn ImageList_GetDragImage(#[opt] #[out] ppt: *mut POINT, #[opt] #[out] pptHotspot: *mut POINT) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
         extern fn ImageList_GetIcon(#[in] himl: HIMAGELIST, #[in] i: i32, #[in] flags: UINT) -> HICON;
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
-        extern fn ImageList_GetIconSize(#[in] himl: HIMAGELIST, #[out] #[opt] cx: *mut i32, #[out] #[opt] cy: *mut i32) -> BOOL;
+        #[success(return != 0)]
+        extern fn ImageList_GetIconSize(#[in] himl: HIMAGELIST, #[opt] #[out] cx: *mut i32, #[opt] #[out] cy: *mut i32) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_GetImageCount(#[in] himl: HIMAGELIST) -> i32;
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
+        #[success(return != 0)]
         extern fn ImageList_GetImageInfo(#[in] himl: HIMAGELIST, #[in] i: i32, #[out] pImageInfo: *mut IMAGEINFO) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_LoadImageA(hi: HINSTANCE, lpbmp: LPCSTR, cx: i32, cGrow: i32, crMask: COLORREF, uType: UINT, uFlags: UINT) -> HIMAGELIST;
@@ -823,8 +823,8 @@ mod Windows {
         extern fn ImageList_SetBkColor(#[in] himl: HIMAGELIST, #[in] clrBk: COLORREF) -> COLORREF;
         #[library("COMCTL32.dll")]
         extern fn ImageList_SetDragCursorImage(#[in] himlDrag: HIMAGELIST, #[in] iDrag: i32, #[in] dxHotspot: i32, #[in] dyHotspot: i32) -> BOOL;
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
+        #[success(return != 0)]
         extern fn ImageList_SetIconSize(#[in] himl: HIMAGELIST, #[in] cx: i32, #[in] cy: i32) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ImageList_SetImageCount(#[in] himl: HIMAGELIST, #[in] uNewCount: UINT) -> BOOL;
@@ -2776,8 +2776,8 @@ mod Windows {
             fMask: UINT,
             himl: HIMAGELIST,
         }
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
+        #[success(return != 0)]
         extern fn RemoveWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR) -> BOOL;
         const SBARS_SIZEGRIP: i32 = 256;
         const SBARS_TOOLTIPS: i32 = 2048;
@@ -2840,8 +2840,8 @@ mod Windows {
         const STD_REPLACE: i32 = 13;
         const STD_UNDO: i32 = 3;
         extern fn SUBCLASSPROC(hWnd: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM, uIdSubclass: UINT_PTR, dwRefData: DWORD_PTR) -> LRESULT;
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
+        #[success(return != 0)]
         extern fn SetWindowSubclass(#[in] hWnd: HWND, #[in] pfnSubclass: SUBCLASSPROC, #[in] uIdSubclass: UINT_PTR, #[in] dwRefData: DWORD_PTR) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn ShowHideMenuCtl(#[in] hWnd: HWND, #[in] uFlags: UINT_PTR, #[in] #[null_terminated(entry)] lpInfo: LPINT) -> BOOL;
@@ -3892,9 +3892,9 @@ mod Windows {
         const TVS_TRACKSELECT: i32 = 512;
         const TV_FIRST: i32 = 4352;
         #[library("COMCTL32.dll")]
-        extern fn TaskDialog(#[in] #[opt] hwndOwner: HWND, #[in] #[opt] hInstance: HINSTANCE, #[in] #[opt] pszWindowTitle: PCWSTR, #[in] #[opt] pszMainInstruction: PCWSTR, #[in] #[opt] pszContent: PCWSTR, dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS, #[in] #[opt] pszIcon: PCWSTR, #[out] #[opt] pnButton: *mut i32) -> HRESULT;
+        extern fn TaskDialog(#[in] #[opt] hwndOwner: HWND, #[in] #[opt] hInstance: HINSTANCE, #[in] #[opt] pszWindowTitle: PCWSTR, #[in] #[opt] pszMainInstruction: PCWSTR, #[in] #[opt] pszContent: PCWSTR, dwCommonButtons: TASKDIALOG_COMMON_BUTTON_FLAGS, #[in] #[opt] pszIcon: PCWSTR, #[opt] #[out] pnButton: *mut i32) -> HRESULT;
         #[library("COMCTL32.dll")]
-        extern fn TaskDialogIndirect(#[in] pTaskConfig: *const TASKDIALOGCONFIG, #[out] #[opt] pnButton: *mut i32, #[out] #[opt] pnRadioButton: *mut i32, #[out] #[opt] pfVerificationFlagChecked: *mut BOOL) -> HRESULT;
+        extern fn TaskDialogIndirect(#[in] pTaskConfig: *const TASKDIALOGCONFIG, #[opt] #[out] pnButton: *mut i32, #[opt] #[out] pnRadioButton: *mut i32, #[opt] #[out] pfVerificationFlagChecked: *mut BOOL) -> HRESULT;
         struct UDACCEL {
             nSec: UINT,
             nInc: UINT,

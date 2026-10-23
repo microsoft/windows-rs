@@ -3,8 +3,8 @@ mod Windows {
     mod ApplicationModel {
         mod UserDataAccounts {
             mod SystemAccess {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum DeviceAccountAuthenticationType {
                     Basic = 0,
                     OAuth = 1,
@@ -19,16 +19,16 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     IDeviceAccountConfiguration2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum DeviceAccountIconId {
                     Exchange = 0,
                     Msa = 1,
                     Outlook = 2,
                     Generic = 3,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum DeviceAccountMailAgeFilter {
                     All = 0,
                     Last1Day = 1,
@@ -38,15 +38,15 @@ mod Windows {
                     Last30Days = 5,
                     Last90Days = 6,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum DeviceAccountServerType {
                     Exchange = 0,
                     Pop = 1,
                     Imap = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum DeviceAccountSyncScheduleKind {
                     Manual = 0,
                     Every15Minutes = 1,
@@ -56,9 +56,9 @@ mod Windows {
                     Daily = 5,
                     AsItemsArrive = 6,
                 }
-                #[guid(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
+                #[guid(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63)]
                 interface IDeviceAccountConfiguration {
                     AccountName: String;
                     DeviceAccountTypeId: String;
@@ -77,9 +77,9 @@ mod Windows {
                     OutgoingServerRequiresSsl: bool;
                     OutgoingServerUsername: String;
                 }
-                #[guid(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
+                #[guid(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de)]
                 interface IDeviceAccountConfiguration2 {
                     IncomingServerCredential: super::super::super::Security::Credentials::PasswordCredential;
                     OutgoingServerCredential: super::super::super::Security::Credentials::PasswordCredential;
@@ -113,15 +113,15 @@ mod Windows {
                     OutgoingServerCertificateHash: String;
                     IsSyncScheduleManagedBySystem: bool;
                 }
-                #[guid(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
+                #[guid(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6)]
                 interface IUserDataAccountSystemAccessManagerStatics {
                     fn AddAndShowDeviceAccountsAsync(&self, #[in] accounts: super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<String>>;
                 }
-                #[guid(0x943f854d_4b4e_439f_83d3_979b27c05ac7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
+                #[guid(0x943f854d_4b4e_439f_83d3_979b27c05ac7)]
                 interface IUserDataAccountSystemAccessManagerStatics2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SuppressLocalAccountWithAccountAsync(&self, #[in] userDataAccountId: String) -> super::super::super::Foundation::IAsyncAction;
@@ -134,8 +134,8 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataAccountSystemAccessManager {}
             }

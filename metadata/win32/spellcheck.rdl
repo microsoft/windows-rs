@@ -10,31 +10,31 @@ mod Windows {
         }
         #[guid(0x803e3bd4_2828_4410_8290_418d1d73c762)]
         interface IEnumSpellingError: IUnknown {
-            fn Next(&self, #[out] #[retval] #[out_ptr] value: *mut ISpellingError) -> HRESULT;
+            fn Next(&self, #[out] #[out_ptr] #[retval] value: *mut ISpellingError) -> HRESULT;
         }
         #[guid(0x432e5f85_35cf_4606_a801_6f70277e1d7a)]
         interface IOptionDescription: IUnknown {
-            fn get_Id(&self, #[out] #[retval] #[out_ptr] value: *mut LPWSTR) -> HRESULT;
-            fn get_Heading(&self, #[out] #[retval] #[out_ptr] value: *mut LPWSTR) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] value: *mut LPWSTR) -> HRESULT;
-            fn get_Labels(&self, #[out] #[retval] #[out_ptr] value: *mut IEnumString) -> HRESULT;
+            fn get_Id(&self, #[out] #[out_ptr] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn get_Heading(&self, #[out] #[out_ptr] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn get_Labels(&self, #[out] #[out_ptr] #[retval] value: *mut IEnumString) -> HRESULT;
         }
         #[guid(0xb6fd0b71_e2bc_4653_8d05_f197e412770b)]
         interface ISpellChecker: IUnknown {
-            fn get_LanguageTag(&self, #[out] #[retval] #[out_ptr] value: *mut LPWSTR) -> HRESULT;
-            fn Check(&self, #[in] text: LPCWSTR, #[out] #[retval] #[out_ptr] value: *mut IEnumSpellingError) -> HRESULT;
-            fn Suggest(&self, #[in] word: LPCWSTR, #[out] #[retval] #[out_ptr] value: *mut IEnumString) -> HRESULT;
+            fn get_LanguageTag(&self, #[out] #[out_ptr] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn Check(&self, #[in] text: LPCWSTR, #[out] #[out_ptr] #[retval] value: *mut IEnumSpellingError) -> HRESULT;
+            fn Suggest(&self, #[in] word: LPCWSTR, #[out] #[out_ptr] #[retval] value: *mut IEnumString) -> HRESULT;
             fn Add(&self, #[in] word: LPCWSTR) -> HRESULT;
             fn Ignore(&self, #[in] word: LPCWSTR) -> HRESULT;
             fn AutoCorrect(&self, #[in] from: LPCWSTR, #[in] to: LPCWSTR) -> HRESULT;
             fn GetOptionValue(&self, #[in] optionId: LPCWSTR, #[out] #[retval] value: *mut BYTE) -> HRESULT;
-            fn get_OptionIds(&self, #[out] #[retval] #[out_ptr] value: *mut IEnumString) -> HRESULT;
-            fn get_Id(&self, #[out] #[retval] #[out_ptr] value: *mut LPWSTR) -> HRESULT;
-            fn get_LocalizedName(&self, #[out] #[retval] #[out_ptr] value: *mut LPWSTR) -> HRESULT;
+            fn get_OptionIds(&self, #[out] #[out_ptr] #[retval] value: *mut IEnumString) -> HRESULT;
+            fn get_Id(&self, #[out] #[out_ptr] #[retval] value: *mut LPWSTR) -> HRESULT;
+            fn get_LocalizedName(&self, #[out] #[out_ptr] #[retval] value: *mut LPWSTR) -> HRESULT;
             fn add_SpellCheckerChanged(&self, #[in] #[opt] handler: ISpellCheckerChangedEventHandler, #[out] #[retval] eventCookie: *mut DWORD) -> HRESULT;
             fn remove_SpellCheckerChanged(&self, #[in] eventCookie: DWORD) -> HRESULT;
-            fn GetOptionDescription(&self, #[in] optionId: LPCWSTR, #[out] #[retval] #[out_ptr] value: *mut IOptionDescription) -> HRESULT;
-            fn ComprehensiveCheck(&self, #[in] text: LPCWSTR, #[out] #[retval] #[out_ptr] value: *mut IEnumSpellingError) -> HRESULT;
+            fn GetOptionDescription(&self, #[in] optionId: LPCWSTR, #[out] #[out_ptr] #[retval] value: *mut IOptionDescription) -> HRESULT;
+            fn ComprehensiveCheck(&self, #[in] text: LPCWSTR, #[out] #[out_ptr] #[retval] value: *mut IEnumSpellingError) -> HRESULT;
         }
         #[guid(0xe7ed1c71_87f7_4378_a840_c9200dacee47)]
         interface ISpellChecker2: ISpellChecker {
@@ -46,16 +46,16 @@ mod Windows {
         }
         #[guid(0x8e018a9d_2415_4677_bf08_794ea61f94bb)]
         interface ISpellCheckerFactory: IUnknown {
-            fn get_SupportedLanguages(&self, #[out] #[retval] #[out_ptr] value: *mut IEnumString) -> HRESULT;
+            fn get_SupportedLanguages(&self, #[out] #[out_ptr] #[retval] value: *mut IEnumString) -> HRESULT;
             fn IsSupported(&self, #[in] languageTag: LPCWSTR, #[out] #[retval] value: *mut BOOL) -> HRESULT;
-            fn CreateSpellChecker(&self, #[in] languageTag: LPCWSTR, #[out] #[retval] #[out_ptr] value: *mut ISpellChecker) -> HRESULT;
+            fn CreateSpellChecker(&self, #[in] languageTag: LPCWSTR, #[out] #[out_ptr] #[retval] value: *mut ISpellChecker) -> HRESULT;
         }
         #[guid(0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3)]
         interface ISpellingError: IUnknown {
             fn get_StartIndex(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
             fn get_Length(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
             fn get_CorrectiveAction(&self, #[out] #[retval] value: *mut CORRECTIVE_ACTION) -> HRESULT;
-            fn get_Replacement(&self, #[out] #[retval] #[out_ptr] value: *mut LPWSTR) -> HRESULT;
+            fn get_Replacement(&self, #[out] #[out_ptr] #[retval] value: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xaa176b85_0e12_4844_8e1a_eef1da77f586)]
         interface IUserDictionariesRegistrar: IUnknown {

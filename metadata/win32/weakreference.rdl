@@ -3,11 +3,11 @@ mod Windows {
     mod Win32 {
         #[guid(0x00000037_0000_0000_c000_000000000046)]
         interface IWeakReference: IUnknown {
-            fn Resolve(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] objectReference: *mut IInspectable) -> HRESULT;
+            fn Resolve(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] objectReference: *mut IInspectable) -> HRESULT;
         }
         #[guid(0x00000038_0000_0000_c000_000000000046)]
         interface IWeakReferenceSource: IUnknown {
-            fn GetWeakReference(&self, #[out] #[retval] #[out_ptr] weakReference: *mut IWeakReference) -> HRESULT;
+            fn GetWeakReference(&self, #[out] #[out_ptr] #[retval] weakReference: *mut IWeakReference) -> HRESULT;
         }
     }
 }

@@ -322,9 +322,9 @@ mod Windows {
         }
         #[library("VirtDisk.dll")]
         extern fn GetAllAttachedVirtualDiskPhysicalPaths(#[in] #[out] PathsBufferSizeInBytes: PULONG, #[out] #[writable(entry, bytes(*PathsBufferSizeInBytes))] PathsBuffer: PWSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("VirtDisk.dll")]
-        extern fn GetVirtualDiskInformation(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: PULONG, #[in] #[out] #[readable(entry, bytes(*VirtualDiskInfoSize))] #[writable(entry, bytes(*VirtualDiskInfoSize))] #[readable(success, bytes(*VirtualDiskInfoSize))] VirtualDiskInfo: PGET_VIRTUAL_DISK_INFO, #[out] #[opt] SizeUsed: PULONG) -> DWORD;
+        #[success(return == 0)]
+        extern fn GetVirtualDiskInformation(#[in] VirtualDiskHandle: HANDLE, #[in] #[out] VirtualDiskInfoSize: PULONG, #[in] #[out] #[readable(entry, bytes(*VirtualDiskInfoSize))] #[readable(success, bytes(*VirtualDiskInfoSize))] #[writable(entry, bytes(*VirtualDiskInfoSize))] VirtualDiskInfo: PGET_VIRTUAL_DISK_INFO, #[opt] #[out] SizeUsed: PULONG) -> DWORD;
         #[library("VirtDisk.dll")]
         extern fn GetVirtualDiskMetadata(#[in] VirtualDiskHandle: HANDLE, #[in] Item: *const GUID, #[in] #[out] MetaDataSize: PULONG, #[out] #[writable(entry, bytes(*MetaDataSize))] MetaData: PVOID) -> DWORD;
         #[library("VirtDisk.dll")]
@@ -486,7 +486,7 @@ mod Windows {
             Reserved: ULONG64,
         }
         #[library("VirtDisk.dll")]
-        extern fn QueryChangesVirtualDisk(#[in] VirtualDiskHandle: HANDLE, #[in] ChangeTrackingId: PCWSTR, #[in] ByteOffset: ULONG64, #[in] ByteLength: ULONG64, #[in] Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, #[out] #[writable(entry, *RangeCount)] #[readable(success, *RangeCount)] Ranges: PQUERY_CHANGES_VIRTUAL_DISK_RANGE, #[in] #[out] RangeCount: PULONG, #[out] ProcessedLength: PULONG64) -> DWORD;
+        extern fn QueryChangesVirtualDisk(#[in] VirtualDiskHandle: HANDLE, #[in] ChangeTrackingId: PCWSTR, #[in] ByteOffset: ULONG64, #[in] ByteLength: ULONG64, #[in] Flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, #[out] #[readable(success, *RangeCount)] #[writable(entry, *RangeCount)] Ranges: PQUERY_CHANGES_VIRTUAL_DISK_RANGE, #[in] #[out] RangeCount: PULONG, #[out] ProcessedLength: PULONG64) -> DWORD;
         #[repr(i32)]
         enum RAW_SCSI_VIRTUAL_DISK_FLAG {
             RAW_SCSI_VIRTUAL_DISK_FLAG_NONE = 0,
@@ -501,14 +501,14 @@ mod Windows {
                     SenseInfoLength: UCHAR,
                     SrbFlags: ULONG,
                     DataTransferLength: ULONG,
-                    #[writable(bytes(DataTransferLength))]
                     #[readable(bytes(DataTransferLength))]
+                    #[writable(bytes(DataTransferLength))]
                     DataBuffer: PVOID,
-                    #[writable(bytes(SenseInfoLength))]
                     #[readable(bytes(SenseInfoLength))]
+                    #[writable(bytes(SenseInfoLength))]
                     SenseInfo: *mut UCHAR,
-                    #[writable(bytes(CdbLength))]
                     #[readable(bytes(CdbLength))]
+                    #[writable(bytes(CdbLength))]
                     Cdb: *mut UCHAR,
                 },
             },

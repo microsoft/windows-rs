@@ -6,6 +6,6 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetThreadGroupAffinity(#[in] hThread: HANDLE, #[out] GroupAffinity: PGROUP_AFFINITY) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadGroupAffinity(#[in] hThread: HANDLE, #[in] GroupAffinity: *const GROUP_AFFINITY, #[out] #[opt] PreviousGroupAffinity: PGROUP_AFFINITY) -> BOOL;
+        extern fn SetThreadGroupAffinity(#[in] hThread: HANDLE, #[in] GroupAffinity: *const GROUP_AFFINITY, #[opt] #[out] PreviousGroupAffinity: PGROUP_AFFINITY) -> BOOL;
     }
 }

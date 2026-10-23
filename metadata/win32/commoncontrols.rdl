@@ -13,8 +13,8 @@ mod Windows {
             fn GetIcon(&self, i: i32, flags: UINT, #[out] picon: *mut HICON) -> HRESULT;
             fn GetImageInfo(&self, i: i32, #[out] pImageInfo: *mut IMAGEINFO) -> HRESULT;
             fn Copy(&self, iDst: i32, #[in] punkSrc: IUnknown, iSrc: i32, uFlags: UINT) -> HRESULT;
-            fn Merge(&self, i1: i32, #[in] punk2: IUnknown, i2: i32, dx: i32, dy: i32, riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn Clone(&self, riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn Merge(&self, i1: i32, #[in] punk2: IUnknown, i2: i32, dx: i32, dy: i32, riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn Clone(&self, riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn GetImageRect(&self, i: i32, #[out] prc: *mut RECT) -> HRESULT;
             fn GetIconSize(&self, #[out] cx: *mut i32, #[out] cy: *mut i32) -> HRESULT;
             fn SetIconSize(&self, cx: i32, cy: i32) -> HRESULT;
@@ -29,7 +29,7 @@ mod Windows {
             fn DragMove(&self, x: i32, y: i32) -> HRESULT;
             fn SetDragCursorImage(&self, #[in] punk: IUnknown, iDrag: i32, dxHotspot: i32, dyHotspot: i32) -> HRESULT;
             fn DragShowNolock(&self, fShow: BOOL) -> HRESULT;
-            fn GetDragImage(&self, #[out] #[opt] ppt: *mut POINT, #[out] #[opt] pptHotspot: *mut POINT, riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetDragImage(&self, #[opt] #[out] ppt: *mut POINT, #[opt] #[out] pptHotspot: *mut POINT, riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn GetItemFlags(&self, i: i32, #[out] dwFlags: *mut DWORD) -> HRESULT;
             fn GetOverlayImage(&self, iOverlay: i32, #[out] piIndex: *mut i32) -> HRESULT;
         }
@@ -39,7 +39,7 @@ mod Windows {
             fn GetOriginalSize(&self, #[in] iImage: i32, #[in] dwFlags: DWORD, #[out] pcx: *mut i32, #[out] pcy: *mut i32) -> HRESULT;
             fn SetOriginalSize(&self, #[in] iImage: i32, #[in] cx: i32, #[in] cy: i32) -> HRESULT;
             fn SetCallback(&self, #[in] #[opt] punk: IUnknown) -> HRESULT;
-            fn GetCallback(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetCallback(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn ForceImagePresent(&self, #[in] iImage: i32, dwFlags: DWORD) -> HRESULT;
             fn DiscardImages(&self, #[in] iFirstImage: i32, #[in] iLastImage: i32, #[in] dwFlags: DWORD) -> HRESULT;
             fn PreloadImages(&self, #[in] pimldp: *mut IMAGELISTDRAWPARAMS) -> HRESULT;

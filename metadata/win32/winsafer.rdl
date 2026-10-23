@@ -183,11 +183,11 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn SaferCloseLevel(#[in] hLevelHandle: SAFER_LEVEL_HANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferComputeTokenFromLevel(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] #[opt] InAccessToken: HANDLE, #[out] OutAccessToken: PHANDLE, #[in] dwFlags: DWORD, #[in] #[out] #[opt] lpReserved: LPVOID) -> BOOL;
+        extern fn SaferComputeTokenFromLevel(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] #[opt] InAccessToken: HANDLE, #[out] OutAccessToken: PHANDLE, #[in] dwFlags: DWORD, #[in] #[opt] #[out] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn SaferCreateLevel(#[in] dwScopeId: DWORD, #[in] dwLevelId: DWORD, #[in] OpenFlags: DWORD, #[out] #[out_ptr] pLevelHandle: *mut SAFER_LEVEL_HANDLE, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn SaferGetLevelInformation(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[out] #[opt] #[writable(entry, bytes(dwInBufferSize))] lpQueryBuffer: LPVOID, #[in] dwInBufferSize: DWORD, #[out] lpdwOutBufferSize: LPDWORD) -> BOOL;
+        extern fn SaferGetLevelInformation(#[in] LevelHandle: SAFER_LEVEL_HANDLE, #[in] dwInfoType: SAFER_OBJECT_INFO_CLASS, #[opt] #[out] #[writable(entry, bytes(dwInBufferSize))] lpQueryBuffer: LPVOID, #[in] dwInBufferSize: DWORD, #[out] lpdwOutBufferSize: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn SaferGetPolicyInformation(#[in] dwScopeId: DWORD, #[in] SaferPolicyInfoClass: SAFER_POLICY_INFO_CLASS, #[in] InfoBufferSize: DWORD, #[out] #[writable(entry, bytes(InfoBufferSize))] InfoBuffer: PVOID, #[out] InfoBufferRetSize: PDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]

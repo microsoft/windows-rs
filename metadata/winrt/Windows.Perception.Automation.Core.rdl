@@ -10,10 +10,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class CorePerceptionAutomation {}
-                #[guid(0x0bb04541_4ce2_4923_9a76_8187ecc59112)]
                 #[Windows::Foundation::Metadata::ContractVersion(PerceptionAutomationCoreContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CorePerceptionAutomation)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x0bb04541_4ce2_4923_9a76_8187ecc59112)]
                 interface ICorePerceptionAutomationStatics {
                     fn SetActivationFactoryProvider(&self, #[in] provider: super::super::super::Foundation::IGetActivationFactory);
                 }

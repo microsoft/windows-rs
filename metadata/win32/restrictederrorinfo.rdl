@@ -13,7 +13,7 @@ mod Windows {
         }
         #[guid(0xcbe53fb5_f967_4258_8d34_42f5e25833de)]
         interface ILanguageExceptionStackBackTrace: IUnknown {
-            fn GetStackBackTrace(&self, #[in] maxFramesToCapture: ULONG, #[in] #[out] #[readable(entry, maxFramesToCapture - 1 + 1)] #[writable(entry, maxFramesToCapture - 1 + 1)] #[readable(success, maxFramesToCapture - 1 + 1)] stackBackTrace: *mut UINT_PTR, #[out] framesCaptured: *mut ULONG) -> HRESULT;
+            fn GetStackBackTrace(&self, #[in] maxFramesToCapture: ULONG, #[in] #[out] #[readable(entry, maxFramesToCapture - 1 + 1)] #[readable(success, maxFramesToCapture - 1 + 1)] #[writable(entry, maxFramesToCapture - 1 + 1)] stackBackTrace: *mut UINT_PTR, #[out] framesCaptured: *mut ULONG) -> HRESULT;
         }
         #[guid(0xfeb5a271_a6cd_45ce_880a_696706badc65)]
         interface ILanguageExceptionTransform: IUnknown {

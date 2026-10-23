@@ -9,47 +9,47 @@ mod Windows {
             AVRT_PRIORITY_HIGH = 1,
             AVRT_PRIORITY_CRITICAL = 2,
         }
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvQuerySystemResponsiveness(#[in] AvrtHandle: HANDLE, #[out] SystemResponsivenessValue: PULONG) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRevertMmThreadCharacteristics(#[in] AvrtHandle: HANDLE) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRtCreateThreadOrderingGroup(#[out] Context: PHANDLE, #[in] Period: PLARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[in] #[opt] Timeout: PLARGE_INTEGER) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRtCreateThreadOrderingGroupExA(#[out] Context: PHANDLE, #[in] Period: PLARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[in] #[opt] Timeout: PLARGE_INTEGER, #[in] TaskName: LPCSTR) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRtCreateThreadOrderingGroupExW(#[out] Context: PHANDLE, #[in] Period: PLARGE_INTEGER, #[in] #[out] ThreadOrderingGuid: *mut GUID, #[in] #[opt] Timeout: PLARGE_INTEGER, #[in] TaskName: LPCWSTR) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRtDeleteThreadOrderingGroup(#[in] Context: HANDLE) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRtJoinThreadOrderingGroup(#[out] Context: PHANDLE, #[in] ThreadOrderingGuid: *mut GUID, #[in] Before: BOOL) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRtLeaveThreadOrderingGroup(#[in] Context: HANDLE) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvRtWaitOnThreadOrderingGroup(#[in] Context: HANDLE) -> BOOL;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvSetMmMaxThreadCharacteristicsA(#[in] FirstTask: LPCSTR, #[in] SecondTask: LPCSTR, #[in] #[out] TaskIndex: LPDWORD) -> HANDLE;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvSetMmMaxThreadCharacteristicsW(#[in] FirstTask: LPCWSTR, #[in] SecondTask: LPCWSTR, #[in] #[out] TaskIndex: LPDWORD) -> HANDLE;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvSetMmThreadCharacteristicsA(#[in] TaskName: LPCSTR, #[in] #[out] TaskIndex: LPDWORD) -> HANDLE;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvSetMmThreadCharacteristicsW(#[in] TaskName: LPCWSTR, #[in] #[out] TaskIndex: LPDWORD) -> HANDLE;
-        #[success(return != 0)]
         #[library("AVRT.dll")]
+        #[success(return != 0)]
         extern fn AvSetMmThreadPriority(#[in] AvrtHandle: HANDLE, #[in] Priority: AVRT_PRIORITY) -> BOOL;
         type PAVRT_PRIORITY = *mut AVRT_PRIORITY;
         const THREAD_ORDER_GROUP_INFINITE_TIMEOUT: i64 = -1;

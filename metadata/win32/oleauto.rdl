@@ -3,25 +3,25 @@ mod Windows {
     mod Win32 {
         const ACTIVEOBJECT_STRONG: i32 = 0;
         const ACTIVEOBJECT_WEAK: i32 = 1;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn BstrFromVector(#[in] psa: *mut SAFEARRAY, #[out] pbstr: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn ClearCustData(pCustData: LPCUSTDATA);
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn CreateDispTypeInfo(pidata: *mut INTERFACEDATA, lcid: LCID, pptinfo: *mut ITypeInfo) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn CreateErrorInfo(#[out] #[out_ptr] pperrinfo: *mut ICreateErrorInfo) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn CreateStdDispatch(punkOuter: IUnknown, pvThis: *mut void, ptinfo: ITypeInfo, ppunkStdDisp: *mut IUnknown) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn CreateTypeLib(syskind: SYSKIND, szFile: LPCOLESTR, ppctlib: *mut ICreateTypeLib) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn CreateTypeLib2(syskind: SYSKIND, szFile: LPCOLESTR, ppctlib: *mut ICreateTypeLib2) -> HRESULT;
         const DISPATCH_METHOD: i32 = 1;
         const DISPATCH_PROPERTYGET: i32 = 2;
@@ -29,24 +29,24 @@ mod Windows {
         const DISPATCH_PROPERTYPUTREF: i32 = 8;
         #[library("OLEAUT32.dll")]
         extern fn DispCallFunc(#[in] #[opt] pvInstance: *mut void, oVft: ULONG_PTR, cc: CALLCONV, vtReturn: VARTYPE, cActuals: UINT, #[in] #[readable(entry, cActuals)] prgvt: *mut VARTYPE, #[in] #[readable(entry, cActuals)] prgpvarg: *mut *mut VARIANTARG, #[out] pvargResult: *mut VARIANT) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn DispGetIDsOfNames(ptinfo: ITypeInfo, #[in] #[readable(entry, cNames)] rgszNames: *mut LPOLESTR, cNames: UINT, #[out] #[writable(entry, cNames)] rgdispid: *mut DISPID) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
-        extern fn DispGetParam(#[in] pdispparams: *mut DISPPARAMS, position: UINT, vtTarg: VARTYPE, #[out] pvarResult: *mut VARIANT, #[out] #[opt] puArgErr: *mut UINT) -> HRESULT;
         #[must_use]
+        extern fn DispGetParam(#[in] pdispparams: *mut DISPPARAMS, position: UINT, vtTarg: VARTYPE, #[out] pvarResult: *mut VARIANT, #[opt] #[out] puArgErr: *mut UINT) -> HRESULT;
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn DispInvoke(_this: *mut void, ptinfo: ITypeInfo, dispidMember: DISPID, wFlags: WORD, pparams: *mut DISPPARAMS, pvarResult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puArgErr: *mut UINT) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn DosDateTimeToVariantTime(#[in] wDosDate: USHORT, #[in] wDosTime: USHORT, #[out] pvtime: *mut DOUBLE) -> INT;
         #[library("OLEAUT32.dll")]
         extern fn GetActiveObject(rclsid: &IID, pvReserved: *mut void, ppunk: *mut IUnknown) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn GetAltMonthNames(lcid: LCID, #[out] #[writable(success, 13, indirect, nullable)] prgp: *mut *mut LPOLESTR) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn GetErrorInfo(#[in] dwReserved: ULONG, #[out] #[out_ptr] pperrinfo: *mut IErrorInfo) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn GetRecordInfoFromGuids(rGuidTypeLib: &GUID, uVerMajor: ULONG, uVerMinor: ULONG, lcid: LCID, rGuidTypeInfo: &GUID, ppRecInfo: *mut IRecordInfo) -> HRESULT;
@@ -58,11 +58,11 @@ mod Windows {
             pmethdata: *mut METHODDATA,
             cMembers: UINT,
         }
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn LHashValOfNameSys(syskind: SYSKIND, lcid: LCID, szName: *const OLECHAR) -> ULONG;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn LHashValOfNameSysA(syskind: SYSKIND, lcid: LCID, szName: LPCSTR) -> ULONG;
         const LOAD_TLB_AS_32BIT: i32 = 32;
         const LOAD_TLB_AS_64BIT: i32 = 64;
@@ -70,13 +70,13 @@ mod Windows {
         type LPINTERFACEDATA = *mut INTERFACEDATA;
         type LPMETHODDATA = *mut METHODDATA;
         type LPPARAMDATA = *mut PARAMDATA;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn LoadRegTypeLib(rguid: &GUID, wVerMajor: WORD, wVerMinor: WORD, lcid: LCID, pptlib: *mut ITypeLib) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn LoadTypeLib(#[in] #[null_terminated(entry)] szFile: LPCOLESTR, pptlib: *mut ITypeLib) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn LoadTypeLibEx(szFile: LPCOLESTR, regkind: REGKIND, pptlib: *mut ITypeLib) -> HRESULT;
         const MASK_TO_RESET_TLB_BITS: i32 = -97;
         const MEMBERID_NIL: i32 = -1;
@@ -133,11 +133,11 @@ mod Windows {
             REGKIND_REGISTER = 1,
             REGKIND_NONE = 2,
         }
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn RegisterActiveObject(punk: IUnknown, rclsid: &IID, dwFlags: DWORD, pdwRegister: *mut DWORD) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn RegisterTypeLib(ptlib: ITypeLib, #[in] szFullPath: LPCOLESTR, #[in] #[opt] szHelpDir: LPCOLESTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn RegisterTypeLibForUser(ptlib: ITypeLib, #[in] szFullPath: *mut OLECHAR, #[in] #[opt] szHelpDir: *mut OLECHAR) -> HRESULT;
@@ -159,11 +159,11 @@ mod Windows {
         extern fn SafeArrayAllocDescriptor(#[in] cDims: UINT, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayAllocDescriptorEx(#[in] vt: VARTYPE, #[in] cDims: UINT, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn SafeArrayCopy(#[in] psa: *mut SAFEARRAY, #[out] #[out_ptr] ppsaOut: *mut *mut SAFEARRAY) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn SafeArrayCopyData(#[in] psaSource: *mut SAFEARRAY, #[in] psaTarget: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayCreate(#[in] vt: VARTYPE, #[in] cDims: UINT, #[in] rgsabound: *mut SAFEARRAYBOUND) -> *mut SAFEARRAY;
@@ -199,8 +199,8 @@ mod Windows {
         extern fn SafeArrayLock(#[in] psa: *mut SAFEARRAY) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayPtrOfIndex(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "psa->cDims", "psa->cDims")] #[in] rgIndices: *mut LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "psa->cbElements", "psa->cbElements")] #[out] ppvData: *mut *mut void) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn SafeArrayPutElement(#[in] psa: *mut SAFEARRAY, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "_Inexpressible_(psa->cDims)", "_Inexpressible_(psa->cDims)")] #[in] rgIndices: *mut LONG, #[in] pv: *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn SafeArrayRedim(#[in] #[out] psa: *mut SAFEARRAY, #[in] psaboundNew: *mut SAFEARRAYBOUND) -> HRESULT;
@@ -221,19 +221,19 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn SysAddRefString(#[in] bstrString: BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn SysAllocString(#[in] #[opt] #[null_terminated(entry)] psz: *const OLECHAR) -> BSTR;
+        extern fn SysAllocString(#[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR) -> BSTR;
         #[library("OLEAUT32.dll")]
-        extern fn SysAllocStringByteLen(#[in] #[opt] #[null_terminated(entry)] psz: LPCSTR, #[in] len: UINT) -> BSTR;
+        extern fn SysAllocStringByteLen(#[in] #[null_terminated(entry)] #[opt] psz: LPCSTR, #[in] len: UINT) -> BSTR;
         #[Windows::Win32::Metadata::NativeSal("2", "_Ret_writes_maybenull_z_", "ui+1", "ui+1")]
         #[library("OLEAUT32.dll")]
         extern fn SysAllocStringLen(#[in] #[opt] #[readable(entry, ui)] strIn: *const OLECHAR, ui: UINT) -> BSTR;
         #[library("OLEAUT32.dll")]
         extern fn SysFreeString(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] bstrString: BSTR);
         #[library("OLEAUT32.dll")]
-        extern fn SysReAllocString(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[opt] #[null_terminated(entry)] psz: *const OLECHAR) -> INT;
-        #[must_use]
+        extern fn SysReAllocString(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(_String_length_(psz)+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR) -> INT;
         #[library("OLEAUT32.dll")]
-        extern fn SysReAllocStringLen(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(len+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(len+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[opt] #[null_terminated(entry)] psz: *const OLECHAR, #[in] len: u32) -> INT;
+        #[must_use]
+        extern fn SysReAllocStringLen(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pbstr,_Pre_z_ _Post_z_ _Post_readable_size_(len+1)", "*pbstr, _Pre_z_ _Post_z_ _Post_readable_size_(len+1)")] #[in] #[out] pbstr: *mut BSTR, #[in] #[null_terminated(entry)] #[opt] psz: *const OLECHAR, #[in] len: u32) -> INT;
         #[library("OLEAUT32.dll")]
         extern fn SysReleaseString(#[in] bstrString: BSTR);
         #[Windows::Win32::Metadata::NativeSal("2", "_Post_equal_to_", "_String_length_(bstr) * sizeof(OLECHAR)", "_String_length_(bstr) * sizeof(OLECHAR)")]
@@ -249,8 +249,8 @@ mod Windows {
             st: SYSTEMTIME,
             wDayOfYear: USHORT,
         }
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn UnRegisterTypeLib(libID: &GUID, wVerMajor: WORD, wVerMinor: WORD, lcid: LCID, syskind: SYSKIND) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn UnRegisterTypeLibForUser(libID: &GUID, wMajorVerNum: WORD, wMinorVerNum: WORD, lcid: LCID, syskind: SYSKIND) -> HRESULT;
@@ -306,8 +306,8 @@ mod Windows {
         extern fn VarBoolFromDisp(pdispIn: IDispatch, lcid: LCID, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarBoolFromI1(cIn: CHAR, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VarBoolFromI2(#[in] sIn: SHORT, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarBoolFromI4(lIn: LONG, #[out] pboolOut: *mut VARIANT_BOOL) -> HRESULT;
@@ -449,8 +449,8 @@ mod Windows {
         extern fn VarDateFromUI4(ulIn: ULONG, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarDateFromUI8(ui64In: ULONG64, #[out] pdateOut: *mut DATE) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VarDateFromUdate(#[in] pudateIn: *mut UDATE, #[in] dwFlags: ULONG, #[out] pdateOut: *mut DATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarDateFromUdateEx(#[in] pudateIn: *mut UDATE, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[out] pdateOut: *mut DATE) -> HRESULT;
@@ -658,13 +658,13 @@ mod Windows {
         extern fn VarNeg(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarNot(#[in] pvarIn: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VarNumFromParseNum(#[in] pnumprs: *mut NUMPARSE, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "pnumprs->cDig", "pnumprs->cDig")] #[in] rgbDig: *mut BYTE, #[in] dwVtBits: ULONG, #[out] pvar: *mut VARIANT) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarOr(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VarParseNumFromStr(#[in] strIn: LPCOLESTR, #[in] lcid: LCID, #[in] dwFlags: ULONG, #[in] #[out] pnumprs: *mut NUMPARSE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "pnumprs->cDig", "pnumprs->cDig")] #[out] rgbDig: *mut BYTE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarPow(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
@@ -858,26 +858,26 @@ mod Windows {
         extern fn VarUI8FromUI2(uiIn: USHORT, #[out] pi64Out: *mut ULONG64) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarUI8FromUI4(ulIn: ULONG, #[out] pi64Out: *mut ULONG64) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VarUdateFromDate(#[in] dateIn: DATE, #[in] dwFlags: ULONG, #[out] pudateOut: *mut UDATE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarWeekdayName(iWeekday: i32, fAbbrev: i32, iFirstDay: i32, dwFlags: ULONG, #[out] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VarXor(#[in] pvarLeft: LPVARIANT, #[in] pvarRight: LPVARIANT, #[out] pvarResult: LPVARIANT) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VariantChangeType(#[in] #[out] pvargDest: *mut VARIANTARG, #[in] pvarSrc: *const VARIANTARG, #[in] wFlags: USHORT, #[in] vt: VARTYPE) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VariantChangeTypeEx(#[in] #[out] pvargDest: *mut VARIANTARG, #[in] pvarSrc: *const VARIANTARG, #[in] lcid: LCID, #[in] wFlags: USHORT, #[in] vt: VARTYPE) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VariantClear(#[in] #[out] pvarg: *mut VARIANTARG) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VariantCopy(#[in] #[out] pvargDest: *mut VARIANTARG, #[in] pvargSrc: *const VARIANTARG) -> HRESULT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VariantCopyInd(#[in] #[out] pvarDest: *mut VARIANT, #[in] pvargSrc: *const VARIANTARG) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn VariantInit(#[out] pvarg: *mut VARIANTARG);
@@ -885,8 +885,8 @@ mod Windows {
         extern fn VariantTimeToDosDateTime(#[in] vtime: DOUBLE, #[out] pwDosDate: *mut USHORT, #[out] pwDosTime: *mut USHORT) -> INT;
         #[library("OLEAUT32.dll")]
         extern fn VariantTimeToSystemTime(#[in] vtime: DOUBLE, #[out] lpSystemTime: LPSYSTEMTIME) -> INT;
-        #[must_use]
         #[library("OLEAUT32.dll")]
+        #[must_use]
         extern fn VectorFromBstr(#[in] bstr: BSTR, #[out] #[out_ptr] ppsa: *mut *mut SAFEARRAY) -> HRESULT;
     }
 }

@@ -56,7 +56,7 @@ mod Windows {
         }
         #[guid(0x00000104_0000_0000_c000_000000000046)]
         interface IEnumOLEVERB: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: LPOLEVERB, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: LPOLEVERB, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumOLEVERB) -> HRESULT;
@@ -144,12 +144,12 @@ mod Windows {
             fn GetBorder(&self, #[out] lprectBorder: LPRECT) -> HRESULT;
             fn RequestBorderSpace(&self, #[in] #[opt] pborderwidths: LPCBORDERWIDTHS) -> HRESULT;
             fn SetBorderSpace(&self, #[in] #[opt] pborderwidths: LPCBORDERWIDTHS) -> HRESULT;
-            fn SetActiveObject(&self, #[in] #[opt] pActiveObject: IOleInPlaceActiveObject, #[in] #[opt] #[null_terminated(entry)] pszObjName: LPCOLESTR) -> HRESULT;
+            fn SetActiveObject(&self, #[in] #[opt] pActiveObject: IOleInPlaceActiveObject, #[in] #[null_terminated(entry)] #[opt] pszObjName: LPCOLESTR) -> HRESULT;
         }
         #[guid(0x0000011c_0000_0000_c000_000000000046)]
         interface IOleItemContainer: IOleContainer {
-            fn GetObjectA(&self, #[in] pszItem: LPOLESTR, #[in] dwSpeedNeeded: DWORD, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
-            fn GetObjectStorage(&self, #[in] pszItem: LPOLESTR, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvStorage: *mut *mut void) -> HRESULT;
+            fn GetObjectA(&self, #[in] pszItem: LPOLESTR, #[in] dwSpeedNeeded: DWORD, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetObjectStorage(&self, #[in] pszItem: LPOLESTR, #[in] #[opt] pbc: IBindCtx, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvStorage: *mut *mut void) -> HRESULT;
             fn IsRunning(&self, #[in] pszItem: LPOLESTR) -> HRESULT;
         }
         #[guid(0x0000011d_0000_0000_c000_000000000046)]
@@ -199,25 +199,25 @@ mod Windows {
         interface IParseDisplayName: IUnknown {
             fn ParseDisplayName(&self, #[in] #[opt] pbc: IBindCtx, #[in] pszDisplayName: LPOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[out_ptr] ppmkOut: *mut IMoniker) -> HRESULT;
         }
-        #[guid(0x0000010d_0000_0000_c000_000000000046)]
         #[arch(X64 | Arm64)]
+        #[guid(0x0000010d_0000_0000_c000_000000000046)]
         interface IViewObject: IUnknown {
             fn Draw(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hdcTargetDev: HDC, #[in] hdcDraw: HDC, #[in] #[opt] lprcBounds: LPCRECTL, #[in] #[opt] lprcWBounds: LPCRECTL, #[in] #[opt] pfnContinue: extern fn(ULONG_PTR) -> BOOL, #[in] dwContinue: ULONG_PTR) -> HRESULT;
             fn GetColorSet(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hicTargetDev: HDC, #[out] #[out_ptr] ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
             fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
             fn Unfreeze(&self, #[in] dwFreeze: DWORD) -> HRESULT;
             fn SetAdvise(&self, #[in] aspects: DWORD, #[in] advf: DWORD, #[in] #[opt] pAdvSink: IAdviseSink) -> HRESULT;
-            fn GetAdvise(&self, #[out] #[opt] pAspects: *mut DWORD, #[out] #[opt] pAdvf: *mut DWORD, #[out] #[out_ptr] ppAdvSink: *mut IAdviseSink) -> HRESULT;
+            fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] ppAdvSink: *mut IAdviseSink) -> HRESULT;
         }
-        #[guid(0x0000010d_0000_0000_c000_000000000046)]
         #[arch(X86)]
+        #[guid(0x0000010d_0000_0000_c000_000000000046)]
         interface IViewObject: IUnknown {
             fn Draw(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hdcTargetDev: HDC, #[in] hdcDraw: HDC, #[in] #[opt] lprcBounds: LPCRECTL, #[in] #[opt] lprcWBounds: LPCRECTL, #[in] #[opt] pfnContinue: PFN_TERMINATEEXTENSION, #[in] dwContinue: ULONG_PTR) -> HRESULT;
             fn GetColorSet(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[in] #[opt] ptd: *mut DVTARGETDEVICE, #[in] #[opt] hicTargetDev: HDC, #[out] #[out_ptr] ppColorSet: *mut *mut LOGPALETTE) -> HRESULT;
             fn Freeze(&self, #[in] dwDrawAspect: DWORD, #[in] lindex: LONG, #[Windows::Win32::Metadata::NativeSal("2", "_Null_", "", "")] #[in] pvAspect: *mut void, #[out] pdwFreeze: *mut DWORD) -> HRESULT;
             fn Unfreeze(&self, #[in] dwFreeze: DWORD) -> HRESULT;
             fn SetAdvise(&self, #[in] aspects: DWORD, #[in] advf: DWORD, #[in] #[opt] pAdvSink: IAdviseSink) -> HRESULT;
-            fn GetAdvise(&self, #[out] #[opt] pAspects: *mut DWORD, #[out] #[opt] pAdvf: *mut DWORD, #[out] #[out_ptr] ppAdvSink: *mut IAdviseSink) -> HRESULT;
+            fn GetAdvise(&self, #[opt] #[out] pAspects: *mut DWORD, #[opt] #[out] pAdvf: *mut DWORD, #[out] #[out_ptr] ppAdvSink: *mut IAdviseSink) -> HRESULT;
         }
         #[guid(0x00000127_0000_0000_c000_000000000046)]
         interface IViewObject2: IViewObject {

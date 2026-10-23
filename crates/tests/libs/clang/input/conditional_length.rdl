@@ -1,10 +1,10 @@
 #[win32]
 mod Fixture {
-    extern "C" fn Buffer(capacity: u32, #[out] #[writable(entry, capacity)] #[writable(success, capacity)] #[readable(success, or(*written, capacity))] buffer: *mut u16, written: *mut u32, other: u32);
+    extern "C" fn Buffer(capacity: u32, #[out] #[readable(success, or(*written, capacity))] #[writable(entry, capacity)] #[writable(success, capacity)] buffer: *mut u16, written: *mut u32, other: u32);
     #[library("example.dll")]
-    extern "C" fn BufferFunction(capacity: u32, #[out] #[writable(entry, capacity)] #[writable(success, capacity)] #[readable(success, or(*written, capacity))] buffer: *mut u16, written: *mut u32, other: u32);
+    extern "C" fn BufferFunction(capacity: u32, #[out] #[readable(success, or(*written, capacity))] #[writable(entry, capacity)] #[writable(success, capacity)] buffer: *mut u16, written: *mut u32, other: u32);
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IBuffer {
-        fn Read(&self, capacity: u32, #[out] #[writable(entry, capacity)] #[writable(success, capacity)] #[readable(success, or(*written, capacity))] buffer: *mut u16, written: *mut u32, other: u32);
+        fn Read(&self, capacity: u32, #[out] #[readable(success, or(*written, capacity))] #[writable(entry, capacity)] #[writable(success, capacity)] buffer: *mut u16, written: *mut u32, other: u32);
     }
 }

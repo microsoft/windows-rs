@@ -55,13 +55,13 @@ mod Windows {
         #[library("ncrypt.dll")]
         extern fn NCryptCreateProtectionDescriptor(#[in] pwszDescriptorString: LPCWSTR, dwFlags: DWORD, #[out] phDescriptor: *mut NCRYPT_DESCRIPTOR_HANDLE) -> SECURITY_STATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoType == NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING,_At_((LPWSTR*)ppvInfo, _Outptr_result_nullonfailure_)", "dwInfoType == 0x00000001, _At_((LPWSTR*)ppvInfo, _Outptr_result_nullonfailure_)")]
-        #[success(return == 0)]
         #[library("ncrypt.dll")]
+        #[success(return == 0)]
         extern fn NCryptGetProtectionDescriptorInfo(#[in] hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, #[in] #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, dwInfoType: DWORD, #[out] #[out_ptr] ppvInfo: *mut *mut void) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptProtectSecret(#[in] hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwFlags: DWORD, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, cbData: ULONG, #[in] #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, #[in] #[opt] hWnd: HWND, #[out] #[writable(success, bytes(*pcbProtectedBlob), indirect)] ppbProtectedBlob: *mut *mut BYTE, #[out] pcbProtectedBlob: *mut ULONG) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptQueryProtectionDescriptorName(#[in] pwszName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcDescriptorString)] #[readable(success, *pcDescriptorString)] pwszDescriptorString: LPWSTR, #[in] #[out] pcDescriptorString: *mut SIZE_T, dwFlags: DWORD) -> SECURITY_STATUS;
+        extern fn NCryptQueryProtectionDescriptorName(#[in] pwszName: LPCWSTR, #[opt] #[out] #[readable(success, *pcDescriptorString)] #[writable(entry, *pcDescriptorString)] pwszDescriptorString: LPWSTR, #[in] #[out] pcDescriptorString: *mut SIZE_T, dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
         extern fn NCryptRegisterProtectionDescriptorName(#[in] pwszName: LPCWSTR, #[in] #[opt] pwszDescriptorString: LPCWSTR, dwFlags: DWORD) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
@@ -75,7 +75,7 @@ mod Windows {
         #[library("ncrypt.dll")]
         extern fn NCryptStreamUpdate(#[in] hStream: NCRYPT_STREAM_HANDLE, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, cbData: SIZE_T, fFinal: BOOL) -> SECURITY_STATUS;
         #[library("ncrypt.dll")]
-        extern fn NCryptUnprotectSecret(#[out] #[opt] phDescriptor: *mut NCRYPT_DESCRIPTOR_HANDLE, #[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbProtectedBlob))] pbProtectedBlob: *const BYTE, cbProtectedBlob: ULONG, #[in] #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, #[in] #[opt] hWnd: HWND, #[out] #[writable(success, bytes(*pcbData), indirect)] ppbData: *mut *mut BYTE, #[out] pcbData: *mut ULONG) -> SECURITY_STATUS;
+        extern fn NCryptUnprotectSecret(#[opt] #[out] phDescriptor: *mut NCRYPT_DESCRIPTOR_HANDLE, #[in] dwFlags: DWORD, #[in] #[readable(entry, bytes(cbProtectedBlob))] pbProtectedBlob: *const BYTE, cbProtectedBlob: ULONG, #[in] #[opt] pMemPara: *const NCRYPT_ALLOC_PARA, #[in] #[opt] hWnd: HWND, #[out] #[writable(success, bytes(*pcbData), indirect)] ppbData: *mut *mut BYTE, #[out] pcbData: *mut ULONG) -> SECURITY_STATUS;
         extern fn PFNCryptStreamOutputCallback(#[in] pvCallbackCtxt: *mut void, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, cbData: SIZE_T, fFinal: BOOL) -> SECURITY_STATUS;
         extern fn PFNCryptStreamOutputCallbackEx(#[in] pvCallbackCtxt: *mut void, #[in] #[opt] #[readable(entry, bytes(cbData))] pbData: *const BYTE, cbData: SIZE_T, #[in] hDescriptor: NCRYPT_DESCRIPTOR_HANDLE, fFinal: BOOL) -> SECURITY_STATUS;
     }

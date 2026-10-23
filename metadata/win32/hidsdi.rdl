@@ -14,77 +14,77 @@ mod Windows {
             size: ULONG,
             RingBufferSize: ULONG,
         }
-        #[success(return == 1)]
         #[library("HID.DLL")]
+        #[success(return == 1)]
         extern fn HidD_FlushQueue(#[in] HidDeviceObject: HANDLE) -> BOOLEAN;
-        #[success(return == 1)]
         #[library("HID.DLL")]
+        #[success(return == 1)]
         extern fn HidD_FreePreparsedData(#[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] PreparsedData: PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetAttributes(#[in] HidDeviceObject: HANDLE, #[out] Attributes: PHIDD_ATTRIBUTES) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetConfiguration(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(ConfigurationLength))] Configuration: PHIDD_CONFIGURATION, #[in] ConfigurationLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetFeature(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(ReportBufferLength))] ReportBuffer: PVOID, #[in] ReportBufferLength: ULONG) -> BOOLEAN;
         #[library("HID.DLL")]
         extern fn HidD_GetHidGuid(#[out] HidGuid: LPGUID);
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetIndexedString(#[in] HidDeviceObject: HANDLE, #[in] StringIndex: ULONG, #[out] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[in] BufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetInputReport(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(ReportBufferLength))] ReportBuffer: PVOID, #[in] ReportBufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetManufacturerString(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[in] BufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetMsGenreDescriptor(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[in] BufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetNumInputBuffers(#[in] HidDeviceObject: HANDLE, #[out] NumberBuffers: PULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetPhysicalDescriptor(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[in] BufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetPreparsedData(#[in] HidDeviceObject: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return!=0,__drv_allocatesMem(Mem)", "return!=0, __drv_allocatesMem(Mem)")] #[out] PreparsedData: *mut PHIDP_PREPARSED_DATA) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetProductString(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[in] BufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_GetSerialNumberString(#[in] HidDeviceObject: HANDLE, #[out] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[in] BufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_SetConfiguration(#[in] HidDeviceObject: HANDLE, #[in] #[readable(entry, bytes(ConfigurationLength))] Configuration: PHIDD_CONFIGURATION, #[in] ConfigurationLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_SetFeature(#[in] HidDeviceObject: HANDLE, #[in] #[readable(entry, bytes(ReportBufferLength))] ReportBuffer: PVOID, #[in] ReportBufferLength: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_SetNumInputBuffers(#[in] HidDeviceObject: HANDLE, #[in] NumberBuffers: ULONG) -> BOOLEAN;
+        #[library("HID.DLL")]
         #[must_use]
         #[success(return == 1)]
-        #[library("HID.DLL")]
         extern fn HidD_SetOutputReport(#[in] HidDeviceObject: HANDLE, #[in] #[readable(entry, bytes(ReportBufferLength))] ReportBuffer: PVOID, #[in] ReportBufferLength: ULONG) -> BOOLEAN;
         type PHIDD_ATTRIBUTES = *mut HIDD_ATTRIBUTES;
         type PHIDD_CONFIGURATION = *mut HIDD_CONFIGURATION;

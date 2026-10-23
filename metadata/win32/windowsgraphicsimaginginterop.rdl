@@ -4,12 +4,12 @@ mod Windows {
         const CLSID_SoftwareBitmapNativeFactory: GUID = 0x84e65691_8602_4a84_be46_708be9cd4b74;
         #[guid(0x94bc8415_04ea_4b2e_af13_4de95aa898eb)]
         interface ISoftwareBitmapNative: IInspectable {
-            fn GetData(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+            fn GetData(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
         }
         #[guid(0xc3c181ec_2914_4791_af02_02d224a10b43)]
         interface ISoftwareBitmapNativeFactory: IInspectable {
-            fn CreateFromWICBitmap(&self, #[in] data: IWICBitmap, #[in] forceReadOnly: BOOL, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
-            fn CreateFromMF2DBuffer2(&self, #[in] data: IMF2DBuffer2, #[in] subtype: &GUID, #[in] width: UINT32, #[in] height: UINT32, #[in] forceReadOnly: BOOL, #[in] #[opt] minDisplayAperture: *const MFVideoArea, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+            fn CreateFromWICBitmap(&self, #[in] data: IWICBitmap, #[in] forceReadOnly: BOOL, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
+            fn CreateFromMF2DBuffer2(&self, #[in] data: IMF2DBuffer2, #[in] subtype: &GUID, #[in] width: UINT32, #[in] height: UINT32, #[in] forceReadOnly: BOOL, #[in] #[opt] minDisplayAperture: *const MFVideoArea, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut LPVOID) -> HRESULT;
         }
     }
 }

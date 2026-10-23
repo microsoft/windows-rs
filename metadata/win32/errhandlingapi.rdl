@@ -12,8 +12,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetErrorMode() -> UINT;
         #[Windows::Win32::Metadata::NativeSal("2", "_Post_equals_last_error_", "", "")]
-        #[must_use]
         #[library("KERNEL32.dll")]
+        #[must_use]
         extern fn GetLastError() -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetThreadErrorMode() -> DWORD;

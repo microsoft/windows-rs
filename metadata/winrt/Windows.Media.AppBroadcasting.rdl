@@ -35,26 +35,26 @@ mod Windows {
             class AppBroadcastingUI {
                 IAppBroadcastingUI,
             }
-            #[guid(0x00f95a68_8907_48a0_b8ef_24d208137542)]
             #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingMonitor)]
+            #[guid(0x00f95a68_8907_48a0_b8ef_24d208137542)]
             interface IAppBroadcastingMonitor {
                 #[get]
                 IsCurrentAppBroadcasting: bool;
                 event IsCurrentAppBroadcastingChanged: super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, Object>;
             }
-            #[guid(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e)]
             #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingStatus)]
+            #[guid(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e)]
             interface IAppBroadcastingStatus {
                 #[get]
                 CanStartBroadcast: bool;
                 #[get]
                 Details: AppBroadcastingStatusDetails;
             }
-            #[guid(0x069dada4_b573_4e3c_8e19_1bafacd09713)]
             #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingStatusDetails)]
+            #[guid(0x069dada4_b573_4e3c_8e19_1bafacd09713)]
             interface IAppBroadcastingStatusDetails {
                 #[get]
                 IsAnyAppBroadcasting: bool;
@@ -73,16 +73,16 @@ mod Windows {
                 #[get]
                 IsDisabledBySystem: bool;
             }
-            #[guid(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f)]
             #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingUI)]
+            #[guid(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f)]
             interface IAppBroadcastingUI {
                 fn GetStatus(&self) -> AppBroadcastingStatus;
                 fn ShowBroadcastUI(&self);
             }
-            #[guid(0x55a8a79d_23cb_4579_9c34_886fe02c045a)]
             #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingUI)]
+            #[guid(0x55a8a79d_23cb_4579_9c34_886fe02c045a)]
             interface IAppBroadcastingUIStatics {
                 fn GetDefault(&self) -> AppBroadcastingUI;
                 fn GetForUser(&self, #[in] user: super::super::System::User) -> AppBroadcastingUI;

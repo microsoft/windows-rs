@@ -191,9 +191,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiEvaluateConditionW(hInstall: MSIHANDLE, szCondition: LPCWSTR) -> MSICONDITION;
         #[library("msi.dll")]
-        extern fn MsiFormatRecordA(hInstall: MSIHANDLE, hRecord: MSIHANDLE, #[out] #[opt] #[writable(entry, if_present(*pcchResultBuf))] szResultBuf: LPSTR, #[in] #[out] #[opt] pcchResultBuf: LPDWORD) -> UINT;
+        extern fn MsiFormatRecordA(hInstall: MSIHANDLE, hRecord: MSIHANDLE, #[opt] #[out] #[writable(entry, if_present(*pcchResultBuf))] szResultBuf: LPSTR, #[in] #[opt] #[out] pcchResultBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiFormatRecordW(hInstall: MSIHANDLE, hRecord: MSIHANDLE, #[out] #[opt] #[writable(entry, if_present(*pcchResultBuf))] szResultBuf: LPWSTR, #[in] #[out] #[opt] pcchResultBuf: LPDWORD) -> UINT;
+        extern fn MsiFormatRecordW(hInstall: MSIHANDLE, hRecord: MSIHANDLE, #[opt] #[out] #[writable(entry, if_present(*pcchResultBuf))] szResultBuf: LPWSTR, #[in] #[opt] #[out] pcchResultBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
         extern fn MsiGetActiveDatabase(hInstall: MSIHANDLE) -> MSIHANDLE;
         #[library("msi.dll")]
@@ -221,21 +221,21 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiGetMode(hInstall: MSIHANDLE, eRunMode: MSIRUNMODE) -> BOOL;
         #[library("msi.dll")]
-        extern fn MsiGetPropertyA(hInstall: MSIHANDLE, szName: LPCSTR, #[out] #[opt] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiGetPropertyA(hInstall: MSIHANDLE, szName: LPCSTR, #[opt] #[out] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPSTR, #[in] #[opt] #[out] pcchValueBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetPropertyW(hInstall: MSIHANDLE, szName: LPCWSTR, #[out] #[opt] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiGetPropertyW(hInstall: MSIHANDLE, szName: LPCWSTR, #[opt] #[out] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPWSTR, #[in] #[opt] #[out] pcchValueBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetSourcePathA(hInstall: MSIHANDLE, szFolder: LPCSTR, #[out] #[opt] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiGetSourcePathA(hInstall: MSIHANDLE, szFolder: LPCSTR, #[opt] #[out] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPSTR, #[in] #[opt] #[out] pcchPathBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetSourcePathW(hInstall: MSIHANDLE, szFolder: LPCWSTR, #[out] #[opt] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiGetSourcePathW(hInstall: MSIHANDLE, szFolder: LPCWSTR, #[opt] #[out] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPWSTR, #[in] #[opt] #[out] pcchPathBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
         extern fn MsiGetSummaryInformationA(hDatabase: MSIHANDLE, szDatabasePath: LPCSTR, uiUpdateCount: UINT, phSummaryInfo: *mut MSIHANDLE) -> UINT;
         #[library("msi.dll")]
         extern fn MsiGetSummaryInformationW(hDatabase: MSIHANDLE, szDatabasePath: LPCWSTR, uiUpdateCount: UINT, phSummaryInfo: *mut MSIHANDLE) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetTargetPathA(hInstall: MSIHANDLE, szFolder: LPCSTR, #[out] #[opt] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiGetTargetPathA(hInstall: MSIHANDLE, szFolder: LPCSTR, #[opt] #[out] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPSTR, #[in] #[opt] #[out] pcchPathBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiGetTargetPathW(hInstall: MSIHANDLE, szFolder: LPCWSTR, #[out] #[opt] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPWSTR, #[in] #[out] #[opt] pcchPathBuf: LPDWORD) -> UINT;
+        extern fn MsiGetTargetPathW(hInstall: MSIHANDLE, szFolder: LPCWSTR, #[opt] #[out] #[writable(entry, if_present(*pcchPathBuf))] szPathBuf: LPWSTR, #[in] #[opt] #[out] pcchPathBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
         extern fn MsiOpenDatabaseA(szDatabasePath: LPCSTR, szPersist: LPCSTR, phDatabase: *mut MSIHANDLE) -> UINT;
         #[library("msi.dll")]
@@ -259,13 +259,13 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiRecordGetInteger(hRecord: MSIHANDLE, iField: UINT) -> i32;
         #[library("msi.dll")]
-        extern fn MsiRecordGetStringA(hRecord: MSIHANDLE, iField: UINT, #[out] #[opt] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiRecordGetStringA(hRecord: MSIHANDLE, iField: UINT, #[opt] #[out] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPSTR, #[in] #[opt] #[out] pcchValueBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiRecordGetStringW(hRecord: MSIHANDLE, iField: UINT, #[out] #[opt] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiRecordGetStringW(hRecord: MSIHANDLE, iField: UINT, #[opt] #[out] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPWSTR, #[in] #[opt] #[out] pcchValueBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
         extern fn MsiRecordIsNull(hRecord: MSIHANDLE, iField: UINT) -> BOOL;
         #[library("msi.dll")]
-        extern fn MsiRecordReadStream(hRecord: MSIHANDLE, iField: UINT, #[out] #[opt] #[writable(entry, bytes(*pcbDataBuf))] szDataBuf: *mut i8, #[in] #[out] pcbDataBuf: LPDWORD) -> UINT;
+        extern fn MsiRecordReadStream(hRecord: MSIHANDLE, iField: UINT, #[opt] #[out] #[writable(entry, bytes(*pcbDataBuf))] szDataBuf: *mut i8, #[in] #[out] pcbDataBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
         extern fn MsiRecordSetInteger(hRecord: MSIHANDLE, iField: UINT, iValue: i32) -> UINT;
         #[library("msi.dll")]
@@ -305,11 +305,11 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiSetTargetPathW(hInstall: MSIHANDLE, szFolder: LPCWSTR, szFolderPath: LPCWSTR) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiSummaryInfoGetPropertyA(hSummaryInfo: MSIHANDLE, uiProperty: UINT, #[out] puiDataType: PUINT, #[out] piValue: LPINT, #[out] #[opt] pftValue: *mut FILETIME, #[out] #[opt] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiSummaryInfoGetPropertyA(hSummaryInfo: MSIHANDLE, uiProperty: UINT, #[out] puiDataType: PUINT, #[out] piValue: LPINT, #[opt] #[out] pftValue: *mut FILETIME, #[opt] #[out] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPSTR, #[in] #[opt] #[out] pcchValueBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
         extern fn MsiSummaryInfoGetPropertyCount(hSummaryInfo: MSIHANDLE, puiPropertyCount: PUINT) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiSummaryInfoGetPropertyW(hSummaryInfo: MSIHANDLE, uiProperty: UINT, #[out] puiDataType: PUINT, #[out] piValue: LPINT, #[out] #[opt] pftValue: *mut FILETIME, #[out] #[opt] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPWSTR, #[in] #[out] #[opt] pcchValueBuf: LPDWORD) -> UINT;
+        extern fn MsiSummaryInfoGetPropertyW(hSummaryInfo: MSIHANDLE, uiProperty: UINT, #[out] puiDataType: PUINT, #[out] piValue: LPINT, #[opt] #[out] pftValue: *mut FILETIME, #[opt] #[out] #[writable(entry, if_present(*pcchValueBuf))] szValueBuf: LPWSTR, #[in] #[opt] #[out] pcchValueBuf: LPDWORD) -> UINT;
         #[library("msi.dll")]
         extern fn MsiSummaryInfoPersist(hSummaryInfo: MSIHANDLE) -> UINT;
         #[library("msi.dll")]
@@ -327,9 +327,9 @@ mod Windows {
         #[library("msi.dll")]
         extern fn MsiViewGetColumnInfo(hView: MSIHANDLE, eColumnInfo: MSICOLINFO, phRecord: *mut MSIHANDLE) -> UINT;
         #[library("msi.dll")]
-        extern fn MsiViewGetErrorA(hView: MSIHANDLE, #[out] #[opt] #[writable(entry, if_present(*pcchBuf))] szColumnNameBuffer: LPSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> MSIDBERROR;
+        extern fn MsiViewGetErrorA(hView: MSIHANDLE, #[opt] #[out] #[writable(entry, if_present(*pcchBuf))] szColumnNameBuffer: LPSTR, #[in] #[opt] #[out] pcchBuf: LPDWORD) -> MSIDBERROR;
         #[library("msi.dll")]
-        extern fn MsiViewGetErrorW(hView: MSIHANDLE, #[out] #[opt] #[writable(entry, if_present(*pcchBuf))] szColumnNameBuffer: LPWSTR, #[in] #[out] #[opt] pcchBuf: LPDWORD) -> MSIDBERROR;
+        extern fn MsiViewGetErrorW(hView: MSIHANDLE, #[opt] #[out] #[writable(entry, if_present(*pcchBuf))] szColumnNameBuffer: LPWSTR, #[in] #[opt] #[out] pcchBuf: LPDWORD) -> MSIDBERROR;
         #[library("msi.dll")]
         extern fn MsiViewModify(hView: MSIHANDLE, eModifyMode: MSIMODIFY, hRecord: MSIHANDLE) -> UINT;
     }

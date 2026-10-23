@@ -2,9 +2,9 @@
 mod Windows {
     mod Media {
         mod Miracast {
-            #[guid(0x7a315258_e444_51b4_aff7_b88daa1229e0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiver)]
+            #[guid(0x7a315258_e444_51b4_aff7_b88daa1229e0)]
             interface IMiracastReceiver {
                 fn GetDefaultSettings(&self) -> MiracastReceiverSettings;
                 fn GetCurrentSettings(&self) -> MiracastReceiverSettings;
@@ -23,18 +23,18 @@ mod Windows {
                 fn ClearKnownTransmitters(&self);
                 fn RemoveKnownTransmitter(&self, #[in] transmitter: MiracastTransmitter);
             }
-            #[guid(0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverApplySettingsResult)]
+            #[guid(0xd0aa6272_09cd_58e1_a4f2_5d5143d312f9)]
             interface IMiracastReceiverApplySettingsResult {
                 #[get]
                 Status: MiracastReceiverApplySettingsStatus;
                 #[get]
                 ExtendedError: HRESULT;
             }
-            #[guid(0x704b2f36_d2e5_551f_a854_f822b7917d28)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverConnection)]
+            #[guid(0x704b2f36_d2e5_551f_a854_f822b7917d28)]
             interface IMiracastReceiverConnection {
                 #[Windows::Foundation::Metadata::Overload("Disconnect")]
                 fn Disconnect(&self, #[in] reason: MiracastReceiverDisconnectReason);
@@ -55,9 +55,9 @@ mod Windows {
                 #[get]
                 StreamControl: MiracastReceiverStreamControl;
             }
-            #[guid(0x7d8dfa39_307a_5c0f_94bd_d0c69d169982)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverConnectionCreatedEventArgs)]
+            #[guid(0x7d8dfa39_307a_5c0f_94bd_d0c69d169982)]
             interface IMiracastReceiverConnectionCreatedEventArgs {
                 #[get]
                 Connection: MiracastReceiverConnection;
@@ -65,9 +65,9 @@ mod Windows {
                 Pin: String;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0xd9ac332d_723a_5a9d_b90a_81153efa2a0f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverCursorImageChannel)]
+            #[guid(0xd9ac332d_723a_5a9d_b90a_81153efa2a0f)]
             interface IMiracastReceiverCursorImageChannel {
                 #[get]
                 IsEnabled: bool;
@@ -80,23 +80,23 @@ mod Windows {
                 event ImageStreamChanged: super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, Object>;
                 event PositionChanged: super::super::Foundation::TypedEventHandler<MiracastReceiverCursorImageChannel, Object>;
             }
-            #[guid(0xccdbedff_bd00_5b9c_8e4c_00cacf86b634)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverCursorImageChannelSettings)]
+            #[guid(0xccdbedff_bd00_5b9c_8e4c_00cacf86b634)]
             interface IMiracastReceiverCursorImageChannelSettings {
                 IsEnabled: bool;
                 MaxImageSize: super::super::Graphics::SizeInt32;
             }
-            #[guid(0xd9a15e5e_5fee_57e6_b4b0_04727db93229)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverDisconnectedEventArgs)]
+            #[guid(0xd9a15e5e_5fee_57e6_b4b0_04727db93229)]
             interface IMiracastReceiverDisconnectedEventArgs {
                 #[get]
                 Connection: MiracastReceiverConnection;
             }
-            #[guid(0x2d7171e8_bed4_5118_a058_e2477eb5888d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverGameControllerDevice)]
+            #[guid(0x2d7171e8_bed4_5118_a058_e2477eb5888d)]
             interface IMiracastReceiverGameControllerDevice {
                 TransmitInput: bool;
                 #[get]
@@ -106,18 +106,18 @@ mod Windows {
                 Mode: MiracastReceiverGameControllerDeviceUsageMode;
                 event Changed: super::super::Foundation::TypedEventHandler<MiracastReceiverGameControllerDevice, Object>;
             }
-            #[guid(0xda35bb02_28aa_5ee8_96f5_a42901c66f00)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverInputDevices)]
+            #[guid(0xda35bb02_28aa_5ee8_96f5_a42901c66f00)]
             interface IMiracastReceiverInputDevices {
                 #[get]
                 Keyboard: MiracastReceiverKeyboardDevice;
                 #[get]
                 GameController: MiracastReceiverGameControllerDevice;
             }
-            #[guid(0xbeb67272_06c0_54ff_ac96_217464ff2501)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverKeyboardDevice)]
+            #[guid(0xbeb67272_06c0_54ff_ac96_217464ff2501)]
             interface IMiracastReceiverKeyboardDevice {
                 TransmitInput: bool;
                 #[get]
@@ -126,9 +126,9 @@ mod Windows {
                 IsTransmittingInput: bool;
                 event Changed: super::super::Foundation::TypedEventHandler<MiracastReceiverKeyboardDevice, Object>;
             }
-            #[guid(0x17cf519e_1246_531d_945a_6b158e39c3aa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverMediaSourceCreatedEventArgs)]
+            #[guid(0x17cf519e_1246_531d_945a_6b158e39c3aa)]
             interface IMiracastReceiverMediaSourceCreatedEventArgs {
                 #[get]
                 Connection: MiracastReceiverConnection;
@@ -138,9 +138,9 @@ mod Windows {
                 CursorImageChannelSettings: MiracastReceiverCursorImageChannelSettings;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x1d2bcdb4_ef8b_5209_bfc9_c32116504803)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverSession)]
+            #[guid(0x1d2bcdb4_ef8b_5209_bfc9_c32116504803)]
             interface IMiracastReceiverSession {
                 event ConnectionCreated: super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverConnectionCreatedEventArgs>;
                 event MediaSourceCreated: super::super::Foundation::TypedEventHandler<MiracastReceiverSession, MiracastReceiverMediaSourceCreatedEventArgs>;
@@ -151,18 +151,18 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn StartAsync(&self) -> super::super::Foundation::IAsyncOperation<MiracastReceiverSessionStartResult>;
             }
-            #[guid(0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverSessionStartResult)]
+            #[guid(0xb7c573ee_40ca_51ff_95f2_c9de34f2e90e)]
             interface IMiracastReceiverSessionStartResult {
                 #[get]
                 Status: MiracastReceiverSessionStartStatus;
                 #[get]
                 ExtendedError: HRESULT;
             }
-            #[guid(0x57cd2f24_c55a_5fbe_9464_eb05307705dd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverSettings)]
+            #[guid(0x57cd2f24_c55a_5fbe_9464_eb05307705dd)]
             interface IMiracastReceiverSettings {
                 FriendlyName: String;
                 ModelName: String;
@@ -170,9 +170,9 @@ mod Windows {
                 AuthorizationMethod: MiracastReceiverAuthorizationMethod;
                 RequireAuthorizationFromKnownTransmitters: bool;
             }
-            #[guid(0xc28a5591_23ab_519e_ad09_90bff6dcc87e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverStatus)]
+            #[guid(0xc28a5591_23ab_519e_ad09_90bff6dcc87e)]
             interface IMiracastReceiverStatus {
                 #[get]
                 ListeningStatus: MiracastReceiverListeningStatus;
@@ -185,9 +185,9 @@ mod Windows {
                 #[get]
                 KnownTransmitters: super::super::Foundation::Collections::IVectorView<MiracastTransmitter>;
             }
-            #[guid(0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverStreamControl)]
+            #[guid(0x38ea2d8b_2769_5ad7_8a8a_254b9df7ba82)]
             interface IMiracastReceiverStreamControl {
                 fn GetVideoStreamSettings(&self) -> MiracastReceiverVideoStreamSettings;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -197,16 +197,16 @@ mod Windows {
                 fn SuggestVideoStreamSettingsAsync(&self, #[in] settings: MiracastReceiverVideoStreamSettings) -> super::super::Foundation::IAsyncAction;
                 MuteAudio: bool;
             }
-            #[guid(0x169b5e1b_149d_52d0_b126_6f89744e4f50)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastReceiverVideoStreamSettings)]
+            #[guid(0x169b5e1b_149d_52d0_b126_6f89744e4f50)]
             interface IMiracastReceiverVideoStreamSettings {
                 Size: super::super::Graphics::SizeInt32;
                 Bitrate: i32;
             }
-            #[guid(0x342d79fd_2e64_5508_8a30_833d1eac70d0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MiracastTransmitter)]
+            #[guid(0x342d79fd_2e64_5508_8a30_833d1eac70d0)]
             interface IMiracastTransmitter {
                 Name: String;
                 AuthorizationStatus: MiracastTransmitterAuthorizationStatus;
@@ -230,8 +230,8 @@ mod Windows {
             class MiracastReceiverApplySettingsResult {
                 IMiracastReceiverApplySettingsResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastReceiverApplySettingsStatus {
                 Success = 0,
                 UnknownFailure = 1,
@@ -242,8 +242,8 @@ mod Windows {
                 ModelNumberTooLong = 6,
                 InvalidSettings = 7,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastReceiverAuthorizationMethod {
                 None = 0,
                 ConfirmConnection = 1,
@@ -275,8 +275,8 @@ mod Windows {
             class MiracastReceiverCursorImageChannelSettings {
                 IMiracastReceiverCursorImageChannelSettings,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastReceiverDisconnectReason {
                 Finished = 0,
                 AppSpecificError = 1,
@@ -299,8 +299,8 @@ mod Windows {
             class MiracastReceiverGameControllerDevice {
                 IMiracastReceiverGameControllerDevice,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastReceiverGameControllerDeviceUsageMode {
                 AsGameController = 0,
                 AsMouseAndKeyboard = 1,
@@ -317,8 +317,8 @@ mod Windows {
             class MiracastReceiverKeyboardDevice {
                 IMiracastReceiverKeyboardDevice,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastReceiverListeningStatus {
                 NotListening = 0,
                 Listening = 1,
@@ -346,8 +346,8 @@ mod Windows {
             class MiracastReceiverSessionStartResult {
                 IMiracastReceiverSessionStartResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastReceiverSessionStartStatus {
                 Success = 0,
                 UnknownFailure = 1,
@@ -378,8 +378,8 @@ mod Windows {
             class MiracastReceiverVideoStreamSettings {
                 IMiracastReceiverVideoStreamSettings,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastReceiverWiFiStatus {
                 MiracastSupportUndetermined = 0,
                 MiracastNotSupported = 1,
@@ -392,8 +392,8 @@ mod Windows {
             class MiracastTransmitter {
                 IMiracastTransmitter,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[repr(i32)]
             enum MiracastTransmitterAuthorizationStatus {
                 Undecided = 0,
                 Allowed = 1,

@@ -203,7 +203,7 @@ mod Windows {
         }
         #[guid(0xb507ca26_2204_11dd_966a_001aa01bbc58)]
         interface IBlockRangeList: IDispatch {
-            fn get_BlockRanges(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_BlockRanges(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd2ffd834_958b_426d_8470_2a13879c6a91)]
         interface IBurnVerification: IUnknown {
@@ -216,12 +216,12 @@ mod Windows {
             fn IsCurrentMediaSupported(&self, #[in] #[opt] recorder: IDiscRecorder2, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_MediaPhysicallyBlank(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_MediaHeuristicallyBlank(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedMediaTypes(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedMediaTypes(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x27354153_9f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2Data: IDiscFormat2 {
             fn put_Recorder(&self, #[in] #[opt] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[out_ptr] value: *mut IDiscRecorder2) -> HRESULT;
+            fn get_Recorder(&self, #[out] #[out_ptr] #[retval] value: *mut IDiscRecorder2) -> HRESULT;
             fn put_BufferUnderrunFreeDisabled(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_BufferUnderrunFreeDisabled(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn put_PostgapAlreadyInImage(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
@@ -239,16 +239,16 @@ mod Windows {
             fn get_DisableConsumerDvdCompatibilityMode(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
             fn put_ClientName(&self, #[in] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_ClientName(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn get_RequestedWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_RequestedRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_CurrentWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_CurrentRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedWriteSpeeds(&self, #[out] #[retval] #[out_ptr] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[retval] #[out_ptr] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedWriteSpeeds(&self, #[out] #[out_ptr] #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[out_ptr] #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_ForceOverwrite(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_ForceOverwrite(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_MultisessionInterfaces(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_MultisessionInterfaces(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
             fn Write(&self, #[in] #[opt] data: IStream) -> HRESULT;
             fn CancelWrite(&self) -> HRESULT;
             fn SetWriteSpeed(&self, #[in] RequestedSectorsPerSecond: LONG, #[in] RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
@@ -263,12 +263,12 @@ mod Windows {
         #[guid(0x27354156_8f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2Erase: IDiscFormat2 {
             fn put_Recorder(&self, #[in] #[opt] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[out_ptr] value: *mut IDiscRecorder2) -> HRESULT;
+            fn get_Recorder(&self, #[out] #[out_ptr] #[retval] value: *mut IDiscRecorder2) -> HRESULT;
             fn put_FullErase(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_FullErase(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
             fn put_ClientName(&self, #[in] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_ClientName(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn EraseMedia(&self) -> HRESULT;
         }
         #[guid(0x27354155_8f64_5b0f_8f00_5d77afbe261e)]
@@ -280,23 +280,23 @@ mod Windows {
             fn ReleaseMedia(&self) -> HRESULT;
             fn SetWriteSpeed(&self, #[in] RequestedSectorsPerSecond: LONG, #[in] RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
             fn put_Recorder(&self, #[in] #[opt] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[out_ptr] value: *mut IDiscRecorder2) -> HRESULT;
+            fn get_Recorder(&self, #[out] #[out_ptr] #[retval] value: *mut IDiscRecorder2) -> HRESULT;
             fn put_BufferUnderrunFreeDisabled(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_BufferUnderrunFreeDisabled(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_StartOfNextSession(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_LastPossibleStartOfLeadout(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
-            fn get_SupportedSectorTypes(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedSectorTypes(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_RequestedSectorType(&self, #[in] value: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
             fn get_RequestedSectorType(&self, #[out] #[retval] value: *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE) -> HRESULT;
             fn put_ClientName(&self, #[in] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_ClientName(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn get_RequestedWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_RequestedRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_CurrentWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_CurrentRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedWriteSpeeds(&self, #[out] #[retval] #[out_ptr] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[retval] #[out_ptr] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedWriteSpeeds(&self, #[out] #[out_ptr] #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[out_ptr] #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x27354143_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2RawCDEventArgs: IWriteEngine2EventArgs {
@@ -312,7 +312,7 @@ mod Windows {
             fn ReleaseMedia(&self) -> HRESULT;
             fn SetWriteSpeed(&self, #[in] RequestedSectorsPerSecond: LONG, #[in] RotationTypeIsPureCAV: VARIANT_BOOL) -> HRESULT;
             fn put_Recorder(&self, #[in] #[opt] value: IDiscRecorder2) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[out_ptr] value: *mut IDiscRecorder2) -> HRESULT;
+            fn get_Recorder(&self, #[out] #[out_ptr] #[retval] value: *mut IDiscRecorder2) -> HRESULT;
             fn put_BufferUnderrunFreeDisabled(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_BufferUnderrunFreeDisabled(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_NumberOfExistingTracks(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
@@ -321,16 +321,16 @@ mod Windows {
             fn get_UsedSectorsOnMedia(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn put_DoNotFinalizeMedia(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_DoNotFinalizeMedia(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ExpectedTableOfContents(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ExpectedTableOfContents(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
             fn get_CurrentPhysicalMediaType(&self, #[out] #[retval] value: *mut IMAPI_MEDIA_PHYSICAL_TYPE) -> HRESULT;
             fn put_ClientName(&self, #[in] value: BSTR) -> HRESULT;
-            fn get_ClientName(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_ClientName(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn get_RequestedWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_RequestedRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_CurrentWriteSpeed(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_CurrentRotationTypeIsPureCAV(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_SupportedWriteSpeeds(&self, #[out] #[retval] #[out_ptr] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[retval] #[out_ptr] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedWriteSpeeds(&self, #[out] #[out_ptr] #[retval] supportedSpeeds: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedWriteSpeedDescriptors(&self, #[out] #[out_ptr] #[retval] supportedSpeedDescriptors: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x27354140_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscFormat2TrackAtOnceEventArgs: IWriteEngine2EventArgs {
@@ -341,8 +341,8 @@ mod Windows {
         }
         #[guid(0x27354130_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscMaster2: IDispatch {
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppunk: *mut IEnumVARIANT) -> HRESULT;
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppunk: *mut IEnumVARIANT) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_IsSupportedEnvironment(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
         }
@@ -355,38 +355,38 @@ mod Windows {
             fn DisableMcn(&self) -> HRESULT;
             fn EnableMcn(&self) -> HRESULT;
             fn InitializeDiscRecorder(&self, #[in] recorderUniqueId: BSTR) -> HRESULT;
-            fn get_ActiveDiscRecorder(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
-            fn get_VendorId(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
-            fn get_ProductId(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
-            fn get_ProductRevision(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
-            fn get_VolumeName(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
-            fn get_VolumePathNames(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ActiveDiscRecorder(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_VendorId(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_ProductId(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_ProductRevision(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_VolumeName(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_VolumePathNames(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
             fn get_DeviceCanLoadMedia(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn get_LegacyDeviceNumber(&self, #[out] #[retval] legacyDeviceNumber: *mut LONG) -> HRESULT;
-            fn get_SupportedFeaturePages(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_CurrentFeaturePages(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedProfiles(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_CurrentProfiles(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_SupportedModePages(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_ExclusiveAccessOwner(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_SupportedFeaturePages(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CurrentFeaturePages(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedProfiles(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_CurrentProfiles(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedModePages(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ExclusiveAccessOwner(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
         }
         #[guid(0x27354132_7f64_5b0f_8f00_5d77afbe261e)]
         interface IDiscRecorder2Ex: IUnknown {
-            fn SendCommandNoData(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[writable(entry, 18)] #[writable(success, 18)] #[readable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG) -> HRESULT;
-            fn SendCommandSendDataToDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[writable(entry, 18)] #[writable(success, 18)] #[readable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[in] #[readable(entry, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
-            fn SendCommandGetDataFromDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[writable(entry, 18)] #[writable(success, 18)] #[readable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[out] #[writable(entry, BufferSize)] #[writable(success, BufferSize)] #[readable(success, *BufferFetched)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO, #[out] BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
-            fn ReadDvdStructure(&self, #[in] #[range(entry, 0..=255)] format: ULONG, #[in] address: ULONG, #[in] #[range(entry, 0..=255)] layer: ULONG, #[in] #[range(entry, 0..=3)] agid: ULONG, #[out] #[nullable(entry, indirect)] #[writable(success, *count, indirect, nullable)] #[readable(success, *count, indirect, nullable)] data: *mut *mut BYTE, #[out] count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
+            fn SendCommandNoData(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG) -> HRESULT;
+            fn SendCommandSendDataToDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[in] #[readable(entry, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO) -> HRESULT;
+            fn SendCommandGetDataFromDevice(&self, #[in] #[readable(entry, CdbSize)] Cdb: *mut BYTE, #[in] #[range(entry, 6..=16)] CdbSize: ULONG, #[out] #[readable(success, 18)] #[writable(entry, 18)] #[writable(success, 18)] SenseBuffer: *mut BYTE, #[in] Timeout: ULONG, #[out] #[readable(success, *BufferFetched)] #[writable(entry, BufferSize)] #[writable(success, BufferSize)] Buffer: *mut BYTE, #[in] BufferSize: ULONG_IMAPI2_NONZERO, #[out] BufferFetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> HRESULT;
+            fn ReadDvdStructure(&self, #[in] #[range(entry, 0..=255)] format: ULONG, #[in] address: ULONG, #[in] #[range(entry, 0..=255)] layer: ULONG, #[in] #[range(entry, 0..=3)] agid: ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *count, indirect, nullable)] #[writable(success, *count, indirect, nullable)] data: *mut *mut BYTE, #[out] count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
             fn SendDvdStructure(&self, #[in] #[range(entry, 0..=255)] format: ULONG, #[in] #[readable(entry, count)] data: *mut BYTE, #[in] count: ULONG_IMAPI2_DVD_STRUCTURE) -> HRESULT;
-            fn GetAdapterDescriptor(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *byteSize, indirect, nullable)] #[readable(success, *byteSize, indirect, nullable)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
-            fn GetDeviceDescriptor(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *byteSize, indirect, nullable)] #[readable(success, *byteSize, indirect, nullable)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
-            fn GetDiscInformation(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *byteSize, indirect, nullable)] #[readable(success, *byteSize, indirect, nullable)] discInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
-            fn GetTrackInformation(&self, #[in] address: ULONG, #[in] addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, #[out] #[nullable(entry, indirect)] #[writable(success, *byteSize, indirect, nullable)] #[readable(success, *byteSize, indirect, nullable)] trackInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
-            fn GetFeaturePage(&self, #[in] requestedFeature: IMAPI_FEATURE_PAGE_TYPE, #[in] currentFeatureOnly: BOOLEAN, #[out] #[nullable(entry, indirect)] #[writable(success, *byteSize, indirect, nullable)] #[readable(success, *byteSize, indirect, nullable)] featureData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
-            fn GetModePage(&self, #[in] requestedModePage: IMAPI_MODE_PAGE_TYPE, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[out] #[nullable(entry, indirect)] #[writable(success, *byteSize, indirect, nullable)] #[readable(success, *byteSize, indirect, nullable)] modePageData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
+            fn GetAdapterDescriptor(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *byteSize, indirect, nullable)] #[writable(success, *byteSize, indirect, nullable)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_ADAPTER_DESCRIPTOR) -> HRESULT;
+            fn GetDeviceDescriptor(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *byteSize, indirect, nullable)] #[writable(success, *byteSize, indirect, nullable)] data: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DEVICE_DESCRIPTOR) -> HRESULT;
+            fn GetDiscInformation(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *byteSize, indirect, nullable)] #[writable(success, *byteSize, indirect, nullable)] discInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_DISC_INFORMATION) -> HRESULT;
+            fn GetTrackInformation(&self, #[in] address: ULONG, #[in] addressType: IMAPI_READ_TRACK_ADDRESS_TYPE, #[nullable(entry, indirect)] #[out] #[readable(success, *byteSize, indirect, nullable)] #[writable(success, *byteSize, indirect, nullable)] trackInformation: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_TRACK_INFORMATION) -> HRESULT;
+            fn GetFeaturePage(&self, #[in] requestedFeature: IMAPI_FEATURE_PAGE_TYPE, #[in] currentFeatureOnly: BOOLEAN, #[nullable(entry, indirect)] #[out] #[readable(success, *byteSize, indirect, nullable)] #[writable(success, *byteSize, indirect, nullable)] featureData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_FEATURE_PAGE) -> HRESULT;
+            fn GetModePage(&self, #[in] requestedModePage: IMAPI_MODE_PAGE_TYPE, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[nullable(entry, indirect)] #[out] #[readable(success, *byteSize, indirect, nullable)] #[writable(success, *byteSize, indirect, nullable)] modePageData: *mut *mut BYTE, #[out] byteSize: *mut ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
             fn SetModePage(&self, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[in] #[readable(entry, byteSize)] data: *mut BYTE, #[in] byteSize: ULONG_IMAPI2_MODE_PAGE) -> HRESULT;
-            fn GetSupportedFeaturePages(&self, #[in] currentFeatureOnly: BOOLEAN, #[out] #[nullable(entry, indirect)] #[writable(success, *byteSize, indirect, nullable)] #[readable(success, *byteSize, indirect, nullable)] featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, #[out] byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
-            fn GetSupportedProfiles(&self, #[in] currentOnly: BOOLEAN, #[out] #[nullable(entry, indirect)] #[writable(success, *validProfiles, indirect, nullable)] #[readable(success, *validProfiles, indirect, nullable)] profileTypes: *mut *mut IMAPI_PROFILE_TYPE, #[out] validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
-            fn GetSupportedModePages(&self, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[out] #[nullable(entry, indirect)] #[writable(success, *validPages, indirect, nullable)] #[readable(success, *validPages, indirect, nullable)] modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, #[out] validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
+            fn GetSupportedFeaturePages(&self, #[in] currentFeatureOnly: BOOLEAN, #[nullable(entry, indirect)] #[out] #[readable(success, *byteSize, indirect, nullable)] #[writable(success, *byteSize, indirect, nullable)] featureData: *mut *mut IMAPI_FEATURE_PAGE_TYPE, #[out] byteSize: *mut ULONG_IMAPI2_ALL_FEATURE_PAGES) -> HRESULT;
+            fn GetSupportedProfiles(&self, #[in] currentOnly: BOOLEAN, #[nullable(entry, indirect)] #[out] #[readable(success, *validProfiles, indirect, nullable)] #[writable(success, *validProfiles, indirect, nullable)] profileTypes: *mut *mut IMAPI_PROFILE_TYPE, #[out] validProfiles: *mut ULONG_IMAPI2_ALL_PROFILES) -> HRESULT;
+            fn GetSupportedModePages(&self, #[in] requestType: IMAPI_MODE_PAGE_REQUEST_TYPE, #[nullable(entry, indirect)] #[out] #[readable(success, *validPages, indirect, nullable)] #[writable(success, *validPages, indirect, nullable)] modePageTypes: *mut *mut IMAPI_MODE_PAGE_TYPE, #[out] validPages: *mut ULONG_IMAPI2_ALL_MODE_PAGES) -> HRESULT;
             fn GetByteAlignmentMask(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
             fn GetMaximumNonPageAlignedTransferSize(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
             fn GetMaximumPageAlignedTransferSize(&self, #[out] #[retval] value: *mut ULONG) -> HRESULT;
@@ -623,7 +623,7 @@ mod Windows {
             fn get_IsSupportedOnCurrentMediaState(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn put_InUse(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_InUse(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ImportRecorder(&self, #[out] #[retval] #[out_ptr] value: *mut IDiscRecorder2) -> HRESULT;
+            fn get_ImportRecorder(&self, #[out] #[out_ptr] #[retval] value: *mut IDiscRecorder2) -> HRESULT;
         }
         #[guid(0xb507ca23_2204_11dd_966a_001aa01bbc58)]
         interface IMultisessionRandomWrite: IMultisession {
@@ -645,7 +645,7 @@ mod Windows {
         }
         #[guid(0x25983550_9d65_49ce_b335_40630d901227)]
         interface IRawCDImageCreator: IDispatch {
-            fn CreateResultImage(&self, #[out] #[retval] #[out_ptr] resultStream: *mut IStream) -> HRESULT;
+            fn CreateResultImage(&self, #[out] #[out_ptr] #[retval] resultStream: *mut IStream) -> HRESULT;
             fn AddTrack(&self, #[in] dataType: IMAPI_CD_SECTOR_TYPE, #[in] #[opt] data: IStream, #[out] #[retval] trackIndex: *mut LONG) -> HRESULT;
             fn AddSpecialPregap(&self, #[in] #[opt] data: IStream) -> HRESULT;
             fn AddSubcodeRWGenerator(&self, #[in] #[opt] subcode: IStream) -> HRESULT;
@@ -657,13 +657,13 @@ mod Windows {
             fn put_DisableGaplessAudio(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_DisableGaplessAudio(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn put_MediaCatalogNumber(&self, #[in] value: BSTR) -> HRESULT;
-            fn get_MediaCatalogNumber(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_MediaCatalogNumber(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn put_StartingTrackNumber(&self, #[in] #[range(entry, 1..=99)] value: LONG) -> HRESULT;
             fn get_StartingTrackNumber(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_TrackInfo(&self, #[in] trackIndex: LONG, #[out] #[retval] #[out_ptr] value: *mut IRawCDImageTrackInfo) -> HRESULT;
+            fn get_TrackInfo(&self, #[in] trackIndex: LONG, #[out] #[out_ptr] #[retval] value: *mut IRawCDImageTrackInfo) -> HRESULT;
             fn get_NumberOfExistingTracks(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_LastUsedUserSectorInImage(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
-            fn get_ExpectedTableOfContents(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ExpectedTableOfContents(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x25983551_9d65_49ce_b335_40630d901227)]
         interface IRawCDImageTrackInfo: IDispatch {
@@ -671,13 +671,13 @@ mod Windows {
             fn get_SectorCount(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_TrackNumber(&self, #[out] #[retval] value: *mut LONG) -> HRESULT;
             fn get_SectorType(&self, #[out] #[retval] value: *mut IMAPI_CD_SECTOR_TYPE) -> HRESULT;
-            fn get_ISRC(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_ISRC(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn put_ISRC(&self, #[in] value: BSTR) -> HRESULT;
             fn get_DigitalAudioCopySetting(&self, #[out] #[retval] value: *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> HRESULT;
             fn put_DigitalAudioCopySetting(&self, #[in] value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> HRESULT;
             fn get_AudioHasPreemphasis(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn put_AudioHasPreemphasis(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
-            fn get_TrackIndexes(&self, #[out] #[retval] #[out_ptr] value: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_TrackIndexes(&self, #[out] #[out_ptr] #[retval] value: *mut *mut SAFEARRAY) -> HRESULT;
             fn AddTrackIndex(&self, #[in] #[range(entry, 0..=2147483647)] lbaOffset: LONG) -> HRESULT;
             fn ClearTrackIndex(&self, #[in] #[range(entry, 0..=2147483647)] lbaOffset: LONG) -> HRESULT;
         }
@@ -697,14 +697,14 @@ mod Windows {
             fn put_Seed(&self, #[in] value: ULONG) -> HRESULT;
             fn get_Seed(&self, #[out] value: *mut ULONG) -> HRESULT;
             fn put_ExtendedSeed(&self, #[in] #[readable(entry, eCount)] values: *mut ULONG, #[in] eCount: ULONG) -> HRESULT;
-            fn get_ExtendedSeed(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *eCount, indirect, nullable)] #[readable(success, *eCount, indirect, nullable)] values: *mut *mut ULONG, #[out] eCount: *mut ULONG) -> HRESULT;
+            fn get_ExtendedSeed(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *eCount, indirect, nullable)] #[writable(success, *eCount, indirect, nullable)] values: *mut *mut ULONG, #[out] eCount: *mut ULONG) -> HRESULT;
         }
         #[guid(0x27354135_7f64_5b0f_8f00_5d77afbe261e)]
         interface IWriteEngine2: IDispatch {
             fn WriteSection(&self, #[in] #[opt] data: IStream, #[in] startingBlockAddress: LONG, #[in] numberOfBlocks: LONG) -> HRESULT;
             fn CancelWrite(&self) -> HRESULT;
             fn put_Recorder(&self, #[in] #[opt] value: IDiscRecorder2Ex) -> HRESULT;
-            fn get_Recorder(&self, #[out] #[retval] #[out_ptr] value: *mut IDiscRecorder2Ex) -> HRESULT;
+            fn get_Recorder(&self, #[out] #[out_ptr] #[retval] value: *mut IDiscRecorder2Ex) -> HRESULT;
             fn put_UseStreamingWrite12(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_UseStreamingWrite12(&self, #[out] #[retval] value: *mut VARIANT_BOOL) -> HRESULT;
             fn put_StartingSectorsPerSecond(&self, #[in] value: LONG) -> HRESULT;

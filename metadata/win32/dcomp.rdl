@@ -18,7 +18,7 @@ mod Windows {
         #[library("dcomp.dll")]
         extern fn DCompositionGetFrameId(#[in] frameIdType: COMPOSITION_FRAME_ID_TYPE, #[out] frameId: *mut COMPOSITION_FRAME_ID) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionGetStatistics(#[in] frameId: COMPOSITION_FRAME_ID, #[out] frameStats: *mut COMPOSITION_FRAME_STATS, #[in] targetIdCount: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "targetCount", "targetCount")] #[out] #[opt] targetIds: *mut COMPOSITION_TARGET_ID, #[out] #[opt] actualTargetIdCount: *mut UINT) -> HRESULT;
+        extern fn DCompositionGetStatistics(#[in] frameId: COMPOSITION_FRAME_ID, #[out] frameStats: *mut COMPOSITION_FRAME_STATS, #[in] targetIdCount: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "targetCount", "targetCount")] #[opt] #[out] targetIds: *mut COMPOSITION_TARGET_ID, #[opt] #[out] actualTargetIdCount: *mut UINT) -> HRESULT;
         #[library("dcomp.dll")]
         extern fn DCompositionGetTargetStatistics(#[in] frameId: COMPOSITION_FRAME_ID, #[in] targetId: *const COMPOSITION_TARGET_ID, #[out] targetStats: *mut COMPOSITION_TARGET_STATS) -> HRESULT;
         struct DCompositionInkTrailPoint {

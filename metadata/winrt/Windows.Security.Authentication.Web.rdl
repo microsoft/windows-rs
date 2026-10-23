@@ -3,9 +3,9 @@ mod Windows {
     mod Security {
         mod Authentication {
             mod Web {
-                #[guid(0x2f149f1a_e673_40b5_bc22_201a6864a37b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationBroker)]
+                #[guid(0x2f149f1a_e673_40b5_bc22_201a6864a37b)]
                 interface IWebAuthenticationBrokerStatics {
                     #[Windows::Foundation::Metadata::Overload("AuthenticateWithCallbackUriAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
@@ -15,9 +15,9 @@ mod Windows {
                     fn AuthenticateAsync(&self, #[in] options: WebAuthenticationOptions, #[in] requestUri: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>;
                     fn GetCurrentApplicationCallbackUri(&self) -> super::super::super::Foundation::Uri;
                 }
-                #[guid(0x73cdfb9e_14e7_41da_a971_aaf4410b621e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationBroker)]
+                #[guid(0x73cdfb9e_14e7_41da_a971_aaf4410b621e)]
                 interface IWebAuthenticationBrokerStatics2 {
                     #[Windows::Foundation::Metadata::Overload("AuthenticateAndContinue")]
                     fn AuthenticateAndContinue(&self, #[in] requestUri: super::super::super::Foundation::Uri);
@@ -32,9 +32,9 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn AuthenticateSilentlyAsync(&self, #[in] requestUri: super::super::super::Foundation::Uri, #[in] options: WebAuthenticationOptions) -> super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>;
                 }
-                #[guid(0x64002b4b_ede9_470a_a5cd_0323faf6e262)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationResult)]
+                #[guid(0x64002b4b_ede9_470a_a5cd_0323faf6e262)]
                 interface IWebAuthenticationResult {
                     #[get]
                     ResponseData: String;
@@ -43,11 +43,12 @@ mod Windows {
                     #[get]
                     ResponseErrorDetail: u32;
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum TokenBindingKeyType {
                     Rsa2048 = 0,
                     EcdsaP256 = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     AnyExisting = 2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -55,9 +56,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(IWebAuthenticationBrokerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class WebAuthenticationBroker {}
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[flags]
+                #[repr(u32)]
                 enum WebAuthenticationOptions {
                     None = 0,
                     SilentMode = 1,
@@ -69,8 +70,8 @@ mod Windows {
                 class WebAuthenticationResult {
                     IWebAuthenticationResult,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum WebAuthenticationStatus {
                     Success = 0,
                     UserCancel = 1,

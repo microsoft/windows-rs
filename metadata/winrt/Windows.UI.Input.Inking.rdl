@@ -3,16 +3,16 @@ mod Windows {
     mod UI {
         mod Input {
             mod Inking {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[repr(i32)]
                 enum HandwritingLineHeight {
                     Small = 0,
                     Medium = 1,
                     Large = 2,
                 }
-                #[guid(0x97a2176c_6774_48ad_84f0_48f5a9be74f9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkDrawingAttributes)]
+                #[guid(0x97a2176c_6774_48ad_84f0_48f5a9be74f9)]
                 interface IInkDrawingAttributes {
                     Color: super::super::Color;
                     PenTip: PenTipShape;
@@ -20,70 +20,70 @@ mod Windows {
                     IgnorePressure: bool;
                     FitToCurve: bool;
                 }
-                #[guid(0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkDrawingAttributes)]
+                #[guid(0x7cab6508_8ec4_42fd_a5a5_e4b7d1d5316d)]
                 interface IInkDrawingAttributes2 {
                     PenTipTransform: super::super::super::Foundation::Numerics::Matrix3x2;
                     DrawAsHighlighter: bool;
                 }
-                #[guid(0x72020002_7d5b_4690_8af4_e664cbe2b74f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkDrawingAttributes)]
+                #[guid(0x72020002_7d5b_4690_8af4_e664cbe2b74f)]
                 interface IInkDrawingAttributes3 {
                     #[get]
                     Kind: InkDrawingAttributesKind;
                     #[get]
                     PencilProperties: InkDrawingAttributesPencilProperties;
                 }
-                #[guid(0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkDrawingAttributes)]
+                #[guid(0xef65dc25_9f19_456d_91a3_bc3a3d91c5fb)]
                 interface IInkDrawingAttributes4 {
                     IgnoreTilt: bool;
                 }
-                #[guid(0xd11aa0bb_0775_4852_ae64_41143a7ae6c9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkDrawingAttributes)]
+                #[guid(0xd11aa0bb_0775_4852_ae64_41143a7ae6c9)]
                 interface IInkDrawingAttributes5 {
                     #[get]
                     ModelerAttributes: InkModelerAttributes;
                 }
-                #[guid(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkDrawingAttributesPencilProperties)]
+                #[guid(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52)]
                 interface IInkDrawingAttributesPencilProperties {
                     Opacity: f64;
                 }
-                #[guid(0xf731e03f_1a65_4862_96cb_6e1665e17f6d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkDrawingAttributes)]
+                #[guid(0xf731e03f_1a65_4862_96cb_6e1665e17f6d)]
                 interface IInkDrawingAttributesStatics {
                     fn CreateForPencil(&self) -> InkDrawingAttributes;
                 }
-                #[guid(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkInputConfiguration)]
+                #[guid(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2)]
                 interface IInkInputConfiguration {
                     IsPrimaryBarrelButtonInputEnabled: bool;
                     IsEraserInputEnabled: bool;
                 }
-                #[guid(0x6ac2272e_81b4_5cc4_a36d_d057c387dfda)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkInputConfiguration)]
+                #[guid(0x6ac2272e_81b4_5cc4_a36d_d057c387dfda)]
                 interface IInkInputConfiguration2 {
                     IsPenHapticFeedbackEnabled: bool;
                 }
-                #[guid(0x2778d85e_33ca_4b06_a6d3_ac3945116d37)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkInputProcessingConfiguration)]
+                #[guid(0x2778d85e_33ca_4b06_a6d3_ac3945116d37)]
                 interface IInkInputProcessingConfiguration {
                     Mode: InkInputProcessingMode;
                     RightDragAction: InkInputRightDragAction;
                 }
-                #[guid(0x4744737d_671b_4163_9c95_4e8d7a035fe1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkManager)]
+                #[guid(0x4744737d_671b_4163_9c95_4e8d7a035fe1)]
                 interface IInkManager: IInkStrokeContainer + IInkRecognizerContainer {
                     Mode: InkManipulationMode;
                     fn ProcessPointerDown(&self, #[in] pointerPoint: super::PointerPoint);
@@ -94,31 +94,31 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RecognizeAsync(&self, #[in] recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
                 }
-                #[guid(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkModelerAttributes)]
+                #[guid(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454)]
                 interface IInkModelerAttributes {
                     PredictionTime: super::super::super::Foundation::TimeSpan;
                     ScalingFactor: f32;
                 }
-                #[guid(0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkModelerAttributes)]
+                #[guid(0x86d1d09a_4ef8_5e25_b7bc_b65424f16bb3)]
                 interface IInkModelerAttributes2 {
                     UseVelocityBasedPressure: bool;
                 }
-                #[guid(0x9f87272b_858c_46a5_9b41_d195970459fd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPoint)]
+                #[guid(0x9f87272b_858c_46a5_9b41_d195970459fd)]
                 interface IInkPoint {
                     #[get]
                     Position: super::super::super::Foundation::Point;
                     #[get]
                     Pressure: f32;
                 }
-                #[guid(0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPoint)]
+                #[guid(0xfba9c3f7_ae56_4d5c_bd2f_0ac45f5e4af9)]
                 interface IInkPoint2 {
                     #[get]
                     TiltX: f32;
@@ -127,20 +127,20 @@ mod Windows {
                     #[get]
                     Timestamp: u64;
                 }
-                #[guid(0x29e5d51c_c98f_405d_9f3b_e53e31068d4d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0x29e5d51c_c98f_405d_9f3b_e53e31068d4d)]
                 interface IInkPointFactory {
                     fn CreateInkPoint(&self, #[in] position: super::super::super::Foundation::Point, #[in] pressure: f32) -> InkPoint;
                 }
-                #[guid(0xe0145e85_daff_45f2_ad69_050d8256a209)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPoint)]
+                #[guid(0xe0145e85_daff_45f2_ad69_050d8256a209)]
                 interface IInkPointFactory2 {
                     fn CreateInkPointWithTiltAndTimestamp(&self, #[in] position: super::super::super::Foundation::Point, #[in] pressure: f32, #[in] tiltX: f32, #[in] tiltY: f32, #[in] timestamp: u64) -> InkPoint;
                 }
-                #[guid(0xa69b70e2_887b_458f_b173_4fe4438930a3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenter)]
+                #[guid(0xa69b70e2_887b_458f_b173_4fe4438930a3)]
                 interface IInkPresenter {
                     IsInputEnabled: bool;
                     InputDeviceTypes: super::super::Core::CoreInputDeviceTypes;
@@ -158,23 +158,23 @@ mod Windows {
                     event StrokesCollected: super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesCollectedEventArgs>;
                     event StrokesErased: super::super::super::Foundation::TypedEventHandler<InkPresenter, InkStrokesErasedEventArgs>;
                 }
-                #[guid(0xcf53e612_9a34_11e6_9f33_a24fc0d9649c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenter)]
+                #[guid(0xcf53e612_9a34_11e6_9f33_a24fc0d9649c)]
                 interface IInkPresenter2: IInkPresenter {
                     HighContrastAdjustment: InkHighContrastAdjustment;
                 }
-                #[guid(0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenter)]
+                #[guid(0x51e1ce89_d37d_4a90_83fc_7f5e9dfbf217)]
                 interface IInkPresenter3 {
                     #[get]
                     InputConfiguration: InkInputConfiguration;
                 }
-                #[guid(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenterProtractor)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17)]
                 interface IInkPresenterProtractor: IInkPresenterStencil {
                     AreTickMarksVisible: bool;
                     AreRaysVisible: bool;
@@ -184,38 +184,38 @@ mod Windows {
                     Radius: f64;
                     AccentColor: super::super::Color;
                 }
-                #[guid(0x320103c9_68fa_47e9_8127_8370711fc46c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenterProtractor)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x320103c9_68fa_47e9_8127_8370711fc46c)]
                 interface IInkPresenterProtractorFactory {
                     fn Create(&self, #[in] inkPresenter: InkPresenter) -> InkPresenterProtractor;
                 }
-                #[guid(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenterRuler)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a)]
                 interface IInkPresenterRuler: IInkPresenterStencil {
                     Length: f64;
                     Width: f64;
                 }
-                #[guid(0x45130dc1_bc61_44d4_a423_54712ae671c4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkPresenterRuler)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x45130dc1_bc61_44d4_a423_54712ae671c4)]
                 interface IInkPresenterRuler2 {
                     AreTickMarksVisible: bool;
                     IsCompassVisible: bool;
                 }
-                #[guid(0x34361beb_9001_4a4b_a690_69dbaf63e501)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x34361beb_9001_4a4b_a690_69dbaf63e501)]
                 interface IInkPresenterRulerFactory {
                     fn Create(&self, #[in] inkPresenter: InkPresenter) -> InkPresenterRuler;
                 }
-                #[guid(0x30d12d6d_3e06_4d02_b116_277fb5d8addc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x30d12d6d_3e06_4d02_b116_277fb5d8addc)]
                 interface IInkPresenterStencil {
                     #[get]
                     Kind: InkPresenterStencilKind;
@@ -224,33 +224,33 @@ mod Windows {
                     ForegroundColor: super::super::Color;
                     Transform: super::super::super::Foundation::Numerics::Matrix3x2;
                 }
-                #[guid(0x36461a94_5068_40ef_8a05_2c2fb60908a2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkRecognitionResult)]
+                #[guid(0x36461a94_5068_40ef_8a05_2c2fb60908a2)]
                 interface IInkRecognitionResult {
                     #[get]
                     BoundingRect: super::super::super::Foundation::Rect;
                     fn GetTextCandidates(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
                     fn GetStrokes(&self) -> super::super::super::Foundation::Collections::IVectorView<InkStroke>;
                 }
-                #[guid(0x077ccea3_904d_442a_b151_aaca3631c43b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkRecognizer)]
+                #[guid(0x077ccea3_904d_442a_b151_aaca3631c43b)]
                 interface IInkRecognizer {
                     #[get]
                     Name: String;
                 }
-                #[guid(0xa74d9a31_8047_4698_a912_f82a5085012f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0xa74d9a31_8047_4698_a912_f82a5085012f)]
                 interface IInkRecognizerContainer {
                     fn SetDefaultRecognizer(&self, #[in] recognizer: InkRecognizer);
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RecognizeAsync(&self, #[in] strokeCollection: InkStrokeContainer, #[in] recognitionTarget: InkRecognitionTarget) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>>;
                     fn GetRecognizers(&self) -> super::super::super::Foundation::Collections::IVectorView<InkRecognizer>;
                 }
-                #[guid(0x15144d60_cce3_4fcf_9d52_11518ab6afd4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStroke)]
+                #[guid(0x15144d60_cce3_4fcf_9d52_11518ab6afd4)]
                 interface IInkStroke {
                     DrawingAttributes: InkDrawingAttributes;
                     #[get]
@@ -261,32 +261,32 @@ mod Windows {
                     fn GetRenderingSegments(&self) -> super::super::super::Foundation::Collections::IVectorView<InkStrokeRenderingSegment>;
                     fn Clone(&self) -> InkStroke;
                 }
-                #[guid(0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStroke)]
+                #[guid(0x5db9e4f4_bafa_4de1_89d3_201b1ed7d89b)]
                 interface IInkStroke2 {
                     PointTransform: super::super::super::Foundation::Numerics::Matrix3x2;
                     fn GetInkPoints(&self) -> super::super::super::Foundation::Collections::IVectorView<InkPoint>;
                 }
-                #[guid(0x4a807374_9499_411d_a1c4_68855d03d65f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStroke)]
+                #[guid(0x4a807374_9499_411d_a1c4_68855d03d65f)]
                 interface IInkStroke3 {
                     #[get]
                     Id: u32;
                     StrokeStartedTime: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
                     StrokeDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                 }
-                #[guid(0xcd5b62e5_b6e9_5b91_a577_1921d2348690)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStroke)]
+                #[guid(0xcd5b62e5_b6e9_5b91_a577_1921d2348690)]
                 interface IInkStroke4 {
                     #[get]
                     PointerId: u32;
                 }
-                #[guid(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeBuilder)]
+                #[guid(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801)]
                 interface IInkStrokeBuilder {
                     fn BeginStroke(&self, #[in] pointerPoint: super::PointerPoint);
                     fn AppendToStroke(&self, #[in] pointerPoint: super::PointerPoint) -> super::PointerPoint;
@@ -294,20 +294,20 @@ mod Windows {
                     fn CreateStroke(&self, #[in] points: super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Point>) -> InkStroke;
                     fn SetDefaultDrawingAttributes(&self, #[in] drawingAttributes: InkDrawingAttributes);
                 }
-                #[guid(0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeBuilder)]
+                #[guid(0xbd82bc27_731f_4cbc_bbbf_6d468044f1e5)]
                 interface IInkStrokeBuilder2 {
                     fn CreateStrokeFromInkPoints(&self, #[in] inkPoints: super::super::super::Foundation::Collections::IIterable<InkPoint>, #[in] transform: super::super::super::Foundation::Numerics::Matrix3x2) -> InkStroke;
                 }
-                #[guid(0xb2c71fcd_5472_46b1_a81d_c37a3d169441)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeBuilder)]
+                #[guid(0xb2c71fcd_5472_46b1_a81d_c37a3d169441)]
                 interface IInkStrokeBuilder3 {
                     fn CreateStrokeFromInkPoints(&self, #[in] inkPoints: super::super::super::Foundation::Collections::IIterable<InkPoint>, #[in] transform: super::super::super::Foundation::Numerics::Matrix3x2, #[in] strokeStartedTime: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>, #[in] strokeDuration: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>) -> InkStroke;
                 }
-                #[guid(0x22accbc6_faa9_4f14_b68c_f6cee670ae16)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[guid(0x22accbc6_faa9_4f14_b68c_f6cee670ae16)]
                 interface IInkStrokeContainer {
                     #[get]
                     BoundingRect: super::super::super::Foundation::Rect;
@@ -328,25 +328,25 @@ mod Windows {
                     fn GetStrokes(&self) -> super::super::super::Foundation::Collections::IVectorView<InkStroke>;
                     fn GetRecognitionResults(&self) -> super::super::super::Foundation::Collections::IVectorView<InkRecognitionResult>;
                 }
-                #[guid(0x8901d364_da36_4bcf_9e5c_d195825995b4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeContainer)]
+                #[guid(0x8901d364_da36_4bcf_9e5c_d195825995b4)]
                 interface IInkStrokeContainer2 {
                     fn AddStrokes(&self, #[in] strokes: super::super::super::Foundation::Collections::IIterable<InkStroke>);
                     fn Clear(&self);
                 }
-                #[guid(0x3d07bea5_baea_4c82_a719_7b83da1067d2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeContainer)]
+                #[guid(0x3d07bea5_baea_4c82_a719_7b83da1067d2)]
                 interface IInkStrokeContainer3 {
                     #[Windows::Foundation::Metadata::Overload("SaveWithFormatAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SaveAsync(&self, #[in] outputStream: super::super::super::Storage::Streams::IOutputStream, #[in] inkPersistenceFormat: InkPersistenceFormat) -> super::super::super::Foundation::IAsyncOperationWithProgress<u32, u32>;
                     fn GetStrokeById(&self, #[in] id: u32) -> InkStroke;
                 }
-                #[guid(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeInput)]
+                #[guid(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d)]
                 interface IInkStrokeInput {
                     event StrokeStarted: super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>;
                     event StrokeContinued: super::super::super::Foundation::TypedEventHandler<InkStrokeInput, super::super::Core::PointerEventArgs>;
@@ -355,9 +355,9 @@ mod Windows {
                     #[get]
                     InkPresenter: InkPresenter;
                 }
-                #[guid(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokeRenderingSegment)]
+                #[guid(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5)]
                 interface IInkStrokeRenderingSegment {
                     #[get]
                     Position: super::super::super::Foundation::Point;
@@ -374,30 +374,30 @@ mod Windows {
                     #[get]
                     Twist: f32;
                 }
-                #[guid(0xc4f3f229_1938_495c_b4d9_6de4b08d4811)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokesCollectedEventArgs)]
+                #[guid(0xc4f3f229_1938_495c_b4d9_6de4b08d4811)]
                 interface IInkStrokesCollectedEventArgs {
                     #[get]
                     Strokes: super::super::super::Foundation::Collections::IVectorView<InkStroke>;
                 }
-                #[guid(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkStrokesErasedEventArgs)]
+                #[guid(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa)]
                 interface IInkStrokesErasedEventArgs {
                     #[get]
                     Strokes: super::super::super::Foundation::Collections::IVectorView<InkStroke>;
                 }
-                #[guid(0x9b9ea160_ae9b_45f9_8407_4b493b163661)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkSynchronizer)]
+                #[guid(0x9b9ea160_ae9b_45f9_8407_4b493b163661)]
                 interface IInkSynchronizer {
                     fn BeginDry(&self) -> super::super::super::Foundation::Collections::IVectorView<InkStroke>;
                     fn EndDry(&self);
                 }
-                #[guid(0xdb4445e0_8398_4921_ac3b_ab978c5ba256)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(InkUnprocessedInput)]
+                #[guid(0xdb4445e0_8398_4921_ac3b_ab978c5ba256)]
                 interface IInkUnprocessedInput {
                     event PointerEntered: super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>;
                     event PointerHovered: super::super::super::Foundation::TypedEventHandler<InkUnprocessedInput, super::super::Core::PointerEventArgs>;
@@ -409,9 +409,9 @@ mod Windows {
                     #[get]
                     InkPresenter: InkPresenter;
                 }
-                #[guid(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PenAndInkSettings)]
+                #[guid(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5)]
                 interface IPenAndInkSettings {
                     #[get]
                     IsHandwritingDirectlyIntoTextFieldEnabled: bool;
@@ -426,15 +426,15 @@ mod Windows {
                     #[get]
                     IsTouchHandwritingEnabled: bool;
                 }
-                #[guid(0x3262da53_1f44_55e2_9929_ebf77e5481b8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 786432)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PenAndInkSettings)]
+                #[guid(0x3262da53_1f44_55e2_9929_ebf77e5481b8)]
                 interface IPenAndInkSettings2 {
                     fn SetPenHandedness(&self, #[in] value: PenHandedness);
                 }
-                #[guid(0xed6dd036_5708_5c3c_96db_f2f552eab641)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PenAndInkSettings)]
+                #[guid(0xed6dd036_5708_5c3c_96db_f2f552eab641)]
                 interface IPenAndInkSettingsStatics {
                     fn GetDefault(&self) -> PenAndInkSettings;
                 }
@@ -455,8 +455,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IInkDrawingAttributes5,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum InkDrawingAttributesKind {
                     Default = 0,
                     Pencil = 1,
@@ -468,8 +468,8 @@ mod Windows {
                 class InkDrawingAttributesPencilProperties {
                     IInkDrawingAttributesPencilProperties,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum InkHighContrastAdjustment {
                     UseSystemColorsWhenNecessary = 0,
                     UseSystemColors = 1,
@@ -488,15 +488,15 @@ mod Windows {
                 class InkInputProcessingConfiguration {
                     IInkInputProcessingConfiguration,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum InkInputProcessingMode {
                     None = 0,
                     Inking = 1,
                     Erasing = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum InkInputRightDragAction {
                     LeaveUnprocessed = 0,
                     AllowProcessing = 1,
@@ -511,8 +511,8 @@ mod Windows {
                     IInkRecognizerContainer,
                     IInkStrokeContainer,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum InkManipulationMode {
                     Inking = 0,
                     Erasing = 1,
@@ -526,14 +526,14 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                     IInkModelerAttributes2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum InkPersistenceFormat {
                     GifWithEmbeddedIsf = 0,
                     Isf = 1,
                 }
-                #[Windows::Foundation::Metadata::Activatable(IInkPointFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(IInkPointFactory2, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Activatable(IInkPointFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -552,8 +552,8 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     IInkPresenter3,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum InkPresenterPredefinedConfiguration {
                     SimpleSinglePointer = 0,
                     SimpleMultiplePointer = 1,
@@ -578,12 +578,13 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     IInkPresenterRuler2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum InkPresenterStencilKind {
                     Other = 0,
                     Ruler = 1,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                     Protractor = 2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -592,8 +593,8 @@ mod Windows {
                 class InkRecognitionResult {
                     IInkRecognitionResult,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum InkRecognitionTarget {
                     All = 0,
                     Selected = 1,
@@ -694,14 +695,14 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                     IPenAndInkSettings2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[repr(i32)]
                 enum PenHandedness {
                     Right = 0,
                     Left = 1,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum PenTipShape {
                     Circle = 0,
                     Rectangle = 1,

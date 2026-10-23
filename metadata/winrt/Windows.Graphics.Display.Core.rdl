@@ -3,8 +3,8 @@ mod Windows {
     mod Graphics {
         mod Display {
             mod Core {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum HdmiDisplayColorSpace {
                     RgbLimited = 0,
                     RgbFull = 1,
@@ -26,12 +26,13 @@ mod Windows {
                     MaxContentLightLevel: u16,
                     MaxFrameAverageLightLevel: u16,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum HdmiDisplayHdrOption {
                     None = 0,
                     EotfSdr = 1,
                     Eotf2084 = 2,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     DolbyVisionLowLatency = 3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -51,17 +52,17 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                     IHdmiDisplayMode2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum HdmiDisplayPixelEncoding {
                     Rgb444 = 0,
                     Ycc444 = 1,
                     Ycc422 = 2,
                     Ycc420 = 3,
                 }
-                #[guid(0x130b3c0a_f565_476e_abd5_ea05aee74c69)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayInformation)]
+                #[guid(0x130b3c0a_f565_476e_abd5_ea05aee74c69)]
                 interface IHdmiDisplayInformation {
                     fn GetSupportedDisplayModes(&self) -> super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>;
                     fn GetCurrentDisplayMode(&self) -> HdmiDisplayMode;
@@ -78,15 +79,15 @@ mod Windows {
                     fn RequestSetCurrentDisplayModeAsync(&self, #[in] mode: HdmiDisplayMode, #[in] hdrOption: HdmiDisplayHdrOption, #[in] hdrMetadata: HdmiDisplayHdr2086Metadata) -> super::super::super::Foundation::IAsyncOperation<bool>;
                     event DisplayModesChanged: super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, Object>;
                 }
-                #[guid(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayInformation)]
+                #[guid(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df)]
                 interface IHdmiDisplayInformationStatics {
                     fn GetForCurrentView(&self) -> HdmiDisplayInformation;
                 }
-                #[guid(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayMode)]
+                #[guid(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66)]
                 interface IHdmiDisplayMode {
                     #[get]
                     ResolutionWidthInRawPixels: u32;
@@ -110,9 +111,9 @@ mod Windows {
                     #[get]
                     Is2086MetadataSupported: bool;
                 }
-                #[guid(0x07cd4e9f_4b3c_42b8_84e7_895368718af2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayMode)]
+                #[guid(0x07cd4e9f_4b3c_42b8_84e7_895368718af2)]
                 interface IHdmiDisplayMode2 {
                     #[get]
                     IsDolbyVisionLowLatencySupported: bool;

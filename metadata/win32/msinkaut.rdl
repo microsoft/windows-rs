@@ -538,11 +538,11 @@ mod Windows {
             fn put_hWnd(&self, #[in] NewWindow: LONG_PTR) -> HRESULT;
             fn get_Enabled(&self, #[out] #[retval] Collecting: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Enabled(&self, #[in] Collecting: VARIANT_BOOL) -> HRESULT;
-            fn get_DefaultDrawingAttributes(&self, #[out] #[retval] #[out_ptr] CurrentAttributes: *mut IInkDrawingAttributes) -> HRESULT;
+            fn get_DefaultDrawingAttributes(&self, #[out] #[out_ptr] #[retval] CurrentAttributes: *mut IInkDrawingAttributes) -> HRESULT;
             fn putref_DefaultDrawingAttributes(&self, #[in] #[opt] NewAttributes: IInkDrawingAttributes) -> HRESULT;
-            fn get_Renderer(&self, #[out] #[retval] #[out_ptr] CurrentInkRenderer: *mut IInkRenderer) -> HRESULT;
+            fn get_Renderer(&self, #[out] #[out_ptr] #[retval] CurrentInkRenderer: *mut IInkRenderer) -> HRESULT;
             fn putref_Renderer(&self, #[in] #[opt] NewInkRenderer: IInkRenderer) -> HRESULT;
-            fn get_Ink(&self, #[out] #[retval] #[out_ptr] Ink: *mut IInkDisp) -> HRESULT;
+            fn get_Ink(&self, #[out] #[out_ptr] #[retval] Ink: *mut IInkDisp) -> HRESULT;
             fn putref_Ink(&self, #[in] #[opt] NewInk: IInkDisp) -> HRESULT;
             fn get_AutoRedraw(&self, #[out] #[retval] AutoRedraw: *mut VARIANT_BOOL) -> HRESULT;
             fn put_AutoRedraw(&self, #[in] AutoRedraw: VARIANT_BOOL) -> HRESULT;
@@ -553,17 +553,17 @@ mod Windows {
             fn put_DynamicRendering(&self, #[in] Enabled: VARIANT_BOOL) -> HRESULT;
             fn get_DesiredPacketDescription(&self, #[out] #[retval] PacketGuids: *mut VARIANT) -> HRESULT;
             fn put_DesiredPacketDescription(&self, #[in] PacketGuids: VARIANT) -> HRESULT;
-            fn get_MouseIcon(&self, #[out] #[retval] #[out_ptr] MouseIcon: *mut IPictureDisp) -> HRESULT;
+            fn get_MouseIcon(&self, #[out] #[out_ptr] #[retval] MouseIcon: *mut IPictureDisp) -> HRESULT;
             fn put_MouseIcon(&self, #[in] #[opt] MouseIcon: IPictureDisp) -> HRESULT;
             fn putref_MouseIcon(&self, #[in] #[opt] MouseIcon: IPictureDisp) -> HRESULT;
             fn get_MousePointer(&self, #[out] #[retval] MousePointer: *mut InkMousePointer) -> HRESULT;
             fn put_MousePointer(&self, #[in] MousePointer: InkMousePointer) -> HRESULT;
-            fn get_Cursors(&self, #[out] #[retval] #[out_ptr] Cursors: *mut IInkCursors) -> HRESULT;
+            fn get_Cursors(&self, #[out] #[out_ptr] #[retval] Cursors: *mut IInkCursors) -> HRESULT;
             fn get_MarginX(&self, #[out] #[retval] MarginX: *mut i32) -> HRESULT;
             fn put_MarginX(&self, #[in] MarginX: i32) -> HRESULT;
             fn get_MarginY(&self, #[out] #[retval] MarginY: *mut i32) -> HRESULT;
             fn put_MarginY(&self, #[in] MarginY: i32) -> HRESULT;
-            fn get_Tablet(&self, #[out] #[retval] #[out_ptr] SingleTablet: *mut IInkTablet) -> HRESULT;
+            fn get_Tablet(&self, #[out] #[out_ptr] #[retval] SingleTablet: *mut IInkTablet) -> HRESULT;
             fn get_SupportHighContrastInk(&self, #[out] #[retval] Support: *mut VARIANT_BOOL) -> HRESULT;
             fn put_SupportHighContrastInk(&self, #[in] Support: VARIANT_BOOL) -> HRESULT;
             fn SetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[in] Listen: VARIANT_BOOL) -> HRESULT;
@@ -577,68 +577,68 @@ mod Windows {
         }
         #[guid(0xad30c630_40c5_4350_8405_9c71012fc558)]
         interface IInkCursor: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
             fn get_Id(&self, #[out] #[retval] Id: *mut i32) -> HRESULT;
             fn get_Inverted(&self, #[out] #[retval] Status: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_DrawingAttributes(&self, #[out] #[retval] #[out_ptr] Attributes: *mut IInkDrawingAttributes) -> HRESULT;
+            fn get_DrawingAttributes(&self, #[out] #[out_ptr] #[retval] Attributes: *mut IInkDrawingAttributes) -> HRESULT;
             fn putref_DrawingAttributes(&self, #[in] #[opt] Attributes: IInkDrawingAttributes) -> HRESULT;
-            fn get_Tablet(&self, #[out] #[retval] #[out_ptr] Tablet: *mut IInkTablet) -> HRESULT;
-            fn get_Buttons(&self, #[out] #[retval] #[out_ptr] Buttons: *mut IInkCursorButtons) -> HRESULT;
+            fn get_Tablet(&self, #[out] #[out_ptr] #[retval] Tablet: *mut IInkTablet) -> HRESULT;
+            fn get_Buttons(&self, #[out] #[out_ptr] #[retval] Buttons: *mut IInkCursorButtons) -> HRESULT;
         }
         #[guid(0x85ef9417_1d59_49b2_a13c_702c85430894)]
         interface IInkCursorButton: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
-            fn get_Id(&self, #[out] #[retval] #[out_ptr] Id: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
+            fn get_Id(&self, #[out] #[out_ptr] #[retval] Id: *mut BSTR) -> HRESULT;
             fn get_State(&self, #[out] #[retval] CurrentState: *mut InkCursorButtonState) -> HRESULT;
         }
         #[guid(0x3671cc40_b624_4671_9fa0_db119d952d54)]
         interface IInkCursorButtons: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn Item(&self, #[in] Identifier: VARIANT, #[out] #[retval] #[out_ptr] Button: *mut IInkCursorButton) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Identifier: VARIANT, #[out] #[out_ptr] #[retval] Button: *mut IInkCursorButton) -> HRESULT;
         }
         #[guid(0xa248c1ac_c698_4e06_9e5c_d57f77c7e647)]
         interface IInkCursors: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Cursor: *mut IInkCursor) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Cursor: *mut IInkCursor) -> HRESULT;
         }
         #[guid(0x7e23a88f_c30e_420f_9bdb_28902543f0c1)]
         interface IInkCustomStrokes: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn Item(&self, #[in] Identifier: VARIANT, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Identifier: VARIANT, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
             fn Add(&self, #[in] Name: BSTR, #[in] #[opt] Strokes: IInkStrokes) -> HRESULT;
             fn Remove(&self, #[in] Identifier: VARIANT) -> HRESULT;
             fn Clear(&self) -> HRESULT;
         }
         #[guid(0x9d398fa0_c4e2_4fcd_9973_975caaf47ea6)]
         interface IInkDisp: IDispatch {
-            fn get_Strokes(&self, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
-            fn get_ExtendedProperties(&self, #[out] #[retval] #[out_ptr] Properties: *mut IInkExtendedProperties) -> HRESULT;
+            fn get_Strokes(&self, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn get_ExtendedProperties(&self, #[out] #[out_ptr] #[retval] Properties: *mut IInkExtendedProperties) -> HRESULT;
             fn get_Dirty(&self, #[out] #[retval] Dirty: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Dirty(&self, #[in] Dirty: VARIANT_BOOL) -> HRESULT;
-            fn get_CustomStrokes(&self, #[out] #[retval] #[out_ptr] ppunkInkCustomStrokes: *mut IInkCustomStrokes) -> HRESULT;
-            fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
+            fn get_CustomStrokes(&self, #[out] #[out_ptr] #[retval] ppunkInkCustomStrokes: *mut IInkCustomStrokes) -> HRESULT;
+            fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[out_ptr] #[retval] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn DeleteStrokes(&self, #[in] #[opt] Strokes: IInkStrokes) -> HRESULT;
             fn DeleteStroke(&self, #[in] #[opt] Stroke: IInkStrokeDisp) -> HRESULT;
-            fn ExtractStrokes(&self, #[in] #[opt] Strokes: IInkStrokes, #[in] ExtractFlags: InkExtractFlags, #[out] #[retval] #[out_ptr] ExtractedInk: *mut IInkDisp) -> HRESULT;
-            fn ExtractWithRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle, #[in] extractFlags: InkExtractFlags, #[out] #[retval] #[out_ptr] ExtractedInk: *mut IInkDisp) -> HRESULT;
+            fn ExtractStrokes(&self, #[in] #[opt] Strokes: IInkStrokes, #[in] ExtractFlags: InkExtractFlags, #[out] #[out_ptr] #[retval] ExtractedInk: *mut IInkDisp) -> HRESULT;
+            fn ExtractWithRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle, #[in] extractFlags: InkExtractFlags, #[out] #[out_ptr] #[retval] ExtractedInk: *mut IInkDisp) -> HRESULT;
             fn Clip(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewInk: *mut IInkDisp) -> HRESULT;
-            fn HitTestCircle(&self, #[in] X: i32, #[in] Y: i32, #[in] radius: f32, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
-            fn HitTestWithRectangle(&self, #[in] #[opt] SelectionRectangle: IInkRectangle, #[in] IntersectPercent: f32, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
-            fn HitTestWithLasso(&self, #[in] Points: VARIANT, #[in] IntersectPercent: f32, #[in] #[out] #[opt] LassoPoints: *mut VARIANT, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
-            fn NearestPoint(&self, #[in] X: i32, #[in] Y: i32, #[in] #[out] PointOnStroke: *mut f32, #[in] #[out] DistanceFromPacket: *mut f32, #[out] #[retval] #[out_ptr] Stroke: *mut IInkStrokeDisp) -> HRESULT;
-            fn CreateStrokes(&self, #[in] StrokeIds: VARIANT, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewInk: *mut IInkDisp) -> HRESULT;
+            fn HitTestCircle(&self, #[in] X: i32, #[in] Y: i32, #[in] radius: f32, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn HitTestWithRectangle(&self, #[in] #[opt] SelectionRectangle: IInkRectangle, #[in] IntersectPercent: f32, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn HitTestWithLasso(&self, #[in] Points: VARIANT, #[in] IntersectPercent: f32, #[in] #[opt] #[out] LassoPoints: *mut VARIANT, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn NearestPoint(&self, #[in] X: i32, #[in] Y: i32, #[in] #[out] PointOnStroke: *mut f32, #[in] #[out] DistanceFromPacket: *mut f32, #[out] #[out_ptr] #[retval] Stroke: *mut IInkStrokeDisp) -> HRESULT;
+            fn CreateStrokes(&self, #[in] StrokeIds: VARIANT, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
             fn AddStrokesAtRectangle(&self, #[in] #[opt] SourceStrokes: IInkStrokes, #[in] #[opt] TargetRectangle: IInkRectangle) -> HRESULT;
             fn Save(&self, #[in] PersistenceFormat: InkPersistenceFormat, #[in] CompressionMode: InkPersistenceCompressionMode, #[out] #[retval] Data: *mut VARIANT) -> HRESULT;
             fn Load(&self, #[in] Data: VARIANT) -> HRESULT;
-            fn CreateStroke(&self, #[in] PacketData: VARIANT, #[in] PacketDescription: VARIANT, #[out] #[retval] #[out_ptr] Stroke: *mut IInkStrokeDisp) -> HRESULT;
-            fn ClipboardCopyWithRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle, #[in] ClipboardFormats: InkClipboardFormats, #[in] ClipboardModes: InkClipboardModes, #[out] #[retval] #[out_ptr] DataObject: *mut IDataObject) -> HRESULT;
-            fn ClipboardCopy(&self, #[in] #[opt] strokes: IInkStrokes, #[in] ClipboardFormats: InkClipboardFormats, #[in] ClipboardModes: InkClipboardModes, #[out] #[retval] #[out_ptr] DataObject: *mut IDataObject) -> HRESULT;
+            fn CreateStroke(&self, #[in] PacketData: VARIANT, #[in] PacketDescription: VARIANT, #[out] #[out_ptr] #[retval] Stroke: *mut IInkStrokeDisp) -> HRESULT;
+            fn ClipboardCopyWithRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle, #[in] ClipboardFormats: InkClipboardFormats, #[in] ClipboardModes: InkClipboardModes, #[out] #[out_ptr] #[retval] DataObject: *mut IDataObject) -> HRESULT;
+            fn ClipboardCopy(&self, #[in] #[opt] strokes: IInkStrokes, #[in] ClipboardFormats: InkClipboardFormats, #[in] ClipboardModes: InkClipboardModes, #[out] #[out_ptr] #[retval] DataObject: *mut IDataObject) -> HRESULT;
             fn CanPaste(&self, #[in] #[opt] DataObject: IDataObject, #[out] #[retval] CanPaste: *mut VARIANT_BOOL) -> HRESULT;
-            fn ClipboardPaste(&self, #[in] x: i32, #[in] y: i32, #[in] #[opt] DataObject: IDataObject, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn ClipboardPaste(&self, #[in] x: i32, #[in] y: i32, #[in] #[opt] DataObject: IDataObject, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
         }
         #[guid(0xbf519b75_0a15_4623_adc9_c00d436a8092)]
         interface IInkDrawingAttributes: IDispatch {
@@ -660,22 +660,22 @@ mod Windows {
             fn put_RasterOperation(&self, #[in] NewRasterOperation: InkRasterOperation) -> HRESULT;
             fn get_PenTip(&self, #[out] #[retval] CurrentPenTip: *mut InkPenTip) -> HRESULT;
             fn put_PenTip(&self, #[in] NewPenTip: InkPenTip) -> HRESULT;
-            fn get_ExtendedProperties(&self, #[out] #[retval] #[out_ptr] Properties: *mut IInkExtendedProperties) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] DrawingAttributes: *mut IInkDrawingAttributes) -> HRESULT;
+            fn get_ExtendedProperties(&self, #[out] #[out_ptr] #[retval] Properties: *mut IInkExtendedProperties) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] DrawingAttributes: *mut IInkDrawingAttributes) -> HRESULT;
         }
         #[guid(0x89f2a8be_95a9_4530_8b8f_88e971e3e25f)]
         interface IInkExtendedProperties: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn Item(&self, #[in] Identifier: VARIANT, #[out] #[retval] #[out_ptr] Item: *mut IInkExtendedProperty) -> HRESULT;
-            fn Add(&self, #[in] Guid: BSTR, #[in] Data: VARIANT, #[out] #[retval] #[out_ptr] InkExtendedProperty: *mut IInkExtendedProperty) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Identifier: VARIANT, #[out] #[out_ptr] #[retval] Item: *mut IInkExtendedProperty) -> HRESULT;
+            fn Add(&self, #[in] Guid: BSTR, #[in] Data: VARIANT, #[out] #[out_ptr] #[retval] InkExtendedProperty: *mut IInkExtendedProperty) -> HRESULT;
             fn Remove(&self, #[in] Identifier: VARIANT) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             fn DoesPropertyExist(&self, #[in] Guid: BSTR, #[out] #[retval] DoesPropertyExist: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xdb489209_b7c3_411d_90f6_1548cfff271e)]
         interface IInkExtendedProperty: IDispatch {
-            fn get_Guid(&self, #[out] #[retval] #[out_ptr] Guid: *mut BSTR) -> HRESULT;
+            fn get_Guid(&self, #[out] #[out_ptr] #[retval] Guid: *mut BSTR) -> HRESULT;
             fn get_Data(&self, #[out] #[retval] Data: *mut VARIANT) -> HRESULT;
             fn put_Data(&self, #[in] Data: VARIANT) -> HRESULT;
         }
@@ -700,11 +700,11 @@ mod Windows {
             fn put_hWnd(&self, #[in] NewWindow: LONG_PTR) -> HRESULT;
             fn get_Enabled(&self, #[out] #[retval] Collecting: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Enabled(&self, #[in] Collecting: VARIANT_BOOL) -> HRESULT;
-            fn get_DefaultDrawingAttributes(&self, #[out] #[retval] #[out_ptr] CurrentAttributes: *mut IInkDrawingAttributes) -> HRESULT;
+            fn get_DefaultDrawingAttributes(&self, #[out] #[out_ptr] #[retval] CurrentAttributes: *mut IInkDrawingAttributes) -> HRESULT;
             fn putref_DefaultDrawingAttributes(&self, #[in] #[opt] NewAttributes: IInkDrawingAttributes) -> HRESULT;
-            fn get_Renderer(&self, #[out] #[retval] #[out_ptr] CurrentInkRenderer: *mut IInkRenderer) -> HRESULT;
+            fn get_Renderer(&self, #[out] #[out_ptr] #[retval] CurrentInkRenderer: *mut IInkRenderer) -> HRESULT;
             fn putref_Renderer(&self, #[in] #[opt] NewInkRenderer: IInkRenderer) -> HRESULT;
-            fn get_Ink(&self, #[out] #[retval] #[out_ptr] Ink: *mut IInkDisp) -> HRESULT;
+            fn get_Ink(&self, #[out] #[out_ptr] #[retval] Ink: *mut IInkDisp) -> HRESULT;
             fn putref_Ink(&self, #[in] #[opt] NewInk: IInkDisp) -> HRESULT;
             fn get_AutoRedraw(&self, #[out] #[retval] AutoRedraw: *mut VARIANT_BOOL) -> HRESULT;
             fn put_AutoRedraw(&self, #[in] AutoRedraw: VARIANT_BOOL) -> HRESULT;
@@ -715,14 +715,14 @@ mod Windows {
             fn put_DynamicRendering(&self, #[in] Enabled: VARIANT_BOOL) -> HRESULT;
             fn get_DesiredPacketDescription(&self, #[out] #[retval] PacketGuids: *mut VARIANT) -> HRESULT;
             fn put_DesiredPacketDescription(&self, #[in] PacketGuids: VARIANT) -> HRESULT;
-            fn get_MouseIcon(&self, #[out] #[retval] #[out_ptr] MouseIcon: *mut IPictureDisp) -> HRESULT;
+            fn get_MouseIcon(&self, #[out] #[out_ptr] #[retval] MouseIcon: *mut IPictureDisp) -> HRESULT;
             fn put_MouseIcon(&self, #[in] #[opt] MouseIcon: IPictureDisp) -> HRESULT;
             fn putref_MouseIcon(&self, #[in] #[opt] MouseIcon: IPictureDisp) -> HRESULT;
             fn get_MousePointer(&self, #[out] #[retval] MousePointer: *mut InkMousePointer) -> HRESULT;
             fn put_MousePointer(&self, #[in] MousePointer: InkMousePointer) -> HRESULT;
             fn get_EditingMode(&self, #[out] #[retval] EditingMode: *mut InkOverlayEditingMode) -> HRESULT;
             fn put_EditingMode(&self, #[in] EditingMode: InkOverlayEditingMode) -> HRESULT;
-            fn get_Selection(&self, #[out] #[retval] #[out_ptr] Selection: *mut IInkStrokes) -> HRESULT;
+            fn get_Selection(&self, #[out] #[out_ptr] #[retval] Selection: *mut IInkStrokes) -> HRESULT;
             fn put_Selection(&self, #[in] #[opt] Selection: IInkStrokes) -> HRESULT;
             fn get_EraserMode(&self, #[out] #[retval] EraserMode: *mut InkOverlayEraserMode) -> HRESULT;
             fn put_EraserMode(&self, #[in] EraserMode: InkOverlayEraserMode) -> HRESULT;
@@ -730,12 +730,12 @@ mod Windows {
             fn put_EraserWidth(&self, #[in] newEraserWidth: i32) -> HRESULT;
             fn get_AttachMode(&self, #[out] #[retval] AttachMode: *mut InkOverlayAttachMode) -> HRESULT;
             fn put_AttachMode(&self, #[in] AttachMode: InkOverlayAttachMode) -> HRESULT;
-            fn get_Cursors(&self, #[out] #[retval] #[out_ptr] Cursors: *mut IInkCursors) -> HRESULT;
+            fn get_Cursors(&self, #[out] #[out_ptr] #[retval] Cursors: *mut IInkCursors) -> HRESULT;
             fn get_MarginX(&self, #[out] #[retval] MarginX: *mut i32) -> HRESULT;
             fn put_MarginX(&self, #[in] MarginX: i32) -> HRESULT;
             fn get_MarginY(&self, #[out] #[retval] MarginY: *mut i32) -> HRESULT;
             fn put_MarginY(&self, #[in] MarginY: i32) -> HRESULT;
-            fn get_Tablet(&self, #[out] #[retval] #[out_ptr] SingleTablet: *mut IInkTablet) -> HRESULT;
+            fn get_Tablet(&self, #[out] #[out_ptr] #[retval] SingleTablet: *mut IInkTablet) -> HRESULT;
             fn get_SupportHighContrastInk(&self, #[out] #[retval] Support: *mut VARIANT_BOOL) -> HRESULT;
             fn put_SupportHighContrastInk(&self, #[in] Support: VARIANT_BOOL) -> HRESULT;
             fn get_SupportHighContrastSelectionUI(&self, #[out] #[retval] Support: *mut VARIANT_BOOL) -> HRESULT;
@@ -754,11 +754,11 @@ mod Windows {
         #[guid(0xe85662e0_379a_40d7_9b5c_757d233f9923)]
         interface IInkPicture: IDispatch {
             fn get_hWnd(&self, #[out] #[retval] CurrentWindow: *mut LONG_PTR) -> HRESULT;
-            fn get_DefaultDrawingAttributes(&self, #[out] #[retval] #[out_ptr] CurrentAttributes: *mut IInkDrawingAttributes) -> HRESULT;
+            fn get_DefaultDrawingAttributes(&self, #[out] #[out_ptr] #[retval] CurrentAttributes: *mut IInkDrawingAttributes) -> HRESULT;
             fn putref_DefaultDrawingAttributes(&self, #[in] #[opt] NewAttributes: IInkDrawingAttributes) -> HRESULT;
-            fn get_Renderer(&self, #[out] #[retval] #[out_ptr] CurrentInkRenderer: *mut IInkRenderer) -> HRESULT;
+            fn get_Renderer(&self, #[out] #[out_ptr] #[retval] CurrentInkRenderer: *mut IInkRenderer) -> HRESULT;
             fn putref_Renderer(&self, #[in] #[opt] NewInkRenderer: IInkRenderer) -> HRESULT;
-            fn get_Ink(&self, #[out] #[retval] #[out_ptr] Ink: *mut IInkDisp) -> HRESULT;
+            fn get_Ink(&self, #[out] #[out_ptr] #[retval] Ink: *mut IInkDisp) -> HRESULT;
             fn putref_Ink(&self, #[in] #[opt] NewInk: IInkDisp) -> HRESULT;
             fn get_AutoRedraw(&self, #[out] #[retval] AutoRedraw: *mut VARIANT_BOOL) -> HRESULT;
             fn put_AutoRedraw(&self, #[in] AutoRedraw: VARIANT_BOOL) -> HRESULT;
@@ -769,14 +769,14 @@ mod Windows {
             fn put_DynamicRendering(&self, #[in] Enabled: VARIANT_BOOL) -> HRESULT;
             fn get_DesiredPacketDescription(&self, #[out] #[retval] PacketGuids: *mut VARIANT) -> HRESULT;
             fn put_DesiredPacketDescription(&self, #[in] PacketGuids: VARIANT) -> HRESULT;
-            fn get_MouseIcon(&self, #[out] #[retval] #[out_ptr] MouseIcon: *mut IPictureDisp) -> HRESULT;
+            fn get_MouseIcon(&self, #[out] #[out_ptr] #[retval] MouseIcon: *mut IPictureDisp) -> HRESULT;
             fn put_MouseIcon(&self, #[in] #[opt] MouseIcon: IPictureDisp) -> HRESULT;
             fn putref_MouseIcon(&self, #[in] #[opt] MouseIcon: IPictureDisp) -> HRESULT;
             fn get_MousePointer(&self, #[out] #[retval] MousePointer: *mut InkMousePointer) -> HRESULT;
             fn put_MousePointer(&self, #[in] MousePointer: InkMousePointer) -> HRESULT;
             fn get_EditingMode(&self, #[out] #[retval] EditingMode: *mut InkOverlayEditingMode) -> HRESULT;
             fn put_EditingMode(&self, #[in] EditingMode: InkOverlayEditingMode) -> HRESULT;
-            fn get_Selection(&self, #[out] #[retval] #[out_ptr] Selection: *mut IInkStrokes) -> HRESULT;
+            fn get_Selection(&self, #[out] #[out_ptr] #[retval] Selection: *mut IInkStrokes) -> HRESULT;
             fn put_Selection(&self, #[in] #[opt] Selection: IInkStrokes) -> HRESULT;
             fn get_EraserMode(&self, #[out] #[retval] EraserMode: *mut InkOverlayEraserMode) -> HRESULT;
             fn put_EraserMode(&self, #[in] EraserMode: InkOverlayEraserMode) -> HRESULT;
@@ -784,17 +784,17 @@ mod Windows {
             fn put_EraserWidth(&self, #[in] newEraserWidth: i32) -> HRESULT;
             fn putref_Picture(&self, #[in] #[opt] pPicture: IPictureDisp) -> HRESULT;
             fn put_Picture(&self, #[in] #[opt] pPicture: IPictureDisp) -> HRESULT;
-            fn get_Picture(&self, #[out] #[retval] #[out_ptr] ppPicture: *mut IPictureDisp) -> HRESULT;
+            fn get_Picture(&self, #[out] #[out_ptr] #[retval] ppPicture: *mut IPictureDisp) -> HRESULT;
             fn put_SizeMode(&self, #[in] smNewSizeMode: InkPictureSizeMode) -> HRESULT;
             fn get_SizeMode(&self, #[out] #[retval] smSizeMode: *mut InkPictureSizeMode) -> HRESULT;
             fn put_BackColor(&self, #[in] newColor: OLE_COLOR) -> HRESULT;
             fn get_BackColor(&self, #[out] #[retval] pColor: *mut OLE_COLOR) -> HRESULT;
-            fn get_Cursors(&self, #[out] #[retval] #[out_ptr] Cursors: *mut IInkCursors) -> HRESULT;
+            fn get_Cursors(&self, #[out] #[out_ptr] #[retval] Cursors: *mut IInkCursors) -> HRESULT;
             fn get_MarginX(&self, #[out] #[retval] MarginX: *mut i32) -> HRESULT;
             fn put_MarginX(&self, #[in] MarginX: i32) -> HRESULT;
             fn get_MarginY(&self, #[out] #[retval] MarginY: *mut i32) -> HRESULT;
             fn put_MarginY(&self, #[in] MarginY: i32) -> HRESULT;
-            fn get_Tablet(&self, #[out] #[retval] #[out_ptr] SingleTablet: *mut IInkTablet) -> HRESULT;
+            fn get_Tablet(&self, #[out] #[out_ptr] #[retval] SingleTablet: *mut IInkTablet) -> HRESULT;
             fn get_SupportHighContrastInk(&self, #[out] #[retval] Support: *mut VARIANT_BOOL) -> HRESULT;
             fn put_SupportHighContrastInk(&self, #[in] Support: VARIANT_BOOL) -> HRESULT;
             fn get_SupportHighContrastSelectionUI(&self, #[out] #[retval] Support: *mut VARIANT_BOOL) -> HRESULT;
@@ -815,79 +815,79 @@ mod Windows {
         }
         #[guid(0xb7e660ad_77e4_429b_adda_873780d1fc4a)]
         interface IInkRecognitionAlternate: IDispatch {
-            fn get_String(&self, #[out] #[retval] #[out_ptr] RecoString: *mut BSTR) -> HRESULT;
+            fn get_String(&self, #[out] #[out_ptr] #[retval] RecoString: *mut BSTR) -> HRESULT;
             fn get_Confidence(&self, #[out] #[retval] Confidence: *mut InkRecognitionConfidence) -> HRESULT;
             fn get_Baseline(&self, #[out] #[retval] Baseline: *mut VARIANT) -> HRESULT;
             fn get_Midline(&self, #[out] #[retval] Midline: *mut VARIANT) -> HRESULT;
             fn get_Ascender(&self, #[out] #[retval] Ascender: *mut VARIANT) -> HRESULT;
             fn get_Descender(&self, #[out] #[retval] Descender: *mut VARIANT) -> HRESULT;
             fn get_LineNumber(&self, #[out] #[retval] LineNumber: *mut i32) -> HRESULT;
-            fn get_Strokes(&self, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
-            fn get_LineAlternates(&self, #[out] #[retval] #[out_ptr] LineAlternates: *mut IInkRecognitionAlternates) -> HRESULT;
-            fn get_ConfidenceAlternates(&self, #[out] #[retval] #[out_ptr] ConfidenceAlternates: *mut IInkRecognitionAlternates) -> HRESULT;
-            fn GetStrokesFromStrokeRanges(&self, #[in] #[opt] Strokes: IInkStrokes, #[out] #[retval] #[out_ptr] GetStrokesFromStrokeRanges: *mut IInkStrokes) -> HRESULT;
-            fn GetStrokesFromTextRange(&self, #[in] #[out] selectionStart: *mut i32, #[in] #[out] selectionLength: *mut i32, #[out] #[retval] #[out_ptr] GetStrokesFromTextRange: *mut IInkStrokes) -> HRESULT;
+            fn get_Strokes(&self, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn get_LineAlternates(&self, #[out] #[out_ptr] #[retval] LineAlternates: *mut IInkRecognitionAlternates) -> HRESULT;
+            fn get_ConfidenceAlternates(&self, #[out] #[out_ptr] #[retval] ConfidenceAlternates: *mut IInkRecognitionAlternates) -> HRESULT;
+            fn GetStrokesFromStrokeRanges(&self, #[in] #[opt] Strokes: IInkStrokes, #[out] #[out_ptr] #[retval] GetStrokesFromStrokeRanges: *mut IInkStrokes) -> HRESULT;
+            fn GetStrokesFromTextRange(&self, #[in] #[out] selectionStart: *mut i32, #[in] #[out] selectionLength: *mut i32, #[out] #[out_ptr] #[retval] GetStrokesFromTextRange: *mut IInkStrokes) -> HRESULT;
             fn GetTextRangeFromStrokes(&self, #[in] #[opt] Strokes: IInkStrokes, #[in] #[out] selectionStart: *mut i32, #[in] #[out] selectionLength: *mut i32) -> HRESULT;
-            fn AlternatesWithConstantPropertyValues(&self, #[in] PropertyType: BSTR, #[out] #[retval] #[out_ptr] AlternatesWithConstantPropertyValues: *mut IInkRecognitionAlternates) -> HRESULT;
+            fn AlternatesWithConstantPropertyValues(&self, #[in] PropertyType: BSTR, #[out] #[out_ptr] #[retval] AlternatesWithConstantPropertyValues: *mut IInkRecognitionAlternates) -> HRESULT;
             fn GetPropertyValue(&self, #[in] PropertyType: BSTR, #[out] #[retval] PropertyValue: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x286a167f_9f19_4c61_9d53_4f07be622b84)]
         interface IInkRecognitionAlternates: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn get_Strokes(&self, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] InkRecoAlternate: *mut IInkRecognitionAlternate) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn get_Strokes(&self, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] InkRecoAlternate: *mut IInkRecognitionAlternate) -> HRESULT;
         }
         #[guid(0x3bc129a8_86cd_45ad_bde8_e0d32d61c16d)]
         interface IInkRecognitionResult: IDispatch {
-            fn get_TopString(&self, #[out] #[retval] #[out_ptr] TopString: *mut BSTR) -> HRESULT;
-            fn get_TopAlternate(&self, #[out] #[retval] #[out_ptr] TopAlternate: *mut IInkRecognitionAlternate) -> HRESULT;
+            fn get_TopString(&self, #[out] #[out_ptr] #[retval] TopString: *mut BSTR) -> HRESULT;
+            fn get_TopAlternate(&self, #[out] #[out_ptr] #[retval] TopAlternate: *mut IInkRecognitionAlternate) -> HRESULT;
             fn get_TopConfidence(&self, #[out] #[retval] TopConfidence: *mut InkRecognitionConfidence) -> HRESULT;
-            fn get_Strokes(&self, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
-            fn AlternatesFromSelection(&self, #[in] selectionStart: i32, #[in] selectionLength: i32, #[in] maximumAlternates: i32, #[out] #[retval] #[out_ptr] AlternatesFromSelection: *mut IInkRecognitionAlternates) -> HRESULT;
+            fn get_Strokes(&self, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn AlternatesFromSelection(&self, #[in] selectionStart: i32, #[in] selectionLength: i32, #[in] maximumAlternates: i32, #[out] #[out_ptr] #[retval] AlternatesFromSelection: *mut IInkRecognitionAlternates) -> HRESULT;
             fn ModifyTopAlternate(&self, #[in] #[opt] Alternate: IInkRecognitionAlternate) -> HRESULT;
             fn SetResultOnStrokes(&self) -> HRESULT;
         }
         #[guid(0x782bf7cf_034b_4396_8a32_3a1833cf6b56)]
         interface IInkRecognizer: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
-            fn get_Vendor(&self, #[out] #[retval] #[out_ptr] Vendor: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
+            fn get_Vendor(&self, #[out] #[out_ptr] #[retval] Vendor: *mut BSTR) -> HRESULT;
             fn get_Capabilities(&self, #[out] #[retval] CapabilitiesFlags: *mut InkRecognizerCapabilities) -> HRESULT;
             fn get_Languages(&self, #[out] #[retval] Languages: *mut VARIANT) -> HRESULT;
             fn get_SupportedProperties(&self, #[out] #[retval] SupportedProperties: *mut VARIANT) -> HRESULT;
             fn get_PreferredPacketDescription(&self, #[out] #[retval] PreferredPacketDescription: *mut VARIANT) -> HRESULT;
-            fn CreateRecognizerContext(&self, #[out] #[retval] #[out_ptr] Context: *mut IInkRecognizerContext) -> HRESULT;
+            fn CreateRecognizerContext(&self, #[out] #[out_ptr] #[retval] Context: *mut IInkRecognizerContext) -> HRESULT;
         }
         #[guid(0x6110118a_3a75_4ad6_b2aa_04b2b72bbe65)]
         interface IInkRecognizer2: IDispatch {
-            fn get_Id(&self, #[out] #[retval] #[out_ptr] pbstrId: *mut BSTR) -> HRESULT;
+            fn get_Id(&self, #[out] #[out_ptr] #[retval] pbstrId: *mut BSTR) -> HRESULT;
             fn get_UnicodeRanges(&self, #[out] #[retval] UnicodeRanges: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xc68f52f9_32a3_4625_906c_44fc23b40958)]
         interface IInkRecognizerContext: IDispatch {
-            fn get_Strokes(&self, #[out] #[retval] #[out_ptr] Strokes: *mut IInkStrokes) -> HRESULT;
+            fn get_Strokes(&self, #[out] #[out_ptr] #[retval] Strokes: *mut IInkStrokes) -> HRESULT;
             fn putref_Strokes(&self, #[in] #[opt] Strokes: IInkStrokes) -> HRESULT;
             fn get_CharacterAutoCompletionMode(&self, #[out] #[retval] Mode: *mut InkRecognizerCharacterAutoCompletionMode) -> HRESULT;
             fn put_CharacterAutoCompletionMode(&self, #[in] Mode: InkRecognizerCharacterAutoCompletionMode) -> HRESULT;
-            fn get_Factoid(&self, #[out] #[retval] #[out_ptr] Factoid: *mut BSTR) -> HRESULT;
+            fn get_Factoid(&self, #[out] #[out_ptr] #[retval] Factoid: *mut BSTR) -> HRESULT;
             fn put_Factoid(&self, #[in] factoid: BSTR) -> HRESULT;
-            fn get_Guide(&self, #[out] #[retval] #[out_ptr] RecognizerGuide: *mut IInkRecognizerGuide) -> HRESULT;
+            fn get_Guide(&self, #[out] #[out_ptr] #[retval] RecognizerGuide: *mut IInkRecognizerGuide) -> HRESULT;
             fn putref_Guide(&self, #[in] #[opt] RecognizerGuide: IInkRecognizerGuide) -> HRESULT;
-            fn get_PrefixText(&self, #[out] #[retval] #[out_ptr] Prefix: *mut BSTR) -> HRESULT;
+            fn get_PrefixText(&self, #[out] #[out_ptr] #[retval] Prefix: *mut BSTR) -> HRESULT;
             fn put_PrefixText(&self, #[in] Prefix: BSTR) -> HRESULT;
-            fn get_SuffixText(&self, #[out] #[retval] #[out_ptr] Suffix: *mut BSTR) -> HRESULT;
+            fn get_SuffixText(&self, #[out] #[out_ptr] #[retval] Suffix: *mut BSTR) -> HRESULT;
             fn put_SuffixText(&self, #[in] Suffix: BSTR) -> HRESULT;
             fn get_RecognitionFlags(&self, #[out] #[retval] Modes: *mut InkRecognitionModes) -> HRESULT;
             fn put_RecognitionFlags(&self, #[in] Modes: InkRecognitionModes) -> HRESULT;
-            fn get_WordList(&self, #[out] #[retval] #[out_ptr] WordList: *mut IInkWordList) -> HRESULT;
+            fn get_WordList(&self, #[out] #[out_ptr] #[retval] WordList: *mut IInkWordList) -> HRESULT;
             fn putref_WordList(&self, #[in] #[opt] WordList: IInkWordList) -> HRESULT;
-            fn get_Recognizer(&self, #[out] #[retval] #[out_ptr] Recognizer: *mut IInkRecognizer) -> HRESULT;
-            fn Recognize(&self, #[in] #[out] RecognitionStatus: *mut InkRecognitionStatus, #[out] #[retval] #[out_ptr] RecognitionResult: *mut IInkRecognitionResult) -> HRESULT;
+            fn get_Recognizer(&self, #[out] #[out_ptr] #[retval] Recognizer: *mut IInkRecognizer) -> HRESULT;
+            fn Recognize(&self, #[in] #[out] RecognitionStatus: *mut InkRecognitionStatus, #[out] #[out_ptr] #[retval] RecognitionResult: *mut IInkRecognitionResult) -> HRESULT;
             fn StopBackgroundRecognition(&self) -> HRESULT;
             fn EndInkInput(&self) -> HRESULT;
             fn BackgroundRecognize(&self, #[in] CustomData: VARIANT) -> HRESULT;
             fn BackgroundRecognizeWithAlternates(&self, #[in] CustomData: VARIANT) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] RecoContext: *mut IInkRecognizerContext) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] RecoContext: *mut IInkRecognizerContext) -> HRESULT;
             fn IsStringSupported(&self, #[in] String: BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xd6f0e32f_73d8_408e_8e9f_5fea592c363f)]
@@ -897,9 +897,9 @@ mod Windows {
         }
         #[guid(0xd934be07_7b84_4208_9136_83c20994e905)]
         interface IInkRecognizerGuide: IDispatch {
-            fn get_WritingBox(&self, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
+            fn get_WritingBox(&self, #[out] #[out_ptr] #[retval] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn put_WritingBox(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
-            fn get_DrawnBox(&self, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
+            fn get_DrawnBox(&self, #[out] #[out_ptr] #[retval] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn put_DrawnBox(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
             fn get_Rows(&self, #[out] #[retval] Units: *mut i32) -> HRESULT;
             fn put_Rows(&self, #[in] Units: i32) -> HRESULT;
@@ -913,9 +913,9 @@ mod Windows {
         #[guid(0x9ccc4f12_b0b7_4a8b_bf58_4aeca4e8cefd)]
         interface IInkRecognizers: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn GetDefaultRecognizer(&self, #[in] lcid: i32, #[out] #[retval] #[out_ptr] DefaultRecognizer: *mut IInkRecognizer) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] InkRecognizer: *mut IInkRecognizer) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn GetDefaultRecognizer(&self, #[in] lcid: i32, #[out] #[out_ptr] #[retval] DefaultRecognizer: *mut IInkRecognizer) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] InkRecognizer: *mut IInkRecognizer) -> HRESULT;
         }
         #[guid(0x9794ff82_6071_4717_8a8b_6ac7c64a686e)]
         interface IInkRectangle: IDispatch {
@@ -944,8 +944,8 @@ mod Windows {
             fn InkSpaceToPixel(&self, #[in] hdcDisplay: LONG_PTR, #[in] #[out] x: *mut i32, #[in] #[out] y: *mut i32) -> HRESULT;
             fn PixelToInkSpaceFromPoints(&self, #[in] hDC: LONG_PTR, #[in] #[out] Points: *mut VARIANT) -> HRESULT;
             fn InkSpaceToPixelFromPoints(&self, #[in] hDC: LONG_PTR, #[in] #[out] Points: *mut VARIANT) -> HRESULT;
-            fn Measure(&self, #[in] #[opt] Strokes: IInkStrokes, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
-            fn MeasureStroke(&self, #[in] #[opt] Stroke: IInkStrokeDisp, #[in] #[opt] DrawingAttributes: IInkDrawingAttributes, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
+            fn Measure(&self, #[in] #[opt] Strokes: IInkStrokes, #[out] #[out_ptr] #[retval] Rectangle: *mut IInkRectangle) -> HRESULT;
+            fn MeasureStroke(&self, #[in] #[opt] Stroke: IInkStrokeDisp, #[in] #[opt] DrawingAttributes: IInkDrawingAttributes, #[out] #[out_ptr] #[retval] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn Move(&self, #[in] HorizontalComponent: f32, #[in] VerticalComponent: f32) -> HRESULT;
             fn Rotate(&self, #[in] Degrees: f32, #[in] x: f32, #[in] y: f32) -> HRESULT;
             fn ScaleTransform(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32, #[in] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
@@ -954,10 +954,10 @@ mod Windows {
         interface IInkStrokeDisp: IDispatch {
             fn get_ID(&self, #[out] #[retval] ID: *mut i32) -> HRESULT;
             fn get_BezierPoints(&self, #[out] #[retval] Points: *mut VARIANT) -> HRESULT;
-            fn get_DrawingAttributes(&self, #[out] #[retval] #[out_ptr] DrawAttrs: *mut IInkDrawingAttributes) -> HRESULT;
+            fn get_DrawingAttributes(&self, #[out] #[out_ptr] #[retval] DrawAttrs: *mut IInkDrawingAttributes) -> HRESULT;
             fn putref_DrawingAttributes(&self, #[in] #[opt] DrawAttrs: IInkDrawingAttributes) -> HRESULT;
-            fn get_Ink(&self, #[out] #[retval] #[out_ptr] Ink: *mut IInkDisp) -> HRESULT;
-            fn get_ExtendedProperties(&self, #[out] #[retval] #[out_ptr] Properties: *mut IInkExtendedProperties) -> HRESULT;
+            fn get_Ink(&self, #[out] #[out_ptr] #[retval] Ink: *mut IInkDisp) -> HRESULT;
+            fn get_ExtendedProperties(&self, #[out] #[out_ptr] #[retval] Properties: *mut IInkExtendedProperties) -> HRESULT;
             fn get_PolylineCusps(&self, #[out] #[retval] Cusps: *mut VARIANT) -> HRESULT;
             fn get_BezierCusps(&self, #[out] #[retval] Cusps: *mut VARIANT) -> HRESULT;
             fn get_SelfIntersections(&self, #[out] #[retval] Intersections: *mut VARIANT) -> HRESULT;
@@ -965,13 +965,13 @@ mod Windows {
             fn get_PacketSize(&self, #[out] #[retval] plSize: *mut i32) -> HRESULT;
             fn get_PacketDescription(&self, #[out] #[retval] PacketDescription: *mut VARIANT) -> HRESULT;
             fn get_Deleted(&self, #[out] #[retval] Deleted: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
+            fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[out_ptr] #[retval] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn FindIntersections(&self, #[in] #[opt] Strokes: IInkStrokes, #[out] #[retval] Intersections: *mut VARIANT) -> HRESULT;
             fn GetRectangleIntersections(&self, #[in] #[opt] Rectangle: IInkRectangle, #[out] #[retval] Intersections: *mut VARIANT) -> HRESULT;
             fn Clip(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
             fn HitTestCircle(&self, #[in] X: i32, #[in] Y: i32, #[in] Radius: f32, #[out] #[retval] Intersects: *mut VARIANT_BOOL) -> HRESULT;
             fn NearestPoint(&self, #[in] X: i32, #[in] Y: i32, #[in] #[out] Distance: *mut f32, #[out] #[retval] Point: *mut f32) -> HRESULT;
-            fn Split(&self, #[in] SplitAt: f32, #[out] #[retval] #[out_ptr] NewStroke: *mut IInkStrokeDisp) -> HRESULT;
+            fn Split(&self, #[in] SplitAt: f32, #[out] #[out_ptr] #[retval] NewStroke: *mut IInkStrokeDisp) -> HRESULT;
             fn GetPacketDescriptionPropertyMetrics(&self, #[in] PropertyName: BSTR, #[out] Minimum: *mut i32, #[out] Maximum: *mut i32, #[out] Units: *mut TabletPropertyMetricUnit, #[out] Resolution: *mut f32) -> HRESULT;
             fn GetPoints(&self, #[in] Index: i32, #[in] Count: i32, #[out] #[retval] Points: *mut VARIANT) -> HRESULT;
             fn SetPoints(&self, #[in] Points: VARIANT, #[in] Index: i32, #[in] Count: i32, #[out] #[retval] NumberOfPointsSet: *mut i32) -> HRESULT;
@@ -989,17 +989,17 @@ mod Windows {
         #[guid(0xf1f4c9d8_590a_4963_b3ae_1935671bb6f3)]
         interface IInkStrokes: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn get_Ink(&self, #[out] #[retval] #[out_ptr] Ink: *mut IInkDisp) -> HRESULT;
-            fn get_RecognitionResult(&self, #[out] #[retval] #[out_ptr] RecognitionResult: *mut IInkRecognitionResult) -> HRESULT;
-            fn ToString(&self, #[out] #[retval] #[out_ptr] ToString: *mut BSTR) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Stroke: *mut IInkStrokeDisp) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn get_Ink(&self, #[out] #[out_ptr] #[retval] Ink: *mut IInkDisp) -> HRESULT;
+            fn get_RecognitionResult(&self, #[out] #[out_ptr] #[retval] RecognitionResult: *mut IInkRecognitionResult) -> HRESULT;
+            fn ToString(&self, #[out] #[out_ptr] #[retval] ToString: *mut BSTR) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Stroke: *mut IInkStrokeDisp) -> HRESULT;
             fn Add(&self, #[in] #[opt] InkStroke: IInkStrokeDisp) -> HRESULT;
             fn AddStrokes(&self, #[in] #[opt] InkStrokes: IInkStrokes) -> HRESULT;
             fn Remove(&self, #[in] #[opt] InkStroke: IInkStrokeDisp) -> HRESULT;
             fn RemoveStrokes(&self, #[in] #[opt] InkStrokes: IInkStrokes) -> HRESULT;
             fn ModifyDrawingAttributes(&self, #[in] #[opt] DrawAttrs: IInkDrawingAttributes) -> HRESULT;
-            fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[retval] #[out_ptr] BoundingBox: *mut IInkRectangle) -> HRESULT;
+            fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[out_ptr] #[retval] BoundingBox: *mut IInkRectangle) -> HRESULT;
             fn Transform(&self, #[in] #[opt] Transform: IInkTransform, #[in] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
             fn ScaleToRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
             fn Move(&self, #[in] HorizontalComponent: f32, #[in] VerticalComponent: f32) -> HRESULT;
@@ -1011,9 +1011,9 @@ mod Windows {
         }
         #[guid(0x2de25eaa_6ef8_42d5_aee9_185bc81b912d)]
         interface IInkTablet: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
-            fn get_PlugAndPlayId(&self, #[out] #[retval] #[out_ptr] Id: *mut BSTR) -> HRESULT;
-            fn get_MaximumInputRectangle(&self, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
+            fn get_PlugAndPlayId(&self, #[out] #[out_ptr] #[retval] Id: *mut BSTR) -> HRESULT;
+            fn get_MaximumInputRectangle(&self, #[out] #[out_ptr] #[retval] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn get_HardwareCapabilities(&self, #[out] #[retval] Capabilities: *mut TabletHardwareCapabilities) -> HRESULT;
             fn IsPacketPropertySupported(&self, #[in] packetPropertyName: BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetPropertyMetrics(&self, #[in] propertyName: BSTR, #[out] Minimum: *mut i32, #[out] Maximum: *mut i32, #[out] Units: *mut TabletPropertyMetricUnit, #[out] Resolution: *mut f32) -> HRESULT;
@@ -1030,9 +1030,9 @@ mod Windows {
         #[guid(0x112086d9_7779_4535_a699_862b43ac1863)]
         interface IInkTablets: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] _NewEnum: *mut IUnknown) -> HRESULT;
-            fn get_DefaultTablet(&self, #[out] #[retval] #[out_ptr] DefaultTablet: *mut IInkTablet) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Tablet: *mut IInkTablet) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] _NewEnum: *mut IUnknown) -> HRESULT;
+            fn get_DefaultTablet(&self, #[out] #[out_ptr] #[retval] DefaultTablet: *mut IInkTablet) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Tablet: *mut IInkTablet) -> HRESULT;
             fn IsPacketPropertySupported(&self, #[in] packetPropertyName: BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x615f1d43_8703_4565_88e2_8201d2ecd7b7)]

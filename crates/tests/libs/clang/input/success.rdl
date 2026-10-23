@@ -3,8 +3,8 @@ mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "1", "1")]
     #[library("fixture.dll")]
     extern "C" fn Always() -> i32;
-    #[success(return != 0)]
     #[library("fixture.dll")]
+    #[success(return != 0)]
     extern "C" fn BoolTruth() -> bool;
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < capacity", "return != 0 && return < capacity")]
     #[library("fixture.dll")]
@@ -28,20 +28,20 @@ mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0", TypedefName = "Callback")]
     extern fn ConflictingCallback() -> i32;
     type CopyStatus = Status;
+    #[library("fixture.dll")]
     #[success(return == 0)]
-    #[library("fixture.dll")]
     extern "C" fn Duplicate() -> i32;
+    #[library("fixture.dll")]
     #[success(return >= 0)]
-    #[library("fixture.dll")]
     extern "C" fn EnumResult() -> Code;
-    #[success(return == 1)]
     #[library("fixture.dll")]
+    #[success(return == 1)]
     extern "C" fn ExactOne() -> i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == ZERO", "return == 0")]
     #[library("fixture.dll")]
     extern "C" fn Expanded() -> i32;
-    #[success(return != 0)]
     #[library("fixture.dll")]
+    #[success(return != 0)]
     extern "C" fn FalseTruth() -> i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return == 0", "return == 0")]
     type FloatStatus = f32;
@@ -60,26 +60,26 @@ mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0")]
     #[library("fixture.dll")]
     extern "C" fn InvalidPointer() -> *mut void;
-    #[success(return == 0)]
     #[library("fixture.dll")]
+    #[success(return == 0)]
     extern "C" fn LegacyZero() -> u32;
-    #[repr(i32)]
     #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0", TypedefName = "NamedStatus")]
+    #[repr(i32)]
     enum NamedStatus {
         NamedBad = -1,
         NamedGood = 0,
     }
+    #[library("fixture.dll")]
     #[success(return != 0)]
-    #[library("fixture.dll")]
     extern "C" fn NonNull() -> *mut void;
-    #[success(return == 0)]
     #[library("fixture.dll")]
+    #[success(return == 0)]
     extern "C" fn NullSuccess() -> *mut void;
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 1", "return == 1")]
     #[library("fixture.dll")]
     extern "C" fn OnePointer() -> *mut void;
-    #[success(return == 0)]
     #[library("fixture.dll")]
+    #[success(return == 0)]
     extern "C" fn Override() -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_Return_type_success_", "return >= 0", "return >= 0")]
     type PStatus = *mut i32;
@@ -89,8 +89,8 @@ mod Fixture {
     #[library("fixture.dll")]
     extern "C" fn Partial() -> i32;
     type PointerCopy = *mut i32;
-    #[success(return > 0)]
     #[library("fixture.dll")]
+    #[success(return > 0)]
     extern "C" fn Positive() -> i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == 0", "return == 0", Modifiers = "_Post_")]
     #[library("fixture.dll")]
@@ -104,13 +104,13 @@ mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return >= 0", "return >= 0")]
     #[library("fixture.dll")]
     extern "C" fn ScopedEnumResult() -> ScopedCode;
-    #[success(return >= 0)]
     #[library("fixture.dll")]
+    #[success(return >= 0)]
     extern "C" fn SignedResult() -> i32;
     #[success(return >= 0)]
     type Status = i32;
-    #[success(return != 0)]
     #[library("fixture.dll")]
+    #[success(return != 0)]
     extern "C" fn Truth() -> i32;
     #[library("fixture.dll")]
     extern "C" fn UnresolvedDefault() -> CompetingStatus;

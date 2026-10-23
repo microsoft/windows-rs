@@ -167,8 +167,8 @@ mod Fixture {
     }
     #[arch(Arm64)]
     type CONTEXT = ARM64_NT_CONTEXT;
-    #[packed(4)]
     #[arch(X86)]
+    #[packed(4)]
     struct CONTEXT {
         ContextFlags: DWORD,
         Dr0: DWORD,

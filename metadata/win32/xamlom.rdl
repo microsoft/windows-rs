@@ -39,7 +39,7 @@ mod Windows {
         }
         #[guid(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf)]
         interface IBitmapData: IUnknown {
-            fn CopyBytesTo(&self, #[in] sourceOffsetInBytes: u32, #[in] maxBytesToCopy: u32, #[out] #[writable(entry, maxBytesToCopy)] #[writable(success, maxBytesToCopy)] #[readable(success, maxBytesToCopy)] pvBytes: *mut byte, #[out] numberOfBytesCopied: *mut u32) -> HRESULT;
+            fn CopyBytesTo(&self, #[in] sourceOffsetInBytes: u32, #[in] maxBytesToCopy: u32, #[out] #[readable(success, maxBytesToCopy)] #[writable(entry, maxBytesToCopy)] #[writable(success, maxBytesToCopy)] pvBytes: *mut byte, #[out] numberOfBytesCopied: *mut u32) -> HRESULT;
             fn GetStride(&self, #[out] pStride: *mut u32) -> HRESULT;
             fn GetBitmapDescription(&self, #[out] pBitmapDescription: *mut BitmapDescription) -> HRESULT;
             fn GetSourceBitmapDescription(&self, #[out] pBitmapDescription: *mut BitmapDescription) -> HRESULT;
@@ -48,13 +48,13 @@ mod Windows {
         interface IVisualTreeService: IUnknown {
             fn AdviseVisualTreeChange(&self, #[in] #[opt] pCallback: IVisualTreeServiceCallback) -> HRESULT;
             fn UnadviseVisualTreeChange(&self, #[in] #[opt] pCallback: IVisualTreeServiceCallback) -> HRESULT;
-            fn GetEnums(&self, #[out] pCount: *mut u32, #[out] #[nullable(entry, indirect)] #[writable(success, *pCount, indirect, nullable)] #[readable(success, *pCount, indirect, nullable)] ppEnums: *mut *mut EnumType) -> HRESULT;
+            fn GetEnums(&self, #[out] pCount: *mut u32, #[nullable(entry, indirect)] #[out] #[readable(success, *pCount, indirect, nullable)] #[writable(success, *pCount, indirect, nullable)] ppEnums: *mut *mut EnumType) -> HRESULT;
             fn CreateInstance(&self, #[in] typeName: BSTR, #[in] value: BSTR, #[out] #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
-            fn GetPropertyValuesChain(&self, #[in] instanceHandle: InstanceHandle, #[out] pSourceCount: *mut u32, #[out] #[nullable(entry, indirect)] #[writable(success, *pSourceCount, indirect, nullable)] #[readable(success, *pSourceCount, indirect, nullable)] ppPropertySources: *mut *mut PropertyChainSource, #[out] pPropertyCount: *mut u32, #[out] #[nullable(entry, indirect)] #[writable(success, *pPropertyCount, indirect, nullable)] #[readable(success, *pPropertyCount, indirect, nullable)] ppPropertyValues: *mut *mut PropertyChainValue) -> HRESULT;
+            fn GetPropertyValuesChain(&self, #[in] instanceHandle: InstanceHandle, #[out] pSourceCount: *mut u32, #[nullable(entry, indirect)] #[out] #[readable(success, *pSourceCount, indirect, nullable)] #[writable(success, *pSourceCount, indirect, nullable)] ppPropertySources: *mut *mut PropertyChainSource, #[out] pPropertyCount: *mut u32, #[nullable(entry, indirect)] #[out] #[readable(success, *pPropertyCount, indirect, nullable)] #[writable(success, *pPropertyCount, indirect, nullable)] ppPropertyValues: *mut *mut PropertyChainValue) -> HRESULT;
             fn SetProperty(&self, #[in] instanceHandle: InstanceHandle, #[in] value: InstanceHandle, #[in] propertyIndex: u32) -> HRESULT;
             fn ClearProperty(&self, #[in] instanceHandle: InstanceHandle, #[in] propertyIndex: u32) -> HRESULT;
             fn GetCollectionCount(&self, #[in] instanceHandle: InstanceHandle, #[out] pCollectionSize: *mut u32) -> HRESULT;
-            fn GetCollectionElements(&self, #[in] instanceHandle: InstanceHandle, #[in] startIndex: u32, #[in] #[out] pElementCount: *mut u32, #[out] #[nullable(entry, indirect)] #[writable(success, *pElementCount, indirect, nullable)] #[readable(success, *pElementCount, indirect, nullable)] ppElementValues: *mut *mut CollectionElementValue) -> HRESULT;
+            fn GetCollectionElements(&self, #[in] instanceHandle: InstanceHandle, #[in] startIndex: u32, #[in] #[out] pElementCount: *mut u32, #[nullable(entry, indirect)] #[out] #[readable(success, *pElementCount, indirect, nullable)] #[writable(success, *pElementCount, indirect, nullable)] ppElementValues: *mut *mut CollectionElementValue) -> HRESULT;
             fn AddChild(&self, #[in] parent: InstanceHandle, #[in] child: InstanceHandle, #[in] index: u32) -> HRESULT;
             fn RemoveChild(&self, #[in] parent: InstanceHandle, #[in] index: u32) -> HRESULT;
             fn ClearChildren(&self, #[in] parent: InstanceHandle) -> HRESULT;
@@ -83,17 +83,17 @@ mod Windows {
         }
         #[guid(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2)]
         interface IXamlDiagnostics: IUnknown {
-            fn GetDispatcher(&self, #[out] #[retval] #[out_ptr] ppDispatcher: *mut IInspectable) -> HRESULT;
-            fn GetUiLayer(&self, #[out] #[retval] #[out_ptr] ppLayer: *mut IInspectable) -> HRESULT;
-            fn GetApplication(&self, #[out] #[retval] #[out_ptr] ppApplication: *mut IInspectable) -> HRESULT;
-            fn GetIInspectableFromHandle(&self, #[in] instanceHandle: InstanceHandle, #[out] #[retval] #[out_ptr] ppInstance: *mut IInspectable) -> HRESULT;
+            fn GetDispatcher(&self, #[out] #[out_ptr] #[retval] ppDispatcher: *mut IInspectable) -> HRESULT;
+            fn GetUiLayer(&self, #[out] #[out_ptr] #[retval] ppLayer: *mut IInspectable) -> HRESULT;
+            fn GetApplication(&self, #[out] #[out_ptr] #[retval] ppApplication: *mut IInspectable) -> HRESULT;
+            fn GetIInspectableFromHandle(&self, #[in] instanceHandle: InstanceHandle, #[out] #[out_ptr] #[retval] ppInstance: *mut IInspectable) -> HRESULT;
             fn GetHandleFromIInspectable(&self, #[in] #[opt] pInstance: IInspectable, #[out] #[retval] pHandle: *mut InstanceHandle) -> HRESULT;
-            fn HitTest(&self, #[in] rect: RECT, #[out] pCount: *mut u32, #[out] #[nullable(entry, indirect)] #[writable(success, *pCount, indirect, nullable)] #[readable(success, *pCount, indirect, nullable)] ppInstanceHandles: *mut *mut InstanceHandle) -> HRESULT;
+            fn HitTest(&self, #[in] rect: RECT, #[out] pCount: *mut u32, #[nullable(entry, indirect)] #[out] #[readable(success, *pCount, indirect, nullable)] #[writable(success, *pCount, indirect, nullable)] ppInstanceHandles: *mut *mut InstanceHandle) -> HRESULT;
             fn RegisterInstance(&self, #[in] #[opt] pInstance: IInspectable, #[out] #[retval] pInstanceHandle: *mut InstanceHandle) -> HRESULT;
-            fn GetInitializationData(&self, #[out] #[retval] #[out_ptr] pInitializationData: *mut BSTR) -> HRESULT;
+            fn GetInitializationData(&self, #[out] #[out_ptr] #[retval] pInitializationData: *mut BSTR) -> HRESULT;
         }
-        #[must_use]
         #[library("Windows.UI.Xaml.dll")]
+        #[must_use]
         extern "C" fn InitializeXamlDiagnosticsEx(#[in] endPointName: LPCWSTR, #[in] pid: DWORD, #[in] wszDllXamlDiagnostics: LPCWSTR, #[in] wszTAPDllName: LPCWSTR, #[in] tapClsid: CLSID, #[in] wszInitializationData: LPCWSTR) -> HRESULT;
         type InstanceHandle = u64;
         #[repr(i32)]

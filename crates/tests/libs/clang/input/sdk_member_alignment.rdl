@@ -76,8 +76,8 @@ mod Fixture {
             },
         },
     }
-    #[repr(i32)]
     #[arch(X64 | Arm64)]
+    #[repr(i32)]
     enum WHV_NESTED_STATE_TYPE {
         WHvNestedStateTypeVmx = 0,
         WHvNestedStateTypeSvm = 1,
@@ -101,8 +101,8 @@ mod Fixture {
         VirtualTpr: UINT64,
         Reserved: [UINT64; 6],
     }
-    #[packed(1)]
     #[arch(X64 | Arm64)]
+    #[packed(1)]
     struct WHV_SVM_VMCB_SELECTOR {
         Selector: UINT16,
         Attrib: UINT16,

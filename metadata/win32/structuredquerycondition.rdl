@@ -29,21 +29,21 @@ mod Windows {
         #[guid(0x0fc988d4_c935_4b97_a973_46282ea175c8)]
         interface ICondition: IPersistStream {
             fn GetConditionType(&self, #[out] #[retval] pNodeType: *mut CONDITION_TYPE) -> HRESULT;
-            fn GetSubConditions(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn GetComparisonInfo(&self, #[out] #[opt] #[out_ptr(nullable)] ppszPropertyName: *mut LPWSTR, #[out] #[opt] pcop: *mut CONDITION_OPERATION, #[out] #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
-            fn GetValueType(&self, #[out] #[retval] #[out_ptr] ppszValueTypeName: *mut LPWSTR) -> HRESULT;
-            fn GetValueNormalization(&self, #[out] #[retval] #[out_ptr] ppszNormalization: *mut LPWSTR) -> HRESULT;
-            fn GetInputTerms(&self, #[out] #[opt] ppPropertyTerm: *mut IRichChunk, #[out] #[opt] ppOperationTerm: *mut IRichChunk, #[out] #[opt] ppValueTerm: *mut IRichChunk) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] ppc: *mut ICondition) -> HRESULT;
+            fn GetSubConditions(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] ppv: *mut *mut void) -> HRESULT;
+            fn GetComparisonInfo(&self, #[opt] #[out] #[out_ptr(nullable)] ppszPropertyName: *mut LPWSTR, #[opt] #[out] pcop: *mut CONDITION_OPERATION, #[opt] #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetValueType(&self, #[out] #[out_ptr] #[retval] ppszValueTypeName: *mut LPWSTR) -> HRESULT;
+            fn GetValueNormalization(&self, #[out] #[out_ptr] #[retval] ppszNormalization: *mut LPWSTR) -> HRESULT;
+            fn GetInputTerms(&self, #[opt] #[out] ppPropertyTerm: *mut IRichChunk, #[opt] #[out] ppOperationTerm: *mut IRichChunk, #[opt] #[out] ppValueTerm: *mut IRichChunk) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] ppc: *mut ICondition) -> HRESULT;
         }
         #[guid(0x0db8851d_2e5b_47eb_9208_d28c325a01d7)]
         interface ICondition2: ICondition {
             fn GetLocale(&self, #[out] #[out_ptr] ppszLocaleName: *mut LPWSTR) -> HRESULT;
-            fn GetLeafConditionInfo(&self, #[out] #[opt] ppropkey: *mut PROPERTYKEY, #[out] #[opt] pcop: *mut CONDITION_OPERATION, #[out] #[opt] ppropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetLeafConditionInfo(&self, #[opt] #[out] ppropkey: *mut PROPERTYKEY, #[opt] #[out] pcop: *mut CONDITION_OPERATION, #[opt] #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         }
         #[guid(0x4fdef69c_dbc9_454e_9910_b34f3c64b510)]
         interface IRichChunk: IUnknown {
-            fn GetData(&self, #[out] #[opt] pFirstPos: *mut ULONG, #[out] #[opt] pLength: *mut ULONG, #[out] #[opt] #[out_ptr(nullable)] ppsz: *mut LPWSTR, #[out] #[opt] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetData(&self, #[opt] #[out] pFirstPos: *mut ULONG, #[opt] #[out] pLength: *mut ULONG, #[opt] #[out] #[out_ptr(nullable)] ppsz: *mut LPWSTR, #[opt] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
         }
     }
 }

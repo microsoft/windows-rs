@@ -1001,8 +1001,8 @@ fn sdk_bcrypt() {
     assert_eq!(rdl.matches("fn BCryptDeleteContext(").count(), 1);
     assert_eq!(rdl.matches("fn BCryptFinishHash(").count(), 1);
     assert!(rdl.contains("extern fn BCryptDeleteContext("));
-    assert!(rdl.contains("#[opt] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXTS"), "{rdl}");
-    assert!(rdl.contains("#[out] #[writable(entry, bytes(cbOutput))] #[readable(success, bytes(cbOutput))] pbOutput: PUCHAR"), "{rdl}");
+    assert!(rdl.contains("#[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXTS"), "{rdl}");
+    assert!(rdl.contains("#[out] #[readable(success, bytes(cbOutput))] #[writable(entry, bytes(cbOutput))] pbOutput: PUCHAR"), "{rdl}");
     roundtrip("sdk_bcrypt", &output, |index, _| {
         let method = index
             .expect("Fixture", "Apis")

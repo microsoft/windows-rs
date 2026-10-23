@@ -39,9 +39,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::IStorageItemPropertiesWithProvider,
             }
-            #[guid(0x401d88be_960f_4d6d_a7d0_1a3861e76c83)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileInformationFactory)]
+            #[guid(0x401d88be_960f_4d6d_a7d0_1a3861e76c83)]
             interface IFileInformationFactory {
                 #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -65,17 +65,17 @@ mod Windows {
                 fn GetVirtualizedFilesVector(&self) -> Object;
                 fn GetVirtualizedFoldersVector(&self) -> Object;
             }
-            #[guid(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileInformationFactory)]
+            #[guid(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5)]
             interface IFileInformationFactoryFactory {
                 fn CreateWithMode(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode) -> FileInformationFactory;
                 fn CreateWithModeAndSize(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode, #[in] requestedThumbnailSize: u32) -> FileInformationFactory;
                 fn CreateWithModeAndSizeAndOptions(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode, #[in] requestedThumbnailSize: u32, #[in] thumbnailOptions: super::FileProperties::ThumbnailOptions) -> FileInformationFactory;
                 fn CreateWithModeAndSizeAndOptionsAndFlags(&self, #[in] queryResult: super::Search::IStorageQueryResultBase, #[in] mode: super::FileProperties::ThumbnailMode, #[in] requestedThumbnailSize: u32, #[in] thumbnailOptions: super::FileProperties::ThumbnailOptions, #[in] delayLoad: bool) -> FileInformationFactory;
             }
-            #[guid(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa)]
             interface IStorageItemInformation {
                 #[get]
                 MusicProperties: super::FileProperties::MusicProperties;

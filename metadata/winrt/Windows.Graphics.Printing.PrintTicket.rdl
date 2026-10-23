@@ -3,9 +3,9 @@ mod Windows {
     mod Graphics {
         mod Printing {
             mod PrintTicket {
-                #[guid(0x8c45508b_bbdc_4256_a142_2fd615ecb416)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketCapabilities)]
+                #[guid(0x8c45508b_bbdc_4256_a142_2fd615ecb416)]
                 interface IPrintTicketCapabilities {
                     #[get]
                     Name: String;
@@ -46,9 +46,9 @@ mod Windows {
                     fn GetFeature(&self, #[in] name: String, #[in] xmlNamespace: String) -> PrintTicketFeature;
                     fn GetParameterDefinition(&self, #[in] name: String, #[in] xmlNamespace: String) -> PrintTicketParameterDefinition;
                 }
-                #[guid(0xe7607d6a_59f5_4103_8858_b97710963d39)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketFeature)]
+                #[guid(0xe7607d6a_59f5_4103_8858_b97710963d39)]
                 interface IPrintTicketFeature {
                     #[get]
                     Name: String;
@@ -66,9 +66,9 @@ mod Windows {
                     #[get]
                     SelectionType: PrintTicketFeatureSelectionType;
                 }
-                #[guid(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketOption)]
+                #[guid(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce)]
                 interface IPrintTicketOption {
                     #[get]
                     Name: String;
@@ -83,9 +83,9 @@ mod Windows {
                     fn GetPropertyValue(&self, #[in] name: String, #[in] xmlNamespace: String) -> PrintTicketValue;
                     fn GetScoredPropertyValue(&self, #[in] name: String, #[in] xmlNamespace: String) -> PrintTicketValue;
                 }
-                #[guid(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketParameterDefinition)]
+                #[guid(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335)]
                 interface IPrintTicketParameterDefinition {
                     #[get]
                     Name: String;
@@ -102,9 +102,9 @@ mod Windows {
                     #[get]
                     RangeMax: i32;
                 }
-                #[guid(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketParameterInitializer)]
+                #[guid(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a)]
                 interface IPrintTicketParameterInitializer {
                     #[get]
                     Name: String;
@@ -117,18 +117,18 @@ mod Windows {
                     #[get]
                     Value: PrintTicketValue;
                 }
-                #[guid(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketValue)]
+                #[guid(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91)]
                 interface IPrintTicketValue {
                     #[get]
                     Type: PrintTicketValueType;
                     fn GetValueAsInteger(&self) -> i32;
                     fn GetValueAsString(&self) -> String;
                 }
-                #[guid(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
+                #[guid(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c)]
                 interface IWorkflowPrintTicket {
                     #[get]
                     Name: String;
@@ -177,16 +177,16 @@ mod Windows {
                     fn SetParameterInitializerAsString(&self, #[in] name: String, #[in] xmlNamespace: String, #[in] stringValue: String) -> PrintTicketParameterInitializer;
                     fn MergeAndValidateTicket(&self, #[in] deltaShemaTicket: WorkflowPrintTicket) -> WorkflowPrintTicket;
                 }
-                #[guid(0x966d1166_d9c7_569e_b7d8_f2b341c8f976)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x966d1166_d9c7_569e_b7d8_f2b341c8f976)]
                 interface IWorkflowPrintTicketFactory {
                     fn CreateInstance(&self, #[in] printerName: String, #[in] printTicketStream: super::super::super::Storage::Streams::IInputStream) -> WorkflowPrintTicket;
                 }
-                #[guid(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicketValidationResult)]
+                #[guid(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059)]
                 interface IWorkflowPrintTicketValidationResult {
                     #[get]
                     Validated: bool;
@@ -205,8 +205,8 @@ mod Windows {
                 class PrintTicketFeature {
                     IPrintTicketFeature,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[repr(i32)]
                 enum PrintTicketFeatureSelectionType {
                     PickOne = 0,
                     PickMany = 1,
@@ -217,8 +217,8 @@ mod Windows {
                 class PrintTicketOption {
                     IPrintTicketOption,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[repr(i32)]
                 enum PrintTicketParameterDataType {
                     Integer = 0,
                     NumericString = 1,
@@ -242,8 +242,8 @@ mod Windows {
                 class PrintTicketValue {
                     IPrintTicketValue,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[repr(i32)]
                 enum PrintTicketValueType {
                     Integer = 0,
                     String = 1,

@@ -14,8 +14,12 @@ mod StructDirections {
         Width: IReference<i32>,
     }
 
-    delegate fn PairHandler(value: Pair, borrowed: &Pair, output: &mut Pair) -> Pair;
-    delegate fn LabelHandler(value: Label, borrowed: &Label, output: &mut Label) -> Label;
+    delegate fn PairHandler(
+        #[in] value: Pair, #[in] borrowed: &Pair, #[out] output: &mut Pair
+    ) -> Pair;
+    delegate fn LabelHandler(
+        #[in] value: Label, #[in] borrowed: &Label, #[out] output: &mut Label
+    ) -> Label;
 
     #[Activatable(1)]
     class Widget {
@@ -27,10 +31,14 @@ mod StructDirections {
         // Output adds coordinates; the return value subtracts borrowed from value.
         // For labels, output joins value.Text + borrowed.Text and retains value.Width.
         // The return value joins borrowed.Text + value.Text and retains borrowed.Width.
-        fn ProcessPair(&self, value: Pair, borrowed: &Pair, output: &mut Pair) -> Pair;
-        fn ProcessLabel(&self, value: Label, borrowed: &Label, output: &mut Label) -> Label;
+        fn ProcessPair(
+            &self, #[in] value: Pair, #[in] borrowed: &Pair, #[out] output: &mut Pair
+        ) -> Pair;
+        fn ProcessLabel(
+            &self, #[in] value: Label, #[in] borrowed: &Label, #[out] output: &mut Label
+        ) -> Label;
 
-        fn CheckPair(&self, handler: PairHandler);
-        fn CheckLabel(&self, handler: LabelHandler);
+        fn CheckPair(&self, #[in] handler: PairHandler);
+        fn CheckLabel(&self, #[in] handler: LabelHandler);
     }
 }

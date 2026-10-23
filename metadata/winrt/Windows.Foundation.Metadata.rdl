@@ -40,9 +40,9 @@ mod Windows {
             attribute AttributeNameAttribute {
                 fn(#[in] A_0: String);
             }
-            #[repr(u32)]
-            #[flags]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum AttributeTargets {
                 All = 4294967295,
                 Delegate = 1,
@@ -71,8 +71,8 @@ mod Windows {
                 fn(#[in] r#type: Type, #[in] compositionType: CompositionType, #[in] version: u32, #[in] platform: Platform);
                 fn(#[in] r#type: Type, #[in] compositionType: CompositionType, #[in] version: u32, #[in] contract: String);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum CompositionType {
                 Protected = 1,
                 Public = 2,
@@ -111,8 +111,8 @@ mod Windows {
                 fn(#[in] message: String, #[in] r#type: DeprecationType, #[in] version: u32, #[in] platform: Platform);
                 fn(#[in] message: String, #[in] r#type: DeprecationType, #[in] version: u32, #[in] contract: String);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum DeprecationType {
                 Deprecate = 0,
                 Remove = 1,
@@ -144,18 +144,18 @@ mod Windows {
             #[AttributeUsage(InterfaceImpl | Struct | RuntimeClass | Method | Interface | Field | Enum | Delegate)]
             #[ContractVersion(super::FoundationContract, 196608)]
             attribute FeatureAttribute {
-                fn(#[in] featureStage: FeatureStage, #[in] validInAllBranches: bool);
+                fn(featureStage: FeatureStage, validInAllBranches: bool);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 196608)]
+            #[repr(i32)]
             enum FeatureStage {
                 AlwaysDisabled = 0,
                 DisabledByDefault = 1,
                 EnabledByDefault = 2,
                 AlwaysEnabled = 3,
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum GCPressureAmount {
                 Low = 0,
                 Medium = 1,
@@ -179,9 +179,9 @@ mod Windows {
             attribute HasVariantAttribute {
                 fn();
             }
-            #[guid(0x997439fe_f681_4a11_b416_c13a47e8ba36)]
             #[ContractVersion(super::FoundationContract, 65536)]
             #[ExclusiveTo(ApiInformation)]
+            #[guid(0x997439fe_f681_4a11_b416_c13a47e8ba36)]
             interface IApiInformationStatics {
                 fn IsTypePresent(&self, #[in] typeName: String) -> bool;
                 #[Overload("IsMethodPresent")]
@@ -213,8 +213,8 @@ mod Windows {
             attribute MarshalingBehaviorAttribute {
                 fn(#[in] behavior: MarshalingType);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum MarshalingType {
                 None = 1,
                 Agile = 2,
@@ -250,8 +250,8 @@ mod Windows {
             attribute OverridableAttribute {
                 fn();
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum Platform {
                 Windows = 0,
                 WindowsPhone = 1,
@@ -295,8 +295,8 @@ mod Windows {
             attribute ThreadingAttribute {
                 fn(#[in] model: ThreadingModel);
             }
-            #[repr(i32)]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[repr(i32)]
             enum ThreadingModel {
                 STA = 1,
                 MTA = 2,

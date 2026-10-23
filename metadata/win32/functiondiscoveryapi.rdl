@@ -5,12 +5,12 @@ mod Windows {
         const FD_LONGHORN: i32 = 1;
         #[guid(0x4df99b70_e148_4432_b004_4c9eeb535a5e)]
         interface IFunctionDiscovery: IUnknown {
-            fn GetInstanceCollection(&self, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pszSubCategory: *const WCHAR, #[in] fIncludeAllSubCategories: BOOL, #[out] #[retval] #[out_ptr] ppIFunctionInstanceCollection: *mut IFunctionInstanceCollection) -> HRESULT;
-            fn GetInstance(&self, #[in] #[null_terminated(entry)] pszFunctionInstanceIdentity: *const WCHAR, #[out] #[retval] #[out_ptr] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
-            fn CreateInstanceCollectionQuery(&self, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pszSubCategory: *const WCHAR, #[in] fIncludeAllSubCategories: BOOL, #[in] #[opt] pIFunctionDiscoveryNotification: IFunctionDiscoveryNotification, #[in] #[out] #[opt] pfdqcQueryContext: *mut FDQUERYCONTEXT, #[out] #[retval] #[out_ptr] ppIFunctionInstanceCollectionQuery: *mut IFunctionInstanceCollectionQuery) -> HRESULT;
-            fn CreateInstanceQuery(&self, #[in] #[null_terminated(entry)] pszFunctionInstanceIdentity: *const WCHAR, #[in] #[opt] pIFunctionDiscoveryNotification: IFunctionDiscoveryNotification, #[in] #[out] #[opt] pfdqcQueryContext: *mut FDQUERYCONTEXT, #[out] #[retval] #[out_ptr] ppIFunctionInstanceQuery: *mut IFunctionInstanceQuery) -> HRESULT;
-            fn AddInstance(&self, #[in] enumSystemVisibility: SystemVisibilityFlags, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pszSubCategory: *const WCHAR, #[in] #[null_terminated(entry)] pszCategoryIdentity: *const WCHAR, #[out] #[retval] #[out_ptr] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
-            fn RemoveInstance(&self, #[in] enumSystemVisibility: SystemVisibilityFlags, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] pszSubCategory: *const WCHAR, #[in] #[null_terminated(entry)] pszCategoryIdentity: *const WCHAR) -> HRESULT;
+            fn GetInstanceCollection(&self, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pszSubCategory: *const WCHAR, #[in] fIncludeAllSubCategories: BOOL, #[out] #[out_ptr] #[retval] ppIFunctionInstanceCollection: *mut IFunctionInstanceCollection) -> HRESULT;
+            fn GetInstance(&self, #[in] #[null_terminated(entry)] pszFunctionInstanceIdentity: *const WCHAR, #[out] #[out_ptr] #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn CreateInstanceCollectionQuery(&self, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pszSubCategory: *const WCHAR, #[in] fIncludeAllSubCategories: BOOL, #[in] #[opt] pIFunctionDiscoveryNotification: IFunctionDiscoveryNotification, #[in] #[opt] #[out] pfdqcQueryContext: *mut FDQUERYCONTEXT, #[out] #[out_ptr] #[retval] ppIFunctionInstanceCollectionQuery: *mut IFunctionInstanceCollectionQuery) -> HRESULT;
+            fn CreateInstanceQuery(&self, #[in] #[null_terminated(entry)] pszFunctionInstanceIdentity: *const WCHAR, #[in] #[opt] pIFunctionDiscoveryNotification: IFunctionDiscoveryNotification, #[in] #[opt] #[out] pfdqcQueryContext: *mut FDQUERYCONTEXT, #[out] #[out_ptr] #[retval] ppIFunctionInstanceQuery: *mut IFunctionInstanceQuery) -> HRESULT;
+            fn AddInstance(&self, #[in] enumSystemVisibility: SystemVisibilityFlags, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pszSubCategory: *const WCHAR, #[in] #[null_terminated(entry)] pszCategoryIdentity: *const WCHAR, #[out] #[out_ptr] #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn RemoveInstance(&self, #[in] enumSystemVisibility: SystemVisibilityFlags, #[in] #[null_terminated(entry)] pszCategory: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] pszSubCategory: *const WCHAR, #[in] #[null_terminated(entry)] pszCategoryIdentity: *const WCHAR) -> HRESULT;
         }
         #[guid(0x5f6c1ba8_5330_422e_a368_572b244d3f87)]
         interface IFunctionDiscoveryNotification: IUnknown {
@@ -21,18 +21,18 @@ mod Windows {
         struct IFunctionDiscoveryProviderRefresh {}
         #[guid(0x33591c10_0bed_4f02_b0ab_1530d5533ee9)]
         interface IFunctionInstance: IServiceProvider {
-            fn GetID(&self, #[out] #[retval] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppszCoMemIdentity: *mut *mut WCHAR) -> HRESULT;
-            fn GetProviderInstanceID(&self, #[out] #[retval] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppszCoMemProviderInstanceIdentity: *mut *mut WCHAR) -> HRESULT;
-            fn OpenPropertyStore(&self, #[in] dwStgAccess: DWORD, #[out] #[retval] #[out_ptr] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
-            fn GetCategory(&self, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppszCoMemCategory: *mut *mut WCHAR, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppszCoMemSubCategory: *mut *mut WCHAR) -> HRESULT;
+            fn GetID(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] ppszCoMemIdentity: *mut *mut WCHAR) -> HRESULT;
+            fn GetProviderInstanceID(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[retval] ppszCoMemProviderInstanceIdentity: *mut *mut WCHAR) -> HRESULT;
+            fn OpenPropertyStore(&self, #[in] dwStgAccess: DWORD, #[out] #[out_ptr] #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn GetCategory(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszCoMemCategory: *mut *mut WCHAR, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszCoMemSubCategory: *mut *mut WCHAR) -> HRESULT;
         }
         #[guid(0xf0a3d895_855c_42a2_948d_2f97d450ecb1)]
         interface IFunctionInstanceCollection: IUnknown {
             fn GetCount(&self, #[out] #[retval] pdwCount: *mut DWORD) -> HRESULT;
-            fn Get(&self, #[in] #[null_terminated(entry)] pszInstanceIdentity: *const WCHAR, #[out] pdwIndex: *mut DWORD, #[out] #[retval] #[out_ptr] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
-            fn Item(&self, #[in] dwIndex: DWORD, #[out] #[retval] #[out_ptr] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn Get(&self, #[in] #[null_terminated(entry)] pszInstanceIdentity: *const WCHAR, #[out] pdwIndex: *mut DWORD, #[out] #[out_ptr] #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn Item(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
             fn Add(&self, #[in] #[opt] pIFunctionInstance: IFunctionInstance) -> HRESULT;
-            fn Remove(&self, #[in] dwIndex: DWORD, #[out] #[retval] #[out_ptr] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn Remove(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
             fn Delete(&self, #[in] dwIndex: DWORD) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
         }
@@ -46,16 +46,16 @@ mod Windows {
         struct IFunctionInstanceCollectionQueryCollection {}
         #[guid(0x6242bc6b_90ec_4b37_bb46_e229fd84ed95)]
         interface IFunctionInstanceQuery: IUnknown {
-            fn Execute(&self, #[out] #[retval] #[out_ptr] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
+            fn Execute(&self, #[out] #[out_ptr] #[retval] ppIFunctionInstance: *mut IFunctionInstance) -> HRESULT;
         }
         struct IFunctionInstanceQuery2 {}
         #[guid(0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa)]
         interface IPropertyStoreCollection: IUnknown {
             fn GetCount(&self, #[out] #[retval] pdwCount: LPDWORD) -> HRESULT;
-            fn Get(&self, #[in] #[null_terminated(entry)] pszInstanceIdentity: *const WCHAR, #[out] pdwIndex: LPDWORD, #[out] #[retval] #[out_ptr] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
-            fn Item(&self, #[in] dwIndex: DWORD, #[out] #[retval] #[out_ptr] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn Get(&self, #[in] #[null_terminated(entry)] pszInstanceIdentity: *const WCHAR, #[out] pdwIndex: LPDWORD, #[out] #[out_ptr] #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn Item(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] ppIPropertyStore: *mut IPropertyStore) -> HRESULT;
             fn Add(&self, #[in] #[opt] pIPropertyStore: IPropertyStore) -> HRESULT;
-            fn Remove(&self, #[in] dwIndex: DWORD, #[out] #[retval] #[out_ptr] pIPropertyStore: *mut IPropertyStore) -> HRESULT;
+            fn Remove(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] #[retval] pIPropertyStore: *mut IPropertyStore) -> HRESULT;
             fn Delete(&self, #[in] dwIndex: DWORD) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
         }

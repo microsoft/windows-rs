@@ -14,26 +14,26 @@ mod Windows {
             TotalCommitUsage: ULONG64,
         }
         #[library("KERNEL32.dll")]
-        extern fn CreateProcessA(#[in] #[opt] lpApplicationName: LPCSTR, #[in] #[out] #[opt] lpCommandLine: LPSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCSTR, #[in] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
+        extern fn CreateProcessA(#[in] #[opt] lpApplicationName: LPCSTR, #[in] #[opt] #[out] lpCommandLine: LPSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCSTR, #[in] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreateProcessAsUserA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpApplicationName: LPCSTR, #[in] #[out] #[opt] lpCommandLine: LPSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCSTR, #[in] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
+        extern fn CreateProcessAsUserA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpApplicationName: LPCSTR, #[in] #[opt] #[out] lpCommandLine: LPSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCSTR, #[in] lpStartupInfo: LPSTARTUPINFOA, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn CreateProcessAsUserW(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpApplicationName: LPCWSTR, #[in] #[out] #[opt] lpCommandLine: LPWSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCWSTR, #[in] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
+        extern fn CreateProcessAsUserW(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpApplicationName: LPCWSTR, #[in] #[opt] #[out] lpCommandLine: LPWSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCWSTR, #[in] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateProcessW(#[in] #[opt] lpApplicationName: LPCWSTR, #[in] #[out] #[opt] lpCommandLine: LPWSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCWSTR, #[in] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
+        extern fn CreateProcessW(#[in] #[opt] lpApplicationName: LPCWSTR, #[in] #[opt] #[out] lpCommandLine: LPWSTR, #[in] #[opt] lpProcessAttributes: LPSECURITY_ATTRIBUTES, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] bInheritHandles: BOOL, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpEnvironment: LPVOID, #[in] #[opt] lpCurrentDirectory: LPCWSTR, #[in] lpStartupInfo: LPSTARTUPINFOW, #[out] lpProcessInformation: LPPROCESS_INFORMATION) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn CreateRemoteThread(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[out] #[opt] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
+        extern fn CreateRemoteThread(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[opt] #[out] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateRemoteThreadEx(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[out] #[opt] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
+        extern fn CreateRemoteThreadEx(#[in] hProcess: HANDLE, #[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[in] #[opt] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[opt] #[out] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
-        extern fn CreateThread(#[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[out] #[opt] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
+        extern fn CreateThread(#[in] #[opt] lpThreadAttributes: LPSECURITY_ATTRIBUTES, #[in] dwStackSize: SIZE_T, #[in] lpStartAddress: LPTHREAD_START_ROUTINE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] lpParameter: LPVOID, #[in] dwCreationFlags: DWORD, #[opt] #[out] lpThreadId: LPDWORD) -> #[nullable] HANDLE;
         #[library("KERNEL32.dll")]
         extern fn DeleteProcThreadAttributeList(#[in] #[out] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST);
-        #[noreturn]
         #[library("KERNEL32.dll")]
+        #[noreturn]
         extern fn ExitProcess(#[in] uExitCode: UINT);
-        #[noreturn]
         #[library("KERNEL32.dll")]
+        #[noreturn]
         extern fn ExitThread(#[in] dwExitCode: DWORD);
         #[library("KERNEL32.dll")]
         extern fn FlushInstructionCache(#[in] hProcess: HANDLE, #[in] #[opt] #[readable(entry, bytes(dwSize))] lpBaseAddress: LPCVOID, #[in] dwSize: SIZE_T) -> BOOL;
@@ -55,19 +55,19 @@ mod Windows {
         extern fn GetCurrentThreadStackLimits(#[out] LowLimit: PULONG_PTR, #[out] HighLimit: PULONG_PTR);
         #[library("KERNEL32.dll")]
         extern fn GetExitCodeProcess(#[in] hProcess: HANDLE, #[out] lpExitCode: LPDWORD) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn GetExitCodeThread(#[in] hThread: HANDLE, #[out] lpExitCode: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetMachineTypeAttributes(#[in] Machine: USHORT, #[out] MachineTypeAttributes: *mut MACHINE_ATTRIBUTES) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetPriorityClass(#[in] hProcess: HANDLE) -> DWORD;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
-        extern fn GetProcessDefaultCpuSetMasks(#[in] Process: HANDLE, #[out] #[opt] #[writable(entry, CpuSetMaskCount)] #[readable(success, *RequiredMaskCount)] CpuSetMasks: PGROUP_AFFINITY, #[in] CpuSetMaskCount: USHORT, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
         #[success(return != 0)]
+        extern fn GetProcessDefaultCpuSetMasks(#[in] Process: HANDLE, #[opt] #[out] #[readable(success, *RequiredMaskCount)] #[writable(entry, CpuSetMaskCount)] CpuSetMasks: PGROUP_AFFINITY, #[in] CpuSetMaskCount: USHORT, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessDefaultCpuSets(#[in] Process: HANDLE, #[out] #[opt] #[writable(entry, CpuSetIdCount)] #[readable(success, *RequiredIdCount)] CpuSetIds: PULONG, #[in] CpuSetIdCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] RequiredIdCount: PULONG) -> BOOL;
+        #[success(return != 0)]
+        extern fn GetProcessDefaultCpuSets(#[in] Process: HANDLE, #[opt] #[out] #[readable(success, *RequiredIdCount)] #[writable(entry, CpuSetIdCount)] CpuSetIds: PULONG, #[in] CpuSetIdCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] RequiredIdCount: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetProcessHandleCount(#[in] hProcess: HANDLE, #[out] pdwHandleCount: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -88,15 +88,15 @@ mod Windows {
         extern fn GetProcessVersion(#[in] ProcessId: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn GetStartupInfoW(#[out] lpStartupInfo: LPSTARTUPINFOW);
+        #[library("KERNEL32.dll")]
         #[success(return != 0)]
+        extern fn GetSystemCpuSetInformation(#[opt] #[out] #[readable(success, bytes(*ReturnedLength))] #[writable(entry, bytes(BufferLength))] Information: PSYSTEM_CPU_SET_INFORMATION, #[in] BufferLength: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] ReturnedLength: PULONG, #[in] #[opt] Process: HANDLE, #[reserved] Flags: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetSystemCpuSetInformation(#[out] #[opt] #[writable(entry, bytes(BufferLength))] #[readable(success, bytes(*ReturnedLength))] Information: PSYSTEM_CPU_SET_INFORMATION, #[in] BufferLength: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] ReturnedLength: PULONG, #[in] #[opt] Process: HANDLE, #[reserved] Flags: ULONG) -> BOOL;
-        #[library("KERNEL32.dll")]
-        extern fn GetSystemTimes(#[out] #[opt] lpIdleTime: PFILETIME, #[out] #[opt] lpKernelTime: PFILETIME, #[out] #[opt] lpUserTime: PFILETIME) -> BOOL;
+        extern fn GetSystemTimes(#[opt] #[out] lpIdleTime: PFILETIME, #[opt] #[out] lpKernelTime: PFILETIME, #[opt] #[out] lpUserTime: PFILETIME) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetThreadContext(#[in] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadDescription(#[in] hThread: HANDLE, #[out] #[out_ptr] #[null_terminated(success, indirect)] ppszThreadDescription: *mut PWSTR) -> HRESULT;
+        extern fn GetThreadDescription(#[in] hThread: HANDLE, #[null_terminated(success, indirect)] #[out] #[out_ptr] ppszThreadDescription: *mut PWSTR) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn GetThreadIOPendingFlag(#[in] hThread: HANDLE, #[out] lpIOIsPending: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -109,17 +109,17 @@ mod Windows {
         extern fn GetThreadPriority(#[in] hThread: HANDLE) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetThreadPriorityBoost(#[in] hThread: HANDLE, #[out] pDisablePriorityBoost: PBOOL) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
-        extern fn GetThreadSelectedCpuSetMasks(#[in] Thread: HANDLE, #[out] #[opt] #[writable(entry, CpuSetMaskCount)] #[readable(success, *RequiredMaskCount)] CpuSetMasks: PGROUP_AFFINITY, #[in] CpuSetMaskCount: USHORT, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
         #[success(return != 0)]
+        extern fn GetThreadSelectedCpuSetMasks(#[in] Thread: HANDLE, #[opt] #[out] #[readable(success, *RequiredMaskCount)] #[writable(entry, CpuSetMaskCount)] CpuSetMasks: PGROUP_AFFINITY, #[in] CpuSetMaskCount: USHORT, #[out] RequiredMaskCount: PUSHORT) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadSelectedCpuSets(#[in] Thread: HANDLE, #[out] #[opt] #[writable(entry, CpuSetIdCount)] #[readable(success, *RequiredIdCount)] CpuSetIds: PULONG, #[in] CpuSetIdCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] RequiredIdCount: PULONG) -> BOOL;
+        #[success(return != 0)]
+        extern fn GetThreadSelectedCpuSets(#[in] Thread: HANDLE, #[opt] #[out] #[readable(success, *RequiredIdCount)] #[writable(entry, CpuSetIdCount)] CpuSetIds: PULONG, #[in] CpuSetIdCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Always_", "_Out_", "_Out_")] RequiredIdCount: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetThreadTimes(#[in] hThread: HANDLE, #[out] lpCreationTime: LPFILETIME, #[out] lpExitTime: LPFILETIME, #[out] lpKernelTime: LPFILETIME, #[out] lpUserTime: LPFILETIME) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
-        extern fn InitializeProcThreadAttributeList(#[out] #[opt] #[writable(entry, bytes(*lpSize))] #[readable(success, bytes(*lpSize))] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[in] dwAttributeCount: DWORD, #[reserved] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpAttributeList != nullptr,_Inout_", "lpAttributeList != nullptr, _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpAttributeList == nullptr,_Out_", "lpAttributeList == nullptr, _Out_")] lpSize: PSIZE_T) -> BOOL;
+        #[success(return != 0)]
+        extern fn InitializeProcThreadAttributeList(#[opt] #[out] #[readable(success, bytes(*lpSize))] #[writable(entry, bytes(*lpSize))] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[in] dwAttributeCount: DWORD, #[reserved] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpAttributeList != nullptr,_Inout_", "lpAttributeList != nullptr, _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpAttributeList == nullptr,_Out_", "lpAttributeList == nullptr, _Out_")] lpSize: PSIZE_T) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn IsProcessCritical(#[in] hProcess: HANDLE, #[out] Critical: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -228,7 +228,7 @@ mod Windows {
             QUEUE_USER_APC_CALLBACK_DATA_CONTEXT = 65536,
         }
         #[library("KERNEL32.dll")]
-        extern fn QueryProcessAffinityUpdateMode(#[in] hProcess: HANDLE, #[out] #[opt] lpdwFlags: LPDWORD) -> BOOL;
+        extern fn QueryProcessAffinityUpdateMode(#[in] hProcess: HANDLE, #[opt] #[out] lpdwFlags: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn QueryProtectedPolicy(#[in] PolicyGuid: LPCGUID, #[out] PolicyValue: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -282,11 +282,11 @@ mod Windows {
         extern fn SetPriorityClass(#[in] hProcess: HANDLE, #[in] dwPriorityClass: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetProcessAffinityUpdateMode(#[in] hProcess: HANDLE, #[in] dwFlags: DWORD) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn SetProcessDefaultCpuSetMasks(#[in] Process: HANDLE, #[in] #[opt] #[readable(entry, CpuSetMaskCount)] CpuSetMasks: PGROUP_AFFINITY, #[in] CpuSetMaskCount: USHORT) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn SetProcessDefaultCpuSets(#[in] Process: HANDLE, #[in] #[opt] #[readable(entry, CpuSetIdCount)] CpuSetIds: *const ULONG, #[in] CpuSetIdCount: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetProcessDynamicEHContinuationTargets(#[in] Process: HANDLE, #[in] NumberOfTargets: USHORT, #[in] #[out] #[writable(entry, NumberOfTargets)] Targets: PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> BOOL;
@@ -301,7 +301,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetProcessShutdownParameters(#[in] dwLevel: DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProtectedPolicy(#[in] PolicyGuid: LPCGUID, #[in] PolicyValue: ULONG_PTR, #[out] #[opt] OldPolicyValue: PULONG_PTR) -> BOOL;
+        extern fn SetProtectedPolicy(#[in] PolicyGuid: LPCGUID, #[in] PolicyValue: ULONG_PTR, #[opt] #[out] OldPolicyValue: PULONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadContext(#[in] hThread: HANDLE, #[in] lpContext: *const CONTEXT) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -309,23 +309,23 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetThreadIdealProcessor(#[in] hThread: HANDLE, #[in] dwIdealProcessor: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadIdealProcessorEx(#[in] hThread: HANDLE, #[in] lpIdealProcessor: PPROCESSOR_NUMBER, #[out] #[opt] lpPreviousIdealProcessor: PPROCESSOR_NUMBER) -> BOOL;
+        extern fn SetThreadIdealProcessorEx(#[in] hThread: HANDLE, #[in] lpIdealProcessor: PPROCESSOR_NUMBER, #[opt] #[out] lpPreviousIdealProcessor: PPROCESSOR_NUMBER) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadInformation(#[in] hThread: HANDLE, #[in] ThreadInformationClass: THREAD_INFORMATION_CLASS, #[in] #[readable(entry, bytes(ThreadInformationSize))] ThreadInformation: LPVOID, #[in] ThreadInformationSize: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadPriority(#[in] hThread: HANDLE, #[in] nPriority: i32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadPriorityBoost(#[in] hThread: HANDLE, #[in] bDisablePriorityBoost: BOOL) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn SetThreadSelectedCpuSetMasks(#[in] Thread: HANDLE, #[in] #[opt] #[readable(entry, CpuSetMaskCount)] CpuSetMasks: PGROUP_AFFINITY, #[in] CpuSetMaskCount: USHORT) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn SetThreadSelectedCpuSets(#[in] Thread: HANDLE, #[in] #[readable(entry, CpuSetIdCount)] CpuSetIds: *const ULONG, #[in] CpuSetIdCount: ULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadStackGuarantee(#[in] #[out] StackSizeInBytes: PULONG) -> BOOL;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn SetThreadToken(#[in] #[opt] Thread: PHANDLE, #[in] #[opt] Token: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SuspendThread(#[in] hThread: HANDLE) -> DWORD;
@@ -352,8 +352,8 @@ mod Windows {
         extern fn TerminateProcess(#[in] hProcess: HANDLE, #[in] uExitCode: UINT) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn TerminateThread(#[in] hThread: HANDLE, #[in] dwExitCode: DWORD) -> BOOL;
-        #[must_use]
         #[library("KERNEL32.dll")]
+        #[must_use]
         extern fn TlsAlloc() -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn TlsFree(#[in] dwTlsIndex: DWORD) -> BOOL;
@@ -364,7 +364,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn TlsSetValue(#[in] dwTlsIndex: DWORD, #[in] #[opt] lpTlsValue: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn UpdateProcThreadAttribute(#[in] #[out] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[in] dwFlags: DWORD, #[in] Attribute: DWORD_PTR, #[in] #[opt] #[readable(entry, bytes(cbSize))] lpValue: PVOID, #[in] cbSize: SIZE_T, #[out] #[opt] #[writable(entry, bytes(cbSize))] lpPreviousValue: PVOID, #[in] #[opt] lpReturnSize: PSIZE_T) -> BOOL;
+        extern fn UpdateProcThreadAttribute(#[in] #[out] lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST, #[in] dwFlags: DWORD, #[in] Attribute: DWORD_PTR, #[in] #[opt] #[readable(entry, bytes(cbSize))] lpValue: PVOID, #[in] cbSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(cbSize))] lpPreviousValue: PVOID, #[in] #[opt] lpReturnSize: PSIZE_T) -> BOOL;
         struct _PROC_THREAD_ATTRIBUTE_LIST {}
     }
 }

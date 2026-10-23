@@ -386,7 +386,7 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn CoInternetCombineIUri(#[in] pBaseUri: IUri, #[in] pRelativeUri: IUri, dwCombineFlags: DWORD, #[out] #[out_ptr] ppCombinedUri: *mut IUri, #[in] #[opt] dwReserved: DWORD_PTR) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CoInternetCombineUrl(pwzBaseUrl: LPCWSTR, pwzRelativeUrl: LPCWSTR, dwCombineFlags: DWORD, #[out] #[writable(entry, cchResult)] #[readable(success, if_present(*pcchResult) + 1)] pszResult: LPWSTR, cchResult: DWORD, #[out] #[opt] pcchResult: *mut DWORD, #[reserved] dwReserved: DWORD) -> HRESULT;
+        extern fn CoInternetCombineUrl(pwzBaseUrl: LPCWSTR, pwzRelativeUrl: LPCWSTR, dwCombineFlags: DWORD, #[out] #[readable(success, if_present(*pcchResult) + 1)] #[writable(entry, cchResult)] pszResult: LPWSTR, cchResult: DWORD, #[opt] #[out] pcchResult: *mut DWORD, #[reserved] dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CoInternetCombineUrlEx(#[in] #[opt] pBaseUri: IUri, #[in] #[opt] pwzRelativeUrl: LPCWSTR, dwCombineFlags: DWORD, #[out] #[out_ptr] ppCombinedUri: *mut IUri, #[in] #[opt] dwReserved: DWORD_PTR) -> HRESULT;
         #[library("urlmon.dll")]
@@ -412,11 +412,11 @@ mod Windows {
         #[library("urlmon.dll")]
         extern fn CoInternetIsFeatureZoneElevationEnabled(#[in] #[opt] szFromURL: LPCWSTR, #[in] szToURL: LPCWSTR, #[in] #[opt] pSecMgr: IInternetSecurityManager, dwFlags: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CoInternetParseIUri(#[in] pIUri: IUri, ParseAction: PARSEACTION, dwFlags: DWORD, #[out] #[writable(entry, cchResult)] #[readable(success, *pcchResult + 1)] pwzResult: LPWSTR, cchResult: DWORD, #[out] pcchResult: *mut DWORD, #[reserved] dwReserved: DWORD_PTR) -> HRESULT;
+        extern fn CoInternetParseIUri(#[in] pIUri: IUri, ParseAction: PARSEACTION, dwFlags: DWORD, #[out] #[readable(success, *pcchResult + 1)] #[writable(entry, cchResult)] pwzResult: LPWSTR, cchResult: DWORD, #[out] pcchResult: *mut DWORD, #[reserved] dwReserved: DWORD_PTR) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CoInternetParseUrl(pwzUrl: LPCWSTR, ParseAction: PARSEACTION, dwFlags: DWORD, #[out] #[writable(entry, cchResult)] #[readable(success, *pcchResult + 1)] pszResult: LPWSTR, cchResult: DWORD, #[out] pcchResult: *mut DWORD, dwReserved: DWORD) -> HRESULT;
+        extern fn CoInternetParseUrl(pwzUrl: LPCWSTR, ParseAction: PARSEACTION, dwFlags: DWORD, #[out] #[readable(success, *pcchResult + 1)] #[writable(entry, cchResult)] pszResult: LPWSTR, cchResult: DWORD, #[out] pcchResult: *mut DWORD, dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
-        extern fn CoInternetQueryInfo(pwzUrl: LPCWSTR, QueryOptions: QUERYOPTION, dwQueryFlags: DWORD, #[out] #[writable(entry, bytes(cbBuffer))] #[readable(success, bytes(if_present(*pcbBuffer)))] pvBuffer: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", ">=,sizeof(DWORD)", ">=,sizeof(DWORD)")] cbBuffer: DWORD, #[out] #[opt] pcbBuffer: *mut DWORD, dwReserved: DWORD) -> HRESULT;
+        extern fn CoInternetQueryInfo(pwzUrl: LPCWSTR, QueryOptions: QUERYOPTION, dwQueryFlags: DWORD, #[out] #[readable(success, bytes(if_present(*pcbBuffer)))] #[writable(entry, bytes(cbBuffer))] pvBuffer: LPVOID, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", ">=,sizeof(DWORD)", ">=,sizeof(DWORD)")] cbBuffer: DWORD, #[opt] #[out] pcbBuffer: *mut DWORD, dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CoInternetSetFeatureEnabled(FeatureEntry: INTERNETFEATURELIST, dwFlags: DWORD, fEnable: BOOL) -> HRESULT;
         #[library("urlmon.dll")]
@@ -468,7 +468,7 @@ mod Windows {
         const FMFD_SERVERMIME: i32 = 8;
         const FMFD_URLASFILENAME: i32 = 1;
         #[library("urlmon.dll")]
-        extern fn FaultInIEFeature(hWnd: HWND, #[in] pClassSpec: *mut uCLSSPEC, #[in] #[out] #[opt] pQuery: *mut QUERYCONTEXT, dwFlags: DWORD) -> HRESULT;
+        extern fn FaultInIEFeature(hWnd: HWND, #[in] pClassSpec: *mut uCLSSPEC, #[in] #[opt] #[out] pQuery: *mut QUERYCONTEXT, dwFlags: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn FindMediaType(#[in] rgszTypes: LPCSTR, #[out] rgcfTypes: *mut CLIPFORMAT) -> HRESULT;
         #[library("urlmon.dll")]
@@ -572,8 +572,8 @@ mod Windows {
         }
         #[guid(0x69d14c80_c18e_11d0_a9ce_006097942311)]
         interface IDataFilter: IUnknown {
-            fn DoEncode(&self, #[in] dwFlags: DWORD, #[in] lInBufferSize: LONG, #[in] #[readable(entry, lInBufferSize)] pbInBuffer: *mut BYTE, #[in] lOutBufferSize: LONG, #[out] #[writable(entry, lOutBufferSize)] #[writable(success, lOutBufferSize)] #[readable(success, lOutBufferSize)] pbOutBuffer: *mut BYTE, #[in] lInBytesAvailable: LONG, #[out] plInBytesRead: *mut LONG, #[out] plOutBytesWritten: *mut LONG, #[in] dwReserved: DWORD) -> HRESULT;
-            fn DoDecode(&self, #[in] dwFlags: DWORD, #[in] lInBufferSize: LONG, #[in] #[readable(entry, lInBufferSize)] pbInBuffer: *mut BYTE, #[in] lOutBufferSize: LONG, #[out] #[writable(entry, lOutBufferSize)] #[writable(success, lOutBufferSize)] #[readable(success, lOutBufferSize)] pbOutBuffer: *mut BYTE, #[in] lInBytesAvailable: LONG, #[out] plInBytesRead: *mut LONG, #[out] plOutBytesWritten: *mut LONG, #[in] dwReserved: DWORD) -> HRESULT;
+            fn DoEncode(&self, #[in] dwFlags: DWORD, #[in] lInBufferSize: LONG, #[in] #[readable(entry, lInBufferSize)] pbInBuffer: *mut BYTE, #[in] lOutBufferSize: LONG, #[out] #[readable(success, lOutBufferSize)] #[writable(entry, lOutBufferSize)] #[writable(success, lOutBufferSize)] pbOutBuffer: *mut BYTE, #[in] lInBytesAvailable: LONG, #[out] plInBytesRead: *mut LONG, #[out] plOutBytesWritten: *mut LONG, #[in] dwReserved: DWORD) -> HRESULT;
+            fn DoDecode(&self, #[in] dwFlags: DWORD, #[in] lInBufferSize: LONG, #[in] #[readable(entry, lInBufferSize)] pbInBuffer: *mut BYTE, #[in] lOutBufferSize: LONG, #[out] #[readable(success, lOutBufferSize)] #[writable(entry, lOutBufferSize)] #[writable(success, lOutBufferSize)] pbOutBuffer: *mut BYTE, #[in] lInBytesAvailable: LONG, #[out] plInBytesRead: *mut LONG, #[out] plOutBytesWritten: *mut LONG, #[in] dwReserved: DWORD) -> HRESULT;
             fn SetEncodingLevel(&self, #[in] dwEncLevel: DWORD) -> HRESULT;
         }
         #[library("urlmon.dll")]
@@ -607,11 +607,11 @@ mod Windows {
         }
         #[guid(0x4f9f9fcb_e0f4_48eb_b7ab_fa2ea9365cb4)]
         interface IHttpNegotiate2: IHttpNegotiate {
-            fn GetRootSecurityId(&self, #[out] #[writable(entry, *pcbSecurityId)] #[writable(success, *pcbSecurityId)] #[readable(success, *pcbSecurityId)] pbSecurityId: *mut BYTE, #[in] #[out] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
+            fn GetRootSecurityId(&self, #[out] #[readable(success, *pcbSecurityId)] #[writable(entry, *pcbSecurityId)] #[writable(success, *pcbSecurityId)] pbSecurityId: *mut BYTE, #[in] #[out] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
         }
         #[guid(0x57b6c80a_34c2_4602_bc26_66a02fc57153)]
         interface IHttpNegotiate3: IHttpNegotiate2 {
-            fn GetSerializedClientCertContext(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *pcbCert, indirect, nullable)] #[readable(success, *pcbCert, indirect, nullable)] ppbCert: *mut *mut BYTE, #[out] pcbCert: *mut DWORD) -> HRESULT;
+            fn GetSerializedClientCertContext(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbCert, indirect, nullable)] #[writable(success, *pcbCert, indirect, nullable)] ppbCert: *mut *mut BYTE, #[out] pcbCert: *mut DWORD) -> HRESULT;
         }
         #[guid(0x79eac9d7_bafa_11ce_8c82_00aa004ba90b)]
         interface IHttpSecurity: IWindowForBindingUI {
@@ -631,7 +631,7 @@ mod Windows {
         #[guid(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4)]
         interface IInternetHostSecurityManager: IUnknown {
             fn GetSecurityId(&self, #[out] #[writable(entry, *pcbSecurityId)] pbSecurityId: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("2", "_Deref_in_range_", "512,(2147483647 *2U +1U)", "512,(2147483647 *2U +1U)")] #[in] #[out] #[range(success, 0..=512, indirect)] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
-            fn ProcessUrlAction(&self, #[in] dwAction: DWORD, #[out] #[writable(entry, cbPolicy)] #[readable(success, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] #[opt] #[readable(entry, cbContext)] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
+            fn ProcessUrlAction(&self, #[in] dwAction: DWORD, #[out] #[readable(success, cbPolicy)] #[writable(entry, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] #[opt] #[readable(entry, cbContext)] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
             fn QueryCustomPolicy(&self, #[in] guidKey: &GUID, #[out] #[readable(success, *pcbPolicy, indirect, nullable)] ppPolicy: *mut *mut BYTE, #[out] pcbPolicy: *mut DWORD, #[in] #[readable(entry, cbContext)] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
         }
         #[guid(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b)]
@@ -684,22 +684,22 @@ mod Windows {
             fn SetSecuritySite(&self, #[in] #[opt] pSite: IInternetSecurityMgrSite) -> HRESULT;
             fn GetSecuritySite(&self, #[out] #[out_ptr] ppSite: *mut IInternetSecurityMgrSite) -> HRESULT;
             fn MapUrlToZone(&self, #[in] pwszUrl: LPCWSTR, #[out] pdwZone: *mut DWORD, #[in] dwFlags: DWORD) -> HRESULT;
-            fn GetSecurityId(&self, #[in] pwszUrl: LPCWSTR, #[out] #[writable(entry, bytes(512))] #[readable(success, bytes(*pcbSecurityId))] pbSecurityId: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pcbSecurityId,_In_range_(>= , MAX_SIZE_SECURITY_ID) _Out_range_(0, MAX_SIZE_SECURITY_ID)", "*pcbSecurityId, _In_range_(>=,512) _Out_range_(0,512)")] #[in] #[out] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
-            fn ProcessUrlAction(&self, #[in] pwszUrl: LPCWSTR, #[in] dwAction: DWORD, #[out] #[writable(entry, cbPolicy)] #[writable(success, cbPolicy)] #[readable(success, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] #[opt] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
-            fn QueryCustomPolicy(&self, #[in] pwszUrl: LPCWSTR, #[in] guidKey: &GUID, #[out] #[nullable(entry, indirect)] #[writable(success, *pcbPolicy, indirect, nullable)] #[readable(success, *pcbPolicy, indirect, nullable)] ppPolicy: *mut *mut BYTE, #[out] pcbPolicy: *mut DWORD, #[in] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
+            fn GetSecurityId(&self, #[in] pwszUrl: LPCWSTR, #[out] #[readable(success, bytes(*pcbSecurityId))] #[writable(entry, bytes(512))] pbSecurityId: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pcbSecurityId,_In_range_(>= , MAX_SIZE_SECURITY_ID) _Out_range_(0, MAX_SIZE_SECURITY_ID)", "*pcbSecurityId, _In_range_(>=,512) _Out_range_(0,512)")] #[in] #[out] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
+            fn ProcessUrlAction(&self, #[in] pwszUrl: LPCWSTR, #[in] dwAction: DWORD, #[out] #[readable(success, cbPolicy)] #[writable(entry, cbPolicy)] #[writable(success, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] #[opt] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
+            fn QueryCustomPolicy(&self, #[in] pwszUrl: LPCWSTR, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbPolicy, indirect, nullable)] #[writable(success, *pcbPolicy, indirect, nullable)] ppPolicy: *mut *mut BYTE, #[out] pcbPolicy: *mut DWORD, #[in] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
             fn SetZoneMapping(&self, #[in] dwZone: DWORD, #[in] lpszPattern: LPCWSTR, #[in] dwFlags: DWORD) -> HRESULT;
             fn GetZoneMappings(&self, #[in] dwZone: DWORD, #[out] #[out_ptr] ppenumString: *mut IEnumString, #[in] dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0xf164edf1_cc7c_4f0d_9a94_34222625c393)]
         interface IInternetSecurityManagerEx: IInternetSecurityManager {
-            fn ProcessUrlActionEx(&self, #[in] pwszUrl: LPCWSTR, #[in] dwAction: DWORD, #[out] #[writable(entry, cbPolicy)] #[writable(success, cbPolicy)] #[readable(success, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD, #[out] pdwOutFlags: *mut DWORD) -> HRESULT;
+            fn ProcessUrlActionEx(&self, #[in] pwszUrl: LPCWSTR, #[in] dwAction: DWORD, #[out] #[readable(success, cbPolicy)] #[writable(entry, cbPolicy)] #[writable(success, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD, #[out] pdwOutFlags: *mut DWORD) -> HRESULT;
         }
         #[guid(0xf1e50292_a795_4117_8e09_2b560a72ac60)]
         interface IInternetSecurityManagerEx2: IInternetSecurityManagerEx {
-            fn MapUrlToZoneEx2(&self, #[in] pUri: IUri, #[out] pdwZone: *mut DWORD, #[in] dwFlags: DWORD, #[out] #[opt] #[out_ptr] ppwszMappedUrl: *mut LPWSTR, #[out] #[opt] pdwOutFlags: *mut DWORD) -> HRESULT;
-            fn ProcessUrlActionEx2(&self, #[in] pUri: IUri, #[in] dwAction: DWORD, #[out] #[writable(entry, cbPolicy)] #[writable(success, cbPolicy)] #[readable(success, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] #[opt] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD_PTR, #[out] pdwOutFlags: *mut DWORD) -> HRESULT;
-            fn GetSecurityIdEx2(&self, #[in] pUri: IUri, #[out] #[writable(entry, bytes(512))] #[readable(success, bytes(*pcbSecurityId))] pbSecurityId: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pcbSecurityId,_In_range_(>= , MAX_SIZE_SECURITY_ID) _Out_range_(0, MAX_SIZE_SECURITY_ID)", "*pcbSecurityId, _In_range_(>=,512) _Out_range_(0,512)")] #[in] #[out] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
-            fn QueryCustomPolicyEx2(&self, #[in] pUri: IUri, #[in] guidKey: &GUID, #[out] #[nullable(entry, indirect)] #[writable(success, *pcbPolicy, indirect, nullable)] #[readable(success, *pcbPolicy, indirect, nullable)] ppPolicy: *mut *mut BYTE, #[out] pcbPolicy: *mut DWORD, #[in] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
+            fn MapUrlToZoneEx2(&self, #[in] pUri: IUri, #[out] pdwZone: *mut DWORD, #[in] dwFlags: DWORD, #[opt] #[out] #[out_ptr] ppwszMappedUrl: *mut LPWSTR, #[opt] #[out] pdwOutFlags: *mut DWORD) -> HRESULT;
+            fn ProcessUrlActionEx2(&self, #[in] pUri: IUri, #[in] dwAction: DWORD, #[out] #[readable(success, cbPolicy)] #[writable(entry, cbPolicy)] #[writable(success, cbPolicy)] pPolicy: *mut BYTE, #[in] cbPolicy: DWORD, #[in] #[opt] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD_PTR, #[out] pdwOutFlags: *mut DWORD) -> HRESULT;
+            fn GetSecurityIdEx2(&self, #[in] pUri: IUri, #[out] #[readable(success, bytes(*pcbSecurityId))] #[writable(entry, bytes(512))] pbSecurityId: *mut BYTE, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*pcbSecurityId,_In_range_(>= , MAX_SIZE_SECURITY_ID) _Out_range_(0, MAX_SIZE_SECURITY_ID)", "*pcbSecurityId, _In_range_(>=,512) _Out_range_(0,512)")] #[in] #[out] pcbSecurityId: *mut DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
+            fn QueryCustomPolicyEx2(&self, #[in] pUri: IUri, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbPolicy, indirect, nullable)] #[writable(success, *pcbPolicy, indirect, nullable)] ppPolicy: *mut *mut BYTE, #[out] pcbPolicy: *mut DWORD, #[in] pContext: *mut BYTE, #[in] cbContext: DWORD, #[in] dwReserved: DWORD_PTR) -> HRESULT;
         }
         #[guid(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b)]
         interface IInternetSecurityMgrSite: IUnknown {
@@ -1061,7 +1061,7 @@ mod Windows {
             OIBDG_DATAONLY = 4096,
         }
         #[library("urlmon.dll")]
-        extern fn ObtainUserAgentString(dwOption: DWORD, #[out] #[writable(entry, *cbSize)] #[readable(success, *cbSize)] pszUAOut: LPSTR, #[in] #[out] cbSize: *mut DWORD) -> HRESULT;
+        extern fn ObtainUserAgentString(dwOption: DWORD, #[out] #[readable(success, *cbSize)] #[writable(entry, *cbSize)] pszUAOut: LPSTR, #[in] #[out] cbSize: *mut DWORD) -> HRESULT;
         #[repr(i32)]
         enum PARSEACTION {
             PARSE_CANONICALIZE = 1,
@@ -1600,7 +1600,7 @@ mod Windows {
         }
         const Uri_PUNYCODE_IDN_HOST: i32 = 2;
         #[library("urlmon.dll")]
-        extern fn UrlMkGetSessionOption(dwOption: DWORD, #[out] #[opt] #[writable(entry, bytes(dwBufferLength))] #[readable(success, bytes(*pdwBufferLengthOut))] pBuffer: LPVOID, dwBufferLength: DWORD, #[out] pdwBufferLengthOut: *mut DWORD, #[reserved] dwReserved: DWORD) -> HRESULT;
+        extern fn UrlMkGetSessionOption(dwOption: DWORD, #[opt] #[out] #[readable(success, bytes(*pdwBufferLengthOut))] #[writable(entry, bytes(dwBufferLength))] pBuffer: LPVOID, dwBufferLength: DWORD, #[out] pdwBufferLengthOut: *mut DWORD, #[reserved] dwReserved: DWORD) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn UrlMkSetSessionOption(dwOption: DWORD, #[in] #[opt] #[readable(entry, bytes(dwBufferLength))] pBuffer: LPVOID, dwBufferLength: DWORD, #[reserved] dwReserved: DWORD) -> HRESULT;
         const WININETINFO_OPTION_LOCK_HANDLE: i32 = 65534;

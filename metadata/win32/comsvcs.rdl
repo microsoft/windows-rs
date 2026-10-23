@@ -229,16 +229,16 @@ mod Windows {
         #[guid(0x19a5a02c_0ac8_11d2_b286_00c04f8ef934)]
         interface ContextInfo: IDispatch {
             fn IsInTransaction(&self, #[out] #[retval] pbIsInTx: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetTransaction(&self, #[out] #[retval] #[out_ptr] ppTx: *mut IUnknown) -> HRESULT;
-            fn GetTransactionId(&self, #[out] #[retval] #[out_ptr] pbstrTxId: *mut BSTR) -> HRESULT;
-            fn GetActivityId(&self, #[out] #[retval] #[out_ptr] pbstrActivityId: *mut BSTR) -> HRESULT;
-            fn GetContextId(&self, #[out] #[retval] #[out_ptr] pbstrCtxId: *mut BSTR) -> HRESULT;
+            fn GetTransaction(&self, #[out] #[out_ptr] #[retval] ppTx: *mut IUnknown) -> HRESULT;
+            fn GetTransactionId(&self, #[out] #[out_ptr] #[retval] pbstrTxId: *mut BSTR) -> HRESULT;
+            fn GetActivityId(&self, #[out] #[out_ptr] #[retval] pbstrActivityId: *mut BSTR) -> HRESULT;
+            fn GetContextId(&self, #[out] #[out_ptr] #[retval] pbstrCtxId: *mut BSTR) -> HRESULT;
         }
         #[guid(0xc99d6e75_2375_11d4_8331_00c04f605588)]
         interface ContextInfo2: ContextInfo {
-            fn GetPartitionId(&self, #[out] #[retval] #[out_ptr] __MIDL__ContextInfo20000: *mut BSTR) -> HRESULT;
-            fn GetApplicationId(&self, #[out] #[retval] #[out_ptr] __MIDL__ContextInfo20001: *mut BSTR) -> HRESULT;
-            fn GetApplicationInstanceId(&self, #[out] #[retval] #[out_ptr] __MIDL__ContextInfo20002: *mut BSTR) -> HRESULT;
+            fn GetPartitionId(&self, #[out] #[out_ptr] #[retval] __MIDL__ContextInfo20000: *mut BSTR) -> HRESULT;
+            fn GetApplicationId(&self, #[out] #[out_ptr] #[retval] __MIDL__ContextInfo20001: *mut BSTR) -> HRESULT;
+            fn GetApplicationInstanceId(&self, #[out] #[out_ptr] #[retval] __MIDL__ContextInfo20002: *mut BSTR) -> HRESULT;
         }
         struct CrmLogRecordRead {
             dwCrmFlags: DWORD,
@@ -318,7 +318,7 @@ mod Windows {
         }
         #[guid(0x391ffbb9_a8ee_432a_abc8_baa238dab90f)]
         interface IAssemblyLocator: IDispatch {
-            fn GetModules(&self, #[in] applicationDir: BSTR, #[in] applicationName: BSTR, #[in] assemblyName: BSTR, #[out] #[retval] #[out_ptr] pModules: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetModules(&self, #[in] applicationDir: BSTR, #[in] applicationName: BSTR, #[in] assemblyName: BSTR, #[out] #[out_ptr] #[retval] pModules: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xfe6777fb_a674_4177_8f32_6d707e113484)]
         interface IAsyncErrorNotify: IUnknown {
@@ -529,7 +529,7 @@ mod Windows {
         interface IComTrackingInfoCollection: IUnknown {
             fn Type(&self, #[out] pType: *mut TRACKING_COLL_TYPE) -> HRESULT;
             fn Count(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn Item(&self, #[in] ulIndex: ULONG, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn Item(&self, #[in] ulIndex: ULONG, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x4e6cdcc9_fb25_4fd5_9cc5_c9f4b6559cec)]
         interface IComTrackingInfoEvents: IUnknown {
@@ -542,7 +542,7 @@ mod Windows {
         #[guid(0x789b42be_6f6b_443a_898e_67abf390aa14)]
         interface IComTrackingInfoProperties: IUnknown {
             fn PropCount(&self, #[out] pCount: *mut ULONG) -> HRESULT;
-            fn GetPropName(&self, #[in] ulIndex: ULONG, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppszPropName: *mut LPOLESTR) -> HRESULT;
+            fn GetPropName(&self, #[in] ulIndex: ULONG, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszPropName: *mut LPOLESTR) -> HRESULT;
         }
         #[guid(0xa136f62a_2f94_4288_86e0_d8a1fa4c0299)]
         interface IComTransaction2Events: IUnknown {
@@ -584,15 +584,15 @@ mod Windows {
         }
         #[guid(0x227ac7a8_8423_42ce_b7cf_03061ec9aaa3)]
         interface ICreateWithLocalTransaction: IUnknown {
-            fn CreateInstanceWithSysTx(&self, #[in] pTransaction: IUnknown, #[in] rclsid: &IID, #[in] riid: &IID, #[out] #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstanceWithSysTx(&self, #[in] pTransaction: IUnknown, #[in] rclsid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x455acf59_5345_11d2_99cf_00c04f797bc9)]
         interface ICreateWithTipTransactionEx: IUnknown {
-            fn CreateInstance(&self, #[in] bstrTipUrl: BSTR, #[in] rclsid: &IID, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, #[in] bstrTipUrl: BSTR, #[in] rclsid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x455acf57_5345_11d2_99cf_00c04f797bc9)]
         interface ICreateWithTransactionEx: IUnknown {
-            fn CreateInstance(&self, #[in] #[opt] pTransaction: ITransaction, #[in] rclsid: &IID, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, #[in] #[opt] pTransaction: ITransaction, #[in] rclsid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0xbbc01830_8d3b_11d1_82ec_00a0c91eede9)]
         interface ICrmCompensator: IUnknown {
@@ -629,7 +629,7 @@ mod Windows {
         }
         #[guid(0xa0e174b3_d26e_11d2_8f84_00805fc7bcd9)]
         interface ICrmLogControl: IUnknown {
-            fn get_TransactionUOW(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn get_TransactionUOW(&self, #[out] #[out_ptr] #[retval] pVal: *mut BSTR) -> HRESULT;
             fn RegisterCompensator(&self, #[in] lpcwstrProgIdCompensator: LPCWSTR, #[in] lpcwstrDescription: LPCWSTR, #[in] lCrmRegFlags: LONG) -> HRESULT;
             fn WriteLogRecordVariants(&self, #[in] pLogRecord: *mut VARIANT) -> HRESULT;
             fn ForceLog(&self) -> HRESULT;
@@ -639,13 +639,13 @@ mod Windows {
         }
         #[guid(0x70c8e443_c7ed_11d1_82fb_00a0c91eede9)]
         interface ICrmMonitor: IUnknown {
-            fn GetClerks(&self, #[out] #[retval] #[out_ptr] pClerks: *mut ICrmMonitorClerks) -> HRESULT;
+            fn GetClerks(&self, #[out] #[out_ptr] #[retval] pClerks: *mut ICrmMonitorClerks) -> HRESULT;
             fn HoldClerk(&self, #[in] Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
         }
         #[guid(0x70c8e442_c7ed_11d1_82fb_00a0c91eede9)]
         interface ICrmMonitorClerks: IDispatch {
             fn Item(&self, #[in] Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] pVal: *mut LPUNKNOWN) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] pVal: *mut LPUNKNOWN) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             fn ProgIdCompensator(&self, #[in] Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
             fn Description(&self, #[in] Index: VARIANT, #[out] #[retval] pItem: LPVARIANT) -> HRESULT;
@@ -689,11 +689,11 @@ mod Windows {
         }
         #[guid(0x507c3ac8_3e12_4cb0_9366_653d3e050638)]
         interface IGetAppTrackerData: IUnknown {
-            fn GetApplicationProcesses(&self, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationProcesses: *mut ULONG, #[out] #[nullable(entry, indirect)] #[writable(success, *NumApplicationProcesses, indirect, nullable)] #[readable(success, *NumApplicationProcesses, indirect, nullable)] ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
-            fn GetApplicationProcessDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Flags: DWORD, #[out] #[opt] Summary: *mut ApplicationProcessSummary, #[out] #[opt] Statistics: *mut ApplicationProcessStatistics, #[out] #[opt] RecycleInfo: *mut ApplicationProcessRecycleInfo, #[out] #[opt] AnyComponentsHangMonitored: *mut BOOL) -> HRESULT;
-            fn GetApplicationsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[out] #[nullable(entry, indirect)] #[writable(success, *NumApplicationsInProcess, indirect, nullable)] #[readable(success, *NumApplicationsInProcess, indirect, nullable)] Applications: *mut *mut ApplicationSummary) -> HRESULT;
-            fn GetComponentsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[out] #[nullable(entry, indirect)] #[writable(success, *NumComponentsInProcess, indirect, nullable)] #[readable(success, *NumComponentsInProcess, indirect, nullable)] Components: *mut *mut ComponentSummary) -> HRESULT;
-            fn GetComponentDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Clsid: &IID, #[in] Flags: DWORD, #[out] #[opt] Summary: *mut ComponentSummary, #[out] #[opt] Statistics: *mut ComponentStatistics, #[out] #[opt] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
+            fn GetApplicationProcesses(&self, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationProcesses: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumApplicationProcesses, indirect, nullable)] #[writable(success, *NumApplicationProcesses, indirect, nullable)] ApplicationProcesses: *mut *mut ApplicationProcessSummary) -> HRESULT;
+            fn GetApplicationProcessDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Flags: DWORD, #[opt] #[out] Summary: *mut ApplicationProcessSummary, #[opt] #[out] Statistics: *mut ApplicationProcessStatistics, #[opt] #[out] RecycleInfo: *mut ApplicationProcessRecycleInfo, #[opt] #[out] AnyComponentsHangMonitored: *mut BOOL) -> HRESULT;
+            fn GetApplicationsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] Flags: DWORD, #[out] NumApplicationsInProcess: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumApplicationsInProcess, indirect, nullable)] #[writable(success, *NumApplicationsInProcess, indirect, nullable)] Applications: *mut *mut ApplicationSummary) -> HRESULT;
+            fn GetComponentsInProcess(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] PartitionId: &GUID, #[in] ApplicationId: &GUID, #[in] Flags: DWORD, #[out] NumComponentsInProcess: *mut ULONG, #[nullable(entry, indirect)] #[out] #[readable(success, *NumComponentsInProcess, indirect, nullable)] #[writable(success, *NumComponentsInProcess, indirect, nullable)] Components: *mut *mut ComponentSummary) -> HRESULT;
+            fn GetComponentDetails(&self, #[in] ApplicationInstanceId: &GUID, #[in] ProcessId: DWORD, #[in] Clsid: &IID, #[in] Flags: DWORD, #[opt] #[out] Summary: *mut ComponentSummary, #[opt] #[out] Statistics: *mut ComponentStatistics, #[opt] #[out] HangMonitorInfo: *mut ComponentHangMonitorInfo) -> HRESULT;
             fn GetTrackerDataAsCollectionObject(&self, #[out] #[out_ptr] TopLevelCollection: *mut IUnknown) -> HRESULT;
             fn GetSuggestedPollingInterval(&self, #[out] PollingIntervalInSeconds: *mut DWORD) -> HRESULT;
         }
@@ -705,7 +705,7 @@ mod Windows {
         }
         #[guid(0xcafc823f_b441_11d1_b82b_0000f8757e2a)]
         interface IGetSecurityCallContext: IDispatch {
-            fn GetSecurityCallContext(&self, #[out] #[retval] #[out_ptr] ppObject: *mut ISecurityCallContext) -> HRESULT;
+            fn GetSecurityCallContext(&self, #[out] #[out_ptr] #[retval] ppObject: *mut ISecurityCallContext) -> HRESULT;
         }
         #[guid(0xbf6a1850_2b45_11cf_be10_00aa00a2fa25)]
         interface IHolder: IUnknown {
@@ -738,7 +738,7 @@ mod Windows {
         }
         #[guid(0xd19b8bfd_7f88_11d0_b16e_00aa00ba3258)]
         interface IMTSLocator: IDispatch {
-            fn GetEventDispatcher(&self, #[out] #[retval] #[out_ptr] pUnk: *mut IUnknown) -> HRESULT;
+            fn GetEventDispatcher(&self, #[out] #[out_ptr] #[retval] pUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xa5f325af_572f_46da_b8ab_827c3d95d99e)]
         interface IManagedActivationEvents: IUnknown {
@@ -762,9 +762,9 @@ mod Windows {
         }
         #[guid(0x588a085a_b795_11d1_8054_00c04fc340ee)]
         interface IMessageMover: IDispatch {
-            fn get_SourcePath(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn get_SourcePath(&self, #[out] #[out_ptr] #[retval] pVal: *mut BSTR) -> HRESULT;
             fn put_SourcePath(&self, #[in] newVal: BSTR) -> HRESULT;
-            fn get_DestPath(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn get_DestPath(&self, #[out] #[out_ptr] #[retval] pVal: *mut BSTR) -> HRESULT;
             fn put_DestPath(&self, #[in] newVal: BSTR) -> HRESULT;
             fn get_CommitBatchSize(&self, #[out] #[retval] pVal: *mut i32) -> HRESULT;
             fn put_CommitBatchSize(&self, #[in] newVal: i32) -> HRESULT;
@@ -772,16 +772,16 @@ mod Windows {
         }
         #[guid(0xd56c3dc1_8482_11d0_b170_00aa00ba3258)]
         interface IMtsEventInfo: IDispatch {
-            fn get_Names(&self, #[out] #[retval] #[out_ptr] pUnk: *mut IUnknown) -> HRESULT;
-            fn get_DisplayName(&self, #[out] #[retval] #[out_ptr] sDisplayName: *mut BSTR) -> HRESULT;
-            fn get_EventID(&self, #[out] #[retval] #[out_ptr] sGuidEventID: *mut BSTR) -> HRESULT;
+            fn get_Names(&self, #[out] #[out_ptr] #[retval] pUnk: *mut IUnknown) -> HRESULT;
+            fn get_DisplayName(&self, #[out] #[out_ptr] #[retval] sDisplayName: *mut BSTR) -> HRESULT;
+            fn get_EventID(&self, #[out] #[out_ptr] #[retval] sGuidEventID: *mut BSTR) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] lCount: *mut i32) -> HRESULT;
             fn get_Value(&self, #[in] sKey: BSTR, #[out] #[retval] pVal: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xbacedf4d_74ab_11d0_b162_00aa00ba3258)]
         interface IMtsEvents: IDispatch {
-            fn get_PackageName(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
-            fn get_PackageGuid(&self, #[out] #[retval] #[out_ptr] pVal: *mut BSTR) -> HRESULT;
+            fn get_PackageName(&self, #[out] #[out_ptr] #[retval] pVal: *mut BSTR) -> HRESULT;
+            fn get_PackageGuid(&self, #[out] #[out_ptr] #[retval] pVal: *mut BSTR) -> HRESULT;
             fn PostEvent(&self, #[in] vEvent: *mut VARIANT) -> HRESULT;
             fn get_FireEvents(&self, #[out] #[retval] pVal: *mut VARIANT_BOOL) -> HRESULT;
             fn GetProcessID(&self, #[out] #[retval] id: *mut i32) -> HRESULT;
@@ -816,7 +816,7 @@ mod Windows {
         }
         #[guid(0x51372ae0_cae7_11cf_be81_00aa00a2fa25)]
         interface IObjectContext: IUnknown {
-            fn CreateInstance(&self, #[in] rclsid: &IID, #[in] riid: &IID, #[out] #[retval] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+            fn CreateInstance(&self, #[in] rclsid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[retval] ppv: *mut LPVOID) -> HRESULT;
             fn SetComplete(&self) -> HRESULT;
             fn SetAbort(&self) -> HRESULT;
             fn EnableCommit(&self) -> HRESULT;
@@ -871,7 +871,7 @@ mod Windows {
         interface ISecurityCallContext: IDispatch {
             fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
             fn get_Item(&self, #[in] name: BSTR, #[out] #[retval] pItem: *mut VARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IUnknown) -> HRESULT;
             fn IsCallerInRole(&self, #[in] bstrRole: BSTR, #[out] #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
             fn IsSecurityEnabled(&self, #[out] #[retval] pfIsEnabled: *mut VARIANT_BOOL) -> HRESULT;
             fn IsUserInRole(&self, #[in] pUser: *mut VARIANT, #[in] bstrRole: BSTR, #[out] #[retval] pfInRole: *mut VARIANT_BOOL) -> HRESULT;
@@ -879,14 +879,14 @@ mod Windows {
         #[guid(0xcafc823d_b441_11d1_b82b_0000f8757e2a)]
         interface ISecurityCallersColl: IDispatch {
             fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn get_Item(&self, #[in] lIndex: i32, #[out] #[retval] #[out_ptr] pObj: *mut ISecurityIdentityColl) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] lIndex: i32, #[out] #[out_ptr] #[retval] pObj: *mut ISecurityIdentityColl) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xcafc823c_b441_11d1_b82b_0000f8757e2a)]
         interface ISecurityIdentityColl: IDispatch {
             fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
             fn get_Item(&self, #[in] name: BSTR, #[out] #[retval] pItem: *mut VARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x51372aea_cae7_11cf_be81_00aa00a2fa25)]
         interface ISecurityProperty: IUnknown {
@@ -937,7 +937,7 @@ mod Windows {
         #[guid(0xb302df81_ea45_451e_99a2_09f9fd1b1e13)]
         interface IServicePool: IUnknown {
             fn Initialize(&self, #[in] pPoolConfig: IUnknown) -> HRESULT;
-            fn GetObjectA(&self, riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetObjectA(&self, riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
         }
         #[guid(0xa9690656_5bca_470c_8451_250c1f43a33e)]
@@ -995,16 +995,16 @@ mod Windows {
         }
         #[guid(0x2a005c07_a5de_11cf_9e66_00aa00a3f464)]
         interface ISharedPropertyGroup: IDispatch {
-            fn CreatePropertyByPosition(&self, #[in] Index: i32, #[out] fExists: *mut VARIANT_BOOL, #[out] #[retval] #[out_ptr] ppProp: *mut ISharedProperty) -> HRESULT;
-            fn get_PropertyByPosition(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] ppProperty: *mut ISharedProperty) -> HRESULT;
-            fn CreateProperty(&self, #[in] Name: BSTR, #[out] fExists: *mut VARIANT_BOOL, #[out] #[retval] #[out_ptr] ppProp: *mut ISharedProperty) -> HRESULT;
-            fn get_Property(&self, #[in] Name: BSTR, #[out] #[retval] #[out_ptr] ppProperty: *mut ISharedProperty) -> HRESULT;
+            fn CreatePropertyByPosition(&self, #[in] Index: i32, #[out] fExists: *mut VARIANT_BOOL, #[out] #[out_ptr] #[retval] ppProp: *mut ISharedProperty) -> HRESULT;
+            fn get_PropertyByPosition(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] ppProperty: *mut ISharedProperty) -> HRESULT;
+            fn CreateProperty(&self, #[in] Name: BSTR, #[out] fExists: *mut VARIANT_BOOL, #[out] #[out_ptr] #[retval] ppProp: *mut ISharedProperty) -> HRESULT;
+            fn get_Property(&self, #[in] Name: BSTR, #[out] #[out_ptr] #[retval] ppProperty: *mut ISharedProperty) -> HRESULT;
         }
         #[guid(0x2a005c0d_a5de_11cf_9e66_00aa00a3f464)]
         interface ISharedPropertyGroupManager: IDispatch {
-            fn CreatePropertyGroup(&self, #[in] Name: BSTR, #[in] #[out] dwIsoMode: *mut LONG, #[in] #[out] dwRelMode: *mut LONG, #[out] fExists: *mut VARIANT_BOOL, #[out] #[retval] #[out_ptr] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
-            fn get_Group(&self, #[in] Name: BSTR, #[out] #[retval] #[out_ptr] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn CreatePropertyGroup(&self, #[in] Name: BSTR, #[in] #[out] dwIsoMode: *mut LONG, #[in] #[out] dwRelMode: *mut LONG, #[out] fExists: *mut VARIANT_BOOL, #[out] #[out_ptr] #[retval] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
+            fn get_Group(&self, #[in] Name: BSTR, #[out] #[out_ptr] #[retval] ppGroup: *mut ISharedPropertyGroup) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xd6d48a3c_d5c5_49e7_8c74_99e4889ed52f)]
         interface ISystemAppEventData: IUnknown {
@@ -1032,7 +1032,7 @@ mod Windows {
         }
         #[guid(0x7999fc22_d3c6_11cf_acab_00a024a55aef)]
         interface ITransactionContextEx: IUnknown {
-            fn CreateInstance(&self, #[in] rclsid: &IID, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, #[in] rclsid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pObject: *mut *mut void) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn Abort(&self) -> HRESULT;
         }
@@ -1106,9 +1106,9 @@ mod Windows {
             fn IsCallerInRole(&self, #[in] bstrRole: BSTR, #[out] #[retval] pbInRole: *mut VARIANT_BOOL) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
             fn get_Item(&self, #[in] name: BSTR, #[out] #[retval] pItem: *mut VARIANT) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IUnknown) -> HRESULT;
-            fn get_Security(&self, #[out] #[retval] #[out_ptr] ppSecurityProperty: *mut SecurityProperty) -> HRESULT;
-            fn get_ContextInfo(&self, #[out] #[retval] #[out_ptr] ppContextInfo: *mut ContextInfo) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IUnknown) -> HRESULT;
+            fn get_Security(&self, #[out] #[out_ptr] #[retval] ppSecurityProperty: *mut SecurityProperty) -> HRESULT;
+            fn get_ContextInfo(&self, #[out] #[out_ptr] #[retval] ppContextInfo: *mut ContextInfo) -> HRESULT;
         }
         #[guid(0x7dc41850_0c31_11d0_8b79_00aa00b8a790)]
         interface ObjectControl: IUnknown {
@@ -1148,10 +1148,10 @@ mod Windows {
         const SecurityIdentity: GUID = 0xecabb0a5_7f19_11d2_978e_0000f8757e2a;
         #[guid(0xe74a7215_014d_11d1_a63c_00a0c911b4e0)]
         interface SecurityProperty: IDispatch {
-            fn GetDirectCallerName(&self, #[out] #[retval] #[out_ptr] bstrUserName: *mut BSTR) -> HRESULT;
-            fn GetDirectCreatorName(&self, #[out] #[retval] #[out_ptr] bstrUserName: *mut BSTR) -> HRESULT;
-            fn GetOriginalCallerName(&self, #[out] #[retval] #[out_ptr] bstrUserName: *mut BSTR) -> HRESULT;
-            fn GetOriginalCreatorName(&self, #[out] #[retval] #[out_ptr] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetDirectCallerName(&self, #[out] #[out_ptr] #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetDirectCreatorName(&self, #[out] #[out_ptr] #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetOriginalCallerName(&self, #[out] #[out_ptr] #[retval] bstrUserName: *mut BSTR) -> HRESULT;
+            fn GetOriginalCreatorName(&self, #[out] #[out_ptr] #[retval] bstrUserName: *mut BSTR) -> HRESULT;
         }
         const ServicePool: GUID = 0xecabb0c9_7f19_11d2_978e_0000f8757e2a;
         const ServicePoolConfig: GUID = 0xecabb0ca_7f19_11d2_978e_0000f8757e2a;

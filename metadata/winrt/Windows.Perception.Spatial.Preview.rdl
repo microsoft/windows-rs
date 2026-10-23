@@ -3,9 +3,9 @@ mod Windows {
     mod Perception {
         mod Spatial {
             mod Preview {
-                #[guid(0xa8271b23_735f_5729_a98e_e64ed189abc5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGraphInteropFrameOfReferencePreview)]
+                #[guid(0xa8271b23_735f_5729_a98e_e64ed189abc5)]
                 interface ISpatialGraphInteropFrameOfReferencePreview {
                     #[get]
                     CoordinateSystem: super::SpatialCoordinateSystem;
@@ -14,9 +14,9 @@ mod Windows {
                     #[get]
                     CoordinateSystemToNodeTransform: super::super::super::Foundation::Numerics::Matrix4x4;
                 }
-                #[guid(0xc042644c_20d8_4ed0_aef7_6805b8e53f55)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGraphInteropPreview)]
+                #[guid(0xc042644c_20d8_4ed0_aef7_6805b8e53f55)]
                 interface ISpatialGraphInteropPreviewStatics {
                     #[Windows::Foundation::Metadata::Overload("CreateCoordinateSystemForNode")]
                     fn CreateCoordinateSystemForNode(&self, #[in] nodeId: GUID) -> super::SpatialCoordinateSystem;
@@ -26,9 +26,9 @@ mod Windows {
                     fn CreateCoordinateSystemForNode(&self, #[in] nodeId: GUID, #[in] relativePosition: super::super::super::Foundation::Numerics::Vector3, #[in] relativeOrientation: super::super::super::Foundation::Numerics::Quaternion) -> super::SpatialCoordinateSystem;
                     fn CreateLocatorForNode(&self, #[in] nodeId: GUID) -> super::SpatialLocator;
                 }
-                #[guid(0x2490b15f_6cbd_4b1e_b765_31e462a32df2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGraphInteropPreview)]
+                #[guid(0x2490b15f_6cbd_4b1e_b765_31e462a32df2)]
                 interface ISpatialGraphInteropPreviewStatics2 {
                     #[Windows::Foundation::Metadata::Overload("TryCreateFrameOfReference")]
                     fn TryCreateFrameOfReference(&self, #[in] coordinateSystem: super::SpatialCoordinateSystem) -> SpatialGraphInteropFrameOfReferencePreview;
@@ -44,8 +44,8 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(ISpatialGraphInteropPreviewStatics, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(ISpatialGraphInteropPreviewStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ISpatialGraphInteropPreviewStatics, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialGraphInteropPreview {}
             }

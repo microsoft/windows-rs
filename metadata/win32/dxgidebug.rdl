@@ -77,7 +77,7 @@ mod Windows {
         interface IDXGIInfoQueue: IUnknown {
             fn SetMessageCountLimit(&self, #[in] Producer: DXGI_DEBUG_ID, #[in] MessageCountLimit: UINT64) -> HRESULT;
             fn ClearStoredMessages(&self, #[in] Producer: DXGI_DEBUG_ID);
-            fn GetMessageA(&self, #[in] Producer: DXGI_DEBUG_ID, #[in] MessageIndex: UINT64, #[out] #[opt] #[writable(entry, bytes(*pMessageByteLength))] pMessage: *mut DXGI_INFO_QUEUE_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetMessageA(&self, #[in] Producer: DXGI_DEBUG_ID, #[in] MessageIndex: UINT64, #[opt] #[out] #[writable(entry, bytes(*pMessageByteLength))] pMessage: *mut DXGI_INFO_QUEUE_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
             fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, #[in] Producer: DXGI_DEBUG_ID) -> UINT64;
             fn GetNumStoredMessages(&self, #[in] Producer: DXGI_DEBUG_ID) -> UINT64;
             fn GetNumMessagesDiscardedByMessageCountLimit(&self, #[in] Producer: DXGI_DEBUG_ID) -> UINT64;
@@ -85,7 +85,7 @@ mod Windows {
             fn GetNumMessagesAllowedByStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID) -> UINT64;
             fn GetNumMessagesDeniedByStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID) -> UINT64;
             fn AddStorageFilterEntries(&self, #[in] Producer: DXGI_DEBUG_ID, #[in] pFilter: *mut DXGI_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID, #[out] #[opt] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut DXGI_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut DXGI_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID);
             fn PushEmptyStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID) -> HRESULT;
             fn PushDenyAllStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID) -> HRESULT;
@@ -94,7 +94,7 @@ mod Windows {
             fn PopStorageFilter(&self, #[in] Producer: DXGI_DEBUG_ID);
             fn GetStorageFilterStackSize(&self, #[in] Producer: DXGI_DEBUG_ID) -> UINT;
             fn AddRetrievalFilterEntries(&self, #[in] Producer: DXGI_DEBUG_ID, #[in] pFilter: *mut DXGI_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetRetrievalFilter(&self, #[in] Producer: DXGI_DEBUG_ID, #[out] #[opt] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut DXGI_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetRetrievalFilter(&self, #[in] Producer: DXGI_DEBUG_ID, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut DXGI_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearRetrievalFilter(&self, #[in] Producer: DXGI_DEBUG_ID);
             fn PushEmptyRetrievalFilter(&self, #[in] Producer: DXGI_DEBUG_ID) -> HRESULT;
             fn PushDenyAllRetrievalFilter(&self, #[in] Producer: DXGI_DEBUG_ID) -> HRESULT;

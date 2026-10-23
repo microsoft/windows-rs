@@ -88,7 +88,7 @@ mod Windows {
         type PCONSOLE_HISTORY_INFO = *mut CONSOLE_HISTORY_INFO;
         type PCONSOLE_SELECTION_INFO = *mut CONSOLE_SELECTION_INFO;
         #[library("KERNEL32.dll")]
-        extern fn SetConsoleDisplayMode(#[in] hConsoleOutput: HANDLE, #[in] dwFlags: DWORD, #[out] #[opt] lpNewScreenBufferDimensions: PCOORD) -> BOOL;
+        extern fn SetConsoleDisplayMode(#[in] hConsoleOutput: HANDLE, #[in] dwFlags: DWORD, #[opt] #[out] lpNewScreenBufferDimensions: PCOORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetConsoleHistoryInfo(#[in] lpConsoleHistoryInfo: PCONSOLE_HISTORY_INFO) -> BOOL;
         #[library("KERNEL32.dll")]

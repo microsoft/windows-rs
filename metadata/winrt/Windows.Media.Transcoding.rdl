@@ -2,9 +2,9 @@
 mod Windows {
     mod Media {
         mod Transcoding {
-            #[guid(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaTranscoder)]
+            #[guid(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b)]
             interface IMediaTranscoder {
                 #[set]
                 TrimStartTime: super::super::Foundation::TimeSpan;
@@ -34,9 +34,9 @@ mod Windows {
                 fn PrepareFileTranscodeAsync(&self, #[in] source: super::super::Storage::IStorageFile, #[in] destination: super::super::Storage::IStorageFile, #[in] profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
                 fn PrepareStreamTranscodeAsync(&self, #[in] source: super::super::Storage::Streams::IRandomAccessStream, #[in] destination: super::super::Storage::Streams::IRandomAccessStream, #[in] profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
             }
-            #[guid(0x40531d74_35e0_4f04_8574_ca8bc4e5a082)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaTranscoder)]
+            #[guid(0x40531d74_35e0_4f04_8574_ca8bc4e5a082)]
             interface IMediaTranscoder2 {
                 fn PrepareMediaStreamSourceTranscodeAsync(&self, #[in] source: super::Core::IMediaSource, #[in] destination: super::super::Storage::Streams::IRandomAccessStream, #[in] profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
                 #[set]
@@ -44,9 +44,9 @@ mod Windows {
                 #[get]
                 VideoProcessingAlgorithm: MediaVideoProcessingAlgorithm;
             }
-            #[guid(0x05f25dce_994f_4a34_9d68_97ccce1730d6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PrepareTranscodeResult)]
+            #[guid(0x05f25dce_994f_4a34_9d68_97ccce1730d6)]
             interface IPrepareTranscodeResult {
                 #[get]
                 CanTranscode: bool;
@@ -65,8 +65,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IMediaTranscoder2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MediaVideoProcessingAlgorithm {
                 Default = 0,
                 MrfCrf444 = 1,
@@ -78,8 +78,8 @@ mod Windows {
             class PrepareTranscodeResult {
                 IPrepareTranscodeResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum TranscodeFailureReason {
                 None = 0,
                 Unknown = 1,

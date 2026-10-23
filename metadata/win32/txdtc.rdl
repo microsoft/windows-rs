@@ -157,7 +157,7 @@ mod Windows {
         }
         #[guid(0xc23cc370_87ef_11ce_8081_0080c758527e)]
         interface IGetDispenser: IUnknown {
-            fn GetDispenser(&self, #[in] iid: &IID, #[out] #[out_ptr] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn GetDispenser(&self, #[in] iid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut *mut void) -> HRESULT;
         }
         const IID_IDtcLuConfigure: GUID = 0x4131e760_1aea_11d0_944b_00a0c905416e;
         const IID_IDtcLuRecovery: GUID = 0xac2b8ad2_d6f0_11d0_b386_00a0c9083365;
@@ -211,7 +211,7 @@ mod Windows {
         #[guid(0x5fab2547_9779_11d1_b886_00c04fb9618a)]
         interface IPrepareInfo2: IUnknown {
             fn GetPrepareInfoSize(&self, #[out] pcbPrepInfo: *mut ULONG) -> HRESULT;
-            fn GetPrepareInfo(&self, #[in] cbPrepareInfo: ULONG, #[out] #[writable(entry, cbPrepareInfo)] #[writable(success, cbPrepareInfo)] #[readable(success, cbPrepareInfo)] pPrepInfo: *mut byte) -> HRESULT;
+            fn GetPrepareInfo(&self, #[in] cbPrepareInfo: ULONG, #[out] #[readable(success, cbPrepareInfo)] #[writable(entry, cbPrepareInfo)] #[writable(success, cbPrepareInfo)] pPrepInfo: *mut byte) -> HRESULT;
         }
         #[guid(0xe793f6d1_f53d_11cf_a60d_00a0c905416e)]
         interface IRMHelper: IUnknown {
@@ -229,7 +229,7 @@ mod Windows {
         }
         #[guid(0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d)]
         interface IResourceManagerFactory2: IResourceManagerFactory {
-            fn CreateEx(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated(entry)] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[in] riidRequested: &IID, #[out] #[out_ptr] #[iid_is] ppvResMgr: *mut *mut void) -> HRESULT;
+            fn CreateEx(&self, #[in] pguidRM: *mut GUID, #[in] #[null_terminated(entry)] pszRMName: *mut CHAR, #[in] #[opt] pIResMgrSink: IResourceManagerSink, #[in] riidRequested: &IID, #[iid_is] #[out] #[out_ptr] ppvResMgr: *mut *mut void) -> HRESULT;
         }
         #[guid(0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b)]
         interface IResourceManagerRejoinable: IResourceManager2 {
@@ -260,7 +260,7 @@ mod Windows {
         interface ITransactionReceiver: IUnknown {
             fn UnmarshalPropagationToken(&self, #[in] cbToken: ULONG, #[in] #[readable(entry, cbToken)] rgbToken: *mut byte, #[out] #[out_ptr] ppTransaction: *mut ITransaction) -> HRESULT;
             fn GetReturnTokenSize(&self, #[out] pcbReturnToken: *mut ULONG) -> HRESULT;
-            fn MarshalReturnToken(&self, #[in] cbReturnToken: ULONG, #[out] #[writable(entry, cbReturnToken)] #[writable(success, cbReturnToken)] #[readable(success, cbReturnToken)] rgbReturnToken: *mut byte, #[out] pcbUsed: *mut ULONG) -> HRESULT;
+            fn MarshalReturnToken(&self, #[in] cbReturnToken: ULONG, #[out] #[readable(success, cbReturnToken)] #[writable(entry, cbReturnToken)] #[writable(success, cbReturnToken)] rgbReturnToken: *mut byte, #[out] pcbUsed: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
         }
         #[guid(0x59313e02_b36c_11cf_a539_00aa006887c3)]
@@ -271,7 +271,7 @@ mod Windows {
         interface ITransactionTransmitter: IUnknown {
             fn Set(&self, #[in] #[opt] pTransaction: ITransaction) -> HRESULT;
             fn GetPropagationTokenSize(&self, #[out] pcbToken: *mut ULONG) -> HRESULT;
-            fn MarshalPropagationToken(&self, #[in] cbToken: ULONG, #[out] #[writable(entry, cbToken)] #[writable(success, cbToken)] #[readable(success, cbToken)] rgbToken: *mut byte, #[out] pcbUsed: *mut ULONG) -> HRESULT;
+            fn MarshalPropagationToken(&self, #[in] cbToken: ULONG, #[out] #[readable(success, cbToken)] #[writable(entry, cbToken)] #[writable(success, cbToken)] rgbToken: *mut byte, #[out] pcbUsed: *mut ULONG) -> HRESULT;
             fn UnmarshalReturnToken(&self, #[in] cbReturnToken: ULONG, #[in] #[readable(entry, cbReturnToken)] rgbReturnToken: *mut byte) -> HRESULT;
             fn Reset(&self) -> HRESULT;
         }

@@ -197,7 +197,7 @@ mod Windows {
             WS_DATETIME_FORMAT_NONE = 2,
         }
         type WS_DECIMAL_DESCRIPTION = _WS_DECIMAL_DESCRIPTION;
-        extern fn WS_DECODER_DECODE_CALLBACK(#[in] encoderContext: *mut void, #[out] #[writable(entry, bytes(maxLength))] #[readable(success, bytes(*length))] buffer: *mut void, #[in] maxLength: ULONG, #[out] length: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_DECODER_DECODE_CALLBACK(#[in] encoderContext: *mut void, #[out] #[readable(success, bytes(*length))] #[writable(entry, bytes(maxLength))] buffer: *mut void, #[in] maxLength: ULONG, #[out] length: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_DECODER_END_CALLBACK(#[in] encoderContext: *mut void, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_DECODER_GET_CONTENT_TYPE_CALLBACK(#[in] decoderContext: *mut void, #[in] contentType: *const WS_STRING, #[in] #[opt] contentEncoding: *const WS_STRING, #[out] newContentType: *mut WS_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_DECODER_START_CALLBACK(#[in] encoderContext: *mut void, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
@@ -620,10 +620,10 @@ mod Windows {
             WS_PROXY_PROPERTY_MAX_CLOSE_TIMEOUT = 5,
             WS_PROXY_FAULT_LANG_ID = 6,
         }
-        extern fn WS_PULL_BYTES_CALLBACK(#[in] #[opt] callbackState: *mut void, #[out] #[writable(entry, bytes(maxSize))] #[readable(success, bytes(*actualSize))] bytes: *mut void, #[in] maxSize: ULONG, #[out] actualSize: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_PULL_BYTES_CALLBACK(#[in] #[opt] callbackState: *mut void, #[out] #[readable(success, bytes(*actualSize))] #[writable(entry, bytes(maxSize))] bytes: *mut void, #[in] maxSize: ULONG, #[out] actualSize: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_PUSH_BYTES_CALLBACK(#[in] #[opt] callbackState: *mut void, #[in] writeCallback: WS_WRITE_CALLBACK, #[in] #[opt] writeCallbackState: *mut void, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         type WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE = _WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE;
-        extern fn WS_READ_CALLBACK(#[in] #[opt] callbackState: *mut void, #[out] #[writable(entry, bytes(maxSize))] #[readable(success, bytes(*actualSize))] bytes: *mut void, #[in] maxSize: ULONG, #[out] actualSize: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WS_READ_CALLBACK(#[in] #[opt] callbackState: *mut void, #[out] #[readable(success, bytes(*actualSize))] #[writable(entry, bytes(maxSize))] bytes: *mut void, #[in] maxSize: ULONG, #[out] actualSize: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_READ_MESSAGE_END_CALLBACK(#[in] channelInstance: *mut void, #[in] message: *mut WS_MESSAGE, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         extern fn WS_READ_MESSAGE_START_CALLBACK(#[in] channelInstance: *mut void, #[in] message: *mut WS_MESSAGE, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[repr(i32)]
@@ -1623,7 +1623,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetChannelProperty(#[in] channel: *mut WS_CHANNEL, #[in] id: WS_CHANNEL_PROPERTY_ID, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetCustomHeader(#[in] message: *mut WS_MESSAGE, #[in] customHeaderDescription: *const WS_ELEMENT_DESCRIPTION, #[in] repeatingOption: WS_REPEATING_HEADER_OPTION, #[in] headerIndex: ULONG, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[out] #[opt] headerAttributes: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetCustomHeader(#[in] message: *mut WS_MESSAGE, #[in] customHeaderDescription: *const WS_ELEMENT_DESCRIPTION, #[in] repeatingOption: WS_REPEATING_HEADER_OPTION, #[in] headerIndex: ULONG, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[opt] #[out] headerAttributes: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsGetDictionary(#[in] encoding: WS_ENCODING, #[out] #[out_ptr(nullable)] dictionary: *mut *mut WS_XML_DICTIONARY, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1681,7 +1681,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsGetWriterProperty(#[in] writer: *mut WS_XML_WRITER, #[in] id: WS_XML_WRITER_PROPERTY_ID, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsGetXmlAttribute(#[in] reader: *mut WS_XML_READER, #[in] localName: *const WS_XML_STRING, #[in] heap: *mut WS_HEAP, #[out] #[opt] #[writable(success, *valueCharCount, indirect)] valueChars: *mut *mut WCHAR, #[out] valueCharCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsGetXmlAttribute(#[in] reader: *mut WS_XML_READER, #[in] localName: *const WS_XML_STRING, #[in] heap: *mut WS_HEAP, #[opt] #[out] #[writable(success, *valueCharCount, indirect)] valueChars: *mut *mut WCHAR, #[out] valueCharCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsInitializeMessage(#[in] message: *mut WS_MESSAGE, #[in] initialization: WS_MESSAGE_INITIALIZATION, #[in] #[opt] sourceMessage: *mut WS_MESSAGE, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1689,9 +1689,9 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsMatchPolicyAlternative(#[in] policy: *mut WS_POLICY, #[in] alternativeIndex: ULONG, #[in] policyConstraints: *mut WS_POLICY_CONSTRAINTS, #[in] matchRequired: BOOL, #[in] heap: *mut WS_HEAP, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsMoveReader(#[in] reader: *mut WS_XML_READER, #[in] moveTo: WS_MOVE_TO, #[out] #[opt] found: *mut BOOL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsMoveReader(#[in] reader: *mut WS_XML_READER, #[in] moveTo: WS_MOVE_TO, #[opt] #[out] found: *mut BOOL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsMoveWriter(#[in] writer: *mut WS_XML_WRITER, #[in] moveTo: WS_MOVE_TO, #[out] #[opt] found: *mut BOOL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsMoveWriter(#[in] writer: *mut WS_XML_WRITER, #[in] moveTo: WS_MOVE_TO, #[opt] #[out] found: *mut BOOL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsOpenChannel(#[in] channel: *mut WS_CHANNEL, #[in] endpointAddress: *const WS_ENDPOINT_ADDRESS, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1705,17 +1705,17 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsPushBytes(#[in] writer: *mut WS_XML_WRITER, #[in] callback: WS_PUSH_BYTES_CALLBACK, #[in] #[opt] callbackState: *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadArray(#[in] reader: *mut WS_XML_READER, #[in] localName: *const WS_XML_STRING, #[in] ns: *const WS_XML_STRING, #[in] valueType: WS_VALUE_TYPE, #[out] #[opt] #[writable(entry, bytes(arraySize))] array: *mut void, #[in] arraySize: ULONG, #[in] itemOffset: ULONG, #[in] itemCount: ULONG, #[out] actualItemCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadArray(#[in] reader: *mut WS_XML_READER, #[in] localName: *const WS_XML_STRING, #[in] ns: *const WS_XML_STRING, #[in] valueType: WS_VALUE_TYPE, #[opt] #[out] #[writable(entry, bytes(arraySize))] array: *mut void, #[in] arraySize: ULONG, #[in] itemOffset: ULONG, #[in] itemCount: ULONG, #[out] actualItemCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsReadAttribute(#[in] reader: *mut WS_XML_READER, #[in] attributeDescription: *const WS_ATTRIBUTE_DESCRIPTION, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsReadBody(#[in] message: *mut WS_MESSAGE, #[in] bodyDescription: *const WS_ELEMENT_DESCRIPTION, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadBytes(#[in] reader: *mut WS_XML_READER, #[out] #[writable(entry, bytes(maxByteCount))] #[readable(success, bytes(*actualByteCount))] bytes: *mut void, #[in] maxByteCount: ULONG, #[out] actualByteCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadBytes(#[in] reader: *mut WS_XML_READER, #[out] #[readable(success, bytes(*actualByteCount))] #[writable(entry, bytes(maxByteCount))] bytes: *mut void, #[in] maxByteCount: ULONG, #[out] actualByteCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadChars(#[in] reader: *mut WS_XML_READER, #[out] #[writable(entry, maxCharCount)] #[readable(success, *actualCharCount)] chars: *mut WCHAR, #[in] maxCharCount: ULONG, #[out] actualCharCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadChars(#[in] reader: *mut WS_XML_READER, #[out] #[readable(success, *actualCharCount)] #[writable(entry, maxCharCount)] chars: *mut WCHAR, #[in] maxCharCount: ULONG, #[out] actualCharCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadCharsUtf8(#[in] reader: *mut WS_XML_READER, #[out] #[writable(entry, maxByteCount)] #[readable(success, *actualByteCount)] bytes: *mut BYTE, #[in] maxByteCount: ULONG, #[out] actualByteCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadCharsUtf8(#[in] reader: *mut WS_XML_READER, #[out] #[readable(success, *actualByteCount)] #[writable(entry, maxByteCount)] bytes: *mut BYTE, #[in] maxByteCount: ULONG, #[out] actualByteCount: *mut ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsReadElement(#[in] reader: *mut WS_XML_READER, #[in] elementDescription: *const WS_ELEMENT_DESCRIPTION, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1737,13 +1737,13 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsReadNode(#[in] reader: *mut WS_XML_READER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadQualifiedName(#[in] reader: *mut WS_XML_READER, #[in] heap: *mut WS_HEAP, #[out] #[opt] prefix: *mut WS_XML_STRING, #[out] localName: *mut WS_XML_STRING, #[out] #[opt] ns: *mut WS_XML_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadQualifiedName(#[in] reader: *mut WS_XML_READER, #[in] heap: *mut WS_HEAP, #[opt] #[out] prefix: *mut WS_XML_STRING, #[out] localName: *mut WS_XML_STRING, #[opt] #[out] ns: *mut WS_XML_STRING, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsReadStartAttribute(#[in] reader: *mut WS_XML_READER, #[in] attributeIndex: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsReadStartElement(#[in] reader: *mut WS_XML_READER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReadToStartElement(#[in] reader: *mut WS_XML_READER, #[in] #[opt] localName: *const WS_XML_STRING, #[in] #[opt] ns: *const WS_XML_STRING, #[out] #[opt] found: *mut BOOL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReadToStartElement(#[in] reader: *mut WS_XML_READER, #[in] #[opt] localName: *const WS_XML_STRING, #[in] #[opt] ns: *const WS_XML_STRING, #[opt] #[out] found: *mut BOOL, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsReadType(#[in] reader: *mut WS_XML_READER, #[in] typeMapping: WS_TYPE_MAPPING, #[in] r#type: WS_TYPE, #[in] #[opt] typeDescription: *const void, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1753,7 +1753,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsReadXmlBufferFromBytes(#[in] reader: *mut WS_XML_READER, #[in] #[opt] encoding: *const WS_XML_READER_ENCODING, #[in] #[opt] #[readable(entry, propertyCount)] properties: *const WS_XML_READER_PROPERTY, #[in] propertyCount: ULONG, #[in] #[readable(entry, bytes(byteCount))] bytes: *const void, #[in] byteCount: ULONG, #[in] heap: *mut WS_HEAP, #[out] #[out_ptr] xmlBuffer: *mut *mut WS_XML_BUFFER, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsReceiveMessage(#[in] channel: *mut WS_CHANNEL, #[in] message: *mut WS_MESSAGE, #[in] #[readable(entry, messageDescriptionCount)] messageDescriptions: *mut *const WS_MESSAGE_DESCRIPTION, #[in] messageDescriptionCount: ULONG, #[in] receiveOption: WS_RECEIVE_OPTION, #[in] readBodyOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[out] #[opt] index: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsReceiveMessage(#[in] channel: *mut WS_CHANNEL, #[in] message: *mut WS_MESSAGE, #[in] #[readable(entry, messageDescriptionCount)] messageDescriptions: *mut *const WS_MESSAGE_DESCRIPTION, #[in] messageDescriptionCount: ULONG, #[in] receiveOption: WS_RECEIVE_OPTION, #[in] readBodyOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[opt] #[out] index: *mut ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsRegisterOperationForCancel(#[in] context: *const WS_OPERATION_CONTEXT, #[in] cancelCallback: WS_OPERATION_CANCEL_CALLBACK, #[in] #[opt] freestateCallback: WS_OPERATION_FREE_STATE_CALLBACK, #[in] #[opt] userState: *mut void, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
@@ -1765,7 +1765,7 @@ mod Windows {
         #[library("webservices.dll")]
         extern fn WsRemoveNode(#[in] nodePosition: *const WS_XML_NODE_POSITION, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
-        extern fn WsRequestReply(#[in] channel: *mut WS_CHANNEL, #[in] requestMessage: *mut WS_MESSAGE, #[in] requestMessageDescription: *const WS_MESSAGE_DESCRIPTION, #[in] writeOption: WS_WRITE_OPTION, #[in] #[opt] #[readable(entry, bytes(requestBodyValueSize))] requestBodyValue: *const void, #[in] requestBodyValueSize: ULONG, #[in] replyMessage: *mut WS_MESSAGE, #[in] replyMessageDescription: *const WS_MESSAGE_DESCRIPTION, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[out] #[opt] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
+        extern fn WsRequestReply(#[in] channel: *mut WS_CHANNEL, #[in] requestMessage: *mut WS_MESSAGE, #[in] requestMessageDescription: *const WS_MESSAGE_DESCRIPTION, #[in] writeOption: WS_WRITE_OPTION, #[in] #[opt] #[readable(entry, bytes(requestBodyValueSize))] requestBodyValue: *const void, #[in] requestBodyValueSize: ULONG, #[in] replyMessage: *mut WS_MESSAGE, #[in] replyMessageDescription: *const WS_MESSAGE_DESCRIPTION, #[in] readOption: WS_READ_OPTION, #[in] #[opt] heap: *mut WS_HEAP, #[opt] #[out] #[writable(entry, bytes(valueSize))] value: *mut void, #[in] valueSize: ULONG, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]
         extern fn WsRequestSecurityToken(#[in] channel: *mut WS_CHANNEL, #[in] #[opt] #[readable(entry, propertyCount)] properties: *const WS_REQUEST_SECURITY_TOKEN_PROPERTY, #[in] propertyCount: ULONG, #[out] #[out_ptr] token: *mut *mut WS_SECURITY_TOKEN, #[in] #[opt] asyncContext: *const WS_ASYNC_CONTEXT, #[in] #[opt] error: *mut WS_ERROR) -> HRESULT;
         #[library("webservices.dll")]

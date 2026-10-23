@@ -13,7 +13,7 @@ mod Windows {
         #[library("NETAPI32.dll")]
         extern fn NetServiceControl(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] opcode: DWORD, #[in] arg: DWORD, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn NetServiceEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(entriesread)", "_Inexpressible_(entriesread)")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[out] #[opt] resume_handle: LPDWORD) -> DWORD;
+        extern fn NetServiceEnum(#[in] #[opt] servername: LPCWSTR, #[in] level: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "_Inexpressible_(entriesread)", "_Inexpressible_(entriesread)")] #[out] bufptr: *mut LPBYTE, #[in] prefmaxlen: DWORD, #[out] entriesread: LPDWORD, #[out] totalentries: LPDWORD, #[in] #[opt] #[out] resume_handle: LPDWORD) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn NetServiceGetInfo(#[in] #[opt] servername: LPCWSTR, #[in] service: LPCWSTR, #[in] level: DWORD, #[out] #[out_ptr] bufptr: *mut LPBYTE) -> DWORD;
         #[library("NETAPI32.dll")]

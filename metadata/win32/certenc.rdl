@@ -14,30 +14,30 @@ mod Windows {
             fn Decode(&self, #[in] strBinary: BSTR) -> HRESULT;
             fn GetNameCount(&self, #[out] #[retval] pNameCount: *mut LONG) -> HRESULT;
             fn GetNameChoice(&self, #[in] NameIndex: LONG, #[out] #[retval] pNameChoice: *mut LONG) -> HRESULT;
-            fn GetName(&self, #[in] NameIndex: LONG, #[out] #[retval] #[out_ptr] pstrName: *mut BSTR) -> HRESULT;
+            fn GetName(&self, #[in] NameIndex: LONG, #[out] #[out_ptr] #[retval] pstrName: *mut BSTR) -> HRESULT;
             fn Reset(&self, #[in] NameCount: LONG) -> HRESULT;
             fn SetNameEntry(&self, #[in] NameIndex: LONG, #[in] NameChoice: LONG, #[in] strName: BSTR) -> HRESULT;
-            fn Encode(&self, #[out] #[retval] #[out_ptr] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[out_ptr] #[retval] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0xf67fe177_5ef1_4535_b4ce_29df15e2e0c3)]
         interface ICertEncodeAltName2: ICertEncodeAltName {
             fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
-            fn GetNameBlob(&self, #[in] NameIndex: LONG, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrName: *mut BSTR) -> HRESULT;
+            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn GetNameBlob(&self, #[in] NameIndex: LONG, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrName: *mut BSTR) -> HRESULT;
             fn SetNameEntryBlob(&self, #[in] NameIndex: LONG, #[in] NameChoice: LONG, #[in] strName: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
         }
         #[guid(0x6db525be_1278_11d1_9bd4_00c04fb683fa)]
         interface ICertEncodeBitString: IDispatch {
             fn Decode(&self, #[in] strBinary: BSTR) -> HRESULT;
             fn GetBitCount(&self, #[out] #[retval] pBitCount: *mut LONG) -> HRESULT;
-            fn GetBitString(&self, #[out] #[retval] #[out_ptr] pstrBitString: *mut BSTR) -> HRESULT;
-            fn Encode(&self, #[in] BitCount: LONG, #[in] strBitString: BSTR, #[out] #[retval] #[out_ptr] pstrBinary: *mut BSTR) -> HRESULT;
+            fn GetBitString(&self, #[out] #[out_ptr] #[retval] pstrBitString: *mut BSTR) -> HRESULT;
+            fn Encode(&self, #[in] BitCount: LONG, #[in] strBitString: BSTR, #[out] #[out_ptr] #[retval] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0xe070d6e7_23ef_4dd2_8242_ebd9c928cb30)]
         interface ICertEncodeBitString2: ICertEncodeBitString {
             fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, #[in] BitCount: LONG, #[in] strBitString: BSTR, #[in] EncodingIn: EncodingType, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
-            fn GetBitStringBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrBitString: *mut BSTR) -> HRESULT;
+            fn EncodeBlob(&self, #[in] BitCount: LONG, #[in] strBitString: BSTR, #[in] EncodingIn: EncodingType, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn GetBitStringBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrBitString: *mut BSTR) -> HRESULT;
         }
         #[guid(0x01958640_bbff_11d0_8825_00a0c903b83c)]
         interface ICertEncodeCRLDistInfo: IDispatch {
@@ -45,16 +45,16 @@ mod Windows {
             fn GetDistPointCount(&self, #[out] #[retval] pDistPointCount: *mut LONG) -> HRESULT;
             fn GetNameCount(&self, #[in] DistPointIndex: LONG, #[out] #[retval] pNameCount: *mut LONG) -> HRESULT;
             fn GetNameChoice(&self, #[in] DistPointIndex: LONG, #[in] NameIndex: LONG, #[out] #[retval] pNameChoice: *mut LONG) -> HRESULT;
-            fn GetName(&self, #[in] DistPointIndex: LONG, #[in] NameIndex: LONG, #[out] #[retval] #[out_ptr] pstrName: *mut BSTR) -> HRESULT;
+            fn GetName(&self, #[in] DistPointIndex: LONG, #[in] NameIndex: LONG, #[out] #[out_ptr] #[retval] pstrName: *mut BSTR) -> HRESULT;
             fn Reset(&self, #[in] DistPointCount: LONG) -> HRESULT;
             fn SetNameCount(&self, #[in] DistPointIndex: LONG, #[in] NameCount: LONG) -> HRESULT;
             fn SetNameEntry(&self, #[in] DistPointIndex: LONG, #[in] NameIndex: LONG, #[in] NameChoice: LONG, #[in] strName: BSTR) -> HRESULT;
-            fn Encode(&self, #[out] #[retval] #[out_ptr] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[out_ptr] #[retval] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0xb4275d4b_3e30_446f_ad36_09d03120b078)]
         interface ICertEncodeCRLDistInfo2: ICertEncodeCRLDistInfo {
             fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x2f9469a0_a470_11d0_8821_00a0c903b83c)]
         interface ICertEncodeDateArray: IDispatch {
@@ -63,12 +63,12 @@ mod Windows {
             fn GetValue(&self, #[in] Index: LONG, #[out] #[retval] pValue: *mut DATE) -> HRESULT;
             fn Reset(&self, #[in] Count: LONG) -> HRESULT;
             fn SetValue(&self, #[in] Index: LONG, #[in] Value: DATE) -> HRESULT;
-            fn Encode(&self, #[out] #[retval] #[out_ptr] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[out_ptr] #[retval] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8)]
         interface ICertEncodeDateArray2: ICertEncodeDateArray {
             fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x15e2f230_a0a2_11d0_8821_00a0c903b83c)]
         interface ICertEncodeLongArray: IDispatch {
@@ -77,27 +77,27 @@ mod Windows {
             fn GetValue(&self, #[in] Index: LONG, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             fn Reset(&self, #[in] Count: LONG) -> HRESULT;
             fn SetValue(&self, #[in] Index: LONG, #[in] Value: LONG) -> HRESULT;
-            fn Encode(&self, #[out] #[retval] #[out_ptr] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[out_ptr] #[retval] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0x4efde84a_bd9b_4fc2_a108_c347d478840f)]
         interface ICertEncodeLongArray2: ICertEncodeLongArray {
             fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x12a88820_7494_11d0_8816_00a0c903b83c)]
         interface ICertEncodeStringArray: IDispatch {
             fn Decode(&self, #[in] strBinary: BSTR) -> HRESULT;
             fn GetStringType(&self, #[out] #[retval] pStringType: *mut LONG) -> HRESULT;
             fn GetCount(&self, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
-            fn GetValue(&self, #[in] Index: LONG, #[out] #[retval] #[out_ptr] pstr: *mut BSTR) -> HRESULT;
+            fn GetValue(&self, #[in] Index: LONG, #[out] #[out_ptr] #[retval] pstr: *mut BSTR) -> HRESULT;
             fn Reset(&self, #[in] Count: LONG, #[in] StringType: LONG) -> HRESULT;
             fn SetValue(&self, #[in] Index: LONG, #[in] str: BSTR) -> HRESULT;
-            fn Encode(&self, #[out] #[retval] #[out_ptr] pstrBinary: *mut BSTR) -> HRESULT;
+            fn Encode(&self, #[out] #[out_ptr] #[retval] pstrBinary: *mut BSTR) -> HRESULT;
         }
         #[guid(0x9c680d93_9b7d_4e95_9018_4ffe10ba5ada)]
         interface ICertEncodeStringArray2: ICertEncodeStringArray {
             fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
-            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
+            fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[out_ptr] #[retval] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
     }
 }

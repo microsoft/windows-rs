@@ -69,8 +69,8 @@ mod Windows {
             fn Disconnect(&self) -> HRESULT;
             fn IsConnected(&self, #[out] pbConnected: *mut BOOL) -> HRESULT;
             fn GetConnectedTo(&self, #[out] ppConTo: *mut IConnector) -> HRESULT;
-            fn GetConnectorIdConnectedTo(&self, #[out] #[out_ptr] #[null_terminated(success, indirect)] ppwstrConnectorId: *mut LPWSTR) -> HRESULT;
-            fn GetDeviceIdConnectedTo(&self, #[out] #[out_ptr] #[null_terminated(success, indirect)] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
+            fn GetConnectorIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] #[out_ptr] ppwstrConnectorId: *mut LPWSTR) -> HRESULT;
+            fn GetDeviceIdConnectedTo(&self, #[null_terminated(success, indirect)] #[out] #[out_ptr] ppwstrDeviceId: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xa09513ed_c709_4d21_bd7b_5f34c47f3947)]
         interface IControlChangeNotify: IUnknown {
@@ -144,7 +144,7 @@ mod Windows {
             fn EnumPartsIncoming(&self, #[out] ppParts: *mut IPartsList) -> HRESULT;
             fn EnumPartsOutgoing(&self, #[out] ppParts: *mut IPartsList) -> HRESULT;
             fn GetTopologyObject(&self, #[out] ppTopology: *mut IDeviceTopology) -> HRESULT;
-            fn Activate(&self, #[in] dwClsContext: DWORD, #[in] refiid: &IID, #[out] #[opt] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn Activate(&self, #[in] dwClsContext: DWORD, #[in] refiid: &IID, #[iid_is] #[opt] #[out] ppvObject: *mut *mut void) -> HRESULT;
             fn RegisterControlChangeCallback(&self, #[in] riid: &GUID, #[in] pNotify: IControlChangeNotify) -> HRESULT;
             fn UnregisterControlChangeCallback(&self, #[in] pNotify: IControlChangeNotify) -> HRESULT;
         }

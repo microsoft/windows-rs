@@ -55,7 +55,7 @@ mod Windows {
         }
         #[guid(0x1be41572_91dd_11d1_aeb2_00c04fb68820)]
         interface IWbemProviderInit: IUnknown {
-            fn Initialize(&self, #[in] #[opt] #[null_terminated(entry)] wszUser: LPWSTR, #[in] lFlags: LONG, #[in] #[null_terminated(entry)] wszNamespace: LPWSTR, #[in] #[opt] #[null_terminated(entry)] wszLocale: LPWSTR, #[in] #[opt] pNamespace: IWbemServices, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pInitSink: IWbemProviderInitSink) -> HRESULT;
+            fn Initialize(&self, #[in] #[null_terminated(entry)] #[opt] wszUser: LPWSTR, #[in] lFlags: LONG, #[in] #[null_terminated(entry)] wszNamespace: LPWSTR, #[in] #[null_terminated(entry)] #[opt] wszLocale: LPWSTR, #[in] #[opt] pNamespace: IWbemServices, #[in] #[opt] pCtx: IWbemContext, #[in] #[opt] pInitSink: IWbemProviderInitSink) -> HRESULT;
         }
         #[guid(0x1be41571_91dd_11d1_aeb2_00c04fb68820)]
         interface IWbemProviderInitSink: IUnknown {

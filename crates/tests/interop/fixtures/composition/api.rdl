@@ -38,8 +38,10 @@ mod Composition {
 
     #[ExclusiveTo(Base)]
     interface IBaseFactory {
-        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Base;
-        fn WithValue(&self, value: i32, outer: Object, inner: &mut Object) -> Base;
+        fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Base;
+        fn WithValue(
+            &self, #[in] value: i32, #[in] outer: Object, #[out] inner: &mut Object
+        ) -> Base;
     }
 
     // The number of live `Base` objects, so clients can check that derived objects are released.

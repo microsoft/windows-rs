@@ -84,7 +84,8 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 
 | Finding | Verified status | Required action |
 | --- | --- | --- |
-| Test-suite health | With ignored cases included, `test_clang` passes 369 cases; the separate `candidate_packages` check also passes. The bindgen/RDL suites and Reactor's 312 library tests pass. | These are affected-suite results, not a workspace-wide or hosted run. |
+| Test-suite health | The focused Clang, bindgen/RDL and Reactor library results below remain valid. A keep-going x64 workspace check reports failures in 26 packages, including the `test_no_std` workspace feature-unification failure; that crate passes alone. The other failures include tests, samples and Reactor functional coverage. | Repair workspace integration before claiming branch health. Package compilation does not cover handwritten consumers or WinRT authoring. |
+| WinRT authored directions | RDL rejects missing or combined WinRT argument directions at the source location. Bindgen independently rejects these states, missing argument rows and malformed WinRT parameter sequences. Eight interop fixtures now declare their intended input/output contracts; all 24 affected Rust, C++/WinRT and C#/WinRT cases pass. | Keep Win32 unspecified direction intact. Do not infer flags from types or change implementations to output signatures merely to make them compile. |
 | Full package acceptance | `candidate_packages` passes rich/raw compilation on x86, x64 and ARM64. Canonical `POOL_TYPE` retains enum values 0 and 4 and ARM64 macro values 512 and 516. Bindgen emits the explicit constants on ARM64 and the enum-derived constants on x86/x64. | This resolves Rust name projection without changing native capture, canonical publication or omissions. Native ARM64 execution and hosted qualification remain separate gates. |
 | Direct termination owner/type validation | Corrected. Short termination syntax requires parameter-owned pointer, reference or array storage at the selected indirection. Alias resolution and storage rules are checked by both reader and writer. Scalars, callback values, fields, return rows and declarations are rejected in short form; explicit full metadata remains lossless. | Keep single/double-NUL phases in the existing attribute family. `null_terminated` covers storage, owner and full-metadata round trips; `scoped_termination` covers native contracts and #5042's `WCHAR*` case on all targets. |
 | Unknown direction becomes asserted direction | Corrected under D34-D35. Known directions are explicit; missing direction has no attribute and preserves absent flags. | Do not infer direction from types; retain raw-pointer, alias, COM and callback coverage. |
@@ -92,10 +93,11 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 | Duplicate normalized/residual buffers | Addressed for the supported D36-D37 contracts. Capacity, initialized length, phases and returned storage share the extent model. Unsupported combinations retain evidence. | Do not discard residual SAL merely because part of a macro has a canonical representation. |
 | Unspecified direction in bindgen | Raw-pointer, alias, COM and callback fixtures preserve absent direction without mutable-to-const or output-conversion guesses. Native named-import consumers pass. | Keep direction evidence separate from type/ownership handling; do not infer direction in clang to compensate. |
 | COM argument ownership | Direct interface arguments retain borrowed references, including optional values and producer parameters without direction flags. The lifetime fixture verifies caller ownership and release; raw buffer restrictions remain in place. | Residual evidence still cannot authorize slice, query or retval conversion. BSTR ownership is unchanged. |
-| Generation drift | Full SDK/WDK capture and combined WinMD regeneration leave tracked metadata unchanged. Package regeneration contains the reviewed COM input correction. | Qualify the other generator jobs and clean-checkout ordering; local output neutrality does not establish hosted execution. |
+| Generation drift | The shared RDL formatter orders attributes alphabetically by full name and preserves equal-name order. Native generation and `tool-roundtrip` agree on `comcat.rdl` and all WinRT files. Four files still drift: architecture-variant declaration order in `winuser.rdl`, and short/full termination spelling in WDK `ntddk.rdl`, `shared.rdl` and `wdm.rdl`. Workspace builds also leave both tracked robot WinMD files changed. | Resolve the remaining declaration-order and reference-dependent spelling differences, then rerun the CI clean-diff gates. Alphabetical attribute ordering does not establish full generation cleanliness. |
+| Direction-repair generation | Package, internal binding and Reactor regeneration introduce no generated changes. Composition regeneration refreshes retained native aliases in both stacks. WebView capture stops before binding generation because only three of five loader imports survive dependency pruning. | Keep the Composition diff visible and investigate WebView capture separately from WinRT direction validation. Full generator qualification remains open. |
 | Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
 | CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift with a shallow checkout. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
-| Required missing APIs | The report retains 198 unapproved target pairs across 70 names. Examples include WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot, PDH, WSD, RoGetActivatableClassRegistration and uaw helpers. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
+| Required missing APIs | The 198-pair/70-name total remains historical. Current metadata and diagnostics reconfirm WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot and RoGetActivatableClassRegistration gaps. `RtlCaptureContext2` remains x64-only. Missing `ACCESS_STATE` also breaks the rich/raw layout tests. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
 | Unrecorded partition losses | `activationregistration` and `windowsfoundation` are absent. The Arm64 `__FIMapView_2_HSTRING_IInspectable_t` alias fails on an unsupported `TemplateRef IMapView`; `IActivatableClassRegistration`, its pointer alias and the RoGet import are pruned as dependents. | Add a focused canonical metadata case and decide the required surface. ActivationType, RegistrationScope and RegisteredTrustLevel are also absent with this partition; this is not an approved exclusion. |
 | UIA expansion | D23's 98 imports and 397 constants remain candidate scope. `CustomNavigationPattern_Navigate` still lacks configured import ownership. | Keep the unresolved import and acceptance boundary explicit. Defer downstream/live-provider qualification. |
 | Driver size | `main.rs` remains about 1,650 lines; the review identifies `run` and `sdk_library_policy` as the next large responsibilities. | Defer an output-neutral split until the metadata model is settled. Moving SDK contexts into data did not eliminate their semantic review obligation. |
@@ -106,6 +108,35 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 The Clang sweep used
 `cargo test -p test_clang --no-fail-fast --quiet -- --include-ignored --skip candidate_packages`.
 The separate bindgen/RDL sweep used `cargo test -p test_bindgen -p test_rdl --no-fail-fast --quiet`.
+
+The readiness probes against `ca9093c65a` used the main CI package selection with
+`cargo check --workspace --all-targets --target x86_64-pc-windows-msvc --keep-going`, excluding the
+six system Composition packages listed in `test.yml`. This local check is not a hosted test run.
+That probe found an isolated `test_interop` failure; the explicit-direction repair above resolves
+it. `test_no_std` passes alone. The raw count of 26 failing packages is historical probe evidence,
+not a count of independent or remaining defects.
+
+The integration failures include fixed-width `LPARAM`/`WPARAM`/`SIZE_T` aliases versus handwritten
+`isize`/`usize` arguments, mutable versus const null pointers, and explicit output/HRESULT
+signatures versus callers expecting projected return values. Reactor's functional
+`drag/source.rs` has these mismatches even though the Reactor library suite passes.
+
+Clang publication and metadata writing use the same attribute formatter. It sorts full names
+case-sensitively without changing argument order or the relative order of repeated attributes.
+The native-to-roundtrip comparison leaves four changed files: `winuser.rdl` reorders four
+architecture-variant function families; three WDK files expand termination contracts on referenced
+aliases to full metadata attributes. Package, internal binding and Reactor regeneration add no
+generated binding changes. The remaining generated differences stay visible for review.
+
+| Current missing surface | Verified diagnostic boundary |
+| --- | --- |
+| `WaitOnAddress` | Volatile/restrict parameter projection |
+| `MiniDumpWriteDump` | Packed callback records containing aligned types |
+| `CfRegisterSyncRoot` | Policy-wrapper records with C++ constructors |
+| `RoGetActivatableClassRegistration` | External collection-template alias dependency |
+| `CustomNavigationPattern_Navigate` | No configured DLL/export ownership |
+| `RtlCaptureContext2` on x86/ARM64 | No configured DLL/export ownership; x64 is retained |
+| `ACCESS_STATE` | WDK `UNICODE_STRING::Buffer` typedef contracts differ from referenced SDK metadata |
 
 | Repaired regression | Evidence |
 | --- | --- |

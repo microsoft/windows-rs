@@ -737,8 +737,8 @@ mod Windows {
         }
         struct WLAN_RATE_SET {
             uRateSetLength: ULONG,
-            #[writable(126)]
             #[readable(uRateSetLength)]
+            #[writable(126)]
             usRateSet: [USHORT; 126],
         }
         struct WLAN_RAW_DATA {
@@ -985,7 +985,7 @@ mod Windows {
         #[library("wlanapi.dll")]
         extern fn WlanDeleteProfile(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] strProfileName: LPCWSTR, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanDeviceServiceCommand(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] pDeviceServiceGuid: LPGUID, #[in] dwOpCode: DWORD, #[in] dwInBufferSize: DWORD, #[in] #[opt] #[readable(entry, bytes(dwInBufferSize))] pInBuffer: PVOID, #[in] dwOutBufferSize: DWORD, #[in] #[out] #[opt] #[writable(entry, bytes(dwOutBufferSize))] pOutBuffer: PVOID, #[out] pdwBytesReturned: PDWORD) -> DWORD;
+        extern fn WlanDeviceServiceCommand(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] pDeviceServiceGuid: LPGUID, #[in] dwOpCode: DWORD, #[in] dwInBufferSize: DWORD, #[in] #[opt] #[readable(entry, bytes(dwInBufferSize))] pInBuffer: PVOID, #[in] dwOutBufferSize: DWORD, #[in] #[opt] #[out] #[writable(entry, bytes(dwOutBufferSize))] pOutBuffer: PVOID, #[out] pdwBytesReturned: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanDisconnect(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
@@ -1005,51 +1005,51 @@ mod Windows {
         #[library("wlanapi.dll")]
         extern fn WlanGetNetworkBssList(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] #[opt] pDot11Ssid: PDOT11_SSID, #[in] dot11BssType: DOT11_BSS_TYPE, #[in] bSecurityEnabled: BOOL, #[reserved] pReserved: PVOID, #[out] #[out_ptr] ppWlanBssList: *mut PWLAN_BSS_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetProfile(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] strProfileName: LPCWSTR, #[reserved] pReserved: PVOID, #[out] #[out_ptr] pstrProfileXml: *mut LPWSTR, #[in] #[out] #[opt] pdwFlags: *mut DWORD, #[out] #[opt] pdwGrantedAccess: *mut DWORD) -> DWORD;
+        extern fn WlanGetProfile(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] strProfileName: LPCWSTR, #[reserved] pReserved: PVOID, #[out] #[out_ptr] pstrProfileXml: *mut LPWSTR, #[in] #[opt] #[out] pdwFlags: *mut DWORD, #[opt] #[out] pdwGrantedAccess: *mut DWORD) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanGetProfileCustomUserData(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] strProfileName: LPCWSTR, #[reserved] pReserved: PVOID, #[out] pdwDataSize: *mut DWORD, #[out] #[writable(success, bytes(*pdwDataSize), indirect)] ppData: *mut PBYTE) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanGetProfileList(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[reserved] pReserved: PVOID, #[out] #[out_ptr] ppProfileList: *mut PWLAN_PROFILE_INFO_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanGetSecuritySettings(#[in] hClientHandle: HANDLE, #[in] SecurableObject: WLAN_SECURABLE_OBJECT, #[out] #[opt] pValueType: PWLAN_OPCODE_VALUE_TYPE, #[out] #[out_ptr] pstrCurrentSDDL: *mut LPWSTR, #[out] pdwGrantedAccess: PDWORD) -> DWORD;
+        extern fn WlanGetSecuritySettings(#[in] hClientHandle: HANDLE, #[in] SecurableObject: WLAN_SECURABLE_OBJECT, #[opt] #[out] pValueType: PWLAN_OPCODE_VALUE_TYPE, #[out] #[out_ptr] pstrCurrentSDDL: *mut LPWSTR, #[out] pdwGrantedAccess: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanGetSupportedDeviceServices(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[out] #[out_ptr] ppDevSvcGuidList: *mut PWLAN_DEVICE_SERVICE_GUID_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkForceStart(#[in] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkForceStart(#[in] hClientHandle: HANDLE, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkForceStop(#[in] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkForceStop(#[in] hClientHandle: HANDLE, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkInitSettings(#[in] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkInitSettings(#[in] hClientHandle: HANDLE, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanHostedNetworkQueryProperty(#[in] hClientHandle: HANDLE, #[in] OpCode: WLAN_HOSTED_NETWORK_OPCODE, #[out] pdwDataSize: PDWORD, #[out] #[writable(success, bytes(*pdwDataSize), indirect)] ppvData: *mut PVOID, #[out] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkQuerySecondaryKey(#[in] hClientHandle: HANDLE, #[out] pdwKeyLength: PDWORD, #[out] #[writable(success, *pdwKeyLength, indirect)] ppucKeyData: *mut PUCHAR, #[out] pbIsPassPhrase: PBOOL, #[out] pbPersistent: PBOOL, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkQuerySecondaryKey(#[in] hClientHandle: HANDLE, #[out] pdwKeyLength: PDWORD, #[out] #[writable(success, *pdwKeyLength, indirect)] ppucKeyData: *mut PUCHAR, #[out] pbIsPassPhrase: PBOOL, #[out] pbPersistent: PBOOL, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanHostedNetworkQueryStatus(#[in] hClientHandle: HANDLE, #[out] #[out_ptr] ppWlanHostedNetworkStatus: *mut PWLAN_HOSTED_NETWORK_STATUS, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkRefreshSecuritySettings(#[in] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkRefreshSecuritySettings(#[in] hClientHandle: HANDLE, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkSetProperty(#[in] hClientHandle: HANDLE, #[in] OpCode: WLAN_HOSTED_NETWORK_OPCODE, #[in] dwDataSize: DWORD, #[in] #[readable(entry, bytes(dwDataSize))] pvData: PVOID, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkSetProperty(#[in] hClientHandle: HANDLE, #[in] OpCode: WLAN_HOSTED_NETWORK_OPCODE, #[in] dwDataSize: DWORD, #[in] #[readable(entry, bytes(dwDataSize))] pvData: PVOID, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkSetSecondaryKey(#[in] hClientHandle: HANDLE, #[in] dwKeyLength: DWORD, #[in] #[readable(entry, bytes(dwKeyLength))] pucKeyData: PUCHAR, #[in] bIsPassPhrase: BOOL, #[in] bPersistent: BOOL, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkSetSecondaryKey(#[in] hClientHandle: HANDLE, #[in] dwKeyLength: DWORD, #[in] #[readable(entry, bytes(dwKeyLength))] pucKeyData: PUCHAR, #[in] bIsPassPhrase: BOOL, #[in] bPersistent: BOOL, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkStartUsing(#[in] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkStartUsing(#[in] hClientHandle: HANDLE, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanHostedNetworkStopUsing(#[in] hClientHandle: HANDLE, #[out] #[opt] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
+        extern fn WlanHostedNetworkStopUsing(#[in] hClientHandle: HANDLE, #[opt] #[out] pFailReason: PWLAN_HOSTED_NETWORK_REASON, #[reserved] pvReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanIhvControl(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] Type: WLAN_IHV_CONTROL_TYPE, #[in] dwInBufferSize: DWORD, #[in] #[readable(entry, bytes(dwInBufferSize))] pInBuffer: PVOID, #[in] dwOutBufferSize: DWORD, #[in] #[out] #[opt] #[writable(entry, bytes(dwOutBufferSize))] pOutBuffer: PVOID, #[out] pdwBytesReturned: PDWORD) -> DWORD;
+        extern fn WlanIhvControl(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] Type: WLAN_IHV_CONTROL_TYPE, #[in] dwInBufferSize: DWORD, #[in] #[readable(entry, bytes(dwInBufferSize))] pInBuffer: PVOID, #[in] dwOutBufferSize: DWORD, #[in] #[opt] #[out] #[writable(entry, bytes(dwOutBufferSize))] pOutBuffer: PVOID, #[out] pdwBytesReturned: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanOpenHandle(#[in] dwClientVersion: DWORD, #[reserved] pReserved: PVOID, #[out] pdwNegotiatedVersion: PDWORD, #[out] phClientHandle: PHANDLE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanQueryAutoConfigParameter(#[in] hClientHandle: HANDLE, #[in] OpCode: WLAN_AUTOCONF_OPCODE, #[reserved] pReserved: PVOID, #[out] pdwDataSize: PDWORD, #[out] #[writable(success, bytes(*pdwDataSize), indirect)] ppData: *mut PVOID, #[out] #[opt] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> DWORD;
+        extern fn WlanQueryAutoConfigParameter(#[in] hClientHandle: HANDLE, #[in] OpCode: WLAN_AUTOCONF_OPCODE, #[reserved] pReserved: PVOID, #[out] pdwDataSize: PDWORD, #[out] #[writable(success, bytes(*pdwDataSize), indirect)] ppData: *mut PVOID, #[opt] #[out] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanQueryInterface(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] OpCode: WLAN_INTF_OPCODE, #[reserved] pReserved: PVOID, #[out] pdwDataSize: PDWORD, #[out] #[writable(success, bytes(*pdwDataSize), indirect)] ppData: *mut PVOID, #[out] #[opt] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> DWORD;
+        extern fn WlanQueryInterface(#[in] hClientHandle: HANDLE, #[in] pInterfaceGuid: *const GUID, #[in] OpCode: WLAN_INTF_OPCODE, #[reserved] pReserved: PVOID, #[out] pdwDataSize: PDWORD, #[out] #[writable(success, bytes(*pdwDataSize), indirect)] ppData: *mut PVOID, #[opt] #[out] pWlanOpcodeValueType: PWLAN_OPCODE_VALUE_TYPE) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanReasonCodeToString(#[in] dwReasonCode: DWORD, #[in] dwBufferSize: DWORD, #[in] #[readable(entry, dwBufferSize)] pStringBuffer: PWCHAR, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanRegisterDeviceServiceNotification(#[in] hClientHandle: HANDLE, #[in] #[opt] pDevSvcGuidList: PWLAN_DEVICE_SERVICE_GUID_LIST) -> DWORD;
         #[library("wlanapi.dll")]
-        extern fn WlanRegisterNotification(#[in] hClientHandle: HANDLE, #[in] dwNotifSource: DWORD, #[in] bIgnoreDuplicate: BOOL, #[in] #[opt] funcCallback: WLAN_NOTIFICATION_CALLBACK, #[in] #[opt] pCallbackContext: PVOID, #[reserved] pReserved: PVOID, #[out] #[opt] pdwPrevNotifSource: PDWORD) -> DWORD;
+        extern fn WlanRegisterNotification(#[in] hClientHandle: HANDLE, #[in] dwNotifSource: DWORD, #[in] bIgnoreDuplicate: BOOL, #[in] #[opt] funcCallback: WLAN_NOTIFICATION_CALLBACK, #[in] #[opt] pCallbackContext: PVOID, #[reserved] pReserved: PVOID, #[opt] #[out] pdwPrevNotifSource: PDWORD) -> DWORD;
         #[library("wlanapi.dll")]
         extern fn WlanRegisterVirtualStationNotification(#[in] hClientHandle: HANDLE, #[in] bRegister: BOOL, #[reserved] pReserved: PVOID) -> DWORD;
         #[library("wlanapi.dll")]
@@ -1081,6 +1081,6 @@ mod Windows {
         #[library("wlanapi.dll")]
         extern fn WlanSetSecuritySettings(#[in] hClientHandle: HANDLE, #[in] SecurableObject: WLAN_SECURABLE_OBJECT, #[in] strModifiedSDDL: LPCWSTR) -> DWORD;
         #[library("wlanui.dll")]
-        extern fn WlanUIEditProfile(#[in] dwClientVersion: DWORD, #[in] wstrProfileName: LPCWSTR, #[in] pInterfaceGuid: *mut GUID, #[in] hWnd: HWND, #[in] wlStartPage: WL_DISPLAY_PAGES, #[reserved] pReserved: PVOID, #[out] #[opt] pWlanReasonCode: PWLAN_REASON_CODE) -> DWORD;
+        extern fn WlanUIEditProfile(#[in] dwClientVersion: DWORD, #[in] wstrProfileName: LPCWSTR, #[in] pInterfaceGuid: *mut GUID, #[in] hWnd: HWND, #[in] wlStartPage: WL_DISPLAY_PAGES, #[reserved] pReserved: PVOID, #[opt] #[out] pWlanReasonCode: PWLAN_REASON_CODE) -> DWORD;
     }
 }

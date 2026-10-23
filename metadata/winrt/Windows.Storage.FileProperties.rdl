@@ -19,9 +19,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IGeotagHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class GeotagHelper {}
-            #[guid(0xd05d55db_785e_4a66_be02_9beec58aea81)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BasicProperties)]
+            #[guid(0xd05d55db_785e_4a66_be02_9beec58aea81)]
             interface IBasicProperties {
                 #[get]
                 Size: u64;
@@ -30,9 +30,9 @@ mod Windows {
                 #[get]
                 ItemDate: super::super::Foundation::DateTime;
             }
-            #[guid(0x7eab19bc_1821_4923_b4a9_0aea404d0070)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DocumentProperties)]
+            #[guid(0x7eab19bc_1821_4923_b4a9_0aea404d0070)]
             interface IDocumentProperties: IStorageItemExtraProperties {
                 #[get]
                 Author: super::super::Foundation::Collections::IVector<String>;
@@ -41,9 +41,9 @@ mod Windows {
                 Keywords: super::super::Foundation::Collections::IVector<String>;
                 Comment: String;
             }
-            #[guid(0x41493244_2524_4655_86a6_ed16f5fc716b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeotagHelper)]
+            #[guid(0x41493244_2524_4655_86a6_ed16f5fc716b)]
             interface IGeotagHelperStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetGeotagAsync(&self, #[in] file: super::IStorageFile) -> super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>;
@@ -52,9 +52,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SetGeotagAsync(&self, #[in] file: super::IStorageFile, #[in] geopoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x523c9424_fcff_4275_afee_ecdb9ab47973)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ImageProperties)]
+            #[guid(0x523c9424_fcff_4275_afee_ecdb9ab47973)]
             interface IImageProperties: IStorageItemExtraProperties {
                 Rating: u32;
                 #[get]
@@ -76,9 +76,9 @@ mod Windows {
                 #[get]
                 PeopleNames: super::super::Foundation::Collections::IVectorView<String>;
             }
-            #[guid(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MusicProperties)]
+            #[guid(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da)]
             interface IMusicProperties: IStorageItemExtraProperties {
                 Album: String;
                 Artist: String;
@@ -104,9 +104,9 @@ mod Windows {
                 Writers: super::super::Foundation::Collections::IVector<String>;
                 Year: u32;
             }
-            #[guid(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemContentProperties)]
+            #[guid(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba)]
             interface IStorageItemContentProperties: IStorageItemExtraProperties {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetMusicPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<MusicProperties>;
@@ -117,20 +117,20 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDocumentPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<DocumentProperties>;
             }
-            #[guid(0xc54361b2_54cd_432b_bdbc_4b19c4b470d7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0xc54361b2_54cd_432b_bdbc_4b19c4b470d7)]
             interface IStorageItemExtraProperties {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RetrievePropertiesAsync(&self, #[in] propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<String, Object>>;
                 #[Windows::Foundation::Metadata::Overload("SavePropertiesAsync")]
-                fn SavePropertiesAsync(&self, #[in] #[Windows::Foundation::Metadata::HasVariant] propertiesToSave: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> super::super::Foundation::IAsyncAction;
+                fn SavePropertiesAsync(&self, #[Windows::Foundation::Metadata::HasVariant] #[in] propertiesToSave: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> super::super::Foundation::IAsyncAction;
                 #[Windows::Foundation::Metadata::Overload("SavePropertiesAsyncOverloadDefault")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SavePropertiesAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemThumbnail)]
+            #[guid(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423)]
             interface IThumbnailProperties {
                 #[get]
                 OriginalWidth: u32;
@@ -141,9 +141,9 @@ mod Windows {
                 #[get]
                 Type: ThumbnailType;
             }
-            #[guid(0x719ae507_68de_4db8_97de_49998c059f2f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VideoProperties)]
+            #[guid(0x719ae507_68de_4db8_97de_49998c059f2f)]
             interface IVideoProperties: IStorageItemExtraProperties {
                 Rating: u32;
                 #[get]
@@ -183,8 +183,8 @@ mod Windows {
                 IMusicProperties,
                 IStorageItemExtraProperties,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum PhotoOrientation {
                 Unspecified = 0,
                 Normal = 1,
@@ -196,9 +196,9 @@ mod Windows {
                 Transverse = 7,
                 Rotate90 = 8,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum PropertyPrefetchOptions {
                 None = 0,
                 MusicProperties = 1,
@@ -222,8 +222,8 @@ mod Windows {
                 super::Streams::IInputStream,
                 IThumbnailProperties,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ThumbnailMode {
                 PicturesView = 0,
                 VideosView = 1,
@@ -232,23 +232,23 @@ mod Windows {
                 ListView = 4,
                 SingleItem = 5,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum ThumbnailOptions {
                 None = 0,
                 ReturnOnlyIfCached = 1,
                 ResizeThumbnail = 2,
                 UseCurrentScale = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ThumbnailType {
                 Image = 0,
                 Icon = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum VideoOrientation {
                 Normal = 0,
                 Rotate90 = 90,

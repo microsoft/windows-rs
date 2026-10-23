@@ -267,8 +267,8 @@ mod Windows {
         const ACMHELPMSGSTRINGA: String = "acmchoose_help";
         #[encoding("utf-16")]
         const ACMHELPMSGSTRINGW: String = "acmchoose_help";
-        #[packed(1)]
         #[arch(X64 | Arm64)]
+        #[packed(1)]
         struct ACMSTREAMHEADER {
             cbStruct: DWORD,
             fdwStatus: DWORD,
@@ -283,8 +283,8 @@ mod Windows {
             dwDstUser: DWORD_PTR,
             dwReservedDriver: [DWORD; 15],
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct ACMSTREAMHEADER {
             cbStruct: DWORD,
             fdwStatus: DWORD,

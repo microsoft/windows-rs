@@ -3,9 +3,9 @@ mod Windows {
     mod System {
         mod Diagnostics {
             mod TraceReporting {
-                #[guid(0xc1145cfa_9292_4267_890a_9ea3ed072312)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlatformDiagnosticActions)]
+                #[guid(0xc1145cfa_9292_4267_890a_9ea3ed072312)]
                 interface IPlatformDiagnosticActionsStatics {
                     fn IsScenarioEnabled(&self, #[in] scenarioId: GUID) -> bool;
                     fn TryEscalateScenario(&self, #[in] scenarioId: GUID, #[in] escalationType: PlatformDiagnosticEscalationType, #[in] outputDirectory: String, #[in] timestampOutputDirectory: bool, #[in] forceEscalationUpload: bool, #[in] triggers: super::super::super::Foundation::Collections::IMapView<String, String>) -> bool;
@@ -16,9 +16,9 @@ mod Windows {
                     fn GetActiveTraceRuntime(&self, #[in] slotType: PlatformDiagnosticTraceSlotType) -> PlatformDiagnosticTraceRuntimeInfo;
                     fn GetKnownTraceList(&self, #[in] slotType: PlatformDiagnosticTraceSlotType) -> super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>;
                 }
-                #[guid(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlatformDiagnosticTraceInfo)]
+                #[guid(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2)]
                 interface IPlatformDiagnosticTraceInfo {
                     #[get]
                     ScenarioId: GUID;
@@ -33,17 +33,17 @@ mod Windows {
                     #[get]
                     Priority: PlatformDiagnosticTracePriority;
                 }
-                #[guid(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlatformDiagnosticTraceRuntimeInfo)]
+                #[guid(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986)]
                 interface IPlatformDiagnosticTraceRuntimeInfo {
                     #[get]
                     RuntimeFileTime: i64;
                     #[get]
                     EtwRuntimeFileTime: i64;
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum PlatformDiagnosticActionState {
                     Success = 0,
                     FreeNetworkNotAvailable = 1,
@@ -55,15 +55,15 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Static(IPlatformDiagnosticActionsStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PlatformDiagnosticActions {}
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum PlatformDiagnosticEscalationType {
                     OnCompletion = 0,
                     OnFailure = 1,
                 }
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[flags]
+                #[repr(u32)]
                 enum PlatformDiagnosticEventBufferLatencies {
                     Normal = 1,
                     CostDeferred = 2,
@@ -76,8 +76,8 @@ mod Windows {
                 class PlatformDiagnosticTraceInfo {
                     IPlatformDiagnosticTraceInfo,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum PlatformDiagnosticTracePriority {
                     Normal = 0,
                     UserElevated = 1,
@@ -89,15 +89,15 @@ mod Windows {
                 class PlatformDiagnosticTraceRuntimeInfo {
                     IPlatformDiagnosticTraceRuntimeInfo,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum PlatformDiagnosticTraceSlotState {
                     NotRunning = 0,
                     Running = 1,
                     Throttled = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[repr(i32)]
                 enum PlatformDiagnosticTraceSlotType {
                     Alternative = 0,
                     AlwaysOn = 1,

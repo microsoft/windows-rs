@@ -48,7 +48,7 @@ mod Fixture {
         iMaxUdpDg: u16,
         lpVendorInfo: *mut i8,
     }
-    #[must_use]
     #[library("WS2_32.dll", import = "#115")]
+    #[must_use]
     extern fn WSAStartup(#[in] wVersionRequested: WORD, #[out] lpWSAData: LPWSADATA) -> i32;
 }

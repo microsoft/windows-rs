@@ -39,7 +39,7 @@ mod Windows {
             fn GetMaxFrameCount(&self, #[in] objectFormat: *const WAVEFORMATEX, #[out] frameCountPerBuffer: *mut UINT32) -> HRESULT;
             fn IsAudioObjectFormatSupported(&self, #[in] objectFormat: *const WAVEFORMATEX) -> HRESULT;
             fn IsSpatialAudioStreamAvailable(&self, #[in] streamUuid: &IID, #[in] #[opt] auxiliaryInfo: *const PROPVARIANT) -> HRESULT;
-            fn ActivateSpatialAudioStream(&self, #[in] activationParams: *const PROPVARIANT, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] stream: *mut *mut void) -> HRESULT;
+            fn ActivateSpatialAudioStream(&self, #[in] activationParams: *const PROPVARIANT, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] stream: *mut *mut void) -> HRESULT;
         }
         #[guid(0xcaabe452_a66a_4bee_a93e_e320463f6a53)]
         interface ISpatialAudioClient2: ISpatialAudioClient {
@@ -65,7 +65,7 @@ mod Windows {
         #[guid(0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8)]
         interface ISpatialAudioObjectRenderStreamBase: IUnknown {
             fn GetAvailableDynamicObjectCount(&self, #[out] value: *mut UINT32) -> HRESULT;
-            fn GetService(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] service: *mut *mut void) -> HRESULT;
+            fn GetService(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] service: *mut *mut void) -> HRESULT;
             fn Start(&self) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Reset(&self) -> HRESULT;

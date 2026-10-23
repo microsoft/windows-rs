@@ -60,6 +60,9 @@ fn values() {
     let output = projection::project(&merge(&snapshots).unwrap(), "Fixture").unwrap();
     assert_eq!((output.records, output.enums, output.aliases), (1, 11, 2));
     let rdl = &output.partitions["enum_types"].rdl;
+    if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+        std::fs::write(input_dir().join("enum_types.rdl"), rdl).unwrap();
+    }
     assert_eq!(
         *rdl,
         std::fs::read_to_string(input_dir().join("enum_types.rdl"))

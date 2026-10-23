@@ -46,19 +46,19 @@ mod Windows {
         extern fn FindStringOrdinal(#[in] dwFindStringOrdinalFlags: DWORD, #[in] #[readable(entry, cchSource)] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[in] #[readable(entry, cchValue)] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[in] bIgnoreCase: BOOL) -> i32;
         #[library("KERNEL32.dll")]
         extern fn FreeLibrary(#[in] hLibModule: HMODULE) -> BOOL;
-        #[noreturn]
         #[library("KERNEL32.dll")]
+        #[noreturn]
         extern fn FreeLibraryAndExitThread(#[in] hLibModule: HMODULE, #[in] dwExitCode: DWORD);
         #[library("KERNEL32.dll")]
         extern fn FreeResource(#[in] hResData: HGLOBAL) -> BOOL;
         const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: i32 = 4;
         const GET_MODULE_HANDLE_EX_FLAG_PIN: i32 = 1;
         const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: i32 = 2;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn GetModuleFileNameA(#[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,((return < nSize) ? (return + 1) : nSize)", "nSize,((return < nSize) ? (return + 1) : nSize)")] #[out] #[writable(entry, nSize)] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn GetModuleFileNameW(#[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "nSize,((return < nSize) ? (return + 1) : nSize)", "nSize,((return < nSize) ? (return + 1) : nSize)")] #[out] #[writable(entry, nSize)] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpModuleName != NULL,_Ret_maybenull_", "lpModuleName != 0, _Ret_maybenull_")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpModuleName == NULL,_Ret_notnull_", "lpModuleName == 0, _Ret_notnull_")]

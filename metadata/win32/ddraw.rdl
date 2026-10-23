@@ -1033,23 +1033,23 @@ mod Windows {
         const DD_OK: HRESULT = 0;
         const DD_ROP_SPACE: i32 = 8;
         const DIRECTDRAW_VERSION: i32 = 1792;
-        #[must_use]
         #[library("DDRAW.dll")]
+        #[must_use]
         extern fn DirectDrawCreate(lpGUID: *mut GUID, lplpDD: *mut LPDIRECTDRAW, pUnkOuter: IUnknown) -> HRESULT;
-        #[must_use]
         #[library("DDRAW.dll")]
+        #[must_use]
         extern fn DirectDrawCreateClipper(dwFlags: DWORD, lplpDDClipper: *mut LPDIRECTDRAWCLIPPER, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DDRAW.dll")]
         extern fn DirectDrawCreateEx(lpGuid: *mut GUID, lplpDD: *mut LPVOID, iid: &IID, pUnkOuter: IUnknown) -> HRESULT;
-        #[must_use]
         #[library("DDRAW.dll")]
+        #[must_use]
         extern fn DirectDrawEnumerateA(lpCallback: LPDDENUMCALLBACKA, lpContext: LPVOID) -> HRESULT;
         #[library("DDRAW.dll")]
         extern fn DirectDrawEnumerateExA(lpCallback: LPDDENUMCALLBACKEXA, lpContext: LPVOID, dwFlags: DWORD) -> HRESULT;
         #[library("DDRAW.dll")]
         extern fn DirectDrawEnumerateExW(lpCallback: LPDDENUMCALLBACKEXW, lpContext: LPVOID, dwFlags: DWORD) -> HRESULT;
-        #[must_use]
         #[library("DDRAW.dll")]
+        #[must_use]
         extern fn DirectDrawEnumerateW(lpCallback: LPDDENUMCALLBACKW, lpContext: LPVOID) -> HRESULT;
         const FOURCC_DXT1: DWORD = 827611204;
         const FOURCC_DXT2: DWORD = 844388420;

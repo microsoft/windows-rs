@@ -921,7 +921,7 @@ mod Windows {
             ModuleWriteCodeSegs = 64,
         }
         #[library("dbghelp.dll")]
-        extern fn MiniDumpReadDumpStream(#[in] BaseOfDump: PVOID, #[in] StreamNumber: ULONG, #[out] #[out_ptr(nullable)] Dir: *mut PMINIDUMP_DIRECTORY, #[out] #[out_ptr(nullable)] StreamPointer: *mut PVOID, #[out] #[opt] StreamSize: *mut ULONG) -> BOOL;
+        extern fn MiniDumpReadDumpStream(#[in] BaseOfDump: PVOID, #[in] StreamNumber: ULONG, #[out] #[out_ptr(nullable)] Dir: *mut PMINIDUMP_DIRECTORY, #[out] #[out_ptr(nullable)] StreamPointer: *mut PVOID, #[opt] #[out] StreamSize: *mut ULONG) -> BOOL;
         type PCPU_INFORMATION = *mut CPU_INFORMATION;
         type PMINIDUMP_CALLBACK_OUTPUT = *mut MINIDUMP_CALLBACK_OUTPUT;
         type PMINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK = *mut MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK;

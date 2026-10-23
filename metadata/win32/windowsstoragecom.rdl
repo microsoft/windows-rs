@@ -55,11 +55,11 @@ mod Windows {
         }
         #[guid(0xdf19938f_5462_48a0_be65_d2a3271a08d6)]
         interface IStorageFolderHandleAccess: IUnknown {
-            fn Create(&self, #[in] #[null_terminated(entry)] fileName: LPCWSTR, #[in] creationOptions: HANDLE_CREATION_OPTIONS, #[in] accessOptions: HANDLE_ACCESS_OPTIONS, #[in] sharingOptions: HANDLE_SHARING_OPTIONS, #[in] options: HANDLE_OPTIONS, #[in] #[opt] oplockBreakingHandler: IOplockBreakingHandler, #[out] #[retval] #[out_ptr] interopHandle: *mut HANDLE) -> HRESULT;
+            fn Create(&self, #[in] #[null_terminated(entry)] fileName: LPCWSTR, #[in] creationOptions: HANDLE_CREATION_OPTIONS, #[in] accessOptions: HANDLE_ACCESS_OPTIONS, #[in] sharingOptions: HANDLE_SHARING_OPTIONS, #[in] options: HANDLE_OPTIONS, #[in] #[opt] oplockBreakingHandler: IOplockBreakingHandler, #[out] #[out_ptr] #[retval] interopHandle: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x5ca296b2_2c25_4d22_b785_b885c8201e6a)]
         interface IStorageItemHandleAccess: IUnknown {
-            fn Create(&self, #[in] accessOptions: HANDLE_ACCESS_OPTIONS, #[in] sharingOptions: HANDLE_SHARING_OPTIONS, #[in] options: HANDLE_OPTIONS, #[in] #[opt] oplockBreakingHandler: IOplockBreakingHandler, #[out] #[retval] #[out_ptr] interopHandle: *mut HANDLE) -> HRESULT;
+            fn Create(&self, #[in] accessOptions: HANDLE_ACCESS_OPTIONS, #[in] sharingOptions: HANDLE_SHARING_OPTIONS, #[in] options: HANDLE_OPTIONS, #[in] #[opt] oplockBreakingHandler: IOplockBreakingHandler, #[out] #[out_ptr] #[retval] interopHandle: *mut HANDLE) -> HRESULT;
         }
         #[guid(0xd1019a0e_6243_4329_8497_2e75894d7710)]
         interface IUnbufferedFileHandleOplockCallback: IUnknown {

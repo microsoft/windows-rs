@@ -162,9 +162,9 @@ mod Windows {
         #[guid(0xaba958bf_c672_44d1_8d61_ce6df2e682c2)]
         interface IWICMetadataHandlerInfo: IWICComponentInfo {
             fn GetMetadataFormat(&self, #[out] pguidMetadataFormat: *mut GUID) -> HRESULT;
-            fn GetContainerFormats(&self, #[in] cContainerFormats: UINT, #[in] #[out] #[opt] #[readable(entry, cContainerFormats)] #[writable(entry, cContainerFormats)] #[readable(success, cContainerFormats)] pguidContainerFormats: *mut GUID, #[out] pcchActual: *mut UINT) -> HRESULT;
-            fn GetDeviceManufacturer(&self, #[in] cchDeviceManufacturer: UINT, #[in] #[out] #[opt] #[readable(entry, cchDeviceManufacturer)] #[writable(entry, cchDeviceManufacturer)] #[readable(success, cchDeviceManufacturer)] wzDeviceManufacturer: *mut WCHAR, #[out] pcchActual: *mut UINT) -> HRESULT;
-            fn GetDeviceModels(&self, #[in] cchDeviceModels: UINT, #[in] #[out] #[opt] #[readable(entry, cchDeviceModels)] #[writable(entry, cchDeviceModels)] #[readable(success, cchDeviceModels)] wzDeviceModels: *mut WCHAR, #[out] pcchActual: *mut UINT) -> HRESULT;
+            fn GetContainerFormats(&self, #[in] cContainerFormats: UINT, #[in] #[opt] #[out] #[readable(entry, cContainerFormats)] #[readable(success, cContainerFormats)] #[writable(entry, cContainerFormats)] pguidContainerFormats: *mut GUID, #[out] pcchActual: *mut UINT) -> HRESULT;
+            fn GetDeviceManufacturer(&self, #[in] cchDeviceManufacturer: UINT, #[in] #[opt] #[out] #[readable(entry, cchDeviceManufacturer)] #[readable(success, cchDeviceManufacturer)] #[writable(entry, cchDeviceManufacturer)] wzDeviceManufacturer: *mut WCHAR, #[out] pcchActual: *mut UINT) -> HRESULT;
+            fn GetDeviceModels(&self, #[in] cchDeviceModels: UINT, #[in] #[opt] #[out] #[readable(entry, cchDeviceModels)] #[readable(success, cchDeviceModels)] #[writable(entry, cchDeviceModels)] wzDeviceModels: *mut WCHAR, #[out] pcchActual: *mut UINT) -> HRESULT;
             fn DoesRequireFullStream(&self, #[out] pfRequiresFullStream: *mut BOOL) -> HRESULT;
             fn DoesSupportPadding(&self, #[out] pfSupportsPadding: *mut BOOL) -> HRESULT;
             fn DoesRequireFixedSize(&self, #[out] pfFixedSize: *mut BOOL) -> HRESULT;
@@ -174,13 +174,13 @@ mod Windows {
             fn GetMetadataFormat(&self, #[out] pguidMetadataFormat: *mut GUID) -> HRESULT;
             fn GetMetadataHandlerInfo(&self, #[out] #[out_ptr] ppIHandler: *mut IWICMetadataHandlerInfo) -> HRESULT;
             fn GetCount(&self, #[out] pcCount: *mut UINT) -> HRESULT;
-            fn GetValueByIndex(&self, #[in] nIndex: UINT, #[in] #[out] #[opt] pvarSchema: *mut PROPVARIANT, #[in] #[out] #[opt] pvarId: *mut PROPVARIANT, #[in] #[out] #[opt] pvarValue: *mut PROPVARIANT) -> HRESULT;
-            fn GetValue(&self, #[in] #[opt] pvarSchema: *const PROPVARIANT, #[in] pvarId: *const PROPVARIANT, #[in] #[out] #[opt] pvarValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetValueByIndex(&self, #[in] nIndex: UINT, #[in] #[opt] #[out] pvarSchema: *mut PROPVARIANT, #[in] #[opt] #[out] pvarId: *mut PROPVARIANT, #[in] #[opt] #[out] pvarValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetValue(&self, #[in] #[opt] pvarSchema: *const PROPVARIANT, #[in] pvarId: *const PROPVARIANT, #[in] #[opt] #[out] pvarValue: *mut PROPVARIANT) -> HRESULT;
             fn GetEnumerator(&self, #[out] #[out_ptr] ppIEnumMetadata: *mut IWICEnumMetadataItem) -> HRESULT;
         }
         #[guid(0xeebf1f5b_07c1_4447_a3ab_22acaf78a804)]
         interface IWICMetadataReaderInfo: IWICMetadataHandlerInfo {
-            fn GetPatterns(&self, #[in] guidContainerFormat: &GUID, #[in] cbSize: UINT, #[out] #[opt] #[writable(entry, bytes(cbSize))] #[readable(success, bytes(if_present(*pcbActual)))] pPattern: *mut WICMetadataPattern, #[out] #[opt] pcCount: *mut UINT, #[out] #[opt] pcbActual: *mut UINT) -> HRESULT;
+            fn GetPatterns(&self, #[in] guidContainerFormat: &GUID, #[in] cbSize: UINT, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbSize))] pPattern: *mut WICMetadataPattern, #[opt] #[out] pcCount: *mut UINT, #[opt] #[out] pcbActual: *mut UINT) -> HRESULT;
             fn MatchesPattern(&self, #[in] guidContainerFormat: &GUID, #[in] #[opt] pIStream: IStream, #[out] pfMatches: *mut BOOL) -> HRESULT;
             fn CreateInstance(&self, #[out] #[out_ptr] ppIReader: *mut IWICMetadataReader) -> HRESULT;
         }
@@ -193,7 +193,7 @@ mod Windows {
         }
         #[guid(0xb22e3fba_3925_4323_b5c1_9ebfc430f236)]
         interface IWICMetadataWriterInfo: IWICMetadataHandlerInfo {
-            fn GetHeader(&self, #[in] guidContainerFormat: &GUID, #[in] cbSize: UINT, #[in] #[out] #[opt] #[writable(entry, bytes(cbSize))] pHeader: *mut WICMetadataHeader, #[in] #[out] #[opt] pcbActual: *mut UINT) -> HRESULT;
+            fn GetHeader(&self, #[in] guidContainerFormat: &GUID, #[in] cbSize: UINT, #[in] #[opt] #[out] #[writable(entry, bytes(cbSize))] pHeader: *mut WICMetadataHeader, #[in] #[opt] #[out] pcbActual: *mut UINT) -> HRESULT;
             fn CreateInstance(&self, #[out] #[out_ptr] ppIWriter: *mut IWICMetadataWriter) -> HRESULT;
         }
         #[guid(0x00675040_6908_45f8_86a3_49c7dfd6d9ad)]

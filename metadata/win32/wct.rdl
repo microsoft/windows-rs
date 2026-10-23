@@ -3,12 +3,12 @@ mod Windows {
     mod Win32 {
         #[library("ADVAPI32.dll")]
         extern fn CloseThreadWaitChainSession(#[in] WctHandle: HWCT);
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn GetThreadWaitChain(#[in] WctHandle: HWCT, #[in] #[opt] Context: DWORD_PTR, #[in] Flags: DWORD, #[in] ThreadId: DWORD, #[in] #[out] NodeCount: LPDWORD, #[out] #[writable(entry, *NodeCount)] NodeInfoArray: PWAITCHAIN_NODE_INFO, #[out] IsCycle: LPBOOL) -> BOOL;
         type HWCT = *mut void;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn OpenThreadWaitChainSession(#[in] Flags: DWORD, #[in] #[opt] callback: PWAITCHAINCALLBACK) -> HWCT;
         extern "C" fn PCOGETACTIVATIONSTATE(param0: GUID, param1: DWORD, param2: *mut DWORD) -> HRESULT;
         extern "C" fn PCOGETCALLSTATE(param0: i32, param1: PULONG) -> HRESULT;

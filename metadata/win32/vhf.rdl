@@ -38,12 +38,12 @@ mod Windows {
             VersionNumber: USHORT,
             ContainerID: GUID,
             InstanceIDLength: USHORT,
-            #[writable(bytes(InstanceIDLength))]
             #[readable(bytes(InstanceIDLength))]
+            #[writable(bytes(InstanceIDLength))]
             InstanceID: PWSTR,
             ReportDescriptorLength: USHORT,
-            #[writable(ReportDescriptorLength)]
             #[readable(ReportDescriptorLength)]
+            #[writable(ReportDescriptorLength)]
             ReportDescriptor: PUCHAR,
             EvtVhfReadyForNextReadReport: PEVT_VHF_READY_FOR_NEXT_READ_REPORT,
             EvtVhfAsyncOperationGetFeature: PEVT_VHF_ASYNC_OPERATION,
@@ -52,8 +52,8 @@ mod Windows {
             EvtVhfAsyncOperationGetInputReport: PEVT_VHF_ASYNC_OPERATION,
             EvtVhfCleanup: PEVT_VHF_CLEANUP,
             HardwareIDsLength: USHORT,
-            #[writable(bytes(HardwareIDsLength))]
             #[readable(bytes(HardwareIDsLength))]
+            #[writable(bytes(HardwareIDsLength))]
             HardwareIDs: PWSTR,
         }
     }

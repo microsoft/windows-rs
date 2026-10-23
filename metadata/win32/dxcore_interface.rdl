@@ -192,7 +192,7 @@ mod Windows {
             fn QueryState(&self, state: DXCoreAdapterState, inputStateDetailsSize: size_t, #[in] #[opt] #[readable(entry, bytes(inputStateDetailsSize))] inputStateDetails: *const void, outputBufferSize: size_t, #[out] #[writable(entry, bytes(outputBufferSize))] outputBuffer: *mut void) -> HRESULT;
             fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool;
             fn SetState(&self, state: DXCoreAdapterState, inputStateDetailsSize: size_t, #[in] #[opt] #[readable(entry, bytes(inputStateDetailsSize))] inputStateDetails: *const void, inputDataSize: size_t, #[in] #[readable(entry, bytes(inputDataSize))] inputData: *const void) -> HRESULT;
-            fn GetFactory(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
+            fn GetFactory(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvFactory: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa0783366_cfa3_43be_9d79_55b2da97c63c)]
         interface IDXCoreAdapter1: IDXCoreAdapter {
@@ -200,22 +200,22 @@ mod Windows {
         }
         #[guid(0x78ee5945_c36e_4b13_a669_005dd11c0f06)]
         interface IDXCoreAdapterFactory: IUnknown {
-            fn CreateAdapterList(&self, numAttributes: uint32_t, #[in] #[readable(entry, numAttributes)] filterAttributes: *const GUID, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
-            fn GetAdapterByLuid(&self, adapterLUID: &LUID, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn CreateAdapterList(&self, numAttributes: uint32_t, #[in] #[readable(entry, numAttributes)] filterAttributes: *const GUID, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvAdapterList: *mut *mut void) -> HRESULT;
+            fn GetAdapterByLuid(&self, adapterLUID: &LUID, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvAdapter: *mut *mut void) -> HRESULT;
             fn IsNotificationTypeSupported(&self, notificationType: DXCoreNotificationType) -> bool;
             fn RegisterEventNotification(&self, #[in] dxCoreObject: IUnknown, notificationType: DXCoreNotificationType, #[in] callbackFunction: PFN_DXCORE_NOTIFICATION_CALLBACK, #[in] #[opt] callbackContext: *mut void, #[out] eventCookie: *mut uint32_t) -> HRESULT;
             fn UnregisterEventNotification(&self, eventCookie: uint32_t) -> HRESULT;
         }
         #[guid(0xd5682e19_6d21_401c_827a_9a51a4ea35d7)]
         interface IDXCoreAdapterFactory1: IDXCoreAdapterFactory {
-            fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimeFilter: DXCoreRuntimeFilterFlags, hardwareTypeFilter: DXCoreHardwareTypeFilterFlags, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvAdapterList: *mut *mut void) -> HRESULT;
+            fn CreateAdapterListByWorkload(&self, workload: DXCoreWorkload, runtimeFilter: DXCoreRuntimeFilterFlags, hardwareTypeFilter: DXCoreHardwareTypeFilterFlags, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvAdapterList: *mut *mut void) -> HRESULT;
         }
         #[guid(0x526c7776_40e9_459b_b711_f32ad76dfc28)]
         interface IDXCoreAdapterList: IUnknown {
-            fn GetAdapter(&self, index: uint32_t, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn GetAdapter(&self, index: uint32_t, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvAdapter: *mut *mut void) -> HRESULT;
             fn GetAdapterCount(&self) -> uint32_t;
             fn IsStale(&self) -> bool;
-            fn GetFactory(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvFactory: *mut *mut void) -> HRESULT;
+            fn GetFactory(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvFactory: *mut *mut void) -> HRESULT;
             fn Sort(&self, numPreferences: uint32_t, #[in] #[readable(entry, numPreferences)] preferences: *const DXCoreAdapterPreference) -> HRESULT;
             fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool;
         }

@@ -28,14 +28,14 @@ mod Windows {
         }
         #[guid(0x0002e011_0000_0000_c000_000000000046)]
         interface IEnumCATEGORYINFO: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, *pceltFetched)] rgelt: *mut CATEGORYINFO, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut CATEGORYINFO, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumCATEGORYINFO) -> HRESULT;
         }
         #[guid(0x0002e000_0000_0000_c000_000000000046)]
         interface IEnumGUID: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut GUID, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut GUID, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumGUID) -> HRESULT;

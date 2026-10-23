@@ -32,8 +32,8 @@ mod Windows {
         }
         #[guid(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a)]
         interface IDXGIFactory4: IDXGIFactory3 {
-            fn EnumAdapterByLuid(&self, #[in] AdapterLuid: LUID, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
-            fn EnumWarpAdapter(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn EnumAdapterByLuid(&self, #[in] AdapterLuid: LUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn EnumWarpAdapter(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvAdapter: *mut *mut void) -> HRESULT;
         }
         #[guid(0xdc7dca35_2196_414d_9f53_617884032a60)]
         interface IDXGIOutput4: IDXGIOutput3 {

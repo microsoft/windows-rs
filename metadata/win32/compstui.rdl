@@ -110,9 +110,9 @@ mod Windows {
         const CPSUI_REBOOTSYSTEM: i32 = 3;
         const CPSUI_RESTARTWINDOWS: i32 = 2;
         #[library("COMPSTUI.dll")]
-        extern fn CommonPropertySheetUIA(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> LONG;
+        extern fn CommonPropertySheetUIA(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[opt] #[out] pResult: LPDWORD) -> LONG;
         #[library("COMPSTUI.dll")]
-        extern fn CommonPropertySheetUIW(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[out] #[opt] pResult: LPDWORD) -> LONG;
+        extern fn CommonPropertySheetUIW(hWndOwner: HWND, pfnPropSheetUI: PFNPROPSHEETUI, lParam: LPARAM, #[opt] #[out] pResult: LPDWORD) -> LONG;
         struct DLGPAGE {
             cbSize: WORD,
             Flags: WORD,

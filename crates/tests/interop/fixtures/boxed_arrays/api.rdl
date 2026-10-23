@@ -9,12 +9,12 @@ mod BoxedArrays {
 
     #[ExclusiveTo(Widget)]
     interface IWidget {
-        fn BoxNumbers(&self, values: [i32]) -> Object;
-        fn BoxBooleans(&self, values: [bool]) -> Object;
-        fn BoxStrings(&self, values: [String]) -> Object;
+        fn BoxNumbers(&self, #[in] values: [i32]) -> Object;
+        fn BoxBooleans(&self, #[in] values: [bool]) -> Object;
+        fn BoxStrings(&self, #[in] values: [String]) -> Object;
 
-        fn Numbers(&self, value: Object) -> [i32];
-        fn Booleans(&self, value: Object) -> [bool];
-        fn Strings(&self, value: Object) -> [String];
+        fn Numbers(&self, #[in] value: Object) -> [i32];
+        fn Booleans(&self, #[in] value: Object) -> [bool];
+        fn Strings(&self, #[in] value: Object) -> [String];
     }
 }

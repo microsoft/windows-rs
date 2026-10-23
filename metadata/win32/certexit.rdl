@@ -15,11 +15,11 @@ mod Windows {
         interface ICertExit: IDispatch {
             fn Initialize(&self, #[in] strConfig: BSTR, #[out] #[retval] pEventMask: *mut LONG) -> HRESULT;
             fn Notify(&self, #[in] ExitEvent: LONG, #[in] Context: LONG) -> HRESULT;
-            fn GetDescription(&self, #[out] #[retval] #[out_ptr] pstrDescription: *mut BSTR) -> HRESULT;
+            fn GetDescription(&self, #[out] #[out_ptr] #[retval] pstrDescription: *mut BSTR) -> HRESULT;
         }
         #[guid(0x0abf484b_d049_464d_a7ed_552e7529b0ff)]
         interface ICertExit2: ICertExit {
-            fn GetManageModule(&self, #[out] #[retval] #[out_ptr] ppManageModule: *mut ICertManageModule) -> HRESULT;
+            fn GetManageModule(&self, #[out] #[out_ptr] #[retval] ppManageModule: *mut ICertManageModule) -> HRESULT;
         }
     }
 }

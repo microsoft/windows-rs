@@ -30,8 +30,8 @@ mod Windows {
         const INSTALL_SCOPE_USER: i32 = 2;
         #[guid(0xb722bccb_4e68_101b_a2bc_00aa00404770)]
         interface IOleCommandTarget: IUnknown {
-            fn QueryStatus(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] cCmds: ULONG, #[in] #[out] #[readable(entry, cCmds)] #[writable(entry, cCmds)] #[readable(success, cCmds)] prgCmds: *mut OLECMD, #[in] #[out] #[opt] pCmdText: *mut OLECMDTEXT) -> HRESULT;
-            fn Exec(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] nCmdID: DWORD, #[in] nCmdexecopt: DWORD, #[in] #[opt] pvaIn: *mut VARIANT, #[in] #[out] #[opt] pvaOut: *mut VARIANT) -> HRESULT;
+            fn QueryStatus(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] cCmds: ULONG, #[in] #[out] #[readable(entry, cCmds)] #[readable(success, cCmds)] #[writable(entry, cCmds)] prgCmds: *mut OLECMD, #[in] #[opt] #[out] pCmdText: *mut OLECMDTEXT) -> HRESULT;
+            fn Exec(&self, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] nCmdID: DWORD, #[in] nCmdexecopt: DWORD, #[in] #[opt] pvaIn: *mut VARIANT, #[in] #[opt] #[out] pvaOut: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xb722bcc5_4e68_101b_a2bc_00aa00404770)]
         interface IOleDocument: IUnknown {

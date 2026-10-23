@@ -114,8 +114,8 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
         #[arch(X86 | X64)]
         extern "C" fn BOUND_CALLBACK() -> BOUND_CALLBACK_STATUS;
-        #[repr(i32)]
         #[arch(X86 | X64)]
+        #[repr(i32)]
         enum BOUND_CALLBACK_STATUS {
             BoundExceptionContinueSearch = 0,
             BoundExceptionHandled = 1,
@@ -713,7 +713,7 @@ mod Windows {
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "DEVICE_CHANGE_COMPLETE_CALLBACK", "DEVICE_CHANGE_COMPLETE_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern "C" fn DEVICE_CHANGE_COMPLETE_CALLBACK(#[in] #[out] #[opt] Context: PVOID);
+        extern "C" fn DEVICE_CHANGE_COMPLETE_CALLBACK(#[in] #[opt] #[out] Context: PVOID);
         struct DEVICE_DESCRIPTION {
             Version: ULONG,
             Master: BOOLEAN,
@@ -809,7 +809,7 @@ mod Windows {
             RemovalPolicyExpectOrderlyRemoval = 2,
             RemovalPolicyExpectSurpriseRemoval = 3,
         }
-        extern "C" fn DEVICE_RESET_COMPLETION(#[in] Status: NTSTATUS, #[in] #[out] #[opt] Context: PVOID);
+        extern "C" fn DEVICE_RESET_COMPLETION(#[in] Status: NTSTATUS, #[in] #[opt] #[out] Context: PVOID);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "DEVICE_RESET_HANDLER", "DEVICE_RESET_HANDLER")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
@@ -1100,7 +1100,7 @@ mod Windows {
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "DRIVER_NOTIFICATION_CALLBACK_ROUTINE", "DRIVER_NOTIFICATION_CALLBACK_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        extern "C" fn DRIVER_NOTIFICATION_CALLBACK_ROUTINE(#[in] NotificationStructure: PVOID, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        extern "C" fn DRIVER_NOTIFICATION_CALLBACK_ROUTINE(#[in] NotificationStructure: PVOID, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         extern "C" fn DRIVER_PROXY_ENDPOINT_FUNCTION();
         type DRIVER_PROXY_ENDPOINT_FUNCTION_ID = ULONG;
         const DRIVER_PROXY_ENDPOINT_FUNCTION_ID_INVALID: u32 = 4294967295;
@@ -1166,11 +1166,11 @@ mod Windows {
         const DRVO_UNLOAD_INVOKED: i32 = 1;
         const DUPLICATE_SAME_ATTRIBUTES: i32 = 4;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrint(#[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrint(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[null_terminated(entry)] Format: PCSTR, ...) -> ULONG;
+        extern "C" fn DbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] Format: PCSTR, ...) -> ULONG;
         #[library("ntdll.dll")]
-        extern "C" fn DbgPrintReturnControlC(#[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] #[null_terminated(entry)] Format: PCCH, ...) -> ULONG;
+        extern "C" fn DbgPrintReturnControlC(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("2", "_Printf_format_string_", "", "")] #[in] Format: PCCH, ...) -> ULONG;
         #[library("ntdll.dll")]
         extern fn DbgQueryDebugFilterState(#[in] ComponentId: ULONG, #[in] Level: ULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
@@ -1268,7 +1268,7 @@ mod Windows {
         const ERROR_LOG_MESSAGE_LIMIT_SIZE: u32 = 344;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern fn ETWENABLECALLBACK(#[in] SourceId: LPCGUID, #[in] ControlCode: ULONG, #[in] Level: UCHAR, #[in] MatchAnyKeyword: ULONGLONG, #[in] MatchAllKeyword: ULONGLONG, #[in] #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: PVOID);
+        extern fn ETWENABLECALLBACK(#[in] SourceId: LPCGUID, #[in] ControlCode: ULONG, #[in] Level: UCHAR, #[in] MatchAnyKeyword: ULONGLONG, #[in] MatchAllKeyword: ULONGLONG, #[in] #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[opt] #[out] CallbackContext: PVOID);
         struct ETW_TRACE_SESSION_SETTINGS {
             Version: ULONG,
             BufferSize: ULONG,
@@ -1342,8 +1342,8 @@ mod Windows {
         const EX_LOOKASIDE_LIST_EX_FLAGS_RAISE_ON_FAIL: u32 = 1;
         const EX_MAXIMUM_LOOKASIDE_DEPTH_BASE: i32 = 256;
         const EX_MAXIMUM_LOOKASIDE_DEPTH_LIMIT: i32 = 1024;
-        #[repr(i32)]
         #[Windows::Win32::Metadata::NativeSal("2", "_Enum_is_bitflag_", "", "", TypedefName = "EX_POOL_PRIORITY")]
+        #[repr(i32)]
         enum EX_POOL_PRIORITY {
             LowPoolPriority = 0,
             LowPoolPrioritySpecialPoolOverrun = 8,
@@ -1374,8 +1374,8 @@ mod Windows {
         const EX_TIMER_NO_WAKE: i32 = 8;
         const EX_TIMER_UNLIMITED_TOLERANCE: LONGLONG = -1;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "15", "15")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern "C" fn EtwEventEnabled(#[in] RegHandle: REGHANDLE, #[in] EventDescriptor: PCEVENT_DESCRIPTOR) -> BOOLEAN;
         #[repr(i32)]
         enum FAULT_INFORMATION_ARCH {
@@ -1758,7 +1758,7 @@ mod Windows {
         extern "C" fn GET_SDEV_IDENTIFIER(#[in] InterfaceContext: PVOID) -> ULONGLONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_SET_DEVICE_DATA", "GET_SET_DEVICE_DATA")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern "C" fn GET_SET_DEVICE_DATA(#[in] #[out] #[opt] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "!=,0", "!=,0")] Length: ULONG) -> ULONG;
+        extern "C" fn GET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "!=,0", "!=,0")] Length: ULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_UPDATED_BUS_RESOURCE", "GET_UPDATED_BUS_RESOURCE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "0", "0")]
         extern "C" fn GET_UPDATED_BUS_RESOURCE(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] #[opt] Context: PVOID, #[out] UpdatedResourceList: *mut PCM_RESOURCE_LIST, #[out] UpdatedTranslatedResourceList: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
@@ -1825,8 +1825,8 @@ mod Windows {
                 },
             },
         }
-        #[repr(i32)]
         #[arch(X86)]
+        #[repr(i32)]
         enum INTEL_CACHE_TYPE {
             IntelCacheNull = 0,
             IntelCacheData = 1,
@@ -1905,7 +1905,7 @@ mod Windows {
         extern "C" fn IOMMU_DEVICE_QUERY_DOMAIN_TYPES(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[out] AvailableDomains: PULONG);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "IOMMU_DEVICE_QUERY_INFORMATION", "IOMMU_DEVICE_QUERY_INFORMATION")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        extern "C" fn IOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[out] #[writable(entry, Size)] #[readable(success, *BytesWritten)] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
+        extern "C" fn IOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[out] #[readable(success, *BytesWritten)] #[writable(entry, Size)] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
         type IOMMU_DMA_DEVICE = _IOMMU_DMA_DEVICE;
         struct IOMMU_DMA_DEVICE_INFORMATION {
             DefaultPasidEnabled: BOOLEAN,
@@ -2995,8 +2995,8 @@ mod Windows {
         extern "C" fn KSERVICE_ROUTINE(#[in] Interrupt: *mut _KINTERRUPT, #[in] #[opt] ServiceContext: PVOID) -> BOOLEAN;
         #[arch(X64)]
         type KSPIN_LOCK_QUEUE_NUMBER = ULONG64;
-        #[repr(i32)]
         #[arch(X86 | Arm64)]
+        #[repr(i32)]
         enum KSPIN_LOCK_QUEUE_NUMBER {
             LockQueueUnusedSpare0 = 0,
             LockQueueUnusedSpare1 = 1,
@@ -3052,8 +3052,8 @@ mod Windows {
             MaxDataSize: ULONG,
             ComponentNameBufferLength: ULONG,
             ComponentName: PUCHAR,
-            #[writable(NumBlocksTotal)]
             #[readable(NumBlocksUsed)]
+            #[writable(NumBlocksTotal)]
             Blocks: [KADDRESS_RANGE; 1],
         }
         struct KWAIT_CHAIN {
@@ -3401,8 +3401,8 @@ mod Windows {
         extern fn NtCommitComplete(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtCommitEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
@@ -3410,30 +3410,30 @@ mod Windows {
         extern fn NtCommitTransaction(#[in] TransactionHandle: HANDLE, #[in] Wait: BOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtEnumerateTransactionObject(#[in] #[opt] RootObjectHandle: HANDLE, #[in] QueryType: KTMOBJECT_TYPE, #[in] #[out] #[writable(entry, bytes(ObjectCursorLength))] ObjectCursor: PKTMOBJECT_CURSOR, #[in] ObjectCursorLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn NtGetNotificationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[out] TransactionNotification: PTRANSACTION_NOTIFICATION, #[in] NotificationLength: ULONG, #[in] #[opt] Timeout: PLARGE_INTEGER, #[out] #[opt] ReturnLength: PULONG, #[in] Asynchronous: ULONG, #[in] #[opt] AsynchronousContext: ULONG_PTR) -> NTSTATUS;
+        #[must_use]
+        extern fn NtGetNotificationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[out] TransactionNotification: PTRANSACTION_NOTIFICATION, #[in] NotificationLength: ULONG, #[in] #[opt] Timeout: PLARGE_INTEGER, #[opt] #[out] ReturnLength: PULONG, #[in] Asynchronous: ULONG, #[in] #[opt] AsynchronousContext: ULONG_PTR) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtManagePartition(#[in] TargetHandle: HANDLE, #[in] #[opt] SourceHandle: HANDLE, #[in] PartitionInformationClass: PARTITION_INFORMATION_CLASS, #[in] #[out] #[writable(entry, bytes(PartitionInformationLength))] PartitionInformation: PVOID, #[in] PartitionInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[out] #[opt] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
+        extern fn NtPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
         extern fn NtPrePrepareComplete(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtPrePrepareEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
@@ -3441,8 +3441,8 @@ mod Windows {
         extern fn NtPrepareComplete(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtPrepareEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
@@ -3454,23 +3454,23 @@ mod Windows {
         extern fn NtPropagationFailed(#[in] ResourceManagerHandle: HANDLE, #[in] RequestCookie: ULONG, #[in] PropStatus: NTSTATUS) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtQueryInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[out] #[writable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        #[must_use]
+        extern fn NtQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn NtQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        #[must_use]
+        extern fn NtQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtQueryInformationTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionManagerInformationLength))] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
@@ -3478,23 +3478,23 @@ mod Windows {
         extern fn NtReadOnlyEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtRecoverEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] EnlistmentKey: PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtRecoverResourceManager(#[in] ResourceManagerHandle: HANDLE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtRecoverTransactionManager(#[in] TransactionManagerHandle: HANDLE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtRegisterProtocolAddressInformation(#[in] ResourceManager: HANDLE, #[in] ProtocolId: PCRM_PROTOCOL_ID, #[in] ProtocolInformationSize: ULONG, #[in] ProtocolInformation: PVOID, #[in] #[opt] CreateOptions: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
@@ -3514,28 +3514,28 @@ mod Windows {
         extern fn NtRollbackTransaction(#[in] TransactionHandle: HANDLE, #[in] Wait: BOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtRollforwardTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtSetInformationEnlistment(#[in] #[opt] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[in] #[readable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtSetInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[in] #[readable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtSetInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[in] #[readable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn NtSetInformationTransactionManager(#[in] #[opt] TmHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[in] #[readable(entry, bytes(TransactionManagerInformationLength))] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
@@ -4891,7 +4891,7 @@ mod Windows {
         type PDEVICE_CAPABILITIES = *mut DEVICE_CAPABILITIES;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "DEVICE_CHANGE_COMPLETE_CALLBACK", "DEVICE_CHANGE_COMPLETE_CALLBACK", TypedefName = "DEVICE_CHANGE_COMPLETE_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "DEVICE_CHANGE_COMPLETE_CALLBACK")]
-        extern "C" fn PDEVICE_CHANGE_COMPLETE_CALLBACK(#[in] #[out] #[opt] Context: PVOID);
+        extern "C" fn PDEVICE_CHANGE_COMPLETE_CALLBACK(#[in] #[opt] #[out] Context: PVOID);
         type PDEVICE_DESCRIPTION = *mut DEVICE_DESCRIPTION;
         type PDEVICE_DIRECTORY_TYPE = *mut DEVICE_DIRECTORY_TYPE;
         type PDEVICE_FLAGS = *mut DEVICE_FLAGS;
@@ -4905,7 +4905,7 @@ mod Windows {
         extern "C" fn PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER(#[in] InterfaceContext: PVOID, #[out] ResetInfoCount: PULONG, #[out] ResetInfoSupported: PDEVICE_BUS_SPECIFIC_RESET_INFO) -> NTSTATUS;
         type PDEVICE_RELATION_TYPE = *mut DEVICE_RELATION_TYPE;
         type PDEVICE_REMOVAL_POLICY = *mut DEVICE_REMOVAL_POLICY;
-        extern "C" fn PDEVICE_RESET_COMPLETION(#[in] Status: NTSTATUS, #[in] #[out] #[opt] Context: PVOID);
+        extern "C" fn PDEVICE_RESET_COMPLETION(#[in] Status: NTSTATUS, #[in] #[opt] #[out] Context: PVOID);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "DEVICE_RESET_HANDLER", "DEVICE_RESET_HANDLER", TypedefName = "DEVICE_RESET_HANDLER")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "DEVICE_RESET_HANDLER")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "DEVICE_RESET_HANDLER")]
@@ -4937,7 +4937,7 @@ mod Windows {
         type PDRIVER_DIRECTORY_TYPE = *mut DRIVER_DIRECTORY_TYPE;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "DRIVER_NOTIFICATION_CALLBACK_ROUTINE", "DRIVER_NOTIFICATION_CALLBACK_ROUTINE", TypedefName = "DRIVER_NOTIFICATION_CALLBACK_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "DRIVER_NOTIFICATION_CALLBACK_ROUTINE")]
-        extern "C" fn PDRIVER_NOTIFICATION_CALLBACK_ROUTINE(#[in] NotificationStructure: PVOID, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        extern "C" fn PDRIVER_NOTIFICATION_CALLBACK_ROUTINE(#[in] NotificationStructure: PVOID, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         extern "C" fn PDRIVER_PROXY_ENDPOINT_FUNCTION();
         type PDRIVER_PROXY_ENDPOINT_FUNCTION_ID = *mut ULONG;
         type PDRIVER_PROXY_ENDPOINT_INFORMATION = *mut DRIVER_PROXY_ENDPOINT_INFORMATION;
@@ -4971,7 +4971,7 @@ mod Windows {
         type PERESOURCE_THREAD = *mut ERESOURCE_THREAD;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "ETWENABLECALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "ETWENABLECALLBACK")]
-        extern fn PETWENABLECALLBACK(#[in] SourceId: LPCGUID, #[in] ControlCode: ULONG, #[in] Level: UCHAR, #[in] MatchAnyKeyword: ULONGLONG, #[in] MatchAllKeyword: ULONGLONG, #[in] #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: PVOID);
+        extern fn PETWENABLECALLBACK(#[in] SourceId: LPCGUID, #[in] ControlCode: ULONG, #[in] Level: UCHAR, #[in] MatchAnyKeyword: ULONGLONG, #[in] MatchAllKeyword: ULONGLONG, #[in] #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[opt] #[out] CallbackContext: PVOID);
         type PETW_TRACE_SESSION_SETTINGS = *mut ETW_TRACE_SESSION_SETTINGS;
         type PEXTENDED_CREATE_DUAL_OPLOCK_KEYS = *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS;
         type PEXTENDED_CREATE_INFORMATION = *mut EXTENDED_CREATE_INFORMATION;
@@ -5020,7 +5020,7 @@ mod Windows {
         type PFILE_STANDARD_INFORMATION_EX = *mut FILE_STANDARD_INFORMATION_EX;
         type PFN_COUNT = ULONG;
         extern fn PFN_NT_COMMIT_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] Wait: BOOLEAN) -> NTSTATUS;
-        extern fn PFN_NT_QUERY_INFORMATION_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn PFN_NT_QUERY_INFORMATION_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         extern fn PFN_NT_ROLLBACK_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] Wait: BOOLEAN) -> NTSTATUS;
         extern fn PFN_NT_SET_INFORMATION_TRANSACTION(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[in] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG) -> NTSTATUS;
         #[arch(X64 | Arm64)]
@@ -5066,7 +5066,7 @@ mod Windows {
         extern "C" fn PGET_SDEV_IDENTIFIER(#[in] InterfaceContext: PVOID) -> ULONGLONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_SET_DEVICE_DATA", "GET_SET_DEVICE_DATA", TypedefName = "GET_SET_DEVICE_DATA")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "GET_SET_DEVICE_DATA")]
-        extern "C" fn PGET_SET_DEVICE_DATA(#[in] #[out] #[opt] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "!=,0", "!=,0")] Length: ULONG) -> ULONG;
+        extern "C" fn PGET_SET_DEVICE_DATA(#[in] #[opt] #[out] Context: PVOID, #[in] DataType: ULONG, #[in] #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Offset: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "!=,0", "!=,0")] Length: ULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "GET_UPDATED_BUS_RESOURCE", "GET_UPDATED_BUS_RESOURCE", TypedefName = "GET_UPDATED_BUS_RESOURCE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "0", "0", TypedefName = "GET_UPDATED_BUS_RESOURCE")]
         extern "C" fn PGET_UPDATED_BUS_RESOURCE(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] #[opt] Context: PVOID, #[out] UpdatedResourceList: *mut PCM_RESOURCE_LIST, #[out] UpdatedTranslatedResourceList: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
@@ -5128,7 +5128,7 @@ mod Windows {
         extern "C" fn PIOMMU_DEVICE_QUERY_DOMAIN_TYPES(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[out] AvailableDomains: PULONG);
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "IOMMU_DEVICE_QUERY_INFORMATION", "IOMMU_DEVICE_QUERY_INFORMATION", TypedefName = "IOMMU_DEVICE_QUERY_INFORMATION")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "IOMMU_DEVICE_QUERY_INFORMATION")]
-        extern "C" fn PIOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[out] #[writable(entry, Size)] #[readable(success, *BytesWritten)] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
+        extern "C" fn PIOMMU_DEVICE_QUERY_INFORMATION(#[in] DmaDevice: PIOMMU_DMA_DEVICE, #[in] Size: ULONG, #[out] BytesWritten: PULONG, #[out] #[readable(success, *BytesWritten)] #[writable(entry, Size)] Buffer: PIOMMU_DMA_DEVICE_INFORMATION) -> NTSTATUS;
         type PIOMMU_DMA_DEVICE = *mut _IOMMU_DMA_DEVICE;
         type PIOMMU_DMA_DEVICE_INFORMATION = *mut IOMMU_DMA_DEVICE_INFORMATION;
         type PIOMMU_DMA_DOMAIN = *mut _IOMMU_DMA_DOMAIN;
@@ -5208,7 +5208,7 @@ mod Windows {
         type PIO_COMPLETION_CONTEXT = *mut IO_COMPLETION_CONTEXT;
         type PIO_COMPLETION_ROUTINE_RESULT = *mut IO_COMPLETION_ROUTINE_RESULT;
         extern "C" fn PIO_CONTAINER_NOTIFICATION_FUNCTION() -> NTSTATUS;
-        extern "C" fn PIO_DEVICE_EJECT_CALLBACK(#[in] Status: NTSTATUS, #[in] #[out] #[opt] Context: PVOID);
+        extern "C" fn PIO_DEVICE_EJECT_CALLBACK(#[in] Status: NTSTATUS, #[in] #[opt] #[out] Context: PVOID);
         type PIO_DISCONNECT_INTERRUPT_PARAMETERS = *mut IO_DISCONNECT_INTERRUPT_PARAMETERS;
         type PIO_ERROR_LOG_MESSAGE = *mut IO_ERROR_LOG_MESSAGE;
         type PIO_ERROR_LOG_PACKET = *mut IO_ERROR_LOG_PACKET;
@@ -5539,8 +5539,8 @@ mod Windows {
         const POOL_RAISE_IF_ALLOCATION_FAILURE: i32 = 16;
         const POOL_TAGGING: i32 = 1;
         #[Windows::Win32::Metadata::NativeSal("2", "_Enum_is_bitflag_", "", "")]
-        #[repr(i32)]
         #[Windows::Win32::Metadata::NativeSal("2", "_Enum_is_bitflag_", "", "", TypedefName = "POOL_TYPE")]
+        #[repr(i32)]
         enum POOL_TYPE {
             NonPagedPool = 0,
             NonPagedPoolExecute = 0,
@@ -5642,8 +5642,8 @@ mod Windows {
             Id: GUID,
             IdleStateCount: ULONG,
             DeepestWakeableIdleState: ULONG,
-            #[writable(IdleStateCount)]
             #[readable(IdleStateCount)]
+            #[writable(IdleStateCount)]
             IdleStates: PPO_FX_COMPONENT_IDLE_STATE,
         }
         struct PO_FX_COMPONENT_V2 {
@@ -5651,12 +5651,12 @@ mod Windows {
             Flags: ULONGLONG,
             DeepestWakeableIdleState: ULONG,
             IdleStateCount: ULONG,
-            #[writable(IdleStateCount)]
             #[readable(IdleStateCount)]
+            #[writable(IdleStateCount)]
             IdleStates: PPO_FX_COMPONENT_IDLE_STATE,
             ProviderCount: ULONG,
-            #[writable(ProviderCount)]
             #[readable(ProviderCount)]
+            #[writable(ProviderCount)]
             Providers: PULONG,
         }
         type PO_FX_DEVICE = PO_FX_DEVICE_V1;
@@ -5684,8 +5684,8 @@ mod Windows {
             DevicePowerNotRequiredCallback: PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK,
             PowerControlCallback: PPO_FX_POWER_CONTROL_CALLBACK,
             DeviceContext: PVOID,
-            #[writable(ComponentCount)]
             #[readable(ComponentCount)]
+            #[writable(ComponentCount)]
             Components: [PO_FX_COMPONENT_V1; 1],
         }
         struct PO_FX_DEVICE_V2 {
@@ -5699,8 +5699,8 @@ mod Windows {
             PowerControlCallback: PPO_FX_POWER_CONTROL_CALLBACK,
             DeviceContext: PVOID,
             ComponentCount: ULONG,
-            #[writable(ComponentCount)]
             #[readable(ComponentCount)]
+            #[writable(ComponentCount)]
             Components: [PO_FX_COMPONENT_V2; 1],
         }
         struct PO_FX_DEVICE_V3 {
@@ -5717,8 +5717,8 @@ mod Windows {
             DirectedFxTimeoutInSeconds: ULONG,
             DeviceContext: PVOID,
             ComponentCount: ULONG,
-            #[writable(ComponentCount)]
             #[readable(ComponentCount)]
+            #[writable(ComponentCount)]
             Components: [PO_FX_COMPONENT_V2; 1],
         }
         const PO_FX_DIRECTED_FX_DEFAULT_IDLE_TIMEOUT: u32 = 0;
@@ -5763,7 +5763,7 @@ mod Windows {
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PO_FX_POWER_CONTROL_CALLBACK", "PO_FX_POWER_CONTROL_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
-        extern "C" fn PO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[in] #[opt] #[readable(entry, bytes(InBufferSize))] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[out] #[opt] #[writable(entry, bytes(OutBufferSize))] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[out] #[opt] BytesReturned: PSIZE_T) -> NTSTATUS;
+        extern "C" fn PO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[in] #[opt] #[readable(entry, bytes(InBufferSize))] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(OutBufferSize))] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[opt] #[out] BytesReturned: PSIZE_T) -> NTSTATUS;
         const PO_FX_UNKNOWN_POWER: u32 = 4294967295;
         const PO_FX_UNKNOWN_TIME: u64 = 18446744073709551615;
         const PO_FX_VERSION: i32 = 1;
@@ -5962,9 +5962,9 @@ mod Windows {
         type PPO_FX_PERF_STATE_UNIT = *mut PO_FX_PERF_STATE_UNIT;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PO_FX_POWER_CONTROL_CALLBACK", "PO_FX_POWER_CONTROL_CALLBACK", TypedefName = "PO_FX_POWER_CONTROL_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2", TypedefName = "PO_FX_POWER_CONTROL_CALLBACK")]
-        extern "C" fn PPO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[in] #[opt] #[readable(entry, bytes(InBufferSize))] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[out] #[opt] #[writable(entry, bytes(OutBufferSize))] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[out] #[opt] BytesReturned: PSIZE_T) -> NTSTATUS;
+        extern "C" fn PPO_FX_POWER_CONTROL_CALLBACK(#[in] DeviceContext: PVOID, #[in] PowerControlCode: LPCGUID, #[in] #[opt] #[readable(entry, bytes(InBufferSize))] InBuffer: PVOID, #[in] InBufferSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(OutBufferSize))] OutBuffer: PVOID, #[in] OutBufferSize: SIZE_T, #[opt] #[out] BytesReturned: PSIZE_T) -> NTSTATUS;
         type PPO_THERMAL_REQUEST_TYPE = *mut PO_THERMAL_REQUEST_TYPE;
-        extern "C" fn PPROCESSOR_HALT_ROUTINE(#[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        extern "C" fn PPROCESSOR_HALT_ROUTINE(#[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         type PPTM_CONTROL_INTERFACE = *mut PTM_CONTROL_INTERFACE;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PTM_DEVICE_DISABLE", "PTM_DEVICE_DISABLE", TypedefName = "PTM_DEVICE_DISABLE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "0", "0", TypedefName = "PTM_DEVICE_DISABLE")]
@@ -5982,7 +5982,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "QUERY_SUPPORTED_DOE_PROTOCOLS", "QUERY_SUPPORTED_DOE_PROTOCOLS", TypedefName = "QUERY_SUPPORTED_DOE_PROTOCOLS")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "QUERY_SUPPORTED_DOE_PROTOCOLS")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "QUERY_SUPPORTED_DOE_PROTOCOLS")]
-        extern "C" fn PQUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[out] #[opt] #[writable(entry, ArrayCount)] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
+        extern "C" fn PQUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[opt] #[out] #[writable(entry, ArrayCount)] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
         extern "C" fn PREENUMERATE_SELF(#[in] Context: PVOID);
         type PREENUMERATE_SELF_INTERFACE_STANDARD = *mut REENUMERATE_SELF_INTERFACE_STANDARD;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
@@ -6039,7 +6039,7 @@ mod Windows {
         type PRKTM = *mut _KTM;
         type PRKTRANSACTION = *mut _KTRANSACTION;
         const PROCESSOR_FEATURE_MAX: i32 = 64;
-        extern "C" fn PROCESSOR_HALT_ROUTINE(#[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        extern "C" fn PROCESSOR_HALT_ROUTINE(#[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         #[arch(X64 | Arm64)]
         const PROFILE_LEVEL: i32 = 15;
         #[arch(X86)]
@@ -6049,7 +6049,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_QUERY_REGISTRY_ROUTINE", "RTL_QUERY_REGISTRY_ROUTINE", TypedefName = "RTL_QUERY_REGISTRY_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "RTL_QUERY_REGISTRY_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "RTL_QUERY_REGISTRY_ROUTINE")]
-        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn PRTL_QUERY_REGISTRY_ROUTINE(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         type PRTL_QUERY_REGISTRY_TABLE = *mut RTL_QUERY_REGISTRY_TABLE;
         type PSCATTER_GATHER_ELEMENT = *mut SCATTER_GATHER_ELEMENT;
         type PSDEV_IDENTIFIER_INTERFACE = *mut SDEV_IDENTIFIER_INTERFACE;
@@ -6068,7 +6068,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "SEND_DOE_REQUEST", "SEND_DOE_REQUEST", TypedefName = "SEND_DOE_REQUEST")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0", TypedefName = "SEND_DOE_REQUEST")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "SEND_DOE_REQUEST")]
-        extern "C" fn PSEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[out] #[opt] #[writable(entry, OutputArrayCount)] #[readable(success, *OutputWritten)] OutputArray: PULONG) -> NTSTATUS;
+        extern "C" fn PSEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "SET_D3COLD_SUPPORT", "SET_D3COLD_SUPPORT", TypedefName = "SET_D3COLD_SUPPORT")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "0", "0", TypedefName = "SET_D3COLD_SUPPORT")]
         extern "C" fn PSET_D3COLD_SUPPORT(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] #[opt] Context: PVOID, #[in] D3ColdSupport: BOOLEAN);
@@ -6114,7 +6114,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "TRANSLATE_BUS_ADDRESS", "TRANSLATE_BUS_ADDRESS", TypedefName = "TRANSLATE_BUS_ADDRESS")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "TRANSLATE_BUS_ADDRESS")]
         #[success(return != 0)]
-        extern "C" fn PTRANSLATE_BUS_ADDRESS(#[in] #[out] #[opt] Context: PVOID, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] Length: ULONG, #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
+        extern "C" fn PTRANSLATE_BUS_ADDRESS(#[in] #[opt] #[out] Context: PVOID, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] Length: ULONG, #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         extern "C" fn PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2(Context: PVOID);
         type PVIRTUAL_CHANNEL_CAPABILITIES1 = *mut VIRTUAL_CHANNEL_CAPABILITIES1;
@@ -6134,7 +6134,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "QUERY_SUPPORTED_DOE_PROTOCOLS", "QUERY_SUPPORTED_DOE_PROTOCOLS")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern "C" fn QUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[out] #[opt] #[writable(entry, ArrayCount)] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
+        extern "C" fn QUERY_SUPPORTED_DOE_PROTOCOLS(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] ArrayCount: ULONG, #[opt] #[out] #[writable(entry, ArrayCount)] DataObjectTypes: PUCHAR, #[out] DataObjectCount: PULONG) -> NTSTATUS;
         struct REENUMERATE_SELF_INTERFACE_STANDARD {
             Size: USHORT,
             Version: USHORT,
@@ -6384,7 +6384,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_QUERY_REGISTRY_ROUTINE", "RTL_QUERY_REGISTRY_ROUTINE")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[in] #[null_terminated(entry)] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
+        extern fn RTL_QUERY_REGISTRY_ROUTINE(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] Context: PVOID, #[in] #[opt] EntryContext: PVOID) -> NTSTATUS;
         const RTL_QUERY_REGISTRY_SUBKEY: i32 = 1;
         struct RTL_QUERY_REGISTRY_TABLE {
             QueryRoutine: PRTL_QUERY_REGISTRY_ROUTINE,
@@ -6411,17 +6411,17 @@ mod Windows {
         const ResourceNeverExclusive: i32 = 16;
         const ResourceOwnedExclusive: i32 = 128;
         const ResourceReleaseByOtherThread: i32 = 32;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlAreBitsClear(#[in] BitMapHeader: PRTL_BITMAP, #[in] StartingIndex: ULONG, #[in] Length: ULONG) -> BOOLEAN;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlAreBitsSet(#[in] BitMapHeader: PRTL_BITMAP, #[in] StartingIndex: ULONG, #[in] Length: ULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlAssert(#[in] VoidFailedAssertion: PVOID, #[in] VoidFileName: PVOID, #[in] LineNumber: ULONG, #[in] #[opt] MutableMessage: PSTR);
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlCheckRegistryKey(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlClearAllBits(#[in] BitMapHeader: PRTL_BITMAP);
@@ -6430,12 +6430,12 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlClearBits(#[in] BitMapHeader: PRTL_BITMAP, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,BitMapHeader->SizeOfBitMap - NumberToClear", "0,BitMapHeader->SizeOfBitMap - NumberToClear")] StartingIndex: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,BitMapHeader->SizeOfBitMap - StartingIndex", "0,BitMapHeader->SizeOfBitMap - StartingIndex")] NumberToClear: ULONG);
         #[library("ntdll.dll")]
-        extern fn RtlCmDecodeMemIoResource(#[in] Descriptor: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[out] #[opt] Start: PULONGLONG) -> ULONGLONG;
+        extern fn RtlCmDecodeMemIoResource(#[in] Descriptor: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[opt] #[out] Start: PULONGLONG) -> ULONGLONG;
         #[library("ntdll.dll")]
         extern fn RtlCmEncodeMemIoResource(#[in] Descriptor: PCM_PARTIAL_RESOURCE_DESCRIPTOR, #[in] Type: UCHAR, #[in] Length: ULONGLONG, #[in] Start: ULONGLONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlCompareUnicodeStrings(#[in] #[readable(entry, String1Length)] String1: PCWCH, #[in] String1Length: SIZE_T, #[in] #[readable(entry, String2Length)] String2: PCWCH, #[in] String2Length: SIZE_T, #[in] CaseInSensitive: BOOLEAN) -> LONG;
         #[library("ntdll.dll")]
         extern fn RtlCopyBitMap(#[in] Source: PRTL_BITMAP, #[in] Destination: PRTL_BITMAP, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,Destination->SizeOfBitMap - 1", "0,Destination->SizeOfBitMap - 1")] TargetBit: ULONG);
@@ -6447,28 +6447,28 @@ mod Windows {
         extern fn RtlCreateSecurityDescriptor(#[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] Revision: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR) -> NTSTATUS;
+        extern fn RtlDeleteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PCWSTR) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn RtlDowncaseUnicodeChar(#[in] SourceCharacter: WCHAR) -> WCHAR;
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"compiler support for 64 bit\",\"Obsolete\"", "\"compiler support for 64 bit\",\"Obsolete\"")]
-        #[library("ntdll.dll")]
         #[arch(X86)]
+        #[library("ntdll.dll")]
         extern fn RtlExtendedIntegerMultiply(#[in] Multiplicand: LARGE_INTEGER, #[in] Multiplier: LONG) -> LARGE_INTEGER;
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"compiler support for 64 bit\",\"Obsolete\"", "\"compiler support for 64 bit\",\"Obsolete\"")]
-        #[library("ntdll.dll")]
         #[arch(X86)]
-        extern fn RtlExtendedLargeIntegerDivide(#[in] Dividend: LARGE_INTEGER, #[in] Divisor: ULONG, #[out] #[opt] Remainder: PULONG) -> LARGE_INTEGER;
+        #[library("ntdll.dll")]
+        extern fn RtlExtendedLargeIntegerDivide(#[in] Dividend: LARGE_INTEGER, #[in] Divisor: ULONG, #[opt] #[out] Remainder: PULONG) -> LARGE_INTEGER;
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"compiler support for 64 bit\",\"Obsolete\"", "\"compiler support for 64 bit\",\"Obsolete\"")]
-        #[library("ntdll.dll")]
         #[arch(X86)]
+        #[library("ntdll.dll")]
         extern fn RtlExtendedMagicDivide(#[in] Dividend: LARGE_INTEGER, #[in] MagicDivisor: LARGE_INTEGER, #[in] ShiftCount: CCHAR) -> LARGE_INTEGER;
         #[library("ntdll.dll")]
         extern fn RtlExtractBitMap(#[in] Source: PRTL_BITMAP, #[in] Destination: PRTL_BITMAP, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,Source->SizeOfBitMap - 1", "0,Source->SizeOfBitMap - 1")] TargetBit: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "0,Source->SizeOfBitMap", "0,Source->SizeOfBitMap")] NumberOfBits: ULONG);
         #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "<=,BitMapHeader->SizeOfBitMap - NumberToFind", "<=,BitMapHeader->SizeOfBitMap - NumberToFind")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != -1", "return != -1")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlFindClearBits(#[in] BitMapHeader: PRTL_BITMAP, #[in] NumberToFind: ULONG, #[in] HintIndex: ULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "<=,BitMapHeader->SizeOfBitMap - NumberToFind", "<=,BitMapHeader->SizeOfBitMap - NumberToFind")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != -1", "return != -1")]
@@ -6481,21 +6481,21 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlFindLastBackwardRunClear(#[in] BitMapHeader: PRTL_BITMAP, #[in] FromIndex: ULONG, #[out] StartingRunIndex: PULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != -1", "return != -1")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlFindLeastSignificantBit(#[in] Set: ULONGLONG) -> CCHAR;
         #[library("ntdll.dll")]
         extern fn RtlFindLongestRunClear(#[in] BitMapHeader: PRTL_BITMAP, #[out] StartingIndex: PULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != -1", "return != -1")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlFindMostSignificantBit(#[in] Set: ULONGLONG) -> CCHAR;
         #[library("ntdll.dll")]
         extern fn RtlFindNextForwardRunClear(#[in] BitMapHeader: PRTL_BITMAP, #[in] FromIndex: ULONG, #[out] StartingRunIndex: PULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "<=,BitMapHeader->SizeOfBitMap - NumberToFind", "<=,BitMapHeader->SizeOfBitMap - NumberToFind")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != -1", "return != -1")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlFindSetBits(#[in] BitMapHeader: PRTL_BITMAP, #[in] NumberToFind: ULONG, #[in] HintIndex: ULONG) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("2", "_Ret_range_", "<=,BitMapHeader->SizeOfBitMap - NumberToFind", "<=,BitMapHeader->SizeOfBitMap - NumberToFind")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != -1", "return != -1")]
@@ -6509,11 +6509,11 @@ mod Windows {
         extern fn RtlGetVersion(#[Windows::Win32::Metadata::NativeSal("2", "_At_", "lpVersionInformation->dwOSVersionInfoSize,_Pre_ _Valid_", "lpVersionInformation->dwOSVersionInfoSize, _Pre_ _Valid_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "lpVersionInformation->dwOSVersionInfoSize == sizeof(RTL_OSVERSIONINFOEXW),_At_((PRTL_OSVERSIONINFOEXW)lpVersionInformation, _Out_)", "lpVersionInformation->dwOSVersionInfoSize == sizeof(RTL_OSVERSIONINFOEXW), _At_((PRTL_OSVERSIONINFOEXW)lpVersionInformation, _Out_)")] #[out] lpVersionInformation: PRTL_OSVERSIONINFOW) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("ntdll.dll")]
-        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] #[null_terminated(entry)] SourceString: PCSZ);
+        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] SourceString: PCSZ);
         #[library("ntdll.dll")]
         extern fn RtlInitializeBitMap(#[out] BitMapHeader: PRTL_BITMAP, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] BitMapBuffer: PULONG, #[in] #[opt] SizeOfBitMap: ULONG);
         #[library("ntdll.dll")]
-        extern fn RtlIoDecodeMemIoResource(#[in] Descriptor: PIO_RESOURCE_DESCRIPTOR, #[out] #[opt] Alignment: PULONGLONG, #[out] #[opt] MinimumAddress: PULONGLONG, #[out] #[opt] MaximumAddress: PULONGLONG) -> ULONGLONG;
+        extern fn RtlIoDecodeMemIoResource(#[in] Descriptor: PIO_RESOURCE_DESCRIPTOR, #[opt] #[out] Alignment: PULONGLONG, #[opt] #[out] MinimumAddress: PULONGLONG, #[opt] #[out] MaximumAddress: PULONGLONG) -> ULONGLONG;
         #[library("ntdll.dll")]
         extern fn RtlIoEncodeMemIoResource(#[in] Descriptor: PIO_RESOURCE_DESCRIPTOR, #[in] Type: UCHAR, #[in] Length: ULONGLONG, #[in] Alignment: ULONGLONG, #[in] MinimumAddress: ULONGLONG, #[in] MaximumAddress: ULONGLONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
@@ -6541,11 +6541,11 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
         extern fn RtlSetDaclSecurityDescriptor(#[in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] DaclPresent: BOOLEAN, #[in] #[opt] Dacl: PACL, #[in] DaclDefaulted: BOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
         #[must_use]
-        #[library("ntdll.dll")]
         extern fn RtlTestBit(#[in] BitMapHeader: PRTL_BITMAP, #[Windows::Win32::Metadata::NativeSal("2", "_In_range_", "<,BitMapHeader->SizeOfBitMap", "<,BitMapHeader->SizeOfBitMap")] BitNumber: ULONG) -> BOOLEAN;
-        #[success(return != 0)]
         #[library("ntdll.dll")]
+        #[success(return != 0)]
         extern fn RtlTimeFieldsToTime(#[in] TimeFields: PTIME_FIELDS, #[out] Time: PLARGE_INTEGER) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlTimeToTimeFields(#[in] Time: PLARGE_INTEGER, #[out] TimeFields: PTIME_FIELDS);
@@ -6553,20 +6553,20 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlUpcaseUnicodeChar(#[in] SourceCharacter: WCHAR) -> WCHAR;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlValidRelativeSecurityDescriptor(#[in] #[readable(entry, bytes(SecurityDescriptorLength))] SecurityDescriptorInput: PSECURITY_DESCRIPTOR, #[in] SecurityDescriptorLength: ULONG, #[in] RequiredInformation: SECURITY_INFORMATION) -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlValidSecurityDescriptor(#[in] SecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlVerifyVersionInfo(#[in] VersionInfo: PRTL_OSVERSIONINFOEXW, #[in] TypeMask: ULONG, #[in] ConditionMask: ULONGLONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[in] #[null_terminated(entry)] ValueName: PCWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
+        extern fn RtlWriteRegistryValue(#[in] RelativeTo: ULONG, #[in] Path: PCWSTR, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] ValueName: PCWSTR, #[in] ValueType: ULONG, #[in] #[opt] #[readable(entry, bytes(ValueLength))] ValueData: PVOID, #[in] ValueLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn RtlxAnsiStringToUnicodeSize(#[in] AnsiString: PCANSI_STRING) -> ULONG;
@@ -6627,7 +6627,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "SEND_DOE_REQUEST", "SEND_DOE_REQUEST")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern "C" fn SEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[out] #[opt] #[writable(entry, OutputArrayCount)] #[readable(success, *OutputWritten)] OutputArray: PULONG) -> NTSTATUS;
+        extern "C" fn SEND_DOE_REQUEST(#[in] InterfaceContext: PVOID, #[in] DataObjectVendorId: USHORT, #[in] DataObjectType: UCHAR, #[in] InputArrayCount: ULONG, #[in] #[opt] #[readable(entry, InputArrayCount)] InputArray: PULONG, #[in] OutputArrayCount: ULONG, #[out] OutputWritten: PULONG, #[opt] #[out] #[readable(success, *OutputWritten)] #[writable(entry, OutputArrayCount)] OutputArray: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "SET_D3COLD_SUPPORT", "SET_D3COLD_SUPPORT")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_", "0", "0")]
         extern "C" fn SET_D3COLD_SUPPORT(#[Windows::Win32::Metadata::NativeSal("2", "_In_reads_opt_", "_Inexpressible_(\"varies\")", "_Inexpressible_(\"varies\")")] #[in] #[opt] Context: PVOID, #[in] D3ColdSupport: BOOLEAN);
@@ -6807,7 +6807,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "TRANSLATE_BUS_ADDRESS", "TRANSLATE_BUS_ADDRESS")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
         #[success(return != 0)]
-        extern "C" fn TRANSLATE_BUS_ADDRESS(#[in] #[out] #[opt] Context: PVOID, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] Length: ULONG, #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
+        extern "C" fn TRANSLATE_BUS_ADDRESS(#[in] #[opt] #[out] Context: PVOID, #[in] BusAddress: PHYSICAL_ADDRESS, #[in] Length: ULONG, #[out] AddressSpace: PULONG, #[out] TranslatedAddress: PPHYSICAL_ADDRESS) -> BOOLEAN;
         const TREE_CONNECT_NO_CLIENT_BUFFERING: i32 = 8;
         const TREE_CONNECT_WRITE_THROUGH: i32 = 2;
         #[arch(X86)]
@@ -6930,8 +6930,8 @@ mod Windows {
             #[Windows::Win32::Metadata::NativeSal("L", "__volatile", "", "")]
             Parameter: PVOID,
         }
-        #[repr(i32)]
         #[Windows::Win32::Metadata::NativeSal("2", "_Enum_is_bitflag_", "", "", TypedefName = "WORK_QUEUE_TYPE")]
+        #[repr(i32)]
         enum WORK_QUEUE_TYPE {
             CriticalWorkQueue = 0,
             DelayedWorkQueue = 1,
@@ -7000,7 +7000,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Length == 0,_Post_satisfies_(return < 0)", "Length == 0, _Post_satisfies_(return < 0)")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Length > 0,_Post_satisfies_(return <= 0)", "Length > 0, _Post_satisfies_(return <= 0)")]
         #[library("ntdll.dll")]
-        extern fn ZwEnumerateKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[out] #[opt] #[writable(entry, bytes(Length))] #[readable(success, bytes(*ResultLength))] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
+        extern fn ZwEnumerateKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(Length))] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwEnumerateTransactionObject(#[in] #[opt] RootObjectHandle: HANDLE, #[in] QueryType: KTMOBJECT_TYPE, #[in] #[out] #[writable(entry, bytes(ObjectCursorLength))] ObjectCursor: PKTMOBJECT_CURSOR, #[in] ObjectCursorLength: ULONG, #[out] ReturnLength: PULONG) -> NTSTATUS;
@@ -7010,21 +7010,21 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Length == 0,_Post_satisfies_(return < 0)", "Length == 0, _Post_satisfies_(return < 0)")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Length > 0,_Post_satisfies_(return <= 0)", "Length > 0, _Post_satisfies_(return <= 0)")]
         #[library("ntdll.dll")]
-        extern fn ZwEnumerateValueKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[out] #[opt] #[writable(entry, bytes(Length))] #[readable(success, bytes(*ResultLength))] KeyValueInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
+        extern fn ZwEnumerateValueKey(#[in] KeyHandle: HANDLE, #[in] Index: ULONG, #[in] KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(Length))] KeyValueInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwFlushKey(#[in] KeyHandle: HANDLE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn ZwGetNotificationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[out] TransactionNotification: PTRANSACTION_NOTIFICATION, #[in] NotificationLength: ULONG, #[in] Timeout: PLARGE_INTEGER, #[out] #[opt] ReturnLength: PULONG, #[in] Asynchronous: ULONG, #[in] #[opt] AsynchronousContext: ULONG_PTR) -> NTSTATUS;
+        extern fn ZwGetNotificationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[out] TransactionNotification: PTRANSACTION_NOTIFICATION, #[in] NotificationLength: ULONG, #[in] Timeout: PLARGE_INTEGER, #[opt] #[out] ReturnLength: PULONG, #[in] Asynchronous: ULONG, #[in] #[opt] AsynchronousContext: ULONG_PTR) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwMakeTemporaryObject(#[in] Handle: HANDLE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Post_satisfies_", "*ViewSize >= _Old_(*ViewSize)", "*ViewSize >= _Old_(*ViewSize)")]
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn ZwMapViewOfSection(#[in] SectionHandle: HANDLE, #[in] ProcessHandle: HANDLE, #[out] #[writable(success, bytes(*ViewSize), indirect)] BaseAddress: *mut PVOID, #[in] ZeroBits: ULONG_PTR, #[in] CommitSize: SIZE_T, #[in] #[out] #[opt] SectionOffset: PLARGE_INTEGER, #[in] #[out] ViewSize: PSIZE_T, #[in] InheritDisposition: SECTION_INHERIT, #[in] AllocationType: ULONG, #[in] Win32Protect: ULONG) -> NTSTATUS;
+        #[must_use]
+        extern fn ZwMapViewOfSection(#[in] SectionHandle: HANDLE, #[in] ProcessHandle: HANDLE, #[out] #[writable(success, bytes(*ViewSize), indirect)] BaseAddress: *mut PVOID, #[in] ZeroBits: ULONG_PTR, #[in] CommitSize: SIZE_T, #[in] #[opt] #[out] SectionOffset: PLARGE_INTEGER, #[in] #[out] ViewSize: PSIZE_T, #[in] InheritDisposition: SECTION_INHERIT, #[in] AllocationType: ULONG, #[in] Win32Protect: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwPrePrepareComplete(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
@@ -7039,26 +7039,26 @@ mod Windows {
         extern fn ZwPrepareEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] #[opt] TmVirtualClock: PLARGE_INTEGER) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[out] #[writable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationEnlistment(#[in] EnlistmentHandle: HANDLE, #[in] EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[out] #[writable(entry, bytes(EnlistmentInformationLength))] EnlistmentInformation: PVOID, #[in] EnlistmentInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwQueryInformationFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] FileInformation: PVOID, #[in] Length: ULONG, #[in] FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationResourceManager(#[in] ResourceManagerHandle: HANDLE, #[in] ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(ResourceManagerInformationLength))] ResourceManagerInformation: PVOID, #[in] ResourceManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationTransaction(#[in] TransactionHandle: HANDLE, #[in] TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionInformationLength))] TransactionInformation: PVOID, #[in] TransactionInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn ZwQueryInformationTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionManagerInformationLength))] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryInformationTransactionManager(#[in] TransactionManagerHandle: HANDLE, #[in] TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[out] #[writable(entry, bytes(TransactionManagerInformationLength))] TransactionManagerInformation: PVOID, #[in] TransactionManagerInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_On_failure_", "_When_(return == STATUS_BUFFER_OVERFLOW || return == STATUS_BUFFER_TOO_SMALL, _Post_satisfies_(*ResultLength > Length))", "_When_(return == ((NTSTATUS)0x80000005L) || return == ((NTSTATUS)0xC0000023L), _Post_satisfies_(*ResultLength > Length))")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return == ((NTSTATUS)0x00000000L)", "return == ((NTSTATUS)0x00000000L)")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Length == 0,_Post_satisfies_(return < 0)", "Length == 0, _Post_satisfies_(return < 0)")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "Length > 0,_Post_satisfies_(return <= 0)", "Length > 0, _Post_satisfies_(return <= 0)")]
         #[library("ntdll.dll")]
-        extern fn ZwQueryKey(#[in] KeyHandle: HANDLE, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[out] #[opt] #[writable(entry, bytes(Length))] #[readable(success, bytes(*ResultLength))] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
+        extern fn ZwQueryKey(#[in] KeyHandle: HANDLE, #[in] KeyInformationClass: KEY_INFORMATION_CLASS, #[opt] #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(Length))] KeyInformation: PVOID, #[in] Length: ULONG, #[out] ResultLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwReadFile(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] Buffer: PVOID, #[in] Length: ULONG, #[in] #[opt] ByteOffset: PLARGE_INTEGER, #[in] #[opt] Key: PULONG) -> NTSTATUS;
@@ -7174,8 +7174,8 @@ mod Windows {
         type __prefast_analysis_mode_flag1 = i32;
         const __string_type: i32 = 0;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintEx(#[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] Format: PCCH, #[in] arglist: va_list) -> ULONG;
         #[library("ntdll.dll")]
-        extern fn vDbgPrintExWithPrefix(#[in] #[null_terminated(entry)] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[in] #[null_terminated(entry)] Format: PCCH, #[in] arglist: va_list) -> ULONG;
+        extern fn vDbgPrintExWithPrefix(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] Prefix: PCCH, #[in] ComponentId: ULONG, #[in] Level: ULONG, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] Format: PCCH, #[in] arglist: va_list) -> ULONG;
     }
 }

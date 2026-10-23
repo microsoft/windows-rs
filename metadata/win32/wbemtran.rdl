@@ -7,7 +7,7 @@ mod Windows {
         }
         #[guid(0xa889c72a_fcc1_4a9e_af61_ed071333fb5b)]
         interface IWbemClientConnectionTransport: IUnknown {
-            fn Open(&self, #[in] strAddressType: BSTR, #[in] dwBinaryAddressLength: DWORD, #[in] abBinaryAddress: *mut BYTE, #[in] strObject: BSTR, #[in] strUser: BSTR, #[in] strPassword: BSTR, #[in] strLocale: BSTR, #[in] lFlags: i32, #[in] pCtx: IWbemContext, #[in] riid: &IID, #[out] #[iid_is] pInterface: *mut *mut void, #[out] pCallRes: *mut IWbemCallResult) -> HRESULT;
+            fn Open(&self, #[in] strAddressType: BSTR, #[in] dwBinaryAddressLength: DWORD, #[in] abBinaryAddress: *mut BYTE, #[in] strObject: BSTR, #[in] strUser: BSTR, #[in] strPassword: BSTR, #[in] strLocale: BSTR, #[in] lFlags: i32, #[in] pCtx: IWbemContext, #[in] riid: &IID, #[iid_is] #[out] pInterface: *mut *mut void, #[out] pCallRes: *mut IWbemCallResult) -> HRESULT;
             fn OpenAsync(&self, #[in] strAddressType: BSTR, #[in] dwBinaryAddressLength: DWORD, #[in] abBinaryAddress: *mut BYTE, #[in] strObject: BSTR, #[in] strUser: BSTR, #[in] strPassword: BSTR, #[in] strLocale: BSTR, #[in] lFlags: i32, #[in] pCtx: IWbemContext, #[in] riid: &IID, #[in] pResponseHandler: IWbemObjectSink) -> HRESULT;
             fn Cancel(&self, #[in] lFlags: i32, #[in] pHandler: IWbemObjectSink) -> HRESULT;
         }
@@ -17,7 +17,7 @@ mod Windows {
         }
         #[guid(0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186)]
         interface IWbemConnectorLogin: IUnknown {
-            fn ConnectorLogin(&self, #[in] #[opt] #[null_terminated(entry)] wszNetworkResource: LPWSTR, #[in] #[opt] #[null_terminated(entry)] wszPreferredLocale: LPWSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] pInterface: *mut *mut void) -> HRESULT;
+            fn ConnectorLogin(&self, #[in] #[null_terminated(entry)] #[opt] wszNetworkResource: LPWSTR, #[in] #[null_terminated(entry)] #[opt] wszPreferredLocale: LPWSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] pInterface: *mut *mut void) -> HRESULT;
         }
         #[guid(0x9ef76194_70d5_11d1_ad90_00c04fd8fdff)]
         interface IWbemConstructClassObject: IUnknown {
@@ -28,10 +28,10 @@ mod Windows {
         }
         #[guid(0xf309ad18_d86a_11d0_a075_00c04fb68820)]
         interface IWbemLevel1Login: IUnknown {
-            fn EstablishPosition(&self, #[in] #[opt] #[null_terminated(entry)] wszLocaleList: LPWSTR, #[in] dwNumLocales: DWORD, #[out] reserved: *mut DWORD) -> HRESULT;
-            fn RequestChallenge(&self, #[in] #[opt] #[null_terminated(entry)] wszNetworkResource: LPWSTR, #[in] #[opt] #[null_terminated(entry)] wszUser: LPWSTR, #[out] Nonce: WBEM_128BITS) -> HRESULT;
-            fn WBEMLogin(&self, #[in] #[opt] #[null_terminated(entry)] wszPreferredLocale: LPWSTR, #[in] #[opt] AccessToken: WBEM_128BITS, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[out] #[out_ptr] ppNamespace: *mut IWbemServices) -> HRESULT;
-            fn NTLMLogin(&self, #[in] #[opt] #[null_terminated(entry)] wszNetworkResource: LPWSTR, #[in] #[opt] #[null_terminated(entry)] wszPreferredLocale: LPWSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[out] #[out_ptr] ppNamespace: *mut IWbemServices) -> HRESULT;
+            fn EstablishPosition(&self, #[in] #[null_terminated(entry)] #[opt] wszLocaleList: LPWSTR, #[in] dwNumLocales: DWORD, #[out] reserved: *mut DWORD) -> HRESULT;
+            fn RequestChallenge(&self, #[in] #[null_terminated(entry)] #[opt] wszNetworkResource: LPWSTR, #[in] #[null_terminated(entry)] #[opt] wszUser: LPWSTR, #[out] Nonce: WBEM_128BITS) -> HRESULT;
+            fn WBEMLogin(&self, #[in] #[null_terminated(entry)] #[opt] wszPreferredLocale: LPWSTR, #[in] #[opt] AccessToken: WBEM_128BITS, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[out] #[out_ptr] ppNamespace: *mut IWbemServices) -> HRESULT;
+            fn NTLMLogin(&self, #[in] #[null_terminated(entry)] #[opt] wszNetworkResource: LPWSTR, #[in] #[null_terminated(entry)] #[opt] wszPreferredLocale: LPWSTR, #[in] lFlags: i32, #[in] #[opt] pCtx: IWbemContext, #[out] #[out_ptr] ppNamespace: *mut IWbemServices) -> HRESULT;
         }
         #[guid(0x553fe584_2156_11d0_b6ae_00aa003240c7)]
         interface IWbemTransport: IUnknown {

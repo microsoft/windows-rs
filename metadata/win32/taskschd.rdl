@@ -170,21 +170,21 @@ mod Windows {
         }
         #[guid(0x9c86f320_dee3_4dd1_b972_a303f26b061e)]
         interface IRegisteredTask: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] pName: *mut BSTR) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] pPath: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] pName: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] pPath: *mut BSTR) -> HRESULT;
             fn get_State(&self, #[out] #[retval] pState: *mut TASK_STATE) -> HRESULT;
             fn get_Enabled(&self, #[out] #[retval] pEnabled: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Enabled(&self, enabled: VARIANT_BOOL) -> HRESULT;
-            fn Run(&self, #[in] params: VARIANT, #[out] #[retval] #[out_ptr] ppRunningTask: *mut IRunningTask) -> HRESULT;
-            fn RunEx(&self, #[in] params: VARIANT, #[in] flags: LONG, #[in] sessionID: LONG, #[in] user: BSTR, #[out] #[retval] #[out_ptr] ppRunningTask: *mut IRunningTask) -> HRESULT;
-            fn GetInstances(&self, #[in] flags: LONG, #[out] #[retval] #[out_ptr] ppRunningTasks: *mut IRunningTaskCollection) -> HRESULT;
+            fn Run(&self, #[in] params: VARIANT, #[out] #[out_ptr] #[retval] ppRunningTask: *mut IRunningTask) -> HRESULT;
+            fn RunEx(&self, #[in] params: VARIANT, #[in] flags: LONG, #[in] sessionID: LONG, #[in] user: BSTR, #[out] #[out_ptr] #[retval] ppRunningTask: *mut IRunningTask) -> HRESULT;
+            fn GetInstances(&self, #[in] flags: LONG, #[out] #[out_ptr] #[retval] ppRunningTasks: *mut IRunningTaskCollection) -> HRESULT;
             fn get_LastRunTime(&self, #[out] #[retval] pLastRunTime: *mut DATE) -> HRESULT;
             fn get_LastTaskResult(&self, #[out] #[retval] pLastTaskResult: *mut LONG) -> HRESULT;
             fn get_NumberOfMissedRuns(&self, #[out] #[retval] pNumberOfMissedRuns: *mut LONG) -> HRESULT;
             fn get_NextRunTime(&self, #[out] #[retval] pNextRunTime: *mut DATE) -> HRESULT;
-            fn get_Definition(&self, #[out] #[retval] #[out_ptr] ppDefinition: *mut ITaskDefinition) -> HRESULT;
-            fn get_Xml(&self, #[out] #[retval] #[out_ptr] pXml: *mut BSTR) -> HRESULT;
-            fn GetSecurityDescriptor(&self, #[in] securityInformation: LONG, #[out] #[retval] #[out_ptr] pSddl: *mut BSTR) -> HRESULT;
+            fn get_Definition(&self, #[out] #[out_ptr] #[retval] ppDefinition: *mut ITaskDefinition) -> HRESULT;
+            fn get_Xml(&self, #[out] #[out_ptr] #[retval] pXml: *mut BSTR) -> HRESULT;
+            fn GetSecurityDescriptor(&self, #[in] securityInformation: LONG, #[out] #[out_ptr] #[retval] pSddl: *mut BSTR) -> HRESULT;
             fn SetSecurityDescriptor(&self, #[in] sddl: BSTR, #[in] flags: LONG) -> HRESULT;
             fn Stop(&self, #[in] flags: LONG) -> HRESULT;
             fn GetRunTimes(&self, #[in] pstStart: LPSYSTEMTIME, #[in] pstEnd: LPSYSTEMTIME, #[in] #[out] pCount: *mut DWORD, #[out] #[out_ptr] pRunTimes: *mut LPSYSTEMTIME) -> HRESULT;
@@ -192,8 +192,8 @@ mod Windows {
         #[guid(0x86627eb4_42a7_41e4_a4d9_ac33a72f2d52)]
         interface IRegisteredTaskCollection: IDispatch {
             fn get_Count(&self, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
-            fn get_Item(&self, #[in] index: VARIANT, #[out] #[retval] #[out_ptr] ppRegisteredTask: *mut IRegisteredTask) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: VARIANT, #[out] #[out_ptr] #[retval] ppRegisteredTask: *mut IRegisteredTask) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x416d8b73_cb41_4ea1_805c_9be9a5ac4a74)]
         interface IRegistrationInfo: IDispatch {
@@ -232,11 +232,11 @@ mod Windows {
         }
         #[guid(0x653758fb_7b9a_4f1e_a471_beeb8e9b834e)]
         interface IRunningTask: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] pName: *mut BSTR) -> HRESULT;
-            fn get_InstanceGuid(&self, #[out] #[retval] #[out_ptr] pGuid: *mut BSTR) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] pPath: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] pName: *mut BSTR) -> HRESULT;
+            fn get_InstanceGuid(&self, #[out] #[out_ptr] #[retval] pGuid: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] pPath: *mut BSTR) -> HRESULT;
             fn get_State(&self, #[out] #[retval] pState: *mut TASK_STATE) -> HRESULT;
-            fn get_CurrentAction(&self, #[out] #[retval] #[out_ptr] pName: *mut BSTR) -> HRESULT;
+            fn get_CurrentAction(&self, #[out] #[out_ptr] #[retval] pName: *mut BSTR) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Refresh(&self) -> HRESULT;
             fn get_EnginePID(&self, #[out] #[retval] pPID: *mut DWORD) -> HRESULT;
@@ -244,8 +244,8 @@ mod Windows {
         #[guid(0x6a67614b_6828_4fec_aa54_6d52e8f1f2db)]
         interface IRunningTaskCollection: IDispatch {
             fn get_Count(&self, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
-            fn get_Item(&self, #[in] index: VARIANT, #[out] #[retval] #[out_ptr] ppRunningTask: *mut IRunningTask) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: VARIANT, #[out] #[out_ptr] #[retval] ppRunningTask: *mut IRunningTask) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x754da71b_4385_4475_9dd9_598294fa3641)]
         interface ISessionStateChangeTrigger: ITrigger {
@@ -282,25 +282,25 @@ mod Windows {
         }
         #[guid(0x8cfac062_a080_4c15_9a88_aa7c2af80dfc)]
         interface ITaskFolder: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] pName: *mut BSTR) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] pPath: *mut BSTR) -> HRESULT;
-            fn GetFolder(&self, #[in] path: BSTR, #[out] #[retval] #[out_ptr] ppFolder: *mut ITaskFolder) -> HRESULT;
-            fn GetFolders(&self, #[in] flags: LONG, #[out] #[retval] #[out_ptr] ppFolders: *mut ITaskFolderCollection) -> HRESULT;
-            fn CreateFolder(&self, #[in] subFolderName: BSTR, #[in] sddl: VARIANT, #[out] #[retval] #[out_ptr] ppFolder: *mut ITaskFolder) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] pName: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] pPath: *mut BSTR) -> HRESULT;
+            fn GetFolder(&self, #[in] path: BSTR, #[out] #[out_ptr] #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
+            fn GetFolders(&self, #[in] flags: LONG, #[out] #[out_ptr] #[retval] ppFolders: *mut ITaskFolderCollection) -> HRESULT;
+            fn CreateFolder(&self, #[in] subFolderName: BSTR, #[in] sddl: VARIANT, #[out] #[out_ptr] #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
             fn DeleteFolder(&self, #[in] subFolderName: BSTR, #[in] flags: LONG) -> HRESULT;
-            fn GetTask(&self, #[in] path: BSTR, #[out] #[retval] #[out_ptr] ppTask: *mut IRegisteredTask) -> HRESULT;
-            fn GetTasks(&self, #[in] flags: LONG, #[out] #[retval] #[out_ptr] ppTasks: *mut IRegisteredTaskCollection) -> HRESULT;
+            fn GetTask(&self, #[in] path: BSTR, #[out] #[out_ptr] #[retval] ppTask: *mut IRegisteredTask) -> HRESULT;
+            fn GetTasks(&self, #[in] flags: LONG, #[out] #[out_ptr] #[retval] ppTasks: *mut IRegisteredTaskCollection) -> HRESULT;
             fn DeleteTask(&self, #[in] name: BSTR, #[in] flags: LONG) -> HRESULT;
-            fn RegisterTask(&self, #[in] path: BSTR, #[in] xmlText: BSTR, #[in] flags: LONG, #[in] userId: VARIANT, #[in] password: VARIANT, #[in] logonType: TASK_LOGON_TYPE, #[in] sddl: VARIANT, #[out] #[retval] #[out_ptr] ppTask: *mut IRegisteredTask) -> HRESULT;
-            fn RegisterTaskDefinition(&self, #[in] path: BSTR, #[in] #[opt] pDefinition: ITaskDefinition, #[in] flags: LONG, #[in] userId: VARIANT, #[in] password: VARIANT, #[in] logonType: TASK_LOGON_TYPE, #[in] sddl: VARIANT, #[out] #[retval] #[out_ptr] ppTask: *mut IRegisteredTask) -> HRESULT;
-            fn GetSecurityDescriptor(&self, securityInformation: LONG, #[out] #[retval] #[out_ptr] pSddl: *mut BSTR) -> HRESULT;
+            fn RegisterTask(&self, #[in] path: BSTR, #[in] xmlText: BSTR, #[in] flags: LONG, #[in] userId: VARIANT, #[in] password: VARIANT, #[in] logonType: TASK_LOGON_TYPE, #[in] sddl: VARIANT, #[out] #[out_ptr] #[retval] ppTask: *mut IRegisteredTask) -> HRESULT;
+            fn RegisterTaskDefinition(&self, #[in] path: BSTR, #[in] #[opt] pDefinition: ITaskDefinition, #[in] flags: LONG, #[in] userId: VARIANT, #[in] password: VARIANT, #[in] logonType: TASK_LOGON_TYPE, #[in] sddl: VARIANT, #[out] #[out_ptr] #[retval] ppTask: *mut IRegisteredTask) -> HRESULT;
+            fn GetSecurityDescriptor(&self, securityInformation: LONG, #[out] #[out_ptr] #[retval] pSddl: *mut BSTR) -> HRESULT;
             fn SetSecurityDescriptor(&self, #[in] sddl: BSTR, #[in] flags: LONG) -> HRESULT;
         }
         #[guid(0x79184a66_8664_423f_97f1_637356a5d812)]
         interface ITaskFolderCollection: IDispatch {
             fn get_Count(&self, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
-            fn get_Item(&self, #[in] index: VARIANT, #[out] #[retval] #[out_ptr] ppFolder: *mut ITaskFolder) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: VARIANT, #[out] #[out_ptr] #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x839d7762_5121_4009_9234_4f0d19394f04)]
         interface ITaskHandler: IUnknown {
@@ -332,14 +332,14 @@ mod Windows {
         }
         #[guid(0x2faba4c7_4da9_4013_9697_20cc3fd40f85)]
         interface ITaskService: IDispatch {
-            fn GetFolder(&self, #[in] #[opt] path: BSTR, #[out] #[retval] #[out_ptr] ppFolder: *mut ITaskFolder) -> HRESULT;
-            fn GetRunningTasks(&self, #[in] flags: LONG, #[out] #[retval] #[out_ptr] ppRunningTasks: *mut IRunningTaskCollection) -> HRESULT;
-            fn NewTask(&self, #[in] flags: DWORD, #[out] #[retval] #[out_ptr] ppDefinition: *mut ITaskDefinition) -> HRESULT;
+            fn GetFolder(&self, #[in] #[opt] path: BSTR, #[out] #[out_ptr] #[retval] ppFolder: *mut ITaskFolder) -> HRESULT;
+            fn GetRunningTasks(&self, #[in] flags: LONG, #[out] #[out_ptr] #[retval] ppRunningTasks: *mut IRunningTaskCollection) -> HRESULT;
+            fn NewTask(&self, #[in] flags: DWORD, #[out] #[out_ptr] #[retval] ppDefinition: *mut ITaskDefinition) -> HRESULT;
             fn Connect(&self, #[in] serverName: VARIANT, #[in] user: VARIANT, #[in] domain: VARIANT, #[in] password: VARIANT) -> HRESULT;
             fn get_Connected(&self, #[out] #[retval] pConnected: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_TargetServer(&self, #[out] #[retval] #[out_ptr] pServer: *mut BSTR) -> HRESULT;
-            fn get_ConnectedUser(&self, #[out] #[retval] #[out_ptr] pUser: *mut BSTR) -> HRESULT;
-            fn get_ConnectedDomain(&self, #[out] #[retval] #[out_ptr] pDomain: *mut BSTR) -> HRESULT;
+            fn get_TargetServer(&self, #[out] #[out_ptr] #[retval] pServer: *mut BSTR) -> HRESULT;
+            fn get_ConnectedUser(&self, #[out] #[out_ptr] #[retval] pUser: *mut BSTR) -> HRESULT;
+            fn get_ConnectedDomain(&self, #[out] #[out_ptr] #[retval] pDomain: *mut BSTR) -> HRESULT;
             fn get_HighestVersion(&self, #[out] #[retval] pVersion: *mut DWORD) -> HRESULT;
         }
         #[guid(0x8fd4711d_2d02_4c8c_87e3_eff699de127e)]
@@ -406,9 +406,9 @@ mod Windows {
         }
         #[guid(0x3e4c9351_d966_4b8b_bb87_ceba68bb0107)]
         interface ITaskVariables: IUnknown {
-            fn GetInput(&self, #[out] #[retval] #[out_ptr] pInput: *mut BSTR) -> HRESULT;
+            fn GetInput(&self, #[out] #[out_ptr] #[retval] pInput: *mut BSTR) -> HRESULT;
             fn SetOutput(&self, #[in] input: BSTR) -> HRESULT;
-            fn GetContext(&self, #[out] #[retval] #[out_ptr] pContext: *mut BSTR) -> HRESULT;
+            fn GetContext(&self, #[out] #[out_ptr] #[retval] pContext: *mut BSTR) -> HRESULT;
         }
         #[guid(0xb45747e0_eba7_4276_9f29_85c5bb300006)]
         interface ITimeTrigger: ITrigger {

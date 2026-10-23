@@ -55,9 +55,9 @@ mod Windows {
             class AppExtensionPackageUpdatingEventArgs {
                 IAppExtensionPackageUpdatingEventArgs,
             }
-            #[guid(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
+            #[guid(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6)]
             interface IAppExtension {
                 #[get]
                 Id: String;
@@ -74,24 +74,24 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPublicFolderAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>;
             }
-            #[guid(0xab3b15f0_14f9_4b9f_9419_a349a242ef38)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
+            #[guid(0xab3b15f0_14f9_4b9f_9419_a349a242ef38)]
             interface IAppExtension2 {
                 #[get]
                 AppUserModelId: String;
             }
-            #[guid(0x5923c101_aa38_4009_84d9_5b54a0df30ae)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
+            #[guid(0x5923c101_aa38_4009_84d9_5b54a0df30ae)]
             interface IAppExtension3 {
                 fn GetExtensionProperties(&self) -> super::super::Foundation::Collections::IPropertySet;
                 fn GetPublicPath(&self) -> String;
                 fn GetPublicFolder(&self) -> super::super::Storage::StorageFolder;
             }
-            #[guid(0x97872032_8426_4ad1_9084_92e88c2da200)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
+            #[guid(0x97872032_8426_4ad1_9084_92e88c2da200)]
             interface IAppExtensionCatalog {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>;
@@ -103,21 +103,21 @@ mod Windows {
                 event PackageUninstalling: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUninstallingEventArgs>;
                 event PackageStatusChanged: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageStatusChangedEventArgs>;
             }
-            #[guid(0x50056eba_58b6_4147_b5a5_8feca6dfb49d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
+            #[guid(0x50056eba_58b6_4147_b5a5_8feca6dfb49d)]
             interface IAppExtensionCatalog2 {
                 fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<AppExtension>;
             }
-            #[guid(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
+            #[guid(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11)]
             interface IAppExtensionCatalogStatics {
                 fn Open(&self, #[in] appExtensionName: String) -> AppExtensionCatalog;
             }
-            #[guid(0x39e59234_3351_4a8d_9745_e7d3dd45bc48)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageInstalledEventArgs)]
+            #[guid(0x39e59234_3351_4a8d_9745_e7d3dd45bc48)]
             interface IAppExtensionPackageInstalledEventArgs {
                 #[get]
                 AppExtensionName: String;
@@ -126,27 +126,27 @@ mod Windows {
                 #[get]
                 Extensions: super::super::Foundation::Collections::IVectorView<AppExtension>;
             }
-            #[guid(0x1ce17433_1153_44fd_87b1_8ae1050303df)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageStatusChangedEventArgs)]
+            #[guid(0x1ce17433_1153_44fd_87b1_8ae1050303df)]
             interface IAppExtensionPackageStatusChangedEventArgs {
                 #[get]
                 AppExtensionName: String;
                 #[get]
                 Package: super::Package;
             }
-            #[guid(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUninstallingEventArgs)]
+            #[guid(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75)]
             interface IAppExtensionPackageUninstallingEventArgs {
                 #[get]
                 AppExtensionName: String;
                 #[get]
                 Package: super::Package;
             }
-            #[guid(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUpdatedEventArgs)]
+            #[guid(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7)]
             interface IAppExtensionPackageUpdatedEventArgs {
                 #[get]
                 AppExtensionName: String;
@@ -155,9 +155,9 @@ mod Windows {
                 #[get]
                 Extensions: super::super::Foundation::Collections::IVectorView<AppExtension>;
             }
-            #[guid(0x7ed59329_1a65_4800_a700_b321009e306a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUpdatingEventArgs)]
+            #[guid(0x7ed59329_1a65_4800_a700_b321009e306a)]
             interface IAppExtensionPackageUpdatingEventArgs {
                 #[get]
                 AppExtensionName: String;

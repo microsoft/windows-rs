@@ -5,12 +5,12 @@ mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwBytes", "dwBytes")]
     #[library("kernel32.dll")]
     extern fn HeapAlloc(#[in] hHeap: HANDLE, #[in] dwFlags: DWORD, #[in] dwBytes: SIZE_T) -> #[nullable] LPVOID;
-    #[success(return != 0)]
     #[library("kernel32.dll")]
+    #[success(return != 0)]
     extern fn HeapFree(#[in] #[out] hHeap: HANDLE, #[in] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] lpMem: LPVOID) -> BOOL;
     #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwBytes", "dwBytes")]
-    #[success(return != 0)]
     #[library("kernel32.dll")]
+    #[success(return != 0)]
     extern fn HeapReAlloc(#[in] #[out] hHeap: HANDLE, #[in] dwFlags: DWORD, #[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] lpMem: LPVOID, #[in] dwBytes: SIZE_T) -> #[nullable] LPVOID;
 }
 #[win32]
@@ -36,11 +36,11 @@ mod Fixture {
 #[win32]
 mod Fixture {
     #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "dwBytes", "dwBytes")]
+    #[library("kernel32.dll")]
     #[success(return != 0)]
-    #[library("kernel32.dll")]
     extern fn GlobalAlloc(#[in] uFlags: UINT, #[in] dwBytes: SIZE_T) -> HGLOBAL;
-    #[success(return == 0)]
     #[library("kernel32.dll")]
+    #[success(return == 0)]
     extern fn GlobalFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] hMem: HGLOBAL) -> #[nullable] HGLOBAL;
     #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(_Curr_),_Post_maybenull_ _Post_writable_byte_size_(dwBytes) _When_(((hMem) == NULL || (dwBytes) > 0), _Must_inspect_result_)", "(_Curr_), _Post_maybenull_ _Post_writable_byte_size_(dwBytes) _When_(((hMem) == 0 || (dwBytes) > 0), _Must_inspect_result_)")]
     #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(hMem),_Post_ptr_invalid_ __drv_freesMem(Mem)", "(hMem), _Post_ptr_invalid_ __drv_freesMem(Mem)")]
@@ -48,11 +48,11 @@ mod Fixture {
     #[library("kernel32.dll")]
     extern fn GlobalReAlloc(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_", "", "")] hMem: HGLOBAL, #[in] dwBytes: SIZE_T, #[in] uFlags: UINT) -> HGLOBAL;
     #[Windows::Win32::Metadata::NativeSal("2", "_Post_writable_byte_size_", "uBytes", "uBytes")]
+    #[library("kernel32.dll")]
     #[success(return != 0)]
-    #[library("kernel32.dll")]
     extern fn LocalAlloc(#[in] uFlags: UINT, #[in] uBytes: SIZE_T) -> HLOCAL;
-    #[success(return == 0)]
     #[library("kernel32.dll")]
+    #[success(return == 0)]
     extern fn LocalFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] hMem: HLOCAL) -> #[nullable] HLOCAL;
     #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(_Curr_),_Post_maybenull_ _Post_writable_byte_size_(uBytes) _When_(((hMem) == NULL || (uBytes) > 0), _Must_inspect_result_)", "(_Curr_), _Post_maybenull_ _Post_writable_byte_size_(uBytes) _When_(((hMem) == 0 || (uBytes) > 0), _Must_inspect_result_)")]
     #[Windows::Win32::Metadata::NativeSal("2", "_At_", "(hMem),_Post_ptr_invalid_ __drv_freesMem(Mem)", "(hMem), _Post_ptr_invalid_ __drv_freesMem(Mem)")]

@@ -276,7 +276,7 @@ mod Windows {
             fn IsSampleFrequencyShader(&self) -> BOOL;
             fn GetNumInterfaceSlots(&self) -> UINT;
             fn GetMinFeatureLevel(&self, #[out] pLevel: *mut D3D_FEATURE_LEVEL) -> HRESULT;
-            fn GetThreadGroupSize(&self, #[out] #[opt] pSizeX: *mut UINT, #[out] #[opt] pSizeY: *mut UINT, #[out] #[opt] pSizeZ: *mut UINT) -> UINT;
+            fn GetThreadGroupSize(&self, #[opt] #[out] pSizeX: *mut UINT, #[opt] #[out] pSizeY: *mut UINT, #[opt] #[out] pSizeZ: *mut UINT) -> UINT;
             fn GetRequiresFlags(&self) -> UINT64;
         }
         #[guid(0xeb62d63d_93dd_4318_8ae8_c6f83ad371b8)]

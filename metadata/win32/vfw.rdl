@@ -115,7 +115,7 @@ mod Windows {
         #[library("AVIFIL32.dll")]
         extern fn AVIFileOpenW(#[out] #[out_ptr] ppfile: *mut PAVIFILE, #[in] szFile: LPCWSTR, uMode: UINT, #[in] #[opt] lpHandler: LPCLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIFileReadData(#[in] pfile: PAVIFILE, #[in] ckid: DWORD, #[out] #[writable(entry, bytes(*lpcbData))] #[readable(success, bytes(*lpcbData))] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
+        extern fn AVIFileReadData(#[in] pfile: PAVIFILE, #[in] ckid: DWORD, #[out] #[readable(success, bytes(*lpcbData))] #[writable(entry, bytes(*lpcbData))] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIFileRelease(pfile: PAVIFILE) -> ULONG;
         #[library("AVIFIL32.dll")]
@@ -248,11 +248,11 @@ mod Windows {
         #[library("AVIFIL32.dll")]
         extern fn AVIStreamOpenFromFileW(#[out] #[out_ptr] ppavi: *mut PAVISTREAM, szFile: LPCWSTR, #[in] fccType: DWORD, #[in] lParam: LONG, #[in] mode: UINT, #[in] #[opt] pclsidHandler: *mut CLSID) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIStreamRead(#[in] pavi: PAVISTREAM, #[in] lStart: LONG, #[in] lSamples: LONG, #[out] #[opt] #[writable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[out] #[opt] plBytes: *mut LONG, #[out] #[opt] plSamples: *mut LONG) -> HRESULT;
+        extern fn AVIStreamRead(#[in] pavi: PAVISTREAM, #[in] lStart: LONG, #[in] lSamples: LONG, #[opt] #[out] #[writable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[opt] #[out] plBytes: *mut LONG, #[opt] #[out] plSamples: *mut LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIStreamReadData(#[in] pavi: PAVISTREAM, #[in] fcc: DWORD, #[out] #[opt] #[writable(entry, bytes(*lpcb))] #[readable(success, bytes(*lpcb))] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
+        extern fn AVIStreamReadData(#[in] pavi: PAVISTREAM, #[in] fcc: DWORD, #[opt] #[out] #[readable(success, bytes(*lpcb))] #[writable(entry, bytes(*lpcb))] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
-        extern fn AVIStreamReadFormat(#[in] pavi: PAVISTREAM, #[in] lPos: LONG, #[out] #[opt] #[writable(entry, bytes(*lpcbFormat))] #[readable(success, bytes(*lpcbFormat))] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
+        extern fn AVIStreamReadFormat(#[in] pavi: PAVISTREAM, #[in] lPos: LONG, #[opt] #[out] #[readable(success, bytes(*lpcbFormat))] #[writable(entry, bytes(*lpcbFormat))] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIStreamRelease(pavi: PAVISTREAM) -> ULONG;
         #[library("AVIFIL32.dll")]
@@ -264,7 +264,7 @@ mod Windows {
         #[library("AVIFIL32.dll")]
         extern fn AVIStreamTimeToSample(#[in] pavi: PAVISTREAM, #[in] lTime: LONG) -> LONG;
         #[library("AVIFIL32.dll")]
-        extern fn AVIStreamWrite(#[in] pavi: PAVISTREAM, #[in] lStart: LONG, #[in] lSamples: LONG, #[in] #[readable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[in] dwFlags: DWORD, #[out] #[opt] plSampWritten: *mut LONG, #[out] #[opt] plBytesWritten: *mut LONG) -> HRESULT;
+        extern fn AVIStreamWrite(#[in] pavi: PAVISTREAM, #[in] lStart: LONG, #[in] lSamples: LONG, #[in] #[readable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[in] dwFlags: DWORD, #[opt] #[out] plSampWritten: *mut LONG, #[opt] #[out] plBytesWritten: *mut LONG) -> HRESULT;
         #[library("AVIFIL32.dll")]
         extern fn AVIStreamWriteData(#[in] pavi: PAVISTREAM, #[in] fcc: DWORD, #[in] #[readable(entry, bytes(cb))] lp: LPVOID, #[in] cb: LONG) -> HRESULT;
         const AVI_HEADERSIZE: i32 = 2048;
@@ -555,7 +555,7 @@ mod Windows {
             fn GetStream(&self, #[out] #[out_ptr] ppStream: *mut PAVISTREAM, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
             fn CreateStream(&self, #[out] #[out_ptr] ppStream: *mut PAVISTREAM, #[in] psi: *mut AVISTREAMINFOW) -> HRESULT;
             fn WriteData(&self, #[in] ckid: DWORD, #[in] #[readable(entry, bytes(cbData))] lpData: LPVOID, #[in] cbData: LONG) -> HRESULT;
-            fn ReadData(&self, #[in] ckid: DWORD, #[out] #[writable(entry, bytes(*lpcbData))] #[readable(success, bytes(*lpcbData))] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
+            fn ReadData(&self, #[in] ckid: DWORD, #[out] #[readable(success, bytes(*lpcbData))] #[writable(entry, bytes(*lpcbData))] lpData: LPVOID, #[in] #[out] lpcbData: *mut LONG) -> HRESULT;
             fn EndRecord(&self) -> HRESULT;
             fn DeleteStream(&self, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
         }
@@ -574,12 +574,12 @@ mod Windows {
             fn Create(&self, lParam1: LPARAM, lParam2: LPARAM) -> HRESULT;
             fn Info(&self, #[out] #[writable(entry, bytes(lSize))] psi: *mut AVISTREAMINFOW, #[in] lSize: LONG) -> HRESULT;
             fn FindSample(&self, #[in] lPos: LONG, #[in] lFlags: LONG) -> LONG;
-            fn ReadFormat(&self, #[in] lPos: LONG, #[out] #[opt] #[writable(entry, bytes(*lpcbFormat))] #[readable(success, bytes(*lpcbFormat))] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
+            fn ReadFormat(&self, #[in] lPos: LONG, #[opt] #[out] #[readable(success, bytes(*lpcbFormat))] #[writable(entry, bytes(*lpcbFormat))] lpFormat: LPVOID, #[in] #[out] lpcbFormat: *mut LONG) -> HRESULT;
             fn SetFormat(&self, #[in] lPos: LONG, #[in] #[readable(entry, bytes(cbFormat))] lpFormat: LPVOID, #[in] cbFormat: LONG) -> HRESULT;
-            fn Read(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[out] #[opt] #[writable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[out] #[opt] plBytes: *mut LONG, #[out] #[opt] plSamples: *mut LONG) -> HRESULT;
-            fn Write(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[in] #[readable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[in] dwFlags: DWORD, #[out] #[opt] plSampWritten: *mut LONG, #[out] #[opt] plBytesWritten: *mut LONG) -> HRESULT;
+            fn Read(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[opt] #[out] #[writable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[opt] #[out] plBytes: *mut LONG, #[opt] #[out] plSamples: *mut LONG) -> HRESULT;
+            fn Write(&self, #[in] lStart: LONG, #[in] lSamples: LONG, #[in] #[readable(entry, bytes(cbBuffer))] lpBuffer: LPVOID, #[in] cbBuffer: LONG, #[in] dwFlags: DWORD, #[opt] #[out] plSampWritten: *mut LONG, #[opt] #[out] plBytesWritten: *mut LONG) -> HRESULT;
             fn Delete(&self, #[in] lStart: LONG, #[in] lSamples: LONG) -> HRESULT;
-            fn ReadData(&self, #[in] fcc: DWORD, #[out] #[opt] #[writable(entry, bytes(*lpcb))] #[readable(success, bytes(*lpcb))] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
+            fn ReadData(&self, #[in] fcc: DWORD, #[opt] #[out] #[readable(success, bytes(*lpcb))] #[writable(entry, bytes(*lpcb))] lp: LPVOID, #[in] #[out] lpcb: *mut LONG) -> HRESULT;
             fn WriteData(&self, #[in] fcc: DWORD, #[in] #[readable(entry, bytes(cb))] lp: LPVOID, #[in] cb: LONG) -> HRESULT;
             fn SetInfo(&self, #[in] #[readable(entry, bytes(cbInfo))] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
         }
@@ -616,7 +616,7 @@ mod Windows {
         #[library("MSVFW32.dll")]
         extern fn ICClose(#[in] hic: HIC) -> LRESULT;
         #[library("MSVFW32.dll")]
-        extern "C" fn ICCompress(#[in] hic: HIC, #[in] dwFlags: DWORD, #[in] lpbiOutput: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "lpbiOutput->biSizeImage", "lpbiOutput->biSizeImage")] #[out] lpData: LPVOID, #[in] lpbiInput: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "lpbiInput->biSizeImage", "lpbiInput->biSizeImage")] #[in] lpBits: LPVOID, #[out] #[opt] lpckid: LPDWORD, #[out] #[opt] lpdwFlags: LPDWORD, #[in] lFrameNum: LONG, #[in] dwFrameSize: DWORD, #[in] dwQuality: DWORD, #[in] #[opt] lpbiPrev: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "lpbiPrev->biSizeImage", "lpbiPrev->biSizeImage")] #[in] #[opt] lpPrev: LPVOID) -> DWORD;
+        extern "C" fn ICCompress(#[in] hic: HIC, #[in] dwFlags: DWORD, #[in] lpbiOutput: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_", "lpbiOutput->biSizeImage", "lpbiOutput->biSizeImage")] #[out] lpData: LPVOID, #[in] lpbiInput: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_", "lpbiInput->biSizeImage", "lpbiInput->biSizeImage")] #[in] lpBits: LPVOID, #[opt] #[out] lpckid: LPDWORD, #[opt] #[out] lpdwFlags: LPDWORD, #[in] lFrameNum: LONG, #[in] dwFrameSize: DWORD, #[in] dwQuality: DWORD, #[in] #[opt] lpbiPrev: LPBITMAPINFOHEADER, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_bytes_opt_", "lpbiPrev->biSizeImage", "lpbiPrev->biSizeImage")] #[in] #[opt] lpPrev: LPVOID) -> DWORD;
         #[library("MSVFW32.dll")]
         extern fn ICCompressorChoose(#[in] #[opt] hwnd: HWND, #[in] uiFlags: UINT, #[in] #[opt] pvIn: LPVOID, #[in] #[opt] lpData: LPVOID, #[in] #[out] pc: PCOMPVARS, #[in] #[opt] lpszTitle: LPSTR) -> BOOL;
         #[library("MSVFW32.dll")]
@@ -725,8 +725,8 @@ mod Windows {
         const ICERR_UNSUPPORTED: i32 = -1;
         #[library("MSVFW32.dll")]
         extern fn ICGetDisplayFormat(#[in] #[opt] hic: HIC, #[in] lpbiIn: LPBITMAPINFOHEADER, #[out] lpbiOut: LPBITMAPINFOHEADER, #[in] BitDepth: i32, #[in] dx: i32, #[in] dy: i32) -> HIC;
-        #[success(return != 0)]
         #[library("MSVFW32.dll")]
+        #[success(return != 0)]
         extern fn ICGetInfo(#[in] hic: HIC, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "cb,return", "cb,return")] #[out] #[writable(entry, bytes(cb))] picinfo: *mut ICINFO, #[in] cb: DWORD) -> LRESULT;
         struct ICINFO {
             dwSize: DWORD,
@@ -745,7 +745,7 @@ mod Windows {
         const ICINSTALL_HDRV: i32 = 4;
         const ICINSTALL_UNICODE: i32 = 32768;
         #[library("MSVFW32.dll")]
-        extern fn ICImageCompress(#[in] hic: HIC, #[in] uiFlags: UINT, #[in] lpbiIn: LPBITMAPINFO, #[in] lpBits: LPVOID, #[in] #[opt] lpbiOut: LPBITMAPINFO, #[in] lQuality: LONG, #[in] #[out] #[opt] plSize: *mut LONG) -> HANDLE;
+        extern fn ICImageCompress(#[in] hic: HIC, #[in] uiFlags: UINT, #[in] lpbiIn: LPBITMAPINFO, #[in] lpBits: LPVOID, #[in] #[opt] lpbiOut: LPBITMAPINFO, #[in] lQuality: LONG, #[in] #[opt] #[out] plSize: *mut LONG) -> HANDLE;
         #[library("MSVFW32.dll")]
         extern fn ICImageDecompress(#[in] #[opt] hic: HIC, #[in] uiFlags: UINT, #[in] lpbiIn: LPBITMAPINFO, #[in] lpBits: LPVOID, #[in] #[opt] lpbiOut: LPBITMAPINFO) -> HANDLE;
         #[library("MSVFW32.dll")]
@@ -862,7 +862,7 @@ mod Windows {
         #[library("MSVFW32.dll")]
         extern fn ICSendMessage(#[in] hic: HIC, #[in] msg: UINT, #[in] dw1: DWORD_PTR, #[in] dw2: DWORD_PTR) -> LRESULT;
         #[library("MSVFW32.dll")]
-        extern fn ICSeqCompressFrame(#[in] pc: PCOMPVARS, #[reserved] uiFlags: UINT, #[in] lpBits: LPVOID, #[out] pfKey: *mut BOOL, #[in] #[out] #[opt] plSize: *mut LONG) -> LPVOID;
+        extern fn ICSeqCompressFrame(#[in] pc: PCOMPVARS, #[reserved] uiFlags: UINT, #[in] lpBits: LPVOID, #[out] pfKey: *mut BOOL, #[in] #[opt] #[out] plSize: *mut LONG) -> LPVOID;
         #[library("MSVFW32.dll")]
         extern fn ICSeqCompressFrameEnd(#[in] pc: PCOMPVARS);
         #[library("MSVFW32.dll")]

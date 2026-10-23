@@ -15,8 +15,8 @@ mod Windows {
                 IGpioChangeCounter,
                 super::super::Foundation::IClosable,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[repr(i32)]
             enum GpioChangePolarity {
                 Falling = 0,
                 Rising = 1,
@@ -38,13 +38,13 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IGpioControllerStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
             #[Windows::Foundation::Metadata::Static(IGpioControllerStatics2, 131072, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::Static(IGpioControllerStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
             class GpioController {
                 IGpioController,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[repr(i32)]
             enum GpioOpenStatus {
                 PinOpened = 0,
                 PinUnavailable = 1,
@@ -59,8 +59,8 @@ mod Windows {
                 IGpioPin,
                 super::super::Foundation::IClosable,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[repr(i32)]
             enum GpioPinDriveMode {
                 Input = 0,
                 Output = 1,
@@ -71,14 +71,14 @@ mod Windows {
                 OutputOpenSource = 6,
                 OutputOpenSourcePullDown = 7,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[repr(i32)]
             enum GpioPinEdge {
                 FallingEdge = 0,
                 RisingEdge = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[repr(i32)]
             enum GpioPinValue {
                 Low = 0,
                 High = 1,
@@ -89,15 +89,15 @@ mod Windows {
             class GpioPinValueChangedEventArgs {
                 IGpioPinValueChangedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[repr(i32)]
             enum GpioSharingMode {
                 Exclusive = 0,
                 SharedReadOnly = 1,
             }
-            #[guid(0xcb5ec0de_6801_43ff_803d_4576628a8b26)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeCounter)]
+            #[guid(0xcb5ec0de_6801_43ff_803d_4576628a8b26)]
             interface IGpioChangeCounter: super::super::Foundation::IClosable {
                 #[set]
                 Polarity: GpioChangePolarity;
@@ -110,15 +110,15 @@ mod Windows {
                 fn Read(&self) -> GpioChangeCount;
                 fn Reset(&self) -> GpioChangeCount;
             }
-            #[guid(0x147d94b6_0a9e_410c_b4fa_f89f4052084d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeCounter)]
+            #[guid(0x147d94b6_0a9e_410c_b4fa_f89f4052084d)]
             interface IGpioChangeCounterFactory {
                 fn Create(&self, #[in] pin: GpioPin) -> GpioChangeCounter;
             }
-            #[guid(0x0abc885f_e031_48e8_8590_70de78363c6d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeReader)]
+            #[guid(0x0abc885f_e031_48e8_8590_70de78363c6d)]
             interface IGpioChangeReader: super::super::Foundation::IClosable {
                 #[get]
                 Capacity: i32;
@@ -143,16 +143,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn WaitForItemsAsync(&self, #[in] count: i32) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0xa9598ef3_390e_441a_9d1c_e8de0b2df0df)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeReader)]
+            #[guid(0xa9598ef3_390e_441a_9d1c_e8de0b2df0df)]
             interface IGpioChangeReaderFactory {
                 fn Create(&self, #[in] pin: GpioPin) -> GpioChangeReader;
                 fn CreateWithCapacity(&self, #[in] pin: GpioPin, #[in] minCapacity: i32) -> GpioChangeReader;
             }
-            #[guid(0x284012e3_7461_469c_a8bc_61d69d08a53c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
+            #[guid(0x284012e3_7461_469c_a8bc_61d69d08a53c)]
             interface IGpioController {
                 #[get]
                 PinCount: i32;
@@ -162,24 +162,24 @@ mod Windows {
                 fn OpenPin(&self, #[in] pinNumber: i32, #[in] sharingMode: GpioSharingMode) -> GpioPin;
                 fn TryOpenPin(&self, #[in] pinNumber: i32, #[in] sharingMode: GpioSharingMode, #[out] pin: &mut GpioPin, #[out] openStatus: &mut GpioOpenStatus) -> bool;
             }
-            #[guid(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
+            #[guid(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64)]
             interface IGpioControllerStatics {
                 fn GetDefault(&self) -> GpioController;
             }
-            #[guid(0x912b7d20_6ca4_4106_a373_fffd346b0e5b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
+            #[guid(0x912b7d20_6ca4_4106_a373_fffd346b0e5b)]
             interface IGpioControllerStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetControllersAsync(&self, #[in] provider: Provider::IGpioProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<GpioController>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<GpioController>;
             }
-            #[guid(0x11d9b087_afae_4790_9ee9_e0eac942d201)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioPin)]
+            #[guid(0x11d9b087_afae_4790_9ee9_e0eac942d201)]
             interface IGpioPin: super::super::Foundation::IClosable {
                 event ValueChanged: super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>;
                 DebounceTimeout: super::super::Foundation::TimeSpan;
@@ -193,9 +193,9 @@ mod Windows {
                 fn Write(&self, #[in] value: GpioPinValue);
                 fn Read(&self) -> GpioPinValue;
             }
-            #[guid(0x3137aae1_703d_4059_bd24_b5b25dffb84e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GpioPinValueChangedEventArgs)]
+            #[guid(0x3137aae1_703d_4059_bd24_b5b25dffb84e)]
             interface IGpioPinValueChangedEventArgs {
                 #[get]
                 Edge: GpioPinEdge;

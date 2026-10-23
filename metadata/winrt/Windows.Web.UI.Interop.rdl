@@ -3,9 +3,9 @@ mod Windows {
     mod Web {
         mod UI {
             mod Interop {
-                #[guid(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlAcceleratorKeyPressedEventArgs)]
+                #[guid(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655)]
                 interface IWebViewControlAcceleratorKeyPressedEventArgs {
                     #[get]
                     EventType: super::super::super::UI::Core::CoreAcceleratorKeyEventType;
@@ -17,16 +17,16 @@ mod Windows {
                     RoutingStage: WebViewControlAcceleratorKeyRoutingStage;
                     Handled: bool;
                 }
-                #[guid(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlMoveFocusRequestedEventArgs)]
+                #[guid(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446)]
                 interface IWebViewControlMoveFocusRequestedEventArgs {
                     #[get]
                     Reason: WebViewControlMoveFocusReason;
                 }
-                #[guid(0x02c723ec_98d6_424a_b63e_c6136c36a0f2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlProcess)]
+                #[guid(0x02c723ec_98d6_424a_b63e_c6136c36a0f2)]
                 interface IWebViewControlProcess {
                     #[get]
                     ProcessId: u32;
@@ -40,15 +40,15 @@ mod Windows {
                     fn Terminate(&self);
                     event ProcessExited: super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, Object>;
                 }
-                #[guid(0x47b65cf9_a2d2_453c_b097_f6779d4b8e02)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlProcess)]
+                #[guid(0x47b65cf9_a2d2_453c_b097_f6779d4b8e02)]
                 interface IWebViewControlProcessFactory {
                     fn CreateWithOptions(&self, #[in] processOptions: WebViewControlProcessOptions) -> WebViewControlProcess;
                 }
-                #[guid(0x1cca72a7_3bd6_4826_8261_6c8189505d89)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlProcessOptions)]
+                #[guid(0x1cca72a7_3bd6_4826_8261_6c8189505d89)]
                 interface IWebViewControlProcessOptions {
                     #[set]
                     EnterpriseId: String;
@@ -59,9 +59,9 @@ mod Windows {
                     #[get]
                     PrivateNetworkClientServerCapability: WebViewControlProcessCapabilityState;
                 }
-                #[guid(0x133f47c6_12dc_4898_bd47_04967de648ba)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControl)]
+                #[guid(0x133f47c6_12dc_4898_bd47_04967de648ba)]
                 interface IWebViewControlSite {
                     #[get]
                     Process: WebViewControlProcess;
@@ -82,9 +82,9 @@ mod Windows {
                     event MoveFocusRequested: super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlMoveFocusRequestedEventArgs>;
                     event AcceleratorKeyPressed: super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlAcceleratorKeyPressedEventArgs>;
                 }
-                #[guid(0xd13b2e3f_48ee_4730_8243_d2ed0c05606a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControl)]
+                #[guid(0xd13b2e3f_48ee_4730_8243_d2ed0c05606a)]
                 interface IWebViewControlSite2 {
                     event GotFocus: super::super::super::Foundation::TypedEventHandler<WebViewControl, Object>;
                     event LostFocus: super::super::super::Foundation::TypedEventHandler<WebViewControl, Object>;
@@ -104,14 +104,14 @@ mod Windows {
                 class WebViewControlAcceleratorKeyPressedEventArgs {
                     IWebViewControlAcceleratorKeyPressedEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[repr(i32)]
                 enum WebViewControlAcceleratorKeyRoutingStage {
                     Tunneling = 0,
                     Bubbling = 1,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[repr(i32)]
                 enum WebViewControlMoveFocusReason {
                     Programmatic = 0,
                     Next = 1,
@@ -129,8 +129,8 @@ mod Windows {
                 class WebViewControlProcess {
                     IWebViewControlProcess,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[repr(i32)]
                 enum WebViewControlProcessCapabilityState {
                     Default = 0,
                     Disabled = 1,

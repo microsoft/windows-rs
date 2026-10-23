@@ -12,7 +12,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x045fa593_8799_42b8_bc8d_8968c6453507)]
     interface IMFMediaBuffer: IUnknown {
-        fn Lock(&self, #[out] #[writable(success, bytes(if_present(*pcbMaxLength)), indirect)] #[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)] ppbBuffer: *mut *mut BYTE, #[out] #[opt] pcbMaxLength: *mut DWORD, #[out] #[opt] pcbCurrentLength: *mut DWORD) -> HRESULT;
+        fn Lock(&self, #[out] #[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)] #[writable(success, bytes(if_present(*pcbMaxLength)), indirect)] ppbBuffer: *mut *mut BYTE, #[opt] #[out] pcbMaxLength: *mut DWORD, #[opt] #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
         fn Unlock(&self) -> HRESULT;
         fn GetCurrentLength(&self, #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
         fn SetCurrentLength(&self, #[in] cbCurrentLength: DWORD) -> HRESULT;
@@ -32,7 +32,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

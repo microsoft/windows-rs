@@ -115,8 +115,8 @@ mod Windows {
         extern fn PropVariantGetInt32Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantGetInt64Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut LONGLONG) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantGetStringElem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] #[out_ptr] ppszVal: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantGetUInt16Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut USHORT) -> HRESULT;
@@ -124,15 +124,15 @@ mod Windows {
         extern fn PropVariantGetUInt32Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantGetUInt64Elem(#[in] propvar: &PROPVARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut ULONGLONG) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToBSTR(#[in] propvar: &PROPVARIANT, #[out] #[out_ptr(null_on_failure)] pbstrOut: *mut BSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToBoolean(#[in] propvarIn: &PROPVARIANT, #[out] pfRet: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToBooleanVector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgf)] #[readable(success, *pcElem)] prgf: *mut BOOL, #[in] crgf: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToBooleanVector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgf)] prgf: *mut BOOL, #[in] crgf: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToBooleanVectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgf: *mut *mut BOOL, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToBooleanWithDefault(#[in] propvarIn: &PROPVARIANT, #[in] fDefault: BOOL) -> BOOL;
@@ -141,88 +141,88 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PropVariantToDouble(#[in] propvarIn: &PROPVARIANT, #[out] pdblRet: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToDoubleVector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut DOUBLE, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToDoubleVector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut DOUBLE, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToDoubleVectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut DOUBLE, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToDoubleWithDefault(#[in] propvarIn: &PROPVARIANT, #[in] dblDefault: DOUBLE) -> DOUBLE;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToFileTime(#[in] propvar: &PROPVARIANT, #[in] pstfOut: PSTIME_FLAGS, #[out] pftOut: *mut FILETIME) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToFileTimeVector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgft)] #[readable(success, *pcElem)] prgft: *mut FILETIME, #[in] crgft: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToFileTimeVector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgft)] prgft: *mut FILETIME, #[in] crgft: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToFileTimeVectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgft: *mut *mut FILETIME, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToGUID(#[in] propvar: &PROPVARIANT, #[out] pguid: *mut GUID) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToInt16(#[in] propvarIn: &PROPVARIANT, #[out] piRet: *mut SHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt16Vector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut SHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToInt16Vector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut SHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToInt16VectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut SHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToInt16WithDefault(#[in] propvarIn: &PROPVARIANT, #[in] iDefault: SHORT) -> SHORT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToInt32(#[in] propvarIn: &PROPVARIANT, #[out] plRet: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt32Vector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut LONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToInt32Vector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut LONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToInt32VectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut LONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToInt32WithDefault(#[in] propvarIn: &PROPVARIANT, #[in] lDefault: LONG) -> LONG;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToInt64(#[in] propvarIn: &PROPVARIANT, #[out] pllRet: *mut LONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToInt64Vector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut LONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToInt64Vector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut LONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToInt64VectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut LONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToInt64WithDefault(#[in] propvarIn: &PROPVARIANT, #[in] llDefault: LONGLONG) -> LONGLONG;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToStrRet(#[in] propvar: &PROPVARIANT, #[out] pstrret: *mut STRRET) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToString(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, cch)] psz: PWSTR, #[in] cch: UINT) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToStringAlloc(#[in] propvar: &PROPVARIANT, #[out] #[out_ptr(null_on_failure)] ppszOut: *mut PWSTR) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToStringVector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgsz)] #[readable(success, *pcElem)] prgsz: *mut PWSTR, #[in] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[must_use]
+        extern fn PropVariantToStringVector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgsz)] prgsz: *mut PWSTR, #[in] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToStringVectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgsz: *mut *mut PWSTR, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToStringWithDefault(#[in] propvarIn: &PROPVARIANT, #[in] #[opt] pszDefault: LPCWSTR) -> PCWSTR;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToUInt16(#[in] propvarIn: &PROPVARIANT, #[out] puiRet: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt16Vector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut USHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToUInt16Vector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut USHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToUInt16VectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut USHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToUInt16WithDefault(#[in] propvarIn: &PROPVARIANT, #[in] uiDefault: USHORT) -> USHORT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToUInt32(#[in] propvarIn: &PROPVARIANT, #[out] pulRet: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt32Vector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut ULONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToUInt32Vector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut ULONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToUInt32VectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToUInt32WithDefault(#[in] propvarIn: &PROPVARIANT, #[in] ulDefault: ULONG) -> ULONG;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToUInt64(#[in] propvarIn: &PROPVARIANT, #[out] pullRet: *mut ULONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PropVariantToUInt64Vector(#[in] propvar: &PROPVARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut ULONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn PropVariantToUInt64Vector(#[in] propvar: &PROPVARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut ULONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn PropVariantToUInt64VectorAlloc(#[in] propvar: &PROPVARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut ULONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PropVariantToUInt64WithDefault(#[in] propvarIn: &PROPVARIANT, #[in] ullDefault: ULONGLONG) -> ULONGLONG;
@@ -230,8 +230,8 @@ mod Windows {
         extern fn PropVariantToVariant(#[in] pPropVar: *const PROPVARIANT, #[out] pVar: *mut VARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn StgDeserializePropVariant(#[in] pprop: *const SERIALIZEDPROPERTYVALUE, #[in] cbMax: ULONG, #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn StgSerializePropVariant(#[in] ppropvar: *const PROPVARIANT, #[out] #[writable(success, bytes(*pcb), indirect)] ppProp: *mut *mut SERIALIZEDPROPERTYVALUE, #[out] pcb: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantCompare(#[in] var1: &VARIANT, #[in] var2: &VARIANT) -> i32;
@@ -247,8 +247,8 @@ mod Windows {
         extern fn VariantGetInt32Elem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantGetInt64Elem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut LONGLONG) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantGetStringElem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] #[out_ptr] ppszVal: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantGetUInt16Elem(#[in] var: &VARIANT, #[in] iElem: ULONG, #[out] pnVal: *mut USHORT) -> HRESULT;
@@ -259,9 +259,9 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn VariantToBoolean(#[in] varIn: &VARIANT, #[out] pfRet: *mut BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToBooleanArray(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgf: *mut BOOL, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToBooleanArray(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgf: *mut BOOL, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToBooleanArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgf: *mut *mut BOOL, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToBooleanWithDefault(#[in] varIn: &VARIANT, #[in] fDefault: BOOL) -> BOOL;
@@ -272,9 +272,9 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn VariantToDouble(#[in] varIn: &VARIANT, #[out] pdblRet: *mut DOUBLE) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToDoubleArray(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut DOUBLE, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToDoubleArray(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut DOUBLE, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToDoubleArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut DOUBLE, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToDoubleWithDefault(#[in] varIn: &VARIANT, #[in] dblDefault: DOUBLE) -> DOUBLE;
@@ -285,72 +285,72 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn VariantToInt16(#[in] varIn: &VARIANT, #[out] piRet: *mut SHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt16Array(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut SHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToInt16Array(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut SHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToInt16ArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut SHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToInt16WithDefault(#[in] varIn: &VARIANT, #[in] iDefault: SHORT) -> SHORT;
         #[library("PROPSYS.dll")]
         extern fn VariantToInt32(#[in] varIn: &VARIANT, #[out] plRet: *mut LONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt32Array(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut LONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToInt32Array(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut LONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToInt32ArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut LONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToInt32WithDefault(#[in] varIn: &VARIANT, #[in] lDefault: LONG) -> LONG;
         #[library("PROPSYS.dll")]
         extern fn VariantToInt64(#[in] varIn: &VARIANT, #[out] pllRet: *mut LONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToInt64Array(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut LONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToInt64Array(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut LONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToInt64ArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut LONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToInt64WithDefault(#[in] varIn: &VARIANT, #[in] llDefault: LONGLONG) -> LONGLONG;
         #[library("PROPSYS.dll")]
         extern fn VariantToPropVariant(#[in] pVar: *const VARIANT, #[out] pPropVar: *mut PROPVARIANT) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToStrRet(#[in] varIn: &VARIANT, #[out] pstrret: *mut STRRET) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToString(#[in] varIn: &VARIANT, #[out] #[writable(entry, cchBuf)] pszBuf: PWSTR, #[in] cchBuf: UINT) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToStringAlloc(#[in] varIn: &VARIANT, #[out] #[out_ptr(null_on_failure)] ppszBuf: *mut PWSTR) -> HRESULT;
-        #[must_use]
         #[library("PROPSYS.dll")]
-        extern fn VariantToStringArray(#[in] var: &VARIANT, #[out] #[writable(entry, crgsz)] #[readable(success, *pcElem)] prgsz: *mut PWSTR, #[in] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[must_use]
+        extern fn VariantToStringArray(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgsz)] prgsz: *mut PWSTR, #[in] crgsz: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToStringArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgsz: *mut *mut PWSTR, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToStringWithDefault(#[in] varIn: &VARIANT, #[in] #[opt] pszDefault: LPCWSTR) -> PCWSTR;
         #[library("PROPSYS.dll")]
         extern fn VariantToUInt16(#[in] varIn: &VARIANT, #[out] puiRet: *mut USHORT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt16Array(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut USHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToUInt16Array(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut USHORT, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToUInt16ArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut USHORT, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToUInt16WithDefault(#[in] varIn: &VARIANT, #[in] uiDefault: USHORT) -> USHORT;
         #[library("PROPSYS.dll")]
         extern fn VariantToUInt32(#[in] varIn: &VARIANT, #[out] pulRet: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt32Array(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut ULONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToUInt32Array(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut ULONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToUInt32ArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToUInt32WithDefault(#[in] varIn: &VARIANT, #[in] ulDefault: ULONG) -> ULONG;
         #[library("PROPSYS.dll")]
         extern fn VariantToUInt64(#[in] varIn: &VARIANT, #[out] pullRet: *mut ULONGLONG) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn VariantToUInt64Array(#[in] var: &VARIANT, #[out] #[writable(entry, crgn)] #[readable(success, *pcElem)] prgn: *mut ULONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
-        #[must_use]
+        extern fn VariantToUInt64Array(#[in] var: &VARIANT, #[out] #[readable(success, *pcElem)] #[writable(entry, crgn)] prgn: *mut ULONGLONG, #[in] crgn: ULONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
+        #[must_use]
         extern fn VariantToUInt64ArrayAlloc(#[in] var: &VARIANT, #[out] #[writable(success, *pcElem, indirect)] pprgn: *mut *mut ULONGLONG, #[out] pcElem: *mut ULONG) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn VariantToUInt64WithDefault(#[in] varIn: &VARIANT, #[in] ullDefault: ULONGLONG) -> ULONGLONG;

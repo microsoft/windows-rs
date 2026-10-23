@@ -12,19 +12,19 @@ mod Windows {
         }
         #[guid(0x00000001_0000_0000_c000_000000000046)]
         interface IClassFactory: IUnknown {
-            fn CreateInstance(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
             fn LockServer(&self, #[in] fLock: BOOL) -> HRESULT;
         }
         #[guid(0x00000000_0000_0000_c000_000000000046)]
         interface IUnknown {
-            fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
             fn AddRef(&self) -> ULONG;
             fn Release(&self) -> ULONG;
         }
         #[library("RPCRT4.dll")]
         extern fn IUnknown_AddRef_Proxy(This: IUnknown) -> ULONG;
         #[library("RPCRT4.dll")]
-        extern fn IUnknown_QueryInterface_Proxy(This: IUnknown, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        extern fn IUnknown_QueryInterface_Proxy(This: IUnknown, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut *mut void) -> HRESULT;
         #[library("RPCRT4.dll")]
         extern fn IUnknown_Release_Proxy(This: IUnknown) -> ULONG;
         #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC_unique_pointer", "", "")]

@@ -97,13 +97,13 @@ mod Windows {
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
             fn ShowSettingsDialog(&self) -> HRESULT;
-            fn get_Settings(&self, #[out] #[retval] #[out_ptr] retval: *mut IAutomaticUpdatesSettings) -> HRESULT;
+            fn get_Settings(&self, #[out] #[out_ptr] #[retval] retval: *mut IAutomaticUpdatesSettings) -> HRESULT;
             fn get_ServiceEnabled(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn EnableService(&self) -> HRESULT;
         }
         #[guid(0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f)]
         interface IAutomaticUpdates2: IAutomaticUpdates {
-            fn get_Results(&self, #[out] #[retval] #[out_ptr] retval: *mut IAutomaticUpdatesResults) -> HRESULT;
+            fn get_Results(&self, #[out] #[out_ptr] #[retval] retval: *mut IAutomaticUpdatesResults) -> HRESULT;
         }
         #[guid(0xe7a4d634_7942_4dd9_a111_82228ba33901)]
         interface IAutomaticUpdatesResults: IDispatch {
@@ -138,20 +138,20 @@ mod Windows {
         }
         #[guid(0x81ddc1b8_9d35_47a6_b471_5b80f519223b)]
         interface ICategory: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_CategoryID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Children(&self, #[out] #[retval] #[out_ptr] retval: *mut ICategoryCollection) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Image(&self, #[out] #[retval] #[out_ptr] retval: *mut IImageInformation) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_CategoryID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Children(&self, #[out] #[out_ptr] #[retval] retval: *mut ICategoryCollection) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Image(&self, #[out] #[out_ptr] #[retval] retval: *mut IImageInformation) -> HRESULT;
             fn get_Order(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_Parent(&self, #[out] #[retval] #[out_ptr] retval: *mut ICategory) -> HRESULT;
-            fn get_Type(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
+            fn get_Parent(&self, #[out] #[out_ptr] #[retval] retval: *mut ICategory) -> HRESULT;
+            fn get_Type(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Updates(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
         }
         #[guid(0x3a56bfb8_576c_43f7_9335_fe4838fd7e37)]
         interface ICategoryCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut ICategory) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut ICategory) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0x77254866_9f5b_4c8e_b9e2_c77a8530d64b)]
@@ -164,9 +164,9 @@ mod Windows {
         interface IDownloadJob: IDispatch {
             fn get_AsyncState(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn get_IsCompleted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
+            fn get_Updates(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn CleanUp(&self) -> HRESULT;
-            fn GetProgress(&self, #[out] #[retval] #[out_ptr] retval: *mut IDownloadProgress) -> HRESULT;
+            fn GetProgress(&self, #[out] #[out_ptr] #[retval] retval: *mut IDownloadProgress) -> HRESULT;
             fn RequestAbort(&self) -> HRESULT;
         }
         #[guid(0xd31a5bac_f719_4178_9dbb_5e2cb47fd18a)]
@@ -177,7 +177,7 @@ mod Windows {
             fn get_PercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_TotalBytesDownloaded(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
             fn get_TotalBytesToDownload(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateDownloadResult) -> HRESULT;
+            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateDownloadResult) -> HRESULT;
             fn get_CurrentUpdateDownloadPhase(&self, #[out] #[retval] retval: *mut DownloadPhase) -> HRESULT;
             fn get_CurrentUpdatePercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
@@ -187,13 +187,13 @@ mod Windows {
         }
         #[guid(0x324ff2c6_4981_4b04_9412_57481745ab24)]
         interface IDownloadProgressChangedCallbackArgs: IDispatch {
-            fn get_Progress(&self, #[out] #[retval] #[out_ptr] retval: *mut IDownloadProgress) -> HRESULT;
+            fn get_Progress(&self, #[out] #[out_ptr] #[retval] retval: *mut IDownloadProgress) -> HRESULT;
         }
         #[guid(0xdaa4fdd0_4727_4dbe_a1e7_745dca317144)]
         interface IDownloadResult: IDispatch {
             fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
-            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateDownloadResult) -> HRESULT;
+            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateDownloadResult) -> HRESULT;
         }
         const IID_IAutomaticUpdates: GUID = 0x673425bf_c082_4c7c_bdfd_569464b8e0ce;
         const IID_IAutomaticUpdates2: GUID = 0x4a2f5c31_cfd9_410e_b7fb_29a653973a0f;
@@ -275,9 +275,9 @@ mod Windows {
         const IID_IWindowsUpdateAgentInfo: GUID = 0x85713fa1_7796_4fa2_be3b_e2d6124dd373;
         #[guid(0x7c907864_346c_4aeb_8f3f_57da289f969f)]
         interface IImageInformation: IDispatch {
-            fn get_AltText(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_AltText(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_Height(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_Source(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Source(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_Width(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0x925cbc18_a2ea_4648_bf1c_ec8badcfe20a)]
@@ -301,9 +301,9 @@ mod Windows {
         interface IInstallationJob: IDispatch {
             fn get_AsyncState(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn get_IsCompleted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
+            fn get_Updates(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn CleanUp(&self) -> HRESULT;
-            fn GetProgress(&self, #[out] #[retval] #[out_ptr] retval: *mut IInstallationProgress) -> HRESULT;
+            fn GetProgress(&self, #[out] #[out_ptr] #[retval] retval: *mut IInstallationProgress) -> HRESULT;
             fn RequestAbort(&self) -> HRESULT;
         }
         #[guid(0x345c8244_43a3_4e32_a368_65f073b76f36)]
@@ -311,7 +311,7 @@ mod Windows {
             fn get_CurrentUpdateIndex(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_CurrentUpdatePercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_PercentComplete(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateInstallationResult) -> HRESULT;
+            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateInstallationResult) -> HRESULT;
         }
         #[guid(0xe01402d5_f8da_43ba_a012_38894bd048f1)]
         interface IInstallationProgressChangedCallback: IUnknown {
@@ -319,18 +319,18 @@ mod Windows {
         }
         #[guid(0xe4f14e1e_689d_4218_a0b9_bc189c484a01)]
         interface IInstallationProgressChangedCallbackArgs: IDispatch {
-            fn get_Progress(&self, #[out] #[retval] #[out_ptr] retval: *mut IInstallationProgress) -> HRESULT;
+            fn get_Progress(&self, #[out] #[out_ptr] #[retval] retval: *mut IInstallationProgress) -> HRESULT;
         }
         #[guid(0xa43c56d6_7451_48d4_af96_b6cd2d0d9b7a)]
         interface IInstallationResult: IDispatch {
             fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
-            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateInstallationResult) -> HRESULT;
+            fn GetUpdateResult(&self, #[in] updateIndex: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateInstallationResult) -> HRESULT;
         }
         #[guid(0xa37d00f5_7bb0_4953_b414_f9e98326f2e8)]
         interface IInvalidProductLicenseException: IUpdateException {
-            fn get_Product(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Product(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0x88aee058_d4b0_4725_a2f1_814a67ae964c)]
         interface ISearchCompletedCallback: IUnknown {
@@ -348,45 +348,45 @@ mod Windows {
         #[guid(0xd40cff62_e08c_4498_941a_01e25f0fd33c)]
         interface ISearchResult: IDispatch {
             fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
-            fn get_RootCategories(&self, #[out] #[retval] #[out_ptr] retval: *mut ICategoryCollection) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
-            fn get_Warnings(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateExceptionCollection) -> HRESULT;
+            fn get_RootCategories(&self, #[out] #[out_ptr] #[retval] retval: *mut ICategoryCollection) -> HRESULT;
+            fn get_Updates(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
+            fn get_Warnings(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateExceptionCollection) -> HRESULT;
         }
         #[guid(0xeff90582_2ddc_480f_a06d_60f3fbc362c3)]
         interface IStringCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Item(&self, #[in] index: LONG, #[in] value: BSTR) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn Add(&self, #[in] value: BSTR, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
-            fn Copy(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
+            fn Copy(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
             fn Insert(&self, #[in] index: LONG, #[in] value: BSTR) -> HRESULT;
             fn RemoveAt(&self, #[in] index: LONG) -> HRESULT;
         }
         #[guid(0xade87bf7_7b56_4275_8fab_b9b0e591844b)]
         interface ISystemInformation: IDispatch {
-            fn get_OemHardwareSupportLink(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_OemHardwareSupportLink(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x6a92b07a_d821_4682_b423_5c805022cc4d)]
         interface IUpdate: IDispatch {
-            fn get_Title(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Title(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_AutoSelectOnWebSites(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_BundledUpdates(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
+            fn get_BundledUpdates(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn get_CanRequireSource(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Categories(&self, #[out] #[retval] #[out_ptr] retval: *mut ICategoryCollection) -> HRESULT;
+            fn get_Categories(&self, #[out] #[out_ptr] #[retval] retval: *mut ICategoryCollection) -> HRESULT;
             fn get_Deadline(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn get_DeltaCompressedContentAvailable(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_DeltaCompressedContentPreferred(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_EulaAccepted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_EulaText(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_HandlerID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Identity(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateIdentity) -> HRESULT;
-            fn get_Image(&self, #[out] #[retval] #[out_ptr] retval: *mut IImageInformation) -> HRESULT;
-            fn get_InstallationBehavior(&self, #[out] #[retval] #[out_ptr] retval: *mut IInstallationBehavior) -> HRESULT;
+            fn get_EulaText(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_HandlerID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Identity(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateIdentity) -> HRESULT;
+            fn get_Image(&self, #[out] #[out_ptr] #[retval] retval: *mut IImageInformation) -> HRESULT;
+            fn get_InstallationBehavior(&self, #[out] #[out_ptr] #[retval] retval: *mut IInstallationBehavior) -> HRESULT;
             fn get_IsBeta(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IsDownloaded(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IsHidden(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
@@ -394,35 +394,35 @@ mod Windows {
             fn get_IsInstalled(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IsMandatory(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IsUninstallable(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Languages(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
+            fn get_Languages(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
             fn get_LastDeploymentChangeTime(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_MaxDownloadSize(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
             fn get_MinDownloadSize(&self, #[out] #[retval] retval: *mut DECIMAL) -> HRESULT;
-            fn get_MoreInfoUrls(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
-            fn get_MsrcSeverity(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_MoreInfoUrls(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn get_MsrcSeverity(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_RecommendedCpuSpeed(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_RecommendedHardDiskSpace(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_RecommendedMemory(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ReleaseNotes(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_SecurityBulletinIDs(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
-            fn get_SupersededUpdateIDs(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
-            fn get_SupportUrl(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ReleaseNotes(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_SecurityBulletinIDs(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn get_SupersededUpdateIDs(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn get_SupportUrl(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_Type(&self, #[out] #[retval] retval: *mut UpdateType) -> HRESULT;
-            fn get_UninstallationNotes(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_UninstallationBehavior(&self, #[out] #[retval] #[out_ptr] retval: *mut IInstallationBehavior) -> HRESULT;
-            fn get_UninstallationSteps(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
-            fn get_KBArticleIDs(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
+            fn get_UninstallationNotes(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_UninstallationBehavior(&self, #[out] #[out_ptr] #[retval] retval: *mut IInstallationBehavior) -> HRESULT;
+            fn get_UninstallationSteps(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn get_KBArticleIDs(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
             fn AcceptEula(&self) -> HRESULT;
             fn get_DeploymentAction(&self, #[out] #[retval] retval: *mut DeploymentAction) -> HRESULT;
             fn CopyFromCache(&self, #[in] path: BSTR, #[in] toExtractCabFiles: VARIANT_BOOL) -> HRESULT;
             fn get_DownloadPriority(&self, #[out] #[retval] retval: *mut DownloadPriority) -> HRESULT;
-            fn get_DownloadContents(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateDownloadContentCollection) -> HRESULT;
+            fn get_DownloadContents(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateDownloadContentCollection) -> HRESULT;
         }
         #[guid(0x144fe9b0_d23d_4a8b_8634_fb4457533b7a)]
         interface IUpdate2: IUpdate {
             fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IsPresent(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CveIDs(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
+            fn get_CveIDs(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
             fn CopyToCache(&self, #[in] #[opt] pFiles: IStringCollection) -> HRESULT;
         }
         #[guid(0x112eda6b_95b3_476f_9d90_aee82c6b8181)]
@@ -440,20 +440,20 @@ mod Windows {
         }
         #[guid(0x07f7438c_7709_4ca5_b518_91279288134e)]
         interface IUpdateCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdate) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdate) -> HRESULT;
             fn put_Item(&self, #[in] index: LONG, #[in] #[opt] value: IUpdate) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn Add(&self, #[in] #[opt] value: IUpdate, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn Clear(&self) -> HRESULT;
-            fn Copy(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
+            fn Copy(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn Insert(&self, #[in] index: LONG, #[in] #[opt] value: IUpdate) -> HRESULT;
             fn RemoveAt(&self, #[in] index: LONG) -> HRESULT;
         }
         #[guid(0x54a2cb2d_9a0c_48b6_8a50_9abb69ee2d02)]
         interface IUpdateDownloadContent: IDispatch {
-            fn get_DownloadUrl(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DownloadUrl(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0xc97ad11b_f257_420b_9d9f_377f733f6f68)]
         interface IUpdateDownloadContent2: IUpdateDownloadContent {
@@ -461,8 +461,8 @@ mod Windows {
         }
         #[guid(0xbc5513c8_b3b8_4bf7_a4d4_361c0d8c88ba)]
         interface IUpdateDownloadContentCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateDownloadContent) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateDownloadContent) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0xbf99af76_b575_42ad_8aa4_33cbb5477af1)]
@@ -472,22 +472,22 @@ mod Windows {
         }
         #[guid(0x68f1c6f9_7ecc_4666_a464_247fe12496c3)]
         interface IUpdateDownloader: IDispatch {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ClientApplicationID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ClientApplicationID(&self, #[in] value: BSTR) -> HRESULT;
             fn get_IsForced(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_IsForced(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_Priority(&self, #[out] #[retval] retval: *mut DownloadPriority) -> HRESULT;
             fn put_Priority(&self, #[in] value: DownloadPriority) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
+            fn get_Updates(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn put_Updates(&self, #[in] #[opt] value: IUpdateCollection) -> HRESULT;
-            fn BeginDownload(&self, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[retval] #[out_ptr] retval: *mut IDownloadJob) -> HRESULT;
-            fn Download(&self, #[out] #[retval] #[out_ptr] retval: *mut IDownloadResult) -> HRESULT;
-            fn EndDownload(&self, #[in] #[opt] value: IDownloadJob, #[out] #[retval] #[out_ptr] retval: *mut IDownloadResult) -> HRESULT;
+            fn BeginDownload(&self, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[out_ptr] #[retval] retval: *mut IDownloadJob) -> HRESULT;
+            fn Download(&self, #[out] #[out_ptr] #[retval] retval: *mut IDownloadResult) -> HRESULT;
+            fn EndDownload(&self, #[in] #[opt] value: IDownloadJob, #[out] #[out_ptr] #[retval] retval: *mut IDownloadResult) -> HRESULT;
         }
         #[guid(0x94726306_f12a_482a_a774_fb4f870d98c0)]
         interface IUpdateDownloaderEx: IUpdateDownloader {
-            fn BeginDownload2(&self, #[in] downloadType: DownloadType, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[retval] #[out_ptr] retval: *mut IDownloadJob) -> HRESULT;
-            fn Download2(&self, #[in] downloadType: DownloadType, #[out] #[retval] #[out_ptr] retval: *mut IDownloadResult) -> HRESULT;
+            fn BeginDownload2(&self, #[in] downloadType: DownloadType, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[out_ptr] #[retval] retval: *mut IDownloadJob) -> HRESULT;
+            fn Download2(&self, #[in] downloadType: DownloadType, #[out] #[out_ptr] #[retval] retval: *mut IDownloadResult) -> HRESULT;
         }
         #[guid(0x769355a3_c5a0_497c_a606_560a36d2121c)]
         interface IUpdateEx: IUpdate5 {
@@ -496,14 +496,14 @@ mod Windows {
         }
         #[guid(0xa376dd5e_09d4_427f_af7c_fed5b6e1c1d6)]
         interface IUpdateException: IDispatch {
-            fn get_Message(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Message(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_Context(&self, #[out] #[retval] retval: *mut UpdateExceptionContext) -> HRESULT;
         }
         #[guid(0x503626a3_8e14_4729_9355_0fe664bd2321)]
         interface IUpdateExceptionCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateException) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateException) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0xbe56a644_af0e_4e0e_a311_c1d8e695cbff)]
@@ -512,31 +512,31 @@ mod Windows {
             fn get_ResultCode(&self, #[out] #[retval] retval: *mut OperationResultCode) -> HRESULT;
             fn get_HResult(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_Date(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_UpdateIdentity(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateIdentity) -> HRESULT;
-            fn get_Title(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_UpdateIdentity(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateIdentity) -> HRESULT;
+            fn get_Title(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_UnmappedResultCode(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ClientApplicationID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_ServerSelection(&self, #[out] #[retval] retval: *mut ServerSelection) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_UninstallationSteps(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
-            fn get_UninstallationNotes(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_SupportUrl(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ServiceID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_UninstallationSteps(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn get_UninstallationNotes(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_SupportUrl(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0xc2bfb780_4539_4132_ab8c_0a8772013ab6)]
         interface IUpdateHistoryEntry2: IUpdateHistoryEntry {
-            fn get_Categories(&self, #[out] #[retval] #[out_ptr] retval: *mut ICategoryCollection) -> HRESULT;
+            fn get_Categories(&self, #[out] #[out_ptr] #[retval] retval: *mut ICategoryCollection) -> HRESULT;
         }
         #[guid(0xa7f04f3c_a290_435b_aadf_a116c3357a5c)]
         interface IUpdateHistoryEntryCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateHistoryEntry) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateHistoryEntry) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0x46297823_9940_4c09_aed9_cd3ea6d05968)]
         interface IUpdateIdentity: IDispatch {
             fn get_RevisionNumber(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_UpdateID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_UpdateID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0xd940f0f8_3cbb_4fd0_993f_471e7f2328ad)]
         interface IUpdateInstallationResult: IDispatch {
@@ -546,24 +546,24 @@ mod Windows {
         }
         #[guid(0x7b929c68_ccdc_4226_96b1_8724600b54c2)]
         interface IUpdateInstaller: IDispatch {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ClientApplicationID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ClientApplicationID(&self, #[in] value: BSTR) -> HRESULT;
             fn get_IsForced(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_IsForced(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
-            fn get_ParentHwnd(&self, #[out] #[retval] #[out_ptr] retval: *mut HWND) -> HRESULT;
+            fn get_ParentHwnd(&self, #[out] #[out_ptr] #[retval] retval: *mut HWND) -> HRESULT;
             fn put_ParentHwnd(&self, #[in] #[opt] value: HWND) -> HRESULT;
             fn put_ParentWindow(&self, #[in] #[opt] value: IUnknown) -> HRESULT;
-            fn get_ParentWindow(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
-            fn get_Updates(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateCollection) -> HRESULT;
+            fn get_ParentWindow(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
+            fn get_Updates(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateCollection) -> HRESULT;
             fn put_Updates(&self, #[in] #[opt] value: IUpdateCollection) -> HRESULT;
-            fn BeginInstall(&self, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[retval] #[out_ptr] retval: *mut IInstallationJob) -> HRESULT;
-            fn BeginUninstall(&self, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[retval] #[out_ptr] retval: *mut IInstallationJob) -> HRESULT;
-            fn EndInstall(&self, #[in] #[opt] value: IInstallationJob, #[out] #[retval] #[out_ptr] retval: *mut IInstallationResult) -> HRESULT;
-            fn EndUninstall(&self, #[in] #[opt] value: IInstallationJob, #[out] #[retval] #[out_ptr] retval: *mut IInstallationResult) -> HRESULT;
-            fn Install(&self, #[out] #[retval] #[out_ptr] retval: *mut IInstallationResult) -> HRESULT;
-            fn RunWizard(&self, #[in] #[opt] dialogTitle: BSTR, #[out] #[retval] #[out_ptr] retval: *mut IInstallationResult) -> HRESULT;
+            fn BeginInstall(&self, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[out_ptr] #[retval] retval: *mut IInstallationJob) -> HRESULT;
+            fn BeginUninstall(&self, #[in] #[opt] onProgressChanged: IUnknown, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[out_ptr] #[retval] retval: *mut IInstallationJob) -> HRESULT;
+            fn EndInstall(&self, #[in] #[opt] value: IInstallationJob, #[out] #[out_ptr] #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            fn EndUninstall(&self, #[in] #[opt] value: IInstallationJob, #[out] #[out_ptr] #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            fn Install(&self, #[out] #[out_ptr] #[retval] retval: *mut IInstallationResult) -> HRESULT;
+            fn RunWizard(&self, #[in] #[opt] dialogTitle: BSTR, #[out] #[out_ptr] #[retval] retval: *mut IInstallationResult) -> HRESULT;
             fn get_IsBusy(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn Uninstall(&self, #[out] #[retval] #[out_ptr] retval: *mut IInstallationResult) -> HRESULT;
+            fn Uninstall(&self, #[out] #[out_ptr] #[retval] retval: *mut IInstallationResult) -> HRESULT;
             fn get_AllowSourcePrompts(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_AllowSourcePrompts(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_RebootRequiredBeforeInstallation(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
@@ -590,21 +590,21 @@ mod Windows {
         interface IUpdateSearcher: IDispatch {
             fn get_CanAutomaticallyUpgradeService(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_CanAutomaticallyUpgradeService(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ClientApplicationID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ClientApplicationID(&self, #[in] value: BSTR) -> HRESULT;
             fn get_IncludePotentiallySupersededUpdates(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_IncludePotentiallySupersededUpdates(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_ServerSelection(&self, #[out] #[retval] retval: *mut ServerSelection) -> HRESULT;
             fn put_ServerSelection(&self, #[in] value: ServerSelection) -> HRESULT;
-            fn BeginSearch(&self, #[in] criteria: BSTR, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[retval] #[out_ptr] retval: *mut ISearchJob) -> HRESULT;
-            fn EndSearch(&self, #[in] #[opt] searchJob: ISearchJob, #[out] #[retval] #[out_ptr] retval: *mut ISearchResult) -> HRESULT;
-            fn EscapeString(&self, #[in] unescaped: BSTR, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn QueryHistory(&self, #[in] startIndex: LONG, #[in] count: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
-            fn Search(&self, #[in] criteria: BSTR, #[out] #[retval] #[out_ptr] retval: *mut ISearchResult) -> HRESULT;
+            fn BeginSearch(&self, #[in] criteria: BSTR, #[in] #[opt] onCompleted: IUnknown, #[in] state: VARIANT, #[out] #[out_ptr] #[retval] retval: *mut ISearchJob) -> HRESULT;
+            fn EndSearch(&self, #[in] #[opt] searchJob: ISearchJob, #[out] #[out_ptr] #[retval] retval: *mut ISearchResult) -> HRESULT;
+            fn EscapeString(&self, #[in] unescaped: BSTR, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn QueryHistory(&self, #[in] startIndex: LONG, #[in] count: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
+            fn Search(&self, #[in] criteria: BSTR, #[out] #[out_ptr] #[retval] retval: *mut ISearchResult) -> HRESULT;
             fn get_Online(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Online(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn GetTotalHistoryCount(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ServiceID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ServiceID(&self, #[in] value: BSTR) -> HRESULT;
         }
         #[guid(0x4cbdcb2d_1589_4beb_bd1c_3e582ff0add0)]
@@ -619,19 +619,19 @@ mod Windows {
         }
         #[guid(0x76b3b17e_aed6_4da5_85f0_83587f81abe3)]
         interface IUpdateService: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_ContentValidationCert(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn get_ExpirationDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_IsManaged(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IsRegisteredWithAU(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IssueDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_OffersWindowsUpdates(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_RedirectUrls(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_RedirectUrls(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
+            fn get_ServiceID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_IsScanPackageService(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_CanRegisterWithAU(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_ServiceUrl(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_SetupPrefix(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ServiceUrl(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_SetupPrefix(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0x1518b460_6518_4172_940f_c75883b24ceb)]
         interface IUpdateService2: IUpdateService {
@@ -639,44 +639,44 @@ mod Windows {
         }
         #[guid(0x9b0353aa_0e52_44ff_b8b0_1f7fa0437f88)]
         interface IUpdateServiceCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateService) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateService) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0x23857e3c_02ba_44a3_9423_b1c900805f37)]
         interface IUpdateServiceManager: IDispatch {
-            fn get_Services(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateServiceCollection) -> HRESULT;
-            fn AddService(&self, #[in] serviceID: BSTR, #[in] authorizationCabPath: BSTR, #[out] #[retval] #[out_ptr] retval: *mut IUpdateService) -> HRESULT;
+            fn get_Services(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateServiceCollection) -> HRESULT;
+            fn AddService(&self, #[in] serviceID: BSTR, #[in] authorizationCabPath: BSTR, #[out] #[out_ptr] #[retval] retval: *mut IUpdateService) -> HRESULT;
             fn RegisterServiceWithAU(&self, #[in] serviceID: BSTR) -> HRESULT;
             fn RemoveService(&self, #[in] serviceID: BSTR) -> HRESULT;
             fn UnregisterServiceWithAU(&self, #[in] serviceID: BSTR) -> HRESULT;
-            fn AddScanPackageService(&self, #[in] serviceName: BSTR, #[in] scanFileLocation: BSTR, #[in] flags: LONG, #[out] #[retval] #[out_ptr] ppService: *mut IUpdateService) -> HRESULT;
+            fn AddScanPackageService(&self, #[in] serviceName: BSTR, #[in] scanFileLocation: BSTR, #[in] flags: LONG, #[out] #[out_ptr] #[retval] ppService: *mut IUpdateService) -> HRESULT;
             fn SetOption(&self, #[in] optionName: BSTR, #[in] optionValue: VARIANT) -> HRESULT;
         }
         #[guid(0x0bb8531d_7e8d_424f_986c_a0b8f60a3e7b)]
         interface IUpdateServiceManager2: IUpdateServiceManager {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ClientApplicationID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ClientApplicationID(&self, #[in] value: BSTR) -> HRESULT;
-            fn QueryServiceRegistration(&self, #[in] serviceID: BSTR, #[out] #[retval] #[out_ptr] retval: *mut IUpdateServiceRegistration) -> HRESULT;
-            fn AddService2(&self, #[in] serviceID: BSTR, #[in] flags: LONG, #[in] authorizationCabPath: BSTR, #[out] #[retval] #[out_ptr] retval: *mut IUpdateServiceRegistration) -> HRESULT;
+            fn QueryServiceRegistration(&self, #[in] serviceID: BSTR, #[out] #[out_ptr] #[retval] retval: *mut IUpdateServiceRegistration) -> HRESULT;
+            fn AddService2(&self, #[in] serviceID: BSTR, #[in] flags: LONG, #[in] authorizationCabPath: BSTR, #[out] #[out_ptr] #[retval] retval: *mut IUpdateServiceRegistration) -> HRESULT;
         }
         #[guid(0xdde02280_12b3_4e0b_937b_6747f6acb286)]
         interface IUpdateServiceRegistration: IDispatch {
             fn get_RegistrationState(&self, #[out] #[retval] retval: *mut UpdateServiceRegistrationState) -> HRESULT;
-            fn get_ServiceID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ServiceID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_IsPendingRegistrationWithAU(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Service(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateService2) -> HRESULT;
+            fn get_Service(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateService2) -> HRESULT;
         }
         #[guid(0x816858a4_260d_4260_933a_2585f1abc76b)]
         interface IUpdateSession: IDispatch {
-            fn get_ClientApplicationID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ClientApplicationID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ClientApplicationID(&self, #[in] value: BSTR) -> HRESULT;
             fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_WebProxy(&self, #[out] #[retval] #[out_ptr] retval: *mut IWebProxy) -> HRESULT;
+            fn get_WebProxy(&self, #[out] #[out_ptr] #[retval] retval: *mut IWebProxy) -> HRESULT;
             fn put_WebProxy(&self, #[in] #[opt] value: IWebProxy) -> HRESULT;
-            fn CreateUpdateSearcher(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateSearcher) -> HRESULT;
-            fn CreateUpdateDownloader(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateDownloader) -> HRESULT;
-            fn CreateUpdateInstaller(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateInstaller) -> HRESULT;
+            fn CreateUpdateSearcher(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateSearcher) -> HRESULT;
+            fn CreateUpdateDownloader(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateDownloader) -> HRESULT;
+            fn CreateUpdateInstaller(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateInstaller) -> HRESULT;
         }
         #[guid(0x91caf7b0_eb23_49ed_9937_c52d817f46f7)]
         interface IUpdateSession2: IUpdateSession {
@@ -685,19 +685,19 @@ mod Windows {
         }
         #[guid(0x918efd1e_b5d8_4c90_8540_aeb9bdc56f9d)]
         interface IUpdateSession3: IUpdateSession2 {
-            fn CreateUpdateServiceManager(&self, #[out] #[retval] #[out_ptr] retval: *mut IUpdateServiceManager2) -> HRESULT;
-            fn QueryHistory(&self, #[in] criteria: BSTR, #[in] startIndex: LONG, #[in] count: LONG, #[out] #[retval] #[out_ptr] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
+            fn CreateUpdateServiceManager(&self, #[out] #[out_ptr] #[retval] retval: *mut IUpdateServiceManager2) -> HRESULT;
+            fn QueryHistory(&self, #[in] criteria: BSTR, #[in] startIndex: LONG, #[in] count: LONG, #[out] #[out_ptr] #[retval] retval: *mut IUpdateHistoryEntryCollection) -> HRESULT;
         }
         #[guid(0x174c81fe_aecd_4dae_b8a0_2c6318dd86a8)]
         interface IWebProxy: IDispatch {
-            fn get_Address(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Address(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Address(&self, #[in] value: BSTR) -> HRESULT;
-            fn get_BypassList(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
+            fn get_BypassList(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
             fn put_BypassList(&self, #[in] #[opt] value: IStringCollection) -> HRESULT;
             fn get_BypassProxyOnLocal(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_BypassProxyOnLocal(&self, #[in] value: VARIANT_BOOL) -> HRESULT;
             fn get_ReadOnly(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_UserName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_UserName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_UserName(&self, #[in] value: BSTR) -> HRESULT;
             fn SetPassword(&self, #[in] value: BSTR) -> HRESULT;
             fn PromptForCredentials(&self, #[in] #[opt] parentWindow: IUnknown, #[in] title: BSTR) -> HRESULT;
@@ -707,11 +707,11 @@ mod Windows {
         }
         #[guid(0xb383cd1a_5ce9_4504_9f63_764b1236f191)]
         interface IWindowsDriverUpdate: IUpdate {
-            fn get_DriverClass(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverHardwareID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverManufacturer(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverModel(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverProvider(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverClass(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverHardwareID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverManufacturer(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverModel(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverProvider(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_DriverVerDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_DeviceProblemNumber(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_DeviceStatus(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
@@ -720,7 +720,7 @@ mod Windows {
         interface IWindowsDriverUpdate2: IWindowsDriverUpdate {
             fn get_RebootRequired(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn get_IsPresent(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_CveIDs(&self, #[out] #[retval] #[out_ptr] retval: *mut IStringCollection) -> HRESULT;
+            fn get_CveIDs(&self, #[out] #[out_ptr] #[retval] retval: *mut IStringCollection) -> HRESULT;
             fn CopyToCache(&self, #[in] #[opt] pFiles: IStringCollection) -> HRESULT;
         }
         #[guid(0x49ebd502_4a96_41bd_9e3e_4c5057f4250c)]
@@ -729,7 +729,7 @@ mod Windows {
         }
         #[guid(0x004c6a2b_0c19_4c69_9f5c_a269b2560db9)]
         interface IWindowsDriverUpdate4: IWindowsDriverUpdate3 {
-            fn get_WindowsDriverUpdateEntries(&self, #[out] #[retval] #[out_ptr] retval: *mut IWindowsDriverUpdateEntryCollection) -> HRESULT;
+            fn get_WindowsDriverUpdateEntries(&self, #[out] #[out_ptr] #[retval] retval: *mut IWindowsDriverUpdateEntryCollection) -> HRESULT;
             fn get_PerUser(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x70cf5c82_8642_42bb_9dbc_0cfd263c6c4f)]
@@ -739,19 +739,19 @@ mod Windows {
         }
         #[guid(0xed8bfe40_a60b_42ea_9652_817dfcfa23ec)]
         interface IWindowsDriverUpdateEntry: IDispatch {
-            fn get_DriverClass(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverHardwareID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverManufacturer(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverModel(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DriverProvider(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverClass(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverHardwareID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverManufacturer(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverModel(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DriverProvider(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_DriverVerDate(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_DeviceProblemNumber(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
             fn get_DeviceStatus(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0x0d521700_a372_4bef_828b_3d00c10adebd)]
         interface IWindowsDriverUpdateEntryCollection: IDispatch {
-            fn get_Item(&self, #[in] index: LONG, #[out] #[retval] #[out_ptr] retval: *mut IWindowsDriverUpdateEntry) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] index: LONG, #[out] #[out_ptr] #[retval] retval: *mut IWindowsDriverUpdateEntry) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] retval: *mut LONG) -> HRESULT;
         }
         #[guid(0x85713fa1_7796_4fa2_be3b_e2d6124dd373)]

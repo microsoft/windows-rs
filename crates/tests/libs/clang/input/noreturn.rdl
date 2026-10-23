@@ -17,8 +17,8 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[noreturn]
     #[library("example.dll")]
+    #[noreturn]
     extern "C" fn BufferFunction(code: i32);
     #[guid(0x98765432_1234_5678_90ab_cdef01234567)]
     interface IStopping: IBase {
@@ -28,15 +28,15 @@ mod Fixture {
         fn StandardStop(&self, code: i32);
         fn Ordinary(&self, code: i32);
     }
-    #[noreturn]
     #[library("example.dll")]
+    #[noreturn]
     extern "C" fn NativeSum(code: i32) -> i32;
-    #[noreturn]
     #[library("example.dll")]
+    #[noreturn]
     extern "C" fn NormalizeFunction(code: i32);
     extern "C" fn OrdinaryCallback(code: i32);
-    #[noreturn]
     #[library("example.dll", import = "ReadPayloadEntry")]
+    #[noreturn]
     extern "C" fn ReadPayload(code: i32);
     #[noreturn]
     extern "C" fn StoppingCallback(code: i32);

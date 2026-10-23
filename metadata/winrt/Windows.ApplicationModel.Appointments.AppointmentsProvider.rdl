@@ -10,12 +10,12 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 class AppointmentsProviderLaunchActionVerbs {}
-                #[guid(0xec4a9af3_620d_4c69_add7_9794e918081f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AddAppointmentOperation)]
+                #[guid(0xec4a9af3_620d_4c69_add7_9794e918081f)]
                 interface IAddAppointmentOperation {
                     #[get]
                     AppointmentInformation: super::Appointment;
@@ -26,9 +26,9 @@ mod Windows {
                     fn ReportError(&self, #[in] value: String);
                     fn DismissUI(&self);
                 }
-                #[guid(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentsProviderLaunchActionVerbs)]
+                #[guid(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8)]
                 interface IAppointmentsProviderLaunchActionVerbsStatics {
                     #[get]
                     AddAppointment: String;
@@ -39,16 +39,16 @@ mod Windows {
                     #[get]
                     ShowTimeFrame: String;
                 }
-                #[guid(0xef9049a4_af21_473c_88dc_76cd89f60ca5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentsProviderLaunchActionVerbs)]
+                #[guid(0xef9049a4_af21_473c_88dc_76cd89f60ca5)]
                 interface IAppointmentsProviderLaunchActionVerbsStatics2 {
                     #[get]
                     ShowAppointmentDetails: String;
                 }
-                #[guid(0x08b66aba_fe33_46cd_a50c_a8ffb3260537)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoveAppointmentOperation)]
+                #[guid(0x08b66aba_fe33_46cd_a50c_a8ffb3260537)]
                 interface IRemoveAppointmentOperation {
                     #[get]
                     AppointmentId: String;
@@ -61,9 +61,9 @@ mod Windows {
                     fn ReportError(&self, #[in] value: String);
                     fn DismissUI(&self);
                 }
-                #[guid(0xf4903d9b_9e61_4de2_a732_2687c07d1de8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ReplaceAppointmentOperation)]
+                #[guid(0xf4903d9b_9e61_4de2_a732_2687c07d1de8)]
                 interface IReplaceAppointmentOperation {
                     #[get]
                     AppointmentId: String;

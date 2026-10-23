@@ -20,7 +20,7 @@ mod Windows {
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsGetStringLen(#[in] #[opt] string: HSTRING) -> UINT32;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
-        extern fn WindowsGetStringRawBuffer(#[in] #[opt] string: HSTRING, #[out] #[opt] length: *mut UINT32) -> PCWSTR;
+        extern fn WindowsGetStringRawBuffer(#[in] #[opt] string: HSTRING, #[opt] #[out] length: *mut UINT32) -> PCWSTR;
         #[library("api-ms-win-core-winrt-string-l1-1-0.dll")]
         extern fn WindowsInspectString(#[in] targetHString: UINT_PTR, machine: USHORT, #[in] callback: PINSPECT_HSTRING_CALLBACK, #[in] #[opt] context: *mut void, #[out] length: *mut UINT32, #[out] targetStringAddress: *mut UINT_PTR) -> HRESULT;
         #[library("api-ms-win-core-winrt-string-l1-1-1.dll")]

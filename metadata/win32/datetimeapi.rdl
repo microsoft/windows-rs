@@ -2,18 +2,18 @@
 mod Windows {
     mod Win32 {
         #[library("KERNEL32.dll")]
-        extern fn GetDateFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpDate: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCSTR, #[out] #[opt] #[writable(entry, cchDate)] lpDateStr: LPSTR, #[in] cchDate: i32) -> i32;
+        extern fn GetDateFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpDate: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCSTR, #[opt] #[out] #[writable(entry, cchDate)] lpDateStr: LPSTR, #[in] cchDate: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetDateFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] lpDate: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[out] #[opt] #[writable(entry, cchDate)] lpDateStr: LPWSTR, #[in] cchDate: i32, #[in] #[opt] lpCalendar: LPCWSTR) -> i32;
+        extern fn GetDateFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] lpDate: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[opt] #[out] #[writable(entry, cchDate)] lpDateStr: LPWSTR, #[in] cchDate: i32, #[in] #[opt] lpCalendar: LPCWSTR) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetDateFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpDate: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[out] #[opt] #[writable(entry, cchDate)] lpDateStr: LPWSTR, #[in] cchDate: i32) -> i32;
+        extern fn GetDateFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpDate: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[opt] #[out] #[writable(entry, cchDate)] lpDateStr: LPWSTR, #[in] cchDate: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetDurationFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] lpDuration: *const SYSTEMTIME, #[in] ullDuration: ULONGLONG, #[in] #[opt] lpFormat: LPCWSTR, #[out] #[opt] #[writable(entry, cchDuration)] lpDurationStr: LPWSTR, #[in] cchDuration: i32) -> i32;
+        extern fn GetDurationFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] lpDuration: *const SYSTEMTIME, #[in] ullDuration: ULONGLONG, #[in] #[opt] lpFormat: LPCWSTR, #[opt] #[out] #[writable(entry, cchDuration)] lpDurationStr: LPWSTR, #[in] cchDuration: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetTimeFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpTime: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCSTR, #[out] #[opt] #[writable(entry, cchTime)] lpTimeStr: LPSTR, #[in] cchTime: i32) -> i32;
+        extern fn GetTimeFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpTime: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCSTR, #[opt] #[out] #[writable(entry, cchTime)] lpTimeStr: LPSTR, #[in] cchTime: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetTimeFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] lpTime: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[out] #[opt] #[writable(entry, cchTime)] lpTimeStr: LPWSTR, #[in] cchTime: i32) -> i32;
+        extern fn GetTimeFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] #[opt] lpTime: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[opt] #[out] #[writable(entry, cchTime)] lpTimeStr: LPWSTR, #[in] cchTime: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetTimeFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpTime: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[out] #[opt] #[writable(entry, cchTime)] lpTimeStr: LPWSTR, #[in] cchTime: i32) -> i32;
+        extern fn GetTimeFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpTime: *const SYSTEMTIME, #[in] #[opt] lpFormat: LPCWSTR, #[opt] #[out] #[writable(entry, cchTime)] lpTimeStr: LPWSTR, #[in] cchTime: i32) -> i32;
     }
 }

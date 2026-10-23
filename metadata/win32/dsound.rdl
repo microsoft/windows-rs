@@ -543,8 +543,8 @@ mod Windows {
         extern fn DirectSoundCaptureEnumerateA(#[in] pDSEnumCallback: LPDSENUMCALLBACKA, #[in] #[opt] pContext: LPVOID) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundCaptureEnumerateW(#[in] pDSEnumCallback: LPDSENUMCALLBACKW, #[in] #[opt] pContext: LPVOID) -> HRESULT;
-        #[must_use]
         #[library("DSOUND.dll")]
+        #[must_use]
         extern fn DirectSoundCreate(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS: *mut LPDIRECTSOUND, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
         #[library("DSOUND.dll")]
         extern fn DirectSoundCreate8(#[in] #[opt] pcGuidDevice: LPCGUID, #[out] #[out_ptr] ppDS8: *mut LPDIRECTSOUND8, #[Windows::Win32::Metadata::NativeSal("2", "_Pre_null_", "", "")] pUnkOuter: LPUNKNOWN) -> HRESULT;
@@ -675,14 +675,14 @@ mod Windows {
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn GetCaps(&self, #[out] pDSBufferCaps: LPDSBCAPS) -> HRESULT;
-            fn GetCurrentPosition(&self, #[out] #[opt] pdwCurrentPlayCursor: LPDWORD, #[out] #[opt] pdwCurrentWriteCursor: LPDWORD) -> HRESULT;
-            fn GetFormat(&self, #[out] #[opt] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] #[out] pdwCurrentPlayCursor: LPDWORD, #[opt] #[out] pdwCurrentWriteCursor: LPDWORD) -> HRESULT;
+            fn GetFormat(&self, #[opt] #[out] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[opt] #[out] pdwSizeWritten: LPDWORD) -> HRESULT;
             fn GetVolume(&self, #[out] plVolume: LPLONG) -> HRESULT;
             fn GetPan(&self, #[out] plPan: LPLONG) -> HRESULT;
             fn GetFrequency(&self, #[out] pdwFrequency: LPDWORD) -> HRESULT;
             fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
             fn Initialize(&self, #[in] pDirectSound: LPDIRECTSOUND, #[in] pcDSBufferDesc: LPCDSBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[out] #[opt] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[opt] #[out] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[opt] #[out] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
             fn Play(&self, dwReserved1: DWORD, dwPriority: DWORD, dwFlags: DWORD) -> HRESULT;
             fn SetCurrentPosition(&self, dwNewPosition: DWORD) -> HRESULT;
             fn SetFormat(&self, #[in] pcfxFormat: LPCWAVEFORMATEX) -> HRESULT;
@@ -704,9 +704,9 @@ mod Windows {
             #[override_slot(3)]
             fn GetCaps(&self, #[out] pDSBufferCaps: LPDSBCAPS) -> HRESULT;
             #[override_slot(4)]
-            fn GetCurrentPosition(&self, #[out] #[opt] pdwCurrentPlayCursor: LPDWORD, #[out] #[opt] pdwCurrentWriteCursor: LPDWORD) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] #[out] pdwCurrentPlayCursor: LPDWORD, #[opt] #[out] pdwCurrentWriteCursor: LPDWORD) -> HRESULT;
             #[override_slot(5)]
-            fn GetFormat(&self, #[out] #[opt] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            fn GetFormat(&self, #[opt] #[out] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[opt] #[out] pdwSizeWritten: LPDWORD) -> HRESULT;
             #[override_slot(6)]
             fn GetVolume(&self, #[out] plVolume: LPLONG) -> HRESULT;
             #[override_slot(7)]
@@ -718,7 +718,7 @@ mod Windows {
             #[override_slot(10)]
             fn Initialize(&self, #[in] pDirectSound: LPDIRECTSOUND, #[in] pcDSBufferDesc: LPCDSBUFFERDESC) -> HRESULT;
             #[override_slot(11)]
-            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[out] #[opt] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[opt] #[out] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[opt] #[out] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
             #[override_slot(12)]
             fn Play(&self, dwReserved1: DWORD, dwPriority: DWORD, dwFlags: DWORD) -> HRESULT;
             #[override_slot(13)]
@@ -737,7 +737,7 @@ mod Windows {
             fn Unlock(&self, #[in] #[readable(entry, bytes(dwAudioBytes1))] pvAudioPtr1: LPVOID, dwAudioBytes1: DWORD, #[in] #[opt] #[readable(entry, bytes(dwAudioBytes2))] pvAudioPtr2: LPVOID, dwAudioBytes2: DWORD) -> HRESULT;
             #[override_slot(20)]
             fn Restore(&self) -> HRESULT;
-            fn SetFX(&self, dwEffectsCount: DWORD, #[in] #[opt] #[readable(entry, dwEffectsCount)] pDSFXDesc: LPDSEFFECTDESC, #[out] #[opt] #[writable(entry, dwEffectsCount)] pdwResultCodes: LPDWORD) -> HRESULT;
+            fn SetFX(&self, dwEffectsCount: DWORD, #[in] #[opt] #[readable(entry, dwEffectsCount)] pDSFXDesc: LPDSEFFECTDESC, #[opt] #[out] #[writable(entry, dwEffectsCount)] pdwResultCodes: LPDWORD) -> HRESULT;
             fn AcquireResources(&self, dwFlags: DWORD, dwEffectsCount: DWORD, #[out] #[writable(entry, dwEffectsCount)] pdwResultCodes: LPDWORD) -> HRESULT;
             fn GetObjectInPath(&self, #[in] rguidObject: &GUID, dwIndex: DWORD, #[in] rguidInterface: &GUID, #[out] #[out_ptr] ppObject: *mut LPVOID) -> HRESULT;
         }
@@ -762,11 +762,11 @@ mod Windows {
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn GetCaps(&self, #[out] pDSCBCaps: LPDSCBCAPS) -> HRESULT;
-            fn GetCurrentPosition(&self, #[out] #[opt] pdwCapturePosition: LPDWORD, #[out] #[opt] pdwReadPosition: LPDWORD) -> HRESULT;
-            fn GetFormat(&self, #[out] #[opt] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] #[out] pdwCapturePosition: LPDWORD, #[opt] #[out] pdwReadPosition: LPDWORD) -> HRESULT;
+            fn GetFormat(&self, #[opt] #[out] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[opt] #[out] pdwSizeWritten: LPDWORD) -> HRESULT;
             fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
             fn Initialize(&self, #[in] pDirectSoundCapture: LPDIRECTSOUNDCAPTURE, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[out] #[opt] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[opt] #[out] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[opt] #[out] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
             fn Start(&self, dwFlags: DWORD) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Unlock(&self, #[in] #[readable(entry, bytes(dwAudioBytes1))] pvAudioPtr1: LPVOID, dwAudioBytes1: DWORD, #[in] #[opt] #[readable(entry, bytes(dwAudioBytes2))] pvAudioPtr2: LPVOID, dwAudioBytes2: DWORD) -> HRESULT;
@@ -782,15 +782,15 @@ mod Windows {
             #[override_slot(3)]
             fn GetCaps(&self, #[out] pDSCBCaps: LPDSCBCAPS) -> HRESULT;
             #[override_slot(4)]
-            fn GetCurrentPosition(&self, #[out] #[opt] pdwCapturePosition: LPDWORD, #[out] #[opt] pdwReadPosition: LPDWORD) -> HRESULT;
+            fn GetCurrentPosition(&self, #[opt] #[out] pdwCapturePosition: LPDWORD, #[opt] #[out] pdwReadPosition: LPDWORD) -> HRESULT;
             #[override_slot(5)]
-            fn GetFormat(&self, #[out] #[opt] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[out] #[opt] pdwSizeWritten: LPDWORD) -> HRESULT;
+            fn GetFormat(&self, #[opt] #[out] #[writable(entry, bytes(dwSizeAllocated))] pwfxFormat: LPWAVEFORMATEX, dwSizeAllocated: DWORD, #[opt] #[out] pdwSizeWritten: LPDWORD) -> HRESULT;
             #[override_slot(6)]
             fn GetStatus(&self, #[out] pdwStatus: LPDWORD) -> HRESULT;
             #[override_slot(7)]
             fn Initialize(&self, #[in] pDirectSoundCapture: LPDIRECTSOUNDCAPTURE, #[in] pcDSCBufferDesc: LPCDSCBUFFERDESC) -> HRESULT;
             #[override_slot(8)]
-            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[out] #[opt] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[out] #[opt] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
+            fn Lock(&self, dwOffset: DWORD, dwBytes: DWORD, #[out] #[writable(success, bytes(*pdwAudioBytes1), indirect)] ppvAudioPtr1: *mut LPVOID, #[out] pdwAudioBytes1: LPDWORD, #[opt] #[out] #[writable(success, bytes(if_present(*pdwAudioBytes2)), indirect)] ppvAudioPtr2: *mut LPVOID, #[opt] #[out] pdwAudioBytes2: LPDWORD, dwFlags: DWORD) -> HRESULT;
             #[override_slot(9)]
             fn Start(&self, dwFlags: DWORD) -> HRESULT;
             #[override_slot(10)]
@@ -980,7 +980,7 @@ mod Windows {
             fn AddRef(&self) -> ULONG;
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
-            fn Get(&self, #[in] rguidPropSet: &GUID, ulId: ULONG, #[in] #[opt] #[readable(entry, bytes(ulInstanceLength))] pInstanceData: LPVOID, ulInstanceLength: ULONG, #[out] #[writable(entry, bytes(ulDataLength))] pPropertyData: LPVOID, ulDataLength: ULONG, #[out] #[opt] pulBytesReturned: PULONG) -> HRESULT;
+            fn Get(&self, #[in] rguidPropSet: &GUID, ulId: ULONG, #[in] #[opt] #[readable(entry, bytes(ulInstanceLength))] pInstanceData: LPVOID, ulInstanceLength: ULONG, #[out] #[writable(entry, bytes(ulDataLength))] pPropertyData: LPVOID, ulDataLength: ULONG, #[opt] #[out] pulBytesReturned: PULONG) -> HRESULT;
             fn Set(&self, #[in] rguidPropSet: &GUID, ulId: ULONG, #[in] #[opt] #[readable(entry, bytes(ulInstanceLength))] pInstanceData: LPVOID, ulInstanceLength: ULONG, #[in] #[readable(entry, bytes(ulDataLength))] pPropertyData: LPVOID, ulDataLength: ULONG) -> HRESULT;
             fn QuerySupport(&self, #[in] rguidPropSet: &GUID, ulId: ULONG, #[out] pulTypeSupport: PULONG) -> HRESULT;
         }

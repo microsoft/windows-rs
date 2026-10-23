@@ -578,7 +578,7 @@ mod Windows {
         const DRVO_LEGACY_RESOURCES: i32 = 64;
         const DRVO_REINIT_REGISTERED: i32 = 8;
         #[library("ntdll.dll")]
-        extern fn DbgPrompt(#[in] #[null_terminated(entry)] Prompt: PCCH, #[out] #[writable(entry, bytes(Length))] Response: PCH, #[in] Length: ULONG) -> ULONG;
+        extern fn DbgPrompt(#[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[in] Prompt: PCCH, #[out] #[writable(entry, bytes(Length))] Response: PCH, #[in] Length: ULONG) -> ULONG;
         #[packed(1)]
         struct EFI_ACPI_RAS_SIGNAL_TABLE {
             Header: WHEA_ACPI_HEADER,
@@ -1010,15 +1010,15 @@ mod Windows {
         const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: i32 = 4;
         const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: i32 = 2;
         const INTEL_ADDRESS_TRANSLATION_PRM_HANDLER_GUID: GUID = 0x1de4055d_d2f3_4e11_b7d9_7d6c19173fee;
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum INTERLOCKED_RESULT {
             ResultNegative = 1,
             ResultZero = 0,
             ResultPositive = 2,
         }
-        #[repr(i32)]
         #[arch(X86)]
+        #[repr(i32)]
         enum INTERLOCKED_RESULT {
             ResultNegative = 32768,
             ResultZero = 16384,
@@ -3500,8 +3500,8 @@ mod Windows {
         const PCR_BTI_MITIGATION_TRAP_HVC: i32 = 2;
         #[arch(Arm64)]
         const PCR_BTI_MITIGATION_VBAR_MASK: i32 = 14;
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum PCR_BTI_VBAR_INDEX {
             BtiVbarNone = 0,
             BtiVbarTrapHvc = 1,
@@ -3588,7 +3588,7 @@ mod Windows {
         extern "C" fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(#[in] Context: PVOID, #[in] OsSelRecord: PIPMI_OS_SEL_RECORD) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[must_use]
-        extern "C" fn PGET_LOCATION_STRING(#[in] #[out] #[opt] Context: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*LocationStrings,_When_(return == 0, __drv_allocatesMem(Mem))", "*LocationStrings, _When_(return == 0, __drv_allocatesMem(Mem))")] #[out] #[out_ptr] LocationStrings: *mut PZZWSTR) -> NTSTATUS;
+        extern "C" fn PGET_LOCATION_STRING(#[in] #[opt] #[out] Context: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*LocationStrings,_When_(return == 0, __drv_allocatesMem(Mem))", "*LocationStrings, _When_(return == 0, __drv_allocatesMem(Mem))")] #[out] #[out_ptr] LocationStrings: *mut PZZWSTR) -> NTSTATUS;
         extern "C" fn PHALIOREADWRITEHANDLER(#[in] fRead: BOOLEAN, #[in] dwAddr: ULONG, #[in] dwSize: ULONG, #[in] #[out] pdwData: PULONG) -> NTSTATUS;
         extern "C" fn PHALMCAINTERFACELOCK();
         extern "C" fn PHALMCAINTERFACEREADREGISTER(#[in] BankNumber: UCHAR, #[in] #[out] Exception: PVOID) -> NTSTATUS;
@@ -4113,7 +4113,7 @@ mod Windows {
         type PRTL_GENERIC_TABLE = *mut RTL_GENERIC_TABLE;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_RUN_ONCE_INIT_FN", "RTL_RUN_ONCE_INIT_FN", TypedefName = "RTL_RUN_ONCE_INIT_FN")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "RTL_RUN_ONCE_INIT_FN")]
-        extern fn PRTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] #[out] #[opt] Parameter: PVOID, #[in] #[out] #[opt] Context: *mut PVOID) -> ULONG;
+        extern fn PRTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] #[opt] #[out] Parameter: PVOID, #[in] #[opt] #[out] Context: *mut PVOID) -> ULONG;
         type PRTL_SPLAY_LINKS = *mut RTL_SPLAY_LINKS;
         #[repr(i32)]
         enum PSCREATEPROCESSNOTIFYTYPE {
@@ -4152,11 +4152,11 @@ mod Windows {
             },
         }
         #[must_use]
-        extern "C" fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[out] #[opt] PluginContext: PVOID, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
-        extern "C" fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG) -> NTSTATUS;
-        extern "C" fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[out] #[opt] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
-        extern "C" fn PSHED_PI_DISABLE_ERROR_SOURCE(#[in] #[out] #[opt] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
-        extern "C" fn PSHED_PI_ENABLE_ERROR_SOURCE(#[in] #[out] #[opt] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[opt] #[out] PluginContext: PVOID, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG) -> NTSTATUS;
+        extern "C" fn PSHED_PI_CLEAR_ERROR_STATUS(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[readable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_DISABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_ENABLE_ERROR_SOURCE(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[repr(i32)]
         enum PSHED_PI_ERR_READING_PCIE_OVERRIDES {
             PshedPiErrReadingPcieOverridesNoErr = 0,
@@ -4167,20 +4167,20 @@ mod Windows {
             PshedPiErrReadingPcieOverridesNoCapOffset = 5,
             PshedPiErrReadingPcieOverridesNotBinary = 6,
         }
-        extern "C" fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_FINALIZE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[out] #[opt] PluginContext: PVOID, #[in] #[out] Count: PULONG, #[in] #[out] #[writable(entry, bytes(*Length))] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: PULONG) -> NTSTATUS;
+        extern "C" fn PSHED_PI_GET_ALL_ERROR_SOURCES(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] Count: PULONG, #[in] #[out] #[writable(entry, bytes(*Length))] ErrorSrcs: *mut PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] Length: PULONG) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_GET_ERROR_SOURCE_INFO(#[in] #[out] #[opt] PluginContext: PVOID, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_GET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_GET_INJECTION_CAPABILITIES(#[in] #[out] #[opt] PluginContext: PVOID, #[out] Capabilities: PWHEA_ERROR_INJECTION_CAPABILITIES) -> NTSTATUS;
+        extern "C" fn PSHED_PI_GET_INJECTION_CAPABILITIES(#[in] #[opt] #[out] PluginContext: PVOID, #[out] Capabilities: PWHEA_ERROR_INJECTION_CAPABILITIES) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_INJECT_ERROR(#[in] #[out] #[opt] PluginContext: PVOID, #[in] ErrorType: ULONGLONG, #[in] Parameter1: ULONGLONG, #[in] Parameter2: ULONGLONG, #[in] Parameter3: ULONGLONG, #[in] Parameter4: ULONGLONG) -> NTSTATUS;
+        extern "C" fn PSHED_PI_INJECT_ERROR(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorType: ULONGLONG, #[in] Parameter1: ULONGLONG, #[in] Parameter2: ULONGLONG, #[in] Parameter3: ULONGLONG, #[in] Parameter4: ULONGLONG) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_READ_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG, #[out] NextErrorRecordId: PULONGLONG, #[in] #[out] RecordLength: PULONG, #[out] #[writable(entry, bytes(*RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
-        extern "C" fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[out] #[opt] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONGLONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] Packet: PWHEA_ERROR_PACKET) -> NTSTATUS;
+        extern "C" fn PSHED_PI_READ_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] ErrorRecordId: ULONGLONG, #[out] NextErrorRecordId: PULONGLONG, #[in] #[out] RecordLength: PULONG, #[out] #[writable(entry, bytes(*RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_RETRIEVE_ERROR_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] BufferLength: ULONGLONG, #[in] #[out] #[writable(entry, bytes(BufferLength))] Packet: PWHEA_ERROR_PACKET) -> NTSTATUS;
         #[must_use]
-        extern "C" fn PSHED_PI_SET_ERROR_SOURCE_INFO(#[in] #[out] #[opt] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
+        extern "C" fn PSHED_PI_SET_ERROR_SOURCE_INFO(#[in] #[opt] #[out] PluginContext: PVOID, #[in] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR) -> NTSTATUS;
         #[must_use]
         extern "C" fn PSHED_PI_VENDOR_DEFINED(#[in] VendorDefinedAction: PSHED_PI_VENDOR_DEFINED_ACTION, #[in] Offset: UINT32, #[in] InputLength: UINT32, #[in] #[readable(entry, bytes(InputLength))] InputBuffer: PUINT8, #[in] #[out] OutputLength: PUINT32, #[out] #[writable(entry, bytes(*OutputLength))] OutputBuffer: PUINT8) -> NTSTATUS;
         #[repr(i32)]
@@ -4188,7 +4188,7 @@ mod Windows {
             VendorDefinedRead = 0,
             VendorDefinedWrite = 1,
         }
-        extern "C" fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: PVOID, #[in] Flags: ULONG, #[in] RecordLength: ULONG, #[in] #[readable(entry, bytes(RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
+        extern "C" fn PSHED_PI_WRITE_ERROR_RECORD(#[in] #[opt] #[out] PluginContext: PVOID, #[in] Flags: ULONG, #[in] RecordLength: ULONG, #[in] #[readable(entry, bytes(RecordLength))] ErrorRecord: PWHEA_ERROR_RECORD) -> NTSTATUS;
         #[packed(1)]
         struct PSHED_PLATFORM_DETAILS {
             Version: UINT32,
@@ -4620,7 +4620,7 @@ mod Windows {
         const RTL_HASH_RESERVED_SIGNATURE: i32 = 0;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "RTL_RUN_ONCE_INIT_FN", "RTL_RUN_ONCE_INIT_FN")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern fn RTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] #[out] #[opt] Parameter: PVOID, #[in] #[out] #[opt] Context: *mut PVOID) -> ULONG;
+        extern fn RTL_RUN_ONCE_INIT_FN(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] #[opt] #[out] Parameter: PVOID, #[in] #[opt] #[out] Context: *mut PVOID) -> ULONG;
         struct RTL_SPLAY_LINKS {
             Parent: *mut RTL_SPLAY_LINKS,
             LeftChild: *mut RTL_SPLAY_LINKS,
@@ -4628,20 +4628,20 @@ mod Windows {
         }
         const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: i32 = 8;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlCompareString(#[in] String1: *const STRING, #[in] String2: *const STRING, #[in] CaseInSensitive: BOOLEAN) -> LONG;
         #[library("ntdll.dll")]
         extern fn RtlContractHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlCopyString(#[out] DestinationString: PSTRING, #[in] #[opt] SourceString: *const STRING);
+        #[library("ntdll.dll")]
         #[must_use]
         #[success(return != 0)]
-        #[library("ntdll.dll")]
         extern fn RtlCreateHashTable(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "NULL == *HashTable,_At_(*HashTable, __drv_allocatesMem(Mem))", "0 == *HashTable, _At_(*HashTable, __drv_allocatesMem(Mem))")] #[in] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, #[in] Shift: ULONG, #[reserved] Flags: ULONG) -> BOOLEAN;
+        #[library("ntdll.dll")]
         #[must_use]
         #[success(return != 0)]
-        #[library("ntdll.dll")]
         extern fn RtlCreateHashTableEx(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "NULL == *HashTable,_At_(*HashTable, __drv_allocatesMem(Mem))", "0 == *HashTable, _At_(*HashTable, __drv_allocatesMem(Mem))")] #[in] #[out] HashTable: *mut PRTL_DYNAMIC_HASH_TABLE, #[in] InitialSize: ULONG, #[in] Shift: ULONG, #[reserved] Flags: ULONG) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlDelete(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
@@ -4661,27 +4661,27 @@ mod Windows {
         extern fn RtlEndStrongEnumerationHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
         #[library("ntdll.dll")]
         extern fn RtlEndWeakEnumerationHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR);
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlEnumerateEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlEnumerateGenericTable(#[in] Table: PRTL_GENERIC_TABLE, #[in] Restart: BOOLEAN) -> PVOID;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlEnumerateGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[in] Restart: BOOLEAN) -> PVOID;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlEnumerateGenericTableLikeADirectory(#[in] Table: PRTL_AVL_TABLE, #[in] #[opt] MatchFunction: PRTL_AVL_MATCH_FUNCTION, #[in] #[opt] MatchData: PVOID, #[in] NextFlag: ULONG, #[in] #[out] RestartKey: *mut PVOID, #[in] #[out] DeleteCount: PULONG, #[in] Buffer: PVOID) -> PVOID;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlEnumerateGenericTableWithoutSplaying(#[in] Table: PRTL_GENERIC_TABLE, #[in] #[out] RestartKey: *mut PVOID) -> PVOID;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlEnumerateGenericTableWithoutSplayingAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[out] RestartKey: *mut PVOID) -> PVOID;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlEqualString(#[in] String1: *const STRING, #[in] String2: *const STRING, #[in] CaseInSensitive: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlExpandHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE) -> BOOLEAN;
@@ -4691,17 +4691,17 @@ mod Windows {
         extern fn RtlGetCallersAddress(#[out] CallersAddress: *mut PVOID, #[out] CallersCaller: *mut PVOID);
         #[library("ntdll.dll")]
         extern fn RtlGetConsoleSessionForegroundProcessId() -> ULONGLONG;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlGetElementGenericTable(#[in] Table: PRTL_GENERIC_TABLE, #[in] I: ULONG) -> PVOID;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlGetElementGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[in] I: ULONG) -> PVOID;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn RtlGetEnabledExtendedFeatures(#[in] FeatureMask: ULONG64) -> ULONG64;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlGetNextEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         #[library("ntdll.dll")]
         extern fn RtlGetNtProductType(#[out] NtProductType: PNT_PRODUCT_TYPE) -> BOOLEAN;
@@ -4709,9 +4709,9 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlGetNtSystemRoot() -> PCWSTR;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn RtlGetPersistedStateLocation(#[in] SourceID: PCWSTR, #[in] #[opt] CustomValue: PCWSTR, #[in] #[opt] DefaultPath: PCWSTR, #[in] StateLocationType: STATE_LOCATION_TYPE, #[out] #[opt] #[writable(entry, bytes(BufferLengthIn))] #[readable(success, bytes(if_present(*BufferLengthOut)))] TargetPath: PWCHAR, #[in] BufferLengthIn: ULONG, #[out] #[opt] BufferLengthOut: PULONG) -> NTSTATUS;
+        #[must_use]
+        extern fn RtlGetPersistedStateLocation(#[in] SourceID: PCWSTR, #[in] #[opt] CustomValue: PCWSTR, #[in] #[opt] DefaultPath: PCWSTR, #[in] StateLocationType: STATE_LOCATION_TYPE, #[opt] #[out] #[readable(success, bytes(if_present(*BufferLengthOut)))] #[writable(entry, bytes(BufferLengthIn))] TargetPath: PWCHAR, #[in] BufferLengthIn: ULONG, #[opt] #[out] BufferLengthOut: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlGetSuiteMask() -> ULONG;
         #[library("ntdll.dll")]
@@ -4725,56 +4725,56 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlInitializeGenericTableAvl(#[out] Table: PRTL_AVL_TABLE, #[in] CompareRoutine: PRTL_AVL_COMPARE_ROUTINE, #[in] AllocateRoutine: PRTL_AVL_ALLOCATE_ROUTINE, #[in] FreeRoutine: PRTL_AVL_FREE_ROUTINE, #[in] #[opt] TableContext: PVOID);
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTable(#[in] Table: PRTL_GENERIC_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN) -> PVOID;
+        extern fn RtlInsertElementGenericTable(#[in] Table: PRTL_GENERIC_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN) -> PVOID;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN) -> PVOID;
+        extern fn RtlInsertElementGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN) -> PVOID;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableFull(#[in] Table: PRTL_GENERIC_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
+        extern fn RtlInsertElementGenericTableFull(#[in] Table: PRTL_GENERIC_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
         #[library("ntdll.dll")]
-        extern fn RtlInsertElementGenericTableFullAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[out] #[opt] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
+        extern fn RtlInsertElementGenericTableFullAvl(#[in] Table: PRTL_AVL_TABLE, #[in] #[readable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: CLONG, #[opt] #[out] NewElement: PBOOLEAN, #[in] NodeOrParent: PVOID, #[in] SearchResult: TABLE_SEARCH_RESULT) -> PVOID;
         #[library("ntdll.dll")]
-        extern fn RtlInsertEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] Signature: ULONG_PTR, #[in] #[out] #[opt] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
+        extern fn RtlInsertEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] Signature: ULONG_PTR, #[in] #[opt] #[out] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlIsApiSetImplemented(#[in] apiSetName: PCSTR) -> NTSTATUS;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlIsGenericTableEmpty(#[in] Table: PRTL_GENERIC_TABLE) -> BOOLEAN;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlIsGenericTableEmptyAvl(#[in] Table: PRTL_AVL_TABLE) -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlIsMultiSessionSku() -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlIsMultiUsersInSessionSku() -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlIsStateSeparationEnabled() -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("L", "__drv_preferredFunction", "\"compiler support for 64 bit\",\"Obsolete\"", "\"compiler support for 64 bit\",\"Obsolete\"")]
-        #[library("ntdll.dll")]
         #[arch(X86)]
-        extern fn RtlLargeIntegerDivide(#[in] Dividend: LARGE_INTEGER, #[in] Divisor: LARGE_INTEGER, #[out] #[opt] Remainder: PLARGE_INTEGER) -> LARGE_INTEGER;
-        #[must_use]
         #[library("ntdll.dll")]
+        extern fn RtlLargeIntegerDivide(#[in] Dividend: LARGE_INTEGER, #[in] Divisor: LARGE_INTEGER, #[opt] #[out] Remainder: PLARGE_INTEGER) -> LARGE_INTEGER;
+        #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlLookupElementGenericTable(#[in] Table: PRTL_GENERIC_TABLE, #[in] Buffer: PVOID) -> PVOID;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlLookupElementGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[in] Buffer: PVOID) -> PVOID;
         #[library("ntdll.dll")]
         extern fn RtlLookupElementGenericTableFull(#[in] Table: PRTL_GENERIC_TABLE, #[in] Buffer: PVOID, #[out] NodeOrParent: *mut PVOID, #[out] SearchResult: *mut TABLE_SEARCH_RESULT) -> PVOID;
         #[library("ntdll.dll")]
         extern fn RtlLookupElementGenericTableFullAvl(#[in] Table: PRTL_AVL_TABLE, #[in] Buffer: PVOID, #[out] NodeOrParent: *mut PVOID, #[out] SearchResult: *mut TABLE_SEARCH_RESULT) -> PVOID;
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn RtlLookupEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] Signature: ULONG_PTR, #[out] #[opt] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         #[must_use]
+        extern fn RtlLookupEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] Signature: ULONG_PTR, #[opt] #[out] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlLookupFirstMatchingElementGenericTableAvl(#[in] Table: PRTL_AVL_TABLE, #[in] Buffer: PVOID, #[out] RestartKey: *mut PVOID) -> PVOID;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
@@ -4783,38 +4783,38 @@ mod Windows {
         extern fn RtlNumberGenericTableElements(#[in] Table: PRTL_GENERIC_TABLE) -> ULONG;
         #[library("ntdll.dll")]
         extern fn RtlNumberGenericTableElementsAvl(#[in] Table: PRTL_AVL_TABLE) -> ULONG;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlRealPredecessor(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlRealSuccessor(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
         #[library("ntdll.dll")]
-        extern fn RtlRemoveEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] #[out] #[opt] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
+        extern fn RtlRemoveEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] Entry: PRTL_DYNAMIC_HASH_TABLE_ENTRY, #[in] #[opt] #[out] Context: PRTL_DYNAMIC_HASH_TABLE_CONTEXT) -> BOOLEAN;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[out] #[opt] #[out_ptr(nullable)] Context: *mut PVOID) -> NTSTATUS;
+        #[must_use]
+        extern fn RtlRunOnceBeginInitialize(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[opt] #[out] #[out_ptr(nullable)] Context: *mut PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
         extern fn RtlRunOnceComplete(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] Flags: ULONG, #[in] #[opt] Context: PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[Windows::Win32::Metadata::NativeSal("2", "_Maybe_raises_SEH_exception_", "x", "x")]
         #[library("ntdll.dll")]
-        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[out] #[opt] Parameter: PVOID, #[out] #[opt] #[out_ptr(nullable)] Context: *mut PVOID) -> NTSTATUS;
+        extern fn RtlRunOnceExecuteOnce(#[in] #[out] RunOnce: PRTL_RUN_ONCE, #[in] InitFn: PRTL_RUN_ONCE_INIT_FN, #[in] #[opt] #[out] Parameter: PVOID, #[opt] #[out] #[out_ptr(nullable)] Context: *mut PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
         #[library("ntdll.dll")]
         extern fn RtlRunOnceInitialize(#[out] RunOnce: PRTL_RUN_ONCE);
         #[library("ntdll.dll")]
         extern fn RtlSplay(#[in] #[out] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlStronglyEnumerateEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlSubtreePredecessor(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlSubtreeSuccessor(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
@@ -4824,8 +4824,8 @@ mod Windows {
         extern fn RtlUpperString(#[in] #[out] DestinationString: PSTRING, #[in] SourceString: *const STRING);
         #[library("ntdll.dll")]
         extern fn RtlWalkFrameChain(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "Count - (Flags >> 8)", "Count - (Flags >> 8)")] #[out] Callers: *mut PVOID, #[in] Count: ULONG, #[in] Flags: ULONG) -> ULONG;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlWeaklyEnumerateEntryHashTable(#[in] HashTable: PRTL_DYNAMIC_HASH_TABLE, #[in] #[out] Enumerator: PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY;
         const SCI_NOTIFY_TYPE_GUID: GUID = 0xe9d59197_94ee_4a4f_8ad8_9b7d8bd93d2e;
         const SEA_NOTIFY_TYPE_GUID: GUID = 0x9a78788a_bbe8_11e4_809e_67611e5d46b0;
@@ -6064,13 +6064,13 @@ mod Windows {
         #[packed(1)]
         struct WHEA_DRIVER_BUFFER_SET {
             Version: ULONG,
-            #[writable(DataSize)]
             #[readable(DataSize)]
+            #[writable(DataSize)]
             Data: PUCHAR,
             DataSize: ULONG,
             SectionTypeGuid: LPGUID,
-            #[writable(20)]
             #[readable(20)]
+            #[writable(20)]
             SectionFriendlyName: PUCHAR,
             Flags: PUCHAR,
         }
@@ -6198,8 +6198,8 @@ mod Windows {
         const WHEA_ERROR_PACKET_V2_SIGNATURE: i32 = 1095059543;
         const WHEA_ERROR_PACKET_V2_VERSION: i32 = 3;
         const WHEA_ERROR_PACKET_VERSION: i32 = 3;
-        #[packed(1)]
         #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Header.Length", "Header.Length", TypedefName = "WHEA_ERROR_RECORD")]
+        #[packed(1)]
         struct WHEA_ERROR_RECORD {
             Header: WHEA_ERROR_RECORD_HEADER,
             #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_", "Header.SectionCount", "Header.SectionCount")]
@@ -6369,7 +6369,7 @@ mod Windows {
         }
         extern "C" fn WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
         extern "C" fn WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern "C" fn WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        extern "C" fn WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         #[packed(1)]
         struct WHEA_ERROR_SOURCE_DESCRIPTOR {
             Length: ULONG,
@@ -6442,8 +6442,8 @@ mod Windows {
         const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: i32 = 4;
         const WHEA_ERROR_SOURCE_FLAG_GLOBAL: i32 = 2;
         const WHEA_ERROR_SOURCE_FLAG_V2_DESCRIPTOR: i32 = 8;
-        extern "C" fn WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
-        extern "C" fn WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
+        extern "C" fn WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern "C" fn WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
         const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: i32 = 65535;
         struct WHEA_ERROR_SOURCE_OVERRIDE_SETTINGS {
             Type: WHEA_ERROR_SOURCE_TYPE,
@@ -6482,8 +6482,8 @@ mod Windows {
             WheaErrSrcTypeSei = 18,
             WheaErrSrcTypeMax = 19,
         }
-        extern "C" fn WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[out] #[opt] Context: PVOID);
-        extern "C" fn WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: PVOID);
+        extern "C" fn WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[opt] #[out] Context: PVOID);
+        extern "C" fn WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID);
         #[packed(1)]
         union WHEA_ERROR_STATUS {
             ErrorStatus: ULONGLONG,
@@ -8124,7 +8124,7 @@ mod Windows {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
             Payload: [UCHAR; 256],
         }
-        extern "C" fn WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[out] #[opt] Context: UINT_PTR) -> BOOLEAN;
+        extern "C" fn WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[opt] #[out] Context: UINT_PTR) -> BOOLEAN;
         #[packed(1)]
         struct WHEA_SRAR_DETAIL_EVENT {
             WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
@@ -8627,23 +8627,23 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn ZwAllocateLocallyUniqueId(#[out] Luid: PLUID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn ZwCancelTimer(#[in] TimerHandle: HANDLE, #[out] #[opt] CurrentState: PBOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "C" fn ZwCancelTimer(#[in] TimerHandle: HANDLE, #[opt] #[out] CurrentState: PBOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn ZwPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[out] #[opt] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
+        extern fn ZwPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwSetInformationThread(#[in] ThreadHandle: HANDLE, #[in] ThreadInformationClass: THREADINFOCLASS, #[in] #[readable(entry, bytes(ThreadInformationLength))] ThreadInformation: PVOID, #[in] ThreadInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn ZwSetTimer(#[in] TimerHandle: HANDLE, #[in] DueTime: PLARGE_INTEGER, #[in] #[opt] TimerApcRoutine: PTIMER_APC_ROUTINE, #[in] #[opt] TimerContext: PVOID, #[in] ResumeTimer: BOOLEAN, #[in] #[opt] Period: LONG, #[out] #[opt] PreviousState: PBOOLEAN) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "C" fn ZwSetTimer(#[in] TimerHandle: HANDLE, #[in] DueTime: PLARGE_INTEGER, #[in] #[opt] TimerApcRoutine: PTIMER_APC_ROUTINE, #[in] #[opt] TimerContext: PVOID, #[in] ResumeTimer: BOOLEAN, #[in] #[opt] Period: LONG, #[opt] #[out] PreviousState: PBOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn ZwSetTimerEx(#[in] TimerHandle: HANDLE, #[in] TimerSetInformationClass: TIMER_SET_INFORMATION_CLASS, #[in] #[out] #[opt] #[writable(entry, bytes(TimerSetInformationLength))] TimerSetInformation: PVOID, #[in] TimerSetInformationLength: ULONG) -> NTSTATUS;
+        #[library("ntdll.dll")]
+        extern "C" fn ZwSetTimerEx(#[in] TimerHandle: HANDLE, #[in] TimerSetInformationClass: TIMER_SET_INFORMATION_CLASS, #[in] #[opt] #[out] #[writable(entry, bytes(TimerSetInformationLength))] TimerSetInformation: PVOID, #[in] TimerSetInformationLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwTerminateProcess(#[in] #[opt] ProcessHandle: HANDLE, #[in] ExitStatus: NTSTATUS) -> NTSTATUS;
@@ -8670,13 +8670,13 @@ mod Windows {
         struct _SILO_MONITOR {}
         extern "C" fn _WHEA_ERROR_SOURCE_CORRECT(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
         extern "C" fn _WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER(#[in] #[out] ErrorSourceDesc: PVOID, #[out] MaximumSectionLength: PULONG) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_CREATE_RECORD(#[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[out] ErrorPacket: PWHEA_ERROR_PACKET, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "BufferSize,ErrorRecord->Header.Length", "BufferSize,ErrorRecord->Header.Length")] #[out] #[writable(entry, bytes(BufferSize))] ErrorRecord: PWHEA_ERROR_RECORD, #[in] BufferSize: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE(#[in] Phase: ULONG, #[in] #[out] ErrorSource: PWHEA_ERROR_SOURCE_DESCRIPTOR, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
+        extern "C" fn _WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID, #[in] ErrorSourceId: ULONG) -> NTSTATUS;
         extern "C" fn _WHEA_ERROR_SOURCE_RECOVER(#[in] #[out] RecoveryContext: PVOID, #[in] #[out] Severity: PWHEA_ERROR_SEVERITY) -> NTSTATUS;
-        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[out] #[opt] Context: PVOID);
-        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[out] #[opt] Context: PVOID);
-        extern "C" fn _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[out] #[opt] Context: UINT_PTR) -> BOOLEAN;
+        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE(#[in] #[opt] #[out] Context: PVOID);
+        extern "C" fn _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER(#[in] #[opt] #[out] Context: PVOID);
+        extern "C" fn _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK(#[in] #[opt] #[out] Context: UINT_PTR) -> BOOLEAN;
         extern "C" fn pHalEndMirroring(#[in] PassNumber: ULONG) -> NTSTATUS;
         extern "C" fn pHalEndOfBoot();
         extern "C" fn pHalFfaMsgSendDirectReq2(#[in] #[out] Parameters: *mut _FFA_MSG_SEND_DIRECT_REQ2_PARAMETERS) -> NTSTATUS;
@@ -8693,7 +8693,7 @@ mod Windows {
         extern "C" fn pHalMirrorPhysicalMemory(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
         extern "C" fn pHalMirrorVerify(#[in] PhysicalAddress: PHYSICAL_ADDRESS, #[in] NumberOfBytes: LARGE_INTEGER) -> NTSTATUS;
         extern "C" fn pHalQueryBusSlots(#[in] BusHandler: PBUS_HANDLER, #[in] BufferSize: ULONG, #[out] SlotNumbers: PULONG, #[out] ReturnedLength: PULONG) -> NTSTATUS;
-        extern "C" fn pHalQuerySystemInformation(#[in] InformationClass: HAL_QUERY_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[out] #[writable(entry, bytes(BufferSize))] #[readable(success, bytes(*ReturnedLength))] Buffer: PVOID, #[out] ReturnedLength: PULONG) -> NTSTATUS;
+        extern "C" fn pHalQuerySystemInformation(#[in] InformationClass: HAL_QUERY_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[out] #[readable(success, bytes(*ReturnedLength))] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[out] ReturnedLength: PULONG) -> NTSTATUS;
         extern "C" fn pHalResetDisplay() -> BOOLEAN;
         extern "C" fn pHalSetPciErrorHandlerCallback(#[in] Callback: PCI_ERROR_HANDLER_CALLBACK);
         extern "C" fn pHalSetSystemInformation(#[in] InformationClass: HAL_SET_INFORMATION_CLASS, #[in] BufferSize: ULONG, #[in] Buffer: PVOID) -> NTSTATUS;

@@ -132,7 +132,7 @@ mod Windows {
         #[library("XINPUT1_4.dll")]
         extern fn XInputEnable(#[in] enable: BOOL);
         #[library("XINPUT1_4.dll")]
-        extern fn XInputGetAudioDeviceIds(#[in] dwUserIndex: DWORD, #[out] #[opt] #[writable(entry, if_present(*pRenderCount))] pRenderDeviceId: LPWSTR, #[in] #[out] #[opt] pRenderCount: *mut UINT, #[out] #[opt] #[writable(entry, if_present(*pCaptureCount))] pCaptureDeviceId: LPWSTR, #[in] #[out] #[opt] pCaptureCount: *mut UINT) -> DWORD;
+        extern fn XInputGetAudioDeviceIds(#[in] dwUserIndex: DWORD, #[opt] #[out] #[writable(entry, if_present(*pRenderCount))] pRenderDeviceId: LPWSTR, #[in] #[opt] #[out] pRenderCount: *mut UINT, #[opt] #[out] #[writable(entry, if_present(*pCaptureCount))] pCaptureDeviceId: LPWSTR, #[in] #[opt] #[out] pCaptureCount: *mut UINT) -> DWORD;
         #[library("XINPUT1_4.dll")]
         extern fn XInputGetBatteryInformation(#[in] dwUserIndex: DWORD, #[in] devType: BYTE, #[out] pBatteryInformation: *mut XINPUT_BATTERY_INFORMATION) -> DWORD;
         #[library("XINPUT1_4.dll")]

@@ -6,14 +6,14 @@ mod Fixture {
         next: *const Node,
         points: [Point; 2],
     }
-    #[packed(1)]
     #[arch(X64 | Arm64)]
+    #[packed(1)]
     struct Packed {
         tag: i8,
         value: i64,
     }
-    #[packed(1)]
     #[arch(X86)]
+    #[packed(1)]
     struct Packed {
         tag: i8,
         value: i32,

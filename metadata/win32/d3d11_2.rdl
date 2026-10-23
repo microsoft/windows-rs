@@ -55,8 +55,8 @@ mod Windows {
         #[guid(0x9d06dffa_d1e5_4d07_83a8_1bb123f2f841)]
         interface ID3D11Device2: ID3D11Device1 {
             fn GetImmediateContext2(&self, #[out] #[out_ptr] ppImmediateContext: *mut ID3D11DeviceContext2);
-            fn CreateDeferredContext2(&self, ContextFlags: UINT, #[out] #[opt] #[out_ptr(null_on_failure)] ppDeferredContext: *mut ID3D11DeviceContext2) -> HRESULT;
-            fn GetResourceTiling(&self, #[in] pTiledResource: ID3D11Resource, #[out] #[opt] pNumTilesForEntireResource: *mut UINT, #[out] #[opt] pPackedMipDesc: *mut D3D11_PACKED_MIP_DESC, #[out] #[opt] pStandardTileShapeForNonPackedMips: *mut D3D11_TILE_SHAPE, #[in] #[out] #[opt] pNumSubresourceTilings: *mut UINT, #[in] FirstSubresourceTilingToGet: UINT, #[out] #[writable(entry, if_present(*pNumSubresourceTilings))] pSubresourceTilingsForNonPackedMips: *mut D3D11_SUBRESOURCE_TILING);
+            fn CreateDeferredContext2(&self, ContextFlags: UINT, #[opt] #[out] #[out_ptr(null_on_failure)] ppDeferredContext: *mut ID3D11DeviceContext2) -> HRESULT;
+            fn GetResourceTiling(&self, #[in] pTiledResource: ID3D11Resource, #[opt] #[out] pNumTilesForEntireResource: *mut UINT, #[opt] #[out] pPackedMipDesc: *mut D3D11_PACKED_MIP_DESC, #[opt] #[out] pStandardTileShapeForNonPackedMips: *mut D3D11_TILE_SHAPE, #[in] #[opt] #[out] pNumSubresourceTilings: *mut UINT, #[in] FirstSubresourceTilingToGet: UINT, #[out] #[writable(entry, if_present(*pNumSubresourceTilings))] pSubresourceTilingsForNonPackedMips: *mut D3D11_SUBRESOURCE_TILING);
             fn CheckMultisampleQualityLevels1(&self, #[in] Format: DXGI_FORMAT, #[in] SampleCount: UINT, #[in] Flags: UINT, #[out] pNumQualityLevels: *mut UINT) -> HRESULT;
         }
         #[guid(0x420d5b32_b90c_4da4_bef0_359f6a24a83a)]

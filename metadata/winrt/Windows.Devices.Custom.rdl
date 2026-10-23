@@ -13,22 +13,22 @@ mod Windows {
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct CustomDeviceContract {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[repr(i32)]
             enum DeviceAccessMode {
                 Read = 0,
                 Write = 1,
                 ReadWrite = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[repr(i32)]
             enum DeviceSharingMode {
                 Shared = 0,
                 Exclusive = 1,
             }
-            #[guid(0xdd30251f_c48b_43bd_bcb1_dec88f15143e)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CustomDevice)]
+            #[guid(0xdd30251f_c48b_43bd_bcb1_dec88f15143e)]
             interface ICustomDevice {
                 #[get]
                 InputStream: super::super::Storage::Streams::IInputStream;
@@ -39,16 +39,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TrySendIOControlAsync(&self, #[in] ioControlCode: IIOControlCode, #[in] inputBuffer: super::super::Storage::Streams::IBuffer, #[in] outputBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<bool>;
             }
-            #[guid(0xc8220312_ef4c_46b1_a58e_eeb308dc8917)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CustomDevice)]
+            #[guid(0xc8220312_ef4c_46b1_a58e_eeb308dc8917)]
             interface ICustomDeviceStatics {
                 fn GetDeviceSelector(&self, #[in] classGuid: GUID) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, #[in] deviceId: String, #[in] desiredAccess: DeviceAccessMode, #[in] sharingMode: DeviceSharingMode) -> super::super::Foundation::IAsyncOperation<CustomDevice>;
             }
-            #[guid(0x0e9559e7_60c8_4375_a761_7f8808066c60)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[guid(0x0e9559e7_60c8_4375_a761_7f8808066c60)]
             interface IIOControlCode {
                 #[get]
                 AccessMode: IOControlAccessMode;
@@ -61,29 +61,29 @@ mod Windows {
                 #[get]
                 ControlCode: u32;
             }
-            #[guid(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(IOControlCode)]
+            #[guid(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f)]
             interface IIOControlCodeFactory {
                 fn CreateIOControlCode(&self, #[in] deviceType: u16, #[in] function: u16, #[in] accessMode: IOControlAccessMode, #[in] bufferingMethod: IOControlBufferingMethod) -> IOControlCode;
             }
-            #[guid(0xee5479c2_5448_45da_ad1b_24948c239094)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(KnownDeviceTypes)]
+            #[guid(0xee5479c2_5448_45da_ad1b_24948c239094)]
             interface IKnownDeviceTypesStatics {
                 #[get]
                 Unknown: u16;
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[repr(i32)]
             enum IOControlAccessMode {
                 Any = 0,
                 Read = 1,
                 Write = 2,
                 ReadWrite = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[repr(i32)]
             enum IOControlBufferingMethod {
                 Buffered = 0,
                 DirectInput = 1,

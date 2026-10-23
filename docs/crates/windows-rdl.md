@@ -52,11 +52,21 @@ value, or architecture equivalence.
 
 ## RDL syntax
 
-Parameter direction is explicit: `in`, `out`, both, or neither. No attributes means unspecified
+The shared formatter sorts each owner's attributes alphabetically by full name, case-sensitively.
+This applies to both clang publication and metadata-to-RDL output. Equal-name attributes retain
+their relative order because some reader paths use the first occurrence. Arguments are not sorted.
+
+Win32 parameter direction is explicit: `in`, `out`, both, or neither. No attributes means unspecified
 direction, regardless of pointer mutability or typedef spelling. `opt` is independent. The writer
 and clang share `emit::write_param_direction`, which does not inspect types or suppress flags.
 Unflagged or absent metadata parameter rows need no marker. Property setters and event
 add/remove methods have input parameters by their member contracts, not by type inference.
+
+WinRT interface methods and delegates require exactly one of `#[in]` or `#[out]` on every
+explicit argument. The reader rejects missing or combined directions at the argument's source
+location, naming its interface/delegate, method and parameter. Return values, `&self`, and
+metadata attribute constructors are not subject to this rule. Prefer explicit directions in
+Win32 authoring too, but retain unspecified direction when the native contract is unknown.
 
 This reader does not accept `direction(unspecified)` or apply legacy direction defaults. Existing
 inputs must materialize their old flags before migrating. The repository migration preserves
@@ -463,7 +473,9 @@ sequences stop the write with a diagnostic.
 Direction and optionality come from `MethodParam::direction()` and `is_optional()`. Reserved,
 retval, and count attributes remain independent pseudos or custom attributes. The writer applies
 RDL's format boundary only when spelling them: In+Out emits both markers, while Unspecified emits
-neither. Optionality remains independent in all four direction states.
+neither. Optionality remains independent in all four Win32 direction states. The writer does not
+repair invalid WinRT metadata: emitted RDL with missing or combined WinRT argument directions is
+rejected when compiled.
 
 `test_rdl::method_params` authors sparse and out-of-order rows directly, checks parameter and
 return pseudos in the generated RDL, and compiles the RDL back to dense metadata with the same

@@ -23,13 +23,13 @@ mod Windows {
         #[library("qwave.dll")]
         extern fn QOSEnumerateFlows(#[in] QOSHandle: HANDLE, #[in] #[out] Size: PULONG, #[out] #[writable(entry, bytes(*Size))] Buffer: PVOID) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSNotifyFlow(#[in] QOSHandle: HANDLE, #[in] FlowId: QOS_FLOWID, #[in] Operation: QOS_NOTIFY_FLOW, #[in] #[out] #[opt] Size: PULONG, #[in] #[out] #[opt] #[writable(entry, bytes(if_present(*Size)))] Buffer: PVOID, #[reserved] Flags: DWORD, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn QOSNotifyFlow(#[in] QOSHandle: HANDLE, #[in] FlowId: QOS_FLOWID, #[in] Operation: QOS_NOTIFY_FLOW, #[in] #[opt] #[out] Size: PULONG, #[in] #[opt] #[out] #[writable(entry, bytes(if_present(*Size)))] Buffer: PVOID, #[reserved] Flags: DWORD, #[opt] #[out] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSQueryFlow(#[in] QOSHandle: HANDLE, #[in] FlowId: QOS_FLOWID, #[in] Operation: QOS_QUERY_FLOW, #[in] #[out] Size: PULONG, #[out] #[writable(entry, bytes(*Size))] Buffer: PVOID, #[in] #[opt] Flags: DWORD, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn QOSQueryFlow(#[in] QOSHandle: HANDLE, #[in] FlowId: QOS_FLOWID, #[in] Operation: QOS_QUERY_FLOW, #[in] #[out] Size: PULONG, #[out] #[writable(entry, bytes(*Size))] Buffer: PVOID, #[in] #[opt] Flags: DWORD, #[opt] #[out] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("qwave.dll")]
         extern fn QOSRemoveSocketFromFlow(#[in] QOSHandle: HANDLE, #[in] #[opt] Socket: SOCKET, #[in] FlowId: QOS_FLOWID, #[reserved] Flags: DWORD) -> BOOL;
         #[library("qwave.dll")]
-        extern fn QOSSetFlow(#[in] QOSHandle: HANDLE, #[in] FlowId: QOS_FLOWID, #[in] Operation: QOS_SET_FLOW, #[in] Size: ULONG, #[in] #[readable(entry, bytes(Size))] Buffer: PVOID, #[reserved] Flags: DWORD, #[out] #[opt] Overlapped: LPOVERLAPPED) -> BOOL;
+        extern fn QOSSetFlow(#[in] QOSHandle: HANDLE, #[in] FlowId: QOS_FLOWID, #[in] Operation: QOS_SET_FLOW, #[in] Size: ULONG, #[in] #[readable(entry, bytes(Size))] Buffer: PVOID, #[reserved] Flags: DWORD, #[opt] #[out] Overlapped: LPOVERLAPPED) -> BOOL;
         #[library("qwave.dll")]
         extern fn QOSStartTrackingClient(#[in] QOSHandle: HANDLE, #[in] DestAddr: PSOCKADDR, #[reserved] Flags: DWORD) -> BOOL;
         #[library("qwave.dll")]

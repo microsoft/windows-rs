@@ -2,11 +2,11 @@
 mod Windows {
     mod Win32 {
         const DCE_C_ERROR_STRING_LEN: i32 = 256;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn DceErrorInqTextA(#[in] RpcStatus: RPC_STATUS, #[out] #[writable(entry, 256)] ErrorText: RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn DceErrorInqTextW(#[in] RpcStatus: RPC_STATUS, #[out] #[writable(entry, 256)] ErrorText: RPC_WSTR) -> RPC_STATUS;
         type PRPC_BINDING_HANDLE_OPTIONS_V1 = *mut RPC_BINDING_HANDLE_OPTIONS_V1;
         type PRPC_BINDING_HANDLE_SECURITY_V1_A = *mut RPC_BINDING_HANDLE_SECURITY_V1_A;
@@ -52,8 +52,8 @@ mod Windows {
             ComTimeout: u32,
             CallTimeout: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_BINDING_HANDLE_OPTIONS_V1 {
             Version: u32,
             Flags: u32,
@@ -69,8 +69,8 @@ mod Windows {
             AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
             SecurityQos: *mut RPC_SECURITY_QOS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_BINDING_HANDLE_SECURITY_V1_A {
             Version: u32,
             ServerPrincName: *mut u8,
@@ -88,8 +88,8 @@ mod Windows {
             AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
             SecurityQos: *mut RPC_SECURITY_QOS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_BINDING_HANDLE_SECURITY_V1_W {
             Version: u32,
             ServerPrincName: *mut u16,
@@ -110,8 +110,8 @@ mod Windows {
             },
             ObjectUuid: UUID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
             Version: u32,
             Flags: u32,
@@ -135,8 +135,8 @@ mod Windows {
             },
             ObjectUuid: UUID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
             Version: u32,
             Flags: u32,
@@ -154,8 +154,8 @@ mod Windows {
             #[writable(Count)]
             BindingH: [RPC_BINDING_HANDLE; 1],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_BINDING_VECTOR {
             Count: u32,
             #[writable(Count)]
@@ -168,8 +168,8 @@ mod Windows {
             Privilege: u16,
             AuthFlags: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CLIENT_INFORMATION1 {
             UserName: *mut u8,
             ComputerName: *mut u8,
@@ -304,8 +304,8 @@ mod Windows {
             SecurityDescriptor: *mut void,
             Backlog: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_ENDPOINT_TEMPLATEA {
             Version: u32,
             ProtSeq: RPC_CSTR,
@@ -321,8 +321,8 @@ mod Windows {
             SecurityDescriptor: *mut void,
             Backlog: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_ENDPOINT_TEMPLATEW {
             Version: u32,
             ProtSeq: RPC_WSTR,
@@ -350,8 +350,8 @@ mod Windows {
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u8,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
             Flags: u32,
@@ -372,8 +372,8 @@ mod Windows {
             NumberOfProxyAuthnSchemes: u32,
             ProxyAuthnSchemes: *mut u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
             Flags: u32,
@@ -399,8 +399,8 @@ mod Windows {
             #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             Flags: u32,
@@ -428,8 +428,8 @@ mod Windows {
             #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
             TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
             Flags: u32,
@@ -457,8 +457,8 @@ mod Windows {
             #[writable(NumberOfProxyAuthnSchemes)]
             ProxyAuthnSchemes: *mut u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
             TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
             Flags: u32,
@@ -481,8 +481,8 @@ mod Windows {
             AuthnSchemes: *mut u32,
             ServerCertificateSubject: *mut u16,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
             TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
             Flags: u32,
@@ -506,8 +506,8 @@ mod Windows {
             VersMajor: u16,
             VersMinor: u16,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_IF_ID {
             Uuid: UUID,
             VersMajor: u16,
@@ -518,8 +518,8 @@ mod Windows {
             Count: u32,
             IfId: [*mut RPC_IF_ID; 1],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_IF_ID_VECTOR {
             Count: u32,
             IfId: [*mut RPC_IF_ID; 1],
@@ -543,8 +543,8 @@ mod Windows {
             Annotation: RPC_CSTR,
             SecurityDescriptor: *mut void,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_INTERFACE_TEMPLATEA {
             Version: u32,
             IfSpec: RPC_IF_HANDLE,
@@ -572,8 +572,8 @@ mod Windows {
             Annotation: RPC_WSTR,
             SecurityDescriptor: *mut void,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_INTERFACE_TEMPLATEW {
             Version: u32,
             IfSpec: RPC_IF_HANDLE,
@@ -588,7 +588,7 @@ mod Windows {
             SecurityDescriptor: *mut void,
         }
         extern fn RPC_MGMT_AUTHORIZATION_FN(#[in] ClientBinding: RPC_BINDING_HANDLE, #[in] RequestedMgmtOperation: u32, #[out] Status: *mut RPC_STATUS) -> i32;
-        extern fn RPC_NEW_HTTP_PROXY_CHANNEL(#[in] RedirectorStage: RPC_HTTP_REDIRECTOR_STAGE, #[in] ServerName: RPC_WSTR, #[in] ServerPort: RPC_WSTR, #[in] #[opt] RemoteUser: RPC_WSTR, #[in] #[opt] AuthType: RPC_WSTR, #[in] #[out] ResourceUuid: *mut void, #[in] #[out] SessionId: *mut void, #[in] #[opt] Interface: *mut void, #[in] #[opt] Reserved: *mut void, #[in] Flags: u32, #[out] #[opt] #[out_ptr] NewServerName: *mut RPC_WSTR, #[out] #[opt] #[out_ptr] NewServerPort: *mut RPC_WSTR) -> RPC_STATUS;
+        extern fn RPC_NEW_HTTP_PROXY_CHANNEL(#[in] RedirectorStage: RPC_HTTP_REDIRECTOR_STAGE, #[in] ServerName: RPC_WSTR, #[in] ServerPort: RPC_WSTR, #[in] #[opt] RemoteUser: RPC_WSTR, #[in] #[opt] AuthType: RPC_WSTR, #[in] #[out] ResourceUuid: *mut void, #[in] #[out] SessionId: *mut void, #[in] #[opt] Interface: *mut void, #[in] #[opt] Reserved: *mut void, #[in] Flags: u32, #[opt] #[out] #[out_ptr] NewServerName: *mut RPC_WSTR, #[opt] #[out] #[out_ptr] NewServerPort: *mut RPC_WSTR) -> RPC_STATUS;
         extern fn RPC_OBJECT_INQ_FN(#[in] ObjectUuid: *mut UUID, #[out] TypeUuid: *mut UUID, #[out] Status: *mut RPC_STATUS);
         #[arch(X86)]
         struct RPC_POLICY {
@@ -596,8 +596,8 @@ mod Windows {
             EndpointFlags: u32,
             NICFlags: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_POLICY {
             Length: u32,
             EndpointFlags: u32,
@@ -612,8 +612,8 @@ mod Windows {
             Count: u32,
             Protseq: [*mut u8; 1],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_PROTSEQ_VECTORA {
             Count: u32,
             Protseq: [*mut u8; 1],
@@ -623,8 +623,8 @@ mod Windows {
             Count: u32,
             Protseq: [*mut u16; 1],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_PROTSEQ_VECTORW {
             Count: u32,
             Protseq: [*mut u16; 1],
@@ -637,8 +637,8 @@ mod Windows {
             IdentityTracking: u32,
             ImpersonationType: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS {
             Version: u32,
             Capabilities: u32,
@@ -656,8 +656,8 @@ mod Windows {
                 HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V2_A {
             Version: u32,
             Capabilities: u32,
@@ -679,8 +679,8 @@ mod Windows {
                 HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V2_W {
             Version: u32,
             Capabilities: u32,
@@ -703,8 +703,8 @@ mod Windows {
             },
             Sid: *mut void,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V3_A {
             Version: u32,
             Capabilities: u32,
@@ -728,8 +728,8 @@ mod Windows {
             },
             Sid: *mut void,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V3_W {
             Version: u32,
             Capabilities: u32,
@@ -754,8 +754,8 @@ mod Windows {
             Sid: *mut void,
             EffectiveOnly: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V4_A {
             Version: u32,
             Capabilities: u32,
@@ -781,8 +781,8 @@ mod Windows {
             Sid: *mut void,
             EffectiveOnly: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V4_W {
             Version: u32,
             Capabilities: u32,
@@ -809,8 +809,8 @@ mod Windows {
             EffectiveOnly: u32,
             ServerSecurityDescriptor: *mut void,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V5_A {
             Version: u32,
             Capabilities: u32,
@@ -838,8 +838,8 @@ mod Windows {
             EffectiveOnly: u32,
             ServerSecurityDescriptor: *mut void,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_SECURITY_QOS_V5_W {
             Version: u32,
             Capabilities: u32,
@@ -858,16 +858,16 @@ mod Windows {
             Count: u32,
             Stats: [u32; 1],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_STATS_VECTOR {
             Count: u32,
             Stats: [u32; 1],
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type RPC_WSTR = *mut u16;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingCopy(#[in] SourceBinding: RPC_BINDING_HANDLE, #[out] DestinationBinding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcBindingCreateA(#[in] Template: *mut RPC_BINDING_HANDLE_TEMPLATE_V1_A, #[in] #[opt] Security: *mut RPC_BINDING_HANDLE_SECURITY_V1_A, #[in] #[opt] Options: *mut RPC_BINDING_HANDLE_OPTIONS_V1, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
@@ -875,233 +875,233 @@ mod Windows {
         extern fn RpcBindingCreateW(#[in] Template: *mut RPC_BINDING_HANDLE_TEMPLATE_V1_W, #[in] #[opt] Security: *mut RPC_BINDING_HANDLE_SECURITY_V1_W, #[in] #[opt] Options: *mut RPC_BINDING_HANDLE_OPTIONS_V1, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcBindingFree(#[in] #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingFromStringBindingA(#[in] StringBinding: RPC_CSTR, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingFromStringBindingW(#[in] StringBinding: RPC_WSTR, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
         #[must_use]
+        extern fn RpcBindingInqAuthClientA(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthzSvc: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientA(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthClientExA(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthzSvc: *mut u32, #[in] Flags: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientExA(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32, #[in] Flags: u32) -> RPC_STATUS;
+        extern fn RpcBindingInqAuthClientExW(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthzSvc: *mut u32, #[in] Flags: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientExW(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32, #[in] Flags: u32) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcBindingInqAuthClientW(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthzSvc: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthClientW(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] Privs: *mut RPC_AUTHZ_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcBindingInqAuthInfoA(#[in] Binding: RPC_BINDING_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] #[out] AuthzSvc: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoA(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcBindingInqAuthInfoExA(#[in] Binding: RPC_BINDING_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] #[out] AuthzSvc: *mut u32, #[in] RpcQosVersion: u32, #[opt] #[out] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoExA(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_CSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32, #[in] RpcQosVersion: u32, #[out] #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcBindingInqAuthInfoExW(#[in] Binding: RPC_BINDING_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] #[out] AuthzSvc: *mut u32, #[in] RpcQosVersion: u32, #[opt] #[out] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoExW(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32, #[in] RpcQosVersion: u32, #[out] #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcBindingInqAuthInfoW(#[in] Binding: RPC_BINDING_HANDLE, #[opt] #[out] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[opt] #[out] AuthnLevel: *mut u32, #[opt] #[out] AuthnSvc: *mut u32, #[opt] #[out] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[opt] #[out] AuthzSvc: *mut u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcBindingInqAuthInfoW(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[opt] #[out_ptr] ServerPrincName: *mut RPC_WSTR, #[out] #[opt] AuthnLevel: *mut u32, #[out] #[opt] AuthnSvc: *mut u32, #[out] #[opt] AuthIdentity: *mut RPC_AUTH_IDENTITY_HANDLE, #[out] #[opt] AuthzSvc: *mut u32) -> RPC_STATUS;
         #[must_use]
-        #[library("RPCRT4.dll")]
         extern fn RpcBindingInqMaxCalls(#[in] Binding: RPC_BINDING_HANDLE, #[out] MaxCalls: *mut u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingInqObject(#[in] Binding: RPC_BINDING_HANDLE, #[out] ObjectUuid: *mut UUID) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingInqOption(#[in] hBinding: RPC_BINDING_HANDLE, #[in] option: u32, #[out] pOptionValue: *mut ULONG_PTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingReset(#[in] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingServerFromClient(#[in] #[opt] ClientBinding: RPC_BINDING_HANDLE, #[out] ServerBinding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingSetAuthInfoA(#[in] Binding: RPC_BINDING_HANDLE, #[in] #[opt] ServerPrincName: RPC_CSTR, #[in] AuthnLevel: u32, #[in] AuthnSvc: u32, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] AuthzSvc: u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingSetAuthInfoExA(#[in] Binding: RPC_BINDING_HANDLE, #[in] #[opt] ServerPrincName: RPC_CSTR, #[in] AuthnLevel: u32, #[in] AuthnSvc: u32, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] AuthzSvc: u32, #[in] #[opt] SecurityQos: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingSetAuthInfoExW(#[in] Binding: RPC_BINDING_HANDLE, #[in] #[opt] ServerPrincName: RPC_WSTR, #[in] AuthnLevel: u32, #[in] AuthnSvc: u32, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] AuthzSvc: u32, #[in] #[opt] SecurityQOS: *mut RPC_SECURITY_QOS) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingSetAuthInfoW(#[in] Binding: RPC_BINDING_HANDLE, #[in] #[opt] ServerPrincName: RPC_WSTR, #[in] AuthnLevel: u32, #[in] AuthnSvc: u32, #[in] #[opt] AuthIdentity: RPC_AUTH_IDENTITY_HANDLE, #[in] AuthzSvc: u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingSetObject(#[in] Binding: RPC_BINDING_HANDLE, #[in] ObjectUuid: *mut UUID) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingSetOption(#[in] hBinding: RPC_BINDING_HANDLE, #[in] option: u32, #[in] optionValue: ULONG_PTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingToStringBindingA(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[out_ptr] StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcBindingToStringBindingW(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[out_ptr] StringBinding: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcBindingVectorFree(#[in] #[out] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcCancelThread(#[in] Thread: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcCancelThreadEx(#[in] Thread: *mut void, #[in] Timeout: i32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcEpRegisterA(#[in] IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[in] #[opt] Annotation: RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcEpRegisterNoReplaceA(#[in] IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[in] #[opt] Annotation: RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcEpRegisterNoReplaceW(#[in] IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[in] #[opt] Annotation: RPC_WSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcEpRegisterW(#[in] IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR, #[in] #[opt] Annotation: RPC_WSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcEpResolveBinding(#[in] Binding: RPC_BINDING_HANDLE, #[in] IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcEpUnregister(#[in] IfSpec: RPC_IF_HANDLE, #[in] BindingVector: *mut RPC_BINDING_VECTOR, #[in] #[opt] UuidVector: *mut UUID_VECTOR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcExceptionFilter(#[in] ExceptionCode: u32) -> i32;
         #[library("RPCRT4.dll")]
         extern fn RpcIfIdVectorFree(#[in] #[out] IfIdVector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcIfInqId(#[in] RpcIfHandle: RPC_IF_HANDLE, #[out] RpcIfId: *mut RPC_IF_ID) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcImpersonateClient(#[in] #[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcImpersonateClient2(#[in] #[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcImpersonateClientContainer(#[in] #[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtEpEltInqBegin(#[in] #[opt] EpBinding: RPC_BINDING_HANDLE, #[in] InquiryType: u32, #[in] #[opt] IfId: *mut RPC_IF_ID, #[in] #[opt] VersOption: u32, #[in] #[opt] ObjectUuid: *mut UUID, #[out] InquiryContext: *mut RPC_EP_INQ_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtEpEltInqDone(#[in] #[out] InquiryContext: *mut RPC_EP_INQ_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtEpEltInqNextA(#[in] InquiryContext: RPC_EP_INQ_HANDLE, #[out] IfId: *mut RPC_IF_ID, #[out] #[opt] Binding: *mut RPC_BINDING_HANDLE, #[out] #[opt] ObjectUuid: *mut UUID, #[out] #[opt] #[out_ptr] Annotation: *mut RPC_CSTR) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcMgmtEpEltInqNextA(#[in] InquiryContext: RPC_EP_INQ_HANDLE, #[out] IfId: *mut RPC_IF_ID, #[opt] #[out] Binding: *mut RPC_BINDING_HANDLE, #[opt] #[out] ObjectUuid: *mut UUID, #[opt] #[out] #[out_ptr] Annotation: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcMgmtEpEltInqNextW(#[in] InquiryContext: RPC_EP_INQ_HANDLE, #[out] IfId: *mut RPC_IF_ID, #[out] #[opt] Binding: *mut RPC_BINDING_HANDLE, #[out] #[opt] ObjectUuid: *mut UUID, #[out] #[opt] #[out_ptr] Annotation: *mut RPC_WSTR) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcMgmtEpEltInqNextW(#[in] InquiryContext: RPC_EP_INQ_HANDLE, #[out] IfId: *mut RPC_IF_ID, #[opt] #[out] Binding: *mut RPC_BINDING_HANDLE, #[opt] #[out] ObjectUuid: *mut UUID, #[opt] #[out] #[out_ptr] Annotation: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtEpUnregister(#[in] #[opt] EpBinding: RPC_BINDING_HANDLE, #[in] IfId: *mut RPC_IF_ID, #[in] Binding: RPC_BINDING_HANDLE, #[in] #[opt] ObjectUuid: *mut UUID) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtInqComTimeout(#[in] Binding: RPC_BINDING_HANDLE, #[out] Timeout: *mut u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtInqDefaultProtectLevel(#[in] AuthnSvc: u32, #[out] AuthnLevel: *mut u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtInqIfIds(#[in] #[opt] Binding: RPC_BINDING_HANDLE, #[out] #[out_ptr] IfIdVector: *mut *mut RPC_IF_ID_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtInqServerPrincNameA(#[in] #[opt] Binding: RPC_BINDING_HANDLE, #[in] AuthnSvc: u32, #[out] #[out_ptr] ServerPrincName: *mut RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtInqServerPrincNameW(#[in] #[opt] Binding: RPC_BINDING_HANDLE, #[in] AuthnSvc: u32, #[out] #[out_ptr] ServerPrincName: *mut RPC_WSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtInqStats(#[in] #[opt] Binding: RPC_BINDING_HANDLE, #[out] #[out_ptr] Statistics: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtIsServerListening(#[in] #[opt] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtSetAuthorizationFn(#[in] AuthorizationFn: RPC_MGMT_AUTHORIZATION_FN) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtSetCancelTimeout(#[in] Timeout: i32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtSetComTimeout(#[in] Binding: RPC_BINDING_HANDLE, #[in] Timeout: u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtSetServerStackSize(#[in] ThreadStackSize: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcMgmtStatsVectorFree(#[in] #[out] StatsVector: *mut *mut RPC_STATS_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtStopServerListening(#[in] #[opt] Binding: RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcMgmtWaitServerListen() -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcNetworkInqProtseqsA(#[out] #[out_ptr] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcNetworkInqProtseqsW(#[out] #[out_ptr] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcNetworkIsProtseqValidA(#[in] Protseq: RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcNetworkIsProtseqValidW(#[in] Protseq: RPC_WSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcNsBindingInqEntryNameA(#[in] Binding: RPC_BINDING_HANDLE, #[in] EntryNameSyntax: u32, #[out] #[out_ptr] EntryName: *mut RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcNsBindingInqEntryNameW(#[in] Binding: RPC_BINDING_HANDLE, #[in] EntryNameSyntax: u32, #[out] #[out_ptr] EntryName: *mut RPC_WSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
-        extern fn RpcObjectInqType(#[in] ObjUuid: *mut UUID, #[out] #[opt] TypeUuid: *mut UUID) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcObjectInqType(#[in] ObjUuid: *mut UUID, #[opt] #[out] TypeUuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcObjectSetInqFn(#[in] InquiryFn: RPC_OBJECT_INQ_FN) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcObjectSetType(#[in] ObjUuid: *mut UUID, #[in] #[opt] TypeUuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcProtseqVectorFreeA(#[in] #[out] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORA) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcProtseqVectorFreeW(#[in] #[out] ProtseqVector: *mut *mut RPC_PROTSEQ_VECTORW) -> RPC_STATUS;
+        #[library("RPCRT4.dll")]
         #[noreturn]
-        #[library("RPCRT4.dll")]
         extern fn RpcRaiseException(#[in] exception: RPC_STATUS);
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcRevertContainerImpersonation() -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcRevertToSelf() -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcRevertToSelfEx(#[in] #[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerCompleteSecurityCallback(#[in] BindingHandle: RPC_BINDING_HANDLE, #[in] Status: RPC_STATUS) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerInqBindingHandle(#[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerInqBindings(#[out] #[out_ptr] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerInqBindingsEx(#[in] #[opt] SecurityDescriptor: *mut void, #[out] #[out_ptr] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerInqDefaultPrincNameA(#[in] AuthnSvc: u32, #[out] #[out_ptr] PrincName: *mut RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerInqDefaultPrincNameW(#[in] AuthnSvc: u32, #[out] #[out_ptr] PrincName: *mut RPC_WSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerInqIf(#[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut UUID, #[out] #[out_ptr] MgrEpv: *mut *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerInterfaceGroupActivate(#[in] IfGroup: RPC_INTERFACE_GROUP) -> RPC_STATUS;
@@ -1115,80 +1115,80 @@ mod Windows {
         extern fn RpcServerInterfaceGroupDeactivate(#[in] IfGroup: RPC_INTERFACE_GROUP, #[in] ForceDeactivation: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerInterfaceGroupInqBindings(#[in] IfGroup: RPC_INTERFACE_GROUP, #[out] #[out_ptr] BindingVector: *mut *mut RPC_BINDING_VECTOR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerListen(#[in] MinimumCallThreads: u32, #[in] MaxCalls: u32, #[in] DontWait: u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerRegisterAuthInfoA(#[in] #[opt] ServerPrincName: RPC_CSTR, #[in] AuthnSvc: u32, #[in] #[opt] GetKeyFn: RPC_AUTH_KEY_RETRIEVAL_FN, #[in] #[opt] Arg: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerRegisterAuthInfoW(#[in] #[opt] ServerPrincName: RPC_WSTR, #[in] AuthnSvc: u32, #[in] #[opt] GetKeyFn: RPC_AUTH_KEY_RETRIEVAL_FN, #[in] #[opt] Arg: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerRegisterIf(#[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut UUID, #[in] #[opt] MgrEpv: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerRegisterIf2(#[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut UUID, #[in] #[opt] MgrEpv: *mut void, #[in] Flags: u32, #[in] MaxCalls: u32, #[in] MaxRpcSize: u32, #[in] #[opt] IfCallbackFn: RPC_IF_CALLBACK_FN) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerRegisterIf3(#[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut UUID, #[in] #[opt] MgrEpv: *mut void, #[in] Flags: u32, #[in] MaxCalls: u32, #[in] MaxRpcSize: u32, #[in] #[opt] IfCallback: RPC_IF_CALLBACK_FN, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerRegisterIfEx(#[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut UUID, #[in] #[opt] MgrEpv: *mut void, #[in] Flags: u32, #[in] MaxCalls: u32, #[in] #[opt] IfCallback: RPC_IF_CALLBACK_FN) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerTestCancel(#[in] #[opt] BindingHandle: RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUnregisterIf(#[in] #[opt] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut UUID, #[in] WaitForCallsToComplete: u32) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerUnregisterIfEx(#[in] #[opt] IfSpec: RPC_IF_HANDLE, #[in] #[opt] MgrTypeUuid: *mut UUID, #[in] RundownContextHandles: i32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseAllProtseqs(#[in] MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseAllProtseqsEx(#[in] MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseAllProtseqsIf(#[in] MaxCalls: u32, #[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseAllProtseqsIfEx(#[in] MaxCalls: u32, #[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqA(#[in] Protseq: RPC_CSTR, #[in] MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqEpA(#[in] Protseq: RPC_CSTR, #[in] MaxCalls: u32, #[in] Endpoint: RPC_CSTR, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqEpExA(#[in] Protseq: RPC_CSTR, #[in] MaxCalls: u32, #[in] Endpoint: RPC_CSTR, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqEpExW(#[in] Protseq: RPC_WSTR, #[in] MaxCalls: u32, #[in] Endpoint: RPC_WSTR, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqEpW(#[in] Protseq: RPC_WSTR, #[in] MaxCalls: u32, #[in] Endpoint: RPC_WSTR, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqExA(#[in] Protseq: RPC_CSTR, #[in] MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqExW(#[in] Protseq: RPC_WSTR, #[in] MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqIfA(#[in] Protseq: RPC_CSTR, #[in] MaxCalls: u32, #[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqIfExA(#[in] Protseq: RPC_CSTR, #[in] MaxCalls: u32, #[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqIfExW(#[in] Protseq: RPC_WSTR, #[in] MaxCalls: u32, #[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void, #[in] Policy: PRPC_POLICY) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqIfW(#[in] Protseq: RPC_WSTR, #[in] MaxCalls: u32, #[in] IfSpec: RPC_IF_HANDLE, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcServerUseProtseqW(#[in] Protseq: RPC_WSTR, #[in] MaxCalls: u32, #[in] #[opt] SecurityDescriptor: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcServerYield();
@@ -1196,24 +1196,24 @@ mod Windows {
         extern fn RpcSsDontSerializeContext();
         #[library("RPCRT4.dll")]
         extern fn RpcSsGetContextBinding(#[in] ContextHandle: *mut void, #[out] Binding: *mut RPC_BINDING_HANDLE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingComposeA(#[in] #[opt] ObjUuid: RPC_CSTR, #[in] #[opt] ProtSeq: RPC_CSTR, #[in] #[opt] NetworkAddr: RPC_CSTR, #[in] #[opt] Endpoint: RPC_CSTR, #[in] #[opt] Options: RPC_CSTR, #[out] #[opt] #[out_ptr] StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcStringBindingComposeA(#[in] #[opt] ObjUuid: RPC_CSTR, #[in] #[opt] ProtSeq: RPC_CSTR, #[in] #[opt] NetworkAddr: RPC_CSTR, #[in] #[opt] Endpoint: RPC_CSTR, #[in] #[opt] Options: RPC_CSTR, #[opt] #[out] #[out_ptr] StringBinding: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingComposeW(#[in] #[opt] ObjUuid: RPC_WSTR, #[in] #[opt] ProtSeq: RPC_WSTR, #[in] #[opt] NetworkAddr: RPC_WSTR, #[in] #[opt] Endpoint: RPC_WSTR, #[in] #[opt] Options: RPC_WSTR, #[out] #[opt] #[out_ptr] StringBinding: *mut RPC_WSTR) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcStringBindingComposeW(#[in] #[opt] ObjUuid: RPC_WSTR, #[in] #[opt] ProtSeq: RPC_WSTR, #[in] #[opt] NetworkAddr: RPC_WSTR, #[in] #[opt] Endpoint: RPC_WSTR, #[in] #[opt] Options: RPC_WSTR, #[opt] #[out] #[out_ptr] StringBinding: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingParseA(#[in] StringBinding: RPC_CSTR, #[out] #[opt] #[out_ptr] ObjUuid: *mut RPC_CSTR, #[out] #[opt] #[out_ptr] Protseq: *mut RPC_CSTR, #[out] #[opt] #[out_ptr] NetworkAddr: *mut RPC_CSTR, #[out] #[opt] #[out_ptr] Endpoint: *mut RPC_CSTR, #[out] #[opt] #[out_ptr] NetworkOptions: *mut RPC_CSTR) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcStringBindingParseA(#[in] StringBinding: RPC_CSTR, #[opt] #[out] #[out_ptr] ObjUuid: *mut RPC_CSTR, #[opt] #[out] #[out_ptr] Protseq: *mut RPC_CSTR, #[opt] #[out] #[out_ptr] NetworkAddr: *mut RPC_CSTR, #[opt] #[out] #[out_ptr] Endpoint: *mut RPC_CSTR, #[opt] #[out] #[out_ptr] NetworkOptions: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn RpcStringBindingParseW(#[in] StringBinding: RPC_WSTR, #[out] #[opt] #[out_ptr] ObjUuid: *mut RPC_WSTR, #[out] #[opt] #[out_ptr] Protseq: *mut RPC_WSTR, #[out] #[opt] #[out_ptr] NetworkAddr: *mut RPC_WSTR, #[out] #[opt] #[out_ptr] Endpoint: *mut RPC_WSTR, #[out] #[opt] #[out_ptr] NetworkOptions: *mut RPC_WSTR) -> RPC_STATUS;
+        #[must_use]
+        extern fn RpcStringBindingParseW(#[in] StringBinding: RPC_WSTR, #[opt] #[out] #[out_ptr] ObjUuid: *mut RPC_WSTR, #[opt] #[out] #[out_ptr] Protseq: *mut RPC_WSTR, #[opt] #[out] #[out_ptr] NetworkAddr: *mut RPC_WSTR, #[opt] #[out] #[out_ptr] Endpoint: *mut RPC_WSTR, #[opt] #[out] #[out_ptr] NetworkOptions: *mut RPC_WSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcStringFreeA(#[in] #[out] String: *mut RPC_CSTR) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcStringFreeW(#[in] #[out] String: *mut RPC_WSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcTestCancel() -> RPC_STATUS;
         #[arch(X86)]
         struct SEC_WINNT_AUTH_IDENTITY_A {
@@ -1228,8 +1228,8 @@ mod Windows {
             PasswordLength: u32,
             Flags: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SEC_WINNT_AUTH_IDENTITY_A {
             #[writable(UserLength + 1)]
             User: *mut u8,
@@ -1257,8 +1257,8 @@ mod Windows {
             PasswordLength: u32,
             Flags: u32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct SEC_WINNT_AUTH_IDENTITY_W {
             #[Windows::Win32::Metadata::NativeSal("2", "_Field_size_bytes_", "(UserLength+1)*sizeof(WCHAR)", "(UserLength+1)*sizeof(WCHAR)")]
             User: *mut u16,
@@ -1278,8 +1278,8 @@ mod Windows {
             #[writable(Count)]
             Uuid: [*mut UUID; 1],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct UUID_VECTOR {
             Count: u32,
             #[writable(Count)]
@@ -1287,31 +1287,31 @@ mod Windows {
         }
         #[library("RPCRT4.dll")]
         extern fn UuidCompare(#[in] Uuid1: *mut UUID, #[in] Uuid2: *mut UUID, #[out] Status: *mut RPC_STATUS) -> i32;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn UuidCreate(#[out] Uuid: *mut UUID) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn UuidCreateNil(#[out] NilUuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn UuidCreateSequential(#[out] Uuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn UuidEqual(#[in] Uuid1: *mut UUID, #[in] Uuid2: *mut UUID, #[out] Status: *mut RPC_STATUS) -> i32;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn UuidFromStringA(#[in] #[opt] StringUuid: RPC_CSTR, #[out] Uuid: *mut UUID) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn UuidFromStringW(#[in] #[opt] StringUuid: RPC_WSTR, #[out] Uuid: *mut UUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn UuidHash(#[in] Uuid: *mut UUID, #[out] Status: *mut RPC_STATUS) -> u16;
         #[library("RPCRT4.dll")]
         extern fn UuidIsNil(#[in] Uuid: *mut UUID, #[out] Status: *mut RPC_STATUS) -> i32;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn UuidToStringA(#[in] Uuid: *const UUID, #[out] #[out_ptr] StringUuid: *mut RPC_CSTR) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn UuidToStringW(#[in] Uuid: *const UUID, #[out] #[out_ptr] StringUuid: *mut RPC_WSTR) -> RPC_STATUS;
         type handle_t = *mut void;
     }

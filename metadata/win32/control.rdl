@@ -7,7 +7,7 @@ mod Windows {
         interface IAMCollection: IDispatch {
             fn get_Count(&self, #[out] #[retval] plCount: *mut LONG) -> HRESULT;
             fn Item(&self, #[in] lItem: i32, #[out] #[out_ptr] ppUnk: *mut IUnknown) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xbc9bcf80_dcd2_11d2_abf6_00a0c905f375)]
         interface IAMStats: IDispatch {
@@ -74,12 +74,12 @@ mod Windows {
         #[guid(0x56a868ba_0ad4_11ce_b03a_0020af0ba770)]
         interface IFilterInfo: IDispatch {
             fn FindPin(&self, #[in] strPinID: BSTR, #[out] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] strName: *mut BSTR) -> HRESULT;
-            fn get_VendorInfo(&self, #[out] #[retval] #[out_ptr] strVendorInfo: *mut BSTR) -> HRESULT;
-            fn get_Filter(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IUnknown) -> HRESULT;
-            fn get_Pins(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] strName: *mut BSTR) -> HRESULT;
+            fn get_VendorInfo(&self, #[out] #[out_ptr] #[retval] strVendorInfo: *mut BSTR) -> HRESULT;
+            fn get_Filter(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn get_Pins(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             fn get_IsFileSource(&self, #[out] #[retval] pbIsSource: *mut LONG) -> HRESULT;
-            fn get_Filename(&self, #[out] #[retval] #[out_ptr] pstrFilename: *mut BSTR) -> HRESULT;
+            fn get_Filename(&self, #[out] #[out_ptr] #[retval] pstrFilename: *mut BSTR) -> HRESULT;
             fn put_Filename(&self, #[in] strFilename: BSTR) -> HRESULT;
         }
         const IID_IAMCollection: GUID = 0x56a868b9_0ad4_11ce_b03a_0020af0ba770;
@@ -106,8 +106,8 @@ mod Windows {
             fn GetState(&self, #[in] msTimeout: LONG, #[out] pfs: *mut OAFilterState) -> HRESULT;
             fn RenderFile(&self, #[in] strFilename: BSTR) -> HRESULT;
             fn AddSourceFilter(&self, #[in] strFilename: BSTR, #[out] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
-            fn get_FilterCollection(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
-            fn get_RegFilterCollection(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_FilterCollection(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_RegFilterCollection(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             fn StopWhenReady(&self) -> HRESULT;
         }
         #[guid(0x56a868b6_0ad4_11ce_b03a_0020af0ba770)]
@@ -141,19 +141,19 @@ mod Windows {
         }
         #[guid(0x56a868bc_0ad4_11ce_b03a_0020af0ba770)]
         interface IMediaTypeInfo: IDispatch {
-            fn get_Type(&self, #[out] #[retval] #[out_ptr] strType: *mut BSTR) -> HRESULT;
-            fn get_Subtype(&self, #[out] #[retval] #[out_ptr] strType: *mut BSTR) -> HRESULT;
+            fn get_Type(&self, #[out] #[out_ptr] #[retval] strType: *mut BSTR) -> HRESULT;
+            fn get_Subtype(&self, #[out] #[out_ptr] #[retval] strType: *mut BSTR) -> HRESULT;
         }
         #[guid(0x56a868bd_0ad4_11ce_b03a_0020af0ba770)]
         interface IPinInfo: IDispatch {
-            fn get_Pin(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IUnknown) -> HRESULT;
-            fn get_ConnectedTo(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
-            fn get_ConnectionMediaType(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
-            fn get_FilterInfo(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut BSTR) -> HRESULT;
+            fn get_Pin(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IUnknown) -> HRESULT;
+            fn get_ConnectedTo(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_ConnectionMediaType(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_FilterInfo(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut BSTR) -> HRESULT;
             fn get_Direction(&self, #[out] #[retval] ppDirection: *mut LONG) -> HRESULT;
-            fn get_PinID(&self, #[out] #[retval] #[out_ptr] strPinID: *mut BSTR) -> HRESULT;
-            fn get_MediaTypes(&self, #[out] #[retval] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
+            fn get_PinID(&self, #[out] #[out_ptr] #[retval] strPinID: *mut BSTR) -> HRESULT;
+            fn get_MediaTypes(&self, #[out] #[out_ptr] #[retval] ppUnk: *mut IDispatch) -> HRESULT;
             fn Connect(&self, #[in] #[opt] pPin: IUnknown) -> HRESULT;
             fn ConnectDirect(&self, #[in] #[opt] pPin: IUnknown) -> HRESULT;
             fn ConnectWithType(&self, #[in] #[opt] pPin: IUnknown, #[in] #[opt] pMediaType: IDispatch) -> HRESULT;
@@ -167,13 +167,13 @@ mod Windows {
         }
         #[guid(0x56a868bb_0ad4_11ce_b03a_0020af0ba770)]
         interface IRegFilterInfo: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] strName: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] strName: *mut BSTR) -> HRESULT;
             fn Filter(&self, #[out] #[out_ptr] ppUnk: *mut IDispatch) -> HRESULT;
         }
         #[guid(0x56a868b4_0ad4_11ce_b03a_0020af0ba770)]
         interface IVideoWindow: IDispatch {
             fn put_Caption(&self, #[in] strCaption: BSTR) -> HRESULT;
-            fn get_Caption(&self, #[out] #[retval] #[out_ptr] strCaption: *mut BSTR) -> HRESULT;
+            fn get_Caption(&self, #[out] #[out_ptr] #[retval] strCaption: *mut BSTR) -> HRESULT;
             fn put_WindowStyle(&self, #[in] WindowStyle: i32) -> HRESULT;
             fn get_WindowStyle(&self, #[out] #[retval] WindowStyle: *mut i32) -> HRESULT;
             fn put_WindowStyleEx(&self, #[in] WindowStyleEx: i32) -> HRESULT;

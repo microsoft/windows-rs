@@ -113,7 +113,7 @@ mod Windows {
         extern fn NtDeviceIoControlFile(FileHandle: HANDLE, Event: HANDLE, ApcRoutine: PIO_APC_ROUTINE, ApcContext: PVOID, IoStatusBlock: PIO_STATUS_BLOCK, IoControlCode: ULONG, InputBuffer: PVOID, InputBufferLength: ULONG, OutputBuffer: PVOID, OutputBufferLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtNotifyChangeMultipleKeys(#[in] MasterKeyHandle: HANDLE, #[in] #[opt] Count: ULONG, #[in] #[opt] #[readable(entry, Count)] SubordinateObjects: *mut OBJECT_ATTRIBUTES, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] CompletionFilter: ULONG, #[in] WatchTree: BOOLEAN, #[out] #[opt] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: ULONG, #[in] Asynchronous: BOOLEAN) -> NTSTATUS;
+        extern fn NtNotifyChangeMultipleKeys(#[in] MasterKeyHandle: HANDLE, #[in] #[opt] Count: ULONG, #[in] #[opt] #[readable(entry, Count)] SubordinateObjects: *mut OBJECT_ATTRIBUTES, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] CompletionFilter: ULONG, #[in] WatchTree: BOOLEAN, #[opt] #[out] #[writable(entry, bytes(BufferSize))] Buffer: PVOID, #[in] BufferSize: ULONG, #[in] Asynchronous: BOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
         extern fn NtOpenFile(FileHandle: PHANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: POBJECT_ATTRIBUTES, IoStatusBlock: PIO_STATUS_BLOCK, ShareAccess: ULONG, OpenOptions: ULONG) -> NTSTATUS;
@@ -125,10 +125,10 @@ mod Windows {
         extern fn NtQueryInformationThread(ThreadHandle: HANDLE, ThreadInformationClass: THREADINFOCLASS, ThreadInformation: PVOID, ThreadInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQueryMultipleValueKey(#[in] KeyHandle: HANDLE, #[in] #[out] #[writable(entry, EntryCount)] ValueEntries: PKEY_VALUE_ENTRY, #[in] EntryCount: ULONG, #[out] #[writable(entry, bytes(*BufferLength))] ValueBuffer: PVOID, #[in] #[out] BufferLength: PULONG, #[out] #[opt] RequiredBufferLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryMultipleValueKey(#[in] KeyHandle: HANDLE, #[in] #[out] #[writable(entry, EntryCount)] ValueEntries: PKEY_VALUE_ENTRY, #[in] EntryCount: ULONG, #[out] #[writable(entry, bytes(*BufferLength))] ValueBuffer: PVOID, #[in] #[out] BufferLength: PULONG, #[opt] #[out] RequiredBufferLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
-        extern fn NtQueryObject(#[in] #[opt] Handle: HANDLE, #[in] ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[out] #[opt] #[writable(entry, bytes(ObjectInformationLength))] ObjectInformation: PVOID, #[in] ObjectInformationLength: ULONG, #[out] #[opt] ReturnLength: PULONG) -> NTSTATUS;
+        extern fn NtQueryObject(#[in] #[opt] Handle: HANDLE, #[in] ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[opt] #[out] #[writable(entry, bytes(ObjectInformationLength))] ObjectInformation: PVOID, #[in] ObjectInformationLength: ULONG, #[opt] #[out] ReturnLength: PULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
         #[library("ntdll.dll")]
         extern fn NtQuerySystemInformation(SystemInformationClass: SYSTEM_INFORMATION_CLASS, SystemInformation: PVOID, SystemInformationLength: ULONG, ReturnLength: PULONG) -> NTSTATUS;

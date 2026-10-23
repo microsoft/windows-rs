@@ -434,7 +434,7 @@ mod Windows {
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn ComputeLength(&self, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, flatteningTolerance: FLOAT, #[out] length: *mut FLOAT) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn ComputePointAtLength(&self, length: FLOAT, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, flatteningTolerance: FLOAT, #[out] #[opt] point: *mut D2D1_POINT_2F, #[out] #[opt] unitTangentVector: *mut D2D1_POINT_2F) -> HRESULT;
+            fn ComputePointAtLength(&self, length: FLOAT, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, flatteningTolerance: FLOAT, #[opt] #[out] point: *mut D2D1_POINT_2F, #[opt] #[out] unitTangentVector: *mut D2D1_POINT_2F) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn Widen(&self, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle, #[in] #[opt] worldTransform: *const D2D1_MATRIX_3X2_F, flatteningTolerance: FLOAT, #[in] geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
         }
@@ -569,10 +569,10 @@ mod Windows {
             fn GetTextRenderingParams(&self, #[out] #[out_ptr(nullable)] textRenderingParams: *mut IDWriteRenderingParams);
             fn SetTags(&self, tag1: D2D1_TAG, tag2: D2D1_TAG);
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetTags(&self, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG);
+            fn GetTags(&self, #[opt] #[out] tag1: *mut D2D1_TAG, #[opt] #[out] tag2: *mut D2D1_TAG);
             fn PushLayer(&self, #[in] layerParameters: *const D2D1_LAYER_PARAMETERS, #[in] #[opt] layer: ID2D1Layer);
             fn PopLayer(&self);
-            fn Flush(&self, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn Flush(&self, #[opt] #[out] tag1: *mut D2D1_TAG, #[opt] #[out] tag2: *mut D2D1_TAG) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn SaveDrawingState(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] drawingStateBlock: ID2D1DrawingStateBlock);
             fn RestoreDrawingState(&self, #[in] drawingStateBlock: ID2D1DrawingStateBlock);
@@ -580,7 +580,7 @@ mod Windows {
             fn PopAxisAlignedClip(&self);
             fn Clear(&self, #[in] #[opt] clearColor: *const D2D1_COLOR_F);
             fn BeginDraw(&self);
-            fn EndDraw(&self, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn EndDraw(&self, #[opt] #[out] tag1: *mut D2D1_TAG, #[opt] #[out] tag2: *mut D2D1_TAG) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPixelFormat(&self) -> D2D1_PIXEL_FORMAT;
             fn SetDpi(&self, dpiX: FLOAT, dpiY: FLOAT);

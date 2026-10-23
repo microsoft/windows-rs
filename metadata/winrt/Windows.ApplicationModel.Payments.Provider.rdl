@@ -3,33 +3,33 @@ mod Windows {
     mod ApplicationModel {
         mod Payments {
             mod Provider {
-                #[guid(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentAppCanMakePaymentTriggerDetails)]
+                #[guid(0x0ce201f0_8b93_4eb6_8c46_2e4a6c6a26f6)]
                 interface IPaymentAppCanMakePaymentTriggerDetails {
                     #[get]
                     Request: super::PaymentRequest;
                     fn ReportCanMakePaymentResult(&self, #[in] value: super::PaymentCanMakePaymentResult);
                 }
-                #[guid(0x0e47aa53_8521_4969_a957_df2538a3a98f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentAppManager)]
+                #[guid(0x0e47aa53_8521_4969_a957_df2538a3a98f)]
                 interface IPaymentAppManager {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RegisterAsync(&self, #[in] supportedPaymentMethodIds: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn UnregisterAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentAppManager)]
+                #[guid(0xa341ac28_fc89_4406_b4d9_34e7fe79dfb6)]
                 interface IPaymentAppManagerStatics {
                     #[get]
                     Current: PaymentAppManager;
                 }
-                #[guid(0x62581da0_26a5_4e9b_a6eb_66606cf001d3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransaction)]
+                #[guid(0x62581da0_26a5_4e9b_a6eb_66606cf001d3)]
                 interface IPaymentTransaction {
                     #[get]
                     PaymentRequest: super::PaymentRequest;
@@ -44,16 +44,16 @@ mod Windows {
                     fn AcceptAsync(&self, #[in] paymentToken: super::PaymentToken) -> super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>;
                     fn Reject(&self);
                 }
-                #[guid(0x060e3276_d30c_4817_95a2_df7ae9273b56)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransactionAcceptResult)]
+                #[guid(0x060e3276_d30c_4817_95a2_df7ae9273b56)]
                 interface IPaymentTransactionAcceptResult {
                     #[get]
                     Status: super::PaymentRequestCompletionStatus;
                 }
-                #[guid(0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PaymentTransaction)]
+                #[guid(0x8d639750_ee0a_4df5_9b1e_1c0f9ec59881)]
                 interface IPaymentTransactionStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FromIdAsync(&self, #[in] id: String) -> super::super::super::Foundation::IAsyncOperation<PaymentTransaction>;

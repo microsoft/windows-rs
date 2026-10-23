@@ -578,11 +578,11 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfConnectSyncRoot(#[in] SyncRootPath: LPCWSTR, #[in] CallbackTable: *const CF_CALLBACK_REGISTRATION, #[in] #[opt] CallbackContext: LPCVOID, #[in] ConnectFlags: CF_CONNECT_FLAGS, #[out] ConnectionKey: *mut CF_CONNECTION_KEY) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfConvertToPlaceholder(#[in] FileHandle: HANDLE, #[in] #[opt] #[readable(entry, bytes(FileIdentityLength))] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[in] ConvertFlags: CF_CONVERT_FLAGS, #[out] #[opt] ConvertUsn: *mut USN, #[in] #[out] #[opt] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfConvertToPlaceholder(#[in] FileHandle: HANDLE, #[in] #[opt] #[readable(entry, bytes(FileIdentityLength))] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[in] ConvertFlags: CF_CONVERT_FLAGS, #[opt] #[out] ConvertUsn: *mut USN, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfCreatePlaceholders(#[in] BaseDirectoryPath: LPCWSTR, #[in] #[out] #[writable(entry, PlaceholderCount)] PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO, #[in] PlaceholderCount: DWORD, #[in] CreateFlags: CF_CREATE_FLAGS, #[out] #[opt] EntriesProcessed: PDWORD) -> HRESULT;
+        extern fn CfCreatePlaceholders(#[in] BaseDirectoryPath: LPCWSTR, #[in] #[out] #[writable(entry, PlaceholderCount)] PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO, #[in] PlaceholderCount: DWORD, #[in] CreateFlags: CF_CREATE_FLAGS, #[opt] #[out] EntriesProcessed: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfDehydratePlaceholder(#[in] FileHandle: HANDLE, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[in] DehydrateFlags: CF_DEHYDRATE_FLAGS, #[in] #[out] #[opt] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfDehydratePlaceholder(#[in] FileHandle: HANDLE, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[in] DehydrateFlags: CF_DEHYDRATE_FLAGS, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfDisconnectSyncRoot(#[in] ConnectionKey: CF_CONNECTION_KEY) -> HRESULT;
         #[library("cldapi.dll")]
@@ -590,11 +590,11 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfGetCorrelationVector(#[in] FileHandle: HANDLE, #[out] CorrelationVector: PCORRELATION_VECTOR) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_INFO_CLASS, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_bytecapcount_", "InfoBufferLength", "InfoBufferLength")] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[out] #[opt] ReturnedLength: PDWORD) -> HRESULT;
+        extern fn CfGetPlaceholderInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_INFO_CLASS, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_bytecapcount_", "InfoBufferLength", "InfoBufferLength")] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderRangeInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_bytecapcount_", "InfoBufferLength", "InfoBufferLength")] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[out] #[opt] ReturnedLength: PDWORD) -> HRESULT;
+        extern fn CfGetPlaceholderRangeInfo(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_bytecapcount_", "InfoBufferLength", "InfoBufferLength")] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetPlaceholderRangeInfoForHydration(#[in] ConnectionKey: CF_CONNECTION_KEY, #[in] TransferKey: CF_TRANSFER_KEY, #[in] FileId: LARGE_INTEGER, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] RangeLength: LARGE_INTEGER, #[out] #[writable(entry, bytes(InfoBufferSize))] #[readable(success, bytes(if_present(*InfoBufferWritten)))] InfoBuffer: PVOID, #[in] InfoBufferSize: DWORD, #[out] #[opt] InfoBufferWritten: PDWORD) -> HRESULT;
+        extern fn CfGetPlaceholderRangeInfoForHydration(#[in] ConnectionKey: CF_CONNECTION_KEY, #[in] TransferKey: CF_TRANSFER_KEY, #[in] FileId: LARGE_INTEGER, #[in] InfoClass: CF_PLACEHOLDER_RANGE_INFO_CLASS, #[in] StartingOffset: LARGE_INTEGER, #[in] RangeLength: LARGE_INTEGER, #[out] #[readable(success, bytes(if_present(*InfoBufferWritten)))] #[writable(entry, bytes(InfoBufferSize))] InfoBuffer: PVOID, #[in] InfoBufferSize: DWORD, #[opt] #[out] InfoBufferWritten: PDWORD) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfGetPlaceholderStateFromAttributeTag(#[in] FileAttributes: DWORD, #[in] ReparseTag: DWORD) -> CF_PLACEHOLDER_STATE;
         #[library("cldapi.dll")]
@@ -604,15 +604,15 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfGetPlatformInfo(#[out] PlatformVersion: *mut CF_PLATFORM_INFO) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetSyncRootInfoByHandle(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_SYNC_ROOT_INFO_CLASS, #[out] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[out] #[opt] ReturnedLength: *mut DWORD) -> HRESULT;
+        extern fn CfGetSyncRootInfoByHandle(#[in] FileHandle: HANDLE, #[in] InfoClass: CF_SYNC_ROOT_INFO_CLASS, #[out] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: *mut DWORD) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfGetSyncRootInfoByPath(#[in] FilePath: LPCWSTR, #[in] InfoClass: CF_SYNC_ROOT_INFO_CLASS, #[out] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[out] #[opt] ReturnedLength: *mut DWORD) -> HRESULT;
+        extern fn CfGetSyncRootInfoByPath(#[in] FilePath: LPCWSTR, #[in] InfoClass: CF_SYNC_ROOT_INFO_CLASS, #[out] InfoBuffer: PVOID, #[in] InfoBufferLength: DWORD, #[opt] #[out] ReturnedLength: *mut DWORD) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfGetTransferKey(#[in] FileHandle: HANDLE, #[out] TransferKey: *mut CF_TRANSFER_KEY) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfGetWin32HandleFromProtectedHandle(#[in] ProtectedHandle: HANDLE) -> HANDLE;
         #[library("cldapi.dll")]
-        extern fn CfHydratePlaceholder(#[in] FileHandle: HANDLE, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[in] HydrateFlags: CF_HYDRATE_FLAGS, #[in] #[out] #[opt] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfHydratePlaceholder(#[in] FileHandle: HANDLE, #[in] StartingOffset: LARGE_INTEGER, #[in] Length: LARGE_INTEGER, #[in] HydrateFlags: CF_HYDRATE_FLAGS, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfOpenFileWithOplock(#[in] FilePath: LPCWSTR, #[in] Flags: CF_OPEN_FILE_FLAGS, #[out] ProtectedHandle: PHANDLE) -> HRESULT;
         #[library("cldapi.dll")]
@@ -630,17 +630,17 @@ mod Windows {
         #[library("cldapi.dll")]
         extern fn CfReportSyncStatus(#[in] SyncRootPath: LPCWSTR, #[in] #[opt] SyncStatus: *mut CF_SYNC_STATUS) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfRevertPlaceholder(#[in] FileHandle: HANDLE, #[in] RevertFlags: CF_REVERT_FLAGS, #[in] #[out] #[opt] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfRevertPlaceholder(#[in] FileHandle: HANDLE, #[in] RevertFlags: CF_REVERT_FLAGS, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfSetCorrelationVector(#[in] FileHandle: HANDLE, #[in] CorrelationVector: PCORRELATION_VECTOR) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfSetInSyncState(#[in] FileHandle: HANDLE, #[in] InSyncState: CF_IN_SYNC_STATE, #[in] InSyncFlags: CF_SET_IN_SYNC_FLAGS, #[in] #[out] #[opt] InSyncUsn: *mut USN) -> HRESULT;
+        extern fn CfSetInSyncState(#[in] FileHandle: HANDLE, #[in] InSyncState: CF_IN_SYNC_STATE, #[in] InSyncFlags: CF_SET_IN_SYNC_FLAGS, #[in] #[opt] #[out] InSyncUsn: *mut USN) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfSetPinState(#[in] FileHandle: HANDLE, #[in] PinState: CF_PIN_STATE, #[in] PinFlags: CF_SET_PIN_FLAGS, #[in] #[out] #[opt] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfSetPinState(#[in] FileHandle: HANDLE, #[in] PinState: CF_PIN_STATE, #[in] PinFlags: CF_SET_PIN_FLAGS, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfUnregisterSyncRoot(#[in] SyncRootPath: LPCWSTR) -> HRESULT;
         #[library("cldapi.dll")]
-        extern fn CfUpdatePlaceholder(#[in] FileHandle: HANDLE, #[in] #[opt] FsMetadata: *const CF_FS_METADATA, #[in] #[opt] #[readable(entry, bytes(FileIdentityLength))] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[in] #[opt] #[readable(entry, DehydrateRangeCount)] DehydrateRangeArray: *const CF_FILE_RANGE, #[in] DehydrateRangeCount: DWORD, #[in] UpdateFlags: CF_UPDATE_FLAGS, #[in] #[out] #[opt] UpdateUsn: *mut USN, #[in] #[out] #[opt] Overlapped: LPOVERLAPPED) -> HRESULT;
+        extern fn CfUpdatePlaceholder(#[in] FileHandle: HANDLE, #[in] #[opt] FsMetadata: *const CF_FS_METADATA, #[in] #[opt] #[readable(entry, bytes(FileIdentityLength))] FileIdentity: LPCVOID, #[in] FileIdentityLength: DWORD, #[in] #[opt] #[readable(entry, DehydrateRangeCount)] DehydrateRangeArray: *const CF_FILE_RANGE, #[in] DehydrateRangeCount: DWORD, #[in] UpdateFlags: CF_UPDATE_FLAGS, #[in] #[opt] #[out] UpdateUsn: *mut USN, #[in] #[opt] #[out] Overlapped: LPOVERLAPPED) -> HRESULT;
         #[library("cldapi.dll")]
         extern fn CfUpdateSyncProviderStatus(#[in] ConnectionKey: CF_CONNECTION_KEY, #[in] ProviderStatus: CF_SYNC_PROVIDER_STATUS) -> HRESULT;
         type PCF_CONNECTION_KEY = *mut CF_CONNECTION_KEY;

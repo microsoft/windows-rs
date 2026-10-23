@@ -445,8 +445,8 @@ mod Windows {
         struct NTSCSI_UNICODE_STRING {
             Length: USHORT,
             MaximumLength: USHORT,
-            #[writable(bytes(MaximumLength), nullable)]
             #[readable(bytes(Length), nullable)]
+            #[writable(bytes(MaximumLength), nullable)]
             Buffer: PWCH,
         }
         #[packed(1)]
@@ -681,8 +681,8 @@ mod Windows {
             DataInTransferLength: ULONG,
             DataOutBufferOffset: ULONG32,
             DataInBufferOffset: ULONG32,
-            #[writable(bytes(CdbLength))]
             #[readable(bytes(CdbLength))]
+            #[writable(bytes(CdbLength))]
             Cdb: [UCHAR; 1],
         }
         struct SCSI_PASS_THROUGH_DIRECT {
@@ -714,14 +714,14 @@ mod Windows {
             SenseInfoOffset: ULONG,
             DataOutTransferLength: ULONG,
             DataInTransferLength: ULONG,
-            #[writable(bytes(DataOutTransferLength))]
             #[readable(bytes(DataOutTransferLength))]
+            #[writable(bytes(DataOutTransferLength))]
             DataOutBuffer: *mut void,
-            #[writable(bytes(DataInTransferLength), nullable)]
             #[readable(bytes(DataInTransferLength), nullable)]
+            #[writable(bytes(DataInTransferLength), nullable)]
             DataInBuffer: *mut void,
-            #[writable(bytes(CdbLength))]
             #[readable(bytes(CdbLength))]
+            #[writable(bytes(CdbLength))]
             Cdb: [UCHAR; 1],
         }
         struct SCSI_PASS_THROUGH_EX {
@@ -740,8 +740,8 @@ mod Windows {
             DataInTransferLength: ULONG,
             DataOutBufferOffset: ULONG_PTR,
             DataInBufferOffset: ULONG_PTR,
-            #[writable(bytes(CdbLength))]
             #[readable(bytes(CdbLength))]
+            #[writable(bytes(CdbLength))]
             Cdb: [UCHAR; 1],
         }
         struct SRB_IO_CONTROL {

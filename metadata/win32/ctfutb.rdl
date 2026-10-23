@@ -4,7 +4,7 @@ mod Windows {
         #[guid(0x583f34d0_de25_11d2_afdd_00105a2799b5)]
         interface IEnumTfLangBarItems: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfLangBarItems) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, ulCount)] ppItem: *mut ITfLangBarItem, #[in] #[out] #[opt] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, ulCount)] #[writable(entry, ulCount)] #[writable(success, ulCount)] ppItem: *mut ITfLangBarItem, #[in] #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
@@ -62,10 +62,10 @@ mod Windows {
             fn AdviseItemSink(&self, #[in] #[opt] punk: ITfLangBarItemSink, #[out] pdwCookie: *mut DWORD, #[in] rguidItem: &GUID) -> HRESULT;
             fn UnadviseItemSink(&self, #[in] dwCookie: DWORD) -> HRESULT;
             fn GetItemFloatingRect(&self, #[in] dwThreadId: DWORD, #[in] rguid: &GUID, #[out] prc: *mut RECT) -> HRESULT;
-            fn GetItemsStatus(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] prgguid: *const GUID, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, ulCount)] pdwStatus: *mut DWORD) -> HRESULT;
+            fn GetItemsStatus(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] prgguid: *const GUID, #[out] #[readable(success, ulCount)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pdwStatus: *mut DWORD) -> HRESULT;
             fn GetItemNum(&self, #[out] pulCount: *mut ULONG) -> HRESULT;
-            fn GetItems(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, if_present(*pcFetched))] ppItem: *mut ITfLangBarItem, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, if_present(*pcFetched))] pInfo: *mut TF_LANGBARITEMINFO, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, if_present(*pcFetched))] pdwStatus: *mut DWORD, #[in] #[out] #[opt] pcFetched: *mut ULONG) -> HRESULT;
-            fn AdviseItemsSink(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] ppunk: *mut ITfLangBarItemSink, #[in] #[readable(entry, ulCount)] pguidItem: *const GUID, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, ulCount)] pdwCookie: *mut DWORD) -> HRESULT;
+            fn GetItems(&self, #[in] ulCount: ULONG, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, ulCount)] #[writable(success, ulCount)] ppItem: *mut ITfLangBarItem, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, ulCount)] #[writable(success, ulCount)] pInfo: *mut TF_LANGBARITEMINFO, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, ulCount)] #[writable(success, ulCount)] pdwStatus: *mut DWORD, #[in] #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn AdviseItemsSink(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] ppunk: *mut ITfLangBarItemSink, #[in] #[readable(entry, ulCount)] pguidItem: *const GUID, #[out] #[readable(success, ulCount)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pdwCookie: *mut DWORD) -> HRESULT;
             fn UnadviseItemsSink(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] pdwCookie: *mut DWORD) -> HRESULT;
         }
         #[guid(0x57dbe1a0_de25_11d2_afdd_00105a2799b5)]
@@ -76,7 +76,7 @@ mod Windows {
         interface ITfLangBarMgr: IUnknown {
             fn AdviseEventSink(&self, #[in] #[opt] pSink: ITfLangBarEventSink, #[in] hwnd: HWND, #[in] dwFlags: DWORD, #[in] pdwCookie: *mut DWORD) -> HRESULT;
             fn UnadviseEventSink(&self, #[in] dwCookie: DWORD) -> HRESULT;
-            fn GetThreadMarshalInterface(&self, #[in] dwThreadId: DWORD, #[in] dwType: DWORD, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetThreadMarshalInterface(&self, #[in] dwThreadId: DWORD, #[in] dwType: DWORD, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
             fn GetThreadLangBarItemMgr(&self, #[in] dwThreadId: DWORD, #[out] #[out_ptr] pplbi: *mut ITfLangBarItemMgr, #[out] pdwThreadid: *mut DWORD) -> HRESULT;
             fn GetInputProcessorProfiles(&self, #[in] dwThreadId: DWORD, #[out] #[out_ptr] ppaip: *mut ITfInputProcessorProfiles, #[out] pdwThreadid: *mut DWORD) -> HRESULT;
             fn RestoreLastFocus(&self, #[out] pdwThreadId: *mut DWORD, #[in] fPrev: BOOL) -> HRESULT;
@@ -86,7 +86,7 @@ mod Windows {
         }
         #[guid(0x6f8a98e4_aaa0_4f15_8c5b_07e0df0a3dd8)]
         interface ITfMenu: IUnknown {
-            fn AddMenuItem(&self, #[in] uId: UINT, #[in] dwFlags: DWORD, #[in] hbmp: HBITMAP, #[in] hbmpMask: HBITMAP, #[in] #[opt] #[readable(entry, cch)] pch: *const WCHAR, #[in] cch: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppMenu: *mut ITfMenu) -> HRESULT;
+            fn AddMenuItem(&self, #[in] uId: UINT, #[in] dwFlags: DWORD, #[in] hbmp: HBITMAP, #[in] hbmpMask: HBITMAP, #[in] #[opt] #[readable(entry, cch)] pch: *const WCHAR, #[in] cch: ULONG, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppMenu: *mut ITfMenu) -> HRESULT;
         }
         #[guid(0x45672eb9_9059_46a2_838d_4530355f6a77)]
         interface ITfSystemDeviceTypeLangBarItem: IUnknown {

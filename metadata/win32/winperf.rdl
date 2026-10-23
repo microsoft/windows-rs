@@ -17,8 +17,8 @@ mod Windows {
         }
         const PERF_COUNTER_BULK_COUNT: i32 = 272696576;
         const PERF_COUNTER_COUNTER: i32 = 272696320;
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PERF_COUNTER_DEFINITION {
             ByteLength: DWORD,
             CounterNameTitleIndex: DWORD,
@@ -31,8 +31,8 @@ mod Windows {
             CounterSize: DWORD,
             CounterOffset: DWORD,
         }
-        #[packed(8)]
         #[arch(X86)]
+        #[packed(8)]
         struct PERF_COUNTER_DEFINITION {
             ByteLength: DWORD,
             CounterNameTitleIndex: DWORD,
@@ -121,8 +121,8 @@ mod Windows {
         const PERF_NUMBER_DEC_1000: i32 = 131072;
         const PERF_NUMBER_HEX: i32 = 0;
         const PERF_OBJECT_TIMER: i32 = 2097152;
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct PERF_OBJECT_TYPE {
             TotalByteLength: DWORD,
             DefinitionLength: DWORD,
@@ -139,8 +139,8 @@ mod Windows {
             PerfTime: LARGE_INTEGER,
             PerfFreq: LARGE_INTEGER,
         }
-        #[packed(8)]
         #[arch(X86)]
+        #[packed(8)]
         struct PERF_OBJECT_TYPE {
             TotalByteLength: DWORD,
             DefinitionLength: DWORD,

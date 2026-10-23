@@ -23,29 +23,29 @@ mod Windows {
         class Colors {
             IColors,
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         #[guid(0x193cfbe7_65c7_4540_ad08_6283ba76879a)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         interface IColorHelper {}
-        #[guid(0x8504dbea_fb6a_4144_a6c2_33499c9284f5)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        #[guid(0x8504dbea_fb6a_4144_a6c2_33499c9284f5)]
         interface IColorHelperStatics {
             fn FromArgb(&self, #[in] a: u8, #[in] r: u8, #[in] g: u8, #[in] b: u8) -> Color;
         }
-        #[guid(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        #[guid(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16)]
         interface IColorHelperStatics2 {
             fn ToDisplayName(&self, #[in] color: Color) -> String;
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Colors)]
         #[guid(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Colors)]
         interface IColors {}
-        #[guid(0xcff52e04_cca6_4614_a17e_754910c84a99)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Colors)]
+        #[guid(0xcff52e04_cca6_4614_a17e_754910c84a99)]
         interface IColorsStatics {
             #[get]
             AliceBlue: Color;
@@ -330,10 +330,10 @@ mod Windows {
             #[get]
             YellowGreen: Color;
         }
-        #[guid(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
         #[Windows::Foundation::Metadata::ExclusiveTo(UIContentRoot)]
         #[Windows::Foundation::Metadata::WebHostHidden]
+        #[guid(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378)]
         interface IUIContentRoot {
             #[get]
             UIContext: UIContext;

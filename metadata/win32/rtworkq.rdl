@@ -36,7 +36,7 @@ mod Windows {
             RTWQ_MULTITHREADED_WORKQUEUE = 2,
         }
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqAddPeriodicCallback(Callback: RTWQPERIODICCALLBACK, context: IUnknown, #[out] #[opt] key: *mut DWORD) -> HRESULT;
+        extern fn RtwqAddPeriodicCallback(Callback: RTWQPERIODICCALLBACK, context: IUnknown, #[opt] #[out] key: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqAllocateSerialWorkQueue(#[in] workQueueIdIn: DWORD, #[out] workQueueIdOut: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
@@ -54,7 +54,7 @@ mod Windows {
         #[library("RTWorkQ.DLL")]
         extern fn RtwqEndRegisterWorkQueueWithMMCSS(#[in] result: IRtwqAsyncResult, #[out] taskId: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqGetWorkQueueMMCSSClass(workQueueId: DWORD, #[out] #[opt] #[writable(entry, *usageClassLength)] #[readable(success, *usageClassLength)] usageClass: PWSTR, #[in] #[out] usageClassLength: *mut DWORD) -> HRESULT;
+        extern fn RtwqGetWorkQueueMMCSSClass(workQueueId: DWORD, #[opt] #[out] #[readable(success, *usageClassLength)] #[writable(entry, *usageClassLength)] usageClass: PWSTR, #[in] #[out] usageClassLength: *mut DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqGetWorkQueueMMCSSPriority(workQueueId: DWORD, #[out] priority: *mut LONG) -> HRESULT;
         #[library("RTWorkQ.DLL")]
@@ -70,7 +70,7 @@ mod Windows {
         #[library("RTWorkQ.DLL")]
         extern fn RtwqLockWorkQueue(#[in] workQueueId: DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqPutWaitingWorkItem(hEvent: HANDLE, lPriority: LONG, #[in] result: IRtwqAsyncResult, #[out] #[opt] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
+        extern fn RtwqPutWaitingWorkItem(hEvent: HANDLE, lPriority: LONG, #[in] result: IRtwqAsyncResult, #[opt] #[out] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqPutWorkItem(dwQueue: DWORD, lPriority: LONG, #[in] result: IRtwqAsyncResult) -> HRESULT;
         #[library("RTWorkQ.DLL")]
@@ -80,7 +80,7 @@ mod Windows {
         #[library("RTWorkQ.DLL")]
         extern fn RtwqRemovePeriodicCallback(dwKey: DWORD) -> HRESULT;
         #[library("RTWorkQ.DLL")]
-        extern fn RtwqScheduleWorkItem(result: IRtwqAsyncResult, Timeout: INT64, #[out] #[opt] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
+        extern fn RtwqScheduleWorkItem(result: IRtwqAsyncResult, Timeout: INT64, #[opt] #[out] key: *mut RTWQWORKITEM_KEY) -> HRESULT;
         #[library("RTWorkQ.DLL")]
         extern fn RtwqSetDeadline(workQueueId: DWORD, deadlineInHNS: LONGLONG, #[out] pRequest: *mut HANDLE) -> HRESULT;
         #[library("RTWorkQ.DLL")]

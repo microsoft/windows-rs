@@ -6,32 +6,32 @@ mod Windows {
         interface ICertServerExit: IDispatch {
             fn SetContext(&self, #[in] Context: LONG) -> HRESULT;
             fn GetRequestProperty(&self, #[in] strPropertyName: BSTR, #[in] PropertyType: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
-            fn GetRequestAttribute(&self, #[in] strAttributeName: BSTR, #[out] #[retval] #[out_ptr] pstrAttributeValue: *mut BSTR) -> HRESULT;
+            fn GetRequestAttribute(&self, #[in] strAttributeName: BSTR, #[out] #[out_ptr] #[retval] pstrAttributeValue: *mut BSTR) -> HRESULT;
             fn GetCertificateProperty(&self, #[in] strPropertyName: BSTR, #[in] PropertyType: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
             fn GetCertificateExtension(&self, #[in] strExtensionName: BSTR, #[in] Type: LONG, #[out] #[retval] pvarValue: *mut VARIANT) -> HRESULT;
             fn GetCertificateExtensionFlags(&self, #[out] #[retval] pExtFlags: *mut LONG) -> HRESULT;
             fn EnumerateExtensionsSetup(&self, #[in] Flags: LONG) -> HRESULT;
-            fn EnumerateExtensions(&self, #[out] #[retval] #[out_ptr] pstrExtensionName: *mut BSTR) -> HRESULT;
+            fn EnumerateExtensions(&self, #[out] #[out_ptr] #[retval] pstrExtensionName: *mut BSTR) -> HRESULT;
             fn EnumerateExtensionsClose(&self) -> HRESULT;
             fn EnumerateAttributesSetup(&self, #[in] Flags: LONG) -> HRESULT;
-            fn EnumerateAttributes(&self, #[out] #[retval] #[out_ptr] pstrAttributeName: *mut BSTR) -> HRESULT;
+            fn EnumerateAttributes(&self, #[out] #[out_ptr] #[retval] pstrAttributeName: *mut BSTR) -> HRESULT;
             fn EnumerateAttributesClose(&self) -> HRESULT;
         }
         #[guid(0xaa000922_ffbe_11cf_8800_00a0c903b83c)]
         interface ICertServerPolicy: IDispatch {
             fn SetContext(&self, #[in] Context: LONG) -> HRESULT;
             fn GetRequestProperty(&self, #[in] strPropertyName: BSTR, #[in] PropertyType: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
-            fn GetRequestAttribute(&self, #[in] strAttributeName: BSTR, #[out] #[retval] #[out_ptr] pstrAttributeValue: *mut BSTR) -> HRESULT;
+            fn GetRequestAttribute(&self, #[in] strAttributeName: BSTR, #[out] #[out_ptr] #[retval] pstrAttributeValue: *mut BSTR) -> HRESULT;
             fn GetCertificateProperty(&self, #[in] strPropertyName: BSTR, #[in] PropertyType: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
             fn SetCertificateProperty(&self, #[in] strPropertyName: BSTR, #[in] PropertyType: LONG, #[in] pvarPropertyValue: *const VARIANT) -> HRESULT;
             fn GetCertificateExtension(&self, #[in] strExtensionName: BSTR, #[in] Type: LONG, #[out] #[retval] pvarValue: *mut VARIANT) -> HRESULT;
             fn GetCertificateExtensionFlags(&self, #[out] #[retval] pExtFlags: *mut LONG) -> HRESULT;
             fn SetCertificateExtension(&self, #[in] strExtensionName: BSTR, #[in] Type: LONG, #[in] ExtFlags: LONG, #[in] pvarValue: *const VARIANT) -> HRESULT;
             fn EnumerateExtensionsSetup(&self, #[in] Flags: LONG) -> HRESULT;
-            fn EnumerateExtensions(&self, #[out] #[retval] #[out_ptr] pstrExtensionName: *mut BSTR) -> HRESULT;
+            fn EnumerateExtensions(&self, #[out] #[out_ptr] #[retval] pstrExtensionName: *mut BSTR) -> HRESULT;
             fn EnumerateExtensionsClose(&self) -> HRESULT;
             fn EnumerateAttributesSetup(&self, #[in] Flags: LONG) -> HRESULT;
-            fn EnumerateAttributes(&self, #[out] #[retval] #[out_ptr] pstrAttributeName: *mut BSTR) -> HRESULT;
+            fn EnumerateAttributes(&self, #[out] #[out_ptr] #[retval] pstrAttributeName: *mut BSTR) -> HRESULT;
             fn EnumerateAttributesClose(&self) -> HRESULT;
         }
     }

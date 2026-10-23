@@ -25,23 +25,23 @@ mod Windows {
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct EasContract {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasDisallowConvenienceLogonResult {
                 NotEvaluated = 0,
                 Compliant = 1,
                 CanBeCompliant = 2,
                 RequestedPolicyIsStricter = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasEncryptionProviderType {
                 NotEvaluated = 0,
                 WindowsEncryption = 1,
                 OtherEncryption = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasMaxInactivityTimeLockResult {
                 NotEvaluated = 0,
                 Compliant = 1,
@@ -49,8 +49,8 @@ mod Windows {
                 RequestedPolicyIsStricter = 3,
                 InvalidParameter = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasMaxPasswordFailedAttemptsResult {
                 NotEvaluated = 0,
                 Compliant = 1,
@@ -58,8 +58,8 @@ mod Windows {
                 RequestedPolicyIsStricter = 3,
                 InvalidParameter = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasMinPasswordComplexCharactersResult {
                 NotEvaluated = 0,
                 Compliant = 1,
@@ -77,8 +77,8 @@ mod Windows {
                 ChangeConnectedAdminsPassword = 13,
                 ChangeConnectedUserPassword = 14,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasMinPasswordLengthResult {
                 NotEvaluated = 0,
                 Compliant = 1,
@@ -96,8 +96,8 @@ mod Windows {
                 ChangeConnectedAdminsPassword = 13,
                 ChangeConnectedUserPassword = 14,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasPasswordExpirationResult {
                 NotEvaluated = 0,
                 Compliant = 1,
@@ -109,8 +109,8 @@ mod Windows {
                 AdminsCannotChangePassword = 7,
                 LocalControlledUsersCannotChangePassword = 8,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasPasswordHistoryResult {
                 NotEvaluated = 0,
                 Compliant = 1,
@@ -118,32 +118,45 @@ mod Windows {
                 RequestedPolicyIsStricter = 3,
                 InvalidParameter = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[repr(i32)]
             enum EasRequireEncryptionResult {
                 NotEvaluated = 0,
                 Compliant = 1,
                 CanBeCompliant = 2,
                 NotProvisionedOnAllVolumes = 3,
+                #[Windows::Foundation::Metadata::Deprecated("DeFixedDataNotSupported may be altered or unavailable for releases after Windows 8.1. Instead, use FixedDataNotSupported.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeFixedDataNotSupported = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 FixedDataNotSupported = 4,
+                #[Windows::Foundation::Metadata::Deprecated("DeHardwareNotCompliant may be altered or unavailable for releases after Windows 8.1. Instead, use HardwareNotCompliant.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeHardwareNotCompliant = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 HardwareNotCompliant = 5,
+                #[Windows::Foundation::Metadata::Deprecated("DeWinReNotConfigured may be altered or unavailable for releases after Windows 8.1. Instead, use LockNotConfigured.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeWinReNotConfigured = 6,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 LockNotConfigured = 6,
+                #[Windows::Foundation::Metadata::Deprecated("DeProtectionSuspended may be altered or unavailable for releases after Windows 8.1. Instead, use ProtectionSuspended.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeProtectionSuspended = 7,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 ProtectionSuspended = 7,
+                #[Windows::Foundation::Metadata::Deprecated("DeOsVolumeNotProtected may be altered or unavailable for releases after Windows 8.1. Instead, use OsVolumeNotProtected.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeOsVolumeNotProtected = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 OsVolumeNotProtected = 8,
+                #[Windows::Foundation::Metadata::Deprecated("DeProtectionNotYetEnabled may be altered or unavailable for releases after Windows 8.1. Instead, use ProtectionNotYetEnabled.", Deprecate, 65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
                 DeProtectionNotYetEnabled = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 ProtectionNotYetEnabled = 9,
                 NoFeatureLicense = 10,
                 OsNotProtected = 11,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Security.ExchangeActiveSyncProvisioning.EasContract", 65536)]
                 UnexpectedFailure = 12,
             }
-            #[guid(0x54dfd981_1968_4ca3_b958_e595d16505eb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EasClientDeviceInformation)]
+            #[guid(0x54dfd981_1968_4ca3_b958_e595d16505eb)]
             interface IEasClientDeviceInformation {
                 #[get]
                 Id: GUID;
@@ -158,18 +171,18 @@ mod Windows {
                 #[get]
                 SystemSku: String;
             }
-            #[guid(0xffb35923_bb26_4d6a_81bc_165aee0ad754)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EasClientDeviceInformation)]
+            #[guid(0xffb35923_bb26_4d6a_81bc_165aee0ad754)]
             interface IEasClientDeviceInformation2: IEasClientDeviceInformation {
                 #[get]
                 SystemHardwareVersion: String;
                 #[get]
                 SystemFirmwareVersion: String;
             }
-            #[guid(0x45b72362_dfba_4a9b_aced_6fe2adcb6420)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EasClientSecurityPolicy)]
+            #[guid(0x45b72362_dfba_4a9b_aced_6fe2adcb6420)]
             interface IEasClientSecurityPolicy {
                 RequireEncryption: bool;
                 MinPasswordLength: u8;
@@ -182,9 +195,9 @@ mod Windows {
                 fn CheckCompliance(&self) -> EasComplianceResults;
                 fn ApplyAsync(&self) -> super::super::Foundation::IAsyncOperation<EasComplianceResults>;
             }
-            #[guid(0x463c299c_7f19_4c66_b403_cb45dd57a2b3)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EasComplianceResults)]
+            #[guid(0x463c299c_7f19_4c66_b403_cb45dd57a2b3)]
             interface IEasComplianceResults {
                 #[get]
                 Compliant: bool;
@@ -205,9 +218,9 @@ mod Windows {
                 #[get]
                 MaxInactivityTimeLockResult: EasMaxInactivityTimeLockResult;
             }
-            #[guid(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(EasComplianceResults)]
+            #[guid(0x2fbe60c9_1aa8_47f5_88bb_cb3ef0bffb15)]
             interface IEasComplianceResults2: IEasComplianceResults {
                 #[get]
                 EncryptionProviderType: EasEncryptionProviderType;

@@ -8,7 +8,7 @@ mod Windows {
         extern fn GetAcceptExSockaddrs(#[in] #[readable(entry, bytes(dwReceiveDataLength + dwLocalAddressLength + dwRemoteAddressLength))] lpOutputBuffer: PVOID, #[in] dwReceiveDataLength: DWORD, #[in] dwLocalAddressLength: DWORD, #[in] dwRemoteAddressLength: DWORD, #[out] #[writable(success, bytes(*LocalSockaddrLength), indirect)] LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, #[out] #[writable(success, bytes(*RemoteSockaddrLength), indirect)] RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
         extern fn LPFN_ACCEPTEX(#[in] sListenSocket: SOCKET, #[in] sAcceptSocket: SOCKET, #[out] #[writable(entry, bytes(dwReceiveDataLength + dwLocalAddressLength + dwRemoteAddressLength))] lpOutputBuffer: PVOID, #[in] dwReceiveDataLength: DWORD, #[in] dwLocalAddressLength: DWORD, #[in] dwRemoteAddressLength: DWORD, #[out] lpdwBytesReceived: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         extern fn LPFN_CONNECTEX(#[in] s: SOCKET, #[in] #[readable(entry, bytes(namelen))] name: *const SOCKADDR, #[in] namelen: i32, #[in] #[opt] #[readable(entry, bytes(dwSendDataLength))] lpSendBuffer: PVOID, #[in] dwSendDataLength: DWORD, #[out] lpdwBytesSent: LPDWORD, #[in] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
-        extern fn LPFN_DISCONNECTEX(#[in] s: SOCKET, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> BOOL;
+        extern fn LPFN_DISCONNECTEX(#[in] s: SOCKET, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED, #[in] dwFlags: DWORD, #[in] dwReserved: DWORD) -> BOOL;
         extern fn LPFN_GETACCEPTEXSOCKADDRS(#[in] #[readable(entry, bytes(dwReceiveDataLength + dwLocalAddressLength + dwRemoteAddressLength))] lpOutputBuffer: PVOID, #[in] dwReceiveDataLength: DWORD, #[in] dwLocalAddressLength: DWORD, #[in] dwRemoteAddressLength: DWORD, #[out] #[writable(success, bytes(*LocalSockaddrLength), indirect)] LocalSockaddr: *mut *mut SOCKADDR, #[out] LocalSockaddrLength: LPINT, #[out] #[writable(success, bytes(*RemoteSockaddrLength), indirect)] RemoteSockaddr: *mut *mut SOCKADDR, #[out] RemoteSockaddrLength: LPINT);
         extern fn LPFN_RIOCLOSECOMPLETIONQUEUE(#[in] CQ: RIO_CQ);
         extern fn LPFN_RIOCREATECOMPLETIONQUEUE(#[in] QueueSize: DWORD, #[in] #[opt] NotificationCompletion: PRIO_NOTIFICATION_COMPLETION) -> RIO_CQ;
@@ -23,11 +23,11 @@ mod Windows {
         extern fn LPFN_RIORESIZEREQUESTQUEUE(#[in] RQ: RIO_RQ, #[in] MaxOutstandingReceive: DWORD, #[in] MaxOutstandingSend: DWORD) -> BOOL;
         extern fn LPFN_RIOSEND(#[in] SocketQueue: RIO_RQ, #[in] #[readable(entry, DataBufferCount)] pData: PRIO_BUF, #[in] DataBufferCount: ULONG, #[in] Flags: DWORD, #[in] #[opt] RequestContext: PVOID) -> BOOL;
         extern fn LPFN_RIOSENDEX(#[in] SocketQueue: RIO_RQ, #[in] #[readable(entry, DataBufferCount)] pData: PRIO_BUF, #[in] DataBufferCount: ULONG, #[in] #[opt] pLocalAddress: PRIO_BUF, #[in] #[opt] pRemoteAddress: PRIO_BUF, #[in] #[opt] pControlContext: PRIO_BUF, #[in] #[opt] pFlags: PRIO_BUF, #[in] Flags: DWORD, #[in] #[opt] RequestContext: PVOID) -> BOOL;
-        extern fn LPFN_TRANSMITFILE(#[in] hSocket: SOCKET, #[in] hFile: HANDLE, #[in] nNumberOfBytesToWrite: DWORD, #[in] nNumberOfBytesPerSend: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, #[in] dwReserved: DWORD) -> BOOL;
-        extern fn LPFN_TRANSMITPACKETS(#[in] hSocket: SOCKET, #[in] #[opt] lpPacketArray: LPTRANSMIT_PACKETS_ELEMENT, #[in] nElementCount: DWORD, #[in] nSendSize: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] dwFlags: DWORD) -> BOOL;
+        extern fn LPFN_TRANSMITFILE(#[in] hSocket: SOCKET, #[in] hFile: HANDLE, #[in] nNumberOfBytesToWrite: DWORD, #[in] nNumberOfBytesPerSend: DWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, #[in] dwReserved: DWORD) -> BOOL;
+        extern fn LPFN_TRANSMITPACKETS(#[in] hSocket: SOCKET, #[in] #[opt] lpPacketArray: LPTRANSMIT_PACKETS_ELEMENT, #[in] nElementCount: DWORD, #[in] nSendSize: DWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED, #[in] dwFlags: DWORD) -> BOOL;
         extern fn LPFN_WSAPOLL(#[in] #[out] fdarray: LPWSAPOLLFD, #[in] nfds: ULONG, #[in] timeout: INT) -> INT;
-        extern fn LPFN_WSARECVMSG(#[in] s: SOCKET, #[in] #[out] lpMsg: LPWSAMSG, #[out] #[opt] lpdwNumberOfBytesRecvd: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
-        extern fn LPFN_WSASENDMSG(#[in] s: SOCKET, #[in] lpMsg: LPWSAMSG, #[in] dwFlags: DWORD, #[out] #[opt] lpNumberOfBytesSent: LPDWORD, #[in] #[out] #[opt] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
+        extern fn LPFN_WSARECVMSG(#[in] s: SOCKET, #[in] #[out] lpMsg: LPWSAMSG, #[opt] #[out] lpdwNumberOfBytesRecvd: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
+        extern fn LPFN_WSASENDMSG(#[in] s: SOCKET, #[in] lpMsg: LPWSAMSG, #[in] dwFlags: DWORD, #[opt] #[out] lpNumberOfBytesSent: LPDWORD, #[in] #[opt] #[out] lpOverlapped: LPWSAOVERLAPPED, #[in] #[opt] lpCompletionRoutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> INT;
         type LPNLA_BLOB = *mut NLA_BLOB;
         type LPTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
         type LPTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
@@ -189,7 +189,7 @@ mod Windows {
             },
         }
         #[library("MSWSOCK.dll")]
-        extern fn TransmitFile(#[in] hSocket: SOCKET, #[in] hFile: HANDLE, #[in] nNumberOfBytesToWrite: DWORD, #[in] nNumberOfBytesPerSend: DWORD, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, #[in] dwReserved: DWORD) -> BOOL;
+        extern fn TransmitFile(#[in] hSocket: SOCKET, #[in] hFile: HANDLE, #[in] nNumberOfBytesToWrite: DWORD, #[in] nNumberOfBytesPerSend: DWORD, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED, #[in] #[opt] lpTransmitBuffers: LPTRANSMIT_FILE_BUFFERS, #[in] dwReserved: DWORD) -> BOOL;
         struct WSAPOLLDATA {
             result: i32,
             fds: ULONG,

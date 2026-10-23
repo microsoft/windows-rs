@@ -7,9 +7,9 @@ mod Windows {
         const APPLY_OPTION_VALID_FLAGS: i32 = 7;
         #[library("mspatcha.dll")]
         extern fn ApplyPatchToFileA(#[in] PatchFileName: LPCSTR, #[in] #[opt] OldFileName: LPCSTR, #[in] NewFileName: LPCSTR, #[in] ApplyOptionFlags: ULONG) -> BOOL;
-        #[success(return != 0)]
         #[library("mspatcha.dll")]
-        extern fn ApplyPatchToFileByBuffers(#[in] #[readable(entry, bytes(PatchFileSize))] PatchFileMapped: PBYTE, #[in] PatchFileSize: ULONG, #[in] #[opt] #[readable(entry, bytes(OldFileSize))] OldFileMapped: PBYTE, #[in] OldFileSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*NewFileBuffer,_When_(*NewFileBuffer != NULL, _Pre_readable_byte_size_(NewFileBufferSize)) _Post_readable_byte_size_(*NewFileActualSize)", "*NewFileBuffer, _When_(*NewFileBuffer != 0, _Pre_readable_byte_size_(NewFileBufferSize)) _Post_readable_byte_size_(*NewFileActualSize)")] #[in] #[out] NewFileBuffer: *mut PBYTE, #[in] NewFileBufferSize: ULONG, #[out] #[opt] NewFileActualSize: *mut ULONG, #[out] #[opt] NewFileTime: *mut FILETIME, #[in] ApplyOptionFlags: ULONG, #[in] #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[in] #[opt] CallbackContext: PVOID) -> BOOL;
+        #[success(return != 0)]
+        extern fn ApplyPatchToFileByBuffers(#[in] #[readable(entry, bytes(PatchFileSize))] PatchFileMapped: PBYTE, #[in] PatchFileSize: ULONG, #[in] #[opt] #[readable(entry, bytes(OldFileSize))] OldFileMapped: PBYTE, #[in] OldFileSize: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_At_", "*NewFileBuffer,_When_(*NewFileBuffer != NULL, _Pre_readable_byte_size_(NewFileBufferSize)) _Post_readable_byte_size_(*NewFileActualSize)", "*NewFileBuffer, _When_(*NewFileBuffer != 0, _Pre_readable_byte_size_(NewFileBufferSize)) _Post_readable_byte_size_(*NewFileActualSize)")] #[in] #[out] NewFileBuffer: *mut PBYTE, #[in] NewFileBufferSize: ULONG, #[opt] #[out] NewFileActualSize: *mut ULONG, #[opt] #[out] NewFileTime: *mut FILETIME, #[in] ApplyOptionFlags: ULONG, #[in] #[opt] ProgressCallback: PPATCH_PROGRESS_CALLBACK, #[in] #[opt] CallbackContext: PVOID) -> BOOL;
         #[library("mspatcha.dll")]
         extern fn ApplyPatchToFileByHandles(#[in] PatchFileHandle: HANDLE, #[in] #[opt] OldFileHandle: HANDLE, #[in] NewFileHandle: HANDLE, #[in] ApplyOptionFlags: ULONG) -> BOOL;
         #[library("mspatcha.dll")]
@@ -163,7 +163,7 @@ mod Windows {
         #[library("mspatcha.dll")]
         extern fn TestApplyPatchToFileA(#[in] PatchFileName: LPCSTR, #[in] OldFileName: LPCSTR, #[in] ApplyOptionFlags: ULONG) -> BOOL;
         #[library("mspatcha.dll")]
-        extern fn TestApplyPatchToFileByBuffers(#[in] #[readable(entry, bytes(PatchFileSize))] PatchFileBuffer: PBYTE, #[in] PatchFileSize: ULONG, #[in] #[opt] #[readable(entry, bytes(OldFileSize))] OldFileBuffer: PBYTE, #[in] OldFileSize: ULONG, #[out] #[opt] NewFileSize: *mut ULONG, #[in] ApplyOptionFlags: ULONG) -> BOOL;
+        extern fn TestApplyPatchToFileByBuffers(#[in] #[readable(entry, bytes(PatchFileSize))] PatchFileBuffer: PBYTE, #[in] PatchFileSize: ULONG, #[in] #[opt] #[readable(entry, bytes(OldFileSize))] OldFileBuffer: PBYTE, #[in] OldFileSize: ULONG, #[opt] #[out] NewFileSize: *mut ULONG, #[in] ApplyOptionFlags: ULONG) -> BOOL;
         #[library("mspatcha.dll")]
         extern fn TestApplyPatchToFileByHandles(#[in] PatchFileHandle: HANDLE, #[in] OldFileHandle: HANDLE, #[in] ApplyOptionFlags: ULONG) -> BOOL;
         #[library("mspatcha.dll")]

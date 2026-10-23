@@ -16,12 +16,12 @@ mod Windows {
         interface IMFVirtualCamera: IMFAttributes {
             fn AddDeviceSourceInfo(&self, #[in] #[null_terminated(entry)] DeviceSourceInfo: LPCWSTR) -> HRESULT;
             fn AddProperty(&self, #[in] pKey: *const DEVPROPKEY, #[in] Type: DEVPROPTYPE, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
-            fn AddRegistryEntry(&self, #[in] #[null_terminated(entry)] EntryName: LPCWSTR, #[in] #[opt] #[null_terminated(entry)] SubkeyPath: LPCWSTR, #[in] dwRegType: DWORD, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
+            fn AddRegistryEntry(&self, #[in] #[null_terminated(entry)] EntryName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] SubkeyPath: LPCWSTR, #[in] dwRegType: DWORD, #[in] #[readable(entry, bytes(cbData))] pbData: *const BYTE, #[in] cbData: ULONG) -> HRESULT;
             fn Start(&self, #[in] #[opt] pCallback: IMFAsyncCallback) -> HRESULT;
             fn Stop(&self) -> HRESULT;
             fn Remove(&self) -> HRESULT;
             fn GetMediaSource(&self, #[out] #[out_ptr(null_on_failure)] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
-            fn SendCameraProperty(&self, #[in] propertySet: &GUID, #[in] propertyId: ULONG, #[in] propertyFlags: ULONG, #[in] #[out] #[opt] #[writable(entry, bytes(propertyPayloadLength))] propertyPayload: *mut void, #[in] propertyPayloadLength: ULONG, #[in] #[out] #[opt] #[readable(entry, bytes(dataLength))] #[writable(entry, bytes(dataLength))] #[readable(success, bytes(*dataWritten))] data: *mut void, #[in] dataLength: ULONG, #[out] dataWritten: *mut ULONG) -> HRESULT;
+            fn SendCameraProperty(&self, #[in] propertySet: &GUID, #[in] propertyId: ULONG, #[in] propertyFlags: ULONG, #[in] #[opt] #[out] #[writable(entry, bytes(propertyPayloadLength))] propertyPayload: *mut void, #[in] propertyPayloadLength: ULONG, #[in] #[opt] #[out] #[readable(entry, bytes(dataLength))] #[readable(success, bytes(*dataWritten))] #[writable(entry, bytes(dataLength))] data: *mut void, #[in] dataLength: ULONG, #[out] dataWritten: *mut ULONG) -> HRESULT;
             fn CreateSyncEvent(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] eventHandle: HANDLE, #[out] #[out_ptr(null_on_failure)] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
             fn CreateSyncSemaphore(&self, #[in] kseventSet: &GUID, #[in] kseventId: ULONG, #[in] kseventFlags: ULONG, #[in] semaphoreHandle: HANDLE, #[in] semaphoreAdjustment: LONG, #[out] #[out_ptr(null_on_failure)] cameraSyncObject: *mut IMFCameraSyncObject) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;

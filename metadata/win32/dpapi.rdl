@@ -30,11 +30,11 @@ mod Windows {
         #[library("CRYPT32.dll")]
         extern fn CryptProtectMemory(#[in] #[out] pDataIn: LPVOID, #[in] cbDataIn: DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptUnprotectData(#[in] pDataIn: *mut DATA_BLOB, #[out] #[opt] #[out_ptr(nullable)] ppszDataDescr: *mut LPWSTR, #[in] #[opt] pOptionalEntropy: *mut DATA_BLOB, #[reserved] pvReserved: PVOID, #[in] #[opt] pPromptStruct: *mut CRYPTPROTECT_PROMPTSTRUCT, #[in] dwFlags: DWORD, #[out] pDataOut: *mut DATA_BLOB) -> BOOL;
+        extern fn CryptUnprotectData(#[in] pDataIn: *mut DATA_BLOB, #[opt] #[out] #[out_ptr(nullable)] ppszDataDescr: *mut LPWSTR, #[in] #[opt] pOptionalEntropy: *mut DATA_BLOB, #[reserved] pvReserved: PVOID, #[in] #[opt] pPromptStruct: *mut CRYPTPROTECT_PROMPTSTRUCT, #[in] dwFlags: DWORD, #[out] pDataOut: *mut DATA_BLOB) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptUnprotectMemory(#[in] #[out] pDataIn: LPVOID, #[in] cbDataIn: DWORD, #[in] dwFlags: DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
-        extern fn CryptUpdateProtectedState(#[in] #[opt] pOldSid: PSID, #[in] #[opt] pwszOldPassword: LPCWSTR, #[in] dwFlags: DWORD, #[out] #[opt] pdwSuccessCount: *mut DWORD, #[out] #[opt] pdwFailureCount: *mut DWORD) -> BOOL;
+        extern fn CryptUpdateProtectedState(#[in] #[opt] pOldSid: PSID, #[in] #[opt] pwszOldPassword: LPCWSTR, #[in] dwFlags: DWORD, #[opt] #[out] pdwSuccessCount: *mut DWORD, #[opt] #[out] pdwFailureCount: *mut DWORD) -> BOOL;
         type PCRYPTPROTECT_PROMPTSTRUCT = *mut CRYPTPROTECT_PROMPTSTRUCT;
         const dwFORCE_KEY_PROTECTION_DISABLED: i32 = 0;
         const dwFORCE_KEY_PROTECTION_HIGH: i32 = 2;

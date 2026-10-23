@@ -152,8 +152,8 @@ mod Windows {
         interface ICertConfig: IDispatch {
             fn Reset(&self, #[in] Index: LONG, #[out] #[retval] pCount: *mut LONG) -> HRESULT;
             fn Next(&self, #[out] #[retval] pIndex: *mut LONG) -> HRESULT;
-            fn GetField(&self, #[in] strFieldName: BSTR, #[out] #[retval] #[out_ptr] pstrOut: *mut BSTR) -> HRESULT;
-            fn GetConfig(&self, #[in] Flags: LONG, #[out] #[retval] #[out_ptr] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetField(&self, #[in] strFieldName: BSTR, #[out] #[out_ptr] #[retval] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetConfig(&self, #[in] Flags: LONG, #[out] #[out_ptr] #[retval] pstrOut: *mut BSTR) -> HRESULT;
         }
         #[guid(0x7a18edde_7e78_4163_8ded_78e2c9cee924)]
         interface ICertConfig2: ICertConfig {
@@ -161,7 +161,7 @@ mod Windows {
         }
         #[guid(0xc7ea09c0_ce17_11d0_8833_00a0c903b83c)]
         interface ICertGetConfig: IDispatch {
-            fn GetConfig(&self, #[in] Flags: LONG, #[out] #[retval] #[out_ptr] pstrOut: *mut BSTR) -> HRESULT;
+            fn GetConfig(&self, #[in] Flags: LONG, #[out] #[out_ptr] #[retval] pstrOut: *mut BSTR) -> HRESULT;
         }
         #[guid(0x014e4840_5523_11d0_8812_00a0c903b83c)]
         interface ICertRequest: IDispatch {
@@ -169,23 +169,23 @@ mod Windows {
             fn RetrievePending(&self, #[in] RequestId: LONG, #[in] strConfig: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
             fn GetLastStatus(&self, #[out] #[retval] pStatus: *mut LONG) -> HRESULT;
             fn GetRequestId(&self, #[out] #[retval] pRequestId: *mut LONG) -> HRESULT;
-            fn GetDispositionMessage(&self, #[out] #[retval] #[out_ptr] pstrDispositionMessage: *mut BSTR) -> HRESULT;
-            fn GetCACertificate(&self, #[in] fExchangeCertificate: LONG, #[in] strConfig: BSTR, #[in] Flags: LONG, #[out] #[retval] #[out_ptr] pstrCertificate: *mut BSTR) -> HRESULT;
-            fn GetCertificate(&self, #[in] Flags: LONG, #[out] #[retval] #[out_ptr] pstrCertificate: *mut BSTR) -> HRESULT;
+            fn GetDispositionMessage(&self, #[out] #[out_ptr] #[retval] pstrDispositionMessage: *mut BSTR) -> HRESULT;
+            fn GetCACertificate(&self, #[in] fExchangeCertificate: LONG, #[in] strConfig: BSTR, #[in] Flags: LONG, #[out] #[out_ptr] #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
+            fn GetCertificate(&self, #[in] Flags: LONG, #[out] #[out_ptr] #[retval] pstrCertificate: *mut BSTR) -> HRESULT;
         }
         #[guid(0xa4772988_4a85_4fa9_824e_b5cf5c16405a)]
         interface ICertRequest2: ICertRequest {
             fn GetIssuedCertificate(&self, #[in] strConfig: BSTR, #[in] RequestId: LONG, #[in] strSerialNumber: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
-            fn GetErrorMessageText(&self, #[in] hrMessage: LONG, #[in] Flags: LONG, #[out] #[retval] #[out_ptr] pstrErrorMessageText: *mut BSTR) -> HRESULT;
+            fn GetErrorMessageText(&self, #[in] hrMessage: LONG, #[in] Flags: LONG, #[out] #[out_ptr] #[retval] pstrErrorMessageText: *mut BSTR) -> HRESULT;
             fn GetCAProperty(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[in] PropIndex: LONG, #[in] PropType: LONG, #[in] Flags: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
             fn GetCAPropertyFlags(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[out] #[retval] pPropFlags: *mut LONG) -> HRESULT;
-            fn GetCAPropertyDisplayName(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[out] #[retval] #[out_ptr] pstrDisplayName: *mut BSTR) -> HRESULT;
+            fn GetCAPropertyDisplayName(&self, #[in] strConfig: BSTR, #[in] PropId: LONG, #[out] #[out_ptr] #[retval] pstrDisplayName: *mut BSTR) -> HRESULT;
             fn GetFullResponseProperty(&self, #[in] PropId: LONG, #[in] PropIndex: LONG, #[in] PropType: LONG, #[in] Flags: LONG, #[out] #[retval] pvarPropertyValue: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xafc8f92b_33a2_4861_bf36_2933b7cd67b3)]
         interface ICertRequest3: ICertRequest2 {
             fn SetCredential(&self, #[in] hWnd: LONG, #[in] AuthType: X509EnrollmentAuthFlags, #[in] strCredential: BSTR, #[in] strPassword: BSTR) -> HRESULT;
-            fn GetRequestIdString(&self, #[out] #[retval] #[out_ptr] pstrRequestId: *mut BSTR) -> HRESULT;
+            fn GetRequestIdString(&self, #[out] #[out_ptr] #[retval] pstrRequestId: *mut BSTR) -> HRESULT;
             fn GetIssuedCertificate2(&self, #[in] strConfig: BSTR, #[in] strRequestId: BSTR, #[in] strSerialNumber: BSTR, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
             fn GetRefreshPolicy(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
         }

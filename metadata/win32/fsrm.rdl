@@ -45,13 +45,13 @@ mod Windows {
         }
         #[guid(0x12937789_e247_4917_9c20_f3ee9c7ee783)]
         interface IFsrmActionCommand: IFsrmAction {
-            fn get_ExecutablePath(&self, #[out] #[retval] #[out_ptr] executablePath: *mut BSTR) -> HRESULT;
+            fn get_ExecutablePath(&self, #[out] #[out_ptr] #[retval] executablePath: *mut BSTR) -> HRESULT;
             fn put_ExecutablePath(&self, #[in] executablePath: BSTR) -> HRESULT;
-            fn get_Arguments(&self, #[out] #[retval] #[out_ptr] arguments: *mut BSTR) -> HRESULT;
+            fn get_Arguments(&self, #[out] #[out_ptr] #[retval] arguments: *mut BSTR) -> HRESULT;
             fn put_Arguments(&self, #[in] arguments: BSTR) -> HRESULT;
             fn get_Account(&self, #[out] #[retval] account: *mut FsrmAccountType) -> HRESULT;
             fn put_Account(&self, #[in] account: FsrmAccountType) -> HRESULT;
-            fn get_WorkingDirectory(&self, #[out] #[retval] #[out_ptr] workingDirectory: *mut BSTR) -> HRESULT;
+            fn get_WorkingDirectory(&self, #[out] #[out_ptr] #[retval] workingDirectory: *mut BSTR) -> HRESULT;
             fn put_WorkingDirectory(&self, #[in] workingDirectory: BSTR) -> HRESULT;
             fn get_MonitorCommand(&self, #[out] #[retval] monitorCommand: *mut VARIANT_BOOL) -> HRESULT;
             fn put_MonitorCommand(&self, #[in] monitorCommand: VARIANT_BOOL) -> HRESULT;
@@ -62,19 +62,19 @@ mod Windows {
         }
         #[guid(0xd646567d_26ae_4caa_9f84_4e0aad207fca)]
         interface IFsrmActionEmail: IFsrmAction {
-            fn get_MailFrom(&self, #[out] #[retval] #[out_ptr] mailFrom: *mut BSTR) -> HRESULT;
+            fn get_MailFrom(&self, #[out] #[out_ptr] #[retval] mailFrom: *mut BSTR) -> HRESULT;
             fn put_MailFrom(&self, #[in] mailFrom: BSTR) -> HRESULT;
-            fn get_MailReplyTo(&self, #[out] #[retval] #[out_ptr] mailReplyTo: *mut BSTR) -> HRESULT;
+            fn get_MailReplyTo(&self, #[out] #[out_ptr] #[retval] mailReplyTo: *mut BSTR) -> HRESULT;
             fn put_MailReplyTo(&self, #[in] mailReplyTo: BSTR) -> HRESULT;
-            fn get_MailTo(&self, #[out] #[retval] #[out_ptr] mailTo: *mut BSTR) -> HRESULT;
+            fn get_MailTo(&self, #[out] #[out_ptr] #[retval] mailTo: *mut BSTR) -> HRESULT;
             fn put_MailTo(&self, #[in] mailTo: BSTR) -> HRESULT;
-            fn get_MailCc(&self, #[out] #[retval] #[out_ptr] mailCc: *mut BSTR) -> HRESULT;
+            fn get_MailCc(&self, #[out] #[out_ptr] #[retval] mailCc: *mut BSTR) -> HRESULT;
             fn put_MailCc(&self, #[in] mailCc: BSTR) -> HRESULT;
-            fn get_MailBcc(&self, #[out] #[retval] #[out_ptr] mailBcc: *mut BSTR) -> HRESULT;
+            fn get_MailBcc(&self, #[out] #[out_ptr] #[retval] mailBcc: *mut BSTR) -> HRESULT;
             fn put_MailBcc(&self, #[in] mailBcc: BSTR) -> HRESULT;
-            fn get_MailSubject(&self, #[out] #[retval] #[out_ptr] mailSubject: *mut BSTR) -> HRESULT;
+            fn get_MailSubject(&self, #[out] #[out_ptr] #[retval] mailSubject: *mut BSTR) -> HRESULT;
             fn put_MailSubject(&self, #[in] mailSubject: BSTR) -> HRESULT;
-            fn get_MessageText(&self, #[out] #[retval] #[out_ptr] messageText: *mut BSTR) -> HRESULT;
+            fn get_MessageText(&self, #[out] #[out_ptr] #[retval] messageText: *mut BSTR) -> HRESULT;
             fn put_MessageText(&self, #[in] messageText: BSTR) -> HRESULT;
         }
         #[guid(0x8276702f_2532_4839_89bf_4872609a2ea4)]
@@ -86,19 +86,19 @@ mod Windows {
         interface IFsrmActionEventLog: IFsrmAction {
             fn get_EventType(&self, #[out] #[retval] eventType: *mut FsrmEventType) -> HRESULT;
             fn put_EventType(&self, #[in] eventType: FsrmEventType) -> HRESULT;
-            fn get_MessageText(&self, #[out] #[retval] #[out_ptr] messageText: *mut BSTR) -> HRESULT;
+            fn get_MessageText(&self, #[out] #[out_ptr] #[retval] messageText: *mut BSTR) -> HRESULT;
             fn put_MessageText(&self, #[in] messageText: BSTR) -> HRESULT;
         }
         #[guid(0x2dbe63c4_b340_48a0_a5b0_158e07fc567e)]
         interface IFsrmActionReport: IFsrmAction {
-            fn get_ReportTypes(&self, #[out] #[retval] #[out_ptr] reportTypes: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ReportTypes(&self, #[out] #[out_ptr] #[retval] reportTypes: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_ReportTypes(&self, #[in] reportTypes: *mut SAFEARRAY) -> HRESULT;
-            fn get_MailTo(&self, #[out] #[retval] #[out_ptr] mailTo: *mut BSTR) -> HRESULT;
+            fn get_MailTo(&self, #[out] #[out_ptr] #[retval] mailTo: *mut BSTR) -> HRESULT;
             fn put_MailTo(&self, #[in] mailTo: BSTR) -> HRESULT;
         }
         #[guid(0xf76fbf3b_8ddd_4b42_b05a_cb1c3ff1fee8)]
         interface IFsrmCollection: IDispatch {
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] unknown: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] unknown: *mut IUnknown) -> HRESULT;
             fn get_Item(&self, #[in] index: i32, #[out] #[retval] item: *mut VARIANT) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] count: *mut i32) -> HRESULT;
             fn get_State(&self, #[out] #[retval] state: *mut FsrmCollectionState) -> HRESULT;
@@ -108,48 +108,48 @@ mod Windows {
         }
         #[guid(0x96deb3b5_8b91_4a2a_9d93_80a35d8aa847)]
         interface IFsrmCommittableCollection: IFsrmMutableCollection {
-            fn Commit(&self, #[in] options: FsrmCommitOptions, #[out] #[retval] #[out_ptr] results: *mut IFsrmCollection) -> HRESULT;
+            fn Commit(&self, #[in] options: FsrmCommitOptions, #[out] #[out_ptr] #[retval] results: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0x39322a2d_38ee_4d0d_8095_421a80849a82)]
         interface IFsrmDerivedObjectsResult: IDispatch {
-            fn get_DerivedObjects(&self, #[out] #[retval] #[out_ptr] derivedObjects: *mut IFsrmCollection) -> HRESULT;
-            fn get_Results(&self, #[out] #[retval] #[out_ptr] results: *mut IFsrmCollection) -> HRESULT;
+            fn get_DerivedObjects(&self, #[out] #[out_ptr] #[retval] derivedObjects: *mut IFsrmCollection) -> HRESULT;
+            fn get_Results(&self, #[out] #[out_ptr] #[retval] results: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0xefcb0ab1_16c4_4a79_812c_725614c3306b)]
         interface IFsrmExportImport: IDispatch {
             fn ExportFileGroups(&self, #[in] filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR) -> HRESULT;
-            fn ImportFileGroups(&self, #[in] filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] fileGroups: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ImportFileGroups(&self, #[in] filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[out_ptr] #[retval] fileGroups: *mut IFsrmCommittableCollection) -> HRESULT;
             fn ExportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR) -> HRESULT;
-            fn ImportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] templates: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ImportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[out_ptr] #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
             fn ExportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR) -> HRESULT;
-            fn ImportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] templates: *mut IFsrmCommittableCollection) -> HRESULT;
+            fn ImportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[out_ptr] #[retval] templates: *mut IFsrmCommittableCollection) -> HRESULT;
         }
         #[guid(0x1bb617b8_3886_49dc_af82_a6c90fa35dda)]
         interface IFsrmMutableCollection: IFsrmCollection {
             fn Add(&self, #[in] item: VARIANT) -> HRESULT;
             fn Remove(&self, #[in] index: i32) -> HRESULT;
             fn RemoveById(&self, #[in] id: FSRM_OBJECT_ID) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] collection: *mut IFsrmMutableCollection) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] collection: *mut IFsrmMutableCollection) -> HRESULT;
         }
         #[guid(0x22bcef93_4a3f_4183_89f9_2f8b8a628aee)]
         interface IFsrmObject: IDispatch {
             fn get_Id(&self, #[out] #[retval] id: *mut FSRM_OBJECT_ID) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] description: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] description: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] description: BSTR) -> HRESULT;
             fn Delete(&self) -> HRESULT;
             fn Commit(&self) -> HRESULT;
         }
         #[guid(0x6f4dbfff_6920_4821_a6c3_b7e94c1fd60c)]
         interface IFsrmPathMapper: IDispatch {
-            fn GetSharePathsForLocalPath(&self, #[in] localPath: BSTR, #[out] #[retval] #[out_ptr] sharePaths: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetSharePathsForLocalPath(&self, #[in] localPath: BSTR, #[out] #[out_ptr] #[retval] sharePaths: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xf411d4fd_14be_4260_8c40_03b7c95e608a)]
         interface IFsrmSetting: IDispatch {
-            fn get_SmtpServer(&self, #[out] #[retval] #[out_ptr] smtpServer: *mut BSTR) -> HRESULT;
+            fn get_SmtpServer(&self, #[out] #[out_ptr] #[retval] smtpServer: *mut BSTR) -> HRESULT;
             fn put_SmtpServer(&self, #[in] smtpServer: BSTR) -> HRESULT;
-            fn get_MailFrom(&self, #[out] #[retval] #[out_ptr] mailFrom: *mut BSTR) -> HRESULT;
+            fn get_MailFrom(&self, #[out] #[out_ptr] #[retval] mailFrom: *mut BSTR) -> HRESULT;
             fn put_MailFrom(&self, #[in] mailFrom: BSTR) -> HRESULT;
-            fn get_AdminEmail(&self, #[out] #[retval] #[out_ptr] adminEmail: *mut BSTR) -> HRESULT;
+            fn get_AdminEmail(&self, #[out] #[out_ptr] #[retval] adminEmail: *mut BSTR) -> HRESULT;
             fn put_AdminEmail(&self, #[in] adminEmail: BSTR) -> HRESULT;
             fn get_DisableCommandLine(&self, #[out] #[retval] disableCommandLine: *mut VARIANT_BOOL) -> HRESULT;
             fn put_DisableCommandLine(&self, #[in] disableCommandLine: VARIANT_BOOL) -> HRESULT;

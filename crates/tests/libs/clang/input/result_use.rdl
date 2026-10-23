@@ -1,14 +1,14 @@
 #[win32]
 mod Fixture {
-    #[must_use]
     #[library("fixture.dll")]
+    #[must_use]
     extern "C" fn Checked() -> i32;
     #[must_use]
     extern fn CheckedAlias(value: i32) -> i32;
     #[must_use]
     extern fn CheckedCallback(value: i32) -> i32;
-    #[must_use]
     #[library("fixture.dll")]
+    #[must_use]
     extern "C" fn Combined() -> i32;
     #[must_use]
     extern fn CombinedAlias(value: i32) -> i32;
@@ -30,8 +30,8 @@ mod Fixture {
         fn Combined(&self) -> i32;
         fn Outputs(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] #[out] value: *mut i32);
     }
-    #[must_use]
     #[library("fixture.dll")]
+    #[must_use]
     extern "C" fn Inspected() -> i32;
     #[must_use]
     extern fn InspectedCallback(value: i32) -> i32;
@@ -46,8 +46,8 @@ mod Fixture {
     extern "C" fn OldVersion() -> i32;
     #[library("fixture.dll")]
     extern "C" fn Outputs(#[Windows::Win32::Metadata::NativeSal("2", "_Must_inspect_result_", "", "")] #[out] value: *mut i32);
-    #[must_use]
     #[library("fixture.dll")]
+    #[must_use]
     extern "C" fn ReadStatus() -> Status;
     #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "", "", Modifiers = "_Post_")]
     #[library("fixture.dll")]
@@ -60,9 +60,9 @@ mod Fixture {
     #[must_use]
     #[success(return >= 0)]
     extern fn SuccessCallback(value: i32) -> i32;
+    #[library("fixture.dll")]
     #[must_use]
     #[success(return >= 0)]
-    #[library("fixture.dll")]
     extern "C" fn Successful() -> i32;
     #[Windows::Win32::Metadata::NativeSal("2", "_Check_return_", "unexpected", "unexpected")]
     #[library("fixture.dll")]

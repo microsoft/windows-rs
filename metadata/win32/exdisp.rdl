@@ -60,8 +60,8 @@ mod Windows {
             fn getErrorLine(&self, #[out] #[retval] plLine: *mut LONG) -> HRESULT;
             fn getErrorChar(&self, #[out] #[retval] plChar: *mut LONG) -> HRESULT;
             fn getErrorCode(&self, #[out] #[retval] plCode: *mut LONG) -> HRESULT;
-            fn getErrorMsg(&self, #[out] #[retval] #[out_ptr] pstr: *mut BSTR) -> HRESULT;
-            fn getErrorUrl(&self, #[out] #[retval] #[out_ptr] pstr: *mut BSTR) -> HRESULT;
+            fn getErrorMsg(&self, #[out] #[out_ptr] #[retval] pstr: *mut BSTR) -> HRESULT;
+            fn getErrorUrl(&self, #[out] #[out_ptr] #[retval] pstr: *mut BSTR) -> HRESULT;
             fn getAlwaysShowLockState(&self, #[out] #[retval] pfAlwaysShowLocked: *mut BOOL) -> HRESULT;
             fn getDetailsPaneOpen(&self, #[out] #[retval] pfDetailsPaneOpen: *mut BOOL) -> HRESULT;
             fn setDetailsPaneOpen(&self, fDetailsPaneOpen: BOOL) -> HRESULT;
@@ -88,7 +88,7 @@ mod Windows {
         interface IShellNameSpace: IShellFavoritesNameSpace {
             fn get_EnumOptions(&self, #[out] #[retval] pgrfEnumFlags: *mut LONG) -> HRESULT;
             fn put_EnumOptions(&self, #[in] lVal: LONG) -> HRESULT;
-            fn get_SelectedItem(&self, #[out] #[retval] #[out_ptr] pItem: *mut IDispatch) -> HRESULT;
+            fn get_SelectedItem(&self, #[out] #[out_ptr] #[retval] pItem: *mut IDispatch) -> HRESULT;
             fn put_SelectedItem(&self, #[in] #[opt] pItem: IDispatch) -> HRESULT;
             fn get_Root(&self, #[out] #[retval] pvar: *mut VARIANT) -> HRESULT;
             fn put_Root(&self, #[in] var: VARIANT) -> HRESULT;
@@ -100,11 +100,11 @@ mod Windows {
             fn put_Flags(&self, #[in] dwFlags: DWORD) -> HRESULT;
             fn put_TVFlags(&self, #[in] dwFlags: DWORD) -> HRESULT;
             fn get_TVFlags(&self, #[out] #[retval] dwFlags: *mut DWORD) -> HRESULT;
-            fn get_Columns(&self, #[out] #[retval] #[out_ptr] bstrColumns: *mut BSTR) -> HRESULT;
+            fn get_Columns(&self, #[out] #[out_ptr] #[retval] bstrColumns: *mut BSTR) -> HRESULT;
             fn put_Columns(&self, #[in] bstrColumns: BSTR) -> HRESULT;
             fn get_CountViewTypes(&self, #[out] #[retval] piTypes: *mut i32) -> HRESULT;
             fn SetViewType(&self, #[in] iType: i32) -> HRESULT;
-            fn SelectedItems(&self, #[out] #[retval] #[out_ptr] ppid: *mut IDispatch) -> HRESULT;
+            fn SelectedItems(&self, #[out] #[out_ptr] #[retval] ppid: *mut IDispatch) -> HRESULT;
             fn Expand(&self, #[in] var: VARIANT, iDepth: i32) -> HRESULT;
             fn UnselectAll(&self) -> HRESULT;
         }
@@ -132,16 +132,16 @@ mod Windows {
             fn CustomizeSettings(&self, #[in] fSQM: VARIANT_BOOL, #[in] fPhishing: VARIANT_BOOL, #[in] bstrLocale: BSTR) -> HRESULT;
             fn SqmEnabled(&self, #[out] #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
             fn PhishingEnabled(&self, #[out] #[retval] pfEnabled: *mut VARIANT_BOOL) -> HRESULT;
-            fn BrandImageUri(&self, #[out] #[retval] #[out_ptr] pbstrUri: *mut BSTR) -> HRESULT;
+            fn BrandImageUri(&self, #[out] #[out_ptr] #[retval] pbstrUri: *mut BSTR) -> HRESULT;
             fn SkipTabsWelcome(&self) -> HRESULT;
             fn DiagnoseConnection(&self) -> HRESULT;
             fn CustomizeClearType(&self, #[in] fSet: VARIANT_BOOL) -> HRESULT;
             fn IsSearchProviderInstalled(&self, #[in] URL: BSTR, #[out] #[retval] pdwResult: *mut DWORD) -> HRESULT;
             fn IsSearchMigrated(&self, #[out] #[retval] pfMigrated: *mut VARIANT_BOOL) -> HRESULT;
-            fn DefaultSearchProvider(&self, #[out] #[retval] #[out_ptr] pbstrName: *mut BSTR) -> HRESULT;
+            fn DefaultSearchProvider(&self, #[out] #[out_ptr] #[retval] pbstrName: *mut BSTR) -> HRESULT;
             fn RunOnceRequiredSettingsComplete(&self, #[in] fComplete: VARIANT_BOOL) -> HRESULT;
             fn RunOnceHasShown(&self, #[out] #[retval] pfShown: *mut VARIANT_BOOL) -> HRESULT;
-            fn SearchGuideUrl(&self, #[out] #[retval] #[out_ptr] pbstrUrl: *mut BSTR) -> HRESULT;
+            fn SearchGuideUrl(&self, #[out] #[out_ptr] #[retval] pbstrUrl: *mut BSTR) -> HRESULT;
         }
         #[guid(0x528df2ec_d419_40bc_9b6d_dcdbf9c1b25d)]
         interface IShellUIHelper3: IShellUIHelper2 {
@@ -221,10 +221,10 @@ mod Windows {
         }
         #[guid(0x66debcf2_05b0_4f07_b49b_b96241a65db2)]
         interface IShellUIHelper8: IShellUIHelper7 {
-            fn GetCVListData(&self, #[out] #[retval] #[out_ptr] pbstrResult: *mut BSTR) -> HRESULT;
-            fn GetCVListLocalData(&self, #[out] #[retval] #[out_ptr] pbstrResult: *mut BSTR) -> HRESULT;
-            fn GetEMIEListData(&self, #[out] #[retval] #[out_ptr] pbstrResult: *mut BSTR) -> HRESULT;
-            fn GetEMIEListLocalData(&self, #[out] #[retval] #[out_ptr] pbstrResult: *mut BSTR) -> HRESULT;
+            fn GetCVListData(&self, #[out] #[out_ptr] #[retval] pbstrResult: *mut BSTR) -> HRESULT;
+            fn GetCVListLocalData(&self, #[out] #[out_ptr] #[retval] pbstrResult: *mut BSTR) -> HRESULT;
+            fn GetEMIEListData(&self, #[out] #[out_ptr] #[retval] pbstrResult: *mut BSTR) -> HRESULT;
+            fn GetEMIEListLocalData(&self, #[out] #[out_ptr] #[retval] pbstrResult: *mut BSTR) -> HRESULT;
             fn OpenFavoritesPane(&self) -> HRESULT;
             fn OpenFavoritesSettings(&self) -> HRESULT;
             fn LaunchInHVSI(&self, #[in] bstrUrl: BSTR) -> HRESULT;
@@ -236,14 +236,14 @@ mod Windows {
         #[guid(0x85cb6900_4d95_11cf_960c_0080c7f4ee85)]
         interface IShellWindows: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] index: VARIANT, #[out] #[retval] #[out_ptr] Folder: *mut IDispatch) -> HRESULT;
-            fn _NewEnum(&self, #[out] #[retval] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] index: VARIANT, #[out] #[out_ptr] #[retval] Folder: *mut IDispatch) -> HRESULT;
+            fn _NewEnum(&self, #[out] #[out_ptr] #[retval] ppunk: *mut IUnknown) -> HRESULT;
             fn Register(&self, #[in] #[opt] pid: IDispatch, #[in] hwnd: i32, #[in] swClass: i32, #[out] plCookie: *mut i32) -> HRESULT;
             fn RegisterPending(&self, #[in] lThreadId: i32, #[in] pvarloc: *mut VARIANT, #[in] pvarlocRoot: *mut VARIANT, #[in] swClass: i32, #[out] plCookie: *mut i32) -> HRESULT;
             fn Revoke(&self, #[in] lCookie: i32) -> HRESULT;
             fn OnNavigate(&self, #[in] lCookie: i32, #[in] pvarLoc: *mut VARIANT) -> HRESULT;
             fn OnActivated(&self, #[in] lCookie: i32, #[in] fActive: VARIANT_BOOL) -> HRESULT;
-            fn FindWindowSW(&self, #[in] pvarLoc: *mut VARIANT, #[in] pvarLocRoot: *mut VARIANT, #[in] swClass: i32, #[out] phwnd: *mut i32, #[in] swfwOptions: i32, #[out] #[retval] #[out_ptr] ppdispOut: *mut IDispatch) -> HRESULT;
+            fn FindWindowSW(&self, #[in] pvarLoc: *mut VARIANT, #[in] pvarLocRoot: *mut VARIANT, #[in] swClass: i32, #[out] phwnd: *mut i32, #[in] swfwOptions: i32, #[out] #[out_ptr] #[retval] ppdispOut: *mut IDispatch) -> HRESULT;
             fn OnCreated(&self, #[in] lCookie: i32, #[in] #[opt] punk: IUnknown) -> HRESULT;
             fn ProcessAttachDetach(&self, #[in] fAttach: VARIANT_BOOL) -> HRESULT;
         }
@@ -257,12 +257,12 @@ mod Windows {
             fn Refresh(&self) -> HRESULT;
             fn Refresh2(&self, #[in] #[opt] Level: *mut VARIANT) -> HRESULT;
             fn Stop(&self) -> HRESULT;
-            fn get_Application(&self, #[out] #[retval] #[out_ptr] ppDisp: *mut IDispatch) -> HRESULT;
-            fn get_Parent(&self, #[out] #[retval] #[out_ptr] ppDisp: *mut IDispatch) -> HRESULT;
-            fn get_Container(&self, #[out] #[retval] #[out_ptr] ppDisp: *mut IDispatch) -> HRESULT;
-            fn get_Document(&self, #[out] #[retval] #[out_ptr] ppDisp: *mut IDispatch) -> HRESULT;
+            fn get_Application(&self, #[out] #[out_ptr] #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            fn get_Parent(&self, #[out] #[out_ptr] #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            fn get_Container(&self, #[out] #[out_ptr] #[retval] ppDisp: *mut IDispatch) -> HRESULT;
+            fn get_Document(&self, #[out] #[out_ptr] #[retval] ppDisp: *mut IDispatch) -> HRESULT;
             fn get_TopLevelContainer(&self, #[out] #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Type(&self, #[out] #[retval] #[out_ptr] Type: *mut BSTR) -> HRESULT;
+            fn get_Type(&self, #[out] #[out_ptr] #[retval] Type: *mut BSTR) -> HRESULT;
             fn get_Left(&self, #[out] #[retval] pl: *mut i32) -> HRESULT;
             fn put_Left(&self, #[in] Left: i32) -> HRESULT;
             fn get_Top(&self, #[out] #[retval] pl: *mut i32) -> HRESULT;
@@ -271,15 +271,15 @@ mod Windows {
             fn put_Width(&self, #[in] Width: i32) -> HRESULT;
             fn get_Height(&self, #[out] #[retval] pl: *mut i32) -> HRESULT;
             fn put_Height(&self, #[in] Height: i32) -> HRESULT;
-            fn get_LocationName(&self, #[out] #[retval] #[out_ptr] LocationName: *mut BSTR) -> HRESULT;
-            fn get_LocationURL(&self, #[out] #[retval] #[out_ptr] LocationURL: *mut BSTR) -> HRESULT;
+            fn get_LocationName(&self, #[out] #[out_ptr] #[retval] LocationName: *mut BSTR) -> HRESULT;
+            fn get_LocationURL(&self, #[out] #[out_ptr] #[retval] LocationURL: *mut BSTR) -> HRESULT;
             fn get_Busy(&self, #[out] #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xd30c1661_cdaf_11d0_8a3e_00c04fc9e26e)]
         interface IWebBrowser2: IWebBrowserApp {
             fn Navigate2(&self, #[in] URL: *mut VARIANT, #[in] #[opt] Flags: *mut VARIANT, #[in] #[opt] TargetFrameName: *mut VARIANT, #[in] #[opt] PostData: *mut VARIANT, #[in] #[opt] Headers: *mut VARIANT) -> HRESULT;
             fn QueryStatusWB(&self, #[in] cmdID: OLECMDID, #[out] #[retval] pcmdf: *mut OLECMDF) -> HRESULT;
-            fn ExecWB(&self, #[in] cmdID: OLECMDID, #[in] cmdexecopt: OLECMDEXECOPT, #[in] #[opt] pvaIn: *mut VARIANT, #[in] #[out] #[opt] pvaOut: *mut VARIANT) -> HRESULT;
+            fn ExecWB(&self, #[in] cmdID: OLECMDID, #[in] cmdexecopt: OLECMDEXECOPT, #[in] #[opt] pvaIn: *mut VARIANT, #[in] #[opt] #[out] pvaOut: *mut VARIANT) -> HRESULT;
             fn ShowBrowserBar(&self, #[in] pvaClsid: *mut VARIANT, #[in] #[opt] pvarShow: *mut VARIANT, #[in] #[opt] pvarSize: *mut VARIANT) -> HRESULT;
             fn get_ReadyState(&self, #[out] #[retval] plReadyState: *mut READYSTATE) -> HRESULT;
             fn get_Offline(&self, #[out] #[retval] pbOffline: *mut VARIANT_BOOL) -> HRESULT;
@@ -303,15 +303,15 @@ mod Windows {
             fn ClientToWindow(&self, #[in] #[out] pcx: *mut i32, #[in] #[out] pcy: *mut i32) -> HRESULT;
             fn PutProperty(&self, #[in] Property: BSTR, #[in] vtValue: VARIANT) -> HRESULT;
             fn GetProperty(&self, #[in] Property: BSTR, #[out] #[retval] pvtValue: *mut VARIANT) -> HRESULT;
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
             fn get_HWND(&self, #[out] #[retval] pHWND: *mut SHANDLE_PTR) -> HRESULT;
-            fn get_FullName(&self, #[out] #[retval] #[out_ptr] FullName: *mut BSTR) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] Path: *mut BSTR) -> HRESULT;
+            fn get_FullName(&self, #[out] #[out_ptr] #[retval] FullName: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] Path: *mut BSTR) -> HRESULT;
             fn get_Visible(&self, #[out] #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Visible(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
             fn get_StatusBar(&self, #[out] #[retval] pBool: *mut VARIANT_BOOL) -> HRESULT;
             fn put_StatusBar(&self, #[in] Value: VARIANT_BOOL) -> HRESULT;
-            fn get_StatusText(&self, #[out] #[retval] #[out_ptr] StatusText: *mut BSTR) -> HRESULT;
+            fn get_StatusText(&self, #[out] #[out_ptr] #[retval] StatusText: *mut BSTR) -> HRESULT;
             fn put_StatusText(&self, #[in] StatusText: BSTR) -> HRESULT;
             fn get_ToolBar(&self, #[out] #[retval] Value: *mut i32) -> HRESULT;
             fn put_ToolBar(&self, #[in] Value: i32) -> HRESULT;

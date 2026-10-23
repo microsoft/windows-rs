@@ -1,9 +1,9 @@
 #[win32]
 mod Fixture {
+    #[arch(X64 | Arm64)]
     #[library("fixture.dll")]
-    #[arch(X64 | Arm64)]
     extern fn Available(value: u32) -> i32;
-    #[library("fixture.dll", import = "Available")]
     #[arch(X64 | Arm64)]
+    #[library("fixture.dll", import = "Available")]
     extern fn PublicAvailable(value: u32) -> i32;
 }

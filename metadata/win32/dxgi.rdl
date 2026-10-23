@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("dxgi.dll")]
-        extern fn CreateDXGIFactory(riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
+        extern fn CreateDXGIFactory(riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppFactory: *mut *mut void) -> HRESULT;
         #[library("dxgi.dll")]
-        extern fn CreateDXGIFactory1(riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppFactory: *mut *mut void) -> HRESULT;
+        extern fn CreateDXGIFactory1(riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppFactory: *mut *mut void) -> HRESULT;
         struct DXGI_ADAPTER_DESC {
             Description: [WCHAR; 128],
             VendorId: UINT,
@@ -168,7 +168,7 @@ mod Windows {
         }
         #[guid(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6)]
         interface IDXGIDeviceSubObject: IDXGIObject {
-            fn GetDevice(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr(null_on_failure)] #[iid_is] ppDevice: *mut *mut void) -> HRESULT;
+            fn GetDevice(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] #[retval] ppDevice: *mut *mut void) -> HRESULT;
         }
         #[guid(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369)]
         interface IDXGIFactory: IDXGIObject {
@@ -193,12 +193,12 @@ mod Windows {
             fn SetPrivateData(&self, #[in] Name: &GUID, #[in] DataSize: UINT, #[in] #[readable(entry, bytes(DataSize))] pData: *const void) -> HRESULT;
             fn SetPrivateDataInterface(&self, #[in] Name: &GUID, #[in] #[opt] pUnknown: IUnknown) -> HRESULT;
             fn GetPrivateData(&self, #[in] Name: &GUID, #[in] #[out] pDataSize: *mut UINT, #[out] #[writable(entry, bytes(*pDataSize))] pData: *mut void) -> HRESULT;
-            fn GetParent(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr(null_on_failure)] #[iid_is] ppParent: *mut *mut void) -> HRESULT;
+            fn GetParent(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] #[retval] ppParent: *mut *mut void) -> HRESULT;
         }
         #[guid(0xae02eedb_c735_4690_8d52_5a8dc20213aa)]
         interface IDXGIOutput: IDXGIObject {
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_OUTPUT_DESC) -> HRESULT;
-            fn GetDisplayModeList(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[out] #[opt] #[writable(entry, *pNumModes)] #[readable(success, *pNumModes)] pDesc: *mut DXGI_MODE_DESC) -> HRESULT;
+            fn GetDisplayModeList(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[opt] #[out] #[readable(success, *pNumModes)] #[writable(entry, *pNumModes)] pDesc: *mut DXGI_MODE_DESC) -> HRESULT;
             fn FindClosestMatchingMode(&self, #[in] pModeToMatch: *const DXGI_MODE_DESC, #[out] pClosestMatch: *mut DXGI_MODE_DESC, #[in] #[opt] pConcernedDevice: IUnknown) -> HRESULT;
             fn WaitForVBlank(&self) -> HRESULT;
             fn TakeOwnership(&self, #[in] pDevice: IUnknown, Exclusive: BOOL) -> HRESULT;
@@ -231,9 +231,9 @@ mod Windows {
         #[guid(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a)]
         interface IDXGISwapChain: IDXGIDeviceSubObject {
             fn Present(&self, #[in] SyncInterval: UINT, #[in] Flags: UINT) -> HRESULT;
-            fn GetBuffer(&self, #[in] Buffer: UINT, #[in] riid: &IID, #[in] #[out] #[out_ptr(null_on_failure)] #[iid_is] ppSurface: *mut *mut void) -> HRESULT;
+            fn GetBuffer(&self, #[in] Buffer: UINT, #[in] riid: &IID, #[iid_is] #[in] #[out] #[out_ptr(null_on_failure)] ppSurface: *mut *mut void) -> HRESULT;
             fn SetFullscreenState(&self, #[in] Fullscreen: BOOL, #[in] #[opt] pTarget: IDXGIOutput) -> HRESULT;
-            fn GetFullscreenState(&self, #[out] #[opt] pFullscreen: *mut BOOL, #[out] #[opt] #[out_ptr(nullable, null_on_failure)] ppTarget: *mut IDXGIOutput) -> HRESULT;
+            fn GetFullscreenState(&self, #[opt] #[out] pFullscreen: *mut BOOL, #[opt] #[out] #[out_ptr(nullable, null_on_failure)] ppTarget: *mut IDXGIOutput) -> HRESULT;
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_DESC) -> HRESULT;
             fn ResizeBuffers(&self, #[in] BufferCount: UINT, #[in] Width: UINT, #[in] Height: UINT, #[in] NewFormat: DXGI_FORMAT, #[in] SwapChainFlags: UINT) -> HRESULT;
             fn ResizeTarget(&self, #[in] pNewTargetParameters: *const DXGI_MODE_DESC) -> HRESULT;

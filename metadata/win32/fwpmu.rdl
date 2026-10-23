@@ -378,7 +378,7 @@ mod Windows {
         const FWPM_WEIGHT_RANGE_IPSEC: i32 = 0;
         const FWPM_WEIGHT_RANGE_MAX: UINT64 = 15;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmCalloutAdd0(#[in] engineHandle: HANDLE, #[in] callout: *const FWPM_CALLOUT0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[out] #[opt] id: *mut UINT32) -> DWORD;
+        extern fn FwpmCalloutAdd0(#[in] engineHandle: HANDLE, #[in] callout: *const FWPM_CALLOUT0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[opt] #[out] id: *mut UINT32) -> DWORD;
         #[library("fwpuclnt.dll")]
         extern fn FwpmCalloutCreateEnumHandle0(#[in] engineHandle: HANDLE, #[in] #[opt] enumTemplate: *const FWPM_CALLOUT_ENUM_TEMPLATE0, #[out] enumHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll")]
@@ -440,7 +440,7 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmEngineSetSecurityInfo0(#[in] engineHandle: HANDLE, #[in] securityInfo: SECURITY_INFORMATION, #[in] #[opt] sidOwner: *const SID, #[in] #[opt] sidGroup: *const SID, #[in] #[opt] dacl: *const ACL, #[in] #[opt] sacl: *const ACL) -> DWORD;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmFilterAdd0(#[in] engineHandle: HANDLE, #[in] filter: *const FWPM_FILTER0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[out] #[opt] id: *mut UINT64) -> DWORD;
+        extern fn FwpmFilterAdd0(#[in] engineHandle: HANDLE, #[in] filter: *const FWPM_FILTER0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[opt] #[out] id: *mut UINT64) -> DWORD;
         #[library("fwpuclnt.dll")]
         extern fn FwpmFilterCreateEnumHandle0(#[in] engineHandle: HANDLE, #[in] #[opt] enumTemplate: *const FWPM_FILTER_ENUM_TEMPLATE0, #[out] enumHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll")]
@@ -530,13 +530,13 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn FwpmProviderAdd0(#[in] engineHandle: HANDLE, #[in] provider: *const FWPM_PROVIDER0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR) -> DWORD;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmProviderContextAdd0(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[out] #[opt] id: *mut UINT64) -> DWORD;
+        extern fn FwpmProviderContextAdd0(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT0, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[opt] #[out] id: *mut UINT64) -> DWORD;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmProviderContextAdd1(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT1, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[out] #[opt] id: *mut UINT64) -> DWORD;
+        extern fn FwpmProviderContextAdd1(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT1, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[opt] #[out] id: *mut UINT64) -> DWORD;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmProviderContextAdd2(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT2, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[out] #[opt] id: *mut UINT64) -> DWORD;
+        extern fn FwpmProviderContextAdd2(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT2, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[opt] #[out] id: *mut UINT64) -> DWORD;
         #[library("fwpuclnt.dll")]
-        extern fn FwpmProviderContextAdd3(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT3, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[out] #[opt] id: *mut UINT64) -> DWORD;
+        extern fn FwpmProviderContextAdd3(#[in] engineHandle: HANDLE, #[in] providerContext: *const FWPM_PROVIDER_CONTEXT3, #[in] #[opt] sd: PSECURITY_DESCRIPTOR, #[opt] #[out] id: *mut UINT64) -> DWORD;
         #[library("fwpuclnt.dll")]
         extern fn FwpmProviderContextCreateEnumHandle0(#[in] engineHandle: HANDLE, #[in] #[opt] enumTemplate: *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, #[out] enumHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll")]
@@ -700,9 +700,9 @@ mod Windows {
         #[library("fwpuclnt.dll")]
         extern fn IPsecSaContextAddOutbound1(#[in] engineHandle: HANDLE, #[in] id: UINT64, #[in] outboundBundle: *const IPSEC_SA_BUNDLE1) -> DWORD;
         #[library("fwpuclnt.dll")]
-        extern fn IPsecSaContextCreate0(#[in] engineHandle: HANDLE, #[in] outboundTraffic: *const IPSEC_TRAFFIC0, #[out] #[opt] inboundFilterId: *mut UINT64, #[out] id: *mut UINT64) -> DWORD;
+        extern fn IPsecSaContextCreate0(#[in] engineHandle: HANDLE, #[in] outboundTraffic: *const IPSEC_TRAFFIC0, #[opt] #[out] inboundFilterId: *mut UINT64, #[out] id: *mut UINT64) -> DWORD;
         #[library("fwpuclnt.dll")]
-        extern fn IPsecSaContextCreate1(#[in] engineHandle: HANDLE, #[in] outboundTraffic: *const IPSEC_TRAFFIC1, #[in] #[opt] virtualIfTunnelInfo: *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, #[out] #[opt] inboundFilterId: *mut UINT64, #[out] id: *mut UINT64) -> DWORD;
+        extern fn IPsecSaContextCreate1(#[in] engineHandle: HANDLE, #[in] outboundTraffic: *const IPSEC_TRAFFIC1, #[in] #[opt] virtualIfTunnelInfo: *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, #[opt] #[out] inboundFilterId: *mut UINT64, #[out] id: *mut UINT64) -> DWORD;
         #[library("fwpuclnt.dll")]
         extern fn IPsecSaContextCreateEnumHandle0(#[in] engineHandle: HANDLE, #[in] #[opt] enumTemplate: *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, #[out] enumHandle: *mut HANDLE) -> DWORD;
         #[library("fwpuclnt.dll")]

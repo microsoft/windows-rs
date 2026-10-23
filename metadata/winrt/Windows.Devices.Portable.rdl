@@ -2,16 +2,16 @@
 mod Windows {
     mod Devices {
         mod Portable {
-            #[guid(0xa88214e1_59c7_4a20_aba6_9f6707937230)]
             #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ServiceDevice)]
+            #[guid(0xa88214e1_59c7_4a20_aba6_9f6707937230)]
             interface IServiceDeviceStatics {
                 fn GetDeviceSelector(&self, #[in] serviceType: ServiceDeviceType) -> String;
                 fn GetDeviceSelectorFromServiceId(&self, #[in] serviceId: GUID) -> String;
             }
-            #[guid(0x5ece44ee_1b23_4dd2_8652_bc164f003128)]
             #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageDevice)]
+            #[guid(0x5ece44ee_1b23_4dd2_8652_bc164f003128)]
             interface IStorageDeviceStatics {
                 fn FromId(&self, #[in] deviceId: String) -> super::super::Storage::StorageFolder;
                 fn GetDeviceSelector(&self) -> String;
@@ -24,8 +24,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IServiceDeviceStatics, 65536, "Windows.Devices.Portable.PortableDeviceContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ServiceDevice {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
+            #[repr(i32)]
             enum ServiceDeviceType {
                 CalendarService = 0,
                 ContactsService = 1,

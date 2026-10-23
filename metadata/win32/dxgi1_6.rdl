@@ -64,7 +64,7 @@ mod Windows {
         }
         #[guid(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17)]
         interface IDXGIFactory6: IDXGIFactory5 {
-            fn EnumAdapterByGpuPreference(&self, #[in] Adapter: UINT, #[in] GpuPreference: DXGI_GPU_PREFERENCE, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvAdapter: *mut *mut void) -> HRESULT;
+            fn EnumAdapterByGpuPreference(&self, #[in] Adapter: UINT, #[in] GpuPreference: DXGI_GPU_PREFERENCE, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvAdapter: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa4966eed_76db_44da_84c1_ee9a7afb20a8)]
         interface IDXGIFactory7: IDXGIFactory6 {

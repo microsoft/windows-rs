@@ -267,13 +267,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn BringWindowToTop(#[in] hWnd: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageA(#[in] flags: DWORD, #[in] #[out] #[opt] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> i32;
+        extern fn BroadcastSystemMessageA(#[in] flags: DWORD, #[in] #[opt] #[out] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> i32;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageExA(#[in] flags: DWORD, #[in] #[out] #[opt] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[out] #[opt] pbsmInfo: PBSMINFO) -> i32;
+        extern fn BroadcastSystemMessageExA(#[in] flags: DWORD, #[in] #[opt] #[out] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[opt] #[out] pbsmInfo: PBSMINFO) -> i32;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageExW(#[in] flags: DWORD, #[in] #[out] #[opt] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[out] #[opt] pbsmInfo: PBSMINFO) -> i32;
+        extern fn BroadcastSystemMessageExW(#[in] flags: DWORD, #[in] #[opt] #[out] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[opt] #[out] pbsmInfo: PBSMINFO) -> i32;
         #[library("USER32.dll")]
-        extern fn BroadcastSystemMessageW(#[in] flags: DWORD, #[in] #[out] #[opt] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> i32;
+        extern fn BroadcastSystemMessageW(#[in] flags: DWORD, #[in] #[opt] #[out] lpInfo: LPDWORD, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> i32;
         const CALERT_SYSTEM: i32 = 6;
         const CBN_CLOSEUP: i32 = 8;
         const CBN_DBLCLK: i32 = 2;
@@ -594,7 +594,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ChangeWindowMessageFilter(#[in] message: UINT, #[in] dwFlag: DWORD) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ChangeWindowMessageFilterEx(#[in] hwnd: HWND, #[in] message: UINT, #[in] action: DWORD, #[in] #[out] #[opt] pChangeFilterStruct: PCHANGEFILTERSTRUCT) -> BOOL;
+        extern fn ChangeWindowMessageFilterEx(#[in] hwnd: HWND, #[in] message: UINT, #[in] action: DWORD, #[in] #[opt] #[out] pChangeFilterStruct: PCHANGEFILTERSTRUCT) -> BOOL;
         #[library("USER32.dll")]
         extern fn CharLowerA(#[in] #[out] lpsz: LPSTR) -> LPSTR;
         #[library("USER32.dll")]
@@ -664,9 +664,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ConvertToInterceptWindow(topLevelWindow: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn CopyAcceleratorTableA(#[in] hAccelSrc: HACCEL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cAccelEntries,return", "cAccelEntries,return")] #[out] #[opt] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
+        extern fn CopyAcceleratorTableA(#[in] hAccelSrc: HACCEL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cAccelEntries,return", "cAccelEntries,return")] #[opt] #[out] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
         #[library("USER32.dll")]
-        extern fn CopyAcceleratorTableW(#[in] hAccelSrc: HACCEL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cAccelEntries,return", "cAccelEntries,return")] #[out] #[opt] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
+        extern fn CopyAcceleratorTableW(#[in] hAccelSrc: HACCEL, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cAccelEntries,return", "cAccelEntries,return")] #[opt] #[out] #[writable(entry, cAccelEntries)] lpAccelDst: LPACCEL, #[in] cAccelEntries: i32) -> i32;
         #[library("USER32.dll")]
         extern fn CopyIcon(#[in] hIcon: HICON) -> HICON;
         #[library("USER32.dll")]
@@ -1081,17 +1081,17 @@ mod Windows {
         extern fn DrawStateA(#[in] hdc: HDC, #[in] #[opt] hbrFore: HBRUSH, #[in] #[opt] qfnCallBack: DRAWSTATEPROC, #[in] lData: LPARAM, #[in] wData: WPARAM, #[in] x: i32, #[in] y: i32, #[in] cx: i32, #[in] cy: i32, #[in] uFlags: UINT) -> BOOL;
         #[library("USER32.dll")]
         extern fn DrawStateW(#[in] hdc: HDC, #[in] #[opt] hbrFore: HBRUSH, #[in] #[opt] qfnCallBack: DRAWSTATEPROC, #[in] lData: LPARAM, #[in] wData: WPARAM, #[in] x: i32, #[in] y: i32, #[in] cx: i32, #[in] cy: i32, #[in] uFlags: UINT) -> BOOL;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn DrawTextA(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_In_bypassable_reads_or_z_(cchText)", "(!(format & 0x00010000)), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_At_((LPSTR)lpchText, _Inout_grows_updates_bypassable_or_z_(cchText, 4))", "(format & 0x00010000), _At_((LPSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4))))")] lpchText: LPCSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn DrawTextExA(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_At_((LPCSTR)lpchText, _In_bypassable_reads_or_z_(cchText))", "(!(format & 0x00010000)), _At_((LPCSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText)))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(cchText) < -1,_Unreferenced_parameter_", "(cchText) < -1, _Unreferenced_parameter_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_Inout_grows_updates_bypassable_or_z_(cchText, 4)", "(format & 0x00010000), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4)))")] lpchText: LPSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn DrawTextExW(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_At_((LPCWSTR)lpchText, _In_bypassable_reads_or_z_(cchText))", "(!(format & 0x00010000)), _At_((LPCWSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText)))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(cchText) < -1,_Unreferenced_parameter_", "(cchText) < -1, _Unreferenced_parameter_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_Inout_grows_updates_bypassable_or_z_(cchText, 4)", "(format & 0x00010000), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4)))")] lpchText: LPWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT, #[in] #[opt] lpdtp: LPDRAWTEXTPARAMS) -> i32;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn DrawTextW(#[in] hdc: HDC, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(!(format & DT_MODIFYSTRING)),_In_bypassable_reads_or_z_(cchText)", "(!(format & 0x00010000)), _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _In_z_) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _In_reads_(cchText))")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(format & DT_MODIFYSTRING),_At_((LPWSTR)lpchText, _Inout_grows_updates_bypassable_or_z_(cchText, 4))", "(format & 0x00010000), _At_((LPWSTR)lpchText, _When_(((cchText) == -1) || (_String_length_(_Curr_) < (cchText)), _Pre_z_ _Pre_valid_ _Out_writes_z_(_String_length_(_Curr_) + (4))) _When_(((cchText) != -1) && (_String_length_(_Curr_) >= (cchText)), _Pre_count_(cchText) _Pre_valid_ _Out_writes_z_((cchText) + (4))))")] lpchText: LPCWSTR, #[in] cchText: i32, #[in] #[out] lprc: LPRECT, #[in] format: UINT) -> i32;
         const EC_LEFTMARGIN: i32 = 1;
         const EC_RIGHTMARGIN: i32 = 2;
@@ -1598,9 +1598,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetActiveWindow() -> HWND;
         #[library("USER32.dll")]
-        extern fn GetAltTabInfoA(#[in] #[opt] hwnd: HWND, #[in] iItem: i32, #[in] #[out] pati: PALTTABINFO, #[out] #[opt] #[writable(entry, cchItemText)] pszItemText: LPSTR, #[in] cchItemText: UINT) -> BOOL;
+        extern fn GetAltTabInfoA(#[in] #[opt] hwnd: HWND, #[in] iItem: i32, #[in] #[out] pati: PALTTABINFO, #[opt] #[out] #[writable(entry, cchItemText)] pszItemText: LPSTR, #[in] cchItemText: UINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetAltTabInfoW(#[in] #[opt] hwnd: HWND, #[in] iItem: i32, #[in] #[out] pati: PALTTABINFO, #[out] #[opt] #[writable(entry, cchItemText)] pszItemText: LPWSTR, #[in] cchItemText: UINT) -> BOOL;
+        extern fn GetAltTabInfoW(#[in] #[opt] hwnd: HWND, #[in] iItem: i32, #[in] #[out] pati: PALTTABINFO, #[opt] #[out] #[writable(entry, cchItemText)] pszItemText: LPWSTR, #[in] cchItemText: UINT) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetAncestor(#[in] hwnd: HWND, #[in] gaFlags: UINT) -> HWND;
         #[library("USER32.dll")]
@@ -1617,25 +1617,25 @@ mod Windows {
         extern fn GetCaretBlinkTime() -> UINT;
         #[library("USER32.dll")]
         extern fn GetCaretPos(#[out] lpPoint: LPPOINT) -> BOOL;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn GetClassInfoA(#[in] #[opt] hInstance: HINSTANCE, #[in] lpClassName: LPCSTR, #[out] lpWndClass: LPWNDCLASSA) -> BOOL;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn GetClassInfoExA(#[in] #[opt] hInstance: HINSTANCE, #[in] lpszClass: LPCSTR, #[out] lpwcx: LPWNDCLASSEXA) -> BOOL;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn GetClassInfoExW(#[in] #[opt] hInstance: HINSTANCE, #[in] lpszClass: LPCWSTR, #[out] lpwcx: LPWNDCLASSEXW) -> BOOL;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn GetClassInfoW(#[in] #[opt] hInstance: HINSTANCE, #[in] lpClassName: LPCWSTR, #[out] lpWndClass: LPWNDCLASSW) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetClassLongA(#[in] hWnd: HWND, #[in] nIndex: i32) -> DWORD;
-        #[library("USER32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn GetClassLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32) -> ULONG_PTR;
-        #[library("USER32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn GetClassLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32) -> ULONG_PTR;
         #[library("USER32.dll")]
         extern fn GetClassLongW(#[in] hWnd: HWND, #[in] nIndex: i32) -> DWORD;
@@ -1694,7 +1694,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetDlgItem(#[in] #[opt] hDlg: HWND, #[in] nIDDlgItem: i32) -> HWND;
         #[library("USER32.dll")]
-        extern fn GetDlgItemInt(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[out] #[opt] lpTranslated: *mut BOOL, #[in] bSigned: BOOL) -> UINT;
+        extern fn GetDlgItemInt(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[opt] #[out] lpTranslated: *mut BOOL, #[in] bSigned: BOOL) -> UINT;
         #[library("USER32.dll")]
         extern fn GetDlgItemTextA(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[out] #[writable(entry, cchMax)] lpString: LPSTR, #[in] cchMax: i32) -> #[range(success, 0..=cchMax)] UINT;
         #[library("USER32.dll")]
@@ -1742,13 +1742,13 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetKeyboardLayout(#[in] idThread: DWORD) -> HKL;
         #[library("USER32.dll")]
-        extern fn GetKeyboardLayoutList(#[in] nBuff: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBuff,return", "nBuff,return")] #[out] #[opt] #[writable(entry, nBuff)] lpList: *mut HKL) -> i32;
+        extern fn GetKeyboardLayoutList(#[in] nBuff: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "nBuff,return", "nBuff,return")] #[opt] #[out] #[writable(entry, nBuff)] lpList: *mut HKL) -> i32;
         #[library("USER32.dll")]
         extern fn GetKeyboardLayoutNameA(#[out] #[writable(entry, 9)] pwszKLID: LPSTR) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetKeyboardLayoutNameW(#[out] #[writable(entry, 9)] pwszKLID: LPWSTR) -> BOOL;
-        #[must_use]
         #[library("USER32.dll")]
+        #[must_use]
         extern fn GetKeyboardState(#[out] #[writable(entry, 256)] lpKeyState: PBYTE) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetKeyboardType(#[in] nTypeFlag: i32) -> i32;
@@ -1757,7 +1757,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetLastInputInfo(#[out] plii: PLASTINPUTINFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetLayeredWindowAttributes(#[in] hwnd: HWND, #[out] #[opt] pcrKey: *mut COLORREF, #[out] #[opt] pbAlpha: *mut BYTE, #[out] #[opt] pdwFlags: *mut DWORD) -> BOOL;
+        extern fn GetLayeredWindowAttributes(#[in] hwnd: HWND, #[opt] #[out] pcrKey: *mut COLORREF, #[opt] #[out] pbAlpha: *mut BYTE, #[opt] #[out] pdwFlags: *mut DWORD) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetListBoxInfo(#[in] hwnd: HWND) -> DWORD;
         #[library("USER32.dll")]
@@ -1785,9 +1785,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetMenuState(#[in] hMenu: HMENU, #[in] uId: UINT, #[in] uFlags: UINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetMenuStringA(#[in] hMenu: HMENU, #[in] uIDItem: UINT, #[out] #[opt] #[writable(entry, cchMax)] lpString: LPSTR, #[in] cchMax: i32, #[in] flags: UINT) -> i32;
+        extern fn GetMenuStringA(#[in] hMenu: HMENU, #[in] uIDItem: UINT, #[opt] #[out] #[writable(entry, cchMax)] lpString: LPSTR, #[in] cchMax: i32, #[in] flags: UINT) -> i32;
         #[library("USER32.dll")]
-        extern fn GetMenuStringW(#[in] hMenu: HMENU, #[in] uIDItem: UINT, #[out] #[opt] #[writable(entry, cchMax)] lpString: LPWSTR, #[in] cchMax: i32, #[in] flags: UINT) -> i32;
+        extern fn GetMenuStringW(#[in] hMenu: HMENU, #[in] uIDItem: UINT, #[opt] #[out] #[writable(entry, cchMax)] lpString: LPWSTR, #[in] cchMax: i32, #[in] flags: UINT) -> i32;
         #[library("USER32.dll")]
         extern fn GetMessageA(#[out] lpMsg: LPMSG, #[in] #[opt] hWnd: HWND, #[in] wMsgFilterMin: UINT, #[in] wMsgFilterMax: UINT) -> BOOL;
         #[library("USER32.dll")]
@@ -1819,39 +1819,39 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetPointerDevice(#[in] device: HANDLE, #[out] #[writable(entry, 1)] pointerDevice: *mut POINTER_DEVICE_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerDeviceCursors(#[in] device: HANDLE, #[in] #[out] cursorCount: *mut UINT32, #[out] #[opt] #[writable(entry, *cursorCount)] deviceCursors: *mut POINTER_DEVICE_CURSOR_INFO) -> BOOL;
+        extern fn GetPointerDeviceCursors(#[in] device: HANDLE, #[in] #[out] cursorCount: *mut UINT32, #[opt] #[out] #[writable(entry, *cursorCount)] deviceCursors: *mut POINTER_DEVICE_CURSOR_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerDeviceProperties(#[in] device: HANDLE, #[in] #[out] propertyCount: *mut UINT32, #[out] #[opt] #[writable(entry, *propertyCount)] pointerProperties: *mut POINTER_DEVICE_PROPERTY) -> BOOL;
+        extern fn GetPointerDeviceProperties(#[in] device: HANDLE, #[in] #[out] propertyCount: *mut UINT32, #[opt] #[out] #[writable(entry, *propertyCount)] pointerProperties: *mut POINTER_DEVICE_PROPERTY) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerDeviceRects(#[in] device: HANDLE, #[out] #[writable(entry, 1)] pointerDeviceRect: *mut RECT, #[out] #[writable(entry, 1)] displayRect: *mut RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerDevices(#[in] #[out] deviceCount: *mut UINT32, #[out] #[opt] #[writable(entry, *deviceCount)] pointerDevices: *mut POINTER_DEVICE_INFO) -> BOOL;
+        extern fn GetPointerDevices(#[in] #[out] deviceCount: *mut UINT32, #[opt] #[out] #[writable(entry, *deviceCount)] pointerDevices: *mut POINTER_DEVICE_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerFrameInfo(#[in] pointerId: UINT32, #[in] #[out] pointerCount: *mut UINT32, #[out] #[opt] #[writable(entry, *pointerCount)] pointerInfo: *mut POINTER_INFO) -> BOOL;
+        extern fn GetPointerFrameInfo(#[in] pointerId: UINT32, #[in] #[out] pointerCount: *mut UINT32, #[opt] #[out] #[writable(entry, *pointerCount)] pointerInfo: *mut POINTER_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerFrameInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[out] #[opt] #[writable(entry, *entriesCount * *pointerCount)] pointerInfo: *mut POINTER_INFO) -> BOOL;
+        extern fn GetPointerFrameInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[opt] #[out] #[writable(entry, *entriesCount * *pointerCount)] pointerInfo: *mut POINTER_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerFramePenInfo(#[in] pointerId: UINT32, #[in] #[out] pointerCount: *mut UINT32, #[out] #[opt] #[writable(entry, *pointerCount)] penInfo: *mut POINTER_PEN_INFO) -> BOOL;
+        extern fn GetPointerFramePenInfo(#[in] pointerId: UINT32, #[in] #[out] pointerCount: *mut UINT32, #[opt] #[out] #[writable(entry, *pointerCount)] penInfo: *mut POINTER_PEN_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerFramePenInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[out] #[opt] #[writable(entry, *entriesCount * *pointerCount)] penInfo: *mut POINTER_PEN_INFO) -> BOOL;
+        extern fn GetPointerFramePenInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[opt] #[out] #[writable(entry, *entriesCount * *pointerCount)] penInfo: *mut POINTER_PEN_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerFrameTouchInfo(#[in] pointerId: UINT32, #[in] #[out] pointerCount: *mut UINT32, #[out] #[opt] #[writable(entry, *pointerCount)] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
+        extern fn GetPointerFrameTouchInfo(#[in] pointerId: UINT32, #[in] #[out] pointerCount: *mut UINT32, #[opt] #[out] #[writable(entry, *pointerCount)] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerFrameTouchInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[out] #[opt] #[writable(entry, *entriesCount * *pointerCount)] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
+        extern fn GetPointerFrameTouchInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[in] #[out] pointerCount: *mut UINT32, #[opt] #[out] #[writable(entry, *entriesCount * *pointerCount)] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerInfo(#[in] pointerId: UINT32, #[out] #[writable(entry, 1)] pointerInfo: *mut POINTER_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[out] #[opt] #[writable(entry, *entriesCount)] pointerInfo: *mut POINTER_INFO) -> BOOL;
+        extern fn GetPointerInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[opt] #[out] #[writable(entry, *entriesCount)] pointerInfo: *mut POINTER_INFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerInputTransform(#[in] pointerId: UINT32, #[in] historyCount: UINT32, #[out] #[writable(entry, historyCount)] inputTransform: *mut INPUT_TRANSFORM) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerPenInfo(#[in] pointerId: UINT32, #[out] #[writable(entry, 1)] penInfo: *mut POINTER_PEN_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerPenInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[out] #[opt] #[writable(entry, *entriesCount)] penInfo: *mut POINTER_PEN_INFO) -> BOOL;
+        extern fn GetPointerPenInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[opt] #[out] #[writable(entry, *entriesCount)] penInfo: *mut POINTER_PEN_INFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerTouchInfo(#[in] pointerId: UINT32, #[out] #[writable(entry, 1)] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetPointerTouchInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[out] #[opt] #[writable(entry, *entriesCount)] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
+        extern fn GetPointerTouchInfoHistory(#[in] pointerId: UINT32, #[in] #[out] entriesCount: *mut UINT32, #[opt] #[out] #[writable(entry, *entriesCount)] touchInfo: *mut POINTER_TOUCH_INFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetPointerType(#[in] pointerId: UINT32, #[out] pointerType: *mut POINTER_INPUT_TYPE) -> BOOL;
         #[library("USER32.dll")]
@@ -1867,19 +1867,19 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetQueueStatus(#[in] flags: UINT) -> DWORD;
         #[library("USER32.dll")]
-        extern fn GetRawInputBuffer(#[out] #[opt] #[writable(entry, bytes(*pcbSize))] pData: PRAWINPUT, #[in] #[out] pcbSize: PUINT, #[in] cbSizeHeader: UINT) -> UINT;
+        extern fn GetRawInputBuffer(#[opt] #[out] #[writable(entry, bytes(*pcbSize))] pData: PRAWINPUT, #[in] #[out] pcbSize: PUINT, #[in] cbSizeHeader: UINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetRawInputData(#[in] hRawInput: HRAWINPUT, #[in] uiCommand: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbSize,return", "*pcbSize,return")] #[out] #[opt] #[writable(entry, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT, #[in] cbSizeHeader: UINT) -> UINT;
+        extern fn GetRawInputData(#[in] hRawInput: HRAWINPUT, #[in] uiCommand: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "*pcbSize,return", "*pcbSize,return")] #[opt] #[out] #[writable(entry, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT, #[in] cbSizeHeader: UINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetRawInputDeviceInfoA(#[in] #[opt] hDevice: HANDLE, #[in] uiCommand: UINT, #[in] #[out] #[opt] #[readable(entry, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] #[readable(success, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT) -> UINT;
+        extern fn GetRawInputDeviceInfoA(#[in] #[opt] hDevice: HANDLE, #[in] uiCommand: UINT, #[in] #[opt] #[out] #[readable(entry, bytes(*pcbSize))] #[readable(success, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetRawInputDeviceInfoW(#[in] #[opt] hDevice: HANDLE, #[in] uiCommand: UINT, #[in] #[out] #[opt] #[readable(entry, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] #[readable(success, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT) -> UINT;
+        extern fn GetRawInputDeviceInfoW(#[in] #[opt] hDevice: HANDLE, #[in] uiCommand: UINT, #[in] #[opt] #[out] #[readable(entry, bytes(*pcbSize))] #[readable(success, bytes(*pcbSize))] #[writable(entry, bytes(*pcbSize))] pData: LPVOID, #[in] #[out] pcbSize: PUINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn GetRawInputDeviceList(#[out] #[opt] #[writable(entry, *puiNumDevices)] pRawInputDeviceList: PRAWINPUTDEVICELIST, #[in] #[out] puiNumDevices: PUINT, #[in] cbSize: UINT) -> UINT;
+        extern fn GetRawInputDeviceList(#[opt] #[out] #[writable(entry, *puiNumDevices)] pRawInputDeviceList: PRAWINPUTDEVICELIST, #[in] #[out] puiNumDevices: PUINT, #[in] cbSize: UINT) -> UINT;
         #[library("USER32.dll")]
         extern fn GetRawPointerDeviceData(#[in] pointerId: UINT32, #[in] historyCount: UINT32, #[in] propertiesCount: UINT32, #[in] #[readable(entry, propertiesCount)] pProperties: *mut POINTER_DEVICE_PROPERTY, #[out] #[writable(entry, historyCount * propertiesCount)] pValues: *mut LONG) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetRegisteredRawInputDevices(#[out] #[opt] #[writable(entry, *puiNumDevices)] pRawInputDevices: PRAWINPUTDEVICE, #[in] #[out] puiNumDevices: PUINT, #[in] cbSize: UINT) -> UINT;
+        extern fn GetRegisteredRawInputDevices(#[opt] #[out] #[writable(entry, *puiNumDevices)] pRawInputDevices: PRAWINPUTDEVICE, #[in] #[out] puiNumDevices: PUINT, #[in] cbSize: UINT) -> UINT;
         #[library("USER32.dll")]
         extern fn GetScrollBarInfo(#[in] hwnd: HWND, #[in] idObject: LONG, #[in] #[out] psbi: PSCROLLBARINFO) -> BOOL;
         #[library("USER32.dll")]
@@ -1923,17 +1923,17 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetUnpredictedMessagePos() -> DWORD;
         #[library("USER32.dll")]
-        extern fn GetUpdateRect(#[in] hWnd: HWND, #[out] #[opt] lpRect: LPRECT, #[in] bErase: BOOL) -> BOOL;
+        extern fn GetUpdateRect(#[in] hWnd: HWND, #[opt] #[out] lpRect: LPRECT, #[in] bErase: BOOL) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetUpdateRgn(#[in] hWnd: HWND, #[in] hRgn: HRGN, #[in] bErase: BOOL) -> i32;
         #[library("USER32.dll")]
         extern fn GetUpdatedClipboardFormats(#[out] #[writable(entry, cFormats)] lpuiFormats: PUINT, #[in] cFormats: UINT, #[out] pcFormatsOut: PUINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetUserObjectInformationA(#[in] hObj: HANDLE, #[in] nIndex: i32, #[out] #[opt] #[writable(entry, bytes(nLength))] pvInfo: PVOID, #[in] nLength: DWORD, #[out] #[opt] lpnLengthNeeded: LPDWORD) -> BOOL;
+        extern fn GetUserObjectInformationA(#[in] hObj: HANDLE, #[in] nIndex: i32, #[opt] #[out] #[writable(entry, bytes(nLength))] pvInfo: PVOID, #[in] nLength: DWORD, #[opt] #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetUserObjectInformationW(#[in] hObj: HANDLE, #[in] nIndex: i32, #[out] #[opt] #[writable(entry, bytes(nLength))] pvInfo: PVOID, #[in] nLength: DWORD, #[out] #[opt] lpnLengthNeeded: LPDWORD) -> BOOL;
+        extern fn GetUserObjectInformationW(#[in] hObj: HANDLE, #[in] nIndex: i32, #[opt] #[out] #[writable(entry, bytes(nLength))] pvInfo: PVOID, #[in] nLength: DWORD, #[opt] #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("USER32.dll")]
-        extern fn GetUserObjectSecurity(#[in] hObj: HANDLE, #[in] pSIRequested: PSECURITY_INFORMATION, #[out] #[opt] #[writable(entry, bytes(nLength))] pSID: PSECURITY_DESCRIPTOR, #[in] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
+        extern fn GetUserObjectSecurity(#[in] hObj: HANDLE, #[in] pSIRequested: PSECURITY_INFORMATION, #[opt] #[out] #[writable(entry, bytes(nLength))] pSID: PSECURITY_DESCRIPTOR, #[in] nLength: DWORD, #[out] lpnLengthNeeded: LPDWORD) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetWindow(#[in] hWnd: HWND, #[in] uCmd: UINT) -> HWND;
         #[library("USER32.dll")]
@@ -1947,23 +1947,23 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetWindowDpiHostingBehavior(#[in] hwnd: HWND) -> DPI_HOSTING_BEHAVIOR;
         #[library("USER32.dll")]
-        extern fn GetWindowFeedbackSetting(#[in] hwnd: HWND, #[in] feedback: FEEDBACK_TYPE, #[in] dwFlags: DWORD, #[in] #[out] pSize: *mut UINT32, #[out] #[opt] #[writable(entry, bytes(*pSize))] config: *mut void) -> BOOL;
+        extern fn GetWindowFeedbackSetting(#[in] hwnd: HWND, #[in] feedback: FEEDBACK_TYPE, #[in] dwFlags: DWORD, #[in] #[out] pSize: *mut UINT32, #[opt] #[out] #[writable(entry, bytes(*pSize))] config: *mut void) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetWindowInfo(#[in] hwnd: HWND, #[in] #[out] pwi: PWINDOWINFO) -> BOOL;
         #[library("USER32.dll")]
         extern fn GetWindowLongA(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG;
-        #[library("USER32.dll", import = "GetWindowLongA")]
-        #[arch(X86)]
-        extern fn GetWindowLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG;
-        #[library("USER32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn GetWindowLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG_PTR;
-        #[library("USER32.dll", import = "GetWindowLongW")]
         #[arch(X86)]
-        extern fn GetWindowLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG;
-        #[library("USER32.dll")]
+        #[library("USER32.dll", import = "GetWindowLongA")]
+        extern fn GetWindowLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG;
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn GetWindowLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG_PTR;
+        #[arch(X86)]
+        #[library("USER32.dll", import = "GetWindowLongW")]
+        extern fn GetWindowLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG;
         #[library("USER32.dll")]
         extern fn GetWindowLongW(#[in] hWnd: HWND, #[in] nIndex: i32) -> LONG;
         #[library("USER32.dll")]
@@ -1987,7 +1987,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn GetWindowTextW(#[in] hWnd: HWND, #[out] #[writable(entry, nMaxCount)] lpString: LPWSTR, #[in] nMaxCount: i32) -> #[range(success, 0..=nMaxCount)] i32;
         #[library("USER32.dll")]
-        extern fn GetWindowThreadProcessId(#[in] hWnd: HWND, #[out] #[opt] lpdwProcessId: LPDWORD) -> DWORD;
+        extern fn GetWindowThreadProcessId(#[in] hWnd: HWND, #[opt] #[out] lpdwProcessId: LPDWORD) -> DWORD;
         #[library("USER32.dll")]
         extern fn GetWindowWord(#[in] hWnd: HWND, #[in] nIndex: i32) -> WORD;
         #[library("USER32.dll")]
@@ -2446,7 +2446,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn IsRectEmpty(#[in] lprc: *const RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn IsTouchWindow(#[in] hwnd: HWND, #[out] #[opt] pulFlags: PULONG) -> BOOL;
+        extern fn IsTouchWindow(#[in] hwnd: HWND, #[opt] #[out] pulFlags: PULONG) -> BOOL;
         #[library("USER32.dll")]
         extern fn IsValidDpiAwarenessContext(#[in] value: DPI_AWARENESS_CONTEXT) -> BOOL;
         #[library("USER32.dll")]
@@ -3774,9 +3774,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn PrintWindow(#[in] hwnd: HWND, #[in] hdcBlt: HDC, #[in] nFlags: UINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn PrivateExtractIconsA(#[in] #[readable(entry, 260)] szFileName: LPCSTR, #[in] nIconIndex: i32, #[in] cxIcon: i32, #[in] cyIcon: i32, #[out] #[opt] #[writable(entry, nIcons)] phicon: *mut HICON, #[out] #[opt] #[writable(entry, nIcons)] piconid: *mut UINT, #[in] nIcons: UINT, #[in] flags: UINT) -> UINT;
+        extern fn PrivateExtractIconsA(#[in] #[readable(entry, 260)] szFileName: LPCSTR, #[in] nIconIndex: i32, #[in] cxIcon: i32, #[in] cyIcon: i32, #[opt] #[out] #[writable(entry, nIcons)] phicon: *mut HICON, #[opt] #[out] #[writable(entry, nIcons)] piconid: *mut UINT, #[in] nIcons: UINT, #[in] flags: UINT) -> UINT;
         #[library("USER32.dll")]
-        extern fn PrivateExtractIconsW(#[in] #[readable(entry, 260)] szFileName: LPCWSTR, #[in] nIconIndex: i32, #[in] cxIcon: i32, #[in] cyIcon: i32, #[out] #[opt] #[writable(entry, nIcons)] phicon: *mut HICON, #[out] #[opt] #[writable(entry, nIcons)] piconid: *mut UINT, #[in] nIcons: UINT, #[in] flags: UINT) -> UINT;
+        extern fn PrivateExtractIconsW(#[in] #[readable(entry, 260)] szFileName: LPCWSTR, #[in] nIconIndex: i32, #[in] cxIcon: i32, #[in] cyIcon: i32, #[opt] #[out] #[writable(entry, nIcons)] phicon: *mut HICON, #[opt] #[out] #[writable(entry, nIcons)] piconid: *mut UINT, #[in] nIcons: UINT, #[in] flags: UINT) -> UINT;
         #[library("USER32.dll")]
         extern fn PtInRect(#[in] lprc: *const RECT, #[in] pt: POINT) -> BOOL;
         const QS_ALLEVENTS: i32 = 7359;
@@ -3795,9 +3795,9 @@ mod Windows {
         const QS_SENDMESSAGE: i32 = 64;
         const QS_TIMER: i32 = 16;
         const QS_TOUCH: i32 = 2048;
-        #[success(return == 0)]
         #[library("USER32.dll")]
-        extern fn QueryDisplayConfig(#[in] flags: UINT32, #[in] #[out] numPathArrayElements: *mut UINT32, #[out] #[writable(entry, *numPathArrayElements)] #[readable(success, *numPathArrayElements)] pathArray: *mut DISPLAYCONFIG_PATH_INFO, #[in] #[out] numModeInfoArrayElements: *mut UINT32, #[out] #[writable(entry, *numModeInfoArrayElements)] #[readable(success, *numModeInfoArrayElements)] modeInfoArray: *mut DISPLAYCONFIG_MODE_INFO, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "!(flags & QDC_DATABASE_CURRENT),_Pre_null_", "!(flags & 0x00000004), _Pre_null_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "flags & QDC_DATABASE_CURRENT,_Out_", "flags & 0x00000004, _Out_")] currentTopologyId: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> LONG;
+        #[success(return == 0)]
+        extern fn QueryDisplayConfig(#[in] flags: UINT32, #[in] #[out] numPathArrayElements: *mut UINT32, #[out] #[readable(success, *numPathArrayElements)] #[writable(entry, *numPathArrayElements)] pathArray: *mut DISPLAYCONFIG_PATH_INFO, #[in] #[out] numModeInfoArrayElements: *mut UINT32, #[out] #[readable(success, *numModeInfoArrayElements)] #[writable(entry, *numModeInfoArrayElements)] modeInfoArray: *mut DISPLAYCONFIG_MODE_INFO, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "!(flags & QDC_DATABASE_CURRENT),_Pre_null_", "!(flags & 0x00000004), _Pre_null_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "flags & QDC_DATABASE_CURRENT,_Out_", "flags & 0x00000004, _Out_")] currentTopologyId: *mut DISPLAYCONFIG_TOPOLOGY_ID) -> LONG;
         struct RAWHID {
             dwSizeHid: DWORD,
             dwCount: DWORD,
@@ -4716,11 +4716,11 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ScreenToClient(#[in] hWnd: HWND, #[in] #[out] lpPoint: LPPOINT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ScrollDC(#[in] hDC: HDC, #[in] dx: i32, #[in] dy: i32, #[in] #[opt] lprcScroll: *const RECT, #[in] #[opt] lprcClip: *const RECT, #[in] #[opt] hrgnUpdate: HRGN, #[out] #[opt] lprcUpdate: LPRECT) -> BOOL;
+        extern fn ScrollDC(#[in] hDC: HDC, #[in] dx: i32, #[in] dy: i32, #[in] #[opt] lprcScroll: *const RECT, #[in] #[opt] lprcClip: *const RECT, #[in] #[opt] hrgnUpdate: HRGN, #[opt] #[out] lprcUpdate: LPRECT) -> BOOL;
         #[library("USER32.dll")]
         extern fn ScrollWindow(#[in] hWnd: HWND, #[in] XAmount: i32, #[in] YAmount: i32, #[in] #[opt] lpRect: *const RECT, #[in] #[opt] lpClipRect: *const RECT) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ScrollWindowEx(#[in] hWnd: HWND, #[in] dx: i32, #[in] dy: i32, #[in] #[opt] prcScroll: *const RECT, #[in] #[opt] prcClip: *const RECT, #[in] #[opt] hrgnUpdate: HRGN, #[out] #[opt] prcUpdate: LPRECT, #[in] flags: UINT) -> i32;
+        extern fn ScrollWindowEx(#[in] hWnd: HWND, #[in] dx: i32, #[in] dy: i32, #[in] #[opt] prcScroll: *const RECT, #[in] #[opt] prcClip: *const RECT, #[in] #[opt] hrgnUpdate: HRGN, #[opt] #[out] prcUpdate: LPRECT, #[in] flags: UINT) -> i32;
         #[library("USER32.dll")]
         extern fn SendDlgItemMessageA(#[in] hDlg: HWND, #[in] nIDDlgItem: i32, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
@@ -4734,9 +4734,9 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn SendMessageCallbackW(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] lpResultCallBack: SENDASYNCPROC, #[in] dwData: ULONG_PTR) -> BOOL;
         #[library("USER32.dll")]
-        extern fn SendMessageTimeoutA(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] fuFlags: UINT, #[in] uTimeout: UINT, #[out] #[opt] lpdwResult: PDWORD_PTR) -> LRESULT;
+        extern fn SendMessageTimeoutA(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] fuFlags: UINT, #[in] uTimeout: UINT, #[opt] #[out] lpdwResult: PDWORD_PTR) -> LRESULT;
         #[library("USER32.dll")]
-        extern fn SendMessageTimeoutW(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] fuFlags: UINT, #[in] uTimeout: UINT, #[out] #[opt] lpdwResult: PDWORD_PTR) -> LRESULT;
+        extern fn SendMessageTimeoutW(#[in] hWnd: HWND, #[in] Msg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM, #[in] fuFlags: UINT, #[in] uTimeout: UINT, #[opt] #[out] lpdwResult: PDWORD_PTR) -> LRESULT;
         #[library("USER32.dll")]
         extern fn SendMessageW(#[in] hWnd: HWND, #[in] Msg: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] wParam: WPARAM, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] lParam: LPARAM) -> LRESULT;
         #[library("USER32.dll")]
@@ -4755,11 +4755,11 @@ mod Windows {
         extern fn SetCaretPos(#[in] X: i32, #[in] Y: i32) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetClassLongA(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> DWORD;
-        #[library("USER32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn SetClassLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG_PTR) -> ULONG_PTR;
-        #[library("USER32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn SetClassLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG_PTR) -> ULONG_PTR;
         #[library("USER32.dll")]
         extern fn SetClassLongW(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> DWORD;
@@ -4879,18 +4879,18 @@ mod Windows {
         extern fn SetWindowFeedbackSetting(#[in] hwnd: HWND, #[in] feedback: FEEDBACK_TYPE, #[in] dwFlags: DWORD, #[in] size: UINT32, #[in] #[opt] #[readable(entry, bytes(size))] configuration: *const void) -> BOOL;
         #[library("USER32.dll")]
         extern fn SetWindowLongA(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> LONG;
-        #[library("USER32.dll", import = "SetWindowLongA")]
-        #[arch(X86)]
-        extern fn SetWindowLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> LONG;
-        #[library("USER32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn SetWindowLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG_PTR) -> LONG_PTR;
-        #[library("USER32.dll", import = "SetWindowLongW")]
         #[arch(X86)]
-        extern fn SetWindowLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> LONG;
-        #[library("USER32.dll")]
+        #[library("USER32.dll", import = "SetWindowLongA")]
+        extern fn SetWindowLongPtrA(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> LONG;
         #[arch(X64 | Arm64)]
+        #[library("USER32.dll")]
         extern fn SetWindowLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG_PTR) -> LONG_PTR;
+        #[arch(X86)]
+        #[library("USER32.dll", import = "SetWindowLongW")]
+        extern fn SetWindowLongPtrW(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> LONG;
         #[library("USER32.dll")]
         extern fn SetWindowLongW(#[in] hWnd: HWND, #[in] nIndex: i32, #[in] dwNewLong: LONG) -> LONG;
         #[library("USER32.dll")]
@@ -4930,7 +4930,7 @@ mod Windows {
         #[library("USER32.dll")]
         extern fn ShutdownBlockReasonDestroy(#[in] hWnd: HWND) -> BOOL;
         #[library("USER32.dll")]
-        extern fn ShutdownBlockReasonQuery(#[in] hWnd: HWND, #[out] #[opt] #[writable(entry, *pcchBuff)] pwszBuff: LPWSTR, #[in] #[out] pcchBuff: *mut DWORD) -> BOOL;
+        extern fn ShutdownBlockReasonQuery(#[in] hWnd: HWND, #[opt] #[out] #[writable(entry, *pcchBuff)] pwszBuff: LPWSTR, #[in] #[out] pcchBuff: *mut DWORD) -> BOOL;
         #[library("USER32.dll")]
         extern fn SkipPointerFrameMessages(#[in] pointerId: UINT32) -> BOOL;
         #[library("USER32.dll")]
@@ -4943,14 +4943,14 @@ mod Windows {
         extern fn SwitchDesktop(#[in] hDesktop: HDESK) -> BOOL;
         #[library("USER32.dll")]
         extern fn SwitchToThisWindow(#[in] hwnd: HWND, #[in] fUnknown: BOOL);
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn SystemParametersInfoA(#[in] uiAction: UINT, #[in] uiParam: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn SystemParametersInfoForDpi(#[in] uiAction: UINT, #[in] uiParam: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] pvParam: PVOID, #[in] fWinIni: UINT, #[in] dpi: UINT) -> BOOL;
-        #[success(return != 0)]
         #[library("USER32.dll")]
+        #[success(return != 0)]
         extern fn SystemParametersInfoW(#[in] uiAction: UINT, #[in] uiParam: UINT, #[Windows::Win32::Metadata::NativeSal("2", "_Post_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Pre_maybenull_", "", "")] pvParam: PVOID, #[in] fWinIni: UINT) -> BOOL;
         extern fn TIMERPROC(param0: HWND, param1: UINT, param2: UINT_PTR, param3: DWORD);
         const TIMERV_COALESCING_MAX: i32 = 2147483637;

@@ -55,11 +55,11 @@ mod Windows {
         }
         #[guid(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff)]
         interface IDWriteFontFallback: IUnknown {
-            fn MapCharacters(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[opt] baseFontCollection: IDWriteFontCollection, #[in] #[opt] #[null_terminated(entry)] baseFamilyName: *const u16, baseWeight: DWRITE_FONT_WEIGHT, baseStyle: DWRITE_FONT_STYLE, baseStretch: DWRITE_FONT_STRETCH, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,textLength", "0,textLength")] mappedLength: *mut UINT32, #[out] #[out_ptr(nullable, null_on_failure)] mappedFont: *mut IDWriteFont, #[out] scale: *mut FLOAT) -> HRESULT;
+            fn MapCharacters(&self, analysisSource: IDWriteTextAnalysisSource, textPosition: UINT32, textLength: UINT32, #[in] #[opt] baseFontCollection: IDWriteFontCollection, #[in] #[null_terminated(entry)] #[opt] baseFamilyName: *const u16, baseWeight: DWRITE_FONT_WEIGHT, baseStyle: DWRITE_FONT_STYLE, baseStretch: DWRITE_FONT_STRETCH, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "0,textLength", "0,textLength")] mappedLength: *mut UINT32, #[out] #[out_ptr(nullable, null_on_failure)] mappedFont: *mut IDWriteFont, #[out] scale: *mut FLOAT) -> HRESULT;
         }
         #[guid(0xfd882d06_8aba_4fb8_b849_8be8b73e14de)]
         interface IDWriteFontFallbackBuilder: IUnknown {
-            fn AddMapping(&self, #[in] #[readable(entry, rangesCount)] ranges: *const DWRITE_UNICODE_RANGE, rangesCount: UINT32, #[in] #[readable(entry, targetFamilyNamesCount)] targetFamilyNames: *mut *const WCHAR, targetFamilyNamesCount: UINT32, #[in] #[opt] fontCollection: IDWriteFontCollection, #[in] #[opt] #[null_terminated(entry)] localeName: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] baseFamilyName: *const WCHAR, scale: FLOAT) -> HRESULT;
+            fn AddMapping(&self, #[in] #[readable(entry, rangesCount)] ranges: *const DWRITE_UNICODE_RANGE, rangesCount: UINT32, #[in] #[readable(entry, targetFamilyNamesCount)] targetFamilyNames: *mut *const WCHAR, targetFamilyNamesCount: UINT32, #[in] #[opt] fontCollection: IDWriteFontCollection, #[in] #[null_terminated(entry)] #[opt] localeName: *const WCHAR, #[in] #[null_terminated(entry)] #[opt] baseFamilyName: *const WCHAR, scale: FLOAT) -> HRESULT;
             fn AddMappings(&self, fontFallback: IDWriteFontFallback) -> HRESULT;
             fn CreateFontFallback(&self, #[out] #[out_ptr(null_on_failure)] fontFallback: *mut IDWriteFontFallback) -> HRESULT;
         }
@@ -70,8 +70,8 @@ mod Windows {
         #[guid(0x553a9ff3_5693_4df7_b52b_74806f7f2eb9)]
         interface IDWriteTextAnalyzer2: IDWriteTextAnalyzer1 {
             fn GetGlyphOrientationTransform(&self, glyphOrientationAngle: DWRITE_GLYPH_ORIENTATION_ANGLE, isSideways: BOOL, originX: FLOAT, originY: FLOAT, #[out] transform: *mut DWRITE_MATRIX) -> HRESULT;
-            fn GetTypographicFeatures(&self, fontFace: IDWriteFontFace, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[in] #[opt] #[null_terminated(entry)] localeName: *const WCHAR, maxTagCount: UINT32, #[out] actualTagCount: *mut UINT32, #[out] #[writable(entry, maxTagCount)] tags: *mut DWRITE_FONT_FEATURE_TAG) -> HRESULT;
-            fn CheckTypographicFeature(&self, fontFace: IDWriteFontFace, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[in] #[opt] #[null_terminated(entry)] localeName: *const WCHAR, featureTag: DWRITE_FONT_FEATURE_TAG, glyphCount: UINT32, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, #[out] #[writable(entry, glyphCount)] featureApplies: *mut UINT8) -> HRESULT;
+            fn GetTypographicFeatures(&self, fontFace: IDWriteFontFace, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated(entry)] #[opt] localeName: *const WCHAR, maxTagCount: UINT32, #[out] actualTagCount: *mut UINT32, #[out] #[writable(entry, maxTagCount)] tags: *mut DWRITE_FONT_FEATURE_TAG) -> HRESULT;
+            fn CheckTypographicFeature(&self, fontFace: IDWriteFontFace, scriptAnalysis: DWRITE_SCRIPT_ANALYSIS, #[in] #[null_terminated(entry)] #[opt] localeName: *const WCHAR, featureTag: DWRITE_FONT_FEATURE_TAG, glyphCount: UINT32, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, #[out] #[writable(entry, glyphCount)] featureApplies: *mut UINT8) -> HRESULT;
         }
         #[guid(0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67)]
         interface IDWriteTextFormat1: IDWriteTextFormat {

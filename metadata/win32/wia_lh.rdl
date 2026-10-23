@@ -60,7 +60,7 @@ mod Windows {
         }
         #[guid(0x5eb2502a_8cf1_11d1_bf92_0060081ed811)]
         interface IWiaDevMgr: IUnknown {
-            fn EnumDeviceInfo(&self, #[in] lFlag: LONG, #[out] #[retval] #[out_ptr] ppIEnum: *mut IEnumWIA_DEV_INFO) -> HRESULT;
+            fn EnumDeviceInfo(&self, #[in] lFlag: LONG, #[out] #[out_ptr] #[retval] ppIEnum: *mut IEnumWIA_DEV_INFO) -> HRESULT;
             fn CreateDevice(&self, #[in] bstrDeviceID: BSTR, #[out] ppWiaItemRoot: *mut IWiaItem) -> HRESULT;
             fn SelectDeviceDlg(&self, #[in] hwndParent: HWND, #[in] lDeviceType: LONG, #[in] lFlags: LONG, #[in] #[out] pbstrDeviceID: *mut BSTR, #[out] #[retval] ppItemRoot: *mut IWiaItem) -> HRESULT;
             fn SelectDeviceDlgID(&self, #[in] hwndParent: HWND, #[in] lDeviceType: LONG, #[in] lFlags: LONG, #[out] #[retval] pbstrDeviceID: *mut BSTR) -> HRESULT;
@@ -72,7 +72,7 @@ mod Windows {
         }
         #[guid(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a)]
         interface IWiaDevMgr2: IUnknown {
-            fn EnumDeviceInfo(&self, #[in] lFlags: LONG, #[out] #[retval] #[out_ptr] ppIEnum: *mut IEnumWIA_DEV_INFO) -> HRESULT;
+            fn EnumDeviceInfo(&self, #[in] lFlags: LONG, #[out] #[out_ptr] #[retval] ppIEnum: *mut IEnumWIA_DEV_INFO) -> HRESULT;
             fn CreateDevice(&self, #[in] lFlags: LONG, #[in] bstrDeviceID: BSTR, #[out] ppWiaItem2Root: *mut IWiaItem2) -> HRESULT;
             fn SelectDeviceDlg(&self, #[in] hwndParent: HWND, #[in] lDeviceType: LONG, #[in] lFlags: LONG, #[in] #[out] pbstrDeviceID: *mut BSTR, #[out] #[retval] ppItemRoot: *mut IWiaItem2) -> HRESULT;
             fn SelectDeviceDlgID(&self, #[in] hwndParent: HWND, #[in] lDeviceType: LONG, #[in] lFlags: LONG, #[out] #[retval] pbstrDeviceID: *mut BSTR) -> HRESULT;
@@ -123,11 +123,11 @@ mod Windows {
             fn FindItemByName(&self, #[in] lFlags: LONG, #[in] bstrFullItemName: BSTR, #[out] #[out_ptr] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn GetItemCategory(&self, #[out] pItemCategoryGUID: *mut GUID) -> HRESULT;
             fn GetItemType(&self, #[out] pItemType: *mut LONG) -> HRESULT;
-            fn DeviceDlg(&self, #[in] lFlags: LONG, #[in] hwndParent: HWND, #[in] bstrFolderName: BSTR, #[in] bstrFilename: BSTR, #[out] plNumFiles: *mut LONG, #[out] #[writable(success, *plNumFiles, indirect)] ppbstrFilePaths: *mut *mut BSTR, #[in] #[out] #[opt] ppItem: *mut IWiaItem2) -> HRESULT;
+            fn DeviceDlg(&self, #[in] lFlags: LONG, #[in] hwndParent: HWND, #[in] bstrFolderName: BSTR, #[in] bstrFilename: BSTR, #[out] plNumFiles: *mut LONG, #[out] #[writable(success, *plNumFiles, indirect)] ppbstrFilePaths: *mut *mut BSTR, #[in] #[opt] #[out] ppItem: *mut IWiaItem2) -> HRESULT;
             fn DeviceCommand(&self, #[in] lFlags: LONG, #[in] pCmdGUID: *const GUID, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn EnumDeviceCapabilities(&self, #[in] lFlags: LONG, #[out] #[out_ptr] ppIEnumWIA_DEV_CAPS: *mut IEnumWIA_DEV_CAPS) -> HRESULT;
             fn CheckExtension(&self, #[in] lFlags: LONG, #[in] bstrName: BSTR, #[in] riidExtensionInterface: &IID, #[out] pbExtensionExists: *mut BOOL) -> HRESULT;
-            fn GetExtension(&self, #[in] lFlags: LONG, #[in] bstrName: BSTR, #[in] riidExtensionInterface: &IID, #[out] #[iid_is] ppOut: *mut *mut void) -> HRESULT;
+            fn GetExtension(&self, #[in] lFlags: LONG, #[in] bstrName: BSTR, #[in] riidExtensionInterface: &IID, #[iid_is] #[out] ppOut: *mut *mut void) -> HRESULT;
             fn GetParentItem(&self, #[out] #[out_ptr] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn GetRootItem(&self, #[out] #[out_ptr] ppIWiaItem2: *mut IWiaItem2) -> HRESULT;
             fn GetPreviewComponent(&self, #[in] lFlags: LONG, #[out] ppWiaPreview: *mut IWiaPreview) -> HRESULT;
@@ -137,7 +137,7 @@ mod Windows {
         #[guid(0x6291ef2c_36ef_4532_876a_8e132593778d)]
         interface IWiaItemExtras: IUnknown {
             fn GetExtendedErrorInfo(&self, #[out] #[out_ptr] bstrErrorText: *mut BSTR) -> HRESULT;
-            fn Escape(&self, #[in] dwEscapeCode: DWORD, #[in] #[readable(entry, cbInDataSize)] lpInData: *mut BYTE, #[in] cbInDataSize: DWORD, #[out] #[writable(entry, dwOutDataSize)] #[writable(success, dwOutDataSize)] #[readable(success, or(*pdwActualDataSize, dwOutDataSize))] pOutData: *mut BYTE, #[in] dwOutDataSize: DWORD, #[out] pdwActualDataSize: *mut DWORD) -> HRESULT;
+            fn Escape(&self, #[in] dwEscapeCode: DWORD, #[in] #[readable(entry, cbInDataSize)] lpInData: *mut BYTE, #[in] cbInDataSize: DWORD, #[out] #[readable(success, or(*pdwActualDataSize, dwOutDataSize))] #[writable(entry, dwOutDataSize)] #[writable(success, dwOutDataSize)] pOutData: *mut BYTE, #[in] dwOutDataSize: DWORD, #[out] pdwActualDataSize: *mut DWORD) -> HRESULT;
             fn CancelPendingIO(&self) -> HRESULT;
         }
         #[guid(0xa00c10b6_82a1_452f_8b6c_86062aad6890)]
@@ -167,10 +167,10 @@ mod Windows {
         }
         #[guid(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6)]
         interface IWiaPropertyStorage: IUnknown {
-            fn ReadMultiple(&self, #[in] cpspec: ULONG, #[in] #[readable(entry, cpspec)] rgpspec: *const PROPSPEC, #[out] #[writable(entry, cpspec)] #[writable(success, cpspec)] #[readable(success, cpspec)] rgpropvar: *mut PROPVARIANT) -> HRESULT;
+            fn ReadMultiple(&self, #[in] cpspec: ULONG, #[in] #[readable(entry, cpspec)] rgpspec: *const PROPSPEC, #[out] #[readable(success, cpspec)] #[writable(entry, cpspec)] #[writable(success, cpspec)] rgpropvar: *mut PROPVARIANT) -> HRESULT;
             fn WriteMultiple(&self, #[in] cpspec: ULONG, #[in] rgpspec: *const PROPSPEC, #[in] rgpropvar: *const PROPVARIANT, #[in] propidNameFirst: PROPID) -> HRESULT;
             fn DeleteMultiple(&self, #[in] cpspec: ULONG, #[in] #[readable(entry, cpspec)] rgpspec: *const PROPSPEC) -> HRESULT;
-            fn ReadPropertyNames(&self, #[in] cpropid: ULONG, #[in] #[readable(entry, cpropid)] rgpropid: *const PROPID, #[out] #[writable(entry, cpropid)] #[writable(success, cpropid)] #[readable(success, cpropid)] rglpwstrName: *mut LPOLESTR) -> HRESULT;
+            fn ReadPropertyNames(&self, #[in] cpropid: ULONG, #[in] #[readable(entry, cpropid)] rgpropid: *const PROPID, #[out] #[readable(success, cpropid)] #[writable(entry, cpropid)] #[writable(success, cpropid)] rglpwstrName: *mut LPOLESTR) -> HRESULT;
             fn WritePropertyNames(&self, #[in] cpropid: ULONG, #[in] #[readable(entry, cpropid)] rgpropid: *const PROPID, #[in] #[readable(entry, cpropid)] rglpwstrName: *const LPOLESTR) -> HRESULT;
             fn DeletePropertyNames(&self, #[in] cpropid: ULONG, #[in] #[readable(entry, cpropid)] rgpropid: *const PROPID) -> HRESULT;
             fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
@@ -179,7 +179,7 @@ mod Windows {
             fn SetTimes(&self, #[in] pctime: *const FILETIME, #[in] patime: *const FILETIME, #[in] pmtime: *const FILETIME) -> HRESULT;
             fn SetClass(&self, #[in] clsid: &IID) -> HRESULT;
             fn Stat(&self, #[out] pstatpsstg: *mut STATPROPSETSTG) -> HRESULT;
-            fn GetPropertyAttributes(&self, #[in] cpspec: ULONG, #[in] #[readable(entry, cpspec)] rgpspec: *mut PROPSPEC, #[out] #[writable(entry, cpspec)] #[writable(success, cpspec)] #[readable(success, cpspec)] rgflags: *mut ULONG, #[out] #[writable(entry, cpspec)] #[writable(success, cpspec)] #[readable(success, cpspec)] rgpropvar: *mut PROPVARIANT) -> HRESULT;
+            fn GetPropertyAttributes(&self, #[in] cpspec: ULONG, #[in] #[readable(entry, cpspec)] rgpspec: *mut PROPSPEC, #[out] #[readable(success, cpspec)] #[writable(entry, cpspec)] #[writable(success, cpspec)] rgflags: *mut ULONG, #[out] #[readable(success, cpspec)] #[writable(entry, cpspec)] #[writable(success, cpspec)] rgpropvar: *mut PROPVARIANT) -> HRESULT;
             fn GetCount(&self, #[out] pulNumProps: *mut ULONG) -> HRESULT;
             fn GetPropertyStream(&self, #[out] pCompatibilityId: *mut GUID, #[out] #[out_ptr] ppIStream: *mut IStream) -> HRESULT;
             fn SetPropertyStream(&self, #[in] pCompatibilityId: *mut GUID, #[in] pIStream: IStream) -> HRESULT;

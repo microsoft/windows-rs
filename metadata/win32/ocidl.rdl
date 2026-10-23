@@ -70,37 +70,37 @@ mod Windows {
             HITRESULT_CLOSE = 2,
             HITRESULT_HIT = 3,
         }
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn HPALETTE_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HPALETTE);
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn HPALETTE_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HPALETTE) -> *mut u8;
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn HPALETTE_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HPALETTE) -> u32;
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn HPALETTE_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HPALETTE) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HRGN_UserFree(#[in] param0: *mut u32, #[in] param1: *mut HRGN);
-        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         extern fn HRGN_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut HRGN);
         #[library("ole32.dll")]
         extern fn HRGN_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
-        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         extern fn HRGN_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut HRGN) -> *mut u8;
         #[library("ole32.dll")]
         extern fn HRGN_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HRGN) -> u32;
-        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         extern fn HRGN_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut HRGN) -> u32;
         #[library("ole32.dll")]
         extern fn HRGN_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
-        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         #[arch(X64 | Arm64)]
+        #[library("api-ms-win-core-marshal-l1-1-0.dll")]
         extern fn HRGN_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut HRGN) -> *mut u8;
         #[guid(0x3af24290_0c96_11ce_a0cf_00aa00600ab8)]
         interface IAdviseSinkEx: IAdviseSink {
@@ -110,7 +110,7 @@ mod Windows {
         interface IClassFactory2: IClassFactory {
             fn GetLicInfo(&self, #[in] #[out] pLicInfo: *mut LICINFO) -> HRESULT;
             fn RequestLicKey(&self, #[in] dwReserved: DWORD, #[out] #[out_ptr] pBstrKey: *mut BSTR) -> HRESULT;
-            fn CreateInstanceLic(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[reserved] pUnkReserved: IUnknown, #[in] riid: &IID, #[in] bstrKey: BSTR, #[out] #[out_ptr] #[iid_is] ppvObj: *mut PVOID) -> HRESULT;
+            fn CreateInstanceLic(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] #[reserved] pUnkReserved: IUnknown, #[in] riid: &IID, #[in] bstrKey: BSTR, #[iid_is] #[out] #[out_ptr] ppvObj: *mut PVOID) -> HRESULT;
         }
         #[guid(0xb196b286_bab4_101a_b69c_00aa00341d07)]
         interface IConnectionPoint: IUnknown {
@@ -180,7 +180,7 @@ mod Windows {
         #[guid(0xfc4801a3_2ba9_11cf_a229_00aa003d7352)]
         interface IObjectWithSite: IUnknown {
             fn SetSite(&self, #[in] #[opt] pUnkSite: IUnknown) -> HRESULT;
-            fn GetSite(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvSite: *mut *mut void) -> HRESULT;
+            fn GetSite(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvSite: *mut *mut void) -> HRESULT;
         }
         #[guid(0xb196b288_bab4_101a_b69c_00aa00341d07)]
         interface IOleControl: IUnknown {
@@ -335,10 +335,10 @@ mod Windows {
         }
         #[guid(0x22f55882_280b_11d0_a8a9_00a0c90c2004)]
         interface IPropertyBag2: IUnknown {
-            fn Read(&self, #[in] cProperties: ULONG, #[in] #[readable(entry, cProperties)] pPropBag: *mut PROPBAG2, #[in] #[opt] pErrLog: IErrorLog, #[out] #[writable(entry, cProperties)] #[writable(success, cProperties)] #[readable(success, cProperties)] pvarValue: *mut VARIANT, #[in] #[out] #[opt] #[readable(entry, cProperties)] #[writable(entry, cProperties)] #[readable(success, cProperties)] phrError: *mut HRESULT) -> HRESULT;
+            fn Read(&self, #[in] cProperties: ULONG, #[in] #[readable(entry, cProperties)] pPropBag: *mut PROPBAG2, #[in] #[opt] pErrLog: IErrorLog, #[out] #[readable(success, cProperties)] #[writable(entry, cProperties)] #[writable(success, cProperties)] pvarValue: *mut VARIANT, #[in] #[opt] #[out] #[readable(entry, cProperties)] #[readable(success, cProperties)] #[writable(entry, cProperties)] phrError: *mut HRESULT) -> HRESULT;
             fn Write(&self, #[in] cProperties: ULONG, #[in] #[readable(entry, cProperties)] pPropBag: *mut PROPBAG2, #[in] #[readable(entry, cProperties)] pvarValue: *mut VARIANT) -> HRESULT;
             fn CountProperties(&self, #[out] pcProperties: *mut ULONG) -> HRESULT;
-            fn GetPropertyInfo(&self, #[in] iProperty: ULONG, #[in] cProperties: ULONG, #[out] #[writable(entry, cProperties)] #[writable(success, cProperties)] #[readable(success, cProperties)] pPropBag: *mut PROPBAG2, #[out] pcProperties: *mut ULONG) -> HRESULT;
+            fn GetPropertyInfo(&self, #[in] iProperty: ULONG, #[in] cProperties: ULONG, #[out] #[readable(success, cProperties)] #[writable(entry, cProperties)] #[writable(success, cProperties)] pPropBag: *mut PROPBAG2, #[out] pcProperties: *mut ULONG) -> HRESULT;
             fn LoadObject(&self, #[in] pstrName: LPCOLESTR, #[in] dwHint: DWORD, #[in] #[opt] pUnkObject: IUnknown, #[in] #[opt] pErrLog: IErrorLog) -> HRESULT;
         }
         #[guid(0x9bfbbc02_eff1_101a_84ed_00aa00341d07)]

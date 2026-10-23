@@ -2,9 +2,9 @@
 mod Windows {
     mod Devices {
         mod WiFi {
-            #[guid(0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAdapter)]
+            #[guid(0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0)]
             interface IWiFiAdapter {
                 #[get]
                 NetworkAdapter: super::super::Networking::Connectivity::NetworkAdapter;
@@ -22,18 +22,18 @@ mod Windows {
                 fn ConnectAsync(&self, #[in] availableNetwork: WiFiAvailableNetwork, #[in] reconnectionKind: WiFiReconnectionKind, #[in] passwordCredential: super::super::Security::Credentials::PasswordCredential, #[in] ssid: String) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
                 fn Disconnect(&self);
             }
-            #[guid(0x5bc4501d_81e4_453d_9430_1fcafbadd6b6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAdapter)]
+            #[guid(0x5bc4501d_81e4_453d_9430_1fcafbadd6b6)]
             interface IWiFiAdapter2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetWpsConfigurationAsync(&self, #[in] availableNetwork: WiFiAvailableNetwork) -> super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>;
                 #[Windows::Foundation::Metadata::Overload("ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync")]
                 fn ConnectAsync(&self, #[in] availableNetwork: WiFiAvailableNetwork, #[in] reconnectionKind: WiFiReconnectionKind, #[in] passwordCredential: super::super::Security::Credentials::PasswordCredential, #[in] ssid: String, #[in] connectionMethod: WiFiConnectionMethod) -> super::super::Foundation::IAsyncOperation<WiFiConnectionResult>;
             }
-            #[guid(0xda25fddd_d24c_43e3_aabd_c4659f730f99)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAdapter)]
+            #[guid(0xda25fddd_d24c_43e3_aabd_c4659f730f99)]
             interface IWiFiAdapterStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAdaptersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>;
@@ -44,9 +44,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<WiFiAccessStatus>;
             }
-            #[guid(0x26e96246_183e_4704_9826_71b4a2f0f668)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiAvailableNetwork)]
+            #[guid(0x26e96246_183e_4704_9826_71b4a2f0f668)]
             interface IWiFiAvailableNetwork {
                 #[get]
                 Uptime: super::super::Foundation::TimeSpan;
@@ -71,25 +71,25 @@ mod Windows {
                 #[get]
                 IsWiFiDirect: bool;
             }
-            #[guid(0x143bdfd9_c37d_40be_a5c8_857bce85a931)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiConnectionResult)]
+            #[guid(0x143bdfd9_c37d_40be_a5c8_857bce85a931)]
             interface IWiFiConnectionResult {
                 #[get]
                 ConnectionStatus: WiFiConnectionStatus;
             }
-            #[guid(0x9524ded2_5911_445e_8194_be4f1a704895)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiNetworkReport)]
+            #[guid(0x9524ded2_5911_445e_8194_be4f1a704895)]
             interface IWiFiNetworkReport {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
                 #[get]
                 AvailableNetworks: super::super::Foundation::Collections::IVectorView<WiFiAvailableNetwork>;
             }
-            #[guid(0xa268eb58_68f5_59cf_8d38_35bf44b097ef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotConnectTriggerDetails)]
+            #[guid(0xa268eb58_68f5_59cf_8d38_35bf44b097ef)]
             interface IWiFiOnDemandHotspotConnectTriggerDetails {
                 #[get]
                 RequestedNetwork: WiFiOnDemandHotspotNetwork;
@@ -98,25 +98,25 @@ mod Windows {
                 fn ConnectAsync(&self) -> super::super::Foundation::IAsyncOperation<WiFiOnDemandHotspotConnectionResult>;
                 fn Connect(&self) -> WiFiOnDemandHotspotConnectionResult;
             }
-            #[guid(0x911794a1_6c82_5de3_8a4a_f9ff22a4957a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotConnectionResult)]
+            #[guid(0x911794a1_6c82_5de3_8a4a_f9ff22a4957a)]
             interface IWiFiOnDemandHotspotConnectionResult {
                 #[get]
                 Status: WiFiOnDemandHotspotConnectStatus;
             }
-            #[guid(0x18dc7115_a04e_507c_bbaf_b78369d29fa7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotNetwork)]
+            #[guid(0x18dc7115_a04e_507c_bbaf_b78369d29fa7)]
             interface IWiFiOnDemandHotspotNetwork {
                 fn GetProperties(&self) -> WiFiOnDemandHotspotNetworkProperties;
                 fn UpdateProperties(&self, #[in] newProperties: WiFiOnDemandHotspotNetworkProperties);
                 #[get]
                 Id: GUID;
             }
-            #[guid(0xc810a1f2_c81d_5852_be50_e4bd4d81e98d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotNetworkProperties)]
+            #[guid(0xc810a1f2_c81d_5852_be50_e4bd4d81e98d)]
             interface IWiFiOnDemandHotspotNetworkProperties {
                 DisplayName: String;
                 Availability: WiFiOnDemandHotspotAvailability;
@@ -126,23 +126,23 @@ mod Windows {
                 Ssid: String;
                 Password: super::super::Security::Credentials::PasswordCredential;
             }
-            #[guid(0x00f5b8ac_80e7_5054_871c_8739f374e3c9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiOnDemandHotspotNetwork)]
+            #[guid(0x00f5b8ac_80e7_5054_871c_8739f374e3c9)]
             interface IWiFiOnDemandHotspotNetworkStatics {
                 fn GetOrCreateById(&self, #[in] networkId: GUID) -> WiFiOnDemandHotspotNetwork;
             }
-            #[guid(0x67b49871_17ee_42d1_b14f_5a11f1226fb5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WiFiWpsConfigurationResult)]
+            #[guid(0x67b49871_17ee_42d1_b14f_5a11f1226fb5)]
             interface IWiFiWpsConfigurationResult {
                 #[get]
                 Status: WiFiWpsConfigurationStatus;
                 #[get]
                 SupportedWpsKinds: super::super::Foundation::Collections::IVectorView<WiFiWpsKind>;
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum WiFiAccessStatus {
                 Unspecified = 0,
                 Allowed = 1,
@@ -164,8 +164,8 @@ mod Windows {
             class WiFiAvailableNetwork {
                 IWiFiAvailableNetwork,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum WiFiConnectionMethod {
                 Default = 0,
                 WpsPin = 1,
@@ -177,8 +177,8 @@ mod Windows {
             class WiFiConnectionResult {
                 IWiFiConnectionResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum WiFiConnectionStatus {
                 UnspecifiedFailure = 0,
                 Success = 1,
@@ -188,8 +188,8 @@ mod Windows {
                 Timeout = 5,
                 UnsupportedAuthenticationProtocol = 6,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum WiFiNetworkKind {
                 Any = 0,
                 Infrastructure = 1,
@@ -201,14 +201,14 @@ mod Windows {
             class WiFiNetworkReport {
                 IWiFiNetworkReport,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[repr(i32)]
             enum WiFiOnDemandHotspotAvailability {
                 Available = 0,
                 Unavailable = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[repr(i32)]
             enum WiFiOnDemandHotspotCellularBars {
                 ZeroBars = 0,
                 OneBar = 1,
@@ -217,8 +217,8 @@ mod Windows {
                 FourBars = 4,
                 FiveBars = 5,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[repr(i32)]
             enum WiFiOnDemandHotspotConnectStatus {
                 UnspecifiedFailure = 0,
                 Success = 1,
@@ -262,8 +262,8 @@ mod Windows {
             class WiFiOnDemandHotspotNetworkProperties {
                 IWiFiOnDemandHotspotNetworkProperties,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum WiFiPhyKind {
                 Unknown = 0,
                 Fhss = 1,
@@ -274,12 +274,15 @@ mod Windows {
                 Erp = 6,
                 HT = 7,
                 Vht = 8,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 Dmg = 9,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 HE = 10,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 458752)]
                 Eht = 11,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum WiFiReconnectionKind {
                 Automatic = 0,
                 Manual = 1,
@@ -289,15 +292,15 @@ mod Windows {
             class WiFiWpsConfigurationResult {
                 IWiFiWpsConfigurationResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum WiFiWpsConfigurationStatus {
                 UnspecifiedFailure = 0,
                 Success = 1,
                 Timeout = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum WiFiWpsKind {
                 Unknown = 0,
                 Pin = 1,

@@ -4,7 +4,7 @@ mod Windows {
         #[guid(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9)]
         interface IObjectArray: IUnknown {
             fn GetCount(&self, #[out] pcObjects: *mut UINT) -> HRESULT;
-            fn GetAt(&self, #[in] uiIndex: UINT, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetAt(&self, #[in] uiIndex: UINT, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x5632b1a4_e38a_400a_928a_d4cd63230295)]
         interface IObjectCollection: IObjectArray {

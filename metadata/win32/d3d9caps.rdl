@@ -87,8 +87,8 @@ mod Windows {
             MaxVertexShader30InstructionSlots: DWORD,
             MaxPixelShader30InstructionSlots: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DCAPS9 {
             DeviceType: D3DDEVTYPE,
             AdapterOrdinal: UINT,
@@ -170,8 +170,8 @@ mod Windows {
             BlockAlignmentSize: UINT,
             ProtectedMemorySize: ULONGLONG,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DCONTENTPROTECTIONCAPS {
             Caps: DWORD,
             KeyExchangeType: GUID,
@@ -249,8 +249,8 @@ mod Windows {
             MaxOverlayDisplayWidth: UINT,
             MaxOverlayDisplayHeight: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DOVERLAYCAPS {
             Caps: UINT,
             MaxOverlayDisplayWidth: UINT,
@@ -353,8 +353,8 @@ mod Windows {
             StaticFlowControlDepth: INT,
             NumInstructionSlots: INT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DPSHADERCAPS2_0 {
             Caps: DWORD,
             DynamicFlowControlDepth: INT,
@@ -446,8 +446,8 @@ mod Windows {
             NumTemps: INT,
             StaticFlowControlDepth: INT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DVSHADERCAPS2_0 {
             Caps: DWORD,
             DynamicFlowControlDepth: INT,

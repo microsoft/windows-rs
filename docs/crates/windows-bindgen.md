@@ -74,6 +74,13 @@ references are not heuristic return values: the caller's existing mutable storag
 available unless metadata explicitly marks a return value. Query-return projection excludes
 counted GUID buffers and counted object outputs from its scalar parameter candidates.
 
+WinRT callable arguments must have exactly one metadata direction flag, In or Out. Missing
+parameter rows, unspecified or combined directions, and malformed parameter sequences stop
+generation with the owning method identified. Return rows and delegate compatibility constructors
+do not supply argument directions. This validation also applies to metadata supplied without RDL;
+it does not infer input or output from the type. Win32 unspecified-direction handling is separate
+and preserves native signatures.
+
 `BufferExtentAttribute` marks buffer storage even when its count cannot become a Rust slice.
 Indirect, successful, arithmetic and other unsupported extents do not authorize scalar-return or
 COM-query inference. Parameter-owned `NativeSalAttribute` keeps unresolved contracts opaque:

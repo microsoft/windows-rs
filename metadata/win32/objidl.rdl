@@ -40,8 +40,8 @@ mod Windows {
             BIND_MAYBOTHERUSER = 1,
             BIND_JUSTTESTEXISTENCE = 2,
         }
-        #[packed(8)]
         #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "cbStruct", "cbStruct", TypedefName = "BIND_OPTS")]
+        #[packed(8)]
         struct BIND_OPTS {
             cbStruct: DWORD,
             grfFlags: DWORD,
@@ -146,7 +146,7 @@ mod Windows {
         }
         #[guid(0x00000140_0000_0000_c000_000000000046)]
         interface IClassActivator: IUnknown {
-            fn GetClassObject(&self, #[in] rclsid: &IID, #[in] dwClassContext: DWORD, #[in] locale: LCID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetClassObject(&self, #[in] rclsid: &IID, #[in] dwClassContext: DWORD, #[in] locale: LCID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x00000110_0000_0000_c000_000000000046)]
         interface IDataAdviseHolder: IUnknown {
@@ -179,28 +179,28 @@ mod Windows {
         }
         #[guid(0x00000103_0000_0000_c000_000000000046)]
         interface IEnumFORMATETC: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut FORMATETC, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut FORMATETC, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumFORMATETC) -> HRESULT;
         }
         #[guid(0x00000102_0000_0000_c000_000000000046)]
         interface IEnumMoniker: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut IMoniker, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut IMoniker, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumMoniker) -> HRESULT;
         }
         #[guid(0x00000105_0000_0000_c000_000000000046)]
         interface IEnumSTATDATA: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut STATDATA, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATDATA, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATDATA) -> HRESULT;
         }
         #[guid(0x0000000d_0000_0000_c000_000000000046)]
         interface IEnumSTATSTG: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut STATSTG, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATSTG, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
@@ -233,8 +233,8 @@ mod Windows {
         }
         #[guid(0x0000000a_0000_0000_c000_000000000046)]
         interface ILockBytes: IUnknown {
-            fn ReadAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[out] #[writable(entry, bytes(cb))] #[readable(success, bytes(if_present(*pcbRead)))] pv: *mut void, #[in] cb: ULONG, #[out] #[opt] pcbRead: *mut ULONG) -> HRESULT;
-            fn WriteAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[out] #[opt] pcbWritten: *mut ULONG) -> HRESULT;
+            fn ReadAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[out] #[readable(success, bytes(if_present(*pcbRead)))] #[writable(entry, bytes(cb))] pv: *mut void, #[in] cb: ULONG, #[opt] #[out] pcbRead: *mut ULONG) -> HRESULT;
+            fn WriteAt(&self, #[in] ulOffset: ULARGE_INTEGER, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[opt] #[out] pcbWritten: *mut ULONG) -> HRESULT;
             fn Flush(&self) -> HRESULT;
             fn SetSize(&self, #[in] cb: ULARGE_INTEGER) -> HRESULT;
             fn LockRegion(&self, #[in] libOffset: ULARGE_INTEGER, #[in] cb: ULARGE_INTEGER, #[in] dwLockType: DWORD) -> HRESULT;
@@ -264,9 +264,9 @@ mod Windows {
         }
         #[guid(0x0000000f_0000_0000_c000_000000000046)]
         interface IMoniker: IPersistStream {
-            fn BindToObject(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riidResult: &IID, #[out] #[out_ptr] #[iid_is] ppvResult: *mut *mut void) -> HRESULT;
-            fn BindToStorage(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
-            fn Reduce(&self, #[in] #[opt] pbc: IBindCtx, #[in] dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[out] #[opt] ppmkToLeft: *mut IMoniker, #[out] #[out_ptr] ppmkReduced: *mut IMoniker) -> HRESULT;
+            fn BindToObject(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riidResult: &IID, #[iid_is] #[out] #[out_ptr] ppvResult: *mut *mut void) -> HRESULT;
+            fn BindToStorage(&self, #[in] pbc: IBindCtx, #[in] #[opt] pmkToLeft: IMoniker, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObj: *mut *mut void) -> HRESULT;
+            fn Reduce(&self, #[in] #[opt] pbc: IBindCtx, #[in] dwReduceHowFar: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_inout_opt", "", "")] #[in] #[opt] #[out] ppmkToLeft: *mut IMoniker, #[out] #[out_ptr] ppmkReduced: *mut IMoniker) -> HRESULT;
             fn ComposeWith(&self, #[in] #[opt] pmkRight: IMoniker, #[in] fOnlyIfNotGeneric: BOOL, #[out] #[out_ptr] ppmkComposite: *mut IMoniker) -> HRESULT;
             fn Enum(&self, #[in] fForward: BOOL, #[out] #[out_ptr] ppenumMoniker: *mut IEnumMoniker) -> HRESULT;
             fn IsEqual(&self, #[in] #[opt] pmkOtherMoniker: IMoniker) -> HRESULT;
@@ -288,8 +288,8 @@ mod Windows {
         }
         #[guid(0x8d19c834_8879_11d1_83e9_00c04fc2c6d4)]
         interface IOplockStorage: IUnknown {
-            fn CreateStorageEx(&self, #[in] pwcsName: LPCWSTR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppstgOpen: *mut *mut void) -> HRESULT;
-            fn OpenStorageEx(&self, #[in] pwcsName: LPCWSTR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppstgOpen: *mut *mut void) -> HRESULT;
+            fn CreateStorageEx(&self, #[in] pwcsName: LPCWSTR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppstgOpen: *mut *mut void) -> HRESULT;
+            fn OpenStorageEx(&self, #[in] pwcsName: LPCWSTR, #[in] grfMode: DWORD, #[in] stgfmt: DWORD, #[in] grfAttrs: DWORD, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppstgOpen: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0000010c_0000_0000_c000_000000000046)]
         interface IPersist: IUnknown {
@@ -330,7 +330,7 @@ mod Windows {
         }
         #[guid(0xf29f6bc0_5021_11ce_aa15_00006901293f)]
         interface IROTData: IUnknown {
-            fn GetComparisonData(&self, #[out] #[writable(entry, cbMax)] #[writable(success, cbMax)] #[readable(success, cbMax)] pbData: *mut byte, #[in] cbMax: ULONG, #[out] pcbData: *mut ULONG) -> HRESULT;
+            fn GetComparisonData(&self, #[out] #[readable(success, cbMax)] #[writable(entry, cbMax)] #[writable(success, cbMax)] pbData: *mut byte, #[in] cbMax: ULONG, #[out] pcbData: *mut ULONG) -> HRESULT;
         }
         #[guid(0x00000012_0000_0000_c000_000000000046)]
         interface IRootStorage: IUnknown {
@@ -359,7 +359,7 @@ mod Windows {
             fn CreateStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
             fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
             fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
-            fn OpenStorage(&self, #[in] #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
+            fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
             fn CopyTo(&self, #[in] ciidExclude: DWORD, #[in] #[opt] #[readable(entry, ciidExclude)] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
             fn MoveElementTo(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR, #[in] grfFlags: DWORD) -> HRESULT;
             fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
@@ -367,7 +367,7 @@ mod Windows {
             fn EnumElements(&self, #[in] #[reserved] reserved1: DWORD, #[in] #[reserved] reserved2: *mut void, #[in] #[reserved] reserved3: DWORD, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
             fn DestroyElement(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR) -> HRESULT;
             fn RenameElement(&self, #[in] #[null_terminated(entry)] pwcsOldName: *const OLECHAR, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR) -> HRESULT;
-            fn SetElementTimes(&self, #[in] #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
+            fn SetElementTimes(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
             fn SetClass(&self, #[in] clsid: &IID) -> HRESULT;
             fn SetStateBits(&self, #[in] grfStateBits: DWORD, #[in] grfMask: DWORD) -> HRESULT;
             fn Stat(&self, #[out] pstatstg: *mut STATSTG, #[in] grfStatFlag: DWORD) -> HRESULT;
@@ -499,23 +499,23 @@ mod Windows {
         type SNB = *mut *mut u16;
         #[library("ole32.dll")]
         extern fn SNB_UserFree(#[in] param0: *mut u32, #[in] param1: *mut SNB);
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn SNB_UserFree64(#[in] param0: *mut u32, #[in] param1: *mut SNB);
         #[library("ole32.dll")]
         extern fn SNB_UserMarshal(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut SNB) -> *mut u8;
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn SNB_UserMarshal64(#[in] param0: *mut u32, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_xcount", "0", "0")] #[in] #[out] param1: *mut u8, #[in] param2: *mut SNB) -> *mut u8;
         #[library("ole32.dll")]
         extern fn SNB_UserSize(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut SNB) -> u32;
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn SNB_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut SNB) -> u32;
         #[library("ole32.dll")]
         extern fn SNB_UserUnmarshal(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut SNB) -> *mut u8;
-        #[library("ole32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ole32.dll")]
         extern fn SNB_UserUnmarshal64(#[in] param0: *mut u32, #[in] #[readable(entry, 0)] param1: *mut u8, #[out] param2: *mut SNB) -> *mut u8;
         #[packed(8)]
         struct STATDATA {

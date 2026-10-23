@@ -8,31 +8,31 @@ mod Windows {
         const DispLatLongReport: GUID = 0x7a7c3277_8f84_4636_95b2_ebb5507ff77e;
         #[guid(0xc0b19f70_4adf_445d_87f2_cad8fd711792)]
         interface ICivicAddressReport: ILocationReport {
-            fn GetAddressLine1(&self, #[out] #[retval] #[out_ptr] pbstrAddress1: *mut BSTR) -> HRESULT;
-            fn GetAddressLine2(&self, #[out] #[retval] #[out_ptr] pbstrAddress2: *mut BSTR) -> HRESULT;
-            fn GetCity(&self, #[out] #[retval] #[out_ptr] pbstrCity: *mut BSTR) -> HRESULT;
-            fn GetStateProvince(&self, #[out] #[retval] #[out_ptr] pbstrStateProvince: *mut BSTR) -> HRESULT;
-            fn GetPostalCode(&self, #[out] #[retval] #[out_ptr] pbstrPostalCode: *mut BSTR) -> HRESULT;
-            fn GetCountryRegion(&self, #[out] #[retval] #[out_ptr] pbstrCountryRegion: *mut BSTR) -> HRESULT;
+            fn GetAddressLine1(&self, #[out] #[out_ptr] #[retval] pbstrAddress1: *mut BSTR) -> HRESULT;
+            fn GetAddressLine2(&self, #[out] #[out_ptr] #[retval] pbstrAddress2: *mut BSTR) -> HRESULT;
+            fn GetCity(&self, #[out] #[out_ptr] #[retval] pbstrCity: *mut BSTR) -> HRESULT;
+            fn GetStateProvince(&self, #[out] #[out_ptr] #[retval] pbstrStateProvince: *mut BSTR) -> HRESULT;
+            fn GetPostalCode(&self, #[out] #[out_ptr] #[retval] pbstrPostalCode: *mut BSTR) -> HRESULT;
+            fn GetCountryRegion(&self, #[out] #[out_ptr] #[retval] pbstrCountryRegion: *mut BSTR) -> HRESULT;
             fn GetDetailLevel(&self, #[out] #[retval] pDetailLevel: *mut DWORD) -> HRESULT;
         }
         #[guid(0xbf773b93_c64f_4bee_beb2_67c0b8df66e0)]
         interface ICivicAddressReportFactory: ILocationReportFactory {
-            fn get_CivicAddressReport(&self, #[out] #[retval] #[out_ptr] pVal: *mut IDispCivicAddressReport) -> HRESULT;
+            fn get_CivicAddressReport(&self, #[out] #[out_ptr] #[retval] pVal: *mut IDispCivicAddressReport) -> HRESULT;
         }
         #[guid(0xa65af77e_969a_4a2e_8aca_33bb7cbb1235)]
         interface IDefaultLocation: IUnknown {
             fn SetReport(&self, #[in] reportType: &IID, #[in] #[opt] pLocationReport: ILocationReport) -> HRESULT;
-            fn GetReport(&self, #[in] reportType: &IID, #[out] #[retval] #[out_ptr] ppLocationReport: *mut ILocationReport) -> HRESULT;
+            fn GetReport(&self, #[in] reportType: &IID, #[out] #[out_ptr] #[retval] ppLocationReport: *mut ILocationReport) -> HRESULT;
         }
         #[guid(0x16ff1a34_9e30_42c3_b44d_e22513b5767a)]
         interface IDispCivicAddressReport: IDispatch {
-            fn get_AddressLine1(&self, #[out] #[retval] #[out_ptr] pAddress1: *mut BSTR) -> HRESULT;
-            fn get_AddressLine2(&self, #[out] #[retval] #[out_ptr] pAddress2: *mut BSTR) -> HRESULT;
-            fn get_City(&self, #[out] #[retval] #[out_ptr] pCity: *mut BSTR) -> HRESULT;
-            fn get_StateProvince(&self, #[out] #[retval] #[out_ptr] pStateProvince: *mut BSTR) -> HRESULT;
-            fn get_PostalCode(&self, #[out] #[retval] #[out_ptr] pPostalCode: *mut BSTR) -> HRESULT;
-            fn get_CountryRegion(&self, #[out] #[retval] #[out_ptr] pCountryRegion: *mut BSTR) -> HRESULT;
+            fn get_AddressLine1(&self, #[out] #[out_ptr] #[retval] pAddress1: *mut BSTR) -> HRESULT;
+            fn get_AddressLine2(&self, #[out] #[out_ptr] #[retval] pAddress2: *mut BSTR) -> HRESULT;
+            fn get_City(&self, #[out] #[out_ptr] #[retval] pCity: *mut BSTR) -> HRESULT;
+            fn get_StateProvince(&self, #[out] #[out_ptr] #[retval] pStateProvince: *mut BSTR) -> HRESULT;
+            fn get_PostalCode(&self, #[out] #[out_ptr] #[retval] pPostalCode: *mut BSTR) -> HRESULT;
+            fn get_CountryRegion(&self, #[out] #[out_ptr] #[retval] pCountryRegion: *mut BSTR) -> HRESULT;
             fn get_DetailLevel(&self, #[out] #[retval] pDetailLevel: *mut ULONG) -> HRESULT;
             fn get_Timestamp(&self, #[out] #[retval] pVal: *mut DATE) -> HRESULT;
         }
@@ -55,13 +55,13 @@ mod Windows {
         }
         #[guid(0x3f0804cb_b114_447d_83dd_390174ebb082)]
         interface ILatLongReportFactory: ILocationReportFactory {
-            fn get_LatLongReport(&self, #[out] #[retval] #[out_ptr] pVal: *mut IDispLatLongReport) -> HRESULT;
+            fn get_LatLongReport(&self, #[out] #[out_ptr] #[retval] pVal: *mut IDispLatLongReport) -> HRESULT;
         }
         #[guid(0xab2ece69_56d9_4f28_b525_de1b0ee44237)]
         interface ILocation: IUnknown {
             fn RegisterForReport(&self, #[in] #[opt] pEvents: ILocationEvents, #[in] reportType: &IID, #[in] dwRequestedReportInterval: DWORD) -> HRESULT;
             fn UnregisterForReport(&self, #[in] reportType: &IID) -> HRESULT;
-            fn GetReport(&self, #[in] reportType: &IID, #[out] #[retval] #[out_ptr] ppLocationReport: *mut ILocationReport) -> HRESULT;
+            fn GetReport(&self, #[in] reportType: &IID, #[out] #[out_ptr] #[retval] ppLocationReport: *mut ILocationReport) -> HRESULT;
             fn GetReportStatus(&self, #[in] reportType: &IID, #[out] #[retval] pStatus: *mut LOCATION_REPORT_STATUS) -> HRESULT;
             fn GetReportInterval(&self, #[in] reportType: &IID, #[out] #[retval] pMilliseconds: *mut DWORD) -> HRESULT;
             fn SetReportInterval(&self, #[in] reportType: &IID, #[in] millisecondsRequested: DWORD) -> HRESULT;

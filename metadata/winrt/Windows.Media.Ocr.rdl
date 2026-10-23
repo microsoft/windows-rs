@@ -2,18 +2,18 @@
 mod Windows {
     mod Media {
         mod Ocr {
-            #[guid(0x5a14bc41_5b76_3140_b680_8825562683ac)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OcrEngine)]
+            #[guid(0x5a14bc41_5b76_3140_b680_8825562683ac)]
             interface IOcrEngine {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RecognizeAsync(&self, #[in] bitmap: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<OcrResult>;
                 #[get]
                 RecognizerLanguage: super::super::Globalization::Language;
             }
-            #[guid(0x5bffa85a_3384_3540_9940_699120d428a8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OcrEngine)]
+            #[guid(0x5bffa85a_3384_3540_9940_699120d428a8)]
             interface IOcrEngineStatics {
                 #[get]
                 MaxImageDimension: u32;
@@ -23,18 +23,18 @@ mod Windows {
                 fn TryCreateFromLanguage(&self, #[in] language: super::super::Globalization::Language) -> OcrEngine;
                 fn TryCreateFromUserProfileLanguages(&self) -> OcrEngine;
             }
-            #[guid(0x0043a16f_e31f_3a24_899c_d444bd088124)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OcrLine)]
+            #[guid(0x0043a16f_e31f_3a24_899c_d444bd088124)]
             interface IOcrLine {
                 #[get]
                 Words: super::super::Foundation::Collections::IVectorView<OcrWord>;
                 #[get]
                 Text: String;
             }
-            #[guid(0x9bd235b2_175b_3d6a_92e2_388c206e2f63)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OcrResult)]
+            #[guid(0x9bd235b2_175b_3d6a_92e2_388c206e2f63)]
             interface IOcrResult {
                 #[get]
                 Lines: super::super::Foundation::Collections::IVectorView<OcrLine>;
@@ -43,9 +43,9 @@ mod Windows {
                 #[get]
                 Text: String;
             }
-            #[guid(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OcrWord)]
+            #[guid(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d)]
             interface IOcrWord {
                 #[get]
                 BoundingRect: super::super::Foundation::Rect;

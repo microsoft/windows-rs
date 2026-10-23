@@ -6,8 +6,8 @@ mod Windows {
         const CLSID_MFSourceReader: GUID = 0x1777133c_0881_411b_a577_ad545f0714c4;
         #[guid(0xe7fe2e12_661c_40da_92f9_4f002ab67627)]
         interface IMFReadWriteClassFactory: IUnknown {
-            fn CreateInstanceFromURL(&self, #[in] clsid: &IID, #[in] pwszURL: LPCWSTR, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[out] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
-            fn CreateInstanceFromObject(&self, #[in] clsid: &IID, #[in] punkObject: IUnknown, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[out] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn CreateInstanceFromURL(&self, #[in] clsid: &IID, #[in] pwszURL: LPCWSTR, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut LPVOID) -> HRESULT;
+            fn CreateInstanceFromObject(&self, #[in] clsid: &IID, #[in] punkObject: IUnknown, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x3137f1cd_fe5e_4805_a5d8_fb477448cb3d)]
         interface IMFSinkWriter: IUnknown {
@@ -40,7 +40,7 @@ mod Windows {
         }
         #[guid(0x588d72ab_5bc1_496a_8714_b70617141b25)]
         interface IMFSinkWriterEx: IMFSinkWriter {
-            fn GetTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwTransformIndex: DWORD, #[out] #[opt] pGuidCategory: *mut GUID, #[out] ppTransform: *mut IMFTransform) -> HRESULT;
+            fn GetTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwTransformIndex: DWORD, #[opt] #[out] pGuidCategory: *mut GUID, #[out] ppTransform: *mut IMFTransform) -> HRESULT;
         }
         #[guid(0x70ae66f2_c809_4e4f_8915_bdcb406b7993)]
         interface IMFSourceReader: IUnknown {
@@ -50,7 +50,7 @@ mod Windows {
             fn GetCurrentMediaType(&self, #[in] dwStreamIndex: DWORD, #[out] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn SetCurrentMediaType(&self, #[in] dwStreamIndex: DWORD, #[in] #[out] #[reserved] pdwReserved: *mut DWORD, #[in] pMediaType: IMFMediaType) -> HRESULT;
             fn SetCurrentPosition(&self, #[in] guidTimeFormat: &GUID, #[in] varPosition: &PROPVARIANT) -> HRESULT;
-            fn ReadSample(&self, #[in] dwStreamIndex: DWORD, #[in] dwControlFlags: DWORD, #[out] #[opt] pdwActualStreamIndex: *mut DWORD, #[out] #[opt] pdwStreamFlags: *mut DWORD, #[out] #[opt] pllTimestamp: *mut LONGLONG, #[out] #[opt] ppSample: *mut IMFSample) -> HRESULT;
+            fn ReadSample(&self, #[in] dwStreamIndex: DWORD, #[in] dwControlFlags: DWORD, #[opt] #[out] pdwActualStreamIndex: *mut DWORD, #[opt] #[out] pdwStreamFlags: *mut DWORD, #[opt] #[out] pllTimestamp: *mut LONGLONG, #[opt] #[out] ppSample: *mut IMFSample) -> HRESULT;
             fn Flush(&self, #[in] dwStreamIndex: DWORD) -> HRESULT;
             fn GetServiceForStream(&self, #[in] dwStreamIndex: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[out] ppvObject: *mut LPVOID) -> HRESULT;
             fn GetPresentationAttribute(&self, #[in] dwStreamIndex: DWORD, #[in] guidAttribute: &GUID, #[out] pvarAttribute: *mut PROPVARIANT) -> HRESULT;
@@ -71,7 +71,7 @@ mod Windows {
             fn SetNativeMediaType(&self, #[in] dwStreamIndex: DWORD, #[in] #[opt] pMediaType: IMFMediaType, #[out] pdwStreamFlags: *mut DWORD) -> HRESULT;
             fn AddTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] pTransformOrActivate: IUnknown) -> HRESULT;
             fn RemoveAllTransformsForStream(&self, #[in] dwStreamIndex: DWORD) -> HRESULT;
-            fn GetTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwTransformIndex: DWORD, #[out] #[opt] pGuidCategory: *mut GUID, #[out] ppTransform: *mut IMFTransform) -> HRESULT;
+            fn GetTransformForStream(&self, #[in] dwStreamIndex: DWORD, #[in] dwTransformIndex: DWORD, #[opt] #[out] pGuidCategory: *mut GUID, #[out] ppTransform: *mut IMFTransform) -> HRESULT;
         }
         #[library("MFReadWrite.dll")]
         extern fn MFCreateSinkWriterFromMediaSink(#[in] pMediaSink: IMFMediaSink, #[in] #[opt] pAttributes: IMFAttributes, #[out] ppSinkWriter: *mut IMFSinkWriter) -> HRESULT;

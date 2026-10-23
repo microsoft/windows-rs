@@ -19,7 +19,7 @@ mod Windows {
         }
         #[guid(0x7fee9e9a_4a89_47a6_899c_b6a53a70fb67)]
         interface IMFActivate: IMFAttributes {
-            fn ActivateObject(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn ActivateObject(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] ppv: *mut *mut void) -> HRESULT;
             fn ShutdownObject(&self) -> HRESULT;
             fn DetachObject(&self) -> HRESULT;
         }
@@ -43,7 +43,7 @@ mod Windows {
         }
         #[guid(0x2cd2d921_c447_44a7_a13c_4adabfc247e3)]
         interface IMFAttributes: IUnknown {
-            fn GetItem(&self, #[in] guidKey: &GUID, #[in] #[out] #[opt] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetItem(&self, #[in] guidKey: &GUID, #[in] #[opt] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
             fn GetItemType(&self, #[in] guidKey: &GUID, #[out] pType: *mut MF_ATTRIBUTE_TYPE) -> HRESULT;
             fn CompareItem(&self, #[in] guidKey: &GUID, #[in] Value: &PROPVARIANT, #[out] pbResult: *mut BOOL) -> HRESULT;
             fn Compare(&self, #[in] #[opt] pTheirs: IMFAttributes, MatchType: MF_ATTRIBUTES_MATCH_TYPE, #[out] pbResult: *mut BOOL) -> HRESULT;
@@ -52,12 +52,12 @@ mod Windows {
             fn GetDouble(&self, #[in] guidKey: &GUID, #[out] pfValue: *mut f64) -> HRESULT;
             fn GetGUID(&self, #[in] guidKey: &GUID, #[out] pguidValue: *mut GUID) -> HRESULT;
             fn GetStringLength(&self, #[in] guidKey: &GUID, #[out] pcchLength: *mut UINT32) -> HRESULT;
-            fn GetString(&self, #[in] guidKey: &GUID, #[out] #[writable(entry, cchBufSize)] #[writable(success, cchBufSize)] #[readable(success, cchBufSize)] pwszValue: LPWSTR, cchBufSize: UINT32, #[in] #[out] #[opt] pcchLength: *mut UINT32) -> HRESULT;
-            fn GetAllocatedString(&self, #[in] guidKey: &GUID, #[out] #[nullable(entry, indirect)] #[writable(success, *pcchLength + 1, indirect, nullable)] #[readable(success, *pcchLength + 1, indirect, nullable)] ppwszValue: *mut LPWSTR, #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetString(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cchBufSize)] #[writable(entry, cchBufSize)] #[writable(success, cchBufSize)] pwszValue: LPWSTR, cchBufSize: UINT32, #[in] #[opt] #[out] pcchLength: *mut UINT32) -> HRESULT;
+            fn GetAllocatedString(&self, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcchLength + 1, indirect, nullable)] #[writable(success, *pcchLength + 1, indirect, nullable)] ppwszValue: *mut LPWSTR, #[out] pcchLength: *mut UINT32) -> HRESULT;
             fn GetBlobSize(&self, #[in] guidKey: &GUID, #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
-            fn GetBlob(&self, #[in] guidKey: &GUID, #[out] #[writable(entry, cbBufSize)] #[writable(success, cbBufSize)] #[readable(success, cbBufSize)] pBuf: *mut UINT8, cbBufSize: UINT32, #[in] #[out] #[opt] pcbBlobSize: *mut UINT32) -> HRESULT;
-            fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[out] #[nullable(entry, indirect)] #[writable(success, *pcbSize, indirect, nullable)] #[readable(success, *pcbSize, indirect, nullable)] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
-            fn GetUnknown(&self, #[in] guidKey: &GUID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut LPVOID) -> HRESULT;
+            fn GetBlob(&self, #[in] guidKey: &GUID, #[out] #[readable(success, cbBufSize)] #[writable(entry, cbBufSize)] #[writable(success, cbBufSize)] pBuf: *mut UINT8, cbBufSize: UINT32, #[in] #[opt] #[out] pcbBlobSize: *mut UINT32) -> HRESULT;
+            fn GetAllocatedBlob(&self, #[in] guidKey: &GUID, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbSize, indirect, nullable)] #[writable(success, *pcbSize, indirect, nullable)] ppBuf: *mut *mut UINT8, #[out] pcbSize: *mut UINT32) -> HRESULT;
+            fn GetUnknown(&self, #[in] guidKey: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
             fn SetItem(&self, #[in] guidKey: &GUID, #[in] Value: &PROPVARIANT) -> HRESULT;
             fn DeleteItem(&self, #[in] guidKey: &GUID) -> HRESULT;
             fn DeleteAllItems(&self) -> HRESULT;
@@ -71,7 +71,7 @@ mod Windows {
             fn LockStore(&self) -> HRESULT;
             fn UnlockStore(&self) -> HRESULT;
             fn GetCount(&self, #[out] pcItems: *mut UINT32) -> HRESULT;
-            fn GetItemByIndex(&self, unIndex: UINT32, #[out] pguidKey: *mut GUID, #[in] #[out] #[opt] pValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetItemByIndex(&self, unIndex: UINT32, #[out] pguidKey: *mut GUID, #[in] #[opt] #[out] pValue: *mut PROPVARIANT) -> HRESULT;
             fn CopyAllItems(&self, #[in] #[opt] pDest: IMFAttributes) -> HRESULT;
         }
         #[guid(0x26a0adc3_ce26_4672_9304_69552edd3faf)]
@@ -86,7 +86,7 @@ mod Windows {
             fn GetCurrentPosition(&self, #[out] pqwPosition: *mut QWORD) -> HRESULT;
             fn SetCurrentPosition(&self, #[in] qwPosition: QWORD) -> HRESULT;
             fn IsEndOfStream(&self, #[out] pfEndOfStream: *mut BOOL) -> HRESULT;
-            fn Read(&self, #[out] #[writable(entry, cb)] #[writable(success, cb)] #[readable(success, cb)] pb: *mut BYTE, #[in] cb: ULONG, #[out] pcbRead: *mut ULONG) -> HRESULT;
+            fn Read(&self, #[out] #[readable(success, cb)] #[writable(entry, cb)] #[writable(success, cb)] pb: *mut BYTE, #[in] cb: ULONG, #[out] pcbRead: *mut ULONG) -> HRESULT;
             fn BeginRead(&self, #[out] #[writable(entry, bytes(cb))] pb: *mut BYTE, #[in] cb: ULONG, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndRead(&self, #[in] pResult: IMFAsyncResult, #[out] pcbRead: *mut ULONG) -> HRESULT;
             fn Write(&self, #[in] #[readable(entry, cb)] pb: *const BYTE, #[in] cb: ULONG, #[out] pcbWritten: *mut ULONG) -> HRESULT;
@@ -98,7 +98,7 @@ mod Windows {
         }
         #[guid(0xa6b43f84_5c0a_42e8_a44d_b1857a76992f)]
         interface IMFByteStreamProxyClassFactory: IUnknown {
-            fn CreateByteStreamProxy(&self, #[in] #[opt] pByteStream: IMFByteStream, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn CreateByteStreamProxy(&self, #[in] #[opt] pByteStream: IMFByteStream, #[in] #[opt] pAttributes: IMFAttributes, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0x5bc8a76b_869a_46a3_9b03_fa218a66aebe)]
         interface IMFCollection: IUnknown {
@@ -118,9 +118,9 @@ mod Windows {
         }
         #[guid(0xb25d03fb_d148_45ef_bfed_f778b7566c07)]
         interface IMFDXGICrossAdapterBuffer: IUnknown {
-            fn GetResourceForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetResourceForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut LPVOID) -> HRESULT;
             fn GetSubresourceIndexForDevice(&self, #[in] pUnkDevice: IUnknown, #[out] puSubresource: *mut UINT) -> HRESULT;
-            fn GetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut LPVOID) -> HRESULT;
             fn SetUnknownForDevice(&self, #[in] pUnkDevice: IUnknown, #[in] guid: &IID, #[in] #[opt] pUnkData: IUnknown) -> HRESULT;
         }
         #[guid(0xeb533d5d_2db6_40f8_97a9_494692014f07)]
@@ -135,7 +135,7 @@ mod Windows {
         }
         #[guid(0x045fa593_8799_42b8_bc8d_8968c6453507)]
         interface IMFMediaBuffer: IUnknown {
-            fn Lock(&self, #[out] #[writable(success, bytes(if_present(*pcbMaxLength)), indirect)] #[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)] ppbBuffer: *mut *mut BYTE, #[out] #[opt] pcbMaxLength: *mut DWORD, #[out] #[opt] pcbCurrentLength: *mut DWORD) -> HRESULT;
+            fn Lock(&self, #[out] #[readable(success, bytes(if_present(*pcbCurrentLength)), indirect)] #[writable(success, bytes(if_present(*pcbMaxLength)), indirect)] ppbBuffer: *mut *mut BYTE, #[opt] #[out] pcbMaxLength: *mut DWORD, #[opt] #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
             fn Unlock(&self) -> HRESULT;
             fn GetCurrentLength(&self, #[out] pcbCurrentLength: *mut DWORD) -> HRESULT;
             fn SetCurrentLength(&self, #[in] cbCurrentLength: DWORD) -> HRESULT;

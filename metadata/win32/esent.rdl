@@ -45,12 +45,12 @@ mod Windows {
             },
         }
         type JET_BYTE = u8;
-        extern fn JET_CALLBACK(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] tableid: JET_TABLEID, #[in] cbtyp: JET_CBTYP, #[in] #[out] #[opt] pvArg1: JET_PVOID, #[in] #[out] #[opt] pvArg2: JET_PVOID, #[in] #[opt] pvContext: JET_PVOID, #[in] ulUnused: JET_API_PTR) -> JET_ERR;
+        extern fn JET_CALLBACK(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] tableid: JET_TABLEID, #[in] cbtyp: JET_CBTYP, #[in] #[opt] #[out] pvArg1: JET_PVOID, #[in] #[opt] #[out] pvArg2: JET_PVOID, #[in] #[opt] pvContext: JET_PVOID, #[in] ulUnused: JET_API_PTR) -> JET_ERR;
         type JET_CBTYP = u32;
         type JET_CHAR = i8;
         type JET_COLTYP = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_COLUMNBASE_A {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -64,8 +64,8 @@ mod Windows {
             szBaseTableName: [JET_CHAR; 256],
             szBaseColumnName: [JET_CHAR; 256],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COLUMNBASE_A {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -79,8 +79,8 @@ mod Windows {
             szBaseTableName: [JET_CHAR; 256],
             szBaseColumnName: [JET_CHAR; 256],
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_COLUMNBASE_W {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -94,8 +94,8 @@ mod Windows {
             szBaseTableName: [JET_WCHAR; 256],
             szBaseColumnName: [JET_WCHAR; 256],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COLUMNBASE_W {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -109,8 +109,8 @@ mod Windows {
             szBaseTableName: [JET_WCHAR; 256],
             szBaseColumnName: [JET_WCHAR; 256],
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_COLUMNCREATE_A {
             cbStruct: JET_UINT32,
             szColumnName: JET_PSTR,
@@ -123,8 +123,8 @@ mod Windows {
             columnid: JET_COLUMNID,
             err: JET_ERR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COLUMNCREATE_A {
             cbStruct: JET_UINT32,
             szColumnName: JET_PSTR,
@@ -137,8 +137,8 @@ mod Windows {
             columnid: JET_COLUMNID,
             err: JET_ERR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_COLUMNCREATE_W {
             cbStruct: JET_UINT32,
             szColumnName: JET_PWSTR,
@@ -151,8 +151,8 @@ mod Windows {
             columnid: JET_COLUMNID,
             err: JET_ERR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COLUMNCREATE_W {
             cbStruct: JET_UINT32,
             szColumnName: JET_PWSTR,
@@ -165,8 +165,8 @@ mod Windows {
             columnid: JET_COLUMNID,
             err: JET_ERR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_COLUMNDEF {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -178,8 +178,8 @@ mod Windows {
             cbMax: JET_UINT32,
             grbit: JET_GRBIT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COLUMNDEF {
             cbStruct: JET_UINT32,
             columnid: JET_COLUMNID,
@@ -192,8 +192,8 @@ mod Windows {
             grbit: JET_GRBIT,
         }
         type JET_COLUMNID = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_COLUMNLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -213,8 +213,8 @@ mod Windows {
             columnidBaseColumnName: JET_COLUMNID,
             columnidDefinitionName: JET_COLUMNID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COLUMNLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -234,50 +234,50 @@ mod Windows {
             columnidBaseColumnName: JET_COLUMNID,
             columnidDefinitionName: JET_COLUMNID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_COMMIT_ID {
             signLog: JET_SIGNATURE,
             reserved: JET_INT32,
             commitId: JET_INT64,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_COMMIT_ID {
             signLog: JET_SIGNATURE,
             reserved: JET_INT32,
             commitId: JET_INT64,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_CONDITIONALCOLUMN_A {
             cbStruct: JET_UINT32,
             szColumnName: JET_PSTR,
             grbit: JET_GRBIT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_CONDITIONALCOLUMN_A {
             cbStruct: JET_UINT32,
             szColumnName: JET_PSTR,
             grbit: JET_GRBIT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_CONDITIONALCOLUMN_W {
             cbStruct: JET_UINT32,
             szColumnName: JET_PWSTR,
             grbit: JET_GRBIT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_CONDITIONALCOLUMN_W {
             cbStruct: JET_UINT32,
             szColumnName: JET_PWSTR,
             grbit: JET_GRBIT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_CONVERT_A {
             szOldDll: JET_PSTR,
             Anonymous: #[packed(4)] union {
@@ -289,8 +289,8 @@ mod Windows {
                 },
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_CONVERT_A {
             szOldDll: JET_PSTR,
             Anonymous: #[packed(8)] union {
@@ -302,8 +302,8 @@ mod Windows {
                 },
             },
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_CONVERT_W {
             szOldDll: JET_PWSTR,
             Anonymous: #[packed(4)] union {
@@ -315,8 +315,8 @@ mod Windows {
                 },
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_CONVERT_W {
             szOldDll: JET_PWSTR,
             Anonymous: #[packed(8)] union {
@@ -342,8 +342,8 @@ mod Windows {
         const JET_ColInfoSysTabCursor: u32 = 3;
         type JET_DATESERIAL = f64;
         type JET_DBID = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_DBINFOMISC {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -367,8 +367,8 @@ mod Windows {
             lSPNumber: JET_INT32,
             cbPageSize: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_DBINFOMISC {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -392,8 +392,8 @@ mod Windows {
             lSPNumber: JET_INT32,
             cbPageSize: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_DBINFOMISC2 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -432,8 +432,8 @@ mod Windows {
             logtimeBadChecksum: JET_LOGTIME,
             ulBadChecksumOld: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_DBINFOMISC2 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -472,8 +472,8 @@ mod Windows {
             logtimeBadChecksum: JET_LOGTIME,
             ulBadChecksumOld: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_DBINFOMISC3 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -513,8 +513,8 @@ mod Windows {
             ulBadChecksumOld: JET_UINT32,
             genCommitted: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_DBINFOMISC3 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -554,8 +554,8 @@ mod Windows {
             ulBadChecksumOld: JET_UINT32,
             genCommitted: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_DBINFOMISC4 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -597,8 +597,8 @@ mod Windows {
             bkinfoCopyPrev: JET_BKINFO,
             bkinfoDiffPrev: JET_BKINFO,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_DBINFOMISC4 {
             ulVersion: JET_UINT32,
             ulUpdate: JET_UINT32,
@@ -640,8 +640,8 @@ mod Windows {
             bkinfoCopyPrev: JET_BKINFO,
             bkinfoDiffPrev: JET_BKINFO,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_DBINFOUPGRADE {
             cbStruct: JET_UINT32,
             cbFilesizeLow: JET_UINT32,
@@ -659,8 +659,8 @@ mod Windows {
                 },
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_DBINFOUPGRADE {
             cbStruct: JET_UINT32,
             cbFilesizeLow: JET_UINT32,
@@ -698,8 +698,8 @@ mod Windows {
         const JET_DbInfoTransactions: i32 = 7;
         const JET_DbInfoUpgrade: i32 = 13;
         const JET_DbInfoVersion: i32 = 8;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_ENUMCOLUMN {
             columnid: JET_COLUMNID,
             err: JET_ERR,
@@ -714,8 +714,8 @@ mod Windows {
                 },
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_ENUMCOLUMN {
             columnid: JET_COLUMNID,
             err: JET_ERR,
@@ -730,30 +730,30 @@ mod Windows {
                 },
             },
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_ENUMCOLUMNID {
             columnid: JET_COLUMNID,
             ctagSequence: JET_UINT32,
             rgtagSequence: *mut JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_ENUMCOLUMNID {
             columnid: JET_COLUMNID,
             ctagSequence: JET_UINT32,
             rgtagSequence: *mut JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_ENUMCOLUMNVALUE {
             itagSequence: JET_UINT32,
             err: JET_ERR,
             cbData: JET_UINT32,
             pvData: JET_PVOID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_ENUMCOLUMNVALUE {
             itagSequence: JET_UINT32,
             err: JET_ERR,
@@ -783,8 +783,8 @@ mod Windows {
             JET_errcatObsolete = 16,
             JET_errcatMax = 17,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_ERRINFOBASIC_W {
             cbStruct: JET_UINT32,
             errValue: JET_ERR,
@@ -793,8 +793,8 @@ mod Windows {
             lSourceLine: JET_UINT32,
             rgszSourceFile: [JET_WCHAR; 64],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_ERRINFOBASIC_W {
             cbStruct: JET_UINT32,
             errValue: JET_ERR,
@@ -825,8 +825,8 @@ mod Windows {
             JET_IndexCheckingDeferToOpenTable = 2,
             JET_IndexCheckingMax = 3,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXCREATE2_A {
             cbStruct: JET_UINT32,
             szIndexName: JET_PSTR,
@@ -848,8 +848,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXCREATE2_A {
             cbStruct: JET_UINT32,
             szIndexName: JET_PSTR,
@@ -871,8 +871,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXCREATE2_W {
             cbStruct: JET_UINT32,
             szIndexName: JET_PWSTR,
@@ -894,8 +894,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXCREATE2_W {
             cbStruct: JET_UINT32,
             szIndexName: JET_PWSTR,
@@ -917,8 +917,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXCREATE3_A {
             cbStruct: JET_UINT32,
             szIndexName: JET_PSTR,
@@ -937,8 +937,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXCREATE3_A {
             cbStruct: JET_UINT32,
             szIndexName: JET_PSTR,
@@ -957,8 +957,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXCREATE3_W {
             cbStruct: JET_UINT32,
             szIndexName: JET_PWSTR,
@@ -977,8 +977,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXCREATE3_W {
             cbStruct: JET_UINT32,
             szIndexName: JET_PWSTR,
@@ -997,8 +997,8 @@ mod Windows {
             cbKeyMost: JET_UINT32,
             pSpacehints: *mut JET_SPACEHINTS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXCREATE_A {
             cbStruct: JET_UINT32,
             szIndexName: JET_PSTR,
@@ -1019,8 +1019,8 @@ mod Windows {
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXCREATE_A {
             cbStruct: JET_UINT32,
             szIndexName: JET_PSTR,
@@ -1041,8 +1041,8 @@ mod Windows {
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXCREATE_W {
             cbStruct: JET_UINT32,
             szIndexName: JET_PWSTR,
@@ -1063,8 +1063,8 @@ mod Windows {
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXCREATE_W {
             cbStruct: JET_UINT32,
             szIndexName: JET_PWSTR,
@@ -1085,20 +1085,20 @@ mod Windows {
             err: JET_ERR,
             cbKeyMost: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXID {
             cbStruct: JET_UINT32,
             rgbIndexId: [JET_BYTE; 12],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXID {
             cbStruct: JET_UINT32,
             rgbIndexId: [JET_BYTE; 16],
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -1120,8 +1120,8 @@ mod Windows {
             columnidcolumnname: JET_COLUMNID,
             columnidLCMapFlags: JET_COLUMNID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -1143,22 +1143,22 @@ mod Windows {
             columnidcolumnname: JET_COLUMNID,
             columnidLCMapFlags: JET_COLUMNID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEXRANGE {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
             grbit: JET_GRBIT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEXRANGE {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
             grbit: JET_GRBIT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEX_COLUMN {
             columnid: JET_COLUMNID,
             relop: JET_RELOP,
@@ -1166,8 +1166,8 @@ mod Windows {
             cb: JET_UINT32,
             grbit: JET_GRBIT,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEX_COLUMN {
             columnid: JET_COLUMNID,
             relop: JET_RELOP,
@@ -1175,16 +1175,16 @@ mod Windows {
             cb: JET_UINT32,
             grbit: JET_GRBIT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INDEX_RANGE {
             rgStartColumns: *mut JET_INDEX_COLUMN,
             cStartColumns: JET_UINT32,
             rgEndColumns: *mut JET_INDEX_COLUMN,
             cEndColumns: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INDEX_RANGE {
             rgStartColumns: *mut JET_INDEX_COLUMN,
             cStartColumns: JET_UINT32,
@@ -1195,8 +1195,8 @@ mod Windows {
         type JET_INSTANCE = u64;
         #[arch(X86)]
         type JET_INSTANCE = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INSTANCE_INFO_A {
             hInstanceId: JET_INSTANCE,
             szInstanceName: JET_PSTR,
@@ -1205,8 +1205,8 @@ mod Windows {
             szDatabaseDisplayName: *mut JET_PSTR,
             szDatabaseSLVFileName_Obsolete: *mut JET_PSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INSTANCE_INFO_A {
             hInstanceId: JET_INSTANCE,
             szInstanceName: JET_PSTR,
@@ -1215,8 +1215,8 @@ mod Windows {
             szDatabaseDisplayName: *mut JET_PSTR,
             szDatabaseSLVFileName_Obsolete: *mut JET_PSTR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_INSTANCE_INFO_W {
             hInstanceId: JET_INSTANCE,
             szInstanceName: JET_PWSTR,
@@ -1225,8 +1225,8 @@ mod Windows {
             szDatabaseDisplayName: *mut JET_PWSTR,
             szDatabaseSLVFileName_Obsolete: *mut JET_PWSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_INSTANCE_INFO_W {
             hInstanceId: JET_INSTANCE,
             szInstanceName: JET_PWSTR,
@@ -1266,32 +1266,32 @@ mod Windows {
             isec: JET_UINT16,
             lGeneration: JET_INT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_LOGINFO_A {
             cbSize: JET_UINT32,
             ulGenLow: JET_UINT32,
             ulGenHigh: JET_UINT32,
             szBaseName: [JET_CHAR; 4],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_LOGINFO_A {
             cbSize: JET_UINT32,
             ulGenLow: JET_UINT32,
             ulGenHigh: JET_UINT32,
             szBaseName: [JET_CHAR; 4],
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_LOGINFO_W {
             cbSize: JET_UINT32,
             ulGenLow: JET_UINT32,
             ulGenHigh: JET_UINT32,
             szBaseName: [JET_WCHAR; 4],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_LOGINFO_W {
             cbSize: JET_UINT32,
             ulGenLow: JET_UINT32,
@@ -1339,8 +1339,8 @@ mod Windows {
         const JET_MoveLast: i32 = 2147483647;
         const JET_MoveNext: i32 = 1;
         const JET_MovePrevious: i32 = -1;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_OBJECTINFO {
             cbStruct: JET_UINT32,
             objtyp: JET_OBJTYP,
@@ -1351,8 +1351,8 @@ mod Windows {
             cRecord: JET_UINT32,
             cPage: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_OBJECTINFO {
             cbStruct: JET_UINT32,
             objtyp: JET_OBJTYP,
@@ -1363,8 +1363,8 @@ mod Windows {
             cRecord: JET_UINT32,
             cPage: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_OBJECTLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -1379,8 +1379,8 @@ mod Windows {
             columnidcRecord: JET_COLUMNID,
             columnidcPage: JET_COLUMNID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_OBJECTLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
@@ -1396,8 +1396,8 @@ mod Windows {
             columnidcPage: JET_COLUMNID,
         }
         type JET_OBJTYP = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_OPENTEMPORARYTABLE {
             cbStruct: JET_UINT32,
             prgcolumndef: *const JET_COLUMNDEF,
@@ -1409,8 +1409,8 @@ mod Windows {
             cbVarSegMac: JET_UINT32,
             tableid: JET_TABLEID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_OPENTEMPORARYTABLE {
             cbStruct: JET_UINT32,
             prgcolumndef: *const JET_COLUMNDEF,
@@ -1422,8 +1422,8 @@ mod Windows {
             cbVarSegMac: JET_UINT32,
             tableid: JET_TABLEID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_OPENTEMPORARYTABLE2 {
             cbStruct: JET_UINT32,
             prgcolumndef: *const JET_COLUMNDEF,
@@ -1435,8 +1435,8 @@ mod Windows {
             cbVarSegMac: JET_UINT32,
             tableid: JET_TABLEID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_OPENTEMPORARYTABLE2 {
             cbStruct: JET_UINT32,
             prgcolumndef: *const JET_COLUMNDEF,
@@ -1448,8 +1448,8 @@ mod Windows {
             cbVarSegMac: JET_UINT32,
             tableid: JET_TABLEID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_OPERATIONCONTEXT {
             ulUserID: JET_UINT32,
             nOperationID: JET_BYTE,
@@ -1457,8 +1457,8 @@ mod Windows {
             nClientType: JET_BYTE,
             fFlags: JET_BYTE,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_OPERATIONCONTEXT {
             ulUserID: JET_UINT32,
             nOperationID: JET_BYTE,
@@ -1497,40 +1497,40 @@ mod Windows {
         type JET_PVOID = *mut void;
         #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
         type JET_PWSTR = *mut u16;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RECORDLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
             cRecord: JET_UINT32,
             columnidBookmark: JET_COLUMNID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RECORDLIST {
             cbStruct: JET_UINT32,
             tableid: JET_TABLEID,
             cRecord: JET_UINT32,
             columnidBookmark: JET_COLUMNID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RECPOS {
             cbStruct: JET_UINT32,
             centriesLT: JET_UINT32,
             centriesInRange: JET_UINT32,
             centriesTotal: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RECPOS {
             cbStruct: JET_UINT32,
             centriesLT: JET_UINT32,
             centriesInRange: JET_UINT32,
             centriesTotal: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RECPOS2 {
             cbStruct: JET_UINT32,
             centriesLTDeprecated: JET_UINT32,
@@ -1539,8 +1539,8 @@ mod Windows {
             centriesLT: JET_UINT64,
             centriesTotal: JET_UINT64,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RECPOS2 {
             cbStruct: JET_UINT32,
             centriesLTDeprecated: JET_UINT32,
@@ -1549,8 +1549,8 @@ mod Windows {
             centriesLT: JET_UINT64,
             centriesTotal: JET_UINT64,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RECSIZE {
             cbData: JET_UINT64,
             cbLongValueData: JET_UINT64,
@@ -1561,8 +1561,8 @@ mod Windows {
             cLongValues: JET_UINT64,
             cMultiValues: JET_UINT64,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RECSIZE {
             cbData: JET_UINT64,
             cbLongValueData: JET_UINT64,
@@ -1573,8 +1573,8 @@ mod Windows {
             cLongValues: JET_UINT64,
             cMultiValues: JET_UINT64,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RECSIZE2 {
             cbData: JET_UINT64,
             cbLongValueData: JET_UINT64,
@@ -1588,8 +1588,8 @@ mod Windows {
             cbDataCompressed: JET_UINT64,
             cbLongValueDataCompressed: JET_UINT64,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RECSIZE2 {
             cbData: JET_UINT64,
             cbLongValueData: JET_UINT64,
@@ -1615,24 +1615,24 @@ mod Windows {
             JET_relopBitmaskEqualsZero = 7,
             JET_relopBitmaskNotEqualsZero = 8,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RETINFO {
             cbStruct: JET_UINT32,
             ibLongValue: JET_UINT32,
             itagSequence: JET_UINT32,
             columnidNextTagged: JET_COLUMNID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RETINFO {
             cbStruct: JET_UINT32,
             ibLongValue: JET_UINT32,
             itagSequence: JET_UINT32,
             columnidNextTagged: JET_COLUMNID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RETRIEVECOLUMN {
             columnid: JET_COLUMNID,
             pvData: JET_PVOID,
@@ -1644,8 +1644,8 @@ mod Windows {
             columnidNextTagged: JET_COLUMNID,
             err: JET_ERR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RETRIEVECOLUMN {
             columnid: JET_COLUMNID,
             pvData: JET_PVOID,
@@ -1657,8 +1657,8 @@ mod Windows {
             columnidNextTagged: JET_COLUMNID,
             err: JET_ERR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RSTINFO_A {
             cbStruct: JET_UINT32,
             rgrstmap: *mut JET_RSTMAP_A,
@@ -1667,8 +1667,8 @@ mod Windows {
             logtimeStop: JET_LOGTIME,
             pfnStatus: JET_PFNSTATUS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RSTINFO_A {
             cbStruct: JET_UINT32,
             rgrstmap: *mut JET_RSTMAP_A,
@@ -1677,8 +1677,8 @@ mod Windows {
             logtimeStop: JET_LOGTIME,
             pfnStatus: JET_PFNSTATUS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RSTINFO_W {
             cbStruct: JET_UINT32,
             rgrstmap: *mut JET_RSTMAP_W,
@@ -1687,8 +1687,8 @@ mod Windows {
             logtimeStop: JET_LOGTIME,
             pfnStatus: JET_PFNSTATUS,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RSTINFO_W {
             cbStruct: JET_UINT32,
             rgrstmap: *mut JET_RSTMAP_W,
@@ -1697,26 +1697,26 @@ mod Windows {
             logtimeStop: JET_LOGTIME,
             pfnStatus: JET_PFNSTATUS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RSTMAP_A {
             szDatabaseName: JET_PSTR,
             szNewDatabaseName: JET_PSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RSTMAP_A {
             szDatabaseName: JET_PSTR,
             szNewDatabaseName: JET_PSTR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_RSTMAP_W {
             szDatabaseName: JET_PWSTR,
             szNewDatabaseName: JET_PWSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_RSTMAP_W {
             szDatabaseName: JET_PWSTR,
             szNewDatabaseName: JET_PWSTR,
@@ -1725,8 +1725,8 @@ mod Windows {
         type JET_SESID = u64;
         #[arch(X86)]
         type JET_SESID = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_SETCOLUMN {
             columnid: JET_COLUMNID,
             pvData: JET_PCVOID,
@@ -1736,8 +1736,8 @@ mod Windows {
             itagSequence: JET_UINT32,
             err: JET_ERR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_SETCOLUMN {
             columnid: JET_COLUMNID,
             pvData: JET_PCVOID,
@@ -1747,46 +1747,46 @@ mod Windows {
             itagSequence: JET_UINT32,
             err: JET_ERR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_SETINFO {
             cbStruct: JET_UINT32,
             ibLongValue: JET_UINT32,
             itagSequence: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_SETINFO {
             cbStruct: JET_UINT32,
             ibLongValue: JET_UINT32,
             itagSequence: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_SETSYSPARAM_A {
             paramid: JET_UINT32,
             lParam: JET_API_PTR,
             sz: JET_PCSTR,
             err: JET_ERR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_SETSYSPARAM_A {
             paramid: JET_UINT32,
             lParam: JET_API_PTR,
             sz: JET_PCSTR,
             err: JET_ERR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_SETSYSPARAM_W {
             paramid: JET_UINT32,
             lParam: JET_API_PTR,
             sz: JET_PCWSTR,
             err: JET_ERR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_SETSYSPARAM_W {
             paramid: JET_UINT32,
             lParam: JET_API_PTR,
@@ -1800,23 +1800,23 @@ mod Windows {
             szComputerName: [JET_CHAR; 16],
         }
         type JET_SNP = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_SNPROG {
             cbStruct: JET_UINT32,
             cunitDone: JET_UINT32,
             cunitTotal: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_SNPROG {
             cbStruct: JET_UINT32,
             cunitDone: JET_UINT32,
             cunitTotal: JET_UINT32,
         }
         type JET_SNT = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_SPACEHINTS {
             cbStruct: JET_UINT32,
             ulInitialDensity: JET_UINT32,
@@ -1827,8 +1827,8 @@ mod Windows {
             cbMinExtent: JET_UINT32,
             cbMaxExtent: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_SPACEHINTS {
             cbStruct: JET_UINT32,
             ulInitialDensity: JET_UINT32,
@@ -1839,8 +1839,8 @@ mod Windows {
             cbMinExtent: JET_UINT32,
             cbMaxExtent: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE2_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -1857,8 +1857,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE2_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -1875,8 +1875,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE2_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -1893,8 +1893,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE2_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -1911,8 +1911,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE3_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -1932,8 +1932,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE3_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -1953,8 +1953,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE3_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -1974,8 +1974,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE3_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -1995,8 +1995,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE4_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -2016,8 +2016,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE4_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -2037,8 +2037,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE4_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -2058,8 +2058,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE4_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -2079,8 +2079,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -2095,8 +2095,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE_A {
             cbStruct: JET_UINT32,
             szTableName: JET_PSTR,
@@ -2111,8 +2111,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TABLECREATE_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -2127,8 +2127,8 @@ mod Windows {
             tableid: JET_TABLEID,
             cCreated: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TABLECREATE_W {
             cbStruct: JET_UINT32,
             szTableName: JET_PWSTR,
@@ -2147,8 +2147,8 @@ mod Windows {
         type JET_TABLEID = u64;
         #[arch(X86)]
         type JET_TABLEID = u32;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_THREADSTATS {
             cbStruct: JET_UINT32,
             cPageReferenced: JET_UINT32,
@@ -2159,8 +2159,8 @@ mod Windows {
             cLogRecord: JET_UINT32,
             cbLogRecord: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_THREADSTATS {
             cbStruct: JET_UINT32,
             cPageReferenced: JET_UINT32,
@@ -2171,8 +2171,8 @@ mod Windows {
             cLogRecord: JET_UINT32,
             cbLogRecord: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_THREADSTATS2 {
             cbStruct: JET_UINT32,
             cPageReferenced: JET_UINT32,
@@ -2185,8 +2185,8 @@ mod Windows {
             cusecPageCacheMiss: JET_UINT64,
             cPageCacheMiss: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_THREADSTATS2 {
             cbStruct: JET_UINT32,
             cPageReferenced: JET_UINT32,
@@ -2199,8 +2199,8 @@ mod Windows {
             cusecPageCacheMiss: JET_UINT64,
             cPageCacheMiss: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_TUPLELIMITS {
             chLengthMin: JET_UINT32,
             chLengthMax: JET_UINT32,
@@ -2208,8 +2208,8 @@ mod Windows {
             cchIncrement: JET_UINT32,
             ichStart: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_TUPLELIMITS {
             chLengthMin: JET_UINT32,
             chLengthMax: JET_UINT32,
@@ -2234,58 +2234,58 @@ mod Windows {
         type JET_UINT32 = u32;
         type JET_UINT64 = u64;
         type JET_UINT8 = u8;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_UNICODEINDEX {
             lcid: JET_LCID,
             dwMapFlags: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_UNICODEINDEX {
             lcid: JET_LCID,
             dwMapFlags: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_UNICODEINDEX2 {
             #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             szLocaleName: JET_PWSTR,
             dwMapFlags: JET_UINT32,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_UNICODEINDEX2 {
             #[Windows::Win32::Metadata::NativeSal("2", "_Field_z_", "", "")]
             szLocaleName: JET_PWSTR,
             dwMapFlags: JET_UINT32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_USERDEFINEDDEFAULT_A {
             szCallback: JET_PSTR,
             pbUserData: *mut JET_BYTE,
             cbUserData: JET_UINT32,
             szDependantColumns: JET_PSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_USERDEFINEDDEFAULT_A {
             szCallback: JET_PSTR,
             pbUserData: *mut JET_BYTE,
             cbUserData: JET_UINT32,
             szDependantColumns: JET_PSTR,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct JET_USERDEFINEDDEFAULT_W {
             szCallback: JET_PWSTR,
             pbUserData: *mut JET_BYTE,
             cbUserData: JET_UINT32,
             szDependantColumns: JET_PWSTR,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct JET_USERDEFINEDDEFAULT_W {
             szCallback: JET_PWSTR,
             pbUserData: *mut JET_BYTE,
@@ -3237,9 +3237,9 @@ mod Windows {
         #[encoding("utf-16")]
         const JET_wszConfigStoreRelPathSysParamOverride: String = "SysParamOverride";
         #[library("ESENT.dll")]
-        extern fn JetAddColumnA(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] szColumnName: JET_PCSTR, #[in] pcolumndef: *const JET_COLUMNDEF, #[in] #[opt] #[readable(entry, bytes(cbDefault))] pvDefault: JET_PCVOID, #[in] cbDefault: JET_UINT32, #[out] #[opt] pcolumnid: *mut JET_COLUMNID) -> JET_ERR;
+        extern fn JetAddColumnA(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] szColumnName: JET_PCSTR, #[in] pcolumndef: *const JET_COLUMNDEF, #[in] #[opt] #[readable(entry, bytes(cbDefault))] pvDefault: JET_PCVOID, #[in] cbDefault: JET_UINT32, #[opt] #[out] pcolumnid: *mut JET_COLUMNID) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetAddColumnW(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] szColumnName: JET_PCWSTR, #[in] pcolumndef: *const JET_COLUMNDEF, #[in] #[opt] #[readable(entry, bytes(cbDefault))] pvDefault: JET_PCVOID, #[in] cbDefault: JET_UINT32, #[out] #[opt] pcolumnid: *mut JET_COLUMNID) -> JET_ERR;
+        extern fn JetAddColumnW(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] szColumnName: JET_PCWSTR, #[in] pcolumndef: *const JET_COLUMNDEF, #[in] #[opt] #[readable(entry, bytes(cbDefault))] pvDefault: JET_PCVOID, #[in] cbDefault: JET_UINT32, #[opt] #[out] pcolumnid: *mut JET_COLUMNID) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetAttachDatabase2A(#[in] sesid: JET_SESID, #[in] szFilename: JET_PCSTR, #[in] cpgDatabaseSizeMax: JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3281,7 +3281,7 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetCommitTransaction(#[in] sesid: JET_SESID, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetCommitTransaction2(#[in] sesid: JET_SESID, #[in] grbit: JET_GRBIT, #[in] cmsecDurableCommit: JET_UINT32, #[out] #[opt] pCommitId: *mut JET_COMMIT_ID) -> JET_ERR;
+        extern fn JetCommitTransaction2(#[in] sesid: JET_SESID, #[in] grbit: JET_GRBIT, #[in] cmsecDurableCommit: JET_UINT32, #[opt] #[out] pCommitId: *mut JET_COMMIT_ID) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetCompactA(#[in] sesid: JET_SESID, #[in] szDatabaseSrc: JET_PCSTR, #[in] szDatabaseDest: JET_PCSTR, #[in] pfnStatus: JET_PFNSTATUS, #[in] #[opt] pconvert: *mut JET_CONVERT_A, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3343,17 +3343,17 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetCreateTableW(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] szTableName: JET_PCWSTR, #[in] lPages: JET_UINT32, #[in] lDensity: JET_UINT32, #[out] ptableid: *mut JET_TABLEID) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetDefragment2A(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCSTR, #[in] #[out] #[opt] pcPasses: *mut JET_UINT32, #[in] #[out] #[opt] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetDefragment2A(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCSTR, #[in] #[opt] #[out] pcPasses: *mut JET_UINT32, #[in] #[opt] #[out] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetDefragment2W(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCWSTR, #[in] #[out] #[opt] pcPasses: *mut JET_UINT32, #[in] #[out] #[opt] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetDefragment2W(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCWSTR, #[in] #[opt] #[out] pcPasses: *mut JET_UINT32, #[in] #[opt] #[out] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetDefragment3A(#[in] sesid: JET_SESID, #[in] szDatabaseName: JET_PCSTR, #[in] #[opt] szTableName: JET_PCSTR, #[in] #[out] #[opt] pcPasses: *mut JET_UINT32, #[in] #[out] #[opt] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] pvContext: JET_PVOID, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetDefragment3A(#[in] sesid: JET_SESID, #[in] szDatabaseName: JET_PCSTR, #[in] #[opt] szTableName: JET_PCSTR, #[in] #[opt] #[out] pcPasses: *mut JET_UINT32, #[in] #[opt] #[out] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] pvContext: JET_PVOID, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetDefragment3W(#[in] sesid: JET_SESID, #[in] szDatabaseName: JET_PCWSTR, #[in] #[opt] szTableName: JET_PCWSTR, #[in] #[out] #[opt] pcPasses: *mut JET_UINT32, #[in] #[out] #[opt] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] pvContext: JET_PVOID, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetDefragment3W(#[in] sesid: JET_SESID, #[in] szDatabaseName: JET_PCWSTR, #[in] #[opt] szTableName: JET_PCWSTR, #[in] #[opt] #[out] pcPasses: *mut JET_UINT32, #[in] #[opt] #[out] pcSeconds: *mut JET_UINT32, #[in] callback: JET_CALLBACK, #[in] pvContext: JET_PVOID, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetDefragmentA(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCSTR, #[in] #[out] #[opt] pcPasses: *mut JET_UINT32, #[in] #[out] #[opt] pcSeconds: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetDefragmentA(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCSTR, #[in] #[opt] #[out] pcPasses: *mut JET_UINT32, #[in] #[opt] #[out] pcSeconds: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetDefragmentW(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCWSTR, #[in] #[out] #[opt] pcPasses: *mut JET_UINT32, #[in] #[out] #[opt] pcSeconds: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetDefragmentW(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] #[opt] szTableName: JET_PCWSTR, #[in] #[opt] #[out] pcPasses: *mut JET_UINT32, #[in] #[opt] #[out] pcSeconds: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetDelete(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3385,9 +3385,9 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetDupSession(#[in] sesid: JET_SESID, #[out] psesid: *mut JET_SESID) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetEnableMultiInstanceA(#[in] #[opt] #[readable(entry, csetsysparam)] psetsysparam: *mut JET_SETSYSPARAM_A, #[in] csetsysparam: JET_UINT32, #[out] #[opt] pcsetsucceed: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetEnableMultiInstanceA(#[in] #[opt] #[readable(entry, csetsysparam)] psetsysparam: *mut JET_SETSYSPARAM_A, #[in] csetsysparam: JET_UINT32, #[opt] #[out] pcsetsucceed: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetEnableMultiInstanceW(#[in] #[opt] #[readable(entry, csetsysparam)] psetsysparam: *mut JET_SETSYSPARAM_W, #[in] csetsysparam: JET_UINT32, #[out] #[opt] pcsetsucceed: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetEnableMultiInstanceW(#[in] #[opt] #[readable(entry, csetsysparam)] psetsysparam: *mut JET_SETSYSPARAM_W, #[in] csetsysparam: JET_UINT32, #[opt] #[out] pcsetsucceed: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetEndExternalBackup() -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3399,7 +3399,7 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetEnumerateColumns(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] cEnumColumnId: JET_UINT32, #[in] #[opt] #[readable(entry, cEnumColumnId)] rgEnumColumnId: *mut JET_ENUMCOLUMNID, #[out] pcEnumColumn: *mut JET_UINT32, #[out] #[writable(success, *pcEnumColumn, indirect)] prgEnumColumn: *mut *mut JET_ENUMCOLUMN, #[in] pfnRealloc: JET_PFNREALLOC, #[in] #[opt] pvReallocContext: JET_PVOID, #[in] cbDataMost: JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetEscrowUpdate(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] columnid: JET_COLUMNID, #[in] #[readable(entry, bytes(cbMax))] pv: JET_PVOID, #[in] cbMax: JET_UINT32, #[out] #[opt] #[writable(entry, bytes(cbOldMax))] #[readable(success, bytes(if_present(*pcbOldActual)))] pvOld: JET_PVOID, #[in] cbOldMax: JET_UINT32, #[out] #[opt] pcbOldActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetEscrowUpdate(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] columnid: JET_COLUMNID, #[in] #[readable(entry, bytes(cbMax))] pv: JET_PVOID, #[in] cbMax: JET_UINT32, #[opt] #[out] #[readable(success, bytes(if_present(*pcbOldActual)))] #[writable(entry, bytes(cbOldMax))] pvOld: JET_PVOID, #[in] cbOldMax: JET_UINT32, #[opt] #[out] pcbOldActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetExternalRestore2A(#[in] szCheckpointFilePath: JET_PSTR, #[in] szLogPath: JET_PSTR, #[in] #[opt] #[readable(entry, crstfilemap)] rgrstmap: *mut JET_RSTMAP_A, #[in] crstfilemap: JET_INT32, #[in] szBackupLogPath: JET_PSTR, #[in] #[out] pLogInfo: *mut JET_LOGINFO_A, #[in] #[opt] szTargetInstanceName: JET_PSTR, #[in] #[opt] szTargetInstanceLogPath: JET_PSTR, #[in] #[opt] szTargetInstanceCheckpointPath: JET_PSTR, #[in] pfn: JET_PFNSTATUS) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3411,15 +3411,15 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetFreeBuffer(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_notnull_", "", "")] pbBuf: *mut JET_CHAR) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetAttachInfoA(#[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzDatabases: JET_PSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetAttachInfoA(#[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzDatabases: JET_PSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetAttachInfoInstanceA(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzDatabases: JET_PSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetAttachInfoInstanceA(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzDatabases: JET_PSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetAttachInfoInstanceW(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzDatabases: JET_PWSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetAttachInfoInstanceW(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzDatabases: JET_PWSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetAttachInfoW(#[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] wszzDatabases: JET_PWSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetAttachInfoW(#[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] wszzDatabases: JET_PWSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetBookmark(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] pvBookmark: JET_PVOID, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetBookmark(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] pvBookmark: JET_PVOID, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetGetColumnInfoA(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] szTableName: JET_PCSTR, #[in] #[opt] pColumnNameOrId: JET_PCSTR, #[out] #[writable(entry, bytes(cbMax))] pvResult: JET_PVOID, #[in] cbMax: JET_UINT32, #[in] InfoLevel: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3455,17 +3455,17 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetGetLock(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetLogInfoA(#[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetLogInfoA(#[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetLogInfoInstance2A(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32, #[in] #[out] #[opt] pLogInfo: *mut JET_LOGINFO_A) -> JET_ERR;
+        extern fn JetGetLogInfoInstance2A(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32, #[in] #[opt] #[out] pLogInfo: *mut JET_LOGINFO_A) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetLogInfoInstance2W(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] wszzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32, #[in] #[out] #[opt] pLogInfo: *mut JET_LOGINFO_W) -> JET_ERR;
+        extern fn JetGetLogInfoInstance2W(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] wszzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32, #[in] #[opt] #[out] pLogInfo: *mut JET_LOGINFO_W) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetLogInfoInstanceA(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetLogInfoInstanceA(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetLogInfoInstanceW(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] wszzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetLogInfoInstanceW(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] wszzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetLogInfoW(#[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetLogInfoW(#[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetGetObjectInfoA(#[in] sesid: JET_SESID, #[in] dbid: JET_DBID, #[in] objtyp: JET_OBJTYP, #[in] #[opt] szContainerName: JET_PCSTR, #[in] #[opt] szObjectName: JET_PCSTR, #[out] #[writable(entry, bytes(cbMax))] pvResult: JET_PVOID, #[in] cbMax: JET_UINT32, #[in] InfoLevel: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3477,13 +3477,13 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetGetRecordSize2(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[out] precsize: *mut JET_RECSIZE2, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetSecondaryIndexBookmark(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[out] #[opt] #[writable(entry, bytes(cbSecondaryKeyMax))] #[readable(success, bytes(if_present(*pcbSecondaryKeyActual)))] pvSecondaryKey: JET_PVOID, #[in] cbSecondaryKeyMax: JET_UINT32, #[out] #[opt] pcbSecondaryKeyActual: *mut JET_UINT32, #[out] #[opt] #[writable(entry, bytes(cbPrimaryBookmarkMax))] #[readable(success, bytes(if_present(*pcbPrimaryBookmarkActual)))] pvPrimaryBookmark: JET_PVOID, #[in] cbPrimaryBookmarkMax: JET_UINT32, #[out] #[opt] pcbPrimaryBookmarkActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetGetSecondaryIndexBookmark(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[opt] #[out] #[readable(success, bytes(if_present(*pcbSecondaryKeyActual)))] #[writable(entry, bytes(cbSecondaryKeyMax))] pvSecondaryKey: JET_PVOID, #[in] cbSecondaryKeyMax: JET_UINT32, #[opt] #[out] pcbSecondaryKeyActual: *mut JET_UINT32, #[opt] #[out] #[readable(success, bytes(if_present(*pcbPrimaryBookmarkActual)))] #[writable(entry, bytes(cbPrimaryBookmarkMax))] pvPrimaryBookmark: JET_PVOID, #[in] cbPrimaryBookmarkMax: JET_UINT32, #[opt] #[out] pcbPrimaryBookmarkActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetSessionParameter(#[in] #[opt] sesid: JET_SESID, #[in] sesparamid: JET_UINT32, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_cap_post_count_", "cbParamMax,*pcbParamActual", "cbParamMax,*pcbParamActual")] pvParam: JET_PVOID, #[in] cbParamMax: JET_UINT32, #[out] #[opt] pcbParamActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetSessionParameter(#[in] #[opt] sesid: JET_SESID, #[in] sesparamid: JET_UINT32, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_cap_post_count_", "cbParamMax,*pcbParamActual", "cbParamMax,*pcbParamActual")] pvParam: JET_PVOID, #[in] cbParamMax: JET_UINT32, #[opt] #[out] pcbParamActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetSystemParameterA(#[in] instance: JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[out] #[opt] plParam: *mut JET_API_PTR, #[out] #[opt] #[writable(entry, bytes(cbMax))] szParam: JET_PSTR, #[in] cbMax: JET_UINT32) -> JET_ERR;
+        extern fn JetGetSystemParameterA(#[in] instance: JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[opt] #[out] plParam: *mut JET_API_PTR, #[opt] #[out] #[writable(entry, bytes(cbMax))] szParam: JET_PSTR, #[in] cbMax: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetSystemParameterW(#[in] instance: JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[out] #[opt] plParam: *mut JET_API_PTR, #[out] #[opt] #[writable(entry, bytes(cbMax))] szParam: JET_PWSTR, #[in] cbMax: JET_UINT32) -> JET_ERR;
+        extern fn JetGetSystemParameterW(#[in] instance: JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[opt] #[out] plParam: *mut JET_API_PTR, #[opt] #[out] #[writable(entry, bytes(cbMax))] szParam: JET_PWSTR, #[in] cbMax: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetGetTableColumnInfoA(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[opt] szColumnName: JET_PCSTR, #[out] #[writable(entry, bytes(cbMax))] pvResult: JET_PVOID, #[in] cbMax: JET_UINT32, #[in] InfoLevel: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3499,9 +3499,9 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetGetThreadStats(#[out] #[writable(entry, bytes(cbMax))] pvResult: JET_PVOID, #[in] cbMax: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetTruncateLogInfoInstanceA(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetTruncateLogInfoInstanceA(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] szzLogs: JET_PSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetGetTruncateLogInfoInstanceW(#[in] instance: JET_INSTANCE, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] wszzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetGetTruncateLogInfoInstanceW(#[in] instance: JET_INSTANCE, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] wszzLogs: JET_PWSTR, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetGetVersion(#[in] sesid: JET_SESID, #[out] pwVersion: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3517,13 +3517,13 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetIndexRecordCount(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[out] pcrec: *mut JET_UINT32, #[in] crecMax: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetInit(#[in] #[out] #[opt] pinstance: *mut JET_INSTANCE) -> JET_ERR;
+        extern fn JetInit(#[in] #[opt] #[out] pinstance: *mut JET_INSTANCE) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetInit2(#[in] #[out] #[opt] pinstance: *mut JET_INSTANCE, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetInit2(#[in] #[opt] #[out] pinstance: *mut JET_INSTANCE, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetInit3A(#[in] #[out] #[opt] pinstance: *mut JET_INSTANCE, #[in] #[opt] prstInfo: *mut JET_RSTINFO_A, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetInit3A(#[in] #[opt] #[out] pinstance: *mut JET_INSTANCE, #[in] #[opt] prstInfo: *mut JET_RSTINFO_A, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetInit3W(#[in] #[out] #[opt] pinstance: *mut JET_INSTANCE, #[in] #[opt] prstInfo: *mut JET_RSTINFO_W, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetInit3W(#[in] #[opt] #[out] pinstance: *mut JET_INSTANCE, #[in] #[opt] prstInfo: *mut JET_RSTINFO_W, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetIntersectIndexes(#[in] sesid: JET_SESID, #[in] #[readable(entry, cindexrange)] rgindexrange: *mut JET_INDEXRANGE, #[in] cindexrange: JET_UINT32, #[in] #[out] precordlist: *mut JET_RECORDLIST, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3581,13 +3581,13 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetPrepareUpdate(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] prep: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetPrereadIndexRanges(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[readable(entry, cIndexRanges)] rgIndexRanges: *const JET_INDEX_RANGE, #[in] cIndexRanges: JET_UINT32, #[out] #[opt] pcRangesPreread: *mut JET_UINT32, #[in] #[readable(entry, ccolumnidPreread)] rgcolumnidPreread: *const JET_COLUMNID, #[in] ccolumnidPreread: JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetPrereadIndexRanges(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[readable(entry, cIndexRanges)] rgIndexRanges: *const JET_INDEX_RANGE, #[in] cIndexRanges: JET_UINT32, #[opt] #[out] pcRangesPreread: *mut JET_UINT32, #[in] #[readable(entry, ccolumnidPreread)] rgcolumnidPreread: *const JET_COLUMNID, #[in] ccolumnidPreread: JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetPrereadKeys(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[readable(entry, ckeys)] rgpvKeys: *mut JET_PCVOID, #[in] #[readable(entry, ckeys)] rgcbKeys: *const JET_UINT32, #[in] ckeys: JET_INT32, #[out] #[opt] pckeysPreread: *mut JET_INT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetPrereadKeys(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[readable(entry, ckeys)] rgpvKeys: *mut JET_PCVOID, #[in] #[readable(entry, ckeys)] rgcbKeys: *const JET_UINT32, #[in] ckeys: JET_INT32, #[opt] #[out] pckeysPreread: *mut JET_INT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetReadFile(#[in] hfFile: JET_HANDLE, #[out] #[writable(entry, bytes(cb))] #[readable(success, bytes(if_present(*pcbActual)))] pv: JET_PVOID, #[in] cb: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetReadFile(#[in] hfFile: JET_HANDLE, #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cb))] pv: JET_PVOID, #[in] cb: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetReadFileInstance(#[in] instance: JET_INSTANCE, #[in] hfFile: JET_HANDLE, #[out] #[writable(entry, bytes(cb))] #[readable(success, bytes(if_present(*pcbActual)))] pv: JET_PVOID, #[in] cb: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetReadFileInstance(#[in] instance: JET_INSTANCE, #[in] hfFile: JET_HANDLE, #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cb))] pv: JET_PVOID, #[in] cb: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetRegisterCallback(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] cbtyp: JET_CBTYP, #[in] pCallback: JET_CALLBACK, #[in] #[opt] pvContext: JET_PVOID, #[in] phCallbackId: *mut JET_HANDLE) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3617,11 +3617,11 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetRestoreW(#[in] szSource: JET_PCWSTR, #[in] #[opt] pfn: JET_PFNSTATUS) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetRetrieveColumn(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] columnid: JET_COLUMNID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "cbData,(((cbData) < (*pcbActual)) ? (cbData) : (*pcbActual))", "cbData,(((cbData) < (*pcbActual)) ? (cbData) : (*pcbActual))")] #[out] #[opt] #[writable(entry, bytes(cbData))] pvData: JET_PVOID, #[in] cbData: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT, #[in] #[out] #[opt] pretinfo: *mut JET_RETINFO) -> JET_ERR;
+        extern fn JetRetrieveColumn(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] columnid: JET_COLUMNID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_opt_", "cbData,(((cbData) < (*pcbActual)) ? (cbData) : (*pcbActual))", "cbData,(((cbData) < (*pcbActual)) ? (cbData) : (*pcbActual))")] #[opt] #[out] #[writable(entry, bytes(cbData))] pvData: JET_PVOID, #[in] cbData: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT, #[in] #[opt] #[out] pretinfo: *mut JET_RETINFO) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetRetrieveColumns(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[out] #[opt] #[writable(entry, cretrievecolumn)] pretrievecolumn: *mut JET_RETRIEVECOLUMN, #[in] cretrievecolumn: JET_UINT32) -> JET_ERR;
+        extern fn JetRetrieveColumns(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] #[opt] #[out] #[writable(entry, cretrievecolumn)] pretrievecolumn: *mut JET_RETRIEVECOLUMN, #[in] cretrievecolumn: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetRetrieveKey(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[out] #[opt] #[writable(entry, bytes(cbMax))] #[readable(success, bytes(if_present(*pcbActual)))] pvKey: JET_PVOID, #[in] cbMax: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetRetrieveKey(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbMax))] pvKey: JET_PVOID, #[in] cbMax: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetRollback(#[in] sesid: JET_SESID, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3665,9 +3665,9 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetSetSessionParameter(#[in] #[opt] sesid: JET_SESID, #[in] sesparamid: JET_UINT32, #[in] #[opt] #[readable(entry, bytes(cbParam))] pvParam: JET_PVOID, #[in] cbParam: JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetSetSystemParameterA(#[in] #[out] #[opt] pinstance: *mut JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[in] #[opt] lParam: JET_API_PTR, #[in] #[opt] szParam: JET_PCSTR) -> JET_ERR;
+        extern fn JetSetSystemParameterA(#[in] #[opt] #[out] pinstance: *mut JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[in] #[opt] lParam: JET_API_PTR, #[in] #[opt] szParam: JET_PCSTR) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetSetSystemParameterW(#[in] #[out] #[opt] pinstance: *mut JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[in] #[opt] lParam: JET_API_PTR, #[in] #[opt] szParam: JET_PCWSTR) -> JET_ERR;
+        extern fn JetSetSystemParameterW(#[in] #[opt] #[out] pinstance: *mut JET_INSTANCE, #[in] #[opt] sesid: JET_SESID, #[in] paramid: JET_UINT32, #[in] #[opt] lParam: JET_API_PTR, #[in] #[opt] szParam: JET_PCWSTR) -> JET_ERR;
         #[library("ESENT.dll")]
         extern fn JetSetTableSequential(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] grbit: JET_GRBIT) -> JET_ERR;
         #[library("ESENT.dll")]
@@ -3691,9 +3691,9 @@ mod Windows {
         #[library("ESENT.dll")]
         extern fn JetUnregisterCallback(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[in] cbtyp: JET_CBTYP, #[in] hCallbackId: JET_HANDLE) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetUpdate(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[out] #[opt] #[writable(entry, bytes(cbBookmark))] #[readable(success, bytes(if_present(*pcbActual)))] pvBookmark: JET_PVOID, #[in] cbBookmark: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32) -> JET_ERR;
+        extern fn JetUpdate(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbBookmark))] pvBookmark: JET_PVOID, #[in] cbBookmark: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32) -> JET_ERR;
         #[library("ESENT.dll")]
-        extern fn JetUpdate2(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[out] #[opt] #[writable(entry, bytes(cbBookmark))] #[readable(success, bytes(if_present(*pcbActual)))] pvBookmark: JET_PVOID, #[in] cbBookmark: JET_UINT32, #[out] #[opt] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
+        extern fn JetUpdate2(#[in] sesid: JET_SESID, #[in] tableid: JET_TABLEID, #[opt] #[out] #[readable(success, bytes(if_present(*pcbActual)))] #[writable(entry, bytes(cbBookmark))] pvBookmark: JET_PVOID, #[in] cbBookmark: JET_UINT32, #[opt] #[out] pcbActual: *mut JET_UINT32, #[in] grbit: JET_GRBIT) -> JET_ERR;
         const cColumnInfoCols: i32 = 14;
         const cIndexInfoCols: i32 = 15;
         const cObjectInfoCols: i32 = 9;

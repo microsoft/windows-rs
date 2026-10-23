@@ -14,7 +14,7 @@ mod Windows {
         const BackgroundCopyManager2_0: GUID = 0x6d18ad12_bde3_4393_b311_099c346e6df9;
         #[guid(0x83e81b93_0873_474d_8a8c_f2018b1a939c)]
         interface IBackgroundCopyFile2: IBackgroundCopyFile {
-            fn GetFileRanges(&self, #[in] #[out] #[opt] RangeCount: *mut DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, if_present(*RangeCount), indirect, nullable)] #[readable(success, if_present(*RangeCount), indirect, nullable)] Ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
+            fn GetFileRanges(&self, #[in] #[opt] #[out] RangeCount: *mut DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, if_present(*RangeCount), indirect, nullable)] #[writable(success, if_present(*RangeCount), indirect, nullable)] Ranges: *mut *mut BG_FILE_RANGE) -> HRESULT;
             fn SetRemoteName(&self, #[in] Val: LPCWSTR) -> HRESULT;
         }
         #[guid(0x443c8934_90ff_48ed_bcde_26f5c7450042)]

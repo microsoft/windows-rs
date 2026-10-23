@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("DirectML.dll")]
-        extern fn DMLCreateDevice(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, riid: &IID, #[out] #[opt] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn DMLCreateDevice(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
         #[library("DirectML.dll")]
-        extern fn DMLCreateDevice1(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, minimumFeatureLevel: DML_FEATURE_LEVEL, riid: &IID, #[out] #[opt] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn DMLCreateDevice1(d3d12Device: ID3D12Device, flags: DML_CREATE_DEVICE_FLAGS, minimumFeatureLevel: DML_FEATURE_LEVEL, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
         struct DML_ACTIVATION_CELU_OPERATOR_DESC {
             InputTensor: *const DML_TENSOR_DESC,
             OutputTensor: *const DML_TENSOR_DESC,
@@ -1704,23 +1704,23 @@ mod Windows {
         #[guid(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f)]
         interface IDMLDevice: IDMLObject {
             fn CheckFeatureSupport(&self, feature: DML_FEATURE, featureQueryDataSize: UINT, #[in] #[opt] #[readable(entry, bytes(featureQueryDataSize))] featureQueryData: *const void, featureSupportDataSize: UINT, #[out] #[writable(entry, bytes(featureSupportDataSize))] featureSupportData: *mut void) -> HRESULT;
-            fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: &IID, #[out] #[opt] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, riid: &IID, #[out] #[opt] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateOperatorInitializer(&self, operatorCount: UINT, #[in] #[opt] #[readable(entry, operatorCount)] operators: *const IDMLCompiledOperator, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateCommandRecorder(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateBindingTable(&self, #[in] #[opt] desc: *const DML_BINDING_TABLE_DESC, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
+            fn CompileOperator(&self, op: IDMLOperator, flags: DML_EXECUTION_FLAGS, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
+            fn CreateOperatorInitializer(&self, operatorCount: UINT, #[in] #[opt] #[readable(entry, operatorCount)] operators: *const IDMLCompiledOperator, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
+            fn CreateCommandRecorder(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
+            fn CreateBindingTable(&self, #[in] #[opt] desc: *const DML_BINDING_TABLE_DESC, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
             fn Evict(&self, count: UINT, #[in] #[readable(entry, count)] ppObjects: *const IDMLPageable) -> HRESULT;
             fn MakeResident(&self, count: UINT, #[in] #[readable(entry, count)] ppObjects: *const IDMLPageable) -> HRESULT;
             fn GetDeviceRemovedReason(&self) -> HRESULT;
-            fn GetParentDevice(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetParentDevice(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2)]
         interface IDMLDevice1: IDMLDevice {
-            fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: &IID, #[out] #[opt] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x27e83142_8165_49e3_974e_2fd66e4cb69d)]
         interface IDMLDeviceChild: IDMLObject {
-            fn GetDevice(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetDevice(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec)]
         interface IDMLDispatchable: IDMLPageable {
@@ -1728,7 +1728,7 @@ mod Windows {
         }
         #[guid(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c)]
         interface IDMLObject: IUnknown {
-            fn GetPrivateData(&self, guid: &GUID, #[in] #[out] dataSize: *mut UINT, #[out] #[opt] #[writable(entry, bytes(*dataSize))] data: *mut void) -> HRESULT;
+            fn GetPrivateData(&self, guid: &GUID, #[in] #[out] dataSize: *mut UINT, #[opt] #[out] #[writable(entry, bytes(*dataSize))] data: *mut void) -> HRESULT;
             fn SetPrivateData(&self, guid: &GUID, dataSize: UINT, #[in] #[opt] #[readable(entry, bytes(dataSize))] data: *const void) -> HRESULT;
             fn SetPrivateDataInterface(&self, guid: &GUID, #[in] #[opt] data: IUnknown) -> HRESULT;
             fn SetName(&self, name: PCWSTR) -> HRESULT;

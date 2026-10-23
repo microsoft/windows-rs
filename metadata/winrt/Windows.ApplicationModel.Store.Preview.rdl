@@ -3,8 +3,8 @@ mod Windows {
     mod ApplicationModel {
         mod Store {
             mod Preview {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[repr(i32)]
                 enum DeliveryOptimizationDownloadMode {
                     Simple = 0,
                     HttpOnly = 1,
@@ -13,8 +13,8 @@ mod Windows {
                     Internet = 4,
                     Bypass = 5,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[repr(i32)]
                 enum DeliveryOptimizationDownloadModeSource {
                     Default = 0,
                     Policy = 1,
@@ -26,24 +26,24 @@ mod Windows {
                 class DeliveryOptimizationSettings {
                     IDeliveryOptimizationSettings,
                 }
-                #[guid(0x1810fda0_e853_565e_b874_7a8a7b9a0e0f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DeliveryOptimizationSettings)]
+                #[guid(0x1810fda0_e853_565e_b874_7a8a7b9a0e0f)]
                 interface IDeliveryOptimizationSettings {
                     #[get]
                     DownloadMode: DeliveryOptimizationDownloadMode;
                     #[get]
                     DownloadModeSource: DeliveryOptimizationDownloadModeSource;
                 }
-                #[guid(0x5c817caf_aed5_5999_b4c9_8c60898bc4f3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DeliveryOptimizationSettings)]
+                #[guid(0x5c817caf_aed5_5999_b4c9_8c60898bc4f3)]
                 interface IDeliveryOptimizationSettingsStatics {
                     fn GetCurrentSettings(&self) -> DeliveryOptimizationSettings;
                 }
-                #[guid(0x728f7fc0_8628_42ec_84a2_07780eb44d8b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StoreConfiguration)]
+                #[guid(0x728f7fc0_8628_42ec_84a2_07780eb44d8b)]
                 interface IStoreConfigurationStatics {
                     fn SetSystemConfiguration(&self, #[in] catalogHardwareManufacturerId: String, #[in] catalogStoreContentModifierId: String, #[in] systemConfigurationExpiration: super::super::super::Foundation::DateTime, #[in] catalogHardwareDescriptor: String);
                     fn SetMobileOperatorConfiguration(&self, #[in] mobileOperatorId: String, #[in] appDownloadLimitInMegabytes: u32, #[in] updateDownloadLimitInMegabytes: u32);
@@ -54,15 +54,15 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FilterUnsupportedSystemFeaturesAsync(&self, #[in] systemFeatures: super::super::super::Foundation::Collections::IIterable<StoreSystemFeature>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StoreSystemFeature>>;
                 }
-                #[guid(0x657c4595_c8b7_4fe9_9f4c_4d71027d347e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StoreConfiguration)]
+                #[guid(0x657c4595_c8b7_4fe9_9f4c_4d71027d347e)]
                 interface IStoreConfigurationStatics2 {
                     PurchasePromptingPolicy: super::super::super::Foundation::IReference<u32>;
                 }
-                #[guid(0x6d45f57c_f144_4cb5_9d3f_4eb05e30b6d3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StoreConfiguration)]
+                #[guid(0x6d45f57c_f144_4cb5_9d3f_4eb05e30b6d3)]
                 interface IStoreConfigurationStatics3 {
                     fn HasStoreWebAccount(&self) -> bool;
                     fn HasStoreWebAccountForUser(&self, #[in] user: super::super::super::System::User) -> bool;
@@ -73,9 +73,9 @@ mod Windows {
                     fn GetPurchasePromptingPolicyForUser(&self, #[in] user: super::super::super::System::User) -> super::super::super::Foundation::IReference<u32>;
                     fn SetPurchasePromptingPolicyForUser(&self, #[in] user: super::super::super::System::User, #[in] value: super::super::super::Foundation::IReference<u32>);
                 }
-                #[guid(0x20ff56d2_4ee3_4cf0_9b12_552c03310f75)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StoreConfiguration)]
+                #[guid(0x20ff56d2_4ee3_4cf0_9b12_552c03310f75)]
                 interface IStoreConfigurationStatics4 {
                     fn GetStoreWebAccountId(&self) -> String;
                     fn GetStoreWebAccountIdForUser(&self, #[in] user: super::super::super::System::User) -> String;
@@ -86,9 +86,9 @@ mod Windows {
                     fn ShouldRestrictToEnterpriseStoreOnly(&self) -> bool;
                     fn ShouldRestrictToEnterpriseStoreOnlyForUser(&self, #[in] user: super::super::super::System::User) -> bool;
                 }
-                #[guid(0xf7613191_8fa9_49db_822b_0160e7e4e5c5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StoreConfiguration)]
+                #[guid(0xf7613191_8fa9_49db_822b_0160e7e4e5c5)]
                 interface IStoreConfigurationStatics5 {
                     fn IsPinToDesktopSupported(&self) -> bool;
                     fn IsPinToTaskbarSupported(&self) -> bool;
@@ -96,9 +96,9 @@ mod Windows {
                     fn PinToDesktop(&self, #[in] appPackageFamilyName: String);
                     fn PinToDesktopForUser(&self, #[in] user: super::super::super::System::User, #[in] appPackageFamilyName: String);
                 }
-                #[guid(0xf292dc08_c654_43ac_a21f_34801c9d3388)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StoreHardwareManufacturerInfo)]
+                #[guid(0xf292dc08_c654_43ac_a21f_34801c9d3388)]
                 interface IStoreHardwareManufacturerInfo {
                     #[get]
                     HardwareManufacturerId: String;
@@ -109,18 +109,18 @@ mod Windows {
                     #[get]
                     ManufacturerName: String;
                 }
-                #[guid(0x8a157241_840e_49a9_bc01_5d5b01fbc8e9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StorePreview)]
+                #[guid(0x8a157241_840e_49a9_bc01_5d5b01fbc8e9)]
                 interface IStorePreview {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestProductPurchaseByProductIdAndSkuIdAsync(&self, #[in] productId: String, #[in] skuId: String) -> super::super::super::Foundation::IAsyncOperation<StorePreviewPurchaseResults>;
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn LoadAddOnProductInfosAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>;
                 }
-                #[guid(0x1937dbb3_6c01_4c9d_85cd_5babaac2b351)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewProductInfo)]
+                #[guid(0x1937dbb3_6c01_4c9d_85cd_5babaac2b351)]
                 interface IStorePreviewProductInfo {
                     #[get]
                     ProductId: String;
@@ -133,16 +133,16 @@ mod Windows {
                     #[get]
                     SkuInfoList: super::super::super::Foundation::Collections::IVectorView<StorePreviewSkuInfo>;
                 }
-                #[guid(0xb0daaed1_d6c5_4e53_a043_fba0d8e61231)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewPurchaseResults)]
+                #[guid(0xb0daaed1_d6c5_4e53_a043_fba0d8e61231)]
                 interface IStorePreviewPurchaseResults {
                     #[get]
                     ProductPurchaseStatus: StorePreviewProductPurchaseStatus;
                 }
-                #[guid(0x81fd76e2_0b26_48d9_98ce_27461c669d6c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewSkuInfo)]
+                #[guid(0x81fd76e2_0b26_48d9_98ce_27461c669d6c)]
                 interface IStorePreviewSkuInfo {
                     #[get]
                     ProductId: String;
@@ -163,9 +163,9 @@ mod Windows {
                     #[get]
                     ExtendedData: String;
                 }
-                #[guid(0x06a50525_e715_4123_9276_9d6f865ba55f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationCoreManagerHelper)]
+                #[guid(0x06a50525_e715_4123_9276_9d6f865ba55f)]
                 interface IWebAuthenticationCoreManagerHelper {
                     #[Windows::Foundation::Metadata::Overload("RequestTokenWithUIElementHostingAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
@@ -175,11 +175,11 @@ mod Windows {
                     fn RequestTokenWithUIElementHostingAsync(&self, #[in] request: super::super::super::Security::Authentication::Web::Core::WebTokenRequest, #[in] webAccount: super::super::super::Security::Credentials::WebAccount, #[in] uiElement: super::super::super::UI::Xaml::UIElement) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
                 class StoreConfiguration {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -187,9 +187,9 @@ mod Windows {
                 class StoreHardwareManufacturerInfo {
                     IStoreHardwareManufacturerInfo,
                 }
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[flags]
+                #[repr(u32)]
                 enum StoreLogOptions {
                     None = 0,
                     TryElevate = 1,
@@ -205,8 +205,8 @@ mod Windows {
                 class StorePreviewProductInfo {
                     IStorePreviewProductInfo,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum StorePreviewProductPurchaseStatus {
                     Succeeded = 0,
                     AlreadyPurchased = 1,
@@ -225,8 +225,8 @@ mod Windows {
                 class StorePreviewSkuInfo {
                     IStorePreviewSkuInfo,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum StoreSystemFeature {
                     ArchitectureX86 = 0,
                     ArchitectureX64 = 1,
@@ -252,16 +252,27 @@ mod Windows {
                     ResolutionWxga = 21,
                     ResolutionWvgaOrWxga = 22,
                     ResolutionWxgaOr720P = 23,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     Memory4GB = 24,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     Memory6GB = 25,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     Memory8GB = 26,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     Memory12GB = 27,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     Memory16GB = 28,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     Memory20GB = 29,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     VideoMemory2GB = 30,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     VideoMemory4GB = 31,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     VideoMemory6GB = 32,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     VideoMemory1GB = 33,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                     ArchitectureArm64 = 34,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]

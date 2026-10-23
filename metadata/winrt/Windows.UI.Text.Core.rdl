@@ -30,8 +30,8 @@ mod Windows {
                 class CoreTextFormatUpdatingEventArgs {
                     ICoreTextFormatUpdatingEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum CoreTextFormatUpdatingReason {
                     None = 0,
                     CompositionUnconverted = 1,
@@ -39,20 +39,20 @@ mod Windows {
                     CompositionTargetUnconverted = 3,
                     CompositionTargetConverted = 4,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum CoreTextFormatUpdatingResult {
                     Succeeded = 0,
                     Failed = 1,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum CoreTextInputPaneDisplayPolicy {
                     Automatic = 0,
                     Manual = 1,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum CoreTextInputScope {
                     Default = 0,
                     Url = 1,
@@ -117,9 +117,13 @@ mod Windows {
                     Maps = 62,
                     PasswordNumeric = 63,
                     FormulaNumber = 67,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                     ChatWithoutEmoji = 68,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     Digits = 28,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     PinNumeric = 64,
+                    #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 327680)]
                     PinAlphanumeric = 65,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -159,8 +163,8 @@ mod Windows {
                 class CoreTextSelectionUpdatingEventArgs {
                     ICoreTextSelectionUpdatingEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum CoreTextSelectionUpdatingResult {
                     Succeeded = 0,
                     Failed = 1,
@@ -190,15 +194,15 @@ mod Windows {
                 class CoreTextTextUpdatingEventArgs {
                     ICoreTextTextUpdatingEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum CoreTextTextUpdatingResult {
                     Succeeded = 0,
                     Failed = 1,
                 }
-                #[guid(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextCompositionCompletedEventArgs)]
+                #[guid(0x1f34ebb6_b79f_4121_a5e7_fda9b8616e30)]
                 interface ICoreTextCompositionCompletedEventArgs {
                     #[get]
                     IsCanceled: bool;
@@ -206,26 +210,26 @@ mod Windows {
                     CompositionSegments: super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextCompositionSegment)]
+                #[guid(0x776c6bd9_4ead_4da7_8f47_3a88b523cc34)]
                 interface ICoreTextCompositionSegment {
                     #[get]
                     PreconversionString: String;
                     #[get]
                     Range: CoreTextRange;
                 }
-                #[guid(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextCompositionStartedEventArgs)]
+                #[guid(0x276b16a9_64e7_4ab0_bc4b_a02d73835bfb)]
                 interface ICoreTextCompositionStartedEventArgs {
                     #[get]
                     IsCanceled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xbf6608af_4041_47c3_b263_a918eb5eaef2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextEditContext)]
+                #[guid(0xbf6608af_4041_47c3_b263_a918eb5eaef2)]
                 interface ICoreTextEditContext {
                     Name: String;
                     InputScope: CoreTextInputScope;
@@ -246,15 +250,15 @@ mod Windows {
                     fn NotifySelectionChanged(&self, #[in] selection: CoreTextRange);
                     fn NotifyLayoutChanged(&self);
                 }
-                #[guid(0xb1867dbb_083b_49e1_b281_2b35d62bf466)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextEditContext)]
+                #[guid(0xb1867dbb_083b_49e1_b281_2b35d62bf466)]
                 interface ICoreTextEditContext2 {
                     event NotifyFocusLeaveCompleted: super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, Object>;
                 }
-                #[guid(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextFormatUpdatingEventArgs)]
+                #[guid(0x7310bd33_b4a8_43b1_b37b_0724d4aca7ab)]
                 interface ICoreTextFormatUpdatingEventArgs {
                     #[get]
                     Range: CoreTextRange;
@@ -273,16 +277,16 @@ mod Windows {
                     IsCanceled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xe972c974_4436_4917_80d0_a525e4ca6780)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextLayoutBounds)]
+                #[guid(0xe972c974_4436_4917_80d0_a525e4ca6780)]
                 interface ICoreTextLayoutBounds {
                     TextBounds: super::super::super::Foundation::Rect;
                     ControlBounds: super::super::super::Foundation::Rect;
                 }
-                #[guid(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextLayoutRequest)]
+                #[guid(0x2555a8cc_51fd_4f03_98bf_ac78174d68e0)]
                 interface ICoreTextLayoutRequest {
                     #[get]
                     Range: CoreTextRange;
@@ -292,39 +296,39 @@ mod Windows {
                     IsCanceled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x676de624_cd3d_4bcd_bf01_7f7110954511)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextLayoutRequest)]
+                #[guid(0x676de624_cd3d_4bcd_bf01_7f7110954511)]
                 interface ICoreTextLayoutRequest2 {
                     #[get]
                     LayoutBoundsVisualPixels: CoreTextLayoutBounds;
                 }
-                #[guid(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextLayoutRequestedEventArgs)]
+                #[guid(0xb1dc6ae0_9a7b_4e9e_a566_4a6b5f8ad676)]
                 interface ICoreTextLayoutRequestedEventArgs {
                     #[get]
                     Request: CoreTextLayoutRequest;
                 }
-                #[guid(0xf0a70403_208b_4301_883c_74ca7485fd8d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextSelectionRequest)]
+                #[guid(0xf0a70403_208b_4301_883c_74ca7485fd8d)]
                 interface ICoreTextSelectionRequest {
                     Selection: CoreTextRange;
                     #[get]
                     IsCanceled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextSelectionRequestedEventArgs)]
+                #[guid(0x13c6682b_f614_421a_8f4b_9ec8a5a37fcd)]
                 interface ICoreTextSelectionRequestedEventArgs {
                     #[get]
                     Request: CoreTextSelectionRequest;
                 }
-                #[guid(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextSelectionUpdatingEventArgs)]
+                #[guid(0xd445839f_fe7f_4bd5_8a26_0922c1b3e639)]
                 interface ICoreTextSelectionUpdatingEventArgs {
                     #[get]
                     Selection: CoreTextRange;
@@ -333,31 +337,31 @@ mod Windows {
                     IsCanceled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextServicesManager)]
+                #[guid(0xc2507d83_6e0a_4a8a_bdf8_1948874854ba)]
                 interface ICoreTextServicesManager {
                     #[get]
                     InputLanguage: super::super::super::Globalization::Language;
                     event InputLanguageChanged: super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, Object>;
                     fn CreateEditContext(&self) -> CoreTextEditContext;
                 }
-                #[guid(0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextServicesManager)]
+                #[guid(0x1520a388_e2cf_4d65_aeb9_b32d86fe39b9)]
                 interface ICoreTextServicesManagerStatics {
                     fn GetForCurrentView(&self) -> CoreTextServicesManager;
                 }
-                #[guid(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextServicesConstants)]
+                #[guid(0x91859a46_eccf_47a4_8ae7_098a9c6fbb15)]
                 interface ICoreTextServicesStatics {
                     #[get]
                     HiddenCharacter: Char16;
                 }
-                #[guid(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextTextRequest)]
+                #[guid(0x50d950a9_f51e_4cc1_8ca1_e6346d1a61be)]
                 interface ICoreTextTextRequest {
                     #[get]
                     Range: CoreTextRange;
@@ -366,16 +370,16 @@ mod Windows {
                     IsCanceled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextTextRequestedEventArgs)]
+                #[guid(0xf096a2d0_41c6_4c02_8b1a_d953b00cabb3)]
                 interface ICoreTextTextRequestedEventArgs {
                     #[get]
                     Request: CoreTextTextRequest;
                 }
-                #[guid(0xeea7918d_cc2b_4f03_8ff6_02fd217db450)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreTextTextUpdatingEventArgs)]
+                #[guid(0xeea7918d_cc2b_4f03_8ff6_02fd217db450)]
                 interface ICoreTextTextUpdatingEventArgs {
                     #[get]
                     Range: CoreTextRange;

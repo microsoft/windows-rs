@@ -96,7 +96,7 @@ mod Windows {
         #[library("mqrt.dll")]
         extern fn MQCreateCursor(#[in] hQueue: QUEUEHANDLE, #[out] phCursor: PHANDLE) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQCreateQueue(#[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[out] #[opt] #[writable(entry, *lpdwFormatNameLength)] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
+        extern fn MQCreateQueue(#[in] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] pQueueProps: *mut MQQUEUEPROPS, #[opt] #[out] #[writable(entry, *lpdwFormatNameLength)] lpwcsFormatName: LPWSTR, #[in] #[out] lpdwFormatNameLength: LPDWORD) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQDeleteQueue(#[in] lpwcsFormatName: LPCWSTR) -> HRESULT;
         #[library("mqrt.dll")]
@@ -261,9 +261,9 @@ mod Windows {
             paPropRes: *mut MQPROPERTYRESTRICTION,
         }
         #[library("mqrt.dll")]
-        extern fn MQReceiveMessage(#[in] hSource: QUEUEHANDLE, #[in] dwTimeout: DWORD, #[in] dwAction: DWORD, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[in] #[opt] hCursor: HANDLE, #[in] #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQReceiveMessage(#[in] hSource: QUEUEHANDLE, #[in] dwTimeout: DWORD, #[in] dwAction: DWORD, #[in] #[opt] #[out] pMessageProps: *mut MQMSGPROPS, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED, #[in] #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[in] #[opt] hCursor: HANDLE, #[in] #[opt] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
-        extern fn MQReceiveMessageByLookupId(#[in] hSource: QUEUEHANDLE, #[in] ullLookupId: ULONGLONG, #[in] dwLookupAction: DWORD, #[in] #[out] #[opt] pMessageProps: *mut MQMSGPROPS, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED, #[in] #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[in] #[opt] pTransaction: ITransaction) -> HRESULT;
+        extern fn MQReceiveMessageByLookupId(#[in] hSource: QUEUEHANDLE, #[in] ullLookupId: ULONGLONG, #[in] dwLookupAction: DWORD, #[in] #[opt] #[out] pMessageProps: *mut MQMSGPROPS, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED, #[in] #[opt] fnReceiveCallback: PMQRECEIVECALLBACK, #[in] #[opt] pTransaction: ITransaction) -> HRESULT;
         #[library("mqrt.dll")]
         extern fn MQRegisterCertificate(#[in] dwFlags: DWORD, #[in] lpCertBuffer: PVOID, #[in] dwCertBufferLength: DWORD) -> HRESULT;
         const MQSEC_CHANGE_QUEUE_PERMISSIONS: i32 = 262144;

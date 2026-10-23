@@ -65,6 +65,6 @@ mod Windows {
         }
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "1", "1")]
         #[library("ole32.dll")]
-        extern fn StgConvertVariantToProperty(#[in] pvar: *const PROPVARIANT, #[in] CodePage: USHORT, #[out] #[opt] #[writable(entry, bytes(*pcb))] pprop: *mut SERIALIZEDPROPERTYVALUE, #[in] #[out] pcb: *mut ULONG, #[in] pid: PROPID, #[reserved] fReserved: BOOLEAN, #[in] #[out] #[opt] pcIndirect: *mut ULONG) -> *mut SERIALIZEDPROPERTYVALUE;
+        extern fn StgConvertVariantToProperty(#[in] pvar: *const PROPVARIANT, #[in] CodePage: USHORT, #[opt] #[out] #[writable(entry, bytes(*pcb))] pprop: *mut SERIALIZEDPROPERTYVALUE, #[in] #[out] pcb: *mut ULONG, #[in] pid: PROPID, #[reserved] fReserved: BOOLEAN, #[in] #[opt] #[out] pcIndirect: *mut ULONG) -> *mut SERIALIZEDPROPERTYVALUE;
     }
 }

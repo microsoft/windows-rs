@@ -8,9 +8,9 @@ mod Windows {
         const NO_PERMISSION_REQUIRED: i32 = 1;
         #[library("NETAPI32.dll")]
         extern fn NetRemoteComputerSupports(UncServerName: LPCWSTR, OptionsWanted: DWORD, OptionsSupported: LPDWORD) -> DWORD;
+        #[library("NETAPI32.dll")]
         #[must_use]
         #[success(return == 0)]
-        #[library("NETAPI32.dll")]
         extern fn NetRemoteTOD(#[in] #[opt] UncServerName: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_bytebuffer_", "sizeof(TIME_OF_DAY_INFO)", "sizeof(TIME_OF_DAY_INFO)")] #[out] BufferPtr: *mut LPBYTE) -> DWORD;
         type PTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
         const SUPPORTS_ANY: u32 = 4294967295;

@@ -14,7 +14,11 @@ mod ObservableCollections {
         fn Names(&self) -> Windows::Foundation::Collections::IObservableMap<String, i32>;
 
         // Changes an empty collection created by the client.
-        fn ChangeNumbers(&self, numbers: Windows::Foundation::Collections::IObservableVector<i32>);
-        fn ChangeNames(&self, names: Windows::Foundation::Collections::IObservableMap<String, i32>);
+        fn ChangeNumbers(
+            &self, #[in] numbers: Windows::Foundation::Collections::IObservableVector<i32>
+        );
+        fn ChangeNames(
+            &self, #[in] names: Windows::Foundation::Collections::IObservableMap<String, i32>
+        );
     }
 }

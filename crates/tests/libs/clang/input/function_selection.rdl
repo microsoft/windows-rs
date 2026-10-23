@@ -6,10 +6,10 @@ mod Fixture {
     extern "C" fn NativeW(value: i32) -> i32;
     #[library("native.dll", import = "NativeW")]
     extern "C" fn Required(value: i32) -> i32;
-    #[library("native.dll", import = "NativeA")]
     #[arch(X86)]
+    #[library("native.dll", import = "NativeA")]
     extern "C" fn Variant(value: i32) -> i32;
-    #[library("native.dll")]
     #[arch(X64 | Arm64)]
+    #[library("native.dll")]
     extern "C" fn Variant(value: i32) -> i32;
 }

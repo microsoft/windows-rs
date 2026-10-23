@@ -47,21 +47,21 @@ mod Windows {
         #[guid(0x9169896c_ac8d_4e7d_94e5_67fa4dc2f2e8)]
         interface IUIAnimationManager: IUnknown {
             #[must_use]
-            fn CreateAnimationVariable(&self, #[in] initialValue: DOUBLE, #[out] #[retval] #[out_ptr] variable: *mut IUIAnimationVariable) -> HRESULT;
+            fn CreateAnimationVariable(&self, #[in] initialValue: DOUBLE, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
             #[must_use]
             fn ScheduleTransition(&self, #[in] variable: IUIAnimationVariable, #[in] transition: IUIAnimationTransition, #[in] timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn CreateStoryboard(&self, #[out] #[retval] #[out_ptr] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            fn CreateStoryboard(&self, #[out] #[out_ptr] #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
             #[must_use]
             fn FinishAllStoryboards(&self, #[in] completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
             fn AbandonAllStoryboards(&self) -> HRESULT;
             #[must_use]
-            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[opt] #[out] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
             #[must_use]
-            fn GetVariableFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[retval] #[out_ptr] variable: *mut IUIAnimationVariable) -> HRESULT;
+            fn GetVariableFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable) -> HRESULT;
             #[must_use]
-            fn GetStoryboardFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[retval] #[out_ptr] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            fn GetStoryboardFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[out_ptr] #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
             #[must_use]
             fn GetStatus(&self, #[out] #[retval] status: *mut UI_ANIMATION_MANAGER_STATUS) -> HRESULT;
             #[must_use]
@@ -88,23 +88,23 @@ mod Windows {
         #[guid(0xd8b6f7d4_4109_4d3f_acee_879926968cb1)]
         interface IUIAnimationManager2: IUnknown {
             #[must_use]
-            fn CreateAnimationVectorVariable(&self, #[in] #[readable(entry, cDimension)] initialValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[retval] #[out_ptr] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn CreateAnimationVectorVariable(&self, #[in] #[readable(entry, cDimension)] initialValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
             #[must_use]
-            fn CreateAnimationVariable(&self, #[in] initialValue: DOUBLE, #[out] #[retval] #[out_ptr] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn CreateAnimationVariable(&self, #[in] initialValue: DOUBLE, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
             #[must_use]
             fn ScheduleTransition(&self, #[in] variable: IUIAnimationVariable2, #[in] transition: IUIAnimationTransition2, #[in] timeNow: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn CreateStoryboard(&self, #[out] #[retval] #[out_ptr] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            fn CreateStoryboard(&self, #[out] #[out_ptr] #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
             #[must_use]
             fn FinishAllStoryboards(&self, #[in] completionDeadline: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
             fn AbandonAllStoryboards(&self) -> HRESULT;
             #[must_use]
-            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[opt] #[out] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
             #[must_use]
-            fn GetVariableFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[retval] #[out_ptr] variable: *mut IUIAnimationVariable2) -> HRESULT;
+            fn GetVariableFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[out_ptr] #[retval] variable: *mut IUIAnimationVariable2) -> HRESULT;
             #[must_use]
-            fn GetStoryboardFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[retval] #[out_ptr] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            fn GetStoryboardFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[out_ptr] #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
             #[must_use]
             fn EstimateNextEventTime(&self, #[out] #[retval] seconds: *mut UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
@@ -175,7 +175,7 @@ mod Windows {
             #[must_use]
             fn SetLongestAcceptableDelay(&self, #[in] delay: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[opt] #[out] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
             #[must_use]
             fn Conclude(&self) -> HRESULT;
             #[must_use]
@@ -185,7 +185,7 @@ mod Windows {
             #[must_use]
             fn SetTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32) -> HRESULT;
             #[must_use]
-            fn GetTag(&self, #[out] #[opt] #[out_ptr] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            fn GetTag(&self, #[opt] #[out] #[out_ptr] object: *mut IUnknown, #[opt] #[out] id: *mut UINT32) -> HRESULT;
             #[must_use]
             fn GetStatus(&self, #[out] #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
             #[must_use]
@@ -214,7 +214,7 @@ mod Windows {
             #[must_use]
             fn SetSkipDuration(&self, #[in] secondsDuration: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[opt] #[out] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
             #[must_use]
             fn Conclude(&self) -> HRESULT;
             #[must_use]
@@ -224,7 +224,7 @@ mod Windows {
             #[must_use]
             fn SetTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32) -> HRESULT;
             #[must_use]
-            fn GetTag(&self, #[out] #[opt] #[out_ptr] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            fn GetTag(&self, #[opt] #[out] #[out_ptr] object: *mut IUnknown, #[opt] #[out] id: *mut UINT32) -> HRESULT;
             #[must_use]
             fn GetStatus(&self, #[out] #[retval] status: *mut UI_ANIMATION_STORYBOARD_STATUS) -> HRESULT;
             #[must_use]
@@ -317,76 +317,76 @@ mod Windows {
         #[guid(0xfcd91e03_3e3b_45ad_bbb1_6dfc8153743d)]
         interface IUIAnimationTransitionFactory: IUnknown {
             #[must_use]
-            fn CreateTransition(&self, #[in] interpolator: IUIAnimationInterpolator, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateTransition(&self, #[in] interpolator: IUIAnimationInterpolator, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
         }
         #[guid(0x937d4916_c1a6_42d5_88d8_30344d6efe31)]
         interface IUIAnimationTransitionFactory2: IUnknown {
             #[must_use]
-            fn CreateTransition(&self, #[in] interpolator: IUIAnimationInterpolator2, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateTransition(&self, #[in] interpolator: IUIAnimationInterpolator2, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
         }
         #[guid(0xca5a14b1_d24f_48b8_8fe4_c78169ba954e)]
         interface IUIAnimationTransitionLibrary: IUnknown {
             #[must_use]
-            fn CreateInstantaneousTransition(&self, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateInstantaneousTransition(&self, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateConstantTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateConstantTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateDiscreteTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateDiscreteTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateLinearTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateLinearTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateSinusoidalTransitionFromVelocity(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] period: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSinusoidalTransitionFromVelocity(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] period: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateSinusoidalTransitionFromRange(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] minimumValue: DOUBLE, #[in] maximumValue: DOUBLE, #[in] period: UI_ANIMATION_SECONDS, #[in] slope: UI_ANIMATION_SLOPE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSinusoidalTransitionFromRange(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] minimumValue: DOUBLE, #[in] maximumValue: DOUBLE, #[in] period: UI_ANIMATION_SECONDS, #[in] slope: UI_ANIMATION_SLOPE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateAccelerateDecelerateTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] accelerationRatio: DOUBLE, #[in] decelerationRatio: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateAccelerateDecelerateTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] accelerationRatio: DOUBLE, #[in] decelerationRatio: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateReversalTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateReversalTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateCubicTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateCubicTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateSmoothStopTransition(&self, #[in] maximumDuration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateSmoothStopTransition(&self, #[in] maximumDuration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
             #[must_use]
-            fn CreateParabolicTransitionFromAcceleration(&self, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[in] acceleration: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition) -> HRESULT;
+            fn CreateParabolicTransitionFromAcceleration(&self, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[in] acceleration: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition) -> HRESULT;
         }
         #[guid(0x03cfae53_9580_4ee3_b363_2ece51b4af6a)]
         interface IUIAnimationTransitionLibrary2: IUnknown {
             #[must_use]
-            fn CreateInstantaneousTransition(&self, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateInstantaneousTransition(&self, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateInstantaneousVectorTransition(&self, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateInstantaneousVectorTransition(&self, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateConstantTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateConstantTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateDiscreteTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateDiscreteTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateDiscreteVectorTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateDiscreteVectorTransition(&self, #[in] delay: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[in] hold: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateLinearTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateLinearVectorTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateLinearVectorTransitionFromSpeed(&self, #[in] speed: DOUBLE, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateSinusoidalTransitionFromVelocity(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] period: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSinusoidalTransitionFromVelocity(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] period: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateSinusoidalTransitionFromRange(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] minimumValue: DOUBLE, #[in] maximumValue: DOUBLE, #[in] period: UI_ANIMATION_SECONDS, #[in] slope: UI_ANIMATION_SLOPE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSinusoidalTransitionFromRange(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] minimumValue: DOUBLE, #[in] maximumValue: DOUBLE, #[in] period: UI_ANIMATION_SECONDS, #[in] slope: UI_ANIMATION_SLOPE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateAccelerateDecelerateTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] accelerationRatio: DOUBLE, #[in] decelerationRatio: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateAccelerateDecelerateTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] accelerationRatio: DOUBLE, #[in] decelerationRatio: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateReversalTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateReversalTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateCubicTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateCubicVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] #[readable(entry, cDimension)] finalVelocity: *const DOUBLE, #[in] cDimension: UINT, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateCubicVectorTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] #[readable(entry, cDimension)] finalValue: *const DOUBLE, #[in] #[readable(entry, cDimension)] finalVelocity: *const DOUBLE, #[in] cDimension: UINT, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateSmoothStopTransition(&self, #[in] maximumDuration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateSmoothStopTransition(&self, #[in] maximumDuration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
-            fn CreateParabolicTransitionFromAcceleration(&self, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[in] acceleration: DOUBLE, #[out] #[retval] #[out_ptr] transition: *mut IUIAnimationTransition2) -> HRESULT;
+            fn CreateParabolicTransitionFromAcceleration(&self, #[in] finalValue: DOUBLE, #[in] finalVelocity: DOUBLE, #[in] acceleration: DOUBLE, #[out] #[out_ptr] #[retval] transition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
             fn CreateCubicBezierLinearTransition(&self, #[in] duration: UI_ANIMATION_SECONDS, #[in] finalValue: DOUBLE, #[in] x1: DOUBLE, #[in] y1: DOUBLE, #[in] x2: DOUBLE, #[in] y2: DOUBLE, #[out] #[out_ptr] ppTransition: *mut IUIAnimationTransition2) -> HRESULT;
             #[must_use]
@@ -407,7 +407,7 @@ mod Windows {
             #[must_use]
             fn GetPreviousIntegerValue(&self, #[out] #[retval] previousValue: *mut INT32) -> HRESULT;
             #[must_use]
-            fn GetCurrentStoryboard(&self, #[out] #[retval] #[out_ptr] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
+            fn GetCurrentStoryboard(&self, #[out] #[out_ptr] #[retval] storyboard: *mut IUIAnimationStoryboard) -> HRESULT;
             #[must_use]
             fn SetLowerBound(&self, #[in] bound: DOUBLE) -> HRESULT;
             #[must_use]
@@ -417,7 +417,7 @@ mod Windows {
             #[must_use]
             fn SetTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32) -> HRESULT;
             #[must_use]
-            fn GetTag(&self, #[out] #[opt] #[out_ptr] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            fn GetTag(&self, #[opt] #[out] #[out_ptr] object: *mut IUnknown, #[opt] #[out] id: *mut UINT32) -> HRESULT;
             #[must_use]
             fn SetVariableChangeHandler(&self, #[in] #[opt] handler: IUIAnimationVariableChangeHandler) -> HRESULT;
             #[must_use]
@@ -456,7 +456,7 @@ mod Windows {
             #[must_use]
             fn GetPreviousIntegerVectorValue(&self, #[out] #[writable(entry, cDimension)] previousValue: *mut INT32, #[in] cDimension: UINT) -> HRESULT;
             #[must_use]
-            fn GetCurrentStoryboard(&self, #[out] #[retval] #[out_ptr] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
+            fn GetCurrentStoryboard(&self, #[out] #[out_ptr] #[retval] storyboard: *mut IUIAnimationStoryboard2) -> HRESULT;
             #[must_use]
             fn SetLowerBound(&self, #[in] bound: DOUBLE) -> HRESULT;
             #[must_use]
@@ -470,7 +470,7 @@ mod Windows {
             #[must_use]
             fn SetTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32) -> HRESULT;
             #[must_use]
-            fn GetTag(&self, #[out] #[opt] #[out_ptr] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
+            fn GetTag(&self, #[opt] #[out] #[out_ptr] object: *mut IUnknown, #[opt] #[out] id: *mut UINT32) -> HRESULT;
             #[must_use]
             fn SetVariableChangeHandler(&self, #[in] #[opt] handler: IUIAnimationVariableChangeHandler2, #[in] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
             #[must_use]

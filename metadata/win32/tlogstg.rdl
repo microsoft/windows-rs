@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x7ebfdd85_ad18_11d3_a4c5_00c04f72d6b8)]
         interface IEnumTravelLogEntry: IUnknown {
-            fn Next(&self, #[in] cElt: ULONG, #[out] #[writable(entry, cElt)] #[writable(success, cElt)] #[readable(success, *pcEltFetched)] rgElt: *mut ITravelLogEntry, #[out] pcEltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] cElt: ULONG, #[out] #[readable(success, *pcEltFetched)] #[writable(entry, cElt)] #[writable(success, cElt)] rgElt: *mut ITravelLogEntry, #[out] pcEltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cElt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTravelLogEntry) -> HRESULT;

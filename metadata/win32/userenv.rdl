@@ -127,9 +127,9 @@ mod Windows {
         #[library("USERENV.dll")]
         extern fn GenerateGPNotification(#[in] bMachine: BOOL, #[in] lpwszMgmtProduct: LPCWSTR, #[in] dwMgmtProductOptions: DWORD) -> DWORD;
         #[library("USERENV.dll")]
-        extern fn GetAllUsersProfileDirectoryA(#[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetAllUsersProfileDirectoryA(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetAllUsersProfileDirectoryW(#[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetAllUsersProfileDirectoryW(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
         extern fn GetAppContainerFolderPath(#[in] pszAppContainerSid: PCWSTR, #[out] #[out_ptr] ppszPath: *mut PWSTR) -> HRESULT;
         #[library("USERENV.dll")]
@@ -139,9 +139,9 @@ mod Windows {
         #[library("USERENV.dll")]
         extern fn GetAppliedGPOListW(#[in] dwFlags: DWORD, #[in] #[opt] pMachineName: LPCWSTR, #[in] #[opt] pSidUser: PSID, #[in] pGuidExtension: *mut GUID, #[out] #[out_ptr] ppGPOList: *mut PGROUP_POLICY_OBJECTW) -> DWORD;
         #[library("USERENV.dll")]
-        extern fn GetDefaultUserProfileDirectoryA(#[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetDefaultUserProfileDirectoryA(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetDefaultUserProfileDirectoryW(#[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetDefaultUserProfileDirectoryW(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
         extern fn GetGPOListA(#[in] #[opt] hToken: HANDLE, #[in] #[opt] lpName: LPCSTR, #[in] #[opt] lpHostName: LPCSTR, #[in] #[opt] lpComputerName: LPCSTR, #[in] dwFlags: DWORD, #[out] #[out_ptr] pGPOList: *mut PGROUP_POLICY_OBJECTA) -> BOOL;
         #[library("USERENV.dll")]
@@ -149,13 +149,13 @@ mod Windows {
         #[library("USERENV.dll")]
         extern fn GetProfileType(#[out] dwFlags: *mut DWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfilesDirectoryA(#[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetProfilesDirectoryA(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetProfilesDirectoryW(#[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetProfilesDirectoryW(#[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetUserProfileDirectoryA(#[in] hToken: HANDLE, #[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetUserProfileDirectoryA(#[in] hToken: HANDLE, #[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         #[library("USERENV.dll")]
-        extern fn GetUserProfileDirectoryW(#[in] hToken: HANDLE, #[out] #[opt] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
+        extern fn GetUserProfileDirectoryW(#[in] hToken: HANDLE, #[opt] #[out] #[writable(entry, *lpcchSize)] lpProfileDir: LPWSTR, #[in] #[out] lpcchSize: LPDWORD) -> BOOL;
         type LPPOLICYSETTINGSTATUSINFO = *mut POLICYSETTINGSTATUSINFO;
         #[library("USERENV.dll")]
         extern fn LeaveCriticalPolicySection(#[in] hSection: HANDLE) -> BOOL;

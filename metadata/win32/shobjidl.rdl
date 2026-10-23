@@ -48,18 +48,18 @@ mod Windows {
         }
         #[guid(0x3cd141f4_3c6a_11d2_bcaa_00c04fd929db)]
         interface IAutoCompleteDropDown: IUnknown {
-            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppwszString: *mut LPWSTR) -> HRESULT;
+            fn GetDropDownStatus(&self, #[out] pdwFlags: *mut DWORD, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppwszString: *mut LPWSTR) -> HRESULT;
             fn ResetEnumerator(&self) -> HRESULT;
         }
         #[guid(0xb9075c7c_d48e_403f_ab99_d6c77a1084ac)]
         interface IBandHost: IUnknown {
-            fn CreateBand(&self, #[in] rclsidBand: &IID, #[in] fAvailable: BOOL, #[in] fVisible: BOOL, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateBand(&self, #[in] rclsidBand: &IID, #[in] fAvailable: BOOL, #[in] fVisible: BOOL, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn SetBandAvailability(&self, #[in] rclsidBand: &IID, #[in] fAvailable: BOOL) -> HRESULT;
             fn DestroyBand(&self, #[in] rclsidBand: &IID) -> HRESULT;
         }
         #[guid(0x3d73a659_e5d0_4d42_afc0_5121ba425c8d)]
         interface ICDBurn: IUnknown {
-            fn GetRecorderDriveLetter(&self, #[out] #[writable(entry, cch)] #[writable(success, cch)] #[null_terminated(success)] #[readable(success, cch)] pszDrive: LPWSTR, #[in] cch: UINT) -> HRESULT;
+            fn GetRecorderDriveLetter(&self, #[null_terminated(success)] #[out] #[readable(success, cch)] #[writable(entry, cch)] #[writable(success, cch)] pszDrive: LPWSTR, #[in] cch: UINT) -> HRESULT;
             fn Burn(&self, #[in] hwnd: HWND) -> HRESULT;
             fn HasRecordableDrive(&self, #[out] pfHasRecorder: *mut BOOL) -> HRESULT;
         }
@@ -70,7 +70,7 @@ mod Windows {
         #[guid(0xc8ad25a1_3294_41ee_8165_71174bd01c57)]
         interface ICommDlgBrowser3: ICommDlgBrowser2 {
             fn OnColumnClicked(&self, #[in] #[opt] ppshv: IShellView, #[in] iColumn: i32) -> HRESULT;
-            fn GetCurrentFilter(&self, #[out] #[writable(entry, cchFileSpec)] #[writable(success, cchFileSpec)] #[null_terminated(success)] #[readable(success, cchFileSpec)] pszFileSpec: LPWSTR, #[in] cchFileSpec: i32) -> HRESULT;
+            fn GetCurrentFilter(&self, #[null_terminated(success)] #[out] #[readable(success, cchFileSpec)] #[writable(entry, cchFileSpec)] #[writable(success, cchFileSpec)] pszFileSpec: LPWSTR, #[in] cchFileSpec: i32) -> HRESULT;
             fn OnPreViewCreated(&self, #[in] #[opt] ppshv: IShellView) -> HRESULT;
         }
         #[guid(0x0df60d92_6818_46d6_b358_d66170dde466)]
@@ -96,7 +96,7 @@ mod Windows {
         }
         #[guid(0xdc2601d7_059e_42fc_a09d_2afd21b6d5f7)]
         interface IDynamicHWHandler: IUnknown {
-            fn GetDynamicInfo(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppszAction: *mut LPWSTR) -> HRESULT;
+            fn GetDynamicInfo(&self, #[in] #[null_terminated(entry)] pszDeviceID: LPCWSTR, #[in] dwContentType: DWORD, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszAction: *mut LPWSTR) -> HRESULT;
         }
         const IENamespaceTreeControl: GUID = 0xace52d03_e5cd_4b20_82ff_e71b11beae1d;
         #[guid(0x61e00d45_8fff_4e60_924e_6537b61612dd)]
@@ -200,8 +200,8 @@ mod Windows {
             fn OnBeforeItemDelete(&self, #[in] psi: IShellItem) -> HRESULT;
             fn OnItemAdded(&self, #[in] psi: IShellItem, #[in] fIsRoot: BOOL) -> HRESULT;
             fn OnItemDeleted(&self, #[in] psi: IShellItem, #[in] fIsRoot: BOOL) -> HRESULT;
-            fn OnBeforeContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn OnAfterContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] pcmIn: IContextMenu, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn OnBeforeContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn OnAfterContextMenu(&self, #[in] #[opt] psi: IShellItem, #[in] pcmIn: IContextMenu, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn OnBeforeStateImageChange(&self, #[in] psi: IShellItem) -> HRESULT;
             fn OnGetDefaultIconIndex(&self, #[in] psi: IShellItem, #[out] piDefaultIcon: *mut i32, #[out] piOpenIcon: *mut i32) -> HRESULT;
         }
@@ -212,7 +212,7 @@ mod Windows {
         #[guid(0xaa9198bb_ccec_472d_beed_19a4f6733f7a)]
         interface IPublishingWizard: IWizardExtension {
             fn Initialize(&self, #[in] #[opt] pdo: IDataObject, #[in] dwOptions: DWORD, #[in] pszServiceScope: LPCWSTR) -> HRESULT;
-            fn GetTransferManifest(&self, #[out] #[opt] phrFromTransfer: *mut HRESULT, #[out] #[opt] #[out_ptr] pdocManifest: *mut IXMLDOMDocument) -> HRESULT;
+            fn GetTransferManifest(&self, #[opt] #[out] phrFromTransfer: *mut HRESULT, #[opt] #[out] #[out_ptr] pdocManifest: *mut IXMLDOMDocument) -> HRESULT;
         }
         #[guid(0xddefe873_6997_4e68_be26_39b633adbe12)]
         interface IQueryCancelAutoPlay: IUnknown {
@@ -226,15 +226,15 @@ mod Windows {
         #[guid(0x96e5ae6d_6ae1_4b1c_900c_c6480eaa8828)]
         interface IResultsFolder: IUnknown {
             fn AddItem(&self, #[in] #[opt] psi: IShellItem) -> HRESULT;
-            fn AddIDList(&self, #[in] pidl: LPCITEMIDLIST, #[out] #[opt] #[out_ptr] ppidlAdded: *mut LPITEMIDLIST) -> HRESULT;
+            fn AddIDList(&self, #[in] pidl: LPCITEMIDLIST, #[opt] #[out] #[out_ptr] ppidlAdded: *mut LPITEMIDLIST) -> HRESULT;
             fn RemoveItem(&self, #[in] #[opt] psi: IShellItem) -> HRESULT;
             fn RemoveIDList(&self, #[in] pidl: LPCITEMIDLIST) -> HRESULT;
             fn RemoveAll(&self) -> HRESULT;
         }
         #[guid(0x6af6e03f_d664_4ef4_9626_f7e0ed36755e)]
         interface ISearchBoxInfo: IUnknown {
-            fn GetCondition(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn GetText(&self, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppsz: *mut LPWSTR) -> HRESULT;
+            fn GetCondition(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn GetText(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppsz: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xfce4bde0_4b68_4b80_8e9c_7426315a7388)]
         interface IShellRunDll: IUnknown {
@@ -257,12 +257,12 @@ mod Windows {
         }
         #[guid(0x7bf992a9_af7a_4dba_b2e5_4d080b1ecbc6)]
         interface IStorageProviderCopyHook: IUnknown {
-            fn CopyCallback(&self, #[in] #[opt] hwnd: HWND, #[in] operation: UINT, #[in] flags: UINT, #[in] #[null_terminated(entry)] srcFile: LPCWSTR, #[in] srcAttribs: DWORD, #[in] #[opt] #[null_terminated(entry)] destFile: LPCWSTR, #[in] destAttribs: DWORD, #[out] result: *mut UINT) -> HRESULT;
+            fn CopyCallback(&self, #[in] #[opt] hwnd: HWND, #[in] operation: UINT, #[in] flags: UINT, #[in] #[null_terminated(entry)] srcFile: LPCWSTR, #[in] srcAttribs: DWORD, #[in] #[null_terminated(entry)] #[opt] destFile: LPCWSTR, #[in] destAttribs: DWORD, #[out] result: *mut UINT) -> HRESULT;
         }
         #[guid(0xfe0b6665_e0ca_49b9_a178_2b5cb48d92a5)]
         interface IStreamAsync: IStream {
-            fn ReadAsync(&self, #[out] #[writable(entry, bytes(cb))] #[readable(success, bytes(if_present(*pcbRead)))] pv: *mut void, #[in] cb: DWORD, #[out] #[opt] #[range(success, 0..=cb, indirect)] pcbRead: LPDWORD, #[in] lpOverlapped: LPOVERLAPPED) -> HRESULT;
-            fn WriteAsync(&self, #[in] #[readable(entry, bytes(cb))] lpBuffer: *const void, #[in] cb: DWORD, #[out] #[opt] #[range(success, 0..=cb, indirect)] pcbWritten: LPDWORD, #[in] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn ReadAsync(&self, #[out] #[readable(success, bytes(if_present(*pcbRead)))] #[writable(entry, bytes(cb))] pv: *mut void, #[in] cb: DWORD, #[opt] #[out] #[range(success, 0..=cb, indirect)] pcbRead: LPDWORD, #[in] lpOverlapped: LPOVERLAPPED) -> HRESULT;
+            fn WriteAsync(&self, #[in] #[readable(entry, bytes(cb))] lpBuffer: *const void, #[in] cb: DWORD, #[opt] #[out] #[range(success, 0..=cb, indirect)] pcbWritten: LPDWORD, #[in] lpOverlapped: LPOVERLAPPED) -> HRESULT;
             fn OverlappedResult(&self, #[in] lpOverlapped: LPOVERLAPPED, #[out] lpNumberOfBytesTransferred: LPDWORD, #[in] bWait: BOOL) -> HRESULT;
             fn CancelIo(&self) -> HRESULT;
         }
@@ -285,9 +285,9 @@ mod Windows {
         }
         #[guid(0x215913cc_57eb_4fab_ab5a_e5fa7bea2a6c)]
         interface IUserNotification2: IUnknown {
-            fn SetBalloonInfo(&self, #[in] #[opt] #[null_terminated(entry)] pszTitle: LPCWSTR, #[in] #[opt] #[null_terminated(entry)] pszText: LPCWSTR, #[in] dwInfoFlags: DWORD) -> HRESULT;
+            fn SetBalloonInfo(&self, #[in] #[null_terminated(entry)] #[opt] pszTitle: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszText: LPCWSTR, #[in] dwInfoFlags: DWORD) -> HRESULT;
             fn SetBalloonRetry(&self, #[in] dwShowTime: DWORD, #[in] dwInterval: DWORD, #[in] cRetryCount: UINT) -> HRESULT;
-            fn SetIconInfo(&self, #[in] #[opt] hIcon: HICON, #[in] #[opt] #[null_terminated(entry)] pszToolTip: LPCWSTR) -> HRESULT;
+            fn SetIconInfo(&self, #[in] #[opt] hIcon: HICON, #[in] #[null_terminated(entry)] #[opt] pszToolTip: LPCWSTR) -> HRESULT;
             fn Show(&self, #[in] #[opt] pqc: IQueryContinue, #[in] dwContinuePollInterval: DWORD, #[in] #[opt] pSink: IUserNotificationCallback) -> HRESULT;
             fn PlaySoundA(&self, #[in] #[null_terminated(entry)] pszSoundName: LPCWSTR) -> HRESULT;
         }
@@ -306,7 +306,7 @@ mod Windows {
             fn GetItemHeight(&self, #[out] cyItemInPixels: *mut i32) -> HRESULT;
             fn SetFont(&self, #[in] plf: *const LOGFONTW, #[in] bRedraw: BOOL) -> HRESULT;
             fn GetFont(&self, #[out] plf: *mut LOGFONTW) -> HRESULT;
-            fn SetTheme(&self, #[in] #[opt] #[null_terminated(entry)] pszSubAppName: LPCWSTR, #[in] #[opt] #[null_terminated(entry)] pszSubIdList: LPCWSTR) -> HRESULT;
+            fn SetTheme(&self, #[in] #[null_terminated(entry)] #[opt] pszSubAppName: LPCWSTR, #[in] #[null_terminated(entry)] #[opt] pszSubIdList: LPCWSTR) -> HRESULT;
         }
         #[guid(0x0e6b3f66_98d1_48c0_a222_fbde74e2fbc5)]
         interface IWebWizardExtension: IWizardExtension {
@@ -315,7 +315,7 @@ mod Windows {
         }
         #[guid(0xc02ea696_86cc_491e_9b23_74394a0444a8)]
         interface IWizardExtension: IUnknown {
-            fn AddPages(&self, #[out] #[writable(entry, cPages)] #[readable(success, *pnPagesAdded)] aPages: *mut HPROPSHEETPAGE, #[in] cPages: UINT, #[out] #[range(success, 0..=cPages, indirect)] pnPagesAdded: *mut UINT) -> HRESULT;
+            fn AddPages(&self, #[out] #[readable(success, *pnPagesAdded)] #[writable(entry, cPages)] aPages: *mut HPROPSHEETPAGE, #[in] cPages: UINT, #[out] #[range(success, 0..=cPages, indirect)] pnPagesAdded: *mut UINT) -> HRESULT;
             fn GetFirstPage(&self, #[out] phpage: *mut HPROPSHEETPAGE) -> HRESULT;
             fn GetLastPage(&self, #[out] phpage: *mut HPROPSHEETPAGE) -> HRESULT;
         }

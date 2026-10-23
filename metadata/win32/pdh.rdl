@@ -405,92 +405,92 @@ mod Windows {
         #[library("pdh.dll")]
         extern fn PdhCreateSQLTablesW(#[in] szDataSource: LPCWSTR) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumLogSetNamesA(#[in] szDataSource: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferLength)] mszDataSetNameList: PZZSTR, #[in] #[out] pcchBufferLength: LPDWORD) -> PDH_STATUS;
+        extern fn PdhEnumLogSetNamesA(#[in] szDataSource: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferLength)] mszDataSetNameList: PZZSTR, #[in] #[out] pcchBufferLength: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumLogSetNamesW(#[in] szDataSource: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferLength)] mszDataSetNameList: PZZWSTR, #[in] #[out] pcchBufferLength: LPDWORD) -> PDH_STATUS;
+        extern fn PdhEnumLogSetNamesW(#[in] szDataSource: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferLength)] mszDataSetNameList: PZZWSTR, #[in] #[out] pcchBufferLength: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumMachinesA(#[in] #[opt] szDataSource: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhEnumMachinesA(#[in] #[opt] szDataSource: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumMachinesHA(#[in] #[opt] hDataSource: PDH_HLOG, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhEnumMachinesHA(#[in] #[opt] hDataSource: PDH_HLOG, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumMachinesHW(#[in] #[opt] hDataSource: PDH_HLOG, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhEnumMachinesHW(#[in] #[opt] hDataSource: PDH_HLOG, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumMachinesW(#[in] #[opt] szDataSource: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhEnumMachinesW(#[in] #[opt] szDataSource: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszMachineList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectItemsA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[out] #[opt] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhEnumObjectItemsA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectItemsHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[out] #[opt] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhEnumObjectItemsHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectItemsHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZWSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[out] #[opt] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZWSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhEnumObjectItemsHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZWSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZWSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectItemsW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZWSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[out] #[opt] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZWSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhEnumObjectItemsW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchCounterListLength)] mszCounterList: PZZWSTR, #[in] #[out] pcchCounterListLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchInstanceListLength)] mszInstanceList: PZZWSTR, #[in] #[out] pcchInstanceListLength: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectsA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
+        extern fn PdhEnumObjectsA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectsHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
+        extern fn PdhEnumObjectsHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectsHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
+        extern fn PdhEnumObjectsHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhEnumObjectsW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
+        extern fn PdhEnumObjectsW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] mszObjectList: PZZWSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwDetailLevel: DWORD, #[in] bRefresh: BOOL) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhExpandCounterPathA(#[in] szWildCardPath: LPCSTR, #[out] #[opt] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZSTR, #[in] #[out] pcchPathListLength: LPDWORD) -> PDH_STATUS;
+        extern fn PdhExpandCounterPathA(#[in] szWildCardPath: LPCSTR, #[opt] #[out] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZSTR, #[in] #[out] pcchPathListLength: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhExpandCounterPathW(#[in] szWildCardPath: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZWSTR, #[in] #[out] pcchPathListLength: LPDWORD) -> PDH_STATUS;
+        extern fn PdhExpandCounterPathW(#[in] szWildCardPath: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZWSTR, #[in] #[out] pcchPathListLength: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhExpandWildCardPathA(#[in] #[opt] szDataSource: LPCSTR, #[in] szWildCardPath: LPCSTR, #[out] #[opt] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhExpandWildCardPathA(#[in] #[opt] szDataSource: LPCSTR, #[in] szWildCardPath: LPCSTR, #[opt] #[out] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhExpandWildCardPathHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] szWildCardPath: LPCSTR, #[out] #[opt] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhExpandWildCardPathHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] szWildCardPath: LPCSTR, #[opt] #[out] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhExpandWildCardPathHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] szWildCardPath: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZWSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhExpandWildCardPathHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] szWildCardPath: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZWSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhExpandWildCardPathW(#[in] #[opt] szDataSource: LPCWSTR, #[in] szWildCardPath: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZWSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhExpandWildCardPathW(#[in] #[opt] szDataSource: LPCWSTR, #[in] szWildCardPath: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchPathListLength)] mszExpandedPathList: PZZWSTR, #[in] #[out] pcchPathListLength: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        #[library("pdh.dll")]
         #[success(return == 0)]
+        extern fn PdhGetCounterInfoA(#[in] hCounter: PDH_HCOUNTER, #[in] bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] lpBuffer: PPDH_COUNTER_INFO_A) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetCounterInfoA(#[in] hCounter: PDH_HCOUNTER, #[in] bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: LPDWORD, #[out] #[opt] #[writable(entry, bytes(*pdwBufferSize))] lpBuffer: PPDH_COUNTER_INFO_A) -> PDH_STATUS;
         #[success(return == 0)]
-        #[library("pdh.dll")]
-        extern fn PdhGetCounterInfoW(#[in] hCounter: PDH_HCOUNTER, #[in] bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: LPDWORD, #[out] #[opt] #[writable(entry, bytes(*pdwBufferSize))] lpBuffer: PPDH_COUNTER_INFO_W) -> PDH_STATUS;
+        extern fn PdhGetCounterInfoW(#[in] hCounter: PDH_HCOUNTER, #[in] bRetrieveExplainText: BOOLEAN, #[in] #[out] pdwBufferSize: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] lpBuffer: PPDH_COUNTER_INFO_W) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhGetCounterTimeBase(#[in] hCounter: PDH_HCOUNTER, #[out] pTimeBase: *mut LONGLONG) -> PDH_STATUS;
-        #[success(return == 0)]
         #[library("pdh.dll")]
+        #[success(return == 0)]
         extern fn PdhGetDataSourceTimeRangeA(#[in] #[opt] szDataSource: LPCSTR, #[out] pdwNumEntries: LPDWORD, #[out] #[writable(entry, bytes(*pdwBufferSize))] pInfo: PPDH_TIME_INFO, #[in] #[out] pdwBufferSize: LPDWORD) -> PDH_STATUS;
-        #[success(return == 0)]
         #[library("pdh.dll")]
-        extern fn PdhGetDataSourceTimeRangeH(#[in] #[out] #[opt] hDataSource: PDH_HLOG, #[out] pdwNumEntries: LPDWORD, #[out] #[writable(entry, bytes(*pdwBufferSize))] pInfo: PPDH_TIME_INFO, #[in] #[out] pdwBufferSize: LPDWORD) -> PDH_STATUS;
         #[success(return == 0)]
+        extern fn PdhGetDataSourceTimeRangeH(#[in] #[opt] #[out] hDataSource: PDH_HLOG, #[out] pdwNumEntries: LPDWORD, #[out] #[writable(entry, bytes(*pdwBufferSize))] pInfo: PPDH_TIME_INFO, #[in] #[out] pdwBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
+        #[success(return == 0)]
         extern fn PdhGetDataSourceTimeRangeW(#[in] #[opt] szDataSource: LPCWSTR, #[out] pdwNumEntries: LPDWORD, #[out] #[writable(entry, bytes(*pdwBufferSize))] pInfo: PPDH_TIME_INFO, #[in] #[out] pdwBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfCounterA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfCounterA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfCounterHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfCounterHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[in] szObjectName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfCounterHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfCounterHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfCounterW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfCounterW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[in] szObjectName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultCounterName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfObjectA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfObjectA(#[in] #[opt] szDataSource: LPCSTR, #[in] #[opt] szMachineName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfObjectHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfObjectHA(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfObjectHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfObjectHW(#[in] #[opt] hDataSource: PDH_HLOG, #[in] #[opt] szMachineName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDefaultPerfObjectW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDefaultPerfObjectW(#[in] #[opt] szDataSource: LPCWSTR, #[in] #[opt] szMachineName: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szDefaultObjectName: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetDllVersion(#[out] #[opt] lpdwVersion: LPDWORD) -> PDH_STATUS;
+        extern fn PdhGetDllVersion(#[opt] #[out] lpdwVersion: LPDWORD) -> PDH_STATUS;
+        #[library("pdh.dll")]
         #[success(return == 0)]
+        extern fn PdhGetFormattedCounterArrayA(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_FMT_COUNTERVALUE_ITEM_A) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetFormattedCounterArrayA(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[out] #[opt] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_FMT_COUNTERVALUE_ITEM_A) -> PDH_STATUS;
         #[success(return == 0)]
+        extern fn PdhGetFormattedCounterArrayW(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[opt] #[out] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_FMT_COUNTERVALUE_ITEM_W) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetFormattedCounterArrayW(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[in] #[out] lpdwBufferSize: LPDWORD, #[out] lpdwItemCount: LPDWORD, #[out] #[opt] #[writable(entry, bytes(*lpdwBufferSize))] ItemBuffer: PPDH_FMT_COUNTERVALUE_ITEM_W) -> PDH_STATUS;
-        #[library("pdh.dll")]
-        extern fn PdhGetFormattedCounterValue(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[out] #[opt] lpdwType: LPDWORD, #[out] pValue: PPDH_FMT_COUNTERVALUE) -> PDH_STATUS;
+        extern fn PdhGetFormattedCounterValue(#[in] hCounter: PDH_HCOUNTER, #[in] dwFormat: DWORD, #[opt] #[out] lpdwType: LPDWORD, #[out] pValue: PPDH_FMT_COUNTERVALUE) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhGetLogFileSize(#[in] hLog: PDH_HLOG, #[out] llSize: *mut LONGLONG) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhGetLogSetGUID(#[in] hLog: PDH_HLOG, #[out] #[opt] pGuid: *mut GUID, #[out] #[opt] pRunId: *mut i32) -> PDH_STATUS;
+        extern fn PdhGetLogSetGUID(#[in] hLog: PDH_HLOG, #[opt] #[out] pGuid: *mut GUID, #[opt] #[out] pRunId: *mut i32) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhIsRealTimeQuery(#[in] hQuery: PDH_HQUERY) -> BOOL;
         #[library("pdh.dll")]
@@ -498,13 +498,13 @@ mod Windows {
         #[library("pdh.dll")]
         extern fn PdhLookupPerfIndexByNameW(#[in] #[opt] szMachineName: LPCWSTR, #[in] szNameBuffer: LPCWSTR, #[out] pdwIndex: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhLookupPerfNameByIndexA(#[in] #[opt] szMachineName: LPCSTR, #[in] dwNameIndex: DWORD, #[out] #[opt] #[writable(entry, *pcchNameBufferSize)] szNameBuffer: LPSTR, #[in] #[out] pcchNameBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhLookupPerfNameByIndexA(#[in] #[opt] szMachineName: LPCSTR, #[in] dwNameIndex: DWORD, #[opt] #[out] #[writable(entry, *pcchNameBufferSize)] szNameBuffer: LPSTR, #[in] #[out] pcchNameBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhLookupPerfNameByIndexW(#[in] #[opt] szMachineName: LPCWSTR, #[in] dwNameIndex: DWORD, #[out] #[opt] #[writable(entry, *pcchNameBufferSize)] szNameBuffer: LPWSTR, #[in] #[out] pcchNameBufferSize: LPDWORD) -> PDH_STATUS;
+        extern fn PdhLookupPerfNameByIndexW(#[in] #[opt] szMachineName: LPCWSTR, #[in] dwNameIndex: DWORD, #[opt] #[out] #[writable(entry, *pcchNameBufferSize)] szNameBuffer: LPWSTR, #[in] #[out] pcchNameBufferSize: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhMakeCounterPathA(#[in] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_A, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szFullPathBuffer: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhMakeCounterPathA(#[in] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_A, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szFullPathBuffer: LPSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhMakeCounterPathW(#[in] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_W, #[out] #[opt] #[writable(entry, *pcchBufferSize)] szFullPathBuffer: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhMakeCounterPathW(#[in] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_W, #[opt] #[out] #[writable(entry, *pcchBufferSize)] szFullPathBuffer: LPWSTR, #[in] #[out] pcchBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhOpenLogA(#[in] szLogFileName: LPCSTR, #[in] dwAccessFlags: DWORD, #[in] #[out] lpdwLogType: LPDWORD, #[in] #[opt] hQuery: PDH_HQUERY, #[in] dwMaxSize: DWORD, #[in] #[opt] szUserCaption: LPCSTR, #[out] phLog: *mut PDH_HLOG) -> PDH_STATUS;
         #[library("pdh.dll")]
@@ -515,19 +515,19 @@ mod Windows {
         extern fn PdhOpenQueryH(#[in] #[opt] hDataSource: PDH_HLOG, #[in] dwUserData: DWORD_PTR, #[out] phQuery: *mut PDH_HQUERY) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhOpenQueryW(#[in] #[opt] szDataSource: LPCWSTR, #[in] dwUserData: DWORD_PTR, #[out] phQuery: *mut PDH_HQUERY) -> PDH_STATUS;
+        #[library("pdh.dll")]
         #[success(return == 0)]
+        extern fn PdhParseCounterPathA(#[in] szFullPathBuffer: LPCSTR, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_A, #[in] #[out] pdwBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhParseCounterPathA(#[in] szFullPathBuffer: LPCSTR, #[out] #[opt] #[writable(entry, bytes(*pdwBufferSize))] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_A, #[in] #[out] pdwBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[success(return == 0)]
+        extern fn PdhParseCounterPathW(#[in] szFullPathBuffer: LPCWSTR, #[opt] #[out] #[writable(entry, bytes(*pdwBufferSize))] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_W, #[in] #[out] pdwBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhParseCounterPathW(#[in] szFullPathBuffer: LPCWSTR, #[out] #[opt] #[writable(entry, bytes(*pdwBufferSize))] pCounterPathElements: PPDH_COUNTER_PATH_ELEMENTS_W, #[in] #[out] pdwBufferSize: LPDWORD, #[in] dwFlags: DWORD) -> PDH_STATUS;
+        extern fn PdhParseInstanceNameA(#[in] szInstanceString: LPCSTR, #[opt] #[out] #[writable(entry, *pcchInstanceNameLength)] szInstanceName: LPSTR, #[in] #[out] pcchInstanceNameLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchParentNameLength)] szParentName: LPSTR, #[in] #[out] pcchParentNameLength: LPDWORD, #[out] lpIndex: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhParseInstanceNameA(#[in] szInstanceString: LPCSTR, #[out] #[opt] #[writable(entry, *pcchInstanceNameLength)] szInstanceName: LPSTR, #[in] #[out] pcchInstanceNameLength: LPDWORD, #[out] #[opt] #[writable(entry, *pcchParentNameLength)] szParentName: LPSTR, #[in] #[out] pcchParentNameLength: LPDWORD, #[out] lpIndex: LPDWORD) -> PDH_STATUS;
+        extern fn PdhParseInstanceNameW(#[in] szInstanceString: LPCWSTR, #[opt] #[out] #[writable(entry, *pcchInstanceNameLength)] szInstanceName: LPWSTR, #[in] #[out] pcchInstanceNameLength: LPDWORD, #[opt] #[out] #[writable(entry, *pcchParentNameLength)] szParentName: LPWSTR, #[in] #[out] pcchParentNameLength: LPDWORD, #[out] lpIndex: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
-        extern fn PdhParseInstanceNameW(#[in] szInstanceString: LPCWSTR, #[out] #[opt] #[writable(entry, *pcchInstanceNameLength)] szInstanceName: LPWSTR, #[in] #[out] pcchInstanceNameLength: LPDWORD, #[out] #[opt] #[writable(entry, *pcchParentNameLength)] szParentName: LPWSTR, #[in] #[out] pcchParentNameLength: LPDWORD, #[out] lpIndex: LPDWORD) -> PDH_STATUS;
         #[success(return == 0)]
-        #[library("pdh.dll")]
-        extern fn PdhReadRawLogRecord(#[in] hLog: PDH_HLOG, #[in] ftRecord: FILETIME, #[out] #[opt] #[writable(entry, bytes(*pdwBufferLength))] pRawLogRecord: PPDH_RAW_LOG_RECORD, #[in] #[out] pdwBufferLength: LPDWORD) -> PDH_STATUS;
+        extern fn PdhReadRawLogRecord(#[in] hLog: PDH_HLOG, #[in] ftRecord: FILETIME, #[opt] #[out] #[writable(entry, bytes(*pdwBufferLength))] pRawLogRecord: PPDH_RAW_LOG_RECORD, #[in] #[out] pdwBufferLength: LPDWORD) -> PDH_STATUS;
         #[library("pdh.dll")]
         extern fn PdhRemoveCounter(#[in] hCounter: PDH_HCOUNTER) -> PDH_STATUS;
         #[library("pdh.dll")]

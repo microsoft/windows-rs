@@ -1098,7 +1098,7 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn mixerMessage(#[in] #[opt] hmx: HMIXER, #[in] uMsg: UINT, #[in] #[opt] dwParam1: DWORD_PTR, #[in] #[opt] dwParam2: DWORD_PTR) -> DWORD;
         #[library("WINMM.dll")]
-        extern fn mixerOpen(#[out] #[opt] phmx: LPHMIXER, #[in] uMxId: UINT, #[in] #[opt] dwCallback: DWORD_PTR, #[in] #[opt] dwInstance: DWORD_PTR, #[in] fdwOpen: DWORD) -> MMRESULT;
+        extern fn mixerOpen(#[opt] #[out] phmx: LPHMIXER, #[in] uMxId: UINT, #[in] #[opt] dwCallback: DWORD_PTR, #[in] #[opt] dwInstance: DWORD_PTR, #[in] fdwOpen: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn mixerSetControlDetails(#[in] #[opt] hmxobj: HMIXEROBJ, #[in] pmxcd: LPMIXERCONTROLDETAILS, #[in] fdwDetails: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
@@ -1122,7 +1122,7 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn waveInMessage(#[in] #[opt] hwi: HWAVEIN, #[in] uMsg: UINT, #[in] #[opt] dw1: DWORD_PTR, #[in] #[opt] dw2: DWORD_PTR) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveInOpen(#[out] #[opt] phwi: LPHWAVEIN, #[in] uDeviceID: UINT, #[in] pwfx: LPCWAVEFORMATEX, #[in] #[opt] dwCallback: DWORD_PTR, #[in] #[opt] dwInstance: DWORD_PTR, #[in] fdwOpen: DWORD) -> MMRESULT;
+        extern fn waveInOpen(#[opt] #[out] phwi: LPHWAVEIN, #[in] uDeviceID: UINT, #[in] pwfx: LPCWAVEFORMATEX, #[in] #[opt] dwCallback: DWORD_PTR, #[in] #[opt] dwInstance: DWORD_PTR, #[in] fdwOpen: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveInPrepareHeader(#[in] hwi: HWAVEIN, #[in] #[out] #[writable(entry, bytes(cbwh))] pwh: LPWAVEHDR, #[in] cbwh: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
@@ -1160,7 +1160,7 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn waveOutMessage(#[in] #[opt] hwo: HWAVEOUT, #[in] uMsg: UINT, #[in] dw1: DWORD_PTR, #[in] dw2: DWORD_PTR) -> MMRESULT;
         #[library("WINMM.dll")]
-        extern fn waveOutOpen(#[out] #[opt] phwo: LPHWAVEOUT, #[in] uDeviceID: UINT, #[in] pwfx: LPCWAVEFORMATEX, #[in] #[opt] dwCallback: DWORD_PTR, #[in] #[opt] dwInstance: DWORD_PTR, #[in] fdwOpen: DWORD) -> MMRESULT;
+        extern fn waveOutOpen(#[opt] #[out] phwo: LPHWAVEOUT, #[in] uDeviceID: UINT, #[in] pwfx: LPCWAVEFORMATEX, #[in] #[opt] dwCallback: DWORD_PTR, #[in] #[opt] dwInstance: DWORD_PTR, #[in] fdwOpen: DWORD) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn waveOutPause(#[in] hwo: HWAVEOUT) -> MMRESULT;
         #[library("WINMM.dll")]

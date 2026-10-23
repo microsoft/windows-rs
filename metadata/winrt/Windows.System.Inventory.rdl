@@ -2,9 +2,9 @@
 mod Windows {
     mod System {
         mod Inventory {
-            #[guid(0x75eab8ed_c0bc_5364_4c28_166e0545167a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(InstalledDesktopApp)]
+            #[guid(0x75eab8ed_c0bc_5364_4c28_166e0545167a)]
             interface IInstalledDesktopApp {
                 #[get]
                 Id: String;
@@ -15,9 +15,9 @@ mod Windows {
                 #[get]
                 DisplayVersion: String;
             }
-            #[guid(0x264cf74e_21cd_5f9b_6056_7866ad72489a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(InstalledDesktopApp)]
+            #[guid(0x264cf74e_21cd_5f9b_6056_7866ad72489a)]
             interface IInstalledDesktopAppStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetInventoryAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>;

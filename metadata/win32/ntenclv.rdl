@@ -72,7 +72,7 @@ mod Windows {
         extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(#[in] EnclaveAddress: PVOID, #[in] NumberOfBytes: SIZE_T) -> LONG;
         extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(#[in] #[out] KeyRequest: PENCLAVE_VBS_BASIC_KEY_REQUEST, #[in] RequestedKeySize: ULONG, #[out] #[writable(entry, RequestedKeySize)] ReturnedKey: PUCHAR) -> LONG;
         extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(#[out] #[writable(entry, bytes(NumberOfBytes))] Buffer: PUCHAR, #[in] NumberOfBytes: ULONG, #[out] Generation: PULONGLONG) -> LONG;
-        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(#[in] #[opt] EnclaveData: *const UINT8, #[out] #[opt] #[writable(entry, bytes(BufferSize))] #[readable(success, bytes(*OutputSize))] Report: PVOID, #[in] BufferSize: UINT32, #[out] OutputSize: *mut UINT32) -> LONG;
+        extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(#[in] #[opt] EnclaveData: *const UINT8, #[opt] #[out] #[readable(success, bytes(*OutputSize))] #[writable(entry, bytes(BufferSize))] Report: PVOID, #[in] BufferSize: UINT32, #[out] OutputSize: *mut UINT32) -> LONG;
         extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(#[out] EnclaveInfo: *mut ENCLAVE_INFORMATION) -> LONG;
         extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(#[in] ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> LONG;
         extern "C" fn VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(#[in] EnclaveAddress: PVOID, #[in] NumberOfytes: SIZE_T, #[in] PageProtection: ULONG) -> LONG;

@@ -407,7 +407,7 @@ mod Windows {
             fn RegisterEffectFromString(&self, #[in] classId: &IID, #[in] propertyXml: PCWSTR, #[in] #[opt] #[readable(entry, bindingsCount)] bindings: *const D2D1_PROPERTY_BINDING, bindingsCount: UINT32, #[in] effectFactory: PD2D1_EFFECT_FACTORY) -> HRESULT;
             fn UnregisterEffect(&self, #[in] classId: &IID) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetRegisteredEffects(&self, #[out] #[opt] #[writable(entry, effectsCount)] #[readable(success, if_present(*effectsReturned))] effects: *mut CLSID, effectsCount: UINT32, #[out] #[opt] effectsReturned: *mut UINT32, #[out] #[opt] effectsRegistered: *mut UINT32) -> HRESULT;
+            fn GetRegisteredEffects(&self, #[opt] #[out] #[readable(success, if_present(*effectsReturned))] #[writable(entry, effectsCount)] effects: *mut CLSID, effectsCount: UINT32, #[opt] #[out] effectsReturned: *mut UINT32, #[opt] #[out] effectsRegistered: *mut UINT32) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetEffectProperties(&self, #[in] effectId: &IID, #[out] #[out_ptr(null_on_failure)] properties: *mut ID2D1Properties) -> HRESULT;
         }
@@ -465,7 +465,7 @@ mod Windows {
         }
         #[guid(0x2c1d867d_c290_41c8_ae7e_34a98702e9a5)]
         interface ID2D1PrintControl: IUnknown {
-            fn AddPage(&self, #[in] commandList: ID2D1CommandList, pageSize: D2D_SIZE_F, #[in] #[opt] pagePrintTicketStream: IStream, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn AddPage(&self, #[in] commandList: ID2D1CommandList, pageSize: D2D_SIZE_F, #[in] #[opt] pagePrintTicketStream: IStream, #[opt] #[out] tag1: *mut D2D1_TAG, #[opt] #[out] tag2: *mut D2D1_TAG) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x483473d7_cd46_4f9d_9d3a_3112aa80159d)]

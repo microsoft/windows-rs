@@ -59,11 +59,11 @@ mod Windows {
             fn GetFileModificationTime(&self, #[out] pVal: *mut FILETIME) -> HRESULT;
             fn GetLastAccessTime(&self, #[out] pVal: *mut FILETIME) -> HRESULT;
             fn IsFileValidated(&self) -> HRESULT;
-            fn GetFileRanges(&self, #[out] pRangeCount: *mut DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, *pRangeCount, indirect, nullable)] #[readable(success, *pRangeCount, indirect, nullable)] ppRanges: *mut *mut BG_FILE_RANGE) -> HRESULT;
+            fn GetFileRanges(&self, #[out] pRangeCount: *mut DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pRangeCount, indirect, nullable)] #[writable(success, *pRangeCount, indirect, nullable)] ppRanges: *mut *mut BG_FILE_RANGE) -> HRESULT;
         }
         #[guid(0x659cdea4_489e_11d9_a9cd_000d56965251)]
         interface IEnumBitsPeerCacheRecords: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, or(*pceltFetched, celt))] rgelt: *mut IBitsPeerCacheRecord, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBitsPeerCacheRecord, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBitsPeerCacheRecords) -> HRESULT;
@@ -71,7 +71,7 @@ mod Windows {
         }
         #[guid(0x659cdea5_489e_11d9_a9cd_000d56965251)]
         interface IEnumBitsPeers: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, or(*pceltFetched, celt))] rgelt: *mut IBitsPeer, #[in] #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, or(*pceltFetched, celt))] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IBitsPeer, #[in] #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumBitsPeers) -> HRESULT;

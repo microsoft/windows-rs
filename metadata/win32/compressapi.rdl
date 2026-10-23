@@ -29,14 +29,14 @@ mod Windows {
         #[library("Cabinet.dll")]
         extern fn CloseDecompressor(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
-        extern fn Compress(#[in] CompressorHandle: COMPRESSOR_HANDLE, #[in] #[opt] #[readable(entry, bytes(UncompressedDataSize))] UncompressedData: LPCVOID, #[in] UncompressedDataSize: SIZE_T, #[out] #[opt] #[writable(entry, bytes(CompressedBufferSize))] CompressedBuffer: PVOID, #[in] CompressedBufferSize: SIZE_T, #[out] CompressedDataSize: PSIZE_T) -> BOOL;
+        extern fn Compress(#[in] CompressorHandle: COMPRESSOR_HANDLE, #[in] #[opt] #[readable(entry, bytes(UncompressedDataSize))] UncompressedData: LPCVOID, #[in] UncompressedDataSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(CompressedBufferSize))] CompressedBuffer: PVOID, #[in] CompressedBufferSize: SIZE_T, #[out] CompressedDataSize: PSIZE_T) -> BOOL;
         #[library("Cabinet.dll")]
         extern fn CreateCompressor(#[in] Algorithm: DWORD, #[in] #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] CompressorHandle: PCOMPRESSOR_HANDLE) -> BOOL;
         #[library("Cabinet.dll")]
         extern fn CreateDecompressor(#[in] Algorithm: DWORD, #[in] #[opt] AllocationRoutines: PCOMPRESS_ALLOCATION_ROUTINES, #[out] DecompressorHandle: PDECOMPRESSOR_HANDLE) -> BOOL;
         type DECOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE__;
         #[library("Cabinet.dll")]
-        extern fn Decompress(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] #[opt] #[readable(entry, bytes(CompressedDataSize))] CompressedData: LPCVOID, #[in] CompressedDataSize: SIZE_T, #[out] #[opt] #[writable(entry, bytes(UncompressedBufferSize))] UncompressedBuffer: PVOID, #[in] UncompressedBufferSize: SIZE_T, #[out] #[opt] UncompressedDataSize: PSIZE_T) -> BOOL;
+        extern fn Decompress(#[in] DecompressorHandle: DECOMPRESSOR_HANDLE, #[in] #[opt] #[readable(entry, bytes(CompressedDataSize))] CompressedData: LPCVOID, #[in] CompressedDataSize: SIZE_T, #[opt] #[out] #[writable(entry, bytes(UncompressedBufferSize))] UncompressedBuffer: PVOID, #[in] UncompressedBufferSize: SIZE_T, #[opt] #[out] UncompressedDataSize: PSIZE_T) -> BOOL;
         type PCOMPRESSOR_HANDLE = *mut *mut COMPRESSOR_HANDLE__;
         type PCOMPRESS_ALLOCATION_ROUTINES = *mut COMPRESS_ALLOCATION_ROUTINES;
         type PDECOMPRESSOR_HANDLE = *mut *mut COMPRESSOR_HANDLE__;

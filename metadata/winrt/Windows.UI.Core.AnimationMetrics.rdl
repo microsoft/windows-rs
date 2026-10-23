@@ -10,8 +10,8 @@ mod Windows {
                 class AnimationDescription {
                     IAnimationDescription,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[repr(i32)]
                 enum AnimationEffect {
                     Expand = 0,
                     Collapse = 1,
@@ -50,8 +50,8 @@ mod Windows {
                     Peek = 34,
                     UpdateBadge = 35,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[repr(i32)]
                 enum AnimationEffectTarget {
                     Primary = 0,
                     Added = 1,
@@ -77,9 +77,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ApiContract]
                 #[Windows::Foundation::Metadata::ContractVersion(65536)]
                 struct AnimationMetricsContract {}
-                #[guid(0x7d11a549_be3d_41de_b081_05c149962f9b)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AnimationDescription)]
+                #[guid(0x7d11a549_be3d_41de_b081_05c149962f9b)]
                 interface IAnimationDescription {
                     #[get]
                     Animations: super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>;
@@ -92,23 +92,23 @@ mod Windows {
                     #[get]
                     ZOrder: i32;
                 }
-                #[guid(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AnimationDescription)]
+                #[guid(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0)]
                 interface IAnimationDescriptionFactory {
                     fn CreateInstance(&self, #[in] effect: AnimationEffect, #[in] target: AnimationEffectTarget) -> AnimationDescription;
                 }
-                #[guid(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OpacityAnimation)]
+                #[guid(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4)]
                 interface IOpacityAnimation: IPropertyAnimation {
                     #[get]
                     InitialOpacity: super::super::super::Foundation::IReference<f32>;
                     #[get]
                     FinalOpacity: f32;
                 }
-                #[guid(0x3a01b4da_4d8c_411e_b615_1ade683a9903)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[guid(0x3a01b4da_4d8c_411e_b615_1ade683a9903)]
                 interface IPropertyAnimation {
                     #[get]
                     Type: PropertyAnimationType;
@@ -121,9 +121,9 @@ mod Windows {
                     #[get]
                     Control2: super::super::super::Foundation::Point;
                 }
-                #[guid(0x023552c7_71ab_428c_9c9f_d31780964995)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ScaleAnimation)]
+                #[guid(0x023552c7_71ab_428c_9c9f_d31780964995)]
                 interface IScaleAnimation: IPropertyAnimation {
                     #[get]
                     InitialScaleX: super::super::super::Foundation::IReference<f32>;
@@ -149,8 +149,8 @@ mod Windows {
                 class PropertyAnimation {
                     IPropertyAnimation,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[repr(i32)]
                 enum PropertyAnimationType {
                     Scale = 0,
                     Translation = 1,

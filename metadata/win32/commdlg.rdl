@@ -74,8 +74,8 @@ mod Windows {
             lpfnHook: LPCCHOOKPROC,
             lpTemplateName: LPCSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct CHOOSECOLORA {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -99,8 +99,8 @@ mod Windows {
             lpfnHook: LPCCHOOKPROC,
             lpTemplateName: LPCWSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct CHOOSECOLORW {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -132,8 +132,8 @@ mod Windows {
             nSizeMin: INT,
             nSizeMax: INT,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct CHOOSEFONTA {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -171,8 +171,8 @@ mod Windows {
             nSizeMin: INT,
             nSizeMax: INT,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct CHOOSEFONTW {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -214,8 +214,8 @@ mod Windows {
             wOutputOffset: WORD,
             wDefault: WORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct DEVNAMES {
             wDriverOffset: WORD,
             wDeviceOffset: WORD,
@@ -250,8 +250,8 @@ mod Windows {
             lpfnHook: LPFRHOOKPROC,
             lpTemplateName: LPCSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct FINDREPLACEA {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -279,8 +279,8 @@ mod Windows {
             lpfnHook: LPFRHOOKPROC,
             lpTemplateName: LPCWSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct FINDREPLACEW {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -362,8 +362,8 @@ mod Windows {
             #[override_slot(2)]
             fn Release(&self) -> ULONG;
             fn GetCurrentDevMode(&self, #[in] #[out] pDevMode: LPDEVMODE, #[in] #[out] pcbSize: *mut UINT) -> HRESULT;
-            fn GetCurrentPrinterName(&self, #[out] #[opt] #[writable(entry, *pcchSize)] pPrinterName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
-            fn GetCurrentPortName(&self, #[out] #[opt] #[writable(entry, *pcchSize)] pPortName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
+            fn GetCurrentPrinterName(&self, #[opt] #[out] #[writable(entry, *pcchSize)] pPrinterName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
+            fn GetCurrentPortName(&self, #[opt] #[out] #[writable(entry, *pcchSize)] pPortName: LPWSTR, #[in] #[out] pcchSize: *mut UINT) -> HRESULT;
         }
         const ITALIC_FONTTYPE: i32 = 512;
         #[encoding("ansi")]
@@ -419,8 +419,8 @@ mod Windows {
             lpOFN: LPOPENFILENAMEA,
             pszFile: LPSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OFNOTIFYA {
             hdr: NMHDR,
             lpOFN: LPOPENFILENAMEA,
@@ -434,8 +434,8 @@ mod Windows {
             psf: LPVOID,
             pidl: LPVOID,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OFNOTIFYEXA {
             hdr: NMHDR,
             lpOFN: LPOPENFILENAMEA,
@@ -449,8 +449,8 @@ mod Windows {
             psf: LPVOID,
             pidl: LPVOID,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OFNOTIFYEXW {
             hdr: NMHDR,
             lpOFN: LPOPENFILENAMEW,
@@ -463,8 +463,8 @@ mod Windows {
             lpOFN: LPOPENFILENAMEW,
             pszFile: LPWSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OFNOTIFYW {
             hdr: NMHDR,
             lpOFN: LPOPENFILENAMEW,
@@ -527,8 +527,8 @@ mod Windows {
             dwReserved: DWORD,
             FlagsEx: DWORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OPENFILENAMEA {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -580,8 +580,8 @@ mod Windows {
             dwReserved: DWORD,
             FlagsEx: DWORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OPENFILENAMEW {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -631,8 +631,8 @@ mod Windows {
             lpfnHook: LPOFNHOOKPROC,
             lpTemplateName: LPCSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OPENFILENAME_NT4A {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -678,8 +678,8 @@ mod Windows {
             lpfnHook: LPOFNHOOKPROC,
             lpTemplateName: LPCWSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OPENFILENAME_NT4W {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -732,8 +732,8 @@ mod Windows {
             lpPageSetupTemplateName: LPCSTR,
             hPageSetupTemplate: HGLOBAL,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct PAGESETUPDLGA {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -767,8 +767,8 @@ mod Windows {
             lpPageSetupTemplateName: LPCWSTR,
             hPageSetupTemplate: HGLOBAL,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct PAGESETUPDLGW {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -845,8 +845,8 @@ mod Windows {
             hPrintTemplate: HGLOBAL,
             hSetupTemplate: HGLOBAL,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct PRINTDLGA {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -893,8 +893,8 @@ mod Windows {
             nStartPage: DWORD,
             dwResultAction: DWORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct PRINTDLGEXA {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -942,8 +942,8 @@ mod Windows {
             nStartPage: DWORD,
             dwResultAction: DWORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct PRINTDLGEXW {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -989,8 +989,8 @@ mod Windows {
             hPrintTemplate: HGLOBAL,
             hSetupTemplate: HGLOBAL,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct PRINTDLGW {
             lStructSize: DWORD,
             hwndOwner: HWND,
@@ -1018,8 +1018,8 @@ mod Windows {
             nFromPage: DWORD,
             nToPage: DWORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct PRINTPAGERANGE {
             nFromPage: DWORD,
             nToPage: DWORD,
@@ -1048,15 +1048,15 @@ mod Windows {
         extern fn PageSetupDlgA(param0: LPPAGESETUPDLGA) -> BOOL;
         #[library("COMDLG32.dll")]
         extern fn PageSetupDlgW(param0: LPPAGESETUPDLGW) -> BOOL;
-        #[success(return != 0)]
         #[library("COMDLG32.dll")]
+        #[success(return != 0)]
         extern fn PrintDlgA(#[in] #[out] pPD: LPPRINTDLGA) -> BOOL;
         #[library("COMDLG32.dll")]
         extern fn PrintDlgExA(#[in] #[out] pPD: LPPRINTDLGEXA) -> HRESULT;
         #[library("COMDLG32.dll")]
         extern fn PrintDlgExW(#[in] #[out] pPD: LPPRINTDLGEXW) -> HRESULT;
-        #[success(return != 0)]
         #[library("COMDLG32.dll")]
+        #[success(return != 0)]
         extern fn PrintDlgW(#[in] #[out] pPD: LPPRINTDLGW) -> BOOL;
         const REGULAR_FONTTYPE: i32 = 1024;
         #[library("COMDLG32.dll")]

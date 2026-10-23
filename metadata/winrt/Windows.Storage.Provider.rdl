@@ -2,17 +2,17 @@
 mod Windows {
     mod Storage {
         mod Provider {
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum CachedFileOptions {
                 None = 0,
                 RequireUpdateOnAccess = 1,
                 UseCachedFileWhenOffline = 2,
                 DenyAccessWhenOffline = 4,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum CachedFileTarget {
                 Local = 0,
                 Remote = 1,
@@ -44,8 +44,8 @@ mod Windows {
             class FileUpdateRequestedEventArgs {
                 IFileUpdateRequestedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum FileUpdateStatus {
                 Incomplete = 0,
                 Complete = 1,
@@ -54,15 +54,15 @@ mod Windows {
                 Failed = 4,
                 CompleteAndRenamed = 5,
             }
-            #[guid(0x9fc90920_7bcf_4888_a81e_102d7034d7ce)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CachedFileUpdater)]
+            #[guid(0x9fc90920_7bcf_4888_a81e_102d7034d7ce)]
             interface ICachedFileUpdaterStatics {
                 fn SetUpdateInformation(&self, #[in] file: super::IStorageFile, #[in] contentId: String, #[in] readMode: ReadActivationMode, #[in] writeMode: WriteActivationMode, #[in] options: CachedFileOptions);
             }
-            #[guid(0x9e6f41e6_baf2_4a97_b600_9333f5df80fd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CachedFileUpdaterUI)]
+            #[guid(0x9e6f41e6_baf2_4a97_b600_9333f5df80fd)]
             interface ICachedFileUpdaterUI {
                 Title: String;
                 #[get]
@@ -72,17 +72,17 @@ mod Windows {
                 #[get]
                 UIStatus: UIStatus;
             }
-            #[guid(0x8856a21c_8699_4340_9f49_f7cad7fe8991)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CachedFileUpdaterUI)]
+            #[guid(0x8856a21c_8699_4340_9f49_f7cad7fe8991)]
             interface ICachedFileUpdaterUI2: ICachedFileUpdaterUI {
                 #[get]
                 UpdateRequest: FileUpdateRequest;
                 fn GetDeferral(&self) -> FileUpdateRequestDeferral;
             }
-            #[guid(0x40c82536_c1fe_4d93_a792_1e736bc70837)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileUpdateRequest)]
+            #[guid(0x40c82536_c1fe_4d93_a792_1e736bc70837)]
             interface IFileUpdateRequest {
                 #[get]
                 ContentId: String;
@@ -92,65 +92,65 @@ mod Windows {
                 fn GetDeferral(&self) -> FileUpdateRequestDeferral;
                 fn UpdateLocalFile(&self, #[in] value: super::IStorageFile);
             }
-            #[guid(0x82484648_bdbe_447b_a2ee_7afe6a032a94)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileUpdateRequest)]
+            #[guid(0x82484648_bdbe_447b_a2ee_7afe6a032a94)]
             interface IFileUpdateRequest2: IFileUpdateRequest {
                 UserInputNeededMessage: String;
             }
-            #[guid(0xffcedb2b_8ade_44a5_bb00_164c4e72f13a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileUpdateRequestDeferral)]
+            #[guid(0xffcedb2b_8ade_44a5_bb00_164c4e72f13a)]
             interface IFileUpdateRequestDeferral {
                 fn Complete(&self);
             }
-            #[guid(0x7b0a9342_3905_438d_aaef_78ae265f8dd2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(FileUpdateRequestedEventArgs)]
+            #[guid(0x7b0a9342_3905_438d_aaef_78ae265f8dd2)]
             interface IFileUpdateRequestedEventArgs {
                 #[get]
                 Request: FileUpdateRequest;
             }
-            #[guid(0x1955b9c1_0184_5a88_87df_4544f464365d)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderFileTypeInfo)]
+            #[guid(0x1955b9c1_0184_5a88_87df_4544f464365d)]
             interface IStorageProviderFileTypeInfo {
                 #[get]
                 FileExtension: String;
                 #[get]
                 IconResource: String;
             }
-            #[guid(0x3fa12c6f_cce6_5d5d_80b1_389e7cf92dbf)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderFileTypeInfo)]
+            #[guid(0x3fa12c6f_cce6_5d5d_80b1_389e7cf92dbf)]
             interface IStorageProviderFileTypeInfoFactory {
                 fn CreateInstance(&self, #[in] fileExtension: String, #[in] iconResource: String) -> StorageProviderFileTypeInfo;
             }
-            #[guid(0x2564711d_aa89_4d12_82e3_f72a92e33966)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderGetContentInfoForPathResult)]
+            #[guid(0x2564711d_aa89_4d12_82e3_f72a92e33966)]
             interface IStorageProviderGetContentInfoForPathResult {
                 Status: StorageProviderUriSourceStatus;
                 ContentUri: String;
                 ContentId: String;
             }
-            #[guid(0x63711a9d_4118_45a6_acb6_22c49d019f40)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderGetPathForContentUriResult)]
+            #[guid(0x63711a9d_4118_45a6_acb6_22c49d019f40)]
             interface IStorageProviderGetPathForContentUriResult {
                 Status: StorageProviderUriSourceStatus;
                 Path: String;
             }
-            #[guid(0x2d2c1c97_2704_4729_8fa9_7e6b8e158c2f)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderItemProperties)]
+            #[guid(0x2d2c1c97_2704_4729_8fa9_7e6b8e158c2f)]
             interface IStorageProviderItemPropertiesStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SetAsync(&self, #[in] item: super::IStorageItem, #[in] itemProperties: super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x476cb558_730b_4188_b7b5_63b716ed476d)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderItemProperty)]
+            #[guid(0x476cb558_730b_4188_b7b5_63b716ed476d)]
             interface IStorageProviderItemProperty {
                 #[set]
                 Id: i32;
@@ -165,68 +165,68 @@ mod Windows {
                 #[get]
                 IconResource: String;
             }
-            #[guid(0xc5b383bb_ff1f_4298_831e_ff1c08089690)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderItemPropertyDefinition)]
+            #[guid(0xc5b383bb_ff1f_4298_831e_ff1c08089690)]
             interface IStorageProviderItemPropertyDefinition {
                 Id: i32;
                 DisplayNameResource: String;
             }
-            #[guid(0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[guid(0x8f6f9c3e_f632_4a9b_8d99_d2d7a11df56a)]
             interface IStorageProviderItemPropertySource {
                 fn GetItemProperties(&self, #[in] itemPath: String) -> super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>;
             }
-            #[guid(0xeffa7db0_1d44_596b_8464_928800c5e2d8)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderKnownFolderEntry)]
+            #[guid(0xeffa7db0_1d44_596b_8464_928800c5e2d8)]
             interface IStorageProviderKnownFolderEntry {
                 KnownFolderId: GUID;
                 Status: StorageProviderKnownFolderSyncStatus;
             }
-            #[guid(0x98b017ce_ffc1_5b11_ae77_cc17afec1049)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderKnownFolderSyncInfo)]
+            #[guid(0x98b017ce_ffc1_5b11_ae77_cc17afec1049)]
             interface IStorageProviderKnownFolderSyncInfo {
                 ProviderDisplayName: String;
                 #[get]
                 KnownFolderEntries: super::super::Foundation::Collections::IVector<StorageProviderKnownFolderEntry>;
                 SyncRequested: StorageProviderKnownFolderSyncRequestedHandler;
             }
-            #[guid(0x51359342_f7c0_53d0_bbb6_1cdc098ebda9)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0x51359342_f7c0_53d0_bbb6_1cdc098ebda9)]
             interface IStorageProviderKnownFolderSyncInfoSource {
                 fn GetKnownFolderSyncInfo(&self) -> StorageProviderKnownFolderSyncInfo;
                 event KnownFolderSyncInfoChanged: super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, Object>;
             }
-            #[guid(0xaaee03a7_a7f6_50be_a9b0_8e82d0c81082)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0xaaee03a7_a7f6_50be_a9b0_8e82d0c81082)]
             interface IStorageProviderKnownFolderSyncInfoSourceFactory {
                 fn GetKnownFolderSyncInfoSource(&self) -> IStorageProviderKnownFolderSyncInfoSource;
             }
-            #[guid(0xeda6d569_b4e8_542f_ab8d_f3613f250a4a)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderKnownFolderSyncRequestArgs)]
+            #[guid(0xeda6d569_b4e8_542f_ab8d_f3613f250a4a)]
             interface IStorageProviderKnownFolderSyncRequestArgs {
                 #[get]
                 KnownFolders: super::super::Foundation::Collections::IVectorView<GUID>;
                 #[get]
                 Source: super::StorageFolder;
             }
-            #[guid(0xef38e591_a7cb_5e7d_9b5e_22749842697c)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderMoreInfoUI)]
+            #[guid(0xef38e591_a7cb_5e7d_9b5e_22749842697c)]
             interface IStorageProviderMoreInfoUI {
                 Message: String;
                 Command: IStorageProviderUICommand;
             }
-            #[guid(0x658d2f0e_63b7_4567_acf9_51abe301dda5)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[guid(0x658d2f0e_63b7_4567_acf9_51abe301dda5)]
             interface IStorageProviderPropertyCapabilities {
                 fn IsPropertySupported(&self, #[in] propertyCanonicalName: String) -> bool;
             }
-            #[guid(0xf1cd00ae_b4a9_5d20_a598_3eb4dd8ff8f4)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0xf1cd00ae_b4a9_5d20_a598_3eb4dd8ff8f4)]
             interface IStorageProviderQueryResult {
                 Kind: StorageProviderResultKind;
                 ResultId: String;
@@ -235,43 +235,43 @@ mod Windows {
                 #[get]
                 RequestedProperties: super::super::Foundation::Collections::PropertySet;
             }
-            #[guid(0x57c28407_7d21_5f98_ac52_0926a97f3259)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderQueryResultSet)]
+            #[guid(0x57c28407_7d21_5f98_ac52_0926a97f3259)]
             interface IStorageProviderQueryResultSet {
                 fn GetResults(&self) -> [IStorageProviderQueryResult];
                 QueryResultId: String;
                 Status: StorageProviderSearchQueryStatus;
             }
-            #[guid(0x301974c2_9b0a_51d1_84b5_32578ee3083d)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderQueryResultSet)]
+            #[guid(0x301974c2_9b0a_51d1_84b5_32578ee3083d)]
             interface IStorageProviderQueryResultSetFactory {
                 fn CreateInstance(&self, #[in] results: [IStorageProviderQueryResult]) -> StorageProviderQueryResultSet;
             }
-            #[guid(0xba6295c3_312e_544f_9fd5_1f81b21f3649)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderQuotaUI)]
+            #[guid(0xba6295c3_312e_544f_9fd5_1f81b21f3649)]
             interface IStorageProviderQuotaUI {
                 QuotaTotalInBytes: u64;
                 QuotaUsedInBytes: u64;
                 QuotaUsedLabel: String;
                 QuotaUsedColor: super::super::Foundation::IReference<super::super::UI::Color>;
             }
-            #[guid(0x69cc977d_adad_59c9_8fd1_f30b6fae0fd9)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0x69cc977d_adad_59c9_8fd1_f30b6fae0fd9)]
             interface IStorageProviderSearchHandler {
                 fn Find(&self, #[in] options: StorageProviderSearchQueryOptions) -> StorageProviderQueryResultSet;
                 fn ReportUsage(&self, #[in] resultUsageKind: StorageProviderResultUsageKind, #[in] remoteFileId: String, #[in] resultId: String, #[in] latency: super::super::Foundation::TimeSpan);
             }
-            #[guid(0xb0dcad80_f3f5_516b_8ace_4e77022c9598)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0xb0dcad80_f3f5_516b_8ace_4e77022c9598)]
             interface IStorageProviderSearchHandlerFactory {
                 fn CreateSearchHandler(&self, #[in] cloudProviderId: String) -> IStorageProviderSearchHandler;
             }
-            #[guid(0x93d854eb_1007_563c_b213_cc44bd88fef2)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSearchQueryOptions)]
+            #[guid(0x93d854eb_1007_563c_b213_cc44bd88fef2)]
             interface IStorageProviderSearchQueryOptions {
                 #[get]
                 UserQuery: String;
@@ -290,17 +290,17 @@ mod Windows {
                 #[get]
                 PropertiesToFetch: super::super::Foundation::Collections::IVectorView<String>;
             }
-            #[guid(0xfc161049_0995_535f_99b7_fe292cbabaf5)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSearchResult)]
+            #[guid(0xfc161049_0995_535f_99b7_fe292cbabaf5)]
             interface IStorageProviderSearchResult {
                 MatchScore: f64;
                 MatchKind: StorageProviderSearchMatchKind;
                 MatchedPropertyName: String;
             }
-            #[guid(0x4c6055e2_029c_5539_8e51_a1afc838b5cb)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::Experimental]
+            #[guid(0x4c6055e2_029c_5539_8e51_a1afc838b5cb)]
             interface IStorageProviderShareLinkSource {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateLinkAsync(&self, #[in] storageItemList: super::super::Foundation::Collections::IVectorView<super::IStorageItem>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>;
@@ -309,9 +309,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetState(&self, #[in] storageItemList: super::super::Foundation::Collections::IVectorView<super::IStorageItem>) -> super::super::Foundation::IAsyncOperation<StorageProviderShareLinkState>;
             }
-            #[guid(0xd6b6a758_198d_5b80_977f_5ff73da33118)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderStatusUI)]
+            #[guid(0xd6b6a758_198d_5b80_977f_5ff73da33118)]
             interface IStorageProviderStatusUI {
                 ProviderState: StorageProviderState;
                 ProviderStateLabel: String;
@@ -322,19 +322,19 @@ mod Windows {
                 ProviderPrimaryCommand: IStorageProviderUICommand;
                 ProviderSecondaryCommands: super::super::Foundation::Collections::IVector<IStorageProviderUICommand>;
             }
-            #[guid(0xa306c249_3d66_5e70_9007_e43df96051ff)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0xa306c249_3d66_5e70_9007_e43df96051ff)]
             interface IStorageProviderStatusUISource {
                 fn GetStatusUI(&self) -> StorageProviderStatusUI;
                 event StatusUIChanged: super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, Object>;
             }
-            #[guid(0x12e46b74_4e5a_58d1_a62f_0376e8ee7dd8)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0x12e46b74_4e5a_58d1_a62f_0376e8ee7dd8)]
             interface IStorageProviderStatusUISourceFactory {
                 fn GetStatusUISource(&self, #[in] syncRootId: String) -> IStorageProviderStatusUISource;
             }
-            #[guid(0xaff493f6_e1fd_5d03_b480_f1849c83ef4a)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0xaff493f6_e1fd_5d03_b480_f1849c83ef4a)]
             interface IStorageProviderSuggestionsHandler {
                 fn GetSuggestions(&self, #[in] options: StorageProviderSuggestionsQueryOptions) -> StorageProviderQueryResultSet;
                 fn Add(&self, #[in] kind: StorageProviderResultKind, #[in] remoteFileId: String);
@@ -342,14 +342,14 @@ mod Windows {
                 fn GetDetails(&self, #[in] remoteFileId: String, #[in] propertiesToFetch: [String], #[in] queryId: String) -> StorageProviderSuggestionResult;
                 fn ReportUsage(&self, #[in] resultUsageKind: StorageProviderResultUsageKind, #[in] remoteFileId: String, #[in] resultId: String, #[in] latency: super::super::Foundation::TimeSpan);
             }
-            #[guid(0xdc7b35d8_a25b_58a3_ace7_b3543106a2aa)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0xdc7b35d8_a25b_58a3_ace7_b3543106a2aa)]
             interface IStorageProviderSuggestionsHandlerFactory {
                 fn CreateSuggestionsHandler(&self, #[in] cloudProviderId: String) -> IStorageProviderSuggestionsHandler;
             }
-            #[guid(0xefb8b74d_0d84_579c_b137_ea730635d9bb)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSuggestionsQueryOptions)]
+            #[guid(0xefb8b74d_0d84_579c_b137_ea730635d9bb)]
             interface IStorageProviderSuggestionsQueryOptions {
                 #[get]
                 SuggestionsKind: StorageProviderResultKind;
@@ -362,9 +362,9 @@ mod Windows {
                 #[get]
                 PropertiesToFetch: super::super::Foundation::Collections::IVectorView<String>;
             }
-            #[guid(0x7c1305c4_99f9_41ac_8904_ab055d654926)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSyncRootInfo)]
+            #[guid(0x7c1305c4_99f9_41ac_8904_ab055d654926)]
             interface IStorageProviderSyncRootInfo {
                 Id: String;
                 Context: super::Streams::IBuffer;
@@ -384,22 +384,22 @@ mod Windows {
                 StorageProviderItemPropertyDefinitions: super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>;
                 RecycleBinUri: super::super::Foundation::Uri;
             }
-            #[guid(0xcf51b023_7cf1_5166_bdba_efd95f529e31)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSyncRootInfo)]
+            #[guid(0xcf51b023_7cf1_5166_bdba_efd95f529e31)]
             interface IStorageProviderSyncRootInfo2 {
                 ProviderId: GUID;
             }
-            #[guid(0x507a6617_bef6_56fd_855e_75ace2e45cf5)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSyncRootInfo)]
+            #[guid(0x507a6617_bef6_56fd_855e_75ace2e45cf5)]
             interface IStorageProviderSyncRootInfo3 {
                 #[get]
                 FallbackFileTypeInfo: super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>;
             }
-            #[guid(0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSyncRootManager)]
+            #[guid(0x3e99fbbf_8fe3_4b40_abc7_f6fc3d74c98e)]
             interface IStorageProviderSyncRootManagerStatics {
                 fn Register(&self, #[in] syncRootInformation: StorageProviderSyncRootInfo);
                 fn Unregister(&self, #[in] id: String);
@@ -407,14 +407,14 @@ mod Windows {
                 fn GetSyncRootInformationForId(&self, #[in] id: String) -> StorageProviderSyncRootInfo;
                 fn GetCurrentSyncRoots(&self) -> super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>;
             }
-            #[guid(0xefb6cfee_1374_544e_9df1_5598d2e9cfdd)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StorageProviderSyncRootManager)]
+            #[guid(0xefb6cfee_1374_544e_9df1_5598d2e9cfdd)]
             interface IStorageProviderSyncRootManagerStatics2 {
                 fn IsSupported(&self) -> bool;
             }
-            #[guid(0x0c3e0760_d846_568f_9484_105cc57b502b)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[guid(0x0c3e0760_d846_568f_9484_105cc57b502b)]
             interface IStorageProviderUICommand {
                 #[get]
                 Label: String;
@@ -426,14 +426,14 @@ mod Windows {
                 State: StorageProviderUICommandState;
                 fn Invoke(&self);
             }
-            #[guid(0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 131072)]
+            #[guid(0xb29806d1_8be0_4962_8bb6_0d4c2e14d47a)]
             interface IStorageProviderUriSource {
                 fn GetPathForContentUri(&self, #[in] contentUri: String, #[in] result: StorageProviderGetPathForContentUriResult);
                 fn GetContentInfoForPath(&self, #[in] path: String, #[in] result: StorageProviderGetContentInfoForPathResult);
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ReadActivationMode {
                 NotNeeded = 0,
                 BeforeAccess = 1,
@@ -462,34 +462,36 @@ mod Windows {
             class StorageProviderGetPathForContentUriResult {
                 IStorageProviderGetPathForContentUriResult,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum StorageProviderHardlinkPolicy {
                 None = 0,
                 Allowed = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[repr(i32)]
             enum StorageProviderHydrationPolicy {
                 Partial = 0,
                 Progressive = 1,
                 Full = 2,
                 AlwaysFull = 3,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum StorageProviderHydrationPolicyModifier {
                 None = 0,
                 ValidationRequired = 1,
                 StreamingAllowed = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Storage.Provider.CloudFilesContract", 196608)]
                 AutoDehydrationAllowed = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Storage.Provider.CloudFilesContract", 393216)]
                 AllowFullRestartHydration = 8,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum StorageProviderInSyncPolicy {
                 Default = 0,
                 FileCreationTime = 1,
@@ -545,11 +547,11 @@ mod Windows {
             class StorageProviderKnownFolderSyncRequestArgs {
                 IStorageProviderKnownFolderSyncRequestArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[guid(0xc4cbb4f5_13dd_5c8e_8b96_336fc30c629b)]
-            #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             delegate fn StorageProviderKnownFolderSyncRequestedHandler(#[in] args: StorageProviderKnownFolderSyncRequestArgs);
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[repr(i32)]
             enum StorageProviderKnownFolderSyncStatus {
                 Available = 0,
                 Enrolling = 1,
@@ -562,14 +564,14 @@ mod Windows {
             class StorageProviderMoreInfoUI {
                 IStorageProviderMoreInfoUI,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[repr(i32)]
             enum StorageProviderPopulationPolicy {
                 Full = 1,
                 AlwaysFull = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 65536)]
+            #[repr(i32)]
             enum StorageProviderProtectionMode {
                 Unknown = 0,
                 Personal = 1,
@@ -588,8 +590,8 @@ mod Windows {
             class StorageProviderQuotaUI {
                 IStorageProviderQuotaUI,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[repr(i32)]
             enum StorageProviderResultKind {
                 Search = 0,
                 Recommended = 1,
@@ -599,15 +601,15 @@ mod Windows {
                 RelatedFiles = 5,
                 RelatedConversations = 6,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[repr(i32)]
             enum StorageProviderResultUsageKind {
                 Rendered = 0,
                 Opened = 1,
                 SuggestionResponseReceived = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[repr(i32)]
             enum StorageProviderSearchMatchKind {
                 Lexical = 0,
                 Semantic = 1,
@@ -617,8 +619,8 @@ mod Windows {
             class StorageProviderSearchQueryOptions {
                 IStorageProviderSearchQueryOptions,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[repr(i32)]
             enum StorageProviderSearchQueryStatus {
                 Success = 0,
                 Error = 1,
@@ -637,15 +639,15 @@ mod Windows {
                 IStorageProviderSearchResult,
                 IStorageProviderQueryResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
             #[Windows::Foundation::Metadata::Experimental]
+            #[repr(i32)]
             enum StorageProviderShareLinkState {
                 Enabled = 0,
                 Disabled = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 327680)]
+            #[repr(i32)]
             enum StorageProviderState {
                 InSync = 0,
                 Syncing = 1,
@@ -692,30 +694,30 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IStorageProviderSyncRootManagerStatics2, 262144, "Windows.Storage.Provider.CloudFilesContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class StorageProviderSyncRootManager {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 458752)]
+            #[repr(i32)]
             enum StorageProviderUICommandState {
                 Enabled = 0,
                 Disabled = 1,
                 Hidden = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(CloudFilesContract, 131072)]
+            #[repr(i32)]
             enum StorageProviderUriSourceStatus {
                 Success = 0,
                 NoSyncRoot = 1,
                 FileNotFound = 2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum UIStatus {
                 Unavailable = 0,
                 Hidden = 1,
                 Visible = 2,
                 Complete = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum WriteActivationMode {
                 ReadOnly = 0,
                 NotNeeded = 1,

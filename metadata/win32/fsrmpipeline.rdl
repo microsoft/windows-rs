@@ -25,31 +25,31 @@ mod Windows {
         const FsrmNeverModified: ULONGLONG = 0;
         #[guid(0xd2dc89da_ee91_48a0_85d8_cc72a56f7d04)]
         interface IFsrmClassificationManager: IDispatch {
-            fn get_ClassificationReportFormats(&self, #[out] #[retval] #[out_ptr] formats: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ClassificationReportFormats(&self, #[out] #[out_ptr] #[retval] formats: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_ClassificationReportFormats(&self, #[in] formats: *mut SAFEARRAY) -> HRESULT;
             fn get_Logging(&self, #[out] #[retval] logging: *mut i32) -> HRESULT;
             fn put_Logging(&self, #[in] logging: i32) -> HRESULT;
-            fn get_ClassificationReportMailTo(&self, #[out] #[retval] #[out_ptr] mailTo: *mut BSTR) -> HRESULT;
+            fn get_ClassificationReportMailTo(&self, #[out] #[out_ptr] #[retval] mailTo: *mut BSTR) -> HRESULT;
             fn put_ClassificationReportMailTo(&self, #[in] mailTo: BSTR) -> HRESULT;
             fn get_ClassificationReportEnabled(&self, #[out] #[retval] reportEnabled: *mut VARIANT_BOOL) -> HRESULT;
             fn put_ClassificationReportEnabled(&self, #[in] reportEnabled: VARIANT_BOOL) -> HRESULT;
-            fn get_ClassificationLastReportPathWithoutExtension(&self, #[out] #[retval] #[out_ptr] lastReportPath: *mut BSTR) -> HRESULT;
-            fn get_ClassificationLastError(&self, #[out] #[retval] #[out_ptr] lastError: *mut BSTR) -> HRESULT;
+            fn get_ClassificationLastReportPathWithoutExtension(&self, #[out] #[out_ptr] #[retval] lastReportPath: *mut BSTR) -> HRESULT;
+            fn get_ClassificationLastError(&self, #[out] #[out_ptr] #[retval] lastError: *mut BSTR) -> HRESULT;
             fn get_ClassificationRunningStatus(&self, #[out] #[retval] runningStatus: *mut FsrmReportRunningStatus) -> HRESULT;
-            fn EnumPropertyDefinitions(&self, #[in] options: FsrmEnumOptions, #[out] #[retval] #[out_ptr] propertyDefinitions: *mut IFsrmCollection) -> HRESULT;
-            fn CreatePropertyDefinition(&self, #[out] #[retval] #[out_ptr] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
-            fn GetPropertyDefinition(&self, #[in] propertyName: BSTR, #[out] #[retval] #[out_ptr] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
-            fn EnumRules(&self, #[in] ruleType: FsrmRuleType, #[in] options: FsrmEnumOptions, #[out] #[retval] #[out_ptr] Rules: *mut IFsrmCollection) -> HRESULT;
-            fn CreateRule(&self, #[in] ruleType: FsrmRuleType, #[out] #[retval] #[out_ptr] Rule: *mut IFsrmRule) -> HRESULT;
-            fn GetRule(&self, #[in] ruleName: BSTR, #[in] ruleType: FsrmRuleType, #[out] #[retval] #[out_ptr] Rule: *mut IFsrmRule) -> HRESULT;
-            fn EnumModuleDefinitions(&self, #[in] moduleType: FsrmPipelineModuleType, #[in] options: FsrmEnumOptions, #[out] #[retval] #[out_ptr] moduleDefinitions: *mut IFsrmCollection) -> HRESULT;
-            fn CreateModuleDefinition(&self, #[in] moduleType: FsrmPipelineModuleType, #[out] #[retval] #[out_ptr] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
-            fn GetModuleDefinition(&self, #[in] moduleName: BSTR, #[in] moduleType: FsrmPipelineModuleType, #[out] #[retval] #[out_ptr] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
+            fn EnumPropertyDefinitions(&self, #[in] options: FsrmEnumOptions, #[out] #[out_ptr] #[retval] propertyDefinitions: *mut IFsrmCollection) -> HRESULT;
+            fn CreatePropertyDefinition(&self, #[out] #[out_ptr] #[retval] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
+            fn GetPropertyDefinition(&self, #[in] propertyName: BSTR, #[out] #[out_ptr] #[retval] propertyDefinition: *mut IFsrmPropertyDefinition) -> HRESULT;
+            fn EnumRules(&self, #[in] ruleType: FsrmRuleType, #[in] options: FsrmEnumOptions, #[out] #[out_ptr] #[retval] Rules: *mut IFsrmCollection) -> HRESULT;
+            fn CreateRule(&self, #[in] ruleType: FsrmRuleType, #[out] #[out_ptr] #[retval] Rule: *mut IFsrmRule) -> HRESULT;
+            fn GetRule(&self, #[in] ruleName: BSTR, #[in] ruleType: FsrmRuleType, #[out] #[out_ptr] #[retval] Rule: *mut IFsrmRule) -> HRESULT;
+            fn EnumModuleDefinitions(&self, #[in] moduleType: FsrmPipelineModuleType, #[in] options: FsrmEnumOptions, #[out] #[out_ptr] #[retval] moduleDefinitions: *mut IFsrmCollection) -> HRESULT;
+            fn CreateModuleDefinition(&self, #[in] moduleType: FsrmPipelineModuleType, #[out] #[out_ptr] #[retval] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
+            fn GetModuleDefinition(&self, #[in] moduleName: BSTR, #[in] moduleType: FsrmPipelineModuleType, #[out] #[out_ptr] #[retval] moduleDefinition: *mut IFsrmPipelineModuleDefinition) -> HRESULT;
             fn RunClassification(&self, #[in] context: FsrmReportGenerationContext, #[in] reserved: BSTR) -> HRESULT;
             fn WaitForClassificationCompletion(&self, #[in] waitSeconds: i32, #[out] #[retval] completed: *mut VARIANT_BOOL) -> HRESULT;
             fn CancelClassification(&self) -> HRESULT;
-            fn EnumFileProperties(&self, #[in] filePath: BSTR, #[in] options: FsrmGetFilePropertyOptions, #[out] #[retval] #[out_ptr] fileProperties: *mut IFsrmCollection) -> HRESULT;
-            fn GetFileProperty(&self, #[in] filePath: BSTR, #[in] propertyName: BSTR, #[in] options: FsrmGetFilePropertyOptions, #[out] #[retval] #[out_ptr] property: *mut IFsrmProperty) -> HRESULT;
+            fn EnumFileProperties(&self, #[in] filePath: BSTR, #[in] options: FsrmGetFilePropertyOptions, #[out] #[out_ptr] #[retval] fileProperties: *mut IFsrmCollection) -> HRESULT;
+            fn GetFileProperty(&self, #[in] filePath: BSTR, #[in] propertyName: BSTR, #[in] options: FsrmGetFilePropertyOptions, #[out] #[out_ptr] #[retval] property: *mut IFsrmProperty) -> HRESULT;
             fn SetFileProperty(&self, #[in] filePath: BSTR, #[in] propertyName: BSTR, #[in] propertyValue: BSTR) -> HRESULT;
             fn ClearFileProperty(&self, #[in] filePath: BSTR, #[in] property: BSTR) -> HRESULT;
         }
@@ -61,16 +61,16 @@ mod Windows {
         interface IFsrmClassificationRule: IFsrmRule {
             fn get_ExecutionOption(&self, #[out] #[retval] executionOption: *mut FsrmExecutionOption) -> HRESULT;
             fn put_ExecutionOption(&self, #[in] executionOption: FsrmExecutionOption) -> HRESULT;
-            fn get_PropertyAffected(&self, #[out] #[retval] #[out_ptr] property: *mut BSTR) -> HRESULT;
+            fn get_PropertyAffected(&self, #[out] #[out_ptr] #[retval] property: *mut BSTR) -> HRESULT;
             fn put_PropertyAffected(&self, #[in] property: BSTR) -> HRESULT;
-            fn get_Value(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
+            fn get_Value(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
             fn put_Value(&self, #[in] value: BSTR) -> HRESULT;
         }
         #[guid(0xbb36ea26_6318_4b8c_8592_f72dd602e7a5)]
         interface IFsrmClassifierModuleDefinition: IFsrmPipelineModuleDefinition {
-            fn get_PropertiesAffected(&self, #[out] #[retval] #[out_ptr] propertiesAffected: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_PropertiesAffected(&self, #[out] #[out_ptr] #[retval] propertiesAffected: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_PropertiesAffected(&self, #[in] propertiesAffected: *mut SAFEARRAY) -> HRESULT;
-            fn get_PropertiesUsed(&self, #[out] #[retval] #[out_ptr] propertiesUsed: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_PropertiesUsed(&self, #[out] #[out_ptr] #[retval] propertiesUsed: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_PropertiesUsed(&self, #[in] propertiesUsed: *mut SAFEARRAY) -> HRESULT;
             fn get_NeedsExplicitValue(&self, #[out] #[retval] needsExplicitValue: *mut VARIANT_BOOL) -> HRESULT;
             fn put_NeedsExplicitValue(&self, #[in] needsExplicitValue: VARIANT_BOOL) -> HRESULT;
@@ -86,21 +86,21 @@ mod Windows {
         }
         #[guid(0xc16014f3_9aa1_46b3_b0a7_ab146eb205f2)]
         interface IFsrmPipelineModuleConnector: IDispatch {
-            fn get_ModuleImplementation(&self, #[out] #[retval] #[out_ptr] pipelineModuleImplementation: *mut IFsrmPipelineModuleImplementation) -> HRESULT;
-            fn get_ModuleName(&self, #[out] #[retval] #[out_ptr] userName: *mut BSTR) -> HRESULT;
-            fn get_HostingUserAccount(&self, #[out] #[retval] #[out_ptr] userAccount: *mut BSTR) -> HRESULT;
+            fn get_ModuleImplementation(&self, #[out] #[out_ptr] #[retval] pipelineModuleImplementation: *mut IFsrmPipelineModuleImplementation) -> HRESULT;
+            fn get_ModuleName(&self, #[out] #[out_ptr] #[retval] userName: *mut BSTR) -> HRESULT;
+            fn get_HostingUserAccount(&self, #[out] #[out_ptr] #[retval] userAccount: *mut BSTR) -> HRESULT;
             fn get_HostingProcessPid(&self, #[out] #[retval] pid: *mut i32) -> HRESULT;
             fn Bind(&self, #[in] #[opt] moduleDefinition: IFsrmPipelineModuleDefinition, #[in] #[opt] moduleImplementation: IFsrmPipelineModuleImplementation) -> HRESULT;
         }
         #[guid(0x515c1277_2c81_440e_8fcf_367921ed4f59)]
         interface IFsrmPipelineModuleDefinition: IFsrmObject {
-            fn get_ModuleClsid(&self, #[out] #[retval] #[out_ptr] moduleClsid: *mut BSTR) -> HRESULT;
+            fn get_ModuleClsid(&self, #[out] #[out_ptr] #[retval] moduleClsid: *mut BSTR) -> HRESULT;
             fn put_ModuleClsid(&self, #[in] moduleClsid: BSTR) -> HRESULT;
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
             fn put_Name(&self, #[in] name: BSTR) -> HRESULT;
-            fn get_Company(&self, #[out] #[retval] #[out_ptr] company: *mut BSTR) -> HRESULT;
+            fn get_Company(&self, #[out] #[out_ptr] #[retval] company: *mut BSTR) -> HRESULT;
             fn put_Company(&self, #[in] company: BSTR) -> HRESULT;
-            fn get_Version(&self, #[out] #[retval] #[out_ptr] version: *mut BSTR) -> HRESULT;
+            fn get_Version(&self, #[out] #[out_ptr] #[retval] version: *mut BSTR) -> HRESULT;
             fn put_Version(&self, #[in] version: BSTR) -> HRESULT;
             fn get_ModuleType(&self, #[out] #[retval] moduleType: *mut FsrmPipelineModuleType) -> HRESULT;
             fn get_Enabled(&self, #[out] #[retval] enabled: *mut VARIANT_BOOL) -> HRESULT;
@@ -109,9 +109,9 @@ mod Windows {
             fn put_NeedsFileContent(&self, #[in] needsFileContent: VARIANT_BOOL) -> HRESULT;
             fn get_Account(&self, #[out] #[retval] retrievalAccount: *mut FsrmAccountType) -> HRESULT;
             fn put_Account(&self, #[in] retrievalAccount: FsrmAccountType) -> HRESULT;
-            fn get_SupportedExtensions(&self, #[out] #[retval] #[out_ptr] supportedExtensions: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_SupportedExtensions(&self, #[out] #[out_ptr] #[retval] supportedExtensions: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_SupportedExtensions(&self, #[in] supportedExtensions: *mut SAFEARRAY) -> HRESULT;
-            fn get_Parameters(&self, #[out] #[retval] #[out_ptr] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_Parameters(&self, #[out] #[out_ptr] #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xb7907906_2b02_4cb5_84a9_fdf54613d6cd)]
@@ -121,17 +121,17 @@ mod Windows {
         }
         #[guid(0x4a73fee4_4102_4fcc_9ffb_38614f9ee768)]
         interface IFsrmProperty: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] name: *mut BSTR) -> HRESULT;
-            fn get_Value(&self, #[out] #[retval] #[out_ptr] value: *mut BSTR) -> HRESULT;
-            fn get_Sources(&self, #[out] #[retval] #[out_ptr] sources: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_Value(&self, #[out] #[out_ptr] #[retval] value: *mut BSTR) -> HRESULT;
+            fn get_Sources(&self, #[out] #[out_ptr] #[retval] sources: *mut *mut SAFEARRAY) -> HRESULT;
             fn get_PropertyFlags(&self, #[out] #[retval] flags: *mut i32) -> HRESULT;
         }
         #[guid(0x774589d1_d300_4f7a_9a24_f7b766800250)]
         interface IFsrmPropertyBag: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] name: *mut BSTR) -> HRESULT;
-            fn get_RelativePath(&self, #[out] #[retval] #[out_ptr] path: *mut BSTR) -> HRESULT;
-            fn get_VolumeName(&self, #[out] #[retval] #[out_ptr] volumeName: *mut BSTR) -> HRESULT;
-            fn get_RelativeNamespaceRoot(&self, #[out] #[retval] #[out_ptr] relativeNamespaceRoot: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_RelativePath(&self, #[out] #[out_ptr] #[retval] path: *mut BSTR) -> HRESULT;
+            fn get_VolumeName(&self, #[out] #[out_ptr] #[retval] volumeName: *mut BSTR) -> HRESULT;
+            fn get_RelativeNamespaceRoot(&self, #[out] #[out_ptr] #[retval] relativeNamespaceRoot: *mut BSTR) -> HRESULT;
             fn get_VolumeIndex(&self, #[out] #[retval] volumeId: *mut u32) -> HRESULT;
             fn get_FileId(&self, #[out] #[retval] fileId: *mut VARIANT) -> HRESULT;
             fn get_ParentDirectoryId(&self, #[out] #[retval] parentDirectoryId: *mut VARIANT) -> HRESULT;
@@ -141,11 +141,11 @@ mod Windows {
             fn get_LastAccessTime(&self, #[out] #[retval] lastAccessTime: *mut VARIANT) -> HRESULT;
             fn get_LastModificationTime(&self, #[out] #[retval] lastModificationTime: *mut VARIANT) -> HRESULT;
             fn get_Attributes(&self, #[out] #[retval] attributes: *mut u32) -> HRESULT;
-            fn get_OwnerSid(&self, #[out] #[retval] #[out_ptr] ownerSid: *mut BSTR) -> HRESULT;
-            fn get_FilePropertyNames(&self, #[out] #[retval] #[out_ptr] filePropertyNames: *mut *mut SAFEARRAY) -> HRESULT;
-            fn get_Messages(&self, #[out] #[retval] #[out_ptr] messages: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_OwnerSid(&self, #[out] #[out_ptr] #[retval] ownerSid: *mut BSTR) -> HRESULT;
+            fn get_FilePropertyNames(&self, #[out] #[out_ptr] #[retval] filePropertyNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_Messages(&self, #[out] #[out_ptr] #[retval] messages: *mut *mut SAFEARRAY) -> HRESULT;
             fn get_PropertyBagFlags(&self, #[out] #[retval] flags: *mut u32) -> HRESULT;
-            fn GetFileProperty(&self, #[in] name: BSTR, #[out] #[retval] #[out_ptr] fileProperty: *mut IFsrmProperty) -> HRESULT;
+            fn GetFileProperty(&self, #[in] name: BSTR, #[out] #[out_ptr] #[retval] fileProperty: *mut IFsrmProperty) -> HRESULT;
             fn SetFileProperty(&self, #[in] name: BSTR, #[in] value: BSTR) -> HRESULT;
             fn AddMessage(&self, #[in] message: BSTR) -> HRESULT;
             fn GetFileStreamInterface(&self, #[in] accessMode: FsrmFileStreamingMode, #[in] interfaceType: FsrmFileStreamingInterfaceType, #[out] #[retval] pStreamInterface: *mut VARIANT) -> HRESULT;
@@ -153,48 +153,48 @@ mod Windows {
         #[guid(0x0e46bdbd_2402_4fed_9c30_9266e6eb2cc9)]
         interface IFsrmPropertyBag2: IFsrmPropertyBag {
             fn GetFieldValue(&self, #[in] field: FsrmPropertyBagField, #[out] #[retval] value: *mut VARIANT) -> HRESULT;
-            fn GetUntrustedInFileProperties(&self, #[out] #[retval] #[out_ptr] props: *mut IFsrmCollection) -> HRESULT;
+            fn GetUntrustedInFileProperties(&self, #[out] #[out_ptr] #[retval] props: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0xede0150f_e9a3_419c_877c_01fe5d24c5d3)]
         interface IFsrmPropertyDefinition: IFsrmObject {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
             fn put_Name(&self, #[in] name: BSTR) -> HRESULT;
             fn get_Type(&self, #[out] #[retval] r#type: *mut FsrmPropertyDefinitionType) -> HRESULT;
             fn put_Type(&self, #[in] r#type: FsrmPropertyDefinitionType) -> HRESULT;
-            fn get_PossibleValues(&self, #[out] #[retval] #[out_ptr] possibleValues: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_PossibleValues(&self, #[out] #[out_ptr] #[retval] possibleValues: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_PossibleValues(&self, #[in] possibleValues: *mut SAFEARRAY) -> HRESULT;
-            fn get_ValueDescriptions(&self, #[out] #[retval] #[out_ptr] valueDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_ValueDescriptions(&self, #[out] #[out_ptr] #[retval] valueDescriptions: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_ValueDescriptions(&self, #[in] valueDescriptions: *mut SAFEARRAY) -> HRESULT;
-            fn get_Parameters(&self, #[out] #[retval] #[out_ptr] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_Parameters(&self, #[out] #[out_ptr] #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x47782152_d16c_4229_b4e1_0ddfe308b9f6)]
         interface IFsrmPropertyDefinition2: IFsrmPropertyDefinition {
             fn get_PropertyDefinitionFlags(&self, #[out] #[retval] propertyDefinitionFlags: *mut i32) -> HRESULT;
-            fn get_DisplayName(&self, #[out] #[retval] #[out_ptr] name: *mut BSTR) -> HRESULT;
+            fn get_DisplayName(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
             fn put_DisplayName(&self, #[in] name: BSTR) -> HRESULT;
             fn get_AppliesTo(&self, #[out] #[retval] appliesTo: *mut i32) -> HRESULT;
-            fn get_ValueDefinitions(&self, #[out] #[retval] #[out_ptr] valueDefinitions: *mut IFsrmCollection) -> HRESULT;
+            fn get_ValueDefinitions(&self, #[out] #[out_ptr] #[retval] valueDefinitions: *mut IFsrmCollection) -> HRESULT;
         }
         #[guid(0xe946d148_bd67_4178_8e22_1c44925ed710)]
         interface IFsrmPropertyDefinitionValue: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] name: *mut BSTR) -> HRESULT;
-            fn get_DisplayName(&self, #[out] #[retval] #[out_ptr] displayName: *mut BSTR) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] description: *mut BSTR) -> HRESULT;
-            fn get_UniqueID(&self, #[out] #[retval] #[out_ptr] uniqueID: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
+            fn get_DisplayName(&self, #[out] #[out_ptr] #[retval] displayName: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] description: *mut BSTR) -> HRESULT;
+            fn get_UniqueID(&self, #[out] #[out_ptr] #[retval] uniqueID: *mut BSTR) -> HRESULT;
         }
         #[guid(0xcb0df960_16f5_4495_9079_3f9360d831df)]
         interface IFsrmRule: IFsrmObject {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] name: *mut BSTR) -> HRESULT;
             fn put_Name(&self, #[in] name: BSTR) -> HRESULT;
             fn get_RuleType(&self, #[out] #[retval] ruleType: *mut FsrmRuleType) -> HRESULT;
-            fn get_ModuleDefinitionName(&self, #[out] #[retval] #[out_ptr] moduleDefinitionName: *mut BSTR) -> HRESULT;
+            fn get_ModuleDefinitionName(&self, #[out] #[out_ptr] #[retval] moduleDefinitionName: *mut BSTR) -> HRESULT;
             fn put_ModuleDefinitionName(&self, #[in] moduleDefinitionName: BSTR) -> HRESULT;
-            fn get_NamespaceRoots(&self, #[out] #[retval] #[out_ptr] namespaceRoots: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_NamespaceRoots(&self, #[out] #[out_ptr] #[retval] namespaceRoots: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_NamespaceRoots(&self, #[in] namespaceRoots: *mut SAFEARRAY) -> HRESULT;
             fn get_RuleFlags(&self, #[out] #[retval] ruleFlags: *mut i32) -> HRESULT;
             fn put_RuleFlags(&self, #[in] ruleFlags: i32) -> HRESULT;
-            fn get_Parameters(&self, #[out] #[retval] #[out_ptr] parameters: *mut *mut SAFEARRAY) -> HRESULT;
+            fn get_Parameters(&self, #[out] #[out_ptr] #[retval] parameters: *mut *mut SAFEARRAY) -> HRESULT;
             fn put_Parameters(&self, #[in] parameters: *mut SAFEARRAY) -> HRESULT;
             fn get_LastModified(&self, #[out] #[retval] lastModified: *mut VARIANT) -> HRESULT;
         }

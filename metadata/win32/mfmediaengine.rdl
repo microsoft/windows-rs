@@ -4,7 +4,7 @@ mod Windows {
         const CLSID_MFMediaEngineClassFactory: GUID = 0xb44392da_499b_446b_a4cb_005fead0e6d5;
         #[guid(0xebbaf249_afc2_4582_91c6_b60df2e84954)]
         interface IAudioSourceProvider: IUnknown {
-            fn ProvideInput(&self, #[in] dwSampleCount: DWORD, #[in] #[out] pdwChannelCount: *mut DWORD, #[out] #[opt] #[writable(entry, dwSampleCount * *pdwChannelCount)] pInterleavedAudioData: *mut f32) -> HRESULT;
+            fn ProvideInput(&self, #[in] dwSampleCount: DWORD, #[in] #[out] pdwChannelCount: *mut DWORD, #[opt] #[out] #[writable(entry, dwSampleCount * *pdwChannelCount)] pInterleavedAudioData: *mut f32) -> HRESULT;
         }
         #[guid(0x24cd47f7_81d8_4785_adb2_af697a963cd2)]
         interface IMFBufferListNotify: IUnknown {
@@ -64,8 +64,8 @@ mod Windows {
             fn SetVolume(&self, #[in] Volume: f64) -> HRESULT;
             fn HasVideo(&self) -> BOOL;
             fn HasAudio(&self) -> BOOL;
-            fn GetNativeVideoSize(&self, #[out] #[opt] cx: *mut DWORD, #[out] #[opt] cy: *mut DWORD) -> HRESULT;
-            fn GetVideoAspectRatio(&self, #[out] #[opt] cx: *mut DWORD, #[out] #[opt] cy: *mut DWORD) -> HRESULT;
+            fn GetNativeVideoSize(&self, #[opt] #[out] cx: *mut DWORD, #[opt] #[out] cy: *mut DWORD) -> HRESULT;
+            fn GetVideoAspectRatio(&self, #[opt] #[out] cx: *mut DWORD, #[opt] #[out] cy: *mut DWORD) -> HRESULT;
             fn Shutdown(&self) -> HRESULT;
             fn TransferVideoFrame(&self, #[in] pDstSurf: IUnknown, #[in] #[opt] pSrc: *const MFVideoNormalizedRect, #[in] pDst: *const RECT, #[in] #[opt] pBorderClr: *const MFARGB) -> HRESULT;
             fn OnVideoStreamTick(&self, #[out] pPts: *mut LONGLONG) -> HRESULT;
@@ -91,7 +91,7 @@ mod Windows {
         }
         #[guid(0xfbe256c1_43cf_4a9b_8cb8_ce8632a34186)]
         interface IMFMediaEngineClassFactory4: IUnknown {
-            fn CreateContentDecryptionModuleFactory(&self, #[in] keySystem: LPCWSTR, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn CreateContentDecryptionModuleFactory(&self, #[in] keySystem: LPCWSTR, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0xc56156c6_ea5b_48a5_9df8_fbe035d0929e)]
         interface IMFMediaEngineClassFactoryEx: IMFMediaEngineClassFactory {
@@ -379,8 +379,8 @@ mod Windows {
             fn GetCueByIndex(&self, #[in] index: DWORD, #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn GetCueById(&self, #[in] id: DWORD, #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn GetCueByOriginalId(&self, #[in] originalId: LPCWSTR, #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn AddTextCue(&self, #[in] start: f64, #[in] duration: f64, #[in] text: LPCWSTR, #[out] #[opt] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
-            fn AddDataCue(&self, #[in] start: f64, #[in] duration: f64, #[in] #[readable(entry, bytes(dataSize))] data: *const BYTE, #[in] dataSize: DWORD, #[out] #[opt] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddTextCue(&self, #[in] start: f64, #[in] duration: f64, #[in] text: LPCWSTR, #[opt] #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
+            fn AddDataCue(&self, #[in] start: f64, #[in] duration: f64, #[in] #[readable(entry, bytes(dataSize))] data: *const BYTE, #[in] dataSize: DWORD, #[opt] #[out] #[out_ptr(null_on_failure)] cue: *mut IMFTimedTextCue) -> HRESULT;
             fn RemoveCue(&self, #[in] cue: IMFTimedTextCue) -> HRESULT;
         }
         #[guid(0xe13af3c1_4d47_4354_b1f5_e83ae0ecae60)]

@@ -94,8 +94,8 @@ mod Windows {
         }
         struct DXGI_PRESENT_PARAMETERS {
             DirtyRectsCount: UINT,
-            #[writable(DirtyRectsCount, nullable)]
             #[readable(DirtyRectsCount, nullable)]
+            #[writable(DirtyRectsCount, nullable)]
             pDirtyRects: *mut RECT,
             pScrollRect: *mut RECT,
             pScrollOffset: *mut POINT,
@@ -134,7 +134,7 @@ mod Windows {
         #[guid(0x05008617_fbfd_4051_a790_144884b4f6a9)]
         interface IDXGIDevice2: IDXGIDevice1 {
             fn OfferResources(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[in] Priority: DXGI_OFFER_RESOURCE_PRIORITY) -> HRESULT;
-            fn ReclaimResources(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[out] #[opt] #[writable(entry, NumResources)] #[readable(success, NumResources)] pDiscarded: *mut BOOL) -> HRESULT;
+            fn ReclaimResources(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[opt] #[out] #[readable(success, NumResources)] #[writable(entry, NumResources)] pDiscarded: *mut BOOL) -> HRESULT;
             fn EnqueueSetEvent(&self, #[in] hEvent: HANDLE) -> HRESULT;
         }
         #[guid(0xea9dbf1a_c88e_4486_854a_98aa0138f30c)]
@@ -158,7 +158,7 @@ mod Windows {
         }
         #[guid(0x00cddea8_939b_4b83_a340_a685226666cc)]
         interface IDXGIOutput1: IDXGIOutput {
-            fn GetDisplayModeList1(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[out] #[opt] #[writable(entry, *pNumModes)] #[readable(success, *pNumModes)] pDesc: *mut DXGI_MODE_DESC1) -> HRESULT;
+            fn GetDisplayModeList1(&self, #[in] EnumFormat: DXGI_FORMAT, #[in] Flags: UINT, #[in] #[out] pNumModes: *mut UINT, #[opt] #[out] #[readable(success, *pNumModes)] #[writable(entry, *pNumModes)] pDesc: *mut DXGI_MODE_DESC1) -> HRESULT;
             fn FindClosestMatchingMode1(&self, #[in] pModeToMatch: *const DXGI_MODE_DESC1, #[out] pClosestMatch: *mut DXGI_MODE_DESC1, #[in] #[opt] pConcernedDevice: IUnknown) -> HRESULT;
             fn GetDisplaySurfaceData1(&self, #[in] pDestination: IDXGIResource) -> HRESULT;
             fn DuplicateOutput(&self, #[in] pDevice: IUnknown, #[out] #[out_ptr(null_on_failure)] ppOutputDuplication: *mut IDXGIOutputDuplication) -> HRESULT;
@@ -167,9 +167,9 @@ mod Windows {
         interface IDXGIOutputDuplication: IDXGIObject {
             fn GetDesc(&self, #[out] pDesc: *mut DXGI_OUTDUPL_DESC);
             fn AcquireNextFrame(&self, #[in] TimeoutInMilliseconds: UINT, #[out] pFrameInfo: *mut DXGI_OUTDUPL_FRAME_INFO, #[out] #[out_ptr(null_on_failure)] ppDesktopResource: *mut IDXGIResource) -> HRESULT;
-            fn GetFrameDirtyRects(&self, #[in] DirtyRectsBufferSize: UINT, #[out] #[writable(entry, bytes(DirtyRectsBufferSize))] #[readable(success, bytes(*pDirtyRectsBufferSizeRequired))] pDirtyRectsBuffer: *mut RECT, #[out] pDirtyRectsBufferSizeRequired: *mut UINT) -> HRESULT;
-            fn GetFrameMoveRects(&self, #[in] MoveRectsBufferSize: UINT, #[out] #[writable(entry, bytes(MoveRectsBufferSize))] #[readable(success, bytes(*pMoveRectsBufferSizeRequired))] pMoveRectBuffer: *mut DXGI_OUTDUPL_MOVE_RECT, #[out] pMoveRectsBufferSizeRequired: *mut UINT) -> HRESULT;
-            fn GetFramePointerShape(&self, #[in] PointerShapeBufferSize: UINT, #[out] #[writable(entry, bytes(PointerShapeBufferSize))] #[readable(success, bytes(*pPointerShapeBufferSizeRequired))] pPointerShapeBuffer: *mut void, #[out] pPointerShapeBufferSizeRequired: *mut UINT, #[out] pPointerShapeInfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> HRESULT;
+            fn GetFrameDirtyRects(&self, #[in] DirtyRectsBufferSize: UINT, #[out] #[readable(success, bytes(*pDirtyRectsBufferSizeRequired))] #[writable(entry, bytes(DirtyRectsBufferSize))] pDirtyRectsBuffer: *mut RECT, #[out] pDirtyRectsBufferSizeRequired: *mut UINT) -> HRESULT;
+            fn GetFrameMoveRects(&self, #[in] MoveRectsBufferSize: UINT, #[out] #[readable(success, bytes(*pMoveRectsBufferSizeRequired))] #[writable(entry, bytes(MoveRectsBufferSize))] pMoveRectBuffer: *mut DXGI_OUTDUPL_MOVE_RECT, #[out] pMoveRectsBufferSizeRequired: *mut UINT) -> HRESULT;
+            fn GetFramePointerShape(&self, #[in] PointerShapeBufferSize: UINT, #[out] #[readable(success, bytes(*pPointerShapeBufferSizeRequired))] #[writable(entry, bytes(PointerShapeBufferSize))] pPointerShapeBuffer: *mut void, #[out] pPointerShapeBufferSizeRequired: *mut UINT, #[out] pPointerShapeInfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> HRESULT;
             fn MapDesktopSurface(&self, #[out] pLockedRect: *mut DXGI_MAPPED_RECT) -> HRESULT;
             fn UnMapDesktopSurface(&self) -> HRESULT;
             fn ReleaseFrame(&self) -> HRESULT;
@@ -181,14 +181,14 @@ mod Windows {
         }
         #[guid(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2)]
         interface IDXGISurface2: IDXGISurface1 {
-            fn GetResource(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppParentResource: *mut *mut void, #[out] pSubresourceIndex: *mut UINT) -> HRESULT;
+            fn GetResource(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppParentResource: *mut *mut void, #[out] pSubresourceIndex: *mut UINT) -> HRESULT;
         }
         #[guid(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa)]
         interface IDXGISwapChain1: IDXGISwapChain {
             fn GetDesc1(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_DESC1) -> HRESULT;
             fn GetFullscreenDesc(&self, #[out] pDesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> HRESULT;
             fn GetHwnd(&self, #[out] pHwnd: *mut HWND) -> HRESULT;
-            fn GetCoreWindow(&self, #[in] refiid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
+            fn GetCoreWindow(&self, #[in] refiid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppUnk: *mut *mut void) -> HRESULT;
             fn Present1(&self, #[in] SyncInterval: UINT, #[in] PresentFlags: UINT, #[in] pPresentParameters: *const DXGI_PRESENT_PARAMETERS) -> HRESULT;
             fn IsTemporaryMonoSupported(&self) -> BOOL;
             fn GetRestrictToOutput(&self, #[out] ppRestrictToOutput: *mut IDXGIOutput) -> HRESULT;

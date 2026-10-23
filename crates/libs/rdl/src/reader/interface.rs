@@ -219,7 +219,11 @@ impl Encoder<'_> {
                                 }
                                 let p = self.param(pt)?;
                                 if item.winrt {
-                                    self.validate_type_is_winrt(&pt.ty, &p.ty)?;
+                                    self.validate_winrt_param(
+                                        pt,
+                                        &p,
+                                        &method.sig.ident.to_string(),
+                                    )?;
                                 }
                                 params.push(p);
                             }

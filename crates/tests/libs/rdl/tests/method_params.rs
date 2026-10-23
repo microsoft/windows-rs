@@ -5,6 +5,37 @@ use windows_metadata::HasAttributes;
 const METADATA_NAMESPACE: &str = "Windows.Win32.Metadata";
 
 #[test]
+fn winrt_parameter_directions_are_required() {
+    for attrs in ["", "#[opt]", "#[in] #[out]"] {
+        for (declaration, name) in [
+            (
+                format!("interface I {{ fn Call(&self, {attrs} value: i32); }}"),
+                "Test.I.Call.value",
+            ),
+            (
+                format!("delegate fn Handler<T>({attrs} value: T);"),
+                "Test.Handler.Invoke.value",
+            ),
+        ] {
+            let source = format!("#[winrt]\nmod Test {{\n{declaration}\n}}");
+            let error = windows_rdl::reader()
+                .input_text(&source)
+                .output(scratch("winrt_directions").join("invalid.winmd"))
+                .write()
+                .unwrap_err();
+            assert!(error.message.contains(name), "{error}");
+            assert!(
+                error
+                    .message
+                    .contains("requires exactly one of #[in] or #[out]"),
+                "{error}"
+            );
+            assert_eq!(error.line, 3, "{error}");
+        }
+    }
+}
+
+#[test]
 fn explicit_direction_flags_preserve_parameter_metadata() {
     let types = [
         metadata::Type::I32,
@@ -357,10 +388,10 @@ fn sparse_out_of_order_params_round_trip_with_flags_and_pseudos() {
 
     let source = std::fs::read_to_string(&rdl).unwrap();
     let method = source.split_whitespace().collect::<Vec<_>>().join(" ");
-    assert!(method.contains("#[reserved] #[in] #[out] #[opt] first: i32"));
+    assert!(method.contains("#[in] #[opt] #[out] #[reserved] first: i32"));
     assert!(method.contains("p1: *mut i32"));
     assert!(!method.contains("#[in] p1"));
-    assert!(method.contains("#[retval] #[out] third: i64"));
+    assert!(method.contains("#[out] #[retval] third: i64"));
     assert!(method.contains("-> #[noreturn] i32"));
 
     windows_rdl::reader()
@@ -529,13 +560,13 @@ fn all_supported_param_attributes_and_directions_round_trip() {
     assert!(method.contains("#[in] mutable_in: *mut i32"));
     assert!(method.contains("#[out] constant_out: *const i32"));
     assert!(
-        method.contains("#[iid_is] #[retval] #[in] #[out] #[opt] inout_optional: *mut *mut i32")
+        method.contains("#[iid_is] #[in] #[opt] #[out] #[retval] inout_optional: *mut *mut i32")
     );
-    assert!(method.contains("#[len_param(2)] #[in] counted: *const i32"));
-    assert!(method.contains("#[len_const(4)] #[in] fixed: *const i32"));
-    assert!(method.contains("#[size_param(0)] #[out] bytes: *mut u8"));
+    assert!(method.contains("#[in] #[len_param(2)] counted: *const i32"));
+    assert!(method.contains("#[in] #[len_const(4)] fixed: *const i32"));
+    assert!(method.contains("#[out] #[size_param(0)] bytes: *mut u8"));
     assert!(method.contains(
-        "#[encoding(\"utf-16\")] #[noreturn] #[reserved] #[scoped] #[in] decorated: i32"
+        "#[encoding(\"utf-16\")] #[in] #[noreturn] #[reserved] #[scoped] decorated: i32"
     ));
     assert!(method.contains("-> #[encoding(\"ansi\")] #[noreturn] i32"));
 

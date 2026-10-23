@@ -451,89 +451,89 @@ mod Windows {
         extern fn DnsCancelQuery(#[in] pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsCancelQueryRaw(#[in] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionDeletePolicyEntries(#[in] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionDeletePolicyEntries(#[in] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionDeleteProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionDeleteProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionFreeNameList(#[in] #[out] pNameList: *mut DNS_CONNECTION_NAME_LIST);
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionFreeNameList(#[in] #[out] pNameList: *mut DNS_CONNECTION_NAME_LIST);
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionFreeProxyInfo(#[in] #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO);
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionFreeProxyInfo(#[in] #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO);
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionFreeProxyInfoEx(#[in] #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX);
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionFreeProxyInfoEx(#[in] #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX);
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionFreeProxyList(#[in] #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST);
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionFreeProxyList(#[in] #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST);
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionGetNameList(#[out] pNameList: *mut DNS_CONNECTION_NAME_LIST) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionGetNameList(#[out] pNameList: *mut DNS_CONNECTION_NAME_LIST) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionGetProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionGetProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[out] pProxyInfo: *mut DNS_CONNECTION_PROXY_INFO) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionGetProxyInfoForHostUrl(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[in] #[opt] #[readable(entry, dwSelectionContextLength)] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionGetProxyInfoForHostUrl(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[in] #[opt] #[readable(entry, dwSelectionContextLength)] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[in] #[opt] #[readable(entry, dwSelectionContextLength)] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[in] #[opt] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[in] #[opt] #[readable(entry, dwSelectionContextLength)] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[in] #[null_terminated(entry)] #[opt] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[arch(X86)]
-        extern fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[in] #[opt] #[readable(entry, dwSelectionContextLength)] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[in] #[opt] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[library("DNSAPI.dll")]
+        extern fn DnsConnectionGetProxyInfoForHostUrlEx(#[in] #[null_terminated(entry)] pwszHostUrl: PCWSTR, #[in] #[opt] #[readable(entry, dwSelectionContextLength)] pSelectionContext: *mut BYTE, #[in] dwSelectionContextLength: DWORD, #[in] dwExplicitInterfaceIndex: DWORD, #[in] #[null_terminated(entry)] #[opt] pwszConnectionName: PCWSTR, #[out] pProxyInfoEx: *mut DNS_CONNECTION_PROXY_INFO_EX) -> DWORD;
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionGetProxyList(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionGetProxyList(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[out] pProxyList: *mut DNS_CONNECTION_PROXY_LIST) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionSetPolicyEntries(#[in] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG, #[in] pPolicyEntryList: *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionSetPolicyEntries(#[in] PolicyEntryTag: DNS_CONNECTION_POLICY_TAG, #[in] pPolicyEntryList: *mut DNS_CONNECTION_POLICY_ENTRY_LIST) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsConnectionSetProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[in] pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionSetProxyInfo(#[in] #[null_terminated(entry)] pwszConnectionName: PCWSTR, #[in] Type: DNS_CONNECTION_PROXY_TYPE, #[in] pProxyInfo: *const DNS_CONNECTION_PROXY_INFO) -> DWORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DnsConnectionUpdateIfIndexTable(#[in] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
+        extern "C" fn DnsConnectionUpdateIfIndexTable(#[in] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> DWORD;
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsConnectionUpdateIfIndexTable(#[in] pConnectionIfIndexEntries: *mut DNS_CONNECTION_IFINDEX_LIST) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsExtractRecordsFromMessage_UTF8(#[in] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] wMessageLength: WORD, #[out] #[out_ptr] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
@@ -541,71 +541,71 @@ mod Windows {
         extern fn DnsExtractRecordsFromMessage_W(#[in] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] wMessageLength: WORD, #[out] #[out_ptr] ppRecord: *mut PDNS_RECORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsFree(#[Windows::Win32::Metadata::NativeSal("2", "_Pre_opt_valid_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] pData: PVOID, #[in] FreeType: DNS_FREE_TYPE);
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut DWORD, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
         #[library("DNSAPI.dll")]
+        extern "C" fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut DWORD, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsFreeCustomServers(#[in] #[out] pcServers: *mut DWORD, #[in] #[out] ppServers: *mut *mut DNS_CUSTOM_SERVER);
         #[library("DNSAPI.dll")]
         extern fn DnsFreeProxyName(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] proxyName: PWSTR);
         const DnsFreeRecordListDeep: DNS_FREE_TYPE = 1;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DnsGetApplicationSettings(#[out] pcServers: *mut DWORD, #[out] #[writable(success, *pcServers, indirect)] ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[out] #[opt] pSettings: *mut DNS_APPLICATION_SETTINGS) -> DWORD;
         #[library("DNSAPI.dll")]
+        extern "C" fn DnsGetApplicationSettings(#[out] pcServers: *mut DWORD, #[out] #[writable(success, *pcServers, indirect)] ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[opt] #[out] pSettings: *mut DNS_APPLICATION_SETTINGS) -> DWORD;
         #[arch(X86)]
-        extern fn DnsGetApplicationSettings(#[out] pcServers: *mut DWORD, #[out] #[writable(success, *pcServers, indirect)] ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[out] #[opt] pSettings: *mut DNS_APPLICATION_SETTINGS) -> DWORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsGetProxyInformation(#[in] hostName: PCWSTR, #[in] #[out] proxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[out] #[opt] defaultProxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[opt] completionRoutine: DNS_PROXY_COMPLETION_ROUTINE, #[in] #[opt] completionContext: *mut void) -> DWORD;
+        extern fn DnsGetApplicationSettings(#[out] pcServers: *mut DWORD, #[out] #[writable(success, *pcServers, indirect)] ppDefaultServers: *mut *mut DNS_CUSTOM_SERVER, #[opt] #[out] pSettings: *mut DNS_APPLICATION_SETTINGS) -> DWORD;
+        #[library("DNSAPI.dll")]
+        extern fn DnsGetProxyInformation(#[in] hostName: PCWSTR, #[in] #[out] proxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[opt] #[out] defaultProxyInformation: *mut DNS_PROXY_INFORMATION, #[in] #[opt] completionRoutine: DNS_PROXY_COMPLETION_ROUTINE, #[in] #[opt] completionContext: *mut void) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsIsFlatRecord(#[in] pRecord: PDNS_RECORD, #[in] ullFlags: ULONG64, #[out] pfFlat: *mut BOOL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsModifyRecordsInSet_A(#[in] #[opt] pAddRecords: PDNS_RECORD, #[in] #[opt] pDeleteRecords: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
+        extern fn DnsModifyRecordsInSet_A(#[in] #[opt] pAddRecords: PDNS_RECORD, #[in] #[opt] pDeleteRecords: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hCredentials: HANDLE, #[in] #[opt] #[out] pExtraList: PVOID, #[in] #[opt] #[out] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsModifyRecordsInSet_UTF8(#[in] #[opt] pAddRecords: PDNS_RECORD, #[in] #[opt] pDeleteRecords: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
+        extern fn DnsModifyRecordsInSet_UTF8(#[in] #[opt] pAddRecords: PDNS_RECORD, #[in] #[opt] pDeleteRecords: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hCredentials: HANDLE, #[in] #[opt] #[out] pExtraList: PVOID, #[in] #[opt] #[out] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsModifyRecordsInSet_W(#[in] #[opt] pAddRecords: PDNS_RECORD, #[in] #[opt] pDeleteRecords: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hCredentials: HANDLE, #[in] #[out] #[opt] pExtraList: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
+        extern fn DnsModifyRecordsInSet_W(#[in] #[opt] pAddRecords: PDNS_RECORD, #[in] #[opt] pDeleteRecords: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hCredentials: HANDLE, #[in] #[opt] #[out] pExtraList: PVOID, #[in] #[opt] #[out] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsNameCompare_A(#[in] pName1: PCSTR, #[in] pName2: PCSTR) -> BOOL;
         #[library("DNSAPI.dll")]
         extern fn DnsNameCompare_W(#[in] pName1: PCWSTR, #[in] pName2: PCWSTR) -> BOOL;
         #[library("DNSAPI.dll")]
-        extern fn DnsQueryConfig(#[in] Config: DNS_CONFIG_TYPE, #[in] Flag: DWORD, #[in] #[opt] pwsAdapterName: PCWSTR, #[in] #[opt] pReserved: PVOID, #[out] #[opt] #[writable(entry, bytes(*pBufLen))] #[readable(success, bytes(*pBufLen))] pBuffer: PVOID, #[in] #[out] pBufLen: PDWORD) -> DNS_STATUS;
+        extern fn DnsQueryConfig(#[in] Config: DNS_CONFIG_TYPE, #[in] Flag: DWORD, #[in] #[opt] pwsAdapterName: PCWSTR, #[in] #[opt] pReserved: PVOID, #[opt] #[out] #[readable(success, bytes(*pBufLen))] #[writable(entry, bytes(*pBufLen))] pBuffer: PVOID, #[in] #[out] pBufLen: PDWORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQueryEx(#[in] pQueryRequest: PDNS_QUERY_REQUEST, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT, #[in] #[out] #[opt] pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
+        extern fn DnsQueryEx(#[in] pQueryRequest: PDNS_QUERY_REQUEST, #[in] #[out] pQueryResults: PDNS_QUERY_RESULT, #[in] #[opt] #[out] pCancelHandle: PDNS_QUERY_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsQueryRaw(#[in] queryRequest: *mut DNS_QUERY_RAW_REQUEST, #[in] #[out] cancelHandle: *mut DNS_QUERY_RAW_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsQueryRawResultFree(#[Windows::Win32::Metadata::NativeSal("L", "_Frees_ptr_opt_", "", "")] queryResults: *mut DNS_QUERY_RAW_RESULT);
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_A(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[out] #[opt] pExtra: PVOID, #[out] #[out_ptr(nullable)] ppQueryResults: *mut PDNS_RECORD, #[out] #[opt] #[out_ptr(nullable)] pReserved: *mut PVOID) -> DNS_STATUS;
+        extern fn DnsQuery_A(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[out] #[out_ptr(nullable)] ppQueryResults: *mut PDNS_RECORD, #[opt] #[out] #[out_ptr(nullable)] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_UTF8(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[out] #[opt] pExtra: PVOID, #[out] #[out_ptr(nullable)] ppQueryResults: *mut PDNS_RECORD, #[out] #[opt] #[out_ptr(nullable)] pReserved: *mut PVOID) -> DNS_STATUS;
+        extern fn DnsQuery_UTF8(#[in] pszName: PCSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[out] #[out_ptr(nullable)] ppQueryResults: *mut PDNS_RECORD, #[opt] #[out] #[out_ptr(nullable)] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsQuery_W(#[in] pszName: PCWSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[out] #[opt] pExtra: PVOID, #[out] #[out_ptr(nullable)] ppQueryResults: *mut PDNS_RECORD, #[out] #[opt] #[out_ptr(nullable)] pReserved: *mut PVOID) -> DNS_STATUS;
+        extern fn DnsQuery_W(#[in] pszName: PCWSTR, #[in] wType: WORD, #[in] Options: DWORD, #[in] #[opt] #[out] pExtra: PVOID, #[out] #[out_ptr(nullable)] ppQueryResults: *mut PDNS_RECORD, #[opt] #[out] #[out_ptr(nullable)] pReserved: *mut PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsRecordCompare(#[in] pRecord1: PDNS_RECORD, #[in] pRecord2: PDNS_RECORD) -> BOOL;
         #[library("DNSAPI.dll")]
         extern fn DnsRecordCopyEx(#[in] pRecord: PDNS_RECORD, #[in] CharSetIn: DNS_CHARSET, #[in] CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]
-        extern fn DnsRecordSetCompare(#[in] #[out] pRR1: PDNS_RECORD, #[in] #[out] pRR2: PDNS_RECORD, #[out] #[opt] #[out_ptr(nullable)] ppDiff1: *mut PDNS_RECORD, #[out] #[opt] #[out_ptr(nullable)] ppDiff2: *mut PDNS_RECORD) -> BOOL;
+        extern fn DnsRecordSetCompare(#[in] #[out] pRR1: PDNS_RECORD, #[in] #[out] pRR2: PDNS_RECORD, #[opt] #[out] #[out_ptr(nullable)] ppDiff1: *mut PDNS_RECORD, #[opt] #[out] #[out_ptr(nullable)] ppDiff2: *mut PDNS_RECORD) -> BOOL;
         #[library("DNSAPI.dll")]
         extern fn DnsRecordSetCopyEx(#[in] pRecordSet: PDNS_RECORD, #[in] CharSetIn: DNS_CHARSET, #[in] CharSetOut: DNS_CHARSET) -> PDNS_RECORD;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DnsRecordSetDetach(#[in] #[out] pRecordList: PDNS_RECORD) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]
+        extern "C" fn DnsRecordSetDetach(#[in] #[out] pRecordList: PDNS_RECORD) -> PDNS_RECORD;
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsRecordSetDetach(#[in] #[out] pRecordList: PDNS_RECORD) -> PDNS_RECORD;
         #[library("DNSAPI.dll")]
         extern fn DnsReleaseContextHandle(#[in] hContext: HANDLE);
         #[library("DNSAPI.dll")]
-        extern fn DnsReplaceRecordSetA(#[in] pReplaceSet: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
+        extern fn DnsReplaceRecordSetA(#[in] pReplaceSet: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hContext: HANDLE, #[in] #[opt] #[out] pExtraInfo: PVOID, #[in] #[opt] #[out] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsReplaceRecordSetUTF8(#[in] pReplaceSet: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
+        extern fn DnsReplaceRecordSetUTF8(#[in] pReplaceSet: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hContext: HANDLE, #[in] #[opt] #[out] pExtraInfo: PVOID, #[in] #[opt] #[out] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
-        extern fn DnsReplaceRecordSetW(#[in] pReplaceSet: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hContext: HANDLE, #[in] #[out] #[opt] pExtraInfo: PVOID, #[in] #[out] #[opt] pReserved: PVOID) -> DNS_STATUS;
+        extern fn DnsReplaceRecordSetW(#[in] pReplaceSet: PDNS_RECORD, #[in] Options: DWORD, #[in] #[opt] hContext: HANDLE, #[in] #[opt] #[out] pExtraInfo: PVOID, #[in] #[opt] #[out] pReserved: PVOID) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsServiceBrowse(#[in] pRequest: PDNS_SERVICE_BROWSE_REQUEST, #[in] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
@@ -615,50 +615,50 @@ mod Windows {
         #[library("DNSAPI.dll")]
         extern fn DnsServiceCopyInstance(#[in] pOrig: PDNS_SERVICE_INSTANCE) -> PDNS_SERVICE_INSTANCE;
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceDeRegister(#[in] pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: PDNS_SERVICE_CANCEL) -> DWORD;
+        extern fn DnsServiceDeRegister(#[in] pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[opt] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsServiceFreeInstance(#[in] pInstance: PDNS_SERVICE_INSTANCE);
         #[library("DNSAPI.dll")]
-        extern fn DnsServiceRegister(#[in] pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[out] #[opt] pCancel: PDNS_SERVICE_CANCEL) -> DWORD;
+        extern fn DnsServiceRegister(#[in] pRequest: PDNS_SERVICE_REGISTER_REQUEST, #[in] #[opt] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsServiceRegisterCancel(#[in] pCancelHandle: PDNS_SERVICE_CANCEL) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsServiceResolve(#[in] pRequest: PDNS_SERVICE_RESOLVE_REQUEST, #[in] #[out] pCancel: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsServiceResolveCancel(#[in] pCancelHandle: PDNS_SERVICE_CANCEL) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DnsSetApplicationSettings(#[in] cServers: DWORD, #[in] #[readable(entry, cServers)] pServers: *const DNS_CUSTOM_SERVER, #[in] #[opt] pSettings: *const DNS_APPLICATION_SETTINGS) -> DWORD;
         #[library("DNSAPI.dll")]
+        extern "C" fn DnsSetApplicationSettings(#[in] cServers: DWORD, #[in] #[readable(entry, cServers)] pServers: *const DNS_CUSTOM_SERVER, #[in] #[opt] pSettings: *const DNS_APPLICATION_SETTINGS) -> DWORD;
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsSetApplicationSettings(#[in] cServers: DWORD, #[in] #[readable(entry, cServers)] pServers: *const DNS_CUSTOM_SERVER, #[in] #[opt] pSettings: *const DNS_APPLICATION_SETTINGS) -> DWORD;
         #[library("DNSAPI.dll")]
         extern fn DnsStartMulticastQuery(#[in] pQueryRequest: PMDNS_QUERY_REQUEST, #[in] #[out] pHandle: PMDNS_QUERY_HANDLE) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsStopMulticastQuery(#[in] #[out] pHandle: PMDNS_QUERY_HANDLE) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsValidateName_A(#[in] pszName: PCSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsValidateName_A(#[in] pszName: PCSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsValidateName_UTF8(#[in] pszName: PCSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsValidateName_UTF8(#[in] pszName: PCSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
+        #[library("DNSAPI.dll")]
         extern "C" fn DnsValidateName_W(#[in] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsValidateName_W(#[in] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
-        #[library("DNSAPI.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn DnsValidateServerStatus(#[in] server: PSOCKADDR, #[in] #[opt] queryName: PCWSTR, #[out] serverStatus: PDWORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
+        extern "C" fn DnsValidateServerStatus(#[in] server: PSOCKADDR, #[in] #[opt] queryName: PCWSTR, #[out] serverStatus: PDWORD) -> DNS_STATUS;
         #[arch(X86)]
+        #[library("DNSAPI.dll")]
         extern fn DnsValidateServerStatus(#[in] server: PSOCKADDR, #[in] #[opt] queryName: PCWSTR, #[out] serverStatus: PDWORD) -> DNS_STATUS;
         #[library("DNSAPI.dll")]
         extern fn DnsWriteQuestionToBuffer_UTF8(#[in] #[out] pDnsBuffer: PDNS_MESSAGE_BUFFER, #[in] #[out] pdwBufferSize: PDWORD, #[in] pszName: PCSTR, #[in] wType: WORD, #[in] Xid: WORD, #[in] fRecursionDesired: BOOL) -> BOOL;

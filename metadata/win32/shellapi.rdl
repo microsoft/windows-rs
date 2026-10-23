@@ -34,8 +34,8 @@ mod Windows {
             rc: RECT,
             lParam: LPARAM,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct APPBARDATA {
             cbSize: DWORD,
             hWnd: HWND,
@@ -65,15 +65,15 @@ mod Windows {
             hkClass: HKEY,
             pszClass: PCWSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct ASSOCIATIONELEMENT {
             ac: ASSOCCLASS,
             hkClass: HKEY,
             pszClass: PCWSTR,
         }
         #[library("SHELL32.dll")]
-        extern fn AssocCreateForClasses(#[in] #[readable(entry, cClasses)] rgClasses: *const ASSOCIATIONELEMENT, cClasses: ULONG, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        extern fn AssocCreateForClasses(#[in] #[readable(entry, cClasses)] rgClasses: *const ASSOCIATIONELEMENT, cClasses: ULONG, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn CommandLineToArgvW(#[in] lpCmdLine: LPCWSTR, #[out] pNumArgs: *mut i32) -> *mut LPWSTR;
         type DRAGINFO = DRAGINFOA;
@@ -85,8 +85,8 @@ mod Windows {
             lpFileList: PZZSTR,
             grfKeyState: DWORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct DRAGINFOA {
             uSize: UINT,
             pt: POINT,
@@ -102,8 +102,8 @@ mod Windows {
             lpFileList: PZZWSTR,
             grfKeyState: DWORD,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct DRAGINFOW {
             uSize: UINT,
             pt: POINT,
@@ -119,12 +119,12 @@ mod Windows {
         extern fn DragAcceptFiles(#[in] hWnd: HWND, #[in] fAccept: BOOL);
         #[library("SHELL32.dll")]
         extern fn DragFinish(#[in] hDrop: HDROP);
-        #[success(return != 0)]
         #[library("SHELL32.dll")]
-        extern fn DragQueryFileA(#[in] hDrop: HDROP, #[in] iFile: UINT, #[out] #[opt] #[writable(entry, cch)] lpszFile: LPSTR, #[in] cch: UINT) -> UINT;
         #[success(return != 0)]
+        extern fn DragQueryFileA(#[in] hDrop: HDROP, #[in] iFile: UINT, #[opt] #[out] #[writable(entry, cch)] lpszFile: LPSTR, #[in] cch: UINT) -> UINT;
         #[library("SHELL32.dll")]
-        extern fn DragQueryFileW(#[in] hDrop: HDROP, #[in] iFile: UINT, #[out] #[opt] #[writable(entry, cch)] lpszFile: LPWSTR, #[in] cch: UINT) -> UINT;
+        #[success(return != 0)]
+        extern fn DragQueryFileW(#[in] hDrop: HDROP, #[in] iFile: UINT, #[opt] #[out] #[writable(entry, cch)] lpszFile: LPWSTR, #[in] cch: UINT) -> UINT;
         #[library("SHELL32.dll")]
         extern fn DragQueryPoint(#[in] hDrop: HDROP, #[out] ppt: *mut POINT) -> BOOL;
         #[library("SHELL32.dll")]
@@ -140,9 +140,9 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn ExtractIconA(#[reserved] hInst: HINSTANCE, #[in] pszExeFileName: LPCSTR, nIconIndex: UINT) -> HICON;
         #[library("SHELL32.dll")]
-        extern fn ExtractIconExA(#[in] lpszFile: LPCSTR, nIconIndex: i32, #[out] #[opt] #[writable(entry, nIcons)] phiconLarge: *mut HICON, #[out] #[opt] #[writable(entry, nIcons)] phiconSmall: *mut HICON, nIcons: UINT) -> UINT;
+        extern fn ExtractIconExA(#[in] lpszFile: LPCSTR, nIconIndex: i32, #[opt] #[out] #[writable(entry, nIcons)] phiconLarge: *mut HICON, #[opt] #[out] #[writable(entry, nIcons)] phiconSmall: *mut HICON, nIcons: UINT) -> UINT;
         #[library("SHELL32.dll")]
-        extern fn ExtractIconExW(#[in] lpszFile: LPCWSTR, nIconIndex: i32, #[out] #[opt] #[writable(entry, nIcons)] phiconLarge: *mut HICON, #[out] #[opt] #[writable(entry, nIcons)] phiconSmall: *mut HICON, nIcons: UINT) -> UINT;
+        extern fn ExtractIconExW(#[in] lpszFile: LPCWSTR, nIconIndex: i32, #[opt] #[out] #[writable(entry, nIcons)] phiconLarge: *mut HICON, #[opt] #[out] #[writable(entry, nIcons)] phiconSmall: *mut HICON, nIcons: UINT) -> UINT;
         #[library("SHELL32.dll")]
         extern fn ExtractIconW(#[reserved] hInst: HINSTANCE, #[in] pszExeFileName: LPCWSTR, nIconIndex: UINT) -> HICON;
         type FILEOP_FLAGS = u16;
@@ -178,8 +178,8 @@ mod Windows {
         struct HDROP__ {
             unused: i32,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct HDROP__ {
             unused: i32,
         }
@@ -267,8 +267,8 @@ mod Windows {
             guidItem: GUID,
             hBalloonIcon: HICON,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct NOTIFYICONDATAA {
             cbSize: DWORD,
             hWnd: HWND,
@@ -322,8 +322,8 @@ mod Windows {
             guidItem: GUID,
             hBalloonIcon: HICON,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct NOTIFYICONDATAW {
             cbSize: DWORD,
             hWnd: HWND,
@@ -375,8 +375,8 @@ mod Windows {
             uID: UINT,
             guidItem: GUID,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct NOTIFYICONIDENTIFIER {
             cbSize: DWORD,
             hWnd: HWND,
@@ -397,8 +397,8 @@ mod Windows {
             dwFlags: DWORD,
             bModal: BOOL,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OPEN_PRINTER_PROPS_INFOA {
             dwSize: DWORD,
             pszSheetName: LPSTR,
@@ -414,8 +414,8 @@ mod Windows {
             dwFlags: DWORD,
             bModal: BOOL,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct OPEN_PRINTER_PROPS_INFOW {
             dwSize: DWORD,
             pszSheetName: LPWSTR,
@@ -509,8 +509,8 @@ mod Windows {
             lpStartupInfo: LPSTARTUPINFOW,
             lpProcessInformation: LPPROCESS_INFORMATION,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHCREATEPROCESSINFOW {
             cbSize: DWORD,
             fMask: ULONG,
@@ -550,8 +550,8 @@ mod Windows {
             },
             hProcess: HANDLE,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHELLEXECUTEINFOA {
             cbSize: DWORD,
             fMask: ULONG,
@@ -593,8 +593,8 @@ mod Windows {
             },
             hProcess: HANDLE,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHELLEXECUTEINFOW {
             cbSize: DWORD,
             fMask: ULONG,
@@ -625,7 +625,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHEnumerateUnreadMailAccountsW(#[in] #[opt] hKeyUser: HKEY, dwIndex: DWORD, #[out] #[writable(entry, cchMailAddress)] pszMailAddress: LPWSTR, cchMailAddress: i32) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHEvaluateSystemCommandTemplate(#[in] pszCmdTemplate: PCWSTR, #[out] #[out_ptr] ppszApplication: *mut PWSTR, #[out] #[opt] #[out_ptr] ppszCommandLine: *mut PWSTR, #[out] #[opt] #[out_ptr] ppszParameters: *mut PWSTR) -> HRESULT;
+        extern fn SHEvaluateSystemCommandTemplate(#[in] pszCmdTemplate: PCWSTR, #[out] #[out_ptr] ppszApplication: *mut PWSTR, #[opt] #[out] #[out_ptr] ppszCommandLine: *mut PWSTR, #[opt] #[out] #[out_ptr] ppszParameters: *mut PWSTR) -> HRESULT;
         type SHFILEINFO = SHFILEINFOA;
         #[arch(X64 | Arm64)]
         struct SHFILEINFOA {
@@ -635,8 +635,8 @@ mod Windows {
             szDisplayName: [CHAR; 260],
             szTypeName: [CHAR; 80],
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHFILEINFOA {
             hIcon: HICON,
             iIcon: i32,
@@ -652,8 +652,8 @@ mod Windows {
             szDisplayName: [WCHAR; 260],
             szTypeName: [WCHAR; 80],
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHFILEINFOW {
             hIcon: HICON,
             iIcon: i32,
@@ -673,8 +673,8 @@ mod Windows {
             hNameMappings: LPVOID,
             lpszProgressTitle: PCSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHFILEOPSTRUCTA {
             hwnd: HWND,
             wFunc: UINT,
@@ -696,8 +696,8 @@ mod Windows {
             hNameMappings: LPVOID,
             lpszProgressTitle: PCWSTR,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHFILEOPSTRUCTW {
             hwnd: HWND,
             wFunc: UINT,
@@ -747,31 +747,31 @@ mod Windows {
         const SHGSI_SMALLICON: i32 = 1;
         const SHGSI_SYSICONINDEX: i32 = 16384;
         #[library("SHELL32.dll")]
-        extern fn SHGetDiskFreeSpaceExA(#[in] pszDirectoryName: LPCSTR, #[out] #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        extern fn SHGetDiskFreeSpaceExA(#[in] pszDirectoryName: LPCSTR, #[opt] #[out] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] #[out] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] #[out] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetDiskFreeSpaceExW(#[in] pszDirectoryName: LPCWSTR, #[out] #[opt] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[out] #[opt] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
+        extern fn SHGetDiskFreeSpaceExW(#[in] pszDirectoryName: LPCWSTR, #[opt] #[out] pulFreeBytesAvailableToCaller: *mut ULARGE_INTEGER, #[opt] #[out] pulTotalNumberOfBytes: *mut ULARGE_INTEGER, #[opt] #[out] pulTotalNumberOfFreeBytes: *mut ULARGE_INTEGER) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHGetDriveMedia(#[in] pszDrive: PCWSTR, #[out] pdwMediaContent: *mut DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetFileInfoA(#[in] pszPath: LPCSTR, dwFileAttributes: DWORD, #[in] #[out] #[opt] #[writable(entry, bytes(cbFileInfo))] psfi: *mut SHFILEINFOA, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
+        extern fn SHGetFileInfoA(#[in] pszPath: LPCSTR, dwFileAttributes: DWORD, #[in] #[opt] #[out] #[writable(entry, bytes(cbFileInfo))] psfi: *mut SHFILEINFOA, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
         #[library("SHELL32.dll")]
-        extern fn SHGetFileInfoW(#[in] pszPath: LPCWSTR, dwFileAttributes: DWORD, #[in] #[out] #[opt] #[writable(entry, bytes(cbFileInfo))] psfi: *mut SHFILEINFOW, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
+        extern fn SHGetFileInfoW(#[in] pszPath: LPCWSTR, dwFileAttributes: DWORD, #[in] #[opt] #[out] #[writable(entry, bytes(cbFileInfo))] psfi: *mut SHFILEINFOW, cbFileInfo: UINT, uFlags: UINT) -> DWORD_PTR;
         #[library("SHELL32.dll")]
         extern fn SHGetImageList(#[in] iImageList: i32, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetLocalizedName(#[in] pszPath: PCWSTR, #[out] #[writable(entry, cch)] pszResModule: PWSTR, cch: UINT, #[out] pidsRes: *mut i32) -> HRESULT;
-        #[success(return != 0)]
         #[library("SHELL32.dll")]
+        #[success(return != 0)]
         extern fn SHGetNewLinkInfoA(#[in] pszLinkTo: LPCSTR, #[in] pszDir: LPCSTR, #[out] #[writable(entry, 260)] pszName: LPSTR, #[out] pfMustCopy: *mut BOOL, #[in] uFlags: UINT) -> BOOL;
-        #[success(return != 0)]
         #[library("SHELL32.dll")]
+        #[success(return != 0)]
         extern fn SHGetNewLinkInfoW(#[in] pszLinkTo: LPCWSTR, #[in] pszDir: LPCWSTR, #[out] #[writable(entry, 260)] pszName: LPWSTR, #[out] pfMustCopy: *mut BOOL, #[in] uFlags: UINT) -> BOOL;
         #[library("SHELL32.dll")]
         extern fn SHGetPropertyStoreForWindow(#[in] hwnd: HWND, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: UINT, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetUnreadMailCountW(#[in] #[opt] hKeyUser: HKEY, #[in] #[opt] pszMailAddress: LPCWSTR, #[out] #[opt] pdwCount: *mut DWORD, #[out] #[opt] pFileTime: *mut FILETIME, #[out] #[opt] #[writable(entry, cchShellExecuteCommand)] pszShellExecuteCommand: LPWSTR, cchShellExecuteCommand: i32) -> HRESULT;
+        extern fn SHGetUnreadMailCountW(#[in] #[opt] hKeyUser: HKEY, #[in] #[opt] pszMailAddress: LPCWSTR, #[opt] #[out] pdwCount: *mut DWORD, #[opt] #[out] pFileTime: *mut FILETIME, #[opt] #[out] #[writable(entry, cchShellExecuteCommand)] pszShellExecuteCommand: LPWSTR, cchShellExecuteCommand: i32) -> HRESULT;
         const SHIL_EXTRALARGE: i32 = 2;
         const SHIL_JUMBO: i32 = 4;
         const SHIL_LARGE: i32 = 0;
@@ -783,7 +783,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHInvokePrinterCommandW(#[in] #[opt] hwnd: HWND, uAction: UINT, #[in] lpBuf1: LPCWSTR, #[in] #[opt] lpBuf2: LPCWSTR, fModal: BOOL) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHIsFileAvailableOffline(#[in] pwszPath: PCWSTR, #[out] #[opt] pdwStatus: *mut DWORD) -> HRESULT;
+        extern fn SHIsFileAvailableOffline(#[in] pwszPath: PCWSTR, #[opt] #[out] pdwStatus: *mut DWORD) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHLoadNonloadedIconOverlayIdentifiers() -> HRESULT;
         type SHNAMEMAPPING = SHNAMEMAPPINGA;
@@ -794,8 +794,8 @@ mod Windows {
             cchOldPath: i32,
             cchNewPath: i32,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHNAMEMAPPINGA {
             pszOldPath: LPSTR,
             pszNewPath: LPSTR,
@@ -809,8 +809,8 @@ mod Windows {
             cchOldPath: i32,
             cchNewPath: i32,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHNAMEMAPPINGW {
             pszOldPath: LPWSTR,
             pszNewPath: LPWSTR,
@@ -823,8 +823,8 @@ mod Windows {
             i64Size: i64,
             i64NumItems: i64,
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHQUERYRBINFO {
             cbSize: DWORD,
             i64Size: i64,
@@ -943,8 +943,8 @@ mod Windows {
             iIcon: i32,
             szPath: [WCHAR; 260],
         }
-        #[packed(1)]
         #[arch(X86)]
+        #[packed(1)]
         struct SHSTOCKICONINFO {
             cbSize: DWORD,
             hIcon: HICON,

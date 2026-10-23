@@ -2,10 +2,10 @@
 mod Windows {
     mod System {
         mod Threading {
-            #[guid(0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPool)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xb6bf67dd_84bd_44f8_ac1c_93ebcb9dba91)]
             interface IThreadPoolStatics {
                 #[Windows::Foundation::Metadata::Overload("RunAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -17,10 +17,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RunAsync(&self, #[in] handler: WorkItemHandler, #[in] priority: WorkItemPriority, #[in] options: WorkItemOptions) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPoolTimer)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2)]
             interface IThreadPoolTimer {
                 #[get]
                 Period: super::super::Foundation::TimeSpan;
@@ -28,10 +28,10 @@ mod Windows {
                 Delay: super::super::Foundation::TimeSpan;
                 fn Cancel(&self);
             }
-            #[guid(0x1a8a9d02_e482_461b_b8c7_8efad1cce590)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ThreadPoolTimer)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x1a8a9d02_e482_461b_b8c7_8efad1cce590)]
             interface IThreadPoolTimerStatics {
                 #[Windows::Foundation::Metadata::Overload("CreatePeriodicTimer")]
                 fn CreatePeriodicTimer(&self, #[in] handler: TimerElapsedHandler, #[in] period: super::super::Foundation::TimeSpan) -> ThreadPoolTimer;
@@ -56,29 +56,29 @@ mod Windows {
             class ThreadPoolTimer {
                 IThreadPoolTimer,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0x34ed19fa_8384_4eb9_8209_fb5094eeec35)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             delegate fn TimerDestroyedHandler(#[in] timer: ThreadPoolTimer);
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0xfaaea667_fbeb_49cb_adb2_71184c556e43)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             delegate fn TimerElapsedHandler(#[in] timer: ThreadPoolTimer);
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             #[guid(0x1d1a8b8b_fa66_414f_9cbd_b65fc99d17fa)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             delegate fn WorkItemHandler(#[in] operation: super::super::Foundation::IAsyncAction);
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[flags]
+            #[repr(u32)]
             enum WorkItemOptions {
                 None = 0,
                 TimeSliced = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[repr(i32)]
             enum WorkItemPriority {
                 Low = -1,
                 Normal = 0,

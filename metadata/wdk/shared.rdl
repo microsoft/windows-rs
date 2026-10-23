@@ -23,10 +23,10 @@ mod Windows {
         type POBJECT_TYPE = *mut _OBJECT_TYPE;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "POWER_SETTING_CALLBACK", "POWER_SETTING_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
-        extern "C" fn POWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        extern "C" fn POWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "POWER_SETTING_CALLBACK", "POWER_SETTING_CALLBACK", TypedefName = "POWER_SETTING_CALLBACK")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "", TypedefName = "POWER_SETTING_CALLBACK")]
-        extern "C" fn PPOWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[out] #[opt] Context: PVOID) -> NTSTATUS;
+        extern "C" fn PPOWER_SETTING_CALLBACK(#[in] SettingGuid: LPCGUID, #[in] #[readable(entry, bytes(ValueLength))] Value: PVOID, #[in] ValueLength: ULONG, #[in] #[opt] #[out] Context: PVOID) -> NTSTATUS;
         type PRKPROCESS = *mut _KPROCESS;
         type PRKTHREAD = *mut _KTHREAD;
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "PS_AVAILABLE_CPUS_CHANGE_CALLBACK", "PS_AVAILABLE_CPUS_CHANGE_CALLBACK")]
@@ -46,20 +46,20 @@ mod Windows {
         const RESULT_ZERO: i32 = 16384;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "2", "2")]
         #[library("ntdll.dll")]
-        extern fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] #[null_terminated(entry)] SourceString: PCSZ) -> NTSTATUS;
+        extern fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[Windows::Win32::Metadata::NativeNullTerminated(OnEntry = true, OnSuccess = false)] #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[opt] SourceString: PCSZ) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn RtlIsUntrustedObject(#[in] #[opt] Handle: HANDLE, #[in] #[opt] Object: PVOID, #[out] UntrustedObject: PBOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
-        #[must_use]
         #[library("ntdll.dll")]
-        extern fn RtlUTF8ToUnicodeN(#[out] #[writable(entry, bytes(UnicodeStringMaxByteCount))] #[readable(success, bytes(*UnicodeStringActualByteCount))] UnicodeStringDestination: PWSTR, #[in] UnicodeStringMaxByteCount: ULONG, #[out] UnicodeStringActualByteCount: PULONG, #[in] #[readable(entry, bytes(UTF8StringByteCount))] UTF8StringSource: PCCH, #[in] UTF8StringByteCount: ULONG) -> NTSTATUS;
-        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[must_use]
-        #[library("ntdll.dll")]
-        extern fn RtlUnicodeToUTF8N(#[out] #[writable(entry, bytes(UTF8StringMaxByteCount))] #[readable(success, bytes(*UTF8StringActualByteCount))] UTF8StringDestination: PCHAR, #[in] UTF8StringMaxByteCount: ULONG, #[out] UTF8StringActualByteCount: PULONG, #[in] #[readable(entry, bytes(UnicodeStringByteCount))] UnicodeStringSource: PCWCH, #[in] UnicodeStringByteCount: ULONG) -> NTSTATUS;
+        extern fn RtlUTF8ToUnicodeN(#[out] #[readable(success, bytes(*UnicodeStringActualByteCount))] #[writable(entry, bytes(UnicodeStringMaxByteCount))] UnicodeStringDestination: PWSTR, #[in] UnicodeStringMaxByteCount: ULONG, #[out] UnicodeStringActualByteCount: PULONG, #[in] #[readable(entry, bytes(UTF8StringByteCount))] UTF8StringSource: PCCH, #[in] UTF8StringByteCount: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
-        extern fn ZwDeviceIoControlFile(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] IoControlCode: ULONG, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[out] #[opt] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
+        #[must_use]
+        extern fn RtlUnicodeToUTF8N(#[out] #[readable(success, bytes(*UTF8StringActualByteCount))] #[writable(entry, bytes(UTF8StringMaxByteCount))] UTF8StringDestination: PCHAR, #[in] UTF8StringMaxByteCount: ULONG, #[out] UTF8StringActualByteCount: PULONG, #[in] #[readable(entry, bytes(UnicodeStringByteCount))] UnicodeStringSource: PCWCH, #[in] UnicodeStringByteCount: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        extern fn ZwDeviceIoControlFile(#[in] FileHandle: HANDLE, #[in] #[opt] Event: HANDLE, #[in] #[opt] ApcRoutine: PIO_APC_ROUTINE, #[in] #[opt] ApcContext: PVOID, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[in] IoControlCode: ULONG, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwQueryVolumeInformationFile(#[in] FileHandle: HANDLE, #[out] IoStatusBlock: PIO_STATUS_BLOCK, #[out] #[writable(entry, bytes(Length))] FsInformation: PVOID, #[in] Length: ULONG, #[in] FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;

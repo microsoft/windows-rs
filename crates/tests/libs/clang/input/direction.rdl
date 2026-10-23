@@ -11,7 +11,7 @@ mod Fixture {
     #[guid(0x22222222_2222_3333_4444_555555555555)]
     interface IDirections {
         fn Unknown(&self, scalar: i32, pointer: *mut i32, constant: *const i32, alias: Count, reference: &mut i32, object: IObject);
-        fn Query(&self, data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] #[out] #[opt] size: Count);
+        fn Query(&self, data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] #[opt] #[out] size: Count);
     }
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IObject {
@@ -28,12 +28,12 @@ mod Fixture {
     #[library("fixture.dll")]
     extern "C" fn Partial(data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] size: Count);
     #[library("fixture.dll")]
-    extern "C" fn Query(data: Data, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] #[out] #[opt] size: Count);
-    extern fn QueryCallback(data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] #[out] #[opt] size: Count);
+    extern "C" fn Query(data: Data, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] #[opt] #[out] size: Count);
+    extern fn QueryCallback(data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] #[opt] #[out] size: Count);
     #[library("fixture.dll")]
     extern "C" fn Required(data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] #[out] size: Count);
     #[library("fixture.dll")]
-    extern "C" fn Reversed(data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data!=0,_Inout_opt_", "data!=0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data==0,_Out_opt_", "data==0,_Out_opt_")] #[out] #[opt] size: Count);
+    extern "C" fn Reversed(data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data!=0,_Inout_opt_", "data!=0,_Inout_opt_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data==0,_Out_opt_", "data==0,_Out_opt_")] #[opt] #[out] size: Count);
     #[library("fixture.dll")]
     extern "C" fn Scoped(data: *mut void, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data != 0,_Inout_opt_", "data != 0,_Inout_opt_", Modifiers = "_Post_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "data == 0,_Out_opt_", "data == 0,_Out_opt_")] size: Count);
     #[library("fixture.dll")]

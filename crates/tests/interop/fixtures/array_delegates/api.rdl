@@ -8,10 +8,12 @@ mod ArrayDelegates {
     }
 
     // Clients copy input to output, and reverse input into fill and the return value.
-    delegate fn StringsHandler(input: [String], #[out] fill: [String], output: &mut [String])
-        -> [String];
-    delegate fn EntriesHandler(input: [Entry], #[out] fill: [Entry], output: &mut [Entry])
-        -> [Entry];
+    delegate fn StringsHandler(
+        #[in] input: [String], #[out] fill: [String], #[out] output: &mut [String]
+    ) -> [String];
+    delegate fn EntriesHandler(
+        #[in] input: [Entry], #[out] fill: [Entry], #[out] output: &mut [Entry]
+    ) -> [Entry];
 
     #[Activatable(1)]
     class Widget {
@@ -21,7 +23,7 @@ mod ArrayDelegates {
     #[ExclusiveTo(Widget)]
     interface IWidget {
         // Calls each handler with empty and nonempty arrays and checks all three outputs.
-        fn CheckStrings(&self, handler: StringsHandler);
-        fn CheckEntries(&self, handler: EntriesHandler);
+        fn CheckStrings(&self, #[in] handler: StringsHandler);
+        fn CheckEntries(&self, #[in] handler: EntriesHandler);
     }
 }

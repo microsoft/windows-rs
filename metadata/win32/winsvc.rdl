@@ -7,9 +7,9 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn ChangeServiceConfig2W(#[in] hService: SC_HANDLE, #[in] dwInfoLevel: DWORD, #[in] #[opt] lpInfo: LPVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ChangeServiceConfigA(#[in] hService: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCSTR, #[in] #[opt] lpLoadOrderGroup: LPCSTR, #[out] #[opt] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCSTR, #[in] #[opt] lpServiceStartName: LPCSTR, #[in] #[opt] lpPassword: LPCSTR, #[in] #[opt] lpDisplayName: LPCSTR) -> BOOL;
+        extern fn ChangeServiceConfigA(#[in] hService: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCSTR, #[in] #[opt] lpLoadOrderGroup: LPCSTR, #[opt] #[out] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCSTR, #[in] #[opt] lpServiceStartName: LPCSTR, #[in] #[opt] lpPassword: LPCSTR, #[in] #[opt] lpDisplayName: LPCSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn ChangeServiceConfigW(#[in] hService: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCWSTR, #[in] #[opt] lpLoadOrderGroup: LPCWSTR, #[out] #[opt] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCWSTR, #[in] #[opt] lpServiceStartName: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[in] #[opt] lpDisplayName: LPCWSTR) -> BOOL;
+        extern fn ChangeServiceConfigW(#[in] hService: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCWSTR, #[in] #[opt] lpLoadOrderGroup: LPCWSTR, #[opt] #[out] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCWSTR, #[in] #[opt] lpServiceStartName: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR, #[in] #[opt] lpDisplayName: LPCWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn CloseServiceHandle(#[in] hSCObject: SC_HANDLE) -> BOOL;
         #[library("ADVAPI32.dll")]
@@ -18,12 +18,12 @@ mod Windows {
         extern fn ControlServiceExA(#[in] hService: SC_HANDLE, #[in] dwControl: DWORD, #[in] dwInfoLevel: DWORD, #[in] #[out] pControlParams: PVOID) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn ControlServiceExW(#[in] hService: SC_HANDLE, #[in] dwControl: DWORD, #[in] dwInfoLevel: DWORD, #[in] #[out] pControlParams: PVOID) -> BOOL;
-        #[must_use]
         #[library("ADVAPI32.dll")]
-        extern fn CreateServiceA(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCSTR, #[in] #[opt] lpDisplayName: LPCSTR, #[in] dwDesiredAccess: DWORD, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCSTR, #[in] #[opt] lpLoadOrderGroup: LPCSTR, #[out] #[opt] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCSTR, #[in] #[opt] lpServiceStartName: LPCSTR, #[in] #[opt] lpPassword: LPCSTR) -> SC_HANDLE;
         #[must_use]
+        extern fn CreateServiceA(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCSTR, #[in] #[opt] lpDisplayName: LPCSTR, #[in] dwDesiredAccess: DWORD, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCSTR, #[in] #[opt] lpLoadOrderGroup: LPCSTR, #[opt] #[out] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCSTR, #[in] #[opt] lpServiceStartName: LPCSTR, #[in] #[opt] lpPassword: LPCSTR) -> SC_HANDLE;
         #[library("ADVAPI32.dll")]
-        extern fn CreateServiceW(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCWSTR, #[in] #[opt] lpDisplayName: LPCWSTR, #[in] dwDesiredAccess: DWORD, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCWSTR, #[in] #[opt] lpLoadOrderGroup: LPCWSTR, #[out] #[opt] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCWSTR, #[in] #[opt] lpServiceStartName: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR) -> SC_HANDLE;
+        #[must_use]
+        extern fn CreateServiceW(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCWSTR, #[in] #[opt] lpDisplayName: LPCWSTR, #[in] dwDesiredAccess: DWORD, #[in] dwServiceType: DWORD, #[in] dwStartType: DWORD, #[in] dwErrorControl: DWORD, #[in] #[opt] lpBinaryPathName: LPCWSTR, #[in] #[opt] lpLoadOrderGroup: LPCWSTR, #[opt] #[out] lpdwTagId: LPDWORD, #[in] #[opt] lpDependencies: LPCWSTR, #[in] #[opt] lpServiceStartName: LPCWSTR, #[in] #[opt] lpPassword: LPCWSTR) -> SC_HANDLE;
         const DOMAIN_JOIN_GUID: GUID = 0x1ce20aba_9851_4421_9430_1ddeb766e809;
         const DOMAIN_LEAVE_GUID: GUID = 0xddaf516e_58c2_4866_9574_c3b615d42ea1;
         #[library("ADVAPI32.dll")]
@@ -50,49 +50,49 @@ mod Windows {
             lpDisplayName: LPWSTR,
             ServiceStatusProcess: SERVICE_STATUS_PROCESS,
         }
-        #[must_use]
         #[library("ADVAPI32.dll")]
-        extern fn EnumDependentServicesA(#[in] hService: SC_HANDLE, #[in] dwServiceState: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn EnumDependentServicesA(#[in] hService: SC_HANDLE, #[in] dwServiceState: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn EnumDependentServicesW(#[in] hService: SC_HANDLE, #[in] dwServiceState: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn EnumDependentServicesW(#[in] hService: SC_HANDLE, #[in] dwServiceState: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn EnumServicesStatusA(#[in] hSCManager: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[out] #[opt] lpResumeHandle: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn EnumServicesStatusA(#[in] hSCManager: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[opt] #[out] lpResumeHandle: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn EnumServicesStatusExA(#[in] hSCManager: SC_HANDLE, #[in] InfoLevel: SC_ENUM_TYPE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServices: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[out] #[opt] lpResumeHandle: LPDWORD, #[in] #[opt] pszGroupName: LPCSTR) -> BOOL;
         #[must_use]
+        extern fn EnumServicesStatusExA(#[in] hSCManager: SC_HANDLE, #[in] InfoLevel: SC_ENUM_TYPE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServices: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[opt] #[out] lpResumeHandle: LPDWORD, #[in] #[opt] pszGroupName: LPCSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn EnumServicesStatusExW(#[in] hSCManager: SC_HANDLE, #[in] InfoLevel: SC_ENUM_TYPE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServices: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[out] #[opt] lpResumeHandle: LPDWORD, #[in] #[opt] pszGroupName: LPCWSTR) -> BOOL;
         #[must_use]
+        extern fn EnumServicesStatusExW(#[in] hSCManager: SC_HANDLE, #[in] InfoLevel: SC_ENUM_TYPE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServices: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[opt] #[out] lpResumeHandle: LPDWORD, #[in] #[opt] pszGroupName: LPCWSTR) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn EnumServicesStatusW(#[in] hSCManager: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[out] #[opt] lpResumeHandle: LPDWORD) -> BOOL;
+        #[must_use]
+        extern fn EnumServicesStatusW(#[in] hSCManager: SC_HANDLE, #[in] dwServiceType: DWORD, #[in] dwServiceState: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServices: LPENUM_SERVICE_STATUSW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD, #[out] lpServicesReturned: LPDWORD, #[in] #[opt] #[out] lpResumeHandle: LPDWORD) -> BOOL;
         const FIREWALL_PORT_CLOSE_GUID: GUID = 0xa144ed38_8e12_4de4_9d96_e64740b1a524;
         const FIREWALL_PORT_OPEN_GUID: GUID = 0xb7569e07_8421_4ee0_ad10_86915afdad09;
-        #[must_use]
         #[library("api-ms-win-service-core-l1-1-4.dll")]
-        extern fn GetServiceDirectory(#[in] hServiceStatus: SERVICE_STATUS_HANDLE, #[in] eDirectoryType: SERVICE_DIRECTORY_TYPE, #[out] #[opt] #[writable(entry, cchPathBufferLength)] lpPathBuffer: PWCHAR, #[in] cchPathBufferLength: DWORD, #[out] lpcchRequiredBufferLength: *mut DWORD) -> DWORD;
         #[must_use]
+        extern fn GetServiceDirectory(#[in] hServiceStatus: SERVICE_STATUS_HANDLE, #[in] eDirectoryType: SERVICE_DIRECTORY_TYPE, #[opt] #[out] #[writable(entry, cchPathBufferLength)] lpPathBuffer: PWCHAR, #[in] cchPathBufferLength: DWORD, #[out] lpcchRequiredBufferLength: *mut DWORD) -> DWORD;
         #[library("ADVAPI32.dll")]
-        extern fn GetServiceDisplayNameA(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCSTR, #[out] #[opt] #[writable(entry, *lpcchBuffer)] lpDisplayName: LPSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn GetServiceDisplayNameA(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCSTR, #[opt] #[out] #[writable(entry, *lpcchBuffer)] lpDisplayName: LPSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn GetServiceDisplayNameW(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCWSTR, #[out] #[opt] #[writable(entry, *lpcchBuffer)] lpDisplayName: LPWSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn GetServiceDisplayNameW(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCWSTR, #[opt] #[out] #[writable(entry, *lpcchBuffer)] lpDisplayName: LPWSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn GetServiceKeyNameA(#[in] hSCManager: SC_HANDLE, #[in] lpDisplayName: LPCSTR, #[out] #[opt] #[writable(entry, *lpcchBuffer)] lpServiceName: LPSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn GetServiceKeyNameA(#[in] hSCManager: SC_HANDLE, #[in] lpDisplayName: LPCSTR, #[opt] #[out] #[writable(entry, *lpcchBuffer)] lpServiceName: LPSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn GetServiceKeyNameW(#[in] hSCManager: SC_HANDLE, #[in] lpDisplayName: LPCWSTR, #[out] #[opt] #[writable(entry, *lpcchBuffer)] lpServiceName: LPWSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn GetServiceKeyNameW(#[in] hSCManager: SC_HANDLE, #[in] lpDisplayName: LPCWSTR, #[opt] #[out] #[writable(entry, *lpcchBuffer)] lpServiceName: LPWSTR, #[in] #[out] lpcchBuffer: LPDWORD) -> BOOL;
         #[library("api-ms-win-service-core-l1-1-3.dll")]
+        #[must_use]
         extern fn GetServiceRegistryStateKey(#[in] ServiceStatusHandle: SERVICE_STATUS_HANDLE, #[in] StateType: SERVICE_REGISTRY_STATE_TYPE, #[in] AccessMask: DWORD, #[out] ServiceStateKey: *mut HKEY) -> DWORD;
-        #[must_use]
         #[library("api-ms-win-service-core-l1-1-5.dll")]
-        extern fn GetSharedServiceDirectory(#[in] ServiceHandle: SC_HANDLE, #[in] DirectoryType: SERVICE_SHARED_DIRECTORY_TYPE, #[out] #[opt] #[writable(entry, PathBufferLength)] #[readable(success, *RequiredBufferLength)] PathBuffer: PWCHAR, #[in] PathBufferLength: DWORD, #[out] RequiredBufferLength: *mut DWORD) -> DWORD;
         #[must_use]
+        extern fn GetSharedServiceDirectory(#[in] ServiceHandle: SC_HANDLE, #[in] DirectoryType: SERVICE_SHARED_DIRECTORY_TYPE, #[opt] #[out] #[readable(success, *RequiredBufferLength)] #[writable(entry, PathBufferLength)] PathBuffer: PWCHAR, #[in] PathBufferLength: DWORD, #[out] RequiredBufferLength: *mut DWORD) -> DWORD;
         #[library("api-ms-win-service-core-l1-1-5.dll")]
+        #[must_use]
         extern fn GetSharedServiceRegistryStateKey(#[in] ServiceHandle: SC_HANDLE, #[in] StateType: SERVICE_SHARED_REGISTRY_STATE_TYPE, #[in] AccessMask: DWORD, #[out] ServiceStateKey: *mut HKEY) -> DWORD;
         extern fn HANDLER_FUNCTION(dwControl: DWORD);
         extern fn HANDLER_FUNCTION_EX(dwControl: DWORD, dwEventType: DWORD, lpEventData: LPVOID, lpContext: LPVOID) -> DWORD;
@@ -146,17 +146,17 @@ mod Windows {
         extern fn NotifyServiceStatusChangeA(#[in] hService: SC_HANDLE, #[in] dwNotifyMask: DWORD, #[in] pNotifyBuffer: PSERVICE_NOTIFYA) -> DWORD;
         #[library("ADVAPI32.dll")]
         extern fn NotifyServiceStatusChangeW(#[in] hService: SC_HANDLE, #[in] dwNotifyMask: DWORD, #[in] pNotifyBuffer: PSERVICE_NOTIFYW) -> DWORD;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn OpenSCManagerA(#[in] #[opt] lpMachineName: LPCSTR, #[in] #[opt] lpDatabaseName: LPCSTR, #[in] dwDesiredAccess: DWORD) -> SC_HANDLE;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn OpenSCManagerW(#[in] #[opt] lpMachineName: LPCWSTR, #[in] #[opt] lpDatabaseName: LPCWSTR, #[in] dwDesiredAccess: DWORD) -> SC_HANDLE;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn OpenServiceA(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCSTR, #[in] dwDesiredAccess: DWORD) -> SC_HANDLE;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn OpenServiceW(#[in] hSCManager: SC_HANDLE, #[in] lpServiceName: LPCWSTR, #[in] dwDesiredAccess: DWORD) -> SC_HANDLE;
         extern fn PFN_SC_NOTIFY_CALLBACK(#[in] pParameter: PVOID);
         type PSC_EVENT_TYPE = *mut SC_EVENT_TYPE;
@@ -215,50 +215,50 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_DESCRIPTION,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_DESCRIPTIONA)))", "dwInfoLevel == 1, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_DESCRIPTIONA)))")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_FAILURE_ACTIONS,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_FAILURE_ACTIONSA)))", "dwInfoLevel == 2, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_FAILURE_ACTIONSA)))")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOA)))", "dwInfoLevel == 6, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOA)))")]
-        #[must_use]
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceConfig2A(#[in] hService: SC_HANDLE, #[in] dwInfoLevel: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
+        #[must_use]
+        extern fn QueryServiceConfig2A(#[in] hService: SC_HANDLE, #[in] dwInfoLevel: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_DESCRIPTION,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_DESCRIPTIONW)))", "dwInfoLevel == 1, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_DESCRIPTIONW)))")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_FAILURE_ACTIONS,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_FAILURE_ACTIONSW)))", "dwInfoLevel == 2, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_FAILURE_ACTIONSW)))")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "dwInfoLevel == SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO,_At_(cbBufSize, _In_range_(>=, sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOW)))", "dwInfoLevel == 6, _At_(cbBufSize, _In_range_(>=,sizeof(LPSERVICE_REQUIRED_PRIVILEGES_INFOW)))")]
-        #[must_use]
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceConfig2W(#[in] hService: SC_HANDLE, #[in] dwInfoLevel: DWORD, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn QueryServiceConfig2W(#[in] hService: SC_HANDLE, #[in] dwInfoLevel: DWORD, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceConfigA(#[in] hService: SC_HANDLE, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServiceConfig: LPQUERY_SERVICE_CONFIGA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn QueryServiceConfigA(#[in] hService: SC_HANDLE, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServiceConfig: LPQUERY_SERVICE_CONFIGA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceConfigW(#[in] hService: SC_HANDLE, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpServiceConfig: LPQUERY_SERVICE_CONFIGW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
+        #[must_use]
+        extern fn QueryServiceConfigW(#[in] hService: SC_HANDLE, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpServiceConfig: LPQUERY_SERVICE_CONFIGW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
         extern fn QueryServiceDynamicInformation(#[in] hServiceStatus: SERVICE_STATUS_HANDLE, #[in] dwInfoLevel: DWORD, #[out] #[out_ptr] ppDynamicInfo: *mut PVOID) -> BOOL;
-        #[must_use]
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceLockStatusA(#[in] hSCManager: SC_HANDLE, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpLockStatus: LPQUERY_SERVICE_LOCK_STATUSA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn QueryServiceLockStatusA(#[in] hSCManager: SC_HANDLE, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpLockStatus: LPQUERY_SERVICE_LOCK_STATUSA, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceLockStatusW(#[in] hSCManager: SC_HANDLE, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpLockStatus: LPQUERY_SERVICE_LOCK_STATUSW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn QueryServiceLockStatusW(#[in] hSCManager: SC_HANDLE, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpLockStatus: LPQUERY_SERVICE_LOCK_STATUSW, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceObjectSecurity(#[in] hService: SC_HANDLE, #[in] dwSecurityInformation: SECURITY_INFORMATION, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[must_use]
+        extern fn QueryServiceObjectSecurity(#[in] hService: SC_HANDLE, #[in] dwSecurityInformation: SECURITY_INFORMATION, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn QueryServiceStatus(#[in] hService: SC_HANDLE, #[out] lpServiceStatus: LPSERVICE_STATUS) -> BOOL;
-        #[must_use]
         #[library("ADVAPI32.dll")]
-        extern fn QueryServiceStatusEx(#[in] hService: SC_HANDLE, #[in] InfoLevel: SC_STATUS_TYPE, #[out] #[opt] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
+        #[must_use]
+        extern fn QueryServiceStatusEx(#[in] hService: SC_HANDLE, #[in] InfoLevel: SC_STATUS_TYPE, #[opt] #[out] #[writable(entry, bytes(cbBufSize))] lpBuffer: LPBYTE, #[in] cbBufSize: DWORD, #[out] pcbBytesNeeded: LPDWORD) -> BOOL;
         const RPC_INTERFACE_EVENT_GUID: GUID = 0xbc90d167_9470_4139_a9ba_be0bbbf5b74d;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn RegisterServiceCtrlHandlerA(#[in] lpServiceName: LPCSTR, #[in] lpHandlerProc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn RegisterServiceCtrlHandlerExA(#[in] lpServiceName: LPCSTR, #[in] lpHandlerProc: LPHANDLER_FUNCTION_EX, #[in] #[opt] lpContext: LPVOID) -> SERVICE_STATUS_HANDLE;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn RegisterServiceCtrlHandlerExW(#[in] lpServiceName: LPCWSTR, #[in] lpHandlerProc: LPHANDLER_FUNCTION_EX, #[in] #[opt] lpContext: LPVOID) -> SERVICE_STATUS_HANDLE;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn RegisterServiceCtrlHandlerW(#[in] lpServiceName: LPCWSTR, #[in] lpHandlerProc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE;
         struct SC_ACTION {
             Type: SC_ACTION_TYPE,

@@ -31,8 +31,8 @@ mod Windows {
             class ClipboardHistoryItemsResult {
                 IClipboardHistoryItemsResult,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[repr(i32)]
             enum ClipboardHistoryItemsResultStatus {
                 Success = 0,
                 AccessDenied = 1,
@@ -52,15 +52,17 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 655360)]
                 IDataPackage4,
             }
-            #[repr(u32)]
-            #[flags]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[flags]
+            #[repr(u32)]
             enum DataPackageOperation {
                 None = 0,
                 Copy = 1,
                 Move = 2,
                 Link = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 NewTarget = 1073741824,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 1245184)]
                 BackgroundTarget = 536870912,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -111,8 +113,8 @@ mod Windows {
             class DataProviderDeferral {
                 IDataProviderDeferral,
             }
-            #[guid(0xe7ecd720_f2f4_4a2d_920e_170a2f482a27)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0xe7ecd720_f2f4_4a2d_920e_170a2f482a27)]
             delegate fn DataProviderHandler(#[in] request: DataProviderRequest);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
@@ -151,9 +153,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IHtmlFormatHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class HtmlFormatHelper {}
-            #[guid(0xe888a98c_ad4b_5447_a056_ab3556276d2b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClipboardContentOptions)]
+            #[guid(0xe888a98c_ad4b_5447_a056_ab3556276d2b)]
             interface IClipboardContentOptions {
                 IsRoamable: bool;
                 IsAllowedInHistory: bool;
@@ -165,9 +167,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClipboardHistoryChangedEventArgs)]
             interface IClipboardHistoryChangedEventArgs {}
-            #[guid(0x0173bd8a_afff_5c50_ab92_3d19f481ec58)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClipboardHistoryItem)]
+            #[guid(0x0173bd8a_afff_5c50_ab92_3d19f481ec58)]
             interface IClipboardHistoryItem {
                 #[get]
                 Id: String;
@@ -176,18 +178,18 @@ mod Windows {
                 #[get]
                 Content: DataPackageView;
             }
-            #[guid(0xe6dfdee6_0ee2_52e3_852b_f295db65939a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ClipboardHistoryItemsResult)]
+            #[guid(0xe6dfdee6_0ee2_52e3_852b_f295db65939a)]
             interface IClipboardHistoryItemsResult {
                 #[get]
                 Status: ClipboardHistoryItemsResultStatus;
                 #[get]
                 Items: super::super::Foundation::Collections::IVectorView<ClipboardHistoryItem>;
             }
-            #[guid(0xc627e291_34e2_4963_8eed_93cbb0ea3d70)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Clipboard)]
+            #[guid(0xc627e291_34e2_4963_8eed_93cbb0ea3d70)]
             interface IClipboardStatics {
                 fn GetContent(&self) -> DataPackageView;
                 fn SetContent(&self, #[in] content: DataPackage);
@@ -195,9 +197,9 @@ mod Windows {
                 fn Clear(&self);
                 event ContentChanged: super::super::Foundation::EventHandler<Object>;
             }
-            #[guid(0xd2ac1b6a_d29f_554b_b303_f0452345fe02)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Clipboard)]
+            #[guid(0xd2ac1b6a_d29f_554b_b303_f0452345fe02)]
             interface IClipboardStatics2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetHistoryItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<ClipboardHistoryItemsResult>;
@@ -211,9 +213,9 @@ mod Windows {
                 event RoamingEnabledChanged: super::super::Foundation::EventHandler<Object>;
                 event HistoryEnabledChanged: super::super::Foundation::EventHandler<Object>;
             }
-            #[guid(0x61ebf5c7_efea_4346_9554_981d7e198ffe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackage)]
+            #[guid(0x61ebf5c7_efea_4346_9554_981d7e198ffe)]
             interface IDataPackage {
                 fn GetView(&self) -> DataPackageView;
                 #[get]
@@ -221,7 +223,7 @@ mod Windows {
                 RequestedOperation: DataPackageOperation;
                 event OperationCompleted: super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs>;
                 event Destroyed: super::super::Foundation::TypedEventHandler<DataPackage, Object>;
-                fn SetData(&self, #[in] formatId: String, #[in] #[Windows::Foundation::Metadata::HasVariant] value: Object);
+                fn SetData(&self, #[in] formatId: String, #[Windows::Foundation::Metadata::HasVariant] #[in] value: Object);
                 fn SetDataProvider(&self, #[in] formatId: String, #[in] delayRenderer: DataProviderHandler);
                 fn SetText(&self, #[in] value: String);
                 #[Windows::Foundation::Metadata::Deprecated("SetUri may be altered or unavailable for releases after Windows Phone 'OSVersion' (TBD).Instead, use SetWebLink or SetApplicationLink.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -236,29 +238,29 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("SetStorageItems")]
                 fn SetStorageItems(&self, #[in] value: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, #[in] readOnly: bool);
             }
-            #[guid(0x041c1fe9_2409_45e1_a538_4c53eeee04a7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackage)]
+            #[guid(0x041c1fe9_2409_45e1_a538_4c53eeee04a7)]
             interface IDataPackage2 {
                 fn SetApplicationLink(&self, #[in] value: super::super::Foundation::Uri);
                 fn SetWebLink(&self, #[in] value: super::super::Foundation::Uri);
             }
-            #[guid(0x88f31f5d_787b_4d32_965a_a9838105a056)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackage)]
+            #[guid(0x88f31f5d_787b_4d32_965a_a9838105a056)]
             interface IDataPackage3 {
                 event ShareCompleted: super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs>;
             }
-            #[guid(0x13a24ec8_9382_536f_852a_3045e1b29a3b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackage)]
+            #[guid(0x13a24ec8_9382_536f_852a_3045e1b29a3b)]
             interface IDataPackage4 {
                 event ShareCanceled: super::super::Foundation::TypedEventHandler<DataPackage, Object>;
             }
-            #[guid(0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySet)]
             #[Windows::Foundation::Metadata::HasVariant]
+            #[guid(0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689)]
             interface IDataPackagePropertySet: super::super::Foundation::Collections::IMap<String, Object> + super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>> {
                 Title: String;
                 Description: String;
@@ -268,9 +270,9 @@ mod Windows {
                 ApplicationName: String;
                 ApplicationListingUri: super::super::Foundation::Uri;
             }
-            #[guid(0xeb505d4a_9800_46aa_b181_7b6f0f2b919a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySet)]
+            #[guid(0xeb505d4a_9800_46aa_b181_7b6f0f2b919a)]
             interface IDataPackagePropertySet2 {
                 ContentSourceWebLink: super::super::Foundation::Uri;
                 ContentSourceApplicationLink: super::super::Foundation::Uri;
@@ -278,22 +280,22 @@ mod Windows {
                 Square30x30Logo: super::super::Storage::Streams::IRandomAccessStreamReference;
                 LogoBackgroundColor: super::super::UI::Color;
             }
-            #[guid(0x9e87fd9b_5205_401b_874a_455653bd39e8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySet)]
+            #[guid(0x9e87fd9b_5205_401b_874a_455653bd39e8)]
             interface IDataPackagePropertySet3 {
                 EnterpriseId: String;
             }
-            #[guid(0x6390ebf5_1739_4c74_b22f_865fab5e8545)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySet)]
+            #[guid(0x6390ebf5_1739_4c74_b22f_865fab5e8545)]
             interface IDataPackagePropertySet4 {
                 ContentSourceUserActivityJson: String;
             }
-            #[guid(0xb94cec01_0c1a_4c57_be55_75d01289735d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySetView)]
             #[Windows::Foundation::Metadata::HasVariant]
+            #[guid(0xb94cec01_0c1a_4c57_be55_75d01289735d)]
             interface IDataPackagePropertySetView {
                 #[get]
                 Title: String;
@@ -308,9 +310,9 @@ mod Windows {
                 #[get]
                 ApplicationListingUri: super::super::Foundation::Uri;
             }
-            #[guid(0x6054509b_8ebe_4feb_9c1e_75e69de54b84)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySetView)]
+            #[guid(0x6054509b_8ebe_4feb_9c1e_75e69de54b84)]
             interface IDataPackagePropertySetView2 {
                 #[get]
                 PackageFamilyName: String;
@@ -323,30 +325,30 @@ mod Windows {
                 #[get]
                 LogoBackgroundColor: super::super::UI::Color;
             }
-            #[guid(0xdb764ce5_d174_495c_84fc_1a51f6ab45d7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySetView)]
+            #[guid(0xdb764ce5_d174_495c_84fc_1a51f6ab45d7)]
             interface IDataPackagePropertySetView3 {
                 #[get]
                 EnterpriseId: String;
             }
-            #[guid(0x4474c80d_d16f_40ae_9580_6f8562b94235)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySetView)]
+            #[guid(0x4474c80d_d16f_40ae_9580_6f8562b94235)]
             interface IDataPackagePropertySetView4 {
                 #[get]
                 ContentSourceUserActivityJson: String;
             }
-            #[guid(0x6f0a9445_3760_50bb_8523_c4202ded7d78)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackagePropertySetView)]
+            #[guid(0x6f0a9445_3760_50bb_8523_c4202ded7d78)]
             interface IDataPackagePropertySetView5 {
                 #[get]
                 IsFromRoamingClipboard: bool;
             }
-            #[guid(0x7b840471_5900_4d85_a90b_10cb85fe3552)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackageView)]
+            #[guid(0x7b840471_5900_4d85_a90b_10cb85fe3552)]
             interface IDataPackageView {
                 #[get]
                 Properties: DataPackagePropertySetView;
@@ -378,18 +380,18 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetStorageItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>;
             }
-            #[guid(0x40ecba95_2450_4c1d_b6b4_ed45463dee9c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackageView)]
+            #[guid(0x40ecba95_2450_4c1d_b6b4_ed45463dee9c)]
             interface IDataPackageView2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetApplicationLinkAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetWebLinkAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>;
             }
-            #[guid(0xd37771a8_ddad_4288_8428_d1cae394128b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackageView)]
+            #[guid(0xd37771a8_ddad_4288_8428_d1cae394128b)]
             interface IDataPackageView3 {
                 #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
@@ -397,32 +399,32 @@ mod Windows {
                 fn RequestAccessAsync(&self, #[in] enterpriseId: String) -> super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>;
                 fn UnlockAndAssumeEnterpriseIdentity(&self) -> super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult;
             }
-            #[guid(0xdfe96f1f_e042_4433_a09f_26d6ffda8b85)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataPackageView)]
+            #[guid(0xdfe96f1f_e042_4433_a09f_26d6ffda8b85)]
             interface IDataPackageView4 {
                 fn SetAcceptedFormatId(&self, #[in] formatId: String);
             }
-            #[guid(0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataProviderDeferral)]
+            #[guid(0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da)]
             interface IDataProviderDeferral {
                 fn Complete(&self);
             }
-            #[guid(0xebbc7157_d3c8_47da_acde_f82388d5f716)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataProviderRequest)]
+            #[guid(0xebbc7157_d3c8_47da_acde_f82388d5f716)]
             interface IDataProviderRequest {
                 #[get]
                 FormatId: String;
                 #[get]
                 Deadline: super::super::Foundation::DateTime;
                 fn GetDeferral(&self) -> DataProviderDeferral;
-                fn SetData(&self, #[in] #[Windows::Foundation::Metadata::HasVariant] value: Object);
+                fn SetData(&self, #[Windows::Foundation::Metadata::HasVariant] #[in] value: Object);
             }
-            #[guid(0x4341ae3b_fc12_4e53_8c02_ac714c415a27)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataRequest)]
+            #[guid(0x4341ae3b_fc12_4e53_8c02_ac714c415a27)]
             interface IDataRequest {
                 Data: DataPackage;
                 #[get]
@@ -430,83 +432,83 @@ mod Windows {
                 fn FailWithDisplayText(&self, #[in] value: String);
                 fn GetDeferral(&self) -> DataRequestDeferral;
             }
-            #[guid(0x6dc4b89f_0386_4263_87c1_ed7dce30890e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataRequestDeferral)]
+            #[guid(0x6dc4b89f_0386_4263_87c1_ed7dce30890e)]
             interface IDataRequestDeferral {
                 fn Complete(&self);
             }
-            #[guid(0xcb8ba807_6ac5_43c9_8ac5_9ba232163182)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataRequestedEventArgs)]
+            #[guid(0xcb8ba807_6ac5_43c9_8ac5_9ba232163182)]
             interface IDataRequestedEventArgs {
                 #[get]
                 Request: DataRequest;
             }
-            #[guid(0xa5caee9b_8708_49d1_8d36_67d25a8da00c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataTransferManager)]
+            #[guid(0xa5caee9b_8708_49d1_8d36_67d25a8da00c)]
             interface IDataTransferManager {
                 event DataRequested: super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs>;
                 event TargetApplicationChosen: super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs>;
             }
-            #[guid(0x30ae7d71_8ba8_4c02_8e3f_ddb23b388715)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataTransferManager)]
+            #[guid(0x30ae7d71_8ba8_4c02_8e3f_ddb23b388715)]
             interface IDataTransferManager2 {
                 event ShareProvidersRequested: super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs>;
             }
-            #[guid(0xa9da01aa_e00e_4cfe_aa44_2dd932dca3d8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataTransferManager)]
+            #[guid(0xa9da01aa_e00e_4cfe_aa44_2dd932dca3d8)]
             interface IDataTransferManagerStatics {
                 fn ShowShareUI(&self);
                 fn GetForCurrentView(&self) -> DataTransferManager;
             }
-            #[guid(0xc54ec2ec_9f97_4d63_9868_395e271ad8f5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataTransferManager)]
+            #[guid(0xc54ec2ec_9f97_4d63_9868_395e271ad8f5)]
             interface IDataTransferManagerStatics2 {
                 fn IsSupported(&self) -> bool;
             }
-            #[guid(0x05845473_6c82_4f5c_ac23_62e458361fac)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataTransferManager)]
+            #[guid(0x05845473_6c82_4f5c_ac23_62e458361fac)]
             interface IDataTransferManagerStatics3 {
                 #[Windows::Foundation::Metadata::Overload("ShowShareUIWithOptions")]
                 fn ShowShareUI(&self, #[in] options: ShareUIOptions);
             }
-            #[guid(0xe22e7749_dd70_446f_aefc_61cee59f655e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HtmlFormatHelper)]
+            #[guid(0xe22e7749_dd70_446f_aefc_61cee59f655e)]
             interface IHtmlFormatHelperStatics {
                 fn GetStaticFragment(&self, #[in] htmlFormat: String) -> String;
                 fn CreateHtmlFormat(&self, #[in] htmlFragment: String) -> String;
             }
-            #[guid(0xe7af329d_051d_4fab_b1a9_47fd77f70a41)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OperationCompletedEventArgs)]
+            #[guid(0xe7af329d_051d_4fab_b1a9_47fd77f70a41)]
             interface IOperationCompletedEventArgs {
                 #[get]
                 Operation: DataPackageOperation;
             }
-            #[guid(0x858fa073_1e19_4105_b2f7_c8478808d562)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(OperationCompletedEventArgs)]
+            #[guid(0x858fa073_1e19_4105_b2f7_c8478808d562)]
             interface IOperationCompletedEventArgs2 {
                 #[get]
                 AcceptedFormatId: String;
             }
-            #[guid(0x4574c442_f913_4f60_9df7_cc4060ab1916)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareCompletedEventArgs)]
+            #[guid(0x4574c442_f913_4f60_9df7_cc4060ab1916)]
             interface IShareCompletedEventArgs {
                 #[get]
                 ShareTarget: ShareTargetInfo;
             }
-            #[guid(0x2fabe026_443e_4cda_af25_8d81070efd80)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareProvider)]
+            #[guid(0x2fabe026_443e_4cda_af25_8d81070efd80)]
             interface IShareProvider {
                 #[get]
                 Title: String;
@@ -516,15 +518,15 @@ mod Windows {
                 BackgroundColor: super::super::UI::Color;
                 Tag: Object;
             }
-            #[guid(0x172a174c_e79e_4f6d_b07d_128f469e0296)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareProvider)]
+            #[guid(0x172a174c_e79e_4f6d_b07d_128f469e0296)]
             interface IShareProviderFactory {
                 fn Create(&self, #[in] title: String, #[in] displayIcon: super::super::Storage::Streams::RandomAccessStreamReference, #[in] backgroundColor: super::super::UI::Color, #[in] handler: ShareProviderHandler) -> ShareProvider;
             }
-            #[guid(0x19cef937_d435_4179_b6af_14e0492b69f6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareProviderOperation)]
+            #[guid(0x19cef937_d435_4179_b6af_14e0492b69f6)]
             interface IShareProviderOperation {
                 #[get]
                 Data: DataPackageView;
@@ -532,9 +534,9 @@ mod Windows {
                 Provider: ShareProvider;
                 fn ReportCompleted(&self);
             }
-            #[guid(0xf888f356_a3f8_4fce_85e4_8826e63be799)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareProvidersRequestedEventArgs)]
+            #[guid(0xf888f356_a3f8_4fce_85e4_8826e63be799)]
             interface IShareProvidersRequestedEventArgs {
                 #[get]
                 Providers: super::super::Foundation::Collections::IVector<ShareProvider>;
@@ -542,39 +544,39 @@ mod Windows {
                 Data: DataPackageView;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x385be607_c6e8_4114_b294_28f3bb6f9904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareTargetInfo)]
+            #[guid(0x385be607_c6e8_4114_b294_28f3bb6f9904)]
             interface IShareTargetInfo {
                 #[get]
                 AppUserModelId: String;
                 #[get]
                 ShareProvider: ShareProvider;
             }
-            #[guid(0x72fa8a80_342f_4d90_9551_2ae04e37680c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ShareUIOptions)]
+            #[guid(0x72fa8a80_342f_4d90_9551_2ae04e37680c)]
             interface IShareUIOptions {
                 Theme: ShareUITheme;
                 SelectionRect: super::super::Foundation::IReference<super::super::Foundation::Rect>;
             }
-            #[guid(0xc6132ada_34b1_4849_bd5f_d09fee3158c5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SharedStorageAccessManager)]
+            #[guid(0xc6132ada_34b1_4849_bd5f_d09fee3158c5)]
             interface ISharedStorageAccessManagerStatics {
                 fn AddFile(&self, #[in] file: super::super::Storage::IStorageFile) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RedeemTokenForFileAsync(&self, #[in] token: String) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>;
                 fn RemoveFile(&self, #[in] token: String);
             }
-            #[guid(0x7ed681a1_a880_40c9_b4ed_0bee1e15f549)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StandardDataFormats)]
+            #[guid(0x7ed681a1_a880_40c9_b4ed_0bee1e15f549)]
             interface IStandardDataFormatsStatics {
                 #[get]
                 Text: String;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Uri may be altered or unavailable for releases after Windows Phone 'OSVersion' (TBD). Instead, use WebLink or ApplicationLink.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Uri: String;
                 #[get]
                 Html: String;
@@ -585,32 +587,32 @@ mod Windows {
                 #[get]
                 StorageItems: String;
             }
-            #[guid(0x42a254f4_9d76_42e8_861b_47c25dd0cf71)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StandardDataFormats)]
+            #[guid(0x42a254f4_9d76_42e8_861b_47c25dd0cf71)]
             interface IStandardDataFormatsStatics2 {
                 #[get]
                 WebLink: String;
                 #[get]
                 ApplicationLink: String;
             }
-            #[guid(0x3b57b069_01d4_474c_8b5f_bc8e27f38b21)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StandardDataFormats)]
+            #[guid(0x3b57b069_01d4_474c_8b5f_bc8e27f38b21)]
             interface IStandardDataFormatsStatics3 {
                 #[get]
                 UserActivityJsonArray: String;
             }
-            #[guid(0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TargetApplicationChosenEventArgs)]
+            #[guid(0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d)]
             interface ITargetApplicationChosenEventArgs {
                 #[get]
                 ApplicationName: String;
             }
-            #[guid(0x897e04e5_60c2_5eae_909f_e6257e32c644)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTarget)]
+            #[guid(0x897e04e5_60c2_5eae_909f_e6257e32c644)]
             interface ITransferTarget {
                 #[get]
                 Id: String;
@@ -621,46 +623,46 @@ mod Windows {
                 #[get]
                 IsEnabled: bool;
             }
-            #[guid(0xd513d198_4174_53cf_a06e_4cd263d0dfef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetChangedEventArgs)]
+            #[guid(0xd513d198_4174_53cf_a06e_4cd263d0dfef)]
             interface ITransferTargetChangedEventArgs {
                 #[get]
                 Target: TransferTarget;
             }
-            #[guid(0x712fe3b5_644f_5f6b_97b6_3a3400999ed7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetDiscoveryOptions)]
+            #[guid(0x712fe3b5_644f_5f6b_97b6_3a3400999ed7)]
             interface ITransferTargetDiscoveryOptions {
                 #[get]
                 DataPackage: DataPackageView;
                 MaxAppTargets: i32;
                 AllowedTargetAppIds: [String];
             }
-            #[guid(0xec4b7ffc_cbc6_5e12_8e9b_d5e892f2c6f8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetDiscoveryOptions)]
+            #[guid(0xec4b7ffc_cbc6_5e12_8e9b_d5e892f2c6f8)]
             interface ITransferTargetDiscoveryOptionsFactory {
                 fn CreateInstance(&self, #[in] dataPackage: DataPackageView) -> TransferTargetDiscoveryOptions;
             }
-            #[guid(0x15f220a6_cffe_56f5_b403_ed44e9c3ad38)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetInvokeResult)]
+            #[guid(0x15f220a6_cffe_56f5_b403_ed44e9c3ad38)]
             interface ITransferTargetInvokeResult {
                 #[get]
                 Succeeded: bool;
                 #[get]
                 ExtendedError: HRESULT;
             }
-            #[guid(0x815b8804_e7f1_5f37_b52f_be1ceba9a59e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTarget)]
+            #[guid(0x815b8804_e7f1_5f37_b52f_be1ceba9a59e)]
             interface ITransferTargetStatics {
                 fn CreateWatcher(&self, #[in] options: TransferTargetDiscoveryOptions) -> TransferTargetWatcher;
             }
-            #[guid(0x2f85ca29_0100_5d09_907c_fe554d2fcd1a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetWatcher)]
+            #[guid(0x2f85ca29_0100_5d09_907c_fe554d2fcd1a)]
             interface ITransferTargetWatcher {
                 fn Start(&self);
                 fn Stop(&self);
@@ -672,9 +674,9 @@ mod Windows {
                 event EnumerationCompleted: super::super::Foundation::TypedEventHandler<TransferTargetWatcher, Object>;
                 event Stopped: super::super::Foundation::TypedEventHandler<TransferTargetWatcher, Object>;
             }
-            #[guid(0xa24b3528_db4e_5bdd_9d30_dcb192c701f5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TransferTargetWatcher)]
+            #[guid(0xa24b3528_db4e_5bdd_9d30_dcb192c701f5)]
             interface ITransferTargetWatcherStatics {
                 fn IsSupported(&self, #[in] dataPackage: DataPackageView) -> bool;
             }
@@ -686,8 +688,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 131072)]
                 IOperationCompletedEventArgs2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[repr(i32)]
             enum SetHistoryItemAsContentStatus {
                 Success = 0,
                 AccessDenied = 1,
@@ -704,8 +706,8 @@ mod Windows {
             class ShareProvider {
                 IShareProvider,
             }
-            #[guid(0xe7f9d9ba_e1ba_4e4d_bd65_d43845d3212f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[guid(0xe7f9d9ba_e1ba_4e4d_bd65_d43845d3212f)]
             delegate fn ShareProviderHandler(#[in] operation: ShareProviderOperation);
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -730,8 +732,8 @@ mod Windows {
             class ShareUIOptions {
                 IShareUIOptions,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum ShareUITheme {
                 Default = 0,
                 Light = 1,
@@ -743,9 +745,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IStandardDataFormatsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IStandardDataFormatsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IStandardDataFormatsStatics3, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IStandardDataFormatsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class StandardDataFormats {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

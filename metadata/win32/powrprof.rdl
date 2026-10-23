@@ -23,7 +23,7 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn DevicePowerClose() -> BOOLEAN;
         #[library("POWRPROF.dll")]
-        extern fn DevicePowerEnumDevices(#[in] QueryIndex: ULONG, #[in] QueryInterpretationFlags: ULONG, #[in] QueryFlags: ULONG, #[out] #[opt] #[writable(entry, bytes(*pBufferSize))] pReturnBuffer: PBYTE, #[in] #[out] pBufferSize: PULONG) -> BOOLEAN;
+        extern fn DevicePowerEnumDevices(#[in] QueryIndex: ULONG, #[in] QueryInterpretationFlags: ULONG, #[in] QueryFlags: ULONG, #[opt] #[out] #[writable(entry, bytes(*pBufferSize))] pReturnBuffer: PBYTE, #[in] #[out] pBufferSize: PULONG) -> BOOLEAN;
         #[library("POWRPROF.dll")]
         extern fn DevicePowerOpen(#[in] #[opt] DebugMask: ULONG) -> BOOLEAN;
         #[library("POWRPROF.dll")]
@@ -151,9 +151,9 @@ mod Windows {
         type PPOWER_POLICY = *mut POWER_POLICY;
         type PTHERMAL_EVENT = *mut THERMAL_EVENT;
         type PUSER_POWER_POLICY = *mut USER_POWER_POLICY;
-        extern fn PWRSCHEMESENUMPROC(#[in] Index: UINT, #[in] NameSize: DWORD, #[in] #[readable(entry, bytes(NameSize))] Name: LPWSTR, #[in] DescriptionSize: DWORD, #[in] #[readable(entry, bytes(DescriptionSize))] Description: LPWSTR, #[in] Policy: PPOWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
-        extern fn PWRSCHEMESENUMPROC_V1(#[in] Index: UINT, #[in] NameSize: DWORD, #[in] #[readable(entry, bytes(NameSize))] Name: LPTSTR, #[in] DescriptionSize: DWORD, #[in] #[readable(entry, bytes(DescriptionSize))] Description: LPTSTR, #[in] Policy: PPOWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
-        extern fn PWRSCHEMESENUMPROC_V2(#[in] Index: UINT, #[in] NameSize: DWORD, #[in] #[readable(entry, bytes(NameSize))] Name: LPWSTR, #[in] DescriptionSize: DWORD, #[in] #[readable(entry, bytes(DescriptionSize))] Description: LPWSTR, #[in] Policy: PPOWER_POLICY, #[in] #[out] #[opt] Context: LPARAM) -> BOOLEAN;
+        extern fn PWRSCHEMESENUMPROC(#[in] Index: UINT, #[in] NameSize: DWORD, #[in] #[readable(entry, bytes(NameSize))] Name: LPWSTR, #[in] DescriptionSize: DWORD, #[in] #[readable(entry, bytes(DescriptionSize))] Description: LPWSTR, #[in] Policy: PPOWER_POLICY, #[in] #[opt] #[out] Context: LPARAM) -> BOOLEAN;
+        extern fn PWRSCHEMESENUMPROC_V1(#[in] Index: UINT, #[in] NameSize: DWORD, #[in] #[readable(entry, bytes(NameSize))] Name: LPTSTR, #[in] DescriptionSize: DWORD, #[in] #[readable(entry, bytes(DescriptionSize))] Description: LPTSTR, #[in] Policy: PPOWER_POLICY, #[in] #[opt] #[out] Context: LPARAM) -> BOOLEAN;
+        extern fn PWRSCHEMESENUMPROC_V2(#[in] Index: UINT, #[in] NameSize: DWORD, #[in] #[readable(entry, bytes(NameSize))] Name: LPWSTR, #[in] DescriptionSize: DWORD, #[in] #[readable(entry, bytes(DescriptionSize))] Description: LPWSTR, #[in] Policy: PPOWER_POLICY, #[in] #[opt] #[out] Context: LPARAM) -> BOOLEAN;
         #[library("POWRPROF.dll")]
         extern fn PowerCanRestoreIndividualDefaultPowerScheme(#[in] SchemeGuid: *const GUID) -> DWORD;
         #[library("POWRPROF.dll")]
@@ -167,7 +167,7 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn PowerDuplicateScheme(#[in] #[opt] RootPowerKey: HKEY, #[in] SourceSchemeGuid: *const GUID, #[in] #[out] DestinationSchemeGuid: *mut *mut GUID) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerEnumerate(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] AccessFlags: POWER_DATA_ACCESSOR, #[in] Index: ULONG, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: *mut UCHAR, #[in] #[out] BufferSize: *mut DWORD) -> DWORD;
+        extern fn PowerEnumerate(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] AccessFlags: POWER_DATA_ACCESSOR, #[in] Index: ULONG, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: *mut UCHAR, #[in] #[out] BufferSize: *mut DWORD) -> DWORD;
         #[library("POWRPROF.dll")]
         extern fn PowerGetUserConfiguredACPowerMode(#[out] PowerModeGuid: *mut GUID) -> DWORD;
         #[library("POWRPROF.dll")]
@@ -189,17 +189,17 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn PowerReadDCValueIndex(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] DcValueIndex: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadDescription(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadDescription(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadFriendlyName(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadFriendlyName(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadIconResourceSpecifier(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadIconResourceSpecifier(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadPossibleDescription(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[in] PossibleSettingIndex: ULONG, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadPossibleDescription(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[in] PossibleSettingIndex: ULONG, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadPossibleFriendlyName(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[in] PossibleSettingIndex: ULONG, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadPossibleFriendlyName(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[in] PossibleSettingIndex: ULONG, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadPossibleValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] Type: PULONG, #[in] PossibleSettingIndex: ULONG, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadPossibleValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] Type: PULONG, #[in] PossibleSettingIndex: ULONG, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
         extern fn PowerReadSettingAttributes(#[in] #[opt] SubGroupGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID) -> DWORD;
         #[library("POWRPROF.dll")]
@@ -209,7 +209,7 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn PowerReadValueMin(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] ValueMinimum: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadValueUnitsSpecifier(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: *mut UCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadValueUnitsSpecifier(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: *mut UCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
         extern fn PowerRemovePowerSetting(#[in] PowerSettingSubKeyGuid: *const GUID, #[in] PowerSettingGuid: *const GUID) -> DWORD;
         #[library("POWRPROF.dll")]
@@ -298,7 +298,7 @@ mod Windows {
             ForcedThrottleDc: UCHAR,
         }
         #[library("POWRPROF.dll")]
-        extern fn ValidatePowerPolicies(#[in] #[out] #[opt] pGlobalPowerPolicy: PGLOBAL_POWER_POLICY, #[in] #[out] #[opt] pPowerPolicy: PPOWER_POLICY) -> BOOLEAN;
+        extern fn ValidatePowerPolicies(#[in] #[opt] #[out] pGlobalPowerPolicy: PGLOBAL_POWER_POLICY, #[in] #[opt] #[out] pPowerPolicy: PPOWER_POLICY) -> BOOLEAN;
         #[library("POWRPROF.dll")]
         extern fn WriteGlobalPwrPolicy(#[in] pGlobalPowerPolicy: PGLOBAL_POWER_POLICY) -> BOOLEAN;
         #[library("POWRPROF.dll")]

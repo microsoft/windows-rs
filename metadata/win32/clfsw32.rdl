@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("clfsw32.dll")]
-        extern fn AddLogContainer(#[in] hLog: HANDLE, #[in] #[opt] pcbContainer: PULONGLONG, #[in] pwszContainerPath: LPWSTR, #[in] #[out] #[opt] pReserved: LPVOID) -> BOOL;
+        extern fn AddLogContainer(#[in] hLog: HANDLE, #[in] #[opt] pcbContainer: PULONGLONG, #[in] pwszContainerPath: LPWSTR, #[in] #[opt] #[out] pReserved: LPVOID) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn AddLogContainerSet(#[in] hLog: HANDLE, #[in] cContainer: USHORT, #[in] #[opt] pcbContainer: PULONGLONG, #[in] #[readable(entry, cContainer)] rgwszContainerPath: *mut LPWSTR, #[in] #[out] #[opt] pReserved: LPVOID) -> BOOL;
+        extern fn AddLogContainerSet(#[in] hLog: HANDLE, #[in] cContainer: USHORT, #[in] #[opt] pcbContainer: PULONGLONG, #[in] #[readable(entry, cContainer)] rgwszContainerPath: *mut LPWSTR, #[in] #[opt] #[out] pReserved: LPVOID) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn AdvanceLogBase(pvMarshal: PVOID, plsnBase: PCLFS_LSN, fFlags: ULONG, pOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
@@ -48,7 +48,7 @@ mod Windows {
         extern fn PCLFS_COMPLETION_ROUTINE(pvOverlapped: PVOID, ulReserved: ULONG);
         type PCLFS_LOG_ARCHIVE_CONTEXT = *mut *mut void;
         #[library("clfsw32.dll")]
-        extern fn PrepareLogArchive(#[in] hLog: HANDLE, #[in] #[out] #[writable(entry, cLen)] pszBaseLogFileName: PWSTR, #[in] cLen: ULONG, #[in] #[opt] plsnLow: PCLFS_LSN, #[in] #[opt] plsnHigh: PCLFS_LSN, #[out] #[opt] pcActualLength: PULONG, #[out] poffBaseLogFileData: PULONGLONG, #[out] pcbBaseLogFileLength: PULONGLONG, #[out] plsnBase: PCLFS_LSN, #[out] plsnLast: PCLFS_LSN, #[out] plsnCurrentArchiveTail: PCLFS_LSN, #[out] ppvArchiveContext: PCLFS_LOG_ARCHIVE_CONTEXT) -> BOOL;
+        extern fn PrepareLogArchive(#[in] hLog: HANDLE, #[in] #[out] #[writable(entry, cLen)] pszBaseLogFileName: PWSTR, #[in] cLen: ULONG, #[in] #[opt] plsnLow: PCLFS_LSN, #[in] #[opt] plsnHigh: PCLFS_LSN, #[opt] #[out] pcActualLength: PULONG, #[out] poffBaseLogFileData: PULONGLONG, #[out] pcbBaseLogFileLength: PULONGLONG, #[out] plsnBase: PCLFS_LSN, #[out] plsnLast: PCLFS_LSN, #[out] plsnCurrentArchiveTail: PCLFS_LSN, #[out] ppvArchiveContext: PCLFS_LOG_ARCHIVE_CONTEXT) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn ReadLogArchiveMetadata(pvArchiveContext: CLFS_LOG_ARCHIVE_CONTEXT, cbOffset: ULONG, cbBytesToRead: ULONG, pbReadBuffer: PBYTE, pcbBytesRead: PULONG) -> BOOL;
         #[library("clfsw32.dll")]
@@ -60,9 +60,9 @@ mod Windows {
         #[library("clfsw32.dll")]
         extern fn ReadPreviousLogRestartArea(pvReadContext: PVOID, ppvRestartBuffer: *mut PVOID, pcbRestartBuffer: PULONG, plsnRestart: PCLFS_LSN, pOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn RemoveLogContainer(#[in] hLog: HANDLE, #[in] pwszContainerPath: LPWSTR, #[in] fForce: BOOL, #[in] #[out] #[opt] pReserved: LPVOID) -> BOOL;
+        extern fn RemoveLogContainer(#[in] hLog: HANDLE, #[in] pwszContainerPath: LPWSTR, #[in] fForce: BOOL, #[in] #[opt] #[out] pReserved: LPVOID) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn RemoveLogContainerSet(#[in] hLog: HANDLE, #[in] cContainer: USHORT, #[in] #[readable(entry, cContainer)] rgwszContainerPath: *mut LPWSTR, #[in] fForce: BOOL, #[in] #[out] #[opt] pReserved: LPVOID) -> BOOL;
+        extern fn RemoveLogContainerSet(#[in] hLog: HANDLE, #[in] cContainer: USHORT, #[in] #[readable(entry, cContainer)] rgwszContainerPath: *mut LPWSTR, #[in] fForce: BOOL, #[in] #[opt] #[out] pReserved: LPVOID) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn ReserveAndAppendLog(pvMarshal: PVOID, rgWriteEntries: PCLFS_WRITE_ENTRY, cWriteEntries: ULONG, plsnUndoNext: PCLFS_LSN, plsnPrevious: PCLFS_LSN, cReserveRecords: ULONG, rgcbReservation: *mut LONGLONG, fFlags: ULONG, plsn: PCLFS_LSN, pOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
@@ -80,7 +80,7 @@ mod Windows {
         #[library("clfsw32.dll")]
         extern fn TerminateReadLog(pvCursorContext: PVOID) -> BOOL;
         #[library("clfsw32.dll")]
-        extern fn TruncateLog(#[in] pvMarshal: PVOID, #[in] plsnEnd: PCLFS_LSN, #[in] #[out] #[opt] lpOverlapped: LPOVERLAPPED) -> BOOL;
+        extern fn TruncateLog(#[in] pvMarshal: PVOID, #[in] plsnEnd: PCLFS_LSN, #[in] #[opt] #[out] lpOverlapped: LPOVERLAPPED) -> BOOL;
         #[library("clfsw32.dll")]
         extern fn ValidateLog(pszLogFileName: LPCWSTR, psaLogFile: LPSECURITY_ATTRIBUTES, pinfoBuffer: PCLFS_INFORMATION, pcbBuffer: PULONG) -> BOOL;
         #[library("clfsw32.dll")]

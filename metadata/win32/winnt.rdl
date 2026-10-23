@@ -834,8 +834,8 @@ mod Windows {
         }
         #[arch(Arm64)]
         type CONTEXT = ARM64_NT_CONTEXT;
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct CONTEXT {
             ContextFlags: DWORD,
             Dr0: DWORD,
@@ -5192,8 +5192,8 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_Function_class_", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK", "OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK")]
         #[arch(X64)]
         extern "C" fn OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK(#[in] Process: HANDLE, #[in] TableAddress: PVOID, #[out] Entries: PDWORD, #[out] Functions: *mut PRUNTIME_FUNCTION) -> DWORD;
-        #[encoding("ansi")]
         #[arch(X64 | Arm64)]
+        #[encoding("ansi")]
         const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: String = "OutOfProcessFunctionTableCallback";
         const OWNER_SECURITY_INFORMATION: i32 = 1;
         type PACCESS_ALLOWED_ACE = *mut ACCESS_ALLOWED_ACE;
@@ -7187,18 +7187,18 @@ mod Windows {
         type PTP_CALLBACK_ENVIRON = *mut TP_CALLBACK_ENVIRON_V3;
         type PTP_CALLBACK_INSTANCE = *mut _TP_CALLBACK_INSTANCE;
         type PTP_CLEANUP_GROUP = *mut _TP_CLEANUP_GROUP;
-        extern fn PTP_CLEANUP_GROUP_CANCEL_CALLBACK(#[in] #[out] #[opt] ObjectContext: PVOID, #[in] #[out] #[opt] CleanupContext: PVOID);
+        extern fn PTP_CLEANUP_GROUP_CANCEL_CALLBACK(#[in] #[opt] #[out] ObjectContext: PVOID, #[in] #[opt] #[out] CleanupContext: PVOID);
         type PTP_IO = *mut _TP_IO;
         type PTP_POOL = *mut _TP_POOL;
         type PTP_POOL_STACK_INFORMATION = *mut TP_POOL_STACK_INFORMATION;
-        extern fn PTP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID);
+        extern fn PTP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID);
         type PTP_TIMER = *mut _TP_TIMER;
-        extern fn PTP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Timer: PTP_TIMER);
+        extern fn PTP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID, #[in] #[out] Timer: PTP_TIMER);
         type PTP_VERSION = *mut u32;
         type PTP_WAIT = *mut _TP_WAIT;
-        extern fn PTP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Wait: PTP_WAIT, #[in] WaitResult: TP_WAIT_RESULT);
+        extern fn PTP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID, #[in] #[out] Wait: PTP_WAIT, #[in] WaitResult: TP_WAIT_RESULT);
         type PTP_WORK = *mut _TP_WORK;
-        extern fn PTP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Work: PTP_WORK);
+        extern fn PTP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID, #[in] #[out] Work: PTP_WORK);
         type PTRANSACTIONMANAGER_BASIC_INFORMATION = *mut TRANSACTIONMANAGER_BASIC_INFORMATION;
         type PTRANSACTIONMANAGER_LOGPATH_INFORMATION = *mut TRANSACTIONMANAGER_LOGPATH_INFORMATION;
         type PTRANSACTIONMANAGER_LOG_INFORMATION = *mut TRANSACTIONMANAGER_LOG_INFORMATION;
@@ -7580,30 +7580,30 @@ mod Windows {
             MAX_CLASS_NAME = 1024,
             MAX_PACKAGE_NAME = 1024,
         }
-        #[library("KERNEL32.dll")]
         #[arch(Arm64)]
-        extern "C" fn RtlAddFunctionTable(#[in] #[readable(entry, EntryCount)] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] BaseAddress: ULONG_PTR) -> BOOLEAN;
         #[library("KERNEL32.dll")]
+        extern "C" fn RtlAddFunctionTable(#[in] #[readable(entry, EntryCount)] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] BaseAddress: ULONG_PTR) -> BOOLEAN;
         #[arch(X64)]
+        #[library("KERNEL32.dll")]
         extern "C" fn RtlAddFunctionTable(#[in] #[readable(entry, EntryCount)] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] BaseAddress: DWORD64) -> BOOLEAN;
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlAddGrowableFunctionTable(#[out] DynamicTable: *mut PVOID, #[in] #[readable(entry, MaximumEntryCount)] FunctionTable: PRUNTIME_FUNCTION, #[in] EntryCount: DWORD, #[in] MaximumEntryCount: DWORD, #[in] RangeBase: ULONG_PTR, #[in] RangeEnd: ULONG_PTR) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn RtlCaptureContext(#[out] ContextRecord: PCONTEXT);
-        #[library("ntdll.dll")]
         #[arch(X64)]
-        extern fn RtlCaptureContext2(#[in] #[out] ContextRecord: PCONTEXT);
-        #[success(return != 0)]
-        #[library("KERNEL32.dll")]
-        extern fn RtlCaptureStackBackTrace(#[in] FramesToSkip: DWORD, #[in] FramesToCapture: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "FramesToCapture,return", "FramesToCapture,return")] #[out] #[writable(entry, FramesToCapture)] BackTrace: *mut PVOID, #[out] #[opt] BackTraceHash: PDWORD) -> WORD;
-        #[must_use]
-        #[library("KERNEL32.dll")]
-        #[arch(X64 | Arm64)]
-        extern fn RtlCompareMemory(#[in] Source1: *const void, #[in] Source2: *const void, #[in] Length: SIZE_T) -> SIZE_T;
-        #[must_use]
         #[library("ntdll.dll")]
+        extern fn RtlCaptureContext2(#[in] #[out] ContextRecord: PCONTEXT);
+        #[library("KERNEL32.dll")]
+        #[success(return != 0)]
+        extern fn RtlCaptureStackBackTrace(#[in] FramesToSkip: DWORD, #[in] FramesToCapture: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_", "FramesToCapture,return", "FramesToCapture,return")] #[out] #[writable(entry, FramesToCapture)] BackTrace: *mut PVOID, #[opt] #[out] BackTraceHash: PDWORD) -> WORD;
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        #[must_use]
+        extern fn RtlCompareMemory(#[in] Source1: *const void, #[in] Source2: *const void, #[in] Length: SIZE_T) -> SIZE_T;
         #[arch(X86)]
+        #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlCompareMemory(#[in] Source1: *const void, #[in] Source2: *const void, #[in] Length: SIZE_T) -> SIZE_T;
         #[library("ntdll.dll")]
         extern fn RtlConvertDeviceFamilyInfoToString(#[in] #[out] pulDeviceFamilyBufferSize: PDWORD, #[in] #[out] pulDeviceFormBufferSize: PDWORD, #[out] #[writable(entry, bytes(*pulDeviceFamilyBufferSize))] DeviceFamily: PWSTR, #[out] #[writable(entry, bytes(*pulDeviceFormBufferSize))] DeviceForm: PWSTR) -> DWORD;
@@ -7611,44 +7611,44 @@ mod Windows {
         extern fn RtlCrc32(#[in] #[readable(entry, bytes(Size))] Buffer: *const void, #[in] Size: size_t, #[in] InitialCrc: DWORD) -> DWORD;
         #[library("ntdll.dll")]
         extern fn RtlCrc64(#[in] #[readable(entry, bytes(Size))] Buffer: *const void, #[in] Size: size_t, #[in] InitialCrc: ULONGLONG) -> ULONGLONG;
+        #[arch(X64 | Arm64)]
         #[library("KERNEL32.dll")]
-        #[arch(X64 | Arm64)]
         extern "C" fn RtlDeleteFunctionTable(#[in] FunctionTable: PRUNTIME_FUNCTION) -> BOOLEAN;
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlDeleteGrowableFunctionTable(#[in] DynamicTable: PVOID);
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlDrainNonVolatileFlush(#[in] NvToken: PVOID) -> DWORD;
         #[library("ntdll.dll")]
         extern fn RtlExtendCorrelationVector(#[in] #[out] CorrelationVector: PCORRELATION_VECTOR) -> DWORD;
-        #[must_use]
         #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlFirstEntrySList(#[in] ListHead: *const SLIST_HEADER) -> PSLIST_ENTRY;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlFlushNonVolatileMemory(#[in] NvToken: PVOID, #[in] #[readable(entry, bytes(Size))] NvBuffer: PVOID, #[in] Size: SIZE_T, #[in] Flags: DWORD) -> DWORD;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlFlushNonVolatileMemoryRanges(#[in] NvToken: PVOID, #[in] #[readable(entry, NumRanges)] NvRanges: PNV_MEMORY_RANGE, #[in] NumRanges: SIZE_T, #[in] Flags: DWORD) -> DWORD;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "DPC_LEVEL", "DPC_LEVEL")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlFreeNonVolatileToken(#[in] NvToken: PVOID) -> DWORD;
         #[library("ntdll.dll")]
-        extern fn RtlGetDeviceFamilyInfoEnum(#[out] #[opt] pullUAPInfo: *mut ULONGLONG, #[out] #[opt] pulDeviceFamily: *mut DWORD, #[out] #[opt] pulDeviceForm: *mut DWORD);
-        #[library("ntdll.dll")]
+        extern fn RtlGetDeviceFamilyInfoEnum(#[opt] #[out] pullUAPInfo: *mut ULONGLONG, #[opt] #[out] pulDeviceFamily: *mut DWORD, #[opt] #[out] pulDeviceForm: *mut DWORD);
         #[arch(X64 | Arm64)]
-        extern "C" fn RtlGetImageFileMachines(#[in] DosFileName: PCWSTR, #[out] MachineTypeFlags: *mut IMAGE_FILE_MACHINES) -> DWORD;
         #[library("ntdll.dll")]
+        extern "C" fn RtlGetImageFileMachines(#[in] DosFileName: PCWSTR, #[out] MachineTypeFlags: *mut IMAGE_FILE_MACHINES) -> DWORD;
         #[arch(X86)]
+        #[library("ntdll.dll")]
         extern fn RtlGetImageFileMachines(#[in] DosFileName: PCWSTR, #[out] MachineTypeFlags: *mut IMAGE_FILE_MACHINES) -> DWORD;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "1", "1")]
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlGetNonVolatileToken(#[in] #[readable(entry, bytes(Size))] NvBuffer: PVOID, #[in] Size: SIZE_T, #[out] #[out_ptr] NvToken: *mut PVOID) -> DWORD;
         #[library("ntdll.dll")]
         extern fn RtlGetProductInfo(#[in] OSMajorVersion: DWORD, #[in] OSMinorVersion: DWORD, #[in] SpMajorVersion: DWORD, #[in] SpMinorVersion: DWORD, #[out] ReturnedProductType: PDWORD) -> BOOLEAN;
@@ -7656,8 +7656,8 @@ mod Windows {
         extern fn RtlGetReturnAddressHijackTarget() -> ULONG_PTR;
         #[library("ntdll.dll")]
         extern fn RtlGetSystemGlobalData(#[in] DataId: RTL_SYSTEM_GLOBAL_DATA_ID, #[in] #[out] Buffer: PVOID, #[in] Size: DWORD) -> DWORD;
-        #[library("ntdll.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
         extern fn RtlGrowFunctionTable(#[in] #[out] DynamicTable: PVOID, #[in] NewEntryCount: DWORD);
         #[library("ntdll.dll")]
         extern fn RtlIncrementCorrelationVector(#[in] #[out] CorrelationVector: PCORRELATION_VECTOR) -> DWORD;
@@ -7665,11 +7665,11 @@ mod Windows {
         extern fn RtlInitializeCorrelationVector(#[out] CorrelationVector: PCORRELATION_VECTOR, #[in] Version: i32, #[in] #[opt] Guid: *const GUID) -> DWORD;
         #[library("ntdll.dll")]
         extern fn RtlInitializeSListHead(#[out] ListHead: PSLIST_HEADER);
-        #[library("KERNEL32.dll")]
         #[arch(Arm64)]
-        extern "C" fn RtlInstallFunctionTableCallback(#[in] TableIdentifier: ULONG_PTR, #[in] BaseAddress: ULONG_PTR, #[in] Length: DWORD, #[in] Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[in] #[opt] Context: PVOID, #[in] #[opt] OutOfProcessCallbackDll: PCWSTR) -> BOOLEAN;
         #[library("KERNEL32.dll")]
+        extern "C" fn RtlInstallFunctionTableCallback(#[in] TableIdentifier: ULONG_PTR, #[in] BaseAddress: ULONG_PTR, #[in] Length: DWORD, #[in] Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[in] #[opt] Context: PVOID, #[in] #[opt] OutOfProcessCallbackDll: PCWSTR) -> BOOLEAN;
         #[arch(X64)]
+        #[library("KERNEL32.dll")]
         extern "C" fn RtlInstallFunctionTableCallback(#[in] TableIdentifier: DWORD64, #[in] BaseAddress: DWORD64, #[in] Length: DWORD, #[in] Callback: PGET_RUNTIME_FUNCTION_CALLBACK, #[in] #[opt] Context: PVOID, #[in] #[opt] OutOfProcessCallbackDll: PCWSTR) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlInterlockedFlushSList(#[in] #[out] ListHead: PSLIST_HEADER) -> PSLIST_ENTRY;
@@ -7681,15 +7681,15 @@ mod Windows {
         extern fn RtlInterlockedPushListSListEx(#[in] #[out] ListHead: PSLIST_HEADER, #[Windows::Win32::Metadata::NativeSal("L", "__drv_aliasesMem", "", "")] #[in] #[out] List: PSLIST_ENTRY, #[in] #[out] ListEnd: PSLIST_ENTRY, #[in] Count: DWORD) -> PSLIST_ENTRY;
         #[library("ntdll.dll")]
         extern fn RtlIsZeroMemory(#[in] Buffer: PVOID, #[in] Length: SIZE_T) -> BOOLEAN;
-        #[library("KERNEL32.dll")]
         #[arch(Arm64)]
-        extern fn RtlLookupFunctionEntry(#[in] ControlPc: ULONG_PTR, #[out] ImageBase: PULONG_PTR, #[in] #[out] #[opt] HistoryTable: PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
         #[library("KERNEL32.dll")]
+        extern fn RtlLookupFunctionEntry(#[in] ControlPc: ULONG_PTR, #[out] ImageBase: PULONG_PTR, #[in] #[opt] #[out] HistoryTable: PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
         #[arch(X64)]
-        extern fn RtlLookupFunctionEntry(#[in] ControlPc: DWORD64, #[out] ImageBase: PDWORD64, #[in] #[out] #[opt] HistoryTable: PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
+        #[library("KERNEL32.dll")]
+        extern fn RtlLookupFunctionEntry(#[in] ControlPc: DWORD64, #[out] ImageBase: PDWORD64, #[in] #[opt] #[out] HistoryTable: PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION;
         #[Windows::Win32::Metadata::NativeSal("1", "__drv_maxIRQL", "", "")]
         #[library("ntdll.dll")]
-        extern fn RtlNormalizeSecurityDescriptor(#[in] #[out] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] SecurityDescriptorLength: DWORD, #[out] #[opt] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[out] #[opt] NewSecurityDescriptorLength: PDWORD, #[in] CheckOnly: BOOLEAN) -> BOOLEAN;
+        extern fn RtlNormalizeSecurityDescriptor(#[in] #[out] SecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[in] SecurityDescriptorLength: DWORD, #[opt] #[out] NewSecurityDescriptor: *mut PSECURITY_DESCRIPTOR, #[opt] #[out] NewSecurityDescriptorLength: PDWORD, #[in] CheckOnly: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
         extern fn RtlOsDeploymentState(#[in] Flags: DWORD) -> OS_DEPLOYEMENT_STATE_VALUES;
         #[library("KERNEL32.dll")]
@@ -7697,42 +7697,42 @@ mod Windows {
         #[library("ntdll.dll")]
         extern fn RtlQueryDepthSList(#[in] ListHead: PSLIST_HEADER) -> WORD;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
         #[must_use]
-        #[library("ntdll.dll")]
         extern fn RtlRaiseCustomSystemEventTrigger(#[in] TriggerConfig: PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> DWORD;
-        #[library("KERNEL32.dll")]
         #[arch(X64)]
-        extern fn RtlRaiseException(#[in] ExceptionRecord: PEXCEPTION_RECORD);
-        #[library("ntdll.dll")]
-        #[arch(X86 | Arm64)]
-        extern fn RtlRaiseException(#[in] ExceptionRecord: PEXCEPTION_RECORD);
         #[library("KERNEL32.dll")]
-        #[arch(X64 | Arm64)]
-        extern "C" fn RtlRestoreContext(#[in] ContextRecord: PCONTEXT, #[in] #[opt] ExceptionRecord: *mut EXCEPTION_RECORD);
+        extern fn RtlRaiseException(#[in] ExceptionRecord: PEXCEPTION_RECORD);
+        #[arch(X86 | Arm64)]
         #[library("ntdll.dll")]
+        extern fn RtlRaiseException(#[in] ExceptionRecord: PEXCEPTION_RECORD);
+        #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
+        extern "C" fn RtlRestoreContext(#[in] ContextRecord: PCONTEXT, #[in] #[opt] ExceptionRecord: *mut EXCEPTION_RECORD);
         #[arch(X86)]
+        #[library("ntdll.dll")]
         extern "C" fn RtlRestoreContext(#[in] ContextRecord: PCONTEXT, #[in] #[opt] ExceptionRecord: *mut EXCEPTION_RECORD);
         #[library("ntdll.dll")]
         extern fn RtlSwitchedVVI(#[in] VersionInfo: PRTL_OSVERSIONINFOEXW, #[in] TypeMask: DWORD, #[in] ConditionMask: ULONGLONG) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn RtlUnwind(#[in] #[opt] TargetFrame: PVOID, #[in] #[opt] TargetIp: PVOID, #[in] #[opt] ExceptionRecord: PEXCEPTION_RECORD, #[in] ReturnValue: PVOID);
-        #[library("KERNEL32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("KERNEL32.dll")]
         extern fn RtlUnwindEx(#[in] #[opt] TargetFrame: PVOID, #[in] #[opt] TargetIp: PVOID, #[in] #[opt] ExceptionRecord: PEXCEPTION_RECORD, #[in] ReturnValue: PVOID, #[in] ContextRecord: PCONTEXT, #[in] #[opt] HistoryTable: PUNWIND_HISTORY_TABLE);
         #[library("ntdll.dll")]
         extern fn RtlValidateCorrelationVector(#[in] Vector: PCORRELATION_VECTOR) -> DWORD;
-        #[library("KERNEL32.dll")]
         #[arch(Arm64)]
-        extern fn RtlVirtualUnwind(#[in] HandlerType: DWORD, #[in] ImageBase: ULONG_PTR, #[in] ControlPc: ULONG_PTR, #[in] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PULONG_PTR, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[library("KERNEL32.dll")]
+        extern fn RtlVirtualUnwind(#[in] HandlerType: DWORD, #[in] ImageBase: ULONG_PTR, #[in] ControlPc: ULONG_PTR, #[in] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PULONG_PTR, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[arch(X64)]
-        extern fn RtlVirtualUnwind(#[in] HandlerType: DWORD, #[in] ImageBase: DWORD64, #[in] ControlPc: DWORD64, #[in] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PDWORD64, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[library("KERNEL32.dll")]
+        extern fn RtlVirtualUnwind(#[in] HandlerType: DWORD, #[in] ImageBase: DWORD64, #[in] ControlPc: DWORD64, #[in] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PDWORD64, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE;
         #[arch(Arm64)]
-        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: ULONG_PTR, #[in] ControlPc: ULONG_PTR, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PULONG_PTR, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PULONG_PTR, #[in] #[opt] HighLimit: PULONG_PTR, #[out] #[opt] #[out_ptr(nullable)] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
+        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: ULONG_PTR, #[in] ControlPc: ULONG_PTR, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[opt] #[out] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PULONG_PTR, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PULONG_PTR, #[in] #[opt] HighLimit: PULONG_PTR, #[opt] #[out] #[out_ptr(nullable)] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
         #[arch(X64)]
-        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: DWORD64, #[in] ControlPc: DWORD64, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[out] #[opt] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PDWORD64, #[in] #[out] #[opt] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PDWORD64, #[in] #[opt] HighLimit: PDWORD64, #[out] #[opt] #[out_ptr(nullable)] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
+        #[library("KERNEL32.dll")]
+        extern fn RtlVirtualUnwind2(#[in] HandlerType: DWORD, #[in] ImageBase: DWORD64, #[in] ControlPc: DWORD64, #[in] #[opt] FunctionEntry: PRUNTIME_FUNCTION, #[in] #[out] ContextRecord: PCONTEXT, #[in] #[opt] #[out] MachineFrameUnwound: PBOOLEAN, #[out] HandlerData: *mut PVOID, #[out] EstablisherFrame: PDWORD64, #[in] #[opt] #[out] ContextPointers: PKNONVOLATILE_CONTEXT_POINTERS, #[in] #[opt] LowLimit: PDWORD64, #[in] #[opt] HighLimit: PDWORD64, #[opt] #[out] #[out_ptr(nullable)] HandlerRoutine: *mut PEXCEPTION_ROUTINE, #[in] UnwindFlags: DWORD) -> DWORD;
         const SACL_SECURITY_INFORMATION: i32 = 8;
         const SANDBOX_INERT: i32 = 2;
         const SCOPE_SECURITY_INFORMATION: i32 = 64;
@@ -9474,22 +9474,22 @@ mod Windows {
             TP_CALLBACK_PRIORITY_COUNT = 3,
         }
         type TP_CLEANUP_GROUP = _TP_CLEANUP_GROUP;
-        extern fn TP_CLEANUP_GROUP_CANCEL_CALLBACK(#[in] #[out] #[opt] ObjectContext: PVOID, #[in] #[out] #[opt] CleanupContext: PVOID);
+        extern fn TP_CLEANUP_GROUP_CANCEL_CALLBACK(#[in] #[opt] #[out] ObjectContext: PVOID, #[in] #[opt] #[out] CleanupContext: PVOID);
         type TP_IO = _TP_IO;
         type TP_POOL = _TP_POOL;
         struct TP_POOL_STACK_INFORMATION {
             StackReserve: SIZE_T,
             StackCommit: SIZE_T,
         }
-        extern fn TP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID);
+        extern fn TP_SIMPLE_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID);
         type TP_TIMER = _TP_TIMER;
-        extern fn TP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Timer: PTP_TIMER);
+        extern fn TP_TIMER_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID, #[in] #[out] Timer: PTP_TIMER);
         type TP_VERSION = u32;
         type TP_WAIT = _TP_WAIT;
-        extern fn TP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Wait: PTP_WAIT, #[in] WaitResult: TP_WAIT_RESULT);
+        extern fn TP_WAIT_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID, #[in] #[out] Wait: PTP_WAIT, #[in] WaitResult: TP_WAIT_RESULT);
         type TP_WAIT_RESULT = u32;
         type TP_WORK = _TP_WORK;
-        extern fn TP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[out] #[opt] Context: PVOID, #[in] #[out] Work: PTP_WORK);
+        extern fn TP_WORK_CALLBACK(#[in] #[out] Instance: PTP_CALLBACK_INSTANCE, #[in] #[opt] #[out] Context: PVOID, #[in] #[out] Work: PTP_WORK);
         const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
         struct TRANSACTIONMANAGER_BASIC_INFORMATION {
             TmIdentity: GUID,

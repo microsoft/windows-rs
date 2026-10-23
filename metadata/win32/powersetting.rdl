@@ -20,11 +20,11 @@ mod Windows {
         #[library("POWRPROF.dll")]
         extern fn PowerGetActiveScheme(#[in] #[opt] UserRootPowerKey: HKEY, #[out] #[out_ptr] ActivePolicyGuid: *mut *mut GUID) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadACValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] Type: PULONG, #[out] #[opt] #[writable(entry, bytes(if_present(*BufferSize)))] Buffer: LPBYTE, #[in] #[out] #[opt] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadACValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] Type: PULONG, #[opt] #[out] #[writable(entry, bytes(if_present(*BufferSize)))] Buffer: LPBYTE, #[in] #[opt] #[out] BufferSize: LPDWORD) -> DWORD;
         #[library("POWRPROF.dll")]
-        extern fn PowerReadDCValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[out] #[opt] Type: PULONG, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        extern fn PowerReadDCValue(#[in] #[opt] RootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID, #[in] #[opt] SubGroupOfPowerSettingsGuid: *const GUID, #[in] #[opt] PowerSettingGuid: *const GUID, #[opt] #[out] Type: PULONG, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PUCHAR, #[in] #[out] BufferSize: LPDWORD) -> DWORD;
+        #[library("POWRPROF.dll")]
         #[must_use]
-        #[library("POWRPROF.dll")]
         extern fn PowerRegisterForEffectivePowerModeNotifications(#[in] Version: ULONG, #[in] Callback: EFFECTIVE_POWER_MODE_CALLBACK, #[in] #[opt] Context: PVOID, #[out] #[out_ptr] RegistrationHandle: *mut PVOID) -> HRESULT;
         #[library("POWRPROF.dll")]
         extern fn PowerSetActiveScheme(#[in] #[opt] UserRootPowerKey: HKEY, #[in] #[opt] SchemeGuid: *const GUID) -> DWORD;

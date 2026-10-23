@@ -118,7 +118,7 @@ mod Windows {
             fn ReleaseShellView(&self) -> HRESULT;
             fn ActivatePendingView(&self) -> HRESULT;
             fn CreateViewWindow(&self, #[in] psvNew: IShellView, #[in] psvOld: IShellView, #[in] prcView: LPRECT, #[out] phwnd: *mut HWND) -> HRESULT;
-            fn CreateBrowserPropSheetExt(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateBrowserPropSheetExt(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn GetViewWindow(&self, #[out] phwndView: *mut HWND) -> HRESULT;
             fn GetBaseBrowserData(&self, #[out] #[out_ptr] pbbd: *mut LPCBASEBROWSERDATA) -> HRESULT;
             fn PutBaseBrowserData(&self) -> LPBASEBROWSERDATA;
@@ -139,7 +139,7 @@ mod Windows {
             fn _NavigateToPidl(&self, #[in] pidl: LPCITEMIDLIST, #[in] grfHLNF: DWORD, #[in] dwFlags: DWORD) -> HRESULT;
             fn _TryShell2Rename(&self, #[in] psv: IShellView, #[in] pidlNew: LPCITEMIDLIST) -> HRESULT;
             fn _SwitchActivationNow(&self) -> HRESULT;
-            fn _ExecChildren(&self, #[in] punkBar: IUnknown, #[in] fBroadcast: BOOL, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] nCmdID: DWORD, #[in] nCmdexecopt: DWORD, #[in] #[opt] pvarargIn: *mut VARIANTARG, #[in] #[out] #[opt] pvarargOut: *mut VARIANTARG) -> HRESULT;
+            fn _ExecChildren(&self, #[in] punkBar: IUnknown, #[in] fBroadcast: BOOL, #[in] #[opt] pguidCmdGroup: *const GUID, #[in] nCmdID: DWORD, #[in] nCmdexecopt: DWORD, #[in] #[opt] pvarargIn: *mut VARIANTARG, #[in] #[opt] #[out] pvarargOut: *mut VARIANTARG) -> HRESULT;
             fn _SendChildren(&self, #[in] hwndBar: HWND, #[in] fBroadcast: BOOL, #[in] uMsg: UINT, #[in] wParam: WPARAM, #[in] lParam: LPARAM) -> HRESULT;
             fn GetFolderSetData(&self, #[out] pfsd: *mut FOLDERSETDATA) -> HRESULT;
             fn _OnFocusChange(&self, #[in] itb: UINT) -> HRESULT;
@@ -211,9 +211,9 @@ mod Windows {
             fn UpdateEntry(&self, #[in] #[opt] punk: IUnknown, #[in] fIsLocalAnchor: BOOL) -> HRESULT;
             fn UpdateExternal(&self, #[in] #[opt] punk: IUnknown, #[in] #[opt] punkHLBrowseContext: IUnknown) -> HRESULT;
             fn Travel(&self, #[in] #[opt] punk: IUnknown, #[in] iOffset: i32) -> HRESULT;
-            fn GetTravelEntry(&self, #[in] punk: IUnknown, #[in] iOffset: i32, #[out] #[opt] #[out_ptr] ppte: *mut ITravelEntry) -> HRESULT;
+            fn GetTravelEntry(&self, #[in] punk: IUnknown, #[in] iOffset: i32, #[opt] #[out] #[out_ptr] ppte: *mut ITravelEntry) -> HRESULT;
             fn FindTravelEntry(&self, #[in] #[opt] punk: IUnknown, #[in] pidl: LPCITEMIDLIST, #[out] #[out_ptr] ppte: *mut ITravelEntry) -> HRESULT;
-            fn GetToolTipText(&self, #[in] #[opt] punk: IUnknown, #[in] iOffset: i32, #[in] idsTemplate: i32, #[out] #[writable(entry, cchText)] #[writable(success, cchText)] #[readable(success, cchText)] pwzText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
+            fn GetToolTipText(&self, #[in] #[opt] punk: IUnknown, #[in] iOffset: i32, #[in] idsTemplate: i32, #[out] #[readable(success, cchText)] #[writable(entry, cchText)] #[writable(success, cchText)] pwzText: LPWSTR, #[in] cchText: DWORD) -> HRESULT;
             fn InsertMenuEntries(&self, #[in] #[opt] punk: IUnknown, #[in] hmenu: HMENU, #[in] nPos: i32, #[in] idFirst: i32, #[in] idLast: i32, #[in] dwFlags: DWORD) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] pptl: *mut ITravelLog) -> HRESULT;
             fn CountEntries(&self, #[in] punk: IUnknown) -> DWORD;

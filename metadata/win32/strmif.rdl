@@ -874,7 +874,7 @@ mod Windows {
         }
         #[guid(0x632105fa_072e_11d3_8af9_00c04fb6bd3d)]
         interface IAMGraphStreams: IUnknown {
-            fn FindUpstreamInterface(&self, #[in] pPin: IPin, #[in] riid: &IID, #[out] #[iid_is] ppvInterface: *mut *mut void, #[in] dwFlags: DWORD) -> HRESULT;
+            fn FindUpstreamInterface(&self, #[in] pPin: IPin, #[in] riid: &IID, #[iid_is] #[out] ppvInterface: *mut *mut void, #[in] dwFlags: DWORD) -> HRESULT;
             fn SyncUsingStreamOffset(&self, #[in] bUseStreamOffset: BOOL) -> HRESULT;
             fn SetMaxGraphLatency(&self, #[in] rtMaxGraphLatency: REFERENCE_TIME) -> HRESULT;
         }
@@ -936,7 +936,7 @@ mod Windows {
         #[guid(0xc1960960_17f5_11d1_abe1_00a0c905f375)]
         interface IAMStreamSelect: IUnknown {
             fn Count(&self, #[out] pcStreams: *mut DWORD) -> HRESULT;
-            fn Info(&self, #[in] lIndex: i32, #[out] #[opt] ppmt: *mut *mut AM_MEDIA_TYPE, #[out] #[opt] pdwFlags: *mut DWORD, #[out] #[opt] plcid: *mut LCID, #[out] #[opt] pdwGroup: *mut DWORD, #[out] #[opt] ppszName: *mut LPWSTR, #[out] #[opt] ppObject: *mut IUnknown, #[out] #[opt] ppUnk: *mut IUnknown) -> HRESULT;
+            fn Info(&self, #[in] lIndex: i32, #[opt] #[out] ppmt: *mut *mut AM_MEDIA_TYPE, #[opt] #[out] pdwFlags: *mut DWORD, #[opt] #[out] plcid: *mut LCID, #[opt] #[out] pdwGroup: *mut DWORD, #[opt] #[out] ppszName: *mut LPWSTR, #[opt] #[out] ppObject: *mut IUnknown, #[opt] #[out] ppUnk: *mut IUnknown) -> HRESULT;
             fn Enable(&self, #[in] lIndex: i32, #[in] dwFlags: DWORD) -> HRESULT;
         }
         #[guid(0x83ec1c30_23d1_11d1_99e6_00a0c9560266)]
@@ -1021,7 +1021,7 @@ mod Windows {
         #[guid(0xd8d715a3_6e5e_11d0_b3f0_00aa003761c5)]
         interface IAMVfwCompressDialogs: IUnknown {
             fn ShowDialog(&self, #[in] iDialog: i32, #[in] hwnd: HWND) -> HRESULT;
-            fn GetState(&self, #[out] #[writable(entry, bytes(*pcbState))] #[readable(success, bytes(*pcbState))] pState: LPVOID, #[in] #[out] pcbState: *mut i32) -> HRESULT;
+            fn GetState(&self, #[out] #[readable(success, bytes(*pcbState))] #[writable(entry, bytes(*pcbState))] pState: LPVOID, #[in] #[out] pcbState: *mut i32) -> HRESULT;
             fn SetState(&self, #[in] #[readable(entry, bytes(cbState))] pState: LPVOID, #[in] cbState: i32) -> HRESULT;
             fn SendDriverMessage(&self, #[in] uMsg: i32, #[in] dw1: i32, #[in] dw2: i32) -> HRESULT;
         }
@@ -1035,7 +1035,7 @@ mod Windows {
             fn get_Quality(&self, #[out] pQuality: *mut f64) -> HRESULT;
             fn put_WindowSize(&self, #[in] WindowSize: DWORDLONG) -> HRESULT;
             fn get_WindowSize(&self, #[out] pWindowSize: *mut DWORDLONG) -> HRESULT;
-            fn GetInfo(&self, #[out] #[opt] #[writable(entry, bytes(if_present(*pcbVersion)))] pszVersion: LPWSTR, #[in] #[out] #[opt] pcbVersion: *mut i32, #[out] #[opt] #[writable(entry, bytes(if_present(*pcbDescription)))] pszDescription: LPWSTR, #[in] #[out] #[opt] pcbDescription: *mut i32, #[out] #[opt] pDefaultKeyFrameRate: *mut i32, #[out] #[opt] pDefaultPFramesPerKey: *mut i32, #[out] #[opt] pDefaultQuality: *mut f64, #[out] #[opt] pCapabilities: *mut i32) -> HRESULT;
+            fn GetInfo(&self, #[opt] #[out] #[writable(entry, bytes(if_present(*pcbVersion)))] pszVersion: LPWSTR, #[in] #[opt] #[out] pcbVersion: *mut i32, #[opt] #[out] #[writable(entry, bytes(if_present(*pcbDescription)))] pszDescription: LPWSTR, #[in] #[opt] #[out] pcbDescription: *mut i32, #[opt] #[out] pDefaultKeyFrameRate: *mut i32, #[opt] #[out] pDefaultPFramesPerKey: *mut i32, #[opt] #[out] pDefaultQuality: *mut f64, #[opt] #[out] pCapabilities: *mut i32) -> HRESULT;
             fn OverrideKeyFrame(&self, #[in] FrameNumber: i32) -> HRESULT;
             fn OverrideFrameSize(&self, #[in] FrameNumber: i32, #[in] Size: i32) -> HRESULT;
         }
@@ -1068,7 +1068,7 @@ mod Windows {
         interface IAsyncReader: IUnknown {
             fn RequestAllocator(&self, #[in] pPreferred: IMemAllocator, #[in] pProps: *mut ALLOCATOR_PROPERTIES, #[out] ppActual: *mut IMemAllocator) -> HRESULT;
             fn Request(&self, #[in] pSample: IMediaSample, #[in] dwUser: DWORD_PTR) -> HRESULT;
-            fn WaitForNext(&self, #[in] dwTimeout: DWORD, #[out] #[opt] ppSample: *mut IMediaSample, #[out] pdwUser: *mut DWORD_PTR) -> HRESULT;
+            fn WaitForNext(&self, #[in] dwTimeout: DWORD, #[opt] #[out] ppSample: *mut IMediaSample, #[out] pdwUser: *mut DWORD_PTR) -> HRESULT;
             fn SyncReadAligned(&self, #[in] pSample: IMediaSample) -> HRESULT;
             fn SyncRead(&self, #[in] llPosition: LONGLONG, #[in] lLength: LONG, #[out] #[writable(entry, bytes(lLength))] pBuffer: *mut BYTE) -> HRESULT;
             fn Length(&self, #[out] pTotal: *mut LONGLONG, #[out] pAvailable: *mut LONGLONG) -> HRESULT;
@@ -1104,7 +1104,7 @@ mod Windows {
         interface ICaptureGraphBuilder2: IUnknown {
             fn SetFiltergraph(&self, #[in] pfg: IGraphBuilder) -> HRESULT;
             fn GetFiltergraph(&self, #[out] ppfg: *mut IGraphBuilder) -> HRESULT;
-            fn SetOutputFileName(&self, #[in] pType: *const GUID, #[in] lpstrFile: LPCOLESTR, #[out] #[out_ptr] ppf: *mut IBaseFilter, #[out] #[opt] #[out_ptr] ppSink: *mut IFileSinkFilter) -> HRESULT;
+            fn SetOutputFileName(&self, #[in] pType: *const GUID, #[in] lpstrFile: LPCOLESTR, #[out] #[out_ptr] ppf: *mut IBaseFilter, #[opt] #[out] #[out_ptr] ppSink: *mut IFileSinkFilter) -> HRESULT;
             fn FindInterface(&self, #[in] #[opt] pCategory: *const GUID, #[in] #[opt] pType: *const GUID, #[in] pf: IBaseFilter, #[in] riid: &IID, #[out] ppint: *mut *mut void) -> HRESULT;
             fn RenderStream(&self, #[in] #[opt] pCategory: *const GUID, #[in] pType: *const GUID, #[in] pSource: IUnknown, #[in] pfCompressor: IBaseFilter, #[in] pfRenderer: IBaseFilter) -> HRESULT;
             fn ControlStream(&self, #[in] pCategory: *const GUID, #[in] pType: *const GUID, #[in] pFilter: IBaseFilter, #[in] #[opt] pstart: *mut REFERENCE_TIME, #[in] #[opt] pstop: *mut REFERENCE_TIME, #[in] wStartCookie: WORD, #[in] wStopCookie: WORD) -> HRESULT;
@@ -1308,11 +1308,11 @@ mod Windows {
             fn GetCurrentAudioAttributes(&self, #[out] pATR: *mut DVD_AudioATR) -> HRESULT;
             fn GetCurrentSubpictureAttributes(&self, #[out] pATR: *mut DVD_SubpictureATR) -> HRESULT;
             fn GetCurrentVolumeInfo(&self, #[out] pulNumOfVol: *mut ULONG, #[out] pulThisVolNum: *mut ULONG, #[out] pSide: *mut DVD_DISC_SIDE, #[out] pulNumOfTitles: *mut ULONG) -> HRESULT;
-            fn GetDVDTextInfo(&self, #[out] #[writable(entry, bytes(ulBufSize))] #[readable(success, bytes(*pulActualSize))] pTextManager: *mut BYTE, #[in] ulBufSize: ULONG, #[out] pulActualSize: *mut ULONG) -> HRESULT;
+            fn GetDVDTextInfo(&self, #[out] #[readable(success, bytes(*pulActualSize))] #[writable(entry, bytes(ulBufSize))] pTextManager: *mut BYTE, #[in] ulBufSize: ULONG, #[out] pulActualSize: *mut ULONG) -> HRESULT;
             fn GetPlayerParentalLevel(&self, #[out] pulParentalLevel: *mut ULONG, #[out] pulCountryCode: *mut ULONG) -> HRESULT;
             fn GetNumberOfChapters(&self, #[in] ulTitle: ULONG, #[out] pulNumberOfChapters: *mut ULONG) -> HRESULT;
             fn GetTitleParentalLevels(&self, #[in] ulTitle: ULONG, #[out] pulParentalLevels: *mut ULONG) -> HRESULT;
-            fn GetRoot(&self, #[out] #[writable(entry, ulBufSize)] #[readable(success, *pulActualSize)] pRoot: LPSTR, #[in] ulBufSize: ULONG, #[out] pulActualSize: *mut ULONG) -> HRESULT;
+            fn GetRoot(&self, #[out] #[readable(success, *pulActualSize)] #[writable(entry, ulBufSize)] pRoot: LPSTR, #[in] ulBufSize: ULONG, #[out] pulActualSize: *mut ULONG) -> HRESULT;
         }
         #[guid(0x34151510_eec0_11d2_8201_00a0c9d74842)]
         interface IDvdInfo2: IUnknown {
@@ -1342,7 +1342,7 @@ mod Windows {
             fn GetPlayerParentalLevel(&self, #[out] pulParentalLevel: *mut ULONG, #[out] pbCountryCode: *mut BYTE) -> HRESULT;
             fn GetNumberOfChapters(&self, #[in] ulTitle: ULONG, #[out] pulNumOfChapters: *mut ULONG) -> HRESULT;
             fn GetTitleParentalLevels(&self, #[in] ulTitle: ULONG, #[out] pulParentalLevels: *mut ULONG) -> HRESULT;
-            fn GetDVDDirectory(&self, #[out] #[writable(entry, ulMaxSize)] #[readable(success, *pulActualSize)] pszwPath: LPWSTR, #[in] ulMaxSize: ULONG, #[out] pulActualSize: *mut ULONG) -> HRESULT;
+            fn GetDVDDirectory(&self, #[out] #[readable(success, *pulActualSize)] #[writable(entry, ulMaxSize)] pszwPath: LPWSTR, #[in] ulMaxSize: ULONG, #[out] pulActualSize: *mut ULONG) -> HRESULT;
             fn IsAudioStreamEnabled(&self, #[in] ulStreamNum: ULONG, #[out] pbEnabled: *mut BOOL) -> HRESULT;
             fn GetDiscID(&self, #[in] pszwPath: LPCWSTR, #[out] pullDiscID: *mut ULONGLONG) -> HRESULT;
             fn GetState(&self, #[out] pStateData: *mut IDvdState) -> HRESULT;
@@ -1373,35 +1373,35 @@ mod Windows {
         }
         #[guid(0x56a86893_0ad4_11ce_b03a_0020af0ba770)]
         interface IEnumFilters: IUnknown {
-            fn Next(&self, #[in] cFilters: ULONG, #[out] #[writable(entry, cFilters)] #[readable(success, if_present(*pcFetched))] ppFilter: *mut IBaseFilter, #[out] #[opt] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] cFilters: ULONG, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, cFilters)] ppFilter: *mut IBaseFilter, #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cFilters: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] ppEnum: *mut IEnumFilters) -> HRESULT;
         }
         #[guid(0x89c31040_846b_11ce_97d3_00aa0055595a)]
         interface IEnumMediaTypes: IUnknown {
-            fn Next(&self, #[in] cMediaTypes: ULONG, #[out] #[writable(entry, cMediaTypes)] #[readable(success, if_present(*pcFetched))] ppMediaTypes: *mut *mut AM_MEDIA_TYPE, #[out] #[opt] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] cMediaTypes: ULONG, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, cMediaTypes)] ppMediaTypes: *mut *mut AM_MEDIA_TYPE, #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cMediaTypes: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] ppEnum: *mut IEnumMediaTypes) -> HRESULT;
         }
         #[guid(0x56a86892_0ad4_11ce_b03a_0020af0ba770)]
         interface IEnumPins: IUnknown {
-            fn Next(&self, #[in] cPins: ULONG, #[out] #[writable(entry, cPins)] #[readable(success, if_present(*pcFetched))] ppPins: *mut IPin, #[out] #[opt] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] cPins: ULONG, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, cPins)] ppPins: *mut IPin, #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cPins: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] ppEnum: *mut IEnumPins) -> HRESULT;
         }
         #[guid(0x56a868a4_0ad4_11ce_b03a_0020af0ba770)]
         interface IEnumRegFilters: IUnknown {
-            fn Next(&self, #[in] cFilters: ULONG, #[out] #[writable(entry, cFilters)] #[readable(success, if_present(*pcFetched))] apRegFilter: *mut *mut REGFILTER, #[in] #[out] #[opt] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] cFilters: ULONG, #[out] #[readable(success, if_present(*pcFetched))] #[writable(entry, cFilters)] apRegFilter: *mut *mut REGFILTER, #[in] #[opt] #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cFilters: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] ppEnum: *mut IEnumRegFilters) -> HRESULT;
         }
         #[guid(0x945c1566_6202_46fc_96c7_d87f289c6534)]
         interface IEnumStreamIdMap: IUnknown {
-            fn Next(&self, #[in] cRequest: ULONG, #[in] #[out] #[writable(entry, cRequest)] #[readable(success, if_present(*pcReceived))] pStreamIdMap: *mut STREAM_ID_MAP, #[out] #[opt] pcReceived: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] cRequest: ULONG, #[in] #[out] #[readable(success, if_present(*pcReceived))] #[writable(entry, cRequest)] pStreamIdMap: *mut STREAM_ID_MAP, #[opt] #[out] pcReceived: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cRecords: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] ppIEnumStreamIdMap: *mut IEnumStreamIdMap) -> HRESULT;
@@ -1419,7 +1419,7 @@ mod Windows {
         #[guid(0x56a868a6_0ad4_11ce_b03a_0020af0ba770)]
         interface IFileSourceFilter: IUnknown {
             fn Load(&self, #[in] pszFileName: LPCOLESTR, #[in] #[opt] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
-            fn GetCurFile(&self, #[out] ppszFileName: *mut LPOLESTR, #[out] #[opt] pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
+            fn GetCurFile(&self, #[out] ppszFileName: *mut LPOLESTR, #[opt] #[out] pmt: *mut AM_MEDIA_TYPE) -> HRESULT;
         }
         #[guid(0xdcfbdcf6_0dc2_45f5_9ab2_7c330ea09c29)]
         interface IFilterChain: IUnknown {
@@ -1464,7 +1464,7 @@ mod Windows {
         interface IFilterMapper2: IUnknown {
             fn CreateCategory(&self, #[in] clsidCategory: &IID, #[in] dwCategoryMerit: DWORD, #[in] Description: LPCWSTR) -> HRESULT;
             fn UnregisterFilter(&self, #[in] pclsidCategory: *const CLSID, #[in] szInstance: LPCOLESTR, #[in] Filter: &IID) -> HRESULT;
-            fn RegisterFilter(&self, #[in] clsidFilter: &IID, #[in] Name: LPCWSTR, #[in] #[out] #[opt] ppMoniker: *mut IMoniker, #[in] pclsidCategory: *const CLSID, #[in] szInstance: LPCOLESTR, #[in] prf2: *const REGFILTER2) -> HRESULT;
+            fn RegisterFilter(&self, #[in] clsidFilter: &IID, #[in] Name: LPCWSTR, #[in] #[opt] #[out] ppMoniker: *mut IMoniker, #[in] pclsidCategory: *const CLSID, #[in] szInstance: LPCOLESTR, #[in] prf2: *const REGFILTER2) -> HRESULT;
             fn EnumMatchingFilters(&self, #[out] ppEnum: *mut IEnumMoniker, #[in] dwFlags: DWORD, #[in] bExactMatch: BOOL, #[in] dwMerit: DWORD, #[in] bInputNeeded: BOOL, #[in] cInputTypes: DWORD, #[in] #[opt] #[readable(entry, cInputTypes * 2)] pInputTypes: *const GUID, #[in] #[opt] pMedIn: *const REGPINMEDIUM, #[in] #[opt] pPinCategoryIn: *const CLSID, #[in] bRender: BOOL, #[in] bOutputNeeded: BOOL, #[in] cOutputTypes: DWORD, #[in] #[opt] #[readable(entry, cOutputTypes * 2)] pOutputTypes: *const GUID, #[in] #[opt] pMedOut: *const REGPINMEDIUM, #[in] #[opt] pPinCategoryOut: *const CLSID) -> HRESULT;
         }
         #[guid(0xb79bb0b1_33c1_11d1_abe1_00a0c905f375)]
@@ -1576,9 +1576,9 @@ mod Windows {
             fn GetStopPosition(&self, #[out] pStop: *mut LONGLONG) -> HRESULT;
             fn GetCurrentPosition(&self, #[out] pCurrent: *mut LONGLONG) -> HRESULT;
             fn ConvertTimeFormat(&self, #[out] pTarget: *mut LONGLONG, #[in] #[opt] pTargetFormat: *const GUID, #[in] Source: LONGLONG, #[in] #[opt] pSourceFormat: *const GUID) -> HRESULT;
-            fn SetPositions(&self, #[in] #[out] #[opt] pCurrent: *mut LONGLONG, #[in] dwCurrentFlags: DWORD, #[in] #[out] #[opt] pStop: *mut LONGLONG, #[in] dwStopFlags: DWORD) -> HRESULT;
-            fn GetPositions(&self, #[out] #[opt] pCurrent: *mut LONGLONG, #[out] #[opt] pStop: *mut LONGLONG) -> HRESULT;
-            fn GetAvailable(&self, #[out] #[opt] pEarliest: *mut LONGLONG, #[out] #[opt] pLatest: *mut LONGLONG) -> HRESULT;
+            fn SetPositions(&self, #[in] #[opt] #[out] pCurrent: *mut LONGLONG, #[in] dwCurrentFlags: DWORD, #[in] #[opt] #[out] pStop: *mut LONGLONG, #[in] dwStopFlags: DWORD) -> HRESULT;
+            fn GetPositions(&self, #[opt] #[out] pCurrent: *mut LONGLONG, #[opt] #[out] pStop: *mut LONGLONG) -> HRESULT;
+            fn GetAvailable(&self, #[opt] #[out] pEarliest: *mut LONGLONG, #[opt] #[out] pLatest: *mut LONGLONG) -> HRESULT;
             fn SetRate(&self, #[in] dRate: f64) -> HRESULT;
             fn GetRate(&self, #[out] pdRate: *mut f64) -> HRESULT;
             fn GetPreroll(&self, #[out] pllPreroll: *mut LONGLONG) -> HRESULT;
@@ -1618,7 +1618,7 @@ mod Windows {
         }
         #[guid(0x56a868a1_0ad4_11ce_b03a_0020af0ba770)]
         interface IOverlay: IUnknown {
-            fn GetPalette(&self, #[in] #[out] pdwColors: *mut DWORD, #[out] #[writable(success, *pdwColors, indirect)] #[readable(success, *pdwColors, indirect)] ppPalette: *mut *mut PALETTEENTRY) -> HRESULT;
+            fn GetPalette(&self, #[in] #[out] pdwColors: *mut DWORD, #[out] #[readable(success, *pdwColors, indirect)] #[writable(success, *pdwColors, indirect)] ppPalette: *mut *mut PALETTEENTRY) -> HRESULT;
             fn SetPalette(&self, #[in] dwColors: DWORD, #[in] #[readable(entry, dwColors)] pPalette: *mut PALETTEENTRY) -> HRESULT;
             fn GetDefaultColorKey(&self, #[out] pColorKey: *mut COLORKEY) -> HRESULT;
             fn GetColorKey(&self, #[out] pColorKey: *mut COLORKEY) -> HRESULT;
@@ -1658,7 +1658,7 @@ mod Windows {
             fn QueryId(&self, #[out] Id: *mut LPWSTR) -> HRESULT;
             fn QueryAccept(&self, #[in] pmt: *const AM_MEDIA_TYPE) -> HRESULT;
             fn EnumMediaTypes(&self, #[out] ppEnum: *mut IEnumMediaTypes) -> HRESULT;
-            fn QueryInternalConnections(&self, #[out] #[opt] #[writable(entry, *nPin)] #[readable(success, *nPin)] apPin: *mut IPin, #[in] #[out] nPin: *mut ULONG) -> HRESULT;
+            fn QueryInternalConnections(&self, #[opt] #[out] #[readable(success, *nPin)] #[writable(entry, *nPin)] apPin: *mut IPin, #[in] #[out] nPin: *mut ULONG) -> HRESULT;
             fn EndOfStream(&self) -> HRESULT;
             fn BeginFlush(&self) -> HRESULT;
             fn EndFlush(&self) -> HRESULT;

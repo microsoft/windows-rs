@@ -63,7 +63,7 @@ mod Windows {
             fn SetChannelVolume(&self, #[in] dwIndex: UINT32, #[in] fLevel: f32) -> HRESULT;
             fn GetChannelVolume(&self, #[in] dwIndex: UINT32, #[out] pfLevel: *mut f32) -> HRESULT;
             fn SetAllVolumes(&self, #[in] dwCount: UINT32, #[in] #[readable(entry, dwCount)] pfVolumes: *const f32) -> HRESULT;
-            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[out] #[writable(entry, dwCount)] #[writable(success, dwCount)] #[readable(success, dwCount)] pfVolumes: *mut f32) -> HRESULT;
+            fn GetAllVolumes(&self, #[in] dwCount: UINT32, #[out] #[readable(success, dwCount)] #[writable(entry, dwCount)] #[writable(success, dwCount)] pfVolumes: *mut f32) -> HRESULT;
         }
         #[guid(0x6d66d782_1d4f_4db7_8c63_cb8c77f1ef5e)]
         interface IMFByteStreamBuffering: IUnknown {
@@ -77,13 +77,13 @@ mod Windows {
         }
         #[guid(0x71ce469c_f34b_49ea_a56b_2d2a10e51149)]
         interface IMFByteStreamCacheControl2: IMFByteStreamCacheControl {
-            fn GetByteRanges(&self, #[out] pcRanges: *mut DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, *pcRanges, indirect, nullable)] #[readable(success, *pcRanges, indirect, nullable)] ppRanges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> HRESULT;
+            fn GetByteRanges(&self, #[out] pcRanges: *mut DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pcRanges, indirect, nullable)] #[writable(success, *pcRanges, indirect, nullable)] ppRanges: *mut *mut MF_BYTE_STREAM_CACHE_RANGE) -> HRESULT;
             fn SetCacheLimit(&self, #[in] qwBytes: QWORD) -> HRESULT;
             fn IsBackgroundTransferActive(&self, #[out] pfActive: *mut BOOL) -> HRESULT;
         }
         #[guid(0xbb420aa4_765b_4a1f_91fe_d6a8a143924c)]
         interface IMFByteStreamHandler: IUnknown {
-            fn BeginCreateObject(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] #[opt] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn BeginCreateObject(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
             fn CancelObjectCreation(&self, #[in] pIUnknownCancelCookie: IUnknown) -> HRESULT;
             fn GetMaxNumberOfBytesRequiredForResolution(&self, #[out] pqwBytes: *mut QWORD) -> HRESULT;
@@ -104,7 +104,7 @@ mod Windows {
         interface IMFCameraControlDefaults: IUnknown {
             fn GetType(&self) -> MF_CAMERA_CONTROL_CONFIGURATION_TYPE;
             fn GetRangeInfo(&self, #[out] rangeInfo: *mut MF_CAMERA_CONTROL_RANGE_INFO) -> HRESULT;
-            fn LockControlData(&self, #[out] #[writable(success, bytes(*controlSize), indirect)] control: *mut *mut void, #[out] controlSize: *mut ULONG, #[out] #[opt] #[writable(success, bytes(if_present(*dataSize)), indirect)] data: *mut *mut void, #[out] #[opt] dataSize: *mut ULONG) -> HRESULT;
+            fn LockControlData(&self, #[out] #[writable(success, bytes(*controlSize), indirect)] control: *mut *mut void, #[out] controlSize: *mut ULONG, #[opt] #[out] #[writable(success, bytes(if_present(*dataSize)), indirect)] data: *mut *mut void, #[opt] #[out] dataSize: *mut ULONG) -> HRESULT;
             fn UnlockControlData(&self) -> HRESULT;
         }
         #[guid(0x92d43d0f_54a8_4bae_96da_356d259a5c26)]
@@ -177,8 +177,8 @@ mod Windows {
         #[guid(0xd3c4ef59_49ce_4381_9071_d5bcd044c770)]
         interface IMFContentEnabler: IUnknown {
             fn GetEnableType(&self, #[out] pType: *mut GUID) -> HRESULT;
-            fn GetEnableURL(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *pcchURL, indirect, nullable)] #[readable(success, *pcchURL, indirect, nullable)] ppwszURL: *mut LPWSTR, #[out] pcchURL: *mut DWORD, #[in] #[out] #[opt] pTrustStatus: *mut MF_URL_TRUST_STATUS) -> HRESULT;
-            fn GetEnableData(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *pcbData, indirect, nullable)] #[readable(success, *pcbData, indirect, nullable)] ppbData: *mut *mut BYTE, #[out] pcbData: *mut DWORD) -> HRESULT;
+            fn GetEnableURL(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *pcchURL, indirect, nullable)] #[writable(success, *pcchURL, indirect, nullable)] ppwszURL: *mut LPWSTR, #[out] pcchURL: *mut DWORD, #[in] #[opt] #[out] pTrustStatus: *mut MF_URL_TRUST_STATUS) -> HRESULT;
+            fn GetEnableData(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbData, indirect, nullable)] #[writable(success, *pcbData, indirect, nullable)] ppbData: *mut *mut BYTE, #[out] pcbData: *mut DWORD) -> HRESULT;
             fn IsAutomaticSupported(&self, #[out] pfAutomatic: *mut BOOL) -> HRESULT;
             fn AutomaticEnable(&self) -> HRESULT;
             fn MonitorEnable(&self) -> HRESULT;
@@ -221,7 +221,7 @@ mod Windows {
         interface IMFExtendedCameraIntrinsics: IUnknown {
             fn InitializeFromBuffer(&self, #[in] #[readable(entry, bytes(dwBufferSize))] pbBuffer: *mut BYTE, #[in] dwBufferSize: DWORD) -> HRESULT;
             fn GetBufferSize(&self, #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
-            fn SerializeToBuffer(&self, #[out] #[writable(entry, bytes(*pdwBufferSize))] #[readable(success, bytes(*pdwBufferSize))] pbBuffer: *mut BYTE, #[in] #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
+            fn SerializeToBuffer(&self, #[out] #[readable(success, bytes(*pdwBufferSize))] #[writable(entry, bytes(*pdwBufferSize))] pbBuffer: *mut BYTE, #[in] #[out] pdwBufferSize: *mut DWORD) -> HRESULT;
             fn GetIntrinsicModelCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn GetIntrinsicModelByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppIntrinsicModel: *mut IMFExtendedCameraIntrinsicModel) -> HRESULT;
             fn AddIntrinsicModel(&self, #[in] pIntrinsicModel: IMFExtendedCameraIntrinsicModel) -> HRESULT;
@@ -256,7 +256,7 @@ mod Windows {
         }
         #[guid(0xfa993888_4383_415a_a930_dd472a8cf6f7)]
         interface IMFGetService: IUnknown {
-            fn GetService(&self, #[in] guidService: &GUID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn GetService(&self, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0xf779fddf_26e7_4270_8a8b_b983d1859de0)]
         interface IMFHttpDownloadRequest: IUnknown {
@@ -289,7 +289,7 @@ mod Windows {
         }
         #[guid(0xd19f8e98_b126_4446_890c_5dcb7ad71453)]
         interface IMFInputTrustAuthority: IUnknown {
-            fn GetDecrypter(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetDecrypter(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
             fn RequestAccess(&self, #[in] Action: MFPOLICYMANAGER_ACTION, #[out] #[out_ptr] ppContentEnablerActivate: *mut IMFActivate) -> HRESULT;
             fn GetPolicy(&self, #[in] Action: MFPOLICYMANAGER_ACTION, #[out] #[out_ptr] ppPolicy: *mut IMFOutputPolicy) -> HRESULT;
             fn BindAccess(&self, #[in] pParam: *mut MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> HRESULT;
@@ -373,7 +373,7 @@ mod Windows {
         }
         #[guid(0xe93dcf6c_4b07_4e1e_8123_aa16ed6eadf5)]
         interface IMFMediaTypeHandler: IUnknown {
-            fn IsMediaTypeSupported(&self, #[in] pMediaType: IMFMediaType, #[out] #[opt] #[out_ptr(nullable)] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn IsMediaTypeSupported(&self, #[in] pMediaType: IMFMediaType, #[opt] #[out] #[out_ptr(nullable)] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetMediaTypeCount(&self, #[out] pdwTypeCount: *mut DWORD) -> HRESULT;
             fn GetMediaTypeByIndex(&self, #[in] dwIndex: DWORD, #[out] #[out_ptr] ppType: *mut IMFMediaType) -> HRESULT;
             fn SetCurrentMediaType(&self, #[in] pMediaType: IMFMediaType) -> HRESULT;
@@ -398,8 +398,8 @@ mod Windows {
         interface IMFNetCredential: IUnknown {
             fn SetUser(&self, #[in] #[readable(entry, bytes(cbData))] pbData: *mut BYTE, #[in] cbData: DWORD, #[in] fDataIsEncrypted: BOOL) -> HRESULT;
             fn SetPassword(&self, #[in] #[readable(entry, bytes(cbData))] pbData: *mut BYTE, #[in] cbData: DWORD, #[in] fDataIsEncrypted: BOOL) -> HRESULT;
-            fn GetUser(&self, #[out] #[opt] #[writable(entry, *pcbData)] #[readable(success, *pcbData)] pbData: *mut BYTE, #[in] #[out] pcbData: *mut DWORD, #[in] fEncryptData: BOOL) -> HRESULT;
-            fn GetPassword(&self, #[out] #[opt] #[writable(entry, *pcbData)] #[readable(success, *pcbData)] pbData: *mut BYTE, #[in] #[out] pcbData: *mut DWORD, #[in] fEncryptData: BOOL) -> HRESULT;
+            fn GetUser(&self, #[opt] #[out] #[readable(success, *pcbData)] #[writable(entry, *pcbData)] pbData: *mut BYTE, #[in] #[out] pcbData: *mut DWORD, #[in] fEncryptData: BOOL) -> HRESULT;
+            fn GetPassword(&self, #[opt] #[out] #[readable(success, *pcbData)] #[writable(entry, *pcbData)] pbData: *mut BYTE, #[in] #[out] pcbData: *mut DWORD, #[in] fEncryptData: BOOL) -> HRESULT;
             fn LoggedOnUser(&self, #[out] pfLoggedOnUser: *mut BOOL) -> HRESULT;
         }
         #[guid(0x5b87ef6c_7ed8_434f_ba0e_184fac1628d1)]
@@ -425,7 +425,7 @@ mod Windows {
             fn FindFirstProxy(&self, #[in] pszHost: LPCWSTR, #[in] pszUrl: LPCWSTR, #[in] fReserved: BOOL) -> HRESULT;
             fn FindNextProxy(&self) -> HRESULT;
             fn RegisterProxyResult(&self, #[in] hrOp: HRESULT) -> HRESULT;
-            fn GetCurrentProxy(&self, #[out] #[opt] #[writable(entry, *pcchStr)] pszStr: LPWSTR, #[in] #[out] pcchStr: *mut DWORD) -> HRESULT;
+            fn GetCurrentProxy(&self, #[opt] #[out] #[writable(entry, *pcchStr)] pszStr: LPWSTR, #[in] #[out] pcchStr: *mut DWORD) -> HRESULT;
             fn Clone(&self, #[out] ppProxyLocator: *mut IMFNetProxyLocator) -> HRESULT;
         }
         #[guid(0xe9cd0384_a268_4bb4_82de_658d53574d41)]
@@ -463,7 +463,7 @@ mod Windows {
         #[guid(0xd19f8e94_b126_4446_890c_5dcb7ad71453)]
         interface IMFOutputTrustAuthority: IUnknown {
             fn GetAction(&self, #[out] pAction: *mut MFPOLICYMANAGER_ACTION) -> HRESULT;
-            fn SetPolicy(&self, #[in] #[opt] #[readable(entry, nPolicy)] ppPolicy: *mut IMFOutputPolicy, #[in] nPolicy: DWORD, #[out] #[opt] #[writable(success, bytes(if_present(*pcbTicket)), indirect)] ppbTicket: *mut *mut BYTE, #[out] #[opt] pcbTicket: *mut DWORD) -> HRESULT;
+            fn SetPolicy(&self, #[in] #[opt] #[readable(entry, nPolicy)] ppPolicy: *mut IMFOutputPolicy, #[in] nPolicy: DWORD, #[opt] #[out] #[writable(success, bytes(if_present(*pcbTicket)), indirect)] ppbTicket: *mut *mut BYTE, #[opt] #[out] pcbTicket: *mut DWORD) -> HRESULT;
         }
         #[guid(0x6c4e655d_ead8_4421_b6b9_54dcdbbdf820)]
         interface IMFPMPClient: IUnknown {
@@ -477,19 +477,19 @@ mod Windows {
         interface IMFPMPHost: IUnknown {
             fn LockProcess(&self) -> HRESULT;
             fn UnlockProcess(&self) -> HRESULT;
-            fn CreateObjectByCLSID(&self, #[in] clsid: &IID, #[in] pStream: IStream, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateObjectByCLSID(&self, #[in] clsid: &IID, #[in] pStream: IStream, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x84d2054a_3aa1_4728_a3b0_440a418cf49c)]
         interface IMFPMPHostApp: IUnknown {
             fn LockProcess(&self) -> HRESULT;
             fn UnlockProcess(&self) -> HRESULT;
-            fn ActivateClassById(&self, #[in] id: LPCWSTR, #[in] #[opt] pStream: IStream, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn ActivateClassById(&self, #[in] id: LPCWSTR, #[in] #[opt] pStream: IStream, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x994e23af_1cc2_493c_b9fa_46f1cb040fa4)]
         interface IMFPMPServer: IUnknown {
             fn LockProcess(&self) -> HRESULT;
             fn UnlockProcess(&self) -> HRESULT;
-            fn CreateObjectByCLSID(&self, #[in] clsid: &IID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+            fn CreateObjectByCLSID(&self, #[in] clsid: &IID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x868ce85c_8ea9_4f55_ab82_b009a910a805)]
         interface IMFPresentationClock: IMFClock {
@@ -548,13 +548,13 @@ mod Windows {
         #[guid(0x88ddcd21_03c3_4275_91ed_55ee3929328f)]
         interface IMFRateControl: IUnknown {
             fn SetRate(&self, #[in] fThin: BOOL, #[in] flRate: f32) -> HRESULT;
-            fn GetRate(&self, #[in] #[out] #[opt] pfThin: *mut BOOL, #[in] #[out] #[opt] pflRate: *mut f32) -> HRESULT;
+            fn GetRate(&self, #[in] #[opt] #[out] pfThin: *mut BOOL, #[in] #[opt] #[out] pflRate: *mut f32) -> HRESULT;
         }
         #[guid(0x0a9ccdbc_d797_4563_9667_94ec5d79292d)]
         interface IMFRateSupport: IUnknown {
             fn GetSlowestRate(&self, #[in] eDirection: MFRATE_DIRECTION, #[in] fThin: BOOL, #[out] pflRate: *mut f32) -> HRESULT;
             fn GetFastestRate(&self, #[in] eDirection: MFRATE_DIRECTION, #[in] fThin: BOOL, #[out] pflRate: *mut f32) -> HRESULT;
-            fn IsRateSupported(&self, #[in] fThin: BOOL, #[in] flRate: f32, #[in] #[out] #[opt] pflNearestSupportedRate: *mut f32) -> HRESULT;
+            fn IsRateSupported(&self, #[in] fThin: BOOL, #[in] flRate: f32, #[in] #[opt] #[out] pflNearestSupportedRate: *mut f32) -> HRESULT;
         }
         #[guid(0x2347d60b_3fb5_480c_8803_8df3adcd3ef0)]
         interface IMFRealTimeClient: IUnknown {
@@ -584,8 +584,8 @@ mod Windows {
         }
         #[guid(0x994e23ad_1cc2_493c_b9fa_46f1cb040fa4)]
         interface IMFRemoteProxy: IUnknown {
-            fn GetRemoteObject(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn GetRemoteHost(&self, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetRemoteObject(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
+            fn GetRemoteHost(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa7e025dd_5303_4a62_89d6_e747e1efac73)]
         interface IMFSAMIStyle: IUnknown {
@@ -634,7 +634,7 @@ mod Windows {
         }
         #[guid(0x6d4c7b74_52a0_4bb7_b0db_55f29f47a668)]
         interface IMFSchemeHandler: IUnknown {
-            fn BeginCreateObject(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] #[opt] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn BeginCreateObject(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndCreateObject(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
             fn CancelObjectCreation(&self, #[in] pIUnknownCancelCookie: IUnknown) -> HRESULT;
         }
@@ -664,8 +664,8 @@ mod Windows {
         }
         #[guid(0x3e8c4be1_a8c2_4528_90de_2851bde5fead)]
         interface IMFSensorActivityReport: IUnknown {
-            fn GetFriendlyName(&self, #[out] #[writable(entry, cchFriendlyName)] #[null_terminated(success)] FriendlyName: LPWSTR, #[in] cchFriendlyName: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
-            fn GetSymbolicLink(&self, #[out] #[writable(entry, cchSymbolicLink)] #[null_terminated(success)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
+            fn GetFriendlyName(&self, #[null_terminated(success)] #[out] #[writable(entry, cchFriendlyName)] FriendlyName: LPWSTR, #[in] cchFriendlyName: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
+            fn GetSymbolicLink(&self, #[null_terminated(success)] #[out] #[writable(entry, cchSymbolicLink)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: ULONG, #[out] pcchWritten: *mut ULONG) -> HRESULT;
             fn GetProcessCount(&self, #[out] pcCount: *mut ULONG) -> HRESULT;
             fn GetProcessActivity(&self, #[in] Index: ULONG, #[out] #[out_ptr(null_on_failure)] ppProcessActivity: *mut IMFSensorProcessActivity) -> HRESULT;
         }
@@ -674,7 +674,7 @@ mod Windows {
             fn GetDeviceId(&self, #[out] pDeviceId: *mut ULONGLONG) -> HRESULT;
             fn GetDeviceType(&self, #[out] pType: *mut MFSensorDeviceType) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
-            fn GetSymbolicLink(&self, #[out] #[writable(entry, cchSymbolicLink)] #[null_terminated(success)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
+            fn GetSymbolicLink(&self, #[null_terminated(success)] #[out] #[writable(entry, cchSymbolicLink)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
             fn GetDeviceAttributes(&self, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetStreamAttributesCount(&self, #[in] eType: MFSensorStreamType, #[out] pdwCount: *mut DWORD) -> HRESULT;
             fn GetStreamAttributes(&self, #[in] eType: MFSensorStreamType, #[in] dwIndex: DWORD, #[out] #[out_ptr(null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
@@ -683,7 +683,7 @@ mod Windows {
         }
         #[guid(0x4110243a_9757_461f_89f1_f22345bcab4e)]
         interface IMFSensorGroup: IUnknown {
-            fn GetSymbolicLink(&self, #[out] #[writable(entry, cchSymbolicLink)] #[null_terminated(success)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
+            fn GetSymbolicLink(&self, #[null_terminated(success)] #[out] #[writable(entry, cchSymbolicLink)] SymbolicLink: LPWSTR, #[in] cchSymbolicLink: LONG, #[out] pcchWritten: *mut LONG) -> HRESULT;
             fn GetFlags(&self, #[out] pFlags: *mut ULONGLONG) -> HRESULT;
             fn GetSensorGroupAttributes(&self, #[out] #[out_ptr(nullable, null_on_failure)] ppAttributes: *mut IMFAttributes) -> HRESULT;
             fn GetSensorDeviceCount(&self, #[out] pdwCount: *mut DWORD) -> HRESULT;
@@ -733,7 +733,7 @@ mod Windows {
         interface IMFSequencerSource: IUnknown {
             fn AppendTopology(&self, #[in] pTopology: IMFTopology, #[in] dwFlags: DWORD, #[out] pdwId: *mut MFSequencerElementId) -> HRESULT;
             fn DeleteTopology(&self, #[in] dwId: MFSequencerElementId) -> HRESULT;
-            fn GetPresentationContext(&self, #[in] pPD: IMFPresentationDescriptor, #[out] #[opt] pId: *mut MFSequencerElementId, #[out] #[opt] ppTopology: *mut IMFTopology) -> HRESULT;
+            fn GetPresentationContext(&self, #[in] pPD: IMFPresentationDescriptor, #[opt] #[out] pId: *mut MFSequencerElementId, #[opt] #[out] ppTopology: *mut IMFTopology) -> HRESULT;
             fn UpdateTopology(&self, #[in] dwId: MFSequencerElementId, #[in] pTopology: IMFTopology) -> HRESULT;
             fn UpdateTopologyFlags(&self, #[in] dwId: MFSequencerElementId, #[in] dwFlags: DWORD) -> HRESULT;
         }
@@ -761,9 +761,9 @@ mod Windows {
         interface IMFSourceResolver: IUnknown {
             fn CreateObjectFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
             fn CreateObjectFromByteStream(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
-            fn BeginCreateObjectFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] #[opt] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn BeginCreateObjectFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndCreateObjectFromURL(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
-            fn BeginCreateObjectFromByteStream(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[out] #[opt] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
+            fn BeginCreateObjectFromByteStream(&self, #[in] pByteStream: IMFByteStream, #[in] pwszURL: LPCWSTR, #[in] dwFlags: DWORD, #[in] pProps: IPropertyStore, #[opt] #[out] #[out_ptr] ppIUnknownCancelCookie: *mut IUnknown, #[in] pCallback: IMFAsyncCallback, #[in] punkState: IUnknown) -> HRESULT;
             fn EndCreateObjectFromByteStream(&self, #[in] pResult: IMFAsyncResult, #[out] pObjectType: *mut MF_OBJECT_TYPE, #[out] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
             fn CancelObjectCreation(&self, #[in] pIUnknownCancelCookie: IUnknown) -> HRESULT;
         }
@@ -864,7 +864,7 @@ mod Windows {
         }
         #[guid(0x542612c4_a1b8_4632_b521_de11ea64a0b0)]
         interface IMFTrustedInput: IUnknown {
-            fn GetInputTrustAuthority(&self, #[in] dwStreamID: DWORD, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppunkObject: *mut IUnknown) -> HRESULT;
+            fn GetInputTrustAuthority(&self, #[in] dwStreamID: DWORD, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunkObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xd19f8e95_b126_4446_890c_5dcb7ad71453)]
         interface IMFTrustedOutput: IUnknown {
@@ -932,13 +932,13 @@ mod Windows {
             fn EndRegisterTopologyWorkQueuesWithMMCSS(&self, #[in] pResult: IMFAsyncResult) -> HRESULT;
             fn BeginUnregisterTopologyWorkQueuesWithMMCSS(&self, #[in] pCallback: IMFAsyncCallback, #[in] pState: IUnknown) -> HRESULT;
             fn EndUnregisterTopologyWorkQueuesWithMMCSS(&self, #[in] pResult: IMFAsyncResult) -> HRESULT;
-            fn GetTopologyWorkQueueMMCSSClass(&self, #[in] dwTopologyWorkQueueId: DWORD, #[out] #[writable(entry, *pcchClass)] #[writable(success, *pcchClass)] #[readable(success, *pcchClass)] pwszClass: LPWSTR, #[in] #[out] pcchClass: *mut DWORD) -> HRESULT;
+            fn GetTopologyWorkQueueMMCSSClass(&self, #[in] dwTopologyWorkQueueId: DWORD, #[out] #[readable(success, *pcchClass)] #[writable(entry, *pcchClass)] #[writable(success, *pcchClass)] pwszClass: LPWSTR, #[in] #[out] pcchClass: *mut DWORD) -> HRESULT;
             fn GetTopologyWorkQueueMMCSSTaskId(&self, #[in] dwTopologyWorkQueueId: DWORD, #[out] pdwTaskId: *mut DWORD) -> HRESULT;
             fn BeginRegisterPlatformWorkQueueWithMMCSS(&self, #[in] dwPlatformWorkQueue: DWORD, #[in] wszClass: LPCWSTR, #[in] dwTaskId: DWORD, #[in] pCallback: IMFAsyncCallback, #[in] pState: IUnknown) -> HRESULT;
             fn EndRegisterPlatformWorkQueueWithMMCSS(&self, #[in] pResult: IMFAsyncResult, #[out] pdwTaskId: *mut DWORD) -> HRESULT;
             fn BeginUnregisterPlatformWorkQueueWithMMCSS(&self, #[in] dwPlatformWorkQueue: DWORD, #[in] pCallback: IMFAsyncCallback, #[in] pState: IUnknown) -> HRESULT;
             fn EndUnregisterPlatformWorkQueueWithMMCSS(&self, #[in] pResult: IMFAsyncResult) -> HRESULT;
-            fn GetPlaftormWorkQueueMMCSSClass(&self, #[in] dwPlatformWorkQueueId: DWORD, #[out] #[writable(entry, *pcchClass)] #[writable(success, *pcchClass)] #[readable(success, *pcchClass)] pwszClass: LPWSTR, #[in] #[out] pcchClass: *mut DWORD) -> HRESULT;
+            fn GetPlaftormWorkQueueMMCSSClass(&self, #[in] dwPlatformWorkQueueId: DWORD, #[out] #[readable(success, *pcchClass)] #[writable(entry, *pcchClass)] #[writable(success, *pcchClass)] pwszClass: LPWSTR, #[in] #[out] pcchClass: *mut DWORD) -> HRESULT;
             fn GetPlatformWorkQueueMMCSSTaskId(&self, #[in] dwPlatformWorkQueueId: DWORD, #[out] pdwTaskId: *mut DWORD) -> HRESULT;
         }
         #[guid(0x96bf961b_40fe_42f1_ba9d_320238b49700)]
@@ -1132,7 +1132,7 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFCreateNetSchemePlugin(riid: &IID, ppvHandler: *mut LPVOID) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreatePMPMediaSession(dwCreationFlags: DWORD, pConfiguration: IMFAttributes, #[out] #[out_ptr] ppMediaSession: *mut IMFMediaSession, #[out] #[opt] #[out_ptr] ppEnablerActivate: *mut IMFActivate) -> HRESULT;
+        extern fn MFCreatePMPMediaSession(dwCreationFlags: DWORD, pConfiguration: IMFAttributes, #[out] #[out_ptr] ppMediaSession: *mut IMFMediaSession, #[opt] #[out] #[out_ptr] ppEnablerActivate: *mut IMFActivate) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreatePMPServer(dwCreationFlags: DWORD, #[out] #[out_ptr] ppPMPServer: *mut IMFPMPServer) -> HRESULT;
         #[library("MF.dll")]
@@ -1158,7 +1158,7 @@ mod Windows {
         #[library("MFSENSORGROUP.dll")]
         extern fn MFCreateSensorGroup(#[in] #[null_terminated(entry)] SensorGroupSymbolicLink: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppSensorGroup: *mut IMFSensorGroup) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
-        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[opt] #[null_terminated(entry)] Constraints: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppProfile: *mut IMFSensorProfile) -> HRESULT;
+        extern fn MFCreateSensorProfile(#[in] ProfileType: &GUID, #[in] ProfileIndex: UINT32, #[in] #[null_terminated(entry)] #[opt] Constraints: LPCWSTR, #[out] #[out_ptr(null_on_failure)] ppProfile: *mut IMFSensorProfile) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
         extern fn MFCreateSensorProfileCollection(#[out] #[out_ptr(null_on_failure)] ppSensorProfile: *mut IMFSensorProfileCollection) -> HRESULT;
         #[library("MFSENSORGROUP.dll")]
@@ -1571,7 +1571,7 @@ mod Windows {
             SequencerTopologyFlags_Last = 1,
         }
         #[library("MFPlat.DLL")]
-        extern fn MFSerializePresentationDescriptor(#[in] pPD: IMFPresentationDescriptor, #[out] pcbData: *mut DWORD, #[out] #[writable(success, bytes(*pcbData), indirect)] #[readable(success, bytes(*pcbData), indirect)] ppbData: *mut *mut BYTE) -> HRESULT;
+        extern fn MFSerializePresentationDescriptor(#[in] pPD: IMFPresentationDescriptor, #[out] pcbData: *mut DWORD, #[out] #[readable(success, bytes(*pcbData), indirect)] #[writable(success, bytes(*pcbData), indirect)] ppbData: *mut *mut BYTE) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFShutdownObject(pUnk: IUnknown) -> HRESULT;
         const MFStreamExtension_ExtendedCameraIntrinsics: GUID = 0xaa74b3df_9a2c_48d6_8393_5bd1c1a81e6e;

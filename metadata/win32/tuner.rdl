@@ -230,11 +230,11 @@ mod Windows {
         }
         #[guid(0xc0a4a1d4_2b3c_491a_ba22_499fbadd4d12)]
         interface IBDACreateTuneRequestEx: IUnknown {
-            fn CreateTuneRequestEx(&self, #[in] TuneRequestIID: &IID, #[out] #[retval] #[out_ptr] TuneRequest: *mut ITuneRequest) -> HRESULT;
+            fn CreateTuneRequestEx(&self, #[in] TuneRequestIID: &IID, #[out] #[out_ptr] #[retval] TuneRequest: *mut ITuneRequest) -> HRESULT;
         }
         #[guid(0x156eff60_86f4_4e28_89fc_109799fd57ee)]
         interface IChannelIDTuneRequest: ITuneRequest {
-            fn get_ChannelID(&self, #[out] #[retval] #[out_ptr] ChannelID: *mut BSTR) -> HRESULT;
+            fn get_ChannelID(&self, #[out] #[out_ptr] #[retval] ChannelID: *mut BSTR) -> HRESULT;
             fn put_ChannelID(&self, #[in] ChannelID: BSTR) -> HRESULT;
         }
         #[guid(0x0369b4e0_45b6_11d3_b650_00c04f79498e)]
@@ -244,67 +244,67 @@ mod Windows {
         }
         #[guid(0x1a5576fc_0e19_11d3_9d8e_00c04f72d980)]
         interface IComponent: IDispatch {
-            fn get_Type(&self, #[out] #[retval] #[out_ptr] CT: *mut IComponentType) -> HRESULT;
+            fn get_Type(&self, #[out] #[out_ptr] #[retval] CT: *mut IComponentType) -> HRESULT;
             fn put_Type(&self, #[in] #[opt] CT: IComponentType) -> HRESULT;
             fn get_DescLangID(&self, #[out] #[retval] LangID: *mut i32) -> HRESULT;
             fn put_DescLangID(&self, #[in] LangID: i32) -> HRESULT;
             fn get_Status(&self, #[out] #[retval] Status: *mut ComponentStatus) -> HRESULT;
             fn put_Status(&self, #[in] Status: ComponentStatus) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] Description: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] Description: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] Description: BSTR) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewComponent: *mut IComponent) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewComponent: *mut IComponent) -> HRESULT;
         }
         #[guid(0x6a340dc0_0311_11d3_9d8e_00c04f72d980)]
         interface IComponentType: IDispatch {
             fn get_Category(&self, #[out] #[retval] Category: *mut ComponentCategory) -> HRESULT;
             fn put_Category(&self, #[in] Category: ComponentCategory) -> HRESULT;
-            fn get_MediaMajorType(&self, #[out] #[retval] #[out_ptr] MediaMajorType: *mut BSTR) -> HRESULT;
+            fn get_MediaMajorType(&self, #[out] #[out_ptr] #[retval] MediaMajorType: *mut BSTR) -> HRESULT;
             fn put_MediaMajorType(&self, #[in] MediaMajorType: BSTR) -> HRESULT;
             fn get__MediaMajorType(&self, #[out] #[retval] MediaMajorTypeGuid: *mut GUID) -> HRESULT;
             fn put__MediaMajorType(&self, #[in] MediaMajorTypeGuid: &IID) -> HRESULT;
-            fn get_MediaSubType(&self, #[out] #[retval] #[out_ptr] MediaSubType: *mut BSTR) -> HRESULT;
+            fn get_MediaSubType(&self, #[out] #[out_ptr] #[retval] MediaSubType: *mut BSTR) -> HRESULT;
             fn put_MediaSubType(&self, #[in] MediaSubType: BSTR) -> HRESULT;
             fn get__MediaSubType(&self, #[out] #[retval] MediaSubTypeGuid: *mut GUID) -> HRESULT;
             fn put__MediaSubType(&self, #[in] MediaSubTypeGuid: &IID) -> HRESULT;
-            fn get_MediaFormatType(&self, #[out] #[retval] #[out_ptr] MediaFormatType: *mut BSTR) -> HRESULT;
+            fn get_MediaFormatType(&self, #[out] #[out_ptr] #[retval] MediaFormatType: *mut BSTR) -> HRESULT;
             fn put_MediaFormatType(&self, #[in] MediaFormatType: BSTR) -> HRESULT;
             fn get__MediaFormatType(&self, #[out] #[retval] MediaFormatTypeGuid: *mut GUID) -> HRESULT;
             fn put__MediaFormatType(&self, #[in] MediaFormatTypeGuid: &IID) -> HRESULT;
             fn get_MediaType(&self, #[out] #[retval] MediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
             fn put_MediaType(&self, #[in] MediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewCT: *mut IComponentType) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewCT: *mut IComponentType) -> HRESULT;
         }
         #[guid(0x0dc13d4a_0313_11d3_9d8e_00c04f72d980)]
         interface IComponentTypes: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
-            fn EnumComponentTypes(&self, #[out] #[retval] #[out_ptr] ppNewEnum: *mut IEnumComponentTypes) -> HRESULT;
-            fn get_Item(&self, #[in] Index: VARIANT, #[out] #[retval] #[out_ptr] ComponentType: *mut IComponentType) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn EnumComponentTypes(&self, #[out] #[out_ptr] #[retval] ppNewEnum: *mut IEnumComponentTypes) -> HRESULT;
+            fn get_Item(&self, #[in] Index: VARIANT, #[out] #[out_ptr] #[retval] ComponentType: *mut IComponentType) -> HRESULT;
             fn put_Item(&self, #[in] Index: VARIANT, #[in] #[opt] ComponentType: IComponentType) -> HRESULT;
             fn Add(&self, #[in] #[opt] ComponentType: IComponentType, #[out] #[retval] NewIndex: *mut VARIANT) -> HRESULT;
             fn Remove(&self, #[in] Index: VARIANT) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewList: *mut IComponentTypes) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewList: *mut IComponentTypes) -> HRESULT;
         }
         #[guid(0x39a48091_fffe_4182_a161_3ff802640e26)]
         interface IComponents: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
-            fn EnumComponents(&self, #[out] #[retval] #[out_ptr] ppNewEnum: *mut IEnumComponents) -> HRESULT;
-            fn get_Item(&self, #[in] Index: VARIANT, #[out] #[retval] #[out_ptr] ppComponent: *mut IComponent) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn EnumComponents(&self, #[out] #[out_ptr] #[retval] ppNewEnum: *mut IEnumComponents) -> HRESULT;
+            fn get_Item(&self, #[in] Index: VARIANT, #[out] #[out_ptr] #[retval] ppComponent: *mut IComponent) -> HRESULT;
             fn Add(&self, #[in] #[opt] Component: IComponent, #[out] #[retval] NewIndex: *mut VARIANT) -> HRESULT;
             fn Remove(&self, #[in] Index: VARIANT) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewList: *mut IComponents) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewList: *mut IComponents) -> HRESULT;
             fn put_Item(&self, #[in] Index: VARIANT, #[in] #[opt] ppComponent: IComponent) -> HRESULT;
         }
         #[guid(0xfcd01846_0e19_11d3_9d8e_00c04f72d980)]
         interface IComponentsOld: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
-            fn EnumComponents(&self, #[out] #[retval] #[out_ptr] ppNewEnum: *mut IEnumComponents) -> HRESULT;
-            fn get_Item(&self, #[in] Index: VARIANT, #[out] #[retval] #[out_ptr] ppComponent: *mut IComponent) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppNewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn EnumComponents(&self, #[out] #[out_ptr] #[retval] ppNewEnum: *mut IEnumComponents) -> HRESULT;
+            fn get_Item(&self, #[in] Index: VARIANT, #[out] #[out_ptr] #[retval] ppComponent: *mut IComponent) -> HRESULT;
             fn Add(&self, #[in] #[opt] Component: IComponent, #[out] #[retval] NewIndex: *mut VARIANT) -> HRESULT;
             fn Remove(&self, #[in] Index: VARIANT) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewList: *mut IComponents) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewList: *mut IComponents) -> HRESULT;
         }
         #[guid(0x6e42f36e_1dd2_43c4_9f78_69d25ae39034)]
         interface IDVBCLocator: IDigitalLocator {}
@@ -346,7 +346,7 @@ mod Windows {
             fn put_HighOscillator(&self, #[in] HighOscillator: i32) -> HRESULT;
             fn get_LNBSwitch(&self, #[out] #[retval] LNBSwitch: *mut i32) -> HRESULT;
             fn put_LNBSwitch(&self, #[in] LNBSwitch: i32) -> HRESULT;
-            fn get_InputRange(&self, #[out] #[retval] #[out_ptr] InputRange: *mut BSTR) -> HRESULT;
+            fn get_InputRange(&self, #[out] #[out_ptr] #[retval] InputRange: *mut BSTR) -> HRESULT;
             fn put_InputRange(&self, #[in] InputRange: BSTR) -> HRESULT;
             fn get_SpectralInversion(&self, #[out] #[retval] SpectralInversionVal: *mut SpectralInversion) -> HRESULT;
             fn put_SpectralInversion(&self, #[in] SpectralInversionVal: SpectralInversion) -> HRESULT;
@@ -420,7 +420,7 @@ mod Windows {
         }
         #[guid(0x506a09b8_7f86_4e04_ac05_3303bfe8fc49)]
         interface IESEventFactory: IUnknown {
-            fn CreateESEvent(&self, #[in] #[opt] pServiceProvider: IUnknown, #[in] dwEventId: DWORD, #[in] guidEventType: GUID, #[in] dwEventDataLength: DWORD, #[in] #[readable(entry, dwEventDataLength)] pEventData: *mut BYTE, #[in] bstrBaseUrl: BSTR, #[in] #[opt] pInitContext: IUnknown, #[out] #[retval] #[out_ptr] ppESEvent: *mut IESEvent) -> HRESULT;
+            fn CreateESEvent(&self, #[in] #[opt] pServiceProvider: IUnknown, #[in] dwEventId: DWORD, #[in] guidEventType: GUID, #[in] dwEventDataLength: DWORD, #[in] #[readable(entry, dwEventDataLength)] pEventData: *mut BYTE, #[in] bstrBaseUrl: BSTR, #[in] #[opt] pInitContext: IUnknown, #[out] #[out_ptr] #[retval] ppESEvent: *mut IESEvent) -> HRESULT;
         }
         #[guid(0xed89a619_4c06_4b2f_99eb_c7669b13047c)]
         interface IESEventService: IUnknown {
@@ -449,12 +449,12 @@ mod Windows {
             fn GetRequestId(&self, #[out] #[retval] pRequestId: *mut DWORD) -> HRESULT;
             fn GetStatus(&self, #[out] #[retval] pStatus: *mut DWORD) -> HRESULT;
             fn GetDataLength(&self, #[out] #[retval] pRequestLength: *mut DWORD) -> HRESULT;
-            fn GetResponseData(&self, #[out] #[retval] #[out_ptr] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetResponseData(&self, #[out] #[out_ptr] #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0xd5a48ef5_a81b_4df0_acaa_5e35e7ea45d4)]
         interface IESLicenseRenewalResultEvent: IESEvent {
             fn GetCallersId(&self, #[out] #[retval] pdwCallersId: *mut DWORD) -> HRESULT;
-            fn GetFileName(&self, #[out] #[retval] #[out_ptr] pbstrFilename: *mut BSTR) -> HRESULT;
+            fn GetFileName(&self, #[out] #[out_ptr] #[retval] pbstrFilename: *mut BSTR) -> HRESULT;
             fn IsRenewalSuccessful(&self, #[out] #[retval] pfRenewalSuccessful: *mut BOOL) -> HRESULT;
             fn IsCheckEntitlementCallRequired(&self, #[out] #[retval] pfCheckEntTokenCallNeeded: *mut BOOL) -> HRESULT;
             fn GetDescrambledStatus(&self, #[out] #[retval] pDescrambledStatus: *mut DWORD) -> HRESULT;
@@ -462,15 +462,15 @@ mod Windows {
             fn GetCASFailureCode(&self, #[out] #[retval] pdwCASFailureCode: *mut DWORD) -> HRESULT;
             fn GetRenewalHResult(&self, #[out] #[retval] phr: *mut HRESULT) -> HRESULT;
             fn GetEntitlementTokenLength(&self, #[out] #[retval] pdwLength: *mut DWORD) -> HRESULT;
-            fn GetEntitlementToken(&self, #[out] #[retval] #[out_ptr] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetEntitlementToken(&self, #[out] #[out_ptr] #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
             fn GetExpiryDate(&self, #[out] #[retval] pqwExpiryDate: *mut DWORD64) -> HRESULT;
         }
         #[guid(0xba4b6526_1a35_4635_8b56_3ec612746a8c)]
         interface IESOpenMmiEvent: IESEvent {
             fn GetDialogNumber(&self, #[out] pDialogRequest: *mut DWORD, #[out] #[retval] pDialogNumber: *mut DWORD) -> HRESULT;
             fn GetDialogType(&self, #[out] #[retval] guidDialogType: *mut GUID) -> HRESULT;
-            fn GetDialogData(&self, #[out] #[retval] #[out_ptr] pbData: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetDialogStringData(&self, #[out] #[out_ptr] pbstrBaseUrl: *mut BSTR, #[out] #[retval] #[out_ptr] pbstrData: *mut BSTR) -> HRESULT;
+            fn GetDialogData(&self, #[out] #[out_ptr] #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetDialogStringData(&self, #[out] #[out_ptr] pbstrBaseUrl: *mut BSTR, #[out] #[out_ptr] #[retval] pbstrData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x54c7a5e8_c3bb_4f51_af14_e0e2c0e34c6d)]
         interface IESRequestTunerEvent: IESEvent {
@@ -481,32 +481,32 @@ mod Windows {
         }
         #[guid(0x8a24c46e_bb63_4664_8602_5d9c718c146d)]
         interface IESValueUpdatedEvent: IESEvent {
-            fn GetValueNames(&self, #[out] #[retval] #[out_ptr] pbstrNames: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetValueNames(&self, #[out] #[out_ptr] #[retval] pbstrNames: *mut *mut SAFEARRAY) -> HRESULT;
         }
         #[guid(0x8a674b4a_1f63_11d3_b64c_00c04f79498e)]
         interface IEnumComponentTypes: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, *pceltFetched)] rgelt: *mut IComponentType, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IComponentType, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumComponentTypes) -> HRESULT;
         }
         #[guid(0x2a6e2939_2595_11d3_b64c_00c04f79498e)]
         interface IEnumComponents: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, *pceltFetched)] rgelt: *mut IComponent, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut IComponent, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumComponents) -> HRESULT;
         }
         #[guid(0x8b8eb248_fc2b_11d2_9d8c_00c04f72d980)]
         interface IEnumTuningSpaces: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, *pceltFetched)] rgelt: *mut ITuningSpace, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut ITuningSpace, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
         }
         #[guid(0x907e0b5c_e42d_4f04_91f0_26f401f36907)]
         interface IGpnvsCommonBase: IUnknown {
-            fn GetValueUpdateName(&self, #[out] #[retval] #[out_ptr] pbstrName: *mut BSTR) -> HRESULT;
+            fn GetValueUpdateName(&self, #[out] #[out_ptr] #[retval] pbstrName: *mut BSTR) -> HRESULT;
         }
         #[guid(0xc9897087_e29c_473f_9e4b_7072123dea14)]
         interface IISDBSLocator: IDVBSLocator {}
@@ -531,7 +531,7 @@ mod Windows {
             fn put_Modulation(&self, #[in] Modulation: ModulationType) -> HRESULT;
             fn get_SymbolRate(&self, #[out] #[retval] Rate: *mut i32) -> HRESULT;
             fn put_SymbolRate(&self, #[in] Rate: i32) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewLocator: *mut ILocator) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewLocator: *mut ILocator) -> HRESULT;
         }
         #[guid(0x1493e353_1eb6_473c_802d_8e6b8ec9d2a9)]
         interface IMPEG2Component: IComponent {
@@ -556,7 +556,7 @@ mod Windows {
         }
         #[guid(0x14e11abd_ee37_4893_9ea1_6964de933e39)]
         interface IMPEG2TuneRequestFactory: IDispatch {
-            fn CreateTuneRequest(&self, #[in] #[opt] TuningSpace: ITuningSpace, #[out] #[retval] #[out_ptr] TuneRequest: *mut IMPEG2TuneRequest) -> HRESULT;
+            fn CreateTuneRequest(&self, #[in] #[opt] TuningSpace: ITuningSpace, #[out] #[out_ptr] #[retval] TuneRequest: *mut IMPEG2TuneRequest) -> HRESULT;
         }
         #[guid(0x1b9d5fc3_5bbc_4b6c_bb18_b9d10e3eeebf)]
         interface IMPEG2TuneRequestSupport: IUnknown {}
@@ -568,11 +568,11 @@ mod Windows {
         }
         #[guid(0x990237ae_ac11_4614_be8f_dd217a4cb4cb)]
         interface IPersistTuneXmlUtility: IUnknown {
-            fn Deserialize(&self, #[in] varValue: VARIANT, #[out] #[retval] #[out_ptr] ppObject: *mut IUnknown) -> HRESULT;
+            fn Deserialize(&self, #[in] varValue: VARIANT, #[out] #[out_ptr] #[retval] ppObject: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x992e165f_ea24_4b2f_9a1d_009d92120451)]
         interface IPersistTuneXmlUtility2: IPersistTuneXmlUtility {
-            fn Serialize(&self, #[in] #[opt] piTuneRequest: ITuneRequest, #[out] #[retval] #[out_ptr] pString: *mut BSTR) -> HRESULT;
+            fn Serialize(&self, #[in] #[opt] piTuneRequest: ITuneRequest, #[out] #[out_ptr] #[retval] pString: *mut BSTR) -> HRESULT;
         }
         #[guid(0x359b3901_572c_4854_bb49_cdef66606a25)]
         interface IRegisterTuner: IUnknown {
@@ -601,21 +601,21 @@ mod Windows {
         }
         #[guid(0x07ddc146_fc3d_11d2_9d8c_00c04f72d980)]
         interface ITuneRequest: IDispatch {
-            fn get_TuningSpace(&self, #[out] #[retval] #[out_ptr] TuningSpace: *mut ITuningSpace) -> HRESULT;
-            fn get_Components(&self, #[out] #[retval] #[out_ptr] Components: *mut IComponents) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewTuneRequest: *mut ITuneRequest) -> HRESULT;
-            fn get_Locator(&self, #[out] #[retval] #[out_ptr] Locator: *mut ILocator) -> HRESULT;
+            fn get_TuningSpace(&self, #[out] #[out_ptr] #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            fn get_Components(&self, #[out] #[out_ptr] #[retval] Components: *mut IComponents) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewTuneRequest: *mut ITuneRequest) -> HRESULT;
+            fn get_Locator(&self, #[out] #[out_ptr] #[retval] Locator: *mut ILocator) -> HRESULT;
             fn put_Locator(&self, #[in] #[opt] Locator: ILocator) -> HRESULT;
         }
         #[guid(0x28c52640_018a_11d3_9d8e_00c04f72d980)]
         interface ITuner: IUnknown {
-            fn get_TuningSpace(&self, #[out] #[retval] #[out_ptr] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            fn get_TuningSpace(&self, #[out] #[out_ptr] #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
             fn put_TuningSpace(&self, #[in] #[opt] TuningSpace: ITuningSpace) -> HRESULT;
-            fn EnumTuningSpaces(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
-            fn get_TuneRequest(&self, #[out] #[retval] #[out_ptr] TuneRequest: *mut ITuneRequest) -> HRESULT;
+            fn EnumTuningSpaces(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
+            fn get_TuneRequest(&self, #[out] #[out_ptr] #[retval] TuneRequest: *mut ITuneRequest) -> HRESULT;
             fn put_TuneRequest(&self, #[in] #[opt] TuneRequest: ITuneRequest) -> HRESULT;
             fn Validate(&self, #[in] #[opt] TuneRequest: ITuneRequest) -> HRESULT;
-            fn get_PreferredComponentTypes(&self, #[out] #[retval] #[out_ptr] ComponentTypes: *mut IComponentTypes) -> HRESULT;
+            fn get_PreferredComponentTypes(&self, #[out] #[out_ptr] #[retval] ComponentTypes: *mut IComponentTypes) -> HRESULT;
             fn put_PreferredComponentTypes(&self, #[in] #[opt] ComponentTypes: IComponentTypes) -> HRESULT;
             fn get_SignalStrength(&self, #[out] #[retval] Strength: *mut i32) -> HRESULT;
             fn TriggerSignalEvents(&self, #[in] Interval: i32) -> HRESULT;
@@ -632,38 +632,38 @@ mod Windows {
         }
         #[guid(0x061c6e30_e622_11d2_9493_00c04f72d980)]
         interface ITuningSpace: IDispatch {
-            fn get_UniqueName(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
+            fn get_UniqueName(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
             fn put_UniqueName(&self, #[in] Name: BSTR) -> HRESULT;
-            fn get_FriendlyName(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
+            fn get_FriendlyName(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
             fn put_FriendlyName(&self, #[in] Name: BSTR) -> HRESULT;
-            fn get_CLSID(&self, #[out] #[retval] #[out_ptr] SpaceCLSID: *mut BSTR) -> HRESULT;
-            fn get_NetworkType(&self, #[out] #[retval] #[out_ptr] NetworkTypeGuid: *mut BSTR) -> HRESULT;
+            fn get_CLSID(&self, #[out] #[out_ptr] #[retval] SpaceCLSID: *mut BSTR) -> HRESULT;
+            fn get_NetworkType(&self, #[out] #[out_ptr] #[retval] NetworkTypeGuid: *mut BSTR) -> HRESULT;
             fn put_NetworkType(&self, #[in] NetworkTypeGuid: BSTR) -> HRESULT;
             fn get__NetworkType(&self, #[out] #[retval] NetworkTypeGuid: *mut GUID) -> HRESULT;
             fn put__NetworkType(&self, #[in] NetworkTypeGuid: &IID) -> HRESULT;
-            fn CreateTuneRequest(&self, #[out] #[retval] #[out_ptr] TuneRequest: *mut ITuneRequest) -> HRESULT;
-            fn EnumCategoryGUIDs(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IEnumGUID) -> HRESULT;
-            fn EnumDeviceMonikers(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IEnumMoniker) -> HRESULT;
-            fn get_DefaultPreferredComponentTypes(&self, #[out] #[retval] #[out_ptr] ComponentTypes: *mut IComponentTypes) -> HRESULT;
+            fn CreateTuneRequest(&self, #[out] #[out_ptr] #[retval] TuneRequest: *mut ITuneRequest) -> HRESULT;
+            fn EnumCategoryGUIDs(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumGUID) -> HRESULT;
+            fn EnumDeviceMonikers(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumMoniker) -> HRESULT;
+            fn get_DefaultPreferredComponentTypes(&self, #[out] #[out_ptr] #[retval] ComponentTypes: *mut IComponentTypes) -> HRESULT;
             fn put_DefaultPreferredComponentTypes(&self, #[in] #[opt] NewComponentTypes: IComponentTypes) -> HRESULT;
-            fn get_FrequencyMapping(&self, #[out] #[retval] #[out_ptr] pMapping: *mut BSTR) -> HRESULT;
+            fn get_FrequencyMapping(&self, #[out] #[out_ptr] #[retval] pMapping: *mut BSTR) -> HRESULT;
             fn put_FrequencyMapping(&self, #[in] Mapping: BSTR) -> HRESULT;
-            fn get_DefaultLocator(&self, #[out] #[retval] #[out_ptr] LocatorVal: *mut ILocator) -> HRESULT;
+            fn get_DefaultLocator(&self, #[out] #[out_ptr] #[retval] LocatorVal: *mut ILocator) -> HRESULT;
             fn put_DefaultLocator(&self, #[in] #[opt] LocatorVal: ILocator) -> HRESULT;
-            fn Clone(&self, #[out] #[retval] #[out_ptr] NewTS: *mut ITuningSpace) -> HRESULT;
+            fn Clone(&self, #[out] #[out_ptr] #[retval] NewTS: *mut ITuningSpace) -> HRESULT;
         }
         #[guid(0x5b692e84_e2f1_11d2_9493_00c04f72d980)]
         interface ITuningSpaceContainer: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] NewEnum: *mut IEnumVARIANT) -> HRESULT;
-            fn get_Item(&self, #[in] varIndex: VARIANT, #[out] #[retval] #[out_ptr] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn get_Item(&self, #[in] varIndex: VARIANT, #[out] #[out_ptr] #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
             fn put_Item(&self, #[in] varIndex: VARIANT, #[in] #[opt] TuningSpace: ITuningSpace) -> HRESULT;
-            fn TuningSpacesForCLSID(&self, #[in] SpaceCLSID: BSTR, #[out] #[retval] #[out_ptr] NewColl: *mut ITuningSpaces) -> HRESULT;
-            fn _TuningSpacesForCLSID(&self, #[in] SpaceCLSID: &IID, #[out] #[retval] #[out_ptr] NewColl: *mut ITuningSpaces) -> HRESULT;
-            fn TuningSpacesForName(&self, #[in] Name: BSTR, #[out] #[retval] #[out_ptr] NewColl: *mut ITuningSpaces) -> HRESULT;
+            fn TuningSpacesForCLSID(&self, #[in] SpaceCLSID: BSTR, #[out] #[out_ptr] #[retval] NewColl: *mut ITuningSpaces) -> HRESULT;
+            fn _TuningSpacesForCLSID(&self, #[in] SpaceCLSID: &IID, #[out] #[out_ptr] #[retval] NewColl: *mut ITuningSpaces) -> HRESULT;
+            fn TuningSpacesForName(&self, #[in] Name: BSTR, #[out] #[out_ptr] #[retval] NewColl: *mut ITuningSpaces) -> HRESULT;
             fn FindID(&self, #[in] #[opt] TuningSpace: ITuningSpace, #[out] #[retval] ID: *mut i32) -> HRESULT;
             fn Add(&self, #[in] #[opt] TuningSpace: ITuningSpace, #[out] #[retval] NewIndex: *mut VARIANT) -> HRESULT;
-            fn get_EnumTuningSpaces(&self, #[out] #[retval] #[out_ptr] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
+            fn get_EnumTuningSpaces(&self, #[out] #[out_ptr] #[retval] ppEnum: *mut IEnumTuningSpaces) -> HRESULT;
             fn Remove(&self, #[in] Index: VARIANT) -> HRESULT;
             fn get_MaxCount(&self, #[out] #[retval] MaxCount: *mut i32) -> HRESULT;
             fn put_MaxCount(&self, #[in] MaxCount: i32) -> HRESULT;
@@ -671,9 +671,9 @@ mod Windows {
         #[guid(0x901284e4_33fe_4b69_8d63_634a596f3756)]
         interface ITuningSpaces: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] NewEnum: *mut IEnumVARIANT) -> HRESULT;
-            fn get_Item(&self, #[in] varIndex: VARIANT, #[out] #[retval] #[out_ptr] TuningSpace: *mut ITuningSpace) -> HRESULT;
-            fn get_EnumTuningSpaces(&self, #[out] #[retval] #[out_ptr] NewEnum: *mut IEnumTuningSpaces) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] NewEnum: *mut IEnumVARIANT) -> HRESULT;
+            fn get_Item(&self, #[in] varIndex: VARIANT, #[out] #[out_ptr] #[retval] TuningSpace: *mut ITuningSpace) -> HRESULT;
+            fn get_EnumTuningSpaces(&self, #[out] #[out_ptr] #[retval] NewEnum: *mut IEnumTuningSpaces) -> HRESULT;
         }
         const LanguageComponentType: GUID = 0x1be49f30_0e1b_11d3_9d8e_00c04f72d980;
         const Locator: GUID = 0x0888c883_ac4f_4943_b516_2c38d9b34562;

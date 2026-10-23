@@ -55,18 +55,18 @@ mod Windows {
         extern fn OleCreateDefaultHandler(clsid: &IID, pUnkOuter: LPUNKNOWN, riid: &IID, lplpObj: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleCreateEmbeddingHelper(clsid: &IID, pUnkOuter: LPUNKNOWN, flags: DWORD, pCF: LPCLASSFACTORY, riid: &IID, lplpObj: *mut LPVOID) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn OleCreateEx(rclsid: &IID, riid: &IID, dwFlags: DWORD, renderopt: DWORD, cFormats: ULONG, rgAdvf: *mut DWORD, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut DWORD, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleCreateFromData(pSrcDataObj: LPDATAOBJECT, riid: &IID, renderopt: DWORD, pFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn OleCreateFromDataEx(pSrcDataObj: LPDATAOBJECT, riid: &IID, dwFlags: DWORD, renderopt: DWORD, cFormats: ULONG, rgAdvf: *mut DWORD, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut DWORD, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleCreateFromFile(rclsid: &IID, lpszFileName: LPCOLESTR, riid: &IID, renderopt: DWORD, lpFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn OleCreateFromFileEx(rclsid: &IID, lpszFileName: LPCOLESTR, riid: &IID, dwFlags: DWORD, renderopt: DWORD, cFormats: ULONG, rgAdvf: *mut DWORD, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut DWORD, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleCreateLink(pmkLinkSrc: LPMONIKER, riid: &IID, renderopt: DWORD, lpFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
@@ -74,8 +74,8 @@ mod Windows {
         extern fn OleCreateLinkEx(pmkLinkSrc: LPMONIKER, riid: &IID, dwFlags: DWORD, renderopt: DWORD, cFormats: ULONG, rgAdvf: *mut DWORD, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut DWORD, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleCreateLinkFromData(pSrcDataObj: LPDATAOBJECT, riid: &IID, renderopt: DWORD, pFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn OleCreateLinkFromDataEx(pSrcDataObj: LPDATAOBJECT, riid: &IID, dwFlags: DWORD, renderopt: DWORD, cFormats: ULONG, rgAdvf: *mut DWORD, rgFormatEtc: LPFORMATETC, lpAdviseSink: IAdviseSink, rgdwConnection: *mut DWORD, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleCreateLinkToFile(lpszFileName: LPCOLESTR, riid: &IID, renderopt: DWORD, lpFormatEtc: LPFORMATETC, pClientSite: LPOLECLIENTSITE, pStg: LPSTORAGE, ppvObj: *mut LPVOID) -> HRESULT;
@@ -105,8 +105,8 @@ mod Windows {
         extern fn OleGetIconOfClass(rclsid: &IID, #[in] #[opt] lpszLabel: LPOLESTR, fUseTypeAsLabel: BOOL) -> HGLOBAL;
         #[library("ole32.dll")]
         extern fn OleGetIconOfFile(#[in] lpszPath: LPOLESTR, fUseFileAsLabel: BOOL) -> HGLOBAL;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn OleInitialize(pvReserved: LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleIsCurrentClipboard(pDataObj: LPDATAOBJECT) -> HRESULT;
@@ -132,11 +132,11 @@ mod Windows {
         extern fn OleRegEnumVerbs(clsid: &IID, #[out] #[out_ptr] ppenum: *mut LPENUMOLEVERB) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleRegGetMiscStatus(clsid: &IID, dwAspect: DWORD, pdwStatus: *mut DWORD) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn OleRegGetUserType(clsid: &IID, dwFormOfType: DWORD, #[out] #[out_ptr] pszUserType: *mut LPOLESTR) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn OleRun(pUnknown: LPUNKNOWN) -> HRESULT;
         #[library("ole32.dll")]
         extern fn OleSave(#[in] pPS: LPPERSISTSTORAGE, #[in] pStg: LPSTORAGE, #[in] fSameAsLoad: BOOL) -> HRESULT;
@@ -155,7 +155,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn OleUninitialize();
         #[library("ole32.dll")]
-        extern fn ReadFmtUserTypeStg(pstg: LPSTORAGE, pcf: *mut CLIPFORMAT, #[out] #[opt] #[out_ptr] #[null_terminated(success, indirect)] lplpszUserType: *mut LPOLESTR) -> HRESULT;
+        extern fn ReadFmtUserTypeStg(pstg: LPSTORAGE, pcf: *mut CLIPFORMAT, #[null_terminated(success, indirect)] #[opt] #[out] #[out_ptr] lplpszUserType: *mut LPOLESTR) -> HRESULT;
         #[library("ole32.dll")]
         extern fn RegisterDragDrop(hwnd: HWND, pDropTarget: LPDROPTARGET) -> HRESULT;
         #[library("ole32.dll")]
@@ -164,8 +164,8 @@ mod Windows {
         extern fn RevokeDragDrop(hwnd: HWND) -> HRESULT;
         #[library("ole32.dll")]
         extern fn SetConvertStg(pStg: LPSTORAGE, fConvert: BOOL) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn WriteFmtUserTypeStg(pstg: LPSTORAGE, cf: CLIPFORMAT, #[in] #[null_terminated(entry)] lpszUserType: LPOLESTR) -> HRESULT;
     }
 }

@@ -2,10 +2,10 @@
 mod Windows {
     mod Data {
         mod Json {
-            #[guid(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonArray)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81)]
             interface IJsonArray: IJsonValue {
                 fn GetObjectAt(&self, #[in] index: u32) -> JsonObject;
                 fn GetArrayAt(&self, #[in] index: u32) -> JsonArray;
@@ -13,25 +13,25 @@ mod Windows {
                 fn GetNumberAt(&self, #[in] index: u32) -> f64;
                 fn GetBooleanAt(&self, #[in] index: u32) -> bool;
             }
-            #[guid(0xdb1434a9_e164_499f_93e2_8a8f49bb90ba)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonArray)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xdb1434a9_e164_499f_93e2_8a8f49bb90ba)]
             interface IJsonArrayStatics {
                 fn Parse(&self, #[in] input: String) -> JsonArray;
                 fn TryParse(&self, #[in] input: String, #[out] result: &mut JsonArray) -> bool;
             }
-            #[guid(0x404030da_87d0_436c_83ab_fc7b12c0cc26)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonError)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x404030da_87d0_436c_83ab_fc7b12c0cc26)]
             interface IJsonErrorStatics2 {
                 fn GetJsonStatus(&self, #[in] hresult: i32) -> JsonErrorStatus;
             }
-            #[guid(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3)]
             interface IJsonObject: IJsonValue {
                 fn GetNamedValue(&self, #[in] name: String) -> JsonValue;
                 fn SetNamedValue(&self, #[in] name: String, #[in] value: IJsonValue);
@@ -41,18 +41,18 @@ mod Windows {
                 fn GetNamedNumber(&self, #[in] name: String) -> f64;
                 fn GetNamedBoolean(&self, #[in] name: String) -> bool;
             }
-            #[guid(0x2289f159_54de_45d8_abcc_22603fa066a0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x2289f159_54de_45d8_abcc_22603fa066a0)]
             interface IJsonObjectStatics {
                 fn Parse(&self, #[in] input: String) -> JsonObject;
                 fn TryParse(&self, #[in] input: String, #[out] result: &mut JsonObject) -> bool;
             }
-            #[guid(0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xd960d2a2_b7f0_4f00_8e44_d82cf415ea13)]
             interface IJsonObjectWithDefaultValues: IJsonObject + IJsonValue {
                 #[Windows::Foundation::Metadata::Overload("GetNamedValueOrDefault")]
                 fn GetNamedValue(&self, #[in] name: String, #[in] defaultValue: JsonValue) -> JsonValue;
@@ -67,9 +67,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetNamedBooleanOrDefault")]
                 fn GetNamedBoolean(&self, #[in] name: String, #[in] defaultValue: bool) -> bool;
             }
-            #[guid(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e)]
             interface IJsonValue {
                 #[get]
                 ValueType: JsonValueType;
@@ -80,10 +80,10 @@ mod Windows {
                 fn GetArray(&self) -> JsonArray;
                 fn GetObject(&self) -> JsonObject;
             }
-            #[guid(0x5f6b544a_2f53_48e1_91a3_f78b50a6345c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonValue)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x5f6b544a_2f53_48e1_91a3_f78b50a6345c)]
             interface IJsonValueStatics {
                 fn Parse(&self, #[in] input: String) -> JsonValue;
                 fn TryParse(&self, #[in] input: String, #[out] result: &mut JsonValue) -> bool;
@@ -91,10 +91,10 @@ mod Windows {
                 fn CreateNumberValue(&self, #[in] input: f64) -> JsonValue;
                 fn CreateStringValue(&self, #[in] input: String) -> JsonValue;
             }
-            #[guid(0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(JsonValue)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x1d9ecbe4_3fe8_4335_8392_93d8e36865f0)]
             interface IJsonValueStatics2 {
                 fn CreateNullValue(&self) -> JsonValue;
             }
@@ -120,9 +120,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class JsonError {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[repr(i32)]
             enum JsonErrorStatus {
                 Unknown = 0,
                 InvalidJsonString = 1,
@@ -159,9 +159,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 super::super::Foundation::IStringable,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[repr(i32)]
             enum JsonValueType {
                 Null = 0,
                 Boolean = 1,

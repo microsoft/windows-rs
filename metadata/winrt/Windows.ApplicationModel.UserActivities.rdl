@@ -2,9 +2,9 @@
 mod Windows {
     mod ApplicationModel {
         mod UserActivities {
-            #[guid(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivity)]
+            #[guid(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f)]
             interface IUserActivity {
                 #[get]
                 State: UserActivityState;
@@ -21,35 +21,35 @@ mod Windows {
                 fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
                 fn CreateSession(&self) -> UserActivitySession;
             }
-            #[guid(0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivity)]
+            #[guid(0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd)]
             interface IUserActivity2 {
                 fn ToJson(&self) -> String;
             }
-            #[guid(0xe7697744_e1a2_5147_8e06_55f1eeef271c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivity)]
+            #[guid(0xe7697744_e1a2_5147_8e06_55f1eeef271c)]
             interface IUserActivity3 {
                 IsRoamable: bool;
             }
-            #[guid(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityAttribution)]
+            #[guid(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e)]
             interface IUserActivityAttribution {
                 IconUri: super::super::Foundation::Uri;
                 AlternateText: String;
                 AddImageQuery: bool;
             }
-            #[guid(0xe62bd252_c566_4f42_9974_916c4d76377e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityAttribution)]
+            #[guid(0xe62bd252_c566_4f42_9974_916c4d76377e)]
             interface IUserActivityAttributionFactory {
                 fn CreateWithUri(&self, #[in] iconUri: super::super::Foundation::Uri) -> UserActivityAttribution;
             }
-            #[guid(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityChannel)]
+            #[guid(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c)]
             interface IUserActivityChannel {
                 #[Windows::Foundation::Metadata::Overload("GetOrCreateUserActivityAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -59,87 +59,87 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn DeleteAllActivitiesAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x1698e35b_eb7e_4ea0_bf17_a459e8be706c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityChannel)]
+            #[guid(0x1698e35b_eb7e_4ea0_bf17_a459e8be706c)]
             interface IUserActivityChannel2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetRecentUserActivitiesAsync(&self, #[in] maxUniqueActivities: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSessionHistoryItemsForUserActivityAsync(&self, #[in] activityId: String, #[in] startTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>;
             }
-            #[guid(0xc8c005ab_198d_4d80_abb2_c9775ec4a729)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityChannel)]
+            #[guid(0xc8c005ab_198d_4d80_abb2_c9775ec4a729)]
             interface IUserActivityChannelStatics {
                 fn GetDefault(&self) -> UserActivityChannel;
             }
-            #[guid(0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityChannel)]
+            #[guid(0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c)]
             interface IUserActivityChannelStatics2 {
                 fn DisableAutoSessionCreation(&self);
                 fn TryGetForWebAccount(&self, #[in] account: super::super::Security::Credentials::WebAccount) -> UserActivityChannel;
             }
-            #[guid(0x53bc4ddb_bbdf_5984_802a_5305874e205c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityChannel)]
+            #[guid(0x53bc4ddb_bbdf_5984_802a_5305874e205c)]
             interface IUserActivityChannelStatics3 {
                 fn GetForUser(&self, #[in] user: super::super::System::User) -> UserActivityChannel;
             }
-            #[guid(0xb399e5ad_137f_409d_822d_e1af27ce08dc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[guid(0xb399e5ad_137f_409d_822d_e1af27ce08dc)]
             interface IUserActivityContentInfo {
                 fn ToJson(&self) -> String;
             }
-            #[guid(0x9988c34b_0386_4bc9_968a_8200b004144f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityContentInfo)]
+            #[guid(0x9988c34b_0386_4bc9_968a_8200b004144f)]
             interface IUserActivityContentInfoStatics {
                 fn FromJson(&self, #[in] value: String) -> UserActivityContentInfo;
             }
-            #[guid(0x7c385758_361d_4a67_8a3b_34ca2978f9a3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivity)]
+            #[guid(0x7c385758_361d_4a67_8a3b_34ca2978f9a3)]
             interface IUserActivityFactory {
                 fn CreateWithActivityId(&self, #[in] activityId: String) -> UserActivity;
             }
-            #[guid(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityRequest)]
+            #[guid(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d)]
             interface IUserActivityRequest {
                 fn SetUserActivity(&self, #[in] activity: UserActivity);
             }
-            #[guid(0x0c30be4e_903d_48d6_82d4_4043ed57791b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityRequestManager)]
+            #[guid(0x0c30be4e_903d_48d6_82d4_4043ed57791b)]
             interface IUserActivityRequestManager {
                 event UserActivityRequested: super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>;
             }
-            #[guid(0xc0392df1_224a_432c_81e5_0c76b4c4cefa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityRequestManager)]
+            #[guid(0xc0392df1_224a_432c_81e5_0c76b4c4cefa)]
             interface IUserActivityRequestManagerStatics {
                 fn GetForCurrentView(&self) -> UserActivityRequestManager;
             }
-            #[guid(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityRequestedEventArgs)]
+            #[guid(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4)]
             interface IUserActivityRequestedEventArgs {
                 #[get]
                 Request: UserActivityRequest;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0xae434d78_24fa_44a3_ad48_6eda61aa1924)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivitySession)]
+            #[guid(0xae434d78_24fa_44a3_ad48_6eda61aa1924)]
             interface IUserActivitySession {
                 #[get]
                 ActivityId: String;
             }
-            #[guid(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivitySessionHistoryItem)]
+            #[guid(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255)]
             interface IUserActivitySessionHistoryItem {
                 #[get]
                 UserActivity: UserActivity;
@@ -148,17 +148,17 @@ mod Windows {
                 #[get]
                 EndTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
             }
-            #[guid(0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivity)]
+            #[guid(0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b)]
             interface IUserActivityStatics {
                 fn TryParseFromJson(&self, #[in] json: String) -> UserActivity;
                 fn TryParseFromJsonArray(&self, #[in] json: String) -> super::super::Foundation::Collections::IVector<UserActivity>;
                 fn ToJsonArray(&self, #[in] activities: super::super::Foundation::Collections::IIterable<UserActivity>) -> String;
             }
-            #[guid(0x94757513_262f_49ef_bbbf_9b75d2e85250)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityVisualElements)]
+            #[guid(0x94757513_262f_49ef_bbbf_9b75d2e85250)]
             interface IUserActivityVisualElements {
                 DisplayText: String;
                 Description: String;
@@ -169,9 +169,9 @@ mod Windows {
                 #[get]
                 Content: super::super::UI::Shell::IAdaptiveCard;
             }
-            #[guid(0xcaae7fc7_3eef_4359_825c_9d51b9220de3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserActivityVisualElements)]
+            #[guid(0xcaae7fc7_3eef_4359_825c_9d51b9220de3)]
             interface IUserActivityVisualElements2 {
                 AttributionDisplayText: String;
             }
@@ -198,8 +198,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics3, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IUserActivityChannelStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserActivityChannel {
                 IUserActivityChannel,
@@ -240,8 +240,8 @@ mod Windows {
             class UserActivitySessionHistoryItem {
                 IUserActivitySessionHistoryItem,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum UserActivityState {
                 New = 0,
                 Published = 1,

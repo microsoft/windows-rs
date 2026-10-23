@@ -1,15 +1,15 @@
 #[win32]
 mod Fixture {
     type BCRYPT_HASH_HANDLE = *mut void;
-    #[must_use]
     #[library("bcrypt.dll")]
+    #[must_use]
     extern fn BCryptDeleteContext(#[in] dwTable: ULONG, #[in] #[null_terminated(entry)] pszContext: LPCWSTR) -> NTSTATUS;
-    #[must_use]
     #[library("bcrypt.dll")]
-    extern fn BCryptEnumContexts(#[in] dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[out] #[opt] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
     #[must_use]
+    extern fn BCryptEnumContexts(#[in] dwTable: ULONG, #[in] #[out] pcbBuffer: *mut ULONG, #[opt] #[out] #[readable(success, bytes(*pcbBuffer), indirect, nullable)] ppBuffer: *mut PCRYPT_CONTEXTS) -> NTSTATUS;
     #[library("bcrypt.dll")]
-    extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[out] #[writable(entry, bytes(cbOutput))] #[readable(success, bytes(cbOutput))] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
+    #[must_use]
+    extern fn BCryptFinishHash(#[in] #[out] hHash: BCRYPT_HASH_HANDLE, #[out] #[readable(success, bytes(cbOutput))] #[writable(entry, bytes(cbOutput))] pbOutput: PUCHAR, #[in] cbOutput: ULONG, #[in] dwFlags: ULONG) -> NTSTATUS;
     #[success(return >= 0)]
     type NTSTATUS = i32;
     type PCRYPT_CONTEXTS = *mut _CRYPT_CONTEXTS;

@@ -3,17 +3,17 @@ mod Windows {
     mod Services {
         mod Maps {
             mod Guidance {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum GuidanceAudioMeasurementSystem {
                     Meters = 0,
                     MilesAndYards = 1,
                     MilesAndFeet = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 131072)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum GuidanceAudioNotificationKind {
                     Maneuver = 0,
                     Route = 1,
@@ -29,10 +29,10 @@ mod Windows {
                 class GuidanceAudioNotificationRequestedEventArgs {
                     IGuidanceAudioNotificationRequestedEventArgs,
                 }
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[flags]
+                #[repr(u32)]
                 enum GuidanceAudioNotifications {
                     None = 0,
                     Maneuver = 1,
@@ -49,9 +49,9 @@ mod Windows {
                 class GuidanceLaneInfo {
                     IGuidanceLaneInfo,
                 }
-                #[repr(u32)]
-                #[flags]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
+                #[flags]
+                #[repr(u32)]
                 enum GuidanceLaneMarkers {
                     None = 0,
                     LightRight = 1,
@@ -72,9 +72,9 @@ mod Windows {
                 class GuidanceManeuver {
                     IGuidanceManeuver,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum GuidanceManeuverKind {
                     None = 0,
                     GoStraight = 1,
@@ -132,9 +132,9 @@ mod Windows {
                 class GuidanceMapMatchedCoordinate {
                     IGuidanceMapMatchedCoordinate,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum GuidanceMode {
                     None = 0,
                     Simulation = 1,
@@ -198,10 +198,10 @@ mod Windows {
                 class GuidanceUpdatedEventArgs {
                     IGuidanceUpdatedEventArgs,
                 }
-                #[guid(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceAudioNotificationRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xca2aa24a_c7c2_4d4c_9d7c_499576bceddb)]
                 interface IGuidanceAudioNotificationRequestedEventArgs {
                     #[get]
                     AudioNotification: GuidanceAudioNotificationKind;
@@ -210,20 +210,20 @@ mod Windows {
                     #[get]
                     AudioText: String;
                 }
-                #[guid(0x8404d114_6581_43b7_ac15_c9079bf90df1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceLaneInfo)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x8404d114_6581_43b7_ac15_c9079bf90df1)]
                 interface IGuidanceLaneInfo {
                     #[get]
                     LaneMarkers: GuidanceLaneMarkers;
                     #[get]
                     IsOnRoute: bool;
                 }
-                #[guid(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceManeuver)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xfc09326c_ecc9_4928_a2a1_7232b99b94a1)]
                 interface IGuidanceManeuver {
                     #[get]
                     StartLocation: super::super::super::Devices::Geolocation::Geopoint;
@@ -250,10 +250,10 @@ mod Windows {
                     #[get]
                     InstructionText: String;
                 }
-                #[guid(0xb7acb168_2912_4a99_aff1_798609b981fe)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceMapMatchedCoordinate)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xb7acb168_2912_4a99_aff1_798609b981fe)]
                 interface IGuidanceMapMatchedCoordinate {
                     #[get]
                     Location: super::super::super::Devices::Geolocation::Geopoint;
@@ -266,10 +266,10 @@ mod Windows {
                     #[get]
                     Road: GuidanceRoadSegment;
                 }
-                #[guid(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceNavigator)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x08f17ef7_8e3f_4d9a_be8a_108f9a012c67)]
                 interface IGuidanceNavigator {
                     fn StartNavigating(&self, #[in] route: GuidanceRoute);
                     fn StartSimulating(&self, #[in] route: GuidanceRoute, #[in] speedInMetersPerSecond: i32);
@@ -293,41 +293,41 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("UpdateUserLocationWithPositionOverride")]
                     fn UpdateUserLocation(&self, #[in] userLocation: super::super::super::Devices::Geolocation::Geocoordinate, #[in] positionOverride: super::super::super::Devices::Geolocation::BasicGeoposition);
                 }
-                #[guid(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceNavigator)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x6cdc50d1_041c_4bf3_b633_a101fc2f6b57)]
                 interface IGuidanceNavigator2 {
                     event AudioNotificationRequested: super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>;
                     IsGuidanceAudioMuted: bool;
                 }
-                #[guid(0x00fd9513_4456_4e66_a143_3add6be08426)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceNavigator)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x00fd9513_4456_4e66_a143_3add6be08426)]
                 interface IGuidanceNavigatorStatics {
                     fn GetCurrent(&self) -> GuidanceNavigator;
                 }
-                #[guid(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceNavigator)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x54c5c3e2_7784_4c85_8c95_d0c6efb43965)]
                 interface IGuidanceNavigatorStatics2 {
                     #[get]
                     UseAppProvidedVoice: bool;
                 }
-                #[guid(0x115d4008_d528_454e_bb94_a50341d2c9f1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceReroutedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x115d4008_d528_454e_bb94_a50341d2c9f1)]
                 interface IGuidanceReroutedEventArgs {
                     #[get]
                     Route: GuidanceRoute;
                 }
-                #[guid(0xb32758a6_be78_4c63_afe7_6c2957479b3e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceRoadSegment)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xb32758a6_be78_4c63_afe7_6c2957479b3e)]
                 interface IGuidanceRoadSegment {
                     #[get]
                     RoadName: String;
@@ -348,18 +348,18 @@ mod Windows {
                     #[get]
                     IsTollRoad: bool;
                 }
-                #[guid(0x2474a61d_1723_49f1_895b_47a2c4aa9c55)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceRoadSegment)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x2474a61d_1723_49f1_895b_47a2c4aa9c55)]
                 interface IGuidanceRoadSegment2 {
                     #[get]
                     IsScenic: bool;
                 }
-                #[guid(0xf1a728b6_f77a_4742_8312_53300f9845f0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceRoadSignpost)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xf1a728b6_f77a_4742_8312_53300f9845f0)]
                 interface IGuidanceRoadSignpost {
                     #[get]
                     ExitNumber: String;
@@ -372,10 +372,10 @@ mod Windows {
                     #[get]
                     ExitDirections: super::super::super::Foundation::Collections::IVectorView<String>;
                 }
-                #[guid(0x3a14545d_801a_40bd_a286_afb2010cce6c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceRoute)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x3a14545d_801a_40bd_a286_afb2010cce6c)]
                 interface IGuidanceRoute {
                     #[get]
                     Duration: super::super::super::Foundation::TimeSpan;
@@ -391,35 +391,35 @@ mod Windows {
                     RoadSegments: super::super::super::Foundation::Collections::IVectorView<GuidanceRoadSegment>;
                     fn ConvertToMapRoute(&self) -> super::MapRoute;
                 }
-                #[guid(0xf56d926a_55ed_49c1_b09c_4b8223b50db3)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceRoute)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xf56d926a_55ed_49c1_b09c_4b8223b50db3)]
                 interface IGuidanceRouteStatics {
                     fn CanCreateFromMapRoute(&self, #[in] mapRoute: super::MapRoute) -> bool;
                     fn TryCreateFromMapRoute(&self, #[in] mapRoute: super::MapRoute) -> GuidanceRoute;
                 }
-                #[guid(0xdb1f8da5_b878_4d92_98dd_347d23d38262)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceTelemetryCollector)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xdb1f8da5_b878_4d92_98dd_347d23d38262)]
                 interface IGuidanceTelemetryCollector {
                     Enabled: bool;
                     fn ClearLocalData(&self);
                     SpeedTrigger: f64;
                     UploadFrequency: i32;
                 }
-                #[guid(0x36532047_f160_44fb_b578_94577ca05990)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceTelemetryCollector)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x36532047_f160_44fb_b578_94577ca05990)]
                 interface IGuidanceTelemetryCollectorStatics {
                     fn GetCurrent(&self) -> GuidanceTelemetryCollector;
                 }
-                #[guid(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GuidanceContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(GuidanceUpdatedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xfdac160b_9e8d_4de3_a9fa_b06321d18db9)]
                 interface IGuidanceUpdatedEventArgs {
                     #[get]
                     Mode: GuidanceMode;

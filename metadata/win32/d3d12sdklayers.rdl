@@ -1199,7 +1199,7 @@ mod Windows {
         interface ID3D12InfoQueue: IUnknown {
             fn SetMessageCountLimit(&self, #[in] MessageCountLimit: UINT64) -> HRESULT;
             fn ClearStoredMessages(&self);
-            fn GetMessageA(&self, #[in] MessageIndex: UINT64, #[out] #[opt] #[writable(entry, bytes(*pMessageByteLength))] pMessage: *mut D3D12_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetMessageA(&self, #[in] MessageIndex: UINT64, #[opt] #[out] #[writable(entry, bytes(*pMessageByteLength))] pMessage: *mut D3D12_MESSAGE, #[in] #[out] pMessageByteLength: *mut SIZE_T) -> HRESULT;
             fn GetNumMessagesAllowedByStorageFilter(&self) -> UINT64;
             fn GetNumMessagesDeniedByStorageFilter(&self) -> UINT64;
             fn GetNumStoredMessages(&self) -> UINT64;
@@ -1207,7 +1207,7 @@ mod Windows {
             fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> UINT64;
             fn GetMessageCountLimit(&self) -> UINT64;
             fn AddStorageFilterEntries(&self, #[in] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetStorageFilter(&self, #[out] #[opt] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetStorageFilter(&self, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearStorageFilter(&self);
             fn PushEmptyStorageFilter(&self) -> HRESULT;
             fn PushCopyOfStorageFilter(&self) -> HRESULT;
@@ -1215,7 +1215,7 @@ mod Windows {
             fn PopStorageFilter(&self);
             fn GetStorageFilterStackSize(&self) -> UINT;
             fn AddRetrievalFilterEntries(&self, #[in] pFilter: *mut D3D12_INFO_QUEUE_FILTER) -> HRESULT;
-            fn GetRetrievalFilter(&self, #[out] #[opt] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
+            fn GetRetrievalFilter(&self, #[opt] #[out] #[writable(entry, bytes(*pFilterByteLength))] pFilter: *mut D3D12_INFO_QUEUE_FILTER, #[in] #[out] pFilterByteLength: *mut SIZE_T) -> HRESULT;
             fn ClearRetrievalFilter(&self);
             fn PushEmptyRetrievalFilter(&self) -> HRESULT;
             fn PushCopyOfRetrievalFilter(&self) -> HRESULT;

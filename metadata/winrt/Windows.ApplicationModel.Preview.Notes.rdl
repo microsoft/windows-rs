@@ -3,25 +3,25 @@ mod Windows {
     mod ApplicationModel {
         mod Preview {
             mod Notes {
-                #[guid(0x491d57b7_f780_4e7f_a939_9a4caf965214)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotePlacementChangedPreviewEventArgs)]
+                #[guid(0x491d57b7_f780_4e7f_a939_9a4caf965214)]
                 interface INotePlacementChangedPreviewEventArgs {
                     #[get]
                     ViewId: i32;
                 }
-                #[guid(0x0e34649e_3815_4ff6_83b3_a14d17120e24)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NoteVisibilityChangedPreviewEventArgs)]
+                #[guid(0x0e34649e_3815_4ff6_83b3_a14d17120e24)]
                 interface INoteVisibilityChangedPreviewEventArgs {
                     #[get]
                     ViewId: i32;
                     #[get]
                     IsVisible: bool;
                 }
-                #[guid(0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
+                #[guid(0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde)]
                 interface INotesWindowManagerPreview {
                     #[get]
                     IsScreenLocked: bool;
@@ -38,9 +38,9 @@ mod Windows {
                     event NotePlacementChanged: super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NotePlacementChangedPreviewEventArgs>;
                     event NoteVisibilityChanged: super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>;
                 }
-                #[guid(0xedfe864a_1f54_4b09_9823_ff477f6fa3bc)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
+                #[guid(0xedfe864a_1f54_4b09_9823_ff477f6fa3bc)]
                 interface INotesWindowManagerPreview2 {
                     #[Windows::Foundation::Metadata::Overload("ShowNoteRelativeToWithOptions")]
                     fn ShowNoteRelativeTo(&self, #[in] noteViewId: i32, #[in] anchorNoteViewId: i32, #[in] options: NotesWindowManagerPreviewShowNoteOptions);
@@ -50,15 +50,15 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SetThumbnailImageForTaskSwitcherAsync(&self, #[in] bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[guid(0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreviewShowNoteOptions)]
+                #[guid(0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2)]
                 interface INotesWindowManagerPreviewShowNoteOptions {
                     ShowWithFocus: bool;
                 }
-                #[guid(0x6668cc88_0a8e_4127_a38e_995445868a78)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
+                #[guid(0x6668cc88_0a8e_4127_a38e_995445868a78)]
                 interface INotesWindowManagerPreviewStatics {
                     fn GetForCurrentApp(&self) -> NotesWindowManagerPreview;
                 }

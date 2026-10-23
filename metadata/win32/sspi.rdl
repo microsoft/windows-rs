@@ -62,15 +62,15 @@ mod Windows {
         const ASC_RET_USED_DCE_STYLE: i32 = 512;
         const ASC_RET_USE_SESSION_KEY: i32 = 32;
         #[library("Secur32.dll")]
-        extern fn AcceptSecurityContext(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pInput: PSecBufferDesc, #[in] fContextReq: u32, #[in] TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AcceptSecurityContext(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pInput: PSecBufferDesc, #[in] fContextReq: u32, #[in] TargetDataRep: u32, #[in] #[opt] #[out] phNewContext: PCtxtHandle, #[in] #[opt] #[out] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AcquireCredentialsHandleA(#[in] #[opt] pszPrincipal: LPSTR, #[in] pszPackage: LPSTR, #[in] fCredentialUse: u32, #[in] #[opt] pvLogonId: *mut void, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AcquireCredentialsHandleA(#[in] #[opt] pszPrincipal: LPSTR, #[in] pszPackage: LPSTR, #[in] fCredentialUse: u32, #[in] #[opt] pvLogonId: *mut void, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AcquireCredentialsHandleW(#[in] #[opt] pszPrincipal: LPWSTR, #[in] pszPackage: LPWSTR, #[in] fCredentialUse: u32, #[in] #[opt] pvLogonId: *mut void, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AcquireCredentialsHandleW(#[in] #[opt] pszPrincipal: LPWSTR, #[in] pszPackage: LPWSTR, #[in] fCredentialUse: u32, #[in] #[opt] pvLogonId: *mut void, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] phCredential: PCredHandle, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AddCredentialsA(#[in] hCredentials: PCredHandle, #[in] #[opt] pszPrincipal: LPSTR, #[in] pszPackage: LPSTR, #[in] fCredentialUse: u32, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AddCredentialsA(#[in] hCredentials: PCredHandle, #[in] #[opt] pszPrincipal: LPSTR, #[in] pszPackage: LPSTR, #[in] fCredentialUse: u32, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn AddCredentialsW(#[in] hCredentials: PCredHandle, #[in] #[opt] pszPrincipal: LPWSTR, #[in] pszPackage: LPWSTR, #[in] fCredentialUse: u32, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn AddCredentialsW(#[in] hCredentials: PCredHandle, #[in] #[opt] pszPrincipal: LPWSTR, #[in] pszPackage: LPWSTR, #[in] fCredentialUse: u32, #[in] #[opt] pAuthData: *mut void, #[in] #[opt] pGetKeyFn: SEC_GET_KEY_FN, #[in] #[opt] pvGetKeyArgument: *mut void, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn AddSecurityPackageA(#[in] pszPackageName: LPSTR, #[in] #[opt] pOptions: PSECURITY_PACKAGE_OPTIONS) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
@@ -91,7 +91,7 @@ mod Windows {
         extern fn DECRYPT_MESSAGE_FN(param0: PCtxtHandle, param1: PSecBufferDesc, param2: u32, param3: *mut u32) -> SECURITY_STATUS;
         extern fn DELETE_SECURITY_CONTEXT_FN(param0: PCtxtHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn DecryptMessage(#[in] phContext: PCtxtHandle, #[in] pMessage: PSecBufferDesc, #[in] MessageSeqNo: u32, #[out] #[opt] pfQOP: *mut u32) -> SECURITY_STATUS;
+        extern fn DecryptMessage(#[in] phContext: PCtxtHandle, #[in] pMessage: PSecBufferDesc, #[in] MessageSeqNo: u32, #[opt] #[out] pfQOP: *mut u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn DeleteSecurityContext(#[in] phContext: PCtxtHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
@@ -189,8 +189,8 @@ mod Windows {
         const ISC_RET_USE_SESSION_KEY: i32 = 32;
         const ISSP_LEVEL: i32 = 32;
         const ISSP_MODE: i32 = 1;
-        #[must_use]
         #[library("Secur32.dll")]
+        #[must_use]
         extern fn ImpersonateSecurityContext(#[in] phContext: PCtxtHandle) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn ImportSecurityContextA(#[in] pszPackage: LPSTR, #[in] pPackedContext: PSecBuffer, #[in] Token: *mut void, #[out] phContext: PCtxtHandle) -> SECURITY_STATUS;
@@ -201,9 +201,9 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn InitSecurityInterfaceW() -> PSecurityFunctionTableW;
         #[library("Secur32.dll")]
-        extern fn InitializeSecurityContextA(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: *mut SEC_CHAR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn InitializeSecurityContextA(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: *mut SEC_CHAR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[opt] #[out] phNewContext: PCtxtHandle, #[in] #[opt] #[out] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn InitializeSecurityContextW(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: *mut SEC_WCHAR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn InitializeSecurityContextW(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: *mut SEC_WCHAR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[opt] #[out] phNewContext: PCtxtHandle, #[in] #[opt] #[out] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         const KDC_NETWORK_DISCOVERY_FLAGS_DS13_REQUIRED: u32 = 2147483648;
         const KDC_NETWORK_SETTINGS_FLAGS_CONFIGURE_DISCOVERY: i32 = 1073741824;
         const KDC_NETWORK_SETTINGS_FLAGS_CONFIGURE_PROXY: u32 = 2147483648;
@@ -753,13 +753,13 @@ mod Windows {
         const SSPIPFC_USE_CREDUIBROKER: i32 = 8;
         const SSPIPFC_VALID_FLAGS: i32 = 15;
         #[library("Secur32.dll")]
-        extern fn SaslAcceptSecurityContext(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pInput: PSecBufferDesc, #[in] fContextReq: u32, #[in] TargetDataRep: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn SaslAcceptSecurityContext(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pInput: PSecBufferDesc, #[in] fContextReq: u32, #[in] TargetDataRep: u32, #[in] #[opt] #[out] phNewContext: PCtxtHandle, #[in] #[opt] #[out] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SaslEnumerateProfilesA(#[out] #[out_ptr] ProfileList: *mut LPSTR, #[out] ProfileCount: *mut ULONG) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SaslEnumerateProfilesW(#[out] #[out_ptr] ProfileList: *mut LPWSTR, #[out] ProfileCount: *mut ULONG) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslGetContextOption(#[in] ContextHandle: PCtxtHandle, #[in] Option: ULONG, #[out] Value: PVOID, #[in] Size: ULONG, #[out] #[opt] Needed: PULONG) -> SECURITY_STATUS;
+        extern fn SaslGetContextOption(#[in] ContextHandle: PCtxtHandle, #[in] Option: ULONG, #[out] Value: PVOID, #[in] Size: ULONG, #[opt] #[out] Needed: PULONG) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SaslGetProfilePackageA(#[in] ProfileName: LPSTR, #[out] #[out_ptr] PackageInfo: *mut PSecPkgInfoA) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
@@ -769,9 +769,9 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SaslIdentifyPackageW(#[in] pInput: PSecBufferDesc, #[out] #[out_ptr] PackageInfo: *mut PSecPkgInfoW) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslInitializeSecurityContextA(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: LPSTR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn SaslInitializeSecurityContextA(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: LPSTR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[opt] #[out] phNewContext: PCtxtHandle, #[in] #[opt] #[out] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SaslInitializeSecurityContextW(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: LPWSTR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[out] #[opt] phNewContext: PCtxtHandle, #[in] #[out] #[opt] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[out] #[opt] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
+        extern fn SaslInitializeSecurityContextW(#[in] #[opt] phCredential: PCredHandle, #[in] #[opt] phContext: PCtxtHandle, #[in] #[opt] pszTargetName: LPWSTR, #[in] fContextReq: u32, #[in] Reserved1: u32, #[in] TargetDataRep: u32, #[in] #[opt] pInput: PSecBufferDesc, #[in] Reserved2: u32, #[in] #[opt] #[out] phNewContext: PCtxtHandle, #[in] #[opt] #[out] pOutput: PSecBufferDesc, #[out] pfContextAttr: *mut u32, #[opt] #[out] ptsExpiry: PTimeStamp) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SaslSetContextOption(#[in] ContextHandle: PCtxtHandle, #[in] Option: ULONG, #[in] Value: PVOID, #[in] Size: ULONG) -> SECURITY_STATUS;
         #[library("SspiCli.dll")]
@@ -1099,7 +1099,7 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SetCredentialsAttributesW(#[in] phCredential: PCredHandle, #[in] ulAttribute: u32, #[in] #[readable(entry, bytes(cbBuffer))] pBuffer: *mut void, #[in] cbBuffer: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiCompareAuthIdentities(#[in] #[opt] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[opt] SameSuppliedUser: PBOOLEAN, #[out] #[opt] SameSuppliedIdentity: PBOOLEAN) -> SECURITY_STATUS;
+        extern fn SspiCompareAuthIdentities(#[in] #[opt] AuthIdentity1: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] AuthIdentity2: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[opt] #[out] SameSuppliedUser: PBOOLEAN, #[opt] #[out] SameSuppliedIdentity: PBOOLEAN) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiCopyAuthIdentity(#[in] AuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] AuthDataCopy: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
@@ -1107,7 +1107,7 @@ mod Windows {
         #[library("SspiCli.dll")]
         extern fn SspiDecryptAuthIdentityEx(#[in] Options: ULONG, #[in] #[out] EncryptedAuthData: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
-        extern fn SspiEncodeAuthIdentityAsStrings(#[in] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[out_ptr(nullable)] ppszUserName: *mut PCWSTR, #[out] #[out_ptr(nullable)] ppszDomainName: *mut PCWSTR, #[out] #[opt] #[out_ptr(nullable)] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
+        extern fn SspiEncodeAuthIdentityAsStrings(#[in] pAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[out_ptr(nullable)] ppszUserName: *mut PCWSTR, #[out] #[out_ptr(nullable)] ppszDomainName: *mut PCWSTR, #[opt] #[out] #[out_ptr(nullable)] ppszPackedCredentialsString: *mut PCWSTR) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
         extern fn SspiEncodeStringsAsAuthIdentity(#[in] #[opt] pszUserName: PCWSTR, #[in] #[opt] pszDomainName: PCWSTR, #[in] #[opt] pszPackedCredentialsString: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> SECURITY_STATUS;
         #[library("Secur32.dll")]
@@ -1133,9 +1133,9 @@ mod Windows {
         #[library("Secur32.dll")]
         extern fn SspiPrepareForCredWrite(#[in] AuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] pszTargetName: PCWSTR, #[out] pCredmanCredentialType: PULONG, #[out] #[out_ptr] ppszCredmanTargetName: *mut PCWSTR, #[out] #[out_ptr] ppszCredmanUserName: *mut PCWSTR, #[out] #[writable(success, bytes(*pCredentialBlobSize), indirect)] ppCredentialBlob: *mut PUCHAR, #[out] pCredentialBlobSize: PULONG) -> SECURITY_STATUS;
         #[library("credui.dll")]
-        extern fn SspiPromptForCredentialsA(#[in] pszTargetName: PCSTR, #[in] #[opt] pUiInfo: PVOID, #[in] dwAuthError: u32, #[in] pszPackage: PCSTR, #[in] #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, #[in] dwFlags: u32) -> u32;
+        extern fn SspiPromptForCredentialsA(#[in] pszTargetName: PCSTR, #[in] #[opt] pUiInfo: PVOID, #[in] dwAuthError: u32, #[in] pszPackage: PCSTR, #[in] #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] #[out] pfSave: *mut i32, #[in] dwFlags: u32) -> u32;
         #[library("credui.dll")]
-        extern fn SspiPromptForCredentialsW(#[in] pszTargetName: PCWSTR, #[in] #[opt] pUiInfo: PVOID, #[in] dwAuthError: u32, #[in] pszPackage: PCWSTR, #[in] #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[out] #[opt] pfSave: *mut i32, #[in] dwFlags: u32) -> u32;
+        extern fn SspiPromptForCredentialsW(#[in] pszTargetName: PCWSTR, #[in] #[opt] pUiInfo: PVOID, #[in] dwAuthError: u32, #[in] pszPackage: PCWSTR, #[in] #[opt] pInputAuthIdentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[out] #[out_ptr] ppAuthIdentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, #[in] #[opt] #[out] pfSave: *mut i32, #[in] dwFlags: u32) -> u32;
         #[library("SspiCli.dll")]
         extern fn SspiSetChannelBindingFlags(#[in] #[out] pBindings: *mut SecPkgContext_Bindings, flags: u32) -> SECURITY_STATUS;
         #[library("Secur32.dll")]

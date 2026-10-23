@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("POWRPROF.dll")]
-        extern fn CallNtPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[out] #[opt] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> LONG;
+        extern fn CallNtPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> LONG;
         #[library("POWRPROF.dll")]
         extern fn GetPwrCapabilities(#[out] lpspc: PSYSTEM_POWER_CAPABILITIES) -> BOOLEAN;
         #[library("POWRPROF.dll")]

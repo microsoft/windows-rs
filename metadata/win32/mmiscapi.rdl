@@ -187,9 +187,9 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn mmioInstallIOProcW(#[in] fccIOProc: FOURCC, #[in] #[opt] pIOProc: LPMMIOPROC, #[in] dwFlags: DWORD) -> LPMMIOPROC;
         #[library("WINMM.dll")]
-        extern fn mmioOpenA(#[in] #[out] #[opt] #[writable(entry, bytes(128))] pszFileName: LPSTR, #[in] #[out] #[opt] pmmioinfo: LPMMIOINFO, #[in] fdwOpen: DWORD) -> HMMIO;
+        extern fn mmioOpenA(#[in] #[opt] #[out] #[writable(entry, bytes(128))] pszFileName: LPSTR, #[in] #[opt] #[out] pmmioinfo: LPMMIOINFO, #[in] fdwOpen: DWORD) -> HMMIO;
         #[library("WINMM.dll")]
-        extern fn mmioOpenW(#[in] #[out] #[opt] #[writable(entry, bytes(128))] pszFileName: LPWSTR, #[in] #[out] #[opt] pmmioinfo: LPMMIOINFO, #[in] fdwOpen: DWORD) -> HMMIO;
+        extern fn mmioOpenW(#[in] #[opt] #[out] #[writable(entry, bytes(128))] pszFileName: LPWSTR, #[in] #[opt] #[out] pmmioinfo: LPMMIOINFO, #[in] fdwOpen: DWORD) -> HMMIO;
         #[library("WINMM.dll")]
         extern fn mmioRead(#[in] hmmio: HMMIO, #[out] #[writable(entry, bytes(cch))] pch: HPSTR, #[in] cch: LONG) -> LONG;
         #[library("WINMM.dll")]
@@ -201,7 +201,7 @@ mod Windows {
         #[library("WINMM.dll")]
         extern fn mmioSendMessage(#[in] hmmio: HMMIO, #[in] uMsg: UINT, #[in] #[opt] lParam1: LPARAM, #[in] #[opt] lParam2: LPARAM) -> LRESULT;
         #[library("WINMM.dll")]
-        extern fn mmioSetBuffer(#[in] hmmio: HMMIO, #[out] #[opt] #[writable(entry, cchBuffer)] pchBuffer: LPSTR, #[in] cchBuffer: LONG, #[in] fuBuffer: UINT) -> MMRESULT;
+        extern fn mmioSetBuffer(#[in] hmmio: HMMIO, #[opt] #[out] #[writable(entry, cchBuffer)] pchBuffer: LPSTR, #[in] cchBuffer: LONG, #[in] fuBuffer: UINT) -> MMRESULT;
         #[library("WINMM.dll")]
         extern fn mmioSetInfo(#[in] hmmio: HMMIO, #[in] pmmioinfo: LPCMMIOINFO, #[in] fuInfo: UINT) -> MMRESULT;
         #[library("WINMM.dll")]

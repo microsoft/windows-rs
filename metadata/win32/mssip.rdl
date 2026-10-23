@@ -8,9 +8,9 @@ mod Windows {
         extern fn CryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut DWORD, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSIPGetCaps(#[in] pSubjInfo: *mut SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
-        #[success(return != 0)]
         #[library("CRYPT32.dll")]
-        extern fn CryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_opt_count_", "dwSig", "dwSig")] pSig: *const BYTE, #[in] dwSig: DWORD, #[out] #[opt] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
+        #[success(return != 0)]
+        extern fn CryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_opt_count_", "dwSig", "dwSig")] pSig: *const BYTE, #[in] dwSig: DWORD, #[opt] #[out] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
         #[library("CRYPT32.dll")]
         extern fn CryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut DWORD, dwIndex: DWORD, pcbSignedDataMsg: *mut DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
         #[library("CRYPT32.dll")]
@@ -167,7 +167,7 @@ mod Windows {
         extern fn pCryptSIPCreateIndirectData(pSubjectInfo: *mut SIP_SUBJECTINFO, pcbIndirectData: *mut DWORD, pIndirectData: *mut SIP_INDIRECT_DATA) -> BOOL;
         extern fn pCryptSIPGetCaps(#[in] pSubjInfo: *mut SIP_SUBJECTINFO, #[in] #[out] pCaps: *mut SIP_CAP_SET) -> BOOL;
         #[success(return != 0)]
-        extern fn pCryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_opt_count_", "dwSig", "dwSig")] pSig: *const BYTE, #[in] dwSig: DWORD, #[out] #[opt] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
+        extern fn pCryptSIPGetSealedDigest(#[in] pSubjectInfo: *mut SIP_SUBJECTINFO, #[Windows::Win32::Metadata::NativeSal("1.1", "_In_opt_count_", "dwSig", "dwSig")] pSig: *const BYTE, #[in] dwSig: DWORD, #[opt] #[out] #[writable(entry, *pcbDigest)] pbDigest: *mut BYTE, #[in] #[out] pcbDigest: *mut DWORD) -> BOOL;
         extern fn pCryptSIPGetSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, pdwEncodingType: *mut DWORD, dwIndex: DWORD, pcbSignedDataMsg: *mut DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
         extern fn pCryptSIPPutSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwEncodingType: DWORD, pdwIndex: *mut DWORD, cbSignedDataMsg: DWORD, pbSignedDataMsg: *mut BYTE) -> BOOL;
         extern fn pCryptSIPRemoveSignedDataMsg(pSubjectInfo: *mut SIP_SUBJECTINFO, dwIndex: DWORD) -> BOOL;

@@ -7,8 +7,8 @@ mod Windows {
         type CPE_EXCEPTION = MCA_EXCEPTION;
         #[arch(X64)]
         type ERROR_SEVERITY = UCHAR;
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum ERROR_SEVERITY_VALUE {
             ErrorRecoverable = 0,
             ErrorFatal = 1,

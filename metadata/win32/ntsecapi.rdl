@@ -30,20 +30,20 @@ mod Windows {
         const AUTH_REQ_PREAUTH_REQUIRED: i32 = 512;
         const AUTH_REQ_TRANSITIVE_TRUST: i32 = 1024;
         const AUTH_REQ_VALIDATE_CLIENT: i32 = 128;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditComputeEffectivePolicyBySid(#[in] pSid: PSID, #[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditComputeEffectivePolicyByToken(#[in] hTokenHandle: HANDLE, #[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditEnumerateCategories(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[writable(success, *pdwCountReturned, indirect)] ppAuditCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditEnumeratePerUserPolicy(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] ppAuditSidArray: *mut PPOLICY_AUDIT_SID_ARRAY) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditEnumerateSubCategories(#[in] #[opt] pAuditCategoryGuid: *const GUID, #[in] bRetrieveAllSubCategories: BOOLEAN, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[writable(success, *pdwCountReturned, indirect)] ppAuditSubCategoriesArray: *mut *mut GUID, #[out] pdwCountReturned: PULONG) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         extern fn AuditFree(#[Windows::Win32::Metadata::NativeSal("2", "_Post_invalid_", "", "")] #[Windows::Win32::Metadata::NativeSal("L", "__drv_freesMem", "Mem", "Mem")] #[in] Buffer: PVOID);
@@ -51,32 +51,32 @@ mod Windows {
         extern fn AuditLookupCategoryGuidFromCategoryId(#[in] AuditCategoryId: POLICY_AUDIT_EVENT_TYPE, #[out] pAuditCategoryGuid: *mut GUID) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         extern fn AuditLookupCategoryIdFromCategoryGuid(#[in] pAuditCategoryGuid: *const GUID, #[out] pAuditCategoryId: PPOLICY_AUDIT_EVENT_TYPE) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditLookupCategoryNameA(#[in] pAuditCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppszCategoryName: *mut PSTR) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditLookupCategoryNameW(#[in] pAuditCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppszCategoryName: *mut PWSTR) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditLookupSubCategoryNameA(#[in] pAuditSubCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppszSubCategoryName: *mut PSTR) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditLookupSubCategoryNameW(#[in] pAuditSubCategoryGuid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppszSubCategoryName: *mut PWSTR) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditQueryGlobalSaclA(#[in] ObjectTypeName: PCSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] Acl: *mut PACL) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditQueryGlobalSaclW(#[in] ObjectTypeName: PCWSTR, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] Acl: *mut PACL) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditQueryPerUserPolicy(#[in] pSid: PSID, #[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditQuerySecurity(#[in] SecurityInformation: SECURITY_INFORMATION, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[out_ptr] ppSecurityDescriptor: *mut PSECURITY_DESCRIPTOR) -> BOOLEAN;
-        #[must_use]
         #[library("ADVAPI32.dll")]
+        #[must_use]
         extern fn AuditQuerySystemPolicy(#[in] #[readable(entry, dwPolicyCount)] pSubCategoryGuids: *const GUID, #[in] dwPolicyCount: ULONG, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return != 0,__drv_allocatesMem(Mem)", "return != 0, __drv_allocatesMem(Mem)")] #[out] #[writable(success, dwPolicyCount, indirect)] ppAuditPolicy: *mut PAUDIT_POLICY_INFORMATION) -> BOOLEAN;
         #[library("ADVAPI32.dll")]
         extern fn AuditSetGlobalSaclA(#[in] ObjectTypeName: PCSTR, #[in] #[opt] Acl: PACL) -> BOOLEAN;
@@ -1022,7 +1022,7 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_same_", "", "")]
         #[library("Secur32.dll")]
-        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[in] #[readable(entry, bytes(SubmitBufferLength))] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[out] #[opt] #[writable(success, if_present(*ReturnBufferLength), indirect, nullable)] ProtocolReturnBuffer: *mut PVOID, #[out] #[opt] ReturnBufferLength: PULONG, #[out] #[opt] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
+        extern fn LsaCallAuthenticationPackage(#[in] LsaHandle: HANDLE, #[in] AuthenticationPackage: ULONG, #[in] #[readable(entry, bytes(SubmitBufferLength))] ProtocolSubmitBuffer: PVOID, #[in] SubmitBufferLength: ULONG, #[opt] #[out] #[writable(success, if_present(*ReturnBufferLength), indirect, nullable)] ProtocolReturnBuffer: *mut PVOID, #[opt] #[out] ReturnBufferLength: PULONG, #[opt] #[out] ProtocolStatus: PNTSTATUS) -> NTSTATUS;
         #[library("ADVAPI32.dll")]
         extern fn LsaClose(#[in] ObjectHandle: LSA_HANDLE) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]

@@ -189,7 +189,7 @@ mod Windows {
             fn SetDescriptor(&self, #[in] pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
             fn GetDescriptor(&self, #[out] pDescriptor: *mut TOC_DESCRIPTOR) -> HRESULT;
             fn SetDescription(&self, #[in] pwszDescription: LPCWSTR) -> HRESULT;
-            fn GetDescription(&self, #[in] #[out] pwDescriptionSize: *mut WORD, #[out] #[opt] #[writable(entry, *pwDescriptionSize)] pwszDescription: LPWSTR) -> HRESULT;
+            fn GetDescription(&self, #[in] #[out] pwDescriptionSize: *mut WORD, #[opt] #[out] #[writable(entry, *pwDescriptionSize)] pwszDescription: LPWSTR) -> HRESULT;
             fn SetContext(&self, #[in] dwContextSize: DWORD, #[in] pbtContext: *mut BYTE) -> HRESULT;
             fn GetContext(&self, #[in] #[out] pdwContextSize: *mut DWORD, #[out] pbtContext: *mut BYTE) -> HRESULT;
             fn GetEntryListCount(&self, #[out] pwCount: *mut WORD) -> HRESULT;
@@ -209,7 +209,7 @@ mod Windows {
         #[guid(0xf22f5e06_585c_4def_8523_6555cfbc0cb3)]
         interface ITocEntry: IUnknown {
             fn SetTitle(&self, #[in] pwszTitle: LPCWSTR) -> HRESULT;
-            fn GetTitle(&self, #[in] #[out] pwTitleSize: *mut WORD, #[out] #[opt] #[writable(entry, *pwTitleSize)] pwszTitle: LPWSTR) -> HRESULT;
+            fn GetTitle(&self, #[in] #[out] pwTitleSize: *mut WORD, #[opt] #[out] #[writable(entry, *pwTitleSize)] pwszTitle: LPWSTR) -> HRESULT;
             fn SetDescriptor(&self, #[in] pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
             fn GetDescriptor(&self, #[out] pDescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> HRESULT;
             fn SetSubEntries(&self, #[in] dwNumSubEntries: DWORD, #[in] pwSubEntryIndices: *mut WORD) -> HRESULT;
@@ -238,7 +238,7 @@ mod Windows {
         }
         #[guid(0x04a578b2_e778_422a_a805_b3ee54d90bd9)]
         interface IValidateBinding: IUnknown {
-            fn GetIdentifier(&self, #[in] guidLicensorID: GUID, #[in] #[readable(entry, cbEphemeron)] pbEphemeron: *mut BYTE, #[in] cbEphemeron: DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, *pcbBlobSize, indirect, nullable)] #[readable(success, *pcbBlobSize, indirect, nullable)] ppbBlobValidationID: *mut *mut BYTE, #[out] pcbBlobSize: *mut DWORD) -> HRESULT;
+            fn GetIdentifier(&self, #[in] guidLicensorID: GUID, #[in] #[readable(entry, cbEphemeron)] pbEphemeron: *mut BYTE, #[in] cbEphemeron: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pcbBlobSize, indirect, nullable)] #[writable(success, *pcbBlobSize, indirect, nullable)] ppbBlobValidationID: *mut *mut BYTE, #[out] pcbBlobSize: *mut DWORD) -> HRESULT;
         }
         #[guid(0xa81ba647_6227_43b7_b231_c7b15135dd7d)]
         interface IWMCodecLeakyBucket: IUnknown {
@@ -263,8 +263,8 @@ mod Windows {
         }
         #[guid(0xa7b2504b_e58a_47fb_958b_cac7165a057d)]
         interface IWMCodecStrings: IUnknown {
-            fn GetName(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, #[in] cchLength: ULONG, #[in] #[out] #[opt] #[writable(entry, cchLength)] #[readable(success, *pcchLength)] szName: LPWSTR, #[out] pcchLength: *mut ULONG) -> HRESULT;
-            fn GetDescription(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, #[in] cchLength: ULONG, #[in] #[out] #[opt] #[writable(entry, cchLength)] #[readable(success, *pcchLength)] szDescription: LPWSTR, #[out] pcchLength: *mut ULONG) -> HRESULT;
+            fn GetName(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, #[in] cchLength: ULONG, #[in] #[opt] #[out] #[readable(success, *pcchLength)] #[writable(entry, cchLength)] szName: LPWSTR, #[out] pcchLength: *mut ULONG) -> HRESULT;
+            fn GetDescription(&self, #[in] pmt: *mut DMO_MEDIA_TYPE, #[in] cchLength: ULONG, #[in] #[opt] #[out] #[readable(success, *pcchLength)] #[writable(entry, cchLength)] szDescription: LPWSTR, #[out] pcchLength: *mut ULONG) -> HRESULT;
         }
         #[guid(0xe6a49e22_c099_421d_aad3_c061fb4ae85b)]
         interface IWMColorConvProps: IUnknown {

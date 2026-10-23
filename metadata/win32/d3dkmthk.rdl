@@ -30,560 +30,560 @@ mod Windows {
             D3DKMDT_MPR_CLONE_PATH_PRUNED = 9,
             D3DKMDT_MPR_MAXVALID = 10,
         }
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTAcquireKeyedMutex(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTAcquireKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTAdjustFullscreenGamma(#[in] param0: *mut D3DKMT_ADJUSTFULLSCREENGAMMA) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCancelPresents(#[in] param0: *mut D3DKMT_CANCEL_PRESENTS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTChangeVideoMemoryReservation(#[in] param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckExclusiveOwnership() -> BOOLEAN;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckMonitorPowerState(#[in] param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckMultiPlaneOverlaySupport(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckMultiPlaneOverlaySupport2(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckMultiPlaneOverlaySupport3(#[in] #[out] param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckOcclusion(#[in] param0: *const D3DKMT_CHECKOCCLUSION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckSharedResourceAccess(#[in] param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCheckVidPnExclusiveOwnership(#[in] param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCloseAdapter(#[in] param0: *const D3DKMT_CLOSEADAPTER) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTConfigureSharedResource(#[in] param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTConnectDoorbell(#[in] param0: *mut D3DKMT_CONNECT_DOORBELL) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateAllocation(#[in] #[out] param0: *mut D3DKMT_CREATEALLOCATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateAllocation2(#[in] #[out] param0: *mut D3DKMT_CREATEALLOCATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateContext(#[in] #[out] param0: *mut D3DKMT_CREATECONTEXT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateContextVirtual(#[in] param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateDCFromMemory(#[in] #[out] param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateDevice(#[in] #[out] param0: *mut D3DKMT_CREATEDEVICE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateDoorbell(#[in] param0: *mut D3DKMT_CREATE_DOORBELL) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateHwContext(#[in] #[out] param0: *mut D3DKMT_CREATEHWCONTEXT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateHwQueue(#[in] #[out] param0: *mut D3DKMT_CREATEHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateHwQueueForUserModeSubmission(#[in] #[out] param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateKeyedMutex(#[in] #[out] param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateNativeFence(#[in] #[out] param0: *mut D3DKMT_CREATENATIVEFENCE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateOutputDupl(#[in] param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateOverlay(#[in] #[out] param0: *mut D3DKMT_CREATEOVERLAY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreatePagingQueue(#[in] #[out] param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateProtectedSession(#[in] #[out] param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateSynchronizationObject(#[in] #[out] param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTCreateSynchronizationObject2(#[in] #[out] param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyAllocation(#[in] param0: *const D3DKMT_DESTROYALLOCATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyAllocation2(#[in] param0: *const D3DKMT_DESTROYALLOCATION2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyContext(#[in] param0: *const D3DKMT_DESTROYCONTEXT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyDCFromMemory(#[in] param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyDevice(#[in] param0: *const D3DKMT_DESTROYDEVICE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyDoorbell(#[in] param0: *mut D3DKMT_DESTROY_DOORBELL) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyHwContext(#[in] param0: *const D3DKMT_DESTROYHWCONTEXT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyHwQueue(#[in] param0: *const D3DKMT_DESTROYHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyKeyedMutex(#[in] param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyOutputDupl(#[in] param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyOverlay(#[in] param0: *const D3DKMT_DESTROYOVERLAY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyPagingQueue(#[in] #[out] param0: *mut D3DDDI_DESTROYPAGINGQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroyProtectedSession(#[in] #[out] param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTDestroySynchronizationObject(#[in] param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTEnumAdapters(#[in] #[out] param0: *const D3DKMT_ENUMADAPTERS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTEnumAdapters2(#[in] #[out] param0: *const D3DKMT_ENUMADAPTERS2) -> NTSTATUS;
-        #[must_use]
         #[library("api-ms-win-dx-d3dkmt-l1-1-6.dll")]
+        #[must_use]
         extern fn D3DKMTEnumAdapters3(#[in] #[out] param0: *mut D3DKMT_ENUMADAPTERS3) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTEscape(#[in] param0: *const D3DKMT_ESCAPE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTEvict(#[in] #[out] param0: *mut D3DKMT_EVICT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTFlipOverlay(#[in] param0: *const D3DKMT_FLIPOVERLAY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTFlushHeapTransitions(#[in] param0: *mut D3DKMT_FLUSHHEAPTRANSITIONS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTFreeGpuVirtualAddress(#[in] param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetAllocationPriority(#[in] param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetContextInProcessSchedulingPriority(#[in] #[out] param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetContextSchedulingPriority(#[in] #[out] param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetDWMVerticalBlankEvent(#[in] param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetDeviceState(#[in] #[out] param0: *mut D3DKMT_GETDEVICESTATE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetDisplayModeList(#[in] #[out] param0: *mut D3DKMT_GETDISPLAYMODELIST) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetMultiPlaneOverlayCaps(#[in] #[out] param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetMultisampleMethodList(#[in] #[out] param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetNativeFenceLogDetail(#[in] #[out] param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetOverlayState(#[in] #[out] param0: *mut D3DKMT_GETOVERLAYSTATE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetPostCompositionCaps(#[in] #[out] param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetPresentHistory(#[in] #[out] param0: *mut D3DKMT_GETPRESENTHISTORY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetPresentQueueEvent(#[in] hAdapter: D3DKMT_HANDLE, #[in] #[out] param1: *mut HANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetProcessDeviceRemovalSupport(#[in] #[out] param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetProcessSchedulingPriorityClass(#[in] param0: HANDLE, #[out] param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetResourcePresentPrivateDriverData(#[in] #[out] param0: *mut D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetRuntimeData(#[in] #[out] param0: *const D3DKMT_GETRUNTIMEDATA) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetScanLine(#[in] #[out] param0: *mut D3DKMT_GETSCANLINE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetSharedPrimaryHandle(#[in] #[out] param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTGetSharedResourceAdapterLuid(#[in] #[out] param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTInvalidateActiveVidPn(#[in] param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTInvalidateCache(#[in] param0: *const D3DKMT_INVALIDATECACHE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTIsFeatureEnabled(#[in] #[out] param0: *mut D3DKMT_ISFEATUREENABLED) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTLock(#[in] #[out] param0: *mut D3DKMT_LOCK) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTLock2(#[in] #[out] param0: *mut D3DKMT_LOCK2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTMakeResident(#[in] #[out] param0: *mut D3DDDI_MAKERESIDENT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTMapGpuVirtualAddress(#[in] #[out] param0: *mut D3DDDI_MAPGPUVIRTUALADDRESS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTMarkDeviceAsError(#[in] param0: *mut D3DKMT_MARKDEVICEASERROR) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTNotifyWorkSubmission(#[in] param0: *mut D3DKMT_NOTIFY_WORK_SUBMISSION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOfferAllocations(#[in] param0: *const D3DKMT_OFFERALLOCATIONS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenAdapterFromDeviceName(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenAdapterFromGdiDisplayName(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenAdapterFromHdc(#[in] #[out] param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenAdapterFromLuid(#[in] #[out] param0: *const D3DKMT_OPENADAPTERFROMLUID) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenKeyedMutex(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEX) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenKeyedMutexFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenNativeFenceFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenNtHandleFromName(#[in] #[out] param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenProtectedSessionFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenResource(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenResource2(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenResourceFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenSyncObjectFromNtHandle(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenSyncObjectFromNtHandle2(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenSyncObjectNtHandleFromName(#[in] #[out] param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOpenSynchronizationObject(#[in] #[out] param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOutputDuplGetFrameInfo(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOutputDuplGetMetaData(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOutputDuplGetPointerShapeData(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOutputDuplPresent(#[in] param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> NTSTATUS;
-        #[must_use]
         #[library("api-ms-win-dx-d3dkmt-l1-1-4.dll")]
+        #[must_use]
         extern fn D3DKMTOutputDuplPresentToHwQueue(#[in] param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTOutputDuplReleaseFrame(#[in] #[out] param0: *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTPollDisplayChildren(#[in] param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTPresent(#[in] #[out] param0: *mut D3DKMT_PRESENT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTPresentMultiPlaneOverlay(#[in] param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTPresentMultiPlaneOverlay2(#[in] param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTPresentMultiPlaneOverlay3(#[in] param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTPresentRedirected(#[in] param0: *mut D3DKMT_PRESENT_REDIRECTED) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryAdapterInfo(#[in] #[out] param0: *const D3DKMT_QUERYADAPTERINFO) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryAllocationResidency(#[in] param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryClockCalibration(#[in] #[out] param0: *mut D3DKMT_QUERYCLOCKCALIBRATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryFSEBlock(#[in] #[out] param0: *mut D3DKMT_QUERYFSEBLOCK) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryFeatureInterface(#[in] #[out] param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryProcessOfferInfo(#[in] #[out] param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryProtectedSessionInfoFromNtHandle(#[in] #[out] param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryProtectedSessionStatus(#[in] #[out] param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(#[in] #[out] param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryResourceInfo(#[in] #[out] param0: *mut D3DKMT_QUERYRESOURCEINFO) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryResourceInfoFromNtHandle(#[in] #[out] param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryStatistics(#[in] param0: *const D3DKMT_QUERYSTATISTICS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryVidPnExclusiveOwnership(#[in] #[out] param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTQueryVideoMemoryInfo(#[in] #[out] param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTReclaimAllocations(#[in] #[out] param0: *const D3DKMT_RECLAIMALLOCATIONS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTReclaimAllocations2(#[in] #[out] param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTRegisterTrimNotification(#[in] #[out] param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTRegisterVailProcess(#[in] param0: *mut GUID) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTReleaseKeyedMutex(#[in] #[out] param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTReleaseKeyedMutex2(#[in] #[out] param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTReleaseProcessVidPnSourceOwners(#[in] param0: HANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTRender(#[in] #[out] param0: *mut D3DKMT_RENDER) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTReserveGpuVirtualAddress(#[in] #[out] param0: *mut D3DDDI_RESERVEGPUVIRTUALADDRESS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTResizeRingBuffer(#[in] #[out] param0: *mut D3DKMT_RESIZERINGBUFFER) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetAllocationPriority(#[in] param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetContextInProcessSchedulingPriority(#[in] param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetContextSchedulingPriority(#[in] param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetDisplayMode(#[in] #[out] param0: *const D3DKMT_SETDISPLAYMODE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetDisplayPrivateDriverFormat(#[in] param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetFSEBlock(#[in] param0: *const D3DKMT_SETFSEBLOCK) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetGammaRamp(#[in] param0: *const D3DKMT_SETGAMMARAMP) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetHwProtectionTeardownRecovery(#[in] param0: *mut D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetMonitorColorSpaceTransform(#[in] param0: *mut D3DKMT_SET_COLORSPACE_TRANSFORM) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetProcessSchedulingPriorityClass(#[in] param0: HANDLE, #[in] param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetQueuedLimit(#[in] param0: *const D3DKMT_SETQUEUEDLIMIT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetStablePowerState(#[in] param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetSyncRefreshCountWaitTarget(#[in] param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetVidPnSourceHwProtection(#[in] param0: *mut D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetVidPnSourceOwner(#[in] param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetVidPnSourceOwner1(#[in] param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSetVidPnSourceOwner2(#[in] param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTShareObjects(#[range(entry, 1..=3)] cObjects: UINT, #[in] #[readable(entry, cObjects)] hObjects: *const D3DKMT_HANDLE, #[in] pObjectAttributes: POBJECT_ATTRIBUTES, #[in] dwDesiredAccess: DWORD, #[out] phSharedNtHandle: *mut HANDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSharedPrimaryLockNotification(#[in] param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSharedPrimaryUnLockNotification(#[in] param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSignalSynchronizationObject(#[in] param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSignalSynchronizationObject2(#[in] param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSignalSynchronizationObjectFromCpu(#[in] param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSignalSynchronizationObjectFromGpu(#[in] param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSignalSynchronizationObjectFromGpu2(#[in] param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSubmitCommand(#[in] param0: *const D3DKMT_SUBMITCOMMAND) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSubmitCommandToHwQueue(#[in] param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("api-ms-win-dx-d3dkmt-l1-1-4.dll")]
+        #[must_use]
         extern fn D3DKMTSubmitPresentBltToHwQueue(#[in] param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("api-ms-win-dx-d3dkmt-l1-1-4.dll")]
+        #[must_use]
         extern fn D3DKMTSubmitPresentToHwQueue(#[in] #[out] param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSubmitSignalSyncObjectsToHwQueue(#[in] param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(#[in] param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTTrimProcessCommitment(#[in] #[out] param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTUnlock(#[in] param0: *const D3DKMT_UNLOCK) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTUnlock2(#[in] param0: *const D3DKMT_UNLOCK2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTUnregisterTrimNotification(#[in] #[out] param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTUpdateAllocationProperty(#[in] #[out] param0: *mut D3DDDI_UPDATEALLOCPROPERTY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTUpdateGpuVirtualAddress(#[in] param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTUpdateOverlay(#[in] param0: *const D3DKMT_UPDATEOVERLAY) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTWaitForIdle(param0: *const D3DKMT_WAITFORIDLE) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTWaitForSynchronizationObject(#[in] param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTWaitForSynchronizationObject2(#[in] param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTWaitForSynchronizationObjectFromCpu(#[in] param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTWaitForSynchronizationObjectFromGpu(#[in] param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTWaitForVerticalBlankEvent(#[in] param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> NTSTATUS;
-        #[must_use]
         #[library("GDI32.dll")]
+        #[must_use]
         extern fn D3DKMTWaitForVerticalBlankEvent2(#[in] param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> NTSTATUS;
         struct D3DKMT_ACQUIREKEYEDMUTEX {
             hKeyedMutex: D3DKMT_HANDLE,
@@ -2639,8 +2639,8 @@ mod Windows {
             hAdapter: D3DKMT_HANDLE,
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             BufferSizeSupplied: UINT,
-            #[writable(bytes(BufferSizeSupplied))]
             #[readable(bytes(BufferSizeRequired))]
+            #[writable(bytes(BufferSizeSupplied))]
             pShapeBuffer: PVOID,
             BufferSizeRequired: UINT,
             ShapeInfo: D3DKMT_OUTDUPL_POINTER_SHAPE_INFO,
@@ -2653,8 +2653,8 @@ mod Windows {
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Type: D3DKMT_OUTPUTDUPL_METADATATYPE,
             BufferSizeSupplied: UINT,
-            #[writable(bytes(BufferSizeSupplied))]
             #[readable(bytes(BufferSizeRequired))]
+            #[writable(bytes(BufferSizeSupplied))]
             pBuffer: PVOID,
             BufferSizeRequired: UINT,
         }

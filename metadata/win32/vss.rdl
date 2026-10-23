@@ -5,11 +5,11 @@ mod Windows {
         interface IVssAsync: IUnknown {
             fn Cancel(&self) -> HRESULT;
             fn Wait(&self, #[in] dwMilliseconds: DWORD) -> HRESULT;
-            fn QueryStatus(&self, #[out] pHrResult: *mut HRESULT, #[in] #[out] #[opt] pReserved: *mut INT) -> HRESULT;
+            fn QueryStatus(&self, #[out] pHrResult: *mut HRESULT, #[in] #[opt] #[out] pReserved: *mut INT) -> HRESULT;
         }
         #[guid(0xae1c7110_2f60_11d3_8a39_00c04f72d8e3)]
         interface IVssEnumObject: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, *pceltFetched)] rgelt: *mut VSS_OBJECT_PROP, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgelt: *mut VSS_OBJECT_PROP, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppenum: *mut IVssEnumObject) -> HRESULT;

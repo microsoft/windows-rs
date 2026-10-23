@@ -25,53 +25,53 @@ mod Windows {
         type PODBC_VS_ARGS = *mut ODBC_VS_ARGS;
         #[library("ODBC32.dll")]
         extern fn SQLAllocHandleStd(fHandleType: SQLSMALLINT, hInput: SQLHANDLE, #[out] phOutput: *mut SQLHANDLE) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X64 | Arm64)]
-        extern fn SQLBindParameter(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, fParamType: SQLSMALLINT, fCType: SQLSMALLINT, fSqlType: SQLSMALLINT, cbColDef: SQLULEN, ibScale: SQLSMALLINT, rgbValue: SQLPOINTER, cbValueMax: SQLLEN, pcbValue: *mut SQLLEN) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLBindParameter(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, fParamType: SQLSMALLINT, fCType: SQLSMALLINT, fSqlType: SQLSMALLINT, cbColDef: SQLULEN, ibScale: SQLSMALLINT, rgbValue: SQLPOINTER, cbValueMax: SQLLEN, pcbValue: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLBindParameter(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, fParamType: SQLSMALLINT, fCType: SQLSMALLINT, fSqlType: SQLSMALLINT, cbColDef: SQLUINTEGER, ibScale: SQLSMALLINT, rgbValue: SQLPOINTER, cbValueMax: SQLINTEGER, pcbValue: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLBrowseConnect(hdbc: SQLHDBC, #[in] #[readable(entry, cchConnStrIn)] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[out] #[opt] #[writable(entry, cchConnStrOutMax)] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[out] #[opt] pcchConnStrOut: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLBrowseConnect(hdbc: SQLHDBC, #[in] #[readable(entry, cchConnStrIn)] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[opt] #[out] #[writable(entry, cchConnStrOutMax)] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[opt] #[out] pcchConnStrOut: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLBulkOperations(StatementHandle: SQLHSTMT, Operation: SQLSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X64 | Arm64)]
-        extern fn SQLColAttributes(hstmt: SQLHSTMT, icol: SQLUSMALLINT, fDescType: SQLUSMALLINT, rgbDesc: SQLPOINTER, cbDescMax: SQLSMALLINT, pcbDesc: *mut SQLSMALLINT, pfDesc: *mut SQLLEN) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLColAttributes(hstmt: SQLHSTMT, icol: SQLUSMALLINT, fDescType: SQLUSMALLINT, rgbDesc: SQLPOINTER, cbDescMax: SQLSMALLINT, pcbDesc: *mut SQLSMALLINT, pfDesc: *mut SQLLEN) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLColAttributes(hstmt: SQLHSTMT, icol: SQLUSMALLINT, fDescType: SQLUSMALLINT, rgbDesc: SQLPOINTER, cbDescMax: SQLSMALLINT, pcbDesc: *mut SQLSMALLINT, pfDesc: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLColumnPrivileges(hstmt: SQLHSTMT, #[in] #[opt] #[readable(entry, cchCatalogName)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchSchemaName)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchTableName)] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchColumnName)] szColumnName: *mut SQLCHAR, cchColumnName: SQLSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X64 | Arm64)]
-        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[out] #[opt] pfSqlType: *mut SQLSMALLINT, #[out] #[opt] pcbParamDef: *mut SQLULEN, #[out] #[opt] pibScale: *mut SQLSMALLINT, #[out] #[opt] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[opt] #[out] pfSqlType: *mut SQLSMALLINT, #[opt] #[out] pcbParamDef: *mut SQLULEN, #[opt] #[out] pibScale: *mut SQLSMALLINT, #[opt] #[out] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X86)]
-        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[out] #[opt] pfSqlType: *mut SQLSMALLINT, #[out] #[opt] pcbParamDef: *mut SQLUINTEGER, #[out] #[opt] pibScale: *mut SQLSMALLINT, #[out] #[opt] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLDriverConnect(hdbc: SQLHDBC, hwnd: SQLHWND, #[in] #[readable(entry, cchConnStrIn)] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[out] #[opt] #[writable(entry, cchConnStrOutMax)] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[out] #[opt] pcchConnStrOut: *mut SQLSMALLINT, fDriverCompletion: SQLUSMALLINT) -> SQLRETURN;
+        extern fn SQLDescribeParam(hstmt: SQLHSTMT, ipar: SQLUSMALLINT, #[opt] #[out] pfSqlType: *mut SQLSMALLINT, #[opt] #[out] pcbParamDef: *mut SQLUINTEGER, #[opt] #[out] pibScale: *mut SQLSMALLINT, #[opt] #[out] pfNullable: *mut SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLDrivers(henv: SQLHENV, fDirection: SQLUSMALLINT, #[out] #[opt] #[writable(entry, cchDriverDescMax)] szDriverDesc: *mut SQLCHAR, cchDriverDescMax: SQLSMALLINT, #[out] #[opt] pcchDriverDesc: *mut SQLSMALLINT, #[out] #[opt] #[writable(entry, cchDrvrAttrMax)] szDriverAttributes: *mut SQLCHAR, cchDrvrAttrMax: SQLSMALLINT, #[out] #[opt] pcchDrvrAttr: *mut SQLSMALLINT) -> SQLRETURN;
+        extern fn SQLDriverConnect(hdbc: SQLHDBC, hwnd: SQLHWND, #[in] #[readable(entry, cchConnStrIn)] szConnStrIn: *mut SQLCHAR, cchConnStrIn: SQLSMALLINT, #[opt] #[out] #[writable(entry, cchConnStrOutMax)] szConnStrOut: *mut SQLCHAR, cchConnStrOutMax: SQLSMALLINT, #[opt] #[out] pcchConnStrOut: *mut SQLSMALLINT, fDriverCompletion: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLDrivers(henv: SQLHENV, fDirection: SQLUSMALLINT, #[opt] #[out] #[writable(entry, cchDriverDescMax)] szDriverDesc: *mut SQLCHAR, cchDriverDescMax: SQLSMALLINT, #[opt] #[out] pcchDriverDesc: *mut SQLSMALLINT, #[opt] #[out] #[writable(entry, cchDrvrAttrMax)] szDriverAttributes: *mut SQLCHAR, cchDrvrAttrMax: SQLSMALLINT, #[opt] #[out] pcchDrvrAttr: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
-        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLLEN, #[out] #[opt] pcrow: *mut SQLULEN, #[out] #[opt] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLLEN, #[opt] #[out] pcrow: *mut SQLULEN, #[opt] #[out] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
         #[arch(X86)]
-        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLINTEGER, #[out] #[opt] pcrow: *mut SQLUINTEGER, #[out] #[opt] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
+        #[library("ODBC32.dll")]
+        extern fn SQLExtendedFetch(hstmt: SQLHSTMT, fFetchType: SQLUSMALLINT, irow: SQLINTEGER, #[opt] #[out] pcrow: *mut SQLUINTEGER, #[opt] #[out] rgfRowStatus: *mut SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLForeignKeys(hstmt: SQLHSTMT, #[in] #[opt] #[readable(entry, cchPkCatalogName)] szPkCatalogName: *mut SQLCHAR, cchPkCatalogName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchPkSchemaName)] szPkSchemaName: *mut SQLCHAR, cchPkSchemaName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchPkTableName)] szPkTableName: *mut SQLCHAR, cchPkTableName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchFkCatalogName)] szFkCatalogName: *mut SQLCHAR, cchFkCatalogName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchFkSchemaName)] szFkSchemaName: *mut SQLCHAR, cchFkSchemaName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchFkTableName)] szFkTableName: *mut SQLCHAR, cchFkTableName: SQLSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLMoreResults(hstmt: SQLHSTMT) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLNativeSql(hdbc: SQLHDBC, #[in] #[readable(entry, cchSqlStrIn)] szSqlStrIn: *mut SQLCHAR, cchSqlStrIn: SQLINTEGER, #[out] #[opt] #[writable(entry, cchSqlStrMax)] szSqlStr: *mut SQLCHAR, cchSqlStrMax: SQLINTEGER, pcbSqlStr: *mut SQLINTEGER) -> SQLRETURN;
+        extern fn SQLNativeSql(hdbc: SQLHDBC, #[in] #[readable(entry, cchSqlStrIn)] szSqlStrIn: *mut SQLCHAR, cchSqlStrIn: SQLINTEGER, #[opt] #[out] #[writable(entry, cchSqlStrMax)] szSqlStr: *mut SQLCHAR, cchSqlStrMax: SQLINTEGER, pcbSqlStr: *mut SQLINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
-        extern fn SQLNumParams(hstmt: SQLHSTMT, #[out] #[opt] pcpar: *mut SQLSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
+        extern fn SQLNumParams(hstmt: SQLHSTMT, #[opt] #[out] pcpar: *mut SQLSMALLINT) -> SQLRETURN;
         #[arch(X64 | Arm64)]
-        extern fn SQLParamOptions(hstmt: SQLHSTMT, crow: SQLULEN, pirow: *mut SQLULEN) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLParamOptions(hstmt: SQLHSTMT, crow: SQLULEN, pirow: *mut SQLULEN) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLParamOptions(hstmt: SQLHSTMT, crow: SQLUINTEGER, pirow: *mut SQLUINTEGER) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLPrimaryKeys(hstmt: SQLHSTMT, #[in] #[opt] #[readable(entry, cchCatalogName)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchSchemaName)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchTableName)] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT) -> SQLRETURN;
@@ -80,17 +80,17 @@ mod Windows {
         #[library("ODBC32.dll")]
         extern fn SQLProcedures(hstmt: SQLHSTMT, #[in] #[opt] #[readable(entry, cchCatalogName)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchSchemaName)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchProcName)] szProcName: *mut SQLCHAR, cchProcName: SQLSMALLINT) -> SQLRETURN;
         type SQLSTATE = [u8; 6];
-        #[library("ODBC32.dll")]
         #[arch(X64 | Arm64)]
+        #[library("ODBC32.dll")]
         extern fn SQLSetPos(hstmt: SQLHSTMT, irow: SQLSETPOSIROW, fOption: SQLUSMALLINT, fLock: SQLUSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLSetPos(hstmt: SQLHSTMT, irow: SQLUSMALLINT, fOption: SQLUSMALLINT, fLock: SQLUSMALLINT) -> SQLRETURN;
-        #[library("ODBC32.dll")]
         #[arch(X64 | Arm64)]
-        extern fn SQLSetScrollOptions(hstmt: SQLHSTMT, fConcurrency: SQLUSMALLINT, crowKeyset: SQLLEN, crowRowset: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
+        extern fn SQLSetScrollOptions(hstmt: SQLHSTMT, fConcurrency: SQLUSMALLINT, crowKeyset: SQLLEN, crowRowset: SQLUSMALLINT) -> SQLRETURN;
         #[arch(X86)]
+        #[library("ODBC32.dll")]
         extern fn SQLSetScrollOptions(hstmt: SQLHSTMT, fConcurrency: SQLUSMALLINT, crowKeyset: SQLINTEGER, crowRowset: SQLUSMALLINT) -> SQLRETURN;
         #[library("ODBC32.dll")]
         extern fn SQLTablePrivileges(hstmt: SQLHSTMT, #[in] #[opt] #[readable(entry, cchCatalogName)] szCatalogName: *mut SQLCHAR, cchCatalogName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchSchemaName)] szSchemaName: *mut SQLCHAR, cchSchemaName: SQLSMALLINT, #[in] #[opt] #[readable(entry, cchTableName)] szTableName: *mut SQLCHAR, cchTableName: SQLSMALLINT) -> SQLRETURN;

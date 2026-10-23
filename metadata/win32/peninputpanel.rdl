@@ -73,7 +73,7 @@ mod Windows {
         #[guid(0xfa7a4083_5747_4040_a182_0b0e9fd4fac7)]
         interface IPenInputPanel: IDispatch {
             fn get_Busy(&self, #[out] #[retval] Busy: *mut VARIANT_BOOL) -> HRESULT;
-            fn get_Factoid(&self, #[out] #[retval] #[out_ptr] Factoid: *mut BSTR) -> HRESULT;
+            fn get_Factoid(&self, #[out] #[out_ptr] #[retval] Factoid: *mut BSTR) -> HRESULT;
             fn put_Factoid(&self, #[in] Factoid: BSTR) -> HRESULT;
             fn get_AttachedEditWindow(&self, #[out] #[retval] AttachedEditWindow: *mut LONG32) -> HRESULT;
             fn put_AttachedEditWindow(&self, #[in] AttachedEditWindow: LONG32) -> HRESULT;
@@ -100,7 +100,7 @@ mod Windows {
         }
         #[guid(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71)]
         interface ITextInputPanel: IUnknown {
-            fn get_AttachedEditWindow(&self, #[out] #[retval] #[out_ptr] AttachedEditWindow: *mut HWND) -> HRESULT;
+            fn get_AttachedEditWindow(&self, #[out] #[out_ptr] #[retval] AttachedEditWindow: *mut HWND) -> HRESULT;
             fn put_AttachedEditWindow(&self, #[in] AttachedEditWindow: HWND) -> HRESULT;
             fn get_CurrentInteractionMode(&self, #[out] #[retval] CurrentInteractionMode: *mut InteractionMode) -> HRESULT;
             fn get_DefaultInPlaceState(&self, #[out] #[retval] State: *mut InPlaceState) -> HRESULT;

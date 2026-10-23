@@ -2,9 +2,9 @@
 mod Windows {
     mod ApplicationModel {
         mod PackageExtensions {
-            #[guid(0xda70c957_7ead_5c3b_9cf0_cc43faf474b4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtension)]
+            #[guid(0xda70c957_7ead_5c3b_9cf0_cc43faf474b4)]
             interface IPackageExtension {
                 #[get]
                 Id: String;
@@ -22,9 +22,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPublicFolderAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>;
             }
-            #[guid(0x0879dfe6_ac30_58b2_97f9_480b07e75bfa)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionCatalog)]
+            #[guid(0x0879dfe6_ac30_58b2_97f9_480b07e75bfa)]
             interface IPackageExtensionCatalog {
                 fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<PackageExtension>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -37,15 +37,15 @@ mod Windows {
                 event PackageUninstalling: super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageUninstallingEventArgs>;
                 event PackageStatusChanged: super::super::Foundation::TypedEventHandler<PackageExtensionCatalog, PackageExtensionPackageStatusChangedEventArgs>;
             }
-            #[guid(0x9588ece4_3183_5684_9e5f_27759733ddfe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionCatalog)]
+            #[guid(0x9588ece4_3183_5684_9e5f_27759733ddfe)]
             interface IPackageExtensionCatalogStatics {
                 fn Open(&self, #[in] packageExtensionName: String) -> PackageExtensionCatalog;
             }
-            #[guid(0x3c9b0067_083c_5fe3_bdfb_9feb156b4118)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageInstalledEventArgs)]
+            #[guid(0x3c9b0067_083c_5fe3_bdfb_9feb156b4118)]
             interface IPackageExtensionPackageInstalledEventArgs {
                 #[get]
                 PackageExtensionName: String;
@@ -54,27 +54,27 @@ mod Windows {
                 #[get]
                 Extensions: super::super::Foundation::Collections::IVectorView<PackageExtension>;
             }
-            #[guid(0xb8fee20a_680d_5942_876c_5de12df1083c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageStatusChangedEventArgs)]
+            #[guid(0xb8fee20a_680d_5942_876c_5de12df1083c)]
             interface IPackageExtensionPackageStatusChangedEventArgs {
                 #[get]
                 PackageExtensionName: String;
                 #[get]
                 Package: super::Package;
             }
-            #[guid(0x3b8e9cb7_c539_554d_bb33_a84c0bfa3f50)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageUninstallingEventArgs)]
+            #[guid(0x3b8e9cb7_c539_554d_bb33_a84c0bfa3f50)]
             interface IPackageExtensionPackageUninstallingEventArgs {
                 #[get]
                 PackageExtensionName: String;
                 #[get]
                 Package: super::Package;
             }
-            #[guid(0xfdc31add_16a7_509d_8bc4_fde22e856d2d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageUpdatedEventArgs)]
+            #[guid(0xfdc31add_16a7_509d_8bc4_fde22e856d2d)]
             interface IPackageExtensionPackageUpdatedEventArgs {
                 #[get]
                 PackageExtensionName: String;
@@ -83,9 +83,9 @@ mod Windows {
                 #[get]
                 Extensions: super::super::Foundation::Collections::IVectorView<PackageExtension>;
             }
-            #[guid(0x27ae2ce1_a1d3_532e_8e7e_8b43782fce09)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PackageExtensionPackageUpdatingEventArgs)]
+            #[guid(0x27ae2ce1_a1d3_532e_8e7e_8b43782fce09)]
             interface IPackageExtensionPackageUpdatingEventArgs {
                 #[get]
                 PackageExtensionName: String;

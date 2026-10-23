@@ -43,7 +43,7 @@ mod Windows {
         interface IMFTransform: IUnknown {
             fn GetStreamLimits(&self, #[out] pdwInputMinimum: *mut DWORD, #[out] pdwInputMaximum: *mut DWORD, #[out] pdwOutputMinimum: *mut DWORD, #[out] pdwOutputMaximum: *mut DWORD) -> HRESULT;
             fn GetStreamCount(&self, #[out] pcInputStreams: *mut DWORD, #[out] pcOutputStreams: *mut DWORD) -> HRESULT;
-            fn GetStreamIDs(&self, dwInputIDArraySize: DWORD, #[out] #[writable(entry, dwInputIDArraySize)] #[writable(success, dwInputIDArraySize)] #[readable(success, dwInputIDArraySize)] pdwInputIDs: *mut DWORD, dwOutputIDArraySize: DWORD, #[out] #[writable(entry, dwOutputIDArraySize)] #[writable(success, dwOutputIDArraySize)] #[readable(success, dwOutputIDArraySize)] pdwOutputIDs: *mut DWORD) -> HRESULT;
+            fn GetStreamIDs(&self, dwInputIDArraySize: DWORD, #[out] #[readable(success, dwInputIDArraySize)] #[writable(entry, dwInputIDArraySize)] #[writable(success, dwInputIDArraySize)] pdwInputIDs: *mut DWORD, dwOutputIDArraySize: DWORD, #[out] #[readable(success, dwOutputIDArraySize)] #[writable(entry, dwOutputIDArraySize)] #[writable(success, dwOutputIDArraySize)] pdwOutputIDs: *mut DWORD) -> HRESULT;
             fn GetInputStreamInfo(&self, dwInputStreamID: DWORD, #[out] pStreamInfo: *mut MFT_INPUT_STREAM_INFO) -> HRESULT;
             fn GetOutputStreamInfo(&self, dwOutputStreamID: DWORD, #[out] pStreamInfo: *mut MFT_OUTPUT_STREAM_INFO) -> HRESULT;
             fn GetAttributes(&self, #[out] #[out_ptr] pAttributes: *mut IMFAttributes) -> HRESULT;

@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4)]
         interface ISpatialAudioMetadataClient: IUnknown {
-            fn ActivateSpatialAudioMetadataItems(&self, #[in] maxItemCount: UINT16, #[in] frameCount: UINT16, #[out] #[opt] #[out_ptr(null_on_failure)] metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, #[out] #[out_ptr(null_on_failure)] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
+            fn ActivateSpatialAudioMetadataItems(&self, #[in] maxItemCount: UINT16, #[in] frameCount: UINT16, #[opt] #[out] #[out_ptr(null_on_failure)] metadataItemsBuffer: *mut ISpatialAudioMetadataItemsBuffer, #[out] #[out_ptr(null_on_failure)] metadataItems: *mut ISpatialAudioMetadataItems) -> HRESULT;
             fn GetSpatialAudioMetadataItemsBufferLength(&self, #[in] maxItemCount: UINT16, #[out] bufferLength: *mut UINT32) -> HRESULT;
             fn ActivateSpatialAudioMetadataWriter(&self, #[in] overflowMode: SpatialAudioMetadataWriterOverflowMode, #[out] #[out_ptr(null_on_failure)] metadataWriter: *mut ISpatialAudioMetadataWriter) -> HRESULT;
             fn ActivateSpatialAudioMetadataCopier(&self, #[out] #[out_ptr(null_on_failure)] metadataCopier: *mut ISpatialAudioMetadataCopier) -> HRESULT;

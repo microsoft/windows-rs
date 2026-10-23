@@ -8,14 +8,14 @@ mod Fixture {
     extern "C" fn Capacity(#[out] #[writable(success, capacity, indirect)] buffer: *mut *mut Byte, capacity: Count);
     extern "C" fn Constant(#[out] #[readable(success, 0, indirect)] buffer: *mut *mut Byte);
     type Count = u32;
-    extern "C" fn CountedString(#[out] #[out_ptr] #[writable(success, capacity, indirect)] #[null_terminated(success, indirect)] text: *mut *mut u16, capacity: Count);
+    extern "C" fn CountedString(#[null_terminated(success, indirect)] #[out] #[out_ptr] #[writable(success, capacity, indirect)] text: *mut *mut u16, capacity: Count);
     extern "C" fn Distinct(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_", "capacity", "capacity")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_all_", "capacity", "capacity")] #[out] buffer: *mut *mut Byte, capacity: Count);
     extern "C" fn Expression(#[out] #[writable(success, capacity + 1, indirect)] buffer: *mut *mut Byte, capacity: Count);
     extern "C" fn FailurePointer(#[out] #[out_ptr(null_on_failure)] #[writable(success, capacity, indirect)] buffer: *mut *mut Byte, capacity: Count);
     extern "C" fn FailurePointerReversed(#[out] #[out_ptr(null_on_failure)] #[writable(success, capacity, indirect)] buffer: *mut *mut Byte, capacity: Count);
-    extern "C" fn Fallback(#[out] #[writable(entry, capacity)] #[readable(success, or(*length, capacity))] buffer: *mut Byte, capacity: Count, #[out] #[opt] length: *mut Count);
+    extern "C" fn Fallback(#[out] #[readable(success, or(*length, capacity))] #[writable(entry, capacity)] buffer: *mut Byte, capacity: Count, #[opt] #[out] length: *mut Count);
     #[library("fixture.dll")]
-    extern "C" fn Fetch(#[out] #[writable(success, bytes(if_present(*capacity)), indirect)] #[readable(success, bytes(if_present(*length)), indirect)] buffer: *mut *mut Byte, #[out] #[opt] capacity: *mut Count, #[out] #[opt] length: *mut Count);
+    extern "C" fn Fetch(#[out] #[readable(success, bytes(if_present(*length)), indirect)] #[writable(success, bytes(if_present(*capacity)), indirect)] buffer: *mut *mut Byte, #[opt] #[out] capacity: *mut Count, #[opt] #[out] length: *mut Count);
     extern "C" fn Full(#[out] #[readable(success, *length, indirect)] buffer: *mut *const Byte, #[out] length: *mut Count);
     #[guid(0x11111111_2222_3333_4444_555555555555)]
     interface IObject {
@@ -26,7 +26,7 @@ mod Fixture {
     #[library("fixture.dll")]
     extern "C" fn Lookup() -> #[nullable] *mut Byte;
     extern "C" fn MismatchedNullable(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_buffer_maybenull_", "capacity", "capacity")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_nullonfailure_", "", "")] #[out] buffer: *mut *mut Byte, capacity: Count);
-    extern "C" fn MismatchedOptional(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "capacity", "capacity")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_nullonfailure_", "", "")] #[out] #[opt] buffer: *mut *mut Byte, capacity: Count);
+    extern "C" fn MismatchedOptional(#[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_result_buffer_", "capacity", "capacity")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_result_nullonfailure_", "", "")] #[opt] #[out] buffer: *mut *mut Byte, capacity: Count);
     struct NullableFields {
         #[nullable]
         data: Bytes,
@@ -41,26 +41,26 @@ mod Fixture {
     }
     extern "C" fn NullableResult() -> #[nullable] *mut Byte;
     extern "C" fn NullableResultAlias() -> #[nullable] *mut Byte;
-    extern "C" fn NullableReturnedString(#[out] #[out_ptr(nullable)] #[null_terminated(success, indirect)] text: *mut *mut u16);
-    extern "C" fn OptionalCounts(#[out] #[writable(success, bytes(if_present(*capacity)), indirect)] #[readable(success, bytes(if_present(*length)), indirect)] buffer: *mut *mut Byte, #[out] #[opt] capacity: *mut Count, #[out] #[opt] length: *mut Count);
-    extern "C" fn OptionalIncoming(#[out] #[writable(entry, bytes(if_present(*length)))] #[readable(success, bytes(on_entry(if_present(*length))))] buffer: *mut Byte, #[in] #[out] #[opt] length: *mut Count);
-    extern "C" fn OptionalNullableReturnedString(#[out] #[opt] #[out_ptr(nullable)] #[null_terminated(success, indirect)] text: *mut *mut u16);
-    extern "C" fn OptionalReturnedString(#[out] #[opt] #[out_ptr] #[null_terminated(success, indirect)] text: *mut *mut u16);
-    extern "C" fn OptionalStorage(#[out] #[opt] #[writable(success, bytes(if_present(*capacity)), indirect, nullable)] #[readable(success, bytes(if_present(*length)), indirect, nullable)] buffer: *mut *mut Byte, #[out] #[opt] capacity: *mut Count, #[out] #[opt] length: *mut Count);
-    extern "C" fn Partial(#[out] #[writable(success, bytes(capacity), indirect)] #[readable(success, bytes(*length), indirect)] buffer: *mut *mut Byte, capacity: Count, #[out] length: *mut Count);
+    extern "C" fn NullableReturnedString(#[null_terminated(success, indirect)] #[out] #[out_ptr(nullable)] text: *mut *mut u16);
+    extern "C" fn OptionalCounts(#[out] #[readable(success, bytes(if_present(*length)), indirect)] #[writable(success, bytes(if_present(*capacity)), indirect)] buffer: *mut *mut Byte, #[opt] #[out] capacity: *mut Count, #[opt] #[out] length: *mut Count);
+    extern "C" fn OptionalIncoming(#[out] #[readable(success, bytes(on_entry(if_present(*length))))] #[writable(entry, bytes(if_present(*length)))] buffer: *mut Byte, #[in] #[opt] #[out] length: *mut Count);
+    extern "C" fn OptionalNullableReturnedString(#[null_terminated(success, indirect)] #[opt] #[out] #[out_ptr(nullable)] text: *mut *mut u16);
+    extern "C" fn OptionalReturnedString(#[null_terminated(success, indirect)] #[opt] #[out] #[out_ptr] text: *mut *mut u16);
+    extern "C" fn OptionalStorage(#[opt] #[out] #[readable(success, bytes(if_present(*length)), indirect, nullable)] #[writable(success, bytes(if_present(*capacity)), indirect, nullable)] buffer: *mut *mut Byte, #[opt] #[out] capacity: *mut Count, #[opt] #[out] length: *mut Count);
+    extern "C" fn Partial(#[out] #[readable(success, bytes(*length), indirect)] #[writable(success, bytes(capacity), indirect)] buffer: *mut *mut Byte, capacity: Count, #[out] length: *mut Count);
     extern "C" fn PointerElements(#[out] #[readable(success, length, indirect)] buffer: *mut *mut *mut Byte, length: Count);
     extern "C" fn Repeated(#[out] #[writable(success, capacity, indirect)] buffer: *mut *mut Byte, capacity: Count);
-    extern "C" fn ReturnedString(#[out] #[out_ptr] #[null_terminated(success, indirect)] text: *mut *mut u16);
+    extern "C" fn ReturnedString(#[null_terminated(success, indirect)] #[out] #[out_ptr] text: *mut *mut u16);
     extern "C" fn RpcCapacity(#[out] #[writable(success, capacity, indirect)] buffer: *mut *mut Byte, capacity: Count);
-    extern "C" fn RpcFull(#[out] #[writable(success, *length, indirect)] #[readable(success, *length, indirect)] buffer: *mut *mut Byte, #[out] length: *mut Count);
-    extern "C" fn RpcFullString(#[out] #[writable(success, *length, indirect)] #[readable(success, *length, indirect)] #[null_terminated(success, indirect)] text: *mut *mut u16, #[out] length: *mut Count);
-    extern "C" fn RpcNullable(#[out] #[nullable(entry, indirect)] #[writable(success, *length, indirect, nullable)] #[readable(success, *length, indirect, nullable)] buffer: *mut *mut Byte, #[out] length: *mut Count);
-    extern "C" fn RpcNullableCapacity(#[out] #[nullable(entry, indirect)] #[writable(success, capacity, indirect, nullable)] buffer: *mut *mut Byte, capacity: Count);
-    extern "C" fn RpcNullableFullString(#[out] #[nullable(entry, indirect)] #[writable(success, *length, indirect, nullable)] #[readable(success, *length, indirect, nullable)] #[null_terminated(success, indirect)] text: *mut *mut u16, #[out] length: *mut Count);
-    extern "C" fn RpcNullablePartial(#[out] #[nullable(entry, indirect)] #[writable(success, capacity, indirect, nullable)] #[readable(success, *length, indirect, nullable)] buffer: *mut *mut Byte, capacity: Count, #[out] length: *mut Count);
-    extern "C" fn RpcPartial(#[out] #[writable(success, capacity, indirect)] #[readable(success, *length, indirect)] buffer: *mut *mut Byte, capacity: Count, #[out] length: *mut Count);
-    extern "C" fn RpcReturnedString(#[out] #[out_ptr] #[null_terminated(success, indirect)] text: *mut *mut u16);
-    extern "C" fn RpcString(#[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] text: *mut *mut u16);
+    extern "C" fn RpcFull(#[out] #[readable(success, *length, indirect)] #[writable(success, *length, indirect)] buffer: *mut *mut Byte, #[out] length: *mut Count);
+    extern "C" fn RpcFullString(#[null_terminated(success, indirect)] #[out] #[readable(success, *length, indirect)] #[writable(success, *length, indirect)] text: *mut *mut u16, #[out] length: *mut Count);
+    extern "C" fn RpcNullable(#[nullable(entry, indirect)] #[out] #[readable(success, *length, indirect, nullable)] #[writable(success, *length, indirect, nullable)] buffer: *mut *mut Byte, #[out] length: *mut Count);
+    extern "C" fn RpcNullableCapacity(#[nullable(entry, indirect)] #[out] #[writable(success, capacity, indirect, nullable)] buffer: *mut *mut Byte, capacity: Count);
+    extern "C" fn RpcNullableFullString(#[null_terminated(success, indirect)] #[nullable(entry, indirect)] #[out] #[readable(success, *length, indirect, nullable)] #[writable(success, *length, indirect, nullable)] text: *mut *mut u16, #[out] length: *mut Count);
+    extern "C" fn RpcNullablePartial(#[nullable(entry, indirect)] #[out] #[readable(success, *length, indirect, nullable)] #[writable(success, capacity, indirect, nullable)] buffer: *mut *mut Byte, capacity: Count, #[out] length: *mut Count);
+    extern "C" fn RpcPartial(#[out] #[readable(success, *length, indirect)] #[writable(success, capacity, indirect)] buffer: *mut *mut Byte, capacity: Count, #[out] length: *mut Count);
+    extern "C" fn RpcReturnedString(#[null_terminated(success, indirect)] #[out] #[out_ptr] text: *mut *mut u16);
+    extern "C" fn RpcString(#[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] text: *mut *mut u16);
     #[Windows::Win32::Metadata::NativeSal("2", "_Ret_maybenull_", "", "")]
     extern "C" fn ScalarResult() -> Count;
 }

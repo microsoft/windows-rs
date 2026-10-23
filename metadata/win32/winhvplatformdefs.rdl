@@ -27,8 +27,8 @@ mod Windows {
         union WHV_ADVISE_GPA_RANGE {
             Populate: WHV_ADVISE_GPA_RANGE_POPULATE,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_ADVISE_GPA_RANGE_CODE {
             WHvAdviseGpaRangeCodePopulate = 0,
             WHvAdviseGpaRangeCodePin = 1,
@@ -50,8 +50,8 @@ mod Windows {
                 },
             },
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
             WHvAllocateVpciResourceFlagNone = 0,
             WHvAllocateVpciResourceFlagAllowDirectP2P = 1,
@@ -87,8 +87,8 @@ mod Windows {
             Reserved2: UINT32,
             X: [UINT64; 18],
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_ARM64_IC_EMULATION_MODE {
             WHvArm64IcEmulationModeNone = 0,
             WHvArm64IcEmulationModeGicV3 = 1,
@@ -163,8 +163,8 @@ mod Windows {
             Exception: WHV_ARM64_PENDING_EXCEPTION_EVENT,
             SyntheticException: WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_ARM64_PENDING_EVENT_TYPE {
             WHvArm64PendingEventException = 0,
             WHvArm64PendingEventSyntheticException = 1,
@@ -347,14 +347,14 @@ mod Windows {
             ResetType: WHV_ARM64_RESET_TYPE,
             Reserved: UINT32,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_ARM64_RESET_TYPE {
             WHvArm64ResetTypePowerOff = 0,
             WHvArm64ResetTypeReboot = 1,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_ARM64_SYNTHETIC_EXCEPTION_TYPE {
             WHvArm64SyntheticExceptionTypeSmc = 0,
             WHvArm64SyntheticExceptionTypeSecure = 1,
@@ -376,16 +376,16 @@ mod Windows {
             VectorLength: UINT32,
             Reserved0: UINT64,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_CACHE_TYPE {
             WHvCacheTypeUncached = 0,
             WHvCacheTypeWriteCombining = 1,
             WHvCacheTypeWriteThrough = 4,
             WHvCacheTypeWriteBack = 6,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_CACHE_TYPE {
             WHvCacheTypeUncached = 0,
             WHvCacheTypeWriteCombining = 1,
@@ -435,8 +435,8 @@ mod Windows {
             X64MsrExitBitmap: WHV_X64_MSR_EXIT_BITMAP,
             ExceptionExitBitmap: UINT64,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_CAPABILITY_CODE {
             WHvCapabilityCodeHypervisorPresent = 0,
             WHvCapabilityCodeFeatures = 1,
@@ -455,8 +455,8 @@ mod Windows {
             WHvCapabilityCodeMaxSveVectorLength = 8210,
             WHvCapabilityCodeMaxSmeStreamingVectorLength = 8211,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_CAPABILITY_CODE {
             WHvCapabilityCodeHypervisorPresent = 0,
             WHvCapabilityCodeFeatures = 1,
@@ -553,8 +553,8 @@ mod Windows {
             Ecx: UINT32,
             Edx: UINT32,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_CREATE_VPCI_DEVICE_FLAGS {
             WHvCreateVpciDeviceFlagNone = 0,
             WHvCreateVpciDeviceFlagPhysicallyBacked = 1,
@@ -626,8 +626,8 @@ mod Windows {
                 },
             },
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_EXCEPTION_TYPE {
             WHvX64ExceptionTypeDivideErrorFault = 0,
             WHvX64ExceptionTypeDebugTrapOrFault = 1,
@@ -800,26 +800,26 @@ mod Windows {
                 },
             },
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_INTERRUPT_DESTINATION_MODE {
             WHvX64InterruptDestinationModePhysical = 0,
             WHvX64InterruptDestinationModeLogical = 1,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_INTERRUPT_TRIGGER_MODE {
             WHvX64InterruptTriggerModeEdge = 0,
             WHvX64InterruptTriggerModeLevel = 1,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_INTERRUPT_TYPE {
             WHvArm64InterruptTypeFixed = 0,
             WHvArm64InterruptTypeMaximum = 8,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_INTERRUPT_TYPE {
             WHvX64InterruptTypeFixed = 0,
             WHvX64InterruptTypeLowestPriority = 1,
@@ -833,8 +833,8 @@ mod Windows {
             VpIndex: UINT32,
             Reserved: UINT32,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_MAP_GPA_RANGE_FLAGS {
             WHvMapGpaRangeFlagNone = 0,
             WHvMapGpaRangeFlagRead = 1,
@@ -890,8 +890,8 @@ mod Windows {
             },
             AsUINT32: UINT32,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_MEMORY_ACCESS_TYPE {
             WHvMemoryAccessRead = 0,
             WHvMemoryAccessWrite = 1,
@@ -902,8 +902,8 @@ mod Windows {
             GuestAddress: UINT64,
             SizeInBytes: UINT64,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_MSR_ACTION {
             WHvMsrActionArchitectureDefault = 0,
             WHvMsrActionIgnoreWriteReadZero = 1,
@@ -938,8 +938,8 @@ mod Windows {
                 },
             },
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_NESTED_STATE_TYPE {
             WHvNestedStateTypeVmx = 0,
             WHvNestedStateTypeSvm = 1,
@@ -963,20 +963,20 @@ mod Windows {
         const WHV_NOTIFICATION_PORT_PREFERRED_DURATION_MAX: u64 = 18446744073709551615;
         #[arch(X64 | Arm64)]
         type WHV_NOTIFICATION_PORT_PROPERTY = u64;
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_NOTIFICATION_PORT_PROPERTY_CODE {
             WHvNotificationPortPropertyPreferredTargetVp = 1,
             WHvNotificationPortPropertyPreferredTargetDuration = 5,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_NOTIFICATION_PORT_TYPE {
             WHvNotificationPortTypeEvent = 2,
             WHvNotificationPortTypeDoorbell = 4,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_PARTITION_COUNTER_SET {
             WHvPartitionCounterSetMemory = 0,
         }
@@ -1045,8 +1045,8 @@ mod Windows {
             UnimplementedMsrAction: WHV_MSR_ACTION,
             LocalApicEmulationMode: WHV_X64_LOCAL_APIC_EMULATION_MODE,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_PARTITION_PROPERTY_CODE {
             WHvPartitionPropertyCodeExtendedVmExits = 1,
             WHvPartitionPropertyCodeSeparateSecurityDomain = 3,
@@ -1069,8 +1069,8 @@ mod Windows {
             WHvPartitionPropertyCodeArm64IcParameters = 4114,
             WHvPartitionPropertyCodeProcessorCount = 8191,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_PARTITION_PROPERTY_CODE {
             WHvPartitionPropertyCodeExtendedVmExits = 1,
             WHvPartitionPropertyCodeExceptionExitBitmap = 2,
@@ -1137,16 +1137,16 @@ mod Windows {
             SentIpiCount: UINT64,
             SelfIpiCount: UINT64,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_PROCESSOR_COUNTER_SET {
             WHvProcessorCounterSetRuntime = 0,
             WHvProcessorCounterSetIntercepts = 1,
             WHvProcessorCounterSetEvents = 2,
             WHvProcessorCounterSetSyntheticFeatures = 4,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_PROCESSOR_COUNTER_SET {
             WHvProcessorCounterSetRuntime = 0,
             WHvProcessorCounterSetIntercepts = 1,
@@ -1212,8 +1212,8 @@ mod Windows {
             VirtualInterruptHypercallsCount: UINT64,
             VirtualMmuHypercallsCount: UINT64,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_PROCESSOR_VENDOR {
             WHvProcessorVendorAmd = 0,
             WHvProcessorVendorIntel = 1,
@@ -1288,8 +1288,8 @@ mod Windows {
             RegisterName: WHV_REGISTER_NAME,
             AccessInfo: WHV_REGISTER_ACCESS_INFO,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_REGISTER_NAME {
             WHvArm64RegisterX0 = 131072,
             WHvArm64RegisterX1 = 131073,
@@ -1722,8 +1722,8 @@ mod Windows {
             WHvRegisterPendingEvent2 = 65544,
             WHvRegisterPendingEvent3 = 65545,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_REGISTER_NAME {
             WHvX64RegisterRax = 0,
             WHvX64RegisterRcx = 1,
@@ -2026,8 +2026,8 @@ mod Windows {
         struct WHV_RUN_VP_CANCELED_CONTEXT {
             CancelReason: WHV_RUN_VP_CANCEL_REASON,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_RUN_VP_CANCEL_REASON {
             WHvRunVpCancelReasonUser = 0,
         }
@@ -2072,8 +2072,8 @@ mod Windows {
                 AsUINT64: [UINT64; 22],
             },
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_RUN_VP_EXIT_REASON {
             WHvRunVpExitReasonNone = 0,
             WHvRunVpExitReasonUnmappedGpa = -2147483648,
@@ -2087,8 +2087,8 @@ mod Windows {
             WHvRunVpExitReasonHypercall = -2147483568,
             WHvRunVpExitReasonCanceled = -1,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_RUN_VP_EXIT_REASON {
             WHvRunVpExitReasonNone = 0,
             WHvRunVpExitReasonMemoryAccess = 1,
@@ -2150,8 +2150,8 @@ mod Windows {
             VirtualTpr: UINT64,
             Reserved: [UINT64; 6],
         }
-        #[packed(1)]
         #[arch(X64 | Arm64)]
+        #[packed(1)]
         struct WHV_SVM_VMCB_SELECTOR {
             Selector: UINT16,
             Attrib: UINT16,
@@ -2343,8 +2343,8 @@ mod Windows {
             },
             AsUINT64: UINT64,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_TRANSLATE_GVA_FLAGS {
             WHvTranslateGvaFlagNone = 0,
             WHvTranslateGvaFlagValidateRead = 1,
@@ -2352,8 +2352,8 @@ mod Windows {
             WHvTranslateGvaFlagValidateExecute = 4,
             WHvTranslateGvaFlagSetPageTableBits = 16,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_TRANSLATE_GVA_FLAGS {
             WHvTranslateGvaFlagNone = 0,
             WHvTranslateGvaFlagValidateRead = 1,
@@ -2369,8 +2369,8 @@ mod Windows {
             ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
             Reserved: UINT32,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_TRANSLATE_GVA_RESULT_CODE {
             WHvTranslateGvaResultSuccess = 0,
             WHvTranslateGvaResultPageNotPresent = 1,
@@ -2413,14 +2413,14 @@ mod Windows {
                 },
             },
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_TRIGGER_TYPE {
             WHvTriggerTypeSynicEvent = 1,
             WHvTriggerTypeDeviceInterrupt = 2,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_TRIGGER_TYPE {
             WHvTriggerTypeInterrupt = 0,
             WHvTriggerTypeSynicEvent = 1,
@@ -2448,13 +2448,13 @@ mod Windows {
                 Padding: UINT64,
             },
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
             WHvVirtualProcessorPropertyCodeNumaNode = 0,
         }
-        #[repr(i32)]
         #[arch(Arm64)]
+        #[repr(i32)]
         enum WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
             WHvVirtualProcessorStateTypeInterruptControllerState = -2147483648,
             WHvVirtualProcessorStateTypeSynicMessagePage = -2147483646,
@@ -2464,8 +2464,8 @@ mod Windows {
             WHvVirtualProcessorStateTypeSveState = -2147483641,
             WHvVirtualProcessorStateTypeSmeState = -2147483640,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
             WHvVirtualProcessorStateTypeSynicMessagePage = 0,
             WHvVirtualProcessorStateTypeSynicEventFlagPage = 1,
@@ -2486,15 +2486,15 @@ mod Windows {
                 Reserved2: UINT64,
             },
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
             WHvVpciDeviceNotificationUndefined = 0,
             WHvVpciDeviceNotificationMmioRemapping = 1,
             WHvVpciDeviceNotificationSurpriseRemoval = 2,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_VPCI_DEVICE_PROPERTY_CODE {
             WHvVpciDevicePropertyCodeUndefined = 0,
             WHvVpciDevicePropertyCodeHardwareIDs = 1,
@@ -2506,8 +2506,8 @@ mod Windows {
             SizeInBytes: UINT32,
             OffsetInBytes: UINT64,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_VPCI_DEVICE_REGISTER_SPACE {
             WHvVpciConfigSpace = -1,
             WHvVpciBar0 = 0,
@@ -2535,8 +2535,8 @@ mod Windows {
             ProcessorCount: UINT32,
             Processors: [UINT32; 1],
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_VPCI_INTERRUPT_TARGET_FLAGS {
             WHvVpciInterruptTargetFlagNone = 0,
             WHvVpciInterruptTargetFlagMulticast = 1,
@@ -2549,8 +2549,8 @@ mod Windows {
             OffsetInBytes: UINT64,
             VirtualAddress: PVOID,
         }
-        #[repr(i32)]
         #[arch(X64 | Arm64)]
+        #[repr(i32)]
         enum WHV_VPCI_MMIO_RANGE_FLAGS {
             WHvVpciMmioRangeFlagReadAccess = 1,
             WHvVpciMmioRangeFlagWriteAccess = 2,
@@ -2628,8 +2628,8 @@ mod Windows {
             Reserved: UINT32,
             WriteValue: UINT64,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_X64_APIC_WRITE_TYPE {
             WHvX64ApicWriteTypeLdr = 208,
             WHvX64ApicWriteTypeDfr = 224,
@@ -2666,8 +2666,8 @@ mod Windows {
             Output: WHV_CPUID_OUTPUT,
             Mask: WHV_CPUID_OUTPUT,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_X64_CPUID_RESULT2_FLAGS {
             WHvX64CpuidResult2FlagSubleafSpecific = 1,
             WHvX64CpuidResult2FlagVpSpecific = 2,
@@ -2761,8 +2761,8 @@ mod Windows {
             },
             AsUINT32: UINT32,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_X64_LOCAL_APIC_EMULATION_MODE {
             WHvX64LocalApicEmulationModeNone = 0,
             WHvX64LocalApicEmulationModeXApic = 1,
@@ -2851,8 +2851,8 @@ mod Windows {
                 },
             },
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_X64_PENDING_EVENT_TYPE {
             WHvX64PendingEventException = 0,
             WHvX64PendingEventExtInt = 5,
@@ -2905,8 +2905,8 @@ mod Windows {
             },
             AsUINT64: UINT64,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_X64_PENDING_INTERRUPTION_TYPE {
             WHvX64PendingInterrupt = 0,
             WHvX64PendingNmi = 2,
@@ -3200,8 +3200,8 @@ mod Windows {
             Limit: UINT16,
             Base: UINT64,
         }
-        #[repr(i32)]
         #[arch(X64)]
+        #[repr(i32)]
         enum WHV_X64_UNSUPPORTED_FEATURE_CODE {
             WHvUnsupportedFeatureIntercept = 1,
             WHvUnsupportedFeatureTaskSwitchTss = 2,

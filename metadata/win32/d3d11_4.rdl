@@ -59,8 +59,8 @@ mod Windows {
         }
         #[guid(0x8ffde202_a0e7_45df_9e01_e837801b5ea0)]
         interface ID3D11Device5: ID3D11Device4 {
-            fn OpenSharedFence(&self, #[in] hFence: HANDLE, #[in] ReturnedInterface: &IID, #[out] #[opt] #[out_ptr(null_on_failure)] #[iid_is] ppFence: *mut *mut void) -> HRESULT;
-            fn CreateFence(&self, #[in] InitialValue: UINT64, #[in] Flags: D3D11_FENCE_FLAG, #[in] ReturnedInterface: &IID, #[out] #[opt] #[out_ptr(null_on_failure)] #[iid_is] ppFence: *mut *mut void) -> HRESULT;
+            fn OpenSharedFence(&self, #[in] hFence: HANDLE, #[in] ReturnedInterface: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppFence: *mut *mut void) -> HRESULT;
+            fn CreateFence(&self, #[in] InitialValue: UINT64, #[in] Flags: D3D11_FENCE_FLAG, #[in] ReturnedInterface: &IID, #[iid_is] #[opt] #[out] #[out_ptr(null_on_failure)] ppFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0x9b7e4e00_342c_4106_a19f_4f2704f689f0)]
         interface ID3D11Multithread: IUnknown {
@@ -72,9 +72,9 @@ mod Windows {
         #[guid(0xc4e7374c_6243_4d1b_ae87_52b4f740e261)]
         interface ID3D11VideoContext2: ID3D11VideoContext1 {
             fn VideoProcessorSetOutputHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] Type: DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pHDRMetaData: *const void);
-            fn VideoProcessorGetOutputHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[out] pType: *mut DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[out] #[opt] #[writable(entry, bytes(Size))] pMetaData: *mut void);
+            fn VideoProcessorGetOutputHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[out] pType: *mut DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[opt] #[out] #[writable(entry, bytes(Size))] pMetaData: *mut void);
             fn VideoProcessorSetStreamHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[in] Type: DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[in] #[opt] #[readable(entry, bytes(Size))] pHDRMetaData: *const void);
-            fn VideoProcessorGetStreamHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[out] pType: *mut DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[out] #[opt] #[writable(entry, bytes(Size))] pMetaData: *mut void);
+            fn VideoProcessorGetStreamHDRMetaData(&self, #[in] pVideoProcessor: ID3D11VideoProcessor, #[in] StreamIndex: UINT, #[out] pType: *mut DXGI_HDR_METADATA_TYPE, #[in] Size: UINT, #[opt] #[out] #[writable(entry, bytes(Size))] pMetaData: *mut void);
         }
         #[guid(0xa9e2faa0_cb39_418f_a0b7_d8aad4de672e)]
         interface ID3D11VideoContext3: ID3D11VideoContext2 {

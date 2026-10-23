@@ -405,8 +405,8 @@ mod Windows {
             dwFirmwareIssueId: DWORD,
             szIssueDescriptionString: [BYTE; 132],
         }
-        #[packed(1)]
         #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Descriptor.dwSize", "Descriptor.dwSize", TypedefName = "DEVICEDUMP_STORAGEDEVICE_DATA")]
+        #[packed(1)]
         struct DEVICEDUMP_STORAGEDEVICE_DATA {
             Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
             SectionHeader: DEVICEDUMP_SECTION_HEADER,
@@ -416,8 +416,8 @@ mod Windows {
             RestrictedData: DEVICEDUMP_SUBSECTION_POINTER,
             PrivateData: DEVICEDUMP_SUBSECTION_POINTER,
         }
-        #[packed(1)]
         #[Windows::Win32::Metadata::NativeSal("2", "_Struct_size_bytes_", "Descriptor.dwSize", "Descriptor.dwSize", TypedefName = "DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP")]
+        #[packed(1)]
         struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
             Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
             dwReasonForCollection: DWORD,
@@ -5234,8 +5234,8 @@ mod Windows {
             FixedProtocolReturnData: DWORD,
             FixedProtocolReturnData2: DWORD,
             Reserved1: [DWORD; 2],
-            #[writable(bytes(CommandLength))]
             #[readable(bytes(CommandLength))]
+            #[writable(bytes(CommandLength))]
             Command: [BYTE; 1],
         }
         const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648;

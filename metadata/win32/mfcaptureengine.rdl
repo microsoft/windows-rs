@@ -16,7 +16,7 @@ mod Windows {
         }
         #[guid(0x8f02d140_56fc_4302_a705_3a97c78be779)]
         interface IMFCaptureEngineClassFactory: IUnknown {
-            fn CreateInstance(&self, #[in] clsid: &IID, #[in] riid: &IID, #[out] #[iid_is] ppvObject: *mut LPVOID) -> HRESULT;
+            fn CreateInstance(&self, #[in] clsid: &IID, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut LPVOID) -> HRESULT;
         }
         #[guid(0xaeda51c0_9025_4983_9012_de597b88b089)]
         interface IMFCaptureEngineOnEventCallback: IUnknown {
@@ -59,9 +59,9 @@ mod Windows {
         }
         #[guid(0x72d6135b_35e9_412c_b926_fd5265f2a885)]
         interface IMFCaptureSink: IUnknown {
-            fn GetOutputMediaType(&self, #[in] dwSinkStreamIndex: DWORD, #[out] #[opt] ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetService(&self, #[in] dwSinkStreamIndex: DWORD, #[in] rguidService: &GUID, #[in] riid: &IID, #[out] #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
-            fn AddStream(&self, #[in] dwSourceStreamIndex: DWORD, #[in] pMediaType: IMFMediaType, #[in] #[opt] pAttributes: IMFAttributes, #[out] #[opt] pdwSinkStreamIndex: *mut DWORD) -> HRESULT;
+            fn GetOutputMediaType(&self, #[in] dwSinkStreamIndex: DWORD, #[opt] #[out] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetService(&self, #[in] dwSinkStreamIndex: DWORD, #[in] rguidService: &GUID, #[in] riid: &IID, #[opt] #[out] ppUnknown: *mut IUnknown) -> HRESULT;
+            fn AddStream(&self, #[in] dwSourceStreamIndex: DWORD, #[in] pMediaType: IMFMediaType, #[in] #[opt] pAttributes: IMFAttributes, #[opt] #[out] pdwSinkStreamIndex: *mut DWORD) -> HRESULT;
             fn Prepare(&self) -> HRESULT;
             fn RemoveAllStreams(&self) -> HRESULT;
         }
@@ -71,13 +71,13 @@ mod Windows {
         }
         #[guid(0x439a42a8_0d2c_4505_be83_f79b2a05d5c4)]
         interface IMFCaptureSource: IUnknown {
-            fn GetCaptureDeviceSource(&self, #[in] mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[out] #[opt] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
-            fn GetCaptureDeviceActivate(&self, #[in] mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[out] #[opt] ppActivate: *mut IMFActivate) -> HRESULT;
-            fn GetService(&self, #[in] rguidService: &IID, #[in] riid: &IID, #[out] #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
+            fn GetCaptureDeviceSource(&self, #[in] mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] #[out] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
+            fn GetCaptureDeviceActivate(&self, #[in] mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] #[out] ppActivate: *mut IMFActivate) -> HRESULT;
+            fn GetService(&self, #[in] rguidService: &IID, #[in] riid: &IID, #[opt] #[out] ppUnknown: *mut IUnknown) -> HRESULT;
             fn AddEffect(&self, #[in] dwSourceStreamIndex: DWORD, #[in] pUnknown: IUnknown) -> HRESULT;
             fn RemoveEffect(&self, #[in] dwSourceStreamIndex: DWORD, #[in] pUnknown: IUnknown) -> HRESULT;
             fn RemoveAllEffects(&self, #[in] dwSourceStreamIndex: DWORD) -> HRESULT;
-            fn GetAvailableDeviceMediaType(&self, #[in] dwSourceStreamIndex: DWORD, #[in] dwMediaTypeIndex: DWORD, #[out] #[opt] ppMediaType: *mut IMFMediaType) -> HRESULT;
+            fn GetAvailableDeviceMediaType(&self, #[in] dwSourceStreamIndex: DWORD, #[in] dwMediaTypeIndex: DWORD, #[opt] #[out] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn SetCurrentDeviceMediaType(&self, #[in] dwSourceStreamIndex: DWORD, #[in] pMediaType: IMFMediaType) -> HRESULT;
             fn GetCurrentDeviceMediaType(&self, #[in] dwSourceStreamIndex: DWORD, #[out] ppMediaType: *mut IMFMediaType) -> HRESULT;
             fn GetDeviceStreamCount(&self, #[out] pdwStreamCount: *mut DWORD) -> HRESULT;

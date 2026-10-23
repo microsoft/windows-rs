@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("d3d10.dll")]
-        extern fn D3D10CompileShader(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCSTR, SrcDataSize: SIZE_T, #[in] #[opt] pFileName: LPCSTR, #[in] #[opt] pDefines: *const D3D10_SHADER_MACRO, #[in] #[opt] pInclude: LPD3D10INCLUDE, pFunctionName: LPCSTR, pProfile: LPCSTR, Flags: UINT, #[out] ppShader: *mut ID3D10Blob, #[out] #[opt] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D10CompileShader(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCSTR, SrcDataSize: SIZE_T, #[in] #[opt] pFileName: LPCSTR, #[in] #[opt] pDefines: *const D3D10_SHADER_MACRO, #[in] #[opt] pInclude: LPD3D10INCLUDE, pFunctionName: LPCSTR, pProfile: LPCSTR, Flags: UINT, #[out] ppShader: *mut ID3D10Blob, #[opt] #[out] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
         #[library("d3d10.dll")]
         extern fn D3D10DisassembleShader(#[in] #[readable(entry, bytes(BytecodeLength))] pShader: *const void, BytecodeLength: SIZE_T, EnableColorCode: BOOL, #[in] #[opt] pComments: LPCSTR, #[out] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[library("d3d10.dll")]
@@ -20,7 +20,7 @@ mod Windows {
         #[library("d3d10.dll")]
         extern fn D3D10GetVertexShaderProfile(#[in] pDevice: ID3D10Device) -> LPCSTR;
         #[library("d3d10.dll")]
-        extern fn D3D10PreprocessShader(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCSTR, SrcDataSize: SIZE_T, #[in] #[opt] pFileName: LPCSTR, #[in] #[opt] pDefines: *const D3D10_SHADER_MACRO, #[in] #[opt] pInclude: LPD3D10INCLUDE, #[out] ppShaderText: *mut ID3D10Blob, #[out] #[opt] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D10PreprocessShader(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCSTR, SrcDataSize: SIZE_T, #[in] #[opt] pFileName: LPCSTR, #[in] #[opt] pDefines: *const D3D10_SHADER_MACRO, #[in] #[opt] pInclude: LPD3D10INCLUDE, #[out] ppShaderText: *mut ID3D10Blob, #[opt] #[out] ppErrorMsgs: *mut ID3D10Blob) -> HRESULT;
         #[library("d3d10.dll")]
         extern fn D3D10ReflectShader(#[in] #[readable(entry, bytes(BytecodeLength))] pShaderBytecode: *const void, BytecodeLength: SIZE_T, #[out] ppReflector: *mut ID3D10ShaderReflection) -> HRESULT;
         const D3D10_ALL_RESOURCES_BOUND: i32 = 2097152;

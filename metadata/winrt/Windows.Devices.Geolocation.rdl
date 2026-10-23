@@ -2,8 +2,8 @@
 mod Windows {
     mod Devices {
         mod Geolocation {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum AltitudeReferenceSystem {
                 Unspecified = 0,
                 Terrain = 1,
@@ -63,8 +63,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 786432)]
                 IGeocoordinateSatelliteData2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum GeolocationAccessStatus {
                 Unspecified = 0,
                 Allowed = 1,
@@ -110,12 +110,14 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IGeoposition2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum GeoshapeType {
                 Geopoint = 0,
                 Geocircle = 1,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Geopath = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 GeoboundingBox = 3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
@@ -145,9 +147,9 @@ mod Windows {
             class GeovisitTriggerDetails {
                 IGeovisitTriggerDetails,
             }
-            #[guid(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CivicAddress)]
+            #[guid(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c)]
             interface ICivicAddress {
                 #[get]
                 Country: String;
@@ -160,9 +162,9 @@ mod Windows {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
             }
-            #[guid(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeoboundingBox)]
+            #[guid(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2)]
             interface IGeoboundingBox: IGeoshape {
                 #[get]
                 NorthwestCorner: BasicGeoposition;
@@ -175,17 +177,17 @@ mod Windows {
                 #[get]
                 MaxAltitude: f64;
             }
-            #[guid(0x4dfba589_0411_4abc_b3b5_5bbccb57d98c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeoboundingBox)]
+            #[guid(0x4dfba589_0411_4abc_b3b5_5bbccb57d98c)]
             interface IGeoboundingBoxFactory {
                 fn Create(&self, #[in] northwestCorner: BasicGeoposition, #[in] southeastCorner: BasicGeoposition) -> GeoboundingBox;
                 fn CreateWithAltitudeReference(&self, #[in] northwestCorner: BasicGeoposition, #[in] southeastCorner: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> GeoboundingBox;
                 fn CreateWithAltitudeReferenceAndSpatialReference(&self, #[in] northwestCorner: BasicGeoposition, #[in] southeastCorner: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> GeoboundingBox;
             }
-            #[guid(0x67b80708_e61a_4cd0_841b_93233792b5ca)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeoboundingBox)]
+            #[guid(0x67b80708_e61a_4cd0_841b_93233792b5ca)]
             interface IGeoboundingBoxStatics {
                 #[Windows::Foundation::Metadata::Overload("TryCompute")]
                 fn TryCompute(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>) -> GeoboundingBox;
@@ -194,35 +196,35 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("TryComputeWithAltitudeReferenceAndSpatialReference")]
                 fn TryCompute(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, #[in] altitudeRefSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> GeoboundingBox;
             }
-            #[guid(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocircle)]
+            #[guid(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1)]
             interface IGeocircle: IGeoshape {
                 #[get]
                 Center: BasicGeoposition;
                 #[get]
                 Radius: f64;
             }
-            #[guid(0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocircle)]
+            #[guid(0xafd6531f_72b1_4f7d_87cc_4ed4c9849c05)]
             interface IGeocircleFactory {
                 fn Create(&self, #[in] position: BasicGeoposition, #[in] radius: f64) -> Geocircle;
                 fn CreateWithAltitudeReferenceSystem(&self, #[in] position: BasicGeoposition, #[in] radius: f64, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> Geocircle;
                 fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, #[in] position: BasicGeoposition, #[in] radius: f64, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> Geocircle;
             }
-            #[guid(0xee21a3aa_976a_4c70_803d_083ea55bcbc4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocoordinate)]
+            #[guid(0xee21a3aa_976a_4c70_803d_083ea55bcbc4)]
             interface IGeocoordinate {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Latitude may be altered or unavailable after Windows 8.1. Instead, use Point.Position.Latitude", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Latitude: f64;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Longitude may be altered or unavailable after Windows 8.1. Instead, use Point.Position.Longitude", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-                Longitude: f64;
                 #[get]
+                Longitude: f64;
                 #[Windows::Foundation::Metadata::Deprecated("Altitude may be altered or unavailable after Windows 8.1. Instead, use Point.Position.Altitude", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Altitude: super::super::Foundation::IReference<f64>;
                 #[get]
                 Accuracy: f64;
@@ -235,9 +237,9 @@ mod Windows {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
             }
-            #[guid(0xc32a74d9_2608_474c_912c_06dd490f4af7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeocoordinateSatelliteData)]
+            #[guid(0xc32a74d9_2608_474c_912c_06dd490f4af7)]
             interface IGeocoordinateSatelliteData {
                 #[get]
                 PositionDilutionOfPrecision: super::super::Foundation::IReference<f64>;
@@ -246,48 +248,48 @@ mod Windows {
                 #[get]
                 VerticalDilutionOfPrecision: super::super::Foundation::IReference<f64>;
             }
-            #[guid(0x761c8cfd_a19d_5a51_80f5_71676115483e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeocoordinateSatelliteData)]
+            #[guid(0x761c8cfd_a19d_5a51_80f5_71676115483e)]
             interface IGeocoordinateSatelliteData2 {
                 #[get]
                 GeometricDilutionOfPrecision: super::super::Foundation::IReference<f64>;
                 #[get]
                 TimeDilutionOfPrecision: super::super::Foundation::IReference<f64>;
             }
-            #[guid(0xfeea0525_d22c_4d46_b527_0b96066fc7db)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocoordinate)]
+            #[guid(0xfeea0525_d22c_4d46_b527_0b96066fc7db)]
             interface IGeocoordinateWithPoint {
                 #[get]
                 Point: Geopoint;
             }
-            #[guid(0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocoordinate)]
+            #[guid(0x95e634be_dbd6_40ac_b8f2_a65c0340d9a6)]
             interface IGeocoordinateWithPositionData: IGeocoordinate {
                 #[get]
                 PositionSource: PositionSource;
                 #[get]
                 SatelliteData: GeocoordinateSatelliteData;
             }
-            #[guid(0x8543fc02_c9f1_4610_afe0_8bc3a6a87036)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocoordinate)]
+            #[guid(0x8543fc02_c9f1_4610_afe0_8bc3a6a87036)]
             interface IGeocoordinateWithPositionSourceTimestamp {
                 #[get]
                 PositionSourceTimestamp: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
             }
-            #[guid(0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 917504)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geocoordinate)]
+            #[guid(0x397cebd7_ee38_5f3b_8900_c4a7bc9cf953)]
             interface IGeocoordinateWithRemoteSource {
                 #[get]
                 IsRemoteSource: bool;
             }
-            #[guid(0xa9c3bf62_4524_4989_8aa9_de019d2e551f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geolocator)]
+            #[guid(0xa9c3bf62_4524_4989_8aa9_de019d2e551f)]
             interface IGeolocator {
                 DesiredAccuracy: PositionAccuracy;
                 MovementThreshold: f64;
@@ -303,15 +305,15 @@ mod Windows {
                 event PositionChanged: super::super::Foundation::TypedEventHandler<Geolocator, PositionChangedEventArgs>;
                 event StatusChanged: super::super::Foundation::TypedEventHandler<Geolocator, StatusChangedEventArgs>;
             }
-            #[guid(0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geolocator)]
+            #[guid(0xd1b42e6d_8891_43b4_ad36_27c6fe9a97b1)]
             interface IGeolocator2 {
                 fn AllowFallbackToConsentlessPositions(&self);
             }
-            #[guid(0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geolocator)]
+            #[guid(0x9a8e7571_2df5_4591_9f87_eb5fd894e9b7)]
             interface IGeolocatorStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<GeolocationAccessStatus>;
@@ -324,9 +326,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetGeopositionHistoryAsync(&self, #[in] startTime: super::super::Foundation::DateTime, #[in] duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Geoposition>>;
             }
-            #[guid(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geolocator)]
+            #[guid(0x993011a2_fa1c_4631_a71d_0dbeb1250d9c)]
             interface IGeolocatorStatics2 {
                 #[get]
                 IsDefaultGeopositionRecommended: bool;
@@ -335,60 +337,60 @@ mod Windows {
                 #[get]
                 DefaultGeoposition: super::super::Foundation::IReference<BasicGeoposition>;
             }
-            #[guid(0x96f5d3c1_b80f_460a_994d_a96c47a51aa4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geolocator)]
+            #[guid(0x96f5d3c1_b80f_460a_994d_a96c47a51aa4)]
             interface IGeolocatorWithScalarAccuracy: IGeolocator {
                 DesiredAccuracyInMeters: super::super::Foundation::IReference<u32>;
             }
-            #[guid(0xe53fd7b9_2da4_4714_a652_de8593289898)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geopath)]
+            #[guid(0xe53fd7b9_2da4_4714_a652_de8593289898)]
             interface IGeopath: IGeoshape {
                 #[get]
                 Positions: super::super::Foundation::Collections::IVectorView<BasicGeoposition>;
             }
-            #[guid(0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geopath)]
+            #[guid(0x27bea9c8_c7e7_4359_9b9b_fca3e05ef593)]
             interface IGeopathFactory {
                 fn Create(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>) -> Geopath;
                 fn CreateWithAltitudeReference(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> Geopath;
                 fn CreateWithAltitudeReferenceAndSpatialReference(&self, #[in] positions: super::super::Foundation::Collections::IIterable<BasicGeoposition>, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> Geopath;
             }
-            #[guid(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geopoint)]
+            #[guid(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef)]
             interface IGeopoint: IGeoshape {
                 #[get]
                 Position: BasicGeoposition;
             }
-            #[guid(0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geopoint)]
+            #[guid(0xdb6b8d33_76bd_4e30_8af7_a844dc37b7a0)]
             interface IGeopointFactory {
                 fn Create(&self, #[in] position: BasicGeoposition) -> Geopoint;
                 fn CreateWithAltitudeReferenceSystem(&self, #[in] position: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem) -> Geopoint;
                 fn CreateWithAltitudeReferenceSystemAndSpatialReferenceId(&self, #[in] position: BasicGeoposition, #[in] altitudeReferenceSystem: AltitudeReferenceSystem, #[in] spatialReferenceId: u32) -> Geopoint;
             }
-            #[guid(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geoposition)]
+            #[guid(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b)]
             interface IGeoposition {
                 #[get]
                 Coordinate: Geocoordinate;
                 #[get]
                 CivicAddress: CivicAddress;
             }
-            #[guid(0x7f62f697_8671_4b0d_86f8_474a8496187c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geoposition)]
+            #[guid(0x7f62f697_8671_4b0d_86f8_474a8496187c)]
             interface IGeoposition2: IGeoposition {
                 #[get]
                 VenueData: VenueData;
             }
-            #[guid(0xc99ca2af_c729_43c1_8fab_d6dec914df7e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0xc99ca2af_c729_43c1_8fab_d6dec914df7e)]
             interface IGeoshape {
                 #[get]
                 GeoshapeType: GeoshapeType;
@@ -397,9 +399,9 @@ mod Windows {
                 #[get]
                 AltitudeReferenceSystem: AltitudeReferenceSystem;
             }
-            #[guid(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Geovisit)]
+            #[guid(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de)]
             interface IGeovisit {
                 #[get]
                 Position: Geoposition;
@@ -408,9 +410,9 @@ mod Windows {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
             }
-            #[guid(0x80118aaf_5944_4591_83c1_396647f54f2c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeovisitMonitor)]
+            #[guid(0x80118aaf_5944_4591_83c1_396647f54f2c)]
             interface IGeovisitMonitor {
                 #[get]
                 MonitoringScope: VisitMonitoringScope;
@@ -418,51 +420,51 @@ mod Windows {
                 fn Stop(&self);
                 event VisitStateChanged: super::super::Foundation::TypedEventHandler<GeovisitMonitor, GeovisitStateChangedEventArgs>;
             }
-            #[guid(0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeovisitMonitor)]
+            #[guid(0xbcf976a7_bbf2_4cdd_95cf_554c82edfb87)]
             interface IGeovisitMonitorStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetLastReportAsync(&self) -> super::super::Foundation::IAsyncOperation<Geovisit>;
             }
-            #[guid(0xceb4d1ff_8b53_4968_beed_4cecd029ce15)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeovisitStateChangedEventArgs)]
+            #[guid(0xceb4d1ff_8b53_4968_beed_4cecd029ce15)]
             interface IGeovisitStateChangedEventArgs {
                 #[get]
                 Visit: Geovisit;
             }
-            #[guid(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GeovisitTriggerDetails)]
+            #[guid(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f)]
             interface IGeovisitTriggerDetails {
                 fn ReadReports(&self) -> super::super::Foundation::Collections::IVectorView<Geovisit>;
             }
-            #[guid(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PositionChangedEventArgs)]
+            #[guid(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093)]
             interface IPositionChangedEventArgs {
                 #[get]
                 Position: Geoposition;
             }
-            #[guid(0x3453d2da_8c93_4111_a205_9aecfc9be5c0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StatusChangedEventArgs)]
+            #[guid(0x3453d2da_8c93_4111_a205_9aecfc9be5c0)]
             interface IStatusChangedEventArgs {
                 #[get]
                 Status: PositionStatus;
             }
-            #[guid(0x66f39187_60e3_4b2f_b527_4f53f1c3c677)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VenueData)]
+            #[guid(0x66f39187_60e3_4b2f_b527_4f53f1c3c677)]
             interface IVenueData {
                 #[get]
                 Id: String;
                 #[get]
                 Level: String;
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum PositionAccuracy {
                 Default = 0,
                 High = 1,
@@ -473,19 +475,23 @@ mod Windows {
             class PositionChangedEventArgs {
                 IPositionChangedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum PositionSource {
                 Cellular = 0,
                 Satellite = 1,
                 WiFi = 2,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IPAddress = 3,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Unknown = 4,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 Default = 5,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]
                 Obfuscated = 6,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum PositionStatus {
                 Ready = 0,
                 Initializing = 1,
@@ -506,14 +512,14 @@ mod Windows {
             class VenueData {
                 IVenueData,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum VisitMonitoringScope {
                 Venue = 0,
                 City = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[repr(i32)]
             enum VisitStateChange {
                 TrackingLost = 0,
                 Arrived = 1,

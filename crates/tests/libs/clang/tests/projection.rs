@@ -282,6 +282,13 @@ fn partial_results() {
         (14, 5, 2)
     );
     for stem in ["partial_types", "projection_types"] {
+        if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+            std::fs::write(
+                input_dir().join(format!("{stem}.rdl")),
+                &result.output.partitions[stem].rdl,
+            )
+            .unwrap();
+        }
         assert_eq!(
             result.output.partitions[stem].rdl,
             std::fs::read_to_string(input_dir().join(format!("{stem}.rdl")))
@@ -449,6 +456,9 @@ fn round_trip() {
         (4, 1, 1)
     );
     let rdl = &output.partitions["projection_types"].rdl;
+    if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+        std::fs::write(input_dir().join("projection_types.rdl"), rdl).unwrap();
+    }
     assert_eq!(
         rdl,
         &std::fs::read_to_string(input_dir().join("projection_types.rdl"))

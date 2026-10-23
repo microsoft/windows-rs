@@ -144,7 +144,7 @@ mod Windows {
         #[library("ADVAPI32.dll")]
         extern fn EventAccessControl(#[in] Guid: LPGUID, #[in] Operation: ULONG, #[in] Sid: PSID, #[in] Rights: ULONG, #[in] AllowOrDeny: BOOLEAN) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn EventAccessQuery(#[in] Guid: LPGUID, #[out] #[opt] #[writable(entry, bytes(*BufferSize))] Buffer: PSECURITY_DESCRIPTOR, #[in] #[out] BufferSize: PULONG) -> ULONG;
+        extern fn EventAccessQuery(#[in] Guid: LPGUID, #[opt] #[out] #[writable(entry, bytes(*BufferSize))] Buffer: PSECURITY_DESCRIPTOR, #[in] #[out] BufferSize: PULONG) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn EventAccessRemove(#[in] Guid: LPGUID) -> ULONG;
         type PCEVENT_RECORD = *const EVENT_RECORD;

@@ -8,13 +8,13 @@ mod Windows {
         #[library("VERSION.dll")]
         extern fn GetFileVersionInfoExW(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeA(#[in] lptstrFilename: LPCSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> DWORD;
+        extern fn GetFileVersionInfoSizeA(#[in] lptstrFilename: LPCSTR, #[opt] #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
         extern fn GetFileVersionInfoSizeExA(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCSTR, #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
         extern fn GetFileVersionInfoSizeExW(#[in] dwFlags: DWORD, #[in] lpwstrFilename: LPCWSTR, #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
-        extern fn GetFileVersionInfoSizeW(#[in] lptstrFilename: LPCWSTR, #[out] #[opt] lpdwHandle: LPDWORD) -> DWORD;
+        extern fn GetFileVersionInfoSizeW(#[in] lptstrFilename: LPCWSTR, #[opt] #[out] lpdwHandle: LPDWORD) -> DWORD;
         #[library("VERSION.dll")]
         extern fn GetFileVersionInfoW(#[in] lptstrFilename: LPCWSTR, #[reserved] dwHandle: DWORD, #[in] dwLen: DWORD, #[out] #[writable(entry, bytes(dwLen))] lpData: LPVOID) -> BOOL;
         #[library("VERSION.dll")]

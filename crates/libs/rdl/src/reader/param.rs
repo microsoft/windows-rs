@@ -8,6 +8,26 @@ pub struct Param {
 }
 
 impl Encoder<'_> {
+    pub fn validate_winrt_param(
+        &self,
+        syntax: &syn::PatType,
+        param: &Param,
+        method: &str,
+    ) -> Result<(), Error> {
+        if param.attributes.contains(metadata::ParamAttributes::In)
+            == param.attributes.contains(metadata::ParamAttributes::Out)
+        {
+            return self.err(
+                &syntax.pat,
+                &format!(
+                    "WinRT parameter `{}.{}.{method}.{}` requires exactly one of #[in] or #[out]",
+                    self.namespace, self.name, param.name
+                ),
+            );
+        }
+        self.validate_type_is_winrt(&syntax.ty, &param.ty)
+    }
+
     fn parse_param_attributes(
         &mut self,
         attrs: &[syn::Attribute],

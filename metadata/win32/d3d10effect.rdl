@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("d3d10.dll")]
-        extern fn D3D10CompileEffectFromMemory(#[in] #[readable(entry, bytes(DataLength))] pData: *mut void, DataLength: SIZE_T, pSrcFileName: LPCSTR, #[in] #[opt] pDefines: *const D3D10_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, HLSLFlags: UINT, FXFlags: UINT, #[out] ppCompiledEffect: *mut ID3D10Blob, #[out] #[opt] ppErrors: *mut ID3D10Blob) -> HRESULT;
+        extern fn D3D10CompileEffectFromMemory(#[in] #[readable(entry, bytes(DataLength))] pData: *mut void, DataLength: SIZE_T, pSrcFileName: LPCSTR, #[in] #[opt] pDefines: *const D3D10_SHADER_MACRO, #[in] #[opt] pInclude: ID3DInclude, HLSLFlags: UINT, FXFlags: UINT, #[out] ppCompiledEffect: *mut ID3D10Blob, #[opt] #[out] ppErrors: *mut ID3D10Blob) -> HRESULT;
         #[library("d3d10.dll")]
         extern fn D3D10CreateEffectFromMemory(#[in] #[readable(entry, bytes(DataLength))] pData: *mut void, DataLength: SIZE_T, FXFlags: UINT, #[in] pDevice: ID3D10Device, #[in] #[opt] pEffectPool: ID3D10EffectPool, #[out] ppEffect: *mut ID3D10Effect) -> HRESULT;
         #[library("d3d10.dll")]

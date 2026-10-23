@@ -4,77 +4,77 @@ mod Windows {
         #[guid(0x5efd22ba_7838_46cb_88e2_cadb14124f8f)]
         interface IEnumITfCompositionView: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumITfCompositionView) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] rgCompositionView: *mut ITfCompositionView, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] rgCompositionView: *mut ITfCompositionView, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0xf0c0f8dd_cf38_44e1_bb0f_68cf0d551c78)]
         interface IEnumTfContextViews: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfContextViews) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] rgViews: *mut ITfContextView, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] rgViews: *mut ITfContextView, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0x8f1a7ea6_1654_4502_a86e_b2902344d507)]
         interface IEnumTfContexts: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfContexts) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] rgContext: *mut ITfContext, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] rgContext: *mut ITfContext, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0x7cef04d7_cb75_4e80_a7ab_5f5bc7d332de)]
         interface IEnumTfDisplayAttributeInfo: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfDisplayAttributeInfo) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] rgInfo: *mut ITfDisplayAttributeInfo, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] rgInfo: *mut ITfDisplayAttributeInfo, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0xaa80e808_2021_11d2_93e0_0060b067b86e)]
         interface IEnumTfDocumentMgrs: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfDocumentMgrs) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] rgDocumentMgr: *mut ITfDocumentMgr, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] rgDocumentMgr: *mut ITfDocumentMgr, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0xe4b24db0_0990_11d3_8df0_00105a2799b5)]
         interface IEnumTfFunctionProviders: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfFunctionProviders) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetch)] ppCmdobj: *mut ITfFunctionProvider, #[out] pcFetch: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetch)] #[writable(entry, ulCount)] #[writable(success, ulCount)] ppCmdobj: *mut ITfFunctionProvider, #[out] pcFetch: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0x71c6e74d_0f28_11d8_a82a_00065b84435c)]
         interface IEnumTfInputProcessorProfiles: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfInputProcessorProfiles) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetch)] pProfile: *mut TF_INPUTPROCESSORPROFILE, #[out] pcFetch: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetch)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pProfile: *mut TF_INPUTPROCESSORPROFILE, #[out] pcFetch: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0x3d61bf11_ac5f_42c8_a4cb_931bcc28c744)]
         interface IEnumTfLanguageProfiles: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfLanguageProfiles) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetch)] pProfile: *mut TF_LANGUAGEPROFILE, #[out] pcFetch: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetch)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pProfile: *mut TF_LANGUAGEPROFILE, #[out] pcFetch: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0x19188cb0_aca9_11d2_afc5_00105a2799b5)]
         interface IEnumTfProperties: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfProperties) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] ppProp: *mut ITfProperty, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] ppProp: *mut ITfProperty, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0x8ed8981b_7c10_4d7d_9fb3_ab72e9c75f72)]
         interface IEnumTfPropertyValue: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfPropertyValue) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] rgValues: *mut TF_PROPERTYVAL, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] rgValues: *mut TF_PROPERTYVAL, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, #[in] ulCount: ULONG) -> HRESULT;
         }
         #[guid(0xf99d3f40_8e32_11d2_bf46_00105a2799b5)]
         interface IEnumTfRanges: IUnknown {
             fn Clone(&self, #[out] #[out_ptr] ppEnum: *mut IEnumTfRanges) -> HRESULT;
-            fn Next(&self, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] ppRange: *mut ITfRange, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] ppRange: *mut ITfRange, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Skip(&self, ulCount: ULONG) -> HRESULT;
         }
@@ -183,7 +183,7 @@ mod Windows {
         interface ITfContext: IUnknown {
             fn RequestEditSession(&self, #[in] tid: TfClientId, #[in] #[opt] pes: ITfEditSession, #[in] dwFlags: DWORD, #[out] phrSession: *mut HRESULT) -> HRESULT;
             fn InWriteSession(&self, #[in] tid: TfClientId, #[out] pfWriteSession: *mut BOOL) -> HRESULT;
-            fn GetSelection(&self, #[in] ec: TfEditCookie, #[in] ulIndex: ULONG, #[in] ulCount: ULONG, #[out] #[writable(entry, ulCount)] #[writable(success, ulCount)] #[readable(success, *pcFetched)] pSelection: *mut TF_SELECTION, #[out] pcFetched: *mut ULONG) -> HRESULT;
+            fn GetSelection(&self, #[in] ec: TfEditCookie, #[in] ulIndex: ULONG, #[in] ulCount: ULONG, #[out] #[readable(success, *pcFetched)] #[writable(entry, ulCount)] #[writable(success, ulCount)] pSelection: *mut TF_SELECTION, #[out] pcFetched: *mut ULONG) -> HRESULT;
             fn SetSelection(&self, #[in] ec: TfEditCookie, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] pSelection: *const TF_SELECTION) -> HRESULT;
             fn GetStart(&self, #[in] ec: TfEditCookie, #[out] #[out_ptr] ppStart: *mut ITfRange) -> HRESULT;
             fn GetEnd(&self, #[in] ec: TfEditCookie, #[out] #[out_ptr] ppEnd: *mut ITfRange) -> HRESULT;
@@ -306,7 +306,7 @@ mod Windows {
         interface ITfFunctionProvider: IUnknown {
             fn GetType(&self, #[out] pguid: *mut GUID) -> HRESULT;
             fn GetDescription(&self, #[out] #[out_ptr] pbstrDesc: *mut BSTR) -> HRESULT;
-            fn GetFunction(&self, #[in] rguid: &GUID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetFunction(&self, #[in] rguid: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x71c6e74e_0f28_11d8_a82a_00065b84435c)]
         interface ITfInputProcessorProfileActivationSink: IUnknown {
@@ -341,7 +341,7 @@ mod Windows {
             fn GetLanguageProfileDescription(&self, #[in] rclsid: &IID, #[in] langid: LANGID, #[in] guidProfile: &GUID, #[out] #[out_ptr] pbstrProfile: *mut BSTR) -> HRESULT;
             fn GetCurrentLanguage(&self, #[out] plangid: *mut LANGID) -> HRESULT;
             fn ChangeCurrentLanguage(&self, #[in] langid: LANGID) -> HRESULT;
-            fn GetLanguageList(&self, #[out] #[nullable(entry, indirect)] #[writable(success, *pulCount, indirect, nullable)] #[readable(success, *pulCount, indirect, nullable)] ppLangId: *mut *mut LANGID, #[out] pulCount: *mut ULONG) -> HRESULT;
+            fn GetLanguageList(&self, #[nullable(entry, indirect)] #[out] #[readable(success, *pulCount, indirect, nullable)] #[writable(success, *pulCount, indirect, nullable)] ppLangId: *mut *mut LANGID, #[out] pulCount: *mut ULONG) -> HRESULT;
             fn EnumLanguageProfiles(&self, #[in] langid: LANGID, #[out] #[out_ptr] ppEnum: *mut IEnumTfLanguageProfiles) -> HRESULT;
             fn EnableLanguageProfile(&self, #[in] rclsid: &IID, #[in] langid: LANGID, #[in] guidProfile: &GUID, #[in] fEnable: BOOL) -> HRESULT;
             fn IsEnabledLanguageProfile(&self, #[in] rclsid: &IID, #[in] langid: LANGID, #[in] guidProfile: &GUID, #[out] pfEnable: *mut BOOL) -> HRESULT;
@@ -447,10 +447,10 @@ mod Windows {
         }
         #[guid(0xaa80e7ff_2021_11d2_93e0_0060b067b86e)]
         interface ITfRange: IUnknown {
-            fn GetText(&self, #[in] ec: TfEditCookie, #[in] dwFlags: DWORD, #[out] #[writable(entry, cchMax)] #[writable(success, cchMax)] #[readable(success, *pcch)] pchText: *mut WCHAR, #[in] cchMax: ULONG, #[out] pcch: *mut ULONG) -> HRESULT;
+            fn GetText(&self, #[in] ec: TfEditCookie, #[in] dwFlags: DWORD, #[out] #[readable(success, *pcch)] #[writable(entry, cchMax)] #[writable(success, cchMax)] pchText: *mut WCHAR, #[in] cchMax: ULONG, #[out] pcch: *mut ULONG) -> HRESULT;
             fn SetText(&self, #[in] ec: TfEditCookie, #[in] dwFlags: DWORD, #[in] #[opt] #[readable(entry, cch)] pchText: *const WCHAR, #[in] cch: LONG) -> HRESULT;
             fn GetFormattedText(&self, #[in] ec: TfEditCookie, #[out] #[out_ptr] ppDataObject: *mut IDataObject) -> HRESULT;
-            fn GetEmbedded(&self, #[in] ec: TfEditCookie, #[in] rguidService: &GUID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppunk: *mut IUnknown) -> HRESULT;
+            fn GetEmbedded(&self, #[in] ec: TfEditCookie, #[in] rguidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppunk: *mut IUnknown) -> HRESULT;
             fn InsertEmbedded(&self, #[in] ec: TfEditCookie, #[in] dwFlags: DWORD, #[in] #[opt] pDataObject: IDataObject) -> HRESULT;
             fn ShiftStart(&self, #[in] ec: TfEditCookie, #[in] cchReq: LONG, #[out] pcch: *mut LONG, #[in] #[opt] pHalt: *const TF_HALTCOND) -> HRESULT;
             fn ShiftEnd(&self, #[in] ec: TfEditCookie, #[in] cchReq: LONG, #[out] pcch: *mut LONG, #[in] #[opt] pHalt: *const TF_HALTCOND) -> HRESULT;

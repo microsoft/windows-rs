@@ -19,9 +19,9 @@ mod Windows {
                 class AutomationRemoteOperationResult {
                     IAutomationRemoteOperationResult,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum AutomationRemoteOperationStatus {
                     Success = 0,
                     MalformedBytecode = 1,
@@ -51,10 +51,10 @@ mod Windows {
                 class CoreAutomationRemoteOperationContext {
                     ICoreAutomationRemoteOperationContext,
                 }
-                #[guid(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AutomationRemoteOperationResult)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xe0f80c42_4a67_5534_bf5a_09e8a99b36b1)]
                 interface IAutomationRemoteOperationResult {
                     #[get]
                     Status: AutomationRemoteOperationStatus;
@@ -65,26 +65,26 @@ mod Windows {
                     fn HasOperand(&self, #[in] operandId: AutomationRemoteOperationOperandId) -> bool;
                     fn GetOperand(&self, #[in] operandId: AutomationRemoteOperationOperandId) -> Object;
                 }
-                #[guid(0x0620bb64_9616_5593_be3a_eb8e6daeb3fa)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x0620bb64_9616_5593_be3a_eb8e6daeb3fa)]
                 interface ICoreAutomationConnectionBoundObjectProvider {
-                    #[get]
                     #[Windows::Foundation::Metadata::NoException]
+                    #[get]
                     IsComThreadingRequired: bool;
                 }
-                #[guid(0x3e50129b_d6dc_5680_b580_ffff78300304)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRegistrar)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x3e50129b_d6dc_5680_b580_ffff78300304)]
                 interface ICoreAutomationRegistrarStatics {
                     fn RegisterAnnotationType(&self, #[in] guid: GUID) -> AutomationAnnotationTypeRegistration;
                     fn UnregisterAnnotationType(&self, #[in] registration: AutomationAnnotationTypeRegistration);
                 }
-                #[guid(0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRemoteOperation)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x3ac656f4_e2bc_5c6e_b8e7_b224fb74b060)]
                 interface ICoreAutomationRemoteOperation {
                     fn IsOpcodeSupported(&self, #[in] opcode: u32) -> bool;
                     fn ImportElement(&self, #[in] operandId: AutomationRemoteOperationOperandId, #[in] element: super::AutomationElement);
@@ -92,17 +92,17 @@ mod Windows {
                     fn AddToResults(&self, #[in] operandId: AutomationRemoteOperationOperandId);
                     fn Execute(&self, #[in] bytecodeBuffer: [u8]) -> AutomationRemoteOperationResult;
                 }
-                #[guid(0xeefaf86f_e953_5099_8ce9_dca813482ba0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRemoteOperation)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xeefaf86f_e953_5099_8ce9_dca813482ba0)]
                 interface ICoreAutomationRemoteOperation2 {
                     fn ImportConnectionBoundObject(&self, #[in] operandId: AutomationRemoteOperationOperandId, #[in] connectionBoundObject: super::AutomationConnectionBoundObject);
                 }
-                #[guid(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAutomationRemoteOperationContext)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xb9af9cbb_3d3e_5918_a16b_7861626a3aeb)]
                 interface ICoreAutomationRemoteOperationContext {
                     fn GetOperand(&self, #[in] id: AutomationRemoteOperationOperandId) -> Object;
                     #[Windows::Foundation::Metadata::Overload("SetOperand")]
@@ -110,17 +110,17 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("SetOperand2")]
                     fn SetOperand(&self, #[in] id: AutomationRemoteOperationOperandId, #[in] operand: Object, #[in] operandInterfaceId: GUID);
                 }
-                #[guid(0x88f53e67_dc69_553b_a0aa_70477e724da8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x88f53e67_dc69_553b_a0aa_70477e724da8)]
                 interface ICoreAutomationRemoteOperationExtensionProvider {
                     fn CallExtension(&self, #[in] extensionId: GUID, #[in] context: CoreAutomationRemoteOperationContext, #[in] operandIds: [AutomationRemoteOperationOperandId]);
                     fn IsExtensionSupported(&self, #[in] extensionId: GUID) -> bool;
                 }
-                #[guid(0x5c8a091d_94cc_5b33_afdb_678cded2bd54)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationClientSession)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x5c8a091d_94cc_5b33_afdb_678cded2bd54)]
                 interface IRemoteAutomationClientSession {
                     fn Start(&self);
                     fn Stop(&self);
@@ -131,43 +131,43 @@ mod Windows {
                     event ConnectionRequested: super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationConnectionRequestedEventArgs>;
                     event Disconnected: super::super::super::Foundation::TypedEventHandler<RemoteAutomationClientSession, RemoteAutomationDisconnectedEventArgs>;
                 }
-                #[guid(0xf250263d_6057_5373_a5a5_ed7265fe0376)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationClientSession)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xf250263d_6057_5373_a5a5_ed7265fe0376)]
                 interface IRemoteAutomationClientSessionFactory {
                     fn CreateInstance(&self, #[in] name: String) -> RemoteAutomationClientSession;
                     fn CreateInstance2(&self, #[in] name: String, #[in] sessionId: GUID) -> RemoteAutomationClientSession;
                 }
-                #[guid(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationConnectionRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xea3319a8_e3a8_5dc6_adf8_044e46b14af5)]
                 interface IRemoteAutomationConnectionRequestedEventArgs {
                     #[get]
                     LocalPipeName: String;
                     #[get]
                     RemoteProcessId: u32;
                 }
-                #[guid(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationDisconnectedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xbbb33a3d_5d90_5c38_9eb2_dd9dcc1b2e3f)]
                 interface IRemoteAutomationDisconnectedEventArgs {
                     #[get]
                     LocalPipeName: String;
                 }
-                #[guid(0xe6e8945e_0c11_5028_9ae3_c2771288b6b7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationServer)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xe6e8945e_0c11_5028_9ae3_c2771288b6b7)]
                 interface IRemoteAutomationServerStatics {
                     fn ReportSession(&self, #[in] sessionId: GUID);
                 }
-                #[guid(0x7c607689_496d_512a_9bd5_c050cfaf1428)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::UIAutomationContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(RemoteAutomationWindow)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x7c607689_496d_512a_9bd5_c050cfaf1428)]
                 interface IRemoteAutomationWindow {
                     #[get]
                     AutomationProvider: Object;

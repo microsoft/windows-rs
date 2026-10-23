@@ -41,7 +41,7 @@ mod Windows {
         #[guid(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10)]
         interface IDXGIDevice4: IDXGIDevice3 {
             fn OfferResources1(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[in] Priority: DXGI_OFFER_RESOURCE_PRIORITY, #[in] Flags: UINT) -> HRESULT;
-            fn ReclaimResources1(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[out] #[writable(entry, NumResources)] #[readable(success, NumResources)] pResults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> HRESULT;
+            fn ReclaimResources1(&self, #[in] NumResources: UINT, #[in] #[readable(entry, NumResources)] ppResources: *const IDXGIResource, #[out] #[readable(success, NumResources)] #[writable(entry, NumResources)] pResults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> HRESULT;
         }
         #[guid(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d)]
         interface IDXGIFactory5: IDXGIFactory4 {

@@ -2,8 +2,8 @@
 mod Windows {
     mod Security {
         mod Cryptography {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BinaryStringEncoding {
                 Utf8 = 0,
                 Utf16LE = 1,
@@ -15,9 +15,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(ICryptographicBufferStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CryptographicBuffer {}
-            #[guid(0x320b7e22_3cb0_4cdf_8663_1d28910065eb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CryptographicBuffer)]
+            #[guid(0x320b7e22_3cb0_4cdf_8663_1d28910065eb)]
             interface ICryptographicBufferStatics {
                 fn Compare(&self, #[in] object1: super::super::Storage::Streams::IBuffer, #[in] object2: super::super::Storage::Streams::IBuffer) -> bool;
                 fn GenerateRandom(&self, #[in] length: u32) -> super::super::Storage::Streams::IBuffer;

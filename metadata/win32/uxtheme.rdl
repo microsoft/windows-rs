@@ -33,8 +33,8 @@ mod Windows {
         }
         #[library("UxTheme.dll")]
         extern fn BeginBufferedAnimation(#[in] hwnd: HWND, #[in] hdcTarget: HDC, #[in] prcTarget: *const RECT, #[in] dwFormat: BP_BUFFERFORMAT, #[in] #[opt] pPaintParams: *mut BP_PAINTPARAMS, #[in] pAnimationParams: *mut BP_ANIMATIONPARAMS, #[out] phdcFrom: *mut HDC, #[out] phdcTo: *mut HDC) -> HANIMATIONBUFFER;
-        #[success(return != 0)]
         #[library("UxTheme.dll")]
+        #[success(return != 0)]
         extern fn BeginBufferedPaint(#[in] hdcTarget: HDC, #[in] prcTarget: *const RECT, #[in] dwFormat: BP_BUFFERFORMAT, #[in] #[opt] pPaintParams: *mut BP_PAINTPARAMS, #[out] phdc: *mut HDC) -> HPAINTBUFFER;
         #[library("UxTheme.dll")]
         extern fn BeginPanningFeedback(#[in] hwnd: HWND) -> BOOL;
@@ -108,7 +108,7 @@ mod Windows {
         #[library("UxTheme.dll")]
         extern fn DrawThemeBackgroundEx(#[in] hTheme: HTHEME, #[in] hdc: HDC, #[in] iPartId: i32, #[in] iStateId: i32, #[in] pRect: LPCRECT, #[in] #[opt] pOptions: *const DTBGOPTS) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn DrawThemeEdge(#[in] hTheme: HTHEME, #[in] hdc: HDC, #[in] iPartId: i32, #[in] iStateId: i32, #[in] pDestRect: LPCRECT, #[in] uEdge: UINT, #[in] uFlags: UINT, #[out] #[opt] pContentRect: LPRECT) -> HRESULT;
+        extern fn DrawThemeEdge(#[in] hTheme: HTHEME, #[in] hdc: HDC, #[in] iPartId: i32, #[in] iStateId: i32, #[in] pDestRect: LPCRECT, #[in] uEdge: UINT, #[in] uFlags: UINT, #[opt] #[out] pContentRect: LPRECT) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn DrawThemeIcon(#[in] hTheme: HTHEME, #[in] hdc: HDC, #[in] iPartId: i32, #[in] iStateId: i32, #[in] pRect: LPCRECT, #[in] himl: HIMAGELIST, #[in] iImageIndex: i32) -> HRESULT;
         #[library("UxTheme.dll")]
@@ -148,11 +148,11 @@ mod Windows {
         #[library("UxTheme.dll")]
         extern fn GetBufferedPaintTargetRect(#[in] hBufferedPaint: HPAINTBUFFER, #[out] prc: *mut RECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetCurrentThemeName(#[out] #[writable(entry, cchMaxNameChars)] pszThemeFileName: LPWSTR, #[in] cchMaxNameChars: i32, #[out] #[opt] #[writable(entry, cchMaxColorChars)] pszColorBuff: LPWSTR, #[in] cchMaxColorChars: i32, #[out] #[opt] #[writable(entry, cchMaxSizeChars)] pszSizeBuff: LPWSTR, #[in] cchMaxSizeChars: i32) -> HRESULT;
+        extern fn GetCurrentThemeName(#[out] #[writable(entry, cchMaxNameChars)] pszThemeFileName: LPWSTR, #[in] cchMaxNameChars: i32, #[opt] #[out] #[writable(entry, cchMaxColorChars)] pszColorBuff: LPWSTR, #[in] cchMaxColorChars: i32, #[opt] #[out] #[writable(entry, cchMaxSizeChars)] pszSizeBuff: LPWSTR, #[in] cchMaxSizeChars: i32) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeAnimationProperty(#[in] hTheme: HTHEME, #[in] iStoryboardId: i32, #[in] iTargetId: i32, #[in] eProperty: TA_PROPERTY, #[out] #[opt] #[writable(entry, bytes(cbSize))] #[readable(success, bytes(*pcbSizeOut))] pvProperty: *mut void, #[in] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
+        extern fn GetThemeAnimationProperty(#[in] hTheme: HTHEME, #[in] iStoryboardId: i32, #[in] iTargetId: i32, #[in] eProperty: TA_PROPERTY, #[opt] #[out] #[readable(success, bytes(*pcbSizeOut))] #[writable(entry, bytes(cbSize))] pvProperty: *mut void, #[in] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeAnimationTransform(#[in] hTheme: HTHEME, #[in] iStoryboardId: i32, #[in] iTargetId: i32, #[in] dwTransformIndex: DWORD, #[out] #[opt] #[writable(entry, bytes(cbSize))] #[readable(success, bytes(*pcbSizeOut))] pTransform: *mut TA_TRANSFORM, #[in] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
+        extern fn GetThemeAnimationTransform(#[in] hTheme: HTHEME, #[in] iStoryboardId: i32, #[in] iTargetId: i32, #[in] dwTransformIndex: DWORD, #[opt] #[out] #[readable(success, bytes(*pcbSizeOut))] #[writable(entry, bytes(cbSize))] pTransform: *mut TA_TRANSFORM, #[in] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn GetThemeAppProperties() -> DWORD;
         #[library("UxTheme.dll")]
@@ -192,7 +192,7 @@ mod Windows {
         #[library("UxTheme.dll")]
         extern fn GetThemeRect(#[in] hTheme: HTHEME, #[in] iPartId: i32, #[in] iStateId: i32, #[in] iPropId: i32, #[out] pRect: LPRECT) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeStream(#[in] hTheme: HTHEME, #[in] iPartId: i32, #[in] iStateId: i32, #[in] iPropId: i32, #[out] ppvStream: *mut *mut void, #[out] #[opt] pcbStream: *mut DWORD, #[in] #[opt] hInst: HINSTANCE) -> HRESULT;
+        extern fn GetThemeStream(#[in] hTheme: HTHEME, #[in] iPartId: i32, #[in] iStateId: i32, #[in] iPropId: i32, #[out] ppvStream: *mut *mut void, #[opt] #[out] pcbStream: *mut DWORD, #[in] #[opt] hInst: HINSTANCE) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn GetThemeString(#[in] hTheme: HTHEME, #[in] iPartId: i32, #[in] iStateId: i32, #[in] iPropId: i32, #[out] #[writable(entry, cchMaxBuffChars)] pszBuff: LPWSTR, #[in] cchMaxBuffChars: i32) -> HRESULT;
         #[library("UxTheme.dll")]
@@ -214,7 +214,7 @@ mod Windows {
         #[library("UxTheme.dll")]
         extern fn GetThemeTextMetrics(#[in] hTheme: HTHEME, #[in] hdc: HDC, #[in] iPartId: i32, #[in] iStateId: i32, #[out] ptm: *mut TEXTMETRICW) -> HRESULT;
         #[library("UxTheme.dll")]
-        extern fn GetThemeTimingFunction(#[in] hTheme: HTHEME, #[in] iTimingFunctionId: i32, #[out] #[opt] #[writable(entry, bytes(cbSize))] #[readable(success, bytes(*pcbSizeOut))] pTimingFunction: *mut TA_TIMINGFUNCTION, #[in] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
+        extern fn GetThemeTimingFunction(#[in] hTheme: HTHEME, #[in] iTimingFunctionId: i32, #[opt] #[out] #[readable(success, bytes(*pcbSizeOut))] #[writable(entry, bytes(cbSize))] pTimingFunction: *mut TA_TIMINGFUNCTION, #[in] cbSize: DWORD, #[out] pcbSizeOut: *mut DWORD) -> HRESULT;
         #[library("UxTheme.dll")]
         extern fn GetThemeTransitionDuration(#[in] hTheme: HTHEME, #[in] iPartId: i32, #[in] iStateIdFrom: i32, #[in] iStateIdTo: i32, #[in] iPropId: i32, #[out] pdwDuration: *mut DWORD) -> HRESULT;
         #[library("UxTheme.dll")]

@@ -3,9 +3,9 @@ mod Windows {
     mod ApplicationModel {
         mod UserDataAccounts {
             mod Provider {
-                #[guid(0x5f200037_f6ef_4ec3_8630_012c59c1149f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountPartnerAccountInfo)]
+                #[guid(0x5f200037_f6ef_4ec3_8630_012c59c1149f)]
                 interface IUserDataAccountPartnerAccountInfo {
                     #[get]
                     DisplayName: String;
@@ -14,9 +14,9 @@ mod Windows {
                     #[get]
                     AccountKind: UserDataAccountProviderPartnerAccountKind;
                 }
-                #[guid(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderAddAccountOperation)]
+                #[guid(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed)]
                 interface IUserDataAccountProviderAddAccountOperation: IUserDataAccountProviderOperation {
                     #[get]
                     ContentKinds: super::UserDataAccountContentKinds;
@@ -24,23 +24,23 @@ mod Windows {
                     PartnerAccountInfos: super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>;
                     fn ReportCompleted(&self, #[in] userDataAccountId: String);
                 }
-                #[guid(0xa20aad63_888c_4a62_a3dd_34d07a802b2b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[guid(0xa20aad63_888c_4a62_a3dd_34d07a802b2b)]
                 interface IUserDataAccountProviderOperation {
                     #[get]
                     Kind: UserDataAccountProviderOperationKind;
                 }
-                #[guid(0x6235dc15_bfcb_41e1_9957_9759a28846cc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderResolveErrorsOperation)]
+                #[guid(0x6235dc15_bfcb_41e1_9957_9759a28846cc)]
                 interface IUserDataAccountProviderResolveErrorsOperation: IUserDataAccountProviderOperation {
                     #[get]
                     UserDataAccountId: String;
                     fn ReportCompleted(&self);
                 }
-                #[guid(0x92034db7_8648_4f30_acfa_3002658ca80d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderSettingsOperation)]
+                #[guid(0x92034db7_8648_4f30_acfa_3002658ca80d)]
                 interface IUserDataAccountProviderSettingsOperation: IUserDataAccountProviderOperation {
                     #[get]
                     UserDataAccountId: String;
@@ -57,15 +57,15 @@ mod Windows {
                     IUserDataAccountProviderAddAccountOperation,
                     IUserDataAccountProviderOperation,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum UserDataAccountProviderOperationKind {
                     AddAccount = 0,
                     Settings = 1,
                     ResolveErrors = 2,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[repr(i32)]
                 enum UserDataAccountProviderPartnerAccountKind {
                     Exchange = 0,
                     PopOrImap = 1,

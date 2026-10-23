@@ -776,7 +776,7 @@ fn write_custom_attributes_with_names<'a>(
     exclude: &[&str],
     extent_owner: Option<ExtentOwner<'_>>,
 ) -> Result<Vec<TokenStream>, Error> {
-    let mut rendered = attributes
+    attributes
         .filter(|attr| {
             !(namespace_starts_with(attr.namespace(), "System")
                 || exclude.contains(&attr.name())
@@ -960,11 +960,7 @@ fn write_custom_attributes_with_names<'a>(
                 quote! { #[#name_ts(#(#args),*)] }
             })
         })
-        .collect::<Result<Vec<TokenStream>, Error>>()?;
-
-    // Attribute table order varies between metadata builds; sort rendered text for stable output.
-    rendered.sort_by_key(|ts| ts.to_string());
-    Ok(rendered)
+        .collect()
 }
 
 /// Renders enum-valued attribute arguments as variants, decomposing flags when needed.

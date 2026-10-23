@@ -17,9 +17,9 @@ mod Windows {
         #[library("wsdapi.dll")]
         extern fn WSDSetConfigurationOption(dwOption: DWORD, #[in] #[readable(entry, bytes(cbInBuffer))] pVoid: LPVOID, cbInBuffer: DWORD) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDUriDecode(#[in] #[readable(entry, cchSource)] source: LPCWSTR, #[in] cchSource: DWORD, #[out] #[writable(entry, if_present(*cchDestOut))] destOut: *mut LPWSTR, #[out] #[opt] cchDestOut: *mut DWORD) -> HRESULT;
+        extern fn WSDUriDecode(#[in] #[readable(entry, cchSource)] source: LPCWSTR, #[in] cchSource: DWORD, #[out] #[writable(entry, if_present(*cchDestOut))] destOut: *mut LPWSTR, #[opt] #[out] cchDestOut: *mut DWORD) -> HRESULT;
         #[library("wsdapi.dll")]
-        extern fn WSDUriEncode(#[in] #[readable(entry, cchSource)] source: LPCWSTR, #[in] cchSource: DWORD, #[out] #[writable(entry, if_present(*cchDestOut))] destOut: *mut LPWSTR, #[out] #[opt] cchDestOut: *mut DWORD) -> HRESULT;
+        extern fn WSDUriEncode(#[in] #[readable(entry, cchSource)] source: LPCWSTR, #[in] cchSource: DWORD, #[out] #[writable(entry, if_present(*cchDestOut))] destOut: *mut LPWSTR, #[opt] #[out] cchDestOut: *mut DWORD) -> HRESULT;
         #[encoding("utf-16")]
         const WSD_DEFAULT_EVENTING_ADDRESS: String = "http://*:5357/";
         #[encoding("utf-16")]

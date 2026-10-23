@@ -109,63 +109,63 @@ mod Windows {
         const DS_WRITABLE_FLAG: i32 = 256;
         const DS_WRITABLE_REQUIRED: i32 = 4096;
         const DS_WS_FLAG: i32 = 8192;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsAddressToSiteNamesA(#[in] #[opt] ComputerName: LPCSTR, #[in] EntryCount: DWORD, #[in] #[readable(entry, EntryCount)] SocketAddresses: PSOCKET_ADDRESS, #[out] #[out_ptr(null_on_failure)] #[writable(success, EntryCount, indirect)] SiteNames: *mut *mut LPSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsAddressToSiteNamesExA(#[in] #[opt] ComputerName: LPCSTR, #[in] EntryCount: DWORD, #[in] #[readable(entry, EntryCount)] SocketAddresses: PSOCKET_ADDRESS, #[out] #[out_ptr(null_on_failure)] #[writable(success, EntryCount, indirect)] SiteNames: *mut *mut LPSTR, #[out] #[out_ptr(null_on_failure)] #[writable(success, EntryCount, indirect)] SubnetNames: *mut *mut LPSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsAddressToSiteNamesExW(#[in] #[opt] ComputerName: LPCWSTR, #[in] EntryCount: DWORD, #[in] #[readable(entry, EntryCount)] SocketAddresses: PSOCKET_ADDRESS, #[out] #[out_ptr(null_on_failure)] #[writable(success, EntryCount, indirect)] SiteNames: *mut *mut LPWSTR, #[out] #[out_ptr(null_on_failure)] #[writable(success, EntryCount, indirect)] SubnetNames: *mut *mut LPWSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsAddressToSiteNamesW(#[in] #[opt] ComputerName: LPCWSTR, #[in] EntryCount: DWORD, #[in] #[readable(entry, EntryCount)] SocketAddresses: PSOCKET_ADDRESS, #[out] #[out_ptr(null_on_failure)] #[writable(success, EntryCount, indirect)] SiteNames: *mut *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn DsDeregisterDnsHostRecordsA(#[in] #[opt] ServerName: LPSTR, #[in] #[opt] DnsDomainName: LPSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] DsaGuid: *mut GUID, #[in] DnsHostName: LPSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn DsDeregisterDnsHostRecordsW(#[in] #[opt] ServerName: LPWSTR, #[in] #[opt] DnsDomainName: LPWSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] DsaGuid: *mut GUID, #[in] DnsHostName: LPWSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsEnumerateDomainTrustsA(#[in] #[opt] ServerName: LPSTR, #[in] Flags: ULONG, #[out] #[out_ptr(null_on_failure)] #[writable(success, *DomainCount, indirect)] Domains: *mut PDS_DOMAIN_TRUSTSA, #[out] DomainCount: PULONG) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsEnumerateDomainTrustsW(#[in] #[opt] ServerName: LPWSTR, #[in] Flags: ULONG, #[out] #[out_ptr(null_on_failure)] #[writable(success, *DomainCount, indirect)] Domains: *mut PDS_DOMAIN_TRUSTSW, #[out] DomainCount: PULONG) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn DsGetDcCloseW(#[in] GetDcContextHandle: HANDLE);
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsGetDcNameA(#[in] #[opt] ComputerName: LPCSTR, #[in] #[opt] DomainName: LPCSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] SiteName: LPCSTR, #[in] Flags: ULONG, #[out] #[out_ptr(null_on_failure)] DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOA) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsGetDcNameW(#[in] #[opt] ComputerName: LPCWSTR, #[in] #[opt] DomainName: LPCWSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] SiteName: LPCWSTR, #[in] Flags: ULONG, #[out] #[out_ptr(null_on_failure)] DomainControllerInfo: *mut PDOMAIN_CONTROLLER_INFOW) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcNextA(#[in] GetDcContextHandle: HANDLE, #[out] #[opt] SockAddressCount: PULONG, #[out] #[opt] #[writable(success, if_present(*SockAddressCount), indirect)] SockAddresses: *mut LPSOCKET_ADDRESS, #[out] #[opt] #[out_ptr(null_on_failure)] DnsHostName: *mut LPSTR) -> DWORD;
         #[success(return == 0)]
+        extern fn DsGetDcNextA(#[in] GetDcContextHandle: HANDLE, #[opt] #[out] SockAddressCount: PULONG, #[opt] #[out] #[writable(success, if_present(*SockAddressCount), indirect)] SockAddresses: *mut LPSOCKET_ADDRESS, #[opt] #[out] #[out_ptr(null_on_failure)] DnsHostName: *mut LPSTR) -> DWORD;
         #[library("NETAPI32.dll")]
-        extern fn DsGetDcNextW(#[in] GetDcContextHandle: HANDLE, #[out] #[opt] SockAddressCount: PULONG, #[out] #[opt] #[writable(success, if_present(*SockAddressCount), indirect)] SockAddresses: *mut LPSOCKET_ADDRESS, #[out] #[opt] #[out_ptr(null_on_failure)] DnsHostName: *mut LPWSTR) -> DWORD;
+        #[success(return == 0)]
+        extern fn DsGetDcNextW(#[in] GetDcContextHandle: HANDLE, #[opt] #[out] SockAddressCount: PULONG, #[opt] #[out] #[writable(success, if_present(*SockAddressCount), indirect)] SockAddresses: *mut LPSOCKET_ADDRESS, #[opt] #[out] #[out_ptr(null_on_failure)] DnsHostName: *mut LPWSTR) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn DsGetDcOpenA(#[in] DnsName: LPCSTR, #[in] OptionFlags: ULONG, #[in] #[opt] SiteName: LPCSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] DnsForestName: LPCSTR, #[in] DcFlags: ULONG, #[out] RetGetDcContext: PHANDLE) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn DsGetDcOpenW(#[in] DnsName: LPCWSTR, #[in] OptionFlags: ULONG, #[in] #[opt] SiteName: LPCWSTR, #[in] #[opt] DomainGuid: *mut GUID, #[in] #[opt] DnsForestName: LPCWSTR, #[in] DcFlags: ULONG, #[out] RetGetDcContext: PHANDLE) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsGetDcSiteCoverageA(#[in] #[opt] ServerName: LPCSTR, #[out] EntryCount: PULONG, #[out] #[out_ptr(null_on_failure)] #[writable(success, *EntryCount, indirect)] SiteNames: *mut *mut LPSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsGetDcSiteCoverageW(#[in] #[opt] ServerName: LPCWSTR, #[out] EntryCount: PULONG, #[out] #[out_ptr(null_on_failure)] #[writable(success, *EntryCount, indirect)] SiteNames: *mut *mut LPWSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsGetForestTrustInformationW(#[in] #[opt] ServerName: LPCWSTR, #[in] #[opt] TrustedDomainName: LPCWSTR, #[in] Flags: DWORD, #[out] #[out_ptr(null_on_failure)] ForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsGetSiteNameA(#[in] #[opt] ComputerName: LPCSTR, #[out] #[out_ptr(null_on_failure)] SiteName: *mut LPSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsGetSiteNameW(#[in] #[opt] ComputerName: LPCWSTR, #[out] #[out_ptr(null_on_failure)] SiteName: *mut LPWSTR) -> DWORD;
-        #[success(return == 0)]
         #[library("NETAPI32.dll")]
+        #[success(return == 0)]
         extern fn DsMergeForestTrustInformationW(#[in] DomainName: LPCWSTR, #[in] NewForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION, #[in] #[opt] OldForestTrustInfo: PLSA_FOREST_TRUST_INFORMATION, #[out] #[out_ptr(null_on_failure)] MergedForestTrustInfo: *mut PLSA_FOREST_TRUST_INFORMATION) -> DWORD;
         #[library("NETAPI32.dll")]
         extern fn DsValidateSubnetNameA(#[in] SubnetName: LPCSTR) -> DWORD;

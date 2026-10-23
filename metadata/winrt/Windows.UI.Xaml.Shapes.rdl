@@ -11,25 +11,25 @@ mod Windows {
                 class Ellipse: Shape {
                     IEllipse,
                 }
-                #[guid(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Ellipse)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86)]
                 interface IEllipse {}
-                #[guid(0x46a5433d_4ffb_48df_8732_4e15c834816b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Line)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x46a5433d_4ffb_48df_8732_4e15c834816b)]
                 interface ILine {
                     X1: f64;
                     Y1: f64;
                     X2: f64;
                     Y2: f64;
                 }
-                #[guid(0x267c123d_6ea4_4c50_8b1d_50207aff1e8a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Line)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x267c123d_6ea4_4c50_8b1d_50207aff1e8a)]
                 interface ILineStatics {
                     #[get]
                     X1Property: super::DependencyProperty;
@@ -40,86 +40,86 @@ mod Windows {
                     #[get]
                     Y2Property: super::DependencyProperty;
                 }
-                #[guid(0x78883609_3d57_4f3c_b8a5_6cabcac9711f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Path)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x78883609_3d57_4f3c_b8a5_6cabcac9711f)]
                 interface IPath {
                     Data: super::Media::Geometry;
                 }
-                #[guid(0x2340a4e3_5a86_4fc6_9a50_cbb93b828766)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Path)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x2340a4e3_5a86_4fc6_9a50_cbb93b828766)]
                 interface IPathFactory {
                     fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Path;
                 }
-                #[guid(0xf627e59d_87dc_4142_81f1_97fc7ff8641c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Path)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xf627e59d_87dc_4142_81f1_97fc7ff8641c)]
                 interface IPathStatics {
                     #[get]
                     DataProperty: super::DependencyProperty;
                 }
-                #[guid(0xe3755c19_2e4d_4bcc_8d34_86871957fa01)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Polygon)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xe3755c19_2e4d_4bcc_8d34_86871957fa01)]
                 interface IPolygon {
                     FillRule: super::Media::FillRule;
                     Points: super::Media::PointCollection;
                 }
-                #[guid(0x362a8aab_d463_4366_9e1a_beba72810fb7)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Polygon)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x362a8aab_d463_4366_9e1a_beba72810fb7)]
                 interface IPolygonStatics {
                     #[get]
                     FillRuleProperty: super::DependencyProperty;
                     #[get]
                     PointsProperty: super::DependencyProperty;
                 }
-                #[guid(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Polyline)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6)]
                 interface IPolyline {
                     FillRule: super::Media::FillRule;
                     Points: super::Media::PointCollection;
                 }
-                #[guid(0xc7aa2cd1_a26c_43b0_aaa5_822fa64a11b9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Polyline)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xc7aa2cd1_a26c_43b0_aaa5_822fa64a11b9)]
                 interface IPolylineStatics {
                     #[get]
                     FillRuleProperty: super::DependencyProperty;
                     #[get]
                     PointsProperty: super::DependencyProperty;
                 }
-                #[guid(0x855bc230_8a11_4e18_a136_4bc21c7827b0)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Rectangle)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x855bc230_8a11_4e18_a136_4bc21c7827b0)]
                 interface IRectangle {
                     RadiusX: f64;
                     RadiusY: f64;
                 }
-                #[guid(0x9f25aa53_bb3a_4c3c_89db_6fbc0d1fa0cc)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Rectangle)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x9f25aa53_bb3a_4c3c_89db_6fbc0d1fa0cc)]
                 interface IRectangleStatics {
                     #[get]
                     RadiusXProperty: super::DependencyProperty;
                     #[get]
                     RadiusYProperty: super::DependencyProperty;
                 }
-                #[guid(0x786f2b75_9aa0_454d_ae06_a2466e37c832)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x786f2b75_9aa0_454d_ae06_a2466e37c832)]
                 interface IShape {
                     Fill: super::Media::Brush;
                     Stroke: super::Media::Brush;
@@ -135,24 +135,24 @@ mod Windows {
                     #[get]
                     GeometryTransform: super::Media::Transform;
                 }
-                #[guid(0x97248dba_49f2_49a4_a5dd_164df824db14)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x97248dba_49f2_49a4_a5dd_164df824db14)]
                 interface IShape2 {
                     fn GetAlphaMask(&self) -> super::super::Composition::CompositionBrush;
                 }
-                #[guid(0x4b717613_f6aa_48d5_9588_e1d188eacbc9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x4b717613_f6aa_48d5_9588_e1d188eacbc9)]
                 interface IShapeFactory {
                     fn CreateInstance(&self, #[in] baseInterface: Object, #[out] innerInterface: &mut Object) -> Shape;
                 }
-                #[guid(0x1d7b4c55_9df3_48dc_9194_9d306faa6089)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Shape)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x1d7b4c55_9df3_48dc_9194_9d306faa6089)]
                 interface IShapeStatics {
                     #[get]
                     FillProperty: super::DependencyProperty;
@@ -186,13 +186,13 @@ mod Windows {
                 class Line: Shape {
                     ILine,
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IPathFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IPathStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class Path: Shape {
                     IPath,
                 }
@@ -223,13 +223,13 @@ mod Windows {
                 class Rectangle: Shape {
                     IRectangle,
                 }
-                #[unsealed]
                 #[Windows::Foundation::Metadata::Composable(IShapeFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IShapeStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[unsealed]
                 class Shape: super::FrameworkElement {
                     IShape,
                     #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 196608)]

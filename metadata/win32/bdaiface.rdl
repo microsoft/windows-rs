@@ -49,7 +49,7 @@ mod Windows {
         interface IBDA_ConditionalAccess: IUnknown {
             fn get_SmartCardStatus(&self, #[out] pCardStatus: *mut SmartCardStatusType, #[out] pCardAssociation: *mut SmartCardAssociationType, #[out] #[out_ptr] pbstrCardError: *mut BSTR, #[out] pfOOBLocked: *mut VARIANT_BOOL) -> HRESULT;
             fn get_SmartCardInfo(&self, #[out] #[out_ptr] pbstrCardName: *mut BSTR, #[out] #[out_ptr] pbstrCardManufacturer: *mut BSTR, #[out] pfDaylightSavings: *mut VARIANT_BOOL, #[out] pbyRatingRegion: *mut BYTE, #[out] plTimeZoneOffsetMinutes: *mut LONG, #[out] #[out_ptr] pbstrLanguage: *mut BSTR, #[out] pEALocationCode: *mut EALocationCodeType) -> HRESULT;
-            fn get_SmartCardApplications(&self, #[in] #[out] pulcApplications: *mut ULONG, #[in] ulcApplicationsMax: ULONG, #[in] #[out] #[readable(entry, ulcApplicationsMax)] #[writable(entry, ulcApplicationsMax)] #[readable(success, ulcApplicationsMax)] rgApplications: *mut SmartCardApplication) -> HRESULT;
+            fn get_SmartCardApplications(&self, #[in] #[out] pulcApplications: *mut ULONG, #[in] ulcApplicationsMax: ULONG, #[in] #[out] #[readable(entry, ulcApplicationsMax)] #[readable(success, ulcApplicationsMax)] #[writable(entry, ulcApplicationsMax)] rgApplications: *mut SmartCardApplication) -> HRESULT;
             fn get_Entitlement(&self, #[in] usVirtualChannel: USHORT, #[out] pEntitlement: *mut EntitlementType) -> HRESULT;
             fn TuneByChannel(&self, #[in] usVirtualChannel: USHORT) -> HRESULT;
             fn SetProgram(&self, #[in] usProgramNumber: USHORT) -> HRESULT;
@@ -75,7 +75,7 @@ mod Windows {
         #[guid(0x05c690f8_56db_4bb2_b053_79c12098bb26)]
         interface IBDA_DRIWMDRMSession: IUnknown {
             fn AcknowledgeLicense(&self, #[in] hrLicenseAck: HRESULT) -> HRESULT;
-            fn ProcessLicenseChallenge(&self, #[in] dwcbLicenseMessage: DWORD, #[in] #[readable(entry, dwcbLicenseMessage)] pbLicenseMessage: *mut BYTE, #[in] #[out] pdwcbLicenseResponse: *mut DWORD, #[in] #[out] #[readable(entry, *pdwcbLicenseResponse)] #[writable(entry, *pdwcbLicenseResponse)] #[readable(success, *pdwcbLicenseResponse)] ppbLicenseResponse: *mut *mut BYTE) -> HRESULT;
+            fn ProcessLicenseChallenge(&self, #[in] dwcbLicenseMessage: DWORD, #[in] #[readable(entry, dwcbLicenseMessage)] pbLicenseMessage: *mut BYTE, #[in] #[out] pdwcbLicenseResponse: *mut DWORD, #[in] #[out] #[readable(entry, *pdwcbLicenseResponse)] #[readable(success, *pdwcbLicenseResponse)] #[writable(entry, *pdwcbLicenseResponse)] ppbLicenseResponse: *mut *mut BYTE) -> HRESULT;
             fn ProcessRegistrationChallenge(&self, #[in] dwcbRegistrationMessage: DWORD, #[in] #[readable(entry, dwcbRegistrationMessage)] pbRegistrationMessage: *mut BYTE, #[in] #[out] pdwcbRegistrationResponse: *mut DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] ppbRegistrationResponse: *mut *mut BYTE) -> HRESULT;
             fn SetRevInfo(&self, #[in] dwRevInfoLen: DWORD, #[in] #[readable(entry, dwRevInfoLen)] pbRevInfo: *mut BYTE, #[in] #[out] pdwResponse: *mut DWORD) -> HRESULT;
             fn SetCrl(&self, #[in] dwCrlLen: DWORD, #[in] #[readable(entry, dwCrlLen)] pbCrlLen: *mut BYTE, #[in] #[out] pdwResponse: *mut DWORD) -> HRESULT;
@@ -143,7 +143,7 @@ mod Windows {
             fn put_DiseqUseToneBurst(&self, #[in] bUseToneBurst: BOOLEAN) -> HRESULT;
             fn put_DiseqRepeats(&self, #[in] ulRepeats: ULONG) -> HRESULT;
             fn put_DiseqSendCommand(&self, #[in] ulRequestId: ULONG, #[in] ulcbCommandLen: ULONG, #[in] #[readable(entry, ulcbCommandLen)] pbCommand: *mut BYTE) -> HRESULT;
-            fn get_DiseqResponse(&self, #[in] ulRequestId: ULONG, #[in] #[out] pulcbResponseLen: *mut ULONG, #[in] #[out] #[readable(entry, *pulcbResponseLen)] #[writable(entry, *pulcbResponseLen)] #[readable(success, *pulcbResponseLen)] pbResponse: *mut BYTE) -> HRESULT;
+            fn get_DiseqResponse(&self, #[in] ulRequestId: ULONG, #[in] #[out] pulcbResponseLen: *mut ULONG, #[in] #[out] #[readable(entry, *pulcbResponseLen)] #[readable(success, *pulcbResponseLen)] #[writable(entry, *pulcbResponseLen)] pbResponse: *mut BYTE) -> HRESULT;
         }
         #[guid(0xd806973d_3ebe_46de_8fbb_6358fe784208)]
         interface IBDA_EasMessage: IUnknown {
@@ -161,7 +161,7 @@ mod Windows {
         interface IBDA_EthernetFilter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut ULONG) -> HRESULT;
             fn PutMulticastList(&self, #[in] ulcbAddresses: ULONG, #[in] #[readable(entry, ulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
-            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[in] #[out] #[readable(entry, *pulcbAddresses)] #[writable(entry, *pulcbAddresses)] #[readable(success, *pulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[in] #[out] #[readable(entry, *pulcbAddresses)] #[readable(success, *pulcbAddresses)] #[writable(entry, *pulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
             fn PutMulticastMode(&self, #[in] ulModeMask: ULONG) -> HRESULT;
             fn GetMulticastMode(&self, #[out] pulModeMask: *mut ULONG) -> HRESULT;
         }
@@ -210,7 +210,7 @@ mod Windows {
         }
         #[guid(0xa750108f_492e_4d51_95f7_649b23ff7ad7)]
         interface IBDA_IPSinkInfo: IUnknown {
-            fn get_MulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[out] #[writable(entry, *pulcbAddresses)] #[writable(success, *pulcbAddresses)] #[readable(success, *pulcbAddresses)] ppbAddressList: *mut *mut BYTE) -> HRESULT;
+            fn get_MulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[out] #[readable(success, *pulcbAddresses)] #[writable(entry, *pulcbAddresses)] #[writable(success, *pulcbAddresses)] ppbAddressList: *mut *mut BYTE) -> HRESULT;
             fn get_AdapterIPAddress(&self, #[out] #[out_ptr] pbstrBuffer: *mut BSTR) -> HRESULT;
             fn get_AdapterDescription(&self, #[out] #[out_ptr] pbstrBuffer: *mut BSTR) -> HRESULT;
         }
@@ -218,7 +218,7 @@ mod Windows {
         interface IBDA_IPV4Filter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut ULONG) -> HRESULT;
             fn PutMulticastList(&self, #[in] ulcbAddresses: ULONG, #[in] #[readable(entry, ulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
-            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[out] #[writable(entry, *pulcbAddresses)] #[writable(success, *pulcbAddresses)] #[readable(success, *pulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[out] #[readable(success, *pulcbAddresses)] #[writable(entry, *pulcbAddresses)] #[writable(success, *pulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
             fn PutMulticastMode(&self, #[in] ulModeMask: ULONG) -> HRESULT;
             fn GetMulticastMode(&self, #[out] pulModeMask: *mut ULONG) -> HRESULT;
         }
@@ -226,7 +226,7 @@ mod Windows {
         interface IBDA_IPV6Filter: IUnknown {
             fn GetMulticastListSize(&self, #[in] #[out] pulcbAddresses: *mut ULONG) -> HRESULT;
             fn PutMulticastList(&self, #[in] ulcbAddresses: ULONG, #[in] #[readable(entry, ulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
-            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[out] #[writable(entry, *pulcbAddresses)] #[writable(success, *pulcbAddresses)] #[readable(success, *pulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
+            fn GetMulticastList(&self, #[in] #[out] pulcbAddresses: *mut ULONG, #[out] #[readable(success, *pulcbAddresses)] #[writable(entry, *pulcbAddresses)] #[writable(success, *pulcbAddresses)] pAddressList: *mut BYTE) -> HRESULT;
             fn PutMulticastMode(&self, #[in] ulModeMask: ULONG) -> HRESULT;
             fn GetMulticastMode(&self, #[out] pulModeMask: *mut ULONG) -> HRESULT;
         }
@@ -299,11 +299,11 @@ mod Windows {
         }
         #[guid(0x79b56888_7fea_4690_b45d_38fd3c7849be)]
         interface IBDA_Topology: IUnknown {
-            fn GetNodeTypes(&self, #[in] #[out] pulcNodeTypes: *mut ULONG, #[in] ulcNodeTypesMax: ULONG, #[in] #[out] #[readable(entry, ulcNodeTypesMax)] #[writable(entry, ulcNodeTypesMax)] #[readable(success, ulcNodeTypesMax)] rgulNodeTypes: *mut ULONG) -> HRESULT;
-            fn GetNodeDescriptors(&self, #[in] #[out] ulcNodeDescriptors: *mut ULONG, #[in] ulcNodeDescriptorsMax: ULONG, #[in] #[out] #[readable(entry, ulcNodeDescriptorsMax)] #[writable(entry, ulcNodeDescriptorsMax)] #[readable(success, ulcNodeDescriptorsMax)] rgNodeDescriptors: *mut BDANODE_DESCRIPTOR) -> HRESULT;
-            fn GetNodeInterfaces(&self, #[in] ulNodeType: ULONG, #[in] #[out] pulcInterfaces: *mut ULONG, #[in] ulcInterfacesMax: ULONG, #[in] #[out] #[readable(entry, ulcInterfacesMax)] #[writable(entry, ulcInterfacesMax)] #[readable(success, ulcInterfacesMax)] rgguidInterfaces: *mut GUID) -> HRESULT;
-            fn GetPinTypes(&self, #[in] #[out] pulcPinTypes: *mut ULONG, #[in] ulcPinTypesMax: ULONG, #[in] #[out] #[readable(entry, ulcPinTypesMax)] #[writable(entry, ulcPinTypesMax)] #[readable(success, ulcPinTypesMax)] rgulPinTypes: *mut ULONG) -> HRESULT;
-            fn GetTemplateConnections(&self, #[in] #[out] pulcConnections: *mut ULONG, #[in] ulcConnectionsMax: ULONG, #[in] #[out] #[readable(entry, ulcConnectionsMax)] #[writable(entry, ulcConnectionsMax)] #[readable(success, ulcConnectionsMax)] rgConnections: *mut BDA_TEMPLATE_CONNECTION) -> HRESULT;
+            fn GetNodeTypes(&self, #[in] #[out] pulcNodeTypes: *mut ULONG, #[in] ulcNodeTypesMax: ULONG, #[in] #[out] #[readable(entry, ulcNodeTypesMax)] #[readable(success, ulcNodeTypesMax)] #[writable(entry, ulcNodeTypesMax)] rgulNodeTypes: *mut ULONG) -> HRESULT;
+            fn GetNodeDescriptors(&self, #[in] #[out] ulcNodeDescriptors: *mut ULONG, #[in] ulcNodeDescriptorsMax: ULONG, #[in] #[out] #[readable(entry, ulcNodeDescriptorsMax)] #[readable(success, ulcNodeDescriptorsMax)] #[writable(entry, ulcNodeDescriptorsMax)] rgNodeDescriptors: *mut BDANODE_DESCRIPTOR) -> HRESULT;
+            fn GetNodeInterfaces(&self, #[in] ulNodeType: ULONG, #[in] #[out] pulcInterfaces: *mut ULONG, #[in] ulcInterfacesMax: ULONG, #[in] #[out] #[readable(entry, ulcInterfacesMax)] #[readable(success, ulcInterfacesMax)] #[writable(entry, ulcInterfacesMax)] rgguidInterfaces: *mut GUID) -> HRESULT;
+            fn GetPinTypes(&self, #[in] #[out] pulcPinTypes: *mut ULONG, #[in] ulcPinTypesMax: ULONG, #[in] #[out] #[readable(entry, ulcPinTypesMax)] #[readable(success, ulcPinTypesMax)] #[writable(entry, ulcPinTypesMax)] rgulPinTypes: *mut ULONG) -> HRESULT;
+            fn GetTemplateConnections(&self, #[in] #[out] pulcConnections: *mut ULONG, #[in] ulcConnectionsMax: ULONG, #[in] #[out] #[readable(entry, ulcConnectionsMax)] #[readable(success, ulcConnectionsMax)] #[writable(entry, ulcConnectionsMax)] rgConnections: *mut BDA_TEMPLATE_CONNECTION) -> HRESULT;
             fn CreatePin(&self, #[in] ulPinType: ULONG, #[in] #[out] pulPinId: *mut ULONG) -> HRESULT;
             fn DeletePin(&self, #[in] ulPinId: ULONG) -> HRESULT;
             fn SetMediaType(&self, #[in] ulPinId: ULONG, #[in] pMediaType: *mut AM_MEDIA_TYPE) -> HRESULT;
@@ -318,7 +318,7 @@ mod Windows {
         #[guid(0x1dcfafe9_b45e_41b3_bb2a_561eb129ae98)]
         interface IBDA_TransportStreamSelector: IUnknown {
             fn SetTSID(&self, #[in] usTSID: USHORT) -> HRESULT;
-            fn GetTSInformation(&self, #[in] #[out] pulTSInformationBufferLen: *mut ULONG, #[out] #[writable(entry, *pulTSInformationBufferLen)] #[writable(success, *pulTSInformationBufferLen)] #[readable(success, *pulTSInformationBufferLen)] pbTSInformationBuffer: *mut BYTE) -> HRESULT;
+            fn GetTSInformation(&self, #[in] #[out] pulTSInformationBufferLen: *mut ULONG, #[out] #[readable(success, *pulTSInformationBufferLen)] #[writable(entry, *pulTSInformationBufferLen)] #[writable(success, *pulTSInformationBufferLen)] pbTSInformationBuffer: *mut BYTE) -> HRESULT;
         }
         #[guid(0x53b14189_e478_4b7a_a1ff_506db4b99dfe)]
         interface IBDA_UserActivityService: IUnknown {
@@ -369,8 +369,8 @@ mod Windows {
             fn GetEventId(&self, #[out] #[retval] pdwEventId: *mut DWORD) -> HRESULT;
             fn GetEventType(&self, #[out] #[retval] pguidEventType: *mut GUID) -> HRESULT;
             fn SetCompletionStatus(&self, #[in] dwResult: DWORD) -> HRESULT;
-            fn GetData(&self, #[out] #[retval] #[out_ptr] pbData: *mut *mut SAFEARRAY) -> HRESULT;
-            fn GetStringData(&self, #[out] #[retval] #[out_ptr] pbstrData: *mut BSTR) -> HRESULT;
+            fn GetData(&self, #[out] #[out_ptr] #[retval] pbData: *mut *mut SAFEARRAY) -> HRESULT;
+            fn GetStringData(&self, #[out] #[out_ptr] #[retval] pbstrData: *mut BSTR) -> HRESULT;
         }
         #[guid(0xabd414bf_cfe5_4e5e_af5b_4b4e49c5bfeb)]
         interface IESEvents: IUnknown {
@@ -378,19 +378,19 @@ mod Windows {
         }
         #[guid(0xafb6c2a2_2c41_11d3_8a60_0000f81e0e4a)]
         interface IEnumPIDMap: IUnknown {
-            fn Next(&self, #[in] cRequest: ULONG, #[in] #[out] #[readable(entry, cRequest)] #[writable(entry, cRequest)] #[readable(success, cRequest)] pPIDMap: *mut PID_MAP, #[out] pcReceived: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] cRequest: ULONG, #[in] #[out] #[readable(entry, cRequest)] #[readable(success, cRequest)] #[writable(entry, cRequest)] pPIDMap: *mut PID_MAP, #[out] pcReceived: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] cRecords: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] ppIEnumPIDMap: *mut IEnumPIDMap) -> HRESULT;
         }
         #[guid(0x06fb45c1_693c_4ea7_b79f_7a6a54d8def2)]
         interface IFrequencyMap: IUnknown {
-            fn get_FrequencyMapping(&self, #[out] ulCount: *mut ULONG, #[out] #[writable(entry, 1)] #[writable(success, 1)] #[readable(success, 1)] ppulList: *mut *mut ULONG) -> HRESULT;
+            fn get_FrequencyMapping(&self, #[out] ulCount: *mut ULONG, #[out] #[readable(success, 1)] #[writable(entry, 1)] #[writable(success, 1)] ppulList: *mut *mut ULONG) -> HRESULT;
             fn put_FrequencyMapping(&self, #[in] ulCount: ULONG, #[in] #[readable(entry, ulCount)] pList: *mut ULONG) -> HRESULT;
             fn get_CountryCode(&self, #[out] pulCountryCode: *mut ULONG) -> HRESULT;
             fn put_CountryCode(&self, #[in] ulCountryCode: ULONG) -> HRESULT;
-            fn get_DefaultFrequencyMapping(&self, #[in] ulCountryCode: ULONG, #[out] pulCount: *mut ULONG, #[out] #[writable(entry, 1)] #[writable(success, 1)] #[readable(success, 1)] ppulList: *mut *mut ULONG) -> HRESULT;
-            fn get_CountryCodeList(&self, #[out] pulCount: *mut ULONG, #[out] #[writable(entry, 1)] #[writable(success, 1)] #[readable(success, 1)] ppulList: *mut *mut ULONG) -> HRESULT;
+            fn get_DefaultFrequencyMapping(&self, #[in] ulCountryCode: ULONG, #[out] pulCount: *mut ULONG, #[out] #[readable(success, 1)] #[writable(entry, 1)] #[writable(success, 1)] ppulList: *mut *mut ULONG) -> HRESULT;
+            fn get_CountryCodeList(&self, #[out] pulCount: *mut ULONG, #[out] #[readable(success, 1)] #[writable(entry, 1)] #[writable(success, 1)] ppulList: *mut *mut ULONG) -> HRESULT;
         }
         #[guid(0xafb6c2a1_2c41_11d3_8a60_0000f81e0e4a)]
         interface IMPEG2PIDMap: IUnknown {

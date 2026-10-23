@@ -226,7 +226,7 @@ mod Windows {
         #[library("WINTRUST.dll")]
         extern fn OpenPersonalTrustDBDialog(#[in] #[opt] hwndParent: HWND) -> BOOL;
         #[library("WINTRUST.dll")]
-        extern fn OpenPersonalTrustDBDialogEx(#[in] #[opt] hwndParent: HWND, #[in] dwFlags: DWORD, #[in] #[out] #[opt] pvReserved: *mut PVOID) -> BOOL;
+        extern fn OpenPersonalTrustDBDialogEx(#[in] #[opt] hwndParent: HWND, #[in] dwFlags: DWORD, #[in] #[opt] #[out] pvReserved: *mut PVOID) -> BOOL;
         type PCAT_MEMBERINFO = *mut CAT_MEMBERINFO;
         type PCAT_MEMBERINFO2 = *mut CAT_MEMBERINFO2;
         type PCAT_NAMEVALUE = *mut CAT_NAMEVALUE;

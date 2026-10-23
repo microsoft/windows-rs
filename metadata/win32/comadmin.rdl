@@ -322,11 +322,11 @@ mod Windows {
         }
         #[guid(0xdd662187_dfc2_11d1_a2cf_00805fc79235)]
         interface ICOMAdminCatalog: IDispatch {
-            fn GetCollection(&self, #[in] bstrCollName: BSTR, #[out] #[retval] #[out_ptr] ppCatalogCollection: *mut IDispatch) -> HRESULT;
-            fn Connect(&self, #[in] bstrCatalogServerName: BSTR, #[out] #[retval] #[out_ptr] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn GetCollection(&self, #[in] bstrCollName: BSTR, #[out] #[out_ptr] #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn Connect(&self, #[in] bstrCatalogServerName: BSTR, #[out] #[out_ptr] #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
             fn get_MajorVersion(&self, #[out] #[retval] plMajorVersion: *mut i32) -> HRESULT;
             fn get_MinorVersion(&self, #[out] #[retval] plMinorVersion: *mut i32) -> HRESULT;
-            fn GetCollectionByQuery(&self, #[in] bstrCollName: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarQuery: *mut *mut SAFEARRAY, #[out] #[retval] #[out_ptr] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn GetCollectionByQuery(&self, #[in] bstrCollName: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_in_opt", "", "")] #[in] ppsaVarQuery: *mut *mut SAFEARRAY, #[out] #[out_ptr] #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
             fn ImportComponent(&self, #[in] bstrApplIDOrName: BSTR, #[in] bstrCLSIDOrProgID: BSTR) -> HRESULT;
             fn InstallComponent(&self, #[in] bstrApplIDOrName: BSTR, #[in] bstrDLL: BSTR, #[in] bstrTLB: BSTR, #[in] bstrPSDLL: BSTR) -> HRESULT;
             fn ShutdownApplication(&self, #[in] bstrApplIDOrName: BSTR) -> HRESULT;
@@ -351,23 +351,23 @@ mod Windows {
         }
         #[guid(0x790c6e0b_9194_4cc9_9426_a48a63185696)]
         interface ICOMAdminCatalog2: ICOMAdminCatalog {
-            fn GetCollectionByQuery2(&self, #[in] bstrCollectionName: BSTR, #[in] pVarQueryStrings: *mut VARIANT, #[out] #[retval] #[out_ptr] ppCatalogCollection: *mut IDispatch) -> HRESULT;
-            fn GetApplicationInstanceIDFromProcessID(&self, #[in] lProcessID: i32, #[out] #[retval] #[out_ptr] pbstrApplicationInstanceID: *mut BSTR) -> HRESULT;
+            fn GetCollectionByQuery2(&self, #[in] bstrCollectionName: BSTR, #[in] pVarQueryStrings: *mut VARIANT, #[out] #[out_ptr] #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn GetApplicationInstanceIDFromProcessID(&self, #[in] lProcessID: i32, #[out] #[out_ptr] #[retval] pbstrApplicationInstanceID: *mut BSTR) -> HRESULT;
             fn ShutdownApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT) -> HRESULT;
             fn PauseApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT) -> HRESULT;
             fn ResumeApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT) -> HRESULT;
             fn RecycleApplicationInstances(&self, #[in] pVarApplicationInstanceID: *mut VARIANT, #[in] lReasonCode: i32) -> HRESULT;
             fn AreApplicationInstancesPaused(&self, #[in] pVarApplicationInstanceID: *mut VARIANT, #[out] #[retval] pVarBoolPaused: *mut VARIANT_BOOL) -> HRESULT;
-            fn DumpApplicationInstance(&self, #[in] bstrApplicationInstanceID: BSTR, #[in] bstrDirectory: BSTR, #[in] lMaxImages: i32, #[out] #[retval] #[out_ptr] pbstrDumpFile: *mut BSTR) -> HRESULT;
+            fn DumpApplicationInstance(&self, #[in] bstrApplicationInstanceID: BSTR, #[in] bstrDirectory: BSTR, #[in] lMaxImages: i32, #[out] #[out_ptr] #[retval] pbstrDumpFile: *mut BSTR) -> HRESULT;
             fn get_IsApplicationInstanceDumpSupported(&self, #[out] #[retval] pVarBoolDumpSupported: *mut VARIANT_BOOL) -> HRESULT;
             fn CreateServiceForApplication(&self, #[in] bstrApplicationIDOrName: BSTR, #[in] bstrServiceName: BSTR, #[in] bstrStartType: BSTR, #[in] bstrErrorControl: BSTR, #[in] bstrDependencies: BSTR, #[in] bstrRunAs: BSTR, #[in] bstrPassword: BSTR, #[in] bDesktopOk: VARIANT_BOOL) -> HRESULT;
             fn DeleteServiceForApplication(&self, #[in] bstrApplicationIDOrName: BSTR) -> HRESULT;
-            fn GetPartitionID(&self, #[in] bstrApplicationIDOrName: BSTR, #[out] #[retval] #[out_ptr] pbstrPartitionID: *mut BSTR) -> HRESULT;
-            fn GetPartitionName(&self, #[in] bstrApplicationIDOrName: BSTR, #[out] #[retval] #[out_ptr] pbstrPartitionName: *mut BSTR) -> HRESULT;
+            fn GetPartitionID(&self, #[in] bstrApplicationIDOrName: BSTR, #[out] #[out_ptr] #[retval] pbstrPartitionID: *mut BSTR) -> HRESULT;
+            fn GetPartitionName(&self, #[in] bstrApplicationIDOrName: BSTR, #[out] #[out_ptr] #[retval] pbstrPartitionName: *mut BSTR) -> HRESULT;
             fn put_CurrentPartition(&self, #[in] bstrPartitionIDOrName: BSTR) -> HRESULT;
-            fn get_CurrentPartitionID(&self, #[out] #[retval] #[out_ptr] pbstrPartitionID: *mut BSTR) -> HRESULT;
-            fn get_CurrentPartitionName(&self, #[out] #[retval] #[out_ptr] pbstrPartitionName: *mut BSTR) -> HRESULT;
-            fn get_GlobalPartitionID(&self, #[out] #[retval] #[out_ptr] pbstrGlobalPartitionID: *mut BSTR) -> HRESULT;
+            fn get_CurrentPartitionID(&self, #[out] #[out_ptr] #[retval] pbstrPartitionID: *mut BSTR) -> HRESULT;
+            fn get_CurrentPartitionName(&self, #[out] #[out_ptr] #[retval] pbstrPartitionName: *mut BSTR) -> HRESULT;
+            fn get_GlobalPartitionID(&self, #[out] #[out_ptr] #[retval] pbstrGlobalPartitionID: *mut BSTR) -> HRESULT;
             fn FlushPartitionCache(&self) -> HRESULT;
             fn CopyApplications(&self, #[in] bstrSourcePartitionIDOrName: BSTR, #[in] pVarApplicationID: *mut VARIANT, #[in] bstrDestinationPartitionIDOrName: BSTR) -> HRESULT;
             fn CopyComponents(&self, #[in] bstrSourceApplicationIDOrName: BSTR, #[in] pVarCLSIDOrProgID: *mut VARIANT, #[in] bstrDestinationApplicationIDOrName: BSTR) -> HRESULT;
@@ -380,23 +380,23 @@ mod Windows {
             fn get_Is64BitCatalogServer(&self, #[out] #[retval] pbIs64Bit: *mut VARIANT_BOOL) -> HRESULT;
             fn ExportPartition(&self, #[in] bstrPartitionIDOrName: BSTR, #[in] bstrPartitionFileName: BSTR, #[in] lOptions: i32) -> HRESULT;
             fn InstallPartition(&self, #[in] bstrFileName: BSTR, #[in] bstrDestDirectory: BSTR, #[in] lOptions: i32, #[in] bstrUserID: BSTR, #[in] bstrPassword: BSTR, #[in] bstrRSN: BSTR) -> HRESULT;
-            fn QueryApplicationFile2(&self, #[in] bstrApplicationFile: BSTR, #[out] #[retval] #[out_ptr] ppFilesForImport: *mut IDispatch) -> HRESULT;
+            fn QueryApplicationFile2(&self, #[in] bstrApplicationFile: BSTR, #[out] #[out_ptr] #[retval] ppFilesForImport: *mut IDispatch) -> HRESULT;
             fn GetComponentVersionCount(&self, #[in] bstrCLSIDOrProgID: BSTR, #[out] #[retval] plVersionCount: *mut i32) -> HRESULT;
         }
         #[guid(0x6eb22872_8a19_11d0_81b6_00a0c9231c29)]
         interface ICatalogCollection: IDispatch {
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnumVariant: *mut IUnknown) -> HRESULT;
-            fn get_Item(&self, #[in] lIndex: i32, #[out] #[retval] #[out_ptr] ppCatalogObject: *mut IDispatch) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnumVariant: *mut IUnknown) -> HRESULT;
+            fn get_Item(&self, #[in] lIndex: i32, #[out] #[out_ptr] #[retval] ppCatalogObject: *mut IDispatch) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] plObjectCount: *mut i32) -> HRESULT;
             fn Remove(&self, #[in] lIndex: i32) -> HRESULT;
-            fn Add(&self, #[out] #[retval] #[out_ptr] ppCatalogObject: *mut IDispatch) -> HRESULT;
+            fn Add(&self, #[out] #[out_ptr] #[retval] ppCatalogObject: *mut IDispatch) -> HRESULT;
             fn Populate(&self) -> HRESULT;
             fn SaveChanges(&self, #[out] #[retval] pcChanges: *mut i32) -> HRESULT;
-            fn GetCollection(&self, #[in] bstrCollName: BSTR, #[in] varObjectKey: VARIANT, #[out] #[retval] #[out_ptr] ppCatalogCollection: *mut IDispatch) -> HRESULT;
+            fn GetCollection(&self, #[in] bstrCollName: BSTR, #[in] varObjectKey: VARIANT, #[out] #[out_ptr] #[retval] ppCatalogCollection: *mut IDispatch) -> HRESULT;
             fn get_Name(&self, #[out] #[retval] pVarNamel: *mut VARIANT) -> HRESULT;
             fn get_AddEnabled(&self, #[out] #[retval] pVarBool: *mut VARIANT_BOOL) -> HRESULT;
             fn get_RemoveEnabled(&self, #[out] #[retval] pVarBool: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetUtilInterface(&self, #[out] #[retval] #[out_ptr] ppIDispatch: *mut IDispatch) -> HRESULT;
+            fn GetUtilInterface(&self, #[out] #[out_ptr] #[retval] ppIDispatch: *mut IDispatch) -> HRESULT;
             fn get_DataStoreMajorVersion(&self, #[out] #[retval] plMajorVersion: *mut i32) -> HRESULT;
             fn get_DataStoreMinorVersion(&self, #[out] #[retval] plMinorVersionl: *mut i32) -> HRESULT;
             fn PopulateByKey(&self, #[in] psaKeys: *mut SAFEARRAY) -> HRESULT;

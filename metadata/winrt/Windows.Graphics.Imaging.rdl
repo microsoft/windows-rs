@@ -2,8 +2,8 @@
 mod Windows {
     mod Graphics {
         mod Imaging {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BitmapAlphaMode {
                 Premultiplied = 0,
                 Straight = 1,
@@ -26,8 +26,8 @@ mod Windows {
                 super::super::Foundation::IMemoryBuffer,
                 super::super::Foundation::IClosable,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BitmapBufferAccessMode {
                 Read = 0,
                 ReadWrite = 1,
@@ -50,15 +50,15 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IBitmapEncoderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBitmapEncoderStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBitmapEncoderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class BitmapEncoder {
                 IBitmapEncoder,
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBitmapEncoderWithSoftwareBitmap,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BitmapFlip {
                 None = 0,
                 Horizontal = 1,
@@ -71,25 +71,30 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 IBitmapFrameWithSoftwareBitmap,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BitmapInterpolationMode {
                 NearestNeighbor = 0,
                 Linear = 1,
                 Cubic = 2,
                 Fant = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BitmapPixelFormat {
                 Unknown = 0,
                 Rgba16 = 12,
                 Rgba8 = 30,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Gray16 = 57,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Gray8 = 62,
                 Bgra8 = 87,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Nv12 = 103,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 P010 = 104,
+                #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 65536)]
                 Yuy2 = 107,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -118,8 +123,8 @@ mod Windows {
                 super::super::Foundation::Collections::IMap<String, BitmapTypedValue>,
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BitmapRotation {
                 None = 0,
                 Clockwise90Degrees = 1,
@@ -144,28 +149,28 @@ mod Windows {
             class BitmapTypedValue {
                 IBitmapTypedValue,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ColorManagementMode {
                 DoNotColorManage = 0,
                 ColorManageToSRgb = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum ExifOrientationMode {
                 IgnoreExifOrientation = 0,
                 RespectExifOrientation = 1,
             }
-            #[guid(0xa53e04c4_399c_438c_b28f_a63a6b83d1a1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapBuffer)]
+            #[guid(0xa53e04c4_399c_438c_b28f_a63a6b83d1a1)]
             interface IBitmapBuffer: super::super::Foundation::IMemoryBuffer + super::super::Foundation::IClosable {
                 fn GetPlaneCount(&self) -> i32;
                 fn GetPlaneDescription(&self, #[in] index: i32) -> BitmapPlaneDescription;
             }
-            #[guid(0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapCodecInformation)]
+            #[guid(0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4)]
             interface IBitmapCodecInformation {
                 #[get]
                 CodecId: GUID;
@@ -176,9 +181,9 @@ mod Windows {
                 #[get]
                 MimeTypes: super::super::Foundation::Collections::IVectorView<String>;
             }
-            #[guid(0xacef22ba_1d74_4c91_9dfc_9620745233e6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapDecoder)]
+            #[guid(0xacef22ba_1d74_4c91_9dfc_9620745233e6)]
             interface IBitmapDecoder {
                 #[get]
                 BitmapContainerProperties: BitmapPropertiesView;
@@ -191,9 +196,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFrameAsync(&self, #[in] frameIndex: u32) -> super::super::Foundation::IAsyncOperation<BitmapFrame>;
             }
-            #[guid(0x438ccb26_bcef_4e95_bad6_23a822e58d01)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapDecoder)]
+            #[guid(0x438ccb26_bcef_4e95_bad6_23a822e58d01)]
             interface IBitmapDecoderStatics {
                 #[get]
                 BmpDecoderId: GUID;
@@ -217,18 +222,18 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAsync(&self, #[in] decoderId: GUID, #[in] stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<BitmapDecoder>;
             }
-            #[guid(0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapDecoder)]
+            #[guid(0x50ba68ea_99a1_40c4_80d9_aef0dafa6c3f)]
             interface IBitmapDecoderStatics2 {
                 #[get]
                 HeifDecoderId: GUID;
                 #[get]
                 WebpDecoderId: GUID;
             }
-            #[guid(0x2bc468e3_e1f8_4b54_95e8_32919551ce62)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapEncoder)]
+            #[guid(0x2bc468e3_e1f8_4b54_95e8_32919551ce62)]
             interface IBitmapEncoder {
                 #[get]
                 EncoderInformation: BitmapCodecInformation;
@@ -241,7 +246,7 @@ mod Windows {
                 GeneratedThumbnailHeight: u32;
                 #[get]
                 BitmapTransform: BitmapTransform;
-                fn SetPixelData(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode, #[in] width: u32, #[in] height: u32, #[in] dpiX: f64, #[in] dpiY: f64, #[in] #[Windows::Foundation::Metadata::Range(0, 2147483647)] pixels: [u8]);
+                fn SetPixelData(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode, #[in] width: u32, #[in] height: u32, #[in] dpiX: f64, #[in] dpiY: f64, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[in] pixels: [u8]);
                 #[Windows::Foundation::Metadata::Overload("GoToNextFrameAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GoToNextFrameAsync(&self) -> super::super::Foundation::IAsyncAction;
@@ -251,9 +256,9 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FlushAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapEncoder)]
+            #[guid(0xa74356a7_a4e4_4eb9_8e40_564de7e1ccb2)]
             interface IBitmapEncoderStatics {
                 #[get]
                 BmpEncoderId: GUID;
@@ -279,21 +284,21 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateForInPlacePropertyEncodingAsync(&self, #[in] bitmapDecoder: BitmapDecoder) -> super::super::Foundation::IAsyncOperation<BitmapEncoder>;
             }
-            #[guid(0x33cbc259_fe31_41b1_b812_086d21e87e16)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapEncoder)]
+            #[guid(0x33cbc259_fe31_41b1_b812_086d21e87e16)]
             interface IBitmapEncoderStatics2 {
                 #[get]
                 HeifEncoderId: GUID;
             }
-            #[guid(0x686cd241_4330_4c77_ace4_0334968b1768)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapEncoder)]
+            #[guid(0x686cd241_4330_4c77_ace4_0334968b1768)]
             interface IBitmapEncoderWithSoftwareBitmap {
                 fn SetSoftwareBitmap(&self, #[in] bitmap: SoftwareBitmap);
             }
-            #[guid(0x72a49a1c_8081_438d_91bc_94ecfc8185c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x72a49a1c_8081_438d_91bc_94ecfc8185c6)]
             interface IBitmapFrame {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetThumbnailAsync(&self) -> super::super::Foundation::IAsyncOperation<ImageStream>;
@@ -322,8 +327,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPixelDataAsync(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode, #[in] transform: BitmapTransform, #[in] exifOrientationMode: ExifOrientationMode, #[in] colorManagementMode: ColorManagementMode) -> super::super::Foundation::IAsyncOperation<PixelDataProvider>;
             }
-            #[guid(0xfe287c9a_420c_4963_87ad_691436e08383)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0xfe287c9a_420c_4963_87ad_691436e08383)]
             interface IBitmapFrameWithSoftwareBitmap: IBitmapFrame {
                 #[Windows::Foundation::Metadata::Overload("GetSoftwareBitmapAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -335,22 +340,22 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSoftwareBitmapAsync(&self, #[in] pixelFormat: BitmapPixelFormat, #[in] alphaMode: BitmapAlphaMode, #[in] transform: BitmapTransform, #[in] exifOrientationMode: ExifOrientationMode, #[in] colorManagementMode: ColorManagementMode) -> super::super::Foundation::IAsyncOperation<SoftwareBitmap>;
             }
-            #[guid(0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapProperties)]
+            #[guid(0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d)]
             interface IBitmapProperties: IBitmapPropertiesView {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SetPropertiesAsync(&self, #[in] propertiesToSet: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, BitmapTypedValue>>) -> super::super::Foundation::IAsyncAction;
             }
-            #[guid(0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5)]
             interface IBitmapPropertiesView {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPropertiesAsync(&self, #[in] propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<BitmapPropertySet>;
             }
-            #[guid(0xae755344_e268_4d35_adcf_e995d31a8d34)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapTransform)]
+            #[guid(0xae755344_e268_4d35_adcf_e995d31a8d34)]
             interface IBitmapTransform {
                 ScaledWidth: u32;
                 ScaledHeight: u32;
@@ -359,30 +364,30 @@ mod Windows {
                 Rotation: BitmapRotation;
                 Bounds: BitmapBounds;
             }
-            #[guid(0xcd8044a9_2443_4000_b0cd_79316c56f589)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapTypedValue)]
+            #[guid(0xcd8044a9_2443_4000_b0cd_79316c56f589)]
             interface IBitmapTypedValue {
                 #[get]
                 Value: Object;
                 #[get]
                 Type: super::super::Foundation::PropertyType;
             }
-            #[guid(0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(BitmapTypedValue)]
+            #[guid(0x92dbb599_ce13_46bb_9545_cb3a3f63eb8b)]
             interface IBitmapTypedValueFactory {
                 fn Create(&self, #[in] value: Object, #[in] r#type: super::super::Foundation::PropertyType) -> BitmapTypedValue;
             }
-            #[guid(0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PixelDataProvider)]
+            #[guid(0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f)]
             interface IPixelDataProvider {
                 fn DetachPixelData(&self) -> [u8];
             }
-            #[guid(0x689e0708_7eef_483f_963f_da938818e073)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SoftwareBitmap)]
+            #[guid(0x689e0708_7eef_483f_963f_da938818e073)]
             interface ISoftwareBitmap: super::super::Foundation::IClosable {
                 #[get]
                 BitmapPixelFormat: BitmapPixelFormat;
@@ -408,16 +413,16 @@ mod Windows {
                 fn CopyToBuffer(&self, #[in] buffer: super::super::Storage::Streams::IBuffer);
                 fn GetReadOnlyView(&self) -> SoftwareBitmap;
             }
-            #[guid(0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SoftwareBitmap)]
+            #[guid(0xc99feb69_2d62_4d47_a6b3_4fdb6a07fdf8)]
             interface ISoftwareBitmapFactory {
                 fn Create(&self, #[in] format: BitmapPixelFormat, #[in] width: i32, #[in] height: i32) -> SoftwareBitmap;
                 fn CreateWithAlpha(&self, #[in] format: BitmapPixelFormat, #[in] width: i32, #[in] height: i32, #[in] alpha: BitmapAlphaMode) -> SoftwareBitmap;
             }
-            #[guid(0xdf0385db_672f_4a9d_806e_c2442f343e86)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SoftwareBitmap)]
+            #[guid(0xdf0385db_672f_4a9d_806e_c2442f343e86)]
             interface ISoftwareBitmapStatics {
                 fn Copy(&self, #[in] source: SoftwareBitmap) -> SoftwareBitmap;
                 #[Windows::Foundation::Metadata::Overload("Convert")]
@@ -445,8 +450,8 @@ mod Windows {
                 super::super::Foundation::IClosable,
                 super::super::Storage::Streams::IInputStream,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum JpegSubsamplingMode {
                 Default = 0,
                 Y4Cb2Cr0 = 1,
@@ -458,8 +463,8 @@ mod Windows {
             class PixelDataProvider {
                 IPixelDataProvider,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum PngFilterMode {
                 Automatic = 0,
                 None = 1,
@@ -480,8 +485,8 @@ mod Windows {
                 ISoftwareBitmap,
                 super::super::Foundation::IClosable,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum TiffCompressionMode {
                 Automatic = 0,
                 None = 1,

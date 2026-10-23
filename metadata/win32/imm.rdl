@@ -281,13 +281,13 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmEscapeW(param0: HKL, param1: HIMC, param2: UINT, param3: LPVOID) -> LRESULT;
         #[library("IMM32.dll")]
-        extern fn ImmGetCandidateListA(param0: HIMC, deIndex: DWORD, #[out] #[opt] #[writable(entry, bytes(dwBufLen))] lpCandList: LPCANDIDATELIST, dwBufLen: DWORD) -> DWORD;
+        extern fn ImmGetCandidateListA(param0: HIMC, deIndex: DWORD, #[opt] #[out] #[writable(entry, bytes(dwBufLen))] lpCandList: LPCANDIDATELIST, dwBufLen: DWORD) -> DWORD;
         #[library("IMM32.dll")]
         extern fn ImmGetCandidateListCountA(param0: HIMC, #[out] lpdwListCount: LPDWORD) -> DWORD;
         #[library("IMM32.dll")]
         extern fn ImmGetCandidateListCountW(param0: HIMC, #[out] lpdwListCount: LPDWORD) -> DWORD;
         #[library("IMM32.dll")]
-        extern fn ImmGetCandidateListW(param0: HIMC, deIndex: DWORD, #[out] #[opt] #[writable(entry, bytes(dwBufLen))] lpCandList: LPCANDIDATELIST, dwBufLen: DWORD) -> DWORD;
+        extern fn ImmGetCandidateListW(param0: HIMC, deIndex: DWORD, #[opt] #[out] #[writable(entry, bytes(dwBufLen))] lpCandList: LPCANDIDATELIST, dwBufLen: DWORD) -> DWORD;
         #[library("IMM32.dll")]
         extern fn ImmGetCandidateWindow(param0: HIMC, param1: DWORD, #[out] lpCandidate: LPCANDIDATEFORM) -> BOOL;
         #[library("IMM32.dll")]
@@ -295,9 +295,9 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmGetCompositionFontW(param0: HIMC, #[out] lplf: LPLOGFONTW) -> BOOL;
         #[library("IMM32.dll")]
-        extern fn ImmGetCompositionStringA(param0: HIMC, param1: DWORD, #[out] #[opt] #[writable(entry, bytes(dwBufLen))] lpBuf: LPVOID, dwBufLen: DWORD) -> LONG;
+        extern fn ImmGetCompositionStringA(param0: HIMC, param1: DWORD, #[opt] #[out] #[writable(entry, bytes(dwBufLen))] lpBuf: LPVOID, dwBufLen: DWORD) -> LONG;
         #[library("IMM32.dll")]
-        extern fn ImmGetCompositionStringW(param0: HIMC, param1: DWORD, #[out] #[opt] #[writable(entry, bytes(dwBufLen))] lpBuf: LPVOID, dwBufLen: DWORD) -> LONG;
+        extern fn ImmGetCompositionStringW(param0: HIMC, param1: DWORD, #[opt] #[out] #[writable(entry, bytes(dwBufLen))] lpBuf: LPVOID, dwBufLen: DWORD) -> LONG;
         #[library("IMM32.dll")]
         extern fn ImmGetCompositionWindow(param0: HIMC, #[out] lpCompForm: LPCOMPOSITIONFORM) -> BOOL;
         #[library("IMM32.dll")]
@@ -307,25 +307,25 @@ mod Windows {
         #[library("IMM32.dll")]
         extern fn ImmGetConversionListW(param0: HKL, param1: HIMC, #[in] lpSrc: LPCWSTR, #[out] #[writable(entry, bytes(dwBufLen))] lpDst: LPCANDIDATELIST, dwBufLen: DWORD, uFlag: UINT) -> DWORD;
         #[library("IMM32.dll")]
-        extern fn ImmGetConversionStatus(param0: HIMC, #[out] #[opt] lpfdwConversion: LPDWORD, #[out] #[opt] lpfdwSentence: LPDWORD) -> BOOL;
+        extern fn ImmGetConversionStatus(param0: HIMC, #[opt] #[out] lpfdwConversion: LPDWORD, #[opt] #[out] lpfdwSentence: LPDWORD) -> BOOL;
         #[library("IMM32.dll")]
         extern fn ImmGetDefaultIMEWnd(param0: HWND) -> HWND;
         #[library("IMM32.dll")]
-        extern fn ImmGetDescriptionA(param0: HKL, #[out] #[opt] #[writable(entry, uBufLen)] lpszDescription: LPSTR, uBufLen: UINT) -> UINT;
+        extern fn ImmGetDescriptionA(param0: HKL, #[opt] #[out] #[writable(entry, uBufLen)] lpszDescription: LPSTR, uBufLen: UINT) -> UINT;
         #[library("IMM32.dll")]
-        extern fn ImmGetDescriptionW(param0: HKL, #[out] #[opt] #[writable(entry, uBufLen)] lpszDescription: LPWSTR, uBufLen: UINT) -> UINT;
+        extern fn ImmGetDescriptionW(param0: HKL, #[opt] #[out] #[writable(entry, uBufLen)] lpszDescription: LPWSTR, uBufLen: UINT) -> UINT;
         #[library("IMM32.dll")]
-        extern fn ImmGetGuideLineA(#[in] param0: HIMC, #[in] dwIndex: DWORD, #[out] #[opt] #[writable(entry, bytes(dwBufLen))] lpBuf: LPSTR, #[in] dwBufLen: DWORD) -> DWORD;
+        extern fn ImmGetGuideLineA(#[in] param0: HIMC, #[in] dwIndex: DWORD, #[opt] #[out] #[writable(entry, bytes(dwBufLen))] lpBuf: LPSTR, #[in] dwBufLen: DWORD) -> DWORD;
         #[library("IMM32.dll")]
-        extern fn ImmGetGuideLineW(#[in] param0: HIMC, #[in] dwIndex: DWORD, #[out] #[opt] #[writable(entry, bytes(dwBufLen))] lpBuf: LPWSTR, #[in] dwBufLen: DWORD) -> DWORD;
+        extern fn ImmGetGuideLineW(#[in] param0: HIMC, #[in] dwIndex: DWORD, #[opt] #[out] #[writable(entry, bytes(dwBufLen))] lpBuf: LPWSTR, #[in] dwBufLen: DWORD) -> DWORD;
         #[library("IMM32.dll")]
-        extern fn ImmGetIMEFileNameA(param0: HKL, #[out] #[opt] #[writable(entry, uBufLen)] lpszFileName: LPSTR, uBufLen: UINT) -> UINT;
+        extern fn ImmGetIMEFileNameA(param0: HKL, #[opt] #[out] #[writable(entry, uBufLen)] lpszFileName: LPSTR, uBufLen: UINT) -> UINT;
         #[library("IMM32.dll")]
-        extern fn ImmGetIMEFileNameW(param0: HKL, #[out] #[opt] #[writable(entry, uBufLen)] lpszFileName: LPWSTR, uBufLen: UINT) -> UINT;
+        extern fn ImmGetIMEFileNameW(param0: HKL, #[opt] #[out] #[writable(entry, uBufLen)] lpszFileName: LPWSTR, uBufLen: UINT) -> UINT;
         #[library("IMM32.dll")]
-        extern fn ImmGetImeMenuItemsA(param0: HIMC, param1: DWORD, param2: DWORD, #[out] #[opt] lpImeParentMenu: LPIMEMENUITEMINFOA, #[out] #[opt] #[writable(entry, bytes(dwSize))] lpImeMenu: LPIMEMENUITEMINFOA, dwSize: DWORD) -> DWORD;
+        extern fn ImmGetImeMenuItemsA(param0: HIMC, param1: DWORD, param2: DWORD, #[opt] #[out] lpImeParentMenu: LPIMEMENUITEMINFOA, #[opt] #[out] #[writable(entry, bytes(dwSize))] lpImeMenu: LPIMEMENUITEMINFOA, dwSize: DWORD) -> DWORD;
         #[library("IMM32.dll")]
-        extern fn ImmGetImeMenuItemsW(param0: HIMC, param1: DWORD, param2: DWORD, #[out] #[opt] lpImeParentMenu: LPIMEMENUITEMINFOW, #[out] #[opt] #[writable(entry, bytes(dwSize))] lpImeMenu: LPIMEMENUITEMINFOW, dwSize: DWORD) -> DWORD;
+        extern fn ImmGetImeMenuItemsW(param0: HIMC, param1: DWORD, param2: DWORD, #[opt] #[out] lpImeParentMenu: LPIMEMENUITEMINFOW, #[opt] #[out] #[writable(entry, bytes(dwSize))] lpImeMenu: LPIMEMENUITEMINFOW, dwSize: DWORD) -> DWORD;
         #[library("IMM32.dll")]
         extern fn ImmGetOpenStatus(param0: HIMC) -> BOOL;
         #[library("IMM32.dll")]

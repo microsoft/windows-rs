@@ -233,7 +233,7 @@ mod Windows {
         #[library("RPCRT4.dll")]
         extern fn NDRCContextMarshall(#[in] #[opt] CContext: NDR_CCONTEXT, #[out] pBuff: *mut void);
         #[library("RPCRT4.dll")]
-        extern fn NDRCContextUnmarshall(#[in] #[out] #[opt] pCContext: *mut NDR_CCONTEXT, #[in] hBinding: RPC_BINDING_HANDLE, #[in] pBuff: *mut void, #[in] DataRepresentation: u32);
+        extern fn NDRCContextUnmarshall(#[in] #[opt] #[out] pCContext: *mut NDR_CCONTEXT, #[in] hBinding: RPC_BINDING_HANDLE, #[in] pBuff: *mut void, #[in] DataRepresentation: u32);
         #[library("RPCRT4.dll")]
         extern fn NDRSContextMarshall(#[in] CContext: NDR_SCONTEXT, #[out] pBuff: *mut void, #[in] userRunDownIn: NDR_RUNDOWN);
         #[library("RPCRT4.dll")]
@@ -299,27 +299,27 @@ mod Windows {
             Reserved: [ULONG_PTR; 5],
         }
         const NDR_VAX_FLOAT: u32 = 256;
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern "C" fn Ndr64AsyncClientCall(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern fn Ndr64AsyncServerCall64(pRpcMsg: PRPC_MESSAGE);
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern fn Ndr64AsyncServerCallAll(pRpcMsg: PRPC_MESSAGE);
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern "C" fn Ndr64DcomAsyncClientCall(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern fn Ndr64DcomAsyncStubCall(pThis: IRpcStubBuffer, pChannel: IRpcChannelBuffer, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
         #[library("RPCRT4.dll")]
         extern fn NdrAllocate(pStubMsg: PMIDL_STUB_MESSAGE, Len: size_t) -> *mut void;
         #[library("RPCRT4.dll")]
         extern "C" fn NdrAsyncClientCall(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern "C" fn NdrAsyncClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrAsyncServerCall(pRpcMsg: PRPC_MESSAGE);
@@ -333,16 +333,16 @@ mod Windows {
         extern fn NdrByteCountPointerUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: PFORMAT_STRING, fMustAlloc: u8) -> *mut u8;
         #[library("RPCRT4.dll")]
         extern fn NdrClearOutParameters(pStubMsg: PMIDL_STUB_MESSAGE, pFormat: PFORMAT_STRING, ArgAddr: *mut void);
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern "C" fn NdrClientCall(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern "C" fn NdrClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
-        extern "C" fn NdrClientCall3(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
+        extern "C" fn NdrClientCall3(pProxyInfo: *mut MIDL_STUBLESS_PROXY_INFO, nProcNum: u32, pReturnValue: *mut void, ...) -> CLIENT_CALL_RETURN;
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern "C" fn NdrClientCall4(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrClientContextMarshall(pStubMsg: PMIDL_STUB_MESSAGE, ContextHandle: NDR_CCONTEXT, fCheck: i32);
@@ -438,8 +438,8 @@ mod Windows {
         extern fn NdrCreateServerInterfaceFromStub(#[in] pStub: IRpcStubBuffer, #[in] #[out] pServerIf: *mut RPC_SERVER_INTERFACE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern "C" fn NdrDcomAsyncClientCall(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern "C" fn NdrDcomAsyncClientCall2(pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrDcomAsyncStubCall(pThis: IRpcStubBuffer, pChannel: IRpcChannelBuffer, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
@@ -487,8 +487,8 @@ mod Windows {
         extern fn NdrInterfacePointerUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, ppMemory: *mut *mut u8, pFormat: PFORMAT_STRING, fMustAlloc: u8) -> *mut u8;
         #[library("RPCRT4.dll")]
         extern fn NdrMapCommAndFaultStatus(pStubMsg: PMIDL_STUB_MESSAGE, pCommStatus: *mut u32, pFaultStatus: *mut u32, Status: RPC_STATUS) -> RPC_STATUS;
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern "C" fn NdrMesProcEncodeDecode4(Handle: handle_t, pStubDescriptor: *const MIDL_STUB_DESC, pFormat: PFORMAT_STRING, ...) -> CLIENT_CALL_RETURN;
         #[library("RPCRT4.dll")]
         extern fn NdrNonConformantStringBufferSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);
@@ -552,16 +552,16 @@ mod Windows {
         extern fn NdrRpcSsEnableAllocate(pMessage: PMIDL_STUB_MESSAGE);
         #[library("RPCRT4.dll")]
         extern fn NdrSendReceive(pStubMsg: PMIDL_STUB_MESSAGE, pBufferEnd: *mut u8) -> *mut u8;
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern fn NdrServerCall(pRpcMsg: PRPC_MESSAGE);
         #[library("RPCRT4.dll")]
         extern fn NdrServerCall2(pRpcMsg: PRPC_MESSAGE);
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern fn NdrServerCallAll(pRpcMsg: PRPC_MESSAGE);
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern fn NdrServerCallNdr64(pRpcMsg: PRPC_MESSAGE);
         #[library("RPCRT4.dll")]
         extern fn NdrServerContextMarshall(pStubMsg: PMIDL_STUB_MESSAGE, ContextHandle: NDR_SCONTEXT, RundownRoutine: NDR_RUNDOWN);
@@ -581,11 +581,11 @@ mod Windows {
         extern fn NdrServerInitializePartial(pRpcMsg: PRPC_MESSAGE, pStubMsg: PMIDL_STUB_MESSAGE, pStubDescriptor: PMIDL_STUB_DESC, RequestedBufferSize: u32);
         #[library("RPCRT4.dll")]
         extern fn NdrServerInitializeUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, pStubDescriptor: PMIDL_STUB_DESC, pRpcMsg: PRPC_MESSAGE) -> *mut u8;
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern fn NdrServerMarshall(pThis: *mut void, pChannel: *mut void, pStubMsg: PMIDL_STUB_MESSAGE, pFormat: PFORMAT_STRING);
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern fn NdrServerUnmarshall(pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pStubMsg: PMIDL_STUB_MESSAGE, pStubDescriptor: PMIDL_STUB_DESC, pFormat: PFORMAT_STRING, pParamList: *mut void) -> i32;
         #[library("RPCRT4.dll")]
         extern fn NdrSimpleStructBufferSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);
@@ -601,13 +601,13 @@ mod Windows {
         extern fn NdrSimpleTypeMarshall(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, FormatChar: u8);
         #[library("RPCRT4.dll")]
         extern fn NdrSimpleTypeUnmarshall(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, FormatChar: u8);
-        #[library("RPCRT4.dll")]
         #[arch(X86)]
+        #[library("RPCRT4.dll")]
         extern fn NdrStubCall(pThis: *mut void, pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
         #[library("RPCRT4.dll")]
         extern fn NdrStubCall2(pThis: *mut void, pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
-        #[library("RPCRT4.dll")]
         #[arch(X64 | Arm64)]
+        #[library("RPCRT4.dll")]
         extern fn NdrStubCall3(pThis: *mut void, pChannel: *mut void, pRpcMsg: PRPC_MESSAGE, pdwStubPhase: *mut u32) -> i32;
         #[library("RPCRT4.dll")]
         extern fn NdrUserMarshalBufferSize(pStubMsg: PMIDL_STUB_MESSAGE, pMemory: *mut u8, pFormat: PFORMAT_STRING);

@@ -47,9 +47,9 @@ mod Windows {
         interface IWSDSignatureProperty: IUnknown {
             fn IsMessageSigned(&self, #[out] pbSigned: *mut BOOL) -> HRESULT;
             fn IsMessageSignatureTrusted(&self, #[out] pbSignatureTrusted: *mut BOOL) -> HRESULT;
-            fn GetKeyInfo(&self, #[out] #[opt] #[writable(entry, bytes(*pdwKeyInfoSize))] #[readable(success, bytes(*pdwKeyInfoSize))] pbKeyInfo: *mut BYTE, #[in] #[out] pdwKeyInfoSize: *mut DWORD) -> HRESULT;
-            fn GetSignature(&self, #[out] #[opt] #[writable(entry, bytes(*pdwSignatureSize))] #[readable(success, bytes(*pdwSignatureSize))] pbSignature: *mut BYTE, #[in] #[out] pdwSignatureSize: *mut DWORD) -> HRESULT;
-            fn GetSignedInfoHash(&self, #[out] #[opt] #[writable(entry, bytes(*pdwHashSize))] #[readable(success, bytes(*pdwHashSize))] pbSignedInfoHash: *mut BYTE, #[in] #[out] pdwHashSize: *mut DWORD) -> HRESULT;
+            fn GetKeyInfo(&self, #[opt] #[out] #[readable(success, bytes(*pdwKeyInfoSize))] #[writable(entry, bytes(*pdwKeyInfoSize))] pbKeyInfo: *mut BYTE, #[in] #[out] pdwKeyInfoSize: *mut DWORD) -> HRESULT;
+            fn GetSignature(&self, #[opt] #[out] #[readable(success, bytes(*pdwSignatureSize))] #[writable(entry, bytes(*pdwSignatureSize))] pbSignature: *mut BYTE, #[in] #[out] pdwSignatureSize: *mut DWORD) -> HRESULT;
+            fn GetSignedInfoHash(&self, #[opt] #[out] #[readable(success, bytes(*pdwHashSize))] #[writable(entry, bytes(*pdwHashSize))] pbSignedInfoHash: *mut BYTE, #[in] #[out] pdwHashSize: *mut DWORD) -> HRESULT;
         }
         #[guid(0x70d23498_4ee6_4340_a3df_d845d2235467)]
         interface IWSDTransportAddress: IWSDAddress {

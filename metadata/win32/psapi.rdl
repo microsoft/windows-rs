@@ -38,11 +38,11 @@ mod Windows {
         extern fn GetModuleBaseNameA(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleBaseNameW")]
         extern fn GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
-        #[success(return != 0)]
         #[library("KERNEL32.dll", import = "K32GetModuleFileNameExA")]
-        extern fn GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
         #[success(return != 0)]
+        extern fn GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleFileNameExW")]
+        #[success(return != 0)]
         extern fn GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
         #[library("KERNEL32.dll", import = "K32GetModuleInformation")]
         extern fn GetModuleInformation(#[in] hProcess: HANDLE, #[in] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
@@ -57,7 +57,7 @@ mod Windows {
         #[library("KERNEL32.dll", import = "K32GetWsChanges")]
         extern fn GetWsChanges(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32GetWsChangesEx")]
-        extern fn GetWsChangesEx(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(*cb))] #[readable(success, bytes(*cb))] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
+        extern fn GetWsChangesEx(#[in] hProcess: HANDLE, #[out] #[readable(success, bytes(*cb))] #[writable(entry, bytes(*cb))] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
         #[library("KERNEL32.dll", import = "K32InitializeProcessForWsWatch")]
         extern fn InitializeProcessForWsWatch(#[in] hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -90,11 +90,11 @@ mod Windows {
         extern fn K32GetModuleBaseNameA(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPSTR, #[in] nSize: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn K32GetModuleBaseNameW(#[in] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[out] #[writable(entry, nSize)] lpBaseName: LPWSTR, #[in] nSize: DWORD) -> DWORD;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn K32GetModuleFileNameExA(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn K32GetModuleFileNameExW(#[in] #[opt] hProcess: HANDLE, #[in] #[opt] hModule: HMODULE, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return < nSize,_Out_writes_to_(nSize, return + 1)", "return < nSize, _Out_writes_to_(nSize,return + 1)")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return == nSize,_Out_writes_all_(nSize)", "return == nSize, _Out_writes_all_(nSize)")] lpFilename: LPWSTR, #[in] nSize: DWORD) -> #[range(success, 1..=nSize)] DWORD;
         #[library("KERNEL32.dll")]
         extern fn K32GetModuleInformation(#[in] hProcess: HANDLE, #[in] hModule: HMODULE, #[out] lpmodinfo: LPMODULEINFO, #[in] cb: DWORD) -> BOOL;
@@ -109,7 +109,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn K32GetWsChanges(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(cb))] lpWatchInfo: PPSAPI_WS_WATCH_INFORMATION, #[in] cb: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn K32GetWsChangesEx(#[in] hProcess: HANDLE, #[out] #[writable(entry, bytes(*cb))] #[readable(success, bytes(*cb))] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
+        extern fn K32GetWsChangesEx(#[in] hProcess: HANDLE, #[out] #[readable(success, bytes(*cb))] #[writable(entry, bytes(*cb))] lpWatchInfoEx: PPSAPI_WS_WATCH_INFORMATION_EX, #[in] #[out] cb: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn K32InitializeProcessForWsWatch(#[in] hProcess: HANDLE) -> BOOL;
         #[library("KERNEL32.dll")]

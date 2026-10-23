@@ -3,13 +3,13 @@ mod Windows {
     mod Devices {
         mod I2c {
             mod Provider {
-                #[guid(0x61c2bb82_4510_4163_a87c_4e15a9558980)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[guid(0x61c2bb82_4510_4163_a87c_4e15a9558980)]
                 interface II2cControllerProvider {
                     fn GetDeviceProvider(&self, #[in] settings: ProviderI2cConnectionSettings) -> II2cDeviceProvider;
                 }
-                #[guid(0xad342654_57e8_453e_8329_d1e447d103a9)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[guid(0xad342654_57e8_453e_8329_d1e447d103a9)]
                 interface II2cDeviceProvider: super::super::super::Foundation::IClosable {
                     #[get]
                     DeviceId: String;
@@ -20,22 +20,22 @@ mod Windows {
                     fn WriteRead(&self, #[in] writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
                     fn WriteReadPartial(&self, #[in] writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]) -> ProviderI2cTransferResult;
                 }
-                #[guid(0x6f13083e_bf62_4fe2_a95a_f08999669818)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[guid(0x6f13083e_bf62_4fe2_a95a_f08999669818)]
                 interface II2cProvider {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetControllersAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>;
                 }
-                #[guid(0xe9db4e34_e510_44b7_809d_f2f85b555339)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ProviderI2cConnectionSettings)]
+                #[guid(0xe9db4e34_e510_44b7_809d_f2f85b555339)]
                 interface IProviderI2cConnectionSettings {
                     SlaveAddress: i32;
                     BusSpeed: ProviderI2cBusSpeed;
                     SharingMode: ProviderI2cSharingMode;
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[repr(i32)]
                 enum ProviderI2cBusSpeed {
                     StandardMode = 0,
                     FastMode = 1,
@@ -46,8 +46,8 @@ mod Windows {
                 class ProviderI2cConnectionSettings {
                     IProviderI2cConnectionSettings,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[repr(i32)]
                 enum ProviderI2cSharingMode {
                     Exclusive = 0,
                     Shared = 1,
@@ -57,8 +57,8 @@ mod Windows {
                     Status: ProviderI2cTransferStatus,
                     BytesTransferred: u32,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[repr(i32)]
                 enum ProviderI2cTransferStatus {
                     FullTransfer = 0,
                     PartialTransfer = 1,

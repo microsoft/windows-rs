@@ -497,7 +497,7 @@ mod Windows {
         }
         #[guid(0x06b64f9e_7fda_11d2_b4f2_00c04f797396)]
         interface IEnumSpObjectTokens: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] pelt: *mut ISpObjectToken, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] pelt: *mut ISpObjectToken, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] ppEnum: *mut IEnumSpObjectTokens) -> HRESULT;
@@ -585,7 +585,7 @@ mod Windows {
             fn RemovePronunciation(&self, #[in] pszWord: LPCWSTR, #[in] LangID: WORD, #[in] ePartOfSpeech: SPPARTOFSPEECH, #[in] #[opt] pszPronunciation: PCSPPHONEID) -> HRESULT;
             fn GetGeneration(&self, #[out] pdwGeneration: *mut DWORD) -> HRESULT;
             fn GetGenerationChange(&self, #[in] dwFlags: DWORD, #[in] #[out] pdwGeneration: *mut DWORD, #[in] #[out] pWordList: *mut SPWORDLIST) -> HRESULT;
-            fn GetWords(&self, #[in] dwFlags: DWORD, #[in] #[out] pdwGeneration: *mut DWORD, #[in] #[out] #[opt] pdwCookie: *mut DWORD, #[in] #[out] pWordList: *mut SPWORDLIST) -> HRESULT;
+            fn GetWords(&self, #[in] dwFlags: DWORD, #[in] #[out] pdwGeneration: *mut DWORD, #[in] #[opt] #[out] pdwCookie: *mut DWORD, #[in] #[out] pWordList: *mut SPWORDLIST) -> HRESULT;
         }
         #[guid(0x15806f6e_1d70_4b48_98e6_3b1a007509ab)]
         interface ISpMMSysAudio: ISpAudio {
@@ -627,7 +627,7 @@ mod Windows {
             fn SetId(&self, #[in] #[opt] pszCategoryId: LPCWSTR, #[in] pszTokenId: LPCWSTR, #[in] fCreateIfNotExist: BOOL) -> HRESULT;
             fn GetId(&self, #[out] #[out_ptr] ppszCoMemTokenId: *mut LPWSTR) -> HRESULT;
             fn GetCategory(&self, #[out] #[out_ptr] ppTokenCategory: *mut ISpObjectTokenCategory) -> HRESULT;
-            fn CreateInstance(&self, #[in] pUnkOuter: IUnknown, #[in] dwClsContext: DWORD, #[in] riid: &IID, #[out] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, #[in] pUnkOuter: IUnknown, #[in] dwClsContext: DWORD, #[in] riid: &IID, #[iid_is] #[out] ppvObject: *mut *mut void) -> HRESULT;
             fn GetStorageFileName(&self, #[in] clsidCaller: &IID, #[in] pszValueName: LPCWSTR, #[in] #[opt] pszFileNameSpecifier: LPCWSTR, #[in] nFolder: ULONG, #[out] #[out_ptr] ppszFilePath: *mut LPWSTR) -> HRESULT;
             fn RemoveStorageFileName(&self, #[in] clsidCaller: &IID, #[in] pszKeyName: LPCWSTR, #[in] fDeleteFile: BOOL) -> HRESULT;
             fn Remove(&self, #[in] #[opt] pclsidCaller: *const CLSID) -> HRESULT;
@@ -662,8 +662,8 @@ mod Windows {
         interface ISpPhoneticAlphabetConverter: IUnknown {
             fn GetLangId(&self, #[out] #[writable(entry, 1)] pLangID: *mut WORD) -> HRESULT;
             fn SetLangId(&self, #[in] LangID: WORD) -> HRESULT;
-            fn SAPI2UPS(&self, #[in] #[null_terminated(entry)] pszSAPIId: *const SPPHONEID, #[out] #[writable(entry, cMaxLength)] #[null_terminated(success)] pszUPSId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
-            fn UPS2SAPI(&self, #[in] #[null_terminated(entry)] pszUPSId: *const SPPHONEID, #[out] #[writable(entry, cMaxLength)] #[null_terminated(success)] pszSAPIId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
+            fn SAPI2UPS(&self, #[in] #[null_terminated(entry)] pszSAPIId: *const SPPHONEID, #[null_terminated(success)] #[out] #[writable(entry, cMaxLength)] pszUPSId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
+            fn UPS2SAPI(&self, #[in] #[null_terminated(entry)] pszUPSId: *const SPPHONEID, #[null_terminated(success)] #[out] #[writable(entry, cMaxLength)] pszSAPIId: *mut SPPHONEID, #[in] cMaxLength: DWORD) -> HRESULT;
             fn GetMaxConvertLength(&self, #[in] cSrcLength: DWORD, #[in] bSAPI2UPS: BOOL, #[out] #[writable(entry, 1)] pcMaxDestLength: *mut DWORD) -> HRESULT;
         }
         #[guid(0xb2745efd_42ce_48ca_81f1_a96e02538a90)]
@@ -675,7 +675,7 @@ mod Windows {
         interface ISpPhrase: IUnknown {
             fn GetPhrase(&self, #[out] #[out_ptr] ppCoMemPhrase: *mut *mut SPPHRASE) -> HRESULT;
             fn GetSerializedPhrase(&self, #[out] #[out_ptr] ppCoMemPhrase: *mut *mut SPSERIALIZEDPHRASE) -> HRESULT;
-            fn GetText(&self, #[in] ulStart: ULONG, #[in] ulCount: ULONG, #[in] fUseTextReplacements: BOOL, #[out] #[out_ptr] ppszCoMemText: *mut LPWSTR, #[out] #[opt] #[writable(entry, 1)] pbDisplayAttributes: *mut BYTE) -> HRESULT;
+            fn GetText(&self, #[in] ulStart: ULONG, #[in] ulCount: ULONG, #[in] fUseTextReplacements: BOOL, #[out] #[out_ptr] ppszCoMemText: *mut LPWSTR, #[opt] #[out] #[writable(entry, 1)] pbDisplayAttributes: *mut BYTE) -> HRESULT;
             fn Discard(&self, #[in] dwValueTypes: DWORD) -> HRESULT;
         }
         #[guid(0xf264da52_e457_4696_b856_a737b717af79)]
@@ -745,7 +745,7 @@ mod Windows {
             fn SetTextSelection(&self, #[in] pInfo: *const SPTEXTSELECTIONINFO) -> HRESULT;
             fn IsPronounceable(&self, #[in] pszWord: LPCWSTR, #[out] pWordPronounceable: *mut SPWORDPRONOUNCEABLE) -> HRESULT;
             fn SetGrammarState(&self, #[in] eGrammarState: SPGRAMMARSTATE) -> HRESULT;
-            fn SaveCmd(&self, #[in] pStream: IStream, #[out] #[opt] #[out_ptr] ppszCoMemErrorText: *mut LPWSTR) -> HRESULT;
+            fn SaveCmd(&self, #[in] pStream: IStream, #[opt] #[out] #[out_ptr] ppszCoMemErrorText: *mut LPWSTR) -> HRESULT;
             fn GetGrammarState(&self, #[out] peGrammarState: *mut SPGRAMMARSTATE) -> HRESULT;
         }
         #[guid(0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3)]
@@ -762,7 +762,7 @@ mod Windows {
         #[guid(0x20b053be_e235_43cd_9a2a_8d17a48b7842)]
         interface ISpRecoResult: ISpPhrase {
             fn GetResultTimes(&self, #[out] pTimes: *mut SPRECORESULTTIMES) -> HRESULT;
-            fn GetAlternates(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[in] ulRequestCount: ULONG, #[out] #[writable(entry, ulRequestCount)] #[readable(success, *pcPhrasesReturned)] ppPhrases: *mut ISpPhraseAlt, #[out] pcPhrasesReturned: *mut ULONG) -> HRESULT;
+            fn GetAlternates(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[in] ulRequestCount: ULONG, #[out] #[readable(success, *pcPhrasesReturned)] #[writable(entry, ulRequestCount)] ppPhrases: *mut ISpPhraseAlt, #[out] pcPhrasesReturned: *mut ULONG) -> HRESULT;
             fn GetAudio(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[out] ppStream: *mut ISpStreamFormat) -> HRESULT;
             fn SpeakAudio(&self, #[in] ulStartElement: ULONG, #[in] cElements: ULONG, #[in] dwFlags: DWORD, #[out] pulStreamNumber: *mut ULONG) -> HRESULT;
             fn Serialize(&self, #[out] ppCoMemSerializedResult: *mut *mut SPSERIALIZEDRESULT) -> HRESULT;
@@ -813,7 +813,7 @@ mod Windows {
         #[guid(0x93384e18_5014_43d5_adbb_a78e055926bd)]
         interface ISpResourceManager: IServiceProvider {
             fn SetObject(&self, #[in] guidServiceId: &GUID, #[in] #[opt] pUnkObject: IUnknown) -> HRESULT;
-            fn GetObjectA(&self, #[in] guidServiceId: &GUID, #[in] ObjectCLSID: &IID, #[in] ObjectIID: &IID, #[in] fReleaseWhenLastExternalRefReleased: BOOL, #[out] #[out_ptr] #[iid_is] ppObject: *mut *mut void) -> HRESULT;
+            fn GetObjectA(&self, #[in] guidServiceId: &GUID, #[in] ObjectCLSID: &IID, #[in] ObjectIID: &IID, #[in] fReleaseWhenLastExternalRefReleased: BOOL, #[iid_is] #[out] #[out_ptr] ppObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9)]
         interface ISpSerializeState: IUnknown {
@@ -853,7 +853,7 @@ mod Windows {
         }
         #[guid(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0)]
         interface ISpTranscript: IUnknown {
-            fn GetTranscript(&self, #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] #[null_terminated(entry, success, indirect)] ppszTranscript: *mut LPWSTR) -> HRESULT;
+            fn GetTranscript(&self, #[null_terminated(entry, success, indirect)] #[out] #[out_ptr(nullable)] #[readable(entry, 1, indirect, nullable)] ppszTranscript: *mut LPWSTR) -> HRESULT;
             fn AppendTranscript(&self, #[in] #[null_terminated(entry)] pszTranscript: LPCWSTR) -> HRESULT;
         }
         #[guid(0x6c44df74_72b9_4992_a1ec_ef996e0422d4)]
@@ -865,8 +865,8 @@ mod Windows {
             fn Resume(&self) -> HRESULT;
             fn SetVoice(&self, #[in] pToken: ISpObjectToken) -> HRESULT;
             fn GetVoice(&self, #[out] #[out_ptr] ppToken: *mut ISpObjectToken) -> HRESULT;
-            fn Speak(&self, #[in] #[opt] pwcs: LPCWSTR, #[in] dwFlags: DWORD, #[out] #[opt] pulStreamNumber: *mut ULONG) -> HRESULT;
-            fn SpeakStream(&self, #[in] pStream: IStream, #[in] dwFlags: DWORD, #[out] #[opt] pulStreamNumber: *mut ULONG) -> HRESULT;
+            fn Speak(&self, #[in] #[opt] pwcs: LPCWSTR, #[in] dwFlags: DWORD, #[opt] #[out] pulStreamNumber: *mut ULONG) -> HRESULT;
+            fn SpeakStream(&self, #[in] pStream: IStream, #[in] dwFlags: DWORD, #[opt] #[out] pulStreamNumber: *mut ULONG) -> HRESULT;
             fn GetStatus(&self, #[out] pStatus: *mut SPVOICESTATUS, #[out] #[out_ptr] ppszLastBookmark: *mut LPWSTR) -> HRESULT;
             fn Skip(&self, #[in] pItemType: LPCWSTR, #[in] lNumItems: i32, #[out] pulNumSkipped: *mut ULONG) -> HRESULT;
             fn SetPriority(&self, #[in] ePriority: SPVPRIORITY) -> HRESULT;
@@ -891,9 +891,9 @@ mod Windows {
         }
         #[guid(0xcff8e175_019e_11d3_a08e_00c04f8ef9b5)]
         interface ISpeechAudio: ISpeechBaseStream {
-            fn get_Status(&self, #[out] #[retval] #[out_ptr] Status: *mut ISpeechAudioStatus) -> HRESULT;
-            fn get_BufferInfo(&self, #[out] #[retval] #[out_ptr] BufferInfo: *mut ISpeechAudioBufferInfo) -> HRESULT;
-            fn get_DefaultFormat(&self, #[out] #[retval] #[out_ptr] StreamFormat: *mut ISpeechAudioFormat) -> HRESULT;
+            fn get_Status(&self, #[out] #[out_ptr] #[retval] Status: *mut ISpeechAudioStatus) -> HRESULT;
+            fn get_BufferInfo(&self, #[out] #[out_ptr] #[retval] BufferInfo: *mut ISpeechAudioBufferInfo) -> HRESULT;
+            fn get_DefaultFormat(&self, #[out] #[out_ptr] #[retval] StreamFormat: *mut ISpeechAudioFormat) -> HRESULT;
             fn get_Volume(&self, #[out] #[retval] Volume: *mut i32) -> HRESULT;
             fn put_Volume(&self, #[in] Volume: i32) -> HRESULT;
             fn get_BufferNotifySize(&self, #[out] #[retval] BufferNotifySize: *mut i32) -> HRESULT;
@@ -914,9 +914,9 @@ mod Windows {
         interface ISpeechAudioFormat: IDispatch {
             fn get_Type(&self, #[out] #[retval] AudioFormat: *mut SpeechAudioFormatType) -> HRESULT;
             fn put_Type(&self, #[in] AudioFormat: SpeechAudioFormatType) -> HRESULT;
-            fn get_Guid(&self, #[out] #[retval] #[out_ptr] Guid: *mut BSTR) -> HRESULT;
+            fn get_Guid(&self, #[out] #[out_ptr] #[retval] Guid: *mut BSTR) -> HRESULT;
             fn put_Guid(&self, #[in] Guid: BSTR) -> HRESULT;
-            fn GetWaveFormatEx(&self, #[out] #[retval] #[out_ptr] SpeechWaveFormatEx: *mut ISpeechWaveFormatEx) -> HRESULT;
+            fn GetWaveFormatEx(&self, #[out] #[out_ptr] #[retval] SpeechWaveFormatEx: *mut ISpeechWaveFormatEx) -> HRESULT;
             fn SetWaveFormatEx(&self, #[in] #[opt] SpeechWaveFormatEx: ISpeechWaveFormatEx) -> HRESULT;
         }
         #[guid(0xc62d9c91_7458_47f6_862d_1ef86fb0b278)]
@@ -929,7 +929,7 @@ mod Windows {
         }
         #[guid(0x6450336f_7d49_4ced_8097_49d6dee37294)]
         interface ISpeechBaseStream: IDispatch {
-            fn get_Format(&self, #[out] #[retval] #[out_ptr] AudioFormat: *mut ISpeechAudioFormat) -> HRESULT;
+            fn get_Format(&self, #[out] #[out_ptr] #[retval] AudioFormat: *mut ISpeechAudioFormat) -> HRESULT;
             fn putref_Format(&self, #[in] #[opt] AudioFormat: ISpeechAudioFormat) -> HRESULT;
             fn Read(&self, #[out] Buffer: *mut VARIANT, #[in] NumberOfBytes: i32, #[out] #[retval] BytesRead: *mut i32) -> HRESULT;
             fn Write(&self, #[in] Buffer: VARIANT, #[out] #[retval] BytesWritten: *mut i32) -> HRESULT;
@@ -937,7 +937,7 @@ mod Windows {
         }
         #[guid(0x1a9e9f4f_104f_4db8_a115_efd7fd0c97ae)]
         interface ISpeechCustomStream: ISpeechBaseStream {
-            fn get_BaseStream(&self, #[out] #[retval] #[out_ptr] ppUnkStream: *mut IUnknown) -> HRESULT;
+            fn get_BaseStream(&self, #[out] #[out_ptr] #[retval] ppUnkStream: *mut IUnknown) -> HRESULT;
             fn putref_BaseStream(&self, #[in] #[opt] pUnkStream: IUnknown) -> HRESULT;
         }
         #[guid(0xce17c09b_4efa_44d5_a4c9_59d9585ab0cd)]
@@ -945,15 +945,15 @@ mod Windows {
             fn SetBinaryValue(&self, #[in] ValueName: BSTR, #[in] Value: VARIANT) -> HRESULT;
             fn GetBinaryValue(&self, #[in] ValueName: BSTR, #[out] #[retval] Value: *mut VARIANT) -> HRESULT;
             fn SetStringValue(&self, #[in] ValueName: BSTR, #[in] Value: BSTR) -> HRESULT;
-            fn GetStringValue(&self, #[in] ValueName: BSTR, #[out] #[retval] #[out_ptr] Value: *mut BSTR) -> HRESULT;
+            fn GetStringValue(&self, #[in] ValueName: BSTR, #[out] #[out_ptr] #[retval] Value: *mut BSTR) -> HRESULT;
             fn SetLongValue(&self, #[in] ValueName: BSTR, #[in] Value: i32) -> HRESULT;
             fn GetLongValue(&self, #[in] ValueName: BSTR, #[out] #[retval] Value: *mut i32) -> HRESULT;
-            fn OpenKey(&self, #[in] SubKeyName: BSTR, #[out] #[retval] #[out_ptr] SubKey: *mut ISpeechDataKey) -> HRESULT;
-            fn CreateKey(&self, #[in] SubKeyName: BSTR, #[out] #[retval] #[out_ptr] SubKey: *mut ISpeechDataKey) -> HRESULT;
+            fn OpenKey(&self, #[in] SubKeyName: BSTR, #[out] #[out_ptr] #[retval] SubKey: *mut ISpeechDataKey) -> HRESULT;
+            fn CreateKey(&self, #[in] SubKeyName: BSTR, #[out] #[out_ptr] #[retval] SubKey: *mut ISpeechDataKey) -> HRESULT;
             fn DeleteKey(&self, #[in] SubKeyName: BSTR) -> HRESULT;
             fn DeleteValue(&self, #[in] ValueName: BSTR) -> HRESULT;
-            fn EnumKeys(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] SubKeyName: *mut BSTR) -> HRESULT;
-            fn EnumValues(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] ValueName: *mut BSTR) -> HRESULT;
+            fn EnumKeys(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] SubKeyName: *mut BSTR) -> HRESULT;
+            fn EnumValues(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] ValueName: *mut BSTR) -> HRESULT;
         }
         #[guid(0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7)]
         interface ISpeechFileStream: ISpeechBaseStream {
@@ -963,17 +963,17 @@ mod Windows {
         #[guid(0xafe719cf_5dd1_44f2_999c_7a399f1cfccc)]
         interface ISpeechGrammarRule: IDispatch {
             fn get_Attributes(&self, #[out] #[retval] Attributes: *mut SpeechRuleAttributes) -> HRESULT;
-            fn get_InitialState(&self, #[out] #[retval] #[out_ptr] State: *mut ISpeechGrammarRuleState) -> HRESULT;
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
+            fn get_InitialState(&self, #[out] #[out_ptr] #[retval] State: *mut ISpeechGrammarRuleState) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
             fn get_Id(&self, #[out] #[retval] Id: *mut i32) -> HRESULT;
             fn Clear(&self) -> HRESULT;
             fn AddResource(&self, #[in] ResourceName: BSTR, #[in] ResourceValue: BSTR) -> HRESULT;
-            fn AddState(&self, #[out] #[retval] #[out_ptr] State: *mut ISpeechGrammarRuleState) -> HRESULT;
+            fn AddState(&self, #[out] #[out_ptr] #[retval] State: *mut ISpeechGrammarRuleState) -> HRESULT;
         }
         #[guid(0xd4286f2c_ee67_45ae_b928_28d695362eda)]
         interface ISpeechGrammarRuleState: IDispatch {
-            fn get_Rule(&self, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechGrammarRule) -> HRESULT;
-            fn get_Transitions(&self, #[out] #[retval] #[out_ptr] Transitions: *mut ISpeechGrammarRuleStateTransitions) -> HRESULT;
+            fn get_Rule(&self, #[out] #[out_ptr] #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            fn get_Transitions(&self, #[out] #[out_ptr] #[retval] Transitions: *mut ISpeechGrammarRuleStateTransitions) -> HRESULT;
             fn AddWordTransition(&self, #[in] #[opt] DestState: ISpeechGrammarRuleState, #[in] Words: BSTR, #[in] Separators: BSTR, #[in] Type: SpeechGrammarWordType, #[in] PropertyName: BSTR, #[in] PropertyId: i32, #[in] PropertyValue: *mut VARIANT, #[in] Weight: f32) -> HRESULT;
             fn AddRuleTransition(&self, #[in] #[opt] DestinationState: ISpeechGrammarRuleState, #[in] #[opt] Rule: ISpeechGrammarRule, #[in] PropertyName: BSTR, #[in] PropertyId: i32, #[in] PropertyValue: *mut VARIANT, #[in] Weight: f32) -> HRESULT;
             fn AddSpecialTransition(&self, #[in] #[opt] DestinationState: ISpeechGrammarRuleState, #[in] Type: SpeechSpecialTransitionType, #[in] PropertyName: BSTR, #[in] PropertyId: i32, #[in] PropertyValue: *mut VARIANT, #[in] Weight: f32) -> HRESULT;
@@ -981,41 +981,41 @@ mod Windows {
         #[guid(0xcafd1db1_41d1_4a06_9863_e2e81da17a9a)]
         interface ISpeechGrammarRuleStateTransition: IDispatch {
             fn get_Type(&self, #[out] #[retval] Type: *mut SpeechGrammarRuleStateTransitionType) -> HRESULT;
-            fn get_Text(&self, #[out] #[retval] #[out_ptr] Text: *mut BSTR) -> HRESULT;
-            fn get_Rule(&self, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            fn get_Text(&self, #[out] #[out_ptr] #[retval] Text: *mut BSTR) -> HRESULT;
+            fn get_Rule(&self, #[out] #[out_ptr] #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
             fn get_Weight(&self, #[out] #[retval] Weight: *mut VARIANT) -> HRESULT;
-            fn get_PropertyName(&self, #[out] #[retval] #[out_ptr] PropertyName: *mut BSTR) -> HRESULT;
+            fn get_PropertyName(&self, #[out] #[out_ptr] #[retval] PropertyName: *mut BSTR) -> HRESULT;
             fn get_PropertyId(&self, #[out] #[retval] PropertyId: *mut i32) -> HRESULT;
             fn get_PropertyValue(&self, #[out] #[retval] PropertyValue: *mut VARIANT) -> HRESULT;
-            fn get_NextState(&self, #[out] #[retval] #[out_ptr] NextState: *mut ISpeechGrammarRuleState) -> HRESULT;
+            fn get_NextState(&self, #[out] #[out_ptr] #[retval] NextState: *mut ISpeechGrammarRuleState) -> HRESULT;
         }
         #[guid(0xeabce657_75bc_44a2_aa7f_c56476742963)]
         interface ISpeechGrammarRuleStateTransitions: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Transition: *mut ISpeechGrammarRuleStateTransition) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Transition: *mut ISpeechGrammarRuleStateTransition) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x6ffa3b44_fc2d_40d1_8afc_32911c7f1ad1)]
         interface ISpeechGrammarRules: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn FindRule(&self, #[in] RuleNameOrId: VARIANT, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechGrammarRule) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechGrammarRule) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn FindRule(&self, #[in] RuleNameOrId: VARIANT, #[out] #[out_ptr] #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
             fn get_Dynamic(&self, #[out] #[retval] Dynamic: *mut VARIANT_BOOL) -> HRESULT;
-            fn Add(&self, #[in] RuleName: BSTR, #[in] Attributes: SpeechRuleAttributes, #[in] RuleId: i32, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechGrammarRule) -> HRESULT;
+            fn Add(&self, #[in] RuleName: BSTR, #[in] Attributes: SpeechRuleAttributes, #[in] RuleId: i32, #[out] #[out_ptr] #[retval] Rule: *mut ISpeechGrammarRule) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn CommitAndSave(&self, #[out] #[out_ptr] ErrorText: *mut BSTR, #[out] #[retval] SaveStream: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x3da7627a_c7ae_4b23_8708_638c50362c25)]
         interface ISpeechLexicon: IDispatch {
             fn get_GenerationId(&self, #[out] #[retval] GenerationId: *mut i32) -> HRESULT;
-            fn GetWords(&self, #[in] Flags: SpeechLexiconType, #[out] GenerationID: *mut i32, #[out] #[retval] #[out_ptr] Words: *mut ISpeechLexiconWords) -> HRESULT;
+            fn GetWords(&self, #[in] Flags: SpeechLexiconType, #[out] GenerationID: *mut i32, #[out] #[out_ptr] #[retval] Words: *mut ISpeechLexiconWords) -> HRESULT;
             fn AddPronunciation(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] bstrPronunciation: BSTR) -> HRESULT;
             fn AddPronunciationByPhoneIds(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] PhoneIds: *mut VARIANT) -> HRESULT;
             fn RemovePronunciation(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] bstrPronunciation: BSTR) -> HRESULT;
             fn RemovePronunciationByPhoneIds(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] PhoneIds: *mut VARIANT) -> HRESULT;
-            fn GetPronunciations(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] TypeFlags: SpeechLexiconType, #[out] #[retval] #[out_ptr] ppPronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
-            fn GetGenerationChange(&self, #[in] #[out] GenerationID: *mut i32, #[out] #[retval] #[out_ptr] ppWords: *mut ISpeechLexiconWords) -> HRESULT;
+            fn GetPronunciations(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] TypeFlags: SpeechLexiconType, #[out] #[out_ptr] #[retval] ppPronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
+            fn GetGenerationChange(&self, #[in] #[out] GenerationID: *mut i32, #[out] #[out_ptr] #[retval] ppWords: *mut ISpeechLexiconWords) -> HRESULT;
         }
         #[guid(0x95252c5d_9e43_4f4a_9899_48ee73352f9f)]
         interface ISpeechLexiconPronunciation: IDispatch {
@@ -1023,26 +1023,26 @@ mod Windows {
             fn get_LangId(&self, #[out] #[retval] LangId: *mut SpeechLanguageId) -> HRESULT;
             fn get_PartOfSpeech(&self, #[out] #[retval] PartOfSpeech: *mut SpeechPartOfSpeech) -> HRESULT;
             fn get_PhoneIds(&self, #[out] #[retval] PhoneIds: *mut VARIANT) -> HRESULT;
-            fn get_Symbolic(&self, #[out] #[retval] #[out_ptr] Symbolic: *mut BSTR) -> HRESULT;
+            fn get_Symbolic(&self, #[out] #[out_ptr] #[retval] Symbolic: *mut BSTR) -> HRESULT;
         }
         #[guid(0x72829128_5682_4704_a0d4_3e2bb6f2ead3)]
         interface ISpeechLexiconPronunciations: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Pronunciation: *mut ISpeechLexiconPronunciation) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Pronunciation: *mut ISpeechLexiconPronunciation) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x4e5b933c_c9be_48ed_8842_1ee51bb1d4ff)]
         interface ISpeechLexiconWord: IDispatch {
             fn get_LangId(&self, #[out] #[retval] LangId: *mut SpeechLanguageId) -> HRESULT;
             fn get_Type(&self, #[out] #[retval] WordType: *mut SpeechWordType) -> HRESULT;
-            fn get_Word(&self, #[out] #[retval] #[out_ptr] Word: *mut BSTR) -> HRESULT;
-            fn get_Pronunciations(&self, #[out] #[retval] #[out_ptr] Pronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
+            fn get_Word(&self, #[out] #[out_ptr] #[retval] Word: *mut BSTR) -> HRESULT;
+            fn get_Pronunciations(&self, #[out] #[out_ptr] #[retval] Pronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
         }
         #[guid(0x8d199862_415e_47d5_ac4f_faa608b424e6)]
         interface ISpeechLexiconWords: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Word: *mut ISpeechLexiconWord) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Word: *mut ISpeechLexiconWord) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x3c76af6d_1fd7_4831_81d1_3b71d5a13c44)]
         interface ISpeechMMSysAudio: ISpeechAudio {
@@ -1059,15 +1059,15 @@ mod Windows {
         }
         #[guid(0xc74a3adc_b727_4500_a84a_b526721c8b8c)]
         interface ISpeechObjectToken: IDispatch {
-            fn get_Id(&self, #[out] #[retval] #[out_ptr] ObjectId: *mut BSTR) -> HRESULT;
-            fn get_DataKey(&self, #[out] #[retval] #[out_ptr] DataKey: *mut ISpeechDataKey) -> HRESULT;
-            fn get_Category(&self, #[out] #[retval] #[out_ptr] Category: *mut ISpeechObjectTokenCategory) -> HRESULT;
-            fn GetDescription(&self, #[in] Locale: i32, #[out] #[retval] #[out_ptr] Description: *mut BSTR) -> HRESULT;
+            fn get_Id(&self, #[out] #[out_ptr] #[retval] ObjectId: *mut BSTR) -> HRESULT;
+            fn get_DataKey(&self, #[out] #[out_ptr] #[retval] DataKey: *mut ISpeechDataKey) -> HRESULT;
+            fn get_Category(&self, #[out] #[out_ptr] #[retval] Category: *mut ISpeechObjectTokenCategory) -> HRESULT;
+            fn GetDescription(&self, #[in] Locale: i32, #[out] #[out_ptr] #[retval] Description: *mut BSTR) -> HRESULT;
             fn SetId(&self, #[in] Id: BSTR, #[in] CategoryID: BSTR, #[in] CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
-            fn GetAttribute(&self, #[in] AttributeName: BSTR, #[out] #[retval] #[out_ptr] AttributeValue: *mut BSTR) -> HRESULT;
-            fn CreateInstance(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] ClsContext: SpeechTokenContext, #[out] #[retval] #[out_ptr] Object: *mut IUnknown) -> HRESULT;
+            fn GetAttribute(&self, #[in] AttributeName: BSTR, #[out] #[out_ptr] #[retval] AttributeValue: *mut BSTR) -> HRESULT;
+            fn CreateInstance(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] ClsContext: SpeechTokenContext, #[out] #[out_ptr] #[retval] Object: *mut IUnknown) -> HRESULT;
             fn Remove(&self, #[in] ObjectStorageCLSID: BSTR) -> HRESULT;
-            fn GetStorageFileName(&self, #[in] ObjectStorageCLSID: BSTR, #[in] KeyName: BSTR, #[in] FileName: BSTR, #[in] Folder: SpeechTokenShellFolder, #[out] #[retval] #[out_ptr] FilePath: *mut BSTR) -> HRESULT;
+            fn GetStorageFileName(&self, #[in] ObjectStorageCLSID: BSTR, #[in] KeyName: BSTR, #[in] FileName: BSTR, #[in] Folder: SpeechTokenShellFolder, #[out] #[out_ptr] #[retval] FilePath: *mut BSTR) -> HRESULT;
             fn RemoveStorageFileName(&self, #[in] ObjectStorageCLSID: BSTR, #[in] KeyName: BSTR, #[in] DeleteFileA: VARIANT_BOOL) -> HRESULT;
             fn IsUISupported(&self, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[in] #[opt] Object: IUnknown, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn DisplayUI(&self, #[in] hWnd: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[in] #[opt] Object: IUnknown) -> HRESULT;
@@ -1075,39 +1075,39 @@ mod Windows {
         }
         #[guid(0xca7eac50_2d01_4145_86d4_5ae7d70f4469)]
         interface ISpeechObjectTokenCategory: IDispatch {
-            fn get_Id(&self, #[out] #[retval] #[out_ptr] Id: *mut BSTR) -> HRESULT;
+            fn get_Id(&self, #[out] #[out_ptr] #[retval] Id: *mut BSTR) -> HRESULT;
             fn put_Default(&self, #[in] TokenId: BSTR) -> HRESULT;
-            fn get_Default(&self, #[out] #[retval] #[out_ptr] TokenId: *mut BSTR) -> HRESULT;
+            fn get_Default(&self, #[out] #[out_ptr] #[retval] TokenId: *mut BSTR) -> HRESULT;
             fn SetId(&self, #[in] Id: BSTR, #[in] CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
-            fn GetDataKey(&self, #[in] Location: SpeechDataKeyLocation, #[out] #[retval] #[out_ptr] DataKey: *mut ISpeechDataKey) -> HRESULT;
-            fn EnumerateTokens(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] Tokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetDataKey(&self, #[in] Location: SpeechDataKeyLocation, #[out] #[out_ptr] #[retval] DataKey: *mut ISpeechDataKey) -> HRESULT;
+            fn EnumerateTokens(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[out_ptr] #[retval] Tokens: *mut ISpeechObjectTokens) -> HRESULT;
         }
         #[guid(0x9285b776_2e7b_4bc0_b53e_580eb6fa967f)]
         interface ISpeechObjectTokens: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Token: *mut ISpeechObjectToken) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Token: *mut ISpeechObjectToken) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xc3e4f353_433f_43d6_89a1_6a62a7054c3d)]
         interface ISpeechPhoneConverter: IDispatch {
             fn get_LanguageId(&self, #[out] #[retval] LanguageId: *mut SpeechLanguageId) -> HRESULT;
             fn put_LanguageId(&self, #[in] LanguageId: SpeechLanguageId) -> HRESULT;
             fn PhoneToId(&self, #[in] Phonemes: BSTR, #[out] #[retval] IdArray: *mut VARIANT) -> HRESULT;
-            fn IdToPhone(&self, #[in] IdArray: VARIANT, #[out] #[retval] #[out_ptr] Phonemes: *mut BSTR) -> HRESULT;
+            fn IdToPhone(&self, #[in] IdArray: VARIANT, #[out] #[out_ptr] #[retval] Phonemes: *mut BSTR) -> HRESULT;
         }
         #[guid(0x27864a2a_2b9f_4cb8_92d3_0d2722fd1e73)]
         interface ISpeechPhraseAlternate: IDispatch {
-            fn get_RecoResult(&self, #[out] #[retval] #[out_ptr] RecoResult: *mut ISpeechRecoResult) -> HRESULT;
+            fn get_RecoResult(&self, #[out] #[out_ptr] #[retval] RecoResult: *mut ISpeechRecoResult) -> HRESULT;
             fn get_StartElementInResult(&self, #[out] #[retval] StartElement: *mut i32) -> HRESULT;
             fn get_NumberOfElementsInResult(&self, #[out] #[retval] NumberOfElements: *mut i32) -> HRESULT;
-            fn get_PhraseInfo(&self, #[out] #[retval] #[out_ptr] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn get_PhraseInfo(&self, #[out] #[out_ptr] #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
             fn Commit(&self) -> HRESULT;
         }
         #[guid(0xb238b6d5_f276_4c3d_a6c1_2974801c3cc2)]
         interface ISpeechPhraseAlternates: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] PhraseAlternate: *mut ISpeechPhraseAlternate) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] PhraseAlternate: *mut ISpeechPhraseAlternate) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xe6176f96_e373_4801_b223_3b62c068c0b4)]
         interface ISpeechPhraseElement: IDispatch {
@@ -1117,8 +1117,8 @@ mod Windows {
             fn get_AudioSizeBytes(&self, #[out] #[retval] AudioSizeBytes: *mut i32) -> HRESULT;
             fn get_RetainedStreamOffset(&self, #[out] #[retval] RetainedStreamOffset: *mut i32) -> HRESULT;
             fn get_RetainedSizeBytes(&self, #[out] #[retval] RetainedSizeBytes: *mut i32) -> HRESULT;
-            fn get_DisplayText(&self, #[out] #[retval] #[out_ptr] DisplayText: *mut BSTR) -> HRESULT;
-            fn get_LexicalForm(&self, #[out] #[retval] #[out_ptr] LexicalForm: *mut BSTR) -> HRESULT;
+            fn get_DisplayText(&self, #[out] #[out_ptr] #[retval] DisplayText: *mut BSTR) -> HRESULT;
+            fn get_LexicalForm(&self, #[out] #[out_ptr] #[retval] LexicalForm: *mut BSTR) -> HRESULT;
             fn get_Pronunciation(&self, #[out] #[retval] Pronunciation: *mut VARIANT) -> HRESULT;
             fn get_DisplayAttributes(&self, #[out] #[retval] DisplayAttributes: *mut SpeechDisplayAttributes) -> HRESULT;
             fn get_RequiredConfidence(&self, #[out] #[retval] RequiredConfidence: *mut SpeechEngineConfidence) -> HRESULT;
@@ -1128,8 +1128,8 @@ mod Windows {
         #[guid(0x0626b328_3478_467d_a0b3_d0853b93dda3)]
         interface ISpeechPhraseElements: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Element: *mut ISpeechPhraseElement) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Element: *mut ISpeechPhraseElement) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x961559cf_4e67_4662_8bf0_d93f1fcd61b3)]
         interface ISpeechPhraseInfo: IDispatch {
@@ -1140,75 +1140,75 @@ mod Windows {
             fn get_AudioSizeBytes(&self, #[out] #[retval] pAudioSizeBytes: *mut i32) -> HRESULT;
             fn get_RetainedSizeBytes(&self, #[out] #[retval] RetainedSizeBytes: *mut i32) -> HRESULT;
             fn get_AudioSizeTime(&self, #[out] #[retval] AudioSizeTime: *mut i32) -> HRESULT;
-            fn get_Rule(&self, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechPhraseRule) -> HRESULT;
-            fn get_Properties(&self, #[out] #[retval] #[out_ptr] Properties: *mut ISpeechPhraseProperties) -> HRESULT;
-            fn get_Elements(&self, #[out] #[retval] #[out_ptr] Elements: *mut ISpeechPhraseElements) -> HRESULT;
-            fn get_Replacements(&self, #[out] #[retval] #[out_ptr] Replacements: *mut ISpeechPhraseReplacements) -> HRESULT;
-            fn get_EngineId(&self, #[out] #[retval] #[out_ptr] EngineIdGuid: *mut BSTR) -> HRESULT;
+            fn get_Rule(&self, #[out] #[out_ptr] #[retval] Rule: *mut ISpeechPhraseRule) -> HRESULT;
+            fn get_Properties(&self, #[out] #[out_ptr] #[retval] Properties: *mut ISpeechPhraseProperties) -> HRESULT;
+            fn get_Elements(&self, #[out] #[out_ptr] #[retval] Elements: *mut ISpeechPhraseElements) -> HRESULT;
+            fn get_Replacements(&self, #[out] #[out_ptr] #[retval] Replacements: *mut ISpeechPhraseReplacements) -> HRESULT;
+            fn get_EngineId(&self, #[out] #[out_ptr] #[retval] EngineIdGuid: *mut BSTR) -> HRESULT;
             fn get_EnginePrivateData(&self, #[out] #[retval] PrivateData: *mut VARIANT) -> HRESULT;
             fn SaveToMemory(&self, #[out] #[retval] PhraseBlock: *mut VARIANT) -> HRESULT;
-            fn GetText(&self, #[in] StartElement: i32, #[in] Elements: i32, #[in] UseReplacements: VARIANT_BOOL, #[out] #[retval] #[out_ptr] Text: *mut BSTR) -> HRESULT;
+            fn GetText(&self, #[in] StartElement: i32, #[in] Elements: i32, #[in] UseReplacements: VARIANT_BOOL, #[out] #[out_ptr] #[retval] Text: *mut BSTR) -> HRESULT;
             fn GetDisplayAttributes(&self, #[in] StartElement: i32, #[in] Elements: i32, #[in] UseReplacements: VARIANT_BOOL, #[out] #[retval] DisplayAttributes: *mut SpeechDisplayAttributes) -> HRESULT;
         }
         #[guid(0x3b151836_df3a_4e0a_846c_d2adc9334333)]
         interface ISpeechPhraseInfoBuilder: IDispatch {
-            fn RestorePhraseFromMemory(&self, #[in] PhraseInMemory: *mut VARIANT, #[out] #[retval] #[out_ptr] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn RestorePhraseFromMemory(&self, #[in] PhraseInMemory: *mut VARIANT, #[out] #[out_ptr] #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
         }
         #[guid(0x08166b47_102e_4b23_a599_bdb98dbfd1f4)]
         interface ISpeechPhraseProperties: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Property: *mut ISpeechPhraseProperty) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Property: *mut ISpeechPhraseProperty) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xce563d48_961e_4732_a2e1_378a42b430be)]
         interface ISpeechPhraseProperty: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
             fn get_Id(&self, #[out] #[retval] Id: *mut i32) -> HRESULT;
             fn get_Value(&self, #[out] #[retval] Value: *mut VARIANT) -> HRESULT;
             fn get_FirstElement(&self, #[out] #[retval] FirstElement: *mut i32) -> HRESULT;
             fn get_NumberOfElements(&self, #[out] #[retval] NumberOfElements: *mut i32) -> HRESULT;
             fn get_EngineConfidence(&self, #[out] #[retval] Confidence: *mut f32) -> HRESULT;
             fn get_Confidence(&self, #[out] #[retval] Confidence: *mut SpeechEngineConfidence) -> HRESULT;
-            fn get_Parent(&self, #[out] #[retval] #[out_ptr] ParentProperty: *mut ISpeechPhraseProperty) -> HRESULT;
-            fn get_Children(&self, #[out] #[retval] #[out_ptr] Children: *mut ISpeechPhraseProperties) -> HRESULT;
+            fn get_Parent(&self, #[out] #[out_ptr] #[retval] ParentProperty: *mut ISpeechPhraseProperty) -> HRESULT;
+            fn get_Children(&self, #[out] #[out_ptr] #[retval] Children: *mut ISpeechPhraseProperties) -> HRESULT;
         }
         #[guid(0x2890a410_53a7_4fb5_94ec_06d4998e3d02)]
         interface ISpeechPhraseReplacement: IDispatch {
             fn get_DisplayAttributes(&self, #[out] #[retval] DisplayAttributes: *mut SpeechDisplayAttributes) -> HRESULT;
-            fn get_Text(&self, #[out] #[retval] #[out_ptr] Text: *mut BSTR) -> HRESULT;
+            fn get_Text(&self, #[out] #[out_ptr] #[retval] Text: *mut BSTR) -> HRESULT;
             fn get_FirstElement(&self, #[out] #[retval] FirstElement: *mut i32) -> HRESULT;
             fn get_NumberOfElements(&self, #[out] #[retval] NumberOfElements: *mut i32) -> HRESULT;
         }
         #[guid(0x38bc662f_2257_4525_959e_2069d2596c05)]
         interface ISpeechPhraseReplacements: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Reps: *mut ISpeechPhraseReplacement) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Reps: *mut ISpeechPhraseReplacement) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0xa7bfe112_a4a0_48d9_b602_c313843f6964)]
         interface ISpeechPhraseRule: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] Name: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] Name: *mut BSTR) -> HRESULT;
             fn get_Id(&self, #[out] #[retval] Id: *mut i32) -> HRESULT;
             fn get_FirstElement(&self, #[out] #[retval] FirstElement: *mut i32) -> HRESULT;
             fn get_NumberOfElements(&self, #[out] #[retval] NumberOfElements: *mut i32) -> HRESULT;
-            fn get_Parent(&self, #[out] #[retval] #[out_ptr] Parent: *mut ISpeechPhraseRule) -> HRESULT;
-            fn get_Children(&self, #[out] #[retval] #[out_ptr] Children: *mut ISpeechPhraseRules) -> HRESULT;
+            fn get_Parent(&self, #[out] #[out_ptr] #[retval] Parent: *mut ISpeechPhraseRule) -> HRESULT;
+            fn get_Children(&self, #[out] #[out_ptr] #[retval] Children: *mut ISpeechPhraseRules) -> HRESULT;
             fn get_Confidence(&self, #[out] #[retval] ActualConfidence: *mut SpeechEngineConfidence) -> HRESULT;
             fn get_EngineConfidence(&self, #[out] #[retval] EngineConfidence: *mut f32) -> HRESULT;
         }
         #[guid(0x9047d593_01dd_4b72_81a3_e4a0ca69f407)]
         interface ISpeechPhraseRules: IDispatch {
             fn get_Count(&self, #[out] #[retval] Count: *mut i32) -> HRESULT;
-            fn Item(&self, #[in] Index: i32, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechPhraseRule) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] EnumVARIANT: *mut IUnknown) -> HRESULT;
+            fn Item(&self, #[in] Index: i32, #[out] #[out_ptr] #[retval] Rule: *mut ISpeechPhraseRule) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] EnumVARIANT: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x580aa49d_7e1e_4809_b8e2_57da806104b8)]
         interface ISpeechRecoContext: IDispatch {
-            fn get_Recognizer(&self, #[out] #[retval] #[out_ptr] Recognizer: *mut ISpeechRecognizer) -> HRESULT;
+            fn get_Recognizer(&self, #[out] #[out_ptr] #[retval] Recognizer: *mut ISpeechRecognizer) -> HRESULT;
             fn get_AudioInputInterferenceStatus(&self, #[out] #[retval] Interference: *mut SpeechInterference) -> HRESULT;
-            fn get_RequestedUIType(&self, #[out] #[retval] #[out_ptr] UIType: *mut BSTR) -> HRESULT;
+            fn get_RequestedUIType(&self, #[out] #[out_ptr] #[retval] UIType: *mut BSTR) -> HRESULT;
             fn putref_Voice(&self, #[in] #[opt] Voice: ISpeechVoice) -> HRESULT;
-            fn get_Voice(&self, #[out] #[retval] #[out_ptr] Voice: *mut ISpeechVoice) -> HRESULT;
+            fn get_Voice(&self, #[out] #[out_ptr] #[retval] Voice: *mut ISpeechVoice) -> HRESULT;
             fn put_AllowVoiceFormatMatchingOnNextSet(&self, #[in] Allow: VARIANT_BOOL) -> HRESULT;
             fn get_AllowVoiceFormatMatchingOnNextSet(&self, #[out] #[retval] pAllow: *mut VARIANT_BOOL) -> HRESULT;
             fn put_VoicePurgeEvent(&self, #[in] EventInterest: SpeechRecoEvents) -> HRESULT;
@@ -1222,21 +1222,21 @@ mod Windows {
             fn put_RetainedAudio(&self, #[in] Option: SpeechRetainedAudioOptions) -> HRESULT;
             fn get_RetainedAudio(&self, #[out] #[retval] Option: *mut SpeechRetainedAudioOptions) -> HRESULT;
             fn putref_RetainedAudioFormat(&self, #[in] #[opt] Format: ISpeechAudioFormat) -> HRESULT;
-            fn get_RetainedAudioFormat(&self, #[out] #[retval] #[out_ptr] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            fn get_RetainedAudioFormat(&self, #[out] #[out_ptr] #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
-            fn CreateGrammar(&self, #[in] GrammarId: VARIANT, #[out] #[retval] #[out_ptr] Grammar: *mut ISpeechRecoGrammar) -> HRESULT;
-            fn CreateResultFromMemory(&self, #[in] ResultBlock: *mut VARIANT, #[out] #[retval] #[out_ptr] Result: *mut ISpeechRecoResult) -> HRESULT;
+            fn CreateGrammar(&self, #[in] GrammarId: VARIANT, #[out] #[out_ptr] #[retval] Grammar: *mut ISpeechRecoGrammar) -> HRESULT;
+            fn CreateResultFromMemory(&self, #[in] ResultBlock: *mut VARIANT, #[out] #[out_ptr] #[retval] Result: *mut ISpeechRecoResult) -> HRESULT;
             fn Bookmark(&self, #[in] Options: SpeechBookmarkOptions, #[in] StreamPos: VARIANT, #[in] BookmarkId: VARIANT) -> HRESULT;
             fn SetAdaptationData(&self, #[in] AdaptationString: BSTR) -> HRESULT;
         }
         #[guid(0xb6d6f79f_2158_4e50_b5bc_9a9ccd852a09)]
         interface ISpeechRecoGrammar: IDispatch {
             fn get_Id(&self, #[out] #[retval] Id: *mut VARIANT) -> HRESULT;
-            fn get_RecoContext(&self, #[out] #[retval] #[out_ptr] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
+            fn get_RecoContext(&self, #[out] #[out_ptr] #[retval] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
             fn put_State(&self, #[in] State: SpeechGrammarState) -> HRESULT;
             fn get_State(&self, #[out] #[retval] State: *mut SpeechGrammarState) -> HRESULT;
-            fn get_Rules(&self, #[out] #[retval] #[out_ptr] Rules: *mut ISpeechGrammarRules) -> HRESULT;
+            fn get_Rules(&self, #[out] #[out_ptr] #[retval] Rules: *mut ISpeechGrammarRules) -> HRESULT;
             fn Reset(&self, #[in] NewLanguage: SpeechLanguageId) -> HRESULT;
             fn CmdLoadFromFile(&self, #[in] FileName: BSTR, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
             fn CmdLoadFromObject(&self, #[in] ClassId: BSTR, #[in] GrammarName: BSTR, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
@@ -1254,13 +1254,13 @@ mod Windows {
         }
         #[guid(0xed2879cf_ced9_4ee6_a534_de0191d5468d)]
         interface ISpeechRecoResult: IDispatch {
-            fn get_RecoContext(&self, #[out] #[retval] #[out_ptr] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
-            fn get_Times(&self, #[out] #[retval] #[out_ptr] Times: *mut ISpeechRecoResultTimes) -> HRESULT;
+            fn get_RecoContext(&self, #[out] #[out_ptr] #[retval] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
+            fn get_Times(&self, #[out] #[out_ptr] #[retval] Times: *mut ISpeechRecoResultTimes) -> HRESULT;
             fn putref_AudioFormat(&self, #[in] #[opt] Format: ISpeechAudioFormat) -> HRESULT;
-            fn get_AudioFormat(&self, #[out] #[retval] #[out_ptr] Format: *mut ISpeechAudioFormat) -> HRESULT;
-            fn get_PhraseInfo(&self, #[out] #[retval] #[out_ptr] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
-            fn Alternates(&self, #[in] RequestCount: i32, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[retval] #[out_ptr] Alternates: *mut ISpeechPhraseAlternates) -> HRESULT;
-            fn Audio(&self, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[retval] #[out_ptr] Stream: *mut ISpeechMemoryStream) -> HRESULT;
+            fn get_AudioFormat(&self, #[out] #[out_ptr] #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            fn get_PhraseInfo(&self, #[out] #[out_ptr] #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn Alternates(&self, #[in] RequestCount: i32, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[out_ptr] #[retval] Alternates: *mut ISpeechPhraseAlternates) -> HRESULT;
+            fn Audio(&self, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[out_ptr] #[retval] Stream: *mut ISpeechMemoryStream) -> HRESULT;
             fn SpeakAudio(&self, #[in] StartElement: i32, #[in] Elements: i32, #[in] Flags: SpeechVoiceSpeakFlags, #[out] #[retval] StreamNumber: *mut i32) -> HRESULT;
             fn SaveToMemory(&self, #[out] #[retval] ResultBlock: *mut VARIANT) -> HRESULT;
             fn DiscardResultInfo(&self, #[in] ValueTypes: SpeechDiscardType) -> HRESULT;
@@ -1271,17 +1271,17 @@ mod Windows {
         }
         #[guid(0x6d60eb64_aced_40a6_bbf3_4e557f71dee2)]
         interface ISpeechRecoResultDispatch: IDispatch {
-            fn get_RecoContext(&self, #[out] #[retval] #[out_ptr] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
-            fn get_Times(&self, #[out] #[retval] #[out_ptr] Times: *mut ISpeechRecoResultTimes) -> HRESULT;
+            fn get_RecoContext(&self, #[out] #[out_ptr] #[retval] RecoContext: *mut ISpeechRecoContext) -> HRESULT;
+            fn get_Times(&self, #[out] #[out_ptr] #[retval] Times: *mut ISpeechRecoResultTimes) -> HRESULT;
             fn putref_AudioFormat(&self, #[in] #[opt] Format: ISpeechAudioFormat) -> HRESULT;
-            fn get_AudioFormat(&self, #[out] #[retval] #[out_ptr] Format: *mut ISpeechAudioFormat) -> HRESULT;
-            fn get_PhraseInfo(&self, #[out] #[retval] #[out_ptr] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
-            fn Alternates(&self, #[in] RequestCount: i32, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[retval] #[out_ptr] Alternates: *mut ISpeechPhraseAlternates) -> HRESULT;
-            fn Audio(&self, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[retval] #[out_ptr] Stream: *mut ISpeechMemoryStream) -> HRESULT;
+            fn get_AudioFormat(&self, #[out] #[out_ptr] #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            fn get_PhraseInfo(&self, #[out] #[out_ptr] #[retval] PhraseInfo: *mut ISpeechPhraseInfo) -> HRESULT;
+            fn Alternates(&self, #[in] RequestCount: i32, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[out_ptr] #[retval] Alternates: *mut ISpeechPhraseAlternates) -> HRESULT;
+            fn Audio(&self, #[in] StartElement: i32, #[in] Elements: i32, #[out] #[out_ptr] #[retval] Stream: *mut ISpeechMemoryStream) -> HRESULT;
             fn SpeakAudio(&self, #[in] StartElement: i32, #[in] Elements: i32, #[in] Flags: SpeechVoiceSpeakFlags, #[out] #[retval] StreamNumber: *mut i32) -> HRESULT;
             fn SaveToMemory(&self, #[out] #[retval] ResultBlock: *mut VARIANT) -> HRESULT;
             fn DiscardResultInfo(&self, #[in] ValueTypes: SpeechDiscardType) -> HRESULT;
-            fn GetXMLResult(&self, #[in] Options: SPXMLRESULTOPTIONS, #[out] #[retval] #[out_ptr] pResult: *mut BSTR) -> HRESULT;
+            fn GetXMLResult(&self, #[in] Options: SPXMLRESULTOPTIONS, #[out] #[out_ptr] #[retval] pResult: *mut BSTR) -> HRESULT;
             fn GetXMLErrorInfo(&self, #[out] LineNumber: *mut i32, #[out] #[out_ptr] ScriptLine: *mut BSTR, #[out] #[out_ptr] Source: *mut BSTR, #[out] #[out_ptr] Description: *mut BSTR, #[out] ResultCode: *mut HRESULT, #[out] #[retval] IsError: *mut VARIANT_BOOL) -> HRESULT;
             fn SetTextFeedback(&self, #[in] Feedback: BSTR, #[in] WasSuccessful: VARIANT_BOOL) -> HRESULT;
         }
@@ -1295,45 +1295,45 @@ mod Windows {
         #[guid(0x2d5f1c0c_bd75_4b08_9478_3b11fea2586c)]
         interface ISpeechRecognizer: IDispatch {
             fn putref_Recognizer(&self, #[in] #[opt] Recognizer: ISpeechObjectToken) -> HRESULT;
-            fn get_Recognizer(&self, #[out] #[retval] #[out_ptr] Recognizer: *mut ISpeechObjectToken) -> HRESULT;
+            fn get_Recognizer(&self, #[out] #[out_ptr] #[retval] Recognizer: *mut ISpeechObjectToken) -> HRESULT;
             fn put_AllowAudioInputFormatChangesOnNextSet(&self, #[in] Allow: VARIANT_BOOL) -> HRESULT;
             fn get_AllowAudioInputFormatChangesOnNextSet(&self, #[out] #[retval] Allow: *mut VARIANT_BOOL) -> HRESULT;
             fn putref_AudioInput(&self, #[in] #[opt] AudioInput: ISpeechObjectToken) -> HRESULT;
-            fn get_AudioInput(&self, #[out] #[retval] #[out_ptr] AudioInput: *mut ISpeechObjectToken) -> HRESULT;
+            fn get_AudioInput(&self, #[out] #[out_ptr] #[retval] AudioInput: *mut ISpeechObjectToken) -> HRESULT;
             fn putref_AudioInputStream(&self, #[in] #[opt] AudioInputStream: ISpeechBaseStream) -> HRESULT;
-            fn get_AudioInputStream(&self, #[out] #[retval] #[out_ptr] AudioInputStream: *mut ISpeechBaseStream) -> HRESULT;
+            fn get_AudioInputStream(&self, #[out] #[out_ptr] #[retval] AudioInputStream: *mut ISpeechBaseStream) -> HRESULT;
             fn get_IsShared(&self, #[out] #[retval] Shared: *mut VARIANT_BOOL) -> HRESULT;
             fn put_State(&self, #[in] State: SpeechRecognizerState) -> HRESULT;
             fn get_State(&self, #[out] #[retval] State: *mut SpeechRecognizerState) -> HRESULT;
-            fn get_Status(&self, #[out] #[retval] #[out_ptr] Status: *mut ISpeechRecognizerStatus) -> HRESULT;
+            fn get_Status(&self, #[out] #[out_ptr] #[retval] Status: *mut ISpeechRecognizerStatus) -> HRESULT;
             fn putref_Profile(&self, #[in] #[opt] Profile: ISpeechObjectToken) -> HRESULT;
-            fn get_Profile(&self, #[out] #[retval] #[out_ptr] Profile: *mut ISpeechObjectToken) -> HRESULT;
+            fn get_Profile(&self, #[out] #[out_ptr] #[retval] Profile: *mut ISpeechObjectToken) -> HRESULT;
             fn EmulateRecognition(&self, #[in] TextElements: VARIANT, #[in] ElementDisplayAttributes: *mut VARIANT, #[in] LanguageId: i32) -> HRESULT;
-            fn CreateRecoContext(&self, #[out] #[retval] #[out_ptr] NewContext: *mut ISpeechRecoContext) -> HRESULT;
-            fn GetFormat(&self, #[in] Type: SpeechFormatType, #[out] #[retval] #[out_ptr] Format: *mut ISpeechAudioFormat) -> HRESULT;
+            fn CreateRecoContext(&self, #[out] #[out_ptr] #[retval] NewContext: *mut ISpeechRecoContext) -> HRESULT;
+            fn GetFormat(&self, #[in] Type: SpeechFormatType, #[out] #[out_ptr] #[retval] Format: *mut ISpeechAudioFormat) -> HRESULT;
             fn SetPropertyNumber(&self, #[in] Name: BSTR, #[in] Value: i32, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetPropertyNumber(&self, #[in] Name: BSTR, #[in] #[out] Value: *mut i32, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn SetPropertyString(&self, #[in] Name: BSTR, #[in] Value: BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetPropertyString(&self, #[in] Name: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] Value: *mut BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn IsUISupported(&self, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn DisplayUI(&self, #[in] hWndParent: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT) -> HRESULT;
-            fn GetRecognizers(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
-            fn GetAudioInputs(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
-            fn GetProfiles(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetRecognizers(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[out_ptr] #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetAudioInputs(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[out_ptr] #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetProfiles(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[out_ptr] #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
         }
         #[guid(0xbff9e781_53ec_484e_bb8a_0e1b5551e35c)]
         interface ISpeechRecognizerStatus: IDispatch {
-            fn get_AudioStatus(&self, #[out] #[retval] #[out_ptr] AudioStatus: *mut ISpeechAudioStatus) -> HRESULT;
+            fn get_AudioStatus(&self, #[out] #[out_ptr] #[retval] AudioStatus: *mut ISpeechAudioStatus) -> HRESULT;
             fn get_CurrentStreamPosition(&self, #[out] #[retval] pCurrentStreamPos: *mut VARIANT) -> HRESULT;
             fn get_CurrentStreamNumber(&self, #[out] #[retval] StreamNumber: *mut i32) -> HRESULT;
             fn get_NumberOfActiveRules(&self, #[out] #[retval] NumberOfActiveRules: *mut i32) -> HRESULT;
-            fn get_ClsidEngine(&self, #[out] #[retval] #[out_ptr] ClsidEngine: *mut BSTR) -> HRESULT;
+            fn get_ClsidEngine(&self, #[out] #[out_ptr] #[retval] ClsidEngine: *mut BSTR) -> HRESULT;
             fn get_SupportedLanguages(&self, #[out] #[retval] SupportedLanguages: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xb9ac5783_fcd0_4b21_b119_b4f8da8fd2c3)]
         interface ISpeechResourceLoader: IDispatch {
-            fn LoadResource(&self, #[in] bstrResourceUri: BSTR, #[in] fAlwaysReload: VARIANT_BOOL, #[out] pStream: *mut IUnknown, #[out] #[opt] pbstrMIMEType: *mut BSTR, #[out] pfModified: *mut VARIANT_BOOL, #[out] #[opt] pbstrRedirectUrl: *mut BSTR) -> HRESULT;
-            fn GetLocalCopy(&self, #[in] bstrResourceUri: BSTR, #[out] pbstrLocalPath: *mut BSTR, #[out] #[opt] pbstrMIMEType: *mut BSTR, #[out] #[opt] pbstrRedirectUrl: *mut BSTR) -> HRESULT;
+            fn LoadResource(&self, #[in] bstrResourceUri: BSTR, #[in] fAlwaysReload: VARIANT_BOOL, #[out] pStream: *mut IUnknown, #[opt] #[out] pbstrMIMEType: *mut BSTR, #[out] pfModified: *mut VARIANT_BOOL, #[opt] #[out] pbstrRedirectUrl: *mut BSTR) -> HRESULT;
+            fn GetLocalCopy(&self, #[in] bstrResourceUri: BSTR, #[out] pbstrLocalPath: *mut BSTR, #[opt] #[out] pbstrMIMEType: *mut BSTR, #[opt] #[out] pbstrRedirectUrl: *mut BSTR) -> HRESULT;
             fn ReleaseLocalCopy(&self, #[in] pbstrLocalPath: BSTR) -> HRESULT;
         }
         #[guid(0x3b9c7e7a_6eee_4ded_9092_11657279adbe)]
@@ -1349,12 +1349,12 @@ mod Windows {
         }
         #[guid(0x269316d8_57bd_11d2_9eee_00c04f797396)]
         interface ISpeechVoice: IDispatch {
-            fn get_Status(&self, #[out] #[retval] #[out_ptr] Status: *mut ISpeechVoiceStatus) -> HRESULT;
-            fn get_Voice(&self, #[out] #[retval] #[out_ptr] Voice: *mut ISpeechObjectToken) -> HRESULT;
+            fn get_Status(&self, #[out] #[out_ptr] #[retval] Status: *mut ISpeechVoiceStatus) -> HRESULT;
+            fn get_Voice(&self, #[out] #[out_ptr] #[retval] Voice: *mut ISpeechObjectToken) -> HRESULT;
             fn putref_Voice(&self, #[in] #[opt] Voice: ISpeechObjectToken) -> HRESULT;
-            fn get_AudioOutput(&self, #[out] #[retval] #[out_ptr] AudioOutput: *mut ISpeechObjectToken) -> HRESULT;
+            fn get_AudioOutput(&self, #[out] #[out_ptr] #[retval] AudioOutput: *mut ISpeechObjectToken) -> HRESULT;
             fn putref_AudioOutput(&self, #[in] #[opt] AudioOutput: ISpeechObjectToken) -> HRESULT;
-            fn get_AudioOutputStream(&self, #[out] #[retval] #[out_ptr] AudioOutputStream: *mut ISpeechBaseStream) -> HRESULT;
+            fn get_AudioOutputStream(&self, #[out] #[out_ptr] #[retval] AudioOutputStream: *mut ISpeechBaseStream) -> HRESULT;
             fn putref_AudioOutputStream(&self, #[in] #[opt] AudioOutputStream: ISpeechBaseStream) -> HRESULT;
             fn get_Rate(&self, #[out] #[retval] Rate: *mut i32) -> HRESULT;
             fn put_Rate(&self, #[in] Rate: i32) -> HRESULT;
@@ -1375,8 +1375,8 @@ mod Windows {
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
             fn Skip(&self, #[in] Type: BSTR, #[in] NumItems: i32, #[out] #[retval] NumSkipped: *mut i32) -> HRESULT;
-            fn GetVoices(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
-            fn GetAudioOutputs(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetVoices(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[out_ptr] #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
+            fn GetAudioOutputs(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[out_ptr] #[retval] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
             fn WaitUntilDone(&self, #[in] msTimeout: i32, #[out] #[retval] Done: *mut VARIANT_BOOL) -> HRESULT;
             fn SpeakCompleteEvent(&self, #[out] #[retval] Handle: *mut i32) -> HRESULT;
             fn IsUISupported(&self, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
@@ -1392,7 +1392,7 @@ mod Windows {
             fn get_InputWordLength(&self, #[out] #[retval] Length: *mut i32) -> HRESULT;
             fn get_InputSentencePosition(&self, #[out] #[retval] Position: *mut i32) -> HRESULT;
             fn get_InputSentenceLength(&self, #[out] #[retval] Length: *mut i32) -> HRESULT;
-            fn get_LastBookmark(&self, #[out] #[retval] #[out_ptr] Bookmark: *mut BSTR) -> HRESULT;
+            fn get_LastBookmark(&self, #[out] #[out_ptr] #[retval] Bookmark: *mut BSTR) -> HRESULT;
             fn get_LastBookmarkId(&self, #[out] #[retval] BookmarkId: *mut i32) -> HRESULT;
             fn get_PhonemeId(&self, #[out] #[retval] PhoneId: *mut i16) -> HRESULT;
             fn get_VisemeId(&self, #[out] #[retval] VisemeId: *mut i16) -> HRESULT;
@@ -1416,7 +1416,7 @@ mod Windows {
         }
         #[guid(0xaaec54af_8f85_4924_944d_b79d39d72e19)]
         interface ISpeechXMLRecoResult: ISpeechRecoResult {
-            fn GetXMLResult(&self, #[in] Options: SPXMLRESULTOPTIONS, #[out] #[retval] #[out_ptr] pResult: *mut BSTR) -> HRESULT;
+            fn GetXMLResult(&self, #[in] Options: SPXMLRESULTOPTIONS, #[out] #[out_ptr] #[retval] pResult: *mut BSTR) -> HRESULT;
             fn GetXMLErrorInfo(&self, #[out] LineNumber: *mut i32, #[out] #[out_ptr] ScriptLine: *mut BSTR, #[out] #[out_ptr] Source: *mut BSTR, #[out] #[out_ptr] Description: *mut BSTR, #[out] ResultCode: *mut i32, #[out] #[retval] IsError: *mut VARIANT_BOOL) -> HRESULT;
         }
         type PCSPPHONEID = *const u16;

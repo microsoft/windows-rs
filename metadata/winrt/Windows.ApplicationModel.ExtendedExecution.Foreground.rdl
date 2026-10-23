@@ -3,16 +3,16 @@ mod Windows {
     mod ApplicationModel {
         mod ExtendedExecution {
             mod Foreground {
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum ExtendedExecutionForegroundReason {
                     Unspecified = 0,
                     SavingData = 1,
                     BackgroundAudio = 2,
                     Unconstrained = 3,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum ExtendedExecutionForegroundResult {
                     Allowed = 0,
                     Denied = 1,
@@ -23,8 +23,8 @@ mod Windows {
                 class ExtendedExecutionForegroundRevokedEventArgs {
                     IExtendedExecutionForegroundRevokedEventArgs,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[repr(i32)]
                 enum ExtendedExecutionForegroundRevokedReason {
                     Resumed = 0,
                     SystemPolicy = 1,
@@ -37,16 +37,16 @@ mod Windows {
                     IExtendedExecutionForegroundSession,
                     super::super::super::Foundation::IClosable,
                 }
-                #[guid(0xb07cd940_9557_aea4_2c99_bdd56d9be461)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ExtendedExecutionForegroundRevokedEventArgs)]
+                #[guid(0xb07cd940_9557_aea4_2c99_bdd56d9be461)]
                 interface IExtendedExecutionForegroundRevokedEventArgs {
                     #[get]
                     Reason: ExtendedExecutionForegroundRevokedReason;
                 }
-                #[guid(0xfbf440e1_9d10_4201_b01e_c83275296f2e)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ExtendedExecutionForegroundSession)]
+                #[guid(0xfbf440e1_9d10_4201_b01e_c83275296f2e)]
                 interface IExtendedExecutionForegroundSession: super::super::super::Foundation::IClosable {
                     Description: String;
                     event Revoked: super::super::super::Foundation::TypedEventHandler<Object, ExtendedExecutionForegroundRevokedEventArgs>;

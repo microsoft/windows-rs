@@ -8,10 +8,10 @@ mod Windows {
             fn GetObjectA(&self, #[out] ppIUnknown: *mut IUnknown) -> HRESULT;
             fn GetUserData(&self, #[out] pdwUserData: *mut DWORD_PTR) -> HRESULT;
             fn SetUserData(&self, #[in] dwUserData: DWORD_PTR) -> HRESULT;
-            fn GetStartStopPosition(&self, #[out] #[opt] pguidStartPositionType: *mut GUID, #[out] #[opt] pvStartValue: *mut PROPVARIANT, #[out] #[opt] pguidStopPositionType: *mut GUID, #[out] #[opt] pvStopValue: *mut PROPVARIANT) -> HRESULT;
+            fn GetStartStopPosition(&self, #[opt] #[out] pguidStartPositionType: *mut GUID, #[opt] #[out] pvStartValue: *mut PROPVARIANT, #[opt] #[out] pguidStopPositionType: *mut GUID, #[opt] #[out] pvStopValue: *mut PROPVARIANT) -> HRESULT;
             fn SetStartStopPosition(&self, #[in] #[opt] pguidStartPositionType: *const GUID, #[in] #[opt] pvStartValue: *const PROPVARIANT, #[in] #[opt] pguidStopPositionType: *const GUID, #[in] #[opt] pvStopValue: *const PROPVARIANT) -> HRESULT;
-            fn HasVideo(&self, #[out] #[opt] pfHasVideo: *mut BOOL, #[out] #[opt] pfSelected: *mut BOOL) -> HRESULT;
-            fn HasAudio(&self, #[out] #[opt] pfHasAudio: *mut BOOL, #[out] #[opt] pfSelected: *mut BOOL) -> HRESULT;
+            fn HasVideo(&self, #[opt] #[out] pfHasVideo: *mut BOOL, #[opt] #[out] pfSelected: *mut BOOL) -> HRESULT;
+            fn HasAudio(&self, #[opt] #[out] pfHasAudio: *mut BOOL, #[opt] #[out] pfSelected: *mut BOOL) -> HRESULT;
             fn IsProtected(&self, #[out] pfProtected: *mut BOOL) -> HRESULT;
             fn GetDuration(&self, #[in] guidPositionType: &GUID, #[out] pvDurationValue: *mut PROPVARIANT) -> HRESULT;
             fn GetNumberOfStreams(&self, #[out] pdwStreamCount: *mut DWORD) -> HRESULT;
@@ -36,8 +36,8 @@ mod Windows {
             fn GetRate(&self, #[out] pflRate: *mut f32) -> HRESULT;
             fn GetSupportedRates(&self, #[in] fForwardDirection: BOOL, #[out] pflSlowestRate: *mut f32, #[out] pflFastestRate: *mut f32) -> HRESULT;
             fn GetState(&self, #[out] peState: *mut MFP_MEDIAPLAYER_STATE) -> HRESULT;
-            fn CreateMediaItemFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] fSync: BOOL, #[in] dwUserData: DWORD_PTR, #[out] #[opt] ppMediaItem: *mut IMFPMediaItem) -> HRESULT;
-            fn CreateMediaItemFromObject(&self, #[in] pIUnknownObj: IUnknown, #[in] fSync: BOOL, #[in] dwUserData: DWORD_PTR, #[out] #[opt] ppMediaItem: *mut IMFPMediaItem) -> HRESULT;
+            fn CreateMediaItemFromURL(&self, #[in] pwszURL: LPCWSTR, #[in] fSync: BOOL, #[in] dwUserData: DWORD_PTR, #[opt] #[out] ppMediaItem: *mut IMFPMediaItem) -> HRESULT;
+            fn CreateMediaItemFromObject(&self, #[in] pIUnknownObj: IUnknown, #[in] fSync: BOOL, #[in] dwUserData: DWORD_PTR, #[opt] #[out] ppMediaItem: *mut IMFPMediaItem) -> HRESULT;
             fn SetMediaItem(&self, #[in] pIMFPMediaItem: IMFPMediaItem) -> HRESULT;
             fn ClearMediaItem(&self) -> HRESULT;
             fn GetMediaItem(&self, #[out] ppIMFPMediaItem: *mut IMFPMediaItem) -> HRESULT;
@@ -47,8 +47,8 @@ mod Windows {
             fn SetBalance(&self, #[in] flBalance: f32) -> HRESULT;
             fn GetMute(&self, #[out] pfMute: *mut BOOL) -> HRESULT;
             fn SetMute(&self, #[in] fMute: BOOL) -> HRESULT;
-            fn GetNativeVideoSize(&self, #[out] #[opt] pszVideo: *mut SIZE, #[out] #[opt] pszARVideo: *mut SIZE) -> HRESULT;
-            fn GetIdealVideoSize(&self, #[out] #[opt] pszMin: *mut SIZE, #[out] #[opt] pszMax: *mut SIZE) -> HRESULT;
+            fn GetNativeVideoSize(&self, #[opt] #[out] pszVideo: *mut SIZE, #[opt] #[out] pszARVideo: *mut SIZE) -> HRESULT;
+            fn GetIdealVideoSize(&self, #[opt] #[out] pszMin: *mut SIZE, #[opt] #[out] pszMax: *mut SIZE) -> HRESULT;
             fn SetVideoSourceRect(&self, #[in] pnrcSource: *const MFVideoNormalizedRect) -> HRESULT;
             fn GetVideoSourceRect(&self, #[out] pnrcSource: *mut MFVideoNormalizedRect) -> HRESULT;
             fn SetAspectRatioMode(&self, #[in] dwAspectRatioMode: DWORD) -> HRESULT;
@@ -67,7 +67,7 @@ mod Windows {
             fn OnMediaPlayerEvent(&self, #[in] pEventHeader: *mut MFP_EVENT_HEADER);
         }
         #[library("MFPlay.DLL")]
-        extern fn MFPCreateMediaPlayer(#[in] #[opt] pwszURL: LPCWSTR, #[in] fStartPlayback: BOOL, #[in] #[opt] creationOptions: MFP_CREATION_OPTIONS, #[in] #[opt] pCallback: IMFPMediaPlayerCallback, #[in] #[opt] hWnd: HWND, #[out] #[opt] ppMediaPlayer: *mut IMFPMediaPlayer) -> HRESULT;
+        extern fn MFPCreateMediaPlayer(#[in] #[opt] pwszURL: LPCWSTR, #[in] fStartPlayback: BOOL, #[in] #[opt] creationOptions: MFP_CREATION_OPTIONS, #[in] #[opt] pCallback: IMFPMediaPlayerCallback, #[in] #[opt] hWnd: HWND, #[opt] #[out] ppMediaPlayer: *mut IMFPMediaPlayer) -> HRESULT;
         struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
             header: MFP_EVENT_HEADER,
             dwUserData: DWORD_PTR,

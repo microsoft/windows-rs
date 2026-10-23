@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         const ASYNC_MODE_COMPATIBILITY: i32 = 1;
         const ASYNC_MODE_DEFAULT: i32 = 0;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn BindMoniker(#[in] pmk: LPMONIKER, #[in] grfOpt: DWORD, #[in] iidResult: &IID, #[out] #[out_ptr] ppvResult: *mut LPVOID) -> HRESULT;
         #[repr(i32)]
         enum COINIT {
@@ -32,20 +32,20 @@ mod Windows {
         extern fn CoFreeAllLibraries();
         #[library("ole32.dll")]
         extern fn CoFreeLibrary(#[in] hInst: HINSTANCE);
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoGetInstanceFromFile(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwszName: *mut OLECHAR, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoGetInstanceFromIStorage(#[in] #[opt] pServerInfo: *mut COSERVERINFO, #[in] #[opt] pClsid: *mut CLSID, #[in] #[opt] punkOuter: IUnknown, #[in] dwClsCtx: DWORD, #[in] pstg: IStorage, #[in] dwCount: DWORD, #[in] #[out] #[writable(entry, dwCount)] pResults: *mut MULTI_QI) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoGetObject(#[in] pszName: LPCWSTR, #[in] #[opt] pBindOptions: *mut BIND_OPTS, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut *mut void) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoGetSystemSecurityPermissions(comSDType: COMSD, ppSD: *mut PSECURITY_DESCRIPTOR) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoInitialize(#[in] #[opt] pvReserved: LPVOID) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoInstall(#[in] pbc: IBindCtx, #[in] dwFlags: DWORD, #[in] pClassSpec: *mut uCLSSPEC, #[in] pQuery: *mut QUERYCONTEXT, #[in] pszCodeBase: LPWSTR) -> HRESULT;
@@ -55,85 +55,85 @@ mod Windows {
         extern fn CoLoadLibrary(#[in] lpszLibName: LPOLESTR, #[in] bAutoFree: BOOL) -> HINSTANCE;
         #[library("ole32.dll")]
         extern fn CoRegisterChannelHook(#[in] ExtensionUuid: &GUID, #[in] pChannelHook: IChannelHook) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoRegisterInitializeSpy(#[in] pSpy: IInitializeSpy, #[out] puliCookie: *mut ULARGE_INTEGER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoRegisterMallocSpy(#[in] pMallocSpy: LPMALLOCSPY) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
-        extern fn CoRegisterMessageFilter(#[in] #[opt] lpMessageFilter: LPMESSAGEFILTER, #[out] #[opt] #[out_ptr(nullable)] lplpMessageFilter: *mut LPMESSAGEFILTER) -> HRESULT;
         #[must_use]
+        extern fn CoRegisterMessageFilter(#[in] #[opt] lpMessageFilter: LPMESSAGEFILTER, #[opt] #[out] #[out_ptr(nullable)] lplpMessageFilter: *mut LPMESSAGEFILTER) -> HRESULT;
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoRevokeInitializeSpy(#[in] uliCookie: ULARGE_INTEGER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoRevokeMallocSpy() -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CoTreatAsClass(#[in] clsidOld: &IID, #[in] clsidNew: &IID) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateAntiMoniker(#[out] #[out_ptr] ppmk: *mut LPMONIKER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateBindCtx(#[in] reserved: DWORD, #[out] #[out_ptr] ppbc: *mut LPBC) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateClassMoniker(#[in] rclsid: &IID, #[out] #[out_ptr] ppmk: *mut LPMONIKER) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CreateDataCache(#[in] #[opt] pUnkOuter: LPUNKNOWN, #[in] rclsid: &IID, #[in] iid: &IID, #[out] ppv: *mut LPVOID) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateFileMoniker(#[in] lpszPathName: LPCOLESTR, #[out] #[out_ptr] ppmk: *mut LPMONIKER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateGenericComposite(#[in] #[opt] pmkFirst: LPMONIKER, #[in] #[opt] pmkRest: LPMONIKER, #[out] #[out_ptr] ppmkComposite: *mut LPMONIKER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateItemMoniker(#[in] lpszDelim: LPCOLESTR, #[in] lpszItem: LPCOLESTR, #[out] #[out_ptr] ppmk: *mut LPMONIKER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreateObjrefMoniker(#[in] #[opt] punk: LPUNKNOWN, #[out] #[out_ptr] ppmk: *mut LPMONIKER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn CreatePointerMoniker(#[in] #[opt] punk: LPUNKNOWN, #[out] #[out_ptr] ppmk: *mut LPMONIKER) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CreateStdProgressIndicator(#[in] hwndParent: HWND, #[in] pszTitle: LPCOLESTR, #[in] pIbscCaller: IBindStatusCallback, #[out] #[out_ptr] ppIbsc: *mut IBindStatusCallback) -> HRESULT;
         #[library("ole32.dll")]
         extern fn DcomChannelSetHResult(#[in] #[opt] pvReserved: LPVOID, #[in] #[opt] pulReserved: *mut ULONG, #[in] appsHR: HRESULT) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn GetClassFile(#[in] szFilename: LPCOLESTR, #[out] pclsid: *mut CLSID) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn GetRunningObjectTable(#[in] reserved: DWORD, #[out] #[out_ptr] pprot: *mut LPRUNNINGOBJECTTABLE) -> HRESULT;
         const MARSHALINTERFACE_MIN: i32 = 500;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn MkParseDisplayName(#[in] pbc: LPBC, #[in] szUserName: LPCOLESTR, #[out] pchEaten: *mut ULONG, #[out] #[out_ptr] ppmk: *mut LPMONIKER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn MonikerCommonPrefixWith(#[in] pmkThis: LPMONIKER, #[in] pmkOther: LPMONIKER, #[out] #[out_ptr] ppmkCommon: *mut LPMONIKER) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn MonikerRelativePathTo(#[in] pmkSrc: LPMONIKER, #[in] pmkDest: LPMONIKER, #[out] #[out_ptr] ppmkRelPath: *mut LPMONIKER, #[in] dwReserved: BOOL) -> HRESULT;
         const STGTY_REPEAT: i32 = 256;
         const STG_LAYOUT_INTERLEAVED: i32 = 1;
         const STG_LAYOUT_SEQUENTIAL: i32 = 0;
         const STG_TOEND: u32 = 4294967295;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgGetIFillLockBytesOnFile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwcsName: *const OLECHAR, #[out] #[out_ptr] ppflb: *mut IFillLockBytes) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
+        #[must_use]
         extern fn StgGetIFillLockBytesOnILockBytes(#[in] pilb: ILockBytes, #[out] #[out_ptr] ppflb: *mut IFillLockBytes) -> HRESULT;
-        #[must_use]
         #[library("ole32.dll")]
-        extern fn StgOpenAsyncDocfileOnIFillLockBytes(#[in] pflb: IFillLockBytes, #[in] grfMode: DWORD, #[in] asyncFlags: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
         #[must_use]
+        extern fn StgOpenAsyncDocfileOnIFillLockBytes(#[in] pflb: IFillLockBytes, #[in] grfMode: DWORD, #[in] asyncFlags: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("dflayout.dll")]
+        #[must_use]
         extern fn StgOpenLayoutDocfile(#[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")] #[in] pwcsDfName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved: DWORD, #[out] #[out_ptr] ppstgOpen: *mut IStorage) -> HRESULT;
     }
 }

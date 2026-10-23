@@ -244,31 +244,31 @@ mod Windows {
         const CRYPTUI_WIZ_NO_UI: i32 = 1;
         #[library("CRYPTUI.dll")]
         extern fn CertSelectionGetSerializedBlob(#[in] pcsi: PCERT_SELECTUI_INPUT, #[out] #[out_ptr(nullable)] ppOutBuffer: *mut *mut void, #[out] pulOutBufferSize: *mut ULONG) -> HRESULT;
-        #[success(return == 1)]
         #[library("CRYPTUI.dll")]
+        #[success(return == 1)]
         extern fn CryptUIDlgCertMgr(#[in] pCryptUICertMgr: PCCRYPTUI_CERT_MGR_STRUCT) -> BOOL;
         #[library("CRYPTUI.dll")]
         extern fn CryptUIDlgSelectCertificateFromStore(#[in] hCertStore: HCERTSTORE, #[in] #[opt] hwnd: HWND, #[in] #[opt] pwszTitle: LPCWSTR, #[in] #[opt] pwszDisplayString: LPCWSTR, #[in] dwDontUseColumn: DWORD, #[in] dwFlags: DWORD, #[in] pvReserved: *mut void) -> PCCERT_CONTEXT;
-        #[success(return == 1)]
         #[library("CRYPTUI.dll")]
+        #[success(return == 1)]
         extern fn CryptUIDlgViewCertificateA(#[in] pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTA, #[out] pfPropertiesChanged: *mut BOOL) -> BOOL;
-        #[success(return == 1)]
         #[library("CRYPTUI.dll")]
+        #[success(return == 1)]
         extern fn CryptUIDlgViewCertificateW(#[in] pCertViewInfo: PCCRYPTUI_VIEWCERTIFICATE_STRUCTW, #[out] pfPropertiesChanged: *mut BOOL) -> BOOL;
-        #[success(return == 1)]
         #[library("CRYPTUI.dll")]
+        #[success(return == 1)]
         extern fn CryptUIDlgViewContext(#[in] dwContextType: DWORD, #[in] pvContext: *const void, #[in] #[opt] hwnd: HWND, #[in] #[opt] pwszTitle: LPCWSTR, #[in] dwFlags: DWORD, #[in] pvReserved: *mut void) -> BOOL;
-        #[success(return == 1)]
         #[library("CRYPTUI.dll")]
-        extern fn CryptUIWizDigitalSign(#[in] dwFlags: DWORD, #[in] #[opt] hwndParent: HWND, #[in] #[opt] pwszWizardTitle: LPCWSTR, #[in] pDigitalSignInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, #[out] #[opt] #[out_ptr] ppSignContext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
         #[success(return == 1)]
+        extern fn CryptUIWizDigitalSign(#[in] dwFlags: DWORD, #[in] #[opt] hwndParent: HWND, #[in] #[opt] pwszWizardTitle: LPCWSTR, #[in] pDigitalSignInfo: PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO, #[opt] #[out] #[out_ptr] ppSignContext: *mut PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
         #[library("CRYPTUI.dll")]
+        #[success(return == 1)]
         extern fn CryptUIWizExport(#[in] dwFlags: DWORD, #[in] #[opt] hwndParent: HWND, #[in] #[opt] pwszWizardTitle: LPCWSTR, #[in] pExportInfo: PCCRYPTUI_WIZ_EXPORT_INFO, #[in] #[opt] pvoid: *mut void) -> BOOL;
-        #[success(return == 1)]
         #[library("CRYPTUI.dll")]
+        #[success(return == 1)]
         extern fn CryptUIWizFreeDigitalSignContext(#[in] pSignContext: PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> BOOL;
-        #[success(return == 1)]
         #[library("CRYPTUI.dll")]
+        #[success(return == 1)]
         extern fn CryptUIWizImport(#[in] dwFlags: DWORD, #[in] #[opt] hwndParent: HWND, #[in] #[opt] pwszWizardTitle: LPCWSTR, #[in] #[opt] pImportSrc: PCCRYPTUI_WIZ_IMPORT_SRC_INFO, #[in] #[opt] hDestCertStore: HCERTSTORE) -> BOOL;
         type PCCRYPTUI_CERT_MGR_STRUCT = *const CRYPTUI_CERT_MGR_STRUCT;
         type PCCRYPTUI_VIEWCERTIFICATE_STRUCTA = *const CRYPTUI_VIEWCERTIFICATE_STRUCTA;

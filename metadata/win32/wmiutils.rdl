@@ -21,7 +21,7 @@ mod Windows {
             fn RemoveScope(&self, #[in] uIndex: ULONG) -> HRESULT;
             fn RemoveAllScopes(&self) -> HRESULT;
             fn SetClassName(&self, #[in] Name: LPCWSTR) -> HRESULT;
-            fn GetClassNameA(&self, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[out] #[opt] #[writable(entry, *puBuffLength)] pszName: LPWSTR) -> HRESULT;
+            fn GetClassNameA(&self, #[in] #[out] puBuffLength: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puBuffLength)] pszName: LPWSTR) -> HRESULT;
             fn GetKeyList(&self, #[out] pOut: *mut IWbemPathKeyList) -> HRESULT;
             fn CreateClassPart(&self, #[in] lFlags: i32, #[in] Name: LPCWSTR) -> HRESULT;
             fn DeleteClassPart(&self, #[in] lFlags: i32) -> HRESULT;
@@ -35,8 +35,8 @@ mod Windows {
             fn GetCount(&self, #[out] puKeyCount: *mut ULONG) -> HRESULT;
             fn SetKey(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG, #[in] uCimType: ULONG, #[in] pKeyVal: LPVOID) -> HRESULT;
             fn SetKey2(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG, #[in] uCimType: ULONG, #[in] pKeyVal: *mut VARIANT) -> HRESULT;
-            fn GetKey(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[out] #[opt] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] puKeyValBufSize: *mut ULONG, #[in] #[out] pKeyVal: LPVOID, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
-            fn GetKey2(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[out] #[opt] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] pKeyValue: *mut VARIANT, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
+            fn GetKey(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] puKeyValBufSize: *mut ULONG, #[in] #[out] pKeyVal: LPVOID, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
+            fn GetKey2(&self, #[in] uKeyIx: ULONG, #[in] uFlags: ULONG, #[in] #[out] puNameBufSize: *mut ULONG, #[in] #[opt] #[out] #[writable(entry, *puNameBufSize)] pszKeyName: LPWSTR, #[in] #[out] pKeyValue: *mut VARIANT, #[out] puApparentCimType: *mut ULONG) -> HRESULT;
             fn RemoveKey(&self, #[in] wszName: LPCWSTR, #[in] uFlags: ULONG) -> HRESULT;
             fn RemoveAllKeys(&self, #[in] uFlags: ULONG) -> HRESULT;
             fn MakeSingleton(&self, #[in] bSet: boolean) -> HRESULT;

@@ -78,7 +78,7 @@ mod Windows {
         #[guid(0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IDebugProperty: IUnknown {
             fn GetPropertyInfo(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[out] pPropertyInfo: *mut DebugPropertyInfo) -> HRESULT;
-            fn GetExtendedInfo(&self, #[in] cInfos: ULONG, #[in] #[readable(entry, cInfos)] rgguidExtendedInfo: *mut GUID, #[out] #[writable(entry, cInfos)] #[writable(success, cInfos)] #[readable(success, cInfos)] rgvar: *mut VARIANT) -> HRESULT;
+            fn GetExtendedInfo(&self, #[in] cInfos: ULONG, #[in] #[readable(entry, cInfos)] rgguidExtendedInfo: *mut GUID, #[out] #[readable(success, cInfos)] #[writable(entry, cInfos)] #[writable(success, cInfos)] rgvar: *mut VARIANT) -> HRESULT;
             fn SetValueAsString(&self, #[in] pszValue: LPCOLESTR, #[in] nRadix: UINT) -> HRESULT;
             fn EnumMembers(&self, #[in] dwFieldSpec: DWORD, #[in] nRadix: UINT, #[in] refiid: &IID, #[out] #[out_ptr] ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
             fn GetParent(&self, #[out] #[out_ptr] ppDebugProp: *mut IDebugProperty) -> HRESULT;
@@ -97,7 +97,7 @@ mod Windows {
         interface IDebugPropertyEnumType_Registers: IDebugPropertyEnumType_All {}
         #[guid(0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a)]
         interface IEnumDebugExtendedPropertyInfo: IUnknown {
-            fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[writable(success, celt)] #[readable(success, *pceltFetched)] rgExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo, #[out] pceltFetched: *mut ULONG) -> HRESULT;
+            fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, *pceltFetched)] #[writable(entry, celt)] #[writable(success, celt)] rgExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo, #[out] pceltFetched: *mut ULONG) -> HRESULT;
             fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn Clone(&self, #[out] #[out_ptr] pedpe: *mut IEnumDebugExtendedPropertyInfo) -> HRESULT;

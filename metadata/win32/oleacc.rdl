@@ -53,16 +53,16 @@ mod Windows {
         #[library("OLEACC.dll")]
         extern fn GetOleaccVersionInfo(#[out] pVer: *mut DWORD, #[out] pBuild: *mut DWORD);
         #[library("OLEACC.dll")]
-        extern fn GetRoleTextA(#[in] lRole: DWORD, #[out] #[opt] #[writable(entry, cchRoleMax)] lpszRole: LPSTR, #[in] cchRoleMax: UINT) -> UINT;
+        extern fn GetRoleTextA(#[in] lRole: DWORD, #[opt] #[out] #[writable(entry, cchRoleMax)] lpszRole: LPSTR, #[in] cchRoleMax: UINT) -> UINT;
         #[library("OLEACC.dll")]
-        extern fn GetRoleTextW(#[in] lRole: DWORD, #[out] #[opt] #[writable(entry, cchRoleMax)] lpszRole: LPWSTR, #[in] cchRoleMax: UINT) -> UINT;
+        extern fn GetRoleTextW(#[in] lRole: DWORD, #[opt] #[out] #[writable(entry, cchRoleMax)] lpszRole: LPWSTR, #[in] cchRoleMax: UINT) -> UINT;
         #[library("OLEACC.dll")]
-        extern fn GetStateTextA(#[in] lStateBit: DWORD, #[out] #[opt] #[writable(entry, cchState)] lpszState: LPSTR, #[in] cchState: UINT) -> UINT;
+        extern fn GetStateTextA(#[in] lStateBit: DWORD, #[opt] #[out] #[writable(entry, cchState)] lpszState: LPSTR, #[in] cchState: UINT) -> UINT;
         #[library("OLEACC.dll")]
-        extern fn GetStateTextW(#[in] lStateBit: DWORD, #[out] #[opt] #[writable(entry, cchState)] lpszState: LPWSTR, #[in] cchState: UINT) -> UINT;
+        extern fn GetStateTextW(#[in] lStateBit: DWORD, #[opt] #[out] #[writable(entry, cchState)] lpszState: LPWSTR, #[in] cchState: UINT) -> UINT;
         #[guid(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f)]
         interface IAccIdentity: IUnknown {
-            fn GetIdentityString(&self, #[in] dwIDChild: DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, *pdwIDStringLen, indirect, nullable)] #[readable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn GetIdentityString(&self, #[in] dwIDChild: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pdwIDStringLen, indirect, nullable)] #[writable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
         }
         #[guid(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0)]
         interface IAccPropServer: IUnknown {
@@ -77,31 +77,31 @@ mod Windows {
             fn SetHwndPropStr(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated(entry)] str: LPCWSTR) -> HRESULT;
             fn SetHwndPropServer(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32, #[in] #[opt] pServer: IAccPropServer, #[in] annoScope: AnnoScope) -> HRESULT;
             fn ClearHwndProps(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32) -> HRESULT;
-            fn ComposeHwndIdentityString(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, *pdwIDStringLen, indirect, nullable)] #[readable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn ComposeHwndIdentityString(&self, #[in] hwnd: HWND, #[in] idObject: DWORD, #[in] idChild: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pdwIDStringLen, indirect, nullable)] #[writable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
             fn DecomposeHwndIdentityString(&self, #[in] #[readable(entry, dwIDStringLen)] pIDString: *const BYTE, #[in] dwIDStringLen: DWORD, #[out] #[out_ptr] phwnd: *mut HWND, #[out] pidObject: *mut DWORD, #[out] pidChild: *mut DWORD) -> HRESULT;
             fn SetHmenuProp(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] var: VARIANT) -> HRESULT;
             fn SetHmenuPropStr(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] idProp: MSAAPROPID, #[in] #[null_terminated(entry)] str: LPCWSTR) -> HRESULT;
             fn SetHmenuPropServer(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32, #[in] #[opt] pServer: IAccPropServer, #[in] annoScope: AnnoScope) -> HRESULT;
             fn ClearHmenuProps(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[in] #[readable(entry, cProps)] paProps: *const MSAAPROPID, #[in] cProps: i32) -> HRESULT;
-            fn ComposeHmenuIdentityString(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[out] #[nullable(entry, indirect)] #[writable(success, *pdwIDStringLen, indirect, nullable)] #[readable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
+            fn ComposeHmenuIdentityString(&self, #[in] hmenu: HMENU, #[in] idChild: DWORD, #[nullable(entry, indirect)] #[out] #[readable(success, *pdwIDStringLen, indirect, nullable)] #[writable(success, *pdwIDStringLen, indirect, nullable)] ppIDString: *mut *mut BYTE, #[out] pdwIDStringLen: *mut DWORD) -> HRESULT;
             fn DecomposeHmenuIdentityString(&self, #[in] #[readable(entry, dwIDStringLen)] pIDString: *const BYTE, #[in] dwIDStringLen: DWORD, #[out] #[out_ptr] phmenu: *mut HMENU, #[out] pidChild: *mut DWORD) -> HRESULT;
         }
         #[guid(0x618736e0_3c3d_11cf_810c_00aa00389b71)]
         interface IAccessible: IDispatch {
-            fn get_accParent(&self, #[out] #[retval] #[out_ptr] ppdispParent: *mut IDispatch) -> HRESULT;
+            fn get_accParent(&self, #[out] #[out_ptr] #[retval] ppdispParent: *mut IDispatch) -> HRESULT;
             fn get_accChildCount(&self, #[out] #[retval] pcountChildren: *mut i32) -> HRESULT;
-            fn get_accChild(&self, #[in] varChild: VARIANT, #[out] #[retval] #[out_ptr] ppdispChild: *mut IDispatch) -> HRESULT;
-            fn get_accName(&self, #[in] varChild: VARIANT, #[out] #[retval] #[out_ptr] pszName: *mut BSTR) -> HRESULT;
-            fn get_accValue(&self, #[in] varChild: VARIANT, #[out] #[retval] #[out_ptr] pszValue: *mut BSTR) -> HRESULT;
-            fn get_accDescription(&self, #[in] varChild: VARIANT, #[out] #[retval] #[out_ptr] pszDescription: *mut BSTR) -> HRESULT;
+            fn get_accChild(&self, #[in] varChild: VARIANT, #[out] #[out_ptr] #[retval] ppdispChild: *mut IDispatch) -> HRESULT;
+            fn get_accName(&self, #[in] varChild: VARIANT, #[out] #[out_ptr] #[retval] pszName: *mut BSTR) -> HRESULT;
+            fn get_accValue(&self, #[in] varChild: VARIANT, #[out] #[out_ptr] #[retval] pszValue: *mut BSTR) -> HRESULT;
+            fn get_accDescription(&self, #[in] varChild: VARIANT, #[out] #[out_ptr] #[retval] pszDescription: *mut BSTR) -> HRESULT;
             fn get_accRole(&self, #[in] varChild: VARIANT, #[out] #[retval] pvarRole: *mut VARIANT) -> HRESULT;
             fn get_accState(&self, #[in] varChild: VARIANT, #[out] #[retval] pvarState: *mut VARIANT) -> HRESULT;
-            fn get_accHelp(&self, #[in] varChild: VARIANT, #[out] #[retval] #[out_ptr] pszHelp: *mut BSTR) -> HRESULT;
+            fn get_accHelp(&self, #[in] varChild: VARIANT, #[out] #[out_ptr] #[retval] pszHelp: *mut BSTR) -> HRESULT;
             fn get_accHelpTopic(&self, #[out] #[out_ptr] pszHelpFile: *mut BSTR, #[in] varChild: VARIANT, #[out] #[retval] pidTopic: *mut i32) -> HRESULT;
-            fn get_accKeyboardShortcut(&self, #[in] varChild: VARIANT, #[out] #[retval] #[out_ptr] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
+            fn get_accKeyboardShortcut(&self, #[in] varChild: VARIANT, #[out] #[out_ptr] #[retval] pszKeyboardShortcut: *mut BSTR) -> HRESULT;
             fn get_accFocus(&self, #[out] #[retval] pvarChild: *mut VARIANT) -> HRESULT;
             fn get_accSelection(&self, #[out] #[retval] pvarChildren: *mut VARIANT) -> HRESULT;
-            fn get_accDefaultAction(&self, #[in] varChild: VARIANT, #[out] #[retval] #[out_ptr] pszDefaultAction: *mut BSTR) -> HRESULT;
+            fn get_accDefaultAction(&self, #[in] varChild: VARIANT, #[out] #[out_ptr] #[retval] pszDefaultAction: *mut BSTR) -> HRESULT;
             fn accSelect(&self, #[in] flagsSelect: i32, #[in] varChild: VARIANT) -> HRESULT;
             fn accLocation(&self, #[out] pxLeft: *mut i32, #[out] pyTop: *mut i32, #[out] pcxWidth: *mut i32, #[out] pcyHeight: *mut i32, #[in] varChild: VARIANT) -> HRESULT;
             fn accNavigate(&self, #[in] navDir: i32, #[in] varStart: VARIANT, #[out] #[retval] pvarEndUpAt: *mut VARIANT) -> HRESULT;
@@ -262,6 +262,6 @@ mod Windows {
         const SELFLAG_VALID: i32 = 31;
         const STATE_SYSTEM_HASPOPUP: i32 = 1073741824;
         #[library("OLEACC.dll")]
-        extern fn WindowFromAccessibleObject(#[in] param0: IAccessible, #[out] #[opt] phwnd: *mut HWND) -> HRESULT;
+        extern fn WindowFromAccessibleObject(#[in] param0: IAccessible, #[opt] #[out] phwnd: *mut HWND) -> HRESULT;
     }
 }

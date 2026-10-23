@@ -19,8 +19,8 @@ mod Windows {
             DeviceIdentifier: GUID,
             WHQLLevel: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DADAPTER_IDENTIFIER9 {
             Driver: [i8; 512],
             Description: [i8; 512],
@@ -38,8 +38,8 @@ mod Windows {
             IV: UINT64,
             Count: UINT64,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAES_CTR_IV {
             IV: UINT64,
             Count: UINT64,
@@ -57,8 +57,8 @@ mod Windows {
             CryptoSessionHandle: HANDLE,
             DeviceHandle: HANDLE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             DXVA2DecodeHandle: HANDLE,
@@ -71,8 +71,8 @@ mod Windows {
             StartSequenceQuery: UINT,
             StartSequenceConfigure: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             StartSequenceQuery: UINT,
@@ -83,8 +83,8 @@ mod Windows {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
@@ -96,8 +96,8 @@ mod Windows {
             ProcessHandle: HANDLE,
             AllowAccess: BOOL,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
@@ -109,8 +109,8 @@ mod Windows {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             EncryptionGuid: GUID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
             Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
             EncryptionGuid: GUID,
@@ -122,8 +122,8 @@ mod Windows {
             hChannel: HANDLE,
             SequenceNumber: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
             omac: D3D_OMAC,
             ConfigureType: GUID,
@@ -138,8 +138,8 @@ mod Windows {
             SequenceNumber: UINT,
             ReturnCode: HRESULT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
             omac: D3D_OMAC,
             ConfigureType: GUID,
@@ -166,8 +166,8 @@ mod Windows {
                 Value: UINT,
             },
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
             Anonymous: #[packed(4)] union {
                 Anonymous: #[packed(4)] struct {
@@ -185,8 +185,8 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
@@ -196,8 +196,8 @@ mod Windows {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             DXVA2DecodeHandle: HANDLE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             DXVA2DecodeHandle: HANDLE,
@@ -209,8 +209,8 @@ mod Windows {
             CryptoSessionHandle: HANDLE,
             DeviceHandle: HANDLE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DXVA2DecodeHandle: HANDLE,
@@ -222,8 +222,8 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
@@ -233,8 +233,8 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             NumEncryptionGuids: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             NumEncryptionGuids: UINT,
@@ -244,8 +244,8 @@ mod Windows {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             EncryptionGuidIndex: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             EncryptionGuidIndex: UINT,
@@ -256,8 +256,8 @@ mod Windows {
             EncryptionGuidIndex: UINT,
             EncryptionGuid: GUID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             EncryptionGuidIndex: UINT,
@@ -270,8 +270,8 @@ mod Windows {
             bAccessibleInContiguousBlocks: BOOL,
             bAccessibleInNonContiguousBlocks: BOOL,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             BusType: D3DBUSTYPE,
@@ -284,8 +284,8 @@ mod Windows {
             DeviceHandle: HANDLE,
             CryptoSessionHandle: HANDLE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             DeviceHandle: HANDLE,
@@ -298,8 +298,8 @@ mod Windows {
             CryptoSessionHandle: HANDLE,
             NumOutputIDs: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
@@ -313,8 +313,8 @@ mod Windows {
             CryptoSessionHandle: HANDLE,
             OutputIDIndex: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             DeviceHandle: HANDLE,
@@ -329,8 +329,8 @@ mod Windows {
             OutputIDIndex: UINT,
             OutputID: UINT64,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             DeviceHandle: HANDLE,
@@ -343,8 +343,8 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
@@ -354,8 +354,8 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             NumRestrictedSharedResourceProcesses: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             NumRestrictedSharedResourceProcesses: UINT,
@@ -365,8 +365,8 @@ mod Windows {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             ProcessIndex: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
             Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
             ProcessIndex: UINT,
@@ -378,8 +378,8 @@ mod Windows {
             ProcessIdentifer: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
             ProcessHandle: HANDLE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             ProcessIndex: UINT,
@@ -391,8 +391,8 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             EncryptionGuid: GUID,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             EncryptionGuid: GUID,
@@ -402,8 +402,8 @@ mod Windows {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             NumUnrestrictedProtectedSharedResources: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
             Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
             NumUnrestrictedProtectedSharedResources: UINT,
@@ -414,8 +414,8 @@ mod Windows {
             hChannel: HANDLE,
             SequenceNumber: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
             QueryType: GUID,
             hChannel: HANDLE,
@@ -429,8 +429,8 @@ mod Windows {
             SequenceNumber: UINT,
             ReturnCode: HRESULT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
             omac: D3D_OMAC,
             QueryType: GUID,
@@ -509,8 +509,8 @@ mod Windows {
             Front: UINT,
             Back: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DBOX {
             Left: UINT,
             Top: UINT,
@@ -547,8 +547,8 @@ mod Windows {
             ClipUnion: DWORD,
             ClipIntersection: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DCLIPSTATUS9 {
             ClipUnion: DWORD,
             ClipIntersection: DWORD,
@@ -576,8 +576,8 @@ mod Windows {
             Width: USHORT,
             Height: USHORT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DCOMPOSERECTDESC {
             X: USHORT,
             Y: USHORT,
@@ -591,8 +591,8 @@ mod Windows {
             X: SHORT,
             Y: SHORT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DCOMPOSERECTDESTINATION {
             SrcRectIndex: USHORT,
             Reserved: USHORT,
@@ -709,8 +709,8 @@ mod Windows {
             hFocusWindow: HWND,
             BehaviorFlags: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVICE_CREATION_PARAMETERS {
             AdapterOrdinal: UINT,
             DeviceType: D3DDEVTYPE,
@@ -725,8 +725,8 @@ mod Windows {
             TriangleSetupRateUtilizedPercent: FLOAT,
             FillRateUtilizedPercent: FLOAT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
             MaxBandwidthUtilized: FLOAT,
             FrontEndUploadMemoryUtilizedPercent: FLOAT,
@@ -739,8 +739,8 @@ mod Windows {
             TextureCacheHitRate: FLOAT,
             PostTransformVertexCacheHitRate: FLOAT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_D3D9CACHEUTILIZATION {
             TextureCacheHitRate: FLOAT,
             PostTransformVertexCacheHitRate: FLOAT,
@@ -753,8 +753,8 @@ mod Windows {
             WaitingForGPUExclusiveResourceTimePercent: FLOAT,
             WaitingForGPUOtherTimePercent: FLOAT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_D3D9INTERFACETIMINGS {
             WaitingForGPUToUseApplicationResourceTimePercent: FLOAT,
             WaitingForGPUToAcceptMoreCommandsTimePercent: FLOAT,
@@ -769,8 +769,8 @@ mod Windows {
             OtherGPUProcessingTimePercent: FLOAT,
             GPUIdleTimePercent: FLOAT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_D3D9PIPELINETIMINGS {
             VertexProcessingTimePercent: FLOAT,
             PixelProcessingTimePercent: FLOAT,
@@ -782,8 +782,8 @@ mod Windows {
             MemoryProcessingPercent: FLOAT,
             ComputationProcessingPercent: FLOAT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_D3D9STAGETIMINGS {
             MemoryProcessingPercent: FLOAT,
             ComputationProcessingPercent: FLOAT,
@@ -793,8 +793,8 @@ mod Windows {
             NumRenderedTriangles: DWORD,
             NumExtraClippingTriangles: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_D3DVERTEXSTATS {
             NumRenderedTriangles: DWORD,
             NumExtraClippingTriangles: DWORD,
@@ -803,8 +803,8 @@ mod Windows {
         struct D3DDEVINFO_RESOURCEMANAGER {
             stats: [D3DRESOURCESTATS; 8],
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_RESOURCEMANAGER {
             stats: [D3DRESOURCESTATS; 8],
         }
@@ -815,8 +815,8 @@ mod Windows {
             CacheSize: DWORD,
             MagicNumber: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDEVINFO_VCACHE {
             Pattern: DWORD,
             OptMethod: DWORD,
@@ -838,8 +838,8 @@ mod Windows {
             RefreshRate: UINT,
             Format: D3DFORMAT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDISPLAYMODE {
             Width: UINT,
             Height: UINT,
@@ -855,8 +855,8 @@ mod Windows {
             Format: D3DFORMAT,
             ScanLineOrdering: D3DSCANLINEORDERING,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDISPLAYMODEEX {
             Size: UINT,
             Width: UINT,
@@ -871,8 +871,8 @@ mod Windows {
             Format: D3DFORMAT,
             ScanLineOrdering: D3DSCANLINEORDERING,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DDISPLAYMODEFILTER {
             Size: UINT,
             Format: D3DFORMAT,
@@ -893,8 +893,8 @@ mod Windows {
             NumBytesInSkipPattern: UINT,
             NumBytesInEncryptPattern: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DENCRYPTED_BLOCK_INFO {
             NumEncryptedBytesAtBeginning: UINT,
             NumBytesInSkipPattern: UINT,
@@ -1024,8 +1024,8 @@ mod Windows {
             green: [WORD; 256],
             blue: [WORD; 256],
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DGAMMARAMP {
             red: [WORD; 256],
             green: [WORD; 256],
@@ -1040,8 +1040,8 @@ mod Windows {
             Pool: D3DPOOL,
             Size: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DINDEXBUFFER_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
@@ -1067,8 +1067,8 @@ mod Windows {
             Theta: f32,
             Phi: f32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DLIGHT9 {
             Type: D3DLIGHTTYPE,
             Diffuse: D3DCOLORVALUE,
@@ -1097,8 +1097,8 @@ mod Windows {
             SlicePitch: INT,
             pBits: *mut void,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DLOCKED_BOX {
             RowPitch: INT,
             SlicePitch: INT,
@@ -1109,8 +1109,8 @@ mod Windows {
             Pitch: INT,
             pBits: *mut void,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DLOCKED_RECT {
             Pitch: INT,
             pBits: *mut void,
@@ -1129,8 +1129,8 @@ mod Windows {
             Emissive: D3DCOLORVALUE,
             Power: f32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DMATERIAL9 {
             Diffuse: D3DCOLORVALUE,
             Ambient: D3DCOLORVALUE,
@@ -1169,8 +1169,8 @@ mod Windows {
                 m: [[f32; 4]; 4],
             },
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DMATRIX {
             Anonymous: #[packed(4)] union {
                 Anonymous: #[packed(4)] struct {
@@ -1201,8 +1201,8 @@ mod Windows {
             SizeOfInefficientAllocation: UINT64,
             LevelOfEfficiency: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DMEMORYPRESSURE {
             BytesEvictedFromProcess: UINT64,
             SizeOfInefficientAllocation: UINT64,
@@ -1262,8 +1262,8 @@ mod Windows {
             SyncQPCTime: LARGE_INTEGER,
             SyncGPUTime: LARGE_INTEGER,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DPRESENTSTATS {
             PresentCount: UINT,
             PresentRefreshCount: UINT,
@@ -1288,8 +1288,8 @@ mod Windows {
             FullScreen_RefreshRateInHz: UINT,
             PresentationInterval: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DPRESENT_PARAMETERS {
             BackBufferWidth: UINT,
             BackBufferHeight: UINT,
@@ -1341,8 +1341,8 @@ mod Windows {
             Offset: UINT,
             Size: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DRANGE {
             Offset: UINT,
             Size: UINT,
@@ -1352,8 +1352,8 @@ mod Windows {
             InVBlank: BOOL,
             ScanLine: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DRASTER_STATUS {
             InVBlank: BOOL,
             ScanLine: UINT,
@@ -1365,8 +1365,8 @@ mod Windows {
             x2: LONG,
             y2: LONG,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DRECT {
             x1: LONG,
             y1: LONG,
@@ -1383,8 +1383,8 @@ mod Windows {
             Basis: D3DBASISTYPE,
             Degree: D3DDEGREETYPE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DRECTPATCH_INFO {
             StartVertexOffsetWidth: UINT,
             StartVertexOffsetHeight: UINT,
@@ -1516,8 +1516,8 @@ mod Windows {
             TotalManaged: DWORD,
             TotalBytes: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DRESOURCESTATS {
             bThrashing: BOOL,
             ApproxBytesDownloaded: DWORD,
@@ -1824,8 +1824,8 @@ mod Windows {
             Width: UINT,
             Height: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DSURFACE_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
@@ -1958,8 +1958,8 @@ mod Windows {
             Basis: D3DBASISTYPE,
             Degree: D3DDEGREETYPE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DTRIPATCH_INFO {
             StartVertexOffset: UINT,
             NumVertices: UINT,
@@ -2017,8 +2017,8 @@ mod Windows {
             Size: UINT,
             FVF: DWORD,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DVERTEXBUFFER_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
@@ -2036,8 +2036,8 @@ mod Windows {
             Usage: BYTE,
             UsageIndex: BYTE,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DVERTEXELEMENT9 {
             Stream: WORD,
             Offset: WORD,
@@ -2059,8 +2059,8 @@ mod Windows {
             MinZ: f32,
             MaxZ: f32,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DVIEWPORT9 {
             X: DWORD,
             Y: DWORD,
@@ -2079,8 +2079,8 @@ mod Windows {
             Height: UINT,
             Depth: UINT,
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3DVOLUME_DESC {
             Format: D3DFORMAT,
             Type: D3DRESOURCETYPE,
@@ -2143,8 +2143,8 @@ mod Windows {
         struct D3D_OMAC {
             Omac: [BYTE; 16],
         }
-        #[packed(4)]
         #[arch(X86)]
+        #[packed(4)]
         struct D3D_OMAC {
             Omac: [BYTE; 16],
         }

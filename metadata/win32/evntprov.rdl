@@ -121,7 +121,7 @@ mod Windows {
         const MAX_EVENT_FILTER_PAYLOAD_SIZE: i32 = 4096;
         const MAX_EVENT_FILTER_PID_COUNT: i32 = 8;
         type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
-        extern fn PENABLECALLBACK(#[in] SourceId: LPCGUID, #[in] IsEnabled: ULONG, #[in] Level: UCHAR, #[in] MatchAnyKeyword: ULONGLONG, #[in] MatchAllKeyword: ULONGLONG, #[in] #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: PVOID);
+        extern fn PENABLECALLBACK(#[in] SourceId: LPCGUID, #[in] IsEnabled: ULONG, #[in] Level: UCHAR, #[in] MatchAnyKeyword: ULONGLONG, #[in] MatchAllKeyword: ULONGLONG, #[in] #[opt] FilterData: PEVENT_FILTER_DESCRIPTOR, #[in] #[opt] #[out] CallbackContext: PVOID);
         type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
         type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
         type PEVENT_FILTER_DESCRIPTOR = *mut EVENT_FILTER_DESCRIPTOR;

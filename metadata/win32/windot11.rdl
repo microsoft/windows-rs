@@ -367,8 +367,8 @@ mod Windows {
         struct DOT11_DATA_RATE_MAPPING_TABLE {
             Header: NDIS_OBJECT_HEADER,
             uDataRateMappingLength: ULONG,
-            #[writable(126)]
             #[readable(uDataRateMappingLength)]
+            #[writable(126)]
             DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
         }
         const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: i32 = 1;
@@ -1277,8 +1277,8 @@ mod Windows {
         struct DOT11_RATE_SET {
             #[range(<=126)]
             uRateSetLength: ULONG,
-            #[writable(126)]
             #[readable(uRateSetLength)]
+            #[writable(126)]
             ucRateSet: [UCHAR; 126],
         }
         const DOT11_RATE_SET_MAX_LENGTH: i32 = 126;
@@ -1872,8 +1872,8 @@ mod Windows {
         }
         struct DOT11_SUPPORTED_POWER_LEVELS {
             uNumOfSupportedPowerLevels: ULONG,
-            #[writable(8)]
             #[readable(uNumOfSupportedPowerLevels)]
+            #[writable(8)]
             uTxPowerLevelValues: [ULONG; 8],
         }
         #[repr(i32)]
@@ -2195,8 +2195,8 @@ mod Windows {
         struct DOT11_WFD_SESSION_INFO {
             #[range(<=144)]
             uSessionInfoLength: USHORT,
-            #[writable(144)]
             #[readable(uSessionInfoLength)]
+            #[writable(144)]
             ucSessionInfo: [UCHAR; 144],
         }
         const DOT11_WFD_SESSION_INFO_MAX_LENGTH: i32 = 144;

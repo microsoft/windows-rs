@@ -20,7 +20,7 @@ mod Windows {
         #[guid(0xa6ef9860_c720_11d0_9337_00a0c90dcaa9)]
         interface IDispatchEx: IDispatch {
             fn GetDispID(&self, #[in] bstrName: BSTR, #[in] grfdex: DWORD, #[out] pid: *mut DISPID) -> HRESULT;
-            fn InvokeEx(&self, #[in] id: DISPID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] pdp: *mut DISPPARAMS, #[out] #[opt] pvarRes: *mut VARIANT, #[out] #[opt] pei: *mut EXCEPINFO, #[in] #[opt] pspCaller: IServiceProvider) -> HRESULT;
+            fn InvokeEx(&self, #[in] id: DISPID, #[in] lcid: LCID, #[in] wFlags: WORD, #[in] pdp: *mut DISPPARAMS, #[opt] #[out] pvarRes: *mut VARIANT, #[opt] #[out] pei: *mut EXCEPINFO, #[in] #[opt] pspCaller: IServiceProvider) -> HRESULT;
             fn DeleteMemberByName(&self, #[in] bstrName: BSTR, #[in] grfdex: DWORD) -> HRESULT;
             fn DeleteMemberByDispID(&self, #[in] id: DISPID) -> HRESULT;
             fn GetMemberProperties(&self, #[in] id: DISPID, #[in] grfdexFetch: DWORD, #[out] pgrfdex: *mut DWORD) -> HRESULT;
@@ -44,7 +44,7 @@ mod Windows {
         }
         #[guid(0xa6ef9862_c720_11d0_9337_00a0c90dcaa9)]
         interface IVariantChangeType: IUnknown {
-            fn ChangeType(&self, #[in] #[out] #[opt] pvarDst: *mut VARIANT, #[in] #[opt] pvarSrc: *mut VARIANT, #[in] lcid: LCID, #[in] vtNew: VARTYPE) -> HRESULT;
+            fn ChangeType(&self, #[in] #[opt] #[out] pvarDst: *mut VARIANT, #[in] #[opt] pvarSrc: *mut VARIANT, #[in] lcid: LCID, #[in] vtNew: VARTYPE) -> HRESULT;
         }
         const SID_GetCaller: GUID = 0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9;
         const SID_ProvideRuntimeContext: GUID = 0x74a5040c_dd0c_48f0_ac85_194c3259180a;

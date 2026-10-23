@@ -25,7 +25,7 @@ mod Windows {
             fn GetStatus(&self, #[in] #[out] pDevStatus: PSTI_DEVICE_STATUS) -> HRESULT;
             fn DeviceReset(&self) -> HRESULT;
             fn Diagnostic(&self, #[in] #[out] pBuffer: LPSTI_DIAG) -> HRESULT;
-            fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[in] #[readable(entry, bytes(cbInDataSize))] lpInData: LPVOID, cbInDataSize: DWORD, #[in] #[out] #[readable(entry, bytes(dwOutDataSize))] #[writable(entry, bytes(dwOutDataSize))] #[readable(success, bytes(*pdwActualData))] pOutData: LPVOID, dwOutDataSize: DWORD, #[out] pdwActualData: LPDWORD) -> HRESULT;
+            fn Escape(&self, EscapeFunction: STI_RAW_CONTROL_CODE, #[in] #[readable(entry, bytes(cbInDataSize))] lpInData: LPVOID, cbInDataSize: DWORD, #[in] #[out] #[readable(entry, bytes(dwOutDataSize))] #[readable(success, bytes(*pdwActualData))] #[writable(entry, bytes(dwOutDataSize))] pOutData: LPVOID, dwOutDataSize: DWORD, #[out] pdwActualData: LPDWORD) -> HRESULT;
             fn GetLastError(&self, #[out] pdwLastDeviceError: LPDWORD) -> HRESULT;
             fn LockDevice(&self, dwTimeOut: DWORD) -> HRESULT;
             fn UnLockDevice(&self) -> HRESULT;
@@ -53,7 +53,7 @@ mod Windows {
             fn CreateDevice(&self, #[in] pwszDeviceName: LPWSTR, dwMode: DWORD, #[out] pDevice: *mut PSTIDEVICE, #[in] #[opt] punkOuter: LPUNKNOWN) -> HRESULT;
             fn GetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, #[out] pType: LPDWORD, #[out] #[writable(entry, bytes(*cbData))] pData: LPBYTE, #[in] #[out] cbData: LPDWORD) -> HRESULT;
             fn SetDeviceValue(&self, #[in] pwszDeviceName: LPWSTR, #[in] pValueName: LPWSTR, Type: DWORD, #[in] #[readable(entry, bytes(cbData))] pData: LPBYTE, cbData: DWORD) -> HRESULT;
-            fn GetSTILaunchInformation(&self, #[out] #[writable(entry, 128)] pwszDeviceName: LPWSTR, #[out] #[opt] pdwEventCode: *mut DWORD, #[out] #[writable(entry, 128)] pwszEventName: LPWSTR) -> HRESULT;
+            fn GetSTILaunchInformation(&self, #[out] #[writable(entry, 128)] pwszDeviceName: LPWSTR, #[opt] #[out] pdwEventCode: *mut DWORD, #[out] #[writable(entry, 128)] pwszEventName: LPWSTR) -> HRESULT;
             fn RegisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR, #[in] pwszCommandLine: LPWSTR) -> HRESULT;
             fn UnregisterLaunchApplication(&self, #[in] pwszAppName: LPWSTR) -> HRESULT;
             fn EnableHwNotifications(&self, #[in] pwszDeviceName: LPCWSTR, bNewState: BOOL) -> HRESULT;

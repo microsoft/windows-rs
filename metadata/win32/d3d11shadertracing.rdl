@@ -160,7 +160,7 @@ mod Windows {
         extern fn D3DDisassemble11Trace(#[in] #[readable(entry, bytes(SrcDataSize))] pSrcData: LPCVOID, #[in] SrcDataSize: SIZE_T, #[in] pTrace: ID3D11ShaderTrace, #[in] StartStep: UINT, #[in] NumSteps: UINT, #[in] Flags: UINT, #[out] #[out_ptr(null_on_failure)] ppDisassembly: *mut ID3D10Blob) -> HRESULT;
         #[guid(0x36b013e6_2811_4845_baa7_d623fe0df104)]
         interface ID3D11ShaderTrace: IUnknown {
-            fn TraceReady(&self, #[out] #[opt] pTestCount: *mut UINT64) -> HRESULT;
+            fn TraceReady(&self, #[opt] #[out] pTestCount: *mut UINT64) -> HRESULT;
             fn ResetTrace(&self);
             fn GetTraceStats(&self, #[out] pTraceStats: *mut D3D11_TRACE_STATS) -> HRESULT;
             fn PSSelectStamp(&self, #[in] stampIndex: UINT) -> HRESULT;

@@ -62,7 +62,7 @@ mod Fixture {
     }
     #[guid(0x0000000d_0000_0000_c000_000000000046)]
     interface IEnumSTATSTG: IUnknown {
-        fn Next(&self, #[in] celt: ULONG, #[out] #[writable(entry, celt)] #[readable(success, if_present(*pceltFetched))] rgelt: *mut STATSTG, #[out] #[opt] pceltFetched: *mut ULONG) -> HRESULT;
+        fn Next(&self, #[in] celt: ULONG, #[out] #[readable(success, if_present(*pceltFetched))] #[writable(entry, celt)] rgelt: *mut STATSTG, #[opt] #[out] pceltFetched: *mut ULONG) -> HRESULT;
         fn Skip(&self, #[in] celt: ULONG) -> HRESULT;
         fn Reset(&self) -> HRESULT;
         fn Clone(&self, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
@@ -72,7 +72,7 @@ mod Fixture {
         fn CreateStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
         fn OpenStream(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[reserved] reserved1: *mut void, #[in] grfMode: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstm: *mut IStream) -> HRESULT;
         fn CreateStorage(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] grfMode: DWORD, #[in] reserved1: DWORD, #[in] reserved2: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
-        fn OpenStorage(&self, #[in] #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
+        fn OpenStorage(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pstgPriority: IStorage, #[in] grfMode: DWORD, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_opt_in_opt", "", "")] #[in] #[opt] snbExclude: SNB, #[in] reserved: DWORD, #[out] #[out_ptr] ppstg: *mut IStorage) -> HRESULT;
         fn CopyTo(&self, #[in] ciidExclude: DWORD, #[in] #[opt] #[readable(entry, ciidExclude)] rgiidExclude: *const IID, #[in] #[opt] snbExclude: SNB, #[in] pstgDest: IStorage) -> HRESULT;
         fn MoveElementTo(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pstgDest: IStorage, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR, #[in] grfFlags: DWORD) -> HRESULT;
         fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
@@ -80,7 +80,7 @@ mod Fixture {
         fn EnumElements(&self, #[in] #[reserved] reserved1: DWORD, #[in] #[reserved] reserved2: *mut void, #[in] #[reserved] reserved3: DWORD, #[out] #[out_ptr] ppenum: *mut IEnumSTATSTG) -> HRESULT;
         fn DestroyElement(&self, #[in] #[null_terminated(entry)] pwcsName: *const OLECHAR) -> HRESULT;
         fn RenameElement(&self, #[in] #[null_terminated(entry)] pwcsOldName: *const OLECHAR, #[in] #[null_terminated(entry)] pwcsNewName: *const OLECHAR) -> HRESULT;
-        fn SetElementTimes(&self, #[in] #[opt] #[null_terminated(entry)] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
+        fn SetElementTimes(&self, #[in] #[null_terminated(entry)] #[opt] pwcsName: *const OLECHAR, #[in] #[opt] pctime: *const FILETIME, #[in] #[opt] patime: *const FILETIME, #[in] #[opt] pmtime: *const FILETIME) -> HRESULT;
         fn SetClass(&self, #[in] clsid: &IID) -> HRESULT;
         fn SetStateBits(&self, #[in] grfStateBits: DWORD, #[in] grfMask: DWORD) -> HRESULT;
         fn Stat(&self, #[out] pstatstg: *mut STATSTG, #[in] grfStatFlag: DWORD) -> HRESULT;
@@ -107,14 +107,14 @@ mod Fixture {
 mod Fixture {
     #[guid(0x0c733a30_2a1c_11ce_ade5_00aa0044773d)]
     interface ISequentialStream: IUnknown {
-        fn Read(&self, #[out] #[writable(entry, bytes(cb))] #[readable(success, bytes(if_present(*pcbRead)))] pv: *mut void, #[in] cb: ULONG, #[out] #[opt] pcbRead: *mut ULONG) -> HRESULT;
-        fn Write(&self, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[out] #[opt] pcbWritten: *mut ULONG) -> HRESULT;
+        fn Read(&self, #[out] #[readable(success, bytes(if_present(*pcbRead)))] #[writable(entry, bytes(cb))] pv: *mut void, #[in] cb: ULONG, #[opt] #[out] pcbRead: *mut ULONG) -> HRESULT;
+        fn Write(&self, #[in] #[readable(entry, bytes(cb))] pv: *const void, #[in] cb: ULONG, #[opt] #[out] pcbWritten: *mut ULONG) -> HRESULT;
     }
     #[guid(0x0000000c_0000_0000_c000_000000000046)]
     interface IStream: ISequentialStream {
-        fn Seek(&self, #[in] dlibMove: LARGE_INTEGER, #[in] dwOrigin: DWORD, #[out] #[opt] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
+        fn Seek(&self, #[in] dlibMove: LARGE_INTEGER, #[in] dwOrigin: DWORD, #[opt] #[out] plibNewPosition: *mut ULARGE_INTEGER) -> HRESULT;
         fn SetSize(&self, #[in] libNewSize: ULARGE_INTEGER) -> HRESULT;
-        fn CopyTo(&self, #[in] pstm: IStream, #[in] cb: ULARGE_INTEGER, #[out] #[opt] pcbRead: *mut ULARGE_INTEGER, #[out] #[opt] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
+        fn CopyTo(&self, #[in] pstm: IStream, #[in] cb: ULARGE_INTEGER, #[opt] #[out] pcbRead: *mut ULARGE_INTEGER, #[opt] #[out] pcbWritten: *mut ULARGE_INTEGER) -> HRESULT;
         fn Commit(&self, #[in] grfCommitFlags: DWORD) -> HRESULT;
         fn Revert(&self) -> HRESULT;
         fn LockRegion(&self, #[in] libOffset: ULARGE_INTEGER, #[in] cb: ULARGE_INTEGER, #[in] dwLockType: DWORD) -> HRESULT;
@@ -141,7 +141,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x0c733abf_2a1c_11ce_ade5_00aa0044773d)]
     interface ICommandStream: IUnknown {
-        fn GetCommandStream(&self, #[out] #[opt] piid: *mut IID, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[out] #[out_ptr] #[iid_is] ppCommandStream: *mut IUnknown) -> HRESULT;
+        fn GetCommandStream(&self, #[opt] #[out] piid: *mut IID, #[in] #[opt] #[out] pguidDialect: *mut GUID, #[iid_is] #[out] #[out_ptr] ppCommandStream: *mut IUnknown) -> HRESULT;
         fn SetCommandStream(&self, #[in] riid: &IID, #[in] rguidDialect: &GUID, #[in] #[opt] pCommandStream: IUnknown) -> HRESULT;
     }
 }
@@ -161,7 +161,7 @@ mod Fixture {
 mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

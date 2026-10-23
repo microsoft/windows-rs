@@ -2,9 +2,9 @@
 mod Windows {
     mod Win32 {
         #[library("d3d10_1.dll")]
-        extern fn D3D10CreateDevice1(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: UINT, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: UINT, #[out] #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
+        extern fn D3D10CreateDevice1(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: UINT, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: UINT, #[opt] #[out] ppDevice: *mut ID3D10Device1) -> HRESULT;
         #[library("d3d10_1.dll")]
-        extern fn D3D10CreateDeviceAndSwapChain1(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: UINT, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: UINT, #[in] #[opt] pSwapChainDesc: *mut DXGI_SWAP_CHAIN_DESC, #[out] #[opt] ppSwapChain: *mut IDXGISwapChain, #[out] #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
+        extern fn D3D10CreateDeviceAndSwapChain1(#[in] #[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: UINT, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: UINT, #[in] #[opt] pSwapChainDesc: *mut DXGI_SWAP_CHAIN_DESC, #[opt] #[out] ppSwapChain: *mut IDXGISwapChain, #[opt] #[out] ppDevice: *mut ID3D10Device1) -> HRESULT;
         const D3D10_1_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
         const D3D10_1_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6;
         const D3D10_1_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6;
@@ -84,8 +84,8 @@ mod Windows {
         }
         #[guid(0x9b7e4c8f_342c_4106_a19f_4f2704f689f0)]
         interface ID3D10Device1: ID3D10Device {
-            fn CreateShaderResourceView1(&self, #[in] pResource: ID3D10Resource, #[in] #[opt] pDesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, #[out] #[opt] ppSRView: *mut ID3D10ShaderResourceView1) -> HRESULT;
-            fn CreateBlendState1(&self, #[in] pBlendStateDesc: *const D3D10_BLEND_DESC1, #[out] #[opt] ppBlendState: *mut ID3D10BlendState1) -> HRESULT;
+            fn CreateShaderResourceView1(&self, #[in] pResource: ID3D10Resource, #[in] #[opt] pDesc: *const D3D10_SHADER_RESOURCE_VIEW_DESC1, #[opt] #[out] ppSRView: *mut ID3D10ShaderResourceView1) -> HRESULT;
+            fn CreateBlendState1(&self, #[in] pBlendStateDesc: *const D3D10_BLEND_DESC1, #[opt] #[out] ppBlendState: *mut ID3D10BlendState1) -> HRESULT;
             fn GetFeatureLevel(&self) -> D3D10_FEATURE_LEVEL1;
         }
         #[guid(0x9b7e4c87_342c_4106_a19f_4f2704f689f0)]

@@ -288,14 +288,14 @@ mod Windows {
         interface IXMLHttpRequest: IDispatch {
             fn open(&self, #[in] bstrMethod: BSTR, #[in] bstrUrl: BSTR, #[in] varAsync: VARIANT, #[in] bstrUser: VARIANT, #[in] bstrPassword: VARIANT) -> HRESULT;
             fn setRequestHeader(&self, #[in] bstrHeader: BSTR, #[in] bstrValue: BSTR) -> HRESULT;
-            fn getResponseHeader(&self, #[in] bstrHeader: BSTR, #[out] #[retval] #[out_ptr] pbstrValue: *mut BSTR) -> HRESULT;
-            fn getAllResponseHeaders(&self, #[out] #[retval] #[out_ptr] pbstrHeaders: *mut BSTR) -> HRESULT;
+            fn getResponseHeader(&self, #[in] bstrHeader: BSTR, #[out] #[out_ptr] #[retval] pbstrValue: *mut BSTR) -> HRESULT;
+            fn getAllResponseHeaders(&self, #[out] #[out_ptr] #[retval] pbstrHeaders: *mut BSTR) -> HRESULT;
             fn send(&self, #[in] varBody: VARIANT) -> HRESULT;
             fn abort(&self) -> HRESULT;
             fn get_status(&self, #[out] #[retval] plStatus: *mut i32) -> HRESULT;
-            fn get_statusText(&self, #[out] #[retval] #[out_ptr] pbstrStatus: *mut BSTR) -> HRESULT;
-            fn get_responseXML(&self, #[out] #[retval] #[out_ptr] ppBody: *mut IDispatch) -> HRESULT;
-            fn get_responseText(&self, #[out] #[retval] #[out_ptr] pbstrBody: *mut BSTR) -> HRESULT;
+            fn get_statusText(&self, #[out] #[out_ptr] #[retval] pbstrStatus: *mut BSTR) -> HRESULT;
+            fn get_responseXML(&self, #[out] #[out_ptr] #[retval] ppBody: *mut IDispatch) -> HRESULT;
+            fn get_responseText(&self, #[out] #[out_ptr] #[retval] pbstrBody: *mut BSTR) -> HRESULT;
             fn get_responseBody(&self, #[out] #[retval] pvarBody: *mut VARIANT) -> HRESULT;
             fn get_responseStream(&self, #[out] #[retval] pvarBody: *mut VARIANT) -> HRESULT;
             fn get_readyState(&self, #[out] #[retval] plState: *mut i32) -> HRESULT;

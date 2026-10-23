@@ -24,40 +24,40 @@ mod Windows {
         }
         #[guid(0xa5efe073_b16f_474f_9f3e_9f8b497a3e08)]
         interface IConditionFactory: IUnknown {
-            fn MakeNot(&self, #[in] #[opt] pcSub: ICondition, #[in] fSimplify: BOOL, #[out] #[retval] #[out_ptr] ppcResult: *mut ICondition) -> HRESULT;
-            fn MakeAndOr(&self, #[in] ct: CONDITION_TYPE, #[in] #[opt] peuSubs: IEnumUnknown, #[in] fSimplify: BOOL, #[out] #[retval] #[out_ptr] ppcResult: *mut ICondition) -> HRESULT;
-            fn MakeLeaf(&self, #[in] #[opt] pszPropertyName: LPCWSTR, #[in] cop: CONDITION_OPERATION, #[in] #[opt] pszValueType: LPCWSTR, #[in] ppropvar: *const PROPVARIANT, #[in] #[opt] pPropertyNameTerm: IRichChunk, #[in] #[opt] pOperationTerm: IRichChunk, #[in] #[opt] pValueTerm: IRichChunk, #[in] fExpand: BOOL, #[out] #[retval] #[out_ptr] ppcResult: *mut ICondition) -> HRESULT;
+            fn MakeNot(&self, #[in] #[opt] pcSub: ICondition, #[in] fSimplify: BOOL, #[out] #[out_ptr] #[retval] ppcResult: *mut ICondition) -> HRESULT;
+            fn MakeAndOr(&self, #[in] ct: CONDITION_TYPE, #[in] #[opt] peuSubs: IEnumUnknown, #[in] fSimplify: BOOL, #[out] #[out_ptr] #[retval] ppcResult: *mut ICondition) -> HRESULT;
+            fn MakeLeaf(&self, #[in] #[opt] pszPropertyName: LPCWSTR, #[in] cop: CONDITION_OPERATION, #[in] #[opt] pszValueType: LPCWSTR, #[in] ppropvar: *const PROPVARIANT, #[in] #[opt] pPropertyNameTerm: IRichChunk, #[in] #[opt] pOperationTerm: IRichChunk, #[in] #[opt] pValueTerm: IRichChunk, #[in] fExpand: BOOL, #[out] #[out_ptr] #[retval] ppcResult: *mut ICondition) -> HRESULT;
             fn Resolve(&self, #[in] pc: ICondition, #[in] sqro: STRUCTURED_QUERY_RESOLVE_OPTION, #[in] #[opt] pstReferenceTime: *const SYSTEMTIME, #[out] #[retval] ppcResolved: *mut ICondition) -> HRESULT;
         }
         #[guid(0x71d222e1_432f_429e_8c13_b6dafde5077a)]
         interface IConditionFactory2: IConditionFactory {
-            fn CreateTrueFalse(&self, #[in] fVal: BOOL, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateNegation(&self, #[in] pcSub: ICondition, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateCompoundFromObjectArray(&self, #[in] ct: CONDITION_TYPE, #[in] #[opt] poaSubs: IObjectArray, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateCompoundFromArray(&self, #[in] ct: CONDITION_TYPE, #[in] ppcondSubs: *mut ICondition, #[in] cSubs: ULONG, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateStringLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] pszValue: LPCWSTR, #[in] #[opt] pszLocaleName: LPCWSTR, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateIntegerLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] lValue: INT32, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateBooleanLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] fValue: BOOL, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn CreateLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] propvar: &PROPVARIANT, #[in] #[opt] pszSemanticType: LPCWSTR, #[in] #[opt] pszLocaleName: LPCWSTR, #[in] #[opt] pPropertyNameTerm: IRichChunk, #[in] #[opt] pOperationTerm: IRichChunk, #[in] #[opt] pValueTerm: IRichChunk, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
-            fn ResolveCondition(&self, #[in] pc: ICondition, #[in] sqro: STRUCTURED_QUERY_RESOLVE_OPTION, #[in] #[opt] pstReferenceTime: *const SYSTEMTIME, #[in] riid: &IID, #[out] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateTrueFalse(&self, #[in] fVal: BOOL, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn CreateNegation(&self, #[in] pcSub: ICondition, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn CreateCompoundFromObjectArray(&self, #[in] ct: CONDITION_TYPE, #[in] #[opt] poaSubs: IObjectArray, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn CreateCompoundFromArray(&self, #[in] ct: CONDITION_TYPE, #[in] ppcondSubs: *mut ICondition, #[in] cSubs: ULONG, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn CreateStringLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] pszValue: LPCWSTR, #[in] #[opt] pszLocaleName: LPCWSTR, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn CreateIntegerLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] lValue: INT32, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn CreateBooleanLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] fValue: BOOL, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn CreateLeaf(&self, #[in] propkey: &PROPERTYKEY, #[in] cop: CONDITION_OPERATION, #[in] propvar: &PROPVARIANT, #[in] #[opt] pszSemanticType: LPCWSTR, #[in] #[opt] pszLocaleName: LPCWSTR, #[in] #[opt] pPropertyNameTerm: IRichChunk, #[in] #[opt] pOperationTerm: IRichChunk, #[in] #[opt] pValueTerm: IRichChunk, #[in] cco: CONDITION_CREATION_OPTIONS, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
+            fn ResolveCondition(&self, #[in] pc: ICondition, #[in] sqro: STRUCTURED_QUERY_RESOLVE_OPTION, #[in] #[opt] pstReferenceTime: *const SYSTEMTIME, #[in] riid: &IID, #[iid_is] #[out] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x92d2cc58_4386_45a3_b98c_7e0ce64a4117)]
         interface IConditionGenerator: IUnknown {
             fn Initialize(&self, #[in] #[opt] pSchemaProvider: ISchemaProvider) -> HRESULT;
             fn RecognizeNamedEntities(&self, #[in] pszInputString: LPCWSTR, #[in] lcidUserLocale: LCID, #[in] #[opt] pTokenCollection: ITokenCollection, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_opt", "", "")] #[in] #[opt] pNamedEntities: INamedEntityCollector) -> HRESULT;
-            fn GenerateForLeaf(&self, #[in] #[opt] pConditionFactory: IConditionFactory, #[in] #[opt] pszPropertyName: LPCWSTR, #[in] cop: CONDITION_OPERATION, #[in] #[opt] pszValueType: LPCWSTR, #[in] pszValue: LPCWSTR, #[in] #[opt] pszValue2: LPCWSTR, #[in] #[opt] pPropertyNameTerm: IRichChunk, #[in] #[opt] pOperationTerm: IRichChunk, #[in] #[opt] pValueTerm: IRichChunk, #[in] automaticWildcard: BOOL, #[out] pNoStringQuery: *mut BOOL, #[out] #[retval] #[out_ptr] ppQueryExpression: *mut ICondition) -> HRESULT;
-            fn DefaultPhrase(&self, #[in] pszValueType: LPCWSTR, #[in] ppropvar: *const PROPVARIANT, #[in] fUseEnglish: BOOL, #[out] #[opt] #[retval] #[out_ptr] ppszPhrase: *mut LPWSTR) -> HRESULT;
+            fn GenerateForLeaf(&self, #[in] #[opt] pConditionFactory: IConditionFactory, #[in] #[opt] pszPropertyName: LPCWSTR, #[in] cop: CONDITION_OPERATION, #[in] #[opt] pszValueType: LPCWSTR, #[in] pszValue: LPCWSTR, #[in] #[opt] pszValue2: LPCWSTR, #[in] #[opt] pPropertyNameTerm: IRichChunk, #[in] #[opt] pOperationTerm: IRichChunk, #[in] #[opt] pValueTerm: IRichChunk, #[in] automaticWildcard: BOOL, #[out] pNoStringQuery: *mut BOOL, #[out] #[out_ptr] #[retval] ppQueryExpression: *mut ICondition) -> HRESULT;
+            fn DefaultPhrase(&self, #[in] pszValueType: LPCWSTR, #[in] ppropvar: *const PROPVARIANT, #[in] fUseEnglish: BOOL, #[opt] #[out] #[out_ptr] #[retval] ppszPhrase: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x24264891_e80b_4fd3_b7ce_4ff2fae8931f)]
         interface IEntity: IUnknown {
-            fn Name(&self, #[out] #[opt] #[retval] #[out_ptr] ppszName: *mut LPWSTR) -> HRESULT;
-            fn Base(&self, #[out] #[retval] #[out_ptr] pBaseEntity: *mut IEntity) -> HRESULT;
-            fn Relationships(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pRelationships: *mut *mut void) -> HRESULT;
-            fn GetRelationship(&self, #[in] pszRelationName: LPCWSTR, #[out] #[retval] #[out_ptr] pRelationship: *mut IRelationship) -> HRESULT;
-            fn MetaData(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
-            fn NamedEntities(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pNamedEntities: *mut *mut void) -> HRESULT;
-            fn GetNamedEntity(&self, #[in] pszValue: LPCWSTR, #[out] #[retval] #[out_ptr] ppNamedEntity: *mut INamedEntity) -> HRESULT;
-            fn DefaultPhrase(&self, #[out] #[opt] #[retval] #[out_ptr] ppszPhrase: *mut LPWSTR) -> HRESULT;
+            fn Name(&self, #[opt] #[out] #[out_ptr] #[retval] ppszName: *mut LPWSTR) -> HRESULT;
+            fn Base(&self, #[out] #[out_ptr] #[retval] pBaseEntity: *mut IEntity) -> HRESULT;
+            fn Relationships(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pRelationships: *mut *mut void) -> HRESULT;
+            fn GetRelationship(&self, #[in] pszRelationName: LPCWSTR, #[out] #[out_ptr] #[retval] pRelationship: *mut IRelationship) -> HRESULT;
+            fn MetaData(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pMetaData: *mut *mut void) -> HRESULT;
+            fn NamedEntities(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pNamedEntities: *mut *mut void) -> HRESULT;
+            fn GetNamedEntity(&self, #[in] pszValue: LPCWSTR, #[out] #[out_ptr] #[retval] ppNamedEntity: *mut INamedEntity) -> HRESULT;
+            fn DefaultPhrase(&self, #[opt] #[out] #[out_ptr] #[retval] ppszPhrase: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x6bf0a714_3c18_430b_8b5d_83b1c234d3db)]
         interface IInterval: IUnknown {
@@ -65,7 +65,7 @@ mod Windows {
         }
         #[guid(0x780102b0_c43b_4876_bc7b_5e9ba5c88794)]
         interface IMetaData: IUnknown {
-            fn GetData(&self, #[out] #[opt] #[out_ptr] ppszKey: *mut LPWSTR, #[out] #[opt] #[out_ptr] ppszValue: *mut LPWSTR) -> HRESULT;
+            fn GetData(&self, #[opt] #[out] #[out_ptr] ppszKey: *mut LPWSTR, #[opt] #[out] #[out_ptr] ppszValue: *mut LPWSTR) -> HRESULT;
         }
         #[repr(i32)]
         enum INTERVAL_LIMIT_KIND {
@@ -76,8 +76,8 @@ mod Windows {
         }
         #[guid(0xabdbd0b1_7d54_49fb_ab5c_bff4130004cd)]
         interface INamedEntity: IUnknown {
-            fn GetValue(&self, #[out] #[retval] #[out_ptr] ppszValue: *mut LPWSTR) -> HRESULT;
-            fn DefaultPhrase(&self, #[out] #[opt] #[retval] #[out_ptr] ppszPhrase: *mut LPWSTR) -> HRESULT;
+            fn GetValue(&self, #[out] #[out_ptr] #[retval] ppszValue: *mut LPWSTR) -> HRESULT;
+            fn DefaultPhrase(&self, #[opt] #[out] #[out_ptr] #[retval] ppszPhrase: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xaf2440f6_8afc_47d0_9a7f_396a0acfb43d)]
         interface INamedEntityCollector: IUnknown {
@@ -85,45 +85,45 @@ mod Windows {
         }
         #[guid(0x2ebdee67_3505_43f8_9946_ea44abc8e5b0)]
         interface IQueryParser: IUnknown {
-            fn Parse(&self, #[in] pszInputString: LPCWSTR, #[in] #[opt] pCustomProperties: IEnumUnknown, #[out] #[retval] #[out_ptr] ppSolution: *mut IQuerySolution) -> HRESULT;
+            fn Parse(&self, #[in] pszInputString: LPCWSTR, #[in] #[opt] pCustomProperties: IEnumUnknown, #[out] #[out_ptr] #[retval] ppSolution: *mut IQuerySolution) -> HRESULT;
             fn SetOption(&self, #[in] option: STRUCTURED_QUERY_SINGLE_OPTION, #[in] pOptionValue: *const PROPVARIANT) -> HRESULT;
             fn GetOption(&self, #[in] option: STRUCTURED_QUERY_SINGLE_OPTION, #[out] #[retval] pOptionValue: *mut PROPVARIANT) -> HRESULT;
             fn SetMultiOption(&self, #[in] option: STRUCTURED_QUERY_MULTIOPTION, #[in] pszOptionKey: LPCWSTR, #[in] pOptionValue: *const PROPVARIANT) -> HRESULT;
-            fn GetSchemaProvider(&self, #[out] #[retval] #[out_ptr] ppSchemaProvider: *mut ISchemaProvider) -> HRESULT;
+            fn GetSchemaProvider(&self, #[out] #[out_ptr] #[retval] ppSchemaProvider: *mut ISchemaProvider) -> HRESULT;
             fn RestateToString(&self, #[in] #[opt] pCondition: ICondition, #[in] fUseEnglish: BOOL, #[out] #[out_ptr] ppszQueryString: *mut LPWSTR) -> HRESULT;
-            fn ParsePropertyValue(&self, #[in] pszPropertyName: LPCWSTR, #[in] pszInputString: LPCWSTR, #[out] #[retval] #[out_ptr] ppSolution: *mut IQuerySolution) -> HRESULT;
+            fn ParsePropertyValue(&self, #[in] pszPropertyName: LPCWSTR, #[in] pszInputString: LPCWSTR, #[out] #[out_ptr] #[retval] ppSolution: *mut IQuerySolution) -> HRESULT;
             fn RestatePropertyValueToString(&self, #[in] #[opt] pCondition: ICondition, #[in] fUseEnglish: BOOL, #[out] #[out_ptr] ppszPropertyName: *mut LPWSTR, #[out] #[out_ptr] ppszQueryString: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xa879e3c4_af77_44fb_8f37_ebd1487cf920)]
         interface IQueryParserManager: IUnknown {
-            fn CreateLoadedParser(&self, #[in] pszCatalog: LPCWSTR, #[in] langidForKeywords: LANGID, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] ppQueryParser: *mut *mut void) -> HRESULT;
+            fn CreateLoadedParser(&self, #[in] pszCatalog: LPCWSTR, #[in] langidForKeywords: LANGID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] ppQueryParser: *mut *mut void) -> HRESULT;
             fn InitializeOptions(&self, #[in] fUnderstandNQS: BOOL, #[in] fAutoWildCard: BOOL, #[in] #[opt] pQueryParser: IQueryParser) -> HRESULT;
             fn SetOption(&self, #[in] option: QUERY_PARSER_MANAGER_OPTION, #[in] pOptionValue: *const PROPVARIANT) -> HRESULT;
         }
         #[guid(0xd6ebc66b_8921_4193_afdd_a1789fb7ff57)]
         interface IQuerySolution: IConditionFactory {
-            fn GetQuery(&self, #[out] #[opt] ppQueryNode: *mut ICondition, #[out] #[opt] ppMainType: *mut IEntity) -> HRESULT;
-            fn GetErrors(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] ppParseErrors: *mut *mut void) -> HRESULT;
-            fn GetLexicalData(&self, #[out] #[opt] #[out_ptr] ppszInputString: *mut LPWSTR, #[out] #[opt] ppTokens: *mut ITokenCollection, #[out] #[opt] plcid: *mut LCID, #[out] #[opt] ppWordBreaker: *mut IUnknown) -> HRESULT;
+            fn GetQuery(&self, #[opt] #[out] ppQueryNode: *mut ICondition, #[opt] #[out] ppMainType: *mut IEntity) -> HRESULT;
+            fn GetErrors(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] ppParseErrors: *mut *mut void) -> HRESULT;
+            fn GetLexicalData(&self, #[opt] #[out] #[out_ptr] ppszInputString: *mut LPWSTR, #[opt] #[out] ppTokens: *mut ITokenCollection, #[opt] #[out] plcid: *mut LCID, #[opt] #[out] ppWordBreaker: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x2769280b_5108_498c_9c7f_a51239b63147)]
         interface IRelationship: IUnknown {
-            fn Name(&self, #[out] #[opt] #[retval] #[out_ptr] ppszName: *mut LPWSTR) -> HRESULT;
+            fn Name(&self, #[opt] #[out] #[out_ptr] #[retval] ppszName: *mut LPWSTR) -> HRESULT;
             fn IsReal(&self, #[out] #[retval] pIsReal: *mut BOOL) -> HRESULT;
-            fn Destination(&self, #[out] #[retval] #[out_ptr] pDestinationEntity: *mut IEntity) -> HRESULT;
-            fn MetaData(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
-            fn DefaultPhrase(&self, #[out] #[opt] #[retval] #[out_ptr] ppszPhrase: *mut LPWSTR) -> HRESULT;
+            fn Destination(&self, #[out] #[out_ptr] #[retval] pDestinationEntity: *mut IEntity) -> HRESULT;
+            fn MetaData(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pMetaData: *mut *mut void) -> HRESULT;
+            fn DefaultPhrase(&self, #[opt] #[out] #[out_ptr] #[retval] ppszPhrase: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0xca3fdca2_bfbe_4eed_90d7_0caef0a1bda1)]
         interface ISchemaLocalizerSupport: IUnknown {
-            fn Localize(&self, #[in] pszGlobalString: LPCWSTR, #[out] #[retval] #[out_ptr] ppszLocalString: *mut LPWSTR) -> HRESULT;
+            fn Localize(&self, #[in] pszGlobalString: LPCWSTR, #[out] #[out_ptr] #[retval] ppszLocalString: *mut LPWSTR) -> HRESULT;
         }
         #[guid(0x8cf89bcb_394c_49b2_ae28_a59dd4ed7f68)]
         interface ISchemaProvider: IUnknown {
-            fn Entities(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pEntities: *mut *mut void) -> HRESULT;
-            fn RootEntity(&self, #[out] #[retval] #[out_ptr] pRootEntity: *mut IEntity) -> HRESULT;
-            fn GetEntity(&self, #[in] pszEntityName: LPCWSTR, #[out] #[retval] #[out_ptr] pEntity: *mut IEntity) -> HRESULT;
-            fn MetaData(&self, #[in] riid: &IID, #[out] #[retval] #[out_ptr] #[iid_is] pMetaData: *mut *mut void) -> HRESULT;
+            fn Entities(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pEntities: *mut *mut void) -> HRESULT;
+            fn RootEntity(&self, #[out] #[out_ptr] #[retval] pRootEntity: *mut IEntity) -> HRESULT;
+            fn GetEntity(&self, #[in] pszEntityName: LPCWSTR, #[out] #[out_ptr] #[retval] pEntity: *mut IEntity) -> HRESULT;
+            fn MetaData(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] #[retval] pMetaData: *mut *mut void) -> HRESULT;
             fn Localize(&self, #[in] lcid: LCID, #[in] #[opt] pSchemaLocalizerSupport: ISchemaLocalizerSupport) -> HRESULT;
             fn SaveBinary(&self, #[in] pszSchemaBinaryPath: LPCWSTR) -> HRESULT;
             fn LookupAuthoredNamedEntity(&self, #[in] #[opt] pEntity: IEntity, #[in] pszInputString: LPCWSTR, #[in] #[opt] pTokenCollection: ITokenCollection, #[in] cTokensBegin: ULONG, #[out] pcTokensLength: *mut ULONG, #[out] #[out_ptr] ppszValue: *mut LPWSTR) -> HRESULT;
@@ -131,7 +131,7 @@ mod Windows {
         #[guid(0x22d8b4f2_f577_4adb_a335_c2ae88416fab)]
         interface ITokenCollection: IUnknown {
             fn NumberOfTokens(&self, #[in] pCount: *mut ULONG) -> HRESULT;
-            fn GetToken(&self, #[in] i: ULONG, #[out] #[opt] pBegin: *mut ULONG, #[out] #[opt] pLength: *mut ULONG, #[out] #[opt] #[out_ptr] ppsz: *mut LPWSTR) -> HRESULT;
+            fn GetToken(&self, #[in] i: ULONG, #[opt] #[out] pBegin: *mut ULONG, #[opt] #[out] pLength: *mut ULONG, #[opt] #[out] #[out_ptr] ppsz: *mut LPWSTR) -> HRESULT;
         }
         const Interval: GUID = 0xd957171f_4bf9_4de2_bcd5_c70a7ca55836;
         const LeafCondition: GUID = 0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2;

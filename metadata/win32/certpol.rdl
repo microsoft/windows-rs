@@ -5,12 +5,12 @@ mod Windows {
         interface ICertPolicy: IDispatch {
             fn Initialize(&self, #[in] strConfig: BSTR) -> HRESULT;
             fn VerifyRequest(&self, #[in] strConfig: BSTR, #[in] Context: LONG, #[in] bNewRequest: LONG, #[in] Flags: LONG, #[out] #[retval] pDisposition: *mut LONG) -> HRESULT;
-            fn GetDescription(&self, #[out] #[retval] #[out_ptr] pstrDescription: *mut BSTR) -> HRESULT;
+            fn GetDescription(&self, #[out] #[out_ptr] #[retval] pstrDescription: *mut BSTR) -> HRESULT;
             fn ShutDown(&self) -> HRESULT;
         }
         #[guid(0x3db4910e_8001_4bf1_aa1b_f43a808317a0)]
         interface ICertPolicy2: ICertPolicy {
-            fn GetManageModule(&self, #[out] #[retval] #[out_ptr] ppManageModule: *mut ICertManageModule) -> HRESULT;
+            fn GetManageModule(&self, #[out] #[out_ptr] #[retval] ppManageModule: *mut ICertManageModule) -> HRESULT;
         }
         #[guid(0x13ca515d_431d_46cc_8c2e_1da269bbd625)]
         interface INDESPolicy: IUnknown {

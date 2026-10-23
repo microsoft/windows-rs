@@ -13,11 +13,11 @@ mod Windows {
             fn SignalEventOnResourceReady(&self, hEvent: HANDLE) -> HRESULT;
             fn EnqueueResourceRelease(&self, #[in] pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
         }
-        #[library("MFPlat.DLL")]
         #[arch(X64 | Arm64)]
-        extern "C" fn MFCreateD3D12SynchronizationObject(#[in] pDevice: ID3D12Device, #[in] riid: &IID, #[out] #[out_ptr] ppvSyncObject: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
+        extern "C" fn MFCreateD3D12SynchronizationObject(#[in] pDevice: ID3D12Device, #[in] riid: &IID, #[out] #[out_ptr] ppvSyncObject: *mut *mut void) -> HRESULT;
         #[arch(X86)]
+        #[library("MFPlat.DLL")]
         extern fn MFCreateD3D12SynchronizationObject(#[in] pDevice: ID3D12Device, #[in] riid: &IID, #[out] #[out_ptr] ppvSyncObject: *mut *mut void) -> HRESULT;
         const MF_D3D12_SYNCHRONIZATION_OBJECT: GUID = 0x2a7c8d6a_85a6_494d_a046_06ea1a138f4b;
         const MF_MT_D3D12_CPU_READBACK: GUID = 0x28ee9fe3_d481_46a6_b98a_7f69d5280e82;

@@ -186,7 +186,7 @@ mod Windows {
         const AUTHZ_VALID_RM_INIT_FLAGS: i32 = 7;
         const AUTHZ_WPD_CATEGORY_FLAG: i32 = 16;
         #[library("AUTHZ.dll")]
-        extern fn AuthzAccessCheck(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[readable(entry, OptionalSecurityDescriptorCount)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY, #[out] #[opt] phAccessCheckResults: PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
+        extern fn AuthzAccessCheck(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] #[opt] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[readable(entry, OptionalSecurityDescriptorCount)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] #[out] pReply: PAUTHZ_ACCESS_REPLY, #[opt] #[out] phAccessCheckResults: PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzAddSidsToContext(#[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] #[opt] Sids: PSID_AND_ATTRIBUTES, #[in] SidCount: DWORD, #[in] #[opt] RestrictedSids: PSID_AND_ATTRIBUTES, #[in] RestrictedSidCount: DWORD, #[out] phNewAuthzClientContext: PAUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
@@ -235,8 +235,8 @@ mod Windows {
         extern fn AuthzModifySids(#[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] SidClass: AUTHZ_CONTEXT_INFORMATION_CLASS, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "pSids != NULL && *pSidOperations != AUTHZ_SID_OPERATION_REPLACE_ALL,_In_reads_(pSids->GroupCount)", "pSids != 0 && *pSidOperations != AUTHZ_SID_OPERATION_REPLACE_ALL, _In_reads_(pSids->GroupCount)")] #[in] pSidOperations: PAUTHZ_SID_OPERATION, #[in] #[opt] pSids: PTOKEN_GROUPS) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzOpenObjectAudit(#[in] Flags: DWORD, #[in] hAuthzClientContext: AUTHZ_CLIENT_CONTEXT_HANDLE, #[in] pRequest: PAUTHZ_ACCESS_REQUEST, #[in] hAuditEvent: AUTHZ_AUDIT_EVENT_HANDLE, #[in] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[opt] #[readable(entry, OptionalSecurityDescriptorCount)] OptionalSecurityDescriptorArray: *mut PSECURITY_DESCRIPTOR, #[in] OptionalSecurityDescriptorCount: DWORD, #[in] pReply: PAUTHZ_ACCESS_REPLY) -> BOOL;
-        #[success(return != 0)]
         #[library("AUTHZ.dll")]
+        #[success(return != 0)]
         extern fn AuthzRegisterCapChangeNotification(#[out] phCapChangeSubscription: PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE, #[in] pfnCapChangeCallback: LPTHREAD_START_ROUTINE, #[in] #[opt] pCallbackContext: PVOID) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzRegisterSecurityEventSource(#[in] dwFlags: DWORD, #[in] szEventSourceName: PCWSTR, #[out] phEventProvider: PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;

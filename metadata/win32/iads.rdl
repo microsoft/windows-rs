@@ -542,12 +542,12 @@ mod Windows {
         const Hold: GUID = 0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc;
         #[guid(0xfd8256d0_fd15_11ce_abc4_02608c9e7553)]
         interface IADs: IDispatch {
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Class(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_GUID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_ADsPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Parent(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Schema(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Class(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_GUID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_ADsPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Parent(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Schema(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn GetInfo(&self) -> HRESULT;
             fn SetInfo(&self) -> HRESULT;
             fn Get(&self, #[in] bstrName: BSTR, #[out] #[retval] pvProp: *mut VARIANT) -> HRESULT;
@@ -558,17 +558,17 @@ mod Windows {
         }
         #[guid(0x5bb11929_afd1_11d2_9cb9_0000f87a369e)]
         interface IADsADSystemInfo: IDispatch {
-            fn get_UserName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_ComputerName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_SiteName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DomainShortName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DomainDNSName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_ForestDNSName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_PDCRoleOwner(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_SchemaRoleOwner(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_UserName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_ComputerName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_SiteName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DomainShortName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DomainDNSName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_ForestDNSName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_PDCRoleOwner(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_SchemaRoleOwner(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_IsNativeMode(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
-            fn GetAnyDCName(&self, #[out] #[retval] #[out_ptr] pszDCName: *mut BSTR) -> HRESULT;
-            fn GetDCSiteName(&self, #[in] szServer: BSTR, #[out] #[retval] #[out_ptr] pszSiteName: *mut BSTR) -> HRESULT;
+            fn GetAnyDCName(&self, #[out] #[out_ptr] #[retval] pszDCName: *mut BSTR) -> HRESULT;
+            fn GetDCSiteName(&self, #[in] szServer: BSTR, #[out] #[out_ptr] #[retval] pszSiteName: *mut BSTR) -> HRESULT;
             fn RefreshSchemaCache(&self) -> HRESULT;
             fn GetTrees(&self, #[out] #[retval] pvTrees: *mut VARIANT) -> HRESULT;
         }
@@ -582,11 +582,11 @@ mod Windows {
             fn put_AceFlags(&self, #[in] lnAceFlags: i32) -> HRESULT;
             fn get_Flags(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Flags(&self, #[in] lnFlags: i32) -> HRESULT;
-            fn get_ObjectType(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ObjectType(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ObjectType(&self, #[in] bstrObjectType: BSTR) -> HRESULT;
-            fn get_InheritedObjectType(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_InheritedObjectType(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_InheritedObjectType(&self, #[in] bstrInheritedObjectType: BSTR) -> HRESULT;
-            fn get_Trustee(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Trustee(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Trustee(&self, #[in] bstrTrustee: BSTR) -> HRESULT;
         }
         #[guid(0xb7ee91cc_9bdd_11d0_852c_00c04fd8d503)]
@@ -597,18 +597,18 @@ mod Windows {
             fn put_AceCount(&self, #[in] lnAceCount: i32) -> HRESULT;
             fn AddAce(&self, #[in] #[opt] pAccessControlEntry: IDispatch) -> HRESULT;
             fn RemoveAce(&self, #[in] #[opt] pAccessControlEntry: IDispatch) -> HRESULT;
-            fn CopyAccessList(&self, #[out] #[retval] #[out_ptr] ppAccessControlList: *mut IDispatch) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn CopyAccessList(&self, #[out] #[out_ptr] #[retval] ppAccessControlList: *mut IDispatch) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
         }
         #[guid(0x8452d3ab_0869_11d1_a377_00c04fb950dc)]
         interface IADsAcl: IDispatch {
-            fn get_ProtectedAttrName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ProtectedAttrName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ProtectedAttrName(&self, #[in] bstrProtectedAttrName: BSTR) -> HRESULT;
-            fn get_SubjectName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_SubjectName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_SubjectName(&self, #[in] bstrSubjectName: BSTR) -> HRESULT;
             fn get_Privileges(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Privileges(&self, #[in] lnPrivileges: i32) -> HRESULT;
-            fn CopyAcl(&self, #[out] #[retval] #[out_ptr] ppAcl: *mut IDispatch) -> HRESULT;
+            fn CopyAcl(&self, #[out] #[out_ptr] #[retval] ppAcl: *mut IDispatch) -> HRESULT;
         }
         #[guid(0x1346ce8c_9039_11d0_8528_00c04fd8d503)]
         interface IADsAggregatee: IUnknown {
@@ -626,7 +626,7 @@ mod Windows {
         interface IADsBackLink: IDispatch {
             fn get_RemoteID(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_RemoteID(&self, #[in] lnRemoteID: i32) -> HRESULT;
-            fn get_ObjectName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ObjectName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ObjectName(&self, #[in] bstrObjectName: BSTR) -> HRESULT;
         }
         #[guid(0x7b66b533_4680_11d1_a3b4_00c04fb950dc)]
@@ -636,10 +636,10 @@ mod Windows {
         }
         #[guid(0xc8f93dd0_4ae0_11cf_9e73_00aa004a5691)]
         interface IADsClass: IADs {
-            fn get_PrimaryInterface(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_CLSID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PrimaryInterface(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_CLSID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_CLSID(&self, #[in] bstrCLSID: BSTR) -> HRESULT;
-            fn get_OID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_OID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_OID(&self, #[in] bstrOID: BSTR) -> HRESULT;
             fn get_Abstract(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Abstract(&self, #[in] fAbstract: VARIANT_BOOL) -> HRESULT;
@@ -661,85 +661,85 @@ mod Windows {
             fn put_Containment(&self, #[in] vContainment: VARIANT) -> HRESULT;
             fn get_Container(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_Container(&self, #[in] fContainer: VARIANT_BOOL) -> HRESULT;
-            fn get_HelpFileName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_HelpFileName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_HelpFileName(&self, #[in] bstrHelpFileName: BSTR) -> HRESULT;
             fn get_HelpFileContext(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_HelpFileContext(&self, #[in] lnHelpFileContext: i32) -> HRESULT;
-            fn Qualifiers(&self, #[out] #[retval] #[out_ptr] ppQualifiers: *mut IADsCollection) -> HRESULT;
+            fn Qualifiers(&self, #[out] #[out_ptr] #[retval] ppQualifiers: *mut IADsCollection) -> HRESULT;
         }
         #[guid(0x72b945e0_253b_11cf_a988_00aa006bc149)]
         interface IADsCollection: IDispatch {
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnumerator: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnumerator: *mut IUnknown) -> HRESULT;
             fn Add(&self, #[in] bstrName: BSTR, #[in] vItem: VARIANT) -> HRESULT;
             fn Remove(&self, #[in] bstrItemToBeRemoved: BSTR) -> HRESULT;
             fn GetObjectA(&self, #[in] bstrName: BSTR, #[out] #[retval] pvItem: *mut VARIANT) -> HRESULT;
         }
         #[guid(0xefe3cc70_1d9f_11cf_b1f3_02608c9e7553)]
         interface IADsComputer: IADs {
-            fn get_ComputerID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Site(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ComputerID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Site(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn get_Location(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Location(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Location(&self, #[in] bstrLocation: BSTR) -> HRESULT;
-            fn get_PrimaryUser(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PrimaryUser(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_PrimaryUser(&self, #[in] bstrPrimaryUser: BSTR) -> HRESULT;
-            fn get_Owner(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Owner(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Owner(&self, #[in] bstrOwner: BSTR) -> HRESULT;
-            fn get_Division(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Division(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Division(&self, #[in] bstrDivision: BSTR) -> HRESULT;
-            fn get_Department(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Department(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Department(&self, #[in] bstrDepartment: BSTR) -> HRESULT;
-            fn get_Role(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Role(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Role(&self, #[in] bstrRole: BSTR) -> HRESULT;
-            fn get_OperatingSystem(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_OperatingSystem(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_OperatingSystem(&self, #[in] bstrOperatingSystem: BSTR) -> HRESULT;
-            fn get_OperatingSystemVersion(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_OperatingSystemVersion(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_OperatingSystemVersion(&self, #[in] bstrOperatingSystemVersion: BSTR) -> HRESULT;
-            fn get_Model(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Model(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Model(&self, #[in] bstrModel: BSTR) -> HRESULT;
-            fn get_Processor(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Processor(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Processor(&self, #[in] bstrProcessor: BSTR) -> HRESULT;
-            fn get_ProcessorCount(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ProcessorCount(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ProcessorCount(&self, #[in] bstrProcessorCount: BSTR) -> HRESULT;
-            fn get_MemorySize(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_MemorySize(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_MemorySize(&self, #[in] bstrMemorySize: BSTR) -> HRESULT;
-            fn get_StorageCapacity(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_StorageCapacity(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_StorageCapacity(&self, #[in] bstrStorageCapacity: BSTR) -> HRESULT;
             fn get_NetAddresses(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_NetAddresses(&self, #[in] vNetAddresses: VARIANT) -> HRESULT;
         }
         #[guid(0xef497680_1d9f_11cf_b1f3_02608c9e7553)]
         interface IADsComputerOperations: IADs {
-            fn Status(&self, #[out] #[retval] #[out_ptr] ppObject: *mut IDispatch) -> HRESULT;
+            fn Status(&self, #[out] #[out_ptr] #[retval] ppObject: *mut IDispatch) -> HRESULT;
             fn Shutdown(&self, #[in] bReboot: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x001677d0_fd16_11ce_abc4_02608c9e7553)]
         interface IADsContainer: IDispatch {
             fn get_Count(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] retval: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] retval: *mut IUnknown) -> HRESULT;
             fn get_Filter(&self, #[out] #[retval] pVar: *mut VARIANT) -> HRESULT;
             fn put_Filter(&self, #[in] Var: VARIANT) -> HRESULT;
             fn get_Hints(&self, #[out] #[retval] pvFilter: *mut VARIANT) -> HRESULT;
             fn put_Hints(&self, #[in] vHints: VARIANT) -> HRESULT;
-            fn GetObjectA(&self, #[in] ClassName: BSTR, #[in] RelativeName: BSTR, #[out] #[retval] #[out_ptr] ppObject: *mut IDispatch) -> HRESULT;
-            fn Create(&self, #[in] ClassName: BSTR, #[in] RelativeName: BSTR, #[out] #[retval] #[out_ptr] ppObject: *mut IDispatch) -> HRESULT;
+            fn GetObjectA(&self, #[in] ClassName: BSTR, #[in] RelativeName: BSTR, #[out] #[out_ptr] #[retval] ppObject: *mut IDispatch) -> HRESULT;
+            fn Create(&self, #[in] ClassName: BSTR, #[in] RelativeName: BSTR, #[out] #[out_ptr] #[retval] ppObject: *mut IDispatch) -> HRESULT;
             fn Delete(&self, #[in] bstrClassName: BSTR, #[in] bstrRelativeName: BSTR) -> HRESULT;
-            fn CopyHere(&self, #[in] SourceName: BSTR, #[in] NewName: BSTR, #[out] #[retval] #[out_ptr] ppObject: *mut IDispatch) -> HRESULT;
-            fn MoveHere(&self, #[in] SourceName: BSTR, #[in] NewName: BSTR, #[out] #[retval] #[out_ptr] ppObject: *mut IDispatch) -> HRESULT;
+            fn CopyHere(&self, #[in] SourceName: BSTR, #[in] NewName: BSTR, #[out] #[out_ptr] #[retval] ppObject: *mut IDispatch) -> HRESULT;
+            fn MoveHere(&self, #[in] SourceName: BSTR, #[in] NewName: BSTR, #[out] #[out_ptr] #[retval] ppObject: *mut IDispatch) -> HRESULT;
         }
         #[guid(0x7e99c0a2_f935_11d2_ba96_00c04fb6d0d1)]
         interface IADsDNWithBinary: IDispatch {
             fn get_BinaryValue(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_BinaryValue(&self, #[in] vBinaryValue: VARIANT) -> HRESULT;
-            fn get_DNString(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DNString(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_DNString(&self, #[in] bstrDNString: BSTR) -> HRESULT;
         }
         #[guid(0x370df02e_f934_11d2_ba96_00c04fb6d0d1)]
         interface IADsDNWithString: IDispatch {
-            fn get_StringValue(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_StringValue(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_StringValue(&self, #[in] bstrStringValue: BSTR) -> HRESULT;
-            fn get_DNString(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DNString(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_DNString(&self, #[in] bstrDNString: BSTR) -> HRESULT;
         }
         #[guid(0xb2bd0902_8878_11d1_8c21_00c04fd8d503)]
@@ -770,7 +770,7 @@ mod Windows {
         interface IADsEmail: IDispatch {
             fn get_Type(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Type(&self, #[in] lnType: i32) -> HRESULT;
-            fn get_Address(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Address(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Address(&self, #[in] bstrAddress: BSTR) -> HRESULT;
         }
         #[guid(0x3d35553c_d2b0_11d1_b17b_0000f87593a0)]
@@ -781,47 +781,47 @@ mod Windows {
         }
         #[guid(0xa910dea9_4680_11d1_a3b4_00c04fb950dc)]
         interface IADsFaxNumber: IDispatch {
-            fn get_TelephoneNumber(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_TelephoneNumber(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_TelephoneNumber(&self, #[in] bstrTelephoneNumber: BSTR) -> HRESULT;
             fn get_Parameters(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_Parameters(&self, #[in] vParameters: VARIANT) -> HRESULT;
         }
         #[guid(0xa89d1900_31ca_11cf_a98a_00aa006bc149)]
         interface IADsFileService: IADsService {
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
             fn get_MaxUserCount(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_MaxUserCount(&self, #[in] lnMaxUserCount: i32) -> HRESULT;
         }
         #[guid(0xa02ded10_31ca_11cf_a98a_00aa006bc149)]
         interface IADsFileServiceOperations: IADsServiceOperations {
-            fn Sessions(&self, #[out] #[retval] #[out_ptr] ppSessions: *mut IADsCollection) -> HRESULT;
-            fn Resources(&self, #[out] #[retval] #[out_ptr] ppResources: *mut IADsCollection) -> HRESULT;
+            fn Sessions(&self, #[out] #[out_ptr] #[retval] ppSessions: *mut IADsCollection) -> HRESULT;
+            fn Resources(&self, #[out] #[out_ptr] #[retval] ppResources: *mut IADsCollection) -> HRESULT;
         }
         #[guid(0xeb6dcaf0_4b83_11cf_a995_00aa006bc149)]
         interface IADsFileShare: IADs {
             fn get_CurrentUserCount(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn get_HostComputer(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_HostComputer(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_HostComputer(&self, #[in] bstrHostComputer: BSTR) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Path(&self, #[in] bstrPath: BSTR) -> HRESULT;
             fn get_MaxUserCount(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_MaxUserCount(&self, #[in] lnMaxUserCount: i32) -> HRESULT;
         }
         #[guid(0x27636b00_410f_11cf_b1ff_02608c9e7553)]
         interface IADsGroup: IADs {
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn Members(&self, #[out] #[retval] #[out_ptr] ppMembers: *mut IADsMembers) -> HRESULT;
+            fn Members(&self, #[out] #[out_ptr] #[retval] ppMembers: *mut IADsMembers) -> HRESULT;
             fn IsMember(&self, #[in] bstrMember: BSTR, #[out] #[retval] bMember: *mut VARIANT_BOOL) -> HRESULT;
             fn Add(&self, #[in] bstrNewItem: BSTR) -> HRESULT;
             fn Remove(&self, #[in] bstrItemToBeRemoved: BSTR) -> HRESULT;
         }
         #[guid(0xb3eb3b37_4080_11d1_a3ac_00c04fb950dc)]
         interface IADsHold: IDispatch {
-            fn get_ObjectName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ObjectName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ObjectName(&self, #[in] bstrObjectName: BSTR) -> HRESULT;
             fn get_Amount(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Amount(&self, #[in] lnAmount: i32) -> HRESULT;
@@ -835,11 +835,11 @@ mod Windows {
         }
         #[guid(0xa05e03a2_effe_11cf_8abc_00c04fd8d503)]
         interface IADsLocality: IADs {
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn get_LocalityName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_LocalityName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_LocalityName(&self, #[in] bstrLocalityName: BSTR) -> HRESULT;
-            fn get_PostalAddress(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PostalAddress(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_PostalAddress(&self, #[in] bstrPostalAddress: BSTR) -> HRESULT;
             fn get_SeeAlso(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_SeeAlso(&self, #[in] vSeeAlso: VARIANT) -> HRESULT;
@@ -847,7 +847,7 @@ mod Windows {
         #[guid(0x451a0030_72ec_11cf_b03b_00aa006e0975)]
         interface IADsMembers: IDispatch {
             fn get_Count(&self, #[out] #[retval] plCount: *mut i32) -> HRESULT;
-            fn get__NewEnum(&self, #[out] #[retval] #[out_ptr] ppEnumerator: *mut IUnknown) -> HRESULT;
+            fn get__NewEnum(&self, #[out] #[out_ptr] #[retval] ppEnumerator: *mut IUnknown) -> HRESULT;
             fn get_Filter(&self, #[out] #[retval] pvFilter: *mut VARIANT) -> HRESULT;
             fn put_Filter(&self, #[in] pvFilter: VARIANT) -> HRESULT;
         }
@@ -857,13 +857,13 @@ mod Windows {
             fn Init(&self, #[in] lnSetType: i32, #[in] bstrADsPath: BSTR) -> HRESULT;
             fn InitEx(&self, #[in] lnSetType: i32, #[in] bstrADsPath: BSTR, #[in] bstrUserID: BSTR, #[in] bstrDomain: BSTR, #[in] bstrPassword: BSTR) -> HRESULT;
             fn Set(&self, #[in] lnSetType: i32, #[in] bstrADsPath: BSTR) -> HRESULT;
-            fn Get(&self, #[in] lnFormatType: i32, #[out] #[retval] #[out_ptr] pbstrADsPath: *mut BSTR) -> HRESULT;
+            fn Get(&self, #[in] lnFormatType: i32, #[out] #[out_ptr] #[retval] pbstrADsPath: *mut BSTR) -> HRESULT;
             fn SetEx(&self, #[in] lnFormatType: i32, #[in] pvar: VARIANT) -> HRESULT;
             fn GetEx(&self, #[in] lnFormatType: i32, #[out] #[retval] pvar: *mut VARIANT) -> HRESULT;
         }
         #[guid(0x28b96ba0_b330_11cf_a9ad_00aa006bc149)]
         interface IADsNamespaces: IADs {
-            fn get_DefaultContainer(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DefaultContainer(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_DefaultContainer(&self, #[in] bstrDefaultContainer: BSTR) -> HRESULT;
         }
         #[guid(0xb21a50a9_4080_11d1_a3ac_00c04fb950dc)]
@@ -875,34 +875,34 @@ mod Windows {
         }
         #[guid(0xa1cd2dc6_effe_11cf_8abc_00c04fd8d503)]
         interface IADsO: IADs {
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn get_LocalityName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_LocalityName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_LocalityName(&self, #[in] bstrLocalityName: BSTR) -> HRESULT;
-            fn get_PostalAddress(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PostalAddress(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_PostalAddress(&self, #[in] bstrPostalAddress: BSTR) -> HRESULT;
-            fn get_TelephoneNumber(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_TelephoneNumber(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_TelephoneNumber(&self, #[in] bstrTelephoneNumber: BSTR) -> HRESULT;
-            fn get_FaxNumber(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_FaxNumber(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_FaxNumber(&self, #[in] bstrFaxNumber: BSTR) -> HRESULT;
             fn get_SeeAlso(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_SeeAlso(&self, #[in] vSeeAlso: VARIANT) -> HRESULT;
         }
         #[guid(0xa2f733b8_effe_11cf_8abc_00c04fd8d503)]
         interface IADsOU: IADs {
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn get_LocalityName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_LocalityName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_LocalityName(&self, #[in] bstrLocalityName: BSTR) -> HRESULT;
-            fn get_PostalAddress(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PostalAddress(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_PostalAddress(&self, #[in] bstrPostalAddress: BSTR) -> HRESULT;
-            fn get_TelephoneNumber(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_TelephoneNumber(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_TelephoneNumber(&self, #[in] bstrTelephoneNumber: BSTR) -> HRESULT;
-            fn get_FaxNumber(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_FaxNumber(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_FaxNumber(&self, #[in] bstrFaxNumber: BSTR) -> HRESULT;
             fn get_SeeAlso(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_SeeAlso(&self, #[in] vSeeAlso: VARIANT) -> HRESULT;
-            fn get_BusinessCategory(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_BusinessCategory(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_BusinessCategory(&self, #[in] bstrBusinessCategory: BSTR) -> HRESULT;
         }
         #[guid(0x46f14fda_232b_11d1_a808_00c04fd8d5a8)]
@@ -917,28 +917,28 @@ mod Windows {
         }
         #[guid(0xddf2891e_0f9c_11d0_8ad4_00c04fd8d503)]
         interface IADsOpenDSObject: IDispatch {
-            fn OpenDSObject(&self, #[in] lpszDNName: BSTR, #[in] lpszUserName: BSTR, #[in] lpszPassword: BSTR, #[in] lnReserved: i32, #[out] #[retval] #[out_ptr] ppOleDsObj: *mut IDispatch) -> HRESULT;
+            fn OpenDSObject(&self, #[in] lpszDNName: BSTR, #[in] lpszUserName: BSTR, #[in] lpszPassword: BSTR, #[in] lnReserved: i32, #[out] #[out_ptr] #[retval] ppOleDsObj: *mut IDispatch) -> HRESULT;
         }
         #[guid(0xb287fcd5_4080_11d1_a3ac_00c04fb950dc)]
         interface IADsPath: IDispatch {
             fn get_Type(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Type(&self, #[in] lnType: i32) -> HRESULT;
-            fn get_VolumeName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_VolumeName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_VolumeName(&self, #[in] bstrVolumeName: BSTR) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Path(&self, #[in] bstrPath: BSTR) -> HRESULT;
         }
         #[guid(0xd592aed4_f420_11d0_a36e_00c04fb950dc)]
         interface IADsPathname: IDispatch {
             fn Set(&self, #[in] bstrADsPath: BSTR, #[in] lnSetType: i32) -> HRESULT;
             fn SetDisplayType(&self, #[in] lnDisplayType: i32) -> HRESULT;
-            fn Retrieve(&self, #[in] lnFormatType: i32, #[out] #[retval] #[out_ptr] pbstrADsPath: *mut BSTR) -> HRESULT;
+            fn Retrieve(&self, #[in] lnFormatType: i32, #[out] #[out_ptr] #[retval] pbstrADsPath: *mut BSTR) -> HRESULT;
             fn GetNumElements(&self, #[out] #[retval] plnNumPathElements: *mut i32) -> HRESULT;
-            fn GetElement(&self, #[in] lnElementIndex: i32, #[out] #[retval] #[out_ptr] pbstrElement: *mut BSTR) -> HRESULT;
+            fn GetElement(&self, #[in] lnElementIndex: i32, #[out] #[out_ptr] #[retval] pbstrElement: *mut BSTR) -> HRESULT;
             fn AddLeafElement(&self, #[in] bstrLeafElement: BSTR) -> HRESULT;
             fn RemoveLeafElement(&self) -> HRESULT;
-            fn CopyPath(&self, #[out] #[retval] #[out_ptr] ppAdsPath: *mut IDispatch) -> HRESULT;
-            fn GetEscapedElement(&self, #[in] lnReserved: i32, #[in] bstrInStr: BSTR, #[out] #[retval] #[out_ptr] pbstrOutStr: *mut BSTR) -> HRESULT;
+            fn CopyPath(&self, #[out] #[out_ptr] #[retval] ppAdsPath: *mut IDispatch) -> HRESULT;
+            fn GetEscapedElement(&self, #[in] lnReserved: i32, #[in] bstrInStr: BSTR, #[out] #[out_ptr] #[retval] pbstrOutStr: *mut BSTR) -> HRESULT;
             fn get_EscapedMode(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_EscapedMode(&self, #[in] lnEscapedMode: i32) -> HRESULT;
         }
@@ -949,13 +949,13 @@ mod Windows {
         }
         #[guid(0x32fb6780_1ed0_11cf_a988_00aa006bc149)]
         interface IADsPrintJob: IADs {
-            fn get_HostPrintQueue(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_User(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_UserPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_HostPrintQueue(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_User(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_UserPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_TimeSubmitted(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_TotalPages(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn get_Size(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
             fn get_Priority(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Priority(&self, #[in] lnPriority: i32) -> HRESULT;
@@ -963,9 +963,9 @@ mod Windows {
             fn put_StartTime(&self, #[in] daStartTime: DATE) -> HRESULT;
             fn get_UntilTime(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn put_UntilTime(&self, #[in] daUntilTime: DATE) -> HRESULT;
-            fn get_Notify(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Notify(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Notify(&self, #[in] bstrNotify: BSTR) -> HRESULT;
-            fn get_NotifyPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_NotifyPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_NotifyPath(&self, #[in] bstrNotifyPath: BSTR) -> HRESULT;
         }
         #[guid(0x9a52db30_1ecf_11cf_a988_00aa006bc149)]
@@ -980,17 +980,17 @@ mod Windows {
         }
         #[guid(0xb15160d0_1226_11cf_a985_00aa006bc149)]
         interface IADsPrintQueue: IADs {
-            fn get_PrinterPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PrinterPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_PrinterPath(&self, #[in] bstrPrinterPath: BSTR) -> HRESULT;
-            fn get_Model(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Model(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Model(&self, #[in] bstrModel: BSTR) -> HRESULT;
-            fn get_Datatype(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Datatype(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Datatype(&self, #[in] bstrDatatype: BSTR) -> HRESULT;
-            fn get_PrintProcessor(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PrintProcessor(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_PrintProcessor(&self, #[in] bstrPrintProcessor: BSTR) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn get_Location(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Location(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Location(&self, #[in] bstrLocation: BSTR) -> HRESULT;
             fn get_StartTime(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn put_StartTime(&self, #[in] daStartTime: DATE) -> HRESULT;
@@ -1000,7 +1000,7 @@ mod Windows {
             fn put_DefaultJobPriority(&self, #[in] lnDefaultJobPriority: i32) -> HRESULT;
             fn get_Priority(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Priority(&self, #[in] lnPriority: i32) -> HRESULT;
-            fn get_BannerPage(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_BannerPage(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_BannerPage(&self, #[in] bstrBannerPage: BSTR) -> HRESULT;
             fn get_PrintDevices(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_PrintDevices(&self, #[in] vPrintDevices: VARIANT) -> HRESULT;
@@ -1010,16 +1010,16 @@ mod Windows {
         #[guid(0x124be5c0_156e_11cf_a986_00aa006bc149)]
         interface IADsPrintQueueOperations: IADs {
             fn get_Status(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
-            fn PrintJobs(&self, #[out] #[retval] #[out_ptr] pObject: *mut IADsCollection) -> HRESULT;
+            fn PrintJobs(&self, #[out] #[out_ptr] #[retval] pObject: *mut IADsCollection) -> HRESULT;
             fn Pause(&self) -> HRESULT;
             fn Resume(&self) -> HRESULT;
             fn Purge(&self) -> HRESULT;
         }
         #[guid(0xc8f93dd3_4ae0_11cf_9e73_00aa004a5691)]
         interface IADsProperty: IADs {
-            fn get_OID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_OID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_OID(&self, #[in] bstrOID: BSTR) -> HRESULT;
-            fn get_Syntax(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Syntax(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Syntax(&self, #[in] bstrSyntax: BSTR) -> HRESULT;
             fn get_MaxRange(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_MaxRange(&self, #[in] lnMaxRange: i32) -> HRESULT;
@@ -1027,12 +1027,12 @@ mod Windows {
             fn put_MinRange(&self, #[in] lnMinRange: i32) -> HRESULT;
             fn get_MultiValued(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_MultiValued(&self, #[in] fMultiValued: VARIANT_BOOL) -> HRESULT;
-            fn Qualifiers(&self, #[out] #[retval] #[out_ptr] ppQualifiers: *mut IADsCollection) -> HRESULT;
+            fn Qualifiers(&self, #[out] #[out_ptr] #[retval] ppQualifiers: *mut IADsCollection) -> HRESULT;
         }
         #[guid(0x05792c8e_941f_11d0_8529_00c04fd8d503)]
         interface IADsPropertyEntry: IDispatch {
             fn Clear(&self) -> HRESULT;
-            fn get_Name(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Name(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Name(&self, #[in] bstrName: BSTR) -> HRESULT;
             fn get_ADsType(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_ADsType(&self, #[in] lnADsType: i32) -> HRESULT;
@@ -1058,15 +1058,15 @@ mod Windows {
             fn Clear(&self) -> HRESULT;
             fn get_ADsType(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_ADsType(&self, #[in] lnADsType: i32) -> HRESULT;
-            fn get_DNString(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DNString(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_DNString(&self, #[in] bstrDNString: BSTR) -> HRESULT;
-            fn get_CaseExactString(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_CaseExactString(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_CaseExactString(&self, #[in] bstrCaseExactString: BSTR) -> HRESULT;
-            fn get_CaseIgnoreString(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_CaseIgnoreString(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_CaseIgnoreString(&self, #[in] bstrCaseIgnoreString: BSTR) -> HRESULT;
-            fn get_PrintableString(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_PrintableString(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_PrintableString(&self, #[in] bstrPrintableString: BSTR) -> HRESULT;
-            fn get_NumericString(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_NumericString(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_NumericString(&self, #[in] bstrNumericString: BSTR) -> HRESULT;
             fn get_Boolean(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Boolean(&self, #[in] lnBoolean: i32) -> HRESULT;
@@ -1074,9 +1074,9 @@ mod Windows {
             fn put_Integer(&self, #[in] lnInteger: i32) -> HRESULT;
             fn get_OctetString(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_OctetString(&self, #[in] vOctetString: VARIANT) -> HRESULT;
-            fn get_SecurityDescriptor(&self, #[out] #[retval] #[out_ptr] retval: *mut IDispatch) -> HRESULT;
+            fn get_SecurityDescriptor(&self, #[out] #[out_ptr] #[retval] retval: *mut IDispatch) -> HRESULT;
             fn put_SecurityDescriptor(&self, #[in] #[opt] pSecurityDescriptor: IDispatch) -> HRESULT;
-            fn get_LargeInteger(&self, #[out] #[retval] #[out_ptr] retval: *mut IDispatch) -> HRESULT;
+            fn get_LargeInteger(&self, #[out] #[out_ptr] #[retval] retval: *mut IDispatch) -> HRESULT;
             fn put_LargeInteger(&self, #[in] #[opt] pLargeInteger: IDispatch) -> HRESULT;
             fn get_UTCTime(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn put_UTCTime(&self, #[in] daUTCTime: DATE) -> HRESULT;
@@ -1088,7 +1088,7 @@ mod Windows {
         }
         #[guid(0xf60fb803_4080_11d1_a3ac_00c04fb950dc)]
         interface IADsReplicaPointer: IDispatch {
-            fn get_ServerName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ServerName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ServerName(&self, #[in] bstrServerName: BSTR) -> HRESULT;
             fn get_ReplicaType(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_ReplicaType(&self, #[in] lnReplicaType: i32) -> HRESULT;
@@ -1101,9 +1101,9 @@ mod Windows {
         }
         #[guid(0x34a05b20_4aab_11cf_ae2c_00aa006ebfb9)]
         interface IADsResource: IADs {
-            fn get_User(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_UserPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_User(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_UserPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_LockCount(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
         }
         #[guid(0xb8c787ca_9bdd_11d0_852c_00c04fd8d503)]
@@ -1112,23 +1112,23 @@ mod Windows {
             fn put_Revision(&self, #[in] lnRevision: i32) -> HRESULT;
             fn get_Control(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Control(&self, #[in] lnControl: i32) -> HRESULT;
-            fn get_Owner(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Owner(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Owner(&self, #[in] bstrOwner: BSTR) -> HRESULT;
             fn get_OwnerDefaulted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_OwnerDefaulted(&self, #[in] fOwnerDefaulted: VARIANT_BOOL) -> HRESULT;
-            fn get_Group(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Group(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Group(&self, #[in] bstrGroup: BSTR) -> HRESULT;
             fn get_GroupDefaulted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_GroupDefaulted(&self, #[in] fGroupDefaulted: VARIANT_BOOL) -> HRESULT;
-            fn get_DiscretionaryAcl(&self, #[out] #[retval] #[out_ptr] retval: *mut IDispatch) -> HRESULT;
+            fn get_DiscretionaryAcl(&self, #[out] #[out_ptr] #[retval] retval: *mut IDispatch) -> HRESULT;
             fn put_DiscretionaryAcl(&self, #[in] #[opt] pDiscretionaryAcl: IDispatch) -> HRESULT;
             fn get_DaclDefaulted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_DaclDefaulted(&self, #[in] fDaclDefaulted: VARIANT_BOOL) -> HRESULT;
-            fn get_SystemAcl(&self, #[out] #[retval] #[out_ptr] retval: *mut IDispatch) -> HRESULT;
+            fn get_SystemAcl(&self, #[out] #[out_ptr] #[retval] retval: *mut IDispatch) -> HRESULT;
             fn put_SystemAcl(&self, #[in] #[opt] pSystemAcl: IDispatch) -> HRESULT;
             fn get_SaclDefaulted(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_SaclDefaulted(&self, #[in] fSaclDefaulted: VARIANT_BOOL) -> HRESULT;
-            fn CopySecurityDescriptor(&self, #[out] #[retval] #[out_ptr] ppSecurityDescriptor: *mut IDispatch) -> HRESULT;
+            fn CopySecurityDescriptor(&self, #[out] #[out_ptr] #[retval] ppSecurityDescriptor: *mut IDispatch) -> HRESULT;
         }
         #[guid(0xa63251b2_5f21_474b_ab52_4a8efad10895)]
         interface IADsSecurityUtility: IDispatch {
@@ -1140,27 +1140,27 @@ mod Windows {
         }
         #[guid(0x68af66e0_31ca_11cf_a98a_00aa006bc149)]
         interface IADsService: IADs {
-            fn get_HostComputer(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_HostComputer(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_HostComputer(&self, #[in] bstrHostComputer: BSTR) -> HRESULT;
-            fn get_DisplayName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_DisplayName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_DisplayName(&self, #[in] bstrDisplayName: BSTR) -> HRESULT;
-            fn get_Version(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Version(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Version(&self, #[in] bstrVersion: BSTR) -> HRESULT;
             fn get_ServiceType(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_ServiceType(&self, #[in] lnServiceType: i32) -> HRESULT;
             fn get_StartType(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_StartType(&self, #[in] lnStartType: i32) -> HRESULT;
-            fn get_Path(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Path(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Path(&self, #[in] bstrPath: BSTR) -> HRESULT;
-            fn get_StartupParameters(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_StartupParameters(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_StartupParameters(&self, #[in] bstrStartupParameters: BSTR) -> HRESULT;
             fn get_ErrorControl(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_ErrorControl(&self, #[in] lnErrorControl: i32) -> HRESULT;
-            fn get_LoadOrderGroup(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_LoadOrderGroup(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_LoadOrderGroup(&self, #[in] bstrLoadOrderGroup: BSTR) -> HRESULT;
-            fn get_ServiceAccountName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ServiceAccountName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ServiceAccountName(&self, #[in] bstrServiceAccountName: BSTR) -> HRESULT;
-            fn get_ServiceAccountPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ServiceAccountPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ServiceAccountPath(&self, #[in] bstrServiceAccountPath: BSTR) -> HRESULT;
             fn get_Dependencies(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_Dependencies(&self, #[in] vDependencies: VARIANT) -> HRESULT;
@@ -1176,10 +1176,10 @@ mod Windows {
         }
         #[guid(0x398b7da0_4aab_11cf_ae2c_00aa006ebfb9)]
         interface IADsSession: IADs {
-            fn get_User(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_UserPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_Computer(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_ComputerPath(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_User(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_UserPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_Computer(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_ComputerPath(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_ConnectTime(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn get_IdleTime(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
         }
@@ -1197,7 +1197,7 @@ mod Windows {
         }
         #[guid(0xb371a349_4080_11d1_a3ac_00c04fb950dc)]
         interface IADsTypedName: IDispatch {
-            fn get_ObjectName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_ObjectName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_ObjectName(&self, #[in] bstrObjectName: BSTR) -> HRESULT;
             fn get_Level(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn put_Level(&self, #[in] lnLevel: i32) -> HRESULT;
@@ -1206,35 +1206,35 @@ mod Windows {
         }
         #[guid(0x3e37e320_17e2_11cf_abc4_02608c9e7553)]
         interface IADsUser: IADs {
-            fn get_BadLoginAddress(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_BadLoginAddress(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn get_BadLoginCount(&self, #[out] #[retval] retval: *mut i32) -> HRESULT;
             fn get_LastLogin(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_LastLogoff(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_LastFailedLogin(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
             fn get_PasswordLastChanged(&self, #[out] #[retval] retval: *mut DATE) -> HRESULT;
-            fn get_Description(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Description(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Description(&self, #[in] bstrDescription: BSTR) -> HRESULT;
-            fn get_Division(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Division(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Division(&self, #[in] bstrDivision: BSTR) -> HRESULT;
-            fn get_Department(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Department(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Department(&self, #[in] bstrDepartment: BSTR) -> HRESULT;
-            fn get_EmployeeID(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_EmployeeID(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_EmployeeID(&self, #[in] bstrEmployeeID: BSTR) -> HRESULT;
-            fn get_FullName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_FullName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_FullName(&self, #[in] bstrFullName: BSTR) -> HRESULT;
-            fn get_FirstName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_FirstName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_FirstName(&self, #[in] bstrFirstName: BSTR) -> HRESULT;
-            fn get_LastName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_LastName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_LastName(&self, #[in] bstrLastName: BSTR) -> HRESULT;
-            fn get_OtherName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_OtherName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_OtherName(&self, #[in] bstrOtherName: BSTR) -> HRESULT;
-            fn get_NamePrefix(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_NamePrefix(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_NamePrefix(&self, #[in] bstrNamePrefix: BSTR) -> HRESULT;
-            fn get_NameSuffix(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_NameSuffix(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_NameSuffix(&self, #[in] bstrNameSuffix: BSTR) -> HRESULT;
-            fn get_Title(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Title(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Title(&self, #[in] bstrTitle: BSTR) -> HRESULT;
-            fn get_Manager(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Manager(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Manager(&self, #[in] bstrManager: BSTR) -> HRESULT;
             fn get_TelephoneHome(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_TelephoneHome(&self, #[in] vTelephoneHome: VARIANT) -> HRESULT;
@@ -1280,30 +1280,30 @@ mod Windows {
             fn put_PasswordRequired(&self, #[in] fPasswordRequired: VARIANT_BOOL) -> HRESULT;
             fn get_RequireUniquePassword(&self, #[out] #[retval] retval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_RequireUniquePassword(&self, #[in] fRequireUniquePassword: VARIANT_BOOL) -> HRESULT;
-            fn get_EmailAddress(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_EmailAddress(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_EmailAddress(&self, #[in] bstrEmailAddress: BSTR) -> HRESULT;
-            fn get_HomeDirectory(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_HomeDirectory(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_HomeDirectory(&self, #[in] bstrHomeDirectory: BSTR) -> HRESULT;
             fn get_Languages(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_Languages(&self, #[in] vLanguages: VARIANT) -> HRESULT;
-            fn get_Profile(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_Profile(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_Profile(&self, #[in] bstrProfile: BSTR) -> HRESULT;
-            fn get_LoginScript(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_LoginScript(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_LoginScript(&self, #[in] bstrLoginScript: BSTR) -> HRESULT;
             fn get_Picture(&self, #[out] #[retval] retval: *mut VARIANT) -> HRESULT;
             fn put_Picture(&self, #[in] vPicture: VARIANT) -> HRESULT;
-            fn get_HomePage(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_HomePage(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
             fn put_HomePage(&self, #[in] bstrHomePage: BSTR) -> HRESULT;
-            fn Groups(&self, #[out] #[retval] #[out_ptr] ppGroups: *mut IADsMembers) -> HRESULT;
+            fn Groups(&self, #[out] #[out_ptr] #[retval] ppGroups: *mut IADsMembers) -> HRESULT;
             fn SetPassword(&self, #[in] NewPassword: BSTR) -> HRESULT;
             fn ChangePassword(&self, #[in] bstrOldPassword: BSTR, #[in] bstrNewPassword: BSTR) -> HRESULT;
         }
         #[guid(0x6c6d65dc_afd1_11d2_9cb9_0000f87a369e)]
         interface IADsWinNTSystemInfo: IDispatch {
-            fn get_UserName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_ComputerName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_DomainName(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
-            fn get_PDC(&self, #[out] #[retval] #[out_ptr] retval: *mut BSTR) -> HRESULT;
+            fn get_UserName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_ComputerName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_DomainName(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
+            fn get_PDC(&self, #[out] #[out_ptr] #[retval] retval: *mut BSTR) -> HRESULT;
         }
         #[guid(0xe798de2c_22e4_11d0_84fe_00c04fd8d503)]
         interface IDirectoryObject: IUnknown {

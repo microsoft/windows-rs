@@ -2,32 +2,32 @@
 mod Windows {
     mod Media {
         mod SpeechSynthesis {
-            #[guid(0x7d526ecc_7533_4c3f_85be_888c2baeebdc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
+            #[guid(0x7d526ecc_7533_4c3f_85be_888c2baeebdc)]
             interface IInstalledVoicesStatic {
                 #[get]
                 AllVoices: super::super::Foundation::Collections::IVectorView<VoiceInformation>;
                 #[get]
                 DefaultVoice: VoiceInformation;
             }
-            #[guid(0x64255f2e_358d_4058_be9a_fd3fcb423530)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
+            #[guid(0x64255f2e_358d_4058_be9a_fd3fcb423530)]
             interface IInstalledVoicesStatic2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TrySetDefaultVoiceAsync(&self, #[in] voice: VoiceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
             }
-            #[guid(0x83e46e93_244c_4622_ba0b_6229c4d0d65d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesisStream)]
+            #[guid(0x83e46e93_244c_4622_ba0b_6229c4d0d65d)]
             interface ISpeechSynthesisStream: super::super::Storage::Streams::IRandomAccessStreamWithContentType + super::super::Storage::Streams::IRandomAccessStream + super::super::Foundation::IClosable + super::super::Storage::Streams::IInputStream + super::super::Storage::Streams::IOutputStream + super::super::Storage::Streams::IContentTypeProvider {
                 #[get]
                 Markers: super::super::Foundation::Collections::IVectorView<super::IMediaMarker>;
             }
-            #[guid(0xce9f7c76_97f4_4ced_ad68_d51c458e45c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
+            #[guid(0xce9f7c76_97f4_4ced_ad68_d51c458e45c6)]
             interface ISpeechSynthesizer {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SynthesizeTextToStreamAsync(&self, #[in] text: String) -> super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>;
@@ -38,38 +38,38 @@ mod Windows {
                 #[get]
                 Voice: VoiceInformation;
             }
-            #[guid(0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
+            #[guid(0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e)]
             interface ISpeechSynthesizer2 {
                 #[get]
                 Options: SpeechSynthesizerOptions;
             }
-            #[guid(0xa0e23871_cc3d_43c9_91b1_ee185324d83d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizerOptions)]
+            #[guid(0xa0e23871_cc3d_43c9_91b1_ee185324d83d)]
             interface ISpeechSynthesizerOptions {
                 IncludeWordBoundaryMetadata: bool;
                 IncludeSentenceBoundaryMetadata: bool;
             }
-            #[guid(0x1cbef60e_119c_4bed_b118_d250c3a25793)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizerOptions)]
+            #[guid(0x1cbef60e_119c_4bed_b118_d250c3a25793)]
             interface ISpeechSynthesizerOptions2 {
                 AudioVolume: f64;
                 SpeakingRate: f64;
                 AudioPitch: f64;
             }
-            #[guid(0x401ed877_902c_4814_a582_a5d0c0769fa8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizerOptions)]
+            #[guid(0x401ed877_902c_4814_a582_a5d0c0769fa8)]
             interface ISpeechSynthesizerOptions3 {
                 AppendedSilence: SpeechAppendedSilence;
                 PunctuationSilence: SpeechPunctuationSilence;
             }
-            #[guid(0xb127d6a4_1291_4604_aa9c_83134083352c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(VoiceInformation)]
+            #[guid(0xb127d6a4_1291_4604_aa9c_83134083352c)]
             interface IVoiceInformation {
                 #[get]
                 DisplayName: String;
@@ -82,14 +82,14 @@ mod Windows {
                 #[get]
                 Gender: VoiceGender;
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[repr(i32)]
             enum SpeechAppendedSilence {
                 Default = 0,
                 Min = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[repr(i32)]
             enum SpeechPunctuationSilence {
                 Default = 0,
                 Min = 1,
@@ -112,8 +112,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic2, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic, 65536, "Windows.Foundation.UniversalApiContract")]
             class SpeechSynthesizer {
                 ISpeechSynthesizer,
                 super::super::Foundation::IClosable,
@@ -130,8 +130,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 ISpeechSynthesizerOptions3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum VoiceGender {
                 Male = 0,
                 Female = 1,

@@ -10,6 +10,10 @@ Shared and named nested records retain owner-scoped declarations and references 
 Win32 type expressions include qualified pointer chains and inline C/system function pointers,
 such as `extern "C" fn(*const u8, u32) -> i32`, without requiring named callback declarations.
 
+WinRT interface and delegate arguments require explicit `#[in]` or `#[out]` directions. Win32
+arguments can also be input/output or unspecified; provide directions when the contract is known.
+Missing directions never default to input.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-rdl.md)
 

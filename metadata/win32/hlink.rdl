@@ -167,9 +167,9 @@ mod Windows {
             fn SetHlinkSite(&self, #[in] #[opt] pihlSite: IHlinkSite, #[in] dwSiteData: DWORD) -> HRESULT;
             fn GetHlinkSite(&self, #[out] #[out_ptr] ppihlSite: *mut IHlinkSite, #[out] pdwSiteData: *mut DWORD) -> HRESULT;
             fn SetMonikerReference(&self, #[in] grfHLSETF: DWORD, #[in] #[opt] pimkTarget: IMoniker, #[in] #[opt] pwzLocation: LPCWSTR) -> HRESULT;
-            fn GetMonikerReference(&self, #[in] dwWhichRef: DWORD, #[out] #[opt] #[out_ptr(nullable)] ppimkTarget: *mut IMoniker, #[out] #[opt] #[out_ptr(nullable)] ppwzLocation: *mut LPWSTR) -> HRESULT;
+            fn GetMonikerReference(&self, #[in] dwWhichRef: DWORD, #[opt] #[out] #[out_ptr(nullable)] ppimkTarget: *mut IMoniker, #[opt] #[out] #[out_ptr(nullable)] ppwzLocation: *mut LPWSTR) -> HRESULT;
             fn SetStringReference(&self, #[in] grfHLSETF: DWORD, #[in] #[opt] pwzTarget: LPCWSTR, #[in] #[opt] pwzLocation: LPCWSTR) -> HRESULT;
-            fn GetStringReference(&self, #[in] dwWhichRef: DWORD, #[out] #[opt] #[out_ptr] ppwzTarget: *mut LPWSTR, #[out] #[opt] #[out_ptr(nullable)] ppwzLocation: *mut LPWSTR) -> HRESULT;
+            fn GetStringReference(&self, #[in] dwWhichRef: DWORD, #[opt] #[out] #[out_ptr] ppwzTarget: *mut LPWSTR, #[opt] #[out] #[out_ptr(nullable)] ppwzLocation: *mut LPWSTR) -> HRESULT;
             fn SetFriendlyName(&self, #[in] #[opt] pwzFriendlyName: LPCWSTR) -> HRESULT;
             fn GetFriendlyName(&self, #[in] grfHLFNAMEF: DWORD, #[out] #[out_ptr] ppwzFriendlyName: *mut LPWSTR) -> HRESULT;
             fn SetTargetFrameName(&self, #[in] #[opt] pwzTargetFrameName: LPCWSTR) -> HRESULT;
@@ -193,7 +193,7 @@ mod Windows {
             fn QueryHlink(&self, #[in] grfHLQF: DWORD, #[in] uHLID: ULONG) -> HRESULT;
             fn GetHlink(&self, #[in] uHLID: ULONG, #[out] ppihl: *mut IHlink) -> HRESULT;
             fn SetCurrentHlink(&self, #[in] uHLID: ULONG) -> HRESULT;
-            fn Clone(&self, #[in] piunkOuter: IUnknown, #[in] riid: &IID, #[out] #[iid_is] ppiunkObj: *mut IUnknown) -> HRESULT;
+            fn Clone(&self, #[in] piunkOuter: IUnknown, #[in] riid: &IID, #[iid_is] #[out] ppiunkObj: *mut IUnknown) -> HRESULT;
             fn Close(&self, #[in] reserved: DWORD) -> HRESULT;
         }
         #[guid(0x79eac9c5_baf9_11ce_8c82_00aa004ba90b)]
@@ -206,7 +206,7 @@ mod Windows {
         }
         #[guid(0x79eac9c2_baf9_11ce_8c82_00aa004ba90b)]
         interface IHlinkSite: IUnknown {
-            fn QueryService(&self, #[in] dwSiteData: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[out] #[out_ptr] #[iid_is] ppiunk: *mut IUnknown) -> HRESULT;
+            fn QueryService(&self, #[in] dwSiteData: DWORD, #[in] guidService: &GUID, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr] ppiunk: *mut IUnknown) -> HRESULT;
             fn GetMoniker(&self, #[in] dwSiteData: DWORD, #[in] dwAssign: DWORD, #[in] dwWhich: DWORD, #[out] #[out_ptr] ppimk: *mut IMoniker) -> HRESULT;
             fn ReadyToNavigate(&self, #[in] dwSiteData: DWORD, #[in] dwReserved: DWORD) -> HRESULT;
             fn OnNavigationComplete(&self, #[in] dwSiteData: DWORD, #[in] dwreserved: DWORD, #[in] hrError: HRESULT, #[in] #[opt] pwzError: LPCWSTR) -> HRESULT;

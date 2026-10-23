@@ -7,18 +7,18 @@ mod Test {
     interface IInterface {
         #[First]
         Both: i32;
-        #[get]
         #[Second(1)]
+        #[get]
         Getter: String;
-        #[set]
         #[First]
         #[Second(2)]
-        Setter: i32;
-        #[get]
-        #[First]
-        Mismatched: i32;
         #[set]
+        Setter: i32;
+        #[First]
+        #[get]
+        Mismatched: i32;
         #[Second(3)]
+        #[set]
         Mismatched: i32;
         #[First]
         event Changed: Handler;

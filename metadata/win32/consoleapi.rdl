@@ -22,7 +22,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn AllocConsole() -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn AllocConsoleWithOptions(#[in] #[opt] options: PALLOC_CONSOLE_OPTIONS, #[out] #[opt] result: PALLOC_CONSOLE_RESULT) -> HRESULT;
+        extern fn AllocConsoleWithOptions(#[in] #[opt] options: PALLOC_CONSOLE_OPTIONS, #[opt] #[out] result: PALLOC_CONSOLE_RESULT) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn AttachConsole(#[in] dwProcessId: DWORD) -> BOOL;
         struct CONSOLE_READCONSOLE_CONTROL {
@@ -74,17 +74,17 @@ mod Windows {
         extern fn PeekConsoleInputA(#[in] hConsoleInput: HANDLE, #[out] #[writable(entry, nLength)] lpBuffer: PINPUT_RECORD, #[in] nLength: DWORD, #[out] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn PeekConsoleInputW(#[in] hConsoleInput: HANDLE, #[out] #[writable(entry, nLength)] lpBuffer: PINPUT_RECORD, #[in] nLength: DWORD, #[out] lpNumberOfEventsRead: LPDWORD) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn ReadConsoleA(#[in] hConsoleInput: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "nNumberOfCharsToRead * sizeof(CHAR),*lpNumberOfCharsRead * sizeof(TCHAR%)", "nNumberOfCharsToRead * sizeof(CHAR),*lpNumberOfCharsRead * sizeof(TCHAR%)")] #[out] lpBuffer: LPVOID, #[in] nNumberOfCharsToRead: DWORD, #[out] #[range(success, <=nNumberOfCharsToRead, indirect)] lpNumberOfCharsRead: LPDWORD, #[in] #[opt] pInputControl: PCONSOLE_READCONSOLE_CONTROL) -> BOOL;
-        #[success(return != 0)]
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleInputA(#[in] hConsoleInput: HANDLE, #[out] #[writable(entry, nLength)] #[readable(success, *lpNumberOfEventsRead)] lpBuffer: PINPUT_RECORD, #[in] nLength: DWORD, #[out] #[range(success, <=nLength, indirect)] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[success(return != 0)]
+        extern fn ReadConsoleInputA(#[in] hConsoleInput: HANDLE, #[out] #[readable(success, *lpNumberOfEventsRead)] #[writable(entry, nLength)] lpBuffer: PINPUT_RECORD, #[in] nLength: DWORD, #[out] #[range(success, <=nLength, indirect)] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn ReadConsoleInputW(#[in] hConsoleInput: HANDLE, #[out] #[writable(entry, nLength)] #[readable(success, *lpNumberOfEventsRead)] lpBuffer: PINPUT_RECORD, #[in] nLength: DWORD, #[out] #[range(success, <=nLength, indirect)] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[success(return != 0)]
+        extern fn ReadConsoleInputW(#[in] hConsoleInput: HANDLE, #[out] #[readable(success, *lpNumberOfEventsRead)] #[writable(entry, nLength)] lpBuffer: PINPUT_RECORD, #[in] nLength: DWORD, #[out] #[range(success, <=nLength, indirect)] lpNumberOfEventsRead: LPDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
+        #[success(return != 0)]
         extern fn ReadConsoleW(#[in] hConsoleInput: HANDLE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_bytes_to_", "nNumberOfCharsToRead * sizeof(WCHAR),*lpNumberOfCharsRead * sizeof(TCHAR%)", "nNumberOfCharsToRead * sizeof(WCHAR),*lpNumberOfCharsRead * sizeof(TCHAR%)")] #[out] lpBuffer: LPVOID, #[in] nNumberOfCharsToRead: DWORD, #[out] #[range(success, <=nNumberOfCharsToRead, indirect)] lpNumberOfCharsRead: LPDWORD, #[in] #[opt] pInputControl: PCONSOLE_READCONSOLE_CONTROL) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn ReleasePseudoConsole(#[in] hPC: HPCON) -> HRESULT;
@@ -95,8 +95,8 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetConsoleMode(#[in] hConsoleHandle: HANDLE, #[in] dwMode: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteConsoleA(#[in] hConsoleOutput: HANDLE, #[in] #[readable(entry, nNumberOfCharsToWrite)] lpBuffer: *const void, #[in] nNumberOfCharsToWrite: DWORD, #[out] #[opt] lpNumberOfCharsWritten: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn WriteConsoleA(#[in] hConsoleOutput: HANDLE, #[in] #[readable(entry, nNumberOfCharsToWrite)] lpBuffer: *const void, #[in] nNumberOfCharsToWrite: DWORD, #[opt] #[out] lpNumberOfCharsWritten: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn WriteConsoleW(#[in] hConsoleOutput: HANDLE, #[in] #[readable(entry, nNumberOfCharsToWrite)] lpBuffer: *const void, #[in] nNumberOfCharsToWrite: DWORD, #[out] #[opt] lpNumberOfCharsWritten: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
+        extern fn WriteConsoleW(#[in] hConsoleOutput: HANDLE, #[in] #[readable(entry, nNumberOfCharsToWrite)] lpBuffer: *const void, #[in] nNumberOfCharsToWrite: DWORD, #[opt] #[out] lpNumberOfCharsWritten: LPDWORD, #[reserved] lpReserved: LPVOID) -> BOOL;
     }
 }

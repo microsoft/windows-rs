@@ -19,7 +19,7 @@ mod Windows {
         const DPAS_SORTED: i32 = 1;
         const DPA_APPEND: i32 = 2147483647;
         #[library("COMCTL32.dll")]
-        extern fn DPA_Clone(#[in] hdpa: HDPA, #[in] #[out] #[opt] hdpaNew: HDPA) -> HDPA;
+        extern fn DPA_Clone(#[in] hdpa: HDPA, #[in] #[opt] #[out] hdpaNew: HDPA) -> HDPA;
         #[library("COMCTL32.dll")]
         extern fn DPA_Create(cItemGrow: i32) -> HDPA;
         #[library("COMCTL32.dll")]
@@ -29,9 +29,9 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn DPA_DeletePtr(#[in] #[out] hdpa: HDPA, #[in] i: i32) -> PVOID;
         #[library("COMCTL32.dll")]
-        extern fn DPA_Destroy(#[in] #[out] #[opt] hdpa: HDPA) -> BOOL;
+        extern fn DPA_Destroy(#[in] #[opt] #[out] hdpa: HDPA) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn DPA_DestroyCallback(#[in] #[out] #[opt] hdpa: HDPA, #[in] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
+        extern fn DPA_DestroyCallback(#[in] #[opt] #[out] hdpa: HDPA, #[in] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
         const DPA_ERR: i32 = -1;
         #[library("COMCTL32.dll")]
         extern fn DPA_EnumCallback(#[in] #[opt] hdpa: HDPA, #[in] #[opt] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
@@ -67,14 +67,14 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn DSA_DeleteItem(#[in] #[out] hdsa: HDSA, #[in] i: i32) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn DSA_Destroy(#[in] #[out] #[opt] hdsa: HDSA) -> BOOL;
+        extern fn DSA_Destroy(#[in] #[opt] #[out] hdsa: HDSA) -> BOOL;
         #[library("COMCTL32.dll")]
-        extern fn DSA_DestroyCallback(#[in] #[out] #[opt] hdsa: HDSA, #[in] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
+        extern fn DSA_DestroyCallback(#[in] #[opt] #[out] hdsa: HDSA, #[in] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
         const DSA_ERR: i32 = -1;
         #[library("COMCTL32.dll")]
         extern fn DSA_EnumCallback(#[in] hdsa: HDSA, #[in] pfnCB: PFNDAENUMCALLBACK, #[in] #[opt] pData: *mut void);
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
+        #[success(return != 0)]
         extern fn DSA_GetItem(#[in] hdsa: HDSA, #[in] i: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "_Inexpressible_(pdsa->cbItem)", "_Inexpressible_(pdsa->cbItem)")] #[out] pitem: *mut void) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn DSA_GetItemPtr(#[in] hdsa: HDSA, #[in] i: i32) -> PVOID;
@@ -82,8 +82,8 @@ mod Windows {
         extern fn DSA_GetSize(#[in] #[opt] hdsa: HDSA) -> ULONGLONG;
         #[library("COMCTL32.dll")]
         extern fn DSA_InsertItem(#[in] #[out] hdsa: HDSA, #[in] i: i32, #[in] pitem: *const void) -> i32;
-        #[success(return != 0)]
         #[library("COMCTL32.dll")]
+        #[success(return != 0)]
         extern fn DSA_SetItem(#[in] #[out] hdsa: HDSA, #[in] i: i32, #[in] pitem: *const void) -> BOOL;
         #[library("COMCTL32.dll")]
         extern fn DSA_Sort(#[in] #[out] pdsa: HDSA, #[in] pfnCompare: PFNDACOMPARE, #[in] lParam: LPARAM) -> BOOL;

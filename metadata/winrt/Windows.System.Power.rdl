@@ -7,16 +7,16 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IBackgroundEnergyManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class BackgroundEnergyManager {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum BatteryStatus {
                 NotPresent = 0,
                 Discharging = 1,
                 Idle = 2,
                 Charging = 3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum EnergySaverStatus {
                 Disabled = 0,
                 Off = 1,
@@ -27,71 +27,71 @@ mod Windows {
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IForegroundEnergyManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class ForegroundEnergyManager {}
-            #[guid(0xb3161d95_1180_4376_96e1_4095568147ce)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundEnergyManager)]
+            #[guid(0xb3161d95_1180_4376_96e1_4095568147ce)]
             interface IBackgroundEnergyManagerStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 LowUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 NearMaxAcceptableUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 MaxAcceptableUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 ExcessiveUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 NearTerminationUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 TerminationUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RecentEnergyUsage: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RecentEnergyUsageLevel: u32;
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                 event RecentEnergyUsageIncreased: super::super::Foundation::EventHandler<Object>;
                 #[Windows::Foundation::Metadata::Deprecated("Background Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                 event RecentEnergyUsageReturnedToLow: super::super::Foundation::EventHandler<Object>;
             }
-            #[guid(0x9ff86872_e677_4814_9a20_5337ca732b98)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(ForegroundEnergyManager)]
+            #[guid(0x9ff86872_e677_4814_9a20_5337ca732b98)]
             interface IForegroundEnergyManagerStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 LowUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 NearMaxAcceptableUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 MaxAcceptableUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 ExcessiveUsageLevel: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RecentEnergyUsage: u32;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 RecentEnergyUsageLevel: u32;
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                 event RecentEnergyUsageIncreased: super::super::Foundation::EventHandler<Object>;
                 #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Manager has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
                 event RecentEnergyUsageReturnedToLow: super::super::Foundation::EventHandler<Object>;
             }
-            #[guid(0x1394825d_62ce_4364_98d5_aa28c7fbd15b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PowerManager)]
+            #[guid(0x1394825d_62ce_4364_98d5_aa28c7fbd15b)]
             interface IPowerManagerStatics {
                 #[get]
                 EnergySaverStatus: EnergySaverStatus;
@@ -114,8 +114,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::Static(IPowerManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PowerManager {}
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum PowerSupplyStatus {
                 NotPresent = 0,
                 Inadequate = 1,

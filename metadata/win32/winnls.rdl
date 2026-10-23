@@ -386,11 +386,11 @@ mod Windows {
         const FIND_FROMSTART: i32 = 4194304;
         const FIND_STARTSWITH: i32 = 1048576;
         #[library("KERNEL32.dll")]
-        extern fn FindNLSString(#[in] Locale: LCID, #[in] dwFindNLSStringFlags: DWORD, #[in] #[readable(entry, cchSource)] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[in] #[readable(entry, cchValue)] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[out] #[opt] pcchFound: LPINT) -> i32;
+        extern fn FindNLSString(#[in] Locale: LCID, #[in] dwFindNLSStringFlags: DWORD, #[in] #[readable(entry, cchSource)] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[in] #[readable(entry, cchValue)] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[opt] #[out] pcchFound: LPINT) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn FindNLSStringEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFindNLSStringFlags: DWORD, #[in] #[readable(entry, cchSource)] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[in] #[readable(entry, cchValue)] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[out] #[opt] pcchFound: LPINT, #[in] #[opt] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] lpReserved: LPVOID, #[in] #[opt] sortHandle: LPARAM) -> i32;
+        extern fn FindNLSStringEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFindNLSStringFlags: DWORD, #[in] #[readable(entry, cchSource)] lpStringSource: LPCWSTR, #[in] cchSource: i32, #[in] #[readable(entry, cchValue)] lpStringValue: LPCWSTR, #[in] cchValue: i32, #[opt] #[out] pcchFound: LPINT, #[in] #[opt] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] lpReserved: LPVOID, #[in] #[opt] sortHandle: LPARAM) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn FoldStringA(#[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, #[in] cchSrc: i32, #[out] #[opt] #[writable(entry, cchDest)] lpDestStr: LPSTR, #[in] cchDest: i32) -> i32;
+        extern fn FoldStringA(#[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, #[in] cchSrc: i32, #[opt] #[out] #[writable(entry, cchDest)] lpDestStr: LPSTR, #[in] cchDest: i32) -> i32;
         type GEOCLASS = u32;
         type GEOID = i32;
         const GEOID_NOT_AVAILABLE: i32 = -1;
@@ -408,52 +408,52 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetCPInfoExW(#[in] CodePage: UINT, #[in] dwFlags: DWORD, #[out] lpCPInfoEx: LPCPINFOEXW) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetCalendarInfoA(#[in] Locale: LCID, #[in] Calendar: CALID, #[in] CalType: CALTYPE, #[out] #[opt] #[writable(entry, cchData)] lpCalData: LPSTR, #[in] cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
+        extern fn GetCalendarInfoA(#[in] Locale: LCID, #[in] Calendar: CALID, #[in] CalType: CALTYPE, #[opt] #[out] #[writable(entry, cchData)] lpCalData: LPSTR, #[in] cchData: i32, #[opt] #[out] lpValue: LPDWORD) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCalendarInfoEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] Calendar: CALID, #[in] #[opt] lpReserved: LPCWSTR, #[in] CalType: CALTYPE, #[out] #[opt] #[writable(entry, cchData)] lpCalData: LPWSTR, #[in] cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
+        extern fn GetCalendarInfoEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] Calendar: CALID, #[in] #[opt] lpReserved: LPCWSTR, #[in] CalType: CALTYPE, #[opt] #[out] #[writable(entry, cchData)] lpCalData: LPWSTR, #[in] cchData: i32, #[opt] #[out] lpValue: LPDWORD) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCalendarInfoW(#[in] Locale: LCID, #[in] Calendar: CALID, #[in] CalType: CALTYPE, #[out] #[opt] #[writable(entry, cchData)] lpCalData: LPWSTR, #[in] cchData: i32, #[out] #[opt] lpValue: LPDWORD) -> i32;
+        extern fn GetCalendarInfoW(#[in] Locale: LCID, #[in] Calendar: CALID, #[in] CalType: CALTYPE, #[opt] #[out] #[writable(entry, cchData)] lpCalData: LPWSTR, #[in] cchData: i32, #[opt] #[out] lpValue: LPDWORD) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrencyFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCSTR, #[in] #[opt] lpFormat: *const CURRENCYFMTA, #[out] #[opt] #[writable(entry, cchCurrency)] lpCurrencyStr: LPSTR, #[in] cchCurrency: i32) -> i32;
+        extern fn GetCurrencyFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCSTR, #[in] #[opt] lpFormat: *const CURRENCYFMTA, #[opt] #[out] #[writable(entry, cchCurrency)] lpCurrencyStr: LPSTR, #[in] cchCurrency: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrencyFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const CURRENCYFMTW, #[out] #[opt] #[writable(entry, cchCurrency)] lpCurrencyStr: LPWSTR, #[in] cchCurrency: i32) -> i32;
+        extern fn GetCurrencyFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const CURRENCYFMTW, #[opt] #[out] #[writable(entry, cchCurrency)] lpCurrencyStr: LPWSTR, #[in] cchCurrency: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetCurrencyFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const CURRENCYFMTW, #[out] #[opt] #[writable(entry, cchCurrency)] lpCurrencyStr: LPWSTR, #[in] cchCurrency: i32) -> i32;
+        extern fn GetCurrencyFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const CURRENCYFMTW, #[opt] #[out] #[writable(entry, cchCurrency)] lpCurrencyStr: LPWSTR, #[in] cchCurrency: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetDurationFormat(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpDuration: *const SYSTEMTIME, #[in] ullDuration: ULONGLONG, #[in] #[opt] lpFormat: LPCWSTR, #[out] #[opt] #[writable(entry, cchDuration)] lpDurationStr: LPWSTR, #[in] cchDuration: i32) -> i32;
+        extern fn GetDurationFormat(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] #[opt] lpDuration: *const SYSTEMTIME, #[in] ullDuration: ULONGLONG, #[in] #[opt] lpFormat: LPCWSTR, #[opt] #[out] #[writable(entry, cchDuration)] lpDurationStr: LPWSTR, #[in] cchDuration: i32) -> i32;
+        #[library("KERNEL32.dll")]
         #[success(return != 0)]
+        extern fn GetFileMUIInfo(dwFlags: DWORD, #[in] pcwszFilePath: PCWSTR, #[in] #[opt] #[out] #[readable(entry, bytes(*pcbFileMUIInfo))] #[readable(success, bytes(*pcbFileMUIInfo))] #[writable(entry, bytes(*pcbFileMUIInfo))] pFileMUIInfo: PFILEMUIINFO, #[in] #[out] pcbFileMUIInfo: *mut DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileMUIInfo(dwFlags: DWORD, #[in] pcwszFilePath: PCWSTR, #[in] #[out] #[opt] #[readable(entry, bytes(*pcbFileMUIInfo))] #[writable(entry, bytes(*pcbFileMUIInfo))] #[readable(success, bytes(*pcbFileMUIInfo))] pFileMUIInfo: PFILEMUIINFO, #[in] #[out] pcbFileMUIInfo: *mut DWORD) -> BOOL;
+        extern fn GetFileMUIPath(#[in] dwFlags: DWORD, #[in] pcwszFilePath: PCWSTR, #[in] #[opt] #[out] #[writable(entry, *pcchLanguage)] pwszLanguage: PWSTR, #[in] #[out] pcchLanguage: PULONG, #[opt] #[out] #[writable(entry, *pcchFileMUIPath)] pwszFileMUIPath: PWSTR, #[in] #[out] pcchFileMUIPath: PULONG, #[in] #[out] pululEnumerator: PULONGLONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetFileMUIPath(#[in] dwFlags: DWORD, #[in] pcwszFilePath: PCWSTR, #[in] #[out] #[opt] #[writable(entry, *pcchLanguage)] pwszLanguage: PWSTR, #[in] #[out] pcchLanguage: PULONG, #[out] #[opt] #[writable(entry, *pcchFileMUIPath)] pwszFileMUIPath: PWSTR, #[in] #[out] pcchFileMUIPath: PULONG, #[in] #[out] pululEnumerator: PULONGLONG) -> BOOL;
+        extern fn GetGeoInfoA(#[in] Location: GEOID, #[in] GeoType: GEOTYPE, #[opt] #[out] #[writable(entry, cchData)] lpGeoData: LPSTR, #[in] cchData: i32, #[in] LangId: LANGID) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetGeoInfoA(#[in] Location: GEOID, #[in] GeoType: GEOTYPE, #[out] #[opt] #[writable(entry, cchData)] lpGeoData: LPSTR, #[in] cchData: i32, #[in] LangId: LANGID) -> i32;
+        extern fn GetGeoInfoEx(#[in] location: PWSTR, #[in] geoType: GEOTYPE, #[opt] #[out] #[writable(entry, geoDataCount)] geoData: PWSTR, #[in] geoDataCount: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetGeoInfoEx(#[in] location: PWSTR, #[in] geoType: GEOTYPE, #[out] #[opt] #[writable(entry, geoDataCount)] geoData: PWSTR, #[in] geoDataCount: i32) -> i32;
+        extern fn GetGeoInfoW(#[in] Location: GEOID, #[in] GeoType: GEOTYPE, #[opt] #[out] #[writable(entry, cchData)] lpGeoData: LPWSTR, #[in] cchData: i32, #[in] LangId: LANGID) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetGeoInfoW(#[in] Location: GEOID, #[in] GeoType: GEOTYPE, #[out] #[opt] #[writable(entry, cchData)] lpGeoData: LPWSTR, #[in] cchData: i32, #[in] LangId: LANGID) -> i32;
+        extern fn GetLocaleInfoA(#[in] Locale: LCID, #[in] LCType: LCTYPE, #[opt] #[out] #[writable(entry, cchData)] lpLCData: LPSTR, #[in] cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetLocaleInfoA(#[in] Locale: LCID, #[in] LCType: LCTYPE, #[out] #[opt] #[writable(entry, cchData)] lpLCData: LPSTR, #[in] cchData: i32) -> i32;
+        extern fn GetLocaleInfoEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] LCType: LCTYPE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchData,return", "cchData,return")] #[opt] #[out] #[writable(entry, cchData)] lpLCData: LPWSTR, #[in] cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetLocaleInfoEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] LCType: LCTYPE, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "cchData,return", "cchData,return")] #[out] #[opt] #[writable(entry, cchData)] lpLCData: LPWSTR, #[in] cchData: i32) -> i32;
-        #[library("KERNEL32.dll")]
-        extern fn GetLocaleInfoW(#[in] Locale: LCID, #[in] LCType: LCTYPE, #[out] #[opt] #[writable(entry, cchData)] lpLCData: LPWSTR, #[in] cchData: i32) -> i32;
+        extern fn GetLocaleInfoW(#[in] Locale: LCID, #[in] LCType: LCTYPE, #[opt] #[out] #[writable(entry, cchData)] lpLCData: LPWSTR, #[in] cchData: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetNLSVersion(#[in] Function: NLS_FUNCTION, #[in] Locale: LCID, #[in] #[out] lpVersionInformation: LPNLSVERSIONINFO) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetNLSVersionEx(#[in] function: NLS_FUNCTION, #[in] #[opt] lpLocaleName: LPCWSTR, #[in] #[out] lpVersionInformation: LPNLSVERSIONINFOEX) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCSTR, #[in] #[opt] lpFormat: *const NUMBERFMTA, #[out] #[opt] #[writable(entry, cchNumber)] lpNumberStr: LPSTR, #[in] cchNumber: i32) -> i32;
+        extern fn GetNumberFormatA(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCSTR, #[in] #[opt] lpFormat: *const NUMBERFMTA, #[opt] #[out] #[writable(entry, cchNumber)] lpNumberStr: LPSTR, #[in] cchNumber: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const NUMBERFMTW, #[out] #[opt] #[writable(entry, cchNumber)] lpNumberStr: LPWSTR, #[in] cchNumber: i32) -> i32;
+        extern fn GetNumberFormatEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const NUMBERFMTW, #[opt] #[out] #[writable(entry, cchNumber)] lpNumberStr: LPWSTR, #[in] cchNumber: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn GetNumberFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const NUMBERFMTW, #[out] #[opt] #[writable(entry, cchNumber)] lpNumberStr: LPWSTR, #[in] cchNumber: i32) -> i32;
+        extern fn GetNumberFormatW(#[in] Locale: LCID, #[in] dwFlags: DWORD, #[in] lpValue: LPCWSTR, #[in] #[opt] lpFormat: *const NUMBERFMTW, #[opt] #[out] #[writable(entry, cchNumber)] lpNumberStr: LPWSTR, #[in] cchNumber: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetOEMCP() -> UINT;
         #[library("KERNEL32.dll")]
-        extern fn GetProcessPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[out] #[opt] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetProcessPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[opt] #[out] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetStringScripts(#[in] dwFlags: DWORD, #[in] lpString: LPCWSTR, #[in] cchString: i32, #[out] #[opt] #[writable(entry, cchScripts)] lpScripts: LPWSTR, #[in] cchScripts: i32) -> i32;
+        extern fn GetStringScripts(#[in] dwFlags: DWORD, #[in] lpString: LPCWSTR, #[in] cchString: i32, #[opt] #[out] #[writable(entry, cchScripts)] lpScripts: LPWSTR, #[in] cchScripts: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetStringTypeA(#[in] Locale: LCID, #[in] dwInfoType: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, #[in] cchSrc: i32, #[out] lpCharType: LPWORD) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -467,17 +467,17 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetSystemDefaultUILanguage() -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn GetSystemPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[out] #[opt] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetSystemPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[opt] #[out] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetThreadLocale() -> LCID;
         #[library("KERNEL32.dll")]
-        extern fn GetThreadPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[out] #[opt] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetThreadPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[opt] #[out] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn GetThreadUILanguage() -> LANGID;
         #[library("KERNEL32.dll")]
-        extern fn GetUILanguageInfo(#[in] dwFlags: DWORD, #[in] pwmszLanguage: PCZZWSTR, #[out] #[opt] #[writable(entry, if_present(*pcchFallbackLanguages))] pwszFallbackLanguages: PZZWSTR, #[in] #[out] #[opt] pcchFallbackLanguages: PDWORD, #[out] pAttributes: PDWORD) -> BOOL;
+        extern fn GetUILanguageInfo(#[in] dwFlags: DWORD, #[in] pwmszLanguage: PCZZWSTR, #[opt] #[out] #[writable(entry, if_present(*pcchFallbackLanguages))] pwszFallbackLanguages: PZZWSTR, #[in] #[opt] #[out] pcchFallbackLanguages: PDWORD, #[out] pAttributes: PDWORD) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn GetUserDefaultGeoName(#[out] #[writable(entry, geoNameCount)] #[null_terminated(success)] geoName: LPWSTR, #[in] geoNameCount: i32) -> i32;
+        extern fn GetUserDefaultGeoName(#[null_terminated(success)] #[out] #[writable(entry, geoNameCount)] geoName: LPWSTR, #[in] geoNameCount: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn GetUserDefaultLCID() -> LCID;
         #[library("KERNEL32.dll")]
@@ -489,7 +489,7 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn GetUserGeoID(#[in] GeoClass: GEOCLASS) -> GEOID;
         #[library("KERNEL32.dll")]
-        extern fn GetUserPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[out] #[opt] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
+        extern fn GetUserPreferredUILanguages(#[in] dwFlags: DWORD, #[out] pulNumLanguages: PULONG, #[opt] #[out] #[writable(entry, *pcchLanguagesBuffer)] pwszLanguagesBuffer: PZZWSTR, #[in] #[out] pcchLanguagesBuffer: PULONG) -> BOOL;
         const HIGH_SURROGATE_END: i32 = 56319;
         const HIGH_SURROGATE_START: i32 = 55296;
         type HSAVEDUILANGUAGES = *mut HSAVEDUILANGUAGES__;
@@ -501,11 +501,11 @@ mod Windows {
         const IDN_RAW_PUNYCODE: i32 = 8;
         const IDN_USE_STD3_ASCII_RULES: i32 = 2;
         #[library("Normaliz.dll")]
-        extern fn IdnToAscii(#[in] dwFlags: DWORD, #[in] #[readable(entry, cchUnicodeChar)] lpUnicodeCharStr: LPCWSTR, #[in] cchUnicodeChar: i32, #[out] #[opt] #[writable(entry, cchASCIIChar)] lpASCIICharStr: LPWSTR, #[in] cchASCIIChar: i32) -> i32;
+        extern fn IdnToAscii(#[in] dwFlags: DWORD, #[in] #[readable(entry, cchUnicodeChar)] lpUnicodeCharStr: LPCWSTR, #[in] cchUnicodeChar: i32, #[opt] #[out] #[writable(entry, cchASCIIChar)] lpASCIICharStr: LPWSTR, #[in] cchASCIIChar: i32) -> i32;
         #[library("Normaliz.dll")]
-        extern fn IdnToNameprepUnicode(#[in] dwFlags: DWORD, #[in] #[readable(entry, cchUnicodeChar)] lpUnicodeCharStr: LPCWSTR, #[in] cchUnicodeChar: i32, #[out] #[opt] #[writable(entry, cchNameprepChar)] lpNameprepCharStr: LPWSTR, #[in] cchNameprepChar: i32) -> i32;
+        extern fn IdnToNameprepUnicode(#[in] dwFlags: DWORD, #[in] #[readable(entry, cchUnicodeChar)] lpUnicodeCharStr: LPCWSTR, #[in] cchUnicodeChar: i32, #[opt] #[out] #[writable(entry, cchNameprepChar)] lpNameprepCharStr: LPWSTR, #[in] cchNameprepChar: i32) -> i32;
         #[library("Normaliz.dll")]
-        extern fn IdnToUnicode(#[in] dwFlags: DWORD, #[in] #[readable(entry, cchASCIIChar)] lpASCIICharStr: LPCWSTR, #[in] cchASCIIChar: i32, #[out] #[opt] #[writable(entry, cchUnicodeChar)] lpUnicodeCharStr: LPWSTR, #[in] cchUnicodeChar: i32) -> i32;
+        extern fn IdnToUnicode(#[in] dwFlags: DWORD, #[in] #[readable(entry, cchASCIIChar)] lpASCIICharStr: LPCWSTR, #[in] cchASCIIChar: i32, #[opt] #[out] #[writable(entry, cchUnicodeChar)] lpUnicodeCharStr: LPWSTR, #[in] cchUnicodeChar: i32) -> i32;
         #[library("KERNEL32.dll")]
         extern fn IsDBCSLeadByte(#[in] TestChar: BYTE) -> BOOL;
         #[library("KERNEL32.dll")]
@@ -529,7 +529,7 @@ mod Windows {
         extern fn LANGUAGEGROUP_ENUMPROCA(param0: LGRPID, param1: LPSTR, param2: LPSTR, param3: DWORD, param4: LONG_PTR) -> BOOL;
         extern fn LANGUAGEGROUP_ENUMPROCW(param0: LGRPID, param1: LPWSTR, param2: LPWSTR, param3: DWORD, param4: LONG_PTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn LCIDToLocaleName(#[in] Locale: LCID, #[out] #[opt] #[writable(entry, cchName)] lpName: LPWSTR, #[in] cchName: i32, #[in] dwFlags: DWORD) -> i32;
+        extern fn LCIDToLocaleName(#[in] Locale: LCID, #[opt] #[out] #[writable(entry, cchName)] lpName: LPWSTR, #[in] cchName: i32, #[in] dwFlags: DWORD) -> i32;
         const LCID_ALTERNATE_SORTS: i32 = 4;
         const LCID_INSTALLED: i32 = 1;
         const LCID_SUPPORTED: i32 = 2;
@@ -548,14 +548,14 @@ mod Windows {
         const LCMAP_TRADITIONAL_CHINESE: i32 = 67108864;
         const LCMAP_UPPERCASE: i32 = 512;
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringA(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, #[in] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[out] #[opt] lpDestStr: LPSTR, #[in] cchDest: i32) -> i32;
+        extern fn LCMapStringA(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCSTR, #[in] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[opt] #[out] lpDestStr: LPSTR, #[in] cchDest: i32) -> i32;
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "(dwMapFlags & (LCMAP_SORTKEY | LCMAP_BYTEREV | LCMAP_HASH | LCMAP_SORTHANDLE)) != 0,_At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest))", "(dwMapFlags & (0x00000400 | 0x00000800 | 0x00040000 | 0x20000000)) != 0, _At_((LPBYTE) lpDestStr, _Out_writes_bytes_opt_(cchDest))")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchDest != -1,_At_((WCHAR *) lpDestStr, _Out_writes_opt_(cchDest))", "cchDest != -1, _At_((WCHAR *) lpDestStr, _Out_writes_opt_(cchDest))")]
         #[Windows::Win32::Metadata::NativeSal("2", "_When_", "cchSrc != -1,_At_((WCHAR *) lpSrcStr, _Out_writes_opt_(cchSrc))", "cchSrc != -1, _At_((WCHAR *) lpSrcStr, _Out_writes_opt_(cchSrc))")]
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, #[in] cchSrc: i32, #[out] #[opt] #[writable(entry, cchDest)] lpDestStr: LPWSTR, #[in] cchDest: i32, #[in] #[opt] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] lpReserved: LPVOID, #[in] #[opt] sortHandle: LPARAM) -> i32;
+        extern fn LCMapStringEx(#[in] #[opt] lpLocaleName: LPCWSTR, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, #[in] cchSrc: i32, #[opt] #[out] #[writable(entry, cchDest)] lpDestStr: LPWSTR, #[in] cchDest: i32, #[in] #[opt] lpVersionInformation: LPNLSVERSIONINFO, #[in] #[opt] lpReserved: LPVOID, #[in] #[opt] sortHandle: LPARAM) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn LCMapStringW(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, #[in] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[out] #[opt] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
+        extern fn LCMapStringW(#[in] Locale: LCID, #[in] dwMapFlags: DWORD, #[in] #[readable(entry, cchSrc)] lpSrcStr: LPCWSTR, #[in] cchSrc: i32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_opt_", "_Inexpressible_(cchDest)", "_Inexpressible_(cchDest)")] #[opt] #[out] lpDestStr: LPWSTR, #[in] cchDest: i32) -> i32;
         type LCTYPE = u32;
         type LGRPID = u32;
         const LGRPID_ARABIC: i32 = 13;
@@ -865,12 +865,12 @@ mod Windows {
             NegativeOrder: UINT,
         }
         #[library("KERNEL32.dll")]
-        extern fn NormalizeString(#[in] NormForm: NORM_FORM, #[in] #[readable(entry, cwSrcLength)] lpSrcString: LPCWSTR, #[in] cwSrcLength: i32, #[out] #[opt] #[writable(entry, cwDstLength)] lpDstString: LPWSTR, #[in] cwDstLength: i32) -> i32;
+        extern fn NormalizeString(#[in] NormForm: NORM_FORM, #[in] #[readable(entry, cwSrcLength)] lpSrcString: LPCWSTR, #[in] cwSrcLength: i32, #[opt] #[out] #[writable(entry, cwDstLength)] lpDstString: LPWSTR, #[in] cwDstLength: i32) -> i32;
         #[library("KERNEL32.dll")]
-        extern fn NotifyUILanguageChange(#[in] dwFlags: DWORD, #[in] #[opt] pcwstrNewLanguage: PCWSTR, #[in] #[opt] pcwstrPreviousLanguage: PCWSTR, #[in] dwReserved: DWORD, #[out] #[opt] pdwStatusRtrn: PDWORD) -> BOOL;
+        extern fn NotifyUILanguageChange(#[in] dwFlags: DWORD, #[in] #[opt] pcwstrNewLanguage: PCWSTR, #[in] #[opt] pcwstrPreviousLanguage: PCWSTR, #[in] dwReserved: DWORD, #[opt] #[out] pdwStatusRtrn: PDWORD) -> BOOL;
         type PFILEMUIINFO = *mut FILEMUIINFO;
         #[library("KERNEL32.dll")]
-        extern fn ResolveLocaleName(#[in] #[opt] lpNameToResolve: LPCWSTR, #[out] #[opt] #[writable(entry, cchLocaleName)] lpLocaleName: LPWSTR, #[in] cchLocaleName: i32) -> i32;
+        extern fn ResolveLocaleName(#[in] #[opt] lpNameToResolve: LPCWSTR, #[opt] #[out] #[writable(entry, cchLocaleName)] lpLocaleName: LPWSTR, #[in] cchLocaleName: i32) -> i32;
         #[library("KernelBase.dll")]
         extern fn RestoreThreadPreferredUILanguages(#[in] snapshot: HSAVEDUILANGUAGES);
         const SORTING_PARADIGM_ICU: i32 = 16777216;
@@ -917,13 +917,13 @@ mod Windows {
         #[library("KERNEL32.dll")]
         extern fn SetLocaleInfoW(#[in] Locale: LCID, #[in] LCType: LCTYPE, #[in] lpLCData: LPCWSTR) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetProcessPreferredUILanguages(#[in] dwFlags: DWORD, #[in] #[opt] pwszLanguagesBuffer: PCZZWSTR, #[out] #[opt] pulNumLanguages: PULONG) -> BOOL;
+        extern fn SetProcessPreferredUILanguages(#[in] dwFlags: DWORD, #[in] #[opt] pwszLanguagesBuffer: PCZZWSTR, #[opt] #[out] pulNumLanguages: PULONG) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadLocale(#[in] Locale: LCID) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn SetThreadPreferredUILanguages(#[in] dwFlags: DWORD, #[in] #[opt] pwszLanguagesBuffer: PCZZWSTR, #[out] #[opt] pulNumLanguages: PULONG) -> BOOL;
+        extern fn SetThreadPreferredUILanguages(#[in] dwFlags: DWORD, #[in] #[opt] pwszLanguagesBuffer: PCZZWSTR, #[opt] #[out] pulNumLanguages: PULONG) -> BOOL;
         #[library("KernelBase.dll")]
-        extern fn SetThreadPreferredUILanguages2(#[in] flags: ULONG, #[in] #[opt] languages: PCZZWSTR, #[out] #[opt] numLanguagesSet: PULONG, #[out] #[opt] snapshot: *mut HSAVEDUILANGUAGES) -> BOOL;
+        extern fn SetThreadPreferredUILanguages2(#[in] flags: ULONG, #[in] #[opt] languages: PCZZWSTR, #[opt] #[out] numLanguagesSet: PULONG, #[opt] #[out] snapshot: *mut HSAVEDUILANGUAGES) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn SetThreadUILanguage(#[in] LangId: LANGID) -> LANGID;
         #[library("KERNEL32.dll")]

@@ -2,28 +2,28 @@
 mod Windows {
     mod Win32 {
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
-        #[must_use]
         #[library("api-ms-win-core-wow64-l1-1-1.dll")]
-        extern fn GetSystemWow64Directory2A(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
-        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
         #[must_use]
+        extern fn GetSystemWow64Directory2A(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
+        #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
         #[library("api-ms-win-core-wow64-l1-1-1.dll")]
-        extern fn GetSystemWow64Directory2W(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
+        #[must_use]
+        extern fn GetSystemWow64Directory2W(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT, #[in] ImageFileMachineType: WORD) -> UINT;
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
-        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn GetSystemWow64DirectoryA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT) -> UINT;
+        #[must_use]
+        extern fn GetSystemWow64DirectoryA(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPSTR, #[in] uSize: UINT) -> UINT;
         #[Windows::Win32::Metadata::NativeSal("2", "_Success_", "return != 0 && return < uSize", "return != 0 && return < uSize")]
-        #[must_use]
         #[library("KERNEL32.dll")]
-        extern fn GetSystemWow64DirectoryW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[out] #[opt] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT) -> UINT;
         #[must_use]
+        extern fn GetSystemWow64DirectoryW(#[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_to_opt_", "uSize,return + 1", "uSize,return + 1")] #[opt] #[out] #[writable(entry, uSize)] lpBuffer: LPWSTR, #[in] uSize: UINT) -> UINT;
         #[library("KERNEL32.dll")]
+        #[must_use]
         extern fn IsWow64GuestMachineSupported(#[in] WowGuestMachine: USHORT, #[out] MachineIsSupported: *mut BOOL) -> HRESULT;
         #[library("KERNEL32.dll")]
         extern fn IsWow64Process(#[in] hProcess: HANDLE, #[out] Wow64Process: PBOOL) -> BOOL;
         #[library("KERNEL32.dll")]
-        extern fn IsWow64Process2(#[in] hProcess: HANDLE, #[out] pProcessMachine: *mut USHORT, #[out] #[opt] pNativeMachine: *mut USHORT) -> BOOL;
+        extern fn IsWow64Process2(#[in] hProcess: HANDLE, #[out] pProcessMachine: *mut USHORT, #[opt] #[out] pNativeMachine: *mut USHORT) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn Wow64DisableWow64FsRedirection(#[out] OldValue: *mut PVOID) -> BOOL;
         #[library("KERNEL32.dll")]

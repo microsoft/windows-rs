@@ -161,11 +161,11 @@ mod Windows {
         type PPERF_PROVIDER_CONTEXT = *mut PERF_PROVIDER_CONTEXT;
         type PPERF_STRING_BUFFER_HEADER = *mut PERF_STRING_BUFFER_HEADER;
         type PPERF_STRING_COUNTER_HEADER = *mut PERF_STRING_COUNTER_HEADER;
-        #[success(return == 0)]
         #[library("ADVAPI32.dll")]
+        #[success(return == 0)]
         extern fn PerfAddCounters(#[in] hQuery: HANDLE, #[Windows::Win32::Metadata::NativeSal("1.1", "_Inout_bytecount_", "cbCounters", "cbCounters")] pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: DWORD) -> ULONG;
-        #[success(return == 0)]
         #[library("ADVAPI32.dll")]
+        #[success(return == 0)]
         extern fn PerfCloseQueryHandle(#[in] hQuery: HANDLE) -> ULONG;
         #[repr(i32)]
         enum PerfCounterDataType {
@@ -181,33 +181,33 @@ mod Windows {
         extern fn PerfDecrementULongCounterValue(#[in] Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, #[in] CounterId: ULONG, #[in] Value: ULONG) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn PerfDecrementULongLongCounterValue(#[in] Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, #[in] CounterId: ULONG, #[in] Value: ULONGLONG) -> ULONG;
-        #[success(return == 0)]
         #[library("ADVAPI32.dll")]
+        #[success(return == 0)]
         extern fn PerfDeleteCounters(#[in] hQuery: HANDLE, #[Windows::Win32::Metadata::NativeSal("1.1", "_Inout_bytecount_", "cbCounters", "cbCounters")] pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: DWORD) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn PerfDeleteInstance(#[in] Provider: HANDLE, #[in] InstanceBlock: PPERF_COUNTERSET_INSTANCE) -> ULONG;
-        #[success(return == 0)]
         #[library("ADVAPI32.dll")]
-        extern fn PerfEnumerateCounterSet(#[in] #[opt] #[null_terminated(entry)] szMachine: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_cap_post_count_", "cCounterSetIds,*pcCounterSetIdsActual", "cCounterSetIds,*pcCounterSetIdsActual")] pCounterSetIds: LPGUID, cCounterSetIds: DWORD, #[out] pcCounterSetIdsActual: LPDWORD) -> ULONG;
         #[success(return == 0)]
+        extern fn PerfEnumerateCounterSet(#[in] #[null_terminated(entry)] #[opt] szMachine: LPCWSTR, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_cap_post_count_", "cCounterSetIds,*pcCounterSetIdsActual", "cCounterSetIds,*pcCounterSetIdsActual")] pCounterSetIds: LPGUID, cCounterSetIds: DWORD, #[out] pcCounterSetIdsActual: LPDWORD) -> ULONG;
         #[library("ADVAPI32.dll")]
-        extern fn PerfEnumerateCounterSetInstances(#[in] #[opt] #[null_terminated(entry)] szMachine: LPCWSTR, #[in] pCounterSetId: LPCGUID, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_bytecap_post_bytecount_", "cbInstances,*pcbInstancesActual", "cbInstances,*pcbInstancesActual")] pInstances: PPERF_INSTANCE_HEADER, cbInstances: DWORD, #[out] pcbInstancesActual: LPDWORD) -> ULONG;
+        #[success(return == 0)]
+        extern fn PerfEnumerateCounterSetInstances(#[in] #[null_terminated(entry)] #[opt] szMachine: LPCWSTR, #[in] pCounterSetId: LPCGUID, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_bytecap_post_bytecount_", "cbInstances,*pcbInstancesActual", "cbInstances,*pcbInstancesActual")] pInstances: PPERF_INSTANCE_HEADER, cbInstances: DWORD, #[out] pcbInstancesActual: LPDWORD) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn PerfIncrementULongCounterValue(#[in] Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, #[in] CounterId: ULONG, #[in] Value: ULONG) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn PerfIncrementULongLongCounterValue(#[in] Provider: HANDLE, #[in] #[out] Instance: PPERF_COUNTERSET_INSTANCE, #[in] CounterId: ULONG, #[in] Value: ULONGLONG) -> ULONG;
-        #[success(return == 0)]
         #[library("ADVAPI32.dll")]
-        extern fn PerfOpenQueryHandle(#[in] #[opt] #[null_terminated(entry)] szMachine: LPCWSTR, #[out] phQuery: *mut HANDLE) -> ULONG;
         #[success(return == 0)]
+        extern fn PerfOpenQueryHandle(#[in] #[null_terminated(entry)] #[opt] szMachine: LPCWSTR, #[out] phQuery: *mut HANDLE) -> ULONG;
         #[library("ADVAPI32.dll")]
+        #[success(return == 0)]
         extern fn PerfQueryCounterData(#[in] hQuery: HANDLE, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_bytecap_post_bytecount_", "cbCounterBlock,*pcbCounterBlockActual", "cbCounterBlock,*pcbCounterBlockActual")] pCounterBlock: PPERF_DATA_HEADER, cbCounterBlock: DWORD, #[out] pcbCounterBlockActual: LPDWORD) -> ULONG;
-        #[success(return == 0)]
         #[library("ADVAPI32.dll")]
+        #[success(return == 0)]
         extern fn PerfQueryCounterInfo(#[in] hQuery: HANDLE, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_bytecap_post_bytecount_", "cbCounters,*pcbCountersActual", "cbCounters,*pcbCountersActual")] pCounters: PPERF_COUNTER_IDENTIFIER, cbCounters: DWORD, #[out] pcbCountersActual: LPDWORD) -> ULONG;
-        #[success(return == 0)]
         #[library("ADVAPI32.dll")]
-        extern fn PerfQueryCounterSetRegistrationInfo(#[in] #[opt] #[null_terminated(entry)] szMachine: LPCWSTR, #[in] pCounterSetId: LPCGUID, requestCode: PerfRegInfoType, requestLangId: DWORD, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_bytecap_post_bytecount_", "cbRegInfo,*pcbRegInfoActual", "cbRegInfo,*pcbRegInfoActual")] pbRegInfo: LPBYTE, cbRegInfo: DWORD, #[out] pcbRegInfoActual: LPDWORD) -> ULONG;
+        #[success(return == 0)]
+        extern fn PerfQueryCounterSetRegistrationInfo(#[in] #[null_terminated(entry)] #[opt] szMachine: LPCWSTR, #[in] pCounterSetId: LPCGUID, requestCode: PerfRegInfoType, requestLangId: DWORD, #[Windows::Win32::Metadata::NativeSal("1.1", "_Out_opt_bytecap_post_bytecount_", "cbRegInfo,*pcbRegInfoActual", "cbRegInfo,*pcbRegInfoActual")] pbRegInfo: LPBYTE, cbRegInfo: DWORD, #[out] pcbRegInfoActual: LPDWORD) -> ULONG;
         #[library("ADVAPI32.dll")]
         extern fn PerfQueryInstance(#[in] ProviderHandle: HANDLE, #[in] CounterSetGuid: LPCGUID, #[in] Name: PCWSTR, #[in] Id: ULONG) -> PPERF_COUNTERSET_INSTANCE;
         #[repr(i32)]

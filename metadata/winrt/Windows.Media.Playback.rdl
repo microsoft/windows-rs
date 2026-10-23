@@ -2,8 +2,8 @@
 mod Windows {
     mod Media {
         mod Playback {
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[repr(i32)]
             enum AutoLoadedDisplayPropertyKind {
                 None = 0,
                 MusicOrVideo = 1,
@@ -25,21 +25,21 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 ICurrentMediaPlaybackItemChangedEventArgs2,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[repr(i32)]
             enum FailedMediaStreamKind {
                 Unknown = 0,
                 Audio = 1,
                 Video = 2,
             }
-            #[guid(0x856ddbc1_55f7_471f_a0f2_68ac4c904592)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundMediaPlayer)]
+            #[guid(0x856ddbc1_55f7_471f_a0f2_68ac4c904592)]
             interface IBackgroundMediaPlayerStatics {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 Current: MediaPlayer;
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 event MessageReceivedFromBackground: super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>;
@@ -54,25 +54,25 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of BackgroundMediaPlayer.  For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
                 fn Shutdown(&self);
             }
-            #[guid(0x1743a892_5c43_4a15_967a_572d2d0f26c6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CurrentMediaPlaybackItemChangedEventArgs)]
+            #[guid(0x1743a892_5c43_4a15_967a_572d2d0f26c6)]
             interface ICurrentMediaPlaybackItemChangedEventArgs {
                 #[get]
                 NewItem: MediaPlaybackItem;
                 #[get]
                 OldItem: MediaPlaybackItem;
             }
-            #[guid(0x1d80a51e_996e_40a9_be48_e66ec90b2b7d)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CurrentMediaPlaybackItemChangedEventArgs)]
+            #[guid(0x1d80a51e_996e_40a9_be48_e66ec90b2b7d)]
             interface ICurrentMediaPlaybackItemChangedEventArgs2: ICurrentMediaPlaybackItemChangedEventArgs {
                 #[get]
                 Reason: MediaPlaybackItemChangedReason;
             }
-            #[guid(0x714be270_0def_4ebc_a489_6b34930e1558)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreak)]
+            #[guid(0x714be270_0def_4ebc_a489_6b34930e1558)]
             interface IMediaBreak {
                 #[get]
                 PlaybackList: MediaPlaybackList;
@@ -84,23 +84,23 @@ mod Windows {
                 CustomProperties: super::super::Foundation::Collections::ValueSet;
                 CanStart: bool;
             }
-            #[guid(0x32b93276_1c5d_4fee_8732_236dc3a88580)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreakEndedEventArgs)]
+            #[guid(0x32b93276_1c5d_4fee_8732_236dc3a88580)]
             interface IMediaBreakEndedEventArgs {
                 #[get]
                 MediaBreak: MediaBreak;
             }
-            #[guid(0x4516e002_18e0_4079_8b5f_d33495c15d2e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreak)]
+            #[guid(0x4516e002_18e0_4079_8b5f_d33495c15d2e)]
             interface IMediaBreakFactory {
                 fn Create(&self, #[in] insertionMethod: MediaBreakInsertionMethod) -> MediaBreak;
                 fn CreateWithPresentationPosition(&self, #[in] insertionMethod: MediaBreakInsertionMethod, #[in] presentationPosition: super::super::Foundation::TimeSpan) -> MediaBreak;
             }
-            #[guid(0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreakManager)]
+            #[guid(0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39)]
             interface IMediaBreakManager {
                 event BreaksSeekedOver: super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSeekedOverEventArgs>;
                 event BreakStarted: super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakStartedEventArgs>;
@@ -113,9 +113,9 @@ mod Windows {
                 fn PlayBreak(&self, #[in] value: MediaBreak);
                 fn SkipCurrentBreak(&self);
             }
-            #[guid(0xa19a5813_98b6_41d8_83da_f971d22b7bba)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreakSchedule)]
+            #[guid(0xa19a5813_98b6_41d8_83da_f971d22b7bba)]
             interface IMediaBreakSchedule {
                 event ScheduleChanged: super::super::Foundation::TypedEventHandler<MediaBreakSchedule, Object>;
                 fn InsertMidrollBreak(&self, #[in] mediaBreak: MediaBreak);
@@ -133,9 +133,9 @@ mod Windows {
                 #[get]
                 PlaybackItem: MediaPlaybackItem;
             }
-            #[guid(0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreakSeekedOverEventArgs)]
+            #[guid(0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea)]
             interface IMediaBreakSeekedOverEventArgs {
                 #[get]
                 SeekedOverBreaks: super::super::Foundation::Collections::IVectorView<MediaBreak>;
@@ -144,33 +144,33 @@ mod Windows {
                 #[get]
                 NewPosition: super::super::Foundation::TimeSpan;
             }
-            #[guid(0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreakSkippedEventArgs)]
+            #[guid(0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3)]
             interface IMediaBreakSkippedEventArgs {
                 #[get]
                 MediaBreak: MediaBreak;
             }
-            #[guid(0xa87efe71_dfd4_454a_956e_0a4a648395f8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaBreakStartedEventArgs)]
+            #[guid(0xa87efe71_dfd4_454a_956e_0a4a648395f8)]
             interface IMediaBreakStartedEventArgs {
                 #[get]
                 MediaBreak: MediaBreak;
             }
-            #[guid(0x5c1d0ba7_3856_48b9_8dc6_244bf107bf8c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of MediaEngine. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[guid(0x5c1d0ba7_3856_48b9_8dc6_244bf107bf8c)]
             interface IMediaEnginePlaybackSource {
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of MediaEngine. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CurrentItem: MediaPlaybackItem;
                 #[Windows::Foundation::Metadata::Deprecated("Use MediaPlayer instead of MediaEngine. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 fn SetPlaybackSource(&self, #[in] source: IMediaPlaybackSource);
             }
-            #[guid(0x1e3c1b48_7097_4384_a217_c1291dfa8c16)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaItemDisplayProperties)]
+            #[guid(0x1e3c1b48_7097_4384_a217_c1291dfa8c16)]
             interface IMediaItemDisplayProperties {
                 Type: super::MediaPlaybackType;
                 #[get]
@@ -180,9 +180,9 @@ mod Windows {
                 Thumbnail: super::super::Storage::Streams::RandomAccessStreamReference;
                 fn ClearAll(&self);
             }
-            #[guid(0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManager)]
+            #[guid(0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37)]
             interface IMediaPlaybackCommandManager {
                 IsEnabled: bool;
                 #[get]
@@ -218,18 +218,18 @@ mod Windows {
                 event PositionReceived: super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPositionReceivedEventArgs>;
                 event RateReceived: super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRateReceivedEventArgs>;
             }
-            #[guid(0x3d6f4f23_5230_4411_a0e9_bad94c2a045c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs)]
+            #[guid(0x3d6f4f23_5230_4411_a0e9_bad94c2a045c)]
             interface IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
                 Handled: bool;
                 #[get]
                 AutoRepeatMode: super::MediaPlaybackAutoRepeatMode;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x786c1e78_ce78_4a10_afd6_843fcbb90c2e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerCommandBehavior)]
+            #[guid(0x786c1e78_ce78_4a10_afd6_843fcbb90c2e)]
             interface IMediaPlaybackCommandManagerCommandBehavior {
                 #[get]
                 CommandManager: MediaPlaybackCommandManager;
@@ -238,78 +238,78 @@ mod Windows {
                 EnablingRule: MediaCommandEnablingRule;
                 event IsEnabledChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManagerCommandBehavior, Object>;
             }
-            #[guid(0x30f064d9_b491_4d0a_bc21_3098bd1332e9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerFastForwardReceivedEventArgs)]
+            #[guid(0x30f064d9_b491_4d0a_bc21_3098bd1332e9)]
             interface IMediaPlaybackCommandManagerFastForwardReceivedEventArgs {
                 Handled: bool;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0xe1504433_a2b0_45d4_b9de_5f42ac14a839)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerNextReceivedEventArgs)]
+            #[guid(0xe1504433_a2b0_45d4_b9de_5f42ac14a839)]
             interface IMediaPlaybackCommandManagerNextReceivedEventArgs {
                 Handled: bool;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerPauseReceivedEventArgs)]
+            #[guid(0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6)]
             interface IMediaPlaybackCommandManagerPauseReceivedEventArgs {
                 Handled: bool;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x9af0004e_578b_4c56_a006_16159d888a48)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerPlayReceivedEventArgs)]
+            #[guid(0x9af0004e_578b_4c56_a006_16159d888a48)]
             interface IMediaPlaybackCommandManagerPlayReceivedEventArgs {
                 Handled: bool;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x5591a754_d627_4bdd_a90d_86a015b24902)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerPositionReceivedEventArgs)]
+            #[guid(0x5591a754_d627_4bdd_a90d_86a015b24902)]
             interface IMediaPlaybackCommandManagerPositionReceivedEventArgs {
                 Handled: bool;
                 #[get]
                 Position: super::super::Foundation::TimeSpan;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x525e3081_4632_4f76_99b1_d771623f6287)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerPreviousReceivedEventArgs)]
+            #[guid(0x525e3081_4632_4f76_99b1_d771623f6287)]
             interface IMediaPlaybackCommandManagerPreviousReceivedEventArgs {
                 Handled: bool;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerRateReceivedEventArgs)]
+            #[guid(0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb)]
             interface IMediaPlaybackCommandManagerRateReceivedEventArgs {
                 Handled: bool;
                 #[get]
                 PlaybackRate: f64;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x9f085947_a3c0_425d_aaef_97ba7898b141)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerRewindReceivedEventArgs)]
+            #[guid(0x9f085947_a3c0_425d_aaef_97ba7898b141)]
             interface IMediaPlaybackCommandManagerRewindReceivedEventArgs {
                 Handled: bool;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackCommandManagerShuffleReceivedEventArgs)]
+            #[guid(0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c)]
             interface IMediaPlaybackCommandManagerShuffleReceivedEventArgs {
                 Handled: bool;
                 #[get]
                 IsShuffleRequested: bool;
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
-            #[guid(0x047097d2_e4af_48ab_b283_6929e674ece2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItem)]
+            #[guid(0x047097d2_e4af_48ab_b283_6929e674ece2)]
             interface IMediaPlaybackItem: IMediaPlaybackSource {
                 event AudioTracksChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>;
                 event VideoTracksChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>;
@@ -323,9 +323,9 @@ mod Windows {
                 #[get]
                 TimedMetadataTracks: MediaPlaybackTimedMetadataTrackList;
             }
-            #[guid(0xd859d171_d7ef_4b81_ac1f_f40493cbb091)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItem)]
+            #[guid(0xd859d171_d7ef_4b81_ac1f_f40493cbb091)]
             interface IMediaPlaybackItem2: IMediaPlaybackItem + IMediaPlaybackSource {
                 #[get]
                 BreakSchedule: MediaBreakSchedule;
@@ -337,62 +337,62 @@ mod Windows {
                 fn GetDisplayProperties(&self) -> MediaItemDisplayProperties;
                 fn ApplyDisplayProperties(&self, #[in] value: MediaItemDisplayProperties);
             }
-            #[guid(0x0d328220_b80a_4d09_9ff8_f87094a1c831)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItem)]
+            #[guid(0x0d328220_b80a_4d09_9ff8_f87094a1c831)]
             interface IMediaPlaybackItem3: IMediaPlaybackItem2 + IMediaPlaybackItem + IMediaPlaybackSource {
                 IsDisabledInPlaybackList: bool;
                 #[get]
                 TotalDownloadProgress: f64;
                 AutoLoadedDisplayProperties: AutoLoadedDisplayPropertyKind;
             }
-            #[guid(0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItemError)]
+            #[guid(0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2)]
             interface IMediaPlaybackItemError {
                 #[get]
                 ErrorCode: MediaPlaybackItemErrorCode;
                 #[get]
                 ExtendedError: HRESULT;
             }
-            #[guid(0x7133fce1_1769_4ff9_a7c1_38d2c4d42360)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItem)]
+            #[guid(0x7133fce1_1769_4ff9_a7c1_38d2c4d42360)]
             interface IMediaPlaybackItemFactory {
                 fn Create(&self, #[in] source: super::Core::MediaSource) -> MediaPlaybackItem;
             }
-            #[guid(0xd77cdf3a_b947_4972_b35d_adfb931a71e6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItem)]
+            #[guid(0xd77cdf3a_b947_4972_b35d_adfb931a71e6)]
             interface IMediaPlaybackItemFactory2: IMediaPlaybackItemFactory {
                 fn CreateWithStartTime(&self, #[in] source: super::Core::MediaSource, #[in] startTime: super::super::Foundation::TimeSpan) -> MediaPlaybackItem;
                 fn CreateWithStartTimeAndDurationLimit(&self, #[in] source: super::Core::MediaSource, #[in] startTime: super::super::Foundation::TimeSpan, #[in] durationLimit: super::super::Foundation::TimeSpan) -> MediaPlaybackItem;
             }
-            #[guid(0x7703134a_e9a7_47c3_862c_c656d30683d4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItemFailedEventArgs)]
+            #[guid(0x7703134a_e9a7_47c3_862c_c656d30683d4)]
             interface IMediaPlaybackItemFailedEventArgs {
                 #[get]
                 Item: MediaPlaybackItem;
                 #[get]
                 Error: MediaPlaybackItemError;
             }
-            #[guid(0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItemOpenedEventArgs)]
+            #[guid(0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef)]
             interface IMediaPlaybackItemOpenedEventArgs {
                 #[get]
                 Item: MediaPlaybackItem;
             }
-            #[guid(0x4b1be7f4_4345_403c_8a67_f5de91df4c86)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackItem)]
+            #[guid(0x4b1be7f4_4345_403c_8a67_f5de91df4c86)]
             interface IMediaPlaybackItemStatics {
                 fn FindFromMediaSource(&self, #[in] source: super::Core::MediaSource) -> MediaPlaybackItem;
             }
-            #[guid(0x7f77ee9c_dc42_4e26_a98d_7850df8ec925)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackList)]
+            #[guid(0x7f77ee9c_dc42_4e26_a98d_7850df8ec925)]
             interface IMediaPlaybackList: IMediaPlaybackSource {
                 event ItemFailed: super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemFailedEventArgs>;
                 event CurrentItemChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackList, CurrentMediaPlaybackItemChangedEventArgs>;
@@ -409,9 +409,9 @@ mod Windows {
                 fn MovePrevious(&self) -> MediaPlaybackItem;
                 fn MoveTo(&self, #[in] itemIndex: u32) -> MediaPlaybackItem;
             }
-            #[guid(0x0e09b478_600a_4274_a14b_0b6723d0f48b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackList)]
+            #[guid(0x0e09b478_600a_4274_a14b_0b6723d0f48b)]
             interface IMediaPlaybackList2: IMediaPlaybackList + IMediaPlaybackSource {
                 MaxPrefetchTime: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
                 StartingItem: MediaPlaybackItem;
@@ -419,15 +419,15 @@ mod Windows {
                 ShuffledItems: super::super::Foundation::Collections::IVectorView<MediaPlaybackItem>;
                 fn SetShuffledItems(&self, #[in] value: super::super::Foundation::Collections::IIterable<MediaPlaybackItem>);
             }
-            #[guid(0xdd24bba9_bc47_4463_aa90_c18b7e5ffde1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackList)]
+            #[guid(0xdd24bba9_bc47_4463_aa90_c18b7e5ffde1)]
             interface IMediaPlaybackList3: IMediaPlaybackList2 + IMediaPlaybackList + IMediaPlaybackSource {
                 MaxPlayedItemsToKeepOpen: super::super::Foundation::IReference<u32>;
             }
-            #[guid(0xc32b683d_0407_41ba_8946_8b345a5a5435)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackSession)]
+            #[guid(0xc32b683d_0407_41ba_8946_8b345a5a5435)]
             interface IMediaPlaybackSession {
                 event PlaybackStateChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackSession, Object>;
                 event PlaybackRateChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackSession, Object>;
@@ -464,9 +464,9 @@ mod Windows {
                 NormalizedSourceRect: super::super::Foundation::Rect;
                 StereoscopicVideoPackingMode: super::MediaProperties::StereoscopicVideoPackingMode;
             }
-            #[guid(0xf8ba7c79_1fc8_4097_ad70_c0fa18cc0050)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackSession)]
+            #[guid(0xf8ba7c79_1fc8_4097_ad70_c0fa18cc0050)]
             interface IMediaPlaybackSession2 {
                 event BufferedRangesChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackSession, Object>;
                 event PlayedRangesChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackSession, Object>;
@@ -480,33 +480,33 @@ mod Windows {
                 fn GetSeekableRanges(&self) -> super::super::Foundation::Collections::IVectorView<super::MediaTimeRange>;
                 fn IsSupportedPlaybackRateRange(&self, #[in] rate1: f64, #[in] rate2: f64) -> bool;
             }
-            #[guid(0x7ba2b41a_a3e2_405f_b77b_a4812c238b66)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackSession)]
+            #[guid(0x7ba2b41a_a3e2_405f_b77b_a4812c238b66)]
             interface IMediaPlaybackSession3 {
                 PlaybackRotation: super::MediaProperties::MediaRotation;
                 fn GetOutputDegradationPolicyState(&self) -> MediaPlaybackSessionOutputDegradationPolicyState;
             }
-            #[guid(0xcd6aafed_74e2_43b5_b115_76236c33791a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackSessionBufferingStartedEventArgs)]
+            #[guid(0xcd6aafed_74e2_43b5_b115_76236c33791a)]
             interface IMediaPlaybackSessionBufferingStartedEventArgs {
                 #[get]
                 IsPlaybackInterruption: bool;
             }
-            #[guid(0x558e727d_f633_49f9_965a_abaa1db709be)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackSessionOutputDegradationPolicyState)]
+            #[guid(0x558e727d_f633_49f9_965a_abaa1db709be)]
             interface IMediaPlaybackSessionOutputDegradationPolicyState {
                 #[get]
                 VideoConstrictionReason: MediaPlaybackSessionVideoConstrictionReason;
             }
-            #[guid(0xef9dc2bc_9317_4696_b051_2bad643177b5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[guid(0xef9dc2bc_9317_4696_b051_2bad643177b5)]
             interface IMediaPlaybackSource {}
-            #[guid(0xd405b37c_6f0e_4661_b8ee_d487ba9752d5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackSphericalVideoProjection)]
+            #[guid(0xd405b37c_6f0e_4661_b8ee_d487ba9752d5)]
             interface IMediaPlaybackSphericalVideoProjection {
                 IsEnabled: bool;
                 FrameFormat: super::MediaProperties::SphericalVideoFrameFormat;
@@ -514,46 +514,46 @@ mod Windows {
                 ViewOrientation: super::super::Foundation::Numerics::Quaternion;
                 ProjectionMode: SphericalVideoProjectionMode;
             }
-            #[guid(0x72b41319_bbfb_46a3_9372_9c9c744b9438)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlaybackTimedMetadataTrackList)]
+            #[guid(0x72b41319_bbfb_46a3_9372_9c9c744b9438)]
             interface IMediaPlaybackTimedMetadataTrackList {
                 event PresentationModeChanged: super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs>;
                 fn GetPresentationMode(&self, #[in] index: u32) -> TimedMetadataTrackPresentationMode;
                 fn SetPresentationMode(&self, #[in] index: u32, #[in] value: TimedMetadataTrackPresentationMode);
             }
-            #[guid(0x381a83cb_6fff_499b_8d64_2885dfc1249e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0x381a83cb_6fff_499b_8d64_2885dfc1249e)]
             interface IMediaPlayer {
                 AutoPlay: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.NaturalDuration instead of NaturalDuration.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 NaturalDuration: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.Position instead of Position.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 Position: super::super::Foundation::TimeSpan;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.BufferingProgress instead of BufferingProgress.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 BufferingProgress: f64;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.State instead of CurrentState.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CurrentState: MediaPlayerState;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.CanSeek instead of CanSeek.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
-                CanSeek: bool;
                 #[get]
+                CanSeek: bool;
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.CanPause instead of CanPause.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 CanPause: bool;
                 IsLoopingEnabled: bool;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.IsProtected instead of IsProtected.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 IsProtected: bool;
                 IsMuted: bool;
                 #[Windows::Foundation::Metadata::Deprecated("Use PlaybackSession.PlaybackRate instead of PlaybackRate.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
                 PlaybackRate: f64;
                 Volume: f64;
-                #[get]
                 #[Windows::Foundation::Metadata::Deprecated("Use media tracks on MediaPlaybackItem instead of PlaybackMediaMarkers.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[get]
                 PlaybackMediaMarkers: PlaybackMediaMarkerSequence;
                 event MediaOpened: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 event MediaEnded: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
@@ -576,18 +576,18 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("Use Source instead of SetUriSource.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
                 fn SetUriSource(&self, #[in] value: super::super::Foundation::Uri);
             }
-            #[guid(0x3c841218_2123_4fc5_9082_2f883f77bdf5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0x3c841218_2123_4fc5_9082_2f883f77bdf5)]
             interface IMediaPlayer2 {
                 #[get]
                 SystemMediaTransportControls: super::SystemMediaTransportControls;
                 AudioCategory: MediaPlayerAudioCategory;
                 AudioDeviceType: MediaPlayerAudioDeviceType;
             }
-            #[guid(0xee0660da_031b_4feb_bd9b_92e0a0a8d299)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0xee0660da_031b_4feb_bd9b_92e0a0a8d299)]
             interface IMediaPlayer3 {
                 event IsMutedChanged: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 event SourceChanged: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
@@ -607,17 +607,17 @@ mod Windows {
                 fn StepBackwardOneFrame(&self);
                 fn GetAsCastingSource(&self) -> super::Casting::CastingSource;
             }
-            #[guid(0x80035db0_7448_4770_afcf_2a57450914c5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x80035db0_7448_4770_afcf_2a57450914c5)]
             interface IMediaPlayer4 {
                 fn SetSurfaceSize(&self, #[in] size: super::super::Foundation::Size);
                 fn GetSurface(&self, #[in] compositor: super::super::UI::Composition::Compositor) -> MediaPlayerSurface;
             }
-            #[guid(0xcfe537fd_f86a_4446_bf4d_c8e792b7b4b3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0xcfe537fd_f86a_4446_bf4d_c8e792b7b4b3)]
             interface IMediaPlayer5 {
                 event VideoFrameAvailable: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 IsVideoFrameServerEnabled: bool;
@@ -627,9 +627,9 @@ mod Windows {
                 fn CopyFrameToVideoSurface(&self, #[in] destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, #[in] targetRectangle: super::super::Foundation::Rect);
                 fn CopyFrameToStereoscopicVideoSurfaces(&self, #[in] destinationLeftEye: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, #[in] destinationRightEye: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface);
             }
-            #[guid(0xe0caa086_ae65_414c_b010_8bc55f00e692)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0xe0caa086_ae65_414c_b010_8bc55f00e692)]
             interface IMediaPlayer6 {
                 event SubtitleFrameChanged: super::super::Foundation::TypedEventHandler<MediaPlayer, Object>;
                 #[Windows::Foundation::Metadata::Overload("RenderSubtitlesToSurface")]
@@ -637,36 +637,36 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("RenderSubtitlesToSurfaceWithTargetRectangle")]
                 fn RenderSubtitlesToSurface(&self, #[in] destination: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, #[in] targetRectangle: super::super::Foundation::Rect) -> bool;
             }
-            #[guid(0x5d1dc478_4500_4531_b3f4_777a71491f7f)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0x5d1dc478_4500_4531_b3f4_777a71491f7f)]
             interface IMediaPlayer7 {
                 #[get]
                 AudioStateMonitor: super::Audio::AudioStateMonitor;
             }
-            #[guid(0xc75a9405_c801_412a_835b_83fc0e622a8e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayerDataReceivedEventArgs)]
+            #[guid(0xc75a9405_c801_412a_835b_83fc0e622a8e)]
             interface IMediaPlayerDataReceivedEventArgs {
                 #[get]
                 Data: super::super::Foundation::Collections::ValueSet;
             }
-            #[guid(0x85a1deda_cab6_4cc0_8be3_6035f4de2591)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0x85a1deda_cab6_4cc0_8be3_6035f4de2591)]
             interface IMediaPlayerEffects {
                 fn AddAudioEffect(&self, #[in] activatableClassId: String, #[in] effectOptional: bool, #[in] configuration: super::super::Foundation::Collections::IPropertySet);
                 fn RemoveAllEffects(&self);
             }
-            #[guid(0xfa419a79_1bbe_46c5_ae1f_8ee69fb3c2c7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0xfa419a79_1bbe_46c5_ae1f_8ee69fb3c2c7)]
             interface IMediaPlayerEffects2 {
                 fn AddVideoEffect(&self, #[in] activatableClassId: String, #[in] effectOptional: bool, #[in] effectConfiguration: super::super::Foundation::Collections::IPropertySet);
             }
-            #[guid(0x2744e9b9_a7e3_4f16_bac4_7914ebc08301)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayerFailedEventArgs)]
+            #[guid(0x2744e9b9_a7e3_4f16_bac4_7914ebc08301)]
             interface IMediaPlayerFailedEventArgs {
                 #[get]
                 Error: MediaPlayerError;
@@ -675,16 +675,16 @@ mod Windows {
                 #[get]
                 ErrorMessage: String;
             }
-            #[guid(0x40600d58_3b61_4bb2_989f_fc65608b6cab)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayerRateChangedEventArgs)]
+            #[guid(0x40600d58_3b61_4bb2_989f_fc65608b6cab)]
             interface IMediaPlayerRateChangedEventArgs {
                 #[get]
                 NewRate: f64;
             }
-            #[guid(0xbd4f8897_1423_4c3e_82c5_0fb1af94f715)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0xbd4f8897_1423_4c3e_82c5_0fb1af94f715)]
             interface IMediaPlayerSource {
                 ProtectionManager: super::Protection::MediaProtectionManager;
                 #[Windows::Foundation::Metadata::Deprecated("Use Source instead of SetFileSource.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
@@ -694,16 +694,16 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("Use Source instead of SetMediaSource.  For more info, see MSDN.", Deprecate, 131072, "Windows.Foundation.UniversalApiContract")]
                 fn SetMediaSource(&self, #[in] source: super::Core::IMediaSource);
             }
-            #[guid(0x82449b9f_7322_4c0b_b03b_3e69a48260c5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayer)]
+            #[guid(0x82449b9f_7322_4c0b_b03b_3e69a48260c5)]
             interface IMediaPlayerSource2 {
                 Source: IMediaPlaybackSource;
             }
-            #[guid(0x0ed653bc_b736_49c3_830b_764a3845313a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPlayerSurface)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x0ed653bc_b736_49c3_830b_764a3845313a)]
             interface IMediaPlayerSurface {
                 #[get]
                 CompositionSurface: super::super::UI::Composition::ICompositionSurface;
@@ -712,9 +712,9 @@ mod Windows {
                 #[get]
                 MediaPlayer: MediaPlayer;
             }
-            #[guid(0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackMediaMarker)]
+            #[guid(0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a)]
             interface IPlaybackMediaMarker {
                 #[get]
                 Time: super::super::Foundation::TimeSpan;
@@ -723,32 +723,32 @@ mod Windows {
                 #[get]
                 Text: String;
             }
-            #[guid(0x8c530a78_e0ae_4e1a_a8c8_e23f982a937b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackMediaMarker)]
+            #[guid(0x8c530a78_e0ae_4e1a_a8c8_e23f982a937b)]
             interface IPlaybackMediaMarkerFactory {
                 fn CreateFromTime(&self, #[in] value: super::super::Foundation::TimeSpan) -> PlaybackMediaMarker;
                 fn Create(&self, #[in] value: super::super::Foundation::TimeSpan, #[in] mediaMarketType: String, #[in] text: String) -> PlaybackMediaMarker;
             }
-            #[guid(0x578cd1b9_90e2_4e60_abc4_8740b01f6196)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackMediaMarkerReachedEventArgs)]
+            #[guid(0x578cd1b9_90e2_4e60_abc4_8740b01f6196)]
             interface IPlaybackMediaMarkerReachedEventArgs {
                 #[get]
                 PlaybackMediaMarker: PlaybackMediaMarker;
             }
-            #[guid(0xf2810cee_638b_46cf_8817_1d111fe9d8c4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackMediaMarkerSequence)]
+            #[guid(0xf2810cee_638b_46cf_8817_1d111fe9d8c4)]
             interface IPlaybackMediaMarkerSequence: super::super::Foundation::Collections::IIterable<PlaybackMediaMarker> {
                 #[get]
                 Size: u32;
                 fn Insert(&self, #[in] value: PlaybackMediaMarker);
                 fn Clear(&self);
             }
-            #[guid(0xd1636099_65df_45ae_8cef_dc0b53fdc2bb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataPresentationModeChangedEventArgs)]
+            #[guid(0xd1636099_65df_45ae_8cef_dc0b53fdc2bb)]
             interface ITimedMetadataPresentationModeChangedEventArgs {
                 #[get]
                 Track: super::Core::TimedMetadataTrack;
@@ -772,8 +772,8 @@ mod Windows {
             class MediaBreakEndedEventArgs {
                 IMediaBreakEndedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[repr(i32)]
             enum MediaBreakInsertionMethod {
                 Interrupt = 0,
                 Replace = 1,
@@ -813,8 +813,8 @@ mod Windows {
             class MediaBreakStartedEventArgs {
                 IMediaBreakStartedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[repr(i32)]
             enum MediaCommandEnablingRule {
                 Auto = 0,
                 Always = 1,
@@ -922,8 +922,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 262144)]
                 IMediaPlaybackItem3,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[repr(i32)]
             enum MediaPlaybackItemChangedReason {
                 InitialItem = 0,
                 EndOfStream = 1,
@@ -937,8 +937,8 @@ mod Windows {
             class MediaPlaybackItemError {
                 IMediaPlaybackItemError,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MediaPlaybackItemErrorCode {
                 None = 0,
                 Aborted = 1,
@@ -999,8 +999,8 @@ mod Windows {
             class MediaPlaybackSessionOutputDegradationPolicyState {
                 IMediaPlaybackSessionOutputDegradationPolicyState,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[repr(i32)]
             enum MediaPlaybackSessionVideoConstrictionReason {
                 None = 0,
                 VirtualMachine = 1,
@@ -1017,8 +1017,8 @@ mod Windows {
             class MediaPlaybackSphericalVideoProjection {
                 IMediaPlaybackSphericalVideoProjection,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[repr(i32)]
             enum MediaPlaybackState {
                 None = 0,
                 Opening = 1,
@@ -1073,8 +1073,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion("Windows.Foundation.UniversalApiContract", 393216)]
                 IMediaPlayer7,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MediaPlayerAudioCategory {
                 Other = 0,
                 Communications = 3,
@@ -1087,8 +1087,8 @@ mod Windows {
                 Movie = 10,
                 Media = 11,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MediaPlayerAudioDeviceType {
                 Console = 0,
                 Multimedia = 1,
@@ -1099,8 +1099,8 @@ mod Windows {
             class MediaPlayerDataReceivedEventArgs {
                 IMediaPlayerDataReceivedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum MediaPlayerError {
                 Unknown = 0,
                 Aborted = 1,
@@ -1120,9 +1120,9 @@ mod Windows {
             class MediaPlayerRateChangedEventArgs {
                 IMediaPlayerRateChangedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("Use MediaPlaybackState instead of MediaPlayerState.  For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[repr(i32)]
             enum MediaPlayerState {
                 Closed = 0,
                 Opening = 1,
@@ -1157,14 +1157,14 @@ mod Windows {
                 IPlaybackMediaMarkerSequence,
                 super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[repr(i32)]
             enum SphericalVideoProjectionMode {
                 Spherical = 0,
                 Flat = 1,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[repr(i32)]
             enum StereoscopicVideoRenderMode {
                 Mono = 0,
                 Stereo = 1,
@@ -1176,8 +1176,8 @@ mod Windows {
             class TimedMetadataPresentationModeChangedEventArgs {
                 ITimedMetadataPresentationModeChangedEventArgs,
             }
-            #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[repr(i32)]
             enum TimedMetadataTrackPresentationMode {
                 Disabled = 0,
                 Hidden = 1,

@@ -15,29 +15,29 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICoreAppWindowPreview {}
-                #[guid(0x33ac21be_423b_5db6_8a8e_4dc87353b75b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x33ac21be_423b_5db6_8a8e_4dc87353b75b)]
                 interface ICoreAppWindowPreviewStatics {
                     fn GetIdFromWindow(&self, #[in] window: super::super::WindowManagement::AppWindow) -> i32;
                 }
-                #[guid(0x83d00de1_cbe5_4f31_8414_361da046518f)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationCloseRequestedPreviewEventArgs)]
+                #[guid(0x83d00de1_cbe5_4f31_8414_361da046518f)]
                 interface ISystemNavigationCloseRequestedPreviewEventArgs {
                     Handled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[guid(0xec5f0488_6425_4777_a536_cb5634427f0d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationManagerPreview)]
+                #[guid(0xec5f0488_6425_4777_a536_cb5634427f0d)]
                 interface ISystemNavigationManagerPreview {
                     event CloseRequested: super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>;
                 }
-                #[guid(0x0e971360_df74_4bce_84cb_bd1181ac0a71)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationManagerPreview)]
+                #[guid(0x0e971360_df74_4bce_84cb_bd1181ac0a71)]
                 interface ISystemNavigationManagerPreviewStatics {
                     fn GetForCurrentView(&self) -> SystemNavigationManagerPreview;
                 }

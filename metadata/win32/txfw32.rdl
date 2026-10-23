@@ -75,11 +75,11 @@ mod Windows {
         #[library("txfw32.dll")]
         extern fn TxfLogDestroyReadContext(#[in] TxfLogContext: PVOID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogReadRecords(#[in] TxfLogContext: PVOID, #[in] BufferLength: ULONG, #[out] #[writable(entry, bytes(BufferLength))] #[readable(success, bytes(*BytesUsed))] Buffer: PVOID, #[out] BytesUsed: PULONG, #[out] RecordCount: PULONG) -> BOOL;
+        extern fn TxfLogReadRecords(#[in] TxfLogContext: PVOID, #[in] BufferLength: ULONG, #[out] #[readable(success, bytes(*BytesUsed))] #[writable(entry, bytes(BufferLength))] Buffer: PVOID, #[out] BytesUsed: PULONG, #[out] RecordCount: PULONG) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogRecordGetFileName(#[in] #[readable(entry, bytes(RecordBufferLengthInBytes))] RecordBuffer: PVOID, #[in] RecordBufferLengthInBytes: ULONG, #[out] #[writable(entry, bytes(*NameBufferLengthInBytes))] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: PULONG, #[out] #[opt] TxfId: PTXF_ID) -> BOOL;
+        extern fn TxfLogRecordGetFileName(#[in] #[readable(entry, bytes(RecordBufferLengthInBytes))] RecordBuffer: PVOID, #[in] RecordBufferLengthInBytes: ULONG, #[out] #[writable(entry, bytes(*NameBufferLengthInBytes))] NameBuffer: PWSTR, #[in] #[out] NameBufferLengthInBytes: PULONG, #[opt] #[out] TxfId: PTXF_ID) -> BOOL;
         #[library("txfw32.dll")]
-        extern fn TxfLogRecordGetGenericType(#[in] RecordBuffer: PVOID, #[in] RecordBufferLengthInBytes: ULONG, #[out] GenericType: PULONG, #[out] #[opt] VirtualClock: PLARGE_INTEGER) -> BOOL;
+        extern fn TxfLogRecordGetGenericType(#[in] RecordBuffer: PVOID, #[in] RecordBufferLengthInBytes: ULONG, #[out] GenericType: PULONG, #[opt] #[out] VirtualClock: PLARGE_INTEGER) -> BOOL;
         #[library("txfw32.dll")]
         extern fn TxfReadMetadataInfo(#[in] FileHandle: HANDLE, #[out] TxfFileId: PTXF_ID, #[out] LastLsn: PCLFS_LSN, #[out] TransactionState: PULONG, #[out] LockingTransaction: PGUID) -> BOOL;
         #[library("txfw32.dll")]

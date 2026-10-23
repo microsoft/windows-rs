@@ -85,7 +85,7 @@ mod Windows {
         }
         #[guid(0xe1cf9b5a_8745_11ce_a9ba_00aa006c3706)]
         interface ITransactionImport: IUnknown {
-            fn Import(&self, #[in] cbTransactionCookie: ULONG, #[in] #[readable(entry, cbTransactionCookie)] rgbTransactionCookie: *mut byte, #[in] piid: *mut IID, #[out] #[out_ptr] #[iid_is] ppvTransaction: *mut *mut void) -> HRESULT;
+            fn Import(&self, #[in] cbTransactionCookie: ULONG, #[in] #[readable(entry, cbTransactionCookie)] rgbTransactionCookie: *mut byte, #[in] piid: *mut IID, #[iid_is] #[out] #[out_ptr] ppvTransaction: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0141fda4_8fc0_11ce_bd18_204c4f4f5020)]
         interface ITransactionImportWhereabouts: IUnknown {

@@ -3,10 +3,10 @@ mod Windows {
     mod UI {
         mod Composition {
             mod Effects {
-                #[guid(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneLightingEffect)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a)]
                 interface ISceneLightingEffect {
                     AmbientAmount: f32;
                     DiffuseAmount: f32;
@@ -14,10 +14,10 @@ mod Windows {
                     SpecularAmount: f32;
                     SpecularShine: f32;
                 }
-                #[guid(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneLightingEffect)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409)]
                 interface ISceneLightingEffect2 {
                     ReflectanceModel: SceneLightingEffectReflectanceModel;
                 }
@@ -34,9 +34,9 @@ mod Windows {
                     super::super::super::Graphics::Effects::IGraphicsEffect,
                     super::super::super::Graphics::Effects::IGraphicsEffectSource,
                 }
-                #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[repr(i32)]
                 enum SceneLightingEffectReflectanceModel {
                     BlinnPhong = 0,
                     PhysicallyBasedBlinnPhong = 1,

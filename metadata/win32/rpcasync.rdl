@@ -6,8 +6,8 @@ mod Windows {
             Buffer: *mut void,
             Size: i16,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct BinaryParam {
             Buffer: *mut void,
             Size: i16,
@@ -27,14 +27,14 @@ mod Windows {
             eeptNone = 6,
             eeptBinary = 7,
         }
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn I_RpcAsyncAbortCall(#[in] pAsync: PRPC_ASYNC_STATE, #[in] ExceptionCode: u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn I_RpcAsyncSetHandle(#[in] Message: PRPC_MESSAGE, #[in] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
-        extern fn I_RpcBindingInqClientTokenAttributes(#[in] Binding: RPC_BINDING_HANDLE, #[out] #[opt] TokenId: *mut LUID, #[out] #[opt] AuthenticationId: *mut LUID, #[out] #[opt] ModifiedId: *mut LUID) -> RPC_STATUS;
+        extern fn I_RpcBindingInqClientTokenAttributes(#[in] Binding: RPC_BINDING_HANDLE, #[opt] #[out] TokenId: *mut LUID, #[opt] #[out] AuthenticationId: *mut LUID, #[opt] #[out] ModifiedId: *mut LUID) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn I_RpcExceptionFilter(#[in] ExceptionCode: u32) -> i32;
         const MaxNumberOfEEInfoParams: i32 = 4;
@@ -70,8 +70,8 @@ mod Windows {
             hEvent: HANDLE,
             NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         union RPC_ASYNC_NOTIFICATION_INFO {
             APC: #[packed(8)] struct {
                 NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
@@ -104,8 +104,8 @@ mod Windows {
             u: RPC_ASYNC_NOTIFICATION_INFO,
             Reserved: [LONG_PTR; 4],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_ASYNC_STATE {
             Size: u32,
             Signature: u32,
@@ -136,8 +136,8 @@ mod Windows {
             AuthenticationService: u32,
             NullSession: BOOL,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V1_A {
             Version: u32,
             Flags: u32,
@@ -161,8 +161,8 @@ mod Windows {
             AuthenticationService: u32,
             NullSession: BOOL,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V1_W {
             Version: u32,
             Flags: u32,
@@ -195,8 +195,8 @@ mod Windows {
             OpNum: u16,
             InterfaceUuid: UUID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V2_A {
             Version: u32,
             Flags: u32,
@@ -238,8 +238,8 @@ mod Windows {
             OpNum: u16,
             InterfaceUuid: UUID,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V2_W {
             Version: u32,
             Flags: u32,
@@ -283,8 +283,8 @@ mod Windows {
             ClientIdentifierBufferLength: u32,
             ClientIdentifier: *mut u8,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V3_A {
             Version: u32,
             Flags: u32,
@@ -330,8 +330,8 @@ mod Windows {
             ClientIdentifierBufferLength: u32,
             ClientIdentifier: *mut u8,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_ATTRIBUTES_V3_W {
             Version: u32,
             Flags: u32,
@@ -362,8 +362,8 @@ mod Windows {
             BufferSize: u32,
             AddressFormat: RpcLocalAddressFormat,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_CALL_LOCAL_ADDRESS_V1 {
             Version: u32,
             Buffer: *mut void,
@@ -387,8 +387,8 @@ mod Windows {
                 BVal: BinaryParam,
             },
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_EE_INFO_PARAM {
             ParameterType: ExtendedErrorParamTypes,
             u: #[packed(8)] union {
@@ -406,8 +406,8 @@ mod Windows {
             CurrentPos: *mut void,
             Head: *mut void,
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_ERROR_ENUM_HANDLE {
             Signature: ULONG,
             CurrentPos: *mut void,
@@ -429,8 +429,8 @@ mod Windows {
             NumberOfParameters: i32,
             Parameters: [RPC_EE_INFO_PARAM; 4],
         }
-        #[packed(8)]
         #[arch(X64 | Arm64)]
+        #[packed(8)]
         struct RPC_EXTENDED_ERROR_INFO {
             Version: ULONG,
             ComputerName: LPWSTR,
@@ -468,23 +468,23 @@ mod Windows {
         const RPC_QUERY_IS_CLIENT_LOCAL: i32 = 32;
         const RPC_QUERY_NO_AUTH_REQUIRED: i32 = 64;
         const RPC_QUERY_SERVER_PRINCIPAL_NAME: i32 = 2;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcAsyncAbortCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[in] ExceptionCode: u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcAsyncCancelCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[in] fAbort: BOOL) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
-        extern fn RpcAsyncCompleteCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[out] #[opt] Reply: *mut void) -> RPC_STATUS;
         #[must_use]
+        extern fn RpcAsyncCompleteCall(#[in] #[out] pAsync: PRPC_ASYNC_STATE, #[opt] #[out] Reply: *mut void) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcAsyncGetCallStatus(#[in] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcAsyncInitializeHandle(#[out] #[writable(entry, bytes(Size))] pAsync: PRPC_ASYNC_STATE, #[in] Size: u32) -> RPC_STATUS;
-        #[must_use]
         #[library("RPCRT4.dll")]
+        #[must_use]
         extern fn RpcAsyncRegisterInfo(#[in] pAsync: PRPC_ASYNC_STATE) -> RPC_STATUS;
         #[library("RPCRT4.dll")]
         extern fn RpcBindingBind(#[in] #[opt] pAsync: PRPC_ASYNC_STATE, #[in] Binding: RPC_BINDING_HANDLE, #[in] IfSpec: RPC_IF_HANDLE) -> RPC_STATUS;
