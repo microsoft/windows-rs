@@ -292,13 +292,16 @@ impl Component for RadioFixture {
     }
 }
 
-/// Noon UTC keeps the calendar day the same in time zones within 12 hours of UTC.
-const fn date(day: i64) -> DateTime {
-    DateTime::from_unix_secs(1_710_504_000 + (day - 15) * 86_400)
+/// Local noon on a day in March 2024. `to_local` applies today's UTC offset, which may differ
+/// from March's by a DST hour, so noon keeps the local day correct in every time zone. The picker
+/// keeps this time of day when the user picks another date.
+pub fn date(day: u32) -> DateTime {
+    let utc = DateTime::from_unix_secs(1_709_294_400 + (i64::from(day) - 1) * 86_400);
+    DateTime::from_ticks(2 * utc.ticks() - utc.to_local().ticks())
 }
 
 fn show_date(value: Option<DateTime>) -> String {
-    value.map_or_else(
+    value.map(DateTime::to_local).map_or_else(
         || "none".to_string(),
         |value| format!("{}-{:02}-{:02}", value.year(), value.month(), value.day()),
     )

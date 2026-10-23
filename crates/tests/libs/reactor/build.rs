@@ -29,6 +29,8 @@ fn main() {
             "IUIAutomationTogglePattern::{Toggle,CurrentToggleState}",
             "IUIAutomationExpandCollapsePattern::{Expand,CurrentExpandCollapseState}",
             "IUIAutomationRangeValuePattern::{SetValue,CurrentValue}",
+            "Windows.Globalization.DateTimeFormatting.DateTimeFormatter::CreateDateTimeFormatter",
+            "Windows.Globalization.DateTimeFormatting.IDateTimeFormatter::Format",
             "TreeScope_Children",
             "TreeScope_Descendants",
             "TreeScope_Subtree",

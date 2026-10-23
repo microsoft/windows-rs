@@ -161,24 +161,16 @@ fn inputs(ui: &Automation, password: &str, color: &str, day: u32) -> Result<()> 
     date(ui, day)
 }
 
-/// Reads the March 2024 date shown by the picker. The sorted numbers make the check independent
-/// of the locale's date order.
+/// Compares the picker text with the same date formatted the way the picker formats it, so the
+/// check holds in any locale and calendar.
 fn date(ui: &Automation, day: u32) -> Result<()> {
-    let mut expected = vec![3, day, 2024];
-    expected.sort_unstable();
+    let expected =
+        DateTimeFormatter::CreateDateTimeFormatter("shortdate")?.Format(test_reactor::date(day))?;
     let text = ui.element("DateText")?;
     ui.wait(
-        &format!("picker shows 2024-03-{day:02}"),
-        || unsafe {
-            let text = String::from_utf16_lossy(&text.CurrentName()?);
-            let mut numbers = text
-                .split(|c: char| !c.is_ascii_digit())
-                .filter_map(|part| part.parse::<u32>().ok())
-                .collect::<Vec<_>>();
-            numbers.sort_unstable();
-            Ok(numbers)
-        },
-        |numbers| *numbers == expected,
+        &format!("picker shows {expected}"),
+        || unsafe { text.CurrentName() },
+        |shown| *shown == *expected,
     )?;
     Ok(())
 }
@@ -205,7 +197,19 @@ fn input_changes(ui: &Automation, day: u32) -> Result<()> {
         },
         Option::is_some,
     )?;
-    ui.pointer_move_to(&item.unwrap(), &name, 0.5, 0.5)?;
+    // Click only after the opening animation stops moving the day.
+    let item = item.unwrap();
+    let mut last = None;
+    ui.wait(
+        &format!("calendar day {day} stops moving"),
+        || unsafe {
+            let bounds = item.CurrentBoundingRectangle()?;
+            let bounds = (bounds.left, bounds.top, bounds.right, bounds.bottom);
+            Ok(last.replace(bounds) == Some(bounds))
+        },
+        |settled| *settled,
+    )?;
+    ui.pointer_move_to(&item, &name, 0.5, 0.5)?;
     ui.pointer_clicks(1)?;
     ui.gone("CalendarView")
 }

@@ -12,6 +12,7 @@ test = false
 windows-canvas = { workspace = true, features = ["reactor"] }
 windows-core = { workspace = true, features = ["proc-macros"] }
 windows-reactor = { workspace = true }
+windows-time = { workspace = true }
 
 [build-dependencies]
 windows-bindgen = { workspace = true }

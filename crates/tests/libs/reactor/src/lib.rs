@@ -25,6 +25,8 @@ mod tray;
 mod typography;
 mod window;
 
+pub use controlled::date;
+
 #[derive(Clone, Copy, PartialEq)]
 enum MenuSurface {
     Button,
