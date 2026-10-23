@@ -415,8 +415,10 @@ impl NativeEventQueue {
         WinUiAdapter::schedule_event_wake(self);
     }
 
-    /// Applies queued native work before returning a realized element so that layout measures
-    /// its content. The realizer defers to the queued wake when the host is already busy.
+    /// Applies the realizations at the front of the native queue before returning a realized
+    /// element so that layout measures its content. Queued native events, messages, and the
+    /// realizations behind them wait for the queued wake, as does all work when a window or
+    /// application driver is already active.
     fn realize_now(&self) {
         let realizer = self.realizer.borrow().clone();
         if let Some(realizer) = realizer {

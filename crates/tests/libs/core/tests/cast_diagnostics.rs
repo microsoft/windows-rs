@@ -62,13 +62,15 @@ fn counts_casts_per_call_site() -> Result<()> {
     for _ in 0..3 {
         let other: IOther = derived.cast()?;
         assert!(other.cast::<IMissing>().is_err());
-        let _: IBase = derived.cast()?;
+        let base: IBase = derived.cast()?;
+        let _: IDerived = base.cast()?;
     }
 
     let counts = imp::take_cast_counts();
     assert_eq!(count::<IDerived, IOther>(&counts, line), 3);
     assert_eq!(count::<IOther, IMissing>(&counts, line + 1), 3);
     assert_eq!(count::<IDerived, IBase>(&counts, line + 2), 3);
+    assert_eq!(count::<IBase, IDerived>(&counts, line + 3), 3);
     assert!(imp::take_cast_counts().is_empty());
     Ok(())
 }

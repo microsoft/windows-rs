@@ -5,10 +5,12 @@
 //! one costs a `QueryInterface` call. Use [`take_cast_counts`] to drain the counts.
 //!
 //! A cast whose `QueryInterface` returns the source pointer is reported on stderr once per call
-//! site, since the source already exposes the target and `Deref` or `.into()` would avoid the call.
-//! This is skipped when the source is type-erased (`IUnknown` or `IInspectable`, where a cast is
-//! the only way to recover the type) or the target is `IUnknown` or `IAgileObject`, whose
-//! IUnknown-only vtables share the object's identity pointer.
+//! site as a hint to examine. It may be an upcast that `Deref` or `.into()` would do without a
+//! call, or a necessary downcast between interfaces that share a vtable through COM inheritance;
+//! the two cannot be told apart at run time. The hint is skipped when the source is type-erased
+//! (`IUnknown` or `IInspectable`, where a cast is the only way to recover the type) or the target
+//! is `IUnknown` or `IAgileObject`, whose IUnknown-only vtables share the object's identity
+//! pointer.
 
 extern crate std;
 
@@ -51,7 +53,7 @@ pub fn take_cast_counts() -> Vec<CastCount> {
             count: site.count,
         })
         .collect();
-    // Sites are kept so that a redundant cast is reported only once per process.
+    // Sites are kept so that a same-pointer cast is reported only once per process.
     sites.values_mut().for_each(|site| site.count = 0);
     counts
 }
@@ -90,8 +92,7 @@ pub(crate) fn record_cast<S: Interface, T: Interface>(
         drop(sites);
         std::eprintln!(
             "windows-core: cast::<{target}> from {source} at {location} returned the same \
-             interface pointer; the source already exposes this interface (use Deref or .into() \
-             instead of .cast())",
+             interface pointer; if {target} is a base of {source}, use Deref or .into() instead",
         );
     }
 }

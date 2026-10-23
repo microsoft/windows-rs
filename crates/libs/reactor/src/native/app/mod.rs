@@ -464,25 +464,32 @@ impl WindowDispatch {
         let wake = Rc::clone(&registration);
         let callback = context.callback(move || {
             let wake = wake.get().unwrap();
-            if dispatch.active.replace(true) {
+            dispatch.run(&work).unwrap_or_else(|| {
                 let mut deferred = dispatch.deferred.borrow_mut();
                 if !deferred.iter().any(|callback| callback.id == wake.id) {
                     deferred.push(wake.clone());
                 }
-                return Ok(());
-            }
-            // Native calls can pump a nested dispatcher loop. All window and application
-            // drivers share this boundary so a nested wake cannot reenter an active owner.
-            let result = work();
-            dispatch.active.set(false);
-            let deferred = std::mem::take(&mut *dispatch.deferred.borrow_mut());
-            for callback in deferred {
-                callback.wake();
-            }
-            result
+                Ok(())
+            })
         });
         assert!(registration.set(callback.clone()).is_ok());
         callback
+    }
+
+    /// Runs `work` unless an owner is already active, then wakes the callbacks deferred meanwhile.
+    fn run<R>(&self, work: impl FnOnce() -> R) -> Option<R> {
+        if self.active.replace(true) {
+            return None;
+        }
+        // Native calls can pump a nested dispatcher loop. All window and application drivers
+        // share this boundary so a nested wake cannot reenter an active owner.
+        let result = work();
+        self.active.set(false);
+        let deferred = std::mem::take(&mut *self.deferred.borrow_mut());
+        for callback in deferred {
+            callback.wake();
+        }
+        Some(result)
     }
 }
 
@@ -922,25 +929,19 @@ fn open_component_window(
     let wake = drain.clone();
     host.set_continuation_waker(move || wake.wake());
     let realize_state = Rc::downgrade(&state);
-    let realized_application = Rc::downgrade(application);
+    let realize_dispatch = Rc::clone(&services.dispatch);
     host.set_realizer(move || {
         let Some(state) = realize_state.upgrade() else {
             return;
         };
-        // Layout forced while the host is busy keeps the queued realization.
-        let Ok(mut state) = state.try_borrow_mut() else {
-            return;
-        };
-        let Some(state) = state.as_mut() else {
-            return;
-        };
-        state.host.drain_native();
-        if let Some(application) = realized_application.upgrade()
-            && let Ok(application) = application.try_borrow()
-            && let Some(changed) = &application.changed
-        {
-            changed.wake();
-        }
+        // Layout forced while a driver is active keeps the queued realization.
+        realize_dispatch.run(|| {
+            if let Ok(mut state) = state.try_borrow_mut()
+                && let Some(state) = state.as_mut()
+            {
+                state.host.realize_pending();
+            }
+        });
     });
     let root = host.runtime().graph().root().unwrap();
     let mut window = match host
