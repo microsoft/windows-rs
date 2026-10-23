@@ -838,7 +838,36 @@ impl App {
         let fault = APP_FAULT
             .with(|fault| fault.borrow_mut().take())
             .map_or(Ok(()), Err);
+        #[cfg(windows_cast_diagnostics)]
+        report_casts();
         start.and(callback_result).and(fault)
+    }
+}
+
+/// Prints the casts made while the app ran, busiest call sites first, when building with
+/// `RUSTFLAGS=--cfg windows_cast_diagnostics`.
+#[cfg(windows_cast_diagnostics)]
+fn report_casts() {
+    let mut counts = windows_core::imp::take_cast_counts();
+    counts.sort_by_key(|count| std::cmp::Reverse(count.count));
+    let short = |name: &'static str| {
+        let end = name.find('<').unwrap_or(name.len());
+        let start = name[..end].rfind("::").map_or(0, |index| index + 2);
+        &name[start..]
+    };
+    eprintln!(
+        "windows-reactor: {} casts at {} call sites",
+        counts.iter().map(|count| count.count).sum::<u64>(),
+        counts.len()
+    );
+    for count in counts.iter().take(40) {
+        eprintln!(
+            "{:>8}  {} -> {}  {}",
+            count.count,
+            short(count.source),
+            short(count.target),
+            count.location
+        );
     }
 }
 
@@ -892,6 +921,27 @@ fn open_component_window(
     );
     let wake = drain.clone();
     host.set_continuation_waker(move || wake.wake());
+    let realize_state = Rc::downgrade(&state);
+    let realized_application = Rc::downgrade(application);
+    host.set_realizer(move || {
+        let Some(state) = realize_state.upgrade() else {
+            return;
+        };
+        // Layout forced while the host is busy keeps the queued realization.
+        let Ok(mut state) = state.try_borrow_mut() else {
+            return;
+        };
+        let Some(state) = state.as_mut() else {
+            return;
+        };
+        state.host.drain_native();
+        if let Some(application) = realized_application.upgrade()
+            && let Ok(application) = application.try_borrow()
+            && let Some(changed) = &application.changed
+        {
+            changed.wake();
+        }
+    });
     let root = host.runtime().graph().root().unwrap();
     let mut window = match host
         .runtime()

@@ -29,6 +29,7 @@ fn main() {
             "IUIAutomationTogglePattern::{Toggle,CurrentToggleState}",
             "IUIAutomationExpandCollapsePattern::{Expand,CurrentExpandCollapseState}",
             "IUIAutomationRangeValuePattern::{SetValue,CurrentValue}",
+            "IUIAutomationScrollPattern::SetScrollPercent",
             "Windows.Globalization.DateTimeFormatting.DateTimeFormatter::CreateDateTimeFormatter",
             "Windows.Globalization.DateTimeFormatting.IDateTimeFormatter::Format",
             "TreeScope_Children",

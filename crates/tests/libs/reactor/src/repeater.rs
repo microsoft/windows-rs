@@ -54,6 +54,7 @@ impl Component for RepeaterFixture {
                         )),
                 )),
                 ScrollViewer::new()
+                    .automation_id("rows")
                     .grid_row(1)
                     .content(ItemsRepeater::new().virtual_source(VirtualSource::new(
                         0,

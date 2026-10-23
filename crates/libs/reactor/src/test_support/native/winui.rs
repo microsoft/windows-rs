@@ -1,19 +1,12 @@
 use super::*;
 
 impl WinUiAdapter {
-    pub(crate) fn realize_virtual_item(
-        &self,
-        object: ObjectId,
-        index: usize,
-    ) -> Result<(), WinUiError> {
-        let index = i32::try_from(index).map_err(|_| WinUiError::IndexOverflow(index))?;
+    pub(crate) fn virtual_repeater(&self, object: ObjectId) -> Option<native::ItemsRepeater> {
         match self.handles.get(&object) {
             Some(Handle::Generated(GeneratedHandle::ItemsRepeater(repeater))) => {
-                repeater.GetOrCreateElement(index)?;
-                Ok(())
+                Some(repeater.clone())
             }
-            Some(_) => Err(WinUiError::InvalidObject(object)),
-            None => Err(WinUiError::MissingObject(object)),
+            _ => None,
         }
     }
 

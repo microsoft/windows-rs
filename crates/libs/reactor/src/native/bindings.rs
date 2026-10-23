@@ -20085,6 +20085,14 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn StartBringIntoView(&self) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).StartBringIntoView)(
+                windows_core::Interface::as_raw(self),
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Focus(&self, value: FocusState) -> windows_core::Result<bool> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -20434,7 +20442,8 @@ pub struct IUIElement_Vtbl {
     pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     CancelDirectManipulations: usize,
     StartDragAsync: usize,
-    StartBringIntoView: usize,
+    pub StartBringIntoView:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     StartBringIntoViewWithOptions: usize,
     TryInvokeKeyboardAccelerator: usize,
     pub Focus: unsafe extern "system" fn(

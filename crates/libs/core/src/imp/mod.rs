@@ -8,6 +8,8 @@ mod array_slice;
 #[cfg_attr(not(windows), allow(dead_code))]
 mod bindings;
 mod can_into;
+#[cfg(windows_cast_diagnostics)]
+mod cast_diagnostics;
 mod delegate_box;
 mod ref_count;
 mod sha1;
@@ -20,6 +22,8 @@ pub use agile::*;
 pub use array_slice::*;
 pub use bindings::*;
 pub use can_into::*;
+#[cfg(windows_cast_diagnostics)]
+pub use cast_diagnostics::*;
 pub use delegate_box::*;
 pub use ref_count::*;
 pub use sha1::*;

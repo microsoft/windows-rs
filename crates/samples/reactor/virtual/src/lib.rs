@@ -288,36 +288,41 @@ impl Component for TaskEditor {
             },
         );
 
-        StackPanel::new()
-            .spacing(8.0)
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::STAR])
             .children((
-                TextBlock::new()
-                    .text("Virtual task editor")
-                    .text_wrapping(TextWrapping::Wrap),
-                self.status.clone(),
-                StackPanel::new().spacing(4.0).children((
-                    Button::new()
-                        .on_click(context.message(Message::Add))
-                        .content("Add at front"),
-                    Button::new()
-                        .on_click(context.message(Message::MoveFirstToEnd))
-                        .content("Move first to end"),
-                    Button::new()
-                        .on_click(context.message(Message::Reverse))
-                        .content("Reverse"),
-                    Button::new()
-                        .is_enabled(!self.loading)
-                        .on_click(context.message(Message::Load))
-                        .content("Load 100"),
-                    Button::new()
-                        .on_click(context.message(Message::Stress))
-                        .content("Reset to 1,000"),
+                StackPanel::new().spacing(8.0).children((
+                    TextBlock::new()
+                        .text("Virtual task editor")
+                        .text_wrapping(TextWrapping::Wrap),
+                    self.status.clone(),
+                    StackPanel::new().spacing(4.0).children((
+                        Button::new()
+                            .on_click(context.message(Message::Add))
+                            .content("Add at front"),
+                        Button::new()
+                            .on_click(context.message(Message::MoveFirstToEnd))
+                            .content("Move first to end"),
+                        Button::new()
+                            .on_click(context.message(Message::Reverse))
+                            .content("Reverse"),
+                        Button::new()
+                            .is_enabled(!self.loading)
+                            .on_click(context.message(Message::Load))
+                            .content("Load 100"),
+                        Button::new()
+                            .on_click(context.message(Message::Stress))
+                            .content("Reset to 1,000"),
+                    )),
+                    ProgressBar::new()
+                        .minimum(0.0)
+                        .maximum(1.0)
+                        .is_indeterminate(self.loading),
                 )),
-                ProgressBar::new()
-                    .minimum(0.0)
-                    .maximum(1.0)
-                    .is_indeterminate(self.loading),
-                ScrollViewer::new().content(ItemsRepeater::new().virtual_source(rows)),
+                ScrollViewer::new()
+                    .grid_row(1)
+                    .margin(Thickness::new(0.0, 8.0, 0.0, 0.0))
+                    .content(ItemsRepeater::new().virtual_source(rows)),
             ))
             .into()
     }
@@ -466,7 +471,7 @@ pub fn run() {
 pub mod performance {
     use super::*;
     use std::sync::Arc;
-    use std::sync::atomic::{AtomicBool, Ordering};
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
     use std::time::Instant;
 
     const REALIZED_ROWS: usize = 32;
@@ -698,12 +703,15 @@ pub mod performance {
                 tick: 0,
             }));
             let done = Arc::new(AtomicBool::new(false));
+            let ticks = Arc::new(AtomicUsize::new(0));
             let tick = subscribe_live_tick({
                 let done = Arc::clone(&done);
+                let ticks = Arc::clone(&ticks);
                 let editor = editor.clone();
                 let stats = Rc::clone(&stats);
                 move || {
                     let now = Instant::now();
+                    ticks.fetch_add(1, Ordering::Relaxed);
                     let mut stats = stats.borrow_mut();
                     if stats.complete {
                         return;
@@ -774,13 +782,24 @@ pub mod performance {
             .unwrap();
 
             std::thread::spawn(move || {
-                std::thread::sleep(Duration::from_secs(20));
-                if !done.swap(true, Ordering::AcqRel) {
-                    _ = std::fs::write(
-                        live_report_path(active),
-                        "windows-reactor live virtual editor\nno dispatcher ticks captured\n",
-                    );
-                    std::process::exit(2);
+                let mut seen = 0;
+                loop {
+                    std::thread::sleep(Duration::from_secs(20));
+                    let current = ticks.load(Ordering::Relaxed);
+                    if done.load(Ordering::Acquire) {
+                        return;
+                    }
+                    if current != seen {
+                        seen = current;
+                        continue;
+                    }
+                    if !done.swap(true, Ordering::AcqRel) {
+                        _ = std::fs::write(
+                            live_report_path(active),
+                            "windows-reactor live virtual editor\nno dispatcher ticks captured\n",
+                        );
+                        std::process::exit(2);
+                    }
                 }
             });
 

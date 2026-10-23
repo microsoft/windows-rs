@@ -216,6 +216,10 @@ impl WinUiAdapter {
         }
     }
 
+    pub fn set_realizer(&mut self, realizer: impl Fn() + 'static) {
+        *self.event_queue.realizer.borrow_mut() = Some(Rc::new(realizer));
+    }
+
     pub fn create_window_with_policy(
         &self,
         root_object: ObjectId,

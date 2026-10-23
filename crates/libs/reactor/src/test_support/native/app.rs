@@ -15,7 +15,7 @@ fn with_primary_component_window<T>(
 }
 
 pub fn bring_live_virtual_index(index: usize) -> Result<(), &'static str> {
-    with_primary_component_window(|window| {
+    let repeater = with_primary_component_window(|window| {
         let collection = window
             .host
             .runtime()
@@ -29,9 +29,15 @@ pub fn bring_live_virtual_index(index: usize) -> Result<(), &'static str> {
             .host
             .runtime()
             .adapter()
-            .realize_virtual_item(collection, index)
-            .map_err(|_| "virtual index could not be realized")
-    })
+            .virtual_repeater(collection)
+            .ok_or("virtual collection is not mounted")
+    })?;
+    // Realization applies content synchronously only once the host is no longer borrowed.
+    let index = i32::try_from(index).map_err(|_| "virtual index is out of range")?;
+    repeater
+        .GetOrCreateElement(index)
+        .and_then(|element| element.StartBringIntoView())
+        .map_err(|_| "virtual index could not be brought into view")
 }
 
 pub fn live_virtual_shell_counts() -> Result<(usize, usize), &'static str> {

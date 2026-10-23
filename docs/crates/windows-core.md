@@ -201,3 +201,30 @@ behind the `proc-macros` feature, and the `implement_macro`/`interface_macro` mo
 ### Testing
 
 Run `cargo test -p windows-core`; see also the workspace test crates.
+
+### Cast diagnostics
+
+Each `Interface::cast` costs a `QueryInterface` call, and a cast to an interface the source already
+exposes is wasted: `Deref` or `.into()` reach the same pointer without a call. Cast diagnostics find
+those sites and show where an app spends its casts. They are opt-in at build time; without the cfg,
+`cast` compiles exactly as before.
+
+Building with `RUSTFLAGS=--cfg windows_cast_diagnostics` instruments `Interface::cast`:
+
+| Diagnostic | Use |
+| --- | --- |
+| stderr warning | Reports a cast that returns the source pointer, once per call site. Type-erased sources (`IUnknown`, `IInspectable`) and identity targets (`IUnknown`, `IAgileObject`) are skipped. |
+| `imp::take_cast_counts` | Drains the number of casts per call site and source/target type, including failed casts. |
+
+The instrumented `cast` takes a lock per call and needs `std`, so use it for diagnostics only.
+`windows-reactor` prints the busiest call sites when `App` exits, so any Reactor sample can be
+profiled:
+
+```powershell
+$env:RUSTFLAGS = "--cfg windows_cast_diagnostics"
+$env:CARGO_TARGET_DIR = "target\cast-diagnostics"
+cargo run -p reactor-solitaire
+```
+
+The Reactor workflow fails if the headless `windows-reactor` tests report a same-pointer cast.
+`crates/tests/libs/core/tests/cast_diagnostics.rs` covers the counts and runs only with the cfg.

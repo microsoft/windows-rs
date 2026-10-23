@@ -18,6 +18,12 @@ impl ComponentHost<WinUiAdapter> {
         self.runtime_mut_internal()
             .set_native_event_wakers(native, imperative);
     }
+
+    pub(crate) fn set_realizer(&mut self, realizer: impl Fn() + 'static) {
+        self.runtime_mut_internal()
+            .adapter_mut()
+            .set_realizer(realizer);
+    }
 }
 
 impl WinUiAdapter {

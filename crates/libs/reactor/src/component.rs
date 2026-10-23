@@ -1772,8 +1772,18 @@ impl<A: Adapter> ComponentHost<A> {
     }
 
     pub fn drain(&mut self, limit: usize) -> ComponentDrain {
-        let mut report = ComponentDrain::default();
         self.queue.lock().unwrap().wake_pending = false;
+        self.drain_with(limit, false)
+    }
+
+    /// Applies pending native events and realizations, plus messages their callbacks queue, and
+    /// leaves other messages for the next drain.
+    pub(crate) fn drain_native(&mut self) -> ComponentDrain {
+        self.drain_with(usize::MAX, true)
+    }
+
+    fn drain_with(&mut self, limit: usize, native_only: bool) -> ComponentDrain {
+        let mut report = ComponentDrain::default();
         let mut processed = 0;
         let mut active_event = None;
         loop {
@@ -1784,6 +1794,9 @@ impl<A: Adapter> ComponentHost<A> {
                 break;
             }
             let native_pending = active_event.is_none() && !self.runtime.prepare_update();
+            if native_only && active_event.is_none() && !native_pending {
+                break;
+            }
             let message = (!native_pending)
                 .then(|| {
                     let mut queue = self.queue.lock().unwrap();

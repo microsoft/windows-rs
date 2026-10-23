@@ -96,6 +96,24 @@ jobs:
             throw "windows-reactor public API changed"
           }
 
+      - name: Check redundant casts
+        # Builds with windows-core cast diagnostics, which print a warning for a cast whose
+        # QueryInterface returns the source pointer. See docs/crates/windows-core.md.
+        shell: pwsh
+        env:
+          RUSTFLAGS: "-D warnings --cfg windows_cast_diagnostics"
+          CARGO_TARGET_DIR: target\cast-diagnostics
+        run: |
+          $ErrorActionPreference = "Stop"
+          $PSNativeCommandUseErrorActionPreference = $true
+          cargo test -p test_core --test cast_diagnostics --quiet
+          $output = cargo test -p windows-reactor --all-features --lib --quiet -- --nocapture 2>&1
+          $output | Out-Host
+          $casts = $output | Select-String "windows-core: cast::"
+          if ($casts) {
+            throw "$($casts.Count) redundant cast(s) reported"
+          }
+
       - name: Run Reactor tests
         # Workspace tests cover feature unification; keep this default-feature run isolated.
         shell: pwsh
