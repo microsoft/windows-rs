@@ -1,10 +1,5 @@
 #[win32]
 mod Fixture {
-    #[success(return >= 0)]
-    type HRESULT = i32;
-}
-#[win32]
-mod Fixture {
     struct GUID {
         Data1: u32,
         Data2: u16,
@@ -21,4 +16,9 @@ mod Fixture {
 mod Fixture {
     #[library("RoMetadata.dll")]
     extern fn MetaDataGetDispenser(#[in] rclsid: &IID, #[in] riid: &IID, #[out] #[out_ptr] ppv: *mut LPVOID) -> HRESULT;
+}
+#[win32]
+mod Fixture {
+    #[success(return >= 0)]
+    type HRESULT = i32;
 }

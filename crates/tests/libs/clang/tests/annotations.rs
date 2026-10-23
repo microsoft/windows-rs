@@ -488,7 +488,7 @@ fn sdk_annotations() {
             .unwrap();
         assert_eq!(
             test_clang::buffer_extent(
-                method.params().nth(1).unwrap(),
+                method.params().find(|param| param.sequence() == 2).unwrap(),
                 windows_metadata::BufferAccess::Read,
                 windows_metadata::BufferPhase::Success
             ),
@@ -503,7 +503,11 @@ fn sdk_annotations() {
             })
         );
         assert_eq!(
-            method.params().nth(1).unwrap().buffer_relationship(),
+            method
+                .params()
+                .find(|param| param.sequence() == 2)
+                .unwrap()
+                .buffer_relationship(),
             Some(reader::BufferRelationship::BytesParam(2))
         );
         let module_name = index
@@ -515,7 +519,11 @@ fn sdk_annotations() {
             })
             .unwrap();
         assert_eq!(
-            module_name.params().nth(1).unwrap().buffer_relationship(),
+            module_name
+                .params()
+                .find(|param| param.sequence() == 2)
+                .unwrap()
+                .buffer_relationship(),
             Some(reader::BufferRelationship::ElementsParam(2))
         );
         let create = index

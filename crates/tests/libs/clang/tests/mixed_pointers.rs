@@ -6,10 +6,14 @@ fn mixed_pointers() {
     helpers::ensure_libclang();
     let output =
         projection::generate(&[selected_fixture("mixed_pointers", &[])], "Fixture").unwrap();
-    let expected = std::fs::read_to_string(input_dir().join("mixed_pointers.rdl"))
+    let rdl = &output.partitions["mixed_pointers"].rdl;
+    let expected = input_dir().join("mixed_pointers.rdl");
+    if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+        std::fs::write(&expected, rdl).unwrap();
+    }
+    let expected = std::fs::read_to_string(expected)
         .unwrap()
         .replace("\r\n", "\n");
-    let rdl = &output.partitions["mixed_pointers"].rdl;
     assert_eq!(*rdl, expected);
 
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");

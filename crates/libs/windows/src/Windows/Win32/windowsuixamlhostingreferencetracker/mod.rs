@@ -213,7 +213,7 @@ pub trait IReferenceTrackerHost_Impl: windows_core::IUnknownImpl {
     fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> windows_core::Result<()>;
     fn ReleaseDisconnectedReferenceSources(&self) -> windows_core::Result<()>;
     fn NotifyEndOfReferenceTrackingOnThread(&self) -> windows_core::Result<()>;
-    fn GetTrackerTarget(&self, unknown: Option<windows_core::IUnknown>, newreference: *mut Option<IReferenceTrackerTarget>) -> windows_core::Result<()>;
+    fn GetTrackerTarget(&self, unknown: windows_core::Ref<windows_core::IUnknown>, newreference: *mut Option<IReferenceTrackerTarget>) -> windows_core::Result<()>;
     fn AddMemoryPressure(&self, bytesallocated: super::UINT64) -> windows_core::Result<()>;
     fn RemoveMemoryPressure(&self, bytesallocated: super::UINT64) -> windows_core::Result<()>;
 }
@@ -241,7 +241,7 @@ impl IReferenceTrackerHost_Vtbl {
         unsafe extern "system" fn GetTrackerTarget<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unknown: *mut core::ffi::c_void, newreference: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IReferenceTrackerHost_Impl::GetTrackerTarget(this, core::mem::transmute(&unknown), core::mem::transmute_copy(&newreference)).into()
+                IReferenceTrackerHost_Impl::GetTrackerTarget(this, core::mem::transmute_copy(&unknown), core::mem::transmute_copy(&newreference)).into()
             }
         }
         unsafe extern "system" fn AddMemoryPressure<Identity: IReferenceTrackerHost_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bytesallocated: super::UINT64) -> windows_core::HRESULT {

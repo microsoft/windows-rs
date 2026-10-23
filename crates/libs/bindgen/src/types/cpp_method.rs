@@ -41,11 +41,7 @@ fn param_hint(
     parameter_count: usize,
     reader: &Reader,
 ) -> ParamHint {
-    // Residual evidence cannot authorize a smaller or otherwise transformed argument list.
-    if param.has_unresolved_contracts() {
-        return ParamHint::ArrayRaw;
-    }
-    if !param.has_direction() {
+    if param.has_unresolved_contracts() || !param.has_direction() {
         return ParamHint::None;
     }
     match param.buffer_relationship() {
@@ -181,7 +177,10 @@ impl CppMethod {
             if *hint == ParamHint::None {
                 let param = &signature.params[position];
                 let ty = param.projection_type(reader);
-                if param.has_buffer_attributes() {
+                // COM values still use borrowed references, not raw-buffer ownership.
+                if (param.has_buffer_attributes() || param.has_unresolved_contracts())
+                    && !ty.is_interface()
+                {
                     *hint = ParamHint::ArrayRaw;
                     continue;
                 }
@@ -866,7 +865,7 @@ fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenS
 
     let ty = param.projection_type(config.reader);
 
-    if param.is_input_only() && ty.is_interface_with_reader(config.reader) {
+    if ty.is_interface_with_reader(config.reader) {
         let type_name = param.write_name(config);
         quote! { #name: windows_core::Ref<#type_name>, }
     } else if param.has_direction()
@@ -892,11 +891,9 @@ fn write_invoke_arg(param: &Param, reader: &Reader) -> TokenStream {
 
     let ty = param.projection_type(reader);
 
-    if param.is_input_only() && ty.is_interface_with_reader(reader) {
+    if ty.is_interface_with_reader(reader) {
         quote! { core::mem::transmute_copy(&#name) }
-    } else if (!ty.is_pointer() && ty.is_interface_with_reader(reader))
-        || (param.is_input_only() && !ty.is_primitive(reader))
-    {
+    } else if param.is_input_only() && !ty.is_primitive(reader) {
         quote! { core::mem::transmute(&#name) }
     } else {
         quote! { core::mem::transmute_copy(&#name) }

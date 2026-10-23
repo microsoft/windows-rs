@@ -31,23 +31,6 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    type CHAR = i8;
-    type DWORD = u32;
-    #[success(return >= 0)]
-    type HRESULT = i32;
-    #[arch(X64 | Arm64)]
-    type SIZE_T = u64;
-    #[arch(X86)]
-    type SIZE_T = u32;
-    type UINT = u32;
-    type ULONG = u32;
-    #[arch(X64 | Arm64)]
-    type ULONG_PTR = u64;
-    #[arch(X86)]
-    type ULONG_PTR = u32;
-}
-#[win32]
-mod Fixture {
     type CLSID = GUID;
     struct GUID {
         Data1: u32,
@@ -72,17 +55,34 @@ mod Fixture {
     #[guid(0x0000010b_0000_0000_c000_000000000046)]
     interface IPersistFile: IPersist {
         fn IsDirty(&self) -> HRESULT;
-        fn Load(&self, #[in] pszFileName: LPCOLESTR, dwMode: DWORD) -> HRESULT;
-        fn Save(&self, #[in] #[opt] pszFileName: LPCOLESTR, fRemember: BOOL) -> HRESULT;
+        fn Load(&self, #[in] pszFileName: LPCOLESTR, #[in] dwMode: DWORD) -> HRESULT;
+        fn Save(&self, #[in] #[opt] pszFileName: LPCOLESTR, #[in] fRemember: BOOL) -> HRESULT;
         fn SaveCompleted(&self, #[in] #[opt] pszFileName: LPCOLESTR) -> HRESULT;
         fn GetCurFile(&self, #[out] #[out_ptr] ppszFileName: *mut LPOLESTR) -> HRESULT;
     }
 }
 #[win32]
 mod Fixture {
+    type CHAR = i8;
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    #[arch(X64 | Arm64)]
+    type SIZE_T = u64;
+    #[arch(X86)]
+    type SIZE_T = u32;
+    type UINT = u32;
+    type ULONG = u32;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+}
+#[win32]
+mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

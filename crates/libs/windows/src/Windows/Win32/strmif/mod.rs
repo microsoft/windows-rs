@@ -4116,7 +4116,7 @@ pub trait IAMTVAudio_Impl: windows_core::IUnknownImpl {
     fn get_TVAudioMode(&self) -> windows_core::Result<i32>;
     fn put_TVAudioMode(&self, lmode: i32) -> windows_core::Result<()>;
     fn RegisterNotificationCallBack(&self, pnotify: windows_core::Ref<IAMTunerNotification>, levents: i32) -> windows_core::Result<()>;
-    fn UnRegisterNotificationCallBack(&self, pnotify: Option<IAMTunerNotification>) -> windows_core::Result<()>;
+    fn UnRegisterNotificationCallBack(&self, pnotify: windows_core::Ref<IAMTunerNotification>) -> windows_core::Result<()>;
 }
 impl IAMTVAudio_Vtbl {
     pub const fn new<Identity: IAMTVAudio_Impl, const OFFSET: isize>() -> Self {
@@ -4171,7 +4171,7 @@ impl IAMTVAudio_Vtbl {
         unsafe extern "system" fn UnRegisterNotificationCallBack<Identity: IAMTVAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnotify: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAMTVAudio_Impl::UnRegisterNotificationCallBack(this, core::mem::transmute(&pnotify)).into()
+                IAMTVAudio_Impl::UnRegisterNotificationCallBack(this, core::mem::transmute_copy(&pnotify)).into()
             }
         }
         Self {
@@ -6600,7 +6600,7 @@ pub trait ICodecAPI_Impl: windows_core::IUnknownImpl {
     fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut super::ULONG) -> windows_core::Result<()>;
     fn GetAllSettings(&self, __midl__icodecapi0000: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
     fn SetAllSettings(&self, __midl__icodecapi0001: windows_core::Ref<super::IStream>) -> windows_core::Result<()>;
-    fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: Option<super::IStream>, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut super::ULONG) -> windows_core::Result<()>;
+    fn SetAllSettingsWithNotify(&self, __midl__icodecapi0002: windows_core::Ref<super::IStream>, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut super::ULONG) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICodecAPI_Vtbl {
@@ -6704,7 +6704,7 @@ impl ICodecAPI_Vtbl {
         unsafe extern "system" fn SetAllSettingsWithNotify<Identity: ICodecAPI_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__icodecapi0002: *mut core::ffi::c_void, changedparam: *mut *mut windows_core::GUID, changedparamcount: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICodecAPI_Impl::SetAllSettingsWithNotify(this, core::mem::transmute(&__midl__icodecapi0002), core::mem::transmute_copy(&changedparam), core::mem::transmute_copy(&changedparamcount)).into()
+                ICodecAPI_Impl::SetAllSettingsWithNotify(this, core::mem::transmute_copy(&__midl__icodecapi0002), core::mem::transmute_copy(&changedparam), core::mem::transmute_copy(&changedparamcount)).into()
             }
         }
         Self {

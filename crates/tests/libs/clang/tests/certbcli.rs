@@ -68,10 +68,13 @@ fn constants(consumers: bool) {
         }
         let result = projection::project_partial(captured, "Fixture").unwrap();
         assert_eq!(result.output.constants, 24);
-        let expected =
-            std::fs::read_to_string(test_clang::input_dir().join("certbcli_discovery.rdl"))
-                .unwrap()
-                .replace("\r\n", "\n");
+        let expected = test_clang::input_dir().join("certbcli_discovery.rdl");
+        if !unicode && std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+            std::fs::write(&expected, &result.output.partitions["certbcli"].rdl).unwrap();
+        }
+        let expected = std::fs::read_to_string(expected)
+            .unwrap()
+            .replace("\r\n", "\n");
         let expected = if unicode {
             expected.replace(
                 "#[encoding(\"ansi\")]\n    const wsz",

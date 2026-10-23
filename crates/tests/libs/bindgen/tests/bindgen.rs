@@ -206,6 +206,89 @@ fn named_bitfield_styles() {
 }
 
 #[test]
+#[ignore = "requires the x86, x64, and ARM64 MSVC Rust targets"]
+fn enum_constant_shadow_styles() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("enum_constant_shadow_styles");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/enum_constant_shadow.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    for style in ["default", "minimal", "sys"] {
+        for filter in [
+            "Test",
+            "Test.Pool",
+            "Test.Pool::{Default,Aligned,Unshadowed,Replaced}",
+            "Test.Default",
+        ] {
+            let output = scratch.join("bindings.rs");
+            let mut builder = windows_bindgen::builder();
+            builder.input(&winmd).filter(filter).flat().output(&output);
+            match style {
+                "minimal" => {
+                    builder.minimal();
+                }
+                "sys" => {
+                    builder.sys();
+                }
+                _ => {}
+            }
+            builder.write();
+            let mut rust = std::fs::read_to_string(&output).unwrap();
+            rust.push_str("\nconst _: () = { assert!(Default == if cfg!(target_arch = \"aarch64\") { 512 } else { 0 }); };\n");
+            if filter != "Test.Default" {
+                rust.push_str(
+                    "\nconst _: () = {\n\
+                    assert!(Aligned == if cfg!(target_arch = \"aarch64\") { 516 } else { 4 });\n\
+                    assert!(Unshadowed == 8 && Replaced == 10);\n\
+                };\n",
+                );
+            }
+            if filter == "Test" {
+                rust.push_str(
+                    "\n#[cfg(target_arch = \"x86\")] const PartialValue: i32 = -1;\n\
+                    const _: () = {\n\
+                    #[cfg(target_arch = \"x86_64\")] assert!(PartialValue == 20);\n\
+                    #[cfg(target_arch = \"aarch64\")] assert!(PartialValue == 21);\n\
+                    #[cfg(target_arch = \"x86\")] assert!(PartialValue == -1);\n\
+                    assert!(ScopedValue == 41 && Scoped::ScopedValue.0 == 40);\n\
+                };\n",
+                );
+            }
+            std::fs::write(&output, rust).unwrap();
+            for target in [
+                "i686-pc-windows-msvc",
+                "x86_64-pc-windows-msvc",
+                "aarch64-pc-windows-msvc",
+            ] {
+                let result = std::process::Command::new("rustc")
+                    .args([
+                        "--crate-name",
+                        "enum_constant_shadow",
+                        "--crate-type=lib",
+                        "--emit=metadata",
+                        "--edition=2024",
+                        "--target",
+                        target,
+                    ])
+                    .arg(&output)
+                    .arg("-o")
+                    .arg(scratch.join("output.rmeta"))
+                    .output()
+                    .unwrap();
+                assert!(
+                    result.status.success(),
+                    "{style} {filter} {target}: {}",
+                    String::from_utf8_lossy(&result.stderr)
+                );
+            }
+        }
+    }
+}
+
+#[test]
 fn real_variadic_exports_are_raw_sys_only() {
     let rich =
         std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/authz/mod.rs").unwrap();
@@ -213,9 +296,9 @@ fn real_variadic_exports_are_raw_sys_only() {
 
     let sys = std::fs::read_to_string("../../../libs/sys/src/Windows/Win32/authz/mod.rs").unwrap();
     assert!(sys.contains(
-        "windows_link::link!(\"authz.dll\" \"C\" fn AuthzReportSecurityEvent(dwflags : u32, \
-         heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : u32, pusersid : \
-         super::PSID, dwcount : u32, ...) -> windows_sys::core::BOOL);"
+        "windows_link::link!(\"authz.dll\" \"C\" fn AuthzReportSecurityEvent(dwflags : super::DWORD, \
+         heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : super::DWORD, pusersid : \
+         super::PSID, dwcount : super::DWORD, ...) -> windows_sys::core::BOOL);"
     ));
 }
 
@@ -231,7 +314,11 @@ fn real_inout_parameters_remain_output_capable() {
     let dpapi =
         std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/dpapi/mod.rs").unwrap();
     assert!(dpapi.contains(
-        "pub unsafe fn CryptProtectMemory(pdatain: *mut core::ffi::c_void, cbdatain: u32, \
-         dwflags: u32) -> windows_core::BOOL"
+        "pub unsafe fn CryptProtectMemory(pdatain: super::LPVOID, cbdatain: super::DWORD, \
+         dwflags: super::DWORD) -> windows_core::BOOL"
     ));
+    let minwindef =
+        std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/minwindef/mod.rs")
+            .unwrap();
+    assert!(minwindef.contains("pub type LPVOID = *mut core::ffi::c_void;"));
 }

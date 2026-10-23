@@ -24,9 +24,13 @@ fn roundtrip() {
     inputs[0].name = "renamed.h".into();
     assert_eq!(output, projection::generate(&inputs, "Fixture").unwrap());
     let rdl = &output.partitions["public_names"].rdl;
+    let expected = test_clang::input_dir().join("public_names.rdl");
+    if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+        std::fs::write(&expected, rdl).unwrap();
+    }
     assert_eq!(
         *rdl,
-        std::fs::read_to_string(test_clang::input_dir().join("public_names.rdl"))
+        std::fs::read_to_string(expected)
             .unwrap()
             .replace("\r\n", "\n")
     );

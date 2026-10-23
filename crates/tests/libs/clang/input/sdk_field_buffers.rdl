@@ -27,14 +27,14 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    type DWORD = u32;
-    type UCHAR = u8;
-    type ULONG = u32;
+    type PDWORD = *mut u32;
+    type PUCHAR = *mut u8;
 }
 #[win32]
 mod Fixture {
-    type PDWORD = *mut u32;
-    type PUCHAR = *mut u8;
+    type DWORD = u32;
+    type UCHAR = u8;
+    type ULONG = u32;
 }
 #[win32]
 mod Fixture {

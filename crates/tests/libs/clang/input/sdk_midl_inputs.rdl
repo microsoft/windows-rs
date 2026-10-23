@@ -1,17 +1,5 @@
 #[win32]
 mod Fixture {
-    type BYTE = u8;
-    type DWORD = u32;
-    #[success(return >= 0)]
-    type HRESULT = i32;
-    type LONG = i32;
-    type LONGLONG = i64;
-    type ULONG = u32;
-    type ULONGLONG = u64;
-    type WORD = u16;
-}
-#[win32]
-mod Fixture {
     type CLSID = GUID;
     struct GUID {
         Data1: u32,
@@ -156,6 +144,18 @@ mod Fixture {
         fn GetCommandStream(&self, #[out] #[opt] piid: *mut IID, #[in] #[out] #[opt] pguidDialect: *mut GUID, #[out] #[out_ptr] #[iid_is] ppCommandStream: *mut IUnknown) -> HRESULT;
         fn SetCommandStream(&self, #[in] riid: &IID, #[in] rguidDialect: &GUID, #[in] #[opt] pCommandStream: IUnknown) -> HRESULT;
     }
+}
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type LONG = i32;
+    type LONGLONG = i64;
+    type ULONG = u32;
+    type ULONGLONG = u64;
+    type WORD = u16;
 }
 #[win32]
 mod Fixture {

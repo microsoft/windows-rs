@@ -38,8 +38,11 @@ impl IBuffer_Impl for Buffer_Impl {
 }
 
 impl IBufferByteAccess_Impl for Buffer_Impl {
-    fn Buffer(&self) -> windows_core::Result<*mut u8> {
-        Ok(self.data.get().cast())
+    fn Buffer(&self, value: *mut *mut u8) -> windows_core::Result<()> {
+        unsafe {
+            value.write(self.data.get().cast());
+        }
+        Ok(())
     }
 }
 
@@ -90,7 +93,8 @@ fn main() {
     let access: IBufferByteAccess = buffer.cast().unwrap();
     let memory: IMemoryBufferByteAccess = buffer.cast().unwrap();
     unsafe {
-        let bytes = access.Buffer().unwrap();
+        let mut bytes = core::ptr::null_mut();
+        access.Buffer(&mut bytes).ok().unwrap();
         let mut pointer = core::ptr::null_mut();
         let mut capacity = 0;
         memory.GetBuffer(&mut pointer, &mut capacity).ok().unwrap();

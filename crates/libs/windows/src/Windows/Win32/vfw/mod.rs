@@ -1261,7 +1261,7 @@ pub struct IAVIEditStream_Vtbl {
 pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
     fn Cut(&self, plstart: *mut super::LONG, pllength: *mut super::LONG, ppresult: windows_core::OutRef<PAVISTREAM>) -> windows_core::Result<()>;
     fn Copy(&self, plstart: *mut super::LONG, pllength: *mut super::LONG, ppresult: windows_core::OutRef<PAVISTREAM>) -> windows_core::Result<()>;
-    fn Paste(&self, plpos: *mut super::LONG, pllength: *mut super::LONG, pstream: windows_core::OutRef<IAVIStream>, lstart: super::LONG, lend: super::LONG) -> windows_core::Result<()>;
+    fn Paste(&self, plpos: *mut super::LONG, pllength: *mut super::LONG, pstream: windows_core::Ref<PAVISTREAM>, lstart: super::LONG, lend: super::LONG) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<PAVISTREAM>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: super::LONG) -> windows_core::Result<()>;
 }
@@ -1283,7 +1283,7 @@ impl IAVIEditStream_Vtbl {
         unsafe extern "system" fn Paste<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plpos: *mut super::LONG, pllength: *mut super::LONG, pstream: *mut core::ffi::c_void, lstart: super::LONG, lend: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIEditStream_Impl::Paste(this, core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&pllength), core::mem::transmute(&pstream), core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend)).into()
+                IAVIEditStream_Impl::Paste(this, core::mem::transmute_copy(&plpos), core::mem::transmute_copy(&pllength), core::mem::transmute_copy(&pstream), core::mem::transmute_copy(&lstart), core::mem::transmute_copy(&lend)).into()
             }
         }
         unsafe extern "system" fn Clone<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

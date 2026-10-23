@@ -1,18 +1,5 @@
 #[win32]
 mod Fixture {
-    type DWORD = u32;
-    #[success(return >= 0)]
-    type HRESULT = i32;
-    type LONG = i32;
-    #[arch(X64 | Arm64)]
-    type LONG_PTR = i64;
-    #[arch(X86)]
-    type LONG_PTR = i32;
-    type ULONG = u32;
-    type WORD = u16;
-}
-#[win32]
-mod Fixture {
     struct GUID {
         Data1: u32,
         Data2: u16,
@@ -31,9 +18,22 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type LONG = i32;
+    #[arch(X64 | Arm64)]
+    type LONG_PTR = i64;
+    #[arch(X86)]
+    type LONG_PTR = i32;
+    type ULONG = u32;
+    type WORD = u16;
+}
+#[win32]
+mod Fixture {
     #[guid(0x00000000_0000_0000_c000_000000000046)]
     interface IUnknown {
-        fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+        fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr(null_on_failure)] #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         fn AddRef(&self) -> ULONG;
         fn Release(&self) -> ULONG;
     }

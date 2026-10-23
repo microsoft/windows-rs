@@ -575,7 +575,7 @@ pub trait IMediaObject_Impl: windows_core::IUnknownImpl {
     fn AllocateStreamingResources(&self) -> windows_core::Result<()>;
     fn FreeStreamingResources(&self) -> windows_core::Result<()>;
     fn GetInputStatus(&self, dwinputstreamindex: super::DWORD, dwflags: *mut super::DWORD) -> windows_core::Result<()>;
-    fn ProcessInput(&self, dwinputstreamindex: super::DWORD, pbuffer: Option<IMediaBuffer>, dwflags: super::DWORD, rttimestamp: super::REFERENCE_TIME, rttimelength: super::REFERENCE_TIME) -> windows_core::Result<()>;
+    fn ProcessInput(&self, dwinputstreamindex: super::DWORD, pbuffer: windows_core::Ref<IMediaBuffer>, dwflags: super::DWORD, rttimestamp: super::REFERENCE_TIME, rttimelength: super::REFERENCE_TIME) -> windows_core::Result<()>;
     fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::Result<()>;
     fn Lock(&self, block: super::LONG) -> windows_core::Result<()>;
 }
@@ -693,7 +693,7 @@ impl IMediaObject_Vtbl {
         unsafe extern "system" fn ProcessInput<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamindex: super::DWORD, pbuffer: *mut core::ffi::c_void, dwflags: super::DWORD, rttimestamp: super::REFERENCE_TIME, rttimelength: super::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaObject_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute(&pbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&rttimestamp), core::mem::transmute_copy(&rttimelength)).into()
+                IMediaObject_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamindex), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&rttimestamp), core::mem::transmute_copy(&rttimelength)).into()
             }
         }
         unsafe extern "system" fn ProcessOutput<Identity: IMediaObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {

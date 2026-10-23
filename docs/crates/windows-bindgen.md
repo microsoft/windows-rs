@@ -78,6 +78,9 @@ counted GUID buffers and counted object outputs from its scalar parameter candid
 Indirect, successful, arithmetic and other unsupported extents do not authorize scalar-return or
 COM-query inference. Parameter-owned `NativeSalAttribute` keeps unresolved contracts opaque:
 bindgen preserves storage rather than parsing SAL or hiding unresolved count parameters.
+This restriction does not transfer COM ownership: interfaces retain borrowed parameter passing,
+including optional references. Producers use `Ref<T>` for direct interface arguments even when
+direction flags are absent; output pointer storage remains a separate case.
 Known simple entry extents still support slices, and unambiguous scalar/query projections remain.
 See the [canonical attribute policy](../clang-attributes.md) for owner and phase semantics.
 
@@ -104,6 +107,11 @@ Legacy x86 `GetWindowLongPtr*`/`SetWindowLongPtr*` aliases are emitted only when
 declaration exists, once across separate wide-target declarations. Dependency selection follows
 the same rule. Flat package namespace reexports follow their declarations' architecture masks;
 architecture-empty public modules remain available without unused glob reexports.
+
+Unscoped enum members become namespace constants. An explicit namespace constant with the same
+name takes precedence on its declared architectures; the enum-derived constant remains on the
+other architectures. Metadata retains both definitions and values. Scoped enum members keep their
+associated names. Whole-enum, member and direct-constant filters use the same resolved selection.
 
 The bundled Win32 metadata places APIs in `Windows.Win32`. Bare names such as `GetTickCount` and
 qualified names such as `Windows.Win32.GetTickCount` both work. The subsystem paths used by

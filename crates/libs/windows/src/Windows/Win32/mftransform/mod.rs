@@ -769,7 +769,7 @@ pub trait IMFTransform_Impl: windows_core::IUnknownImpl {
     fn SetOutputBounds(&self, hnslowerbound: super::LONGLONG, hnsupperbound: super::LONGLONG) -> windows_core::Result<()>;
     fn ProcessEvent(&self, dwinputstreamid: super::DWORD, pevent: windows_core::Ref<super::IMFMediaEvent>) -> windows_core::Result<()>;
     fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: super::ULONG_PTR) -> windows_core::Result<()>;
-    fn ProcessInput(&self, dwinputstreamid: super::DWORD, psample: Option<super::IMFSample>, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn ProcessInput(&self, dwinputstreamid: super::DWORD, psample: windows_core::Ref<super::IMFSample>, dwflags: super::DWORD) -> windows_core::Result<()>;
     fn ProcessOutput(&self, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
@@ -916,7 +916,7 @@ impl IMFTransform_Vtbl {
         unsafe extern "system" fn ProcessInput<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwinputstreamid: super::DWORD, psample: *mut core::ffi::c_void, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFTransform_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute(&psample), core::mem::transmute_copy(&dwflags)).into()
+                IMFTransform_Impl::ProcessInput(this, core::mem::transmute_copy(&dwinputstreamid), core::mem::transmute_copy(&psample), core::mem::transmute_copy(&dwflags)).into()
             }
         }
         unsafe extern "system" fn ProcessOutput<Identity: IMFTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: super::DWORD, coutputbuffercount: super::DWORD, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut super::DWORD) -> windows_core::HRESULT {

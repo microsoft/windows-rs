@@ -89,18 +89,15 @@ impl TypeClosure {
                     && let Some(variant_set) =
                         filter.enum_variant_filter(e.def.namespace(), e.def.name())
                 {
-                    let enum_arches = e.def.arches();
                     for field in e.def.fields() {
                         if field.flags().contains(FieldAttributes::Literal)
                             && variant_set.includes(field.name())
                         {
-                            Type::CppConst(CppConst {
-                                namespace: e.def.namespace(),
-                                field,
-                                enum_arches,
-                                is_enum_member: true,
-                            })
-                            .combine_closure(&mut types, reader, references);
+                            for constant in reader.with_full_name(e.def.namespace(), field.name()) {
+                                if matches!(constant, Type::CppConst(_)) {
+                                    constant.combine_closure(&mut types, reader, references);
+                                }
+                            }
                         }
                     }
                 }

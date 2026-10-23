@@ -12937,7 +12937,7 @@ pub struct IMFVideoSampleAllocatorNotifyEx_Vtbl {
 }
 #[cfg(feature = "mfobjects")]
 pub trait IMFVideoSampleAllocatorNotifyEx_Impl: IMFVideoSampleAllocatorNotify_Impl {
-    fn NotifyPrune(&self, __midl__imfvideosampleallocatornotifyex0000: Option<super::IMFSample>) -> windows_core::Result<()>;
+    fn NotifyPrune(&self, __midl__imfvideosampleallocatornotifyex0000: windows_core::Ref<super::IMFSample>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "mfobjects")]
 impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
@@ -12945,7 +12945,7 @@ impl IMFVideoSampleAllocatorNotifyEx_Vtbl {
         unsafe extern "system" fn NotifyPrune<Identity: IMFVideoSampleAllocatorNotifyEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, __midl__imfvideosampleallocatornotifyex0000: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMFVideoSampleAllocatorNotifyEx_Impl::NotifyPrune(this, core::mem::transmute(&__midl__imfvideosampleallocatornotifyex0000)).into()
+                IMFVideoSampleAllocatorNotifyEx_Impl::NotifyPrune(this, core::mem::transmute_copy(&__midl__imfvideosampleallocatornotifyex0000)).into()
             }
         }
         Self { base__: IMFVideoSampleAllocatorNotify_Vtbl::new::<Identity, OFFSET>(), NotifyPrune: NotifyPrune::<Identity, OFFSET> }

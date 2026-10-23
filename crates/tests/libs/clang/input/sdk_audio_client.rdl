@@ -26,16 +26,6 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    type DWORD = u32;
-    #[success(return >= 0)]
-    type HRESULT = i32;
-    type LONGLONG = i64;
-    type UINT32 = u32;
-    type ULONG = u32;
-    type WORD = u16;
-}
-#[win32]
-mod Fixture {
     struct GUID {
         Data1: u32,
         Data2: u16,
@@ -61,6 +51,16 @@ mod Fixture {
         wBitsPerSample: WORD,
         cbSize: WORD,
     }
+}
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type LONGLONG = i64;
+    type UINT32 = u32;
+    type ULONG = u32;
+    type WORD = u16;
 }
 #[win32]
 mod Fixture {

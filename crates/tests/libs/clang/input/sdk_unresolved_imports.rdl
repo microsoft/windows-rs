@@ -17,15 +17,15 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
+    type LPVOID = *mut void;
+}
+#[win32]
+mod Fixture {
     #[library("OLEAUT32.dll")]
     #[arch(X64 | Arm64)]
     extern fn BSTR_UserSize64(#[in] param0: *mut u32, param1: u32, #[in] param2: *mut BSTR) -> u32;
     type DWORD = u32;
     type LONG = i32;
-}
-#[win32]
-mod Fixture {
-    type LPVOID = *mut void;
 }
 #[win32]
 mod Fixture {

@@ -1,13 +1,6 @@
 #[win32]
 mod Fixture {
     #[arch(X64 | Arm64)]
-    type ULONG_PTR = u64;
-    #[arch(X86)]
-    type ULONG_PTR = u32;
-}
-#[win32]
-mod Fixture {
-    #[arch(X64 | Arm64)]
     union PSAPI_WORKING_SET_BLOCK {
         Flags: ULONG_PTR,
         Anonymous: struct {
@@ -33,4 +26,11 @@ mod Fixture {
             },
         },
     }
+}
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
 }

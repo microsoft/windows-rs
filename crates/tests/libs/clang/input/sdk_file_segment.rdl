@@ -5,11 +5,11 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    type ULONGLONG = u64;
+    extern "C" fn SegmentConsumer(segments: *mut FILE_SEGMENT_ELEMENT);
 }
 #[win32]
 mod Fixture {
-    extern "C" fn SegmentConsumer(#[out] segments: *mut FILE_SEGMENT_ELEMENT);
+    type ULONGLONG = u64;
 }
 #[win32]
 mod Fixture {

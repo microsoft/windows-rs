@@ -2117,7 +2117,7 @@ pub struct IDMLCommandRecorder_Vtbl {
 }
 #[cfg(all(feature = "d3d12", feature = "guiddef", feature = "shared"))]
 pub trait IDMLCommandRecorder_Impl: IDMLDeviceChild_Impl {
-    fn RecordDispatch(&self, commandlist: Option<super::ID3D12CommandList>, dispatchable: Option<IDMLDispatchable>, bindings: Option<IDMLBindingTable>);
+    fn RecordDispatch(&self, commandlist: windows_core::Ref<super::ID3D12CommandList>, dispatchable: windows_core::Ref<IDMLDispatchable>, bindings: windows_core::Ref<IDMLBindingTable>);
 }
 #[cfg(all(feature = "d3d12", feature = "guiddef", feature = "shared"))]
 impl IDMLCommandRecorder_Vtbl {
@@ -2125,7 +2125,7 @@ impl IDMLCommandRecorder_Vtbl {
         unsafe extern "system" fn RecordDispatch<Identity: IDMLCommandRecorder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, commandlist: *mut core::ffi::c_void, dispatchable: *mut core::ffi::c_void, bindings: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLCommandRecorder_Impl::RecordDispatch(this, core::mem::transmute(&commandlist), core::mem::transmute(&dispatchable), core::mem::transmute(&bindings));
+                IDMLCommandRecorder_Impl::RecordDispatch(this, core::mem::transmute_copy(&commandlist), core::mem::transmute_copy(&dispatchable), core::mem::transmute_copy(&bindings));
             }
         }
         Self { base__: IDMLDeviceChild_Vtbl::new::<Identity, OFFSET>(), RecordDispatch: RecordDispatch::<Identity, OFFSET> }
@@ -2290,7 +2290,7 @@ pub struct IDMLDevice_Vtbl {
 pub trait IDMLDevice_Impl: IDMLObject_Impl {
     fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: super::UINT, featurequerydata: *const core::ffi::c_void, featuresupportdatasize: super::UINT, featuresupportdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateOperator(&self, desc: *const DML_OPERATOR_DESC, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CompileOperator(&self, op: Option<IDMLOperator>, flags: DML_EXECUTION_FLAGS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CompileOperator(&self, op: windows_core::Ref<IDMLOperator>, flags: DML_EXECUTION_FLAGS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateOperatorInitializer(&self, operatorcount: super::UINT, operators: *const Option<IDMLCompiledOperator>, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateCommandRecorder(&self, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateBindingTable(&self, desc: *const DML_BINDING_TABLE_DESC, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -2317,7 +2317,7 @@ impl IDMLDevice_Vtbl {
         unsafe extern "system" fn CompileOperator<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, op: *mut core::ffi::c_void, flags: DML_EXECUTION_FLAGS, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDMLDevice_Impl::CompileOperator(this, core::mem::transmute(&op), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+                IDMLDevice_Impl::CompileOperator(this, core::mem::transmute_copy(&op), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
             }
         }
         unsafe extern "system" fn CreateOperatorInitializer<Identity: IDMLDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operatorcount: super::UINT, operators: *const *mut core::ffi::c_void, riid: *const super::IID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

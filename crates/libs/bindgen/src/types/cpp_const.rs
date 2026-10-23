@@ -4,18 +4,18 @@ use super::*;
 pub struct CppConst {
     pub namespace: &'static str,
     pub field: Field,
-    /// Parent enum architecture bits for unscoped enum members; `0` for free constants.
-    pub enum_arches: i32,
+    /// Projected architecture bits; `0` means all architectures.
+    pub arches: i32,
     /// `true` for unscoped enum members, which are always bare alias constants.
     pub is_enum_member: bool,
 }
 
 impl Ord for CppConst {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.field.name(), self.field, self.enum_arches).cmp(&(
+        (self.field.name(), self.field, self.arches).cmp(&(
             other.field.name(),
             other.field,
-            other.enum_arches,
+            other.arches,
         ))
     }
 }
@@ -29,16 +29,6 @@ impl PartialOrd for CppConst {
 impl CppConst {
     pub fn type_name(&self) -> TypeName {
         TypeName(self.namespace, self.field.name())
-    }
-
-    /// Architectures this constant is emitted for.
-    pub fn effective_arches(&self) -> i32 {
-        let field_arches = self.field.arches();
-        if field_arches != 0 {
-            field_arches
-        } else {
-            self.enum_arches
-        }
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
@@ -65,7 +55,7 @@ impl CppConst {
             to_ident(self.field.name())
         };
 
-        let arches = write_arch_bits(self.effective_arches());
+        let arches = write_arch_bits(self.arches);
         let cfg = self.write_cfg(config);
         let cfg = quote! { #arches #cfg };
 
@@ -201,12 +191,7 @@ impl CppConst {
                     let value = if unscoped_enum_const {
                         value
                     } else {
-                        write_newtype_wrap_for_arches(
-                            &field_ty,
-                            &value,
-                            config,
-                            self.effective_arches(),
-                        )
+                        write_newtype_wrap_for_arches(&field_ty, &value, config, self.arches)
                     };
                     quote! {
                         #cfg
@@ -229,7 +214,7 @@ impl CppConst {
                                 &underlying_ty,
                                 &value,
                                 config,
-                                self.effective_arches(),
+                                self.arches,
                             )
                         }
                         _ => value,

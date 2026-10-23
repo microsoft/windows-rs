@@ -26,10 +26,6 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    type ULONG = u32;
-}
-#[win32]
-mod Fixture {
     struct GUID {
         Data1: u32,
         Data2: u16,
@@ -42,6 +38,10 @@ mod Fixture {
 mod Fixture {
     type BOOL = i32;
     type DWORD = u32;
+}
+#[win32]
+mod Fixture {
+    type ULONG = u32;
 }
 #[win32]
 mod Fixture {

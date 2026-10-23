@@ -390,12 +390,13 @@ impl IConditionGenerator {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), pschemaprovider.param().abi()) }
     }
     #[cfg(feature = "shared")]
-    pub unsafe fn RecognizeNamedEntities<P0, P2>(&self, pszinputstring: P0, lciduserlocale: super::LCID, ptokencollection: P2, pnamedentities: Option<Option<INamedEntityCollector>>) -> windows_core::HRESULT
+    pub unsafe fn RecognizeNamedEntities<P0, P2, P3>(&self, pszinputstring: P0, lciduserlocale: super::LCID, ptokencollection: P2, pnamedentities: P3) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<ITokenCollection>,
+        P3: windows_core::Param<INamedEntityCollector>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RecognizeNamedEntities)(windows_core::Interface::as_raw(self), pszinputstring.param().abi(), lciduserlocale, ptokencollection.param().abi(), pnamedentities.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).RecognizeNamedEntities)(windows_core::Interface::as_raw(self), pszinputstring.param().abi(), lciduserlocale, ptokencollection.param().abi(), pnamedentities.param().abi()) }
     }
     #[cfg(all(feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn GenerateForLeaf<P0, P1, P3, P4, P5, P6, P7, P8>(&self, pconditionfactory: P0, pszpropertyname: P1, cop: super::CONDITION_OPERATION, pszvaluetype: P3, pszvalue: P4, pszvalue2: P5, ppropertynameterm: P6, poperationterm: P7, pvalueterm: P8, automaticwildcard: bool, pnostringquery: *mut windows_core::BOOL) -> windows_core::Result<super::ICondition>

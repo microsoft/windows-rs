@@ -4697,6 +4697,7 @@ pub type NPEM_CONTROL_SET_STANDARD_CONTROL = Option<unsafe extern "C" fn(context
 pub type NPEM_CONTROL_STANDARD_CONTROL_BIT = i32;
 #[cfg(feature = "winnt")]
 pub type NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "C" fn(vcb: super::PVOID, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const NonPagedPool: POOL_TYPE = 0;
 #[cfg(target_arch = "aarch64")]
 pub const NonPagedPool: POOL_TYPE = 512;
@@ -4704,6 +4705,7 @@ pub const NonPagedPoolBase: POOL_TYPE = 0;
 pub const NonPagedPoolBaseCacheAligned: POOL_TYPE = 4;
 pub const NonPagedPoolBaseCacheAlignedMustS: POOL_TYPE = 6;
 pub const NonPagedPoolBaseMustSucceed: POOL_TYPE = 2;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const NonPagedPoolCacheAligned: POOL_TYPE = 4;
 #[cfg(target_arch = "aarch64")]
 pub const NonPagedPoolCacheAligned: POOL_TYPE = 516;

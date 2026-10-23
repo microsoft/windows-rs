@@ -4,13 +4,13 @@ This page records the current acceptance evidence, not replacement readiness. Th
 [acceptance plan and decision register](clang-acceptance.md) own scope and approvals.
 [windows-clang](crates/windows-clang.md) describes implemented contracts and repository-owned
 reproduction commands. Implementation approval is not final consumer or cutover acceptance.
-The active work is the [canonical attribute inventory](clang-attributes.md); downstream
-qualification is deferred until the RDL model is accepted.
+The active work is downstream repair and generation qualification against the
+[canonical attribute policy](clang-attributes.md). Local checks do not settle public-scope or
+delivery decisions.
 
-The [success-predicate investigation](clang-attributes.md#success-predicate-investigation)
-accounts for 614 direct annotations. D33 normalizes 556 to bounded typed predicates, retaining 58
-as evidence. Shared SDK declarations explain the predicates on `PNTSTATUS` and `PNDIS_STATUS`;
-they are not grounds for a pointer-success interpretation. Coverage is unchanged.
+The D33 investigation accounts for 614 direct annotations. D33 normalizes 556 to bounded typed
+predicates, retaining 58 as evidence. Shared SDK declarations explain the predicates on `PNTSTATUS`
+and `PNDIS_STATUS`; they are not grounds for a pointer-success interpretation. Coverage is unchanged.
 
 ## Controls and current accounting
 
@@ -40,7 +40,7 @@ with the same header selection and compiler configuration.
 | Control | Identity |
 | --- | --- |
 | Regeneration comparison | Canonical `metadata/win32`, `metadata/wdk` and combined WinMD |
-| Source control for current polish | `d0a38039eb` |
+| Historical source review control | `d0a38039eb` |
 | Latest independent review | `d0a38039eb` |
 | Candidate | D27-D37 plus returned-string/nullability, count/range, MIDL-direction, D38 arithmetic harmonization and termination owner/storage validation |
 | Native toolchain | LLVM 22.1.8, companion ABI 19, SDK 10.0.28000.2270 |
@@ -59,7 +59,7 @@ or separate approval files.
 | Functions | 14,251 |
 | Interfaces | 4,287 |
 | Partitions | 675 |
-| Omission diagnostics, including dependents | 29,562 |
+| Omission diagnostics, including dependents | 29,530 |
 | Function-target pairs with unchanged linkage | 42,068 |
 | Approved provider corrections | 4 |
 | Raw missing function-target pairs | 289 |
@@ -68,10 +68,12 @@ or separate approval files.
 | Additional function-target pairs | 421 native, 4 compatibility aliases |
 | Missing constant names in either control | 15 |
 
+The declaration and omission counts come from full canonical regeneration. Linkage and missing-pair
+counts are historical review evidence, not a fresh comparison or an approved exclusion.
 These are presence/linkage and inventory measures, not signature or behavior parity. Moved constant
 ownership is not absence; new names do not offset required losses. Unselected macros do not appear
 in omission counts, and multiline diagnostic text must not be counted as separate omissions. Refresh
-the comparison reports only after successful generation.
+required-surface accounting only after successful generation.
 
 ## Current review disposition
 
@@ -82,13 +84,15 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 
 | Finding | Verified status | Required action |
 | --- | --- | --- |
-| Test-suite health | The wrap-up sweep passes 102 `test_rdl` and 193 `test_bindgen` tests. With ignored cases included, `test_clang` passes 332 and fails 21 across 15 targets. Only `candidate_packages` was excluded. The reported callback fixture and adjacent arithmetic/returned-buffer expectations are corrected. | Resolve the remaining failures below before calling the branch green. Targeted termination and arithmetic coverage passes; that does not establish suite-wide acceptance. |
+| Test-suite health | With ignored cases included, `test_clang` passes 369 cases; the separate `candidate_packages` check also passes. The bindgen/RDL suites and Reactor's 312 library tests pass. | These are affected-suite results, not a workspace-wide or hosted run. |
+| Full package acceptance | `candidate_packages` passes rich/raw compilation on x86, x64 and ARM64. Canonical `POOL_TYPE` retains enum values 0 and 4 and ARM64 macro values 512 and 516. Bindgen emits the explicit constants on ARM64 and the enum-derived constants on x86/x64. | This resolves Rust name projection without changing native capture, canonical publication or omissions. Native ARM64 execution and hosted qualification remain separate gates. |
 | Direct termination owner/type validation | Corrected. Short termination syntax requires parameter-owned pointer, reference or array storage at the selected indirection. Alias resolution and storage rules are checked by both reader and writer. Scalars, callback values, fields, return rows and declarations are rejected in short form; explicit full metadata remains lossless. | Keep single/double-NUL phases in the existing attribute family. `null_terminated` covers storage, owner and full-metadata round trips; `scoped_termination` covers native contracts and #5042's `WCHAR*` case on all targets. |
 | Unknown direction becomes asserted direction | Corrected under D34-D35. Known directions are explicit; missing direction has no attribute and preserves absent flags. | Do not infer direction from types; retain raw-pointer, alias, COM and callback coverage. |
 | Conditional direction | RegQueryValueExA/W now publish shared output/optional facts while retaining both conditions. The suggested unconditional direction union is not adopted. | Do not infer exhaustive conditions generally or drop the conditional input requirement. |
 | Duplicate normalized/residual buffers | Addressed for the supported D36-D37 contracts. Capacity, initialized length, phases and returned storage share the extent model. Unsupported combinations retain evidence. | Do not discard residual SAL merely because part of a macro has a canonical representation. |
-| Unspecified direction in bindgen | Confirmed in `Param::is_input_only` and `MethodDef::method_signature`: unspecified direction takes the input branch, including mutable-to-const pointer conversion. Metadata's absent direction does not authorize that transformation. | Qualify a separate downstream policy change covering raw pointers, aliases and COM output patterns; do not infer direction in clang to compensate. |
-| Generation drift | The independent review reports legacy `tool-win32` rewriting 495 RDL files plus WinMD, followed by 18 package-file changes. The workflow still runs that legacy generator; this pass does not overwrite the worktree candidate to repeat it. | Separate direction respelling from semantic WinMD/package drift and establish generator cleanliness. The reported COM signature and bitfield changes are not approved by the RDL polish. |
+| Unspecified direction in bindgen | Raw-pointer, alias, COM and callback fixtures preserve absent direction without mutable-to-const or output-conversion guesses. Native named-import consumers pass. | Keep direction evidence separate from type/ownership handling; do not infer direction in clang to compensate. |
+| COM argument ownership | Direct interface arguments retain borrowed references, including optional values and producer parameters without direction flags. The lifetime fixture verifies caller ownership and release; raw buffer restrictions remain in place. | Residual evidence still cannot authorize slice, query or retval conversion. BSTR ownership is unchanged. |
+| Generation drift | Full SDK/WDK capture and combined WinMD regeneration leave tracked metadata unchanged. Package regeneration contains the reviewed COM input correction. | Qualify the other generator jobs and clean-checkout ordering; local output neutrality does not establish hosted execution. |
 | Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
 | CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift with a shallow checkout. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
 | Required missing APIs | The report retains 198 unapproved target pairs across 70 names. Examples include WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot, PDH, WSD, RoGetActivatableClassRegistration and uaw helpers. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
@@ -99,16 +103,19 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 | Single snapshot commit | The reviewed snapshot combines production bindgen behavior, parser refactoring, policy, scope and documentation. | Maintainer-owned landing work: separate production bindgen changes and their rationale from parser/policy changes. No automatic commit rewriting. |
 | Native evidence publication | Input direction uses flags, and C++ defaults/exception specifications remain native-only. Seven unused seed definitions are retired. | Four qualified families remain: SAL, const methods, deprecation and base markers. SAL stays opaque; const-method and base publication remain open decisions. |
 
-The suite sweep used
-`cargo test -p test_clang -p test_rdl -p test_bindgen --no-fail-fast -- --include-ignored --skip candidate_packages`.
-It does not replace full-package or generator qualification.
+The Clang sweep used
+`cargo test -p test_clang --no-fail-fast --quiet -- --include-ignored --skip candidate_packages`.
+The separate bindgen/RDL sweep used `cargo test -p test_bindgen -p test_rdl --no-fail-fast --quiet`.
 
-| Remaining clang failures | Evidence |
+| Repaired regression | Evidence |
 | --- | --- |
-| 14 golden mismatches | `fixed_pointers`, `foundation`, `guidless_interfaces`, `inline_callbacks`, `issue_contracts`, `mixed_pointers`, `names`, `namespaces`, `sdk_acceptance` and `uia_core_api`. Eleven cases differ only in direction flags; three also reflect returned-buffer/range lowering. Review and regenerate from headers, not by copying old defaults. |
-| 2 certbcli cases | Actual output adds `CSEDB_RSTMAPW` and `HCSBC`. This is not direction respelling; classify the extra declarations before changing the golden. |
-| 2 metadata assertions | `annotations::sdk_annotations` expects a buffer relationship from positional parameter iteration; `sdk_functions` counts five rows for four-argument `CreateEventW`, whose nullable return now has its own row. Check arguments by sequence, separately from return contracts. |
-| 2 named-import consumers | `guidless_import_consumer` and `named_import_consumers_cross_targets` fail compiling the SDK guidless `Open` callback: generated output pointers are const while the implementation requires mutable pointers. This exercises the confirmed unspecified-direction bindgen boundary. |
+| Implicit-alias stack overflow | Reference-ownership traversal uses a visited type worklist. `implicit_aliases` covers the compiler typedef's explicit self-redeclaration, input ordering and conflicts. |
+| Header/RDL expectations | Reviewed regeneration preserves declaration-order changes, explicit MIDL directions, absent unannotated directions, and supported returned-buffer/range lowering. |
+| Certbcli dependencies | Discovered function aliases capture the native `CSEDB_RSTMAPW` and `HCSBC` dependencies. Their definitions match the pinned header; all 24 constants retain their values and encoding checks. |
+| Metadata parameter rows | Buffer assertions select sequence 2 rather than positional iteration. Argument counts exclude sequence-zero return rows; `CreateEventW` separately checks its nullable return. |
+| Namespace consumer | `IBufferByteAccess::Buffer` uses explicit output storage rather than converting its unresolved buffer contract to a return value. All three target builds pass, with native execution on supported host targets. |
+| Enum/macro names | `enum_macro_collisions` retains native enum fields and explicit macro constants through metadata round trips. Bindgen gives explicit namespace constants precedence over flattened enum fields only on overlapping architectures. The cross-target style/filter fixture checks exact values, scoped members and unavailable targets. Canonical metadata and omission counts remain unchanged. |
+| Reactor callers | `CoInitializeEx` receives mutable null storage and icon messages use `WPARAM`. Reactor and the bindgen fixtures compile for x86 and ARM64. |
 
 The tracked `vadefs` partition is also absent, consistently with the approved compiler/CRT root
 ownership boundary. It is not the same category as the unresolved activation-registration loss.
@@ -126,11 +133,11 @@ annotation semantics. Canonical metadata and native fixtures are the review inpu
 | D11 | Source-owned root selection removes 5,119 WinRT name strings and an unused support record; retained partitions and required coverage stay unchanged. | Required support dependencies retain their actual owners. No symbol-prefix filter. |
 | D12 | Direct scoped single/double-NUL properties preserve entry/success phases. Seven SDK partitions change without coverage changes. | Residual scopes remain evidence, and #5042 still needs a consuming reader/generator contract. |
 | D13 | Field alignment recovers CLFS scan APIs. Nested and multidimensional-array traversal includes external nested types without suppressing traits on pointer-only owners. | Aligned storage omits Debug/equality. Packed combinations and by-value calling ABI remain unqualified. |
-| D14-D15 | Native reference ABI and query-buffer selection are corrected. Isolated rich/raw packages compile on three targets; five generators preserve 3,035 recorded source/configuration hashes at the alias-policy control. | Matched candidate routing is required. Production default metadata is not replaced. |
+| D14-D15 | Native reference ABI and query-buffer selection are corrected. Isolated rich/raw packages compile on three targets; five generators preserve 3,035 recorded source/configuration hashes at the alias-policy control. | Matched candidate routing remains required. Production default metadata is generated from the canonical SDK/WDK inputs. |
 | D17 | Automatic macro discovery excludes three SAL support headers, removing only six internal constants and three partitions. All 674 retained partitions are identical. | Compilation, explicit selections and required `stdint` aliases remain. |
 | D18 | Scalar/enum-only input-attribute omission removes 15,296 attributes in 280 partitions, retaining 28,322. Other RDL, coverage and omissions are unchanged. | Pointer-backed handles, pointers, references, COM objects and records retain their input attributes and native evidence. |
 | D19-D20 | Lean definition inputs recover four storage/smart-card GUIDs with baseline values. Seven before/after driver configurations are identical after context extraction. | Remaining GUIDs/PCH policy and production WinRT-before-Win32 ordering stay open. |
-| D21 | `package_acceptance` uses checked-in routing, filters, dependencies and lints; local runs used regenerated candidate RDL. | Its CI invocation uses legacy worktree RDL. Candidate-aware hosted/clean-checkout execution, native ARM64, paired releases and budgets remain open. |
+| D21 | `package_acceptance` uses checked-in routing, filters, dependencies and lints against canonical candidate RDL. | Hosted/clean-checkout execution, native ARM64, paired releases and budgets remain open. |
 | D22 | Actual SDK constants for #4977 retain signed native types despite unsigned API parameters. | Rust convenience typing is separate work; no retagging or issue closure. |
 | D23 | `UIAutomationCoreApi.h` adds 98 imports on all targets, 397 constants, 17 records, six enums and six aliases. All preceding partitions and coverage rows stay identical. | Nine provider/lookup APIs have native import/signature coverage. Generated-Rust/live-provider qualification remains open. |
 | D24 | `ProcessPrng` stays outside SDK capture; a declaration/import supplement would be separate authored policy. | Documentation or DLL exports cannot manufacture compiler evidence. #5107 is not implemented or closed. |
@@ -343,15 +350,15 @@ data-class and private-template fixtures do not justify broader C++ support.
 Run the [repository commands](crates/windows-clang.md#validation) against matching source,
 candidate RDL and authoritative WinRT metadata. `package_acceptance` compiles current Win32/WDK
 inputs, uses actual package routing and rich/raw filters, and checks all features with warnings
-denied on x86/x64/ARM64. The current D27-D28 candidate, including the UIA additions and macro-owned
-GUID relocations, passes this package check on all three targets. This is local compile
-qualification, not live UIA-provider behavior or native ARM64 execution.
+denied on x86/x64/ARM64. The current SDK/WDK candidate passes on all three targets, including the
+target-aware enum/constant projection. Compilation alone does not establish live UIA-provider
+behavior or native ARM64 execution.
 
 Production `tool-package` must not combine partial candidate routes with a different committed
 WinMD. CI selects SDK policy/metadata cases and cross-target consumers; generation checks the
 canonical metadata diff. Local runs do not establish hosted execution or a fresh clean checkout.
 Native ARM64 execution, release pins, final independent review and maintainer sign-off remain open.
-These downstream tasks wait for canonical RDL quality. No issues are closed by this evidence.
+No issues are closed by this evidence.
 
 Final scope and performance limits remain proposals: no slower than a matched legacy run,
 provisionally <=480 seconds and <=8 GB peak process-tree working set. Ask for a quiet machine before

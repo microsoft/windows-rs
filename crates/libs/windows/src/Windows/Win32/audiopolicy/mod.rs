@@ -650,8 +650,8 @@ pub struct IAudioSessionManager2_Vtbl {
 #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 pub trait IAudioSessionManager2_Impl: IAudioSessionManager_Impl {
     fn GetSessionEnumerator(&self) -> windows_core::Result<IAudioSessionEnumerator>;
-    fn RegisterSessionNotification(&self, sessionnotification: Option<IAudioSessionNotification>) -> windows_core::Result<()>;
-    fn UnregisterSessionNotification(&self, sessionnotification: Option<IAudioSessionNotification>) -> windows_core::Result<()>;
+    fn RegisterSessionNotification(&self, sessionnotification: windows_core::Ref<IAudioSessionNotification>) -> windows_core::Result<()>;
+    fn UnregisterSessionNotification(&self, sessionnotification: windows_core::Ref<IAudioSessionNotification>) -> windows_core::Result<()>;
     fn RegisterDuckNotification(&self, sessionid: &windows_core::PCWSTR, ducknotification: windows_core::Ref<IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
     fn UnregisterDuckNotification(&self, ducknotification: windows_core::Ref<IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
 }
@@ -673,13 +673,13 @@ impl IAudioSessionManager2_Vtbl {
         unsafe extern "system" fn RegisterSessionNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionnotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionManager2_Impl::RegisterSessionNotification(this, core::mem::transmute(&sessionnotification)).into()
+                IAudioSessionManager2_Impl::RegisterSessionNotification(this, core::mem::transmute_copy(&sessionnotification)).into()
             }
         }
         unsafe extern "system" fn UnregisterSessionNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionnotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionManager2_Impl::UnregisterSessionNotification(this, core::mem::transmute(&sessionnotification)).into()
+                IAudioSessionManager2_Impl::UnregisterSessionNotification(this, core::mem::transmute_copy(&sessionnotification)).into()
             }
         }
         unsafe extern "system" fn RegisterDuckNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, ducknotification: *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -9415,9 +9415,12 @@ impl ID2D1RenderTarget {
     pub unsafe fn Flush(&self, tag1: Option<*mut D2D1_TAG>, tag2: Option<*mut D2D1_TAG>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self), tag1.unwrap_or(core::mem::zeroed()) as _, tag2.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SaveDrawingState(&self, drawingstateblock: Option<ID2D1DrawingStateBlock>) {
+    pub unsafe fn SaveDrawingState<P0>(&self, drawingstateblock: P0)
+    where
+        P0: windows_core::Param<ID2D1DrawingStateBlock>,
+    {
         unsafe {
-            (windows_core::Interface::vtable(self).SaveDrawingState)(windows_core::Interface::as_raw(self), core::mem::transmute(drawingstateblock));
+            (windows_core::Interface::vtable(self).SaveDrawingState)(windows_core::Interface::as_raw(self), drawingstateblock.param().abi());
         }
     }
     pub unsafe fn RestoreDrawingState<P0>(&self, drawingstateblock: P0)

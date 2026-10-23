@@ -310,7 +310,7 @@ pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
     fn GetEmulatedCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, psurfacedesc: *mut super::DDSURFACEDESC) -> windows_core::Result<()>;
     fn GetFourCCCodes(&self, pcount: *mut super::DWORD, pcodes: *mut super::DWORD) -> windows_core::Result<()>;
-    fn SetDirectDraw(&self, pdirectdraw: Option<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
+    fn SetDirectDraw(&self, pdirectdraw: windows_core::Ref<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
     fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW>;
     fn GetSurfaceType(&self) -> windows_core::Result<super::DWORD>;
     fn SetDefault(&self) -> windows_core::Result<()>;
@@ -369,7 +369,7 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn SetDirectDraw<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectdraw: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawVideo_Impl::SetDirectDraw(this, core::mem::transmute(&pdirectdraw)).into()
+                IDirectDrawVideo_Impl::SetDirectDraw(this, core::mem::transmute_copy(&pdirectdraw)).into()
             }
         }
         unsafe extern "system" fn GetDirectDraw<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdirectdraw: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

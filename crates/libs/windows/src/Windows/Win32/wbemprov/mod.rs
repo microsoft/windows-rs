@@ -429,12 +429,13 @@ windows_core::imp::define_interface!(IWbemHiPerfProvider, IWbemHiPerfProvider_Vt
 windows_core::imp::interface_hierarchy!(IWbemHiPerfProvider, windows_core::IUnknown);
 impl IWbemHiPerfProvider {
     #[cfg(all(feature = "wbemcli", feature = "winnt"))]
-    pub unsafe fn QueryInstances<P0, P3>(&self, pnamespace: P0, wszclass: *const super::WCHAR, lflags: i32, pctx: P3, psink: Option<super::IWbemObjectSink>) -> windows_core::HRESULT
+    pub unsafe fn QueryInstances<P0, P3, P4>(&self, pnamespace: P0, wszclass: *const super::WCHAR, lflags: i32, pctx: P3, psink: P4) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IWbemServices>,
         P3: windows_core::Param<super::IWbemContext>,
+        P4: windows_core::Param<super::IWbemObjectSink>,
     {
-        unsafe { (windows_core::Interface::vtable(self).QueryInstances)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclass, lflags, pctx.param().abi(), core::mem::transmute(psink)) }
+        unsafe { (windows_core::Interface::vtable(self).QueryInstances)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), wszclass, lflags, pctx.param().abi(), psink.param().abi()) }
     }
     #[cfg(feature = "wbemcli")]
     pub unsafe fn CreateRefresher<P0>(&self, pnamespace: P0, lflags: i32) -> windows_core::Result<super::IWbemRefresher>

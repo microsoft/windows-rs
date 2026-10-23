@@ -9998,8 +9998,8 @@ pub trait ID3D12CommandQueue_Impl: ID3D12Pageable_Impl {
     fn SetMarker(&self, metadata: super::UINT, pdata: *const core::ffi::c_void, size: super::UINT);
     fn BeginEvent(&self, metadata: super::UINT, pdata: *const core::ffi::c_void, size: super::UINT);
     fn EndEvent(&self);
-    fn Signal(&self, pfence: Option<ID3D12Fence>, value: super::UINT64) -> windows_core::Result<()>;
-    fn Wait(&self, pfence: Option<ID3D12Fence>, value: super::UINT64) -> windows_core::Result<()>;
+    fn Signal(&self, pfence: windows_core::Ref<ID3D12Fence>, value: super::UINT64) -> windows_core::Result<()>;
+    fn Wait(&self, pfence: windows_core::Ref<ID3D12Fence>, value: super::UINT64) -> windows_core::Result<()>;
     fn GetTimestampFrequency(&self) -> windows_core::Result<super::UINT64>;
     fn GetClockCalibration(&self, pgputimestamp: *mut super::UINT64, pcputimestamp: *mut super::UINT64) -> windows_core::Result<()>;
     fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC;
@@ -10046,13 +10046,13 @@ impl ID3D12CommandQueue_Vtbl {
         unsafe extern "system" fn Signal<Identity: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfence: *mut core::ffi::c_void, value: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12CommandQueue_Impl::Signal(this, core::mem::transmute(&pfence), core::mem::transmute_copy(&value)).into()
+                ID3D12CommandQueue_Impl::Signal(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn Wait<Identity: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfence: *mut core::ffi::c_void, value: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12CommandQueue_Impl::Wait(this, core::mem::transmute(&pfence), core::mem::transmute_copy(&value)).into()
+                ID3D12CommandQueue_Impl::Wait(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn GetTimestampFrequency<Identity: ID3D12CommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfrequency: *mut super::UINT64) -> windows_core::HRESULT {
@@ -10145,7 +10145,7 @@ pub struct ID3D12DSRDeviceFactory_Vtbl {
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait ID3D12DSRDeviceFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateDSRDevice(&self, pd3d12device: Option<ID3D12Device>, nodemask: super::UINT, riid: *const super::IID, ppvdsrdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateDSRDevice(&self, pd3d12device: windows_core::Ref<ID3D12Device>, nodemask: super::UINT, riid: *const super::IID, ppvdsrdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "guiddef", feature = "shared"))]
 impl ID3D12DSRDeviceFactory_Vtbl {
@@ -10153,7 +10153,7 @@ impl ID3D12DSRDeviceFactory_Vtbl {
         unsafe extern "system" fn CreateDSRDevice<Identity: ID3D12DSRDeviceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd3d12device: *mut core::ffi::c_void, nodemask: super::UINT, riid: *const super::IID, ppvdsrdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12DSRDeviceFactory_Impl::CreateDSRDevice(this, core::mem::transmute(&pd3d12device), core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdsrdevice)).into()
+                ID3D12DSRDeviceFactory_Impl::CreateDSRDevice(this, core::mem::transmute_copy(&pd3d12device), core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvdsrdevice)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateDSRDevice: CreateDSRDevice::<Identity, OFFSET> }
@@ -12750,7 +12750,7 @@ pub struct ID3D12Device7_Vtbl {
 }
 #[cfg(all(feature = "dxgi", feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait ID3D12Device7_Impl: ID3D12Device6_Impl {
-    fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: Option<ID3D12StateObject>, riid: *const super::IID, ppnewstateobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: windows_core::Ref<ID3D12StateObject>, riid: *const super::IID, ppnewstateobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateProtectedResourceSession1(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const super::IID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "dxgi", feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -12759,7 +12759,7 @@ impl ID3D12Device7_Vtbl {
         unsafe extern "system" fn AddToStateObject<Identity: ID3D12Device7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: *mut core::ffi::c_void, riid: *const super::IID, ppnewstateobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12Device7_Impl::AddToStateObject(this, core::mem::transmute_copy(&paddition), core::mem::transmute(&pstateobjecttogrowfrom), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppnewstateobject)).into()
+                ID3D12Device7_Impl::AddToStateObject(this, core::mem::transmute_copy(&paddition), core::mem::transmute_copy(&pstateobjecttogrowfrom), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppnewstateobject)).into()
             }
         }
         unsafe extern "system" fn CreateProtectedResourceSession1<Identity: ID3D12Device7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const super::IID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

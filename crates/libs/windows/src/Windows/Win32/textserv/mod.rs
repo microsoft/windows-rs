@@ -127,7 +127,7 @@ pub struct IRicheditWindowlessAccessibility_Vtbl {
 }
 #[cfg(feature = "uiautomationcore")]
 pub trait IRicheditWindowlessAccessibility_Impl: windows_core::IUnknownImpl {
-    fn CreateProvider(&self, psite: Option<super::IRawElementProviderWindowlessSite>, ppprovider: *mut Option<super::IRawElementProviderSimple>) -> windows_core::Result<()>;
+    fn CreateProvider(&self, psite: windows_core::Ref<super::IRawElementProviderWindowlessSite>, ppprovider: *mut Option<super::IRawElementProviderSimple>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "uiautomationcore")]
 impl IRicheditWindowlessAccessibility_Vtbl {
@@ -135,7 +135,7 @@ impl IRicheditWindowlessAccessibility_Vtbl {
         unsafe extern "system" fn CreateProvider<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psite: *mut core::ffi::c_void, ppprovider: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRicheditWindowlessAccessibility_Impl::CreateProvider(this, core::mem::transmute(&psite), core::mem::transmute_copy(&ppprovider)).into()
+                IRicheditWindowlessAccessibility_Impl::CreateProvider(this, core::mem::transmute_copy(&psite), core::mem::transmute_copy(&ppprovider)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProvider: CreateProvider::<Identity, OFFSET> }

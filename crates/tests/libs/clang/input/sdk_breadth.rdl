@@ -1,9 +1,5 @@
 #[win32]
 mod Fixture {
-    type ULONG = u32;
-}
-#[win32]
-mod Fixture {
     struct GUID {
         Data1: u32,
         Data2: u16,
@@ -22,6 +18,10 @@ mod Fixture {
 mod Fixture {
     #[library("kernel32.dll")]
     extern fn GetCurrentProcessId() -> DWORD;
+}
+#[win32]
+mod Fixture {
+    type ULONG = u32;
 }
 #[win32]
 mod Fixture {

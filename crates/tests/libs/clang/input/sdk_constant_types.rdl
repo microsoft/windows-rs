@@ -45,6 +45,6 @@ mod Fixture {
 mod Fixture {
     #[library("user32.dll")]
     extern fn SetWinEventHook(#[in] eventMin: DWORD, #[in] eventMax: DWORD, #[in] #[opt] hmodWinEventProc: HMODULE, #[in] pfnWinEventProc: WINEVENTPROC, #[in] idProcess: DWORD, #[in] idThread: DWORD, #[in] dwFlags: DWORD) -> HWINEVENTHOOK;
-    extern fn WINEVENTPROC(#[in] hWinEventHook: HWINEVENTHOOK, #[in] event: DWORD, #[in] hwnd: HWND, #[in] idObject: LONG, #[in] idChild: LONG, #[in] idEventThread: DWORD, #[in] dwmsEventTime: DWORD);
+    extern fn WINEVENTPROC(hWinEventHook: HWINEVENTHOOK, event: DWORD, hwnd: HWND, idObject: LONG, idChild: LONG, idEventThread: DWORD, dwmsEventTime: DWORD);
     const WINEVENT_OUTOFCONTEXT: i32 = 0;
 }

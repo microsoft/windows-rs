@@ -17,10 +17,15 @@ mod Fixture {
     const CSCONTROL_RESTART: i32 = 3;
     const CSCONTROL_SHUTDOWN: i32 = 1;
     const CSCONTROL_SUSPEND: i32 = 2;
+    struct CSEDB_RSTMAPW {
+        pwszDatabaseName: *mut WCHAR,
+        pwszNewDatabaseName: *mut WCHAR,
+    }
     const CSRESTORE_TYPE_CATCHUP: i32 = 4;
     const CSRESTORE_TYPE_FULL: i32 = 1;
     const CSRESTORE_TYPE_MASK: i32 = 5;
     const CSRESTORE_TYPE_ONLINE: i32 = 2;
+    type HCSBC = *mut void;
     #[encoding("ansi")]
     const szBACKUPANNOTATION: String = "Cert Server Backup Interface";
     #[encoding("ansi")]

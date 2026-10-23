@@ -1,13 +1,5 @@
 #[win32]
 mod Fixture {
-    type CHAR = i8;
-    #[arch(X64 | Arm64)]
-    type LONG_PTR = i64;
-    #[arch(X86)]
-    type LONG_PTR = i32;
-}
-#[win32]
-mod Fixture {
     extern fn ENUMRESNAMEPROCA(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPCSTR, #[in] lpName: LPSTR, #[in] lParam: LONG_PTR) -> BOOL;
     extern fn ENUMRESTYPEPROCW(#[in] #[opt] hModule: HMODULE, #[in] lpType: LPWSTR, #[in] lParam: LONG_PTR) -> BOOL;
 }
@@ -19,6 +11,14 @@ mod Fixture {
         unused: i32,
     }
     type HMODULE = *mut HINSTANCE__;
+}
+#[win32]
+mod Fixture {
+    type CHAR = i8;
+    #[arch(X64 | Arm64)]
+    type LONG_PTR = i64;
+    #[arch(X86)]
+    type LONG_PTR = i32;
 }
 #[win32]
 mod Fixture {

@@ -213,7 +213,14 @@ fn sdk_functions() {
             assert_eq!(methods.len(), FUNCTIONS.len());
             for &(name, library, count) in FUNCTIONS {
                 let method = methods.iter().find(|method| method.name() == name).unwrap();
-                assert_eq!(method.params().count(), count, "{name}");
+                assert_eq!(
+                    method
+                        .params()
+                        .filter(|param| param.sequence() != 0)
+                        .count(),
+                    count,
+                    "{name}"
+                );
                 assert_eq!(method.signature(&[]).types.len(), count, "{name}");
                 let import = method.impl_map().unwrap();
                 assert_eq!(import.import_name(), name);
@@ -227,6 +234,17 @@ fn sdk_functions() {
                     }
                 );
             }
+            let create = methods
+                .iter()
+                .find(|method| method.name() == "CreateEventW")
+                .unwrap();
+            assert!(
+                create
+                    .params()
+                    .find(|param| param.sequence() == 0)
+                    .unwrap()
+                    .has_attribute("NullableAttribute")
+            );
             let enumeration = methods
                 .iter()
                 .find(|method| method.name() == "EnumWindows")

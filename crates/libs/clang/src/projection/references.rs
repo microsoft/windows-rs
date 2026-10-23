@@ -389,24 +389,31 @@ impl Bindings<'_> {
     }
 
     pub fn contains_alias(&self, snapshot: &Snapshot, id: TypeId) -> bool {
-        match snapshot.types[id.0].kind {
-            TypeKind::Alias(id) => {
-                let alias = &snapshot.aliases[id.0];
-                self.aliases.contains_key(&alias.name)
-                    || alias
-                        .observations
-                        .iter()
-                        .any(|observation| self.contains_alias(snapshot, observation.underlying))
+        let mut pending = vec![id];
+        let mut seen = HashSet::new();
+        while let Some(id) = pending.pop() {
+            if !seen.insert(id) {
+                continue;
             }
-            TypeKind::Pointer(inner)
-            | TypeKind::Pointer64(inner)
-            | TypeKind::LValueReference(inner)
-            | TypeKind::Array { element: inner, .. }
-            | TypeKind::Attributed {
-                modified: inner, ..
-            } => self.contains_alias(snapshot, inner),
-            _ => false,
+            match snapshot.types[id.0].kind {
+                TypeKind::Alias(id) => {
+                    let alias = &snapshot.aliases[id.0];
+                    if self.aliases.contains_key(&alias.name) {
+                        return true;
+                    }
+                    pending.extend(alias.observations.iter().map(|value| value.underlying));
+                }
+                TypeKind::Pointer(inner)
+                | TypeKind::Pointer64(inner)
+                | TypeKind::LValueReference(inner)
+                | TypeKind::Array { element: inner, .. }
+                | TypeKind::Attributed {
+                    modified: inner, ..
+                } => pending.push(inner),
+                _ => {}
+            }
         }
+        false
     }
 }
 

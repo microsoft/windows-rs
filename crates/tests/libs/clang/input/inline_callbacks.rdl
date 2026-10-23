@@ -14,7 +14,7 @@ mod Fixture {
         mixed: extern "C" fn(*const *mut i32) -> *mut *const i32,
         recursive: extern "C" fn(*mut InlineCallbacks) -> *mut InlineCallbacks,
     }
-    extern "C" fn Named(#[in] param0: i32) -> i32;
+    extern "C" fn Named(param0: i32) -> i32;
     struct Payload {
         value: i32,
     }

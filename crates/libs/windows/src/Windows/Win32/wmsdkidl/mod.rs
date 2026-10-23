@@ -10520,7 +10520,7 @@ pub struct IWMWriterPostView_Vtbl {
 }
 #[cfg(feature = "shared")]
 pub trait IWMWriterPostView_Impl: windows_core::IUnknownImpl {
-    fn SetPostViewCallback(&self, pcallback: Option<IWMWriterPostViewCallback>, pvcontext: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn SetPostViewCallback(&self, pcallback: windows_core::Ref<IWMWriterPostViewCallback>, pvcontext: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetReceivePostViewSamples(&self, wstreamnum: super::WORD, freceivepostviewsamples: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetReceivePostViewSamples(&self, wstreamnum: super::WORD) -> windows_core::Result<windows_core::BOOL>;
     fn GetPostViewProps(&self, wstreamnumber: super::WORD) -> windows_core::Result<IWMMediaProps>;
@@ -10536,7 +10536,7 @@ impl IWMWriterPostView_Vtbl {
         unsafe extern "system" fn SetPostViewCallback<Identity: IWMWriterPostView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void, pvcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWMWriterPostView_Impl::SetPostViewCallback(this, core::mem::transmute(&pcallback), core::mem::transmute_copy(&pvcontext)).into()
+                IWMWriterPostView_Impl::SetPostViewCallback(this, core::mem::transmute_copy(&pcallback), core::mem::transmute_copy(&pvcontext)).into()
             }
         }
         unsafe extern "system" fn SetReceivePostViewSamples<Identity: IWMWriterPostView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wstreamnum: super::WORD, freceivepostviewsamples: windows_core::BOOL) -> windows_core::HRESULT {

@@ -7135,7 +7135,7 @@ pub trait IObjPool_Impl: windows_core::IUnknownImpl {
     fn Reserved2(&self);
     fn Reserved3(&self);
     fn Reserved4(&self);
-    fn PutEndTx(&self, pobj: Option<windows_core::IUnknown>);
+    fn PutEndTx(&self, pobj: windows_core::Ref<windows_core::IUnknown>);
     fn Reserved5(&self);
     fn Reserved6(&self);
 }
@@ -7168,7 +7168,7 @@ impl IObjPool_Vtbl {
         unsafe extern "system" fn PutEndTx<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pobj: *mut core::ffi::c_void) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IObjPool_Impl::PutEndTx(this, core::mem::transmute(&pobj));
+                IObjPool_Impl::PutEndTx(this, core::mem::transmute_copy(&pobj));
             }
         }
         unsafe extern "system" fn Reserved5<Identity: IObjPool_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {

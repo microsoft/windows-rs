@@ -10,6 +10,91 @@
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
 #[test]
+fn enum_constants_use_explicit_values() {
+    use enum_constant_shadow::*;
+    assert_eq!(
+        Default,
+        if cfg!(target_arch = "aarch64") {
+            512
+        } else {
+            0
+        }
+    );
+    assert_eq!(
+        Aligned,
+        if cfg!(target_arch = "aarch64") {
+            516
+        } else {
+            4
+        }
+    );
+    assert_eq!(Unshadowed, 8);
+    assert_eq!(Replaced, 10);
+    assert_eq!(ScopedValue, 41);
+    assert_eq!(Scoped::ScopedValue.0, 40);
+}
+
+#[test]
+fn residual_contracts_borrow_objects() {
+    use buffer_contracts::*;
+    use std::{cell::Cell, rc::Rc};
+    use windows_core::{Interface, Ref, implement};
+
+    #[implement(Tracked)]
+    struct Object(Rc<Cell<bool>>);
+    impl Tracked_Impl for Object_Impl {}
+    impl Drop for Object {
+        fn drop(&mut self) {
+            self.0.set(true);
+        }
+    }
+
+    struct Consumer {
+        calls: Cell<u32>,
+        expected: *mut core::ffi::c_void,
+    }
+    impl ObjectContracts_Impl for Consumer {
+        fn Required(&self, value: Ref<Tracked>) {
+            assert_eq!(value.as_ref().unwrap().as_raw(), self.expected);
+            self.calls.set(self.calls.get() + 1);
+        }
+        fn Optional(&self, value: Ref<Tracked>) {
+            assert_eq!(
+                value.as_ref().map(|value| value.as_raw()),
+                (self.calls.get() == 1).then_some(self.expected)
+            );
+            self.calls.set(self.calls.get() + 1);
+        }
+        fn Unspecified(&self, value: Ref<Tracked>) {
+            assert_eq!(
+                value.as_ref().map(|value| value.as_raw()),
+                (self.calls.get() == 3).then_some(self.expected)
+            );
+            self.calls.set(self.calls.get() + 1);
+        }
+    }
+
+    let dropped = Rc::new(Cell::new(false));
+    let object: Tracked = Object(dropped.clone()).into();
+    let consumer = Consumer {
+        calls: Cell::new(0),
+        expected: object.as_raw(),
+    };
+    let contracts = ObjectContracts::new(&consumer);
+    unsafe {
+        contracts.Required(&object);
+        contracts.Optional(Some(&object));
+        contracts.Optional(None::<&Tracked>);
+        contracts.Unspecified(&Some(object.clone()));
+        contracts.Unspecified(&None);
+    }
+    assert_eq!(consumer.calls.get(), 5);
+    assert!(!dropped.get());
+    drop(object);
+    assert!(dropped.get());
+}
+
+#[test]
 fn buffer_contracts_preserve_storage() {
     use buffer_contracts::Buffers;
     use core::ffi::c_void;

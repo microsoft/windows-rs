@@ -1,6 +1,155 @@
 use windows_clang::*;
+use windows_metadata::HasAttributes;
 
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
+
+#[test]
+fn enum_members_keep_native_identity() {
+    helpers::ensure_libclang();
+    let mut input = test_clang::selected_fixture("enum_macro_collisions", &[]);
+    input.macro_headers.push(input.name.clone());
+    let captured = capture_partial(&[input], &TARGETS).unwrap();
+    for snapshot in &captured.snapshots {
+        assert!(
+            snapshot
+                .enums
+                .iter()
+                .any(|enumeration| enumeration.name == "Other::Named")
+        );
+    }
+    let strict = projection::project(&merge(&captured.snapshots).unwrap(), "Fixture").unwrap();
+    let result = projection::project_partial(captured, "Fixture").unwrap();
+    assert_eq!(strict, result.output);
+    assert_eq!(result.omissions.len(), 1);
+    assert!(
+        result
+            .omissions
+            .iter()
+            .all(|message| message.contains("Macro(\"FailedMember\")"))
+    );
+    let text = &result.output.partitions["enum_macro_collisions"].rdl;
+    let expected = test_clang::input_dir().join("enum_macro_collisions.rdl");
+    if std::env::var_os("UPDATE_CLANG_RDL").is_some() {
+        std::fs::write(&expected, text).unwrap();
+    }
+    assert_eq!(
+        *text,
+        std::fs::read_to_string(expected)
+            .unwrap()
+            .replace("\r\n", "\n")
+    );
+
+    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..");
+    let winmd = root.join("target\\test-clang-enum-macros.winmd");
+    let rdl = winmd.with_extension("rdl");
+    let again = winmd.with_extension("again.winmd");
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input_text(text)
+        .output(&winmd)
+        .write()
+        .unwrap();
+    windows_rdl::writer()
+        .input(&winmd)
+        .filter("Fixture")
+        .output(&rdl)
+        .write()
+        .unwrap();
+    windows_rdl::reader()
+        .input(root.join("metadata\\metadata.rdl"))
+        .input(&rdl)
+        .output(&again)
+        .write()
+        .unwrap();
+    for path in [&winmd, &again] {
+        for architecture in [1, 2, 4] {
+            let index = windows_metadata::reader::Index::new_for_architecture(
+                vec![windows_metadata::reader::File::read(path).unwrap()],
+                architecture,
+            );
+            let field = |namespace, owner, name| {
+                index
+                    .expect(namespace, owner)
+                    .fields()
+                    .find(|field| field.name() == name)
+                    .unwrap()
+            };
+            for (name, value) in [
+                ("PoolDefault", 0),
+                ("PoolAligned", 4),
+                ("PoolNx", 512),
+                ("PoolNxAligned", 516),
+                ("MatchingMember", 7),
+                ("FailedMember", 9),
+            ] {
+                assert_eq!(
+                    field("Fixture", "Pool", name).constant().unwrap().value(),
+                    windows_metadata::Value::I32(value)
+                );
+            }
+            for (namespace, owner, name, value) in [
+                ("Fixture", "Apis", "MatchingMember", 7),
+                ("Fixture", "Apis", "ScopedMember", 12),
+                ("Fixture", "Apis", "NamespacedMember", 14),
+                ("Fixture", "Scoped", "ScopedMember", 11),
+                ("Fixture", "Named", "NamespacedMember", 13),
+            ] {
+                assert_eq!(
+                    field(namespace, owner, name).constant().unwrap().value(),
+                    windows_metadata::Value::I32(value)
+                );
+            }
+            let apis = index.expect("Fixture", "Apis");
+            for (name, value) in [("PoolDefault", 512), ("PoolAligned", 516)] {
+                let constant = apis.fields().find(|field| {
+                    field.name() == name
+                        && (field.arches() == 0 || field.arches() & architecture != 0)
+                });
+                if architecture == 4 {
+                    assert_eq!(
+                        constant.unwrap().constant().unwrap().value(),
+                        windows_metadata::Value::I32(value)
+                    );
+                } else {
+                    assert!(constant.is_none());
+                }
+            }
+            assert_eq!(
+                field("Fixture", "PoolConsumer", "value").ty(),
+                windows_metadata::Type::value_named("Fixture", "Pool")
+            );
+        }
+    }
+    for path in [winmd, rdl, again] {
+        std::fs::remove_file(path).unwrap();
+    }
+}
+
+#[test]
+fn enum_macro_collisions_do_not_hide_conflicts() {
+    helpers::ensure_libclang();
+    for (before, after, expected) in [
+        ("PoolDefault = 0", "PoolDefault = 1", "enum members differ"),
+        (
+            "#define MatchingMember 7",
+            "#define MatchingMember 8",
+            "native value declarations differ",
+        ),
+    ] {
+        let mut first = test_clang::selected_fixture("enum_macro_collisions", &[]);
+        first.macro_headers.push(first.name.clone());
+        let mut second = test_clang::selected_fixture("enum_macro_collisions", &[]);
+        second.name = "enum_macro_conflict.h".into();
+        second.source = second.source.replace(before, after);
+        second.macro_headers = vec![second.name.clone()];
+        let mut inputs = [first, second];
+        for _ in 0..2 {
+            let error = capture_partial(&inputs, &TARGETS).unwrap_err();
+            assert!(error.to_string().contains(expected), "{error}");
+            inputs.reverse();
+        }
+    }
+}
 
 fn inputs() -> [Input; 2] {
     let mut input = test_clang::selected_fixture(

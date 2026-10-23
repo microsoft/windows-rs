@@ -558,3 +558,124 @@ impl Buffers {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
+windows_core::imp::define_interface!(ObjectContracts, ObjectContracts_Vtbl);
+impl ObjectContracts {
+    pub unsafe fn Required<P0>(&self, value: P0)
+    where
+        P0: windows_core::Param<Tracked>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Required)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            );
+        }
+    }
+    pub unsafe fn Optional<P0>(&self, value: P0)
+    where
+        P0: windows_core::Param<Tracked>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Optional)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            );
+        }
+    }
+    pub unsafe fn Unspecified(&self, value: &Option<Tracked>) {
+        unsafe {
+            (windows_core::Interface::vtable(self).Unspecified)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(value),
+            );
+        }
+    }
+}
+#[repr(C)]
+pub struct ObjectContracts_Vtbl {
+    pub Required: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
+    pub Optional: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
+    pub Unspecified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
+}
+pub trait ObjectContracts_Impl {
+    fn Required(&self, value: windows_core::Ref<Tracked>);
+    fn Optional(&self, value: windows_core::Ref<Tracked>);
+    fn Unspecified(&self, value: windows_core::Ref<Tracked>);
+}
+impl ObjectContracts_Vtbl {
+    pub const fn new<Identity: ObjectContracts_Impl>() -> Self {
+        unsafe extern "system" fn Required<Identity: ObjectContracts_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut core::ffi::c_void,
+        ) {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ObjectContracts_Impl::Required(this, core::mem::transmute_copy(&value));
+            }
+        }
+        unsafe extern "system" fn Optional<Identity: ObjectContracts_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut core::ffi::c_void,
+        ) {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ObjectContracts_Impl::Optional(this, core::mem::transmute_copy(&value));
+            }
+        }
+        unsafe extern "system" fn Unspecified<Identity: ObjectContracts_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut core::ffi::c_void,
+        ) {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ObjectContracts_Impl::Unspecified(this, core::mem::transmute_copy(&value));
+            }
+        }
+        Self {
+            Required: Required::<Identity>,
+            Optional: Optional::<Identity>,
+            Unspecified: Unspecified::<Identity>,
+        }
+    }
+}
+struct ObjectContracts_ImplVtbl<T: ObjectContracts_Impl>(core::marker::PhantomData<T>);
+impl<T: ObjectContracts_Impl> ObjectContracts_ImplVtbl<T> {
+    const VTABLE: ObjectContracts_Vtbl = ObjectContracts_Vtbl::new::<T>();
+}
+impl ObjectContracts {
+    pub fn new<'a, T: ObjectContracts_Impl>(
+        this: &'a T,
+    ) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap {
+            vtable: &ObjectContracts_ImplVtbl::<T>::VTABLE as *const _ as *const _,
+            this: this as *const _ as *const _,
+        };
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
+windows_core::imp::define_interface!(
+    Tracked,
+    Tracked_Vtbl,
+    0x6911d859_eae4_4a56_9076_76fc4227c710
+);
+windows_core::imp::interface_hierarchy!(Tracked, windows_core::IUnknown);
+#[repr(C)]
+pub struct Tracked_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+}
+pub trait Tracked_Impl: windows_core::IUnknownImpl {}
+impl Tracked_Vtbl {
+    pub const fn new<Identity: Tracked_Impl, const OFFSET: isize>() -> Self {
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<Tracked as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for Tracked {}

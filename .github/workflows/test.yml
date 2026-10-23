@@ -116,6 +116,7 @@ jobs:
           cargo test -p test_clang --test namespaces --test composition_interop -- --include-ignored &&
           cargo test -p test_clang --release --test package_acceptance -- --ignored &&
           cargo test -p test_bindgen --test package -- --ignored &&
+          cargo test -p test_bindgen --test bindgen enum_constant_shadow_styles -- --ignored &&
           cargo test -p test_bindgen --test errors invalid_target_bitfield_width -- --ignored
       - name: Check diff
         shell: bash

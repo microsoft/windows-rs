@@ -1,10 +1,10 @@
 #[win32]
 mod Fixture {
-    type USHORT = u16;
+    type BYTE = u8;
 }
 #[win32]
 mod Fixture {
-    type BYTE = u8;
+    type USHORT = u16;
 }
 #[win32]
 mod Fixture {

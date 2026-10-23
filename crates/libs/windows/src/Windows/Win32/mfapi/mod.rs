@@ -557,11 +557,14 @@ where
 }
 #[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MFGetMFTMerit(pmft: Option<windows_core::IUnknown>, verifier: &[u8]) -> windows_core::Result<super::DWORD> {
+pub unsafe fn MFGetMFTMerit<P0>(pmft: P0, verifier: &[u8]) -> windows_core::Result<super::DWORD>
+where
+    P0: windows_core::Param<windows_core::IUnknown>,
+{
     windows_core::link!("mfplat.dll" "system" fn MFGetMFTMerit(pmft : *mut core::ffi::c_void, cbverifier : super::UINT32, verifier : *const super::BYTE, merit : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFGetMFTMerit(core::mem::transmute(pmft), verifier.len().try_into().unwrap(), core::mem::transmute(verifier.as_ptr()), &mut result__).map(|| result__)
+        MFGetMFTMerit(pmft.param().abi(), verifier.len().try_into().unwrap(), core::mem::transmute(verifier.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "shared")]

@@ -1,18 +1,5 @@
 #[win32]
 mod Fixture {
-    type BYTE = u8;
-    type DWORD = u32;
-    #[arch(X64 | Arm64)]
-    type DWORD64 = u64;
-    #[arch(X64 | Arm64)]
-    type LONGLONG = i64;
-    #[arch(X64 | Arm64)]
-    type ULONGLONG = u64;
-    #[arch(X64 | Arm64)]
-    type WORD = u16;
-}
-#[win32]
-mod Fixture {
     #[arch(Arm64)]
     type LPCONTEXT = *mut ARM64_NT_CONTEXT;
     #[arch(X86 | X64)]
@@ -28,6 +15,19 @@ mod Fixture {
     extern fn GetThreadContext(#[in] hThread: HANDLE, #[in] #[out] lpContext: LPCONTEXT) -> BOOL;
     #[library("kernel32.dll")]
     extern fn SetThreadContext(#[in] hThread: HANDLE, #[in] lpContext: *const CONTEXT) -> BOOL;
+}
+#[win32]
+mod Fixture {
+    type BYTE = u8;
+    type DWORD = u32;
+    #[arch(X64 | Arm64)]
+    type DWORD64 = u64;
+    #[arch(X64 | Arm64)]
+    type LONGLONG = i64;
+    #[arch(X64 | Arm64)]
+    type ULONGLONG = u64;
+    #[arch(X64 | Arm64)]
+    type WORD = u16;
 }
 #[win32]
 mod Fixture {

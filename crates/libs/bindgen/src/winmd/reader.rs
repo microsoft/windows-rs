@@ -130,7 +130,10 @@ impl Reader {
                                                 Type::CppConst(CppConst {
                                                     namespace,
                                                     field,
-                                                    enum_arches,
+                                                    arches: match field.arches() {
+                                                        0 => enum_arches,
+                                                        arches => arches,
+                                                    },
                                                     is_enum_member: true,
                                                 }),
                                             );
@@ -198,11 +201,45 @@ impl Reader {
                         Type::CppConst(CppConst {
                             namespace,
                             field,
-                            enum_arches: 0,
+                            arches: field.arches(),
                             is_enum_member: false,
                         }),
                     );
                 }
+            }
+        }
+
+        // Explicit constants own their names where unscoped enum fields would be flattened.
+        for types in reader.map.values_mut().flat_map(|types| types.values_mut()) {
+            let explicit_arches = types.iter().fold(0, |arches, ty| {
+                if let Type::CppConst(constant) = ty
+                    && !constant.is_enum_member
+                {
+                    arches
+                        | if constant.arches == 0 {
+                            7
+                        } else {
+                            constant.arches
+                        }
+                } else {
+                    arches
+                }
+            });
+            if explicit_arches != 0 {
+                types.retain_mut(|ty| {
+                    if let Type::CppConst(constant) = ty
+                        && constant.is_enum_member
+                    {
+                        let arches = if constant.arches == 0 {
+                            7
+                        } else {
+                            constant.arches
+                        };
+                        constant.arches = arches & !explicit_arches;
+                        return constant.arches != 0;
+                    }
+                    true
+                });
             }
         }
 

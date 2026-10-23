@@ -1,15 +1,5 @@
 #[win32]
 mod Fixture {
-    type DWORD = u32;
-    #[success(return >= 0)]
-    type HRESULT = i32;
-    type LONG = i32;
-    type LONGLONG = i64;
-    type ULONG = u32;
-    type ULONGLONG = u64;
-}
-#[win32]
-mod Fixture {
     type CLSID = GUID;
     struct GUID {
         Data1: u32,
@@ -137,6 +127,16 @@ mod Fixture {
         grfStateBits: DWORD,
         reserved: DWORD,
     }
+}
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type LONG = i32;
+    type LONGLONG = i64;
+    type ULONG = u32;
+    type ULONGLONG = u64;
 }
 #[win32]
 mod Fixture {

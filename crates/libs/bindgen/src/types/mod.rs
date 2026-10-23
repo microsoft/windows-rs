@@ -264,7 +264,7 @@ impl Type {
             Self::CppStruct(ty) => ty.def.arches(),
             Self::CppDelegate(ty) => ty.def.arches(),
             Self::CppEnum(ty) => ty.def.arches(),
-            Self::CppConst(ty) => ty.effective_arches(),
+            Self::CppConst(ty) => ty.arches,
             _ => 0,
         }
     }
