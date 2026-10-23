@@ -1193,7 +1193,7 @@ fn emit_set_events(output: &mut String, objects: &[&Object]) {
         for event in &object.events {
             let field = snake_case(&event.name);
             output.push_str(&format!(
-                "if clear.contains(&EventId::{}) {{ object.{field}.borrow_mut().callback = None; }}\n",
+                "if clear.contains(&EventId::{}) {{ object.{field}.borrow_mut().set(None); }}\n",
                 event.name
             ));
         }
@@ -1207,7 +1207,7 @@ fn emit_set_events(output: &mut String, objects: &[&Object]) {
             };
             output.push_str(&format!(
                 "(EventId::{}, EventValue::{}(callback)) => {{ \
-                 object.{field}.borrow_mut().callback = Some(callback.clone()); {subscribe} }}\n",
+                 object.{field}.borrow_mut().set(Some(callback.clone())); {subscribe} }}\n",
                 event.name, event.value
             ));
         }

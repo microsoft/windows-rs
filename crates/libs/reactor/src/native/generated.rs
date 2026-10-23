@@ -4462,12 +4462,12 @@ impl GeneratedHandle {
         match self {
             Self::TextBox(object) => Some((|| {
                 if clear.contains(&EventId::TextChanged) {
-                    object.text_changed.borrow_mut().callback = None;
+                    object.text_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::TextChanged, EventValue::String(callback)) => {
-                            object.text_changed.borrow_mut().callback = Some(callback.clone());
+                            object.text_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4476,12 +4476,12 @@ impl GeneratedHandle {
             })()),
             Self::Button(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    object.click.borrow_mut().callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            object.click.borrow_mut().callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4491,19 +4491,21 @@ impl GeneratedHandle {
             })()),
             Self::CheckBox(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    object.click.borrow_mut().callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::IsCheckedChanged) {
-                    object.is_checked_changed.borrow_mut().callback = None;
+                    object.is_checked_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            object.click.borrow_mut().callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::IsCheckedChanged, EventValue::OptionalBool(callback)) => {
-                            object.is_checked_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .is_checked_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4512,119 +4514,144 @@ impl GeneratedHandle {
             })()),
             Self::Border(object) => Some((|| {
                 if clear.contains(&EventId::PointerPressed) {
-                    object.pointer_pressed.borrow_mut().callback = None;
+                    object.pointer_pressed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerMoved) {
-                    object.pointer_moved.borrow_mut().callback = None;
+                    object.pointer_moved.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerEntered) {
-                    object.pointer_entered.borrow_mut().callback = None;
+                    object.pointer_entered.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerExited) {
-                    object.pointer_exited.borrow_mut().callback = None;
+                    object.pointer_exited.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerReleased) {
-                    object.pointer_released.borrow_mut().callback = None;
+                    object.pointer_released.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerCaptureLost) {
-                    object.pointer_capture_lost.borrow_mut().callback = None;
+                    object.pointer_capture_lost.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PointerCanceled) {
-                    object.pointer_canceled.borrow_mut().callback = None;
+                    object.pointer_canceled.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PreviewKeyDown) {
-                    object.preview_key_down.borrow_mut().callback = None;
+                    object.preview_key_down.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::KeyUp) {
-                    object.key_up.borrow_mut().callback = None;
+                    object.key_up.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::CharacterReceived) {
-                    object.character_received.borrow_mut().callback = None;
+                    object.character_received.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::GotFocus) {
-                    object.got_focus.borrow_mut().callback = None;
+                    object.got_focus.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::LostFocus) {
-                    object.lost_focus.borrow_mut().callback = None;
+                    object.lost_focus.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragEnter) {
-                    object.drag_enter.borrow_mut().callback = None;
+                    object.drag_enter.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragOver) {
-                    object.drag_over.borrow_mut().callback = None;
+                    object.drag_over.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragLeave) {
-                    object.drag_leave.borrow_mut().callback = None;
+                    object.drag_leave.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::Drop) {
-                    object.drop.borrow_mut().callback = None;
+                    object.drop.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::PointerPressed, EventValue::PointerEventInfo(callback)) => {
-                            object.pointer_pressed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .pointer_pressed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_pressed(object_id, context)?;
                         }
                         (EventId::PointerMoved, EventValue::PointerEventInfo(callback)) => {
-                            object.pointer_moved.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .pointer_moved
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_moved(object_id, context)?;
                         }
                         (EventId::PointerEntered, EventValue::PointerEventInfo(callback)) => {
-                            object.pointer_entered.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .pointer_entered
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_entered(object_id, context)?;
                         }
                         (EventId::PointerExited, EventValue::PointerEventInfo(callback)) => {
-                            object.pointer_exited.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .pointer_exited
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_exited(object_id, context)?;
                         }
                         (EventId::PointerReleased, EventValue::PointerEventInfo(callback)) => {
-                            object.pointer_released.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .pointer_released
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_released(object_id, context)?;
                         }
                         (EventId::PointerCaptureLost, EventValue::Unit(callback)) => {
-                            object.pointer_capture_lost.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .pointer_capture_lost
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_capture_lost(object_id, context)?;
                         }
                         (EventId::PointerCanceled, EventValue::Unit(callback)) => {
-                            object.pointer_canceled.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .pointer_canceled
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pointer_canceled(object_id, context)?;
                         }
                         (EventId::PreviewKeyDown, EventValue::KeyEventInfo(callback)) => {
-                            object.preview_key_down.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .preview_key_down
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_preview_key_down(object_id, context)?;
                         }
                         (EventId::KeyUp, EventValue::KeyEventInfo(callback)) => {
-                            object.key_up.borrow_mut().callback = Some(callback.clone());
+                            object.key_up.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_key_up(object_id, context)?;
                         }
                         (EventId::CharacterReceived, EventValue::CharacterEventInfo(callback)) => {
-                            object.character_received.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .character_received
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_character_received(object_id, context)?;
                         }
                         (EventId::GotFocus, EventValue::FocusEventInfo(callback)) => {
-                            object.got_focus.borrow_mut().callback = Some(callback.clone());
+                            object.got_focus.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_got_focus(object_id, context)?;
                         }
                         (EventId::LostFocus, EventValue::FocusEventInfo(callback)) => {
-                            object.lost_focus.borrow_mut().callback = Some(callback.clone());
+                            object.lost_focus.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_lost_focus(object_id, context)?;
                         }
                         (EventId::DragEnter, EventValue::DragKind(callback)) => {
-                            object.drag_enter.borrow_mut().callback = Some(callback.clone());
+                            object.drag_enter.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drag_enter(object_id, context)?;
                         }
                         (EventId::DragOver, EventValue::DragKind(callback)) => {
-                            object.drag_over.borrow_mut().callback = Some(callback.clone());
+                            object.drag_over.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drag_over(object_id, context)?;
                         }
                         (EventId::DragLeave, EventValue::Unit(callback)) => {
-                            object.drag_leave.borrow_mut().callback = Some(callback.clone());
+                            object.drag_leave.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drag_leave(object_id, context)?;
                         }
                         (EventId::Drop, EventValue::DroppedData(callback)) => {
-                            object.drop.borrow_mut().callback = Some(callback.clone());
+                            object.drop.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_drop(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4634,20 +4661,25 @@ impl GeneratedHandle {
             })()),
             Self::TitleBar(object) => Some((|| {
                 if clear.contains(&EventId::BackRequested) {
-                    object.back_requested.borrow_mut().callback = None;
+                    object.back_requested.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::PaneToggleRequested) {
-                    object.pane_toggle_requested.borrow_mut().callback = None;
+                    object.pane_toggle_requested.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::BackRequested, EventValue::Unit(callback)) => {
-                            object.back_requested.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .back_requested
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_back_requested(object_id, context)?;
                         }
                         (EventId::PaneToggleRequested, EventValue::Unit(callback)) => {
-                            object.pane_toggle_requested.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .pane_toggle_requested
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_pane_toggle_requested(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4657,12 +4689,15 @@ impl GeneratedHandle {
             })()),
             Self::Slider(object) => Some((|| {
                 if clear.contains(&EventId::ValueChanged) {
-                    object.value_changed.borrow_mut().callback = None;
+                    object.value_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ValueChanged, EventValue::F64(callback)) => {
-                            object.value_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .value_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4671,19 +4706,24 @@ impl GeneratedHandle {
             })()),
             Self::ListView(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragItemsCompleted) {
-                    object.drag_items_completed.borrow_mut().callback = None;
+                    object.drag_items_completed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::DragItemsCompleted, EventValue::Keys(callback)) => {
-                            object.drag_items_completed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .drag_items_completed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4692,12 +4732,12 @@ impl GeneratedHandle {
             })()),
             Self::HyperlinkButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    object.click.borrow_mut().callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            object.click.borrow_mut().callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4707,12 +4747,12 @@ impl GeneratedHandle {
             })()),
             Self::RepeatButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    object.click.borrow_mut().callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            object.click.borrow_mut().callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4722,12 +4762,12 @@ impl GeneratedHandle {
             })()),
             Self::BreadcrumbBar(object) => Some((|| {
                 if clear.contains(&EventId::ItemClicked) {
-                    object.item_clicked.borrow_mut().callback = None;
+                    object.item_clicked.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ItemClicked, EventValue::String(callback)) => {
-                            object.item_clicked.borrow_mut().callback = Some(callback.clone());
+                            object.item_clicked.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_item_clicked(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4737,18 +4777,21 @@ impl GeneratedHandle {
             })()),
             Self::AutoSuggestBox(object) => Some((|| {
                 if clear.contains(&EventId::TextChanged) {
-                    object.text_changed.borrow_mut().callback = None;
+                    object.text_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::SuggestionChosen) {
-                    object.suggestion_chosen.borrow_mut().callback = None;
+                    object.suggestion_chosen.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::TextChanged, EventValue::String(callback)) => {
-                            object.text_changed.borrow_mut().callback = Some(callback.clone());
+                            object.text_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::SuggestionChosen, EventValue::String(callback)) => {
-                            object.suggestion_chosen.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .suggestion_chosen
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_suggestion_chosen(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4758,12 +4801,15 @@ impl GeneratedHandle {
             })()),
             Self::PasswordBox(object) => Some((|| {
                 if clear.contains(&EventId::PasswordChanged) {
-                    object.password_changed.borrow_mut().callback = None;
+                    object.password_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::PasswordChanged, EventValue::String(callback)) => {
-                            object.password_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .password_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4772,12 +4818,15 @@ impl GeneratedHandle {
             })()),
             Self::NumberBox(object) => Some((|| {
                 if clear.contains(&EventId::ValueChanged) {
-                    object.value_changed.borrow_mut().callback = None;
+                    object.value_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ValueChanged, EventValue::OptionalF64(callback)) => {
-                            object.value_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .value_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4786,29 +4835,36 @@ impl GeneratedHandle {
             })()),
             Self::NavigationView(object) => Some((|| {
                 if clear.contains(&EventId::IsPaneOpenChanged) {
-                    object.is_pane_open_changed.borrow_mut().callback = None;
+                    object.is_pane_open_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DisplayModeChanged) {
-                    object.display_mode_changed.borrow_mut().callback = None;
+                    object.display_mode_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::IsPaneOpenChanged, EventValue::Bool(callback)) => {
-                            object.is_pane_open_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .is_pane_open_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::SelectionChanged, EventValue::Selection(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (
                             EventId::DisplayModeChanged,
                             EventValue::NavigationViewDisplayMode(callback),
                         ) => {
-                            object.display_mode_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .display_mode_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_display_mode_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4818,12 +4874,12 @@ impl GeneratedHandle {
             })()),
             Self::SplitView(object) => Some((|| {
                 if clear.contains(&EventId::PaneClosed) {
-                    object.pane_closed.borrow_mut().callback = None;
+                    object.pane_closed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::PaneClosed, EventValue::Bool(callback)) => {
-                            object.pane_closed.borrow_mut().callback = Some(callback.clone());
+                            object.pane_closed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4832,12 +4888,12 @@ impl GeneratedHandle {
             })()),
             Self::ToggleSwitch(object) => Some((|| {
                 if clear.contains(&EventId::Toggled) {
-                    object.toggled.borrow_mut().callback = None;
+                    object.toggled.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Toggled, EventValue::Bool(callback)) => {
-                            object.toggled.borrow_mut().callback = Some(callback.clone());
+                            object.toggled.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4846,13 +4902,15 @@ impl GeneratedHandle {
             })()),
             Self::ToggleButton(object) => Some((|| {
                 if clear.contains(&EventId::IsCheckedChanged) {
-                    object.is_checked_changed.borrow_mut().callback = None;
+                    object.is_checked_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::IsCheckedChanged, EventValue::OptionalBool(callback)) => {
-                            object.is_checked_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .is_checked_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4861,18 +4919,18 @@ impl GeneratedHandle {
             })()),
             Self::RadioButton(object) => Some((|| {
                 if clear.contains(&EventId::Checked) {
-                    object.checked.borrow_mut().callback = None;
+                    object.checked.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::Unchecked) {
-                    object.unchecked.borrow_mut().callback = None;
+                    object.unchecked.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Checked, EventValue::OptionalBool(callback)) => {
-                            object.checked.borrow_mut().callback = Some(callback.clone());
+                            object.checked.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::Unchecked, EventValue::OptionalBool(callback)) => {
-                            object.unchecked.borrow_mut().callback = Some(callback.clone());
+                            object.unchecked.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4881,12 +4939,15 @@ impl GeneratedHandle {
             })()),
             Self::RadioButtons(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4895,12 +4956,12 @@ impl GeneratedHandle {
             })()),
             Self::InfoBar(object) => Some((|| {
                 if clear.contains(&EventId::Closed) {
-                    object.closed.borrow_mut().callback = None;
+                    object.closed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
-                            object.closed.borrow_mut().callback = Some(callback.clone());
+                            object.closed.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_closed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -4910,18 +4971,18 @@ impl GeneratedHandle {
             })()),
             Self::Image(object) => Some((|| {
                 if clear.contains(&EventId::ImageOpened) {
-                    object.image_opened.borrow_mut().callback = None;
+                    object.image_opened.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::ImageFailed) {
-                    object.image_failed.borrow_mut().callback = None;
+                    object.image_failed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ImageOpened, EventValue::Unit(callback)) => {
-                            object.image_opened.borrow_mut().callback = Some(callback.clone());
+                            object.image_opened.borrow_mut().set(Some(callback.clone()));
                         }
                         (EventId::ImageFailed, EventValue::Unit(callback)) => {
-                            object.image_failed.borrow_mut().callback = Some(callback.clone());
+                            object.image_failed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4930,12 +4991,15 @@ impl GeneratedHandle {
             })()),
             Self::ListBox(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::Selection(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4944,12 +5008,15 @@ impl GeneratedHandle {
             })()),
             Self::RatingControl(object) => Some((|| {
                 if clear.contains(&EventId::ValueChanged) {
-                    object.value_changed.borrow_mut().callback = None;
+                    object.value_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ValueChanged, EventValue::OptionalF64(callback)) => {
-                            object.value_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .value_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4958,13 +5025,15 @@ impl GeneratedHandle {
             })()),
             Self::Expander(object) => Some((|| {
                 if clear.contains(&EventId::IsExpandedChanged) {
-                    object.is_expanded_changed.borrow_mut().callback = None;
+                    object.is_expanded_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::IsExpandedChanged, EventValue::Bool(callback)) => {
-                            object.is_expanded_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .is_expanded_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4973,12 +5042,15 @@ impl GeneratedHandle {
             })()),
             Self::ComboBox(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -4987,12 +5059,15 @@ impl GeneratedHandle {
             })()),
             Self::Pivot(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5001,12 +5076,15 @@ impl GeneratedHandle {
             })()),
             Self::FlipView(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5015,12 +5093,15 @@ impl GeneratedHandle {
             })()),
             Self::SelectorBar(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::Selection(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5029,34 +5110,44 @@ impl GeneratedHandle {
             })()),
             Self::TabView(object) => Some((|| {
                 if clear.contains(&EventId::AddTabButtonClick) {
-                    object.add_tab_button_click.borrow_mut().callback = None;
+                    object.add_tab_button_click.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::TabCloseRequested) {
-                    object.tab_close_requested.borrow_mut().callback = None;
+                    object.tab_close_requested.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::TabItemsChanged) {
-                    object.tab_items_changed.borrow_mut().callback = None;
+                    object.tab_items_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::AddTabButtonClick, EventValue::Unit(callback)) => {
-                            object.add_tab_button_click.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .add_tab_button_click
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_add_tab_button_click(object_id, context)?;
                         }
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::TabCloseRequested, EventValue::Key(callback)) => {
-                            object.tab_close_requested.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .tab_close_requested
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_tab_close_requested(object_id, context)?;
                         }
                         (EventId::TabItemsChanged, EventValue::Keys(callback)) => {
-                            object.tab_items_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .tab_items_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5065,20 +5156,22 @@ impl GeneratedHandle {
             })()),
             Self::TeachingTip(object) => Some((|| {
                 if clear.contains(&EventId::Closed) {
-                    object.closed.borrow_mut().callback = None;
+                    object.closed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::ActionButtonClick) {
-                    object.action_button_click.borrow_mut().callback = None;
+                    object.action_button_click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
-                            object.closed.borrow_mut().callback = Some(callback.clone());
+                            object.closed.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_closed(object_id, context)?;
                         }
                         (EventId::ActionButtonClick, EventValue::Unit(callback)) => {
-                            object.action_button_click.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .action_button_click
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_action_button_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5088,12 +5181,12 @@ impl GeneratedHandle {
             })()),
             Self::DropDownButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    object.click.borrow_mut().callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            object.click.borrow_mut().callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5103,12 +5196,12 @@ impl GeneratedHandle {
             })()),
             Self::AppBarButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    object.click.borrow_mut().callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            object.click.borrow_mut().callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5118,12 +5211,12 @@ impl GeneratedHandle {
             })()),
             Self::SplitButton(object) => Some((|| {
                 if clear.contains(&EventId::Click) {
-                    object.click.borrow_mut().callback = None;
+                    object.click.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Click, EventValue::Unit(callback)) => {
-                            object.click.borrow_mut().callback = Some(callback.clone());
+                            object.click.borrow_mut().set(Some(callback.clone()));
                             object.subscribe_click(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5133,12 +5226,15 @@ impl GeneratedHandle {
             })()),
             Self::ColorPicker(object) => Some((|| {
                 if clear.contains(&EventId::ColorChanged) {
-                    object.color_changed.borrow_mut().callback = None;
+                    object.color_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::ColorChanged, EventValue::Color(callback)) => {
-                            object.color_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .color_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5147,13 +5243,15 @@ impl GeneratedHandle {
             })()),
             Self::DatePicker(object) => Some((|| {
                 if clear.contains(&EventId::SelectedDateChanged) {
-                    object.selected_date_changed.borrow_mut().callback = None;
+                    object.selected_date_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedDateChanged, EventValue::OptionalDateTime(callback)) => {
-                            object.selected_date_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .selected_date_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_selected_date_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5163,13 +5261,15 @@ impl GeneratedHandle {
             })()),
             Self::TimePicker(object) => Some((|| {
                 if clear.contains(&EventId::SelectedTimeChanged) {
-                    object.selected_time_changed.borrow_mut().callback = None;
+                    object.selected_time_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedTimeChanged, EventValue::OptionalTimeSpan(callback)) => {
-                            object.selected_time_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .selected_time_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_selected_time_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5179,12 +5279,12 @@ impl GeneratedHandle {
             })()),
             Self::CalendarDatePicker(object) => Some((|| {
                 if clear.contains(&EventId::DateChanged) {
-                    object.date_changed.borrow_mut().callback = None;
+                    object.date_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::DateChanged, EventValue::OptionalDateTime(callback)) => {
-                            object.date_changed.borrow_mut().callback = Some(callback.clone());
+                            object.date_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5193,12 +5293,12 @@ impl GeneratedHandle {
             })()),
             Self::ContentDialog(object) => Some((|| {
                 if clear.contains(&EventId::Closed) {
-                    object.closed.borrow_mut().callback = None;
+                    object.closed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::ContentDialogResult(callback)) => {
-                            object.closed.borrow_mut().callback = Some(callback.clone());
+                            object.closed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5207,13 +5307,15 @@ impl GeneratedHandle {
             })()),
             Self::CalendarView(object) => Some((|| {
                 if clear.contains(&EventId::SelectedDatesChanged) {
-                    object.selected_dates_changed.borrow_mut().callback = None;
+                    object.selected_dates_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectedDatesChanged, EventValue::Unit(callback)) => {
-                            object.selected_dates_changed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .selected_dates_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                             object.subscribe_selected_dates_changed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
@@ -5223,19 +5325,24 @@ impl GeneratedHandle {
             })()),
             Self::GridView(object) => Some((|| {
                 if clear.contains(&EventId::SelectionChanged) {
-                    object.selection_changed.borrow_mut().callback = None;
+                    object.selection_changed.borrow_mut().set(None);
                 }
                 if clear.contains(&EventId::DragItemsCompleted) {
-                    object.drag_items_completed.borrow_mut().callback = None;
+                    object.drag_items_completed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::SelectionChanged, EventValue::SelectionIndex(callback)) => {
-                            object.selection_changed.borrow_mut().callback = Some(callback.clone());
+                            object
+                                .selection_changed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         (EventId::DragItemsCompleted, EventValue::Keys(callback)) => {
-                            object.drag_items_completed.borrow_mut().callback =
-                                Some(callback.clone());
+                            object
+                                .drag_items_completed
+                                .borrow_mut()
+                                .set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5244,12 +5351,12 @@ impl GeneratedHandle {
             })()),
             Self::RichEditBox(object) => Some((|| {
                 if clear.contains(&EventId::TextChanged) {
-                    object.text_changed.borrow_mut().callback = None;
+                    object.text_changed.borrow_mut().set(None);
                 }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::TextChanged, EventValue::String(callback)) => {
-                            object.text_changed.borrow_mut().callback = Some(callback.clone());
+                            object.text_changed.borrow_mut().set(Some(callback.clone()));
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }

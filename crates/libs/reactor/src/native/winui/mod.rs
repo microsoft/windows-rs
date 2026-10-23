@@ -23,12 +23,49 @@ struct NativeTreeNode {
 }
 
 struct NativeValueEvent<T> {
-    callback: Option<Callback<T>>,
+    subscription: Option<NativeSubscription<T>>,
+}
+
+/// A subscribed native event. Replacing the callback keeps the subscription; removing it ends the
+/// subscription and invalidates occurrences still queued or pending under it.
+struct NativeSubscription<T> {
+    callback: Callback<T>,
+    live: Rc<Cell<bool>>,
 }
 
 impl<T> Default for NativeValueEvent<T> {
     fn default() -> Self {
-        Self { callback: None }
+        Self { subscription: None }
+    }
+}
+
+impl<T> NativeValueEvent<T> {
+    fn set(&mut self, callback: Option<Callback<T>>) {
+        match (&mut self.subscription, callback) {
+            (Some(subscription), Some(callback)) => subscription.callback = callback,
+            (_, callback) => {
+                if let Some(subscription) = self.subscription.take() {
+                    subscription.live.set(false);
+                }
+                self.subscription = callback.map(|callback| NativeSubscription {
+                    callback,
+                    live: Rc::new(Cell::new(true)),
+                });
+            }
+        }
+    }
+
+    /// The handler for an occurrence firing now under the current subscription.
+    fn handler(&self) -> Option<QueuedHandler>
+    where
+        Callback<T>: IntoEventValue,
+    {
+        self.subscription
+            .as_ref()
+            .map(|subscription| QueuedHandler::Callback {
+                callback: subscription.callback.clone().into_event_value(),
+                live: Rc::clone(&subscription.live),
+            })
     }
 }
 
@@ -39,6 +76,12 @@ struct NativeRoutedValueEvent<T> {
 impl<T> Default for NativeRoutedValueEvent<T> {
     fn default() -> Self {
         Self { callback: None }
+    }
+}
+
+impl<T> NativeRoutedValueEvent<T> {
+    fn set(&mut self, callback: Option<RoutedCallback<T>>) {
+        self.callback = callback;
     }
 }
 
@@ -175,8 +218,13 @@ struct QueuedEvent {
 
 enum QueuedHandler {
     /// The callback subscribed when the native event fired. Delivering to it keeps an occurrence
-    /// queued behind a render from being lost when that render replaces the callback.
-    Callback(EventValue),
+    /// queued behind a render from being lost when that render replaces the callback. `live`
+    /// is cleared when the subscription ends, so removing or re-adding the event, or replacing
+    /// the control, drops the occurrence.
+    Callback {
+        callback: EventValue,
+        live: Rc<Cell<bool>>,
+    },
     /// The menu or command bar flyout presentation that raised the click. Callback-only updates
     /// keep the presentation, so the click resolves to the current `on_click`.
     Presentation(u64),

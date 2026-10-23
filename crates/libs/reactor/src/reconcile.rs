@@ -2676,6 +2676,15 @@ impl Planner<'_> {
             self.references
                 .push(ReferenceChange::Clear { reference, object });
         }
+        // Ending the replaced control's subscriptions drops its pending occurrences, which would
+        // otherwise reach the replacement through the preserved ID.
+        if let Some(events) = retained.events.take() {
+            self.mutations.push(Mutation::SetEvents {
+                object,
+                set: Rc::from([]),
+                clear: events.iter().map(|event| event.id).collect(),
+            });
+        }
         if let Some(reference) = &declaration.reference {
             self.references.push(ReferenceChange::Set {
                 reference: reference.clone(),

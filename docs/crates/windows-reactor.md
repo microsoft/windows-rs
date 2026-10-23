@@ -110,7 +110,8 @@ do not mutate state inside the native event callback.
 
 A callback may capture values from the render that declared it, such as a row index. Input that
 queues while the UI thread is busy reaches the callback that was declared when the input arrived,
-even if a later render replaces it. Removing the callback drops input still queued for it.
+even if a later render replaces it. Removing the callback, even briefly, or replacing the control
+drops input still queued for it.
 
 `context.window_frame` publishes the window title and returns the standard title-bar layout. For a
 static view with no state or events, call `App::run(view)` instead.

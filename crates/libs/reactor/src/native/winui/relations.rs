@@ -792,10 +792,9 @@ impl WinUiAdapter {
                     (flyout.revision == *revision)
                         .then(|| EventValue::Key(flyout.flyout.on_click.clone()))
                 }
-                (QueuedHandler::Callback(callback), _) => self
-                    .handles
-                    .contains_key(&queued.object)
-                    .then(|| callback.clone()),
+                (QueuedHandler::Callback { callback, live }, _) => {
+                    live.get().then(|| callback.clone())
+                }
                 (QueuedHandler::Presentation(_), event) => {
                     unreachable!("{event:?} has no presentation")
                 }

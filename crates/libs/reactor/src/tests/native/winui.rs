@@ -98,7 +98,10 @@ fn image_source_change_discards_only_queued_load_results() {
     let event = |object, event| QueuedEvent {
         object,
         event,
-        handler: QueuedHandler::Callback(EventValue::Unit(Callback::new(|()| {}))),
+        handler: QueuedHandler::Callback {
+            callback: EventValue::Unit(Callback::new(|()| {})),
+            live: Rc::new(Cell::new(true)),
+        },
         payload: EventPayload::Unit,
     };
     queue.queue(None, Some(event(image, EventId::ImageOpened)));
@@ -538,9 +541,8 @@ fn pointer_event_queue_preserves_payload_and_callback() {
     runtime.update(Border::new());
     let object = runtime.graph().root().unwrap();
     let callback = Callback::new(|_| {});
-    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent {
-        callback: Some(callback.clone()),
-    }));
+    let event = Rc::new(RefCell::new(NativePointerEventInfoEvent::default()));
+    event.borrow_mut().set(Some(callback.clone()));
     let event_queue = Rc::new(NativeEventQueue::default());
     let payload = PointerEventInfo {
         pointer_id: 42,
@@ -566,9 +568,67 @@ fn pointer_event_queue_preserves_payload_and_callback() {
     assert_eq!(event.event, EventId::PointerReleased);
     assert!(matches!(
         &event.handler,
-        QueuedHandler::Callback(EventValue::PointerEventInfo(queued)) if *queued == callback
+        QueuedHandler::Callback {
+            callback: EventValue::PointerEventInfo(queued),
+            ..
+        } if *queued == callback
     ));
     assert_eq!(event.payload, EventPayload::PointerEventInfo(payload));
+}
+
+#[test]
+fn queued_occurrences_follow_their_subscription() {
+    let object = ObjectId::test(1);
+    let first = Callback::new(|_: ()| {});
+    let second = Callback::new(|_: ()| {});
+    let third = Callback::new(|_: ()| {});
+    let event = Rc::new(RefCell::new(NativeUnitEvent::default()));
+    let mut adapter = WinUiAdapter::default();
+    let queue = |adapter: &WinUiAdapter| {
+        assert!(WinUiAdapter::queue_event(
+            &event,
+            &adapter.event_queue,
+            object,
+            EventId::Click,
+            None,
+            (),
+        ));
+    };
+    let delivered = |callback: &Callback<()>| {
+        Some(NativeEvent::new(
+            None,
+            Some(EventDispatch::new(
+                object,
+                EventId::Click,
+                EventValue::Unit(callback.clone()),
+                EventPayload::Unit,
+            )),
+        ))
+    };
+
+    // Replacing the callback keeps the subscription, so the occurrence reaches the callback
+    // subscribed when it fired.
+    event.borrow_mut().set(Some(first.clone()));
+    queue(&adapter);
+    event.borrow_mut().set(Some(second));
+    assert_eq!(adapter.pop_native_event(), delivered(&first));
+
+    // Removing the event ends the subscription even if it is re-added before delivery.
+    queue(&adapter);
+    event.borrow_mut().set(None);
+    event.borrow_mut().set(Some(third.clone()));
+    assert_eq!(
+        adapter.pop_native_event(),
+        Some(NativeEvent::new(None, None))
+    );
+
+    queue(&adapter);
+    assert_eq!(adapter.pop_native_event(), delivered(&third));
+
+    // An occurrence completing asynchronously captures its handler when the event fires.
+    let pending = event.borrow().handler().unwrap();
+    event.borrow_mut().set(None);
+    assert!(matches!(pending, QueuedHandler::Callback { live, .. } if !live.get()));
 }
 
 #[test]
