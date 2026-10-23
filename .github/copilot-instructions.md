@@ -239,11 +239,10 @@ propagation; investigate the behavior before adding a focused public-API regress
 
 ### Reactor live coverage gaps (test-reactor fixtures)
 
-About 49 of the 81 schema objects have no live `test-reactor` coverage. Add contract-style fixtures
+About 48 of the 81 schema objects have no live `test-reactor` coverage. Add contract-style fixtures
 in priority order. Verify indirect coverage (for example `CommandBar` via the menu fixture) before
-adding a case. The `controlled` fixture covers toggles, `Expander`, and ranged values.
-`RadioButton` is a documented exception: WinUI unchecks the group, so `is_checked` does not
-restore a rejected choice; `RadioButtons` is the controlled choice control.
+adding a case. The `controlled` fixture covers toggles, grouped `RadioButton`s, `Expander`, and
+ranged values.
 
 | Priority | Area | Contracts to check |
 | --- | --- | --- |

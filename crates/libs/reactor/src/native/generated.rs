@@ -334,6 +334,8 @@ struct GeneratedRadioButton {
     value: native::RadioButton,
     checked: Rc<RefCell<NativeOptionalBoolEvent>>,
     _checked: GeneratedRevoker,
+    unchecked: Rc<RefCell<NativeOptionalBoolEvent>>,
+    _unchecked: GeneratedRevoker,
 }
 struct GeneratedRadioButtons {
     value: native::RadioButtons,
@@ -1362,10 +1364,53 @@ impl GeneratedHandle {
                         }
                     })?;
                 let _checked = GeneratedRevoker::Event(revoker);
+                let unchecked = Rc::new(RefCell::new(NativeOptionalBoolEvent::default()));
+                let source_unchecked = value.clone();
+                let read_unchecked = move || match source_unchecked
+                    .cast::<native::IToggleButton>()?
+                    .IsChecked()
+                {
+                    Ok(value) => Ok(Some(value)),
+                    Err(error) if error.code().is_ok() => Ok(None),
+                    Err(error) => Err(error),
+                };
+                let event_for_callback = Rc::clone(&unchecked);
+                let event_queue_unchecked = Rc::clone(event_queue);
+                let revoker = value
+                    .cast::<native::IToggleButton>()?
+                    .Unchecked(move |_, _| {
+                        let observed = read_unchecked().unwrap();
+                        let observation = Observation::SetProperty {
+                            object,
+                            property: Property {
+                                id: PropertyId::IsChecked,
+                                value: PropertyValue::OptionalBool(observed),
+                            },
+                        };
+                        let dispatch = event_queue_unchecked.observe(
+                            object,
+                            EventId::Unchecked,
+                            observation.clone(),
+                        );
+                        let observation = dispatch.then_some(observation);
+                        if dispatch {
+                            WinUiAdapter::dispatch(
+                                &event_for_callback,
+                                &event_queue_unchecked,
+                                object,
+                                EventId::Unchecked,
+                                observation,
+                                observed,
+                            );
+                        }
+                    })?;
+                let _unchecked = GeneratedRevoker::Event(revoker);
                 Self::RadioButton(Box::new(GeneratedRadioButton {
                     value,
                     checked,
                     _checked,
+                    unchecked,
+                    _unchecked,
                 }))
             }
             ObjectType::RadioButtons => {
@@ -5012,10 +5057,20 @@ impl GeneratedHandle {
                     native_event.revision = native_event.revision.wrapping_add(1);
                     native_event.callback = None;
                 }
+                if clear.contains(&EventId::Unchecked) {
+                    let mut native_event = object.unchecked.borrow_mut();
+                    native_event.revision = native_event.revision.wrapping_add(1);
+                    native_event.callback = None;
+                }
                 for event in set {
                     match (event.id, &event.value) {
                         (EventId::Checked, EventValue::OptionalBool(callback)) => {
                             let mut native_event = object.checked.borrow_mut();
+                            native_event.revision = native_event.revision.wrapping_add(1);
+                            native_event.callback = Some(callback.clone());
+                        }
+                        (EventId::Unchecked, EventValue::OptionalBool(callback)) => {
+                            let mut native_event = object.unchecked.borrow_mut();
                             native_event.revision = native_event.revision.wrapping_add(1);
                             native_event.callback = Some(callback.clone());
                         }
@@ -6215,6 +6270,13 @@ impl GeneratedHandle {
             }
             (Self::RadioButton(object), EventId::Checked) => {
                 let event = object.checked.borrow();
+                (event.revision == revision)
+                    .then(|| event.callback.clone())
+                    .flatten()
+                    .map(EventValue::OptionalBool)
+            }
+            (Self::RadioButton(object), EventId::Unchecked) => {
+                let event = object.unchecked.borrow();
                 (event.revision == revision)
                     .then(|| event.callback.clone())
                     .flatten()

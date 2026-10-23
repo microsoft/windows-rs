@@ -1098,6 +1098,11 @@ name = "Content"
 name = "Checked"
 observes = "IsChecked"
 
+[[objects.events]]
+name = "Unchecked"
+observes = "IsChecked"
+observe_only = true
+
 [[objects]]
 name = "RadioButtons"
 
