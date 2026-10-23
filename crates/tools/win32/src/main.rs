@@ -1,11 +1,9 @@
-mod coverage;
 mod function_aliases;
 mod header_contexts;
 mod headers;
 #[cfg(test)]
 mod import_availability;
 mod import_policy;
-mod named_exports;
 mod wdk;
 
 use std::collections::{BTreeMap, BTreeSet};
@@ -48,26 +46,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             return Err("--compile cannot be combined with generation arguments".into());
         }
         return compile_metadata(Path::new("."));
-    }
-    if std::env::args().nth(1).as_deref() == Some("--compare-constants") {
-        if std::env::args().len() != 2 {
-            return Err("--compare-constants cannot be combined with generation arguments".into());
-        }
-        return coverage::run();
-    }
-    if std::env::args().nth(1).as_deref() == Some("--refresh-named-exports") {
-        if std::env::args().len() != 2 {
-            return Err(
-                "--refresh-named-exports cannot be combined with generation arguments".into(),
-            );
-        }
-        return named_exports::refresh();
-    }
-    if std::env::args().nth(1).as_deref() == Some("--compare-functions") {
-        if std::env::args().len() != 2 {
-            return Err("--compare-functions cannot be combined with generation arguments".into());
-        }
-        return named_exports::compare();
     }
     let mut headers = Vec::new();
     let mut partial = false;
@@ -119,7 +97,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
         } else if argument.starts_with('-') {
             return Err(format!(
-                "unknown option `{argument}`; use --compile, --compare-constants, --compare-functions, or --refresh-named-exports alone; --wdk --partial; or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
+                "unknown option `{argument}`; use --compile alone; --wdk --partial; or --partial, --sdk-imports, --sdk-macros, --dry-run, --first=N, --import=Function=library.dll, --macro=NAME, --macro-header=header.h, or header names"
             )
             .into());
         } else {
@@ -299,19 +277,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         println!("Configuration only; see target\\win32\\capture-configuration.txt");
         return Ok(());
     }
-    let function_origins = function_aliases::observe(&captured.snapshots);
-    let excluded_aliases = function_origins
-        .iter()
-        .filter(|((target, name), origin)| {
-            matches!(origin, function_aliases::Origin::Alias(_))
-                && !selected_aliases
-                    .get(target)
-                    .is_some_and(|names| names.contains(name))
-        })
-        .count();
-    println!(
-        "Function alias policy excludes {excluded_aliases} captured target pairs from publication."
-    );
     let options = projection::Options {
         imports: Some(&imports),
         references: Some(&references),
@@ -367,7 +332,6 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
 
     let destination = Path::new("metadata\\win32");
     write_partitions(destination, &output.partitions)?;
-    function_aliases::write(scratch, &function_origins, &output.partitions)?;
     println!(
         "SDK projection: {} records, {} enums, {} aliases, {} constants, {} functions, {} interfaces, {} partitions; capture/merge/project {:.3}s, compile {:.3}s",
         output.records,

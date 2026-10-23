@@ -410,6 +410,9 @@ Shared-reference reuse keeps canonical ownership separate from alias compatibili
 Unspecified reference contracts are not new guarantees; existing contracts and annotated typedefs
 remain checked. Unsupported differences stay omitted rather than being normalized away.
 
+Review generation against the canonical metadata directories and native fixtures; no historical
+export snapshots or approval files are required.
+
 `capture_partial` and `projection::generate_partial` return supported output plus omission reports.
 `projection::project_partial` accepts an existing partial capture without reparsing.
 Successfully captured observations undergo native reconciliation before failed entities and their

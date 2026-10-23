@@ -1,7 +1,0 @@
-# Baseline: 6e68e56081340eaa932f4dbc92ec54c56ed51473
-# SDK: 10.0.28000.2270
-# Reviewed provider changes only; export names and native signatures remain unchanged.
-X86 RtlCompareMemory kernel32.dll ntdll.dll
-X86 RtlRaiseException kernel32.dll ntdll.dll
-X86 RtlRestoreContext kernel32.dll ntdll.dll
-Arm64 RtlRaiseException kernel32.dll ntdll.dll

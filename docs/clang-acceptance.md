@@ -54,7 +54,7 @@ Changes to strategy, scope, deferrals, or acceptance gates require approval.
    implementations. Migrate Clang-sys, WebView2, WDK and combined WinMD generation rather than
    retaining parallel parsers or silently dropping generator responsibilities.
 3. **Integrate remote master.** Resolve conflicts before the broad repair/regeneration pass.
-   Preserve the frozen semantic comparison baseline separately from the updated review base.
+   Use canonical metadata and native fixtures to review semantic changes.
 4. **Build the review stack.** On a fresh master-based branch, group source changes by crate and
    metadata changes by directory. Keep generated package/default metadata and shared wiring
    identifiable. These commits need not build independently. Preserve the integration history;
@@ -88,8 +88,8 @@ generation and downstream-direction gaps. Its findings are tracked in
 
 Review findings are obligations to investigate, not new public scope approvals. Keep issue-specific
 fixtures and distinguish their setup from semantics; do not close issues from superficially similar
-coverage. Preserve frozen and inspected-master controls and their approved corrections. Do not
-rebase a dirty tree or silently migrate the baseline.
+coverage. Review canonical metadata changes against native evidence and the existing fixtures.
+Do not rebase a dirty tree or hide generated changes.
 
 ## Decision register for final acceptance
 
@@ -102,10 +102,10 @@ acceptance. Unresolved choices remain visible even when unrelated work passes.
 | ID | Decision and current status | Re-evaluate before cutover |
 | --- | --- | --- |
 | D01 | Approved: pause general breadth expansion; use the existing workload to resolve acceptance gaps. | Agree required public scope and explicitly approve any workload expansion. Counts alone do not establish coverage. |
-| D02 | Revised implementation: import libraries determine DLL ownership through exact target-native compiler symbols. Named records retain their export names; ordinal-backed records use the compiler-declared C name. Frozen linkage is comparison-only. | This named-publication policy is not DLL export-table proof. Review added APIs separately; retain ordinal evidence and unresolved ownership diagnostics without adding ordinal consumers. |
+| D02 | Import libraries determine DLL ownership through exact target-native compiler symbols. Named records retain their export names; ordinal-backed records use the compiler-declared C name. | This named-publication policy is not DLL export-table proof. Review added APIs separately; retain ordinal evidence and unresolved ownership diagnostics without adding ordinal consumers. |
 | D03 | Approved: select compiler-derived implicit x86 conventions per function, not a global stdcall default. | Confirm callbacks, explicit conventions, qualifiers, layouts, and annotations remain unchanged; ambiguous candidates must fail. |
 | D04 | Approved: partial publication may retain validated targets when another target lacks import evidence. | Keep strict-mode failure and per-target diagnostics; do not confuse missing imports with native target absence. |
-| D05 | Approved: 91 availability-pair corrections and four provider corrections for the pinned SDK workload. | Revalidate the checked approval files and stale-entry checks against final controls. Both missing `RtlCaptureContext2` pairs remain required. |
+| D05 | Pinned SDK availability and provider differences have native header/import-library fixtures. | Keep those checks independent of historical approval files. Missing import evidence is not API absence; both missing `RtlCaptureContext2` pairs remain required. |
 | D06 | Implemented: explicit target/name selection preserves 130 compatibility pairs across 46 names. Only the four existing x86 Get/SetWindowLongPtr generator aliases extend the frozen metadata's pairs. Native declarations and reconciliation remain independent. | Re-evaluate the checked selection against final public scope. No new target is selected merely because its name exists on another target. D23/D26 approve bounded native additions as candidate scope, not final qualification; aliases cannot change provider/ABI or claim unselected public names. |
 | D07 | Approved: transparent value typedefs may compare equal in import redeclarations after native agreement. | Emit an observed signature and retain nominal identity, qualifiers, callback contracts, and typedef-owned annotations. |
 | D08 | Approved: inherited interface slots preserve compiler-proven override relationships and written contracts. | Confirm slot continuity and producer/consumer ABI without treating redeclarations as new slots or discarding contracts. |
@@ -116,7 +116,7 @@ acceptance. Unresolved choices remain visible even when unrelated work passes.
 | D13 | Implemented: bounded member alignment preserves field types and rejects unqualified by-value uses and containers. Qualified traversal covers nested and array storage without suppressing traits on pointer-only owners. Affected records omit Debug/equality. | Decide acceptable trait behavior and review packed-input rejection. Correct layout alone does not qualify aggregate calling ABI or all of #4967. |
 | D14 | Approved: native callable references retain pointer ABI, mutability, and caller-owned storage; WinRT behavior stays separate. Counted buffers are not query IDs/outputs. | Recheck native imports, callbacks, COM producers/consumers, and WinRT controls on all targets. |
 | D15 | Implemented: native x86 variants, legacy generator aliases, and public architecture-empty modules coexist. Full isolated rich/raw packages compile on all three targets; five generators remain output-neutral. | Qualify matched production metadata/routing and hosted CI. Local package compilation does not replace native ARM64 execution or paired-release acceptance. |
-| D16 | Retained controls: frozen comparison/approval pin plus inspected-master audit. The requested Git metadata reset does not migrate semantic approvals. | Decide any re-pin explicitly, preserve historical reports, and carry forward only still-valid corrections. Master metadata currently equals the inspected control. |
+| D16 | Retired: frozen comparison snapshots and approval files. Canonical metadata and native fixtures are the review inputs. | Review generated changes and semantic corrections directly; no re-pinning or snapshot refresh is required. |
 | D17 | Implemented: approved automatic macro exclusion for `specstrings.h`, `rpcsal.h` and `driverspecs.h` removes only six internal constants; all 674 retained partitions are byte-identical. Required `stdint` aliases remain. | Keep support headers in compilation and SAL evidence. Explicit header/macro requests remain eligible. Preserve dependency ownership; no parser exceptions or symbol-name blacklist. Re-evaluate the scope at cutover. |
 | D18 | Superseded by D30: scalar/enum-only omission removed 15,296 NativeInput attributes without other RDL or coverage changes. | D30 extends publication normalization to all parameter kinds while retaining native SAL evidence, reconciliation, direction and other contracts. |
 | D19 | Four required storage/smart-card GUIDs recovered through native definition contexts with unchanged values and no other RDL changes. #4977, #5111 and #5107 are separated under D22-D24; D26 accepts the earlier native additions as candidate scope. Remaining GUIDs still need disposition. | Re-evaluate the selection-owned lean GUID includes. Make separate evidence-backed policy dispositions; no guessed GUIDs or implicit scope expansion. |
@@ -169,14 +169,13 @@ do not introduce automatic Rust Result conversion or weaken native agreement.
 
 ## Controls and finish line
 
-Comparison baseline: `6e68e56081340eaa932f4dbc92ec54c56ed51473`, plus the approved `WM_CTLCOLOR`
-source correction in `crates/tools/win32/src/baseline`. The current 372-header manifest is a
-workload control, not proof of complete required scope. Record compiler/SDK pins, companion
-identity, targets, TU sources, arguments, macro selection, and import policy for reproducible runs.
-Keep partial candidates visible in the working tree under `metadata/win32`, not committed or
-promoted to production generation before approval. Never hand-edit or hide their changes.
+Use canonical RDL in `metadata/win32` and `metadata/wdk`, the combined WinMD, and native fixtures
+to review generation. The current 372-header manifest is a workload control, not proof of complete
+required scope. Record compiler/SDK pins, companion identity, targets, TU sources, arguments, macro
+selection, and import policy for reproducible runs. Keep generated changes visible in the working
+tree for maintainer review. Never hand-edit or hide them.
 
-**Scope and budget proposal, to agree in step 1:** require the frozen baseline's Win32 surface and
+**Scope and budget proposal, to agree in step 1:** require the canonical metadata's Win32 surface and
 contracts on all three targets, except approved corrections and exclusions. Target a full run no
 slower than a matched legacy run, provisionally <=480 seconds wall time and <=8 GB peak process-tree
 working set. Record machine, CPU/core count, inputs, configuration, and warm dependency state. Ask

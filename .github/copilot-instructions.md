@@ -283,10 +283,10 @@ imports win over exact compiler linker symbols in target-specific maps. Filter s
 by machine before ordered selection; ARM64 archives also contain ARM64EC members. Code/data/const
 kinds remain distinct. Keep ordinal archive evidence. Named records retain their export names;
 ordinal-backed records use the C declaration's unqualified name after exact target-native compiler
-symbol matching. This is named-publication policy, not DLL export-table proof. Frozen metadata is
-comparison-only; do not add ordinal consumer support or infer names by undecorating symbols.
-Consumer fixtures check API
-presence, ABI, execution, and named PE imports independently of std's import libraries.
+symbol matching. This is named-publication policy, not DLL export-table proof. Canonical metadata
+and native fixtures are the comparison points, not frozen export snapshots. Do not add ordinal
+consumer support or infer names by undecorating symbols. Consumer fixtures check API presence,
+ABI, execution, and named PE imports independently of std's import libraries.
 The first target-native import run exposes 182 missing x86 mappings: 94 declarations use default
 cdecl while their libraries contain stdcall symbols, and 88 have no matching entry in the selected
 x86 libraries. `sdk_import_gaps` preserves both boundaries. A compiler-default stdcall probe matches
@@ -419,7 +419,7 @@ to final acceptance rather than running them for each batch.
    scattered exceptions or conflicting interpretations, correct that boundary before continuing.
 3. Regenerate tracked `metadata/win32` even for partial runs, leaving all changes visible in
    VS Code's Git diff for review. Do not hide or restore partial changes, including deletions.
-   Run `tool-win32 --compare-constants` against the frozen Git baseline after successful generation.
+   Review the canonical metadata diff after successful generation.
    Check intended gains and unexpected losses against the header/RDL fixtures on all targets.
 4. Compare root omissions, dependent losses, time, and memory with the preceding iteration.
    Diagnostic counts include dependency cascades; uncaptured macros are not counted.

@@ -39,18 +39,16 @@ with the same header selection and compiler configuration.
 
 | Control | Identity |
 | --- | --- |
-| Frozen comparison baseline | `6e68e56081340eaa932f4dbc92ec54c56ed51473` |
-| Inspected-master audit | `afcb0ab1f8cf7a71ec563f659451748b26e7f5b6` |
+| Regeneration comparison | Canonical `metadata/win32`, `metadata/wdk` and combined WinMD |
 | Source control for current polish | `d0a38039eb` |
 | Latest independent review | `d0a38039eb` |
 | Candidate | D27-D37 plus returned-string/nullability, count/range, MIDL-direction, D38 arithmetic harmonization and termination owner/storage validation |
 | Native toolchain | LLVM 22.1.8, companion ABI 19, SDK 10.0.28000.2270 |
 | Workload | 372 selected headers, seven translation units, x86/x64/ARM64 |
 
-The merge incorporates master `b95e10774b`. Its Win32 RDL is byte-identical to the inspected-master
-control. The requested reset changed committed output, not the semantic comparison pin: candidate
-`metadata/win32` remains visible and uncommitted. Re-pinning requires explicit approval and
-revalidation of the availability/provider corrections.
+The migration measurements below record earlier comparisons, not generation prerequisites.
+Current review uses the canonical metadata diff and native fixtures rather than frozen snapshots
+or separate approval files.
 
 | Current output | Count |
 | --- | ---: |
@@ -92,7 +90,7 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 | Unspecified direction in bindgen | Confirmed in `Param::is_input_only` and `MethodDef::method_signature`: unspecified direction takes the input branch, including mutable-to-const pointer conversion. Metadata's absent direction does not authorize that transformation. | Qualify a separate downstream policy change covering raw pointers, aliases and COM output patterns; do not infer direction in clang to compensate. |
 | Generation drift | The independent review reports legacy `tool-win32` rewriting 495 RDL files plus WinMD, followed by 18 package-file changes. The workflow still runs that legacy generator; this pass does not overwrite the worktree candidate to repeat it. | Separate direction respelling from semantic WinMD/package drift and establish generator cleanliness. The reported COM signature and bitfield changes are not approved by the RDL polish. |
 | Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
-| CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift. Checkout is shallow; generation does not refresh frozen comparison controls. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
+| CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift with a shallow checkout. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
 | Required missing APIs | The report retains 198 unapproved target pairs across 70 names. Examples include WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot, PDH, WSD, RoGetActivatableClassRegistration and uaw helpers. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
 | Unrecorded partition losses | `activationregistration` and `windowsfoundation` are absent. The Arm64 `__FIMapView_2_HSTRING_IInspectable_t` alias fails on an unsupported `TemplateRef IMapView`; `IActivatableClassRegistration`, its pointer alias and the RoGet import are pruned as dependents. | Add a focused canonical metadata case and decide the required surface. ActivationType, RegistrationScope and RegisteredTrustLevel are also absent with this partition; this is not an approved exclusion. |
 | UIA expansion | D23's 98 imports and 397 constants remain candidate scope. `CustomNavigationPattern_Navigate` still lacks configured import ownership. | Keep the unresolved import and acceptance boundary explicit. Defer downstream/live-provider qualification. |
@@ -115,15 +113,14 @@ It does not replace full-package or generator qualification.
 The tracked `vadefs` partition is also absent, consistently with the approved compiler/CRT root
 ownership boundary. It is not the same category as the unresolved activation-registration loss.
 The review does not approve removing the remaining APIs, extending UIA scope, or changing
-annotation semantics. It accepts the frozen-control explanation; re-pinning is not a prerequisite
-for this work.
+annotation semantics. Canonical metadata and native fixtures are the review inputs.
 
 ## Scope decisions and measured deltas
 
 | Decisions | Evidence retained by the current candidate | Qualification limit |
 | --- | --- | --- |
-| D02-D03 | DLL ownership uses exact compiler symbols, SDK machine/kind/provider records and compiler-derived x86 alternatives. Ordinal-backed records publish the compiler-declared C name; frozen linkage is comparison-only. | Named publication is not DLL export-table proof. No decoration parsing, global stdcall default or ordinal consumer expansion. Added APIs and restored families still need consumer qualification. |
-| D04-D05 | Target-local import publication preserves validated variants. Checked files own 91 availability and four provider corrections; stale entries fail comparison. | Missing evidence is not target absence. Both missing `RtlCaptureContext2` pairs remain required. |
+| D02-D03 | DLL ownership uses exact compiler symbols, SDK machine/kind/provider records and compiler-derived x86 alternatives. Ordinal-backed records publish the compiler-declared C name. | Named publication is not DLL export-table proof. No decoration parsing, global stdcall default or ordinal consumer expansion. Added APIs and restored families still need consumer qualification. |
+| D04-D05 | Target-local import publication preserves validated variants. Native fixtures check pinned SDK availability and providers independently of historical snapshots. | Missing evidence is not target absence. Both missing `RtlCaptureContext2` pairs remain required. |
 | D06 | Explicit target/name selection retains 130 compatibility pairs across 46 names and removes 6,302 unapproved macro-alias pairs without required losses or retained linkage changes. | Four x86 Get/SetWindowLongPtr pairs extend the frozen metadata but match existing generator compatibility APIs. No future aliases or targets are implicitly approved. |
 | D07-D10 | Native typedef agreement, inherited slots, fixed-width storage and authoritative WinRT ownership have focused native/RDL/WinMD and cross-target consumer fixtures. | Native agreement does not settle Rust typedef usability, general C++ ABI, or external by-value/inheritance support. |
 | D11 | Source-owned root selection removes 5,119 WinRT name strings and an unused support record; retained partitions and required coverage stay unchanged. | Required support dependencies retain their actual owners. No symbol-prefix filter. |
@@ -350,18 +347,11 @@ denied on x86/x64/ARM64. The current D27-D28 candidate, including the UIA additi
 GUID relocations, passes this package check on all three targets. This is local compile
 qualification, not live UIA-provider behavior or native ARM64 execution.
 
-The frozen package control needs its approved `WM_CTLCOLOR` source supplement:
-`crates/tools/win32/src/baseline/windowsx.rdl`. The compiled baseline contains this shipped API,
-but the frozen RDL routing inputs omit it. The supplement preserves its existing i32 value 25
-without a fallback namespace or name-specific routing. Production `tool-package` must not combine
-partial candidate routes with a different committed WinMD.
-
-CI selects SDK policy/metadata cases, cross-target consumers and named-export snapshot regeneration.
-Its package test reads the checked-out legacy RDL; it does not establish candidate package coverage.
-Local candidate runs do not establish hosted execution or a fresh clean checkout. Correct candidate
-input/provenance before claiming that gate. Native ARM64 execution, release pins, final independent
-review and maintainer sign-off remain open. These downstream tasks wait for canonical RDL quality.
-No issues are closed and no production callers are switched by this evidence.
+Production `tool-package` must not combine partial candidate routes with a different committed
+WinMD. CI selects SDK policy/metadata cases and cross-target consumers; generation checks the
+canonical metadata diff. Local runs do not establish hosted execution or a fresh clean checkout.
+Native ARM64 execution, release pins, final independent review and maintainer sign-off remain open.
+These downstream tasks wait for canonical RDL quality. No issues are closed by this evidence.
 
 Final scope and performance limits remain proposals: no slower than a matched legacy run,
 provisionally <=480 seconds and <=8 GB peak process-tree working set. Ask for a quiet machine before

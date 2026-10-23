@@ -664,7 +664,6 @@ Compiler errors and native conflicts remain fatal.
 | `--sdk-macros` | Discover filenames under SDK um/shared plus selected headers, not additional includes |
 | `--dry-run` | Write attempted capture configuration without parsing or replacing metadata |
 | `capture-configuration.txt` | Pins, targets, sources, arguments, selections and resolved imports |
-| `function-origins.txt` | Compiler provenance tied to generated RDL |
 | `omissions.txt` / `import-omissions.txt` | Unsupported declarations/discovery candidates and library exclusions |
 
 Artifacts are under `target\win32`. Root policy admits um/shared/cppwinrt and explicitly selected
@@ -693,8 +692,9 @@ DLL export table. Ordinals remain in the evidence report; records without a matc
 remain omissions. No decorated-name parsing, frozen-name lookup or ordinal consumer support is
 involved. Explicit public mappings still take precedence.
 
-`named-exports.txt` is a frozen comparison control, not a generation input. Its refresh command
-requires the pinned Git history and tar; normal generation and the generation CI job do not.
+Canonical RDL under `metadata/win32` and `metadata/wdk` is the regeneration comparison point.
+Review its diff against native header evidence and the focused SDK/metadata fixtures. Generation
+needs neither historical Git objects nor separate export snapshots or approval files.
 
 Eligible implicit C imports on x86 can carry Clang-generated stdcall alternatives. Keep original
 observations; capture proves only the outer convention differs. Explicit mappings and ordinary
@@ -705,23 +705,8 @@ global stdcall switch changes callbacks or compiler defaults.
 Partial missing imports are target-local only after native/public contract validation. Conflicts,
 invalid mappings, alias ownership changes and unrelated unsupported contracts retain their normal
 fatal/all-target behavior. Strict publication fails. `target_imports`, `sdk_import_gaps`,
-`sdk_import_availability`, `sdk_ndr_import_availability` and `sdk_import_providers` separate
-evidence from the checked approval files.
-
-`--compare-functions` compiles current RDL and compares target-specific names/linkage against the
-frozen snapshot. CSV status is same-linkage, changed-linkage, missing or new. Acceptance marks only
-approved/unapproved availability/provider differences; additions keep separate scope/qualification
-obligations. Origins distinguish native declarations, macro aliases and aliases with A-suffixed
-exports; the suffix does not infer encoding. Missing/stale provenance requires regeneration.
-Corrections must match baseline/SDK pins and exact target/name/provider transitions. Duplicates,
-reappearing missing functions, changed exports and stale entries fail.
-
-`--compare-constants` compares case-sensitive names/owners with frozen
-`6e68e56081340eaa932f4dbc92ec54c56ed51473` and separately inspected master
-`afcb0ab1f8cf7a71ec563f659451748b26e7f5b6`. It writes constant-coverage.csv and
-constant-coverage-master.csv. Enum-member status is separate from loose constants; architecture
-duplicates count once. The frozen report has its approved WM_CTLCOLOR supplement; master does not.
-Missing Git objects fail with fetch guidance. Neither report measures type/value/ABI parity.
+`sdk_import_availability`, `sdk_ndr_import_availability` and `sdk_import_providers` check
+target-specific linkage directly against the pinned headers and import libraries.
 
 ## Validation
 
@@ -777,8 +762,7 @@ Regenerate and compare the candidate after capture/publication changes:
 
 ```powershell
 cargo run -p tool-win32 --release -- --partial --sdk-imports --sdk-macros
-cargo run -p tool-win32 --release -- --compare-functions
-cargo run -p tool-win32 --release -- --compare-constants
+git diff -- metadata\win32 metadata\wdk crates\libs\default\Windows.Win32.winmd
 ```
 
 The full candidate package check is:
