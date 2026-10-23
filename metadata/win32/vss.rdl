@@ -4,7 +4,7 @@ mod Windows {
         #[guid(0x507c37b4_cf5b_4e95_b0af_14eb9767467e)]
         interface IVssAsync: IUnknown {
             fn Cancel(&self) -> HRESULT;
-            fn Wait(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("4294967295U")] dwMilliseconds: DWORD) -> HRESULT;
+            fn Wait(&self, #[in] dwMilliseconds: DWORD) -> HRESULT;
             fn QueryStatus(&self, #[out] pHrResult: *mut HRESULT, #[in] #[out] #[opt] pReserved: *mut INT) -> HRESULT;
         }
         #[guid(0xae1c7110_2f60_11d3_8a39_00c04f72d8e3)]

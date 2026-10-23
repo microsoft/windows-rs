@@ -22,7 +22,8 @@ pub const APTTYPE_MTA: APTTYPE = 1;
 pub const APTTYPE_NA: APTTYPE = 2;
 pub const APTTYPE_STA: APTTYPE = 0;
 pub const COLE_DEFAULT_AUTHINFO: *mut core::ffi::c_void = core::ptr::without_provenance_mut::<core::ffi::c_void>((-1i32) as usize);
-pub const COLE_DEFAULT_PRINCIPAL: *mut u16 = core::ptr::without_provenance_mut::<u16>((-1i32) as usize);
+#[cfg(feature = "wtypesbase")]
+pub const COLE_DEFAULT_PRINCIPAL: *mut super::OLECHAR = core::ptr::without_provenance_mut::<super::OLECHAR>((-1i32) as usize);
 pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = 4;
 pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = 5;
 pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = 8;
@@ -57,14 +58,14 @@ pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = 5;
 pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 2;
 pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 0;
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1;
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct COSERVERINFO {
-    pub dwReserved1: u32,
+    pub dwReserved1: super::DWORD,
     pub pwszName: windows_sys::core::PWSTR,
     pub pAuthInfo: *mut super::COAUTHINFO,
-    pub dwReserved2: u32,
+    pub dwReserved2: super::DWORD,
 }
 pub type CO_MARSHALING_CONTEXT_ATTRIBUTES = i32;
 pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = -2147483648;
@@ -129,36 +130,56 @@ pub type LOCKTYPE = i32;
 pub const LOCK_EXCLUSIVE: LOCKTYPE = 2;
 pub const LOCK_ONLYONCE: LOCKTYPE = 4;
 pub const LOCK_WRITE: LOCKTYPE = 1;
-#[repr(C)]
+pub type LPADDREXCLUSIONCONTROL = *mut core::ffi::c_void;
+pub type LPADDRTRACKINGCONTROL = *mut core::ffi::c_void;
+pub type LPCANCELMETHODCALLS = *mut core::ffi::c_void;
+pub type LPENUMSTRING = *mut core::ffi::c_void;
+pub type LPENUMUNKNOWN = *mut core::ffi::c_void;
+pub type LPEXTERNALCONNECTION = *mut core::ffi::c_void;
+pub type LPGLOBALINTERFACETABLE = *mut core::ffi::c_void;
+pub type LPMALLOC = *mut core::ffi::c_void;
+pub type LPMARSHAL = *mut core::ffi::c_void;
+pub type LPMARSHAL2 = *mut core::ffi::c_void;
+pub type LPMULTIQI = *mut core::ffi::c_void;
+pub type LPSTDMARSHALINFO = *mut core::ffi::c_void;
+pub type LPSTREAM = *mut core::ffi::c_void;
+pub type LPSURROGATE = *mut core::ffi::c_void;
+#[repr(C, packed(8))]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Default)]
 pub struct MULTI_QI {
-    pub pIID: *const windows_sys::core::GUID,
+    pub pIID: *const super::IID,
     pub pItf: *mut core::ffi::c_void,
     pub hr: windows_sys::core::HRESULT,
 }
 pub type MachineGlobalObjectTableRegistrationToken = *mut MachineGlobalObjectTableRegistrationToken__;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[derive(Clone, Copy, Default)]
 pub struct MachineGlobalObjectTableRegistrationToken__ {
     pub unused: i32,
 }
+#[cfg(feature = "shared")]
 pub type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
+#[cfg(feature = "shared")]
 pub type PSOLE_AUTHENTICATION_INFO = *mut SOLE_AUTHENTICATION_INFO;
+#[cfg(feature = "shared")]
 pub type PSOLE_AUTHENTICATION_LIST = *mut SOLE_AUTHENTICATION_LIST;
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub type PSOLE_AUTHENTICATION_SERVICE = *mut SOLE_AUTHENTICATION_SERVICE;
 pub type RPCOLEDATAREP = u32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct RPCOLEMESSAGE {
     pub reserved1: *mut core::ffi::c_void,
     pub dataRepresentation: RPCOLEDATAREP,
     pub Buffer: *mut core::ffi::c_void,
-    pub cbBuffer: u32,
-    pub iMethod: u32,
+    pub cbBuffer: super::ULONG,
+    pub iMethod: super::ULONG,
     pub reserved2: [*mut core::ffi::c_void; 5],
-    pub rpcFlags: u32,
+    pub rpcFlags: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for RPCOLEMESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -166,58 +187,61 @@ impl Default for RPCOLEMESSAGE {
 }
 pub type RPCOPT_PROPERTIES = i32;
 pub type RPCOPT_SERVER_LOCALITY_VALUES = i32;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SChannelHookCallInfo {
-    pub iid: windows_sys::core::GUID,
-    pub cbSize: u32,
+    pub iid: super::IID,
+    pub cbSize: super::DWORD,
     pub uCausality: windows_sys::core::GUID,
-    pub dwServerPid: u32,
-    pub iMethod: u32,
+    pub dwServerPid: super::DWORD,
+    pub iMethod: super::DWORD,
     pub pObject: *mut core::ffi::c_void,
 }
 pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 1;
 pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 0;
 pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = 2;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOLE_AUTHENTICATION_INFO {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
+    pub dwAuthnSvc: super::DWORD,
+    pub dwAuthzSvc: super::DWORD,
     pub pAuthInfo: *mut core::ffi::c_void,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOLE_AUTHENTICATION_LIST {
-    pub cAuthInfo: u32,
+    pub cAuthInfo: super::DWORD,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
 }
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
+    pub dwAuthnSvc: super::DWORD,
+    pub dwAuthzSvc: super::DWORD,
     pub pPrincipalName: *mut super::OLECHAR,
     pub hr: windows_sys::core::HRESULT,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct STATSTG {
     pub pwcsName: super::LPOLESTR,
-    pub r#type: u32,
+    pub r#type: super::DWORD,
     pub cbSize: super::ULARGE_INTEGER,
     pub mtime: super::FILETIME,
     pub ctime: super::FILETIME,
     pub atime: super::FILETIME,
-    pub grfMode: u32,
-    pub grfLocksSupported: u32,
-    pub clsid: windows_sys::core::GUID,
-    pub grfStateBits: u32,
-    pub reserved: u32,
+    pub grfMode: super::DWORD,
+    pub grfLocksSupported: super::DWORD,
+    pub clsid: super::CLSID,
+    pub grfStateBits: super::DWORD,
+    pub reserved: super::DWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl Default for STATSTG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

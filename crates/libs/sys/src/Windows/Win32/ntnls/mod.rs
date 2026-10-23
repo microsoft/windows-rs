@@ -1,21 +1,21 @@
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CPTABLEINFO {
-    pub CodePage: u16,
-    pub MaximumCharacterSize: u16,
-    pub DefaultChar: u16,
-    pub UniDefaultChar: u16,
-    pub TransDefaultChar: u16,
-    pub TransUniDefaultChar: u16,
-    pub DBCSCodePage: u16,
-    pub LeadByte: [u8; 12],
+    pub CodePage: super::USHORT,
+    pub MaximumCharacterSize: super::USHORT,
+    pub DefaultChar: super::USHORT,
+    pub UniDefaultChar: super::USHORT,
+    pub TransDefaultChar: super::USHORT,
+    pub TransUniDefaultChar: super::USHORT,
+    pub DBCSCodePage: super::USHORT,
+    pub LeadByte: [super::UCHAR; 12],
     pub MultiByteTable: super::PUSHORT,
-    pub WideCharTable: *mut core::ffi::c_void,
+    pub WideCharTable: super::PVOID,
     pub DBCSRanges: super::PUSHORT,
     pub DBCSOffsets: super::PUSHORT,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for CPTABLEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,7 +23,7 @@ impl Default for CPTABLEINFO {
 }
 pub const MAXIMUM_LEADBYTES: i32 = 12;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct NLSTABLEINFO {
     pub OemTableInfo: CPTABLEINFO,
@@ -31,14 +31,14 @@ pub struct NLSTABLEINFO {
     pub UpperCaseTable: super::PUSHORT,
     pub LowerCaseTable: super::PUSHORT,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PCPTABLEINFO = *mut CPTABLEINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PNLSTABLEINFO = *mut NLSTABLEINFO;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PRTL_NLS_STATE = *mut RTL_NLS_STATE;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct RTL_NLS_STATE {
     pub DefaultAcpTableInfo: CPTABLEINFO,

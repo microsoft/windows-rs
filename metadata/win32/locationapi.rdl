@@ -87,7 +87,7 @@ mod Windows {
         }
         #[guid(0x2daec322_90b2_47e4_bb08_0da841935a6b)]
         interface ILocationReportFactory: IDispatch {
-            fn ListenForReports(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] requestedReportInterval: ULONG) -> HRESULT;
+            fn ListenForReports(&self, #[in] requestedReportInterval: ULONG) -> HRESULT;
             fn StopListeningForReports(&self) -> HRESULT;
             fn get_Status(&self, #[out] #[retval] pVal: *mut ULONG) -> HRESULT;
             fn get_ReportInterval(&self, #[out] #[retval] pMilliseconds: *mut ULONG) -> HRESULT;

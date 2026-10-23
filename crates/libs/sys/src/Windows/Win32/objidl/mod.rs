@@ -1,51 +1,15 @@
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserFree(param0 : *mut u32, param1 : *mut super::HDC));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserFree64(param0 : *mut u32, param1 : *mut super::HDC));
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HDC) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HDC) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut super::HDC) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut super::HDC) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HDC) -> *mut u8);
-#[cfg(feature = "windef")]
-windows_link::link!("ole32.dll" "system" fn HDC_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut super::HDC) -> *mut u8);
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserFree(param0 : *mut u32, param1 : *mut SNB));
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserFree64(param0 : *mut u32, param1 : *mut SNB));
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut SNB) -> *mut u8);
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut SNB) -> *mut u8);
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut SNB) -> u32);
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut SNB) -> u32);
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut SNB) -> *mut u8);
-#[cfg(feature = "wtypesbase")]
-windows_link::link!("ole32.dll" "system" fn SNB_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut SNB) -> *mut u8);
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserFree(param0 : *mut u32, param1 : *mut STGMEDIUM));
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserFree64(param0 : *mut u32, param1 : *mut STGMEDIUM));
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserMarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut STGMEDIUM) -> *mut u8);
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserMarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut STGMEDIUM) -> *mut u8);
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserSize(param0 : *mut u32, param1 : u32, param2 : *mut STGMEDIUM) -> u32);
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserSize64(param0 : *mut u32, param1 : u32, param2 : *mut STGMEDIUM) -> u32);
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserUnmarshal(param0 : *mut u32, param1 : *mut u8, param2 : *mut STGMEDIUM) -> *mut u8);
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn STGMEDIUM_UserUnmarshal64(param0 : *mut u32, param1 : *mut u8, param2 : *mut STGMEDIUM) -> *mut u8);
+windows_link::link!("ole32.dll" "system" fn SNB_UserFree(param0 : *const u32, param1 : *const SNB));
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("ole32.dll" "system" fn SNB_UserFree64(param0 : *const u32, param1 : *const SNB));
+windows_link::link!("ole32.dll" "system" fn SNB_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const SNB) -> *mut u8);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("ole32.dll" "system" fn SNB_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const SNB) -> *mut u8);
+windows_link::link!("ole32.dll" "system" fn SNB_UserSize(param0 : *const u32, param1 : u32, param2 : *const SNB) -> u32);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("ole32.dll" "system" fn SNB_UserSize64(param0 : *const u32, param1 : u32, param2 : *const SNB) -> u32);
+windows_link::link!("ole32.dll" "system" fn SNB_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut SNB) -> *mut u8);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+windows_link::link!("ole32.dll" "system" fn SNB_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut SNB) -> *mut u8);
 pub type ADVF = i32;
 pub const ADVFCACHE_FORCEBUILTIN: ADVF = 16;
 pub const ADVFCACHE_NOHANDLER: ADVF = 8;
@@ -54,35 +18,36 @@ pub const ADVF_DATAONSTOP: ADVF = 64;
 pub const ADVF_NODATA: ADVF = 1;
 pub const ADVF_ONLYONCE: ADVF = 4;
 pub const ADVF_PRIMEFIRST: ADVF = 2;
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-pub type ASYNC_STGMEDIUM = STGMEDIUM;
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+pub type ASYNC_STGMEDIUM = uSTGMEDIUM;
 pub type ApplicationType = i32;
 pub type BIND_FLAGS = i32;
 pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = 2;
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = 1;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BIND_OPTS {
-    pub cbStruct: u32,
-    pub grfFlags: u32,
-    pub grfMode: u32,
-    pub dwTickCountDeadline: u32,
+    pub cbStruct: super::DWORD,
+    pub grfFlags: super::DWORD,
+    pub grfMode: super::DWORD,
+    pub dwTickCountDeadline: super::DWORD,
 }
-#[repr(C)]
-#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct BIND_OPTS2 {
-    pub Base: BIND_OPTS,
-    pub dwTrackFlags: u32,
-    pub dwClassContext: u32,
+    pub base: BIND_OPTS,
+    pub dwTrackFlags: super::DWORD,
+    pub dwClassContext: super::DWORD,
     pub locale: super::LCID,
     pub pServerInfo: *mut super::COSERVERINFO,
 }
-#[repr(C)]
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct BIND_OPTS3 {
-    pub Base: BIND_OPTS2,
+    pub base: BIND_OPTS2,
     pub hwnd: super::HWND,
 }
 pub type CALLTYPE = i32;
@@ -94,81 +59,122 @@ pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = 4;
 pub type DATADIR = i32;
 pub const DATADIR_GET: DATADIR = 1;
 pub const DATADIR_SET: DATADIR = 2;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVTARGETDEVICE {
-    pub tdSize: u32,
-    pub tdDriverNameOffset: u16,
-    pub tdDeviceNameOffset: u16,
-    pub tdPortNameOffset: u16,
-    pub tdExtDevmodeOffset: u16,
-    pub tdData: [u8; 1],
+    pub tdSize: super::DWORD,
+    pub tdDriverNameOffset: super::WORD,
+    pub tdDeviceNameOffset: super::WORD,
+    pub tdPortNameOffset: super::WORD,
+    pub tdExtDevmodeOffset: super::WORD,
+    pub tdData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DVTARGETDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct FLAG_STGMEDIUM {
-    pub ContextFlags: i32,
-    pub fPassOwnership: i32,
+    pub ContextFlags: super::LONG,
+    pub fPassOwnership: super::LONG,
     pub Stgmed: STGMEDIUM,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for FLAG_STGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "wtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct FORMATETC {
     pub cfFormat: super::CLIPFORMAT,
     pub ptd: *mut DVTARGETDEVICE,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
+    pub dwAspect: super::DWORD,
+    pub lindex: super::LONG,
+    pub tymed: super::DWORD,
 }
 pub const ForcedShutdown: ShutdownType = 1;
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct GDI_OBJECT {
-    pub ObjectType: u32,
-    pub u: __MIDL_IAdviseSink_0002,
+    pub ObjectType: super::DWORD,
+    pub u: GDI_OBJECT_0,
 }
-#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for GDI_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union GDI_OBJECT_0 {
+    pub hBitmap: super::wireHBITMAP,
+    pub hPalette: super::wireHPALETTE,
+    pub hGeneric: super::wireHGLOBAL,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for GDI_OBJECT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct INTERFACEINFO {
     pub pUnk: *mut core::ffi::c_void,
-    pub iid: windows_sys::core::GUID,
-    pub wMethod: u16,
+    pub iid: super::IID,
+    pub wMethod: super::WORD,
 }
 pub const IdleShutdown: ShutdownType = 0;
+pub type LPADVISESINK = *mut core::ffi::c_void;
+pub type LPADVISESINK2 = *mut core::ffi::c_void;
+pub type LPBC = *mut core::ffi::c_void;
+pub type LPBINDCTX = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type LPBIND_OPTS = *mut BIND_OPTS;
-#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
 pub type LPBIND_OPTS2 = *mut BIND_OPTS2;
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypesbase"))]
 pub type LPBIND_OPTS3 = *mut BIND_OPTS3;
-#[cfg(feature = "wtypes")]
-pub type LPCLIPFORMAT = *mut super::CLIPFORMAT;
-#[cfg(feature = "wtypes")]
+pub type LPCLIPFORMAT = *mut u16;
+pub type LPDATAADVISEHOLDER = *mut core::ffi::c_void;
+pub type LPDATAOBJECT = *mut core::ffi::c_void;
+pub type LPENUMFORMATETC = *mut core::ffi::c_void;
+pub type LPENUMMONIKER = *mut core::ffi::c_void;
+pub type LPENUMSTATDATA = *mut core::ffi::c_void;
+pub type LPENUMSTATSTG = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub type LPFORMATETC = *mut FORMATETC;
+pub type LPINITIALIZESPY = *mut core::ffi::c_void;
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type LPINTERFACEINFO = *mut INTERFACEINFO;
-#[cfg(feature = "wtypes")]
+pub type LPLOCKBYTES = *mut core::ffi::c_void;
+pub type LPMALLOCSPY = *mut core::ffi::c_void;
+pub type LPMESSAGEFILTER = *mut core::ffi::c_void;
+pub type LPMONIKER = *mut core::ffi::c_void;
+pub type LPPERSIST = *mut core::ffi::c_void;
+pub type LPPERSISTFILE = *mut core::ffi::c_void;
+pub type LPPERSISTSTORAGE = *mut core::ffi::c_void;
+pub type LPPERSISTSTREAM = *mut core::ffi::c_void;
+pub type LPROOTSTORAGE = *mut core::ffi::c_void;
+pub type LPRUNNABLEOBJECT = *mut core::ffi::c_void;
+pub type LPRUNNINGOBJECTTABLE = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub type LPSTATDATA = *mut STATDATA;
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-pub type LPSTGMEDIUM = *mut STGMEDIUM;
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
+pub type LPSTGMEDIUM = *mut uSTGMEDIUM;
+pub type LPSTORAGE = *mut core::ffi::c_void;
 pub const LibraryApplication: ApplicationType = 1;
 pub type MKRREDUCE = i32;
 pub const MKRREDUCE_ALL: MKRREDUCE = 0;
@@ -193,32 +199,32 @@ pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = 1;
 pub type PENDINGTYPE = i32;
 pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1;
-#[repr(C)]
-#[cfg(feature = "wtypesbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct RemSNB {
-    pub ulCntStr: u32,
-    pub ulCntChar: u32,
+    pub ulCntStr: super::ULONG,
+    pub ulCntChar: super::ULONG,
     pub rgString: [super::OLECHAR; 1],
 }
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 impl Default for RemSNB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "rpc")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RemSTGMEDIUM {
-    pub tymed: u32,
-    pub dwHandleType: u32,
-    pub pData: u32,
-    pub pUnkForRelease: u32,
-    pub cbData: u32,
+    pub tymed: super::DWORD,
+    pub dwHandleType: super::DWORD,
+    pub pData: super::ULONG,
+    pub pUnkForRelease: super::ULONG,
+    pub cbData: super::ULONG,
     pub data: [super::byte; 1],
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl Default for RemSTGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -228,31 +234,30 @@ pub type SERVERCALL = i32;
 pub const SERVERCALL_ISHANDLED: SERVERCALL = 0;
 pub const SERVERCALL_REJECTED: SERVERCALL = 1;
 pub const SERVERCALL_RETRYLATER: SERVERCALL = 2;
-#[cfg(feature = "wtypesbase")]
-pub type SNB = *mut super::LPOLESTR;
-#[repr(C)]
-#[cfg(feature = "wtypes")]
+pub type SNB = *mut *mut u16;
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
-    pub advf: u32,
+    pub advf: super::DWORD,
     pub pAdvSink: *mut core::ffi::c_void,
-    pub dwConnection: u32,
+    pub dwConnection: super::DWORD,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 pub type STGMEDIUM = uSTGMEDIUM;
 pub const ServerApplication: ApplicationType = 0;
 pub type ShutdownType = i32;
-#[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct StorageLayout {
-    pub LayoutType: u32,
+    pub LayoutType: super::DWORD,
     pub pwcsElementName: *mut super::OLECHAR,
     pub cOffset: super::LARGE_INTEGER,
     pub cBytes: super::LARGE_INTEGER,
 }
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "wtypesbase"))]
 impl Default for StorageLayout {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -267,36 +272,22 @@ pub const TYMED_ISTORAGE: TYMED = 8;
 pub const TYMED_ISTREAM: TYMED = 4;
 pub const TYMED_MFPICT: TYMED = 32;
 pub const TYMED_NULL: TYMED = 0;
-#[repr(C)]
-#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy)]
-pub union __MIDL_IAdviseSink_0002 {
-    pub hBitmap: super::wireHBITMAP,
-    pub hPalette: super::wireHPALETTE,
-    pub hGeneric: super::wireHGLOBAL,
-}
-#[cfg(all(feature = "rpc", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for __MIDL_IAdviseSink_0002 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct uSTGMEDIUM {
-    pub tymed: u32,
+    pub tymed: super::DWORD,
     pub Anonymous: uSTGMEDIUM_0,
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for uSTGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union uSTGMEDIUM_0 {
     pub hBitmap: super::HBITMAP,
@@ -307,26 +298,74 @@ pub union uSTGMEDIUM_0 {
     pub pstm: *mut core::ffi::c_void,
     pub pstg: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for uSTGMEDIUM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
 pub struct userFLAG_STGMEDIUM {
-    pub ContextFlags: i32,
-    pub fPassOwnership: i32,
+    pub ContextFlags: super::LONG,
+    pub fPassOwnership: super::LONG,
     pub Stgmed: userSTGMEDIUM,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for userFLAG_STGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
 pub struct userSTGMEDIUM {
     pub pUnkForRelease: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for userSTGMEDIUM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub struct userSTGMEDIUM_0 {
+    pub tymed: super::DWORD,
+    pub u: userSTGMEDIUM_0_0,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for userSTGMEDIUM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+#[derive(Clone, Copy)]
+pub union userSTGMEDIUM_0_0 {
+    pub hMetaFilePict: super::wireHMETAFILEPICT,
+    pub hHEnhMetaFile: super::wireHENHMETAFILE,
+    pub hGdiHandle: *mut GDI_OBJECT,
+    pub hGlobal: super::wireHGLOBAL,
+    pub lpszFileName: super::LPOLESTR,
+    pub pstm: *mut super::BYTE_BLOB,
+    pub pstg: *mut super::BYTE_BLOB,
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for userSTGMEDIUM_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 pub type wireASYNC_STGMEDIUM = *mut userSTGMEDIUM;
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 pub type wireFLAG_STGMEDIUM = *mut userFLAG_STGMEDIUM;
-#[cfg(feature = "wtypesbase")]
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
 pub type wireSNB = *mut RemSNB;
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wingdi", feature = "wtypes", feature = "wtypesbase"))]
 pub type wireSTGMEDIUM = *mut userSTGMEDIUM;

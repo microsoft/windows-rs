@@ -171,52 +171,58 @@ impl windows_core::RuntimeName for IGameExplorer2 {}
 windows_core::imp::define_interface!(IGameStatistics, IGameStatistics_Vtbl, 0x3887c9ca_04a0_42ae_bc4c_5fa6c7721145);
 windows_core::imp::interface_hierarchy!(IGameStatistics, windows_core::IUnknown);
 impl IGameStatistics {
-    pub unsafe fn GetMaxCategoryLength(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxCategoryLength(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxCategoryLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaxNameLength(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxNameLength(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxNameLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaxValueLength(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxValueLength(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxValueLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaxCategories(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxCategories(&self) -> windows_core::Result<super::WORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxCategories)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetMaxStatsPerCategory(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaxStatsPerCategory(&self) -> windows_core::Result<super::WORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaxStatsPerCategory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCategoryTitle<P1>(&self, categoryindex: u16, title: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetCategoryTitle<P1>(&self, categoryindex: super::WORD, title: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCategoryTitle)(windows_core::Interface::as_raw(self), categoryindex, title.param().abi()) }
     }
-    pub unsafe fn GetCategoryTitle(&self, categoryindex: u16) -> windows_core::Result<windows_core::PWSTR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCategoryTitle)(windows_core::Interface::as_raw(self), categoryindex, &mut result__).map(|| result__)
-        }
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCategoryTitle(&self, categoryindex: super::WORD, ptitle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCategoryTitle)(windows_core::Interface::as_raw(self), categoryindex, ptitle as _) }
     }
-    pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetStatistic(&self, categoryindex: super::WORD, statindex: super::WORD, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatistic)(windows_core::Interface::as_raw(self), categoryindex, statindex, pname as _, pvalue as _) }
     }
-    pub unsafe fn SetStatistic<P2, P3>(&self, categoryindex: u16, statindex: u16, name: P2, value: P3) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetStatistic<P2, P3>(&self, categoryindex: super::WORD, statindex: super::WORD, name: P2, value: P3) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -226,10 +232,12 @@ impl IGameStatistics {
     pub unsafe fn Save(&self, trackchanges: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), trackchanges.into()) }
     }
-    pub unsafe fn SetLastPlayedCategory(&self, categoryindex: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetLastPlayedCategory(&self, categoryindex: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLastPlayedCategory)(windows_core::Interface::as_raw(self), categoryindex) }
     }
-    pub unsafe fn GetLastPlayedCategory(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetLastPlayedCategory(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastPlayedCategory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -240,36 +248,71 @@ impl IGameStatistics {
 #[doc(hidden)]
 pub struct IGameStatistics_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetMaxCategoryLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetMaxNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetMaxValueLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetMaxCategories: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetMaxStatsPerCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub SetCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, u16, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetStatistic: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetStatistic: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMaxCategoryLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxCategoryLength: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxNameLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxNameLength: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxValueLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxValueLength: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxCategories: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxCategories: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaxStatsPerCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaxStatsPerCategory: usize,
+    #[cfg(feature = "shared")]
+    pub SetCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetCategoryTitle: usize,
+    #[cfg(feature = "shared")]
+    pub GetCategoryTitle: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCategoryTitle: usize,
+    #[cfg(feature = "shared")]
+    pub GetStatistic: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, super::WORD, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetStatistic: usize,
+    #[cfg(feature = "shared")]
+    pub SetStatistic: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, super::WORD, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetStatistic: usize,
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    pub SetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetLastPlayedCategory: usize,
+    #[cfg(feature = "shared")]
+    pub GetLastPlayedCategory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetLastPlayedCategory: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IGameStatistics_Impl: windows_core::IUnknownImpl {
-    fn GetMaxCategoryLength(&self) -> windows_core::Result<u32>;
-    fn GetMaxNameLength(&self) -> windows_core::Result<u32>;
-    fn GetMaxValueLength(&self) -> windows_core::Result<u32>;
-    fn GetMaxCategories(&self) -> windows_core::Result<u16>;
-    fn GetMaxStatsPerCategory(&self) -> windows_core::Result<u16>;
-    fn SetCategoryTitle(&self, categoryindex: u16, title: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetCategoryTitle(&self, categoryindex: u16) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn SetStatistic(&self, categoryindex: u16, statindex: u16, name: &windows_core::PCWSTR, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetMaxCategoryLength(&self) -> windows_core::Result<super::UINT>;
+    fn GetMaxNameLength(&self) -> windows_core::Result<super::UINT>;
+    fn GetMaxValueLength(&self) -> windows_core::Result<super::UINT>;
+    fn GetMaxCategories(&self) -> windows_core::Result<super::WORD>;
+    fn GetMaxStatsPerCategory(&self) -> windows_core::Result<super::WORD>;
+    fn SetCategoryTitle(&self, categoryindex: super::WORD, title: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetCategoryTitle(&self, categoryindex: super::WORD, ptitle: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetStatistic(&self, categoryindex: super::WORD, statindex: super::WORD, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SetStatistic(&self, categoryindex: super::WORD, statindex: super::WORD, name: &windows_core::PCWSTR, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Save(&self, trackchanges: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetLastPlayedCategory(&self, categoryindex: u32) -> windows_core::Result<()>;
-    fn GetLastPlayedCategory(&self) -> windows_core::Result<u32>;
+    fn SetLastPlayedCategory(&self, categoryindex: super::UINT) -> windows_core::Result<()>;
+    fn GetLastPlayedCategory(&self) -> windows_core::Result<super::UINT>;
 }
+#[cfg(feature = "shared")]
 impl IGameStatistics_Vtbl {
     pub const fn new<Identity: IGameStatistics_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMaxCategoryLength<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cch: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxCategoryLength<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cch: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxCategoryLength(this) {
@@ -281,7 +324,7 @@ impl IGameStatistics_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxNameLength<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cch: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxNameLength<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cch: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxNameLength(this) {
@@ -293,7 +336,7 @@ impl IGameStatistics_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxValueLength<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cch: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxValueLength<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cch: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxValueLength(this) {
@@ -305,7 +348,7 @@ impl IGameStatistics_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxCategories<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmax: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxCategories<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmax: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxCategories(this) {
@@ -317,7 +360,7 @@ impl IGameStatistics_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetMaxStatsPerCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmax: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaxStatsPerCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmax: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetMaxStatsPerCategory(this) {
@@ -329,31 +372,25 @@ impl IGameStatistics_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCategoryTitle<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: u16, title: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCategoryTitle<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, title: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGameStatistics_Impl::SetCategoryTitle(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute(&title)).into()
             }
         }
-        unsafe extern "system" fn GetCategoryTitle<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: u16, ptitle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCategoryTitle<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, ptitle: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IGameStatistics_Impl::GetCategoryTitle(this, core::mem::transmute_copy(&categoryindex)) {
-                    Ok(ok__) => {
-                        ptitle.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IGameStatistics_Impl::GetCategoryTitle(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&ptitle)).into()
             }
         }
-        unsafe extern "system" fn GetStatistic<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: u16, statindex: u16, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStatistic<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, statindex: super::WORD, pname: *mut windows_core::PWSTR, pvalue: *mut windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGameStatistics_Impl::GetStatistic(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&statindex), core::mem::transmute_copy(&pname), core::mem::transmute_copy(&pvalue)).into()
             }
         }
-        unsafe extern "system" fn SetStatistic<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: u16, statindex: u16, name: windows_core::PCWSTR, value: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetStatistic<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::WORD, statindex: super::WORD, name: windows_core::PCWSTR, value: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGameStatistics_Impl::SetStatistic(this, core::mem::transmute_copy(&categoryindex), core::mem::transmute_copy(&statindex), core::mem::transmute(&name), core::mem::transmute(&value)).into()
@@ -365,13 +402,13 @@ impl IGameStatistics_Vtbl {
                 IGameStatistics_Impl::Save(this, core::mem::transmute_copy(&trackchanges)).into()
             }
         }
-        unsafe extern "system" fn SetLastPlayedCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLastPlayedCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, categoryindex: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGameStatistics_Impl::SetLastPlayedCategory(this, core::mem::transmute_copy(&categoryindex)).into()
             }
         }
-        unsafe extern "system" fn GetLastPlayedCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategoryindex: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLastPlayedCategory<Identity: IGameStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcategoryindex: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGameStatistics_Impl::GetLastPlayedCategory(this) {
@@ -403,6 +440,7 @@ impl IGameStatistics_Vtbl {
         iid == &<IGameStatistics as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IGameStatistics {}
 windows_core::imp::define_interface!(IGameStatisticsMgr, IGameStatisticsMgr_Vtbl, 0xaff3ea11_e70e_407d_95dd_35e612c41ce2);
 windows_core::imp::interface_hierarchy!(IGameStatisticsMgr, windows_core::IUnknown);

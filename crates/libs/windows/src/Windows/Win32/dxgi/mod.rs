@@ -1,29 +1,20 @@
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn CreateDXGIFactory<T>() -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
-    windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory(riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateDXGIFactory(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+pub unsafe fn CreateDXGIFactory(riid: *const super::IID, ppfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory(riid : *const super::IID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { CreateDXGIFactory(riid as _, ppfactory as _) }
 }
+#[cfg(feature = "guiddef")]
 #[inline]
-pub unsafe fn CreateDXGIFactory1<T>() -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
-    windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory1(riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateDXGIFactory1(&T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+pub unsafe fn CreateDXGIFactory1(riid: *const super::IID, ppfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory1(riid : *const super::IID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { CreateDXGIFactory1(riid as _, ppfactory as _) }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn CreateDXGIFactory2<T>(flags: u32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
-    windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : u32, riid : *const windows_core::GUID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateDXGIFactory2(flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+pub unsafe fn CreateDXGIFactory2(flags: super::UINT, riid: *const super::IID, ppfactory: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("dxgi.dll" "system" fn CreateDXGIFactory2(flags : super::UINT, riid : *const super::IID, ppfactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { CreateDXGIFactory2(flags, riid as _, ppfactory as _) }
 }
 #[inline]
 pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> windows_core::HRESULT {
@@ -35,14 +26,11 @@ pub unsafe fn DXGIDisableVBlankVirtualization() -> windows_core::HRESULT {
     windows_core::link!("dxgi.dll" "system" fn DXGIDisableVBlankVirtualization() -> windows_core::HRESULT);
     unsafe { DXGIDisableVBlankVirtualization() }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> windows_core::Result<T>
-where
-    T: windows_core::Interface,
-{
-    windows_core::link!("dxgi.dll" "system" fn DXGIGetDebugInterface1(flags : u32, riid : *const windows_core::GUID, pdebug : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    let mut result__ = core::ptr::null_mut();
-    unsafe { DXGIGetDebugInterface1(flags, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+pub unsafe fn DXGIGetDebugInterface1(flags: super::UINT, riid: *const super::IID, pdebug: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("dxgi.dll" "system" fn DXGIGetDebugInterface1(flags : super::UINT, riid : *const super::IID, pdebug : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { DXGIGetDebugInterface1(flags, riid as _, pdebug as _) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -53,96 +41,96 @@ pub struct D3DCOLORVALUE {
     pub a: f32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC1 {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC2 {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::UINT,
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC3 {
-    pub Description: [u16; 128],
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub SubSysId: u32,
-    pub Revision: u32,
-    pub DedicatedVideoMemory: usize,
-    pub DedicatedSystemMemory: usize,
-    pub SharedSystemMemory: usize,
+    pub Description: [super::WCHAR; 128],
+    pub VendorId: super::UINT,
+    pub DeviceId: super::UINT,
+    pub SubSysId: super::UINT,
+    pub Revision: super::UINT,
+    pub DedicatedVideoMemory: super::SIZE_T,
+    pub DedicatedSystemMemory: super::SIZE_T,
+    pub SharedSystemMemory: super::SIZE_T,
     pub AdapterLuid: super::LUID,
     pub Flags: DXGI_ADAPTER_FLAG3,
     pub GraphicsPreemptionGranularity: DXGI_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: DXGI_COMPUTE_PREEMPTION_GRANULARITY,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_ADAPTER_DESC3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DXGI_ADAPTER_FLAG = i32;
-pub type DXGI_ADAPTER_FLAG3 = u32;
+pub type DXGI_ADAPTER_FLAG3 = i32;
 pub const DXGI_ADAPTER_FLAG3_ACG_COMPATIBLE: DXGI_ADAPTER_FLAG3 = 4;
-pub const DXGI_ADAPTER_FLAG3_FORCE_DWORD: DXGI_ADAPTER_FLAG3 = 4294967295;
+pub const DXGI_ADAPTER_FLAG3_FORCE_DWORD: DXGI_ADAPTER_FLAG3 = -1;
 pub const DXGI_ADAPTER_FLAG3_KEYED_MUTEX_CONFORMANCE: DXGI_ADAPTER_FLAG3 = 32;
 pub const DXGI_ADAPTER_FLAG3_NONE: DXGI_ADAPTER_FLAG3 = 0;
 pub const DXGI_ADAPTER_FLAG3_REMOTE: DXGI_ADAPTER_FLAG3 = 1;
@@ -212,16 +200,19 @@ pub type DXGI_DEBUG_RLO_FLAGS = i32;
 pub const DXGI_DEBUG_RLO_IGNORE_INTERNAL: DXGI_DEBUG_RLO_FLAGS = 4;
 pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_DISPLAY_COLOR_SPACE {
-    pub PrimaryCoordinates: [[f32; 2]; 8],
-    pub WhitePoints: [[f32; 2]; 16],
+    pub PrimaryCoordinates: [[super::FLOAT; 2]; 8],
+    pub WhitePoints: [[super::FLOAT; 2]; 16],
 }
+#[cfg(feature = "minwindef")]
 impl Default for DXGI_DISPLAY_COLOR_SPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -364,34 +355,34 @@ pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE: DXGI_FRAME_PRESENTAT
 pub const DXGI_FRAME_PRESENTATION_MODE_NONE: DXGI_FRAME_PRESENTATION_MODE = 2;
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS {
-    pub PresentCount: u32,
-    pub PresentRefreshCount: u32,
-    pub SyncRefreshCount: u32,
+    pub PresentCount: super::UINT,
+    pub PresentRefreshCount: super::UINT,
+    pub SyncRefreshCount: super::UINT,
     pub SyncQPCTime: super::LARGE_INTEGER,
     pub SyncGPUTime: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_FRAME_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
-    pub PresentCount: u32,
-    pub PresentRefreshCount: u32,
-    pub SyncRefreshCount: u32,
+    pub PresentCount: super::UINT,
+    pub PresentRefreshCount: super::UINT,
+    pub SyncRefreshCount: super::UINT,
     pub SyncQPCTime: super::LARGE_INTEGER,
     pub SyncGPUTime: super::LARGE_INTEGER,
     pub CompositionMode: DXGI_FRAME_PRESENTATION_MODE,
-    pub ApprovedPresentDuration: u32,
+    pub ApprovedPresentDuration: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGI_FRAME_STATISTICS_MEDIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -410,14 +401,16 @@ impl Default for DXGI_GAMMA_CONTROL {
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_GAMMA_CONTROL_CAPABILITIES {
     pub ScaleAndOffsetSupported: windows_core::BOOL,
     pub MaxConvertedValue: f32,
     pub MinConvertedValue: f32,
-    pub NumGammaControlPoints: u32,
+    pub NumGammaControlPoints: super::UINT,
     pub ControlPointPositions: [f32; 1025],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_GAMMA_CONTROL_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -433,32 +426,36 @@ pub const DXGI_GRAPHICS_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_GRAPHICS_PREEMPTIO
 pub const DXGI_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = 3;
 pub const DXGI_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = 1;
 pub const DXGI_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: DXGI_GRAPHICS_PREEMPTION_GRANULARITY = 2;
-pub type DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = u32;
+pub type DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = i32;
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_CURSOR_STRETCHED: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 4;
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_FULLSCREEN: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 1;
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_WINDOWED: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10 {
-    pub RedPrimary: [u16; 2],
-    pub GreenPrimary: [u16; 2],
-    pub BluePrimary: [u16; 2],
-    pub WhitePoint: [u16; 2],
-    pub MaxMasteringLuminance: u32,
-    pub MinMasteringLuminance: u32,
-    pub MaxContentLightLevel: u16,
-    pub MaxFrameAverageLightLevel: u16,
+    pub RedPrimary: [super::UINT16; 2],
+    pub GreenPrimary: [super::UINT16; 2],
+    pub BluePrimary: [super::UINT16; 2],
+    pub WhitePoint: [super::UINT16; 2],
+    pub MaxMasteringLuminance: super::UINT,
+    pub MinMasteringLuminance: super::UINT,
+    pub MaxContentLightLevel: super::UINT16,
+    pub MaxFrameAverageLightLevel: super::UINT16,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_HDR_METADATA_HDR10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10PLUS {
-    pub Data: [u8; 72],
+    pub Data: [super::BYTE; 72],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_HDR_METADATA_HDR10PLUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -470,22 +467,25 @@ pub const DXGI_HDR_METADATA_TYPE_HDR10PLUS: DXGI_HDR_METADATA_TYPE = 2;
 pub const DXGI_HDR_METADATA_TYPE_NONE: DXGI_HDR_METADATA_TYPE = 0;
 pub const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: i32 = 1024;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER {
     pub AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
     pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
-    pub NumCategories: u32,
+    pub NumCategories: super::UINT,
     pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
-    pub NumSeverities: u32,
+    pub NumSeverities: super::UINT,
     pub pSeverityList: *mut DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
-    pub NumIDs: u32,
+    pub NumIDs: super::UINT,
     pub pIDList: *mut DXGI_INFO_QUEUE_MESSAGE_ID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Producer: DXGI_DEBUG_ID,
@@ -493,7 +493,7 @@ pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY,
     pub ID: DXGI_INFO_QUEUE_MESSAGE_ID,
     pub pDescription: *const i8,
-    pub DescriptionByteLength: usize,
+    pub DescriptionByteLength: super::SIZE_T,
 }
 pub type DXGI_INFO_QUEUE_MESSAGE_CATEGORY = i32;
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_CLEANUP: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = 3;
@@ -516,75 +516,85 @@ pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_INFO: DXGI_INFO_QUEUE_MESSAGE_SEVERIT
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_MESSAGE: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = 4;
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_WARNING: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_JPEG_AC_HUFFMAN_TABLE {
-    pub CodeCounts: [u8; 16],
-    pub CodeValues: [u8; 162],
+    pub CodeCounts: [super::BYTE; 16],
+    pub CodeValues: [super::BYTE; 162],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_JPEG_AC_HUFFMAN_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_JPEG_DC_HUFFMAN_TABLE {
-    pub CodeCounts: [u8; 12],
-    pub CodeValues: [u8; 12],
+    pub CodeCounts: [super::BYTE; 12],
+    pub CodeValues: [super::BYTE; 12],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_JPEG_DC_HUFFMAN_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_JPEG_QUANTIZATION_TABLE {
-    pub Elements: [u8; 64],
+    pub Elements: [super::BYTE; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for DXGI_JPEG_QUANTIZATION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MAPPED_RECT {
-    pub Pitch: i32,
-    pub pBits: *mut u8,
+    pub Pitch: super::INT,
+    pub pBits: *mut super::BYTE,
 }
 pub const DXGI_MAP_DISCARD: u32 = 4;
 pub const DXGI_MAP_READ: u32 = 1;
 pub const DXGI_MAP_WRITE: u32 = 2;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DXGI_MATRIX_3X2_F {
-    pub _11: f32,
-    pub _12: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _31: f32,
-    pub _32: f32,
+    pub _11: super::FLOAT,
+    pub _12: super::FLOAT,
+    pub _21: super::FLOAT,
+    pub _22: super::FLOAT,
+    pub _31: super::FLOAT,
+    pub _32: super::FLOAT,
 }
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: i32 = 16;
 pub type DXGI_MEMORY_SEGMENT_GROUP = i32;
 pub const DXGI_MEMORY_SEGMENT_GROUP_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = 0;
 pub const DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MODE_DESC {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub RefreshRate: DXGI_RATIONAL,
     pub Format: DXGI_FORMAT,
     pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
     pub Scaling: DXGI_MODE_SCALING,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MODE_DESC1 {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub RefreshRate: DXGI_RATIONAL,
     pub Format: DXGI_FORMAT,
     pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,
@@ -622,6 +632,7 @@ pub const DXGI_OFFER_RESOURCE_PRIORITY_LOW: DXGI_OFFER_RESOURCE_PRIORITY = 1;
 pub const DXGI_OFFER_RESOURCE_PRIORITY_NORMAL: DXGI_OFFER_RESOURCE_PRIORITY = 2;
 pub const DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY: DXGI_OUTDUPL_FLAG = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_DESC {
     pub ModeDesc: DXGI_MODE_DESC,
@@ -630,46 +641,46 @@ pub struct DXGI_OUTDUPL_DESC {
 }
 pub type DXGI_OUTDUPL_FLAG = i32;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: super::LARGE_INTEGER,
     pub LastMouseUpdateTime: super::LARGE_INTEGER,
-    pub AccumulatedFrames: u32,
+    pub AccumulatedFrames: super::UINT,
     pub RectsCoalesced: windows_core::BOOL,
     pub ProtectedContentMaskedOut: windows_core::BOOL,
     pub PointerPosition: DXGI_OUTDUPL_POINTER_POSITION,
-    pub TotalMetadataBufferSize: u32,
-    pub PointerShapeBufferSize: u32,
+    pub TotalMetadataBufferSize: super::UINT,
+    pub PointerShapeBufferSize: super::UINT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DXGI_OUTDUPL_FRAME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
     pub SourcePoint: super::POINT,
     pub DestinationRect: super::RECT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::POINT,
     pub Visible: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
-    pub Type: u32,
-    pub Width: u32,
-    pub Height: u32,
-    pub Pitch: u32,
+    pub Type: super::UINT,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Pitch: super::UINT,
     pub HotSpot: super::POINT,
 }
 pub type DXGI_OUTDUPL_POINTER_SHAPE_TYPE = i32;
@@ -677,41 +688,41 @@ pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = 4;
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTPUT_DESC {
-    pub DeviceName: [u16; 32],
+    pub DeviceName: [super::WCHAR; 32],
     pub DesktopCoordinates: super::RECT,
     pub AttachedToDesktop: windows_core::BOOL,
     pub Rotation: DXGI_MODE_ROTATION,
     pub Monitor: super::HMONITOR,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DXGI_OUTPUT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DXGI_OUTPUT_DESC1 {
-    pub DeviceName: [u16; 32],
+    pub DeviceName: [super::WCHAR; 32],
     pub DesktopCoordinates: super::RECT,
     pub AttachedToDesktop: windows_core::BOOL,
     pub Rotation: DXGI_MODE_ROTATION,
     pub Monitor: super::HMONITOR,
-    pub BitsPerColor: u32,
+    pub BitsPerColor: super::UINT,
     pub ColorSpace: DXGI_COLOR_SPACE_TYPE,
-    pub RedPrimary: [f32; 2],
-    pub GreenPrimary: [f32; 2],
-    pub BluePrimary: [f32; 2],
-    pub WhitePoint: [f32; 2],
-    pub MinLuminance: f32,
-    pub MaxLuminance: f32,
-    pub MaxFullFrameLuminance: f32,
+    pub RedPrimary: [super::FLOAT; 2],
+    pub GreenPrimary: [super::FLOAT; 2],
+    pub BluePrimary: [super::FLOAT; 2],
+    pub WhitePoint: [super::FLOAT; 2],
+    pub MinLuminance: super::FLOAT,
+    pub MaxLuminance: super::FLOAT,
+    pub MaxFullFrameLuminance: super::FLOAT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for DXGI_OUTPUT_DESC1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -726,10 +737,10 @@ pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512;
 pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2;
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_PRESENT_PARAMETERS {
-    pub DirtyRectsCount: u32,
+    pub DirtyRectsCount: super::UINT,
     pub pDirtyRects: *mut super::RECT,
     pub pScrollRect: *mut super::RECT,
     pub pScrollOffset: *mut super::POINT,
@@ -741,18 +752,20 @@ pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: u32 = 32;
 pub const DXGI_PRESENT_TEST: u32 = 1;
 pub const DXGI_PRESENT_USE_DURATION: u32 = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
-    pub Budget: u64,
-    pub CurrentUsage: u64,
-    pub AvailableForReservation: u64,
-    pub CurrentReservation: u64,
+    pub Budget: super::UINT64,
+    pub CurrentUsage: super::UINT64,
+    pub AvailableForReservation: super::UINT64,
+    pub CurrentReservation: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RATIONAL {
-    pub Numerator: u32,
-    pub Denominator: u32,
+    pub Numerator: super::UINT,
+    pub Denominator: super::UINT,
 }
 pub type DXGI_RECLAIM_RESOURCE_RESULTS = i32;
 pub const DXGI_RECLAIM_RESOURCE_RESULT_DISCARDED: DXGI_RECLAIM_RESOURCE_RESULTS = 1;
@@ -776,10 +789,11 @@ pub struct DXGI_RGB {
 }
 pub type DXGI_RGBA = D3DCOLORVALUE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SAMPLE_DESC {
-    pub Count: u32,
-    pub Quality: u32,
+    pub Count: super::UINT,
+    pub Quality: super::UINT,
 }
 pub type DXGI_SCALING = i32;
 pub const DXGI_SCALING_ASPECT_RATIO_STRETCH: DXGI_SCALING = 2;
@@ -795,10 +809,11 @@ pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648;
 pub const DXGI_SHARED_RESOURCE_WRITE: i32 = 1;
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SURFACE_DESC {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: DXGI_FORMAT,
     pub SampleDesc: DXGI_SAMPLE_DESC,
 }
@@ -806,32 +821,33 @@ pub type DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = i32;
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 2;
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: DXGI_MODE_DESC,
     pub SampleDesc: DXGI_SAMPLE_DESC,
     pub BufferUsage: DXGI_USAGE,
-    pub BufferCount: u32,
+    pub BufferCount: super::UINT,
     pub OutputWindow: super::HWND,
     pub Windowed: windows_core::BOOL,
     pub SwapEffect: DXGI_SWAP_EFFECT,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
     pub Format: DXGI_FORMAT,
     pub Stereo: windows_core::BOOL,
     pub SampleDesc: DXGI_SAMPLE_DESC,
     pub BufferUsage: DXGI_USAGE,
-    pub BufferCount: u32,
+    pub BufferCount: super::UINT,
     pub Scaling: DXGI_SCALING,
     pub SwapEffect: DXGI_SWAP_EFFECT,
     pub AlphaMode: DXGI_ALPHA_MODE,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 pub type DXGI_SWAP_CHAIN_FLAG = i32;
 pub const DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH: DXGI_SWAP_CHAIN_FLAG = 2;
@@ -849,6 +865,7 @@ pub const DXGI_SWAP_CHAIN_FLAG_RESTRICT_SHARED_RESOURCE_DRIVER: DXGI_SWAP_CHAIN_
 pub const DXGI_SWAP_CHAIN_FLAG_USE_DEFAULT_COLOR_SPACE: DXGI_SWAP_CHAIN_FLAG = 32768;
 pub const DXGI_SWAP_CHAIN_FLAG_YUV_VIDEO: DXGI_SWAP_CHAIN_FLAG = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: DXGI_RATIONAL,
@@ -878,14 +895,15 @@ impl core::ops::Deref for IDXGIAdapter {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter, windows_core::IUnknown, IDXGIObject);
 impl IDXGIAdapter {
-    pub unsafe fn EnumOutputs(&self, output: u32, ppoutput: *mut Option<IDXGIOutput>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumOutputs(&self, output: super::UINT, ppoutput: *mut Option<IDXGIOutput>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumOutputs)(windows_core::Interface::as_raw(self), output, core::mem::transmute(ppoutput)) }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_ADAPTER_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const windows_core::GUID) -> windows_core::Result<super::LARGE_INTEGER> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -897,26 +915,29 @@ impl IDXGIAdapter {
 #[doc(hidden)]
 pub struct IDXGIAdapter_Vtbl {
     pub base__: IDXGIObject_Vtbl,
-    pub EnumOutputs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
+    #[cfg(feature = "shared")]
+    pub EnumOutputs: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumOutputs: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetDesc: usize,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub CheckInterfaceSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::LARGE_INTEGER) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     CheckInterfaceSupport: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIAdapter_Impl: IDXGIObject_Impl {
-    fn EnumOutputs(&self, output: u32, ppoutput: windows_core::OutRef<IDXGIOutput>) -> windows_core::Result<()>;
+    fn EnumOutputs(&self, output: super::UINT, ppoutput: windows_core::OutRef<IDXGIOutput>) -> windows_core::Result<()>;
     fn GetDesc(&self, pdesc: *mut DXGI_ADAPTER_DESC) -> windows_core::Result<()>;
     fn CheckInterfaceSupport(&self, interfacename: *const windows_core::GUID) -> windows_core::Result<super::LARGE_INTEGER>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIAdapter_Vtbl {
     pub const fn new<Identity: IDXGIAdapter_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnumOutputs<Identity: IDXGIAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: u32, ppoutput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumOutputs<Identity: IDXGIAdapter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: super::UINT, ppoutput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIAdapter_Impl::EnumOutputs(this, core::mem::transmute_copy(&output), core::mem::transmute_copy(&ppoutput)).into()
@@ -951,7 +972,7 @@ impl IDXGIAdapter_Vtbl {
         iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIAdapter {}
 windows_core::imp::define_interface!(IDXGIAdapter1, IDXGIAdapter1_Vtbl, 0x29038f61_3839_4626_91fd_086879011a05);
 impl core::ops::Deref for IDXGIAdapter1 {
@@ -962,7 +983,7 @@ impl core::ops::Deref for IDXGIAdapter1 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter1, windows_core::IUnknown, IDXGIObject, IDXGIAdapter);
 impl IDXGIAdapter1 {
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetDesc1(&self, pdesc: *mut DXGI_ADAPTER_DESC1) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
@@ -971,16 +992,16 @@ impl IDXGIAdapter1 {
 #[doc(hidden)]
 pub struct IDXGIAdapter1_Vtbl {
     pub base__: IDXGIAdapter_Vtbl,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC1) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetDesc1: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIAdapter1_Impl: IDXGIAdapter_Impl {
     fn GetDesc1(&self, pdesc: *mut DXGI_ADAPTER_DESC1) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIAdapter1_Vtbl {
     pub const fn new<Identity: IDXGIAdapter1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc1<Identity: IDXGIAdapter1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC1) -> windows_core::HRESULT {
@@ -995,7 +1016,7 @@ impl IDXGIAdapter1_Vtbl {
         iid == &<IDXGIAdapter1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIAdapter1 {}
 windows_core::imp::define_interface!(IDXGIAdapter2, IDXGIAdapter2_Vtbl, 0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
 impl core::ops::Deref for IDXGIAdapter2 {
@@ -1006,7 +1027,7 @@ impl core::ops::Deref for IDXGIAdapter2 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter2, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1);
 impl IDXGIAdapter2 {
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetDesc2(&self, pdesc: *mut DXGI_ADAPTER_DESC2) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc2)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
@@ -1015,16 +1036,16 @@ impl IDXGIAdapter2 {
 #[doc(hidden)]
 pub struct IDXGIAdapter2_Vtbl {
     pub base__: IDXGIAdapter1_Vtbl,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetDesc2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC2) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetDesc2: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIAdapter2_Impl: IDXGIAdapter1_Impl {
     fn GetDesc2(&self, pdesc: *mut DXGI_ADAPTER_DESC2) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIAdapter2_Vtbl {
     pub const fn new<Identity: IDXGIAdapter2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc2<Identity: IDXGIAdapter2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC2) -> windows_core::HRESULT {
@@ -1039,7 +1060,7 @@ impl IDXGIAdapter2_Vtbl {
         iid == &<IDXGIAdapter2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIAdapter1 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIAdapter2 {}
 windows_core::imp::define_interface!(IDXGIAdapter3, IDXGIAdapter3_Vtbl, 0x645967a4_1392_4310_a798_8053ce3e93fd);
 impl core::ops::Deref for IDXGIAdapter3 {
@@ -1050,32 +1071,36 @@ impl core::ops::Deref for IDXGIAdapter3 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter3, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2);
 impl IDXGIAdapter3 {
-    #[cfg(feature = "winnt")]
-    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterHardwareContentProtectionTeardownStatusEvent)(windows_core::Interface::as_raw(self), hevent, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32) {
+    #[cfg(feature = "shared")]
+    pub unsafe fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: super::DWORD) {
         unsafe {
             (windows_core::Interface::vtable(self).UnregisterHardwareContentProtectionTeardownStatus)(windows_core::Interface::as_raw(self), dwcookie);
         }
     }
-    pub unsafe fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn QueryVideoMemoryInfo(&self, nodeindex: super::UINT, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryVideoMemoryInfo)(windows_core::Interface::as_raw(self), nodeindex, memorysegmentgroup, pvideomemoryinfo as _) }
     }
-    pub unsafe fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetVideoMemoryReservation(&self, nodeindex: super::UINT, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: super::UINT64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetVideoMemoryReservation)(windows_core::Interface::as_raw(self), nodeindex, memorysegmentgroup, reservation) }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterVideoMemoryBudgetChangeNotificationEvent)(windows_core::Interface::as_raw(self), hevent, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32) {
+    #[cfg(feature = "shared")]
+    pub unsafe fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: super::DWORD) {
         unsafe {
             (windows_core::Interface::vtable(self).UnregisterVideoMemoryBudgetChangeNotification)(windows_core::Interface::as_raw(self), dwcookie);
         }
@@ -1085,32 +1110,44 @@ impl IDXGIAdapter3 {
 #[doc(hidden)]
 pub struct IDXGIAdapter3_Vtbl {
     pub base__: IDXGIAdapter2_Vtbl,
-    #[cfg(feature = "winnt")]
-    pub RegisterHardwareContentProtectionTeardownStatusEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub RegisterHardwareContentProtectionTeardownStatusEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     RegisterHardwareContentProtectionTeardownStatusEvent: usize,
-    pub UnregisterHardwareContentProtectionTeardownStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
-    pub QueryVideoMemoryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_MEMORY_SEGMENT_GROUP, *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::HRESULT,
-    pub SetVideoMemoryReservation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_MEMORY_SEGMENT_GROUP, u64) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub RegisterVideoMemoryBudgetChangeNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(feature = "shared")]
+    pub UnregisterHardwareContentProtectionTeardownStatus: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD),
+    #[cfg(not(feature = "shared"))]
+    UnregisterHardwareContentProtectionTeardownStatus: usize,
+    #[cfg(feature = "shared")]
+    pub QueryVideoMemoryInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, DXGI_MEMORY_SEGMENT_GROUP, *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    QueryVideoMemoryInfo: usize,
+    #[cfg(feature = "shared")]
+    pub SetVideoMemoryReservation: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, DXGI_MEMORY_SEGMENT_GROUP, super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetVideoMemoryReservation: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub RegisterVideoMemoryBudgetChangeNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     RegisterVideoMemoryBudgetChangeNotificationEvent: usize,
-    pub UnregisterVideoMemoryBudgetChangeNotification: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
+    #[cfg(feature = "shared")]
+    pub UnregisterVideoMemoryBudgetChangeNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD),
+    #[cfg(not(feature = "shared"))]
+    UnregisterVideoMemoryBudgetChangeNotification: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIAdapter3_Impl: IDXGIAdapter2_Impl {
-    fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32>;
-    fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32);
-    fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::Result<()>;
-    fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> windows_core::Result<()>;
-    fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32>;
-    fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32);
+    fn RegisterHardwareContentProtectionTeardownStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD>;
+    fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: super::DWORD);
+    fn QueryVideoMemoryInfo(&self, nodeindex: super::UINT, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::Result<()>;
+    fn SetVideoMemoryReservation(&self, nodeindex: super::UINT, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: super::UINT64) -> windows_core::Result<()>;
+    fn RegisterVideoMemoryBudgetChangeNotificationEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD>;
+    fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: super::DWORD);
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIAdapter3_Vtbl {
     pub const fn new<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RegisterHardwareContentProtectionTeardownStatusEvent<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterHardwareContentProtectionTeardownStatusEvent<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter3_Impl::RegisterHardwareContentProtectionTeardownStatusEvent(this, core::mem::transmute_copy(&hevent)) {
@@ -1122,25 +1159,25 @@ impl IDXGIAdapter3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterHardwareContentProtectionTeardownStatus<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
+        unsafe extern "system" fn UnregisterHardwareContentProtectionTeardownStatus<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: super::DWORD) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIAdapter3_Impl::UnregisterHardwareContentProtectionTeardownStatus(this, core::mem::transmute_copy(&dwcookie));
             }
         }
-        unsafe extern "system" fn QueryVideoMemoryInfo<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryVideoMemoryInfo<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodeindex: super::UINT, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, pvideomemoryinfo: *mut DXGI_QUERY_VIDEO_MEMORY_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIAdapter3_Impl::QueryVideoMemoryInfo(this, core::mem::transmute_copy(&nodeindex), core::mem::transmute_copy(&memorysegmentgroup), core::mem::transmute_copy(&pvideomemoryinfo)).into()
             }
         }
-        unsafe extern "system" fn SetVideoMemoryReservation<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetVideoMemoryReservation<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodeindex: super::UINT, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIAdapter3_Impl::SetVideoMemoryReservation(this, core::mem::transmute_copy(&nodeindex), core::mem::transmute_copy(&memorysegmentgroup), core::mem::transmute_copy(&reservation)).into()
             }
         }
-        unsafe extern "system" fn RegisterVideoMemoryBudgetChangeNotificationEvent<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterVideoMemoryBudgetChangeNotificationEvent<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIAdapter3_Impl::RegisterVideoMemoryBudgetChangeNotificationEvent(this, core::mem::transmute_copy(&hevent)) {
@@ -1152,7 +1189,7 @@ impl IDXGIAdapter3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterVideoMemoryBudgetChangeNotification<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
+        unsafe extern "system" fn UnregisterVideoMemoryBudgetChangeNotification<Identity: IDXGIAdapter3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: super::DWORD) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIAdapter3_Impl::UnregisterVideoMemoryBudgetChangeNotification(this, core::mem::transmute_copy(&dwcookie));
@@ -1172,7 +1209,7 @@ impl IDXGIAdapter3_Vtbl {
         iid == &<IDXGIAdapter3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIAdapter1 as windows_core::Interface>::IID || iid == &<IDXGIAdapter2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIAdapter3 {}
 windows_core::imp::define_interface!(IDXGIAdapter4, IDXGIAdapter4_Vtbl, 0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
 impl core::ops::Deref for IDXGIAdapter4 {
@@ -1183,7 +1220,7 @@ impl core::ops::Deref for IDXGIAdapter4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIAdapter4, windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2, IDXGIAdapter3);
 impl IDXGIAdapter4 {
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetDesc3(&self, pdesc: *mut DXGI_ADAPTER_DESC3) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc3)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
@@ -1192,16 +1229,16 @@ impl IDXGIAdapter4 {
 #[doc(hidden)]
 pub struct IDXGIAdapter4_Vtbl {
     pub base__: IDXGIAdapter3_Vtbl,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetDesc3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_ADAPTER_DESC3) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetDesc3: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIAdapter4_Impl: IDXGIAdapter3_Impl {
     fn GetDesc3(&self, pdesc: *mut DXGI_ADAPTER_DESC3) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIAdapter4_Vtbl {
     pub const fn new<Identity: IDXGIAdapter4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc3<Identity: IDXGIAdapter4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_ADAPTER_DESC3) -> windows_core::HRESULT {
@@ -1216,13 +1253,13 @@ impl IDXGIAdapter4_Vtbl {
         iid == &<IDXGIAdapter4 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIAdapter as windows_core::Interface>::IID || iid == &<IDXGIAdapter1 as windows_core::Interface>::IID || iid == &<IDXGIAdapter2 as windows_core::Interface>::IID || iid == &<IDXGIAdapter3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIAdapter4 {}
 windows_core::imp::define_interface!(IDXGIDebug, IDXGIDebug_Vtbl, 0x119e7452_de9e_40fe_8806_88f90c12b441);
 windows_core::imp::interface_hierarchy!(IDXGIDebug, windows_core::IUnknown);
 impl IDXGIDebug {
-    pub unsafe fn ReportLiveObjects(&self, apiid: windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReportLiveObjects)(windows_core::Interface::as_raw(self), apiid, flags) }
+    pub unsafe fn ReportLiveObjects(&self, apiid: &windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReportLiveObjects)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(apiid), flags) }
     }
 }
 #[repr(C)]
@@ -1232,14 +1269,14 @@ pub struct IDXGIDebug_Vtbl {
     pub ReportLiveObjects: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT,
 }
 pub trait IDXGIDebug_Impl: windows_core::IUnknownImpl {
-    fn ReportLiveObjects(&self, apiid: &windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> windows_core::Result<()>;
+    fn ReportLiveObjects(&self, apiid: windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> windows_core::Result<()>;
 }
 impl IDXGIDebug_Vtbl {
     pub const fn new<Identity: IDXGIDebug_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ReportLiveObjects<Identity: IDXGIDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, apiid: windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIDebug_Impl::ReportLiveObjects(this, core::mem::transmute(&apiid), core::mem::transmute_copy(&flags)).into()
+                IDXGIDebug_Impl::ReportLiveObjects(this, core::mem::transmute_copy(&apiid), core::mem::transmute_copy(&flags)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ReportLiveObjects: ReportLiveObjects::<Identity, OFFSET> }
@@ -1320,35 +1357,38 @@ impl windows_core::RuntimeName for IDXGIDebug1 {}
 windows_core::imp::define_interface!(IDXGIDecodeSwapChain, IDXGIDecodeSwapChain_Vtbl, 0x2633066b_4514_4c7a_8fd8_12ea98059d18);
 windows_core::imp::interface_hierarchy!(IDXGIDecodeSwapChain, windows_core::IUnknown);
 impl IDXGIDecodeSwapChain {
-    pub unsafe fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn PresentBuffer(&self, buffertopresent: super::UINT, syncinterval: super::UINT, flags: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PresentBuffer)(windows_core::Interface::as_raw(self), buffertopresent, syncinterval, flags) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn SetSourceRect(&self, prect: *const super::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceRect)(windows_core::Interface::as_raw(self), prect) }
+        unsafe { (windows_core::Interface::vtable(self).SetSourceRect)(windows_core::Interface::as_raw(self), prect as _) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn SetTargetRect(&self, prect: *const super::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTargetRect)(windows_core::Interface::as_raw(self), prect) }
+        unsafe { (windows_core::Interface::vtable(self).SetTargetRect)(windows_core::Interface::as_raw(self), prect as _) }
     }
-    pub unsafe fn SetDestSize(&self, width: u32, height: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetDestSize(&self, width: super::UINT, height: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDestSize)(windows_core::Interface::as_raw(self), width, height) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetSourceRect(&self) -> windows_core::Result<super::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSourceRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetTargetRect(&self) -> windows_core::Result<super::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTargetRect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDestSize(&self, pwidth: *mut u32, pheight: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDestSize(&self, pwidth: *mut super::UINT, pheight: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDestSize)(windows_core::Interface::as_raw(self), pwidth as _, pheight as _) }
     }
     pub unsafe fn SetColorSpace(&self, colorspace: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> windows_core::HRESULT {
@@ -1362,44 +1402,53 @@ impl IDXGIDecodeSwapChain {
 #[doc(hidden)]
 pub struct IDXGIDecodeSwapChain_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub PresentBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(feature = "shared")]
+    pub PresentBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, super::UINT, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    PresentBuffer: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub SetSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     SetSourceRect: usize,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub SetTargetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     SetTargetRect: usize,
-    pub SetDestSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(feature = "shared")]
+    pub SetDestSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetDestSize: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub GetSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetSourceRect: usize,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub GetTargetRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetTargetRect: usize,
-    pub GetDestSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetDestSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDestSize: usize,
     pub SetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> windows_core::HRESULT,
     pub GetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IDXGIDecodeSwapChain_Impl: windows_core::IUnknownImpl {
-    fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> windows_core::Result<()>;
+    fn PresentBuffer(&self, buffertopresent: super::UINT, syncinterval: super::UINT, flags: super::UINT) -> windows_core::Result<()>;
     fn SetSourceRect(&self, prect: *const super::RECT) -> windows_core::Result<()>;
     fn SetTargetRect(&self, prect: *const super::RECT) -> windows_core::Result<()>;
-    fn SetDestSize(&self, width: u32, height: u32) -> windows_core::Result<()>;
+    fn SetDestSize(&self, width: super::UINT, height: super::UINT) -> windows_core::Result<()>;
     fn GetSourceRect(&self) -> windows_core::Result<super::RECT>;
     fn GetTargetRect(&self) -> windows_core::Result<super::RECT>;
-    fn GetDestSize(&self, pwidth: *mut u32, pheight: *mut u32) -> windows_core::Result<()>;
+    fn GetDestSize(&self, pwidth: *mut super::UINT, pheight: *mut super::UINT) -> windows_core::Result<()>;
     fn SetColorSpace(&self, colorspace: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS) -> windows_core::Result<()>;
     fn GetColorSpace(&self) -> DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl IDXGIDecodeSwapChain_Vtbl {
     pub const fn new<Identity: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn PresentBuffer<Identity: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffertopresent: u32, syncinterval: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PresentBuffer<Identity: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffertopresent: super::UINT, syncinterval: super::UINT, flags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDecodeSwapChain_Impl::PresentBuffer(this, core::mem::transmute_copy(&buffertopresent), core::mem::transmute_copy(&syncinterval), core::mem::transmute_copy(&flags)).into()
@@ -1417,7 +1466,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
                 IDXGIDecodeSwapChain_Impl::SetTargetRect(this, core::mem::transmute_copy(&prect)).into()
             }
         }
-        unsafe extern "system" fn SetDestSize<Identity: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDestSize<Identity: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT, height: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDecodeSwapChain_Impl::SetDestSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
@@ -1447,7 +1496,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDestSize<Identity: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut u32, pheight: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDestSize<Identity: IDXGIDecodeSwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut super::UINT, pheight: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDecodeSwapChain_Impl::GetDestSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
@@ -1482,7 +1531,7 @@ impl IDXGIDecodeSwapChain_Vtbl {
         iid == &<IDXGIDecodeSwapChain as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IDXGIDecodeSwapChain {}
 windows_core::imp::define_interface!(IDXGIDevice, IDXGIDevice_Vtbl, 0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
 impl core::ops::Deref for IDXGIDevice {
@@ -1499,17 +1548,20 @@ impl IDXGIDevice {
             (windows_core::Interface::vtable(self).GetAdapter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: Option<*const DXGI_SHARED_RESOURCE>, ppsurface: *mut Option<IDXGISurface>) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: super::UINT, usage: DXGI_USAGE, psharedresource: Option<*const DXGI_SHARED_RESOURCE>, ppsurface: *mut Option<IDXGISurface>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), pdesc, numsurfaces, usage, psharedresource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppsurface)) }
     }
-    pub unsafe fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryResourceResidency)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources), presidencystatus as _, numresources) }
     }
-    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetGPUThreadPriority(&self, priority: super::INT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetGPUThreadPriority)(windows_core::Interface::as_raw(self), priority) }
     }
-    pub unsafe fn GetGPUThreadPriority(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetGPUThreadPriority(&self) -> windows_core::Result<super::INT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGPUThreadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1521,23 +1573,32 @@ impl IDXGIDevice {
 pub struct IDXGIDevice_Vtbl {
     pub base__: IDXGIObject_Vtbl,
     pub GetAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_SURFACE_DESC, u32, DXGI_USAGE, *const DXGI_SHARED_RESOURCE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_SURFACE_DESC, super::UINT, DXGI_USAGE, *const DXGI_SHARED_RESOURCE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     CreateSurface: usize,
-    pub QueryResourceResidency: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, *mut DXGI_RESIDENCY, u32) -> windows_core::HRESULT,
-    pub SetGPUThreadPriority: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub GetGPUThreadPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub QueryResourceResidency: unsafe extern "system" fn(*mut core::ffi::c_void, *const *mut core::ffi::c_void, *mut DXGI_RESIDENCY, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    QueryResourceResidency: usize,
+    #[cfg(feature = "shared")]
+    pub SetGPUThreadPriority: unsafe extern "system" fn(*mut core::ffi::c_void, super::INT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetGPUThreadPriority: usize,
+    #[cfg(feature = "shared")]
+    pub GetGPUThreadPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::INT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGPUThreadPriority: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIDevice_Impl: IDXGIObject_Impl {
     fn GetAdapter(&self) -> windows_core::Result<IDXGIAdapter>;
-    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut Option<IDXGISurface>) -> windows_core::Result<()>;
-    fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> windows_core::Result<()>;
-    fn SetGPUThreadPriority(&self, priority: i32) -> windows_core::Result<()>;
-    fn GetGPUThreadPriority(&self) -> windows_core::Result<i32>;
+    fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: super::UINT, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut Option<IDXGISurface>) -> windows_core::Result<()>;
+    fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: super::UINT) -> windows_core::Result<()>;
+    fn SetGPUThreadPriority(&self, priority: super::INT) -> windows_core::Result<()>;
+    fn GetGPUThreadPriority(&self) -> windows_core::Result<super::INT>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIDevice_Vtbl {
     pub const fn new<Identity: IDXGIDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAdapter<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, padapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1552,25 +1613,25 @@ impl IDXGIDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateSurface<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: super::UINT, usage: DXGI_USAGE, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice_Impl::CreateSurface(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&numsurfaces), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&psharedresource), core::mem::transmute_copy(&ppsurface)).into()
             }
         }
-        unsafe extern "system" fn QueryResourceResidency<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresources: *const *mut core::ffi::c_void, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn QueryResourceResidency<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresources: *const *mut core::ffi::c_void, presidencystatus: *mut DXGI_RESIDENCY, numresources: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice_Impl::QueryResourceResidency(this, core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&presidencystatus), core::mem::transmute_copy(&numresources)).into()
             }
         }
-        unsafe extern "system" fn SetGPUThreadPriority<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, priority: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetGPUThreadPriority<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, priority: super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice_Impl::SetGPUThreadPriority(this, core::mem::transmute_copy(&priority)).into()
             }
         }
-        unsafe extern "system" fn GetGPUThreadPriority<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppriority: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetGPUThreadPriority<Identity: IDXGIDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppriority: *mut super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIDevice_Impl::GetGPUThreadPriority(this) {
@@ -1595,7 +1656,7 @@ impl IDXGIDevice_Vtbl {
         iid == &<IDXGIDevice as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIDevice {}
 windows_core::imp::define_interface!(IDXGIDevice1, IDXGIDevice1_Vtbl, 0x77db970f_6276_48ba_ba28_070143b4392c);
 impl core::ops::Deref for IDXGIDevice1 {
@@ -1606,10 +1667,12 @@ impl core::ops::Deref for IDXGIDevice1 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice1, windows_core::IUnknown, IDXGIObject, IDXGIDevice);
 impl IDXGIDevice1 {
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumFrameLatency)(windows_core::Interface::as_raw(self), maxlatency) }
     }
-    pub unsafe fn GetMaximumFrameLatency(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaximumFrameLatency(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaximumFrameLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1620,24 +1683,30 @@ impl IDXGIDevice1 {
 #[doc(hidden)]
 pub struct IDXGIDevice1_Vtbl {
     pub base__: IDXGIDevice_Vtbl,
-    pub SetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaximumFrameLatency: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaximumFrameLatency: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIDevice1_Impl: IDXGIDevice_Impl {
-    fn SetMaximumFrameLatency(&self, maxlatency: u32) -> windows_core::Result<()>;
-    fn GetMaximumFrameLatency(&self) -> windows_core::Result<u32>;
+    fn SetMaximumFrameLatency(&self, maxlatency: super::UINT) -> windows_core::Result<()>;
+    fn GetMaximumFrameLatency(&self) -> windows_core::Result<super::UINT>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIDevice1_Vtbl {
     pub const fn new<Identity: IDXGIDevice1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMaximumFrameLatency<Identity: IDXGIDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlatency: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaximumFrameLatency<Identity: IDXGIDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlatency: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice1_Impl::SetMaximumFrameLatency(this, core::mem::transmute_copy(&maxlatency)).into()
             }
         }
-        unsafe extern "system" fn GetMaximumFrameLatency<Identity: IDXGIDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaxlatency: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaximumFrameLatency<Identity: IDXGIDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaxlatency: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIDevice1_Impl::GetMaximumFrameLatency(this) {
@@ -1659,7 +1728,7 @@ impl IDXGIDevice1_Vtbl {
         iid == &<IDXGIDevice1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIDevice1 {}
 windows_core::imp::define_interface!(IDXGIDevice2, IDXGIDevice2_Vtbl, 0x05008617_fbfd_4051_a790_144884b4f6a9);
 impl core::ops::Deref for IDXGIDevice2 {
@@ -1670,10 +1739,12 @@ impl core::ops::Deref for IDXGIDevice2 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice2, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1);
 impl IDXGIDevice2 {
+    #[cfg(feature = "shared")]
     pub unsafe fn OfferResources(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OfferResources)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority) }
     }
-    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReclaimResources(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, pdiscarded: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReclaimResources)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), pdiscarded.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "winnt")]
@@ -1685,29 +1756,35 @@ impl IDXGIDevice2 {
 #[doc(hidden)]
 pub struct IDXGIDevice2_Vtbl {
     pub base__: IDXGIDevice1_Vtbl,
-    pub OfferResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT,
-    pub ReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub OfferResources: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    OfferResources: usize,
+    #[cfg(feature = "shared")]
+    pub ReclaimResources: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *const *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReclaimResources: usize,
     #[cfg(feature = "winnt")]
     pub EnqueueSetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE) -> windows_core::HRESULT,
     #[cfg(not(feature = "winnt"))]
     EnqueueSetEvent: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIDevice2_Impl: IDXGIDevice1_Impl {
-    fn OfferResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::Result<()>;
-    fn ReclaimResources(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, pdiscarded: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn OfferResources(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::Result<()>;
+    fn ReclaimResources(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, pdiscarded: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn EnqueueSetEvent(&self, hevent: super::HANDLE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIDevice2_Vtbl {
     pub const fn new<Identity: IDXGIDevice2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OfferResources<Identity: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: u32, ppresources: *const *mut core::ffi::c_void, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT {
+        unsafe extern "system" fn OfferResources<Identity: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: super::UINT, ppresources: *const *mut core::ffi::c_void, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice2_Impl::OfferResources(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&priority)).into()
             }
         }
-        unsafe extern "system" fn ReclaimResources<Identity: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: u32, ppresources: *const *mut core::ffi::c_void, pdiscarded: *mut windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReclaimResources<Identity: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: super::UINT, ppresources: *const *mut core::ffi::c_void, pdiscarded: *mut windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice2_Impl::ReclaimResources(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&pdiscarded)).into()
@@ -1730,7 +1807,7 @@ impl IDXGIDevice2_Vtbl {
         iid == &<IDXGIDevice2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDevice as windows_core::Interface>::IID || iid == &<IDXGIDevice1 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIDevice2 {}
 windows_core::imp::define_interface!(IDXGIDevice3, IDXGIDevice3_Vtbl, 0x6007896c_3244_4afd_bf18_a6d3beda5023);
 impl core::ops::Deref for IDXGIDevice3 {
@@ -1753,11 +1830,11 @@ pub struct IDXGIDevice3_Vtbl {
     pub base__: IDXGIDevice2_Vtbl,
     pub Trim: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIDevice3_Impl: IDXGIDevice2_Impl {
     fn Trim(&self);
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIDevice3_Vtbl {
     pub const fn new<Identity: IDXGIDevice3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Trim<Identity: IDXGIDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
@@ -1772,7 +1849,7 @@ impl IDXGIDevice3_Vtbl {
         iid == &<IDXGIDevice3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDevice as windows_core::Interface>::IID || iid == &<IDXGIDevice1 as windows_core::Interface>::IID || iid == &<IDXGIDevice2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIDevice3 {}
 windows_core::imp::define_interface!(IDXGIDevice4, IDXGIDevice4_Vtbl, 0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
 impl core::ops::Deref for IDXGIDevice4 {
@@ -1783,10 +1860,12 @@ impl core::ops::Deref for IDXGIDevice4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIDevice4, windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
 impl IDXGIDevice4 {
-    pub unsafe fn OfferResources1(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn OfferResources1(&self, ppresources: &[Option<IDXGIResource>], priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OfferResources1)(windows_core::Interface::as_raw(self), ppresources.len().try_into().unwrap(), core::mem::transmute(ppresources.as_ptr()), priority, flags) }
     }
-    pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReclaimResources1(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReclaimResources1)(windows_core::Interface::as_raw(self), numresources, core::mem::transmute(ppresources), presults as _) }
     }
 }
@@ -1794,24 +1873,30 @@ impl IDXGIDevice4 {
 #[doc(hidden)]
 pub struct IDXGIDevice4_Vtbl {
     pub base__: IDXGIDevice3_Vtbl,
-    pub OfferResources1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY, u32) -> windows_core::HRESULT,
-    pub ReclaimResources1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub OfferResources1: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *const *mut core::ffi::c_void, DXGI_OFFER_RESOURCE_PRIORITY, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    OfferResources1: usize,
+    #[cfg(feature = "shared")]
+    pub ReclaimResources1: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *const *mut core::ffi::c_void, *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReclaimResources1: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIDevice4_Impl: IDXGIDevice3_Impl {
-    fn OfferResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> windows_core::Result<()>;
-    fn ReclaimResources1(&self, numresources: u32, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::Result<()>;
+    fn OfferResources1(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: super::UINT) -> windows_core::Result<()>;
+    fn ReclaimResources1(&self, numresources: super::UINT, ppresources: *const Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIDevice4_Vtbl {
     pub const fn new<Identity: IDXGIDevice4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OfferResources1<Identity: IDXGIDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: u32, ppresources: *const *mut core::ffi::c_void, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OfferResources1<Identity: IDXGIDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: super::UINT, ppresources: *const *mut core::ffi::c_void, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice4_Impl::OfferResources1(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&priority), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn ReclaimResources1<Identity: IDXGIDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: u32, ppresources: *const *mut core::ffi::c_void, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReclaimResources1<Identity: IDXGIDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numresources: super::UINT, ppresources: *const *mut core::ffi::c_void, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDevice4_Impl::ReclaimResources1(this, core::mem::transmute_copy(&numresources), core::mem::transmute_copy(&ppresources), core::mem::transmute_copy(&presults)).into()
@@ -1827,7 +1912,7 @@ impl IDXGIDevice4_Vtbl {
         iid == &<IDXGIDevice4 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDevice as windows_core::Interface>::IID || iid == &<IDXGIDevice1 as windows_core::Interface>::IID || iid == &<IDXGIDevice2 as windows_core::Interface>::IID || iid == &<IDXGIDevice3 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIDevice4 {}
 windows_core::imp::define_interface!(IDXGIDeviceSubObject, IDXGIDeviceSubObject_Vtbl, 0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
 impl core::ops::Deref for IDXGIDeviceSubObject {
@@ -1838,6 +1923,7 @@ impl core::ops::Deref for IDXGIDeviceSubObject {
 }
 windows_core::imp::interface_hierarchy!(IDXGIDeviceSubObject, windows_core::IUnknown, IDXGIObject);
 impl IDXGIDeviceSubObject {
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetDevice<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -1850,14 +1936,19 @@ impl IDXGIDeviceSubObject {
 #[doc(hidden)]
 pub struct IDXGIDeviceSubObject_Vtbl {
     pub base__: IDXGIObject_Vtbl,
-    pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetDevice: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IDXGIDeviceSubObject_Impl: IDXGIObject_Impl {
-    fn GetDevice(&self, riid: *const windows_core::GUID, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetDevice(&self, riid: *const super::IID, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IDXGIDeviceSubObject_Vtbl {
     pub const fn new<Identity: IDXGIDeviceSubObject_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDevice<Identity: IDXGIDeviceSubObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDevice<Identity: IDXGIDeviceSubObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIDeviceSubObject_Impl::GetDevice(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppdevice)).into()
@@ -1869,6 +1960,7 @@ impl IDXGIDeviceSubObject_Vtbl {
         iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IDXGIDeviceSubObject {}
 windows_core::imp::define_interface!(IDXGIDisplayControl, IDXGIDisplayControl_Vtbl, 0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
 windows_core::imp::interface_hierarchy!(IDXGIDisplayControl, windows_core::IUnknown);
@@ -1876,9 +1968,9 @@ impl IDXGIDisplayControl {
     pub unsafe fn IsStereoEnabled(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsStereoEnabled)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetStereoEnabled(&self, enabled: bool) {
+    pub unsafe fn SetStereoEnabled(&self, enabled: windows_core::BOOL) {
         unsafe {
-            (windows_core::Interface::vtable(self).SetStereoEnabled)(windows_core::Interface::as_raw(self), enabled.into());
+            (windows_core::Interface::vtable(self).SetStereoEnabled)(windows_core::Interface::as_raw(self), enabled);
         }
     }
 }
@@ -1927,15 +2019,16 @@ impl core::ops::Deref for IDXGIFactory {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory, windows_core::IUnknown, IDXGIObject);
 impl IDXGIFactory {
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumAdapters(&self, adapter: super::UINT) -> windows_core::Result<IDXGIAdapter> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumAdapters)(windows_core::Interface::as_raw(self), adapter, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn MakeWindowAssociation(&self, windowhandle: super::HWND, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).MakeWindowAssociation)(windows_core::Interface::as_raw(self), windowhandle, flags) }
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn MakeWindowAssociation(&self, windowhandle: super::HWND, flags: super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).MakeWindowAssociation)(windows_core::Interface::as_raw(self), windowhandle as _, flags) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn GetWindowAssociation(&self) -> windows_core::Result<super::HWND> {
@@ -1944,7 +2037,7 @@ impl IDXGIFactory {
             (windows_core::Interface::vtable(self).GetWindowAssociation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn CreateSwapChain<P0>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> windows_core::Result<IDXGISwapChain>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -1966,36 +2059,39 @@ impl IDXGIFactory {
 #[doc(hidden)]
 pub struct IDXGIFactory_Vtbl {
     pub base__: IDXGIObject_Vtbl,
-    pub EnumAdapters: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub MakeWindowAssociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(feature = "shared")]
+    pub EnumAdapters: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumAdapters: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub MakeWindowAssociation: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     MakeWindowAssociation: usize,
     #[cfg(feature = "windef")]
     pub GetWindowAssociation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HWND) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetWindowAssociation: usize,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub CreateSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DXGI_SWAP_CHAIN_DESC, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     CreateSwapChain: usize,
     #[cfg(feature = "minwindef")]
     pub CreateSoftwareAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, super::HMODULE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
     CreateSoftwareAdapter: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IDXGIFactory_Impl: IDXGIObject_Impl {
-    fn EnumAdapters(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter>;
-    fn MakeWindowAssociation(&self, windowhandle: super::HWND, flags: u32) -> windows_core::Result<()>;
+    fn EnumAdapters(&self, adapter: super::UINT) -> windows_core::Result<IDXGIAdapter>;
+    fn MakeWindowAssociation(&self, windowhandle: super::HWND, flags: super::UINT) -> windows_core::Result<()>;
     fn GetWindowAssociation(&self) -> windows_core::Result<super::HWND>;
     fn CreateSwapChain(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> windows_core::Result<IDXGISwapChain>;
     fn CreateSoftwareAdapter(&self, module: super::HMODULE) -> windows_core::Result<IDXGIAdapter>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IDXGIFactory_Vtbl {
     pub const fn new<Identity: IDXGIFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnumAdapters<Identity: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, ppadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAdapters<Identity: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: super::UINT, ppadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory_Impl::EnumAdapters(this, core::mem::transmute_copy(&adapter)) {
@@ -2007,7 +2103,7 @@ impl IDXGIFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MakeWindowAssociation<Identity: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowhandle: super::HWND, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MakeWindowAssociation<Identity: IDXGIFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowhandle: super::HWND, flags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory_Impl::MakeWindowAssociation(this, core::mem::transmute_copy(&windowhandle), core::mem::transmute_copy(&flags)).into()
@@ -2062,7 +2158,7 @@ impl IDXGIFactory_Vtbl {
         iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IDXGIFactory {}
 windows_core::imp::define_interface!(IDXGIFactory1, IDXGIFactory1_Vtbl, 0x770aae78_f26f_4dba_a829_253c83d1b387);
 impl core::ops::Deref for IDXGIFactory1 {
@@ -2073,7 +2169,8 @@ impl core::ops::Deref for IDXGIFactory1 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory1, windows_core::IUnknown, IDXGIObject, IDXGIFactory);
 impl IDXGIFactory1 {
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter1> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn EnumAdapters1(&self, adapter: super::UINT) -> windows_core::Result<IDXGIAdapter1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumAdapters1)(windows_core::Interface::as_raw(self), adapter, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -2087,18 +2184,21 @@ impl IDXGIFactory1 {
 #[doc(hidden)]
 pub struct IDXGIFactory1_Vtbl {
     pub base__: IDXGIFactory_Vtbl,
-    pub EnumAdapters1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub EnumAdapters1: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    EnumAdapters1: usize,
     pub IsCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub trait IDXGIFactory1_Impl: IDXGIFactory_Impl {
-    fn EnumAdapters1(&self, adapter: u32) -> windows_core::Result<IDXGIAdapter1>;
+    fn EnumAdapters1(&self, adapter: super::UINT) -> windows_core::Result<IDXGIAdapter1>;
     fn IsCurrent(&self) -> windows_core::BOOL;
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl IDXGIFactory1_Vtbl {
     pub const fn new<Identity: IDXGIFactory1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnumAdapters1<Identity: IDXGIFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, ppadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAdapters1<Identity: IDXGIFactory1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: super::UINT, ppadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory1_Impl::EnumAdapters1(this, core::mem::transmute_copy(&adapter)) {
@@ -2122,7 +2222,7 @@ impl IDXGIFactory1_Vtbl {
         iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IDXGIFactory1 {}
 windows_core::imp::define_interface!(IDXGIFactory2, IDXGIFactory2_Vtbl, 0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
 impl core::ops::Deref for IDXGIFactory2 {
@@ -2136,7 +2236,7 @@ impl IDXGIFactory2 {
     pub unsafe fn IsWindowedStereoEnabled(&self) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).IsWindowedStereoEnabled)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn CreateSwapChainForHwnd<P0, P4>(&self, pdevice: P0, hwnd: super::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: Option<*const DXGI_SWAP_CHAIN_FULLSCREEN_DESC>, prestricttooutput: P4) -> windows_core::Result<IDXGISwapChain1>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2147,6 +2247,7 @@ impl IDXGIFactory2 {
             (windows_core::Interface::vtable(self).CreateSwapChainForHwnd)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hwnd, pdesc, pfullscreendesc.unwrap_or(core::mem::zeroed()) as _, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn CreateSwapChainForCoreWindow<P0, P1, P3>(&self, pdevice: P0, pwindow: P1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P3) -> windows_core::Result<IDXGISwapChain1>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2158,51 +2259,54 @@ impl IDXGIFactory2 {
             (windows_core::Interface::vtable(self).CreateSwapChainForCoreWindow)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pwindow.param().abi(), pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetSharedResourceAdapterLuid(&self, hresource: super::HANDLE) -> windows_core::Result<super::LUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSharedResourceAdapterLuid)(windows_core::Interface::as_raw(self), hresource, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RegisterStereoStatusWindow(&self, windowhandle: super::HWND, wmsg: u32) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn RegisterStereoStatusWindow(&self, windowhandle: super::HWND, wmsg: super::UINT) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterStereoStatusWindow)(windows_core::Interface::as_raw(self), windowhandle, wmsg, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn RegisterStereoStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn RegisterStereoStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterStereoStatusEvent)(windows_core::Interface::as_raw(self), hevent, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
+    #[cfg(feature = "shared")]
+    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: super::DWORD) {
         unsafe {
             (windows_core::Interface::vtable(self).UnregisterStereoStatus)(windows_core::Interface::as_raw(self), dwcookie);
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RegisterOcclusionStatusWindow(&self, windowhandle: super::HWND, wmsg: u32) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn RegisterOcclusionStatusWindow(&self, windowhandle: super::HWND, wmsg: super::UINT) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterOcclusionStatusWindow)(windows_core::Interface::as_raw(self), windowhandle, wmsg, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn RegisterOcclusionStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn RegisterOcclusionStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterOcclusionStatusEvent)(windows_core::Interface::as_raw(self), hevent, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
+    #[cfg(feature = "shared")]
+    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: super::DWORD) {
         unsafe {
             (windows_core::Interface::vtable(self).UnregisterOcclusionStatus)(windows_core::Interface::as_raw(self), dwcookie);
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn CreateSwapChainForComposition<P0, P2>(&self, pdevice: P0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P2) -> windows_core::Result<IDXGISwapChain1>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2219,50 +2323,62 @@ impl IDXGIFactory2 {
 pub struct IDXGIFactory2_Vtbl {
     pub base__: IDXGIFactory1_Vtbl,
     pub IsWindowedStereoEnabled: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub CreateSwapChainForHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::HWND, *const DXGI_SWAP_CHAIN_DESC1, *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     CreateSwapChainForHwnd: usize,
+    #[cfg(feature = "shared")]
     pub CreateSwapChainForCoreWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const DXGI_SWAP_CHAIN_DESC1, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
+    #[cfg(not(feature = "shared"))]
+    CreateSwapChainForCoreWindow: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetSharedResourceAdapterLuid: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut super::LUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetSharedResourceAdapterLuid: usize,
-    #[cfg(feature = "windef")]
-    pub RegisterStereoStatusWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub RegisterStereoStatusWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, super::UINT, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     RegisterStereoStatusWindow: usize,
-    #[cfg(feature = "winnt")]
-    pub RegisterStereoStatusEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub RegisterStereoStatusEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     RegisterStereoStatusEvent: usize,
-    pub UnregisterStereoStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
-    #[cfg(feature = "windef")]
-    pub RegisterOcclusionStatusWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(feature = "shared")]
+    pub UnregisterStereoStatus: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD),
+    #[cfg(not(feature = "shared"))]
+    UnregisterStereoStatus: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub RegisterOcclusionStatusWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, super::UINT, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     RegisterOcclusionStatusWindow: usize,
-    #[cfg(feature = "winnt")]
-    pub RegisterOcclusionStatusEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub RegisterOcclusionStatusEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     RegisterOcclusionStatusEvent: usize,
-    pub UnregisterOcclusionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
+    #[cfg(feature = "shared")]
+    pub UnregisterOcclusionStatus: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD),
+    #[cfg(not(feature = "shared"))]
+    UnregisterOcclusionStatus: usize,
+    #[cfg(feature = "shared")]
     pub CreateSwapChainForComposition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const DXGI_SWAP_CHAIN_DESC1, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CreateSwapChainForComposition: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIFactory2_Impl: IDXGIFactory1_Impl {
     fn IsWindowedStereoEnabled(&self) -> windows_core::BOOL;
     fn CreateSwapChainForHwnd(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hwnd: super::HWND, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
     fn CreateSwapChainForCoreWindow(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pwindow: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
     fn GetSharedResourceAdapterLuid(&self, hresource: super::HANDLE) -> windows_core::Result<super::LUID>;
-    fn RegisterStereoStatusWindow(&self, windowhandle: super::HWND, wmsg: u32) -> windows_core::Result<u32>;
-    fn RegisterStereoStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32>;
-    fn UnregisterStereoStatus(&self, dwcookie: u32);
-    fn RegisterOcclusionStatusWindow(&self, windowhandle: super::HWND, wmsg: u32) -> windows_core::Result<u32>;
-    fn RegisterOcclusionStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32>;
-    fn UnregisterOcclusionStatus(&self, dwcookie: u32);
+    fn RegisterStereoStatusWindow(&self, windowhandle: super::HWND, wmsg: super::UINT) -> windows_core::Result<super::DWORD>;
+    fn RegisterStereoStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD>;
+    fn UnregisterStereoStatus(&self, dwcookie: super::DWORD);
+    fn RegisterOcclusionStatusWindow(&self, windowhandle: super::HWND, wmsg: super::UINT) -> windows_core::Result<super::DWORD>;
+    fn RegisterOcclusionStatusEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD>;
+    fn UnregisterOcclusionStatus(&self, dwcookie: super::DWORD);
     fn CreateSwapChainForComposition(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIFactory2_Vtbl {
     pub const fn new<Identity: IDXGIFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsWindowedStereoEnabled<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -2307,7 +2423,7 @@ impl IDXGIFactory2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RegisterStereoStatusWindow<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowhandle: super::HWND, wmsg: u32, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterStereoStatusWindow<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowhandle: super::HWND, wmsg: super::UINT, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterStereoStatusWindow(this, core::mem::transmute_copy(&windowhandle), core::mem::transmute_copy(&wmsg)) {
@@ -2319,7 +2435,7 @@ impl IDXGIFactory2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RegisterStereoStatusEvent<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterStereoStatusEvent<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterStereoStatusEvent(this, core::mem::transmute_copy(&hevent)) {
@@ -2331,13 +2447,13 @@ impl IDXGIFactory2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterStereoStatus<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
+        unsafe extern "system" fn UnregisterStereoStatus<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: super::DWORD) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory2_Impl::UnregisterStereoStatus(this, core::mem::transmute_copy(&dwcookie));
             }
         }
-        unsafe extern "system" fn RegisterOcclusionStatusWindow<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowhandle: super::HWND, wmsg: u32, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterOcclusionStatusWindow<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowhandle: super::HWND, wmsg: super::UINT, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterOcclusionStatusWindow(this, core::mem::transmute_copy(&windowhandle), core::mem::transmute_copy(&wmsg)) {
@@ -2349,7 +2465,7 @@ impl IDXGIFactory2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RegisterOcclusionStatusEvent<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterOcclusionStatusEvent<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory2_Impl::RegisterOcclusionStatusEvent(this, core::mem::transmute_copy(&hevent)) {
@@ -2361,7 +2477,7 @@ impl IDXGIFactory2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterOcclusionStatus<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) {
+        unsafe extern "system" fn UnregisterOcclusionStatus<Identity: IDXGIFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: super::DWORD) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory2_Impl::UnregisterOcclusionStatus(this, core::mem::transmute_copy(&dwcookie));
@@ -2398,7 +2514,7 @@ impl IDXGIFactory2_Vtbl {
         iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIFactory2 {}
 windows_core::imp::define_interface!(IDXGIFactory3, IDXGIFactory3_Vtbl, 0x25483823_cd46_4c7d_86ca_47aa95b837bd);
 impl core::ops::Deref for IDXGIFactory3 {
@@ -2409,7 +2525,8 @@ impl core::ops::Deref for IDXGIFactory3 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory3, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2);
 impl IDXGIFactory3 {
-    pub unsafe fn GetCreationFlags(&self) -> u32 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCreationFlags(&self) -> super::UINT {
         unsafe { (windows_core::Interface::vtable(self).GetCreationFlags)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -2417,16 +2534,19 @@ impl IDXGIFactory3 {
 #[doc(hidden)]
 pub struct IDXGIFactory3_Vtbl {
     pub base__: IDXGIFactory2_Vtbl,
-    pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "shared")]
+    pub GetCreationFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::UINT,
+    #[cfg(not(feature = "shared"))]
+    GetCreationFlags: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIFactory3_Impl: IDXGIFactory2_Impl {
-    fn GetCreationFlags(&self) -> u32;
+    fn GetCreationFlags(&self) -> super::UINT;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIFactory3_Vtbl {
     pub const fn new<Identity: IDXGIFactory3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCreationFlags<Identity: IDXGIFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetCreationFlags<Identity: IDXGIFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory3_Impl::GetCreationFlags(this)
@@ -2438,7 +2558,7 @@ impl IDXGIFactory3_Vtbl {
         iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIFactory3 {}
 windows_core::imp::define_interface!(IDXGIFactory4, IDXGIFactory4_Vtbl, 0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
 impl core::ops::Deref for IDXGIFactory4 {
@@ -2449,7 +2569,7 @@ impl core::ops::Deref for IDXGIFactory4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory4, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3);
 impl IDXGIFactory4 {
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
     pub unsafe fn EnumAdapterByLuid<T>(&self, adapterluid: super::LUID) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -2457,6 +2577,7 @@ impl IDXGIFactory4 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).EnumAdapterByLuid)(windows_core::Interface::as_raw(self), adapterluid, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn EnumWarpAdapter<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -2469,27 +2590,30 @@ impl IDXGIFactory4 {
 #[doc(hidden)]
 pub struct IDXGIFactory4_Vtbl {
     pub base__: IDXGIFactory3_Vtbl,
-    #[cfg(feature = "winnt")]
-    pub EnumAdapterByLuid: unsafe extern "system" fn(*mut core::ffi::c_void, super::LUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+    pub EnumAdapterByLuid: unsafe extern "system" fn(*mut core::ffi::c_void, super::LUID, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared", feature = "winnt")))]
     EnumAdapterByLuid: usize,
-    pub EnumWarpAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub EnumWarpAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    EnumWarpAdapter: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIFactory4_Impl: IDXGIFactory3_Impl {
-    fn EnumAdapterByLuid(&self, adapterluid: &super::LUID, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn EnumWarpAdapter(&self, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn EnumAdapterByLuid(&self, adapterluid: &super::LUID, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn EnumWarpAdapter(&self, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIFactory4_Vtbl {
     pub const fn new<Identity: IDXGIFactory4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnumAdapterByLuid<Identity: IDXGIFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapterluid: super::LUID, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAdapterByLuid<Identity: IDXGIFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapterluid: super::LUID, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory4_Impl::EnumAdapterByLuid(this, core::mem::transmute(&adapterluid), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvadapter)).into()
             }
         }
-        unsafe extern "system" fn EnumWarpAdapter<Identity: IDXGIFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumWarpAdapter<Identity: IDXGIFactory4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory4_Impl::EnumWarpAdapter(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvadapter)).into()
@@ -2505,7 +2629,7 @@ impl IDXGIFactory4_Vtbl {
         iid == &<IDXGIFactory4 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIFactory3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIFactory4 {}
 windows_core::imp::define_interface!(IDXGIFactory5, IDXGIFactory5_Vtbl, 0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
 impl core::ops::Deref for IDXGIFactory5 {
@@ -2516,7 +2640,8 @@ impl core::ops::Deref for IDXGIFactory5 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory5, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4);
 impl IDXGIFactory5 {
-    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, pfeaturesupportdata as _, featuresupportdatasize) }
     }
 }
@@ -2524,16 +2649,19 @@ impl IDXGIFactory5 {
 #[doc(hidden)]
 pub struct IDXGIFactory5_Vtbl {
     pub base__: IDXGIFactory4_Vtbl,
-    pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FEATURE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FEATURE, *mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CheckFeatureSupport: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIFactory5_Impl: IDXGIFactory4_Impl {
-    fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()>;
+    fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: super::UINT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIFactory5_Vtbl {
     pub const fn new<Identity: IDXGIFactory5_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CheckFeatureSupport<Identity: IDXGIFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: DXGI_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckFeatureSupport<Identity: IDXGIFactory5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: DXGI_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory5_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&feature), core::mem::transmute_copy(&pfeaturesupportdata), core::mem::transmute_copy(&featuresupportdatasize)).into()
@@ -2545,7 +2673,7 @@ impl IDXGIFactory5_Vtbl {
         iid == &<IDXGIFactory5 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIFactory4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIFactory5 {}
 windows_core::imp::define_interface!(IDXGIFactory6, IDXGIFactory6_Vtbl, 0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
 impl core::ops::Deref for IDXGIFactory6 {
@@ -2556,7 +2684,8 @@ impl core::ops::Deref for IDXGIFactory6 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory6, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5);
 impl IDXGIFactory6 {
-    pub unsafe fn EnumAdapterByGpuPreference<T>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn EnumAdapterByGpuPreference<T>(&self, adapter: super::UINT, gpupreference: DXGI_GPU_PREFERENCE) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -2568,16 +2697,19 @@ impl IDXGIFactory6 {
 #[doc(hidden)]
 pub struct IDXGIFactory6_Vtbl {
     pub base__: IDXGIFactory5_Vtbl,
-    pub EnumAdapterByGpuPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32, DXGI_GPU_PREFERENCE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub EnumAdapterByGpuPreference: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, DXGI_GPU_PREFERENCE, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    EnumAdapterByGpuPreference: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIFactory6_Impl: IDXGIFactory5_Impl {
-    fn EnumAdapterByGpuPreference(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn EnumAdapterByGpuPreference(&self, adapter: super::UINT, gpupreference: DXGI_GPU_PREFERENCE, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIFactory6_Vtbl {
     pub const fn new<Identity: IDXGIFactory6_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnumAdapterByGpuPreference<Identity: IDXGIFactory6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE, riid: *const windows_core::GUID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAdapterByGpuPreference<Identity: IDXGIFactory6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: super::UINT, gpupreference: DXGI_GPU_PREFERENCE, riid: *const super::IID, ppvadapter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory6_Impl::EnumAdapterByGpuPreference(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&gpupreference), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvadapter)).into()
@@ -2589,7 +2721,7 @@ impl IDXGIFactory6_Vtbl {
         iid == &<IDXGIFactory6 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIFactory4 as windows_core::Interface>::IID || iid == &<IDXGIFactory5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIFactory6 {}
 windows_core::imp::define_interface!(IDXGIFactory7, IDXGIFactory7_Vtbl, 0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
 impl core::ops::Deref for IDXGIFactory7 {
@@ -2600,14 +2732,15 @@ impl core::ops::Deref for IDXGIFactory7 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIFactory7, windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5, IDXGIFactory6);
 impl IDXGIFactory7 {
-    #[cfg(feature = "winnt")]
-    pub unsafe fn RegisterAdaptersChangedEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub unsafe fn RegisterAdaptersChangedEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterAdaptersChangedEvent)(windows_core::Interface::as_raw(self), hevent, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterAdaptersChangedEvent(&self, dwcookie: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn UnregisterAdaptersChangedEvent(&self, dwcookie: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnregisterAdaptersChangedEvent)(windows_core::Interface::as_raw(self), dwcookie) }
     }
 }
@@ -2615,21 +2748,24 @@ impl IDXGIFactory7 {
 #[doc(hidden)]
 pub struct IDXGIFactory7_Vtbl {
     pub base__: IDXGIFactory6_Vtbl,
-    #[cfg(feature = "winnt")]
-    pub RegisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
+    pub RegisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::HANDLE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     RegisterAdaptersChangedEvent: usize,
-    pub UnregisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub UnregisterAdaptersChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    UnregisterAdaptersChangedEvent: usize,
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIFactory7_Impl: IDXGIFactory6_Impl {
-    fn RegisterAdaptersChangedEvent(&self, hevent: super::HANDLE) -> windows_core::Result<u32>;
-    fn UnregisterAdaptersChangedEvent(&self, dwcookie: u32) -> windows_core::Result<()>;
+    fn RegisterAdaptersChangedEvent(&self, hevent: super::HANDLE) -> windows_core::Result<super::DWORD>;
+    fn UnregisterAdaptersChangedEvent(&self, dwcookie: super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIFactory7_Vtbl {
     pub const fn new<Identity: IDXGIFactory7_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RegisterAdaptersChangedEvent<Identity: IDXGIFactory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RegisterAdaptersChangedEvent<Identity: IDXGIFactory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: super::HANDLE, pdwcookie: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIFactory7_Impl::RegisterAdaptersChangedEvent(this, core::mem::transmute_copy(&hevent)) {
@@ -2641,7 +2777,7 @@ impl IDXGIFactory7_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnregisterAdaptersChangedEvent<Identity: IDXGIFactory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnregisterAdaptersChangedEvent<Identity: IDXGIFactory7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcookie: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIFactory7_Impl::UnregisterAdaptersChangedEvent(this, core::mem::transmute_copy(&dwcookie)).into()
@@ -2657,12 +2793,12 @@ impl IDXGIFactory7_Vtbl {
         iid == &<IDXGIFactory7 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIFactory as windows_core::Interface>::IID || iid == &<IDXGIFactory1 as windows_core::Interface>::IID || iid == &<IDXGIFactory2 as windows_core::Interface>::IID || iid == &<IDXGIFactory3 as windows_core::Interface>::IID || iid == &<IDXGIFactory4 as windows_core::Interface>::IID || iid == &<IDXGIFactory5 as windows_core::Interface>::IID || iid == &<IDXGIFactory6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIFactory7 {}
 windows_core::imp::define_interface!(IDXGIFactoryMedia, IDXGIFactoryMedia_Vtbl, 0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
 windows_core::imp::interface_hierarchy!(IDXGIFactoryMedia, windows_core::IUnknown);
 impl IDXGIFactoryMedia {
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn CreateSwapChainForCompositionSurfaceHandle<P0, P3>(&self, pdevice: P0, hsurface: Option<super::HANDLE>, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: P3) -> windows_core::Result<IDXGISwapChain1>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2673,7 +2809,7 @@ impl IDXGIFactoryMedia {
             (windows_core::Interface::vtable(self).CreateSwapChainForCompositionSurfaceHandle)(windows_core::Interface::as_raw(self), pdevice.param().abi(), hsurface.unwrap_or(core::mem::zeroed()) as _, pdesc, prestricttooutput.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn CreateDecodeSwapChainForCompositionSurfaceHandle<P0, P3, P4>(&self, pdevice: P0, hsurface: Option<super::HANDLE>, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: P3, prestricttooutput: P4) -> windows_core::Result<IDXGIDecodeSwapChain>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
@@ -2690,21 +2826,21 @@ impl IDXGIFactoryMedia {
 #[doc(hidden)]
 pub struct IDXGIFactoryMedia_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub CreateSwapChainForCompositionSurfaceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::HANDLE, *const DXGI_SWAP_CHAIN_DESC1, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     CreateSwapChainForCompositionSurfaceHandle: usize,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub CreateDecodeSwapChainForCompositionSurfaceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::HANDLE, *const DXGI_DECODE_SWAP_CHAIN_DESC, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     CreateDecodeSwapChainForCompositionSurfaceHandle: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDXGIFactoryMedia_Impl: windows_core::IUnknownImpl {
     fn CreateSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hsurface: super::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGISwapChain1>;
     fn CreateDecodeSwapChainForCompositionSurfaceHandle(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, hsurface: super::HANDLE, pdesc: *const DXGI_DECODE_SWAP_CHAIN_DESC, pyuvdecodebuffers: windows_core::Ref<IDXGIResource>, prestricttooutput: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<IDXGIDecodeSwapChain>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl IDXGIFactoryMedia_Vtbl {
     pub const fn new<Identity: IDXGIFactoryMedia_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSwapChainForCompositionSurfaceHandle<Identity: IDXGIFactoryMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, hsurface: super::HANDLE, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: *mut core::ffi::c_void, ppswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2741,12 +2877,13 @@ impl IDXGIFactoryMedia_Vtbl {
         iid == &<IDXGIFactoryMedia as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIFactoryMedia {}
 windows_core::imp::define_interface!(IDXGIInfoQueue, IDXGIInfoQueue_Vtbl, 0xd67441c7_672a_476f_9e82_cd55b44949ce);
 windows_core::imp::interface_hierarchy!(IDXGIInfoQueue, windows_core::IUnknown);
 impl IDXGIInfoQueue {
-    pub unsafe fn SetMessageCountLimit(&self, producer: DXGI_DEBUG_ID, messagecountlimit: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMessageCountLimit(&self, producer: DXGI_DEBUG_ID, messagecountlimit: super::UINT64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMessageCountLimit)(windows_core::Interface::as_raw(self), producer, messagecountlimit) }
     }
     pub unsafe fn ClearStoredMessages(&self, producer: DXGI_DEBUG_ID) {
@@ -2754,31 +2891,40 @@ impl IDXGIInfoQueue {
             (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self), producer);
         }
     }
-    pub unsafe fn GetMessage(&self, producer: DXGI_DEBUG_ID, messageindex: u64, pmessage: Option<*mut DXGI_INFO_QUEUE_MESSAGE>, pmessagebytelength: *mut usize) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), producer, messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMessageA(&self, producer: DXGI_DEBUG_ID, messageindex: super::UINT64, pmessage: Option<*mut DXGI_INFO_QUEUE_MESSAGE>, pmessagebytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMessageA)(windows_core::Interface::as_raw(self), producer, messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _) }
     }
-    pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, producer: DXGI_DEBUG_ID) -> u64 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, producer: DXGI_DEBUG_ID) -> super::UINT64 {
         unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessagesAllowedByRetrievalFilters)(windows_core::Interface::as_raw(self), producer) }
     }
-    pub unsafe fn GetNumStoredMessages(&self, producer: DXGI_DEBUG_ID) -> u64 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNumStoredMessages(&self, producer: DXGI_DEBUG_ID) -> super::UINT64 {
         unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessages)(windows_core::Interface::as_raw(self), producer) }
     }
-    pub unsafe fn GetNumMessagesDiscardedByMessageCountLimit(&self, producer: DXGI_DEBUG_ID) -> u64 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNumMessagesDiscardedByMessageCountLimit(&self, producer: DXGI_DEBUG_ID) -> super::UINT64 {
         unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDiscardedByMessageCountLimit)(windows_core::Interface::as_raw(self), producer) }
     }
-    pub unsafe fn GetMessageCountLimit(&self, producer: DXGI_DEBUG_ID) -> u64 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMessageCountLimit(&self, producer: DXGI_DEBUG_ID) -> super::UINT64 {
         unsafe { (windows_core::Interface::vtable(self).GetMessageCountLimit)(windows_core::Interface::as_raw(self), producer) }
     }
-    pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self, producer: DXGI_DEBUG_ID) -> u64 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self, producer: DXGI_DEBUG_ID) -> super::UINT64 {
         unsafe { (windows_core::Interface::vtable(self).GetNumMessagesAllowedByStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
-    pub unsafe fn GetNumMessagesDeniedByStorageFilter(&self, producer: DXGI_DEBUG_ID) -> u64 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetNumMessagesDeniedByStorageFilter(&self, producer: DXGI_DEBUG_ID) -> super::UINT64 {
         unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDeniedByStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn AddStorageFilterEntries(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddStorageFilterEntries)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
-    pub unsafe fn GetStorageFilter(&self, producer: DXGI_DEBUG_ID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetStorageFilter(&self, producer: DXGI_DEBUG_ID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), producer, pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
     }
     pub unsafe fn ClearStorageFilter(&self, producer: DXGI_DEBUG_ID) {
@@ -2795,6 +2941,7 @@ impl IDXGIInfoQueue {
     pub unsafe fn PushCopyOfStorageFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PushCopyOfStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn PushStorageFilter(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PushStorageFilter)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
@@ -2803,13 +2950,16 @@ impl IDXGIInfoQueue {
             (windows_core::Interface::vtable(self).PopStorageFilter)(windows_core::Interface::as_raw(self), producer);
         }
     }
-    pub unsafe fn GetStorageFilterStackSize(&self, producer: DXGI_DEBUG_ID) -> u32 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetStorageFilterStackSize(&self, producer: DXGI_DEBUG_ID) -> super::UINT {
         unsafe { (windows_core::Interface::vtable(self).GetStorageFilterStackSize)(windows_core::Interface::as_raw(self), producer) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn AddRetrievalFilterEntries(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddRetrievalFilterEntries)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
-    pub unsafe fn GetRetrievalFilter(&self, producer: DXGI_DEBUG_ID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRetrievalFilter(&self, producer: DXGI_DEBUG_ID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), producer, pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
     }
     pub unsafe fn ClearRetrievalFilter(&self, producer: DXGI_DEBUG_ID) {
@@ -2826,6 +2976,7 @@ impl IDXGIInfoQueue {
     pub unsafe fn PushCopyOfRetrievalFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PushCopyOfRetrievalFilter)(windows_core::Interface::as_raw(self), producer) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn PushRetrievalFilter(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PushRetrievalFilter)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
@@ -2834,7 +2985,8 @@ impl IDXGIInfoQueue {
             (windows_core::Interface::vtable(self).PopRetrievalFilter)(windows_core::Interface::as_raw(self), producer);
         }
     }
-    pub unsafe fn GetRetrievalFilterStackSize(&self, producer: DXGI_DEBUG_ID) -> u32 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRetrievalFilterStackSize(&self, producer: DXGI_DEBUG_ID) -> super::UINT {
         unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilterStackSize)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn AddMessage<P4>(&self, producer: DXGI_DEBUG_ID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: DXGI_INFO_QUEUE_MESSAGE_ID, pdescription: P4) -> windows_core::HRESULT
@@ -2880,33 +3032,81 @@ impl IDXGIInfoQueue {
 #[doc(hidden)]
 pub struct IDXGIInfoQueue_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMessageCountLimit: usize,
     pub ClearStoredMessages: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID),
-    pub GetMessage: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, u64, *mut DXGI_INFO_QUEUE_MESSAGE, *mut usize) -> windows_core::HRESULT,
-    pub GetNumStoredMessagesAllowedByRetrievalFilters: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u64,
-    pub GetNumStoredMessages: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u64,
-    pub GetNumMessagesDiscardedByMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u64,
-    pub GetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u64,
-    pub GetNumMessagesAllowedByStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u64,
-    pub GetNumMessagesDeniedByStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u64,
+    #[cfg(feature = "shared")]
+    pub GetMessageA: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, super::UINT64, *mut DXGI_INFO_QUEUE_MESSAGE, *mut super::SIZE_T) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMessageA: usize,
+    #[cfg(feature = "shared")]
+    pub GetNumStoredMessagesAllowedByRetrievalFilters: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT64,
+    #[cfg(not(feature = "shared"))]
+    GetNumStoredMessagesAllowedByRetrievalFilters: usize,
+    #[cfg(feature = "shared")]
+    pub GetNumStoredMessages: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT64,
+    #[cfg(not(feature = "shared"))]
+    GetNumStoredMessages: usize,
+    #[cfg(feature = "shared")]
+    pub GetNumMessagesDiscardedByMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT64,
+    #[cfg(not(feature = "shared"))]
+    GetNumMessagesDiscardedByMessageCountLimit: usize,
+    #[cfg(feature = "shared")]
+    pub GetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT64,
+    #[cfg(not(feature = "shared"))]
+    GetMessageCountLimit: usize,
+    #[cfg(feature = "shared")]
+    pub GetNumMessagesAllowedByStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT64,
+    #[cfg(not(feature = "shared"))]
+    GetNumMessagesAllowedByStorageFilter: usize,
+    #[cfg(feature = "shared")]
+    pub GetNumMessagesDeniedByStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT64,
+    #[cfg(not(feature = "shared"))]
+    GetNumMessagesDeniedByStorageFilter: usize,
+    #[cfg(feature = "shared")]
     pub AddStorageFilterEntries: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
-    pub GetStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *mut DXGI_INFO_QUEUE_FILTER, *mut usize) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddStorageFilterEntries: usize,
+    #[cfg(feature = "shared")]
+    pub GetStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *mut DXGI_INFO_QUEUE_FILTER, *mut super::SIZE_T) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetStorageFilter: usize,
     pub ClearStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID),
     pub PushEmptyStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> windows_core::HRESULT,
     pub PushDenyAllStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> windows_core::HRESULT,
     pub PushCopyOfStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub PushStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    PushStorageFilter: usize,
     pub PopStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID),
-    pub GetStorageFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u32,
+    #[cfg(feature = "shared")]
+    pub GetStorageFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT,
+    #[cfg(not(feature = "shared"))]
+    GetStorageFilterStackSize: usize,
+    #[cfg(feature = "shared")]
     pub AddRetrievalFilterEntries: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
-    pub GetRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *mut DXGI_INFO_QUEUE_FILTER, *mut usize) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddRetrievalFilterEntries: usize,
+    #[cfg(feature = "shared")]
+    pub GetRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *mut DXGI_INFO_QUEUE_FILTER, *mut super::SIZE_T) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRetrievalFilter: usize,
     pub ClearRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID),
     pub PushEmptyRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> windows_core::HRESULT,
     pub PushDenyAllRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> windows_core::HRESULT,
     pub PushCopyOfRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
     pub PushRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    PushRetrievalFilter: usize,
     pub PopRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID),
-    pub GetRetrievalFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> u32,
+    #[cfg(feature = "shared")]
+    pub GetRetrievalFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> super::UINT,
+    #[cfg(not(feature = "shared"))]
+    GetRetrievalFilterStackSize: usize,
     pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, DXGI_INFO_QUEUE_MESSAGE_CATEGORY, DXGI_INFO_QUEUE_MESSAGE_SEVERITY, DXGI_INFO_QUEUE_MESSAGE_ID, windows_core::PCSTR) -> windows_core::HRESULT,
     pub AddApplicationMessage: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_INFO_QUEUE_MESSAGE_SEVERITY, windows_core::PCSTR) -> windows_core::HRESULT,
     pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, DXGI_INFO_QUEUE_MESSAGE_CATEGORY, windows_core::BOOL) -> windows_core::HRESULT,
@@ -2918,34 +3118,35 @@ pub struct IDXGIInfoQueue_Vtbl {
     pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID, windows_core::BOOL),
     pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_DEBUG_ID) -> windows_core::BOOL,
 }
+#[cfg(feature = "shared")]
 pub trait IDXGIInfoQueue_Impl: windows_core::IUnknownImpl {
-    fn SetMessageCountLimit(&self, producer: &DXGI_DEBUG_ID, messagecountlimit: u64) -> windows_core::Result<()>;
+    fn SetMessageCountLimit(&self, producer: &DXGI_DEBUG_ID, messagecountlimit: super::UINT64) -> windows_core::Result<()>;
     fn ClearStoredMessages(&self, producer: &DXGI_DEBUG_ID);
-    fn GetMessage(&self, producer: &DXGI_DEBUG_ID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> windows_core::Result<()>;
-    fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, producer: &DXGI_DEBUG_ID) -> u64;
-    fn GetNumStoredMessages(&self, producer: &DXGI_DEBUG_ID) -> u64;
-    fn GetNumMessagesDiscardedByMessageCountLimit(&self, producer: &DXGI_DEBUG_ID) -> u64;
-    fn GetMessageCountLimit(&self, producer: &DXGI_DEBUG_ID) -> u64;
-    fn GetNumMessagesAllowedByStorageFilter(&self, producer: &DXGI_DEBUG_ID) -> u64;
-    fn GetNumMessagesDeniedByStorageFilter(&self, producer: &DXGI_DEBUG_ID) -> u64;
+    fn GetMessageA(&self, producer: &DXGI_DEBUG_ID, messageindex: super::UINT64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut super::SIZE_T) -> windows_core::Result<()>;
+    fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, producer: &DXGI_DEBUG_ID) -> super::UINT64;
+    fn GetNumStoredMessages(&self, producer: &DXGI_DEBUG_ID) -> super::UINT64;
+    fn GetNumMessagesDiscardedByMessageCountLimit(&self, producer: &DXGI_DEBUG_ID) -> super::UINT64;
+    fn GetMessageCountLimit(&self, producer: &DXGI_DEBUG_ID) -> super::UINT64;
+    fn GetNumMessagesAllowedByStorageFilter(&self, producer: &DXGI_DEBUG_ID) -> super::UINT64;
+    fn GetNumMessagesDeniedByStorageFilter(&self, producer: &DXGI_DEBUG_ID) -> super::UINT64;
     fn AddStorageFilterEntries(&self, producer: &DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
-    fn GetStorageFilter(&self, producer: &DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()>;
+    fn GetStorageFilter(&self, producer: &DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::Result<()>;
     fn ClearStorageFilter(&self, producer: &DXGI_DEBUG_ID);
     fn PushEmptyStorageFilter(&self, producer: &DXGI_DEBUG_ID) -> windows_core::Result<()>;
     fn PushDenyAllStorageFilter(&self, producer: &DXGI_DEBUG_ID) -> windows_core::Result<()>;
     fn PushCopyOfStorageFilter(&self, producer: &DXGI_DEBUG_ID) -> windows_core::Result<()>;
     fn PushStorageFilter(&self, producer: &DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
     fn PopStorageFilter(&self, producer: &DXGI_DEBUG_ID);
-    fn GetStorageFilterStackSize(&self, producer: &DXGI_DEBUG_ID) -> u32;
+    fn GetStorageFilterStackSize(&self, producer: &DXGI_DEBUG_ID) -> super::UINT;
     fn AddRetrievalFilterEntries(&self, producer: &DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
-    fn GetRetrievalFilter(&self, producer: &DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()>;
+    fn GetRetrievalFilter(&self, producer: &DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::Result<()>;
     fn ClearRetrievalFilter(&self, producer: &DXGI_DEBUG_ID);
     fn PushEmptyRetrievalFilter(&self, producer: &DXGI_DEBUG_ID) -> windows_core::Result<()>;
     fn PushDenyAllRetrievalFilter(&self, producer: &DXGI_DEBUG_ID) -> windows_core::Result<()>;
     fn PushCopyOfRetrievalFilter(&self, producer: &DXGI_DEBUG_ID) -> windows_core::Result<()>;
     fn PushRetrievalFilter(&self, producer: &DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
     fn PopRetrievalFilter(&self, producer: &DXGI_DEBUG_ID);
-    fn GetRetrievalFilterStackSize(&self, producer: &DXGI_DEBUG_ID) -> u32;
+    fn GetRetrievalFilterStackSize(&self, producer: &DXGI_DEBUG_ID) -> super::UINT;
     fn AddMessage(&self, producer: &DXGI_DEBUG_ID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: DXGI_INFO_QUEUE_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddApplicationMessage(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn SetBreakOnCategory(&self, producer: &DXGI_DEBUG_ID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::Result<()>;
@@ -2957,9 +3158,10 @@ pub trait IDXGIInfoQueue_Impl: windows_core::IUnknownImpl {
     fn SetMuteDebugOutput(&self, producer: &DXGI_DEBUG_ID, bmute: windows_core::BOOL);
     fn GetMuteDebugOutput(&self, producer: &DXGI_DEBUG_ID) -> windows_core::BOOL;
 }
+#[cfg(feature = "shared")]
 impl IDXGIInfoQueue_Vtbl {
     pub const fn new<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMessageCountLimit<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, messagecountlimit: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMessageCountLimit<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, messagecountlimit: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::SetMessageCountLimit(this, core::mem::transmute(&producer), core::mem::transmute_copy(&messagecountlimit)).into()
@@ -2971,43 +3173,43 @@ impl IDXGIInfoQueue_Vtbl {
                 IDXGIInfoQueue_Impl::ClearStoredMessages(this, core::mem::transmute(&producer));
             }
         }
-        unsafe extern "system" fn GetMessage<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, messageindex: u64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMessageA<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, messageindex: super::UINT64, pmessage: *mut DXGI_INFO_QUEUE_MESSAGE, pmessagebytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDXGIInfoQueue_Impl::GetMessage(this, core::mem::transmute(&producer), core::mem::transmute_copy(&messageindex), core::mem::transmute_copy(&pmessage), core::mem::transmute_copy(&pmessagebytelength)).into()
+                IDXGIInfoQueue_Impl::GetMessageA(this, core::mem::transmute(&producer), core::mem::transmute_copy(&messageindex), core::mem::transmute_copy(&pmessage), core::mem::transmute_copy(&pmessagebytelength)).into()
             }
         }
-        unsafe extern "system" fn GetNumStoredMessagesAllowedByRetrievalFilters<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u64 {
+        unsafe extern "system" fn GetNumStoredMessagesAllowedByRetrievalFilters<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT64 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetNumStoredMessagesAllowedByRetrievalFilters(this, core::mem::transmute(&producer))
             }
         }
-        unsafe extern "system" fn GetNumStoredMessages<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u64 {
+        unsafe extern "system" fn GetNumStoredMessages<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT64 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetNumStoredMessages(this, core::mem::transmute(&producer))
             }
         }
-        unsafe extern "system" fn GetNumMessagesDiscardedByMessageCountLimit<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u64 {
+        unsafe extern "system" fn GetNumMessagesDiscardedByMessageCountLimit<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT64 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetNumMessagesDiscardedByMessageCountLimit(this, core::mem::transmute(&producer))
             }
         }
-        unsafe extern "system" fn GetMessageCountLimit<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u64 {
+        unsafe extern "system" fn GetMessageCountLimit<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT64 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetMessageCountLimit(this, core::mem::transmute(&producer))
             }
         }
-        unsafe extern "system" fn GetNumMessagesAllowedByStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u64 {
+        unsafe extern "system" fn GetNumMessagesAllowedByStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT64 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetNumMessagesAllowedByStorageFilter(this, core::mem::transmute(&producer))
             }
         }
-        unsafe extern "system" fn GetNumMessagesDeniedByStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u64 {
+        unsafe extern "system" fn GetNumMessagesDeniedByStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT64 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetNumMessagesDeniedByStorageFilter(this, core::mem::transmute(&producer))
@@ -3019,7 +3221,7 @@ impl IDXGIInfoQueue_Vtbl {
                 IDXGIInfoQueue_Impl::AddStorageFilterEntries(this, core::mem::transmute(&producer), core::mem::transmute_copy(&pfilter)).into()
             }
         }
-        unsafe extern "system" fn GetStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStorageFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetStorageFilter(this, core::mem::transmute(&producer), core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
@@ -3061,7 +3263,7 @@ impl IDXGIInfoQueue_Vtbl {
                 IDXGIInfoQueue_Impl::PopStorageFilter(this, core::mem::transmute(&producer));
             }
         }
-        unsafe extern "system" fn GetStorageFilterStackSize<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u32 {
+        unsafe extern "system" fn GetStorageFilterStackSize<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetStorageFilterStackSize(this, core::mem::transmute(&producer))
@@ -3073,7 +3275,7 @@ impl IDXGIInfoQueue_Vtbl {
                 IDXGIInfoQueue_Impl::AddRetrievalFilterEntries(this, core::mem::transmute(&producer), core::mem::transmute_copy(&pfilter)).into()
             }
         }
-        unsafe extern "system" fn GetRetrievalFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRetrievalFilter<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID, pfilter: *mut DXGI_INFO_QUEUE_FILTER, pfilterbytelength: *mut super::SIZE_T) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetRetrievalFilter(this, core::mem::transmute(&producer), core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
@@ -3115,7 +3317,7 @@ impl IDXGIInfoQueue_Vtbl {
                 IDXGIInfoQueue_Impl::PopRetrievalFilter(this, core::mem::transmute(&producer));
             }
         }
-        unsafe extern "system" fn GetRetrievalFilterStackSize<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> u32 {
+        unsafe extern "system" fn GetRetrievalFilterStackSize<Identity: IDXGIInfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, producer: DXGI_DEBUG_ID) -> super::UINT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIInfoQueue_Impl::GetRetrievalFilterStackSize(this, core::mem::transmute(&producer))
@@ -3185,7 +3387,7 @@ impl IDXGIInfoQueue_Vtbl {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SetMessageCountLimit: SetMessageCountLimit::<Identity, OFFSET>,
             ClearStoredMessages: ClearStoredMessages::<Identity, OFFSET>,
-            GetMessage: GetMessage::<Identity, OFFSET>,
+            GetMessageA: GetMessageA::<Identity, OFFSET>,
             GetNumStoredMessagesAllowedByRetrievalFilters: GetNumStoredMessagesAllowedByRetrievalFilters::<Identity, OFFSET>,
             GetNumStoredMessages: GetNumStoredMessages::<Identity, OFFSET>,
             GetNumMessagesDiscardedByMessageCountLimit: GetNumMessagesDiscardedByMessageCountLimit::<Identity, OFFSET>,
@@ -3226,6 +3428,7 @@ impl IDXGIInfoQueue_Vtbl {
         iid == &<IDXGIInfoQueue as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IDXGIInfoQueue {}
 windows_core::imp::define_interface!(IDXGIKeyedMutex, IDXGIKeyedMutex_Vtbl, 0x9d8e1289_d7b3_465f_8126_250e349af85d);
 impl core::ops::Deref for IDXGIKeyedMutex {
@@ -3236,10 +3439,12 @@ impl core::ops::Deref for IDXGIKeyedMutex {
 }
 windows_core::imp::interface_hierarchy!(IDXGIKeyedMutex, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl IDXGIKeyedMutex {
-    pub unsafe fn AcquireSync(&self, key: u64, dwmilliseconds: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn AcquireSync(&self, key: super::UINT64, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AcquireSync)(windows_core::Interface::as_raw(self), key, dwmilliseconds) }
     }
-    pub unsafe fn ReleaseSync(&self, key: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ReleaseSync(&self, key: super::UINT64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseSync)(windows_core::Interface::as_raw(self), key) }
     }
 }
@@ -3247,22 +3452,30 @@ impl IDXGIKeyedMutex {
 #[doc(hidden)]
 pub struct IDXGIKeyedMutex_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
-    pub AcquireSync: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32) -> windows_core::HRESULT,
-    pub ReleaseSync: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub AcquireSync: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT64, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AcquireSync: usize,
+    #[cfg(feature = "shared")]
+    pub ReleaseSync: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT64) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ReleaseSync: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IDXGIKeyedMutex_Impl: IDXGIDeviceSubObject_Impl {
-    fn AcquireSync(&self, key: u64, dwmilliseconds: u32) -> windows_core::Result<()>;
-    fn ReleaseSync(&self, key: u64) -> windows_core::Result<()>;
+    fn AcquireSync(&self, key: super::UINT64, dwmilliseconds: super::DWORD) -> windows_core::Result<()>;
+    fn ReleaseSync(&self, key: super::UINT64) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IDXGIKeyedMutex_Vtbl {
     pub const fn new<Identity: IDXGIKeyedMutex_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AcquireSync<Identity: IDXGIKeyedMutex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: u64, dwmilliseconds: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AcquireSync<Identity: IDXGIKeyedMutex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: super::UINT64, dwmilliseconds: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIKeyedMutex_Impl::AcquireSync(this, core::mem::transmute_copy(&key), core::mem::transmute_copy(&dwmilliseconds)).into()
             }
         }
-        unsafe extern "system" fn ReleaseSync<Identity: IDXGIKeyedMutex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseSync<Identity: IDXGIKeyedMutex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, key: super::UINT64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIKeyedMutex_Impl::ReleaseSync(this, core::mem::transmute_copy(&key)).into()
@@ -3278,11 +3491,13 @@ impl IDXGIKeyedMutex_Vtbl {
         iid == &<IDXGIKeyedMutex as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IDXGIKeyedMutex {}
 windows_core::imp::define_interface!(IDXGIObject, IDXGIObject_Vtbl, 0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
 windows_core::imp::interface_hierarchy!(IDXGIObject, windows_core::IUnknown);
 impl IDXGIObject {
-    pub unsafe fn SetPrivateData(&self, name: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetPrivateData(&self, name: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), name, datasize, pdata) }
     }
     pub unsafe fn SetPrivateDataInterface<P1>(&self, name: *const windows_core::GUID, punknown: P1) -> windows_core::HRESULT
@@ -3291,9 +3506,11 @@ impl IDXGIObject {
     {
         unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), name, punknown.param().abi()) }
     }
-    pub unsafe fn GetPrivateData(&self, name: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPrivateData(&self, name: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), name, pdatasize as _, pdata as _) }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetParent<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -3306,20 +3523,31 @@ impl IDXGIObject {
 #[doc(hidden)]
 pub struct IDXGIObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, super::UINT, *const core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetPrivateData: usize,
     pub SetPrivateDataInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut super::UINT, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPrivateData: usize,
+    #[cfg(feature = "guiddef")]
+    pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetParent: usize,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IDXGIObject_Impl: windows_core::IUnknownImpl {
-    fn SetPrivateData(&self, name: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn SetPrivateData(&self, name: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
     fn SetPrivateDataInterface(&self, name: *const windows_core::GUID, punknown: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetPrivateData(&self, name: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetParent(&self, riid: *const windows_core::GUID, ppparent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetPrivateData(&self, name: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetParent(&self, riid: *const super::IID, ppparent: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IDXGIObject_Vtbl {
     pub const fn new<Identity: IDXGIObject_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetPrivateData<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPrivateData<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const windows_core::GUID, datasize: super::UINT, pdata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIObject_Impl::SetPrivateData(this, core::mem::transmute_copy(&name), core::mem::transmute_copy(&datasize), core::mem::transmute_copy(&pdata)).into()
@@ -3331,13 +3559,13 @@ impl IDXGIObject_Vtbl {
                 IDXGIObject_Impl::SetPrivateDataInterface(this, core::mem::transmute_copy(&name), core::mem::transmute_copy(&punknown)).into()
             }
         }
-        unsafe extern "system" fn GetPrivateData<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrivateData<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const windows_core::GUID, pdatasize: *mut super::UINT, pdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIObject_Impl::GetPrivateData(this, core::mem::transmute_copy(&name), core::mem::transmute_copy(&pdatasize), core::mem::transmute_copy(&pdata)).into()
             }
         }
-        unsafe extern "system" fn GetParent<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetParent<Identity: IDXGIObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppparent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIObject_Impl::GetParent(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppparent)).into()
@@ -3355,6 +3583,7 @@ impl IDXGIObject_Vtbl {
         iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IDXGIObject {}
 windows_core::imp::define_interface!(IDXGIOutput, IDXGIOutput_Vtbl, 0xae02eedb_c735_4690_8d52_5a8dc20213aa);
 impl core::ops::Deref for IDXGIOutput {
@@ -3365,13 +3594,15 @@ impl core::ops::Deref for IDXGIOutput {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput, windows_core::IUnknown, IDXGIObject);
 impl IDXGIOutput {
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_OUTPUT_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
-    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: Option<*mut DXGI_MODE_DESC>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: super::UINT, pnummodes: *mut super::UINT, pdesc: Option<*mut DXGI_MODE_DESC>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayModeList)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes as _, pdesc.unwrap_or(core::mem::zeroed()) as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn FindClosestMatchingMode<P2>(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -3381,17 +3612,18 @@ impl IDXGIOutput {
     pub unsafe fn WaitForVBlank(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForVBlank)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn TakeOwnership<P0>(&self, pdevice: P0, exclusive: bool) -> windows_core::HRESULT
+    pub unsafe fn TakeOwnership<P0>(&self, pdevice: P0, exclusive: windows_core::BOOL) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), pdevice.param().abi(), exclusive.into()) }
+        unsafe { (windows_core::Interface::vtable(self).TakeOwnership)(windows_core::Interface::as_raw(self), pdevice.param().abi(), exclusive) }
     }
     pub unsafe fn ReleaseOwnership(&self) {
         unsafe {
             (windows_core::Interface::vtable(self).ReleaseOwnership)(windows_core::Interface::as_raw(self));
         }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetGammaControlCapabilities(&self, pgammacaps: *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGammaControlCapabilities)(windows_core::Interface::as_raw(self), pgammacaps as _) }
     }
@@ -3413,7 +3645,7 @@ impl IDXGIOutput {
     {
         unsafe { (windows_core::Interface::vtable(self).GetDisplaySurfaceData)(windows_core::Interface::as_raw(self), pdestination.param().abi()) }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), pstats as _) }
     }
@@ -3422,29 +3654,38 @@ impl IDXGIOutput {
 #[doc(hidden)]
 pub struct IDXGIOutput_Vtbl {
     pub base__: IDXGIObject_Vtbl,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_OUTPUT_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef", feature = "winnt")))]
     GetDesc: usize,
-    pub GetDisplayModeList: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, u32, *mut u32, *mut DXGI_MODE_DESC) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetDisplayModeList: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, super::UINT, *mut super::UINT, *mut DXGI_MODE_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDisplayModeList: usize,
+    #[cfg(feature = "shared")]
     pub FindClosestMatchingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_MODE_DESC, *mut DXGI_MODE_DESC, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    FindClosestMatchingMode: usize,
     pub WaitForVBlank: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub TakeOwnership: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub ReleaseOwnership: unsafe extern "system" fn(*mut core::ffi::c_void),
+    #[cfg(feature = "shared")]
     pub GetGammaControlCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_GAMMA_CONTROL_CAPABILITIES) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetGammaControlCapabilities: usize,
     pub SetGammaControl: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_GAMMA_CONTROL) -> windows_core::HRESULT,
     pub GetGammaControl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_GAMMA_CONTROL) -> windows_core::HRESULT,
     pub SetDisplaySurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDisplaySurfaceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetFrameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetFrameStatistics: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput_Impl: IDXGIObject_Impl {
     fn GetDesc(&self, pdesc: *mut DXGI_OUTPUT_DESC) -> windows_core::Result<()>;
-    fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> windows_core::Result<()>;
+    fn GetDisplayModeList(&self, enumformat: DXGI_FORMAT, flags: super::UINT, pnummodes: *mut super::UINT, pdesc: *mut DXGI_MODE_DESC) -> windows_core::Result<()>;
     fn FindClosestMatchingMode(&self, pmodetomatch: *const DXGI_MODE_DESC, pclosestmatch: *mut DXGI_MODE_DESC, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn WaitForVBlank(&self) -> windows_core::Result<()>;
     fn TakeOwnership(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, exclusive: windows_core::BOOL) -> windows_core::Result<()>;
@@ -3456,7 +3697,7 @@ pub trait IDXGIOutput_Impl: IDXGIObject_Impl {
     fn GetDisplaySurfaceData(&self, pdestination: windows_core::Ref<IDXGISurface>) -> windows_core::Result<()>;
     fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutput_Vtbl {
     pub const fn new<Identity: IDXGIOutput_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_OUTPUT_DESC) -> windows_core::HRESULT {
@@ -3465,7 +3706,7 @@ impl IDXGIOutput_Vtbl {
                 IDXGIOutput_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
-        unsafe extern "system" fn GetDisplayModeList<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayModeList<Identity: IDXGIOutput_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: DXGI_FORMAT, flags: super::UINT, pnummodes: *mut super::UINT, pdesc: *mut DXGI_MODE_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutput_Impl::GetDisplayModeList(this, core::mem::transmute_copy(&enumformat), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pnummodes), core::mem::transmute_copy(&pdesc)).into()
@@ -3551,7 +3792,7 @@ impl IDXGIOutput_Vtbl {
         iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutput {}
 windows_core::imp::define_interface!(IDXGIOutput1, IDXGIOutput1_Vtbl, 0x00cddea8_939b_4b83_a340_a685226666cc);
 impl core::ops::Deref for IDXGIOutput1 {
@@ -3562,9 +3803,11 @@ impl core::ops::Deref for IDXGIOutput1 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput1, windows_core::IUnknown, IDXGIObject, IDXGIOutput);
 impl IDXGIOutput1 {
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: Option<*mut DXGI_MODE_DESC1>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: super::UINT, pnummodes: *mut super::UINT, pdesc: Option<*mut DXGI_MODE_DESC1>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayModeList1)(windows_core::Interface::as_raw(self), enumformat, flags, pnummodes as _, pdesc.unwrap_or(core::mem::zeroed()) as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn FindClosestMatchingMode1<P2>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -3591,22 +3834,28 @@ impl IDXGIOutput1 {
 #[doc(hidden)]
 pub struct IDXGIOutput1_Vtbl {
     pub base__: IDXGIOutput_Vtbl,
-    pub GetDisplayModeList1: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, u32, *mut u32, *mut DXGI_MODE_DESC1) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetDisplayModeList1: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, super::UINT, *mut super::UINT, *mut DXGI_MODE_DESC1) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDisplayModeList1: usize,
+    #[cfg(feature = "shared")]
     pub FindClosestMatchingMode1: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_MODE_DESC1, *mut DXGI_MODE_DESC1, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    FindClosestMatchingMode1: usize,
     pub GetDisplaySurfaceData1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DuplicateOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput1_Impl: IDXGIOutput_Impl {
-    fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::Result<()>;
+    fn GetDisplayModeList1(&self, enumformat: DXGI_FORMAT, flags: super::UINT, pnummodes: *mut super::UINT, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::Result<()>;
     fn FindClosestMatchingMode1(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetDisplaySurfaceData1(&self, pdestination: windows_core::Ref<IDXGIResource>) -> windows_core::Result<()>;
     fn DuplicateOutput(&self, pdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDXGIOutputDuplication>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutput1_Vtbl {
     pub const fn new<Identity: IDXGIOutput1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDisplayModeList1<Identity: IDXGIOutput1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayModeList1<Identity: IDXGIOutput1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: DXGI_FORMAT, flags: super::UINT, pnummodes: *mut super::UINT, pdesc: *mut DXGI_MODE_DESC1) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutput1_Impl::GetDisplayModeList1(this, core::mem::transmute_copy(&enumformat), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pnummodes), core::mem::transmute_copy(&pdesc)).into()
@@ -3648,7 +3897,7 @@ impl IDXGIOutput1_Vtbl {
         iid == &<IDXGIOutput1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutput1 {}
 windows_core::imp::define_interface!(IDXGIOutput2, IDXGIOutput2_Vtbl, 0x595e39d1_2724_4663_99b1_da969de28364);
 impl core::ops::Deref for IDXGIOutput2 {
@@ -3669,11 +3918,11 @@ pub struct IDXGIOutput2_Vtbl {
     pub base__: IDXGIOutput1_Vtbl,
     pub SupportsOverlays: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput2_Impl: IDXGIOutput1_Impl {
     fn SupportsOverlays(&self) -> windows_core::BOOL;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutput2_Vtbl {
     pub const fn new<Identity: IDXGIOutput2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SupportsOverlays<Identity: IDXGIOutput2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
@@ -3688,7 +3937,7 @@ impl IDXGIOutput2_Vtbl {
         iid == &<IDXGIOutput2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutput2 {}
 windows_core::imp::define_interface!(IDXGIOutput3, IDXGIOutput3_Vtbl, 0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
 impl core::ops::Deref for IDXGIOutput3 {
@@ -3699,7 +3948,8 @@ impl core::ops::Deref for IDXGIOutput3 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput3, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2);
 impl IDXGIOutput3 {
-    pub unsafe fn CheckOverlaySupport<P1>(&self, enumformat: DXGI_FORMAT, pconcerneddevice: P1) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn CheckOverlaySupport<P1>(&self, enumformat: DXGI_FORMAT, pconcerneddevice: P1) -> windows_core::Result<super::UINT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
@@ -3713,16 +3963,19 @@ impl IDXGIOutput3 {
 #[doc(hidden)]
 pub struct IDXGIOutput3_Vtbl {
     pub base__: IDXGIOutput2_Vtbl,
-    pub CheckOverlaySupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CheckOverlaySupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, *mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CheckOverlaySupport: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput3_Impl: IDXGIOutput2_Impl {
-    fn CheckOverlaySupport(&self, enumformat: DXGI_FORMAT, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn CheckOverlaySupport(&self, enumformat: DXGI_FORMAT, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::UINT>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutput3_Vtbl {
     pub const fn new<Identity: IDXGIOutput3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CheckOverlaySupport<Identity: IDXGIOutput3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: DXGI_FORMAT, pconcerneddevice: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckOverlaySupport<Identity: IDXGIOutput3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumformat: DXGI_FORMAT, pconcerneddevice: *mut core::ffi::c_void, pflags: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput3_Impl::CheckOverlaySupport(this, core::mem::transmute_copy(&enumformat), core::mem::transmute_copy(&pconcerneddevice)) {
@@ -3740,7 +3993,7 @@ impl IDXGIOutput3_Vtbl {
         iid == &<IDXGIOutput3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID || iid == &<IDXGIOutput2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutput3 {}
 windows_core::imp::define_interface!(IDXGIOutput4, IDXGIOutput4_Vtbl, 0xdc7dca35_2196_414d_9f53_617884032a60);
 impl core::ops::Deref for IDXGIOutput4 {
@@ -3751,7 +4004,8 @@ impl core::ops::Deref for IDXGIOutput4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput4, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3);
 impl IDXGIOutput4 {
-    pub unsafe fn CheckOverlayColorSpaceSupport<P2>(&self, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P2) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn CheckOverlayColorSpaceSupport<P2>(&self, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: P2) -> windows_core::Result<super::UINT>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
@@ -3765,16 +4019,19 @@ impl IDXGIOutput4 {
 #[doc(hidden)]
 pub struct IDXGIOutput4_Vtbl {
     pub base__: IDXGIOutput3_Vtbl,
-    pub CheckOverlayColorSpaceSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, DXGI_COLOR_SPACE_TYPE, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CheckOverlayColorSpaceSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_FORMAT, DXGI_COLOR_SPACE_TYPE, *mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CheckOverlayColorSpaceSupport: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput4_Impl: IDXGIOutput3_Impl {
-    fn CheckOverlayColorSpaceSupport(&self, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<u32>;
+    fn CheckOverlayColorSpaceSupport(&self, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::UINT>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutput4_Vtbl {
     pub const fn new<Identity: IDXGIOutput4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CheckOverlayColorSpaceSupport<Identity: IDXGIOutput4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckOverlayColorSpaceSupport<Identity: IDXGIOutput4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: DXGI_FORMAT, colorspace: DXGI_COLOR_SPACE_TYPE, pconcerneddevice: *mut core::ffi::c_void, pflags: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput4_Impl::CheckOverlayColorSpaceSupport(this, core::mem::transmute_copy(&format), core::mem::transmute_copy(&colorspace), core::mem::transmute_copy(&pconcerneddevice)) {
@@ -3792,7 +4049,7 @@ impl IDXGIOutput4_Vtbl {
         iid == &<IDXGIOutput4 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID || iid == &<IDXGIOutput2 as windows_core::Interface>::IID || iid == &<IDXGIOutput3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutput4 {}
 windows_core::imp::define_interface!(IDXGIOutput5, IDXGIOutput5_Vtbl, 0x80a07424_ab52_42eb_833c_0c42fd282d98);
 impl core::ops::Deref for IDXGIOutput5 {
@@ -3803,7 +4060,8 @@ impl core::ops::Deref for IDXGIOutput5 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput5, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4);
 impl IDXGIOutput5 {
-    pub unsafe fn DuplicateOutput1<P0>(&self, pdevice: P0, flags: u32, psupportedformats: &[DXGI_FORMAT]) -> windows_core::Result<IDXGIOutputDuplication>
+    #[cfg(feature = "shared")]
+    pub unsafe fn DuplicateOutput1<P0>(&self, pdevice: P0, flags: super::UINT, psupportedformats: &[DXGI_FORMAT]) -> windows_core::Result<IDXGIOutputDuplication>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -3817,16 +4075,19 @@ impl IDXGIOutput5 {
 #[doc(hidden)]
 pub struct IDXGIOutput5_Vtbl {
     pub base__: IDXGIOutput4_Vtbl,
-    pub DuplicateOutput1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *const DXGI_FORMAT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub DuplicateOutput1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::UINT, super::UINT, *const DXGI_FORMAT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    DuplicateOutput1: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput5_Impl: IDXGIOutput4_Impl {
-    fn DuplicateOutput1(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, flags: u32, supportedformatscount: u32, psupportedformats: *const DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>;
+    fn DuplicateOutput1(&self, pdevice: windows_core::Ref<windows_core::IUnknown>, flags: super::UINT, supportedformatscount: super::UINT, psupportedformats: *const DXGI_FORMAT) -> windows_core::Result<IDXGIOutputDuplication>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutput5_Vtbl {
     pub const fn new<Identity: IDXGIOutput5_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DuplicateOutput1<Identity: IDXGIOutput5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, flags: u32, supportedformatscount: u32, psupportedformats: *const DXGI_FORMAT, ppoutputduplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DuplicateOutput1<Identity: IDXGIOutput5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, flags: super::UINT, supportedformatscount: super::UINT, psupportedformats: *const DXGI_FORMAT, ppoutputduplication: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput5_Impl::DuplicateOutput1(this, core::mem::transmute_copy(&pdevice), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&supportedformatscount), core::mem::transmute_copy(&psupportedformats)) {
@@ -3844,7 +4105,7 @@ impl IDXGIOutput5_Vtbl {
         iid == &<IDXGIOutput5 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID || iid == &<IDXGIOutput2 as windows_core::Interface>::IID || iid == &<IDXGIOutput3 as windows_core::Interface>::IID || iid == &<IDXGIOutput4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutput5 {}
 windows_core::imp::define_interface!(IDXGIOutput6, IDXGIOutput6_Vtbl, 0x068346e8_aaec_4b84_add7_137f513f77a1);
 impl core::ops::Deref for IDXGIOutput6 {
@@ -3855,11 +4116,12 @@ impl core::ops::Deref for IDXGIOutput6 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutput6, windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4, IDXGIOutput5);
 impl IDXGIOutput6 {
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
     pub unsafe fn GetDesc1(&self, pdesc: *mut DXGI_OUTPUT_DESC1) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
-    pub unsafe fn CheckHardwareCompositionSupport(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CheckHardwareCompositionSupport(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckHardwareCompositionSupport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3870,18 +4132,21 @@ impl IDXGIOutput6 {
 #[doc(hidden)]
 pub struct IDXGIOutput6_Vtbl {
     pub base__: IDXGIOutput5_Vtbl,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_OUTPUT_DESC1) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt")))]
     GetDesc1: usize,
-    pub CheckHardwareCompositionSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CheckHardwareCompositionSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CheckHardwareCompositionSupport: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutput6_Impl: IDXGIOutput5_Impl {
     fn GetDesc1(&self, pdesc: *mut DXGI_OUTPUT_DESC1) -> windows_core::Result<()>;
-    fn CheckHardwareCompositionSupport(&self) -> windows_core::Result<u32>;
+    fn CheckHardwareCompositionSupport(&self) -> windows_core::Result<super::UINT>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutput6_Vtbl {
     pub const fn new<Identity: IDXGIOutput6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc1<Identity: IDXGIOutput6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_OUTPUT_DESC1) -> windows_core::HRESULT {
@@ -3890,7 +4155,7 @@ impl IDXGIOutput6_Vtbl {
                 IDXGIOutput6_Impl::GetDesc1(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
-        unsafe extern "system" fn CheckHardwareCompositionSupport<Identity: IDXGIOutput6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckHardwareCompositionSupport<Identity: IDXGIOutput6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pflags: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIOutput6_Impl::CheckHardwareCompositionSupport(this) {
@@ -3912,7 +4177,7 @@ impl IDXGIOutput6_Vtbl {
         iid == &<IDXGIOutput6 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIOutput as windows_core::Interface>::IID || iid == &<IDXGIOutput1 as windows_core::Interface>::IID || iid == &<IDXGIOutput2 as windows_core::Interface>::IID || iid == &<IDXGIOutput3 as windows_core::Interface>::IID || iid == &<IDXGIOutput4 as windows_core::Interface>::IID || iid == &<IDXGIOutput5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutput6 {}
 windows_core::imp::define_interface!(IDXGIOutputDuplication, IDXGIOutputDuplication_Vtbl, 0x191cfac3_a341_470d_b26e_a864f428319c);
 impl core::ops::Deref for IDXGIOutputDuplication {
@@ -3923,27 +4188,29 @@ impl core::ops::Deref for IDXGIOutputDuplication {
 }
 windows_core::imp::interface_hierarchy!(IDXGIOutputDuplication, windows_core::IUnknown, IDXGIObject);
 impl IDXGIOutputDuplication {
+    #[cfg(feature = "shared")]
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_OUTDUPL_DESC) {
         unsafe {
             (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _);
         }
     }
-    #[cfg(all(feature = "windef", feature = "winnt"))]
-    pub unsafe fn AcquireNextFrame(&self, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut Option<IDXGIResource>) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+    pub unsafe fn AcquireNextFrame(&self, timeoutinmilliseconds: super::UINT, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut Option<IDXGIResource>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AcquireNextFrame)(windows_core::Interface::as_raw(self), timeoutinmilliseconds, pframeinfo as _, core::mem::transmute(ppdesktopresource)) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetFrameDirtyRects(&self, dirtyrectsbuffersize: u32, pdirtyrectsbuffer: *mut super::RECT, pdirtyrectsbuffersizerequired: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn GetFrameDirtyRects(&self, dirtyrectsbuffersize: super::UINT, pdirtyrectsbuffer: *mut super::RECT, pdirtyrectsbuffersizerequired: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameDirtyRects)(windows_core::Interface::as_raw(self), dirtyrectsbuffersize, pdirtyrectsbuffer as _, pdirtyrectsbuffersizerequired as _) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetFrameMoveRects(&self, moverectsbuffersize: u32, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn GetFrameMoveRects(&self, moverectsbuffersize: super::UINT, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameMoveRects)(windows_core::Interface::as_raw(self), moverectsbuffersize, pmoverectbuffer as _, pmoverectsbuffersizerequired as _) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetFramePointerShape(&self, pointershapebuffersize: u32, ppointershapebuffer: *mut core::ffi::c_void, ppointershapebuffersizerequired: *mut u32, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn GetFramePointerShape(&self, pointershapebuffersize: super::UINT, ppointershapebuffer: *mut core::ffi::c_void, ppointershapebuffersizerequired: *mut super::UINT, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFramePointerShape)(windows_core::Interface::as_raw(self), pointershapebuffersize, ppointershapebuffer as _, ppointershapebuffersizerequired as _, ppointershapeinfo as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn MapDesktopSurface(&self) -> windows_core::Result<DXGI_MAPPED_RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3961,39 +4228,45 @@ impl IDXGIOutputDuplication {
 #[doc(hidden)]
 pub struct IDXGIOutputDuplication_Vtbl {
     pub base__: IDXGIObject_Vtbl,
+    #[cfg(feature = "shared")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_OUTDUPL_DESC),
-    #[cfg(all(feature = "windef", feature = "winnt"))]
-    pub AcquireNextFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DXGI_OUTDUPL_FRAME_INFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "windef", feature = "winnt")))]
+    #[cfg(not(feature = "shared"))]
+    GetDesc: usize,
+    #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+    pub AcquireNextFrame: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut DXGI_OUTDUPL_FRAME_INFO, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef", feature = "winnt")))]
     AcquireNextFrame: usize,
-    #[cfg(feature = "windef")]
-    pub GetFrameDirtyRects: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::RECT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub GetFrameDirtyRects: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut super::RECT, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetFrameDirtyRects: usize,
-    #[cfg(feature = "windef")]
-    pub GetFrameMoveRects: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DXGI_OUTDUPL_MOVE_RECT, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub GetFrameMoveRects: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut DXGI_OUTDUPL_MOVE_RECT, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetFrameMoveRects: usize,
-    #[cfg(feature = "windef")]
-    pub GetFramePointerShape: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut u32, *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub GetFramePointerShape: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut core::ffi::c_void, *mut super::UINT, *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetFramePointerShape: usize,
+    #[cfg(feature = "shared")]
     pub MapDesktopSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MAPPED_RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    MapDesktopSurface: usize,
     pub UnMapDesktopSurface: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ReleaseFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGIOutputDuplication_Impl: IDXGIObject_Impl {
     fn GetDesc(&self, pdesc: *mut DXGI_OUTDUPL_DESC);
-    fn AcquireNextFrame(&self, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: windows_core::OutRef<IDXGIResource>) -> windows_core::Result<()>;
-    fn GetFrameDirtyRects(&self, dirtyrectsbuffersize: u32, pdirtyrectsbuffer: *mut super::RECT, pdirtyrectsbuffersizerequired: *mut u32) -> windows_core::Result<()>;
-    fn GetFrameMoveRects(&self, moverectsbuffersize: u32, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut u32) -> windows_core::Result<()>;
-    fn GetFramePointerShape(&self, pointershapebuffersize: u32, ppointershapebuffer: *mut core::ffi::c_void, ppointershapebuffersizerequired: *mut u32, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::Result<()>;
+    fn AcquireNextFrame(&self, timeoutinmilliseconds: super::UINT, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: windows_core::OutRef<IDXGIResource>) -> windows_core::Result<()>;
+    fn GetFrameDirtyRects(&self, dirtyrectsbuffersize: super::UINT, pdirtyrectsbuffer: *mut super::RECT, pdirtyrectsbuffersizerequired: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetFrameMoveRects(&self, moverectsbuffersize: super::UINT, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut super::UINT) -> windows_core::Result<()>;
+    fn GetFramePointerShape(&self, pointershapebuffersize: super::UINT, ppointershapebuffer: *mut core::ffi::c_void, ppointershapebuffersizerequired: *mut super::UINT, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::Result<()>;
     fn MapDesktopSurface(&self) -> windows_core::Result<DXGI_MAPPED_RECT>;
     fn UnMapDesktopSurface(&self) -> windows_core::Result<()>;
     fn ReleaseFrame(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGIOutputDuplication_Vtbl {
     pub const fn new<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_OUTDUPL_DESC) {
@@ -4002,25 +4275,25 @@ impl IDXGIOutputDuplication_Vtbl {
                 IDXGIOutputDuplication_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc));
             }
         }
-        unsafe extern "system" fn AcquireNextFrame<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinmilliseconds: u32, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AcquireNextFrame<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinmilliseconds: super::UINT, pframeinfo: *mut DXGI_OUTDUPL_FRAME_INFO, ppdesktopresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutputDuplication_Impl::AcquireNextFrame(this, core::mem::transmute_copy(&timeoutinmilliseconds), core::mem::transmute_copy(&pframeinfo), core::mem::transmute_copy(&ppdesktopresource)).into()
             }
         }
-        unsafe extern "system" fn GetFrameDirtyRects<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dirtyrectsbuffersize: u32, pdirtyrectsbuffer: *mut super::RECT, pdirtyrectsbuffersizerequired: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFrameDirtyRects<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dirtyrectsbuffersize: super::UINT, pdirtyrectsbuffer: *mut super::RECT, pdirtyrectsbuffersizerequired: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutputDuplication_Impl::GetFrameDirtyRects(this, core::mem::transmute_copy(&dirtyrectsbuffersize), core::mem::transmute_copy(&pdirtyrectsbuffer), core::mem::transmute_copy(&pdirtyrectsbuffersizerequired)).into()
             }
         }
-        unsafe extern "system" fn GetFrameMoveRects<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moverectsbuffersize: u32, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFrameMoveRects<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, moverectsbuffersize: super::UINT, pmoverectbuffer: *mut DXGI_OUTDUPL_MOVE_RECT, pmoverectsbuffersizerequired: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutputDuplication_Impl::GetFrameMoveRects(this, core::mem::transmute_copy(&moverectsbuffersize), core::mem::transmute_copy(&pmoverectbuffer), core::mem::transmute_copy(&pmoverectsbuffersizerequired)).into()
             }
         }
-        unsafe extern "system" fn GetFramePointerShape<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointershapebuffersize: u32, ppointershapebuffer: *mut core::ffi::c_void, ppointershapebuffersizerequired: *mut u32, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFramePointerShape<Identity: IDXGIOutputDuplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pointershapebuffersize: super::UINT, ppointershapebuffer: *mut core::ffi::c_void, ppointershapebuffersizerequired: *mut super::UINT, ppointershapeinfo: *mut DXGI_OUTDUPL_POINTER_SHAPE_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIOutputDuplication_Impl::GetFramePointerShape(this, core::mem::transmute_copy(&pointershapebuffersize), core::mem::transmute_copy(&ppointershapebuffer), core::mem::transmute_copy(&ppointershapebuffersizerequired), core::mem::transmute_copy(&ppointershapeinfo)).into()
@@ -4066,7 +4339,7 @@ impl IDXGIOutputDuplication_Vtbl {
         iid == &<IDXGIOutputDuplication as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIOutputDuplication {}
 windows_core::imp::define_interface!(IDXGIResource, IDXGIResource_Vtbl, 0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
 impl core::ops::Deref for IDXGIResource {
@@ -4087,10 +4360,12 @@ impl IDXGIResource {
             (windows_core::Interface::vtable(self).GetUsage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEvictionPriority)(windows_core::Interface::as_raw(self), evictionpriority) }
     }
-    pub unsafe fn GetEvictionPriority(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEvictionPriority(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEvictionPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4106,17 +4381,23 @@ pub struct IDXGIResource_Vtbl {
     #[cfg(not(feature = "winnt"))]
     GetSharedHandle: usize,
     pub GetUsage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_USAGE) -> windows_core::HRESULT,
-    pub SetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetEvictionPriority: usize,
+    #[cfg(feature = "shared")]
+    pub GetEvictionPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEvictionPriority: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIResource_Impl: IDXGIDeviceSubObject_Impl {
     fn GetSharedHandle(&self, psharedhandle: *mut super::HANDLE) -> windows_core::Result<()>;
     fn GetUsage(&self) -> windows_core::Result<DXGI_USAGE>;
-    fn SetEvictionPriority(&self, evictionpriority: u32) -> windows_core::Result<()>;
-    fn GetEvictionPriority(&self) -> windows_core::Result<u32>;
+    fn SetEvictionPriority(&self, evictionpriority: super::UINT) -> windows_core::Result<()>;
+    fn GetEvictionPriority(&self) -> windows_core::Result<super::UINT>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl IDXGIResource_Vtbl {
     pub const fn new<Identity: IDXGIResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSharedHandle<Identity: IDXGIResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psharedhandle: *mut super::HANDLE) -> windows_core::HRESULT {
@@ -4137,13 +4418,13 @@ impl IDXGIResource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEvictionPriority<Identity: IDXGIResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, evictionpriority: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEvictionPriority<Identity: IDXGIResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, evictionpriority: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIResource_Impl::SetEvictionPriority(this, core::mem::transmute_copy(&evictionpriority)).into()
             }
         }
-        unsafe extern "system" fn GetEvictionPriority<Identity: IDXGIResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevictionpriority: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEvictionPriority<Identity: IDXGIResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pevictionpriority: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGIResource_Impl::GetEvictionPriority(this) {
@@ -4167,7 +4448,7 @@ impl IDXGIResource_Vtbl {
         iid == &<IDXGIResource as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIResource {}
 windows_core::imp::define_interface!(IDXGIResource1, IDXGIResource1_Vtbl, 0x30961379_4609_4a41_998e_54fe567ee0c1);
 impl core::ops::Deref for IDXGIResource1 {
@@ -4178,14 +4459,12 @@ impl core::ops::Deref for IDXGIResource1 {
 }
 windows_core::imp::interface_hierarchy!(IDXGIResource1, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGIResource);
 impl IDXGIResource1 {
-    pub unsafe fn CreateSubresourceSurface(&self, index: u32) -> windows_core::Result<IDXGISurface2> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSubresourceSurface)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
+    #[cfg(feature = "shared")]
+    pub unsafe fn CreateSubresourceSurface(&self, index: super::UINT, ppsurface: *mut Option<IDXGISurface2>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateSubresourceSurface)(windows_core::Interface::as_raw(self), index, core::mem::transmute(ppsurface)) }
     }
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub unsafe fn CreateSharedHandle<P2>(&self, pattributes: Option<*const super::SECURITY_ATTRIBUTES>, dwaccess: u32, lpname: P2, phandle: *mut super::HANDLE) -> windows_core::HRESULT
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+    pub unsafe fn CreateSharedHandle<P2>(&self, pattributes: Option<*const super::SECURITY_ATTRIBUTES>, dwaccess: super::DWORD, lpname: P2, phandle: *mut super::HANDLE) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4196,33 +4475,30 @@ impl IDXGIResource1 {
 #[doc(hidden)]
 pub struct IDXGIResource1_Vtbl {
     pub base__: IDXGIResource_Vtbl,
-    pub CreateSubresourceSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-    pub CreateSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SECURITY_ATTRIBUTES, u32, windows_core::PCWSTR, *mut super::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "minwinbase", feature = "winnt")))]
+    #[cfg(feature = "shared")]
+    pub CreateSubresourceSurface: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CreateSubresourceSurface: usize,
+    #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+    pub CreateSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SECURITY_ATTRIBUTES, super::DWORD, windows_core::PCWSTR, *mut super::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt")))]
     CreateSharedHandle: usize,
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub trait IDXGIResource1_Impl: IDXGIResource_Impl {
-    fn CreateSubresourceSurface(&self, index: u32) -> windows_core::Result<IDXGISurface2>;
-    fn CreateSharedHandle(&self, pattributes: *const super::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: &windows_core::PCWSTR, phandle: *mut super::HANDLE) -> windows_core::Result<()>;
+    fn CreateSubresourceSurface(&self, index: super::UINT, ppsurface: windows_core::OutRef<IDXGISurface2>) -> windows_core::Result<()>;
+    fn CreateSharedHandle(&self, pattributes: *const super::SECURITY_ATTRIBUTES, dwaccess: super::DWORD, lpname: &windows_core::PCWSTR, phandle: *mut super::HANDLE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl IDXGIResource1_Vtbl {
     pub const fn new<Identity: IDXGIResource1_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateSubresourceSurface<Identity: IDXGIResource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSubresourceSurface<Identity: IDXGIResource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: super::UINT, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDXGIResource1_Impl::CreateSubresourceSurface(this, core::mem::transmute_copy(&index)) {
-                    Ok(ok__) => {
-                        ppsurface.write(core::mem::transmute(ok__));
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IDXGIResource1_Impl::CreateSubresourceSurface(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&ppsurface)).into()
             }
         }
-        unsafe extern "system" fn CreateSharedHandle<Identity: IDXGIResource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributes: *const super::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: windows_core::PCWSTR, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSharedHandle<Identity: IDXGIResource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pattributes: *const super::SECURITY_ATTRIBUTES, dwaccess: super::DWORD, lpname: windows_core::PCWSTR, phandle: *mut super::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGIResource1_Impl::CreateSharedHandle(this, core::mem::transmute_copy(&pattributes), core::mem::transmute_copy(&dwaccess), core::mem::transmute(&lpname), core::mem::transmute_copy(&phandle)).into()
@@ -4238,7 +4514,7 @@ impl IDXGIResource1_Vtbl {
         iid == &<IDXGIResource1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGIResource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGIResource1 {}
 windows_core::imp::define_interface!(IDXGISurface, IDXGISurface_Vtbl, 0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
 impl core::ops::Deref for IDXGISurface {
@@ -4249,10 +4525,12 @@ impl core::ops::Deref for IDXGISurface {
 }
 windows_core::imp::interface_hierarchy!(IDXGISurface, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl IDXGISurface {
+    #[cfg(feature = "shared")]
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_SURFACE_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
-    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Map)(windows_core::Interface::as_raw(self), plockedrect as _, mapflags) }
     }
     pub unsafe fn Unmap(&self) -> windows_core::HRESULT {
@@ -4263,15 +4541,23 @@ impl IDXGISurface {
 #[doc(hidden)]
 pub struct IDXGISurface_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
+    #[cfg(feature = "shared")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_SURFACE_DESC) -> windows_core::HRESULT,
-    pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MAPPED_RECT, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDesc: usize,
+    #[cfg(feature = "shared")]
+    pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MAPPED_RECT, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Map: usize,
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub trait IDXGISurface_Impl: IDXGIDeviceSubObject_Impl {
     fn GetDesc(&self, pdesc: *mut DXGI_SURFACE_DESC) -> windows_core::Result<()>;
-    fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> windows_core::Result<()>;
+    fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: super::UINT) -> windows_core::Result<()>;
     fn Unmap(&self) -> windows_core::Result<()>;
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl IDXGISurface_Vtbl {
     pub const fn new<Identity: IDXGISurface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc<Identity: IDXGISurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_SURFACE_DESC) -> windows_core::HRESULT {
@@ -4280,7 +4566,7 @@ impl IDXGISurface_Vtbl {
                 IDXGISurface_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
-        unsafe extern "system" fn Map<Identity: IDXGISurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Map<Identity: IDXGISurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISurface_Impl::Map(this, core::mem::transmute_copy(&plockedrect), core::mem::transmute_copy(&mapflags)).into()
@@ -4303,6 +4589,7 @@ impl IDXGISurface_Vtbl {
         iid == &<IDXGISurface as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IDXGISurface {}
 windows_core::imp::define_interface!(IDXGISurface1, IDXGISurface1_Vtbl, 0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
 impl core::ops::Deref for IDXGISurface1 {
@@ -4320,7 +4607,7 @@ impl IDXGISurface1 {
             (windows_core::Interface::vtable(self).GetDC)(windows_core::Interface::as_raw(self), discard.into(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn ReleaseDC(&self, pdirtyrect: Option<*const super::RECT>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReleaseDC)(windows_core::Interface::as_raw(self), pdirtyrect.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -4333,17 +4620,17 @@ pub struct IDXGISurface1_Vtbl {
     pub GetDC: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut super::HDC) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetDC: usize,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub ReleaseDC: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     ReleaseDC: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait IDXGISurface1_Impl: IDXGISurface_Impl {
     fn GetDC(&self, discard: windows_core::BOOL) -> windows_core::Result<super::HDC>;
     fn ReleaseDC(&self, pdirtyrect: *const super::RECT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl IDXGISurface1_Vtbl {
     pub const fn new<Identity: IDXGISurface1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDC<Identity: IDXGISurface1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, discard: windows_core::BOOL, phdc: *mut super::HDC) -> windows_core::HRESULT {
@@ -4370,7 +4657,7 @@ impl IDXGISurface1_Vtbl {
         iid == &<IDXGISurface1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISurface as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IDXGISurface1 {}
 windows_core::imp::define_interface!(IDXGISurface2, IDXGISurface2_Vtbl, 0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
 impl core::ops::Deref for IDXGISurface2 {
@@ -4381,7 +4668,8 @@ impl core::ops::Deref for IDXGISurface2 {
 }
 windows_core::imp::interface_hierarchy!(IDXGISurface2, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface, IDXGISurface1);
 impl IDXGISurface2 {
-    pub unsafe fn GetResource<T>(&self, psubresourceindex: *mut u32) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn GetResource<T>(&self, psubresourceindex: *mut super::UINT) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -4393,16 +4681,19 @@ impl IDXGISurface2 {
 #[doc(hidden)]
 pub struct IDXGISurface2_Vtbl {
     pub base__: IDXGISurface1_Vtbl,
-    pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub GetResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    GetResource: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait IDXGISurface2_Impl: IDXGISurface1_Impl {
-    fn GetResource(&self, riid: *const windows_core::GUID, ppparentresource: *mut *mut core::ffi::c_void, psubresourceindex: *mut u32) -> windows_core::Result<()>;
+    fn GetResource(&self, riid: *const super::IID, ppparentresource: *mut *mut core::ffi::c_void, psubresourceindex: *mut super::UINT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl IDXGISurface2_Vtbl {
     pub const fn new<Identity: IDXGISurface2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetResource<Identity: IDXGISurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppparentresource: *mut *mut core::ffi::c_void, psubresourceindex: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetResource<Identity: IDXGISurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const super::IID, ppparentresource: *mut *mut core::ffi::c_void, psubresourceindex: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISurface2_Impl::GetResource(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppparentresource), core::mem::transmute_copy(&psubresourceindex)).into()
@@ -4414,7 +4705,7 @@ impl IDXGISurface2_Vtbl {
         iid == &<IDXGISurface2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISurface as windows_core::Interface>::IID || iid == &<IDXGISurface1 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IDXGISurface2 {}
 windows_core::imp::define_interface!(IDXGISwapChain, IDXGISwapChain_Vtbl, 0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
 impl core::ops::Deref for IDXGISwapChain {
@@ -4425,10 +4716,12 @@ impl core::ops::Deref for IDXGISwapChain {
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
 impl IDXGISwapChain {
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Present(&self, syncinterval: super::UINT, flags: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), syncinterval, flags) }
     }
-    pub unsafe fn GetBuffer<T>(&self, buffer: u32) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn GetBuffer<T>(&self, buffer: super::UINT) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -4444,13 +4737,15 @@ impl IDXGISwapChain {
     pub unsafe fn GetFullscreenState(&self, pfullscreen: Option<*mut windows_core::BOOL>, pptarget: Option<*mut Option<IDXGIOutput>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFullscreenState)(windows_core::Interface::as_raw(self), pfullscreen.unwrap_or(core::mem::zeroed()) as _, pptarget.unwrap_or(core::mem::zeroed()) as _) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ResizeBuffers(&self, buffercount: super::UINT, width: super::UINT, height: super::UINT, newformat: DXGI_FORMAT, swapchainflags: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResizeBuffers)(windows_core::Interface::as_raw(self), buffercount, width, height, newformat, swapchainflags) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const DXGI_MODE_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResizeTarget)(windows_core::Interface::as_raw(self), pnewtargetparameters) }
     }
@@ -4460,11 +4755,12 @@ impl IDXGISwapChain {
             (windows_core::Interface::vtable(self).GetContainingOutput)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), pstats as _) }
     }
-    pub unsafe fn GetLastPresentCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetLastPresentCount(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastPresentCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4475,46 +4771,61 @@ impl IDXGISwapChain {
 #[doc(hidden)]
 pub struct IDXGISwapChain_Vtbl {
     pub base__: IDXGIDeviceSubObject_Vtbl,
-    pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Present: usize,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    GetBuffer: usize,
     pub SetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFullscreenState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_SWAP_CHAIN_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetDesc: usize,
-    pub ResizeBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, DXGI_FORMAT, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ResizeBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, super::UINT, super::UINT, DXGI_FORMAT, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ResizeBuffers: usize,
+    #[cfg(feature = "shared")]
     pub ResizeTarget: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_MODE_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ResizeTarget: usize,
     pub GetContainingOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetFrameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_FRAME_STATISTICS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetFrameStatistics: usize,
-    pub GetLastPresentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetLastPresentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetLastPresentCount: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGISwapChain_Impl: IDXGIDeviceSubObject_Impl {
-    fn Present(&self, syncinterval: u32, flags: u32) -> windows_core::Result<()>;
-    fn GetBuffer(&self, buffer: u32, riid: *const windows_core::GUID, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Present(&self, syncinterval: super::UINT, flags: super::UINT) -> windows_core::Result<()>;
+    fn GetBuffer(&self, buffer: super::UINT, riid: *const super::IID, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetFullscreenState(&self, fullscreen: windows_core::BOOL, ptarget: windows_core::Ref<IDXGIOutput>) -> windows_core::Result<()>;
     fn GetFullscreenState(&self, pfullscreen: *mut windows_core::BOOL, pptarget: windows_core::OutRef<IDXGIOutput>) -> windows_core::Result<()>;
     fn GetDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC) -> windows_core::Result<()>;
-    fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> windows_core::Result<()>;
+    fn ResizeBuffers(&self, buffercount: super::UINT, width: super::UINT, height: super::UINT, newformat: DXGI_FORMAT, swapchainflags: super::UINT) -> windows_core::Result<()>;
     fn ResizeTarget(&self, pnewtargetparameters: *const DXGI_MODE_DESC) -> windows_core::Result<()>;
     fn GetContainingOutput(&self) -> windows_core::Result<IDXGIOutput>;
     fn GetFrameStatistics(&self, pstats: *mut DXGI_FRAME_STATISTICS) -> windows_core::Result<()>;
-    fn GetLastPresentCount(&self) -> windows_core::Result<u32>;
+    fn GetLastPresentCount(&self) -> windows_core::Result<super::UINT>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGISwapChain_Vtbl {
     pub const fn new<Identity: IDXGISwapChain_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Present<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncinterval: u32, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Present<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncinterval: super::UINT, flags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain_Impl::Present(this, core::mem::transmute_copy(&syncinterval), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn GetBuffer<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: u32, riid: *const windows_core::GUID, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBuffer<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffer: super::UINT, riid: *const super::IID, ppsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain_Impl::GetBuffer(this, core::mem::transmute_copy(&buffer), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppsurface)).into()
@@ -4538,7 +4849,7 @@ impl IDXGISwapChain_Vtbl {
                 IDXGISwapChain_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
-        unsafe extern "system" fn ResizeBuffers<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffercount: u32, width: u32, height: u32, newformat: DXGI_FORMAT, swapchainflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResizeBuffers<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffercount: super::UINT, width: super::UINT, height: super::UINT, newformat: DXGI_FORMAT, swapchainflags: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain_Impl::ResizeBuffers(this, core::mem::transmute_copy(&buffercount), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&newformat), core::mem::transmute_copy(&swapchainflags)).into()
@@ -4568,7 +4879,7 @@ impl IDXGISwapChain_Vtbl {
                 IDXGISwapChain_Impl::GetFrameStatistics(this, core::mem::transmute_copy(&pstats)).into()
             }
         }
-        unsafe extern "system" fn GetLastPresentCount<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plastpresentcount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLastPresentCount<Identity: IDXGISwapChain_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plastpresentcount: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain_Impl::GetLastPresentCount(this) {
@@ -4598,7 +4909,7 @@ impl IDXGISwapChain_Vtbl {
         iid == &<IDXGISwapChain as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGISwapChain {}
 windows_core::imp::define_interface!(IDXGISwapChain1, IDXGISwapChain1_Vtbl, 0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
 impl core::ops::Deref for IDXGISwapChain1 {
@@ -4609,9 +4920,11 @@ impl core::ops::Deref for IDXGISwapChain1 {
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain1, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain);
 impl IDXGISwapChain1 {
+    #[cfg(feature = "shared")]
     pub unsafe fn GetDesc1(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc1)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetFullscreenDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFullscreenDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
@@ -4622,6 +4935,7 @@ impl IDXGISwapChain1 {
             (windows_core::Interface::vtable(self).GetHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetCoreWindow<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -4629,8 +4943,8 @@ impl IDXGISwapChain1 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetCoreWindow)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn Present1(&self, syncinterval: super::UINT, presentflags: super::UINT, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Present1)(windows_core::Interface::as_raw(self), syncinterval, presentflags, ppresentparameters) }
     }
     pub unsafe fn IsTemporaryMonoSupported(&self) -> windows_core::BOOL {
@@ -4665,16 +4979,25 @@ impl IDXGISwapChain1 {
 #[doc(hidden)]
 pub struct IDXGISwapChain1_Vtbl {
     pub base__: IDXGISwapChain_Vtbl,
+    #[cfg(feature = "shared")]
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_SWAP_CHAIN_DESC1) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDesc1: usize,
+    #[cfg(feature = "shared")]
     pub GetFullscreenDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFullscreenDesc: usize,
     #[cfg(feature = "windef")]
     pub GetHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::HWND) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
     GetHwnd: usize,
-    pub GetCoreWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub Present1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(feature = "guiddef")]
+    pub GetCoreWindow: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetCoreWindow: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub Present1: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, super::UINT, *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     Present1: usize,
     pub IsTemporaryMonoSupported: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub GetRestrictToOutput: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4683,13 +5006,13 @@ pub struct IDXGISwapChain1_Vtbl {
     pub SetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_MODE_ROTATION) -> windows_core::HRESULT,
     pub GetRotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MODE_ROTATION) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGISwapChain1_Impl: IDXGISwapChain_Impl {
     fn GetDesc1(&self, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> windows_core::Result<()>;
     fn GetFullscreenDesc(&self, pdesc: *mut DXGI_SWAP_CHAIN_FULLSCREEN_DESC) -> windows_core::Result<()>;
     fn GetHwnd(&self) -> windows_core::Result<super::HWND>;
-    fn GetCoreWindow(&self, refiid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetCoreWindow(&self, refiid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Present1(&self, syncinterval: super::UINT, presentflags: super::UINT, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::Result<()>;
     fn IsTemporaryMonoSupported(&self) -> windows_core::BOOL;
     fn GetRestrictToOutput(&self) -> windows_core::Result<IDXGIOutput>;
     fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> windows_core::Result<()>;
@@ -4697,7 +5020,7 @@ pub trait IDXGISwapChain1_Impl: IDXGISwapChain_Impl {
     fn SetRotation(&self, rotation: DXGI_MODE_ROTATION) -> windows_core::Result<()>;
     fn GetRotation(&self) -> windows_core::Result<DXGI_MODE_ROTATION>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGISwapChain1_Vtbl {
     pub const fn new<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc1<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut DXGI_SWAP_CHAIN_DESC1) -> windows_core::HRESULT {
@@ -4724,13 +5047,13 @@ impl IDXGISwapChain1_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCoreWindow<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, refiid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCoreWindow<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, refiid: *const super::IID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain1_Impl::GetCoreWindow(this, core::mem::transmute_copy(&refiid), core::mem::transmute_copy(&ppunk)).into()
             }
         }
-        unsafe extern "system" fn Present1<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Present1<Identity: IDXGISwapChain1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncinterval: super::UINT, presentflags: super::UINT, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain1_Impl::Present1(this, core::mem::transmute_copy(&syncinterval), core::mem::transmute_copy(&presentflags), core::mem::transmute_copy(&ppresentparameters)).into()
@@ -4809,7 +5132,7 @@ impl IDXGISwapChain1_Vtbl {
         iid == &<IDXGISwapChain1 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISwapChain as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGISwapChain1 {}
 windows_core::imp::define_interface!(IDXGISwapChain2, IDXGISwapChain2_Vtbl, 0xa8be2ac4_199f_4946_b331_79599fb98de7);
 impl core::ops::Deref for IDXGISwapChain2 {
@@ -4820,16 +5143,20 @@ impl core::ops::Deref for IDXGISwapChain2 {
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain2, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1);
 impl IDXGISwapChain2 {
-    pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSourceSize(&self, width: super::UINT, height: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSourceSize)(windows_core::Interface::as_raw(self), width, height) }
     }
-    pub unsafe fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSourceSize(&self, pwidth: *mut super::UINT, pheight: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSourceSize)(windows_core::Interface::as_raw(self), pwidth as _, pheight as _) }
     }
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumFrameLatency)(windows_core::Interface::as_raw(self), maxlatency) }
     }
-    pub unsafe fn GetMaximumFrameLatency(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMaximumFrameLatency(&self) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMaximumFrameLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4839,9 +5166,11 @@ impl IDXGISwapChain2 {
     pub unsafe fn GetFrameLatencyWaitableObject(&self) -> super::HANDLE {
         unsafe { (windows_core::Interface::vtable(self).GetFrameLatencyWaitableObject)(windows_core::Interface::as_raw(self)) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMatrixTransform)(windows_core::Interface::as_raw(self), pmatrix) }
+        unsafe { (windows_core::Interface::vtable(self).SetMatrixTransform)(windows_core::Interface::as_raw(self), pmatrix as _) }
     }
+    #[cfg(feature = "minwindef")]
     pub unsafe fn GetMatrixTransform(&self, pmatrix: *mut DXGI_MATRIX_3X2_F) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMatrixTransform)(windows_core::Interface::as_raw(self), pmatrix as _) }
     }
@@ -4850,49 +5179,67 @@ impl IDXGISwapChain2 {
 #[doc(hidden)]
 pub struct IDXGISwapChain2_Vtbl {
     pub base__: IDXGISwapChain1_Vtbl,
-    pub SetSourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
-    pub GetSourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
-    pub SetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetSourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSourceSize: usize,
+    #[cfg(feature = "shared")]
+    pub GetSourceSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSourceSize: usize,
+    #[cfg(feature = "shared")]
+    pub SetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMaximumFrameLatency: usize,
+    #[cfg(feature = "shared")]
+    pub GetMaximumFrameLatency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMaximumFrameLatency: usize,
     #[cfg(feature = "winnt")]
     pub GetFrameLatencyWaitableObject: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::HANDLE,
     #[cfg(not(feature = "winnt"))]
     GetFrameLatencyWaitableObject: usize,
+    #[cfg(feature = "minwindef")]
     pub SetMatrixTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *const DXGI_MATRIX_3X2_F) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    SetMatrixTransform: usize,
+    #[cfg(feature = "minwindef")]
     pub GetMatrixTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_MATRIX_3X2_F) -> windows_core::HRESULT,
+    #[cfg(not(feature = "minwindef"))]
+    GetMatrixTransform: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGISwapChain2_Impl: IDXGISwapChain1_Impl {
-    fn SetSourceSize(&self, width: u32, height: u32) -> windows_core::Result<()>;
-    fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> windows_core::Result<()>;
-    fn SetMaximumFrameLatency(&self, maxlatency: u32) -> windows_core::Result<()>;
-    fn GetMaximumFrameLatency(&self) -> windows_core::Result<u32>;
+    fn SetSourceSize(&self, width: super::UINT, height: super::UINT) -> windows_core::Result<()>;
+    fn GetSourceSize(&self, pwidth: *mut super::UINT, pheight: *mut super::UINT) -> windows_core::Result<()>;
+    fn SetMaximumFrameLatency(&self, maxlatency: super::UINT) -> windows_core::Result<()>;
+    fn GetMaximumFrameLatency(&self) -> windows_core::Result<super::UINT>;
     fn GetFrameLatencyWaitableObject(&self) -> super::HANDLE;
     fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> windows_core::Result<()>;
     fn GetMatrixTransform(&self, pmatrix: *mut DXGI_MATRIX_3X2_F) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGISwapChain2_Vtbl {
     pub const fn new<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetSourceSize<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSourceSize<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: super::UINT, height: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain2_Impl::SetSourceSize(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height)).into()
             }
         }
-        unsafe extern "system" fn GetSourceSize<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut u32, pheight: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSourceSize<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut super::UINT, pheight: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain2_Impl::GetSourceSize(this, core::mem::transmute_copy(&pwidth), core::mem::transmute_copy(&pheight)).into()
             }
         }
-        unsafe extern "system" fn SetMaximumFrameLatency<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlatency: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaximumFrameLatency<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlatency: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain2_Impl::SetMaximumFrameLatency(this, core::mem::transmute_copy(&maxlatency)).into()
             }
         }
-        unsafe extern "system" fn GetMaximumFrameLatency<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaxlatency: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaximumFrameLatency<Identity: IDXGISwapChain2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaxlatency: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain2_Impl::GetMaximumFrameLatency(this) {
@@ -4937,7 +5284,7 @@ impl IDXGISwapChain2_Vtbl {
         iid == &<IDXGISwapChain2 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISwapChain as windows_core::Interface>::IID || iid == &<IDXGISwapChain1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGISwapChain2 {}
 windows_core::imp::define_interface!(IDXGISwapChain3, IDXGISwapChain3_Vtbl, 0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
 impl core::ops::Deref for IDXGISwapChain3 {
@@ -4948,10 +5295,12 @@ impl core::ops::Deref for IDXGISwapChain3 {
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain3, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2);
 impl IDXGISwapChain3 {
-    pub unsafe fn GetCurrentBackBufferIndex(&self) -> u32 {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCurrentBackBufferIndex(&self) -> super::UINT {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentBackBufferIndex)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CheckColorSpaceSupport(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<super::UINT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckColorSpaceSupport)(windows_core::Interface::as_raw(self), colorspace, &mut result__).map(|| result__)
@@ -4960,7 +5309,8 @@ impl IDXGISwapChain3 {
     pub unsafe fn SetColorSpace1(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColorSpace1)(windows_core::Interface::as_raw(self), colorspace) }
     }
-    pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const Option<windows_core::IUnknown>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ResizeBuffers1(&self, buffercount: super::UINT, width: super::UINT, height: super::UINT, format: DXGI_FORMAT, swapchainflags: super::UINT, pcreationnodemask: *const super::UINT, pppresentqueue: *const Option<windows_core::IUnknown>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResizeBuffers1)(windows_core::Interface::as_raw(self), buffercount, width, height, format, swapchainflags, pcreationnodemask, core::mem::transmute(pppresentqueue)) }
     }
 }
@@ -4968,28 +5318,37 @@ impl IDXGISwapChain3 {
 #[doc(hidden)]
 pub struct IDXGISwapChain3_Vtbl {
     pub base__: IDXGISwapChain2_Vtbl,
-    pub GetCurrentBackBufferIndex: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub CheckColorSpaceSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_COLOR_SPACE_TYPE, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCurrentBackBufferIndex: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::UINT,
+    #[cfg(not(feature = "shared"))]
+    GetCurrentBackBufferIndex: usize,
+    #[cfg(feature = "shared")]
+    pub CheckColorSpaceSupport: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_COLOR_SPACE_TYPE, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CheckColorSpaceSupport: usize,
     pub SetColorSpace1: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT,
-    pub ResizeBuffers1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, DXGI_FORMAT, u32, *const u32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub ResizeBuffers1: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, super::UINT, super::UINT, DXGI_FORMAT, super::UINT, *const super::UINT, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ResizeBuffers1: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGISwapChain3_Impl: IDXGISwapChain2_Impl {
-    fn GetCurrentBackBufferIndex(&self) -> u32;
-    fn CheckColorSpaceSupport(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<u32>;
+    fn GetCurrentBackBufferIndex(&self) -> super::UINT;
+    fn CheckColorSpaceSupport(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<super::UINT>;
     fn SetColorSpace1(&self, colorspace: DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()>;
-    fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const Option<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn ResizeBuffers1(&self, buffercount: super::UINT, width: super::UINT, height: super::UINT, format: DXGI_FORMAT, swapchainflags: super::UINT, pcreationnodemask: *const super::UINT, pppresentqueue: *const Option<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGISwapChain3_Vtbl {
     pub const fn new<Identity: IDXGISwapChain3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetCurrentBackBufferIndex<Identity: IDXGISwapChain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+        unsafe extern "system" fn GetCurrentBackBufferIndex<Identity: IDXGISwapChain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::UINT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain3_Impl::GetCurrentBackBufferIndex(this)
             }
         }
-        unsafe extern "system" fn CheckColorSpaceSupport<Identity: IDXGISwapChain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: DXGI_COLOR_SPACE_TYPE, pcolorspacesupport: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckColorSpaceSupport<Identity: IDXGISwapChain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: DXGI_COLOR_SPACE_TYPE, pcolorspacesupport: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDXGISwapChain3_Impl::CheckColorSpaceSupport(this, core::mem::transmute_copy(&colorspace)) {
@@ -5007,7 +5366,7 @@ impl IDXGISwapChain3_Vtbl {
                 IDXGISwapChain3_Impl::SetColorSpace1(this, core::mem::transmute_copy(&colorspace)).into()
             }
         }
-        unsafe extern "system" fn ResizeBuffers1<Identity: IDXGISwapChain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffercount: u32, width: u32, height: u32, format: DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResizeBuffers1<Identity: IDXGISwapChain3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffercount: super::UINT, width: super::UINT, height: super::UINT, format: DXGI_FORMAT, swapchainflags: super::UINT, pcreationnodemask: *const super::UINT, pppresentqueue: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain3_Impl::ResizeBuffers1(this, core::mem::transmute_copy(&buffercount), core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&swapchainflags), core::mem::transmute_copy(&pcreationnodemask), core::mem::transmute_copy(&pppresentqueue)).into()
@@ -5025,7 +5384,7 @@ impl IDXGISwapChain3_Vtbl {
         iid == &<IDXGISwapChain3 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISwapChain as windows_core::Interface>::IID || iid == &<IDXGISwapChain1 as windows_core::Interface>::IID || iid == &<IDXGISwapChain2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGISwapChain3 {}
 windows_core::imp::define_interface!(IDXGISwapChain4, IDXGISwapChain4_Vtbl, 0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
 impl core::ops::Deref for IDXGISwapChain4 {
@@ -5036,6 +5395,7 @@ impl core::ops::Deref for IDXGISwapChain4 {
 }
 windows_core::imp::interface_hierarchy!(IDXGISwapChain4, windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
 impl IDXGISwapChain4 {
+    #[cfg(feature = "shared")]
     pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, pmetadata: Option<&[u8]>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHDRMetaData)(windows_core::Interface::as_raw(self), r#type, pmetadata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pmetadata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
     }
@@ -5044,16 +5404,19 @@ impl IDXGISwapChain4 {
 #[doc(hidden)]
 pub struct IDXGISwapChain4_Vtbl {
     pub base__: IDXGISwapChain3_Vtbl,
-    pub SetHDRMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_HDR_METADATA_TYPE, u32, *const core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetHDRMetaData: unsafe extern "system" fn(*mut core::ffi::c_void, DXGI_HDR_METADATA_TYPE, super::UINT, *const core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetHDRMetaData: usize,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub trait IDXGISwapChain4_Impl: IDXGISwapChain3_Impl {
-    fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: super::UINT, pmetadata: *const core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl IDXGISwapChain4_Vtbl {
     pub const fn new<Identity: IDXGISwapChain4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetHDRMetaData<Identity: IDXGISwapChain4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHDRMetaData<Identity: IDXGISwapChain4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: DXGI_HDR_METADATA_TYPE, size: super::UINT, pmetadata: *const core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChain4_Impl::SetHDRMetaData(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&size), core::mem::transmute_copy(&pmetadata)).into()
@@ -5065,19 +5428,21 @@ impl IDXGISwapChain4_Vtbl {
         iid == &<IDXGISwapChain4 as windows_core::Interface>::IID || iid == &<IDXGIObject as windows_core::Interface>::IID || iid == &<IDXGIDeviceSubObject as windows_core::Interface>::IID || iid == &<IDXGISwapChain as windows_core::Interface>::IID || iid == &<IDXGISwapChain1 as windows_core::Interface>::IID || iid == &<IDXGISwapChain2 as windows_core::Interface>::IID || iid == &<IDXGISwapChain3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGISwapChain4 {}
 windows_core::imp::define_interface!(IDXGISwapChainMedia, IDXGISwapChainMedia_Vtbl, 0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
 windows_core::imp::interface_hierarchy!(IDXGISwapChainMedia, windows_core::IUnknown);
 impl IDXGISwapChainMedia {
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetFrameStatisticsMedia(&self, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatisticsMedia)(windows_core::Interface::as_raw(self), pstats as _) }
     }
-    pub unsafe fn SetPresentDuration(&self, duration: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetPresentDuration(&self, duration: super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPresentDuration)(windows_core::Interface::as_raw(self), duration) }
     }
-    pub unsafe fn CheckPresentDurationSupport(&self, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CheckPresentDurationSupport(&self, desiredpresentduration: super::UINT, pclosestsmallerpresentduration: *mut super::UINT, pclosestlargerpresentduration: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckPresentDurationSupport)(windows_core::Interface::as_raw(self), desiredpresentduration, pclosestsmallerpresentduration as _, pclosestlargerpresentduration as _) }
     }
 }
@@ -5085,20 +5450,26 @@ impl IDXGISwapChainMedia {
 #[doc(hidden)]
 pub struct IDXGISwapChainMedia_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "winnt")]
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetFrameStatisticsMedia: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DXGI_FRAME_STATISTICS_MEDIA) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
     GetFrameStatisticsMedia: usize,
-    pub SetPresentDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub CheckPresentDurationSupport: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetPresentDuration: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetPresentDuration: usize,
+    #[cfg(feature = "shared")]
+    pub CheckPresentDurationSupport: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, *mut super::UINT, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CheckPresentDurationSupport: usize,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub trait IDXGISwapChainMedia_Impl: windows_core::IUnknownImpl {
     fn GetFrameStatisticsMedia(&self, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> windows_core::Result<()>;
-    fn SetPresentDuration(&self, duration: u32) -> windows_core::Result<()>;
-    fn CheckPresentDurationSupport(&self, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> windows_core::Result<()>;
+    fn SetPresentDuration(&self, duration: super::UINT) -> windows_core::Result<()>;
+    fn CheckPresentDurationSupport(&self, desiredpresentduration: super::UINT, pclosestsmallerpresentduration: *mut super::UINT, pclosestlargerpresentduration: *mut super::UINT) -> windows_core::Result<()>;
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl IDXGISwapChainMedia_Vtbl {
     pub const fn new<Identity: IDXGISwapChainMedia_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetFrameStatisticsMedia<Identity: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> windows_core::HRESULT {
@@ -5107,13 +5478,13 @@ impl IDXGISwapChainMedia_Vtbl {
                 IDXGISwapChainMedia_Impl::GetFrameStatisticsMedia(this, core::mem::transmute_copy(&pstats)).into()
             }
         }
-        unsafe extern "system" fn SetPresentDuration<Identity: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, duration: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetPresentDuration<Identity: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, duration: super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChainMedia_Impl::SetPresentDuration(this, core::mem::transmute_copy(&duration)).into()
             }
         }
-        unsafe extern "system" fn CheckPresentDurationSupport<Identity: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredpresentduration: u32, pclosestsmallerpresentduration: *mut u32, pclosestlargerpresentduration: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckPresentDurationSupport<Identity: IDXGISwapChainMedia_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, desiredpresentduration: super::UINT, pclosestsmallerpresentduration: *mut super::UINT, pclosestlargerpresentduration: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDXGISwapChainMedia_Impl::CheckPresentDurationSupport(this, core::mem::transmute_copy(&desiredpresentduration), core::mem::transmute_copy(&pclosestsmallerpresentduration), core::mem::transmute_copy(&pclosestlargerpresentduration)).into()
@@ -5130,6 +5501,52 @@ impl IDXGISwapChainMedia_Vtbl {
         iid == &<IDXGISwapChainMedia as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IDXGISwapChainMedia {}
+pub const IID_IDXGIAdapter: windows_core::GUID = windows_core::GUID::from_u128(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
+pub const IID_IDXGIAdapter1: windows_core::GUID = windows_core::GUID::from_u128(0x29038f61_3839_4626_91fd_086879011a05);
+pub const IID_IDXGIAdapter2: windows_core::GUID = windows_core::GUID::from_u128(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
+pub const IID_IDXGIAdapter3: windows_core::GUID = windows_core::GUID::from_u128(0x645967a4_1392_4310_a798_8053ce3e93fd);
+pub const IID_IDXGIAdapter4: windows_core::GUID = windows_core::GUID::from_u128(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
+pub const IID_IDXGIDebug: windows_core::GUID = windows_core::GUID::from_u128(0x119e7452_de9e_40fe_8806_88f90c12b441);
+pub const IID_IDXGIDebug1: windows_core::GUID = windows_core::GUID::from_u128(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
+pub const IID_IDXGIDecodeSwapChain: windows_core::GUID = windows_core::GUID::from_u128(0x2633066b_4514_4c7a_8fd8_12ea98059d18);
+pub const IID_IDXGIDevice: windows_core::GUID = windows_core::GUID::from_u128(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
+pub const IID_IDXGIDevice1: windows_core::GUID = windows_core::GUID::from_u128(0x77db970f_6276_48ba_ba28_070143b4392c);
+pub const IID_IDXGIDevice2: windows_core::GUID = windows_core::GUID::from_u128(0x05008617_fbfd_4051_a790_144884b4f6a9);
+pub const IID_IDXGIDevice3: windows_core::GUID = windows_core::GUID::from_u128(0x6007896c_3244_4afd_bf18_a6d3beda5023);
+pub const IID_IDXGIDevice4: windows_core::GUID = windows_core::GUID::from_u128(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
+pub const IID_IDXGIDeviceSubObject: windows_core::GUID = windows_core::GUID::from_u128(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
+pub const IID_IDXGIDisplayControl: windows_core::GUID = windows_core::GUID::from_u128(0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
+pub const IID_IDXGIFactory: windows_core::GUID = windows_core::GUID::from_u128(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
+pub const IID_IDXGIFactory1: windows_core::GUID = windows_core::GUID::from_u128(0x770aae78_f26f_4dba_a829_253c83d1b387);
+pub const IID_IDXGIFactory2: windows_core::GUID = windows_core::GUID::from_u128(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
+pub const IID_IDXGIFactory3: windows_core::GUID = windows_core::GUID::from_u128(0x25483823_cd46_4c7d_86ca_47aa95b837bd);
+pub const IID_IDXGIFactory4: windows_core::GUID = windows_core::GUID::from_u128(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
+pub const IID_IDXGIFactory5: windows_core::GUID = windows_core::GUID::from_u128(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
+pub const IID_IDXGIFactory6: windows_core::GUID = windows_core::GUID::from_u128(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
+pub const IID_IDXGIFactory7: windows_core::GUID = windows_core::GUID::from_u128(0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
+pub const IID_IDXGIFactoryMedia: windows_core::GUID = windows_core::GUID::from_u128(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
+pub const IID_IDXGIInfoQueue: windows_core::GUID = windows_core::GUID::from_u128(0xd67441c7_672a_476f_9e82_cd55b44949ce);
+pub const IID_IDXGIKeyedMutex: windows_core::GUID = windows_core::GUID::from_u128(0x9d8e1289_d7b3_465f_8126_250e349af85d);
+pub const IID_IDXGIObject: windows_core::GUID = windows_core::GUID::from_u128(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
+pub const IID_IDXGIOutput: windows_core::GUID = windows_core::GUID::from_u128(0xae02eedb_c735_4690_8d52_5a8dc20213aa);
+pub const IID_IDXGIOutput1: windows_core::GUID = windows_core::GUID::from_u128(0x00cddea8_939b_4b83_a340_a685226666cc);
+pub const IID_IDXGIOutput2: windows_core::GUID = windows_core::GUID::from_u128(0x595e39d1_2724_4663_99b1_da969de28364);
+pub const IID_IDXGIOutput3: windows_core::GUID = windows_core::GUID::from_u128(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
+pub const IID_IDXGIOutput4: windows_core::GUID = windows_core::GUID::from_u128(0xdc7dca35_2196_414d_9f53_617884032a60);
+pub const IID_IDXGIOutput5: windows_core::GUID = windows_core::GUID::from_u128(0x80a07424_ab52_42eb_833c_0c42fd282d98);
+pub const IID_IDXGIOutput6: windows_core::GUID = windows_core::GUID::from_u128(0x068346e8_aaec_4b84_add7_137f513f77a1);
+pub const IID_IDXGIOutputDuplication: windows_core::GUID = windows_core::GUID::from_u128(0x191cfac3_a341_470d_b26e_a864f428319c);
+pub const IID_IDXGIResource: windows_core::GUID = windows_core::GUID::from_u128(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
+pub const IID_IDXGIResource1: windows_core::GUID = windows_core::GUID::from_u128(0x30961379_4609_4a41_998e_54fe567ee0c1);
+pub const IID_IDXGISurface: windows_core::GUID = windows_core::GUID::from_u128(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
+pub const IID_IDXGISurface1: windows_core::GUID = windows_core::GUID::from_u128(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
+pub const IID_IDXGISurface2: windows_core::GUID = windows_core::GUID::from_u128(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
+pub const IID_IDXGISwapChain: windows_core::GUID = windows_core::GUID::from_u128(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
+pub const IID_IDXGISwapChain1: windows_core::GUID = windows_core::GUID::from_u128(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
+pub const IID_IDXGISwapChain2: windows_core::GUID = windows_core::GUID::from_u128(0xa8be2ac4_199f_4946_b331_79599fb98de7);
+pub const IID_IDXGISwapChain3: windows_core::GUID = windows_core::GUID::from_u128(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
+pub const IID_IDXGISwapChain4: windows_core::GUID = windows_core::GUID::from_u128(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
+pub const IID_IDXGISwapChainMedia: windows_core::GUID = windows_core::GUID::from_u128(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
 pub const _FACDXGI: i32 = 2170;

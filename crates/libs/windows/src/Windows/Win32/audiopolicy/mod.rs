@@ -223,7 +223,8 @@ impl IAudioSessionControl2 {
             (windows_core::Interface::vtable(self).GetSessionInstanceIdentifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetProcessId(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetProcessId(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProcessId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -242,19 +243,22 @@ pub struct IAudioSessionControl2_Vtbl {
     pub base__: IAudioSessionControl_Vtbl,
     pub GetSessionIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetSessionInstanceIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
-    pub GetProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetProcessId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetProcessId: usize,
     pub IsSystemSoundsSession: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDuckingPreference: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "shared"))]
 pub trait IAudioSessionControl2_Impl: IAudioSessionControl_Impl {
     fn GetSessionIdentifier(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetSessionInstanceIdentifier(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn GetProcessId(&self) -> windows_core::Result<u32>;
+    fn GetProcessId(&self) -> windows_core::Result<super::DWORD>;
     fn IsSystemSoundsSession(&self) -> windows_core::Result<()>;
     fn SetDuckingPreference(&self, optout: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "shared"))]
 impl IAudioSessionControl2_Vtbl {
     pub const fn new<Identity: IAudioSessionControl2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSessionIdentifier<Identity: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -281,7 +285,7 @@ impl IAudioSessionControl2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetProcessId<Identity: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProcessId<Identity: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pretval: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSessionControl2_Impl::GetProcessId(this) {
@@ -318,7 +322,7 @@ impl IAudioSessionControl2_Vtbl {
         iid == &<IAudioSessionControl2 as windows_core::Interface>::IID || iid == &<IAudioSessionControl as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IAudioSessionControl2 {}
 windows_core::imp::define_interface!(IAudioSessionEnumerator, IAudioSessionEnumerator_Vtbl, 0xe2f5bb11_0570_40ca_acdd_3aa01277dee8);
 windows_core::imp::interface_hierarchy!(IAudioSessionEnumerator, windows_core::IUnknown);
@@ -405,8 +409,8 @@ impl IAudioSessionEvents {
     pub unsafe fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: bool, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnSimpleVolumeChanged)(windows_core::Interface::as_raw(self), newvolume, newmute.into(), eventcontext) }
     }
-    #[cfg(feature = "guiddef")]
-    pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: u32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: super::DWORD, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnChannelVolumeChanged)(windows_core::Interface::as_raw(self), newchannelvolumearray.len().try_into().unwrap(), newchannelvolumearray.as_ptr(), changedchannel, eventcontext) }
     }
     #[cfg(feature = "guiddef")]
@@ -437,9 +441,9 @@ pub struct IAudioSessionEvents_Vtbl {
     pub OnSimpleVolumeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, f32, windows_core::BOOL, super::LPCGUID) -> windows_core::HRESULT,
     #[cfg(not(feature = "guiddef"))]
     OnSimpleVolumeChanged: usize,
-    #[cfg(feature = "guiddef")]
-    pub OnChannelVolumeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, u32, super::LPCGUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "guiddef"))]
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub OnChannelVolumeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *const f32, super::DWORD, super::LPCGUID) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
     OnChannelVolumeChanged: usize,
     #[cfg(feature = "guiddef")]
     pub OnGroupingParamChanged: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCGUID, super::LPCGUID) -> windows_core::HRESULT,
@@ -451,17 +455,17 @@ pub struct IAudioSessionEvents_Vtbl {
     OnStateChanged: usize,
     pub OnSessionDisconnected: unsafe extern "system" fn(*mut core::ffi::c_void, AudioSessionDisconnectReason) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "shared"))]
 pub trait IAudioSessionEvents_Impl: windows_core::IUnknownImpl {
     fn OnDisplayNameChanged(&self, newdisplayname: &windows_core::PCWSTR, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn OnIconPathChanged(&self, newiconpath: &windows_core::PCWSTR, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn OnSimpleVolumeChanged(&self, newvolume: f32, newmute: windows_core::BOOL, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
-    fn OnChannelVolumeChanged(&self, channelcount: u32, newchannelvolumearray: *const f32, changedchannel: u32, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
+    fn OnChannelVolumeChanged(&self, channelcount: super::DWORD, newchannelvolumearray: *const f32, changedchannel: super::DWORD, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn OnGroupingParamChanged(&self, newgroupingparam: super::LPCGUID, eventcontext: super::LPCGUID) -> windows_core::Result<()>;
     fn OnStateChanged(&self, newstate: super::AudioSessionState) -> windows_core::Result<()>;
     fn OnSessionDisconnected(&self, disconnectreason: AudioSessionDisconnectReason) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "shared"))]
 impl IAudioSessionEvents_Vtbl {
     pub const fn new<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnDisplayNameChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newdisplayname: windows_core::PCWSTR, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
@@ -482,7 +486,7 @@ impl IAudioSessionEvents_Vtbl {
                 IAudioSessionEvents_Impl::OnSimpleVolumeChanged(this, core::mem::transmute_copy(&newvolume), core::mem::transmute_copy(&newmute), core::mem::transmute_copy(&eventcontext)).into()
             }
         }
-        unsafe extern "system" fn OnChannelVolumeChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelcount: u32, newchannelvolumearray: *const f32, changedchannel: u32, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnChannelVolumeChanged<Identity: IAudioSessionEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelcount: super::DWORD, newchannelvolumearray: *const f32, changedchannel: super::DWORD, eventcontext: super::LPCGUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioSessionEvents_Impl::OnChannelVolumeChanged(this, core::mem::transmute_copy(&channelcount), core::mem::transmute_copy(&newchannelvolumearray), core::mem::transmute_copy(&changedchannel), core::mem::transmute_copy(&eventcontext)).into()
@@ -521,20 +525,20 @@ impl IAudioSessionEvents_Vtbl {
         iid == &<IAudioSessionEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "audiosessiontypes", feature = "guiddef"))]
+#[cfg(all(feature = "audiosessiontypes", feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IAudioSessionEvents {}
 windows_core::imp::define_interface!(IAudioSessionManager, IAudioSessionManager_Vtbl, 0xbfa971f1_4d5e_40bb_935e_967039bfbee4);
 windows_core::imp::interface_hierarchy!(IAudioSessionManager, windows_core::IUnknown);
 impl IAudioSessionManager {
-    #[cfg(feature = "guiddef")]
-    pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: u32) -> windows_core::Result<IAudioSessionControl> {
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn GetAudioSessionControl(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD) -> windows_core::Result<IAudioSessionControl> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAudioSessionControl)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "audioclient", feature = "guiddef"))]
-    pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: u32) -> windows_core::Result<super::ISimpleAudioVolume> {
+    #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
+    pub unsafe fn GetSimpleAudioVolume(&self, audiosessionguid: Option<super::LPCGUID>, streamflags: super::DWORD) -> windows_core::Result<super::ISimpleAudioVolume> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSimpleAudioVolume)(windows_core::Interface::as_raw(self), audiosessionguid.unwrap_or(core::mem::zeroed()) as _, streamflags, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -545,24 +549,24 @@ impl IAudioSessionManager {
 #[doc(hidden)]
 pub struct IAudioSessionManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "guiddef")]
-    pub GetAudioSessionControl: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCGUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "guiddef"))]
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub GetAudioSessionControl: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCGUID, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
     GetAudioSessionControl: usize,
-    #[cfg(all(feature = "audioclient", feature = "guiddef"))]
-    pub GetSimpleAudioVolume: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCGUID, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "audioclient", feature = "guiddef")))]
+    #[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
+    pub GetSimpleAudioVolume: unsafe extern "system" fn(*mut core::ffi::c_void, super::LPCGUID, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "audioclient", feature = "guiddef", feature = "shared")))]
     GetSimpleAudioVolume: usize,
 }
-#[cfg(all(feature = "audioclient", feature = "guiddef"))]
+#[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 pub trait IAudioSessionManager_Impl: windows_core::IUnknownImpl {
-    fn GetAudioSessionControl(&self, audiosessionguid: super::LPCGUID, streamflags: u32) -> windows_core::Result<IAudioSessionControl>;
-    fn GetSimpleAudioVolume(&self, audiosessionguid: super::LPCGUID, streamflags: u32) -> windows_core::Result<super::ISimpleAudioVolume>;
+    fn GetAudioSessionControl(&self, audiosessionguid: super::LPCGUID, streamflags: super::DWORD) -> windows_core::Result<IAudioSessionControl>;
+    fn GetSimpleAudioVolume(&self, audiosessionguid: super::LPCGUID, streamflags: super::DWORD) -> windows_core::Result<super::ISimpleAudioVolume>;
 }
-#[cfg(all(feature = "audioclient", feature = "guiddef"))]
+#[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 impl IAudioSessionManager_Vtbl {
     pub const fn new<Identity: IAudioSessionManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAudioSessionControl<Identity: IAudioSessionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiosessionguid: super::LPCGUID, streamflags: u32, sessioncontrol: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAudioSessionControl<Identity: IAudioSessionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiosessionguid: super::LPCGUID, streamflags: super::DWORD, sessioncontrol: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSessionManager_Impl::GetAudioSessionControl(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags)) {
@@ -574,7 +578,7 @@ impl IAudioSessionManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSimpleAudioVolume<Identity: IAudioSessionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiosessionguid: super::LPCGUID, streamflags: u32, audiovolume: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSimpleAudioVolume<Identity: IAudioSessionManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, audiosessionguid: super::LPCGUID, streamflags: super::DWORD, audiovolume: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAudioSessionManager_Impl::GetSimpleAudioVolume(this, core::mem::transmute_copy(&audiosessionguid), core::mem::transmute_copy(&streamflags)) {
@@ -596,7 +600,7 @@ impl IAudioSessionManager_Vtbl {
         iid == &<IAudioSessionManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "audioclient", feature = "guiddef"))]
+#[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IAudioSessionManager {}
 windows_core::imp::define_interface!(IAudioSessionManager2, IAudioSessionManager2_Vtbl, 0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f);
 impl core::ops::Deref for IAudioSessionManager2 {
@@ -613,17 +617,11 @@ impl IAudioSessionManager2 {
             (windows_core::Interface::vtable(self).GetSessionEnumerator)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RegisterSessionNotification<P0>(&self, sessionnotification: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<IAudioSessionNotification>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).RegisterSessionNotification)(windows_core::Interface::as_raw(self), sessionnotification.param().abi()) }
+    pub unsafe fn RegisterSessionNotification(&self, sessionnotification: &Option<IAudioSessionNotification>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterSessionNotification)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sessionnotification)) }
     }
-    pub unsafe fn UnregisterSessionNotification<P0>(&self, sessionnotification: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<IAudioSessionNotification>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterSessionNotification)(windows_core::Interface::as_raw(self), sessionnotification.param().abi()) }
+    pub unsafe fn UnregisterSessionNotification(&self, sessionnotification: &Option<IAudioSessionNotification>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnregisterSessionNotification)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sessionnotification)) }
     }
     pub unsafe fn RegisterDuckNotification<P0, P1>(&self, sessionid: P0, ducknotification: P1) -> windows_core::HRESULT
     where
@@ -649,15 +647,15 @@ pub struct IAudioSessionManager2_Vtbl {
     pub RegisterDuckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnregisterDuckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "audioclient", feature = "guiddef"))]
+#[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 pub trait IAudioSessionManager2_Impl: IAudioSessionManager_Impl {
     fn GetSessionEnumerator(&self) -> windows_core::Result<IAudioSessionEnumerator>;
-    fn RegisterSessionNotification(&self, sessionnotification: windows_core::Ref<IAudioSessionNotification>) -> windows_core::Result<()>;
-    fn UnregisterSessionNotification(&self, sessionnotification: windows_core::Ref<IAudioSessionNotification>) -> windows_core::Result<()>;
+    fn RegisterSessionNotification(&self, sessionnotification: Option<IAudioSessionNotification>) -> windows_core::Result<()>;
+    fn UnregisterSessionNotification(&self, sessionnotification: Option<IAudioSessionNotification>) -> windows_core::Result<()>;
     fn RegisterDuckNotification(&self, sessionid: &windows_core::PCWSTR, ducknotification: windows_core::Ref<IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
     fn UnregisterDuckNotification(&self, ducknotification: windows_core::Ref<IAudioVolumeDuckNotification>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "audioclient", feature = "guiddef"))]
+#[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 impl IAudioSessionManager2_Vtbl {
     pub const fn new<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSessionEnumerator<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -675,13 +673,13 @@ impl IAudioSessionManager2_Vtbl {
         unsafe extern "system" fn RegisterSessionNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionnotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionManager2_Impl::RegisterSessionNotification(this, core::mem::transmute_copy(&sessionnotification)).into()
+                IAudioSessionManager2_Impl::RegisterSessionNotification(this, core::mem::transmute(&sessionnotification)).into()
             }
         }
         unsafe extern "system" fn UnregisterSessionNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionnotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAudioSessionManager2_Impl::UnregisterSessionNotification(this, core::mem::transmute_copy(&sessionnotification)).into()
+                IAudioSessionManager2_Impl::UnregisterSessionNotification(this, core::mem::transmute(&sessionnotification)).into()
             }
         }
         unsafe extern "system" fn RegisterDuckNotification<Identity: IAudioSessionManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, ducknotification: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -709,7 +707,7 @@ impl IAudioSessionManager2_Vtbl {
         iid == &<IAudioSessionManager2 as windows_core::Interface>::IID || iid == &<IAudioSessionManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "audioclient", feature = "guiddef"))]
+#[cfg(all(feature = "audioclient", feature = "guiddef", feature = "shared"))]
 impl windows_core::RuntimeName for IAudioSessionManager2 {}
 windows_core::imp::define_interface!(IAudioSessionNotification, IAudioSessionNotification_Vtbl, 0x641dd20b_4d41_49cc_aba3_174b9477bb08);
 windows_core::imp::interface_hierarchy!(IAudioSessionNotification, windows_core::IUnknown);
@@ -748,7 +746,8 @@ impl windows_core::RuntimeName for IAudioSessionNotification {}
 windows_core::imp::define_interface!(IAudioVolumeDuckNotification, IAudioVolumeDuckNotification_Vtbl, 0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
 windows_core::imp::interface_hierarchy!(IAudioVolumeDuckNotification, windows_core::IUnknown);
 impl IAudioVolumeDuckNotification {
-    pub unsafe fn OnVolumeDuckNotification<P0>(&self, sessionid: P0, countcommunicationsessions: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn OnVolumeDuckNotification<P0>(&self, sessionid: P0, countcommunicationsessions: super::UINT32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -765,16 +764,21 @@ impl IAudioVolumeDuckNotification {
 #[doc(hidden)]
 pub struct IAudioVolumeDuckNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OnVolumeDuckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub OnVolumeDuckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::UINT32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    OnVolumeDuckNotification: usize,
     pub OnVolumeUnduckNotification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IAudioVolumeDuckNotification_Impl: windows_core::IUnknownImpl {
-    fn OnVolumeDuckNotification(&self, sessionid: &windows_core::PCWSTR, countcommunicationsessions: u32) -> windows_core::Result<()>;
+    fn OnVolumeDuckNotification(&self, sessionid: &windows_core::PCWSTR, countcommunicationsessions: super::UINT32) -> windows_core::Result<()>;
     fn OnVolumeUnduckNotification(&self, sessionid: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IAudioVolumeDuckNotification_Vtbl {
     pub const fn new<Identity: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OnVolumeDuckNotification<Identity: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, countcommunicationsessions: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn OnVolumeDuckNotification<Identity: IAudioVolumeDuckNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: windows_core::PCWSTR, countcommunicationsessions: super::UINT32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAudioVolumeDuckNotification_Impl::OnVolumeDuckNotification(this, core::mem::transmute(&sessionid), core::mem::transmute_copy(&countcommunicationsessions)).into()
@@ -796,4 +800,5 @@ impl IAudioVolumeDuckNotification_Vtbl {
         iid == &<IAudioVolumeDuckNotification as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IAudioVolumeDuckNotification {}

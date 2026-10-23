@@ -4,14 +4,14 @@ pub const DISCOVERY_FILTER_BITMASK_DEVICE: i32 = 1;
 pub const DISCOVERY_FILTER_BITMASK_GO: i32 = 2;
 pub type DOT11_AC_PARAM = i32;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ADDITIONAL_IE {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uBeaconIEsOffset: u32,
-    pub uBeaconIEsLength: u32,
-    pub uResponseIEsOffset: u32,
-    pub uResponseIEsLength: u32,
+    pub uBeaconIEsOffset: super::ULONG,
+    pub uBeaconIEsLength: super::ULONG,
+    pub uResponseIEsOffset: super::ULONG,
+    pub uResponseIEsLength: super::ULONG,
 }
 pub const DOT11_ADDITIONAL_IE_REVISION_1: i32 = 1;
 #[repr(C)]
@@ -21,27 +21,27 @@ pub struct DOT11_AKM_CIPHER_PAIR {
     pub cipher: RSNA_CIPHER_SUITE,
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub Status: DOT11_ANQP_QUERY_RESULT,
     pub hContext: super::HANDLE,
-    pub uResponseLength: u32,
+    pub uResponseLength: super::ULONG,
 }
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_ANQP_QUERY_RESULT = i32;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AP_JOIN_REQUEST {
-    pub uJoinFailureTimeout: u32,
+    pub uJoinFailureTimeout: super::ULONG,
     pub OperationalRateSet: DOT11_RATE_SET,
-    pub uChCenterFrequency: u32,
+    pub uChCenterFrequency: super::ULONG,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -49,29 +49,29 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub uStatus: DOT11_ASSOC_STATUS,
     pub bReAssocReq: super::BOOLEAN,
     pub bReAssocResp: super::BOOLEAN,
-    pub uAssocReqOffset: u32,
-    pub uAssocReqSize: u32,
-    pub uAssocRespOffset: u32,
-    pub uAssocRespSize: u32,
-    pub uBeaconOffset: u32,
-    pub uBeaconSize: u32,
-    pub uIHVDataOffset: u32,
-    pub uIHVDataSize: u32,
+    pub uAssocReqOffset: super::ULONG,
+    pub uAssocReqSize: super::ULONG,
+    pub uAssocRespOffset: super::ULONG,
+    pub uAssocRespSize: super::ULONG,
+    pub uBeaconOffset: super::ULONG,
+    pub uBeaconSize: super::ULONG,
+    pub uIHVDataOffset: super::ULONG,
+    pub uIHVDataSize: super::ULONG,
     pub AuthAlgo: super::DOT11_AUTH_ALGORITHM,
     pub UnicastCipher: super::DOT11_CIPHER_ALGORITHM,
     pub MulticastCipher: super::DOT11_CIPHER_ALGORITHM,
-    pub uActivePhyListOffset: u32,
-    pub uActivePhyListSize: u32,
+    pub uActivePhyListOffset: super::ULONG,
+    pub uActivePhyListSize: super::ULONG,
     pub bFourAddressSupported: super::BOOLEAN,
     pub bPortAuthorized: super::BOOLEAN,
-    pub ucActiveQoSProtocol: u8,
+    pub ucActiveQoSProtocol: super::UCHAR,
     pub DSInfo: DOT11_DS_INFO,
-    pub uEncapTableOffset: u32,
-    pub uEncapTableSize: u32,
+    pub uEncapTableOffset: super::ULONG,
+    pub uEncapTableSize: super::ULONG,
     pub MulticastMgmtCipher: super::DOT11_CIPHER_ALGORITHM,
-    pub uAssocComebackTime: u32,
+    pub uAssocComebackTime: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -80,39 +80,39 @@ impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_ASSOCIATION_INFO_EX {
     pub PeerMacAddress: DOT11_MAC_ADDRESS,
     pub BSSID: DOT11_MAC_ADDRESS,
-    pub usCapabilityInformation: u16,
-    pub usListenInterval: u16,
-    pub ucPeerSupportedRates: [u8; 255],
-    pub usAssociationID: u16,
+    pub usCapabilityInformation: super::USHORT,
+    pub usListenInterval: super::USHORT,
+    pub ucPeerSupportedRates: [super::UCHAR; 255],
+    pub usAssociationID: super::USHORT,
     pub dot11AssociationState: DOT11_ASSOCIATION_STATE,
     pub dot11PowerMode: DOT11_POWER_MODE,
     pub liAssociationUpTime: super::LARGE_INTEGER,
-    pub ullNumOfTxPacketSuccesses: u64,
-    pub ullNumOfTxPacketFailures: u64,
-    pub ullNumOfRxPacketSuccesses: u64,
-    pub ullNumOfRxPacketFailures: u64,
+    pub ullNumOfTxPacketSuccesses: super::ULONGLONG,
+    pub ullNumOfTxPacketFailures: super::ULONGLONG,
+    pub ullNumOfRxPacketSuccesses: super::ULONGLONG,
+    pub ullNumOfRxPacketFailures: super::ULONGLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_ASSOCIATION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11AssocInfo: [DOT11_ASSOCIATION_INFO_EX; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 impl Default for DOT11_ASSOCIATION_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -120,15 +120,15 @@ impl Default for DOT11_ASSOCIATION_INFO_LIST {
 }
 pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_PARAMS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub BSSID: DOT11_MAC_ADDRESS,
-    pub uAssocRequestIEsOffset: u32,
-    pub uAssocRequestIEsLength: u32,
+    pub uAssocRequestIEsOffset: super::ULONG,
+    pub uAssocRequestIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_ASSOCIATION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -136,16 +136,16 @@ impl Default for DOT11_ASSOCIATION_PARAMS {
 }
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub MacAddr: DOT11_MAC_ADDRESS,
     pub SSID: super::DOT11_SSID,
-    pub uIHVDataOffset: u32,
-    pub uIHVDataSize: u32,
+    pub uIHVDataOffset: super::ULONG,
+    pub uIHVDataSize: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_ASSOCIATION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -184,15 +184,15 @@ pub const DOT11_ASSOC_STATUS_SUCCESS: i32 = 0;
 pub const DOT11_ASSOC_STATUS_SYSTEM_ERROR: u32 = 10;
 pub const DOT11_ASSOC_STATUS_UNREACHABLE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub AlgorithmIds: [super::DOT11_AUTH_ALGORITHM; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_AUTH_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -201,15 +201,15 @@ impl Default for DOT11_AUTH_ALGORITHM_LIST {
 pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: i32 = 1;
 pub const DOT11_AUTH_ALGO_MICHAEL: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub AuthCipherPairs: [super::DOT11_AUTH_CIPHER_PAIR; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -217,15 +217,15 @@ impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
 }
 pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
-    pub uChannelNumber: [u32; 1],
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
+    pub uChannelNumber: [super::ULONG; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -233,15 +233,15 @@ impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
 }
 pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
-    pub uFrequencyValue: [u32; 1],
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
+    pub uFrequencyValue: [super::ULONG; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -250,26 +250,28 @@ impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: i32 = 1;
 pub type DOT11_BAND = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSSID_CANDIDATE {
     pub BSSID: DOT11_MAC_ADDRESS,
-    pub uFlags: u32,
+    pub uFlags: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_BSSID_CANDIDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSSID_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub BSSIDs: [DOT11_MAC_ADDRESS; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_BSSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -277,43 +279,43 @@ impl Default for DOT11_BSSID_LIST {
 }
 pub const DOT11_BSSID_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSS_DESCRIPTION {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
     pub dot11BSSType: super::DOT11_BSS_TYPE,
-    pub usBeaconPeriod: u16,
-    pub ullTimestamp: u64,
-    pub usCapabilityInformation: u16,
-    pub uBufferLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub usBeaconPeriod: super::USHORT,
+    pub ullTimestamp: super::ULONGLONG,
+    pub usCapabilityInformation: super::USHORT,
+    pub uBufferLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_BSS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_BSS_ENTRY {
-    pub uPhyId: u32,
+    pub uPhyId: super::ULONG,
     pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
     pub dot11BSSType: super::DOT11_BSS_TYPE,
-    pub lRSSI: i32,
-    pub uLinkQuality: u32,
+    pub lRSSI: super::LONG,
+    pub uLinkQuality: super::ULONG,
     pub bInRegDomain: super::BOOLEAN,
-    pub usBeaconPeriod: u16,
-    pub ullTimestamp: u64,
-    pub ullHostTimestamp: u64,
-    pub usCapabilityInformation: u16,
-    pub uBufferLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub usBeaconPeriod: super::USHORT,
+    pub ullTimestamp: super::ULONGLONG,
+    pub ullHostTimestamp: super::ULONGLONG,
+    pub usCapabilityInformation: super::USHORT,
+    pub uBufferLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -321,44 +323,47 @@ impl Default for DOT11_BSS_ENTRY {
 }
 pub const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
-    pub uChCenterFrequency: u32,
+    pub uChCenterFrequency: super::ULONG,
     pub FHSS: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
-    pub uHopPattern: u32,
-    pub uHopSet: u32,
-    pub uDwellTime: u32,
+    pub uHopPattern: super::ULONG,
+    pub uHopSet: super::ULONG,
+    pub uDwellTime: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BYTE_ARRAY {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfBytes: u32,
-    pub uTotalNumOfBytes: u32,
-    pub ucBuffer: [u8; 1],
+    pub uNumOfBytes: super::ULONG,
+    pub uTotalNumOfBytes: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_BYTE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub ulReason: u32,
+    pub ulReason: super::ULONG,
 }
 pub const DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_CAN_SUSTAIN_AP_REASON_IHV_END: u32 = 4294967295;
@@ -379,21 +384,22 @@ pub const DOT11_CCA_MODE_ED_ONLY: i32 = 1;
 pub const DOT11_CCA_MODE_ED_and_CS: i32 = 4;
 pub const DOT11_CCA_MODE_HRCS_AND_ED: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CHANNEL_HINT {
     pub Dot11PhyType: DOT11_PHY_TYPE,
-    pub uChannelNumber: u32,
+    pub uChannelNumber: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub AlgorithmIds: [super::DOT11_CIPHER_ALGORITHM; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_CIPHER_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -401,19 +407,19 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
 }
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uKeyIndex: u32,
+    pub uKeyIndex: super::ULONG,
     pub AlgorithmId: super::DOT11_CIPHER_ALGORITHM,
     pub MacAddr: DOT11_MAC_ADDRESS,
     pub bDelete: super::BOOLEAN,
     pub bStatic: super::BOOLEAN,
-    pub usKeyLength: u16,
-    pub ucKey: [u8; 1],
+    pub usKeyLength: super::USHORT,
+    pub ucKey: [super::UCHAR; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -421,7 +427,7 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 }
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -429,10 +435,10 @@ pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub Direction: DOT11_DIRECTION,
     pub bDelete: super::BOOLEAN,
     pub bStatic: super::BOOLEAN,
-    pub usKeyLength: u16,
-    pub ucKey: [u8; 1],
+    pub usKeyLength: super::USHORT,
+    pub ucKey: [super::UCHAR; 1],
 }
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -442,7 +448,7 @@ pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: i32 = 1;
 pub const DOT11_CONF_ALGO_TKIP: i32 = 2;
 pub const DOT11_CONF_ALGO_WEP_RC4: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -450,7 +456,7 @@ pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
 }
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -458,7 +464,7 @@ pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub AdhocBSSID: DOT11_MAC_ADDRESS,
     pub AdhocSSID: super::DOT11_SSID,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_CONNECTION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -473,33 +479,34 @@ pub const DOT11_CONNECTION_STATUS_IHV_START: u32 = 2147483648;
 pub const DOT11_CONNECTION_STATUS_PHY_POWER_DOWN: u32 = 3;
 pub const DOT11_CONNECTION_STATUS_SUCCESS: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_COUNTERS_ENTRY {
-    pub uTransmittedFragmentCount: u32,
-    pub uMulticastTransmittedFrameCount: u32,
-    pub uFailedCount: u32,
-    pub uRetryCount: u32,
-    pub uMultipleRetryCount: u32,
-    pub uFrameDuplicateCount: u32,
-    pub uRTSSuccessCount: u32,
-    pub uRTSFailureCount: u32,
-    pub uACKFailureCount: u32,
-    pub uReceivedFragmentCount: u32,
-    pub uMulticastReceivedFrameCount: u32,
-    pub uFCSErrorCount: u32,
-    pub uTransmittedFrameCount: u32,
+    pub uTransmittedFragmentCount: super::ULONG,
+    pub uMulticastTransmittedFrameCount: super::ULONG,
+    pub uFailedCount: super::ULONG,
+    pub uRetryCount: super::ULONG,
+    pub uMultipleRetryCount: super::ULONG,
+    pub uFrameDuplicateCount: super::ULONG,
+    pub uRTSSuccessCount: super::ULONG,
+    pub uRTSFailureCount: super::ULONG,
+    pub uACKFailureCount: super::ULONG,
+    pub uReceivedFragmentCount: super::ULONG,
+    pub uMulticastReceivedFrameCount: super::ULONG,
+    pub uFCSErrorCount: super::ULONG,
+    pub uTransmittedFrameCount: super::ULONG,
 }
 pub type DOT11_COUNTRY_OR_REGION_STRING = [u8; 3];
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub CountryOrRegionStrings: [DOT11_COUNTRY_OR_REGION_STRING; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -507,22 +514,24 @@ impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
 }
 pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
-    pub uReserved: u32,
-    pub uFlags: u32,
+    pub uReserved: super::ULONG,
+    pub uFlags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OPERATION_MODE {
-    pub uReserved: u32,
-    pub uCurrentOpMode: u32,
+    pub uReserved: super::ULONG,
+    pub uCurrentOpMode: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub bDot11CFPollable: super::BOOLEAN,
     pub bDot11PCF: super::BOOLEAN,
     pub bDot11PCFMPDUTransferToPC: super::BOOLEAN,
@@ -530,21 +539,22 @@ pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
 }
 pub const DOT11_DATA_RATE_INDEX_MASK: u32 = 127;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
-    pub ucDataRateIndex: u8,
-    pub ucDataRateFlag: u8,
-    pub usDataRateValue: u16,
+    pub ucDataRateIndex: super::UCHAR,
+    pub ucDataRateFlag: super::UCHAR,
+    pub usDataRateValue: super::USHORT,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_TABLE {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uDataRateMappingLength: u32,
+    pub uDataRateMappingLength: super::ULONG,
     pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -553,42 +563,42 @@ impl Default for DOT11_DATA_RATE_MAPPING_TABLE {
 pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: i32 = 1;
 pub const DOT11_DATA_RATE_NON_STANDARD: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_OFFLOAD {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub hOffloadContext: super::HANDLE,
     pub hOffload: super::HANDLE,
-    pub dwIndex: u32,
+    pub dwIndex: super::ULONG,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
-    pub dwAlgorithm: u32,
-    pub uFlags: u32,
+    pub dwAlgorithm: super::ULONG,
+    pub uFlags: super::ULONG,
     pub dot11KeyDirection: DOT11_KEY_DIRECTION,
-    pub ucMacAddress: [u8; 6],
-    pub uNumOfRWsOnMe: u32,
+    pub ucMacAddress: [super::UCHAR; 6],
+    pub uNumOfRWsOnMe: super::ULONG,
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-    pub usDot11RWBitMaps: [u16; 16],
-    pub usKeyLength: u16,
-    pub ucKey: [u8; 1],
+    pub usDot11RWBitMaps: [super::USHORT; 16],
+    pub usKeyLength: super::USHORT,
+    pub ucKey: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_DEFAULT_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_UPLOAD {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub hOffload: super::HANDLE,
-    pub uNumOfRWsUsed: u32,
+    pub uNumOfRWsUsed: super::ULONG,
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-    pub usDot11RWBitMaps: [u16; 16],
+    pub usDot11RWBitMaps: [super::USHORT; 16],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_DEFAULT_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -601,14 +611,14 @@ pub const DOT11_DIR_BOTH: DOT11_DIRECTION = 3;
 pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = 1;
 pub const DOT11_DIR_OUTBOUND: DOT11_DIRECTION = 2;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
-    pub usReason: u16,
+    pub usReason: super::USHORT,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -616,16 +626,16 @@ impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
 }
 pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub MacAddr: DOT11_MAC_ADDRESS,
     pub uReason: DOT11_ASSOC_STATUS,
-    pub uIHVDataOffset: u32,
-    pub uIHVDataSize: u32,
+    pub uIHVDataOffset: super::ULONG,
+    pub uIHVDataSize: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_DISASSOCIATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -641,21 +651,21 @@ pub const DOT11_DISASSOC_REASON_PEER_UNREACHABLE: u32 = 2;
 pub const DOT11_DISASSOC_REASON_PHY_DISABLED: u32 = 4;
 pub const DOT11_DISASSOC_REASON_RADIO_OFF: u32 = 3;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
-    pub uAntennaListIndex: u32,
+    pub uAntennaListIndex: super::ULONG,
     pub bDiversitySelectionRX: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11DiversitySelectionRx: [DOT11_DIVERSITY_SELECTION_RX; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DOT11_DIVERSITY_SELECTION_RX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -668,14 +678,15 @@ pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = 1;
 pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = 2;
 pub const DOT11_ENCAP_802_1H: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ENCAP_ENTRY {
-    pub usEtherType: u16,
-    pub usEncapType: u16,
+    pub usEtherType: super::USHORT,
+    pub usEncapType: super::USHORT,
 }
 pub const DOT11_ENCAP_RFC_1042: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
@@ -690,85 +701,63 @@ pub const DOT11_EXEMPT_NO_EXEMPTION: i32 = 0;
 pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: i32 = 2;
 pub const DOT11_EXEMPT_UNICAST: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uScanSSIDListSize: u32,
-    pub uDesiredSSIDListSize: u32,
-    pub uPrivacyExemptionListSize: u32,
-    pub uAssociationTableSize: u32,
-    pub uDefaultKeyTableSize: u32,
-    pub uWEPKeyValueMaxLength: u32,
+    pub uScanSSIDListSize: super::ULONG,
+    pub uDesiredSSIDListSize: super::ULONG,
+    pub uPrivacyExemptionListSize: super::ULONG,
+    pub uAssociationTableSize: super::ULONG,
+    pub uDefaultKeyTableSize: super::ULONG,
+    pub uWEPKeyValueMaxLength: super::ULONG,
     pub bStrictlyOrderedServiceClassImplemented: super::BOOLEAN,
-    pub uNumSupportedCountryOrRegionStrings: u32,
+    pub uNumSupportedCountryOrRegionStrings: super::ULONG,
     pub pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
-    pub uInfraNumSupportedUcastAlgoPairs: u32,
+    pub uInfraNumSupportedUcastAlgoPairs: super::ULONG,
     pub pInfraSupportedUcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
-    pub uInfraNumSupportedMcastAlgoPairs: u32,
+    pub uInfraNumSupportedMcastAlgoPairs: super::ULONG,
     pub pInfraSupportedMcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
 }
 pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DOT11_EXTAP_RECV_CONTEXT {
-    pub Header: super::NDIS_OBJECT_HEADER,
-    pub uReceiveFlags: u32,
-    pub uPhyId: u32,
-    pub uChCenterFrequency: u32,
-    pub usNumberOfMPDUsReceived: u16,
-    pub lRSSI: i32,
-    pub ucDataRate: u8,
-    pub uSizeMediaSpecificInfo: u32,
-    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
-    pub ullTimestamp: u64,
-}
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type DOT11_EXTAP_RECV_CONTEXT = DOT11_EXTSTA_RECV_CONTEXT;
 pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DOT11_EXTAP_SEND_CONTEXT {
-    pub Header: super::NDIS_OBJECT_HEADER,
-    pub usExemptionActionType: u16,
-    pub uPhyId: u32,
-    pub uDelayedSleepValue: u32,
-    pub pvMediaSpecificInfo: *mut core::ffi::c_void,
-    pub uSendFlags: u32,
-}
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uScanSSIDListSize: u32,
-    pub uDesiredBSSIDListSize: u32,
-    pub uDesiredSSIDListSize: u32,
-    pub uExcludedMacAddressListSize: u32,
-    pub uPrivacyExemptionListSize: u32,
-    pub uKeyMappingTableSize: u32,
-    pub uDefaultKeyTableSize: u32,
-    pub uWEPKeyValueMaxLength: u32,
-    pub uPMKIDCacheSize: u32,
-    pub uMaxNumPerSTADefaultKeyTables: u32,
+    pub uScanSSIDListSize: super::ULONG,
+    pub uDesiredBSSIDListSize: super::ULONG,
+    pub uDesiredSSIDListSize: super::ULONG,
+    pub uExcludedMacAddressListSize: super::ULONG,
+    pub uPrivacyExemptionListSize: super::ULONG,
+    pub uKeyMappingTableSize: super::ULONG,
+    pub uDefaultKeyTableSize: super::ULONG,
+    pub uWEPKeyValueMaxLength: super::ULONG,
+    pub uPMKIDCacheSize: super::ULONG,
+    pub uMaxNumPerSTADefaultKeyTables: super::ULONG,
     pub bStrictlyOrderedServiceClassImplemented: super::BOOLEAN,
-    pub ucSupportedQoSProtocolFlags: u8,
+    pub ucSupportedQoSProtocolFlags: super::UCHAR,
     pub bSafeModeImplemented: super::BOOLEAN,
-    pub uNumSupportedCountryOrRegionStrings: u32,
+    pub uNumSupportedCountryOrRegionStrings: super::ULONG,
     pub pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
-    pub uInfraNumSupportedUcastAlgoPairs: u32,
+    pub uInfraNumSupportedUcastAlgoPairs: super::ULONG,
     pub pInfraSupportedUcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
-    pub uInfraNumSupportedMcastAlgoPairs: u32,
+    pub uInfraNumSupportedMcastAlgoPairs: super::ULONG,
     pub pInfraSupportedMcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
-    pub uAdhocNumSupportedUcastAlgoPairs: u32,
+    pub uAdhocNumSupportedUcastAlgoPairs: super::ULONG,
     pub pAdhocSupportedUcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
-    pub uAdhocNumSupportedMcastAlgoPairs: u32,
+    pub uAdhocNumSupportedMcastAlgoPairs: super::ULONG,
     pub pAdhocSupportedMcastAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
     pub bAutoPowerSaveMode: super::BOOLEAN,
-    pub uMaxNetworkOffloadListSize: u32,
+    pub uMaxNetworkOffloadListSize: super::ULONG,
     pub bMFPCapable: super::BOOLEAN,
-    pub uInfraNumSupportedMcastMgmtAlgoPairs: u32,
+    pub uInfraNumSupportedMcastMgmtAlgoPairs: super::ULONG,
     pub pInfraSupportedMcastMgmtAlgoPairs: super::PDOT11_AUTH_CIPHER_PAIR,
     pub bNeighborReportSupported: super::BOOLEAN,
     pub bAPChannelReportSupported: super::BOOLEAN,
@@ -784,23 +773,49 @@ pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED: i32 = 2;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: i32 = 1;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: i32 = 12;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_CAPABILITY {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uScanSSIDListSize: u32,
-    pub uDesiredBSSIDListSize: u32,
-    pub uDesiredSSIDListSize: u32,
-    pub uExcludedMacAddressListSize: u32,
-    pub uPrivacyExemptionListSize: u32,
-    pub uKeyMappingTableSize: u32,
-    pub uDefaultKeyTableSize: u32,
-    pub uWEPKeyValueMaxLength: u32,
-    pub uPMKIDCacheSize: u32,
-    pub uMaxNumPerSTADefaultKeyTables: u32,
+    pub uScanSSIDListSize: super::ULONG,
+    pub uDesiredBSSIDListSize: super::ULONG,
+    pub uDesiredSSIDListSize: super::ULONG,
+    pub uExcludedMacAddressListSize: super::ULONG,
+    pub uPrivacyExemptionListSize: super::ULONG,
+    pub uKeyMappingTableSize: super::ULONG,
+    pub uDefaultKeyTableSize: super::ULONG,
+    pub uWEPKeyValueMaxLength: super::ULONG,
+    pub uPMKIDCacheSize: super::ULONG,
+    pub uMaxNumPerSTADefaultKeyTables: super::ULONG,
 }
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: i32 = 1;
+#[repr(C)]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DOT11_EXTSTA_RECV_CONTEXT {
+    pub Header: super::NDIS_OBJECT_HEADER,
+    pub uReceiveFlags: super::ULONG,
+    pub uPhyId: super::ULONG,
+    pub uChCenterFrequency: super::ULONG,
+    pub usNumberOfMPDUsReceived: super::USHORT,
+    pub lRSSI: super::LONG,
+    pub ucDataRate: super::UCHAR,
+    pub uSizeMediaSpecificInfo: super::ULONG,
+    pub pvMediaSpecificInfo: super::PVOID,
+    pub ullTimestamp: super::ULONGLONG,
+}
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: i32 = 1;
+#[repr(C)]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DOT11_EXTSTA_SEND_CONTEXT {
+    pub Header: super::NDIS_OBJECT_HEADER,
+    pub usExemptionActionType: super::USHORT,
+    pub uPhyId: super::ULONG,
+    pub uDelayedSleepValue: super::ULONG,
+    pub pvMediaSpecificInfo: super::PVOID,
+    pub uSendFlags: super::ULONG,
+}
 pub const DOT11_EXTSTA_SEND_CONTEXT_REVISION_1: i32 = 1;
 pub const DOT11_FLAGS_80211B_CHANNEL_AGILITY: i32 = 4;
 pub const DOT11_FLAGS_80211B_PBCC: i32 = 2;
@@ -811,26 +826,27 @@ pub const DOT11_FLAGS_80211G_NON_ERP_PRESENT: i32 = 64;
 pub const DOT11_FLAGS_80211G_USE_PROTECTION: i32 = 32;
 pub const DOT11_FLAGS_PS_ON: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_FRAGMENT_DESCRIPTOR {
-    pub uOffset: u32,
-    pub uLength: u32,
+    pub uOffset: super::ULONG,
+    pub uLength: super::ULONG,
 }
 pub const DOT11_FREQUENCY_BANDS_LOWER: i32 = 1;
 pub const DOT11_FREQUENCY_BANDS_MIDDLE: i32 = 2;
 pub const DOT11_FREQUENCY_BANDS_UPPER: i32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub Status: super::NDIS_STATUS,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -838,17 +854,17 @@ impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub Status: super::NDIS_STATUS,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -856,17 +872,17 @@ impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub Status: super::NDIS_STATUS,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 impl Default for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -876,18 +892,21 @@ pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32
 pub type DOT11_HESSID = [u8; 6];
 pub const DOT11_HESSID_LENGTH: i32 = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY {
-    pub uHoppingPatternIndex: u32,
-    pub uRandomTableFieldNumber: u32,
+    pub uHoppingPatternIndex: super::ULONG,
+    pub uRandomTableFieldNumber: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11HoppingPatternEntry: [DOT11_HOPPING_PATTERN_ENTRY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -895,13 +914,13 @@ impl Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
 }
 pub type DOT11_HOP_ALGO_ADOPTED = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bShortPreambleOptionImplemented: super::BOOLEAN,
     pub bPBCCOptionImplemented: super::BOOLEAN,
     pub bChannelAgilityPresent: super::BOOLEAN,
-    pub uHRCCAModeSupported: u32,
+    pub uHRCCAModeSupported: super::ULONG,
 }
 pub const DOT11_HR_CCA_MODE_CS_AND_ED: i32 = 4;
 pub const DOT11_HR_CCA_MODE_CS_ONLY: i32 = 2;
@@ -915,38 +934,38 @@ pub const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: i32 = 16;
 pub const DOT11_HW_WEP_SUPPORTED_RX: i32 = 2;
 pub const DOT11_HW_WEP_SUPPORTED_TX: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub bJoinOnly: super::BOOLEAN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
 pub const DOT11_IBSS_PARAMS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
-    pub uStatus: u32,
-    pub ucErrorSource: u8,
+    pub uStatus: super::ULONG,
+    pub ucErrorSource: super::UCHAR,
     pub bReAssocReq: super::BOOLEAN,
     pub bReAssocResp: super::BOOLEAN,
-    pub uAssocReqOffset: u32,
-    pub uAssocReqSize: u32,
-    pub uAssocRespOffset: u32,
-    pub uAssocRespSize: u32,
+    pub uAssocReqOffset: super::ULONG,
+    pub uAssocReqSize: super::ULONG,
+    pub uAssocRespOffset: super::ULONG,
+    pub uAssocRespSize: super::ULONG,
     pub AuthAlgo: super::DOT11_AUTH_ALGORITHM,
     pub UnicastCipher: super::DOT11_CIPHER_ALGORITHM,
     pub MulticastCipher: super::DOT11_CIPHER_ALGORITHM,
-    pub uActivePhyListOffset: u32,
-    pub uActivePhyListSize: u32,
-    pub uBeaconOffset: u32,
-    pub uBeaconSize: u32,
+    pub uActivePhyListOffset: super::ULONG,
+    pub uActivePhyListSize: super::ULONG,
+    pub uBeaconOffset: super::ULONG,
+    pub uBeaconSize: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -954,17 +973,17 @@ impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 }
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub bAccept: super::BOOLEAN,
-    pub usReasonCode: u16,
-    pub uAssocResponseIEsOffset: u32,
-    pub uAssocResponseIEsLength: u32,
+    pub usReasonCode: super::USHORT,
+    pub uAssocResponseIEsOffset: super::ULONG,
+    pub uAssocResponseIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_INCOMING_ASSOC_DECISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -973,34 +992,34 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION {
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: i32 = 1;
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub bAccept: super::BOOLEAN,
-    pub usReasonCode: u16,
-    pub uAssocResponseIEsOffset: u32,
-    pub uAssocResponseIEsLength: u32,
+    pub usReasonCode: super::USHORT,
+    pub uAssocResponseIEsOffset: super::ULONG,
+    pub uAssocResponseIEsLength: super::ULONG,
     pub WFDStatus: DOT11_WFD_STATUS_CODE,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub bReAssocReq: super::BOOLEAN,
-    pub uAssocReqOffset: u32,
-    pub uAssocReqSize: u32,
+    pub uAssocReqOffset: super::ULONG,
+    pub uAssocReqSize: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1008,13 +1027,13 @@ impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
 }
 pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1023,7 +1042,7 @@ impl Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
 pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_INVALID_CHANNEL_NUMBER: i32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -1031,10 +1050,10 @@ pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub ReceiverAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub Status: super::NDIS_STATUS,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1042,17 +1061,17 @@ impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub Status: super::NDIS_STATUS,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1060,88 +1079,101 @@ impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_IV48_COUNTER {
-    pub uIV32Counter: u32,
-    pub usIV16Counter: u16,
+    pub uIV32Counter: super::ULONG,
+    pub usIV16Counter: super::USHORT,
 }
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_JOIN_REQUEST {
-    pub uJoinFailureTimeout: u32,
+    pub uJoinFailureTimeout: super::ULONG,
     pub OperationalRateSet: DOT11_RATE_SET,
-    pub uChCenterFrequency: u32,
+    pub uChCenterFrequency: super::ULONG,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_BIP {
-    pub ucIPN: [u8; 6],
-    pub ulBIPKeyLength: u32,
-    pub ucBIPKey: [u8; 1],
+    pub ucIPN: [super::UCHAR; 6],
+    pub ulBIPKeyLength: super::ULONG,
+    pub ucBIPKey: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_KEY_ALGO_BIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_BIP_GMAC_256 {
-    pub ucIPN: [u8; 6],
-    pub ulBIPGmac256KeyLength: u32,
-    pub ucBIPGmac256Key: [u8; 1],
+    pub ucIPN: [super::UCHAR; 6],
+    pub ulBIPGmac256KeyLength: super::ULONG,
+    pub ucBIPGmac256Key: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_KEY_ALGO_BIP_GMAC_256 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_CCMP {
-    pub ucIV48Counter: [u8; 6],
-    pub ulCCMPKeyLength: u32,
-    pub ucCCMPKey: [u8; 1],
+    pub ucIV48Counter: [super::UCHAR; 6],
+    pub ulCCMPKeyLength: super::ULONG,
+    pub ucCCMPKey: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_KEY_ALGO_CCMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_GCMP {
-    pub ucIV48Counter: [u8; 6],
-    pub ulGCMPKeyLength: u32,
-    pub ucGCMPKey: [u8; 1],
+    pub ucIV48Counter: [super::UCHAR; 6],
+    pub ulGCMPKeyLength: super::ULONG,
+    pub ucGCMPKey: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_KEY_ALGO_GCMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_GCMP_256 {
-    pub ucIV48Counter: [u8; 6],
-    pub ulGCMP256KeyLength: u32,
-    pub ucGCMP256Key: [u8; 1],
+    pub ucIV48Counter: [super::UCHAR; 6],
+    pub ulGCMP256KeyLength: super::ULONG,
+    pub ucGCMP256Key: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_KEY_ALGO_GCMP_256 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_TKIP_MIC {
-    pub ucIV48Counter: [u8; 6],
-    pub ulTKIPKeyLength: u32,
-    pub ulMICKeyLength: u32,
-    pub ucTKIPMICKeys: [u8; 1],
+    pub ucIV48Counter: [super::UCHAR; 6],
+    pub ulTKIPKeyLength: super::ULONG,
+    pub ulMICKeyLength: super::ULONG,
+    pub ucTKIPMICKeys: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_KEY_ALGO_TKIP_MIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1149,36 +1181,38 @@ impl Default for DOT11_KEY_ALGO_TKIP_MIC {
 }
 pub type DOT11_KEY_DIRECTION = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_LINK_QUALITY_ENTRY {
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
-    pub ucLinkQuality: u8,
+    pub ucLinkQuality: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_LINK_QUALITY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uLinkQualityListSize: u32,
-    pub uLinkQualityListOffset: u32,
+    pub uLinkQualityListSize: super::ULONG,
+    pub uLinkQualityListOffset: super::ULONG,
 }
 pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_MAC_ADDRESS = [u8; 6];
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_ADDRESS_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub MacAddrs: [DOT11_MAC_ADDRESS; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_MAC_ADDRESS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1187,109 +1221,115 @@ impl Default for DOT11_MAC_ADDRESS_LIST {
 pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: i32 = 1;
 pub const DOT11_MAC_AUTO_CONFIG_ENABLED_FLAG: u32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MAC_FRAME_STATISTICS {
-    pub ullTransmittedFrameCount: u64,
-    pub ullReceivedFrameCount: u64,
-    pub ullTransmittedFailureFrameCount: u64,
-    pub ullReceivedFailureFrameCount: u64,
-    pub ullWEPExcludedCount: u64,
-    pub ullTKIPLocalMICFailures: u64,
-    pub ullTKIPReplays: u64,
-    pub ullTKIPICVErrorCount: u64,
-    pub ullCCMPReplays: u64,
-    pub ullCCMPDecryptErrors: u64,
-    pub ullWEPUndecryptableCount: u64,
-    pub ullWEPICVErrorCount: u64,
-    pub ullDecryptSuccessCount: u64,
-    pub ullDecryptFailureCount: u64,
+    pub ullTransmittedFrameCount: super::ULONGLONG,
+    pub ullReceivedFrameCount: super::ULONGLONG,
+    pub ullTransmittedFailureFrameCount: super::ULONGLONG,
+    pub ullReceivedFailureFrameCount: super::ULONGLONG,
+    pub ullWEPExcludedCount: super::ULONGLONG,
+    pub ullTKIPLocalMICFailures: super::ULONGLONG,
+    pub ullTKIPReplays: super::ULONGLONG,
+    pub ullTKIPICVErrorCount: super::ULONGLONG,
+    pub ullCCMPReplays: super::ULONGLONG,
+    pub ullCCMPDecryptErrors: super::ULONGLONG,
+    pub ullWEPUndecryptableCount: super::ULONGLONG,
+    pub ullWEPICVErrorCount: super::ULONGLONG,
+    pub ullDecryptSuccessCount: super::ULONGLONG,
+    pub ullDecryptFailureCount: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_INFO {
-    pub uReserved: u32,
-    pub uNdisPortNumber: u32,
+    pub uReserved: super::ULONG,
+    pub uNdisPortNumber: super::ULONG,
     pub MacAddr: DOT11_MAC_ADDRESS,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_MAC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uOpmodeMask: u32,
+    pub uOpmodeMask: super::ULONG,
 }
 pub const DOT11_MAC_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
-    pub uStatus: u32,
-    pub pvContext: *mut core::ffi::c_void,
+    pub uStatus: super::ULONG,
+    pub pvContext: super::PVOID,
 }
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: i32 = 1;
 pub type DOT11_MANUFACTURING_CALLBACK_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub Dot11Band: DOT11_BAND,
-    pub uChannel: u32,
-    pub ADCPowerLevel: i32,
+    pub uChannel: super::ULONG,
+    pub ADCPowerLevel: super::LONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub bEnabled: super::BOOLEAN,
     pub Dot11Band: DOT11_BAND,
-    pub uChannel: u32,
-    pub PowerLevel: i32,
+    pub uChannel: super::ULONG,
+    pub PowerLevel: super::LONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub bEnable: super::BOOLEAN,
     pub bOpenLoop: super::BOOLEAN,
     pub Dot11Band: DOT11_BAND,
-    pub uChannel: u32,
-    pub uSetPowerLevel: u32,
-    pub ADCPowerLevel: i32,
+    pub uChannel: super::ULONG,
+    pub uSetPowerLevel: super::ULONG,
+    pub ADCPowerLevel: super::LONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
-    pub uTestID: u32,
+    pub uTestID: super::ULONG,
     pub bResult: super::BOOLEAN,
-    pub uPinFailedBitMask: u32,
-    pub pvContext: *mut core::ffi::c_void,
-    pub uBytesWrittenOut: u32,
-    pub ucBufferOut: [u8; 1],
+    pub uPinFailedBitMask: super::ULONG,
+    pub pvContext: super::PVOID,
+    pub uBytesWrittenOut: super::ULONG,
+    pub ucBufferOut: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
-    pub uTestID: u32,
-    pub uPinBitMask: u32,
-    pub pvContext: *mut core::ffi::c_void,
-    pub uBufferLength: u32,
-    pub ucBufferIn: [u8; 1],
+    pub uTestID: super::ULONG,
+    pub uPinBitMask: super::ULONG,
+    pub pvContext: super::PVOID,
+    pub uBufferLength: super::ULONG,
+    pub ucBufferIn: [super::UCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1300,26 +1340,30 @@ pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: DOT11_MANUFACTURING
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 1;
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST {
     pub dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
-    pub uBufferLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub uBufferLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_MANUFACTURING_TEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
-    pub uKey: u32,
-    pub uOffset: u32,
-    pub uBufferLength: u32,
-    pub uBytesRead: u32,
-    pub ucBufferOut: [u8; 1],
+    pub uKey: super::ULONG,
+    pub uOffset: super::ULONG,
+    pub uBufferLength: super::ULONG,
+    pub uBytesRead: super::ULONG,
+    pub ucBufferOut: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_MANUFACTURING_TEST_QUERY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1327,23 +1371,26 @@ impl Default for DOT11_MANUFACTURING_TEST_QUERY_DATA {
 }
 pub const DOT11_MANUFACTURING_TEST_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SET_DATA {
-    pub uKey: u32,
-    pub uOffset: u32,
-    pub uBufferLength: u32,
-    pub ucBufferIn: [u8; 1],
+    pub uKey: super::ULONG,
+    pub uOffset: super::ULONG,
+    pub uBufferLength: super::ULONG,
+    pub ucBufferIn: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_MANUFACTURING_TEST_SET_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
-    pub uSleepTime: u32,
-    pub pvContext: *mut core::ffi::c_void,
+    pub uSleepTime: super::ULONG,
+    pub pvContext: super::PVOID,
 }
 pub type DOT11_MANUFACTURING_TEST_TYPE = i32;
 pub const DOT11_MAX_CHANNEL_HINTS: i32 = 4;
@@ -1353,43 +1400,49 @@ pub const DOT11_MAX_NUM_OF_FRAGMENTS: i32 = 16;
 pub const DOT11_MAX_PDU_SIZE: i32 = 2346;
 pub const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: i32 = 255;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MD_CAPABILITY_ENTRY_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11MDCapabilityEntry: [DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const DOT11_MIN_PDU_SIZE: i32 = 256;
-pub const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: i32 = 24;
+#[cfg(feature = "shared")]
+pub const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: super::LONG = 0x18_u32 as _;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uPhyId: u32,
-    pub uMPDUMaxLength: u32,
+    pub uPhyId: super::ULONG,
+    pub uMPDUMaxLength: super::ULONG,
 }
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
-    pub uMultiDomainCapabilityIndex: u32,
-    pub uFirstChannelNumber: u32,
-    pub uNumberOfChannels: u32,
-    pub lMaximumTransmitPowerLevel: i32,
+    pub uMultiDomainCapabilityIndex: super::ULONG,
+    pub uFirstChannelNumber: super::ULONG,
+    pub uNumberOfChannels: super::ULONG,
+    pub lMaximumTransmitPowerLevel: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_NIC_SPECIFIC_EXTENSION {
-    pub uBufferLength: u32,
-    pub uTotalBufferLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub uBufferLength: super::ULONG,
+    pub uTotalBufferLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_NIC_SPECIFIC_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1399,23 +1452,25 @@ pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: i32 = 4;
 pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: i32 = 2;
 pub const DOT11_NLO_FLAG_STOP_NLO_INDICATION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFDM_PHY_ATTRIBUTES {
-    pub uFrequencyBandsSupported: u32,
+    pub uFrequencyBandsSupported: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_CAPABILITY {
-    pub uReserved: u32,
-    pub uFlags: u32,
-    pub uSupportedWEPAlgorithms: u32,
-    pub uNumOfReplayWindows: u32,
-    pub uMaxWEPKeyMappingLength: u32,
-    pub uSupportedAuthAlgorithms: u32,
-    pub uMaxAuthKeyMappingLength: u32,
+    pub uReserved: super::ULONG,
+    pub uFlags: super::ULONG,
+    pub uSupportedWEPAlgorithms: super::ULONG,
+    pub uNumOfReplayWindows: super::ULONG,
+    pub uMaxWEPKeyMappingLength: super::ULONG,
+    pub uSupportedAuthAlgorithms: super::ULONG,
+    pub uMaxAuthKeyMappingLength: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK {
     pub Ssid: super::DOT11_SSID,
@@ -1423,25 +1478,25 @@ pub struct DOT11_OFFLOAD_NETWORK {
     pub AuthAlgo: super::DOT11_AUTH_ALGORITHM,
     pub Dot11ChannelHints: [DOT11_CHANNEL_HINT; 4],
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_OFFLOAD_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub ulFlags: u32,
-    pub FastScanPeriod: u32,
-    pub FastScanIterations: u32,
-    pub SlowScanPeriod: u32,
-    pub uNumOfEntries: u32,
+    pub ulFlags: super::ULONG,
+    pub FastScanPeriod: super::ULONG,
+    pub FastScanIterations: super::ULONG,
+    pub SlowScanPeriod: super::ULONG,
+    pub uNumOfEntries: super::ULONG,
     pub offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1449,7 +1504,7 @@ impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 }
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -1459,14 +1514,15 @@ pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_OFFLOAD_TYPE = i32;
 pub const DOT11_OPERATION_MODE_AP: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OPERATION_MODE_CAPABILITY {
-    pub uReserved: u32,
-    pub uMajorVersion: u32,
-    pub uMinorVersion: u32,
-    pub uNumOfTXBuffers: u32,
-    pub uNumOfRXBuffers: u32,
-    pub uOpModeCapability: u32,
+    pub uReserved: super::ULONG,
+    pub uMajorVersion: super::ULONG,
+    pub uMinorVersion: super::ULONG,
+    pub uNumOfTXBuffers: super::ULONG,
+    pub uNumOfRXBuffers: super::ULONG,
+    pub uOpModeCapability: super::ULONG,
 }
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_AP: i32 = 8;
 pub const DOT11_OPERATION_MODE_EXTENSIBLE_STATION: i32 = 4;
@@ -1478,10 +1534,10 @@ pub const DOT11_OPERATION_MODE_WFD_CLIENT: i32 = 64;
 pub const DOT11_OPERATION_MODE_WFD_DEVICE: i32 = 16;
 pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OPTIONAL_CAPABILITY {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub bDot11PCF: super::BOOLEAN,
     pub bDot11PCFMPDUTransferToPC: super::BOOLEAN,
     pub bStrictlyOrderedServiceClass: super::BOOLEAN,
@@ -1503,39 +1559,39 @@ pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: i32 = 2048;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: i32 = 1024;
 pub const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: DOT11_MAC_ADDRESS,
-    pub usCapabilityInformation: u16,
+    pub usCapabilityInformation: super::USHORT,
     pub AuthAlgo: super::DOT11_AUTH_ALGORITHM,
     pub UnicastCipherAlgo: super::DOT11_CIPHER_ALGORITHM,
     pub MulticastCipherAlgo: super::DOT11_CIPHER_ALGORITHM,
     pub bWpsEnabled: super::BOOLEAN,
-    pub usListenInterval: u16,
-    pub ucSupportedRates: [u8; 255],
-    pub usAssociationID: u16,
+    pub usListenInterval: super::USHORT,
+    pub ucSupportedRates: [super::UCHAR; 255],
+    pub usAssociationID: super::USHORT,
     pub AssociationState: DOT11_ASSOCIATION_STATE,
     pub PowerMode: DOT11_POWER_MODE,
     pub liAssociationUpTime: super::LARGE_INTEGER,
     pub Statistics: DOT11_PEER_STATISTICS,
 }
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_PEER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub PeerInfo: [DOT11_PEER_INFO; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_PEER_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1543,26 +1599,28 @@ impl Default for DOT11_PEER_INFO_LIST {
 }
 pub const DOT11_PEER_INFO_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PEER_STATISTICS {
-    pub ullDecryptSuccessCount: u64,
-    pub ullDecryptFailureCount: u64,
-    pub ullTxPacketSuccessCount: u64,
-    pub ullTxPacketFailureCount: u64,
-    pub ullRxPacketSuccessCount: u64,
-    pub ullRxPacketFailureCount: u64,
+    pub ullDecryptSuccessCount: super::ULONGLONG,
+    pub ullDecryptFailureCount: super::ULONGLONG,
+    pub ullTxPacketSuccessCount: super::ULONGLONG,
+    pub ullTxPacketFailureCount: super::ULONGLONG,
+    pub ullRxPacketSuccessCount: super::ULONGLONG,
+    pub ullRxPacketFailureCount: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PER_MSDU_COUNTERS {
-    pub uTransmittedFragmentCount: u32,
-    pub uRetryCount: u32,
-    pub uRTSSuccessCount: u32,
-    pub uRTSFailureCount: u32,
-    pub uACKFailureCount: u32,
+    pub uTransmittedFragmentCount: super::ULONG,
+    pub uRetryCount: super::ULONG,
+    pub uRTSSuccessCount: super::ULONG,
+    pub uRTSFailureCount: super::ULONG,
+    pub uACKFailureCount: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PHY_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -1570,31 +1628,31 @@ pub struct DOT11_PHY_ATTRIBUTES {
     pub bHardwarePhyState: super::BOOLEAN,
     pub bSoftwarePhyState: super::BOOLEAN,
     pub bCFPollable: super::BOOLEAN,
-    pub uMPDUMaxLength: u32,
+    pub uMPDUMaxLength: super::ULONG,
     pub TempType: DOT11_TEMP_TYPE,
     pub DiversitySupport: DOT11_DIVERSITY_SUPPORT,
     pub PhySpecificAttributes: DOT11_PHY_ATTRIBUTES_0,
-    pub uNumberSupportedPowerLevels: u32,
-    pub TxPowerLevels: [u32; 8],
-    pub uNumDataRateMappingEntries: u32,
+    pub uNumberSupportedPowerLevels: super::ULONG,
+    pub TxPowerLevels: [super::ULONG; 8],
+    pub uNumDataRateMappingEntries: super::ULONG,
     pub DataRateMappingEntries: [DOT11_DATA_RATE_MAPPING_ENTRY; 126],
     pub SupportedDataRatesValue: DOT11_SUPPORTED_DATA_RATES_VALUE_V2,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PHY_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PHY_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1603,49 +1661,50 @@ impl Default for DOT11_PHY_ATTRIBUTES_0 {
 pub const DOT11_PHY_ATTRIBUTES_REVISION_1: i32 = 1;
 pub const DOT11_PHY_AUTO_CONFIG_ENABLED_FLAG: u32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PHY_FRAME_STATISTICS {
-    pub ullTransmittedFrameCount: u64,
-    pub ullMulticastTransmittedFrameCount: u64,
-    pub ullFailedCount: u64,
-    pub ullRetryCount: u64,
-    pub ullMultipleRetryCount: u64,
-    pub ullMaxTXLifetimeExceededCount: u64,
-    pub ullTransmittedFragmentCount: u64,
-    pub ullRTSSuccessCount: u64,
-    pub ullRTSFailureCount: u64,
-    pub ullACKFailureCount: u64,
-    pub ullReceivedFrameCount: u64,
-    pub ullMulticastReceivedFrameCount: u64,
-    pub ullPromiscuousReceivedFrameCount: u64,
-    pub ullMaxRXLifetimeExceededCount: u64,
-    pub ullFrameDuplicateCount: u64,
-    pub ullReceivedFragmentCount: u64,
-    pub ullPromiscuousReceivedFragmentCount: u64,
-    pub ullFCSErrorCount: u64,
+    pub ullTransmittedFrameCount: super::ULONGLONG,
+    pub ullMulticastTransmittedFrameCount: super::ULONGLONG,
+    pub ullFailedCount: super::ULONGLONG,
+    pub ullRetryCount: super::ULONGLONG,
+    pub ullMultipleRetryCount: super::ULONGLONG,
+    pub ullMaxTXLifetimeExceededCount: super::ULONGLONG,
+    pub ullTransmittedFragmentCount: super::ULONGLONG,
+    pub ullRTSSuccessCount: super::ULONGLONG,
+    pub ullRTSFailureCount: super::ULONGLONG,
+    pub ullACKFailureCount: super::ULONGLONG,
+    pub ullReceivedFrameCount: super::ULONGLONG,
+    pub ullMulticastReceivedFrameCount: super::ULONGLONG,
+    pub ullPromiscuousReceivedFrameCount: super::ULONGLONG,
+    pub ullMaxRXLifetimeExceededCount: super::ULONGLONG,
+    pub ullFrameDuplicateCount: super::ULONGLONG,
+    pub ullReceivedFragmentCount: super::ULONGLONG,
+    pub ullPromiscuousReceivedFragmentCount: super::ULONGLONG,
+    pub ullFCSErrorCount: super::ULONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub ulPhyId: u32,
+    pub ulPhyId: super::ULONG,
     pub Anonymous: DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
-    pub ulChannel: u32,
-    pub ulFrequency: u32,
+    pub ulChannel: super::ULONG,
+    pub ulFrequency: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1654,15 +1713,15 @@ impl Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
 pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_PHY_ID_ANY: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_ID_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
-    pub dot11PhyId: [u32; 1],
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
+    pub dot11PhyId: [super::ULONG; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PHY_ID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1670,45 +1729,45 @@ impl Default for DOT11_PHY_ID_LIST {
 }
 pub const DOT11_PHY_ID_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uPhyId: u32,
+    pub uPhyId: super::ULONG,
     pub bHardwarePhyState: super::BOOLEAN,
     pub bSoftwarePhyState: super::BOOLEAN,
 }
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: i32 = 1;
 pub type DOT11_PHY_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE_INFO {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub bUseParameters: super::BOOLEAN,
-    pub uProbeDelay: u32,
-    pub uMinChannelTime: u32,
-    pub uMaxChannelTime: u32,
+    pub uProbeDelay: super::ULONG,
+    pub uMinChannelTime: super::ULONG,
+    pub uMaxChannelTime: super::ULONG,
     pub ChDescriptionType: CH_DESCRIPTION_TYPE,
-    pub uChannelListSize: u32,
-    pub ucChannelListBuffer: [u8; 1],
+    pub uChannelListSize: super::ULONG,
+    pub ucChannelListBuffer: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DOT11_PHY_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11PhyType: [DOT11_PHY_TYPE; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PHY_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1716,37 +1775,39 @@ impl Default for DOT11_PHY_TYPE_LIST {
 }
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uCandidateListSize: u32,
-    pub uCandidateListOffset: u32,
+    pub uCandidateListSize: super::ULONG,
+    pub uCandidateListOffset: super::ULONG,
 }
 pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PMKID_ENTRY {
     pub BSSID: DOT11_MAC_ADDRESS,
     pub PMKID: DOT11_PMKID_VALUE,
-    pub uFlags: u32,
+    pub uFlags: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_PMKID_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PMKID_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub PMKIDs: [DOT11_PMKID_ENTRY; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PMKID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1755,14 +1816,14 @@ impl Default for DOT11_PMKID_LIST {
 pub const DOT11_PMKID_LIST_REVISION_1: i32 = 1;
 pub type DOT11_PMKID_VALUE = [u8; 16];
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerMac: DOT11_MAC_ADDRESS,
     pub bOpen: super::BOOLEAN,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PORT_STATE_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1770,7 +1831,7 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
 }
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -1778,22 +1839,22 @@ pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
 }
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE {
     pub dot11PowerMode: DOT11_POWER_MODE,
-    pub uPowerSaveLevel: u32,
-    pub usListenInterval: u16,
-    pub usAID: u16,
+    pub uPowerSaveLevel: super::ULONG,
+    pub usListenInterval: super::USHORT,
+    pub usAID: super::USHORT,
     pub bReceiveDTIMs: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PowerSaveMode: DOT11_POWER_MODE,
-    pub uPowerSaveLevel: u32,
+    pub uPowerSaveLevel: super::ULONG,
     pub Reason: DOT11_POWER_MODE_REASON,
 }
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: i32 = 1;
@@ -1808,22 +1869,23 @@ pub const DOT11_POWER_SAVING_NO_POWER_SAVING: i32 = 0;
 pub const DOT11_PRIORITY_CONTENTION: i32 = 0;
 pub const DOT11_PRIORITY_CONTENTION_FREE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION {
-    pub usEtherType: u16,
-    pub usExemptionActionType: u16,
-    pub usExemptionPacketType: u16,
+    pub usEtherType: super::USHORT,
+    pub usExemptionActionType: super::USHORT,
+    pub usExemptionPacketType: super::USHORT,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub PrivacyExemptionEntries: [DOT11_PRIVACY_EXEMPTION; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1831,7 +1893,7 @@ impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
 }
 pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -1839,10 +1901,10 @@ pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub ReceiverAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub Status: super::NDIS_STATUS,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1850,17 +1912,17 @@ impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub Status: super::NDIS_STATUS,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1868,40 +1930,45 @@ impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_QOS_PARAMS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub ucEnabledQoSProtocolFlags: u8,
+    pub ucEnabledQoSProtocolFlags: super::UCHAR,
 }
 pub const DOT11_QOS_PARAMS_REVISION_1: i32 = 1;
 pub const DOT11_QOS_PROTOCOL_FLAG_11E: u32 = 2;
 pub const DOT11_QOS_PROTOCOL_FLAG_WMM: u32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_QOS_TX_DURATION {
-    pub uNominalMSDUSize: u32,
-    pub uMinPHYRate: u32,
-    pub uDuration: u32,
+    pub uNominalMSDUSize: super::ULONG,
+    pub uMinPHYRate: super::ULONG,
+    pub uDuration: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_QOS_TX_MEDIUM_TIME {
     pub dot11PeerAddress: DOT11_MAC_ADDRESS,
-    pub ucQoSPriority: u8,
-    pub uMediumTimeAdmited: u32,
+    pub ucQoSPriority: super::UCHAR,
+    pub uMediumTimeAdmited: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_QOS_TX_MEDIUM_TIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RATE_SET {
-    pub uRateSetLength: u32,
-    pub ucRateSet: [u8; 126],
+    pub uRateSetLength: super::ULONG,
+    pub ucRateSet: [super::UCHAR; 126],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_RATE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1909,16 +1976,16 @@ impl Default for DOT11_RATE_SET {
 }
 pub const DOT11_RATE_SET_MAX_LENGTH: i32 = 126;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1926,17 +1993,17 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub RequestContext: *mut core::ffi::c_void,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub RequestContext: super::PVOID,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1944,17 +2011,17 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub ResponseContext: *mut core::ffi::c_void,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub ResponseContext: super::PVOID,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1962,18 +2029,18 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
     pub BSSID: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub RequestContext: *mut core::ffi::c_void,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub RequestContext: super::PVOID,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1981,17 +2048,17 @@ impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
     pub BSSID: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1999,18 +2066,18 @@ impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
     pub BSSID: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub RequestContext: *mut core::ffi::c_void,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub RequestContext: super::PVOID,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2018,17 +2085,17 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
     pub BSSID: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2036,66 +2103,66 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
 }
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO {
-    pub uVersion: u32,
-    pub pvReserved: *mut core::ffi::c_void,
+    pub uVersion: super::ULONG,
+    pub pvReserved: super::PVOID,
     pub dot11PhyType: DOT11_PHY_TYPE,
-    pub uChCenterFrequency: u32,
-    pub lRSSI: i32,
-    pub lRSSIMin: i32,
-    pub lRSSIMax: i32,
-    pub uRSSI: u32,
-    pub ucPriority: u8,
-    pub ucDataRate: u8,
-    pub ucPeerMacAddress: [u8; 6],
-    pub dwExtendedStatus: u32,
+    pub uChCenterFrequency: super::ULONG,
+    pub lRSSI: super::LONG,
+    pub lRSSIMin: super::LONG,
+    pub lRSSIMax: super::LONG,
+    pub uRSSI: super::ULONG,
+    pub ucPriority: super::UCHAR,
+    pub ucDataRate: super::UCHAR,
+    pub ucPeerMacAddress: [super::UCHAR; 6],
+    pub dwExtendedStatus: super::ULONG,
     pub hWEPOffloadContext: super::HANDLE,
     pub hAuthOffloadContext: super::HANDLE,
-    pub usWEPAppliedMask: u16,
-    pub usWPAMSDUPriority: u16,
+    pub usWEPAppliedMask: super::USHORT,
+    pub usWPAMSDUPriority: super::USHORT,
     pub dot11LowestIV48Counter: DOT11_IV48_COUNTER,
-    pub usDot11LeftRWBitMap: u16,
+    pub usDot11LeftRWBitMap: super::USHORT,
     pub dot11HighestIV48Counter: DOT11_IV48_COUNTER,
-    pub usDot11RightRWBitMap: u16,
-    pub usNumberOfMPDUsReceived: u16,
-    pub usNumberOfFragments: u16,
-    pub pNdisPackets: [*mut core::ffi::c_void; 1],
+    pub usDot11RightRWBitMap: super::USHORT,
+    pub usNumberOfMPDUsReceived: super::USHORT,
+    pub usNumberOfFragments: super::USHORT,
+    pub pNdisPackets: [super::PVOID; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_RECV_EXTENSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
-    pub uVersion: u32,
-    pub pvReserved: *mut core::ffi::c_void,
+    pub uVersion: super::ULONG,
+    pub pvReserved: super::PVOID,
     pub dot11PhyType: DOT11_PHY_TYPE,
-    pub uChCenterFrequency: u32,
-    pub lRSSI: i32,
-    pub uRSSI: u32,
-    pub ucPriority: u8,
-    pub ucDataRate: u8,
-    pub ucPeerMacAddress: [u8; 6],
-    pub dwExtendedStatus: u32,
+    pub uChCenterFrequency: super::ULONG,
+    pub lRSSI: super::LONG,
+    pub uRSSI: super::ULONG,
+    pub ucPriority: super::UCHAR,
+    pub ucDataRate: super::UCHAR,
+    pub ucPeerMacAddress: [super::UCHAR; 6],
+    pub dwExtendedStatus: super::ULONG,
     pub hWEPOffloadContext: super::HANDLE,
     pub hAuthOffloadContext: super::HANDLE,
-    pub usWEPAppliedMask: u16,
-    pub usWPAMSDUPriority: u16,
+    pub usWEPAppliedMask: super::USHORT,
+    pub usWPAMSDUPriority: super::USHORT,
     pub dot11LowestIV48Counter: DOT11_IV48_COUNTER,
-    pub usDot11LeftRWBitMap: u16,
+    pub usDot11LeftRWBitMap: super::USHORT,
     pub dot11HighestIV48Counter: DOT11_IV48_COUNTER,
-    pub usDot11RightRWBitMap: u16,
-    pub usNumberOfMPDUsReceived: u16,
-    pub usNumberOfFragments: u16,
-    pub pNdisPackets: [*mut core::ffi::c_void; 1],
+    pub usDot11RightRWBitMap: super::USHORT,
+    pub usNumberOfMPDUsReceived: super::USHORT,
+    pub usNumberOfFragments: super::USHORT,
+    pub pNdisPackets: [super::PVOID; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_RECV_EXTENSION_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2105,43 +2172,50 @@ pub const DOT11_RECV_FLAG_RAW_PACKET: u32 = 1;
 pub const DOT11_RECV_FLAG_RAW_PACKET_FCS_FAILURE: u32 = 2;
 pub const DOT11_RECV_FLAG_RAW_PACKET_TIMESTAMP: u32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_RECV_SENSITIVITY {
-    pub ucDataRate: u8,
-    pub lRSSIMin: i32,
-    pub lRSSIMax: i32,
+    pub ucDataRate: super::UCHAR,
+    pub lRSSIMin: super::LONG,
+    pub lRSSIMax: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DOT11_RECV_SENSITIVITY_LIST {
     pub Anonymous: DOT11_RECV_SENSITIVITY_LIST_0,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11RecvSensitivity: [DOT11_RECV_SENSITIVITY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_RECV_SENSITIVITY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DOT11_RECV_SENSITIVITY_LIST_0 {
     pub dot11PhyType: DOT11_PHY_TYPE,
-    pub uPhyId: u32,
+    pub uPhyId: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_RECV_SENSITIVITY_LIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11RegDomainValue: [DOT11_REG_DOMAIN_VALUE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_REG_DOMAINS_SUPPORT_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2155,20 +2229,21 @@ pub const DOT11_REG_DOMAIN_MKK: i32 = 64;
 pub const DOT11_REG_DOMAIN_OTHER: i32 = 0;
 pub const DOT11_REG_DOMAIN_SPAIN: i32 = 49;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_REG_DOMAIN_VALUE {
-    pub uRegDomainsSupportIndex: u32,
-    pub uRegDomainsSupportValue: u32,
+    pub uRegDomainsSupportIndex: super::ULONG,
+    pub uRegDomainsSupportValue: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RESET_REQUEST {
     pub dot11ResetType: DOT11_RESET_TYPE,
     pub dot11MacAddress: DOT11_MAC_ADDRESS,
     pub bSetDefaultMIB: super::BOOLEAN,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DOT11_RESET_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2176,7 +2251,7 @@ impl Default for DOT11_RESET_REQUEST {
 }
 pub type DOT11_RESET_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2189,7 +2264,7 @@ pub const DOT11_ROAMING_REASON_BETTER_AP_FOUND: u32 = 11;
 pub const DOT11_ROAMING_REASON_IHV_END: u32 = 4294967295;
 pub const DOT11_ROAMING_REASON_IHV_START: u32 = 2147483648;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ROAMING_START_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -2197,7 +2272,7 @@ pub struct DOT11_ROAMING_START_PARAMETERS {
     pub AdhocSSID: super::DOT11_SSID,
     pub uRoamingReason: DOT11_ASSOC_STATUS,
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_ROAMING_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2205,14 +2280,15 @@ impl Default for DOT11_ROAMING_START_PARAMETERS {
 }
 pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_RSSI_RANGE {
     pub dot11PhyType: DOT11_PHY_TYPE,
-    pub uRSSIMin: u32,
-    pub uRSSIMax: u32,
+    pub uRSSIMin: super::ULONG,
+    pub uRSSIMax: super::ULONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSType: super::DOT11_BSS_TYPE,
@@ -2221,40 +2297,40 @@ pub struct DOT11_SCAN_REQUEST {
     pub dot11ScanType: DOT11_SCAN_TYPE,
     pub bRestrictedScan: super::BOOLEAN,
     pub bUseRequestIE: super::BOOLEAN,
-    pub uRequestIDsOffset: u32,
-    pub uNumOfRequestIDs: u32,
-    pub uPhyTypesOffset: u32,
-    pub uNumOfPhyTypes: u32,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub uRequestIDsOffset: super::ULONG,
+    pub uNumOfRequestIDs: super::ULONG,
+    pub uPhyTypesOffset: super::ULONG,
+    pub uNumOfPhyTypes: super::ULONG,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_SCAN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: super::DOT11_BSS_TYPE,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
     pub dot11ScanType: DOT11_SCAN_TYPE,
     pub bRestrictedScan: super::BOOLEAN,
-    pub udot11SSIDsOffset: u32,
-    pub uNumOfdot11SSIDs: u32,
+    pub udot11SSIDsOffset: super::ULONG,
+    pub uNumOfdot11SSIDs: super::ULONG,
     pub bUseRequestIE: super::BOOLEAN,
-    pub uRequestIDsOffset: u32,
-    pub uNumOfRequestIDs: u32,
-    pub uPhyTypeInfosOffset: u32,
-    pub uNumOfPhyTypeInfos: u32,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub uRequestIDsOffset: super::ULONG,
+    pub uNumOfRequestIDs: super::ULONG,
+    pub uPhyTypeInfosOffset: super::ULONG,
+    pub uNumOfPhyTypeInfos: super::ULONG,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_SCAN_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2262,22 +2338,22 @@ impl Default for DOT11_SCAN_REQUEST_V2 {
 }
 pub type DOT11_SCAN_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub ResponseContext: *mut core::ffi::c_void,
-    pub uSendTimeout: u32,
+    pub ResponseContext: super::PVOID,
+    pub uSendTimeout: super::ULONG,
     pub Status: DOT11_WFD_STATUS_CODE,
     pub GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
     pub GroupID: DOT11_WFD_GROUP_ID,
     pub bUseGroupID: super::BOOLEAN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2285,21 +2361,21 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub uSendTimeout: u32,
+    pub uSendTimeout: super::ULONG,
     pub GroupOwnerIntent: DOT11_WFD_GO_INTENT,
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
     pub IntendedInterfaceAddress: DOT11_MAC_ADDRESS,
     pub GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2307,14 +2383,14 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub RequestContext: *mut core::ffi::c_void,
-    pub uSendTimeout: u32,
+    pub RequestContext: super::PVOID,
+    pub uSendTimeout: super::ULONG,
     pub Status: DOT11_WFD_STATUS_CODE,
     pub GroupOwnerIntent: DOT11_WFD_GO_INTENT,
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
@@ -2322,10 +2398,10 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
     pub GroupID: DOT11_WFD_GROUP_ID,
     pub bUseGroupID: super::BOOLEAN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2333,13 +2409,13 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
-    pub uSendTimeout: u32,
+    pub uSendTimeout: super::ULONG,
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
     pub InvitationFlags: DOT11_WFD_INVITATION_FLAGS,
     pub GroupBSSID: DOT11_MAC_ADDRESS,
@@ -2348,10 +2424,10 @@ pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub bUseSpecifiedOperatingChannel: super::BOOLEAN,
     pub GroupID: DOT11_WFD_GROUP_ID,
     pub bLocalGO: super::BOOLEAN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2359,24 +2435,24 @@ impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub RequestContext: *mut core::ffi::c_void,
-    pub uSendTimeout: u32,
+    pub RequestContext: super::PVOID,
+    pub uSendTimeout: super::ULONG,
     pub Status: DOT11_WFD_STATUS_CODE,
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
     pub GroupBSSID: DOT11_MAC_ADDRESS,
     pub bUseGroupBSSID: super::BOOLEAN,
     pub OperatingChannel: DOT11_WFD_CHANNEL,
     pub bUseSpecifiedOperatingChannel: super::BOOLEAN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2384,20 +2460,20 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub DialogToken: DOT11_DIALOG_TOKEN,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
-    pub uSendTimeout: u32,
+    pub uSendTimeout: super::ULONG,
     pub GroupCapability: DOT11_WFD_GROUP_CAPABILITY,
     pub GroupID: DOT11_WFD_GROUP_ID,
     pub bUseGroupID: super::BOOLEAN,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2405,18 +2481,18 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
     pub DialogToken: DOT11_DIALOG_TOKEN,
-    pub RequestContext: *mut core::ffi::c_void,
-    pub uSendTimeout: u32,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub RequestContext: super::PVOID,
+    pub uSendTimeout: super::ULONG,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2593,17 +2669,18 @@ pub const DOT11_SIZEOF_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u64 = 20;
 pub const DOT11_SIZEOF_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 10;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DOT11_SIZEOF_WFD_GROUP_START_PARAMETERS_REVISION_1: u64 = 10;
-pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: i32 = 12;
+#[cfg(feature = "shared")]
+pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: super::LONG = 0xC_u32 as _;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SSID_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub SSIDs: [super::DOT11_SSID; 1],
 }
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 impl Default for DOT11_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2611,34 +2688,35 @@ impl Default for DOT11_SSID_LIST {
 }
 pub const DOT11_SSID_LIST_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_START_REQUEST {
-    pub uStartFailureTimeout: u32,
+    pub uStartFailureTimeout: super::ULONG,
     pub OperationalRateSet: DOT11_RATE_SET,
-    pub uChCenterFrequency: u32,
+    pub uChCenterFrequency: super::ULONG,
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_STATISTICS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub ullFourWayHandshakeFailures: u64,
-    pub ullTKIPCounterMeasuresInvoked: u64,
-    pub ullReserved: u64,
+    pub ullFourWayHandshakeFailures: super::ULONGLONG,
+    pub ullTKIPCounterMeasuresInvoked: super::ULONGLONG,
+    pub ullReserved: super::ULONGLONG,
     pub MacUcastCounters: DOT11_MAC_FRAME_STATISTICS,
     pub MacMcastCounters: DOT11_MAC_FRAME_STATISTICS,
     pub PhyCounters: [DOT11_PHY_FRAME_STATISTICS; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const DOT11_STATISTICS_REVISION_1: i32 = 1;
-pub const DOT11_STATISTICS_UNKNOWN: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const DOT11_STATISTICS_UNKNOWN: super::ULONGLONG = 18446744073709551615;
 pub const DOT11_STATUS_AP_JOIN_CONFIRM: i32 = 5;
 pub const DOT11_STATUS_AUTH_FAILED: i32 = 131072;
 pub const DOT11_STATUS_AUTH_NOT_VERIFIED: i32 = 32768;
@@ -2648,10 +2726,10 @@ pub const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: i32 = 256;
 pub const DOT11_STATUS_GENERATE_AUTH_FAILED: i32 = 16384;
 pub const DOT11_STATUS_ICV_VERIFIED: i32 = 2048;
 #[repr(C)]
-#[cfg(feature = "types")]
+#[cfg(all(feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_STATUS_INDICATION {
-    pub uStatusType: u32,
+    pub uStatusType: super::ULONG,
     pub ndisStatus: super::NDIS_STATUS,
 }
 pub const DOT11_STATUS_JOIN_CONFIRM: i32 = 2;
@@ -2672,11 +2750,11 @@ pub const DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS: i32 = 8;
 pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: i32 = 1024;
 pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: i32 = 64;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub ulReason: u32,
+    pub ulReason: super::ULONG,
 }
 pub const DOT11_STOP_AP_PARAMETERS_REVISION_1: i32 = 1;
 pub const DOT11_STOP_AP_REASON_AP_ACTIVE: i32 = 3;
@@ -2685,101 +2763,116 @@ pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: i32 = 1;
 pub const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295;
 pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA {
-    pub uAntennaListIndex: u32,
+    pub uAntennaListIndex: super::ULONG,
     pub bSupportedAntenna: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11SupportedAntenna: [DOT11_SUPPORTED_ANTENNA; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DOT11_SUPPORTED_ANTENNA_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE {
-    pub ucSupportedTxDataRatesValue: [u8; 8],
-    pub ucSupportedRxDataRatesValue: [u8; 8],
+    pub ucSupportedTxDataRatesValue: [super::UCHAR; 8],
+    pub ucSupportedRxDataRatesValue: [super::UCHAR; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type DOT11_SUPPORTED_DATA_RATES_VALUE_V1 = DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
-    pub ucSupportedTxDataRatesValue: [u8; 255],
-    pub ucSupportedRxDataRatesValue: [u8; 255],
+    pub ucSupportedTxDataRatesValue: [super::UCHAR; 255],
+    pub ucSupportedRxDataRatesValue: [super::UCHAR; 255],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
-    pub uChannel: u32,
+    pub uChannel: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11SupportedDSSSChannel: [DOT11_SUPPORTED_DSSS_CHANNEL; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
-    pub uCenterFrequency: u32,
+    pub uCenterFrequency: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11SupportedOFDMFrequency: [DOT11_SUPPORTED_OFDM_FREQUENCY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_PHY_TYPES {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11PHYType: [DOT11_PHY_TYPE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_SUPPORTED_PHY_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_POWER_LEVELS {
-    pub uNumOfSupportedPowerLevels: u32,
-    pub uTxPowerLevelValues: [u32; 8],
+    pub uNumOfSupportedPowerLevels: super::ULONG,
+    pub uTxPowerLevelValues: [super::ULONG; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_SUPPORTED_POWER_LEVELS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2787,15 +2880,15 @@ impl Default for DOT11_SUPPORTED_POWER_LEVELS {
 }
 pub type DOT11_TEMP_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub bDefaultKeyFailure: super::BOOLEAN,
-    pub uKeyIndex: u32,
+    pub uKeyIndex: super::ULONG,
     pub PeerMac: DOT11_MAC_ADDRESS,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2803,12 +2896,14 @@ impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
 }
 pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_UPDATE_IE {
     pub dot11UpdateIEOp: DOT11_UPDATE_IE_OP,
-    pub uBufferLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub uBufferLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_UPDATE_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2816,14 +2911,14 @@ impl Default for DOT11_UPDATE_IE {
 }
 pub type DOT11_UPDATE_IE_OP = i32;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_VWIFI_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uTotalNumOfEntries: u32,
+    pub uTotalNumOfEntries: super::ULONG,
     pub Combinations: [DOT11_VWIFI_COMBINATION; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_VWIFI_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2831,124 +2926,130 @@ impl Default for DOT11_VWIFI_ATTRIBUTES {
 }
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumInfrastructure: u32,
-    pub uNumAdhoc: u32,
-    pub uNumSoftAP: u32,
+    pub uNumInfrastructure: super::ULONG,
+    pub uNumAdhoc: super::ULONG,
+    pub uNumSoftAP: super::ULONG,
 }
 pub const DOT11_VWIFI_COMBINATION_REVISION_1: i32 = 1;
 pub const DOT11_VWIFI_COMBINATION_REVISION_2: i32 = 2;
 pub const DOT11_VWIFI_COMBINATION_REVISION_3: i32 = 3;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumInfrastructure: u32,
-    pub uNumAdhoc: u32,
-    pub uNumSoftAP: u32,
-    pub uNumVirtualStation: u32,
+    pub uNumInfrastructure: super::ULONG,
+    pub uNumAdhoc: super::ULONG,
+    pub uNumSoftAP: super::ULONG,
+    pub uNumVirtualStation: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumInfrastructure: u32,
-    pub uNumAdhoc: u32,
-    pub uNumSoftAP: u32,
-    pub uNumVirtualStation: u32,
-    pub uNumWFDGroup: u32,
+    pub uNumInfrastructure: super::ULONG,
+    pub uNumAdhoc: super::ULONG,
+    pub uNumSoftAP: super::ULONG,
+    pub uNumVirtualStation: super::ULONG,
+    pub uNumWFDGroup: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WEP_OFFLOAD {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub hOffloadContext: super::HANDLE,
     pub hOffload: super::HANDLE,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
-    pub dwAlgorithm: u32,
+    pub dwAlgorithm: super::ULONG,
     pub bRowIsOutbound: super::BOOLEAN,
     pub bUseDefault: super::BOOLEAN,
-    pub uFlags: u32,
-    pub ucMacAddress: [u8; 6],
-    pub uNumOfRWsOnPeer: u32,
-    pub uNumOfRWsOnMe: u32,
+    pub uFlags: super::ULONG,
+    pub ucMacAddress: [super::UCHAR; 6],
+    pub uNumOfRWsOnPeer: super::ULONG,
+    pub uNumOfRWsOnMe: super::ULONG,
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-    pub usDot11RWBitMaps: [u16; 16],
-    pub usKeyLength: u16,
-    pub ucKey: [u8; 1],
+    pub usDot11RWBitMaps: [super::USHORT; 16],
+    pub usKeyLength: super::USHORT,
+    pub ucKey: [super::UCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_WEP_OFFLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WEP_UPLOAD {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub hOffload: super::HANDLE,
-    pub uNumOfRWsUsed: u32,
+    pub uNumOfRWsUsed: super::ULONG,
     pub dot11IV48Counters: [DOT11_IV48_COUNTER; 16],
-    pub usDot11RWBitMaps: [u16; 16],
+    pub usDot11RWBitMaps: [super::USHORT; 16],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DOT11_WEP_UPLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_ADDITIONAL_IE {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uBeaconIEsOffset: u32,
-    pub uBeaconIEsLength: u32,
-    pub uProbeResponseIEsOffset: u32,
-    pub uProbeResponseIEsLength: u32,
-    pub uDefaultRequestIEsOffset: u32,
-    pub uDefaultRequestIEsLength: u32,
+    pub uBeaconIEsOffset: super::ULONG,
+    pub uBeaconIEsLength: super::ULONG,
+    pub uProbeResponseIEsOffset: super::ULONG,
+    pub uProbeResponseIEsLength: super::ULONG,
+    pub uDefaultRequestIEsOffset: super::ULONG,
+    pub uDefaultRequestIEsLength: super::ULONG,
 }
 pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
-    pub AdvertisementID: u32,
-    pub ConfigMethods: u16,
-    pub ServiceNameLength: u8,
-    pub ServiceName: [u8; 255],
+    pub AdvertisementID: super::ULONG,
+    pub ConfigMethods: super::USHORT,
+    pub ServiceNameLength: super::UCHAR,
+    pub ServiceName: [super::UCHAR; 255],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
-    pub ServiceCount: u16,
+    pub ServiceCount: super::USHORT,
     pub AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISEMENT_ID {
-    pub AdvertisementID: u32,
+    pub AdvertisementID: super::ULONG,
     pub ServiceAddress: DOT11_MAC_ADDRESS,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_ADVERTISEMENT_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2957,26 +3058,26 @@ impl Default for DOT11_WFD_ADVERTISEMENT_ID {
 pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: i32 = 21;
 pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: i32 = 63;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ATTRIBUTES {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumConcurrentGORole: u32,
-    pub uNumConcurrentClientRole: u32,
-    pub WPSVersionsSupported: u32,
+    pub uNumConcurrentGORole: super::ULONG,
+    pub uNumConcurrentClientRole: super::ULONG,
+    pub WPSVersionsSupported: super::ULONG,
     pub bServiceDiscoverySupported: super::BOOLEAN,
     pub bClientDiscoverabilitySupported: super::BOOLEAN,
     pub bInfrastructureManagementSupported: super::BOOLEAN,
-    pub uMaxSecondaryDeviceTypeListSize: u32,
+    pub uMaxSecondaryDeviceTypeListSize: super::ULONG,
     pub DeviceAddress: DOT11_MAC_ADDRESS,
-    pub uInterfaceAddressListCount: u32,
+    pub uInterfaceAddressListCount: super::ULONG,
     pub pInterfaceAddressList: PDOT11_MAC_ADDRESS,
-    pub uNumSupportedCountryOrRegionStrings: u32,
+    pub uNumSupportedCountryOrRegionStrings: super::ULONG,
     pub pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
-    pub uDiscoveryFilterListSize: u32,
-    pub uGORoleClientTableSize: u32,
+    pub uDiscoveryFilterListSize: super::ULONG,
+    pub uGORoleClientTableSize: super::ULONG,
 }
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_WFD_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2984,27 +3085,30 @@ impl Default for DOT11_WFD_ATTRIBUTES {
 }
 pub const DOT11_WFD_ATTRIBUTES_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_CHANNEL {
     pub CountryRegionString: DOT11_COUNTRY_OR_REGION_STRING,
-    pub OperatingClass: u8,
-    pub ChannelNumber: u8,
+    pub OperatingClass: super::UCHAR,
+    pub ChannelNumber: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_CHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
-    pub GOTimeout: u8,
-    pub ClientTimeout: u8,
+    pub GOTimeout: super::UCHAR,
+    pub ClientTimeout: super::UCHAR,
 }
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: i32 = 16;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: i32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -3014,7 +3118,7 @@ pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub bInfrastructureManagementEnabled: super::BOOLEAN,
     pub bDeviceLimitReached: super::BOOLEAN,
     pub bInvitationProcedureEnabled: super::BOOLEAN,
-    pub WPSVersionsEnabled: u32,
+    pub WPSVersionsEnabled: super::ULONG,
 }
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
 pub const DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY: i32 = 2;
@@ -3025,27 +3129,27 @@ pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: i32 = 64;
 pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: i32 = 128;
 pub const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_WFD_DEVICE_ENTRY {
-    pub uPhyId: u32,
+    pub uPhyId: super::ULONG,
     pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
     pub dot11BSSType: super::DOT11_BSS_TYPE,
     pub TransmitterAddress: DOT11_MAC_ADDRESS,
-    pub lRSSI: i32,
-    pub uLinkQuality: u32,
-    pub usBeaconPeriod: u16,
-    pub ullTimestamp: u64,
-    pub ullBeaconHostTimestamp: u64,
-    pub ullProbeResponseHostTimestamp: u64,
-    pub usCapabilityInformation: u16,
-    pub uBeaconIEsOffset: u32,
-    pub uBeaconIEsLength: u32,
-    pub uProbeResponseIEsOffset: u32,
-    pub uProbeResponseIEsLength: u32,
+    pub lRSSI: super::LONG,
+    pub uLinkQuality: super::ULONG,
+    pub usBeaconPeriod: super::USHORT,
+    pub ullTimestamp: super::ULONGLONG,
+    pub ullBeaconHostTimestamp: super::ULONGLONG,
+    pub ullProbeResponseHostTimestamp: super::ULONGLONG,
+    pub usCapabilityInformation: super::USHORT,
+    pub uBeaconIEsOffset: super::ULONG,
+    pub uBeaconIEsLength: super::ULONG,
+    pub uProbeResponseIEsOffset: super::ULONG,
+    pub uProbeResponseIEsLength: super::ULONG,
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_WFD_DEVICE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3053,16 +3157,16 @@ impl Default for DOT11_WFD_DEVICE_ENTRY {
 }
 pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: i32 = 24;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_INFO {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub DeviceAddress: DOT11_MAC_ADDRESS,
-    pub ConfigMethods: u16,
+    pub ConfigMethods: super::USHORT,
     pub PrimaryDeviceType: DOT11_WFD_DEVICE_TYPE,
     pub DeviceName: DOT11_WPS_DEVICE_NAME,
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_WFD_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3070,21 +3174,23 @@ impl Default for DOT11_WFD_DEVICE_INFO {
 }
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub ChannelNumber: u8,
+    pub ChannelNumber: super::UCHAR,
 }
 pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: i32 = 1;
 pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_TYPE {
-    pub CategoryID: u16,
-    pub SubCategoryID: u16,
-    pub OUI: [u8; 4],
+    pub CategoryID: super::USHORT,
+    pub SubCategoryID: super::USHORT,
+    pub OUI: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_DEVICE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3092,63 +3198,65 @@ impl Default for DOT11_WFD_DEVICE_TYPE {
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: i32 = 128;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub Status: super::NDIS_STATUS,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
-    pub uListOffset: u32,
-    pub uListLength: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
+    pub uListOffset: super::ULONG,
+    pub uListLength: super::ULONG,
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub DeviceID: DOT11_MAC_ADDRESS,
-    pub ucBitmask: u8,
+    pub ucBitmask: super::UCHAR,
     pub GroupSSID: super::DOT11_SSID,
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub DiscoverType: DOT11_WFD_DISCOVER_TYPE,
     pub ScanType: DOT11_WFD_SCAN_TYPE,
-    pub uDiscoverTimeout: u32,
-    pub uDeviceFilterListOffset: u32,
-    pub uNumDeviceFilters: u32,
-    pub uIEsOffset: u32,
-    pub uIEsLength: u32,
+    pub uDiscoverTimeout: super::ULONG,
+    pub uDeviceFilterListOffset: super::ULONG,
+    pub uNumDeviceFilters: super::ULONG,
+    pub uIEsOffset: super::ULONG,
+    pub uIEsLength: super::ULONG,
     pub bForceScanLegacyNetworks: super::BOOLEAN,
 }
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: i32 = 1;
 pub type DOT11_WFD_DISCOVER_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
 }
+#[cfg(feature = "shared")]
 impl DOT11_WFD_GO_INTENT {
-    pub fn TieBreaker(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn TieBreaker(&self) -> super::UCHAR {
+        (self._bitfield) & 1
     }
-    pub fn set_TieBreaker(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_TieBreaker(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Intent(&self) -> u8 {
+    pub fn Intent(&self) -> super::UCHAR {
         self._bitfield >> 1
     }
-    pub fn set_Intent(&mut self, value: u8) {
+    pub fn set_Intent(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
@@ -3164,31 +3272,31 @@ pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: i32 = 2;
 pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: i32 = 32;
 pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: i32 = 128;
 #[repr(C)]
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_ID {
     pub DeviceAddress: DOT11_MAC_ADDRESS,
     pub SSID: super::DOT11_SSID,
 }
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 impl Default for DOT11_WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
     pub GOOperatingChannel: DOT11_WFD_CHANNEL,
-    pub GOConfigTime: u32,
+    pub GOConfigTime: super::ULONG,
     pub bInGroupFormation: super::BOOLEAN,
     pub bWaitForWPSReady: super::BOOLEAN,
 }
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -3197,12 +3305,12 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub bCrossConnectionSupported: super::BOOLEAN,
     pub bPersistentReconnectSupported: super::BOOLEAN,
     pub bGroupFormationEnabled: super::BOOLEAN,
-    pub uMaximumGroupLimit: u32,
+    pub uMaximumGroupLimit: super::ULONG,
 }
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: i32 = 1;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -3211,11 +3319,11 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub bCrossConnectionSupported: super::BOOLEAN,
     pub bPersistentReconnectSupported: super::BOOLEAN,
     pub bGroupFormationEnabled: super::BOOLEAN,
-    pub uMaximumGroupLimit: u32,
+    pub uMaximumGroupLimit: super::ULONG,
     pub bEapolKeyIpAddressAllocationSupported: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::NDIS_OBJECT_HEADER,
@@ -3223,21 +3331,23 @@ pub struct DOT11_WFD_GROUP_START_PARAMETERS {
 }
 pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_INVITATION_FLAGS {
     pub _bitfield: u8,
 }
+#[cfg(feature = "shared")]
 impl DOT11_WFD_INVITATION_FLAGS {
-    pub fn InvitationType(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn InvitationType(&self) -> super::UCHAR {
+        (self._bitfield) & 1
     }
-    pub fn set_InvitationType(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_InvitationType(&mut self, value: super::UCHAR) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::UCHAR {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::UCHAR) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
@@ -3249,15 +3359,15 @@ pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: i32 = 3;
 pub const DOT11_WFD_MINOR_REASON_SUCCESS: i32 = 0;
 pub type DOT11_WFD_SCAN_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub Header: super::NDIS_OBJECT_HEADER,
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub SecondaryDeviceTypes: [DOT11_WFD_DEVICE_TYPE; 1],
 }
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3266,11 +3376,13 @@ impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
 pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: i32 = 1;
 pub type DOT11_WFD_SERVICE_HASH = [u8; 6];
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SERVICE_HASH_LIST {
-    pub ServiceHashCount: u16,
+    pub ServiceHashCount: super::USHORT,
     pub ServiceHash: [DOT11_WFD_SERVICE_HASH; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_SERVICE_HASH_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3279,22 +3391,26 @@ impl Default for DOT11_WFD_SERVICE_HASH_LIST {
 pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: i32 = 65535;
 pub const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: i32 = 255;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SESSION_ID {
-    pub SessionID: u32,
+    pub SessionID: super::ULONG,
     pub SessionAddress: DOT11_MAC_ADDRESS,
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_SESSION_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SESSION_INFO {
-    pub uSessionInfoLength: u16,
-    pub ucSessionInfo: [u8; 144],
+    pub uSessionInfoLength: super::USHORT,
+    pub ucSessionInfo: [super::UCHAR; 144],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WFD_SESSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3316,21 +3432,24 @@ pub const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: i32 = 8;
 pub const DOT11_WFD_STATUS_SUCCESS: i32 = 0;
 pub const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: i32 = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS {
-    pub ucAccessCategoryIndex: u8,
-    pub ucAIFSN: u8,
-    pub ucECWmin: u8,
-    pub ucECWmax: u8,
-    pub usTXOPLimit: u16,
+    pub ucAccessCategoryIndex: super::UCHAR,
+    pub ucAIFSN: super::UCHAR,
+    pub ucECWmin: super::UCHAR,
+    pub ucECWmax: super::UCHAR,
+    pub usTXOPLimit: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS_LIST {
-    pub uNumOfEntries: u32,
-    pub uTotalNumOfEntries: u32,
+    pub uNumOfEntries: super::ULONG,
+    pub uTotalNumOfEntries: super::ULONG,
     pub dot11WMEACParameters: [DOT11_WME_AC_PARAMETERS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WME_AC_PARAMETERS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3338,25 +3457,27 @@ impl Default for DOT11_WME_AC_PARAMETERS_LIST {
 }
 pub const DOT11_WME_PACKET: i32 = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_UPDATE_IE {
-    pub uParamElemMinBeaconIntervals: u32,
-    pub uWMEInfoElemOffset: u32,
-    pub uWMEInfoElemLength: u32,
-    pub uWMEParamElemOffset: u32,
-    pub uWMEParamElemLength: u32,
-    pub ucBuffer: [u8; 1],
+    pub uParamElemMinBeaconIntervals: super::ULONG,
+    pub uWMEInfoElemOffset: super::ULONG,
+    pub uWMEInfoElemLength: super::ULONG,
+    pub uWMEParamElemOffset: super::ULONG,
+    pub uWMEParamElemLength: super::ULONG,
+    pub ucBuffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WME_UPDATE_IE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WPA_TSC {
-    pub uReserved: u32,
+    pub uReserved: super::ULONG,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub hOffload: super::HANDLE,
     pub dot11IV48Counter: DOT11_IV48_COUNTER,
@@ -3370,11 +3491,13 @@ pub const DOT11_WPS_CONFIG_METHOD_NULL: DOT11_WPS_CONFIG_METHOD = 0;
 pub const DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: DOT11_WPS_CONFIG_METHOD = 128;
 pub const DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: DOT11_WPS_CONFIG_METHOD = 4096;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WPS_DEVICE_NAME {
-    pub uDeviceNameLength: u32,
-    pub ucDeviceName: [u8; 32],
+    pub uDeviceNameLength: super::ULONG,
+    pub ucDeviceName: [super::UCHAR; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for DOT11_WPS_DEVICE_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3397,6 +3520,161 @@ pub const DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 1
 pub const DOT11_WPS_PASSWORD_ID_WFD_SERVICES: DOT11_WPS_DEVICE_PASSWORD_ID = 8;
 pub const DOT11_WPS_VERSION_1_0: i32 = 1;
 pub const DOT11_WPS_VERSION_2_0: i32 = 2;
+pub const GUID_NWF_ACTIVE_PHY_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d3_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_AP_JOIN_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a49b_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ASSOCIATION_PARAMS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4dd_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ATIM_WINDOW: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a448_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_AUTO_CONFIG_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4b6_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_BEACON_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a459_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CCA_MODE_SUPPORTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a474_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CCA_WATCHDOG_COUNT_MAX: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a478_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CCA_WATCHDOG_COUNT_MIN: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a47a_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CCA_WATCHDOG_TIMER_MAX: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a477_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CCA_WATCHDOG_TIMER_MIN: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a479_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CFP_MAX_DURATION: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a456_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CFP_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a455_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CF_POLLABLE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a454_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CHANNEL_AGILITY_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a486_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CHANNEL_AGILITY_PRESENT: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a485_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CIPHER_DEFAULT_KEY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c9_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CIPHER_DEFAULT_KEY_ID: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c8_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CIPHER_KEY_MAPPING_KEY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4ca_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CONNECT_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4bf_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_COUNTERS_ENTRY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a463_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_COUNTRY_STRING: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a48a_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_ADDRESS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a840_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_CCA_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a475_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_CHANNEL: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a473_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_CHANNEL_NUMBER: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a46d_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_DWELL_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a46f_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_FREQUENCY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a480_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_INDEX: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a472_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_OFFLOAD_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a43f_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_OPERATION_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a446_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_OPTIONAL_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a451_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_PACKET_FILTER: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a447_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_PATTERN: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a471_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_PHY_ID: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d0_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_PHY_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a44a_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_REG_DOMAIN: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a465_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_RX_ANTENNA: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a469_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_SET: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a470_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_TX_ANTENNA: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a467_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_CURRENT_TX_POWER_LEVEL: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a46b_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DATA_RATE_MAPPING_TABLE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d5_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DEFAULT_WEP_OFFLOAD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a442_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DEFAULT_WEP_UPLOAD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a443_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DESIRED_BSSID_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4bc_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DESIRED_BSS_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4bd_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DESIRED_COUNTRY_OR_REGION_STRING: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d7_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DESIRED_PHY_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4cf_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DESIRED_SSID_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4ba_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DISCONNECT_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4cc_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DIVERSITY_SELECTION_RX: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a47e_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DIVERSITY_SUPPORT: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a468_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DSSS_OFDM_OPTION_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a49f_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DSSS_OFDM_OPTION_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a49e_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_DTIM_PERIOD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a45a_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ED_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a476_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_EHCC_CAPABILITY_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a48f_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_EHCC_CAPABILITY_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a48e_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_EHCC_NUMBER_OF_CHANNELS_FAMILY_INDEX: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a48d_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_EHCC_PRIME_RADIX: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a48c_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ENABLED_AUTHENTICATION_ALGORITHM: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c3_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ENABLED_MULTICAST_CIPHER_ALGORITHM: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c7_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ENABLED_UNICAST_CIPHER_ALGORITHM: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c5_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ENUM_ASSOCIATION_INFO: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4cb_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ENUM_BSS_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4b7_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ERP_PBCC_OPTION_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a49d_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_ERP_PBCC_OPTION_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a49c_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_EXCLUDED_MAC_ADDRESS_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4bb_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_EXCLUDE_UNENCRYPTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c0_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_EXTSTA_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d4_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_FLUSH_BSS_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4b8_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_FRAGMENTATION_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a460_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_FREQUENCY_BANDS_SUPPORTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a482_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_HIDDEN_NETWORK_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4dc_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_HOPPING_PATTERN: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a495_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_HOP_ALGORITHM_ADOPTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a490_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_HOP_MODULUS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a493_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_HOP_OFFSET: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a494_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_HOP_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a46c_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_HR_CCA_MODE_SUPPORTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a487_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_IBSS_PARAMS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d9_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_JOIN_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a44b_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_LONG_RETRY_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a45f_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MAC_ADDRESS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a45c_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MAXIMUM_LIST_SIZE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a843_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MAX_DWELL_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a46e_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MAX_MAC_ADDRESS_STATES: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a2_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MAX_RECEIVE_LIFETIME: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a462_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MAX_TRANSMIT_MSDU_LIFETIME: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a461_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MEDIA_STREAMING_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d1_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MEDIUM_OCCUPANCY_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a453_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MPDU_MAX_LENGTH: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a444_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MULTICAST_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a842_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MULTI_DOMAIN_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a48b_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MULTI_DOMAIN_CAPABILITY_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a489_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_MULTI_DOMAIN_CAPABILITY_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a488_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_NIC_POWER_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a44f_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_NIC_SPECIFIC_EXTENSION: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a49a_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_NUMBER_OF_HOPPING_SETS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a492_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_OFFLOAD_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a43e_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_OPERATIONAL_RATE_SET: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a458_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_OPERATION_MODE_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a445_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_OPTIONAL_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a450_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_PBCC_OPTION_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a484_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_PERMANENT_ADDRESS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a841_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_PHY_STATE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4ce_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_PMKID_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4be_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_PORT_STATE_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d8_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_POWER_MGMT_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a457_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_POWER_MGMT_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4b9_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_PRIVACY_EXEMPTION_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c2_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_QOS_PARAMS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4da_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_QOS_TX_DURATION: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a9_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_QOS_TX_MEDIUM_TIME: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4aa_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_QOS_TX_QUEUES_SUPPORTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a8_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_RANDOM_TABLE_FIELD_NUMBER: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a496_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_RANDOM_TABLE_FLAG: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a491_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_RECV_SENSITIVITY_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a3_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_REG_DOMAINS_SUPPORT_VALUE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a47b_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_RESET_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a44e_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_RF_USAGE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a499_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_RSSI_RANGE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a498_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_RTS_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a45d_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SAFE_MODE_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4db_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SCAN_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a449_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SHORT_PREAMBLE_OPTION_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a483_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SHORT_RETRY_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a45e_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SHORT_SLOT_TIME_OPTION_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a1_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SHORT_SLOT_TIME_OPTION_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a0_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_START_REQUEST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a44c_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_STATION_ID: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a452_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_STATISTICS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c1_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_COUNTRY_OR_REGION_STRING: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d6_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_DATA_RATES_VALUE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a47f_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_DSSS_CHANNEL_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4ac_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_MULTICAST_ALGORITHM_PAIR: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c6_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_OFDM_FREQUENCY_LIST: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4ab_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_PHY_TYPES: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a464_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_POWER_LEVELS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a46a_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_RX_ANTENNA: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a47d_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_TX_ANTENNA: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a47c_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_SUPPORTED_UNICAST_ALGORITHM_PAIR: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4c4_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_TEMP_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a466_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_TI_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a481_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_UNICAST_USE_GROUP_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4cd_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_UNREACHABLE_DETECTION_THRESHOLD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4d2_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_UPDATE_IE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a44d_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WEP_ICV_ERROR_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a45b_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WEP_OFFLOAD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a440_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WEP_UPLOAD: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a441_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WME_AC_PARAMETERS: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a6_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WME_ENABLED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a5_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WME_IMPLEMENTED: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a4_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WME_UPDATE_IE: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a4a7_c45f_4039_9fe6_d08cb057184c);
+pub const GUID_NWF_WPA_TSC: windows_core::GUID = windows_core::GUID::from_u128(0x6cb9a497_c45f_4039_9fe6_d08cb057184c);
 pub const MAX_NUM_SUPPORTED_RATES: i32 = 8;
 pub const MAX_NUM_SUPPORTED_RATES_V2: i32 = 255;
 pub const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_DATA: i32 = 4;
@@ -3635,369 +3913,440 @@ pub const OID_DOT11_WPA_TSC: i32 = 218170201;
 pub const OID_DOT11_WPS_ENABLED: u32 = 235077889;
 pub type PCH_DESCRIPTION_TYPE = *mut CH_DESCRIPTION_TYPE;
 pub type PDOT11_AC_PARAM = *mut DOT11_AC_PARAM;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_ADDITIONAL_IE = *mut DOT11_ADDITIONAL_IE;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_ANQP_QUERY_COMPLETE_PARAMETERS = *mut DOT11_ANQP_QUERY_COMPLETE_PARAMETERS;
 pub type PDOT11_ANQP_QUERY_RESULT = *mut DOT11_ANQP_QUERY_RESULT;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_AP_JOIN_REQUEST = *mut DOT11_AP_JOIN_REQUEST;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_ASSOCIATION_COMPLETION_PARAMETERS = *mut DOT11_ASSOCIATION_COMPLETION_PARAMETERS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_ASSOCIATION_INFO_EX = *mut DOT11_ASSOCIATION_INFO_EX;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_ASSOCIATION_INFO_LIST = *mut DOT11_ASSOCIATION_INFO_LIST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_ASSOCIATION_PARAMS = *mut DOT11_ASSOCIATION_PARAMS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_ASSOCIATION_START_PARAMETERS = *mut DOT11_ASSOCIATION_START_PARAMETERS;
 pub type PDOT11_ASSOCIATION_STATE = *mut DOT11_ASSOCIATION_STATE;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_AUTH_ALGORITHM_LIST = *mut DOT11_AUTH_ALGORITHM_LIST;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_AUTH_CIPHER_PAIR_LIST = *mut DOT11_AUTH_CIPHER_PAIR_LIST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_AVAILABLE_CHANNEL_LIST = *mut DOT11_AVAILABLE_CHANNEL_LIST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_AVAILABLE_FREQUENCY_LIST = *mut DOT11_AVAILABLE_FREQUENCY_LIST;
 pub type PDOT11_BAND = *mut DOT11_BAND;
+#[cfg(feature = "shared")]
 pub type PDOT11_BSSID_CANDIDATE = *mut DOT11_BSSID_CANDIDATE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_BSSID_LIST = *mut DOT11_BSSID_LIST;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_BSS_DESCRIPTION = *mut DOT11_BSS_DESCRIPTION;
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_BSS_ENTRY = *mut DOT11_BSS_ENTRY;
+#[cfg(feature = "shared")]
 pub type PDOT11_BSS_ENTRY_PHY_SPECIFIC_INFO = *mut DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_BYTE_ARRAY = *mut DOT11_BYTE_ARRAY;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_CAN_SUSTAIN_AP_PARAMETERS = *mut DOT11_CAN_SUSTAIN_AP_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_CHANNEL_HINT = *mut DOT11_CHANNEL_HINT;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_CIPHER_ALGORITHM_LIST = *mut DOT11_CIPHER_ALGORITHM_LIST;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_CIPHER_DEFAULT_KEY_VALUE = *mut DOT11_CIPHER_DEFAULT_KEY_VALUE;
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_CIPHER_KEY_MAPPING_KEY_VALUE = *mut DOT11_CIPHER_KEY_MAPPING_KEY_VALUE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_CONNECTION_COMPLETION_PARAMETERS = *mut DOT11_CONNECTION_COMPLETION_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_CONNECTION_START_PARAMETERS = *mut DOT11_CONNECTION_START_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_COUNTERS_ENTRY = *mut DOT11_COUNTERS_ENTRY;
-pub type PDOT11_COUNTRY_OR_REGION_STRING = *mut DOT11_COUNTRY_OR_REGION_STRING;
-#[cfg(feature = "objectheader")]
+pub type PDOT11_COUNTRY_OR_REGION_STRING = *mut [u8; 3];
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_COUNTRY_OR_REGION_STRING_LIST = *mut DOT11_COUNTRY_OR_REGION_STRING_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_CURRENT_OFFLOAD_CAPABILITY = *mut DOT11_CURRENT_OFFLOAD_CAPABILITY;
+#[cfg(feature = "shared")]
 pub type PDOT11_CURRENT_OPERATION_MODE = *mut DOT11_CURRENT_OPERATION_MODE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_CURRENT_OPTIONAL_CAPABILITY = *mut DOT11_CURRENT_OPTIONAL_CAPABILITY;
+#[cfg(feature = "shared")]
 pub type PDOT11_DATA_RATE_MAPPING_ENTRY = *mut DOT11_DATA_RATE_MAPPING_ENTRY;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_DATA_RATE_MAPPING_TABLE = *mut DOT11_DATA_RATE_MAPPING_TABLE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_DEFAULT_WEP_OFFLOAD = *mut DOT11_DEFAULT_WEP_OFFLOAD;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_DEFAULT_WEP_UPLOAD = *mut DOT11_DEFAULT_WEP_UPLOAD;
 pub type PDOT11_DIRECTION = *mut DOT11_DIRECTION;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_DISASSOCIATE_PEER_REQUEST = *mut DOT11_DISASSOCIATE_PEER_REQUEST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_DISASSOCIATION_PARAMETERS = *mut DOT11_DISASSOCIATION_PARAMETERS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_DIVERSITY_SELECTION_RX = *mut DOT11_DIVERSITY_SELECTION_RX;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_DIVERSITY_SELECTION_RX_LIST = *mut DOT11_DIVERSITY_SELECTION_RX_LIST;
 pub type PDOT11_DIVERSITY_SUPPORT = *mut DOT11_DIVERSITY_SUPPORT;
 pub type PDOT11_DS_INFO = *mut DOT11_DS_INFO;
+#[cfg(feature = "shared")]
 pub type PDOT11_ENCAP_ENTRY = *mut DOT11_ENCAP_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_ERP_PHY_ATTRIBUTES = *mut DOT11_ERP_PHY_ATTRIBUTES;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_EXTAP_ATTRIBUTES = *mut DOT11_EXTAP_ATTRIBUTES;
-#[cfg(feature = "objectheader")]
-pub type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTAP_RECV_CONTEXT;
-#[cfg(feature = "objectheader")]
-pub type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTAP_SEND_CONTEXT;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_EXTSTA_ATTRIBUTES = *mut DOT11_EXTSTA_ATTRIBUTES;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_EXTSTA_CAPABILITY = *mut DOT11_EXTSTA_CAPABILITY;
-#[cfg(feature = "objectheader")]
-pub type PDOT11_EXTSTA_RECV_CONTEXT = *mut DOT11_EXTAP_RECV_CONTEXT;
-#[cfg(feature = "objectheader")]
-pub type PDOT11_EXTSTA_SEND_CONTEXT = *mut DOT11_EXTAP_SEND_CONTEXT;
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type PDOT11_EXTSTA_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
+pub type PDOT11_EXTSTA_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PDOT11_FRAGMENT_DESCRIPTOR = *mut DOT11_FRAGMENT_DESCRIPTOR;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS;
-pub type PDOT11_HESSID = *mut DOT11_HESSID;
+pub type PDOT11_HESSID = *mut [u8; 6];
+#[cfg(feature = "shared")]
 pub type PDOT11_HOPPING_PATTERN_ENTRY = *mut DOT11_HOPPING_PATTERN_ENTRY;
+#[cfg(feature = "shared")]
 pub type PDOT11_HOPPING_PATTERN_ENTRY_LIST = *mut DOT11_HOPPING_PATTERN_ENTRY_LIST;
 pub type PDOT11_HOP_ALGO_ADOPTED = *mut DOT11_HOP_ALGO_ADOPTED;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_HRDSSS_PHY_ATTRIBUTES = *mut DOT11_HRDSSS_PHY_ATTRIBUTES;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_IBSS_PARAMS = *mut DOT11_IBSS_PARAMS;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS = *mut DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_INCOMING_ASSOC_DECISION = *mut DOT11_INCOMING_ASSOC_DECISION;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_INCOMING_ASSOC_DECISION_V2 = *mut DOT11_INCOMING_ASSOC_DECISION_V2;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS = *mut DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_INCOMING_ASSOC_STARTED_PARAMETERS = *mut DOT11_INCOMING_ASSOC_STARTED_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_IV48_COUNTER = *mut DOT11_IV48_COUNTER;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_JOIN_REQUEST = *mut DOT11_JOIN_REQUEST;
+#[cfg(feature = "shared")]
 pub type PDOT11_KEY_ALGO_BIP = *mut DOT11_KEY_ALGO_BIP;
+#[cfg(feature = "shared")]
 pub type PDOT11_KEY_ALGO_BIP_GMAC_256 = *mut DOT11_KEY_ALGO_BIP_GMAC_256;
+#[cfg(feature = "shared")]
 pub type PDOT11_KEY_ALGO_CCMP = *mut DOT11_KEY_ALGO_CCMP;
+#[cfg(feature = "shared")]
 pub type PDOT11_KEY_ALGO_GCMP = *mut DOT11_KEY_ALGO_GCMP;
+#[cfg(feature = "shared")]
 pub type PDOT11_KEY_ALGO_GCMP_256 = *mut DOT11_KEY_ALGO_GCMP_256;
+#[cfg(feature = "shared")]
 pub type PDOT11_KEY_ALGO_TKIP_MIC = *mut DOT11_KEY_ALGO_TKIP_MIC;
 pub type PDOT11_KEY_DIRECTION = *mut DOT11_KEY_DIRECTION;
+#[cfg(feature = "shared")]
 pub type PDOT11_LINK_QUALITY_ENTRY = *mut DOT11_LINK_QUALITY_ENTRY;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_LINK_QUALITY_PARAMETERS = *mut DOT11_LINK_QUALITY_PARAMETERS;
-pub type PDOT11_MAC_ADDRESS = *mut DOT11_MAC_ADDRESS;
-#[cfg(feature = "objectheader")]
+pub type PDOT11_MAC_ADDRESS = *mut [u8; 6];
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_MAC_ADDRESS_LIST = *mut DOT11_MAC_ADDRESS_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_MAC_FRAME_STATISTICS = *mut DOT11_MAC_FRAME_STATISTICS;
+#[cfg(feature = "shared")]
 pub type PDOT11_MAC_INFO = *mut DOT11_MAC_INFO;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_MAC_PARAMETERS = *mut DOT11_MAC_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_MANUFACTURING_CALLBACK_PARAMETERS = *mut DOT11_MANUFACTURING_CALLBACK_PARAMETERS;
 pub type PDOT11_MANUFACTURING_CALLBACK_TYPE = *mut DOT11_MANUFACTURING_CALLBACK_TYPE;
+#[cfg(feature = "shared")]
 pub type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_RX = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_MANUFACTURING_FUNCTIONAL_TEST_TX = *mut DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS = *mut DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_MANUFACTURING_SELF_TEST_SET_PARAMS = *mut DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS;
 pub type PDOT11_MANUFACTURING_SELF_TEST_TYPE = *mut DOT11_MANUFACTURING_SELF_TEST_TYPE;
+#[cfg(feature = "shared")]
 pub type PDOT11_MANUFACTURING_TEST = *mut DOT11_MANUFACTURING_TEST;
+#[cfg(feature = "shared")]
 pub type PDOT11_MANUFACTURING_TEST_QUERY_DATA = *mut DOT11_MANUFACTURING_TEST_QUERY_DATA;
+#[cfg(feature = "shared")]
 pub type PDOT11_MANUFACTURING_TEST_SET_DATA = *mut DOT11_MANUFACTURING_TEST_SET_DATA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_MANUFACTURING_TEST_SLEEP = *mut DOT11_MANUFACTURING_TEST_SLEEP;
 pub type PDOT11_MANUFACTURING_TEST_TYPE = *mut DOT11_MANUFACTURING_TEST_TYPE;
+#[cfg(feature = "shared")]
 pub type PDOT11_MD_CAPABILITY_ENTRY_LIST = *mut DOT11_MD_CAPABILITY_ENTRY_LIST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_MPDU_MAX_LENGTH_INDICATION = *mut DOT11_MPDU_MAX_LENGTH_INDICATION;
+#[cfg(feature = "shared")]
 pub type PDOT11_MULTI_DOMAIN_CAPABILITY_ENTRY = *mut DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY;
+#[cfg(feature = "shared")]
 pub type PDOT11_NIC_SPECIFIC_EXTENSION = *mut DOT11_NIC_SPECIFIC_EXTENSION;
+#[cfg(feature = "shared")]
 pub type PDOT11_OFDM_PHY_ATTRIBUTES = *mut DOT11_OFDM_PHY_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PDOT11_OFFLOAD_CAPABILITY = *mut DOT11_OFFLOAD_CAPABILITY;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_OFFLOAD_NETWORK = *mut DOT11_OFFLOAD_NETWORK;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_OFFLOAD_NETWORK_LIST_INFO = *mut DOT11_OFFLOAD_NETWORK_LIST_INFO;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS = *mut DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS;
 pub type PDOT11_OFFLOAD_TYPE = *mut DOT11_OFFLOAD_TYPE;
+#[cfg(feature = "shared")]
 pub type PDOT11_OPERATION_MODE_CAPABILITY = *mut DOT11_OPERATION_MODE_CAPABILITY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_OPTIONAL_CAPABILITY = *mut DOT11_OPTIONAL_CAPABILITY;
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_PEER_INFO = *mut DOT11_PEER_INFO;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_PEER_INFO_LIST = *mut DOT11_PEER_INFO_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_PEER_STATISTICS = *mut DOT11_PEER_STATISTICS;
+#[cfg(feature = "shared")]
 pub type PDOT11_PER_MSDU_COUNTERS = *mut DOT11_PER_MSDU_COUNTERS;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PHY_ATTRIBUTES = *mut DOT11_PHY_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PDOT11_PHY_FRAME_STATISTICS = *mut DOT11_PHY_FRAME_STATISTICS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS = *mut DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PHY_ID_LIST = *mut DOT11_PHY_ID_LIST;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PHY_STATE_PARAMETERS = *mut DOT11_PHY_STATE_PARAMETERS;
 pub type PDOT11_PHY_TYPE = *mut DOT11_PHY_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_PHY_TYPE_INFO = *mut DOT11_PHY_TYPE_INFO;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PHY_TYPE_LIST = *mut DOT11_PHY_TYPE_LIST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PMKID_CANDIDATE_LIST_PARAMETERS = *mut DOT11_PMKID_CANDIDATE_LIST_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_PMKID_ENTRY = *mut DOT11_PMKID_ENTRY;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PMKID_LIST = *mut DOT11_PMKID_LIST;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PORT_STATE_NOTIFICATION = *mut DOT11_PORT_STATE_NOTIFICATION;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO = *mut DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_POWER_MGMT_MODE = *mut DOT11_POWER_MGMT_MODE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_POWER_MGMT_MODE_STATUSINFO = *mut DOT11_POWER_MGMT_MODE_STATUS_INFO;
 pub type PDOT11_POWER_MODE = *mut DOT11_POWER_MODE;
+#[cfg(feature = "shared")]
 pub type PDOT11_PRIVACY_EXEMPTION = *mut DOT11_PRIVACY_EXEMPTION;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_PRIVACY_EXEMPTION_LIST = *mut DOT11_PRIVACY_EXEMPTION_LIST;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_QOS_PARAMS = *mut DOT11_QOS_PARAMS;
+#[cfg(feature = "shared")]
 pub type PDOT11_QOS_TX_DURATION = *mut DOT11_QOS_TX_DURATION;
+#[cfg(feature = "shared")]
 pub type PDOT11_QOS_TX_MEDIUM_TIME = *mut DOT11_QOS_TX_MEDIUM_TIME;
+#[cfg(feature = "shared")]
 pub type PDOT11_RATE_SET = *mut DOT11_RATE_SET;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS = *mut DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS = *mut DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS = *mut DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS = *mut DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS = *mut DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS = *mut DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS = *mut DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_RECV_EXTENSION_INFO = *mut DOT11_RECV_EXTENSION_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_RECV_EXTENSION_INFO_V2 = *mut DOT11_RECV_EXTENSION_INFO_V2;
+#[cfg(feature = "shared")]
 pub type PDOT11_RECV_SENSITIVITY = *mut DOT11_RECV_SENSITIVITY;
+#[cfg(feature = "shared")]
 pub type PDOT11_RECV_SENSITIVITY_LIST = *mut DOT11_RECV_SENSITIVITY_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_REG_DOMAINS_SUPPORT_VALUE = *mut DOT11_REG_DOMAINS_SUPPORT_VALUE;
+#[cfg(feature = "shared")]
 pub type PDOT11_REG_DOMAIN_VALUE = *mut DOT11_REG_DOMAIN_VALUE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_RESET_REQUEST = *mut DOT11_RESET_REQUEST;
 pub type PDOT11_RESET_TYPE = *mut DOT11_RESET_TYPE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_ROAMING_COMPLETION_PARAMETERS = *mut DOT11_ROAMING_COMPLETION_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_ROAMING_START_PARAMETERS = *mut DOT11_ROAMING_START_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_RSSI_RANGE = *mut DOT11_RSSI_RANGE;
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_SCAN_REQUEST = *mut DOT11_SCAN_REQUEST;
-#[cfg(all(feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_SCAN_REQUEST_V2 = *mut DOT11_SCAN_REQUEST_V2;
 pub type PDOT11_SCAN_TYPE = *mut DOT11_SCAN_TYPE;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt", feature = "wlan"))]
 pub type PDOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_SEND_INVITATION_REQUEST_PARAMETERS = *mut DOT11_SEND_INVITATION_REQUEST_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_SEND_INVITATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_INVITATION_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "winnt", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "winnt"))]
 pub type PDOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "wlan"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "wlan"))]
 pub type PDOT11_SSID_LIST = *mut DOT11_SSID_LIST;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_START_REQUEST = *mut DOT11_START_REQUEST;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_STATISTICS = *mut DOT11_STATISTICS;
-#[cfg(feature = "types")]
+#[cfg(all(feature = "shared", feature = "types"))]
 pub type PDOT11_STATUS_INDICATION = *mut DOT11_STATUS_INDICATION;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_STOP_AP_PARAMETERS = *mut DOT11_STOP_AP_PARAMETERS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_ANTENNA = *mut DOT11_SUPPORTED_ANTENNA;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_ANTENNA_LIST = *mut DOT11_SUPPORTED_ANTENNA_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_DATA_RATES_VALUE = *mut DOT11_SUPPORTED_DATA_RATES_VALUE;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_DATA_RATES_VALUE_V1 = *mut DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_DATA_RATES_VALUE_V2 = *mut DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_DSSS_CHANNEL = *mut DOT11_SUPPORTED_DSSS_CHANNEL;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_DSSS_CHANNEL_LIST = *mut DOT11_SUPPORTED_DSSS_CHANNEL_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_OFDM_FREQUENCY = *mut DOT11_SUPPORTED_OFDM_FREQUENCY;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_OFDM_FREQUENCY_LIST = *mut DOT11_SUPPORTED_OFDM_FREQUENCY_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_PHY_TYPES = *mut DOT11_SUPPORTED_PHY_TYPES;
+#[cfg(feature = "shared")]
 pub type PDOT11_SUPPORTED_POWER_LEVELS = *mut DOT11_SUPPORTED_POWER_LEVELS;
 pub type PDOT11_TEMP_TYPE = *mut DOT11_TEMP_TYPE;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_TKIPMIC_FAILURE_PARAMETERS = *mut DOT11_TKIPMIC_FAILURE_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_UPDATE_IE = *mut DOT11_UPDATE_IE;
 pub type PDOT11_UPDATE_IE_OP = *mut DOT11_UPDATE_IE_OP;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_VWIFI_ATTRIBUTES = *mut DOT11_VWIFI_ATTRIBUTES;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_VWIFI_COMBINATION = *mut DOT11_VWIFI_COMBINATION;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_VWIFI_COMBINATION_V2 = *mut DOT11_VWIFI_COMBINATION_V2;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_VWIFI_COMBINATION_V3 = *mut DOT11_VWIFI_COMBINATION_V3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_WEP_OFFLOAD = *mut DOT11_WEP_OFFLOAD;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_WEP_UPLOAD = *mut DOT11_WEP_UPLOAD;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_ADDITIONAL_IE = *mut DOT11_WFD_ADDITIONAL_IE;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR = *mut DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_ADVERTISED_SERVICE_LIST = *mut DOT11_WFD_ADVERTISED_SERVICE_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_ADVERTISEMENT_ID = *mut DOT11_WFD_ADVERTISEMENT_ID;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_ATTRIBUTES = *mut DOT11_WFD_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_CHANNEL = *mut DOT11_WFD_CHANNEL;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_CONFIGURATION_TIMEOUT = *mut DOT11_WFD_CONFIGURATION_TIMEOUT;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_DEVICE_CAPABILITY_CONFIG = *mut DOT11_WFD_DEVICE_CAPABILITY_CONFIG;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_WFD_DEVICE_ENTRY = *mut DOT11_WFD_DEVICE_ENTRY;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_DEVICE_INFO = *mut DOT11_WFD_DEVICE_INFO;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_DEVICE_LISTEN_CHANNEL = *mut DOT11_WFD_DEVICE_LISTEN_CHANNEL;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_DEVICE_TYPE = *mut DOT11_WFD_DEVICE_TYPE;
-#[cfg(all(feature = "objectheader", feature = "types"))]
+#[cfg(all(feature = "objectheader", feature = "shared", feature = "types"))]
 pub type PDOT11_WFD_DISCOVER_COMPLETE_PARAMETERS = *mut DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_WFD_DISCOVER_DEVICE_FILTER = *mut DOT11_WFD_DISCOVER_DEVICE_FILTER;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_DISCOVER_REQUEST = *mut DOT11_WFD_DISCOVER_REQUEST;
 pub type PDOT11_WFD_DISCOVER_TYPE = *mut DOT11_WFD_DISCOVER_TYPE;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_GO_INTENT = *mut DOT11_WFD_GO_INTENT;
-#[cfg(feature = "wlan")]
+#[cfg(all(feature = "shared", feature = "wlan"))]
 pub type PDOT11_WFD_GROUP_ID = *mut DOT11_WFD_GROUP_ID;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_GROUP_JOIN_PARAMETERS = *mut DOT11_WFD_GROUP_JOIN_PARAMETERS;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG = *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG;
-#[cfg(all(feature = "objectheader", feature = "winnt"))]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 = *mut DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_GROUP_START_PARAMETERS = *mut DOT11_WFD_GROUP_START_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_INVITATION_FLAGS = *mut DOT11_WFD_INVITATION_FLAGS;
 pub type PDOT11_WFD_SCAN_TYPE = *mut DOT11_WFD_SCAN_TYPE;
-#[cfg(feature = "objectheader")]
+#[cfg(all(feature = "objectheader", feature = "shared"))]
 pub type PDOT11_WFD_SECONDARY_DEVICE_TYPE_LIST = *mut DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_SERVICE_HASH_LIST = *mut DOT11_WFD_SERVICE_HASH_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_SESSION_ID = *mut DOT11_WFD_SESSION_ID;
+#[cfg(feature = "shared")]
 pub type PDOT11_WFD_SESSION_INFO = *mut DOT11_WFD_SESSION_INFO;
+#[cfg(feature = "shared")]
 pub type PDOT11_WME_AC_PARAMETERS = *mut DOT11_WME_AC_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDOT11_WME_AC_PARAMETERS_LIST = *mut DOT11_WME_AC_PARAMETERS_LIST;
+#[cfg(feature = "shared")]
 pub type PDOT11_WME_UPDATE_IE = *mut DOT11_WME_UPDATE_IE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDOT11_WPA_TSC = *mut DOT11_WPA_TSC;
 pub type PDOT11_WPS_CONFIG_METHOD = *mut DOT11_WPS_CONFIG_METHOD;
+#[cfg(feature = "shared")]
 pub type PDOT11_WPS_DEVICE_NAME = *mut DOT11_WPS_DEVICE_NAME;
 pub type PDOT11_WPS_DEVICE_PASSWORD_ID = *mut DOT11_WPS_DEVICE_PASSWORD_ID;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PWFDSVC_CONNECTION_CAPABILITY = *mut WFDSVC_CONNECTION_CAPABILITY;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4009,7 +4358,7 @@ pub type RSNA_AKM_SUITE = i32;
 pub type RSNA_CIPHER_SUITE = i32;
 pub const RSNA_OUI_PREFIX: i32 = 11276032;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bNew: super::BOOLEAN,

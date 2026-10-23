@@ -1,4 +1,4 @@
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn CreateAppContainerProfile<P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: Option<&[super::SID_AND_ATTRIBUTES]>, ppsidappcontainersid: *mut super::PSID) -> windows_core::HRESULT
 where
@@ -6,22 +6,23 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : super::PSID_AND_ATTRIBUTES, dwcapabilitycount : u32, ppsidappcontainersid : *mut super::PSID) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn CreateAppContainerProfile(pszappcontainername : windows_core::PCWSTR, pszdisplayname : windows_core::PCWSTR, pszdescription : windows_core::PCWSTR, pcapabilities : super::PSID_AND_ATTRIBUTES, dwcapabilitycount : super::DWORD, ppsidappcontainersid : *mut super::PSID) -> windows_core::HRESULT);
     unsafe { CreateAppContainerProfile(pszappcontainername.param().abi(), pszdisplayname.param().abi(), pszdescription.param().abi(), core::mem::transmute(pcapabilities.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.map_or(0, |slice| slice.len().try_into().unwrap()), ppsidappcontainersid as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateEnvironmentBlock(lpenvironment: *mut *mut core::ffi::c_void, htoken: Option<super::HANDLE>, binherit: bool) -> windows_core::BOOL {
-    windows_core::link!("userenv.dll" "system" fn CreateEnvironmentBlock(lpenvironment : *mut *mut core::ffi::c_void, htoken : super::HANDLE, binherit : windows_core::BOOL) -> windows_core::BOOL);
+pub unsafe fn CreateEnvironmentBlock(lpenvironment: *mut super::LPVOID, htoken: Option<super::HANDLE>, binherit: bool) -> windows_core::BOOL {
+    windows_core::link!("userenv.dll" "system" fn CreateEnvironmentBlock(lpenvironment : *mut super::LPVOID, htoken : super::HANDLE, binherit : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CreateEnvironmentBlock(lpenvironment as _, htoken.unwrap_or(core::mem::zeroed()) as _, binherit.into()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CreateProfile<P0, P1>(pszusersid: P0, pszusername: P1, pszprofilepath: windows_core::PWSTR, cchprofilepath: u32) -> windows_core::HRESULT
+pub unsafe fn CreateProfile<P0, P1>(pszusersid: P0, pszusername: P1, pszprofilepath: windows_core::PWSTR, cchprofilepath: super::DWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn CreateProfile(pszusersid : windows_core::PCWSTR, pszusername : windows_core::PCWSTR, pszprofilepath : windows_core::PWSTR, cchprofilepath : u32) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn CreateProfile(pszusersid : windows_core::PCWSTR, pszusername : windows_core::PCWSTR, pszprofilepath : windows_core::PWSTR, cchprofilepath : super::DWORD) -> windows_core::HRESULT);
     unsafe { CreateProfile(pszusersid.param().abi(), pszusername.param().abi(), pszprofilepath, cchprofilepath) }
 }
 #[inline]
@@ -70,9 +71,10 @@ where
     windows_core::link!("userenv.dll" "system" fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid : super::PSID, pszrestrictedappcontainername : windows_core::PCWSTR, ppsidrestrictedappcontainersid : *mut super::PSID) -> windows_core::HRESULT);
     unsafe { DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid, pszrestrictedappcontainername.param().abi(), ppsidrestrictedappcontainersid as _) }
 }
+#[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("userenv.dll" "system" fn DestroyEnvironmentBlock(lpenvironment : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn DestroyEnvironmentBlock(lpenvironment: super::LPVOID) -> windows_core::BOOL {
+    windows_core::link!("userenv.dll" "system" fn DestroyEnvironmentBlock(lpenvironment : super::LPVOID) -> windows_core::BOOL);
     unsafe { DestroyEnvironmentBlock(lpenvironment) }
 }
 #[cfg(feature = "winnt")]
@@ -81,42 +83,43 @@ pub unsafe fn EnterCriticalPolicySection(bmachine: bool) -> super::HANDLE {
     windows_core::link!("userenv.dll" "system" fn EnterCriticalPolicySection(bmachine : windows_core::BOOL) -> super::HANDLE);
     unsafe { EnterCriticalPolicySection(bmachine.into()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ExpandEnvironmentStringsForUserA<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: windows_core::PSTR, dwsize: u32) -> windows_core::BOOL
+pub unsafe fn ExpandEnvironmentStringsForUserA<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: windows_core::PSTR, dwsize: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserA(htoken : super::HANDLE, lpsrc : windows_core::PCSTR, lpdest : windows_core::PSTR, dwsize : u32) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserA(htoken : super::HANDLE, lpsrc : windows_core::PCSTR, lpdest : windows_core::PSTR, dwsize : super::DWORD) -> windows_core::BOOL);
     unsafe { ExpandEnvironmentStringsForUserA(htoken.unwrap_or(core::mem::zeroed()) as _, lpsrc.param().abi(), lpdest, dwsize) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ExpandEnvironmentStringsForUserW<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: windows_core::PWSTR, dwsize: u32) -> windows_core::BOOL
+pub unsafe fn ExpandEnvironmentStringsForUserW<P1>(htoken: Option<super::HANDLE>, lpsrc: P1, lpdest: windows_core::PWSTR, dwsize: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserW(htoken : super::HANDLE, lpsrc : windows_core::PCWSTR, lpdest : windows_core::PWSTR, dwsize : u32) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn ExpandEnvironmentStringsForUserW(htoken : super::HANDLE, lpsrc : windows_core::PCWSTR, lpdest : windows_core::PWSTR, dwsize : super::DWORD) -> windows_core::BOOL);
     unsafe { ExpandEnvironmentStringsForUserW(htoken.unwrap_or(core::mem::zeroed()) as _, lpsrc.param().abi(), lpdest, dwsize) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn FreeGPOListA(pgpolist: PGROUP_POLICY_OBJECTA) -> windows_core::BOOL {
     windows_core::link!("userenv.dll" "system" fn FreeGPOListA(pgpolist : PGROUP_POLICY_OBJECTA) -> windows_core::BOOL);
     unsafe { FreeGPOListA(pgpolist) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn FreeGPOListW(pgpolist: PGROUP_POLICY_OBJECTW) -> windows_core::BOOL {
     windows_core::link!("userenv.dll" "system" fn FreeGPOListW(pgpolist : PGROUP_POLICY_OBJECTW) -> windows_core::BOOL);
     unsafe { FreeGPOListW(pgpolist) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GenerateGPNotification<P1>(bmachine: bool, lpwszmgmtproduct: P1, dwmgmtproductoptions: u32) -> u32
+pub unsafe fn GenerateGPNotification<P1>(bmachine: bool, lpwszmgmtproduct: P1, dwmgmtproductoptions: super::DWORD) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GenerateGPNotification(bmachine : windows_core::BOOL, lpwszmgmtproduct : windows_core::PCWSTR, dwmgmtproductoptions : u32) -> u32);
+    windows_core::link!("userenv.dll" "system" fn GenerateGPNotification(bmachine : windows_core::BOOL, lpwszmgmtproduct : windows_core::PCWSTR, dwmgmtproductoptions : super::DWORD) -> super::DWORD);
     unsafe { GenerateGPNotification(bmachine.into(), lpwszmgmtproduct.param().abi(), dwmgmtproductoptions) }
 }
 #[cfg(feature = "minwindef")]
@@ -142,28 +145,31 @@ where
         GetAppContainerFolderPath(pszappcontainersid.param().abi(), &mut result__).map(|| result__)
     }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
-pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: super::REGSAM, phappcontainerkey: super::PHKEY) -> windows_core::HRESULT {
+pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: super::REGSAM) -> windows_core::Result<*mut super::HKEY__> {
     windows_core::link!("userenv.dll" "system" fn GetAppContainerRegistryLocation(desiredaccess : super::REGSAM, phappcontainerkey : super::PHKEY) -> windows_core::HRESULT);
-    unsafe { GetAppContainerRegistryLocation(desiredaccess, phappcontainerkey) }
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        GetAppContainerRegistryLocation(desiredaccess, &mut result__).map(|| result__)
+    }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetAppliedGPOListA<P1>(dwflags: u32, pmachinename: P1, psiduser: Option<super::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut PGROUP_POLICY_OBJECTA) -> u32
+pub unsafe fn GetAppliedGPOListA<P1>(dwflags: super::DWORD, pmachinename: P1, psiduser: Option<super::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut PGROUP_POLICY_OBJECTA) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : windows_core::PCSTR, psiduser : super::PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut PGROUP_POLICY_OBJECTA) -> u32);
+    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : super::DWORD, pmachinename : windows_core::PCSTR, psiduser : super::PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut PGROUP_POLICY_OBJECTA) -> super::DWORD);
     unsafe { GetAppliedGPOListA(dwflags, pmachinename.param().abi(), psiduser.unwrap_or(core::mem::zeroed()) as _, pguidextension, ppgpolist as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetAppliedGPOListW<P1>(dwflags: u32, pmachinename: P1, psiduser: Option<super::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut PGROUP_POLICY_OBJECTW) -> u32
+pub unsafe fn GetAppliedGPOListW<P1>(dwflags: super::DWORD, pmachinename: P1, psiduser: Option<super::PSID>, pguidextension: *const windows_core::GUID, ppgpolist: *mut PGROUP_POLICY_OBJECTW) -> super::DWORD
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : windows_core::PCWSTR, psiduser : super::PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut PGROUP_POLICY_OBJECTW) -> u32);
+    windows_core::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : super::DWORD, pmachinename : windows_core::PCWSTR, psiduser : super::PSID, pguidextension : *const windows_core::GUID, ppgpolist : *mut PGROUP_POLICY_OBJECTW) -> super::DWORD);
     unsafe { GetAppliedGPOListW(dwflags, pmachinename.param().abi(), psiduser.unwrap_or(core::mem::zeroed()) as _, pguidextension, ppgpolist as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -178,31 +184,32 @@ pub unsafe fn GetDefaultUserProfileDirectoryW(lpprofiledir: Option<windows_core:
     windows_core::link!("userenv.dll" "system" fn GetDefaultUserProfileDirectoryW(lpprofiledir : windows_core::PWSTR, lpcchsize : super::LPDWORD) -> windows_core::BOOL);
     unsafe { GetDefaultUserProfileDirectoryW(lpprofiledir.unwrap_or(core::mem::zeroed()) as _, lpcchsize as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetGPOListA<P1, P2, P3>(htoken: Option<super::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut PGROUP_POLICY_OBJECTA) -> windows_core::BOOL
+pub unsafe fn GetGPOListA<P1, P2, P3>(htoken: Option<super::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: super::DWORD, pgpolist: *mut PGROUP_POLICY_OBJECTA) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::HANDLE, lpname : windows_core::PCSTR, lphostname : windows_core::PCSTR, lpcomputername : windows_core::PCSTR, dwflags : u32, pgpolist : *mut PGROUP_POLICY_OBJECTA) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::HANDLE, lpname : windows_core::PCSTR, lphostname : windows_core::PCSTR, lpcomputername : windows_core::PCSTR, dwflags : super::DWORD, pgpolist : *mut PGROUP_POLICY_OBJECTA) -> windows_core::BOOL);
     unsafe { GetGPOListA(htoken.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetGPOListW<P1, P2, P3>(htoken: Option<super::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut PGROUP_POLICY_OBJECTW) -> windows_core::BOOL
+pub unsafe fn GetGPOListW<P1, P2, P3>(htoken: Option<super::HANDLE>, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: super::DWORD, pgpolist: *mut PGROUP_POLICY_OBJECTW) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::HANDLE, lpname : windows_core::PCWSTR, lphostname : windows_core::PCWSTR, lpcomputername : windows_core::PCWSTR, dwflags : u32, pgpolist : *mut PGROUP_POLICY_OBJECTW) -> windows_core::BOOL);
+    windows_core::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::HANDLE, lpname : windows_core::PCWSTR, lphostname : windows_core::PCWSTR, lpcomputername : windows_core::PCWSTR, dwflags : super::DWORD, pgpolist : *mut PGROUP_POLICY_OBJECTW) -> windows_core::BOOL);
     unsafe { GetGPOListW(htoken.unwrap_or(core::mem::zeroed()) as _, lpname.param().abi(), lphostname.param().abi(), lpcomputername.param().abi(), dwflags, pgpolist as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetProfileType(dwflags: *mut u32) -> windows_core::BOOL {
-    windows_core::link!("userenv.dll" "system" fn GetProfileType(dwflags : *mut u32) -> windows_core::BOOL);
+pub unsafe fn GetProfileType(dwflags: *mut super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("userenv.dll" "system" fn GetProfileType(dwflags : *mut super::DWORD) -> windows_core::BOOL);
     unsafe { GetProfileType(dwflags as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -235,26 +242,28 @@ pub unsafe fn LeaveCriticalPolicySection(hsection: super::HANDLE) -> windows_cor
     windows_core::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::HANDLE) -> windows_core::BOOL);
     unsafe { LeaveCriticalPolicySection(hsection) }
 }
-#[cfg(all(feature = "profinfo", feature = "winnt"))]
+#[cfg(all(feature = "profinfo", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn LoadUserProfileA(htoken: super::HANDLE, lpprofileinfo: super::LPPROFILEINFOA) -> windows_core::BOOL {
     windows_core::link!("userenv.dll" "system" fn LoadUserProfileA(htoken : super::HANDLE, lpprofileinfo : super::LPPROFILEINFOA) -> windows_core::BOOL);
     unsafe { LoadUserProfileA(htoken, lpprofileinfo as _) }
 }
-#[cfg(all(feature = "profinfo", feature = "winnt"))]
+#[cfg(all(feature = "profinfo", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn LoadUserProfileW(htoken: super::HANDLE, lpprofileinfo: super::LPPROFILEINFOW) -> windows_core::BOOL {
     windows_core::link!("userenv.dll" "system" fn LoadUserProfileW(htoken : super::HANDLE, lpprofileinfo : super::LPPROFILEINFOW) -> windows_core::BOOL);
     unsafe { LoadUserProfileW(htoken, lpprofileinfo as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ProcessGroupPolicyCompleted(extensionid: REFGPEXTENSIONID, pasynchandle: ASYNCCOMPLETIONHANDLE, dwstatus: u32) -> u32 {
-    windows_core::link!("userenv.dll" "system" fn ProcessGroupPolicyCompleted(extensionid : REFGPEXTENSIONID, pasynchandle : ASYNCCOMPLETIONHANDLE, dwstatus : u32) -> u32);
+pub unsafe fn ProcessGroupPolicyCompleted(extensionid: REFGPEXTENSIONID, pasynchandle: ASYNCCOMPLETIONHANDLE, dwstatus: super::DWORD) -> super::DWORD {
+    windows_core::link!("userenv.dll" "system" fn ProcessGroupPolicyCompleted(extensionid : REFGPEXTENSIONID, pasynchandle : ASYNCCOMPLETIONHANDLE, dwstatus : super::DWORD) -> super::DWORD);
     unsafe { ProcessGroupPolicyCompleted(extensionid, pasynchandle, dwstatus) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: REFGPEXTENSIONID, pasynchandle: ASYNCCOMPLETIONHANDLE, dwstatus: u32, rsopstatus: windows_core::HRESULT) -> u32 {
-    windows_core::link!("userenv.dll" "system" fn ProcessGroupPolicyCompletedEx(extensionid : REFGPEXTENSIONID, pasynchandle : ASYNCCOMPLETIONHANDLE, dwstatus : u32, rsopstatus : windows_core::HRESULT) -> u32);
+pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: REFGPEXTENSIONID, pasynchandle: ASYNCCOMPLETIONHANDLE, dwstatus: super::DWORD, rsopstatus: windows_core::HRESULT) -> super::DWORD {
+    windows_core::link!("userenv.dll" "system" fn ProcessGroupPolicyCompletedEx(extensionid : REFGPEXTENSIONID, pasynchandle : ASYNCCOMPLETIONHANDLE, dwstatus : super::DWORD, rsopstatus : windows_core::HRESULT) -> super::DWORD);
     unsafe { ProcessGroupPolicyCompletedEx(extensionid, pasynchandle, dwstatus, rsopstatus) }
 }
 #[inline]
@@ -262,9 +271,10 @@ pub unsafe fn RefreshPolicy(bmachine: bool) -> windows_core::BOOL {
     windows_core::link!("userenv.dll" "system" fn RefreshPolicy(bmachine : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { RefreshPolicy(bmachine.into()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RefreshPolicyEx(bmachine: bool, dwoptions: u32) -> windows_core::BOOL {
-    windows_core::link!("userenv.dll" "system" fn RefreshPolicyEx(bmachine : windows_core::BOOL, dwoptions : u32) -> windows_core::BOOL);
+pub unsafe fn RefreshPolicyEx(bmachine: bool, dwoptions: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("userenv.dll" "system" fn RefreshPolicyEx(bmachine : windows_core::BOOL, dwoptions : super::DWORD) -> windows_core::BOOL);
     unsafe { RefreshPolicyEx(bmachine.into(), dwoptions) }
 }
 #[cfg(feature = "winnt")]
@@ -273,39 +283,39 @@ pub unsafe fn RegisterGPNotification(hevent: super::HANDLE, bmachine: bool) -> w
     windows_core::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::HANDLE, bmachine : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { RegisterGPNotification(hevent, bmachine.into()) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::PSID>, prsoptoken: PRSOPTOKEN, dwdesiredaccessmask: u32, pobjecttypelist: Option<&[super::OBJECT_TYPE_LIST]>, pgenericmapping: super::PGENERIC_MAPPING, pprivilegeset: Option<super::PPRIVILEGE_SET>, pdwprivilegesetlength: Option<super::LPDWORD>, pdwgrantedaccessmask: super::LPDWORD, pbaccessstatus: super::LPBOOL) -> windows_core::HRESULT {
-    windows_core::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::PSECURITY_DESCRIPTOR, pprincipalselfsid : super::PSID, prsoptoken : PRSOPTOKEN, dwdesiredaccessmask : u32, pobjecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : super::PGENERIC_MAPPING, pprivilegeset : super::PPRIVILEGE_SET, pdwprivilegesetlength : super::LPDWORD, pdwgrantedaccessmask : super::LPDWORD, pbaccessstatus : super::LPBOOL) -> windows_core::HRESULT);
+pub unsafe fn RsopAccessCheckByType(psecuritydescriptor: super::PSECURITY_DESCRIPTOR, pprincipalselfsid: Option<super::PSID>, prsoptoken: PRSOPTOKEN, dwdesiredaccessmask: super::DWORD, pobjecttypelist: Option<&[super::OBJECT_TYPE_LIST]>, pgenericmapping: super::PGENERIC_MAPPING, pprivilegeset: Option<super::PPRIVILEGE_SET>, pdwprivilegesetlength: Option<super::LPDWORD>, pdwgrantedaccessmask: super::LPDWORD, pbaccessstatus: super::LPBOOL) -> windows_core::HRESULT {
+    windows_core::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::PSECURITY_DESCRIPTOR, pprincipalselfsid : super::PSID, prsoptoken : PRSOPTOKEN, dwdesiredaccessmask : super::DWORD, pobjecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::DWORD, pgenericmapping : super::PGENERIC_MAPPING, pprivilegeset : super::PPRIVILEGE_SET, pdwprivilegesetlength : super::LPDWORD, pdwgrantedaccessmask : super::LPDWORD, pbaccessstatus : super::LPBOOL) -> windows_core::HRESULT);
     unsafe { RsopAccessCheckByType(psecuritydescriptor, pprincipalselfsid.unwrap_or(core::mem::zeroed()) as _, prsoptoken, dwdesiredaccessmask, core::mem::transmute(pobjecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), pgenericmapping, pprivilegeset.unwrap_or(core::mem::zeroed()) as _, pdwprivilegesetlength.unwrap_or(core::mem::zeroed()) as _, pdwgrantedaccessmask as _, pbaccessstatus as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RsopFileAccessCheck<P0>(pszfilename: P0, prsoptoken: PRSOPTOKEN, dwdesiredaccessmask: u32, pdwgrantedaccessmask: super::LPDWORD, pbaccessstatus: super::LPBOOL) -> windows_core::HRESULT
+pub unsafe fn RsopFileAccessCheck<P0>(pszfilename: P0, prsoptoken: PRSOPTOKEN, dwdesiredaccessmask: super::DWORD, pdwgrantedaccessmask: super::LPDWORD, pbaccessstatus: super::LPBOOL) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : windows_core::PCWSTR, prsoptoken : PRSOPTOKEN, dwdesiredaccessmask : u32, pdwgrantedaccessmask : super::LPDWORD, pbaccessstatus : super::LPBOOL) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : windows_core::PCWSTR, prsoptoken : PRSOPTOKEN, dwdesiredaccessmask : super::DWORD, pdwgrantedaccessmask : super::LPDWORD, pbaccessstatus : super::LPBOOL) -> windows_core::HRESULT);
     unsafe { RsopFileAccessCheck(pszfilename.param().abi(), prsoptoken, dwdesiredaccessmask, pdwgrantedaccessmask as _, pbaccessstatus as _) }
 }
-#[cfg(feature = "wbemcli")]
+#[cfg(all(feature = "shared", feature = "wbemcli"))]
 #[inline]
-pub unsafe fn RsopResetPolicySettingStatus<P1, P2>(dwflags: u32, pservices: P1, psettinginstance: P2) -> windows_core::HRESULT
+pub unsafe fn RsopResetPolicySettingStatus<P1, P2>(dwflags: super::DWORD, pservices: P1, psettinginstance: P2) -> windows_core::HRESULT
 where
     P1: windows_core::Param<super::IWbemServices>,
     P2: windows_core::Param<super::IWbemClassObject>,
 {
-    windows_core::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : u32, pservices : *mut core::ffi::c_void, psettinginstance : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : super::DWORD, pservices : *mut core::ffi::c_void, psettinginstance : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RsopResetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi()) }
 }
-#[cfg(all(feature = "minwinbase", feature = "wbemcli"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "wbemcli"))]
 #[inline]
-pub unsafe fn RsopSetPolicySettingStatus<P1, P2>(dwflags: u32, pservices: P1, psettinginstance: P2, pstatus: &[POLICYSETTINGSTATUSINFO]) -> windows_core::HRESULT
+pub unsafe fn RsopSetPolicySettingStatus<P1, P2>(dwflags: super::DWORD, pservices: P1, psettinginstance: P2, pstatus: &[POLICYSETTINGSTATUSINFO]) -> windows_core::HRESULT
 where
     P1: windows_core::Param<super::IWbemServices>,
     P2: windows_core::Param<super::IWbemClassObject>,
 {
-    windows_core::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : *mut core::ffi::c_void, psettinginstance : *mut core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> windows_core::HRESULT);
+    windows_core::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : super::DWORD, pservices : *mut core::ffi::c_void, psettinginstance : *mut core::ffi::c_void, ninfo : super::DWORD, pstatus : *const POLICYSETTINGSTATUSINFO) -> windows_core::HRESULT);
     unsafe { RsopSetPolicySettingStatus(dwflags, pservices.param().abi(), psettinginstance.param().abi(), pstatus.len().try_into().unwrap(), pstatus.as_ptr()) }
 }
 #[cfg(feature = "winnt")]
@@ -320,7 +330,10 @@ pub unsafe fn UnregisterGPNotification(hevent: super::HANDLE) -> windows_core::B
     windows_core::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::HANDLE) -> windows_core::BOOL);
     unsafe { UnregisterGPNotification(hevent) }
 }
-pub type ASYNCCOMPLETIONHANDLE = usize;
+#[cfg(target_arch = "x86")]
+pub type ASYNCCOMPLETIONHANDLE = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type ASYNCCOMPLETIONHANDLE = u64;
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: i32 = 33554432;
 pub const FLAG_ASSUME_SLOW_LINK: i32 = 536870912;
 pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: i32 = 67108864;
@@ -355,18 +368,30 @@ pub const GPO_LIST_FLAG_MACHINE: i32 = 1;
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: i32 = 8;
 pub const GPO_LIST_FLAG_NO_WMIFILTERS: i32 = 4;
 pub const GPO_LIST_FLAG_SITEONLY: i32 = 2;
-#[cfg(feature = "minwindef")]
+pub const GP_DLLNAME: windows_core::PCSTR = windows_core::s!("DllName");
+pub const GP_ENABLEASYNCHRONOUSPROCESSING: windows_core::PCSTR = windows_core::s!("EnableAsynchronousProcessing");
+pub const GP_MAXNOGPOLISTCHANGESINTERVAL: windows_core::PCSTR = windows_core::s!("MaxNoGPOListChangesInterval");
+pub const GP_NOBACKGROUNDPOLICY: windows_core::PCSTR = windows_core::s!("NoBackgroundPolicy");
+pub const GP_NOGPOLISTCHANGES: windows_core::PCSTR = windows_core::s!("NoGPOListChanges");
+pub const GP_NOMACHINEPOLICY: windows_core::PCSTR = windows_core::s!("NoMachinePolicy");
+pub const GP_NOSLOWLINK: windows_core::PCSTR = windows_core::s!("NoSlowLink");
+pub const GP_NOTIFYLINKTRANSITION: windows_core::PCSTR = windows_core::s!("NotifyLinkTransition");
+pub const GP_NOUSERPOLICY: windows_core::PCSTR = windows_core::s!("NoUserPolicy");
+pub const GP_PERUSERLOCALSETTINGS: windows_core::PCSTR = windows_core::s!("PerUserLocalSettings");
+pub const GP_PROCESSGROUPPOLICY: windows_core::PCSTR = windows_core::s!("ProcessGroupPolicy");
+pub const GP_REQUIRESSUCCESSFULREGISTRY: windows_core::PCSTR = windows_core::s!("RequiresSuccessfulRegistry");
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type GROUP_POLICY_OBJECT = GROUP_POLICY_OBJECTA;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_POLICY_OBJECTA {
-    pub dwOptions: u32,
-    pub dwVersion: u32,
+    pub dwOptions: super::DWORD,
+    pub dwVersion: super::DWORD,
     pub lpDSPath: windows_core::PSTR,
     pub lpFileSysPath: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
-    pub szGPOName: [i8; 50],
+    pub szGPOName: [super::CHAR; 50],
     pub GPOLink: GPO_LINK,
     pub lParam: super::LPARAM,
     pub pNext: *mut Self,
@@ -375,22 +400,22 @@ pub struct GROUP_POLICY_OBJECTA {
     pub lParam2: super::LPARAM,
     pub lpLink: windows_core::PSTR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for GROUP_POLICY_OBJECTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_POLICY_OBJECTW {
-    pub dwOptions: u32,
-    pub dwVersion: u32,
+    pub dwOptions: super::DWORD,
+    pub dwVersion: super::DWORD,
     pub lpDSPath: windows_core::PWSTR,
     pub lpFileSysPath: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
-    pub szGPOName: [u16; 50],
+    pub szGPOName: [super::WCHAR; 50],
     pub GPOLink: GPO_LINK,
     pub lParam: super::LPARAM,
     pub pNext: *mut Self,
@@ -399,44 +424,45 @@ pub struct GROUP_POLICY_OBJECTW {
     pub lParam2: super::LPARAM,
     pub lpLink: windows_core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for GROUP_POLICY_OBJECTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 pub type LPPOLICYSETTINGSTATUSINFO = *mut POLICYSETTINGSTATUSINFO;
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
-pub type PFNGENERATEGROUPPOLICY = Option<unsafe extern "C" fn(dwflags: u32, pbabort: *mut windows_core::BOOL, pwszsite: *const u16, pcomputertarget: PRSOP_TARGET, pusertarget: PRSOP_TARGET) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PFNPROCESSGROUPPOLICY = Option<unsafe extern "C" fn(dwflags: u32, htoken: super::HANDLE, hkeyroot: super::HKEY, pdeletedgpolist: PGROUP_POLICY_OBJECT, pchangedgpolist: PGROUP_POLICY_OBJECT, phandle: ASYNCCOMPLETIONHANDLE, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> u32>;
-#[cfg(all(feature = "minwindef", feature = "wbemcli", feature = "winnt"))]
-pub type PFNPROCESSGROUPPOLICYEX = Option<unsafe extern "C" fn(dwflags: u32, htoken: super::HANDLE, hkeyroot: super::HKEY, pdeletedgpolist: PGROUP_POLICY_OBJECT, pchangedgpolist: PGROUP_POLICY_OBJECT, phandle: ASYNCCOMPLETIONHANDLE, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: windows_core::Ref<super::IWbemServices>, prsopstatus: *mut windows_core::HRESULT) -> u32>;
-pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "C" fn(bverbose: windows_core::BOOL, lpmessage: windows_core::PCWSTR) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
+pub type PFNGENERATEGROUPPOLICY = Option<unsafe extern "C" fn(dwflags: super::DWORD, pbabort: *mut windows_core::BOOL, pwszsite: *const super::WCHAR, pcomputertarget: PRSOP_TARGET, pusertarget: PRSOP_TARGET) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PFNPROCESSGROUPPOLICY = Option<unsafe extern "C" fn(dwflags: super::DWORD, htoken: super::HANDLE, hkeyroot: super::HKEY, pdeletedgpolist: PGROUP_POLICY_OBJECT, pchangedgpolist: PGROUP_POLICY_OBJECT, phandle: ASYNCCOMPLETIONHANDLE, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> super::DWORD>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wbemcli", feature = "winnt"))]
+pub type PFNPROCESSGROUPPOLICYEX = Option<unsafe extern "C" fn(dwflags: super::DWORD, htoken: super::HANDLE, hkeyroot: super::HKEY, pdeletedgpolist: PGROUP_POLICY_OBJECT, pchangedgpolist: PGROUP_POLICY_OBJECT, phandle: ASYNCCOMPLETIONHANDLE, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: windows_core::Ref<super::IWbemServices>, prsopstatus: *mut windows_core::HRESULT) -> super::DWORD>;
+#[cfg(feature = "shared")]
+pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "C" fn(bverbose: windows_core::BOOL, lpmessage: windows_core::PCWSTR) -> super::DWORD>;
 pub type PGPO_LINK = *mut GPO_LINK;
-#[cfg(feature = "minwindef")]
-pub type PGROUP_POLICY_OBJECT = PGROUP_POLICY_OBJECTA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PGROUP_POLICY_OBJECT = *mut GROUP_POLICY_OBJECTA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PGROUP_POLICY_OBJECTA = *mut GROUP_POLICY_OBJECTA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PGROUP_POLICY_OBJECTW = *mut GROUP_POLICY_OBJECTW;
 pub const PI_APPLYPOLICY: i32 = 2;
 pub const PI_NOUI: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_core::PWSTR,
     pub szEventSource: windows_core::PWSTR,
     pub szEventLogName: windows_core::PWSTR,
-    pub dwEventID: u32,
-    pub dwErrorCode: u32,
+    pub dwEventID: super::DWORD,
+    pub dwErrorCode: super::DWORD,
     pub status: SETTINGSTATUS,
     pub timeLogged: super::SYSTEMTIME,
 }
 pub type PRSOPTOKEN = *mut core::ffi::c_void;
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
 pub type PRSOP_TARGET = *mut RSOP_TARGET;
 pub const PT_MANDATORY: i32 = 4;
 pub const PT_ROAMING: i32 = 2;
@@ -452,11 +478,11 @@ pub const RSOPSubsettingFailed: SETTINGSTATUS = 4;
 pub const RSOPUnspecified: SETTINGSTATUS = 0;
 pub const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RSOP_TARGET {
-    pub pwszAccountName: *mut u16,
-    pub pwszNewSOM: *mut u16,
+    pub pwszAccountName: *mut super::WCHAR,
+    pub pwszNewSOM: *mut super::WCHAR,
     pub psaSecurityGroups: *mut super::SAFEARRAY,
     pub pRsopToken: PRSOPTOKEN,
     pub pGPOList: PGROUP_POLICY_OBJECT,

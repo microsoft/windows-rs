@@ -151,7 +151,7 @@ mod Windows {
             fn SetRoot(&self, #[in] #[opt] root: ID2D1SvgElement) -> HRESULT;
             fn GetRoot(&self, #[out] #[out_ptr(nullable)] root: *mut ID2D1SvgElement);
             fn FindElementById(&self, #[in] id: PCWSTR, #[out] #[out_ptr(nullable, null_on_failure)] svgElement: *mut ID2D1SvgElement) -> HRESULT;
-            fn Serialize(&self, #[in] outputXmlStream: IStream, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] subtree: ID2D1SvgElement) -> HRESULT;
+            fn Serialize(&self, #[in] outputXmlStream: IStream, #[in] #[opt] subtree: ID2D1SvgElement) -> HRESULT;
             fn Deserialize(&self, #[in] inputXmlStream: IStream, #[out] #[out_ptr(null_on_failure)] subtree: *mut ID2D1SvgElement) -> HRESULT;
             fn CreatePaint(&self, paintType: D2D1_SVG_PAINT_TYPE, #[in] #[opt] color: *const D2D1_COLOR_F, #[in] #[opt] id: PCWSTR, #[out] #[out_ptr(null_on_failure)] paint: *mut ID2D1SvgPaint) -> HRESULT;
             fn CreateStrokeDashArray(&self, #[in] #[opt] #[readable(entry, dashesCount)] dashes: *const D2D1_SVG_LENGTH, dashesCount: UINT32, #[out] #[out_ptr(null_on_failure)] strokeDashArray: *mut ID2D1SvgStrokeDashArray) -> HRESULT;
@@ -170,15 +170,15 @@ mod Windows {
             fn GetLastChild(&self, #[out] #[out_ptr(nullable)] child: *mut ID2D1SvgElement);
             fn GetPreviousChild(&self, #[in] referenceChild: ID2D1SvgElement, #[out] #[out_ptr(nullable, null_on_failure)] previousChild: *mut ID2D1SvgElement) -> HRESULT;
             fn GetNextChild(&self, #[in] referenceChild: ID2D1SvgElement, #[out] #[out_ptr(nullable, null_on_failure)] nextChild: *mut ID2D1SvgElement) -> HRESULT;
-            fn InsertChildBefore(&self, #[in] newChild: ID2D1SvgElement, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] referenceChild: ID2D1SvgElement) -> HRESULT;
+            fn InsertChildBefore(&self, #[in] newChild: ID2D1SvgElement, #[in] #[opt] referenceChild: ID2D1SvgElement) -> HRESULT;
             fn AppendChild(&self, #[in] newChild: ID2D1SvgElement) -> HRESULT;
             fn ReplaceChild(&self, #[in] newChild: ID2D1SvgElement, #[in] oldChild: ID2D1SvgElement) -> HRESULT;
             fn RemoveChild(&self, #[in] oldChild: ID2D1SvgElement) -> HRESULT;
             fn CreateChild(&self, #[in] tagName: PCWSTR, #[out] #[out_ptr(null_on_failure)] newChild: *mut ID2D1SvgElement) -> HRESULT;
-            fn IsAttributeSpecified(&self, #[in] name: PCWSTR, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] inherited: *mut BOOL) -> BOOL;
+            fn IsAttributeSpecified(&self, #[in] name: PCWSTR, #[out] #[opt] inherited: *mut BOOL) -> BOOL;
             fn GetSpecifiedAttributeCount(&self) -> UINT32;
-            fn GetSpecifiedAttributeName(&self, index: UINT32, #[out] #[writable(entry, nameCount)] name: PWSTR, nameCount: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] inherited: *mut BOOL) -> HRESULT;
-            fn GetSpecifiedAttributeNameLength(&self, index: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] inherited: *mut BOOL) -> HRESULT;
+            fn GetSpecifiedAttributeName(&self, index: UINT32, #[out] #[writable(entry, nameCount)] name: PWSTR, nameCount: UINT32, #[out] #[opt] inherited: *mut BOOL) -> HRESULT;
+            fn GetSpecifiedAttributeNameLength(&self, index: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] inherited: *mut BOOL) -> HRESULT;
             fn RemoveAttribute(&self, #[in] name: PCWSTR) -> HRESULT;
             fn SetTextValue(&self, #[in] #[readable(entry, nameCount)] name: *const WCHAR, nameCount: UINT32) -> HRESULT;
             fn GetTextValue(&self, #[out] #[writable(entry, nameCount)] name: PWSTR, nameCount: UINT32) -> HRESULT;
@@ -204,29 +204,29 @@ mod Windows {
         #[guid(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888)]
         interface ID2D1SvgPathData: ID2D1SvgAttribute {
             fn RemoveSegmentDataAtEnd(&self, dataCount: UINT32) -> HRESULT;
-            fn UpdateSegmentData(&self, #[in] #[readable(entry, dataCount)] data: *const FLOAT, dataCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
-            fn GetSegmentData(&self, #[out] #[writable(entry, dataCount)] data: *mut FLOAT, dataCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
+            fn UpdateSegmentData(&self, #[in] #[readable(entry, dataCount)] data: *const FLOAT, dataCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetSegmentData(&self, #[out] #[writable(entry, dataCount)] data: *mut FLOAT, dataCount: UINT32, startIndex: UINT32) -> HRESULT;
             fn GetSegmentDataCount(&self) -> UINT32;
             fn RemoveCommandsAtEnd(&self, commandsCount: UINT32) -> HRESULT;
-            fn UpdateCommands(&self, #[in] #[readable(entry, commandsCount)] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
-            fn GetCommands(&self, #[out] #[writable(entry, commandsCount)] commands: *mut D2D1_SVG_PATH_COMMAND, commandsCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
+            fn UpdateCommands(&self, #[in] #[readable(entry, commandsCount)] commands: *const D2D1_SVG_PATH_COMMAND, commandsCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetCommands(&self, #[out] #[writable(entry, commandsCount)] commands: *mut D2D1_SVG_PATH_COMMAND, commandsCount: UINT32, startIndex: UINT32) -> HRESULT;
             fn GetCommandsCount(&self) -> UINT32;
             fn CreatePathGeometry(&self, fillMode: D2D1_FILL_MODE, #[out] #[out_ptr(null_on_failure)] pathGeometry: *mut ID2D1PathGeometry1) -> HRESULT;
         }
         #[guid(0x9dbe4c0d_3572_4dd9_9825_5530813bb712)]
         interface ID2D1SvgPointCollection: ID2D1SvgAttribute {
             fn RemovePointsAtEnd(&self, pointsCount: UINT32) -> HRESULT;
-            fn UpdatePoints(&self, #[in] #[readable(entry, pointsCount)] points: *const D2D1_POINT_2F, pointsCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
-            fn GetPoints(&self, #[out] #[writable(entry, pointsCount)] points: *mut D2D1_POINT_2F, pointsCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
+            fn UpdatePoints(&self, #[in] #[readable(entry, pointsCount)] points: *const D2D1_POINT_2F, pointsCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetPoints(&self, #[out] #[writable(entry, pointsCount)] points: *mut D2D1_POINT_2F, pointsCount: UINT32, startIndex: UINT32) -> HRESULT;
             fn GetPointsCount(&self) -> UINT32;
         }
         #[guid(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9)]
         interface ID2D1SvgStrokeDashArray: ID2D1SvgAttribute {
             fn RemoveDashesAtEnd(&self, dashesCount: UINT32) -> HRESULT;
-            fn UpdateDashes(&self, #[in] #[readable(entry, dashesCount)] dashes: *const D2D1_SVG_LENGTH, dashesCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
-            fn UpdateDashes(&self, #[in] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
-            fn GetDashes(&self, #[out] #[writable(entry, dashesCount)] dashes: *mut D2D1_SVG_LENGTH, dashesCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
-            fn GetDashes(&self, #[out] #[writable(entry, dashesCount)] dashes: *mut FLOAT, dashesCount: UINT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] startIndex: UINT32) -> HRESULT;
+            fn UpdateDashes(&self, #[in] #[readable(entry, dashesCount)] dashes: *const D2D1_SVG_LENGTH, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn UpdateDashes(&self, #[in] #[readable(entry, dashesCount)] dashes: *const FLOAT, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetDashes(&self, #[out] #[writable(entry, dashesCount)] dashes: *mut D2D1_SVG_LENGTH, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
+            fn GetDashes(&self, #[out] #[writable(entry, dashesCount)] dashes: *mut FLOAT, dashesCount: UINT32, startIndex: UINT32) -> HRESULT;
             fn GetDashesCount(&self) -> UINT32;
         }
     }

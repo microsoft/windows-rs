@@ -4,19 +4,22 @@ pub unsafe fn CheckRemoteDebuggerPresent(hprocess: super::HANDLE, pbdebuggerpres
     windows_core::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::HANDLE, pbdebuggerpresent : super::PBOOL) -> windows_core::BOOL);
     unsafe { CheckRemoteDebuggerPresent(hprocess, pbdebuggerpresent as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : u32) -> windows_core::BOOL);
+pub unsafe fn ContinueDebugEvent(dwprocessid: super::DWORD, dwthreadid: super::DWORD, dwcontinuestatus: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : super::DWORD, dwthreadid : super::DWORD, dwcontinuestatus : super::DWORD) -> windows_core::BOOL);
     unsafe { ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn DebugActiveProcess(dwprocessid : u32) -> windows_core::BOOL);
+pub unsafe fn DebugActiveProcess(dwprocessid: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn DebugActiveProcess(dwprocessid : super::DWORD) -> windows_core::BOOL);
     unsafe { DebugActiveProcess(dwprocessid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn DebugActiveProcessStop(dwprocessid : u32) -> windows_core::BOOL);
+pub unsafe fn DebugActiveProcessStop(dwprocessid: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn DebugActiveProcessStop(dwprocessid : super::DWORD) -> windows_core::BOOL);
     unsafe { DebugActiveProcessStop(dwprocessid) }
 }
 #[inline]
@@ -45,15 +48,15 @@ where
     windows_core::link!("kernel32.dll" "system" fn OutputDebugStringW(lpoutputstring : windows_core::PCWSTR));
     unsafe { OutputDebugStringW(lpoutputstring.param().abi()) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WaitForDebugEvent(lpdebugevent: super::LPDEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : super::LPDEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);
+pub unsafe fn WaitForDebugEvent(lpdebugevent: super::LPDEBUG_EVENT, dwmilliseconds: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : super::LPDEBUG_EVENT, dwmilliseconds : super::DWORD) -> windows_core::BOOL);
     unsafe { WaitForDebugEvent(lpdebugevent as _, dwmilliseconds) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn WaitForDebugEventEx(lpdebugevent: super::LPDEBUG_EVENT, dwmilliseconds: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : super::LPDEBUG_EVENT, dwmilliseconds : u32) -> windows_core::BOOL);
+pub unsafe fn WaitForDebugEventEx(lpdebugevent: super::LPDEBUG_EVENT, dwmilliseconds: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : super::LPDEBUG_EVENT, dwmilliseconds : super::DWORD) -> windows_core::BOOL);
     unsafe { WaitForDebugEventEx(lpdebugevent as _, dwmilliseconds) }
 }

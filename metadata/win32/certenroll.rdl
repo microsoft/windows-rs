@@ -885,7 +885,7 @@ mod Windows {
         }
         #[guid(0x728ab339_217d_11da_b2a4_000e7bbb2b09)]
         interface ICertPropertyEnrollment: ICertProperty {
-            fn Initialize(&self, #[in] RequestId: LONG, #[in] strCADnsName: BSTR, #[in] strCAName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] strFriendlyName: BSTR) -> HRESULT;
+            fn Initialize(&self, #[in] RequestId: LONG, #[in] strCADnsName: BSTR, #[in] strCAName: BSTR, #[in] strFriendlyName: BSTR) -> HRESULT;
             fn get_RequestId(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             fn get_CADnsName(&self, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
             fn get_CAName(&self, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
@@ -1152,8 +1152,8 @@ mod Windows {
         }
         #[guid(0x728ab303_217d_11da_b2a4_000e7bbb2b09)]
         interface IX500DistinguishedName: IDispatch {
-            fn Decode(&self, #[in] strEncodedName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CERT_NAME_STR_NONE")] NameFlags: X500NameFlags) -> HRESULT;
-            fn Encode(&self, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CERT_NAME_STR_NONE")] NameFlags: X500NameFlags) -> HRESULT;
+            fn Decode(&self, #[in] strEncodedName: BSTR, #[in] Encoding: EncodingType, #[in] NameFlags: X500NameFlags) -> HRESULT;
+            fn Encode(&self, #[in] strName: BSTR, #[in] NameFlags: X500NameFlags) -> HRESULT;
             fn get_Name(&self, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
             fn get_EncodedName(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
         }
@@ -1302,7 +1302,7 @@ mod Windows {
             fn InitializeFromInnerRequestTemplate(&self, #[in] #[opt] pInnerRequest: IX509CertificateRequest, #[in] #[opt] pPolicyServer: IX509EnrollmentPolicyServer, #[in] #[opt] pTemplate: IX509CertificateTemplate) -> HRESULT;
             fn get_PolicyServer(&self, #[out] #[retval] #[out_ptr] ppPolicyServer: *mut IX509EnrollmentPolicyServer) -> HRESULT;
             fn get_Template(&self, #[out] #[retval] #[out_ptr] ppTemplate: *mut IX509CertificateTemplate) -> HRESULT;
-            fn CheckSignature(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("AllowedKeySignature")] AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
+            fn CheckSignature(&self, #[in] AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
             fn CheckCertificateSignature(&self, #[in] #[opt] pSignerCertificate: ISignerCertificate, #[in] ValidateCertificateChain: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x728ab342_217d_11da_b2a4_000e7bbb2b09)]
@@ -1310,9 +1310,9 @@ mod Windows {
             fn InitializeFromTemplateName(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] strTemplateName: BSTR) -> HRESULT;
             fn InitializeFromPrivateKey(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] #[opt] pPrivateKey: IX509PrivateKey, #[in] strTemplateName: BSTR) -> HRESULT;
             fn InitializeFromPublicKey(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] #[opt] pPublicKey: IX509PublicKey, #[in] strTemplateName: BSTR) -> HRESULT;
-            fn InitializeFromCertificate(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] strCertificate: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("InheritDefault")] InheritOptions: X509RequestInheritOptions) -> HRESULT;
-            fn InitializeDecode(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
-            fn CheckSignature(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("AllowedKeySignature")] AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
+            fn InitializeFromCertificate(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] strCertificate: BSTR, #[in] Encoding: EncodingType, #[in] InheritOptions: X509RequestInheritOptions) -> HRESULT;
+            fn InitializeDecode(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
+            fn CheckSignature(&self, #[in] AllowedSignatureTypes: Pkcs10AllowedSignatureTypes) -> HRESULT;
             fn IsSmartCard(&self, #[out] #[retval] pValue: *mut VARIANT_BOOL) -> HRESULT;
             fn get_TemplateObjectId(&self, #[out] #[retval] #[out_ptr] ppValue: *mut IObjectId) -> HRESULT;
             fn get_PublicKey(&self, #[out] #[retval] #[out_ptr] ppValue: *mut IX509PublicKey) -> HRESULT;
@@ -1368,9 +1368,9 @@ mod Windows {
         #[guid(0x728ab344_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRequestPkcs7: IX509CertificateRequest {
             fn InitializeFromTemplateName(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] strTemplateName: BSTR) -> HRESULT;
-            fn InitializeFromCertificate(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] RenewalRequest: VARIANT_BOOL, #[in] strCertificate: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("InheritDefault")] InheritOptions: X509RequestInheritOptions) -> HRESULT;
+            fn InitializeFromCertificate(&self, #[in] Context: X509CertificateEnrollmentContext, #[in] RenewalRequest: VARIANT_BOOL, #[in] strCertificate: BSTR, #[in] Encoding: EncodingType, #[in] InheritOptions: X509RequestInheritOptions) -> HRESULT;
             fn InitializeFromInnerRequest(&self, #[in] #[opt] pInnerRequest: IX509CertificateRequest) -> HRESULT;
-            fn InitializeDecode(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn InitializeDecode(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn get_RequesterName(&self, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
             fn put_RequesterName(&self, #[in] Value: BSTR) -> HRESULT;
             fn get_SignerCertificate(&self, #[out] #[retval] #[out_ptr] ppValue: *mut ISignerCertificate) -> HRESULT;
@@ -1386,7 +1386,7 @@ mod Windows {
         #[guid(0x728ab360_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509CertificateRevocationList: IDispatch {
             fn Initialize(&self) -> HRESULT;
-            fn InitializeDecode(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_HEXRAW")] Encoding: EncodingType) -> HRESULT;
+            fn InitializeDecode(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn Encode(&self) -> HRESULT;
             fn ResetForEncode(&self) -> HRESULT;
             fn CheckPublicKeySignature(&self, #[in] #[opt] pPublicKey: IX509PublicKey) -> HRESULT;
@@ -1704,7 +1704,7 @@ mod Windows {
             fn Close(&self) -> HRESULT;
             fn Delete(&self) -> HRESULT;
             fn Verify(&self, #[in] VerifyType: X509PrivateKeyVerify) -> HRESULT;
-            fn Import(&self, #[in] strExportType: BSTR, #[in] strEncodedKey: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn Import(&self, #[in] strExportType: BSTR, #[in] strEncodedKey: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn Export(&self, #[in] strExportType: BSTR, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedKey: *mut BSTR) -> HRESULT;
             fn ExportPublicKey(&self, #[out] #[retval] #[out_ptr] ppPublicKey: *mut IX509PublicKey) -> HRESULT;
             fn get_ContainerName(&self, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
@@ -1773,8 +1773,8 @@ mod Windows {
         }
         #[guid(0x728ab30b_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509PublicKey: IDispatch {
-            fn Initialize(&self, #[in] #[opt] pObjectId: IObjectId, #[in] strEncodedKey: BSTR, #[in] strEncodedParameters: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
-            fn InitializeFromEncodedPublicKeyInfo(&self, #[in] strEncodedPublicKeyInfo: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn Initialize(&self, #[in] #[opt] pObjectId: IObjectId, #[in] strEncodedKey: BSTR, #[in] strEncodedParameters: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
+            fn InitializeFromEncodedPublicKeyInfo(&self, #[in] strEncodedPublicKeyInfo: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn get_Algorithm(&self, #[out] #[retval] #[out_ptr] ppValue: *mut IObjectId) -> HRESULT;
             fn get_Length(&self, #[out] #[retval] pValue: *mut LONG) -> HRESULT;
             fn get_EncodedKey(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
@@ -1783,7 +1783,7 @@ mod Windows {
         }
         #[guid(0x728ab361_217d_11da_b2a4_000e7bbb2b09)]
         interface IX509SCEPEnrollment: IDispatch {
-            fn Initialize(&self, #[in] #[opt] pRequest: IX509CertificateRequestPkcs10, #[in] strThumbprint: BSTR, #[in] ThumprintEncoding: EncodingType, #[in] strServerCertificates: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn Initialize(&self, #[in] #[opt] pRequest: IX509CertificateRequestPkcs10, #[in] strThumbprint: BSTR, #[in] ThumprintEncoding: EncodingType, #[in] strServerCertificates: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn InitializeForPending(&self, #[in] Context: X509CertificateEnrollmentContext) -> HRESULT;
             fn CreateRequestMessage(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;
             fn CreateRetrievePendingMessage(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pValue: *mut BSTR) -> HRESULT;

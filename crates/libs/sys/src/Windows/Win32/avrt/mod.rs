@@ -2,11 +2,11 @@
 windows_link::link!("avrt.dll" "system" fn AvQuerySystemResponsiveness(avrthandle : super::HANDLE, systemresponsivenessvalue : super::PULONG) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("avrt.dll" "system" fn AvRevertMmThreadCharacteristics(avrthandle : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroup(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_sys::core::GUID, timeout : super::PLARGE_INTEGER) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExA(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_sys::core::GUID, timeout : super::PLARGE_INTEGER, taskname : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExW(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_sys::core::GUID, timeout : super::PLARGE_INTEGER, taskname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("avrt.dll" "system" fn AvRtDeleteThreadOrderingGroup(context : super::HANDLE) -> windows_sys::core::BOOL);

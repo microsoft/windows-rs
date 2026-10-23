@@ -40,9 +40,9 @@ mod Windows {
             fn get_IsInterval(&self, #[out] #[retval] bIsInterval: *mut VARIANT_BOOL) -> HRESULT;
             fn put_IsInterval(&self, #[in] bIsInterval: VARIANT_BOOL) -> HRESULT;
             fn GetVarDate(&self, #[in] bIsLocal: VARIANT_BOOL, #[out] #[retval] dVarDate: *mut DATE) -> HRESULT;
-            fn SetVarDate(&self, #[in] dVarDate: DATE, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("1")] bIsLocal: VARIANT_BOOL) -> HRESULT;
+            fn SetVarDate(&self, #[in] dVarDate: DATE, #[in] bIsLocal: VARIANT_BOOL) -> HRESULT;
             fn GetFileTime(&self, #[in] bIsLocal: VARIANT_BOOL, #[out] #[retval] strFileTime: *mut BSTR) -> HRESULT;
-            fn SetFileTime(&self, #[in] strFileTime: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("1")] bIsLocal: VARIANT_BOOL) -> HRESULT;
+            fn SetFileTime(&self, #[in] strFileTime: BSTR, #[in] bIsLocal: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x27d54d92_0ebe_11d2_8b22_00600806d9b6)]
         interface ISWbemEventSource: IDispatch {
@@ -82,26 +82,26 @@ mod Windows {
             fn Item(&self, #[in] strName: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
             fn Add(&self, #[in] strName: BSTR, #[in] varValue: *mut VARIANT, #[in] iFlags: i32, #[out] #[retval] objWbemNamedValue: *mut ISWbemNamedValue) -> HRESULT;
-            fn Remove(&self, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn Remove(&self, #[in] strName: BSTR, #[in] iFlags: i32) -> HRESULT;
             fn Clone(&self, #[out] #[retval] objWbemNamedValueSet: *mut ISWbemNamedValueSet) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
         }
         #[guid(0x76a6415a_cb41_11d1_8b02_00600806d9b6)]
         interface ISWbemObject: IDispatch {
             fn Put_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
-            fn PutAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemChangeFlagCreateOrUpdate")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Delete_(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
-            fn DeleteAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn PutAsync_(&self, #[in] objWbemSink: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Delete_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn DeleteAsync_(&self, #[in] objWbemSink: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn Instances_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn InstancesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn InstancesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn Subclasses_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn SubclassesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemQueryFlagDeep")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn SubclassesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn Associators_(&self, #[in] strAssocClass: BSTR, #[in] strResultClass: BSTR, #[in] strResultRole: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredAssocQualifier: BSTR, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn AssociatorsAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strAssocClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredAssocQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn AssociatorsAsync_(&self, #[in] objWbemSink: IDispatch, #[in] strAssocClass: BSTR, #[in] strResultClass: BSTR, #[in] strResultRole: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredAssocQualifier: BSTR, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn References_(&self, #[in] strResultClass: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn ReferencesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ReferencesAsync_(&self, #[in] objWbemSink: IDispatch, #[in] strResultClass: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn ExecMethod_(&self, #[in] strMethodName: BSTR, #[in] objWbemInParameters: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
-            fn ExecMethodAsync_(&self, #[in] objWbemSink: IDispatch, #[in] strMethodName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemInParameters: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecMethodAsync_(&self, #[in] objWbemSink: IDispatch, #[in] strMethodName: BSTR, #[in] objWbemInParameters: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn Clone_(&self, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
             fn GetObjectText_(&self, #[in] iFlags: i32, #[out] #[retval] strObjectText: *mut BSTR) -> HRESULT;
             fn SpawnDerivedClass_(&self, #[in] iFlags: i32, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
@@ -116,10 +116,10 @@ mod Windows {
         }
         #[guid(0x269ad56a_8a67_4129_bc8c_0506dcfe9880)]
         interface ISWbemObjectEx: ISWbemObject {
-            fn Refresh_(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn Refresh_(&self, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch) -> HRESULT;
             fn get_SystemProperties_(&self, #[out] #[retval] objWbemPropertySet: *mut ISWbemPropertySet) -> HRESULT;
             fn GetText_(&self, #[in] iObjectTextFormat: WbemObjectTextFormatEnum, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] bsText: *mut BSTR) -> HRESULT;
-            fn SetFromText_(&self, #[in] bsText: BSTR, #[in] iObjectTextFormat: WbemObjectTextFormatEnum, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn SetFromText_(&self, #[in] bsText: BSTR, #[in] iObjectTextFormat: WbemObjectTextFormatEnum, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch) -> HRESULT;
         }
         #[guid(0x5791bc27_ce9c_11d1_97bf_0000f81e849c)]
         interface ISWbemObjectPath: IDispatch {
@@ -190,7 +190,7 @@ mod Windows {
             fn Item(&self, #[in] strName: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
             fn Add(&self, #[in] strName: BSTR, #[in] iCIMType: WbemCimtypeEnum, #[in] bIsArray: VARIANT_BOOL, #[in] iFlags: i32, #[out] #[retval] objWbemProperty: *mut ISWbemProperty) -> HRESULT;
-            fn Remove(&self, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn Remove(&self, #[in] strName: BSTR, #[in] iFlags: i32) -> HRESULT;
         }
         #[guid(0x79b05932_d3b7_11d1_8b06_00600806d9b6)]
         interface ISWbemQualifier: IDispatch {
@@ -212,7 +212,7 @@ mod Windows {
             fn Item(&self, #[in] name: BSTR, #[in] iFlags: i32, #[out] #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
             fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
             fn Add(&self, #[in] strName: BSTR, #[in] varVal: *mut VARIANT, #[in] bPropagatesToSubclass: VARIANT_BOOL, #[in] bPropagatesToInstance: VARIANT_BOOL, #[in] bIsOverridable: VARIANT_BOOL, #[in] iFlags: i32, #[out] #[retval] objWbemQualifier: *mut ISWbemQualifier) -> HRESULT;
-            fn Remove(&self, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn Remove(&self, #[in] strName: BSTR, #[in] iFlags: i32) -> HRESULT;
         }
         #[guid(0x5ad4bf92_daab_11d3_b38f_00105a1f473a)]
         interface ISWbemRefreshableItem: IDispatch {
@@ -221,7 +221,7 @@ mod Windows {
             fn get_IsSet(&self, #[out] #[retval] bIsSet: *mut VARIANT_BOOL) -> HRESULT;
             fn get_Object(&self, #[out] #[retval] objWbemObject: *mut ISWbemObjectEx) -> HRESULT;
             fn get_ObjectSet(&self, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn Remove(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn Remove(&self, #[in] iFlags: i32) -> HRESULT;
         }
         #[guid(0x14d8250e_d9c2_11d3_b38f_00105a1f473a)]
         interface ISWbemRefresher: IDispatch {
@@ -230,8 +230,8 @@ mod Windows {
             fn get_Count(&self, #[out] #[retval] iCount: *mut i32) -> HRESULT;
             fn Add(&self, #[in] objWbemServices: ISWbemServicesEx, #[in] bsInstancePath: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
             fn AddEnum(&self, #[in] objWbemServices: ISWbemServicesEx, #[in] bsClassName: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemRefreshableItem: *mut ISWbemRefreshableItem) -> HRESULT;
-            fn Remove(&self, #[in] iIndex: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
-            fn Refresh(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32) -> HRESULT;
+            fn Remove(&self, #[in] iIndex: i32, #[in] iFlags: i32) -> HRESULT;
+            fn Refresh(&self, #[in] iFlags: i32) -> HRESULT;
             fn get_AutoReconnect(&self, #[out] #[retval] bCount: *mut VARIANT_BOOL) -> HRESULT;
             fn put_AutoReconnect(&self, #[in] bCount: VARIANT_BOOL) -> HRESULT;
             fn DeleteAll(&self) -> HRESULT;
@@ -247,29 +247,29 @@ mod Windows {
         #[guid(0x76a6415c_cb41_11d1_8b02_00600806d9b6)]
         interface ISWbemServices: IDispatch {
             fn Get(&self, #[in] strObjectPath: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObject: *mut ISWbemObject) -> HRESULT;
-            fn GetAsync(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
-            fn Delete(&self, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch) -> HRESULT;
-            fn DeleteAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn GetAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn Delete(&self, #[in] strObjectPath: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch) -> HRESULT;
+            fn DeleteAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn InstancesOf(&self, #[in] strClass: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn InstancesOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] strClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn InstancesOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] strClass: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn SubclassesOf(&self, #[in] strSuperclass: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn SubclassesOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strSuperclass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemQueryFlagDeep")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn SubclassesOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] strSuperclass: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn ExecQuery(&self, #[in] strQuery: BSTR, #[in] strQueryLanguage: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn ExecQueryAsync(&self, #[in] objWbemSink: IDispatch, #[in] strQuery: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"WQL\"")] strQueryLanguage: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] lFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecQueryAsync(&self, #[in] objWbemSink: IDispatch, #[in] strQuery: BSTR, #[in] strQueryLanguage: BSTR, #[in] lFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn AssociatorsOf(&self, #[in] strObjectPath: BSTR, #[in] strAssocClass: BSTR, #[in] strResultClass: BSTR, #[in] strResultRole: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredAssocQualifier: BSTR, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn AssociatorsOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strAssocClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredAssocQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn AssociatorsOfAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] strAssocClass: BSTR, #[in] strResultClass: BSTR, #[in] strResultRole: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredAssocQualifier: BSTR, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn ReferencesTo(&self, #[in] strObjectPath: BSTR, #[in] strResultClass: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectSet: *mut ISWbemObjectSet) -> HRESULT;
-            fn ReferencesToAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strResultClass: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRole: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bClassesOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] bSchemaOnly: VARIANT_BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] strRequiredQualifier: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ReferencesToAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] strResultClass: BSTR, #[in] strRole: BSTR, #[in] bClassesOnly: VARIANT_BOOL, #[in] bSchemaOnly: VARIANT_BOOL, #[in] strRequiredQualifier: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn ExecNotificationQuery(&self, #[in] strQuery: BSTR, #[in] strQueryLanguage: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemEventSource: *mut ISWbemEventSource) -> HRESULT;
-            fn ExecNotificationQueryAsync(&self, #[in] objWbemSink: IDispatch, #[in] strQuery: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"WQL\"")] strQueryLanguage: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecNotificationQueryAsync(&self, #[in] objWbemSink: IDispatch, #[in] strQuery: BSTR, #[in] strQueryLanguage: BSTR, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn ExecMethod(&self, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] objWbemInParameters: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemOutParameters: *mut ISWbemObject) -> HRESULT;
-            fn ExecMethodAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemInParameters: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn ExecMethodAsync(&self, #[in] objWbemSink: IDispatch, #[in] strObjectPath: BSTR, #[in] strMethodName: BSTR, #[in] objWbemInParameters: IDispatch, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
             fn get_Security_(&self, #[out] #[retval] objWbemSecurity: *mut ISWbemSecurity) -> HRESULT;
         }
         #[guid(0xd2f68443_85dc_427e_91d8_366554cc754c)]
         interface ISWbemServicesEx: ISWbemServices {
             fn Put(&self, #[in] objWbemObject: ISWbemObjectEx, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[out] #[retval] objWbemObjectPath: *mut ISWbemObjectPath) -> HRESULT;
-            fn PutAsync(&self, #[in] objWbemSink: ISWbemSink, #[in] objWbemObject: ISWbemObjectEx, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("wbemChangeFlagCreateOrUpdate")] iFlags: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemNamedValueSet: IDispatch, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] objWbemAsyncContext: IDispatch) -> HRESULT;
+            fn PutAsync(&self, #[in] objWbemSink: ISWbemSink, #[in] objWbemObject: ISWbemObjectEx, #[in] iFlags: i32, #[in] objWbemNamedValueSet: IDispatch, #[in] objWbemAsyncContext: IDispatch) -> HRESULT;
         }
         #[guid(0x75718c9f_f029_11d1_a1ac_00c04fb6c223)]
         interface ISWbemSink: IDispatch {

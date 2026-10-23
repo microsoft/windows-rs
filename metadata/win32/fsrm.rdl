@@ -117,11 +117,11 @@ mod Windows {
         }
         #[guid(0xefcb0ab1_16c4_4a79_812c_725614c3306b)]
         interface IFsrmExportImport: IDispatch {
-            fn ExportFileGroups(&self, #[in] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fileGroupNamesSafeArray: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] remoteHost: BSTR) -> HRESULT;
+            fn ExportFileGroups(&self, #[in] filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR) -> HRESULT;
             fn ImportFileGroups(&self, #[in] filePath: BSTR, #[in] fileGroupNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] fileGroups: *mut IFsrmCommittableCollection) -> HRESULT;
-            fn ExportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] templateNamesSafeArray: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] remoteHost: BSTR) -> HRESULT;
+            fn ExportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR) -> HRESULT;
             fn ImportFileScreenTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] templates: *mut IFsrmCommittableCollection) -> HRESULT;
-            fn ExportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] templateNamesSafeArray: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] remoteHost: BSTR) -> HRESULT;
+            fn ExportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR) -> HRESULT;
             fn ImportQuotaTemplates(&self, #[in] filePath: BSTR, #[in] templateNamesSafeArray: *mut VARIANT, #[in] remoteHost: BSTR, #[out] #[retval] #[out_ptr] templates: *mut IFsrmCommittableCollection) -> HRESULT;
         }
         #[guid(0x1bb617b8_3886_49dc_af82_a6c90fa35dda)]

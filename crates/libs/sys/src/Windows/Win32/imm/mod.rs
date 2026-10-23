@@ -1,114 +1,126 @@
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmAssociateContext(param0 : super::HWND, param1 : HIMC) -> HIMC);
-#[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::HWND, param1 : HIMC, param2 : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::HKL, param1 : super::HWND, param2 : u32, param3 : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::HWND, param1 : HIMC, param2 : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::HKL, param1 : super::HWND, param2 : super::DWORD, param3 : super::LPVOID) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::HKL, param1 : super::HWND, param2 : super::DWORD, param3 : super::LPVOID) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmCreateContext() -> HIMC);
 windows_link::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : HIMC) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmDisableIME(param0 : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmDisableLegacyIME() -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_sys::core::PCSTR, param3 : u32, lpszregister : windows_sys::core::PCSTR, param5 : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_sys::core::PCWSTR, param3 : u32, lpszregister : windows_sys::core::PCWSTR, param5 : *const core::ffi::c_void) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::HKL, param1 : HIMC, param2 : u32, param3 : *const core::ffi::c_void) -> super::LRESULT);
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : LPCANDIDATELIST, dwbuflen : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : LPCANDIDATELIST, dwbuflen : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : LPCANDIDATEFORM) -> windows_sys::core::BOOL);
-#[cfg(feature = "wingdi")]
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : super::DWORD, lpfn : IMCENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_sys::core::PCSTR, param3 : super::DWORD, lpszregister : windows_sys::core::PCSTR, param5 : super::LPVOID) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_sys::core::PCWSTR, param3 : super::DWORD, lpszregister : windows_sys::core::PCWSTR, param5 : super::LPVOID) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::HKL, param1 : HIMC, param2 : super::UINT, param3 : super::LPVOID) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::HKL, param1 : HIMC, param2 : super::UINT, param3 : super::LPVOID) -> super::LRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : super::DWORD, lpcandlist : LPCANDIDATELIST, dwbuflen : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : super::LPDWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : super::DWORD, lpcandlist : LPCANDIDATELIST, dwbuflen : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : super::DWORD, lpcandidate : LPCANDIDATEFORM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : super::LPLOGFONTA) -> windows_sys::core::BOOL);
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : super::LPLOGFONTW) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : u32, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : u32, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : super::DWORD, lpbuf : super::LPVOID, dwbuflen : super::DWORD) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : super::DWORD, lpbuf : super::LPVOID, dwbuflen : super::DWORD) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : LPCOMPOSITIONFORM) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetContext(param0 : super::HWND) -> HIMC);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCSTR, lpdst : LPCANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCWSTR, lpdst : LPCANDIDATELIST, dwbuflen : u32, uflag : u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCSTR, lpdst : LPCANDIDATELIST, dwbuflen : super::DWORD, uflag : super::UINT) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::HKL, param1 : HIMC, lpsrc : windows_sys::core::PCWSTR, lpdst : LPCANDIDATELIST, dwbuflen : super::DWORD, uflag : super::UINT) -> super::DWORD);
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : super::LPDWORD, lpfdwsentence : super::LPDWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::HWND) -> super::HWND);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::HKL, lpszdescription : windows_sys::core::PSTR, ubuflen : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::HKL, lpszdescription : windows_sys::core::PWSTR, ubuflen : u32) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : u32, lpbuf : windows_sys::core::PSTR, dwbuflen : u32) -> u32);
-windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : u32, lpbuf : windows_sys::core::PWSTR, dwbuflen : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::HKL, lpszfilename : windows_sys::core::PSTR, ubuflen : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::HKL, lpszfilename : windows_sys::core::PWSTR, ubuflen : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : LPIMEMENUITEMINFOA, lpimemenu : LPIMEMENUITEMINFOA, dwsize : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : LPIMEMENUITEMINFOW, lpimemenu : LPIMEMENUITEMINFOW, dwsize : u32) -> u32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::HKL, lpszdescription : windows_sys::core::PSTR, ubuflen : super::UINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::HKL, lpszdescription : windows_sys::core::PWSTR, ubuflen : super::UINT) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : super::DWORD, lpbuf : windows_sys::core::PSTR, dwbuflen : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : super::DWORD, lpbuf : windows_sys::core::PWSTR, dwbuflen : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::HKL, lpszfilename : windows_sys::core::PSTR, ubuflen : super::UINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::HKL, lpszfilename : windows_sys::core::PWSTR, ubuflen : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : super::DWORD, param2 : super::DWORD, lpimeparentmenu : LPIMEMENUITEMINFOA, lpimemenu : LPIMEMENUITEMINFOA, dwsize : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : super::DWORD, param2 : super::DWORD, lpimeparentmenu : LPIMEMENUITEMINFOW, lpimemenu : LPIMEMENUITEMINFOW, dwsize : super::DWORD) -> super::DWORD);
 windows_link::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : HIMC) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::HKL, param1 : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::HKL, nitem : u32, lpstylebuf : LPSTYLEBUFA) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::HKL, nitem : u32, lpstylebuf : LPSTYLEBUFW) -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::HKL, param1 : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::HKL, nitem : super::UINT, lpstylebuf : LPSTYLEBUFA) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::HKL, nitem : super::UINT, lpstylebuf : LPSTYLEBUFW) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::HWND) -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::HWND) -> super::UINT);
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmInstallIMEA(lpszimefilename : windows_sys::core::PCSTR, lpszlayouttext : windows_sys::core::PCSTR) -> super::HKL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmInstallIMEW(lpszimefilename : windows_sys::core::PCWSTR, lpszlayouttext : windows_sys::core::PCWSTR) -> super::HKL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::HKL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::HWND, param1 : u32, param2 : super::WPARAM, param3 : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::HWND, param1 : u32, param2 : super::WPARAM, param3 : super::LPARAM) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : u32, dwindex : u32, dwvalue : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::HKL, lpszreading : windows_sys::core::PCSTR, param2 : u32, lpszregister : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::HKL, lpszreading : windows_sys::core::PCWSTR, param2 : u32, lpszregister : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::HWND, param1 : super::UINT, param2 : super::WPARAM, param3 : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::HWND, param1 : super::UINT, param2 : super::WPARAM, param3 : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : super::DWORD, dwindex : super::DWORD, dwvalue : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::HKL, lpszreading : windows_sys::core::PCSTR, param2 : super::DWORD, lpszregister : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::HKL, lpszreading : windows_sys::core::PCWSTR, param2 : super::DWORD, lpszregister : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::HWND, param1 : HIMC) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : LPCANDIDATEFORM) -> windows_sys::core::BOOL);
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : super::LPLOGFONTA) -> windows_sys::core::BOOL);
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : super::LPLOGFONTW) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : u32, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : u32, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : super::DWORD, lpcomp : super::LPVOID, dwcomplen : super::DWORD, lpread : super::LPVOID, dwreadlen : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : super::DWORD, lpcomp : super::LPVOID, dwcomplen : super::DWORD, lpread : super::LPVOID, dwreadlen : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : LPCOMPOSITIONFORM) -> windows_sys::core::BOOL);
-windows_link::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : u32, param2 : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : super::DWORD, param2 : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::HWND, param1 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::HKL, lpszreading : windows_sys::core::PCSTR, param2 : u32, lpszunregister : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::HKL, lpszreading : windows_sys::core::PCWSTR, param2 : u32, lpszunregister : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::HWND, param1 : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::HKL, lpszreading : windows_sys::core::PCSTR, param2 : super::DWORD, lpszunregister : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::HKL, lpszreading : windows_sys::core::PCWSTR, param2 : super::DWORD, lpszunregister : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 pub const ATTR_CONVERTED: i32 = 2;
 pub const ATTR_FIXEDCONVERTED: i32 = 5;
 pub const ATTR_INPUT: i32 = 0;
@@ -116,25 +128,27 @@ pub const ATTR_INPUT_ERROR: i32 = 4;
 pub const ATTR_TARGET_CONVERTED: i32 = 1;
 pub const ATTR_TARGET_NOTCONVERTED: i32 = 3;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CANDIDATEFORM {
-    pub dwIndex: u32,
-    pub dwStyle: u32,
+    pub dwIndex: super::DWORD,
+    pub dwStyle: super::DWORD,
     pub ptCurrentPos: super::POINT,
     pub rcArea: super::RECT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CANDIDATELIST {
-    pub dwSize: u32,
-    pub dwStyle: u32,
-    pub dwCount: u32,
-    pub dwSelection: u32,
-    pub dwPageStart: u32,
-    pub dwPageSize: u32,
-    pub dwOffset: [u32; 1],
+    pub dwSize: super::DWORD,
+    pub dwStyle: super::DWORD,
+    pub dwCount: super::DWORD,
+    pub dwSelection: super::DWORD,
+    pub dwPageStart: super::DWORD,
+    pub dwPageSize: super::DWORD,
+    pub dwOffset: [super::DWORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CANDIDATELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -147,10 +161,10 @@ pub const CFS_FORCE_POSITION: i32 = 32;
 pub const CFS_POINT: i32 = 2;
 pub const CFS_RECT: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct COMPOSITIONFORM {
-    pub dwStyle: u32,
+    pub dwStyle: super::DWORD,
     pub ptCurrentPos: super::POINT,
     pub rcArea: super::RECT,
 }
@@ -224,7 +238,8 @@ pub const IGIMII_OTHER: i32 = 32;
 pub const IGIMII_SMODE: i32 = 2;
 pub const IGIMII_TOOLS: i32 = 8;
 pub const IGP_CONVERSION: i32 = 8;
-pub const IGP_GETIMEVERSION: u32 = 4294967292;
+#[cfg(feature = "shared")]
+pub const IGP_GETIMEVERSION: super::DWORD = 4294967292;
 pub const IGP_PROPERTY: i32 = 4;
 pub const IGP_SELECT: i32 = 24;
 pub const IGP_SENTENCE: i32 = 12;
@@ -243,52 +258,52 @@ pub const IMC_SETCOMPOSITIONFONT: i32 = 10;
 pub const IMC_SETCOMPOSITIONWINDOW: i32 = 12;
 pub const IMC_SETSTATUSWINDOWPOS: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct IMECHARPOSITION {
-    pub dwSize: u32,
-    pub dwCharPos: u32,
+    pub dwSize: super::DWORD,
+    pub dwCharPos: super::DWORD,
     pub pt: super::POINT,
-    pub cLineHeight: u32,
+    pub cLineHeight: super::UINT,
     pub rcDocument: super::RECT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type IMEMENUITEMINFO = IMEMENUITEMINFOA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct IMEMENUITEMINFOA {
-    pub cbSize: u32,
-    pub fType: u32,
-    pub fState: u32,
-    pub wID: u32,
+    pub cbSize: super::UINT,
+    pub fType: super::UINT,
+    pub fState: super::UINT,
+    pub wID: super::UINT,
     pub hbmpChecked: super::HBITMAP,
     pub hbmpUnchecked: super::HBITMAP,
-    pub dwItemData: u32,
-    pub szString: [i8; 80],
+    pub dwItemData: super::DWORD,
+    pub szString: [super::CHAR; 80],
     pub hbmpItem: super::HBITMAP,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for IMEMENUITEMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IMEMENUITEMINFOW {
-    pub cbSize: u32,
-    pub fType: u32,
-    pub fState: u32,
-    pub wID: u32,
+    pub cbSize: super::UINT,
+    pub fType: super::UINT,
+    pub fState: super::UINT,
+    pub wID: super::UINT,
     pub hbmpChecked: super::HBITMAP,
     pub hbmpUnchecked: super::HBITMAP,
-    pub dwItemData: u32,
-    pub szString: [u16; 80],
+    pub dwItemData: super::DWORD,
+    pub szString: [super::WCHAR; 80],
     pub hbmpItem: super::HBITMAP,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for IMEMENUITEMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -400,32 +415,40 @@ pub const ISC_SHOWUIALLCANDIDATEWINDOW: i32 = 15;
 pub const ISC_SHOWUICANDIDATEWINDOW: i32 = 1;
 pub const ISC_SHOWUICOMPOSITIONWINDOW: u32 = 2147483648;
 pub const ISC_SHOWUIGUIDELINE: i32 = 1073741824;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCANDIDATEFORM = *mut CANDIDATEFORM;
+#[cfg(feature = "shared")]
 pub type LPCANDIDATELIST = *mut CANDIDATELIST;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCOMPOSITIONFORM = *mut COMPOSITIONFORM;
 #[cfg(feature = "minwindef")]
-pub type LPHKL = *mut super::HKL;
-#[cfg(feature = "windef")]
+pub type LPHKL = *mut *mut super::HKL__;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPIMECHARPOSITION = *mut IMECHARPOSITION;
-#[cfg(feature = "windef")]
-pub type LPIMEMENUITEMINFO = LPIMEMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPIMEMENUITEMINFO = *mut IMEMENUITEMINFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+#[cfg(feature = "shared")]
 pub type LPRECONVERTSTRING = *mut RECONVERTSTRING;
-pub type LPREGISTERWORD = LPREGISTERWORDA;
+pub type LPREGISTERWORD = *mut REGISTERWORDA;
 pub type LPREGISTERWORDA = *mut REGISTERWORDA;
 pub type LPREGISTERWORDW = *mut REGISTERWORDW;
-pub type LPSTYLEBUF = LPSTYLEBUFA;
+#[cfg(feature = "shared")]
+pub type LPSTYLEBUF = *mut STYLEBUFA;
+#[cfg(feature = "shared")]
 pub type LPSTYLEBUFA = *mut STYLEBUFA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSTYLEBUFW = *mut STYLEBUFW;
+pub const MOD_ALT: i32 = 1;
+pub const MOD_CONTROL: i32 = 2;
 pub const MOD_IGNORE_ALL_MODIFIER: i32 = 1024;
 pub const MOD_LEFT: i32 = 32768;
 pub const MOD_ON_KEYUP: i32 = 2048;
 pub const MOD_RIGHT: i32 = 16384;
+pub const MOD_SHIFT: i32 = 4;
 pub const NI_CHANGECANDIDATELIST: i32 = 19;
 pub const NI_CLOSECANDIDATE: i32 = 17;
 pub const NI_COMPOSITIONSTR: i32 = 21;
@@ -435,57 +458,68 @@ pub const NI_OPENCANDIDATE: i32 = 16;
 pub const NI_SELECTCANDIDATESTR: i32 = 18;
 pub const NI_SETCANDIDATE_PAGESIZE: i32 = 23;
 pub const NI_SETCANDIDATE_PAGESTART: i32 = 22;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type NPCANDIDATEFORM = *mut CANDIDATEFORM;
+#[cfg(feature = "shared")]
 pub type NPCANDIDATELIST = *mut CANDIDATELIST;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type NPCOMPOSITIONFORM = *mut COMPOSITIONFORM;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type NPIMECHARPOSITION = *mut IMECHARPOSITION;
-#[cfg(feature = "windef")]
-pub type NPIMEMENUITEMINFO = NPIMEMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type NPIMEMENUITEMINFO = *mut IMEMENUITEMINFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type NPIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type NPIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+#[cfg(feature = "shared")]
 pub type NPRECONVERTSTRING = *mut RECONVERTSTRING;
-pub type NPREGISTERWORD = NPREGISTERWORDA;
+pub type NPREGISTERWORD = *mut REGISTERWORDA;
 pub type NPREGISTERWORDA = *mut REGISTERWORDA;
 pub type NPREGISTERWORDW = *mut REGISTERWORDW;
-pub type NPSTYLEBUF = NPSTYLEBUFA;
+#[cfg(feature = "shared")]
+pub type NPSTYLEBUF = *mut STYLEBUFA;
+#[cfg(feature = "shared")]
 pub type NPSTYLEBUFA = *mut STYLEBUFA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type NPSTYLEBUFW = *mut STYLEBUFW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCANDIDATEFORM = *mut CANDIDATEFORM;
+#[cfg(feature = "shared")]
 pub type PCANDIDATELIST = *mut CANDIDATELIST;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCOMPOSITIONFORM = *mut COMPOSITIONFORM;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PIMECHARPOSITION = *mut IMECHARPOSITION;
-#[cfg(feature = "windef")]
-pub type PIMEMENUITEMINFO = PIMEMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PIMEMENUITEMINFO = *mut IMEMENUITEMINFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+#[cfg(feature = "shared")]
 pub type PRECONVERTSTRING = *mut RECONVERTSTRING;
-pub type PREGISTERWORD = PREGISTERWORDA;
+pub type PREGISTERWORD = *mut REGISTERWORDA;
 pub type PREGISTERWORDA = *mut REGISTERWORDA;
 pub type PREGISTERWORDW = *mut REGISTERWORDW;
-pub type PSTYLEBUF = PSTYLEBUFA;
+#[cfg(feature = "shared")]
+pub type PSTYLEBUF = *mut STYLEBUFA;
+#[cfg(feature = "shared")]
 pub type PSTYLEBUFA = *mut STYLEBUFA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTYLEBUFW = *mut STYLEBUFW;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RECONVERTSTRING {
-    pub dwSize: u32,
-    pub dwVersion: u32,
-    pub dwStrLen: u32,
-    pub dwStrOffset: u32,
-    pub dwCompStrLen: u32,
-    pub dwCompStrOffset: u32,
-    pub dwTargetStrLen: u32,
-    pub dwTargetStrOffset: u32,
+    pub dwSize: super::DWORD,
+    pub dwVersion: super::DWORD,
+    pub dwStrLen: super::DWORD,
+    pub dwStrOffset: super::DWORD,
+    pub dwCompStrLen: super::DWORD,
+    pub dwCompStrOffset: super::DWORD,
+    pub dwTargetStrLen: super::DWORD,
+    pub dwTargetStrOffset: super::DWORD,
 }
 pub type REGISTERWORD = REGISTERWORDA;
 #[repr(C)]
@@ -494,8 +528,10 @@ pub struct REGISTERWORDA {
     pub lpReading: windows_sys::core::PSTR,
     pub lpWord: windows_sys::core::PSTR,
 }
-pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCSTR, param1: u32, lpszstring: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
-pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCWSTR, param1: u32, lpszstring: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCSTR, param1: super::DWORD, lpszstring: windows_sys::core::PCSTR, param3: super::LPVOID) -> i32>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_sys::core::PCWSTR, param1: super::DWORD, lpszstring: windows_sys::core::PCWSTR, param3: super::LPVOID) -> i32>;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct REGISTERWORDW {
@@ -514,24 +550,29 @@ pub const SELECT_CAP_CONVERSION: i32 = 1;
 pub const SELECT_CAP_SENTENCE: i32 = 2;
 pub const SOFTKEYBOARD_TYPE_C1: i32 = 2;
 pub const SOFTKEYBOARD_TYPE_T1: i32 = 1;
+#[cfg(feature = "shared")]
 pub type STYLEBUF = STYLEBUFA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STYLEBUFA {
-    pub dwStyle: u32,
-    pub szDescription: [i8; 32],
+    pub dwStyle: super::DWORD,
+    pub szDescription: [super::CHAR; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for STYLEBUFA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STYLEBUFW {
-    pub dwStyle: u32,
-    pub szDescription: [u16; 32],
+    pub dwStyle: super::DWORD,
+    pub szDescription: [super::WCHAR; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STYLEBUFW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

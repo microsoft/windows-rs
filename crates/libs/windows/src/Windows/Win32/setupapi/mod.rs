@@ -1,121 +1,131 @@
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InstallHinfSectionA<P2>(window: super::HWND, modulehandle: super::HINSTANCE, commandline: P2, showcommand: i32)
+pub unsafe fn InstallHinfSectionA<P2>(window: super::HWND, modulehandle: super::HINSTANCE, commandline: P2, showcommand: super::INT)
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn InstallHinfSectionA(window : super::HWND, modulehandle : super::HINSTANCE, commandline : windows_core::PCSTR, showcommand : i32));
+    windows_core::link!("setupapi.dll" "system" fn InstallHinfSectionA(window : super::HWND, modulehandle : super::HINSTANCE, commandline : windows_core::PCSTR, showcommand : super::INT));
     unsafe { InstallHinfSectionA(window, modulehandle, commandline.param().abi(), showcommand) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn InstallHinfSectionW<P2>(window: super::HWND, modulehandle: super::HINSTANCE, commandline: P2, showcommand: i32)
+pub unsafe fn InstallHinfSectionW<P2>(window: super::HWND, modulehandle: super::HINSTANCE, commandline: P2, showcommand: super::INT)
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn InstallHinfSectionW(window : super::HWND, modulehandle : super::HINSTANCE, commandline : windows_core::PCWSTR, showcommand : i32));
+    windows_core::link!("setupapi.dll" "system" fn InstallHinfSectionW(window : super::HWND, modulehandle : super::HINSTANCE, commandline : windows_core::PCWSTR, showcommand : super::INT));
     unsafe { InstallHinfSectionW(window, modulehandle, commandline.param().abi(), showcommand) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAddInstallSectionToDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAddInstallSectionToDiskSpaceListA(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCSTR, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAddInstallSectionToDiskSpaceListA(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAddInstallSectionToDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCWSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAddInstallSectionToDiskSpaceListW(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAddInstallSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCWSTR, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAddInstallSectionToDiskSpaceListW(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAddSectionToDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAddSectionToDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAddSectionToDiskSpaceListA(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCSTR, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAddSectionToDiskSpaceListA(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAddSectionToDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAddSectionToDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCWSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAddSectionToDiskSpaceListW(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAddSectionToDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCWSTR, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAddSectionToDiskSpaceListW(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAddToDiskSpaceListA<P1>(diskspace: HDSKSPC, targetfilespec: P1, filesize: i64, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAddToDiskSpaceListA<P1>(diskspace: HDSKSPC, targetfilespec: P1, filesize: super::LONGLONG, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_core::PCSTR, filesize : i64, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAddToDiskSpaceListA(diskspace, targetfilespec.param().abi(), filesize, operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_core::PCSTR, filesize : super::LONGLONG, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAddToDiskSpaceListA(diskspace, targetfilespec.param().abi(), filesize, operation, reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAddToDiskSpaceListW<P1>(diskspace: HDSKSPC, targetfilespec: P1, filesize: i64, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAddToDiskSpaceListW<P1>(diskspace: HDSKSPC, targetfilespec: P1, filesize: super::LONGLONG, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_core::PCWSTR, filesize : i64, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAddToDiskSpaceListW(diskspace, targetfilespec.param().abi(), filesize, operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAddToDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_core::PCWSTR, filesize : super::LONGLONG, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAddToDiskSpaceListW(diskspace, targetfilespec.param().abi(), filesize, operation, reserved1 as _, reserved2) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupAddToSourceListA<P1>(flags: u32, source: P1) -> windows_core::BOOL
+pub unsafe fn SetupAddToSourceListA<P1>(flags: super::DWORD, source: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddToSourceListA(flags : u32, source : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupAddToSourceListA(flags : super::DWORD, source : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { SetupAddToSourceListA(flags, source.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupAddToSourceListW<P1>(flags: u32, source: P1) -> windows_core::BOOL
+pub unsafe fn SetupAddToSourceListW<P1>(flags: super::DWORD, source: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAddToSourceListW(flags : u32, source : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupAddToSourceListW(flags : super::DWORD, source : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetupAddToSourceListW(flags, source.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAdjustDiskSpaceListA<P1>(diskspace: HDSKSPC, driveroot: P1, amount: i64, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAdjustDiskSpaceListA<P1>(diskspace: HDSKSPC, driveroot: P1, amount: super::LONGLONG, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListA(diskspace : HDSKSPC, driveroot : windows_core::PCSTR, amount : i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAdjustDiskSpaceListA(diskspace, driveroot.param().abi(), amount, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListA(diskspace : HDSKSPC, driveroot : windows_core::PCSTR, amount : super::LONGLONG, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAdjustDiskSpaceListA(diskspace, driveroot.param().abi(), amount, reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupAdjustDiskSpaceListW<P1>(diskspace: HDSKSPC, driveroot: P1, amount: i64, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupAdjustDiskSpaceListW<P1>(diskspace: HDSKSPC, driveroot: P1, amount: super::LONGLONG, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListW(diskspace : HDSKSPC, driveroot : windows_core::PCWSTR, amount : i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupAdjustDiskSpaceListW(diskspace, driveroot.param().abi(), amount, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupAdjustDiskSpaceListW(diskspace : HDSKSPC, driveroot : windows_core::PCWSTR, amount : super::LONGLONG, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupAdjustDiskSpaceListW(diskspace, driveroot.param().abi(), amount, reserved1 as _, reserved2) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupBackupErrorA<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: u32, style: u32) -> u32
+pub unsafe fn SetupBackupErrorA<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: super::UINT, style: super::DWORD) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupBackupErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, sourcefile : windows_core::PCSTR, targetfile : windows_core::PCSTR, win32errorcode : u32, style : u32) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupBackupErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, sourcefile : windows_core::PCSTR, targetfile : windows_core::PCSTR, win32errorcode : super::UINT, style : super::DWORD) -> super::UINT);
     unsafe { SetupBackupErrorA(hwndparent, dialogtitle.param().abi(), sourcefile.param().abi(), targetfile.param().abi(), win32errorcode, style) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupBackupErrorW<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: u32, style: u32) -> u32
+pub unsafe fn SetupBackupErrorW<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: super::UINT, style: super::DWORD) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupBackupErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, sourcefile : windows_core::PCWSTR, targetfile : windows_core::PCWSTR, win32errorcode : u32, style : u32) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupBackupErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, sourcefile : windows_core::PCWSTR, targetfile : windows_core::PCWSTR, win32errorcode : super::UINT, style : super::DWORD) -> super::UINT);
     unsafe { SetupBackupErrorW(hwndparent, dialogtitle.param().abi(), sourcefile.param().abi(), targetfile.param().abi(), win32errorcode, style) }
 }
 #[inline]
@@ -138,37 +148,39 @@ pub unsafe fn SetupCloseLog() {
     windows_core::link!("setupapi.dll" "system" fn SetupCloseLog());
     unsafe { SetupCloseLog() }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupCommitFileQueueA(owner: Option<super::HWND>, queuehandle: HSPFILEQ, msghandler: PSP_FILE_CALLBACK_A, context: *const core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupCommitFileQueueA(owner : super::HWND, queuehandle : HSPFILEQ, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn SetupCommitFileQueueA(owner: Option<super::HWND>, queuehandle: HSPFILEQ, msghandler: PSP_FILE_CALLBACK_A, context: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupCommitFileQueueA(owner : super::HWND, queuehandle : HSPFILEQ, msghandler : PSP_FILE_CALLBACK_A, context : super::PVOID) -> windows_core::BOOL);
     unsafe { SetupCommitFileQueueA(owner.unwrap_or(core::mem::zeroed()) as _, queuehandle, msghandler, context) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupCommitFileQueueW(owner: Option<super::HWND>, queuehandle: HSPFILEQ, msghandler: PSP_FILE_CALLBACK_W, context: *const core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupCommitFileQueueW(owner : super::HWND, queuehandle : HSPFILEQ, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn SetupCommitFileQueueW(owner: Option<super::HWND>, queuehandle: HSPFILEQ, msghandler: PSP_FILE_CALLBACK_W, context: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupCommitFileQueueW(owner : super::HWND, queuehandle : HSPFILEQ, msghandler : PSP_FILE_CALLBACK_W, context : super::PVOID) -> windows_core::BOOL);
     unsafe { SetupCommitFileQueueW(owner.unwrap_or(core::mem::zeroed()) as _, queuehandle, msghandler, context) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupConfigureWmiFromInfSectionA<P1>(infhandle: HINF, sectionname: P1, flags: u32) -> windows_core::BOOL
+pub unsafe fn SetupConfigureWmiFromInfSectionA<P1>(infhandle: HINF, sectionname: P1, flags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionA(infhandle : HINF, sectionname : windows_core::PCSTR, flags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionA(infhandle : HINF, sectionname : windows_core::PCSTR, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupConfigureWmiFromInfSectionA(infhandle, sectionname.param().abi(), flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupConfigureWmiFromInfSectionW<P1>(infhandle: HINF, sectionname: P1, flags: u32) -> windows_core::BOOL
+pub unsafe fn SetupConfigureWmiFromInfSectionW<P1>(infhandle: HINF, sectionname: P1, flags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionW(infhandle : HINF, sectionname : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupConfigureWmiFromInfSectionW(infhandle : HINF, sectionname : windows_core::PCWSTR, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupConfigureWmiFromInfSectionW(infhandle, sectionname.param().abi(), flags) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupCopyErrorA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: u32, style: u32, pathbuffer: Option<windows_core::PSTR>, pathbuffersize: u32, pathrequiredsize: Option<super::PDWORD>) -> u32
+pub unsafe fn SetupCopyErrorA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: super::UINT, style: super::DWORD, pathbuffer: Option<windows_core::PSTR>, pathbuffersize: super::DWORD, pathrequiredsize: Option<super::PDWORD>) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -176,12 +188,12 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupCopyErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, diskname : windows_core::PCSTR, pathtosource : windows_core::PCSTR, sourcefile : windows_core::PCSTR, targetpathfile : windows_core::PCSTR, win32errorcode : u32, style : u32, pathbuffer : windows_core::PSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupCopyErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, diskname : windows_core::PCSTR, pathtosource : windows_core::PCSTR, sourcefile : windows_core::PCSTR, targetpathfile : windows_core::PCSTR, win32errorcode : super::UINT, style : super::DWORD, pathbuffer : windows_core::PSTR, pathbuffersize : super::DWORD, pathrequiredsize : super::PDWORD) -> super::UINT);
     unsafe { SetupCopyErrorA(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), sourcefile.param().abi(), targetpathfile.param().abi(), win32errorcode, style, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupCopyErrorW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: u32, style: u32, pathbuffer: Option<windows_core::PWSTR>, pathbuffersize: u32, pathrequiredsize: Option<super::PDWORD>) -> u32
+pub unsafe fn SetupCopyErrorW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, sourcefile: P4, targetpathfile: P5, win32errorcode: super::UINT, style: super::DWORD, pathbuffer: Option<windows_core::PWSTR>, pathbuffersize: super::DWORD, pathrequiredsize: Option<super::PDWORD>) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -189,87 +201,91 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupCopyErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, diskname : windows_core::PCWSTR, pathtosource : windows_core::PCWSTR, sourcefile : windows_core::PCWSTR, targetpathfile : windows_core::PCWSTR, win32errorcode : u32, style : u32, pathbuffer : windows_core::PWSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupCopyErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, diskname : windows_core::PCWSTR, pathtosource : windows_core::PCWSTR, sourcefile : windows_core::PCWSTR, targetpathfile : windows_core::PCWSTR, win32errorcode : super::UINT, style : super::DWORD, pathbuffer : windows_core::PWSTR, pathbuffersize : super::DWORD, pathrequiredsize : super::PDWORD) -> super::UINT);
     unsafe { SetupCopyErrorW(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), sourcefile.param().abi(), targetpathfile.param().abi(), win32errorcode, style, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupCopyOEMInfA<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: u32, copystyle: u32, destinationinffilename: Option<windows_core::PSTR>, destinationinffilenamesize: u32, requiredsize: Option<super::PDWORD>, destinationinffilenamecomponent: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
+pub unsafe fn SetupCopyOEMInfA<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: super::DWORD, copystyle: super::DWORD, destinationinffilename: Option<windows_core::PSTR>, destinationinffilenamesize: super::DWORD, requiredsize: Option<super::PDWORD>, destinationinffilenamecomponent: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffilename : windows_core::PCSTR, oemsourcemedialocation : windows_core::PCSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_core::PSTR, destinationinffilenamesize : u32, requiredsize : super::PDWORD, destinationinffilenamecomponent : *mut windows_core::PSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffilename : windows_core::PCSTR, oemsourcemedialocation : windows_core::PCSTR, oemsourcemediatype : super::DWORD, copystyle : super::DWORD, destinationinffilename : windows_core::PSTR, destinationinffilenamesize : super::DWORD, requiredsize : super::PDWORD, destinationinffilenamecomponent : *mut windows_core::PSTR) -> windows_core::BOOL);
     unsafe { SetupCopyOEMInfA(sourceinffilename.param().abi(), oemsourcemedialocation.param().abi(), oemsourcemediatype, copystyle, destinationinffilename.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamecomponent.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupCopyOEMInfW<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: u32, copystyle: u32, destinationinffilename: Option<windows_core::PWSTR>, destinationinffilenamesize: u32, requiredsize: Option<super::PDWORD>, destinationinffilenamecomponent: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
+pub unsafe fn SetupCopyOEMInfW<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: super::DWORD, copystyle: super::DWORD, destinationinffilename: Option<windows_core::PWSTR>, destinationinffilenamesize: super::DWORD, requiredsize: Option<super::PDWORD>, destinationinffilenamecomponent: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : windows_core::PCWSTR, oemsourcemedialocation : windows_core::PCWSTR, oemsourcemediatype : u32, copystyle : u32, destinationinffilename : windows_core::PWSTR, destinationinffilenamesize : u32, requiredsize : super::PDWORD, destinationinffilenamecomponent : *mut windows_core::PWSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : windows_core::PCWSTR, oemsourcemedialocation : windows_core::PCWSTR, oemsourcemediatype : super::DWORD, copystyle : super::DWORD, destinationinffilename : windows_core::PWSTR, destinationinffilenamesize : super::DWORD, requiredsize : super::PDWORD, destinationinffilenamecomponent : *mut windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { SetupCopyOEMInfW(sourceinffilename.param().abi(), oemsourcemedialocation.param().abi(), oemsourcemediatype, copystyle, destinationinffilename.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, destinationinffilenamecomponent.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupCreateDiskSpaceListA(reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, flags: u32) -> HDSKSPC {
-    windows_core::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListA(reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
-    unsafe { SetupCreateDiskSpaceListA(reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, flags) }
+pub unsafe fn SetupCreateDiskSpaceListA(reserved1: super::PVOID, reserved2: super::DWORD, flags: super::UINT) -> HDSKSPC {
+    windows_core::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListA(reserved1 : super::PVOID, reserved2 : super::DWORD, flags : super::UINT) -> HDSKSPC);
+    unsafe { SetupCreateDiskSpaceListA(reserved1 as _, reserved2, flags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupCreateDiskSpaceListW(reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, flags: u32) -> HDSKSPC {
-    windows_core::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListW(reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
-    unsafe { SetupCreateDiskSpaceListW(reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, flags) }
+pub unsafe fn SetupCreateDiskSpaceListW(reserved1: super::PVOID, reserved2: super::DWORD, flags: super::UINT) -> HDSKSPC {
+    windows_core::link!("setupapi.dll" "system" fn SetupCreateDiskSpaceListW(reserved1 : super::PVOID, reserved2 : super::DWORD, flags : super::UINT) -> HDSKSPC);
+    unsafe { SetupCreateDiskSpaceListW(reserved1 as _, reserved2, flags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDecompressOrCopyFileA<P0, P1>(sourcefilename: P0, targetfilename: P1, compressiontype: Option<super::PUINT>) -> u32
+pub unsafe fn SetupDecompressOrCopyFileA<P0, P1>(sourcefilename: P0, targetfilename: P1, compressiontype: Option<super::PUINT>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileA(sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, compressiontype : super::PUINT) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileA(sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, compressiontype : super::PUINT) -> super::DWORD);
     unsafe { SetupDecompressOrCopyFileA(sourcefilename.param().abi(), targetfilename.param().abi(), compressiontype.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDecompressOrCopyFileW<P0, P1>(sourcefilename: P0, targetfilename: P1, compressiontype: Option<super::PUINT>) -> u32
+pub unsafe fn SetupDecompressOrCopyFileW<P0, P1>(sourcefilename: P0, targetfilename: P1, compressiontype: Option<super::PUINT>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileW(sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, compressiontype : super::PUINT) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupDecompressOrCopyFileW(sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, compressiontype : super::PUINT) -> super::DWORD);
     unsafe { SetupDecompressOrCopyFileW(sourcefilename.param().abi(), targetfilename.param().abi(), compressiontype.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDefaultQueueCallbackA(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackA(context : *const core::ffi::c_void, notification : u32, param1 : usize, param2 : usize) -> u32);
+pub unsafe fn SetupDefaultQueueCallbackA(context: super::PVOID, notification: super::UINT, param1: super::UINT_PTR, param2: super::UINT_PTR) -> super::UINT {
+    windows_core::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackA(context : super::PVOID, notification : super::UINT, param1 : super::UINT_PTR, param2 : super::UINT_PTR) -> super::UINT);
     unsafe { SetupDefaultQueueCallbackA(context, notification, param1, param2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDefaultQueueCallbackW(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackW(context : *const core::ffi::c_void, notification : u32, param1 : usize, param2 : usize) -> u32);
+pub unsafe fn SetupDefaultQueueCallbackW(context: super::PVOID, notification: super::UINT, param1: super::UINT_PTR, param2: super::UINT_PTR) -> super::UINT {
+    windows_core::link!("setupapi.dll" "system" fn SetupDefaultQueueCallbackW(context : super::PVOID, notification : super::UINT, param1 : super::UINT_PTR, param2 : super::UINT_PTR) -> super::UINT);
     unsafe { SetupDefaultQueueCallbackW(context, notification, param1, param2) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDeleteErrorA<P1, P2>(hwndparent: super::HWND, dialogtitle: P1, file: P2, win32errorcode: u32, style: u32) -> u32
+pub unsafe fn SetupDeleteErrorA<P1, P2>(hwndparent: super::HWND, dialogtitle: P1, file: P2, win32errorcode: super::UINT, style: super::DWORD) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDeleteErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, file : windows_core::PCSTR, win32errorcode : u32, style : u32) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupDeleteErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, file : windows_core::PCSTR, win32errorcode : super::UINT, style : super::DWORD) -> super::UINT);
     unsafe { SetupDeleteErrorA(hwndparent, dialogtitle.param().abi(), file.param().abi(), win32errorcode, style) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDeleteErrorW<P1, P2>(hwndparent: super::HWND, dialogtitle: P1, file: P2, win32errorcode: u32, style: u32) -> u32
+pub unsafe fn SetupDeleteErrorW<P1, P2>(hwndparent: super::HWND, dialogtitle: P1, file: P2, win32errorcode: super::UINT, style: super::DWORD) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDeleteErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, file : windows_core::PCWSTR, win32errorcode : u32, style : u32) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupDeleteErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, file : windows_core::PCWSTR, win32errorcode : super::UINT, style : super::DWORD) -> super::UINT);
     unsafe { SetupDeleteErrorW(hwndparent, dialogtitle.param().abi(), file.param().abi(), win32errorcode, style) }
 }
 #[inline]
@@ -277,40 +293,43 @@ pub unsafe fn SetupDestroyDiskSpaceList(diskspace: HDSKSPC) -> windows_core::BOO
     windows_core::link!("setupapi.dll" "system" fn SetupDestroyDiskSpaceList(diskspace : HDSKSPC) -> windows_core::BOOL);
     unsafe { SetupDestroyDiskSpaceList(diskspace as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiAskForOEMDisk(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiAskForOEMDisk(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiAskForOEMDisk(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoList(flags: u32, classguidlist: Option<super::LPGUID>, classguidlistsize: u32, requiredsize: super::PDWORD) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoList(flags : u32, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiBuildClassInfoList(flags: super::DWORD, classguidlist: Option<super::LPGUID>, classguidlistsize: super::DWORD, requiredsize: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoList(flags : super::DWORD, classguidlist : super::LPGUID, classguidlistsize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiBuildClassInfoList(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoListExA<P4>(flags: u32, classguidlist: Option<super::LPGUID>, classguidlistsize: u32, requiredsize: super::PDWORD, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiBuildClassInfoListExA<P4>(flags: super::DWORD, classguidlist: Option<super::LPGUID>, classguidlistsize: super::DWORD, requiredsize: super::PDWORD, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExA(flags : u32, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiBuildClassInfoListExA(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExA(flags : super::DWORD, classguidlist : super::LPGUID, classguidlistsize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiBuildClassInfoListExA(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiBuildClassInfoListExW<P4>(flags: u32, classguidlist: Option<super::LPGUID>, classguidlistsize: u32, requiredsize: super::PDWORD, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiBuildClassInfoListExW<P4>(flags: super::DWORD, classguidlist: Option<super::LPGUID>, classguidlistsize: super::DWORD, requiredsize: super::PDWORD, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExW(flags : u32, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiBuildClassInfoListExW(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildClassInfoListExW(flags : super::DWORD, classguidlist : super::LPGUID, classguidlistsize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiBuildClassInfoListExW(flags, classguidlist.unwrap_or(core::mem::zeroed()) as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiBuildDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiBuildDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiBuildDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiBuildDriverInfoList(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, drivertype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiCallClassInstaller(installfunction: DI_FUNCTION, deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiCallClassInstaller(installfunction : DI_FUNCTION, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
@@ -321,105 +340,106 @@ pub unsafe fn SetupDiCancelDriverInfoSearch(deviceinfoset: HDEVINFO) -> windows_
     windows_core::link!("setupapi.dll" "system" fn SetupDiCancelDriverInfoSearch(deviceinfoset : HDEVINFO) -> windows_core::BOOL);
     unsafe { SetupDiCancelDriverInfoSearch(deviceinfoset) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiChangeState(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiChangeState(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiChangeState(deviceinfoset, deviceinfodata as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameA<P0>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: u32, requiredsize: super::PDWORD) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameA<P0>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: super::DWORD, requiredsize: super::PDWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameA(classname : windows_core::PCSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameA(classname : windows_core::PCSTR, classguidlist : super::LPGUID, classguidlistsize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiClassGuidsFromNameA(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameExA<P0, P4>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: u32, requiredsize: super::PDWORD, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameExA<P0, P4>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: super::DWORD, requiredsize: super::PDWORD, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExA(classname : windows_core::PCSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassGuidsFromNameExA(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExA(classname : windows_core::PCSTR, classguidlist : super::LPGUID, classguidlistsize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiClassGuidsFromNameExA(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameExW<P0, P4>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: u32, requiredsize: super::PDWORD, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameExW<P0, P4>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: super::DWORD, requiredsize: super::PDWORD, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExW(classname : windows_core::PCWSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassGuidsFromNameExW(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameExW(classname : windows_core::PCWSTR, classguidlist : super::LPGUID, classguidlistsize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiClassGuidsFromNameExW(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiClassGuidsFromNameW<P0>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: u32, requiredsize: super::PDWORD) -> windows_core::BOOL
+pub unsafe fn SetupDiClassGuidsFromNameW<P0>(classname: P0, classguidlist: super::LPGUID, classguidlistsize: super::DWORD, requiredsize: super::PDWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameW(classname : windows_core::PCWSTR, classguidlist : super::LPGUID, classguidlistsize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassGuidsFromNameW(classname : windows_core::PCWSTR, classguidlist : super::LPGUID, classguidlistsize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiClassGuidsFromNameW(classname.param().abi(), classguidlist as _, classguidlistsize, requiredsize as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const windows_core::GUID, classname: windows_core::PSTR, classnamesize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidA(classguid : *const windows_core::GUID, classname : windows_core::PSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiClassNameFromGuidA(classguid: *const windows_core::GUID, classname: windows_core::PSTR, classnamesize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidA(classguid : *const windows_core::GUID, classname : windows_core::PSTR, classnamesize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiClassNameFromGuidA(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidExA<P4>(classguid: *const windows_core::GUID, classname: windows_core::PSTR, classnamesize: u32, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassNameFromGuidExA<P4>(classguid: *const windows_core::GUID, classname: windows_core::PSTR, classnamesize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExA(classguid : *const windows_core::GUID, classname : windows_core::PSTR, classnamesize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassNameFromGuidExA(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExA(classguid : *const windows_core::GUID, classname : windows_core::PSTR, classnamesize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiClassNameFromGuidExA(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidExW<P4>(classguid: *const windows_core::GUID, classname: windows_core::PWSTR, classnamesize: u32, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiClassNameFromGuidExW<P4>(classguid: *const windows_core::GUID, classname: windows_core::PWSTR, classnamesize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiClassNameFromGuidExW(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidExW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiClassNameFromGuidExW(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const windows_core::GUID, classname: windows_core::PWSTR, classnamesize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiClassNameFromGuidW(classguid: *const windows_core::GUID, classname: windows_core::PWSTR, classnamesize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiClassNameFromGuidW(classguid : *const windows_core::GUID, classname : windows_core::PWSTR, classnamesize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiClassNameFromGuidW(classguid, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiCreateDevRegKeyA<P6>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: Option<HINF>, infsectionname: P6) -> super::HKEY
+pub unsafe fn SetupDiCreateDevRegKeyA<P6>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: super::DWORD, hwprofile: super::DWORD, keytype: super::DWORD, infhandle: Option<HINF>, infsectionname: P6) -> super::HKEY
 where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : HINF, infsectionname : windows_core::PCSTR) -> super::HKEY);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : super::DWORD, hwprofile : super::DWORD, keytype : super::DWORD, infhandle : HINF, infsectionname : windows_core::PCSTR) -> super::HKEY);
     unsafe { SetupDiCreateDevRegKeyA(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiCreateDevRegKeyW<P6>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, infhandle: Option<HINF>, infsectionname: P6) -> super::HKEY
+pub unsafe fn SetupDiCreateDevRegKeyW<P6>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: super::DWORD, hwprofile: super::DWORD, keytype: super::DWORD, infhandle: Option<HINF>, infsectionname: P6) -> super::HKEY
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : HINF, infsectionname : windows_core::PCWSTR) -> super::HKEY);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : super::DWORD, hwprofile : super::DWORD, keytype : super::DWORD, infhandle : HINF, infsectionname : windows_core::PCWSTR) -> super::HKEY);
     unsafe { SetupDiCreateDevRegKeyW(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoA<P1, P3>(deviceinfoset: HDEVINFO, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P3, hwndparent: Option<super::HWND>, creationflags: u32, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiCreateDeviceInfoA<P1, P3>(deviceinfoset: HDEVINFO, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P3, hwndparent: Option<super::HWND>, creationflags: super::DWORD, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : windows_core::PCSTR, classguid : *const windows_core::GUID, devicedescription : windows_core::PCSTR, hwndparent : super::HWND, creationflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoA(deviceinfoset : HDEVINFO, devicename : windows_core::PCSTR, classguid : *const windows_core::GUID, devicedescription : windows_core::PCSTR, hwndparent : super::HWND, creationflags : super::DWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiCreateDeviceInfoA(deviceinfoset, devicename.param().abi(), classguid, devicedescription.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, creationflags, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
@@ -428,89 +448,95 @@ pub unsafe fn SetupDiCreateDeviceInfoList(classguid: Option<*const windows_core:
     windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoList(classguid : *const windows_core::GUID, hwndparent : super::HWND) -> HDEVINFO);
     unsafe { SetupDiCreateDeviceInfoList(classguid.unwrap_or(core::mem::zeroed()) as _, hwndparent.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoListExA<P2>(classguid: Option<*const windows_core::GUID>, hwndparent: Option<super::HWND>, machinename: P2, reserved: Option<*mut core::ffi::c_void>) -> HDEVINFO
+pub unsafe fn SetupDiCreateDeviceInfoListExA<P2>(classguid: Option<*const windows_core::GUID>, hwndparent: Option<super::HWND>, machinename: P2, reserved: super::PVOID) -> HDEVINFO
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const windows_core::GUID, hwndparent : super::HWND, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
-    unsafe { SetupDiCreateDeviceInfoListExA(classguid.unwrap_or(core::mem::zeroed()) as _, hwndparent.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const windows_core::GUID, hwndparent : super::HWND, machinename : windows_core::PCSTR, reserved : super::PVOID) -> HDEVINFO);
+    unsafe { SetupDiCreateDeviceInfoListExA(classguid.unwrap_or(core::mem::zeroed()) as _, hwndparent.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoListExW<P2>(classguid: Option<*const windows_core::GUID>, hwndparent: Option<super::HWND>, machinename: P2, reserved: Option<*mut core::ffi::c_void>) -> HDEVINFO
+pub unsafe fn SetupDiCreateDeviceInfoListExW<P2>(classguid: Option<*const windows_core::GUID>, hwndparent: Option<super::HWND>, machinename: P2, reserved: super::PVOID) -> HDEVINFO
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExW(classguid : *const windows_core::GUID, hwndparent : super::HWND, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
-    unsafe { SetupDiCreateDeviceInfoListExW(classguid.unwrap_or(core::mem::zeroed()) as _, hwndparent.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExW(classguid : *const windows_core::GUID, hwndparent : super::HWND, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> HDEVINFO);
+    unsafe { SetupDiCreateDeviceInfoListExW(classguid.unwrap_or(core::mem::zeroed()) as _, hwndparent.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInfoW<P1, P3>(deviceinfoset: HDEVINFO, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P3, hwndparent: Option<super::HWND>, creationflags: u32, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiCreateDeviceInfoW<P1, P3>(deviceinfoset: HDEVINFO, devicename: P1, classguid: *const windows_core::GUID, devicedescription: P3, hwndparent: Option<super::HWND>, creationflags: super::DWORD, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoW(deviceinfoset : HDEVINFO, devicename : windows_core::PCWSTR, classguid : *const windows_core::GUID, devicedescription : windows_core::PCWSTR, hwndparent : super::HWND, creationflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoW(deviceinfoset : HDEVINFO, devicename : windows_core::PCWSTR, classguid : *const windows_core::GUID, devicedescription : windows_core::PCWSTR, hwndparent : super::HWND, creationflags : super::DWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiCreateDeviceInfoW(deviceinfoset, devicename.param().abi(), classguid, devicedescription.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, creationflags, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceA<P3>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P3, creationflags: u32, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiCreateDeviceInterfaceA<P3>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P3, creationflags: super::DWORD, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCSTR, creationflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCSTR, creationflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiCreateDeviceInterfaceA(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring.param().abi(), creationflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<u32>, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
+pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyA<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: super::DWORD, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
 where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_core::PCSTR) -> super::HKEY);
-    unsafe { SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset, deviceinterfacedata, reserved.unwrap_or(core::mem::zeroed()) as _, samdesired, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : super::DWORD, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_core::PCSTR) -> super::HKEY);
+    unsafe { SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset, deviceinterfacedata, reserved, samdesired, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<u32>, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
+pub unsafe fn SetupDiCreateDeviceInterfaceRegKeyW<P5>(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: super::DWORD, samdesired: super::REGSAM, infhandle: Option<HINF>, infsectionname: P5) -> super::HKEY
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_core::PCWSTR) -> super::HKEY);
-    unsafe { SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset, deviceinterfacedata, reserved.unwrap_or(core::mem::zeroed()) as _, samdesired, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : super::DWORD, samdesired : super::REGSAM, infhandle : HINF, infsectionname : windows_core::PCWSTR) -> super::HKEY);
+    unsafe { SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset, deviceinterfacedata, reserved, samdesired, infhandle.unwrap_or(core::mem::zeroed()) as _, infsectionname.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiCreateDeviceInterfaceW<P3>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P3, creationflags: u32, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiCreateDeviceInterfaceW<P3>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, interfaceclassguid: *const windows_core::GUID, referencestring: P3, creationflags: super::DWORD, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCWSTR, creationflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, referencestring : windows_core::PCWSTR, creationflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiCreateDeviceInterfaceW(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring.param().abi(), creationflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiDeleteDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiDeleteDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiDeleteDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: super::DWORD, hwprofile: super::DWORD, keytype: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiDeleteDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : super::DWORD, hwprofile : super::DWORD, keytype : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiDeleteDevRegKey(deviceinfoset, deviceinfodata, scope, hwprofile, keytype) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiDeleteDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiDeleteDeviceInfo(deviceinfoset, deviceinfodata) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiDeleteDeviceInterfaceData(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInterfaceData(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiDeleteDeviceInterfaceData(deviceinfoset, deviceinterfacedata) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32) -> windows_core::BOOL);
-    unsafe { SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : super::DWORD) -> windows_core::BOOL);
+    unsafe { SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata, reserved) }
 }
-#[cfg(feature = "commctrl")]
+#[cfg(all(feature = "commctrl", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiDestroyClassImageList(classimagelistdata: PSP_CLASSIMAGELIST_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiDestroyClassImageList(classimagelistdata : PSP_CLASSIMAGELIST_DATA) -> windows_core::BOOL);
@@ -521,85 +547,88 @@ pub unsafe fn SetupDiDestroyDeviceInfoList(deviceinfoset: HDEVINFO) -> windows_c
     windows_core::link!("setupapi.dll" "system" fn SetupDiDestroyDeviceInfoList(deviceinfoset : HDEVINFO) -> windows_core::BOOL);
     unsafe { SetupDiDestroyDeviceInfoList(deviceinfoset) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiDestroyDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiDestroyDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiDestroyDriverInfoList(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiDestroyDriverInfoList(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, drivertype) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiDrawMiniIcon(hdc: super::HDC, rc: super::RECT, miniiconindex: i32, flags: u32) -> i32 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiDrawMiniIcon(hdc : super::HDC, rc : super::RECT, miniiconindex : i32, flags : u32) -> i32);
+pub unsafe fn SetupDiDrawMiniIcon(hdc: super::HDC, rc: super::RECT, miniiconindex: super::INT, flags: super::DWORD) -> super::INT {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiDrawMiniIcon(hdc : super::HDC, rc : super::RECT, miniiconindex : super::INT, flags : super::DWORD) -> super::INT);
     unsafe { SetupDiDrawMiniIcon(hdc, rc, miniiconindex, flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiEnumDeviceInfo(deviceinfoset: HDEVINFO, memberindex: u32, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInfo(deviceinfoset : HDEVINFO, memberindex : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+pub unsafe fn SetupDiEnumDeviceInfo(deviceinfoset: HDEVINFO, memberindex: super::DWORD, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInfo(deviceinfoset : HDEVINFO, memberindex : super::DWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiEnumDeviceInfo(deviceinfoset, memberindex, deviceinfodata as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiEnumDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, interfaceclassguid: *const windows_core::GUID, memberindex: u32, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, memberindex : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
+pub unsafe fn SetupDiEnumDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, interfaceclassguid: *const windows_core::GUID, memberindex: super::DWORD, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, interfaceclassguid : *const windows_core::GUID, memberindex : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiEnumDeviceInterfaces(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, interfaceclassguid, memberindex, deviceinterfacedata as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiEnumDriverInfoA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: u32, memberindex: u32, driverinfodata: PSP_DRVINFO_DATA_A) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_core::BOOL);
+pub unsafe fn SetupDiEnumDriverInfoA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: super::DWORD, memberindex: super::DWORD, driverinfodata: PSP_DRVINFO_DATA_A) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : super::DWORD, memberindex : super::DWORD, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_core::BOOL);
     unsafe { SetupDiEnumDriverInfoA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, drivertype, memberindex, driverinfodata as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiEnumDriverInfoW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: u32, memberindex: u32, driverinfodata: PSP_DRVINFO_DATA_W) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : u32, memberindex : u32, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_core::BOOL);
+pub unsafe fn SetupDiEnumDriverInfoW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, drivertype: super::DWORD, memberindex: super::DWORD, driverinfodata: PSP_DRVINFO_DATA_W) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiEnumDriverInfoW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, drivertype : super::DWORD, memberindex : super::DWORD, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_core::BOOL);
     unsafe { SetupDiEnumDriverInfoW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, drivertype, memberindex, driverinfodata as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetActualModelsSectionA(context: PINFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: u32, requiredsize: Option<super::PDWORD>, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionA(context : PINFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualModelsSectionA(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SetupDiGetActualModelsSectionA(context: PINFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: super::DWORD, requiredsize: Option<super::PDWORD>, reserved: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionA(context : PINFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PSTR, infsectionwithextsize : super::DWORD, requiredsize : super::PDWORD, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetActualModelsSectionA(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetActualModelsSectionW(context: PINFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: u32, requiredsize: Option<super::PDWORD>, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionW(context : PINFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualModelsSectionW(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SetupDiGetActualModelsSectionW(context: PINFCONTEXT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: super::DWORD, requiredsize: Option<super::PDWORD>, reserved: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualModelsSectionW(context : PINFCONTEXT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : super::DWORD, requiredsize : super::PDWORD, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetActualModelsSectionW(context, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallA<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: u32, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallA<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: super::DWORD, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PSTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallA(infhandle : HINF, infsectionname : windows_core::PCSTR, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_core::PSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallA(infhandle : HINF, infsectionname : windows_core::PCSTR, infsectionwithext : windows_core::PSTR, infsectionwithextsize : super::DWORD, requiredsize : super::PDWORD, extension : *mut windows_core::PSTR) -> windows_core::BOOL);
     unsafe { SetupDiGetActualSectionToInstallA(infhandle, infsectionname.param().abi(), infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallExA<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: u32, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PSTR>, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallExA<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PSTR>, infsectionwithextsize: super::DWORD, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PSTR>, reserved: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExA(infhandle : HINF, infsectionname : windows_core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_core::PSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualSectionToInstallExA(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExA(infhandle : HINF, infsectionname : windows_core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PSTR, infsectionwithextsize : super::DWORD, requiredsize : super::PDWORD, extension : *mut windows_core::PSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetActualSectionToInstallExA(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallExW<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: u32, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PWSTR>, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallExW<P1>(infhandle: HINF, infsectionname: P1, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: super::DWORD, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PWSTR>, reserved: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExW(infhandle : HINF, infsectionname : windows_core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_core::PWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetActualSectionToInstallExW(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallExW(infhandle : HINF, infsectionname : windows_core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : super::DWORD, requiredsize : super::PDWORD, extension : *mut windows_core::PWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetActualSectionToInstallExW(infhandle, infsectionname.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _, reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetActualSectionToInstallW<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: u32, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetActualSectionToInstallW<P1>(infhandle: HINF, infsectionname: P1, infsectionwithext: Option<windows_core::PWSTR>, infsectionwithextsize: super::DWORD, requiredsize: Option<super::PDWORD>, extension: Option<*mut windows_core::PWSTR>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallW(infhandle : HINF, infsectionname : windows_core::PCWSTR, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : u32, requiredsize : super::PDWORD, extension : *mut windows_core::PWSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetActualSectionToInstallW(infhandle : HINF, infsectionname : windows_core::PCWSTR, infsectionwithext : windows_core::PWSTR, infsectionwithextsize : super::DWORD, requiredsize : super::PDWORD, extension : *mut windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { SetupDiGetActualSectionToInstallW(infhandle, infsectionname.param().abi(), infsectionwithext.unwrap_or(core::mem::zeroed()) as _, infsectionwithextsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, extension.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -608,192 +637,192 @@ pub unsafe fn SetupDiGetClassBitmapIndex(classguid: Option<*const windows_core::
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassBitmapIndex(classguid : *const windows_core::GUID, miniiconindex : super::PINT) -> windows_core::BOOL);
     unsafe { SetupDiGetClassBitmapIndex(classguid.unwrap_or(core::mem::zeroed()) as _, miniiconindex as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const windows_core::GUID, classdescription: windows_core::PSTR, classdescriptionsize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionA(classguid : *const windows_core::GUID, classdescription : windows_core::PSTR, classdescriptionsize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassDescriptionA(classguid: *const windows_core::GUID, classdescription: windows_core::PSTR, classdescriptionsize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionA(classguid : *const windows_core::GUID, classdescription : windows_core::PSTR, classdescriptionsize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassDescriptionA(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionExA<P4>(classguid: *const windows_core::GUID, classdescription: windows_core::PSTR, classdescriptionsize: u32, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassDescriptionExA<P4>(classguid: *const windows_core::GUID, classdescription: windows_core::PSTR, classdescriptionsize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExA(classguid : *const windows_core::GUID, classdescription : windows_core::PSTR, classdescriptionsize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassDescriptionExA(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExA(classguid : *const windows_core::GUID, classdescription : windows_core::PSTR, classdescriptionsize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassDescriptionExA(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionExW<P4>(classguid: *const windows_core::GUID, classdescription: windows_core::PWSTR, classdescriptionsize: u32, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassDescriptionExW<P4>(classguid: *const windows_core::GUID, classdescription: windows_core::PWSTR, classdescriptionsize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExW(classguid : *const windows_core::GUID, classdescription : windows_core::PWSTR, classdescriptionsize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassDescriptionExW(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionExW(classguid : *const windows_core::GUID, classdescription : windows_core::PWSTR, classdescriptionsize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassDescriptionExW(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const windows_core::GUID, classdescription: windows_core::PWSTR, classdescriptionsize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionW(classguid : *const windows_core::GUID, classdescription : windows_core::PWSTR, classdescriptionsize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassDescriptionW(classguid: *const windows_core::GUID, classdescription: windows_core::PWSTR, classdescriptionsize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDescriptionW(classguid : *const windows_core::GUID, classdescription : windows_core::PWSTR, classdescriptionsize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassDescriptionW(classguid, classdescription, classdescriptionsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, propertysheetheader: super::LPPROPSHEETHEADERA, propertysheetheaderpagelistsize: u32, requiredsize: Option<super::PDWORD>, propertysheettype: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERA, propertysheetheaderpagelistsize : u32, requiredsize : super::PDWORD, propertysheettype : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassDevPropertySheetsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, propertysheetheader: super::LPPROPSHEETHEADERA, propertysheetheaderpagelistsize: super::DWORD, requiredsize: Option<super::PDWORD>, propertysheettype: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERA, propertysheetheaderpagelistsize : super::DWORD, requiredsize : super::PDWORD, propertysheettype : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassDevPropertySheetsA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, propertysheetheader, propertysheetheaderpagelistsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, propertysheettype) }
 }
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt", feature = "winuser"))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, propertysheetheader: super::LPPROPSHEETHEADERW, propertysheetheaderpagelistsize: u32, requiredsize: Option<super::PDWORD>, propertysheettype: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERW, propertysheetheaderpagelistsize : u32, requiredsize : super::PDWORD, propertysheettype : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassDevPropertySheetsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, propertysheetheader: super::LPPROPSHEETHEADERW, propertysheetheaderpagelistsize: super::DWORD, requiredsize: Option<super::PDWORD>, propertysheettype: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevPropertySheetsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertysheetheader : super::LPPROPSHEETHEADERW, propertysheetheaderpagelistsize : super::DWORD, requiredsize : super::PDWORD, propertysheettype : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassDevPropertySheetsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, propertysheetheader, propertysheetheaderpagelistsize, requiredsize.unwrap_or(core::mem::zeroed()) as _, propertysheettype) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDevsA<P1>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: u32) -> HDEVINFO
+pub unsafe fn SetupDiGetClassDevsA<P1>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD) -> HDEVINFO
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::HWND, flags : u32) -> HDEVINFO);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::HWND, flags : super::DWORD) -> HDEVINFO);
     unsafe { SetupDiGetClassDevsA(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDevsExA<P1, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: u32, deviceinfoset: Option<HDEVINFO>, machinename: P5, reserved: Option<*mut core::ffi::c_void>) -> HDEVINFO
+pub unsafe fn SetupDiGetClassDevsExA<P1, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD, deviceinfoset: Option<HDEVINFO>, machinename: P5, reserved: super::PVOID) -> HDEVINFO
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
-    unsafe { SetupDiGetClassDevsExA(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const windows_core::GUID, enumerator : windows_core::PCSTR, hwndparent : super::HWND, flags : super::DWORD, deviceinfoset : HDEVINFO, machinename : windows_core::PCSTR, reserved : super::PVOID) -> HDEVINFO);
+    unsafe { SetupDiGetClassDevsExA(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDevsExW<P1, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: u32, deviceinfoset: Option<HDEVINFO>, machinename: P5, reserved: Option<*mut core::ffi::c_void>) -> HDEVINFO
+pub unsafe fn SetupDiGetClassDevsExW<P1, P5>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD, deviceinfoset: Option<HDEVINFO>, machinename: P5, reserved: super::PVOID) -> HDEVINFO
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> HDEVINFO);
-    unsafe { SetupDiGetClassDevsExW(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::HWND, flags : super::DWORD, deviceinfoset : HDEVINFO, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> HDEVINFO);
+    unsafe { SetupDiGetClassDevsExW(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiGetClassDevsW<P1>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: u32) -> HDEVINFO
+pub unsafe fn SetupDiGetClassDevsW<P1>(classguid: Option<*const windows_core::GUID>, enumerator: P1, hwndparent: Option<super::HWND>, flags: super::DWORD) -> HDEVINFO
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::HWND, flags : u32) -> HDEVINFO);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const windows_core::GUID, enumerator : windows_core::PCWSTR, hwndparent : super::HWND, flags : super::DWORD) -> HDEVINFO);
     unsafe { SetupDiGetClassDevsW(classguid.unwrap_or(core::mem::zeroed()) as _, enumerator.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(all(feature = "commctrl", feature = "minwindef"))]
+#[cfg(all(feature = "commctrl", feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiGetClassImageIndex(classimagelistdata: PSP_CLASSIMAGELIST_DATA, classguid: *const windows_core::GUID, imageindex: super::PINT) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassImageIndex(classimagelistdata : PSP_CLASSIMAGELIST_DATA, classguid : *const windows_core::GUID, imageindex : super::PINT) -> windows_core::BOOL);
     unsafe { SetupDiGetClassImageIndex(classimagelistdata, classguid, imageindex as _) }
 }
-#[cfg(feature = "commctrl")]
+#[cfg(all(feature = "commctrl", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiGetClassImageList(classimagelistdata: PSP_CLASSIMAGELIST_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassImageList(classimagelistdata : PSP_CLASSIMAGELIST_DATA) -> windows_core::BOOL);
     unsafe { SetupDiGetClassImageList(classimagelistdata as _) }
 }
-#[cfg(feature = "commctrl")]
+#[cfg(all(feature = "commctrl", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassImageListExA<P1>(classimagelistdata: PSP_CLASSIMAGELIST_DATA, machinename: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassImageListExA<P1>(classimagelistdata: PSP_CLASSIMAGELIST_DATA, machinename: P1, reserved: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExA(classimagelistdata : PSP_CLASSIMAGELIST_DATA, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassImageListExA(classimagelistdata as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExA(classimagelistdata : PSP_CLASSIMAGELIST_DATA, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassImageListExA(classimagelistdata as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "commctrl")]
+#[cfg(all(feature = "commctrl", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassImageListExW<P1>(classimagelistdata: PSP_CLASSIMAGELIST_DATA, machinename: P1, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassImageListExW<P1>(classimagelistdata: PSP_CLASSIMAGELIST_DATA, machinename: P1, reserved: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExW(classimagelistdata : PSP_CLASSIMAGELIST_DATA, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassImageListExW(classimagelistdata as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassImageListExW(classimagelistdata : PSP_CLASSIMAGELIST_DATA, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassImageListExW(classimagelistdata as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassInstallParamsA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, classinstallparams.unwrap_or(core::mem::zeroed()) as _, classinstallparamssize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, classinstallparams.unwrap_or(core::mem::zeroed()) as _, classinstallparamssize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyExW<P7>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: u32, requiredsize: Option<super::PDWORD>, flags: u32, machinename: P7, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassPropertyExW<P7>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>, flags: super::DWORD, machinename: P7, reserved: super::PVOID) -> windows_core::BOOL
 where
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassPropertyExW(classguid, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD, flags : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassPropertyExW(classguid, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const windows_core::GUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<super::PDWORD>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeys(classguid : *const windows_core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassPropertyKeys(classguid: *const windows_core::GUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::DWORD, requiredpropertykeycount: Option<super::PDWORD>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeys(classguid : *const windows_core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::DWORD, requiredpropertykeycount : super::PDWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassPropertyKeys(classguid, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyKeysExW<P5>(classguid: *const windows_core::GUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<super::PDWORD>, flags: u32, machinename: P5, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassPropertyKeysExW<P5>(classguid: *const windows_core::GUID, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::DWORD, requiredpropertykeycount: Option<super::PDWORD>, flags: super::DWORD, machinename: P5, reserved: super::PVOID) -> windows_core::BOOL
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeysExW(classguid : *const windows_core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassPropertyKeysExW(classguid, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyKeysExW(classguid : *const windows_core::GUID, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::DWORD, requiredpropertykeycount : super::PDWORD, flags : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassPropertyKeysExW(classguid, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: u32, requiredsize: Option<super::PDWORD>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassPropertyW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetClassPropertyW(classguid, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassRegistryPropertyA<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: u32, requiredsize: Option<super::PDWORD>, machinename: P6, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassRegistryPropertyA<P6>(classguid: *const windows_core::GUID, property: super::DWORD, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P6, reserved: super::PVOID) -> windows_core::BOOL
 where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassRegistryPropertyA(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : super::DWORD, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassRegistryPropertyA(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetClassRegistryPropertyW<P6>(classguid: *const windows_core::GUID, property: u32, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: u32, requiredsize: Option<super::PDWORD>, machinename: P6, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetClassRegistryPropertyW<P6>(classguid: *const windows_core::GUID, property: super::DWORD, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P6, reserved: super::PVOID) -> windows_core::BOOL
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetClassRegistryPropertyW(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : super::DWORD, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetClassRegistryPropertyW(classguid, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetCustomDevicePropertyA<P2>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetCustomDevicePropertyA<P2>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, custompropertyname: P2, flags: super::DWORD, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, custompropertyname : windows_core::PCSTR, flags : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, custompropertyname : windows_core::PCSTR, flags : super::DWORD, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetCustomDevicePropertyA(deviceinfoset, deviceinfodata, custompropertyname.param().abi(), flags, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetCustomDevicePropertyW<P2>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, custompropertyname: P2, flags: u32, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetCustomDevicePropertyW<P2>(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, custompropertyname: P2, flags: super::DWORD, propertyregdatatype: Option<super::PDWORD>, propertybuffer: super::PBYTE, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, custompropertyname : windows_core::PCWSTR, flags : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetCustomDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, custompropertyname : windows_core::PCWSTR, flags : super::DWORD, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetCustomDevicePropertyW(deviceinfoset, deviceinfodata, custompropertyname.param().abi(), flags, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "guiddef")]
@@ -802,260 +831,265 @@ pub unsafe fn SetupDiGetDeviceInfoListClass(deviceinfoset: HDEVINFO, classguid: 
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListClass(deviceinfoset : HDEVINFO, classguid : super::LPGUID) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInfoListClass(deviceinfoset, classguid as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInfoListDetailA(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: PSP_DEVINFO_LIST_DETAIL_DATA_A) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListDetailA(deviceinfoset : HDEVINFO, deviceinfosetdetaildata : PSP_DEVINFO_LIST_DETAIL_DATA_A) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInfoListDetailA(deviceinfoset, deviceinfosetdetaildata as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInfoListDetailW(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: PSP_DEVINFO_LIST_DETAIL_DATA_W) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInfoListDetailW(deviceinfoset : HDEVINFO, deviceinfosetdetaildata : PSP_DEVINFO_LIST_DETAIL_DATA_W) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInfoListDetailW(deviceinfoset, deviceinfosetdetaildata as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, deviceinstallparams: PSP_DEVINSTALL_PARAMS_A) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_A) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInstallParamsA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, deviceinstallparams as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, deviceinstallparams: PSP_DEVINSTALL_PARAMS_W) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_W) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, deviceinstallparams as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, deviceinstanceid: Option<windows_core::PSTR>, deviceinstanceidsize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstanceid : windows_core::PSTR, deviceinstanceidsize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceInstanceIdA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, deviceinstanceid: Option<windows_core::PSTR>, deviceinstanceidsize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstanceid : windows_core::PSTR, deviceinstanceidsize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInstanceIdA(deviceinfoset, deviceinfodata, deviceinstanceid.unwrap_or(core::mem::zeroed()) as _, deviceinstanceidsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, deviceinstanceid: Option<windows_core::PWSTR>, deviceinstanceidsize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstanceid : windows_core::PWSTR, deviceinstanceidsize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceInstanceIdW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, deviceinstanceid: Option<windows_core::PWSTR>, deviceinstanceidsize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInstanceIdW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstanceid : windows_core::PWSTR, deviceinstanceidsize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInstanceIdW(deviceinfoset, deviceinfodata, deviceinstanceid.unwrap_or(core::mem::zeroed()) as _, deviceinstanceidsize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiGetDeviceInterfaceAlias(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid: *const windows_core::GUID, aliasdeviceinterfacedata: PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceAlias(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, aliasinterfaceclassguid : *const windows_core::GUID, aliasdeviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInterfaceAlias(deviceinfoset, deviceinterfacedata, aliasinterfaceclassguid, aliasdeviceinterfacedata as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: Option<PSP_DEVICE_INTERFACE_DETAIL_DATA_A>, deviceinterfacedetaildatasize: u32, requiredsize: Option<super::PDWORD>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : PSP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize : u32, requiredsize : super::PDWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: Option<PSP_DEVICE_INTERFACE_DETAIL_DATA_A>, deviceinterfacedetaildatasize: super::DWORD, requiredsize: Option<super::PDWORD>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailA(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : PSP_DEVICE_INTERFACE_DETAIL_DATA_A, deviceinterfacedetaildatasize : super::DWORD, requiredsize : super::PDWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInterfaceDetailA(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata.unwrap_or(core::mem::zeroed()) as _, deviceinterfacedetaildatasize, requiredsize.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: Option<PSP_DEVICE_INTERFACE_DETAIL_DATA_W>, deviceinterfacedetaildatasize: u32, requiredsize: Option<super::PDWORD>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : PSP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize : u32, requiredsize : super::PDWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata: Option<PSP_DEVICE_INTERFACE_DETAIL_DATA_W>, deviceinterfacedetaildatasize: super::DWORD, requiredsize: Option<super::PDWORD>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfaceDetailW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, deviceinterfacedetaildata : PSP_DEVICE_INTERFACE_DETAIL_DATA_W, deviceinterfacedetaildatasize : super::DWORD, requiredsize : super::PDWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInterfaceDetailW(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata.unwrap_or(core::mem::zeroed()) as _, deviceinterfacedetaildatasize, requiredsize.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<super::PDWORD>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::DWORD, requiredpropertykeycount: Option<super::PDWORD>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::DWORD, requiredpropertykeycount : super::PDWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset, deviceinterfacedata, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: u32, requiredsize: Option<super::PDWORD>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: u32, requiredpropertykeycount: Option<super::PDWORD>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyKeys(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : u32, requiredpropertykeycount : super::PDWORD, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDevicePropertyKeys(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykeyarray: Option<*mut super::DEVPROPKEY>, propertykeycount: super::DWORD, requiredpropertykeycount: Option<super::PDWORD>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyKeys(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykeyarray : *mut super::DEVPROPKEY, propertykeycount : super::DWORD, requiredpropertykeycount : super::PDWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDevicePropertyKeys(deviceinfoset, deviceinfodata, propertykeyarray.unwrap_or(core::mem::zeroed()) as _, propertykeycount, requiredpropertykeycount.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: u32, requiredsize: Option<super::PDWORD>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: *mut super::DEVPROPTYPE, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : *mut super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: u32, propertyregdatatype: Option<super::PDWORD>, propertybuffer: Option<super::PBYTE>, propertybuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertyregdatatype: Option<super::PDWORD>, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : super::DWORD, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: u32, propertyregdatatype: Option<super::PDWORD>, propertybuffer: Option<super::PBYTE>, propertybuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertyregdatatype: Option<super::PDWORD>, propertybuffer: Option<super::PBYTE>, propertybuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : super::DWORD, propertyregdatatype : super::PDWORD, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata, property, propertyregdatatype.unwrap_or(core::mem::zeroed()) as _, propertybuffer.unwrap_or(core::mem::zeroed()) as _, propertybuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetDriverInfoDetailA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_A, driverinfodetaildata: Option<PSP_DRVINFO_DETAIL_DATA_A>, driverinfodetaildatasize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinfodetaildata : PSP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDriverInfoDetailA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_A, driverinfodetaildata: Option<PSP_DRVINFO_DETAIL_DATA_A>, driverinfodetaildatasize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinfodetaildata : PSP_DRVINFO_DETAIL_DATA_A, driverinfodetaildatasize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDriverInfoDetailA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata, driverinfodetaildata.unwrap_or(core::mem::zeroed()) as _, driverinfodetaildatasize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetDriverInfoDetailW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_W, driverinfodetaildata: Option<PSP_DRVINFO_DETAIL_DATA_W>, driverinfodetaildatasize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinfodetaildata : PSP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetDriverInfoDetailW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_W, driverinfodetaildata: Option<PSP_DRVINFO_DETAIL_DATA_W>, driverinfodetaildatasize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetDriverInfoDetailW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinfodetaildata : PSP_DRVINFO_DETAIL_DATA_W, driverinfodetaildatasize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetDriverInfoDetailW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata, driverinfodetaildata.unwrap_or(core::mem::zeroed()) as _, driverinfodetaildatasize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiGetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_A, driverinstallparams: PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDriverInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL);
     unsafe { SetupDiGetDriverInstallParamsA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata, driverinstallparams as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_W, driverinstallparams: PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetDriverInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL);
     unsafe { SetupDiGetDriverInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata, driverinstallparams as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: u32, friendlyname: windows_core::PSTR, friendlynamesize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameA(hwprofile : u32, friendlyname : windows_core::PSTR, friendlynamesize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetHwProfileFriendlyNameA(hwprofile: super::DWORD, friendlyname: windows_core::PSTR, friendlynamesize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameA(hwprofile : super::DWORD, friendlyname : windows_core::PSTR, friendlynamesize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetHwProfileFriendlyNameA(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<P4>(hwprofile: u32, friendlyname: windows_core::PSTR, friendlynamesize: u32, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileFriendlyNameExA<P4>(hwprofile: super::DWORD, friendlyname: windows_core::PSTR, friendlynamesize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExA(hwprofile : u32, friendlyname : windows_core::PSTR, friendlynamesize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileFriendlyNameExA(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExA(hwprofile : super::DWORD, friendlyname : windows_core::PSTR, friendlynamesize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetHwProfileFriendlyNameExA(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<P4>(hwprofile: u32, friendlyname: windows_core::PWSTR, friendlynamesize: u32, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileFriendlyNameExW<P4>(hwprofile: super::DWORD, friendlyname: windows_core::PWSTR, friendlynamesize: super::DWORD, requiredsize: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExW(hwprofile : u32, friendlyname : windows_core::PWSTR, friendlynamesize : u32, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileFriendlyNameExW(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameExW(hwprofile : super::DWORD, friendlyname : windows_core::PWSTR, friendlynamesize : super::DWORD, requiredsize : super::PDWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetHwProfileFriendlyNameExW(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: u32, friendlyname: windows_core::PWSTR, friendlynamesize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameW(hwprofile : u32, friendlyname : windows_core::PWSTR, friendlynamesize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetHwProfileFriendlyNameW(hwprofile: super::DWORD, friendlyname: windows_core::PWSTR, friendlynamesize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileFriendlyNameW(hwprofile : super::DWORD, friendlyname : windows_core::PWSTR, friendlynamesize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetHwProfileFriendlyNameW(hwprofile, friendlyname, friendlynamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: super::PDWORD, hwprofilelistsize: u32, requiredsize: super::PDWORD, currentlyactiveindex: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileList(hwprofilelist : super::PDWORD, hwprofilelistsize : u32, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupDiGetHwProfileList(hwprofilelist: super::PDWORD, hwprofilelistsize: super::DWORD, requiredsize: super::PDWORD, currentlyactiveindex: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileList(hwprofilelist : super::PDWORD, hwprofilelistsize : super::DWORD, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetHwProfileList(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetHwProfileListExA<P4>(hwprofilelist: super::PDWORD, hwprofilelistsize: u32, requiredsize: super::PDWORD, currentlyactiveindex: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileListExA<P4>(hwprofilelist: super::PDWORD, hwprofilelistsize: super::DWORD, requiredsize: super::PDWORD, currentlyactiveindex: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExA(hwprofilelist : super::PDWORD, hwprofilelistsize : u32, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileListExA(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExA(hwprofilelist : super::PDWORD, hwprofilelistsize : super::DWORD, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetHwProfileListExA(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiGetHwProfileListExW<P4>(hwprofilelist: super::PDWORD, hwprofilelistsize: u32, requiredsize: super::PDWORD, currentlyactiveindex: Option<super::PDWORD>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetHwProfileListExW<P4>(hwprofilelist: super::PDWORD, hwprofilelistsize: super::DWORD, requiredsize: super::PDWORD, currentlyactiveindex: Option<super::PDWORD>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExW(hwprofilelist : super::PDWORD, hwprofilelistsize : u32, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiGetHwProfileListExW(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetHwProfileListExW(hwprofilelist : super::PDWORD, hwprofilelistsize : super::DWORD, requiredsize : super::PDWORD, currentlyactiveindex : super::PDWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiGetHwProfileListExW(hwprofilelist as _, hwprofilelistsize, requiredsize as _, currentlyactiveindex.unwrap_or(core::mem::zeroed()) as _, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetINFClassA<P0>(infname: P0, classguid: super::LPGUID, classname: windows_core::PSTR, classnamesize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetINFClassA<P0>(infname: P0, classguid: super::LPGUID, classname: windows_core::PSTR, classnamesize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetINFClassA(infname : windows_core::PCSTR, classguid : super::LPGUID, classname : windows_core::PSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetINFClassA(infname : windows_core::PCSTR, classguid : super::LPGUID, classname : windows_core::PSTR, classnamesize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetINFClassA(infname.param().abi(), classguid as _, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiGetINFClassW<P0>(infname: P0, classguid: super::LPGUID, classname: windows_core::PWSTR, classnamesize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupDiGetINFClassW<P0>(infname: P0, classguid: super::LPGUID, classname: windows_core::PWSTR, classnamesize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetINFClassW(infname : windows_core::PCWSTR, classguid : super::LPGUID, classname : windows_core::PWSTR, classnamesize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetINFClassW(infname : windows_core::PCWSTR, classguid : super::LPGUID, classname : windows_core::PWSTR, classnamesize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupDiGetINFClassW(infname.param().abi(), classguid as _, classname, classnamesize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiGetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetSelectedDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiGetSelectedDevice(deviceinfoset, deviceinfodata as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiGetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_A) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetSelectedDriverA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_core::BOOL);
     unsafe { SetupDiGetSelectedDriverA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiGetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_W) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiGetSelectedDriverW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_core::BOOL);
     unsafe { SetupDiGetSelectedDriverW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiGetWizardPage(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, installwizarddata: PSP_INSTALLWIZARD_DATA, pagetype: u32, flags: u32) -> super::HPROPSHEETPAGE {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiGetWizardPage(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, installwizarddata : PSP_INSTALLWIZARD_DATA, pagetype : u32, flags : u32) -> super::HPROPSHEETPAGE);
+pub unsafe fn SetupDiGetWizardPage(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, installwizarddata: PSP_INSTALLWIZARD_DATA, pagetype: super::DWORD, flags: super::DWORD) -> super::HPROPSHEETPAGE {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiGetWizardPage(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, installwizarddata : PSP_INSTALLWIZARD_DATA, pagetype : super::DWORD, flags : super::DWORD) -> super::HPROPSHEETPAGE);
     unsafe { SetupDiGetWizardPage(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, installwizarddata, pagetype, flags) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiInstallClassA<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: u32, filequeue: Option<HSPFILEQ>) -> windows_core::BOOL
+pub unsafe fn SetupDiInstallClassA<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: super::DWORD, filequeue: Option<HSPFILEQ>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassA(hwndparent : super::HWND, inffilename : windows_core::PCSTR, flags : u32, filequeue : HSPFILEQ) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassA(hwndparent : super::HWND, inffilename : windows_core::PCSTR, flags : super::DWORD, filequeue : HSPFILEQ) -> windows_core::BOOL);
     unsafe { SetupDiInstallClassA(hwndparent.unwrap_or(core::mem::zeroed()) as _, inffilename.param().abi(), flags, filequeue.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiInstallClassExA<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: u32, filequeue: Option<HSPFILEQ>, interfaceclassguid: Option<*const windows_core::GUID>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiInstallClassExA<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: super::DWORD, filequeue: Option<HSPFILEQ>, interfaceclassguid: Option<*const windows_core::GUID>, reserved1: super::PVOID, reserved2: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassExA(hwndparent : super::HWND, inffilename : windows_core::PCSTR, flags : u32, filequeue : HSPFILEQ, interfaceclassguid : *const windows_core::GUID, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiInstallClassExA(hwndparent.unwrap_or(core::mem::zeroed()) as _, inffilename.param().abi(), flags, filequeue.unwrap_or(core::mem::zeroed()) as _, interfaceclassguid.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassExA(hwndparent : super::HWND, inffilename : windows_core::PCSTR, flags : super::DWORD, filequeue : HSPFILEQ, interfaceclassguid : *const windows_core::GUID, reserved1 : super::PVOID, reserved2 : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiInstallClassExA(hwndparent.unwrap_or(core::mem::zeroed()) as _, inffilename.param().abi(), flags, filequeue.unwrap_or(core::mem::zeroed()) as _, interfaceclassguid.unwrap_or(core::mem::zeroed()) as _, reserved1 as _, reserved2 as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiInstallClassExW<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: u32, filequeue: Option<HSPFILEQ>, interfaceclassguid: Option<*const windows_core::GUID>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiInstallClassExW<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: super::DWORD, filequeue: Option<HSPFILEQ>, interfaceclassguid: Option<*const windows_core::GUID>, reserved1: super::PVOID, reserved2: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassExW(hwndparent : super::HWND, inffilename : windows_core::PCWSTR, flags : u32, filequeue : HSPFILEQ, interfaceclassguid : *const windows_core::GUID, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiInstallClassExW(hwndparent.unwrap_or(core::mem::zeroed()) as _, inffilename.param().abi(), flags, filequeue.unwrap_or(core::mem::zeroed()) as _, interfaceclassguid.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassExW(hwndparent : super::HWND, inffilename : windows_core::PCWSTR, flags : super::DWORD, filequeue : HSPFILEQ, interfaceclassguid : *const windows_core::GUID, reserved1 : super::PVOID, reserved2 : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiInstallClassExW(hwndparent.unwrap_or(core::mem::zeroed()) as _, inffilename.param().abi(), flags, filequeue.unwrap_or(core::mem::zeroed()) as _, interfaceclassguid.unwrap_or(core::mem::zeroed()) as _, reserved1 as _, reserved2 as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiInstallClassW<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: u32, filequeue: Option<HSPFILEQ>) -> windows_core::BOOL
+pub unsafe fn SetupDiInstallClassW<P1>(hwndparent: Option<super::HWND>, inffilename: P1, flags: super::DWORD, filequeue: Option<HSPFILEQ>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassW(hwndparent : super::HWND, inffilename : windows_core::PCWSTR, flags : u32, filequeue : HSPFILEQ) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiInstallClassW(hwndparent : super::HWND, inffilename : windows_core::PCWSTR, flags : super::DWORD, filequeue : HSPFILEQ) -> windows_core::BOOL);
     unsafe { SetupDiInstallClassW(hwndparent.unwrap_or(core::mem::zeroed()) as _, inffilename.param().abi(), flags, filequeue.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiInstallDevice(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiInstallDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiInstallDevice(deviceinfoset, deviceinfodata as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiInstallDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiInstallDeviceInterfaces(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiInstallDeviceInterfaces(deviceinfoset, deviceinfodata) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiInstallDriverFiles(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiInstallDriverFiles(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
@@ -1067,257 +1101,280 @@ pub unsafe fn SetupDiLoadClassIcon(classguid: *const windows_core::GUID, largeic
     windows_core::link!("setupapi.dll" "system" fn SetupDiLoadClassIcon(classguid : *const windows_core::GUID, largeicon : *mut super::HICON, miniiconindex : super::PINT) -> windows_core::BOOL);
     unsafe { SetupDiLoadClassIcon(classguid, largeicon.unwrap_or(core::mem::zeroed()) as _, miniiconindex.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiLoadDeviceIcon(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, cxicon: u32, cyicon: u32, flags: u32, hicon: *mut super::HICON) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiLoadDeviceIcon(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, cxicon : u32, cyicon : u32, flags : u32, hicon : *mut super::HICON) -> windows_core::BOOL);
+pub unsafe fn SetupDiLoadDeviceIcon(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, cxicon: super::UINT, cyicon: super::UINT, flags: super::DWORD, hicon: *mut super::HICON) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiLoadDeviceIcon(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, cxicon : super::UINT, cyicon : super::UINT, flags : super::DWORD, hicon : *mut super::HICON) -> windows_core::BOOL);
     unsafe { SetupDiLoadDeviceIcon(deviceinfoset, deviceinfodata, cxicon, cyicon, flags, hicon as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "winreg"))]
 #[inline]
 pub unsafe fn SetupDiOpenClassRegKey(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM) -> super::HKEY {
     windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKey(classguid : *const windows_core::GUID, samdesired : super::REGSAM) -> super::HKEY);
     unsafe { SetupDiOpenClassRegKey(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SetupDiOpenClassRegKeyExA<P3>(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM, flags: u32, machinename: P3, reserved: Option<*mut core::ffi::c_void>) -> super::HKEY
+pub unsafe fn SetupDiOpenClassRegKeyExA<P3>(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM, flags: super::DWORD, machinename: P3, reserved: super::PVOID) -> super::HKEY
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const windows_core::GUID, samdesired : super::REGSAM, flags : u32, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> super::HKEY);
-    unsafe { SetupDiOpenClassRegKeyExA(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const windows_core::GUID, samdesired : super::REGSAM, flags : super::DWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> super::HKEY);
+    unsafe { SetupDiOpenClassRegKeyExA(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired, flags, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winreg"))]
 #[inline]
-pub unsafe fn SetupDiOpenClassRegKeyExW<P3>(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM, flags: u32, machinename: P3, reserved: Option<*mut core::ffi::c_void>) -> super::HKEY
+pub unsafe fn SetupDiOpenClassRegKeyExW<P3>(classguid: Option<*const windows_core::GUID>, samdesired: super::REGSAM, flags: super::DWORD, machinename: P3, reserved: super::PVOID) -> super::HKEY
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const windows_core::GUID, samdesired : super::REGSAM, flags : u32, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> super::HKEY);
-    unsafe { SetupDiOpenClassRegKeyExW(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired, flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const windows_core::GUID, samdesired : super::REGSAM, flags : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> super::HKEY);
+    unsafe { SetupDiOpenClassRegKeyExW(classguid.unwrap_or(core::mem::zeroed()) as _, samdesired, flags, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: u32, hwprofile: u32, keytype: u32, samdesired: super::REGSAM) -> super::HKEY {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, samdesired : super::REGSAM) -> super::HKEY);
+pub unsafe fn SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, scope: super::DWORD, hwprofile: super::DWORD, keytype: super::DWORD, samdesired: super::REGSAM) -> super::HKEY {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, scope : super::DWORD, hwprofile : super::DWORD, keytype : super::DWORD, samdesired : super::REGSAM) -> super::HKEY);
     unsafe { SetupDiOpenDevRegKey(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, samdesired) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiOpenDeviceInfoA<P1>(deviceinfoset: HDEVINFO, deviceinstanceid: P1, hwndparent: Option<super::HWND>, openflags: u32, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiOpenDeviceInfoA<P1>(deviceinfoset: HDEVINFO, deviceinstanceid: P1, hwndparent: Option<super::HWND>, openflags: super::DWORD, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoA(deviceinfoset : HDEVINFO, deviceinstanceid : windows_core::PCSTR, hwndparent : super::HWND, openflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoA(deviceinfoset : HDEVINFO, deviceinstanceid : windows_core::PCSTR, hwndparent : super::HWND, openflags : super::DWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiOpenDeviceInfoA(deviceinfoset, deviceinstanceid.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, openflags, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupDiOpenDeviceInfoW<P1>(deviceinfoset: HDEVINFO, deviceinstanceid: P1, hwndparent: Option<super::HWND>, openflags: u32, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiOpenDeviceInfoW<P1>(deviceinfoset: HDEVINFO, deviceinstanceid: P1, hwndparent: Option<super::HWND>, openflags: super::DWORD, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoW(deviceinfoset : HDEVINFO, deviceinstanceid : windows_core::PCWSTR, hwndparent : super::HWND, openflags : u32, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInfoW(deviceinfoset : HDEVINFO, deviceinstanceid : windows_core::PCWSTR, hwndparent : super::HWND, openflags : super::DWORD, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiOpenDeviceInfoW(deviceinfoset, deviceinstanceid.param().abi(), hwndparent.unwrap_or(core::mem::zeroed()) as _, openflags, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiOpenDeviceInterfaceA<P1>(deviceinfoset: HDEVINFO, devicepath: P1, openflags: u32, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiOpenDeviceInterfaceA<P1>(deviceinfoset: HDEVINFO, devicepath: P1, openflags: super::DWORD, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceA(deviceinfoset : HDEVINFO, devicepath : windows_core::PCSTR, openflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceA(deviceinfoset : HDEVINFO, devicepath : windows_core::PCSTR, openflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiOpenDeviceInterfaceA(deviceinfoset, devicepath.param().abi(), openflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winreg"))]
 #[inline]
-pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: Option<u32>, samdesired: super::REGSAM) -> super::HKEY {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : super::REGSAM) -> super::HKEY);
-    unsafe { SetupDiOpenDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata, reserved.unwrap_or(core::mem::zeroed()) as _, samdesired) }
+pub unsafe fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, reserved: super::DWORD, samdesired: super::REGSAM) -> super::HKEY {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, reserved : super::DWORD, samdesired : super::REGSAM) -> super::HKEY);
+    unsafe { SetupDiOpenDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata, reserved, samdesired) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiOpenDeviceInterfaceW<P1>(deviceinfoset: HDEVINFO, devicepath: P1, openflags: u32, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupDiOpenDeviceInterfaceW<P1>(deviceinfoset: HDEVINFO, devicepath: P1, openflags: super::DWORD, deviceinterfacedata: Option<PSP_DEVICE_INTERFACE_DATA>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceW(deviceinfoset : HDEVINFO, devicepath : windows_core::PCWSTR, openflags : u32, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceW(deviceinfoset : HDEVINFO, devicepath : windows_core::PCWSTR, openflags : super::DWORD, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiOpenDeviceInterfaceW(deviceinfoset, devicepath.param().abi(), openflags, deviceinterfacedata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiRegisterCoDeviceInstallers(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiRegisterCoDeviceInstallers(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiRegisterCoDeviceInstallers(deviceinfoset, deviceinfodata) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, flags: u32, compareproc: PSP_DETSIG_CMPPROC, comparecontext: Option<*const core::ffi::c_void>, dupdeviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiRegisterDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, flags : u32, compareproc : PSP_DETSIG_CMPPROC, comparecontext : *const core::ffi::c_void, dupdeviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+pub unsafe fn SetupDiRegisterDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, flags: super::DWORD, compareproc: PSP_DETSIG_CMPPROC, comparecontext: Option<super::PVOID>, dupdeviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiRegisterDeviceInfo(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, flags : super::DWORD, compareproc : PSP_DETSIG_CMPPROC, comparecontext : super::PVOID, dupdeviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiRegisterDeviceInfo(deviceinfoset, deviceinfodata as _, flags, compareproc, comparecontext.unwrap_or(core::mem::zeroed()) as _, dupdeviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiRemoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiRemoveDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiRemoveDevice(deviceinfoset, deviceinfodata as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiRemoveDeviceInterface(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiRemoveDeviceInterface(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA) -> windows_core::BOOL);
     unsafe { SetupDiRemoveDeviceInterface(deviceinfoset, deviceinterfacedata as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiRestartDevices(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiRestartDevices(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiRestartDevices(deviceinfoset, deviceinfodata as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiSelectBestCompatDrv(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSelectBestCompatDrv(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiSelectBestCompatDrv(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiSelectDevice(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSelectDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiSelectDevice(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
 pub unsafe fn SetupDiSelectOEMDrv(hwndparent: Option<super::HWND>, deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSelectOEMDrv(hwndparent : super::HWND, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiSelectOEMDrv(hwndparent.unwrap_or(core::mem::zeroed()) as _, deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiSetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiSetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiSetClassInstallParamsA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, classinstallparams.unwrap_or(core::mem::zeroed()) as _, classinstallparamssize) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, classinstallparams: Option<PSP_CLASSINSTALL_HEADER>, classinstallparamssize: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, classinstallparams : PSP_CLASSINSTALL_HEADER, classinstallparamssize : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiSetClassInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, classinstallparams.unwrap_or(core::mem::zeroed()) as _, classinstallparamssize) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiSetClassPropertyExW<P6>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: u32, machinename: P6, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiSetClassPropertyExW<P6>(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD, machinename: P6, reserved: super::PVOID) -> windows_core::BOOL
 where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiSetClassPropertyExW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags, machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyExW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiSetClassPropertyExW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags, machinename.param().abi(), reserved as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiSetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiSetClassPropertyW(classguid: *const windows_core::GUID, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassPropertyW(classguid : *const windows_core::GUID, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiSetClassPropertyW(classguid, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiSetClassRegistryPropertyA<P4>(classguid: *const windows_core::GUID, property: u32, propertybuffer: Option<&[u8]>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiSetClassRegistryPropertyA<P4>(classguid: *const windows_core::GUID, property: super::DWORD, propertybuffer: Option<&[u8]>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_core::PCSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiSetClassRegistryPropertyA(classguid, property, propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyA(classguid : *const windows_core::GUID, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD, machinename : windows_core::PCSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiSetClassRegistryPropertyA(classguid, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), reserved as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiSetClassRegistryPropertyW<P4>(classguid: *const windows_core::GUID, property: u32, propertybuffer: Option<&[u8]>, machinename: P4, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupDiSetClassRegistryPropertyW<P4>(classguid: *const windows_core::GUID, property: super::DWORD, propertybuffer: Option<&[u8]>, machinename: P4, reserved: super::PVOID) -> windows_core::BOOL
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : u32, propertybuffer : *const u8, propertybuffersize : u32, machinename : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiSetClassRegistryPropertyW(classguid, property, propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetClassRegistryPropertyW(classguid : *const windows_core::GUID, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD, machinename : windows_core::PCWSTR, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiSetClassRegistryPropertyW(classguid, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), machinename.param().abi(), reserved as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiSetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, deviceinstallparams: PSP_DEVINSTALL_PARAMS_A) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_A) -> windows_core::BOOL);
     unsafe { SetupDiSetDeviceInstallParamsA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, deviceinstallparams) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiSetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, deviceinstallparams: PSP_DEVINSTALL_PARAMS_W) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, deviceinstallparams : PSP_DEVINSTALL_PARAMS_W) -> windows_core::BOOL);
     unsafe { SetupDiSetDeviceInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, deviceinstallparams) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, flags: u32, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfaceDefault(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, flags : u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupDiSetDeviceInterfaceDefault(deviceinfoset, deviceinterfacedata as _, flags, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SetupDiSetDeviceInterfaceDefault(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, flags: super::DWORD, reserved: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfaceDefault(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, flags : super::DWORD, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupDiSetDeviceInterfaceDefault(deviceinfoset, deviceinterfacedata as _, flags, reserved as _) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: PSP_DEVICE_INTERFACE_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceInterfacePropertyW(deviceinfoset : HDEVINFO, deviceinterfacedata : PSP_DEVICE_INTERFACE_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiSetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
-#[cfg(all(feature = "devpropdef", feature = "minwindef"))]
+#[cfg(all(feature = "devpropdef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : u32, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, propertykey: *const super::DEVPROPKEY, propertytype: super::DEVPROPTYPE, propertybuffer: Option<&[u8]>, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDevicePropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, propertykey : *const super::DEVPROPKEY, propertytype : super::DEVPROPTYPE, propertybuffer : super::PBYTE, propertybuffersize : super::DWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupDiSetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: u32, propertybuffer: Option<&[u8]>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> windows_core::BOOL);
-    unsafe { SetupDiSetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata as _, property, propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+pub unsafe fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertybuffer: Option<&[u8]>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD) -> windows_core::BOOL);
+    unsafe { SetupDiSetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata as _, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: u32, propertybuffer: Option<&[u8]>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : u32, propertybuffer : *const u8, propertybuffersize : u32) -> windows_core::BOOL);
-    unsafe { SetupDiSetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata as _, property, propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+pub unsafe fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA, property: super::DWORD, propertybuffer: Option<&[u8]>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupDiSetDeviceRegistryPropertyW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, property : super::DWORD, propertybuffer : *const super::BYTE, propertybuffersize : super::DWORD) -> windows_core::BOOL);
+    unsafe { SetupDiSetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata as _, property, core::mem::transmute(propertybuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), propertybuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiSetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_A, driverinstallparams: PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDriverInstallParamsA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL);
     unsafe { SetupDiSetDriverInstallParamsA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata, driverinstallparams) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiSetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: PSP_DRVINFO_DATA_W, driverinstallparams: PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetDriverInstallParamsW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W, driverinstallparams : PSP_DRVINSTALL_PARAMS) -> windows_core::BOOL);
     unsafe { SetupDiSetDriverInstallParamsW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata, driverinstallparams) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiSetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetSelectedDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiSetSelectedDevice(deviceinfoset, deviceinfodata) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupDiSetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: Option<PSP_DRVINFO_DATA_A>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetSelectedDriverA(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_A) -> windows_core::BOOL);
     unsafe { SetupDiSetSelectedDriverA(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupDiSetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: Option<PSP_DEVINFO_DATA>, driverinfodata: Option<PSP_DRVINFO_DATA_W>) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiSetSelectedDriverW(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, driverinfodata : PSP_DRVINFO_DATA_W) -> windows_core::BOOL);
     unsafe { SetupDiSetSelectedDriverW(deviceinfoset, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, driverinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupDiUnremoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: PSP_DEVINFO_DATA) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupDiUnremoveDevice(deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupDiUnremoveDevice(deviceinfoset, deviceinfodata as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDuplicateDiskSpaceListA(diskspace: HDSKSPC, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, flags: u32) -> HDSKSPC {
-    windows_core::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListA(diskspace : HDSKSPC, reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
-    unsafe { SetupDuplicateDiskSpaceListA(diskspace, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, flags) }
+pub unsafe fn SetupDuplicateDiskSpaceListA(diskspace: HDSKSPC, reserved1: super::PVOID, reserved2: super::DWORD, flags: super::UINT) -> HDSKSPC {
+    windows_core::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListA(diskspace : HDSKSPC, reserved1 : super::PVOID, reserved2 : super::DWORD, flags : super::UINT) -> HDSKSPC);
+    unsafe { SetupDuplicateDiskSpaceListA(diskspace, reserved1 as _, reserved2, flags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupDuplicateDiskSpaceListW(diskspace: HDSKSPC, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, flags: u32) -> HDSKSPC {
-    windows_core::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListW(diskspace : HDSKSPC, reserved1 : *mut core::ffi::c_void, reserved2 : u32, flags : u32) -> HDSKSPC);
-    unsafe { SetupDuplicateDiskSpaceListW(diskspace, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, flags) }
+pub unsafe fn SetupDuplicateDiskSpaceListW(diskspace: HDSKSPC, reserved1: super::PVOID, reserved2: super::DWORD, flags: super::UINT) -> HDSKSPC {
+    windows_core::link!("setupapi.dll" "system" fn SetupDuplicateDiskSpaceListW(diskspace : HDSKSPC, reserved1 : super::PVOID, reserved2 : super::DWORD, flags : super::UINT) -> HDSKSPC);
+    unsafe { SetupDuplicateDiskSpaceListW(diskspace, reserved1 as _, reserved2, flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupEnumInfSectionsA(infhandle: HINF, index: u32, buffer: Option<windows_core::PSTR>, size: u32, sizeneeded: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupEnumInfSectionsA(infhandle : HINF, index : u32, buffer : windows_core::PSTR, size : u32, sizeneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn SetupEnumInfSectionsA(infhandle: HINF, index: super::UINT, buffer: Option<windows_core::PSTR>, size: super::UINT, sizeneeded: Option<*mut super::UINT>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupEnumInfSectionsA(infhandle : HINF, index : super::UINT, buffer : windows_core::PSTR, size : super::UINT, sizeneeded : *mut super::UINT) -> windows_core::BOOL);
     unsafe { SetupEnumInfSectionsA(infhandle, index, buffer.unwrap_or(core::mem::zeroed()) as _, size, sizeneeded.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupEnumInfSectionsW(infhandle: HINF, index: u32, buffer: Option<windows_core::PWSTR>, size: u32, sizeneeded: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupEnumInfSectionsW(infhandle : HINF, index : u32, buffer : windows_core::PWSTR, size : u32, sizeneeded : *mut u32) -> windows_core::BOOL);
+pub unsafe fn SetupEnumInfSectionsW(infhandle: HINF, index: super::UINT, buffer: Option<windows_core::PWSTR>, size: super::UINT, sizeneeded: Option<*mut super::UINT>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupEnumInfSectionsW(infhandle : HINF, index : super::UINT, buffer : windows_core::PWSTR, size : super::UINT, sizeneeded : *mut super::UINT) -> windows_core::BOOL);
     unsafe { SetupEnumInfSectionsW(infhandle, index, buffer.unwrap_or(core::mem::zeroed()) as _, size, sizeneeded.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupFindFirstLineA<P1, P2>(infhandle: HINF, section: P1, key: P2, context: PINFCONTEXT) -> windows_core::BOOL
 where
@@ -1327,6 +1384,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupFindFirstLineA(infhandle : HINF, section : windows_core::PCSTR, key : windows_core::PCSTR, context : PINFCONTEXT) -> windows_core::BOOL);
     unsafe { SetupFindFirstLineA(infhandle, section.param().abi(), key.param().abi(), context as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupFindFirstLineW<P1, P2>(infhandle: HINF, section: P1, key: P2, context: PINFCONTEXT) -> windows_core::BOOL
 where
@@ -1336,11 +1394,13 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupFindFirstLineW(infhandle : HINF, section : windows_core::PCWSTR, key : windows_core::PCWSTR, context : PINFCONTEXT) -> windows_core::BOOL);
     unsafe { SetupFindFirstLineW(infhandle, section.param().abi(), key.param().abi(), context as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupFindNextLine(contextin: PINFCONTEXT, contextout: PINFCONTEXT) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupFindNextLine(contextin : PINFCONTEXT, contextout : PINFCONTEXT) -> windows_core::BOOL);
     unsafe { SetupFindNextLine(contextin, contextout as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupFindNextMatchLineA<P1>(contextin: PINFCONTEXT, key: P1, contextout: PINFCONTEXT) -> windows_core::BOOL
 where
@@ -1349,6 +1409,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupFindNextMatchLineA(contextin : PINFCONTEXT, key : windows_core::PCSTR, contextout : PINFCONTEXT) -> windows_core::BOOL);
     unsafe { SetupFindNextMatchLineA(contextin, key.param().abi(), contextout as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupFindNextMatchLineW<P1>(contextin: PINFCONTEXT, key: P1, contextout: PINFCONTEXT) -> windows_core::BOOL
 where
@@ -1357,77 +1418,82 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupFindNextMatchLineW(contextin : PINFCONTEXT, key : windows_core::PCWSTR, contextout : PINFCONTEXT) -> windows_core::BOOL);
     unsafe { SetupFindNextMatchLineW(contextin, key.param().abi(), contextout as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupFreeSourceListA(list: *mut *mut windows_core::PCSTR, count: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupFreeSourceListA(list : *mut *mut windows_core::PCSTR, count : u32) -> windows_core::BOOL);
+pub unsafe fn SetupFreeSourceListA(list: *mut *mut windows_core::PCSTR, count: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupFreeSourceListA(list : *mut *mut windows_core::PCSTR, count : super::UINT) -> windows_core::BOOL);
     unsafe { SetupFreeSourceListA(list as _, count) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupFreeSourceListW(list: *mut *mut windows_core::PCWSTR, count: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupFreeSourceListW(list : *mut *mut windows_core::PCWSTR, count : u32) -> windows_core::BOOL);
+pub unsafe fn SetupFreeSourceListW(list: *mut *mut windows_core::PCWSTR, count: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupFreeSourceListW(list : *mut *mut windows_core::PCWSTR, count : super::UINT) -> windows_core::BOOL);
     unsafe { SetupFreeSourceListW(list as _, count) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupGetBackupInformationA(queuehandle: HSPFILEQ, backupparams: PSP_BACKUP_QUEUE_PARAMS_A) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetBackupInformationA(queuehandle : HSPFILEQ, backupparams : PSP_BACKUP_QUEUE_PARAMS_A) -> windows_core::BOOL);
     unsafe { SetupGetBackupInformationA(queuehandle, backupparams as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupGetBackupInformationW(queuehandle: HSPFILEQ, backupparams: PSP_BACKUP_QUEUE_PARAMS_W) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetBackupInformationW(queuehandle : HSPFILEQ, backupparams : PSP_BACKUP_QUEUE_PARAMS_W) -> windows_core::BOOL);
     unsafe { SetupGetBackupInformationW(queuehandle, backupparams as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetBinaryField(context: PINFCONTEXT, fieldindex: u32, returnbuffer: Option<super::PBYTE>, returnbuffersize: u32, requiredsize: Option<super::LPDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetBinaryField(context : PINFCONTEXT, fieldindex : u32, returnbuffer : super::PBYTE, returnbuffersize : u32, requiredsize : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetBinaryField(context: PINFCONTEXT, fieldindex: super::DWORD, returnbuffer: Option<super::PBYTE>, returnbuffersize: super::DWORD, requiredsize: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetBinaryField(context : PINFCONTEXT, fieldindex : super::DWORD, returnbuffer : super::PBYTE, returnbuffersize : super::DWORD, requiredsize : super::LPDWORD) -> windows_core::BOOL);
     unsafe { SetupGetBinaryField(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetFieldCount(context: PINFCONTEXT) -> u32 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetFieldCount(context : PINFCONTEXT) -> u32);
+pub unsafe fn SetupGetFieldCount(context: PINFCONTEXT) -> super::DWORD {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetFieldCount(context : PINFCONTEXT) -> super::DWORD);
     unsafe { SetupGetFieldCount(context) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetFileCompressionInfoA<P0>(sourcefilename: P0, actualsourcefilename: *mut windows_core::PSTR, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> u32
+pub unsafe fn SetupGetFileCompressionInfoA<P0>(sourcefilename: P0, actualsourcefilename: *mut windows_core::PSTR, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoA(sourcefilename : windows_core::PCSTR, actualsourcefilename : *mut windows_core::PSTR, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoA(sourcefilename : windows_core::PCSTR, actualsourcefilename : *mut windows_core::PSTR, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> super::DWORD);
     unsafe { SetupGetFileCompressionInfoA(sourcefilename.param().abi(), actualsourcefilename as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupGetFileCompressionInfoExA<P0>(sourcefilename: P0, actualsourcefilenamebuffer: Option<&[u8]>, requiredbufferlen: Option<super::PDWORD>, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExA(sourcefilename : windows_core::PCSTR, actualsourcefilenamebuffer : windows_core::PCSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExA(sourcefilename : windows_core::PCSTR, actualsourcefilenamebuffer : windows_core::PCSTR, actualsourcefilenamebufferlen : super::DWORD, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_core::BOOL);
     unsafe { SetupGetFileCompressionInfoExA(sourcefilename.param().abi(), core::mem::transmute(actualsourcefilenamebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), actualsourcefilenamebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), requiredbufferlen.unwrap_or(core::mem::zeroed()) as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn SetupGetFileCompressionInfoExW<P0>(sourcefilename: P0, actualsourcefilenamebuffer: Option<&[u16]>, requiredbufferlen: Option<super::PDWORD>, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExW(sourcefilename : windows_core::PCWSTR, actualsourcefilenamebuffer : windows_core::PCWSTR, actualsourcefilenamebufferlen : u32, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoExW(sourcefilename : windows_core::PCWSTR, actualsourcefilenamebuffer : windows_core::PCWSTR, actualsourcefilenamebufferlen : super::DWORD, requiredbufferlen : super::PDWORD, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> windows_core::BOOL);
     unsafe { SetupGetFileCompressionInfoExW(sourcefilename.param().abi(), core::mem::transmute(actualsourcefilenamebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), actualsourcefilenamebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), requiredbufferlen.unwrap_or(core::mem::zeroed()) as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetFileCompressionInfoW<P0>(sourcefilename: P0, actualsourcefilename: *mut windows_core::PWSTR, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> u32
+pub unsafe fn SetupGetFileCompressionInfoW<P0>(sourcefilename: P0, actualsourcefilename: *mut windows_core::PWSTR, sourcefilesize: super::PDWORD, targetfilesize: super::PDWORD, compressiontype: super::PUINT) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoW(sourcefilename : windows_core::PCWSTR, actualsourcefilename : *mut windows_core::PWSTR, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetFileCompressionInfoW(sourcefilename : windows_core::PCWSTR, actualsourcefilename : *mut windows_core::PWSTR, sourcefilesize : super::PDWORD, targetfilesize : super::PDWORD, compressiontype : super::PUINT) -> super::DWORD);
     unsafe { SetupGetFileCompressionInfoW(sourcefilename.param().abi(), actualsourcefilename as _, sourcefilesize as _, targetfilesize as _, compressiontype as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetFileQueueCount(filequeue: HSPFILEQ, subqueuefileop: u32, numoperations: super::PUINT) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetFileQueueCount(filequeue : HSPFILEQ, subqueuefileop : u32, numoperations : super::PUINT) -> windows_core::BOOL);
+pub unsafe fn SetupGetFileQueueCount(filequeue: HSPFILEQ, subqueuefileop: super::UINT, numoperations: super::PUINT) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetFileQueueCount(filequeue : HSPFILEQ, subqueuefileop : super::UINT, numoperations : super::PUINT) -> windows_core::BOOL);
     unsafe { SetupGetFileQueueCount(filequeue, subqueuefileop, numoperations as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -1436,142 +1502,146 @@ pub unsafe fn SetupGetFileQueueFlags(filequeue: HSPFILEQ, flags: super::PDWORD) 
     windows_core::link!("setupapi.dll" "system" fn SetupGetFileQueueFlags(filequeue : HSPFILEQ, flags : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetFileQueueFlags(filequeue, flags as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfDriverStoreLocationA<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: windows_core::PSTR, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfDriverStoreLocationA<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: windows_core::PSTR, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationA(filename : windows_core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationA(filename : windows_core::PCSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfDriverStoreLocationA(filename.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, localename.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfDriverStoreLocationW<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: windows_core::PWSTR, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfDriverStoreLocationW<P0, P2>(filename: P0, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, localename: P2, returnbuffer: windows_core::PWSTR, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationW(filename : windows_core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfDriverStoreLocationW(filename : windows_core::PCWSTR, alternateplatforminfo : PSP_ALTPLATFORM_INFO, localename : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfDriverStoreLocationW(filename.param().abi(), alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, localename.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfFileListA<P0>(directorypath: P0, infstyle: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfFileListA<P0>(directorypath: P0, infstyle: super::DWORD, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfFileListA(directorypath : windows_core::PCSTR, infstyle : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfFileListA(directorypath : windows_core::PCSTR, infstyle : super::DWORD, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfFileListA(directorypath.param().abi(), infstyle, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfFileListW<P0>(directorypath: P0, infstyle: u32, returnbuffer: windows_core::PWSTR, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfFileListW<P0>(directorypath: P0, infstyle: super::DWORD, returnbuffer: windows_core::PWSTR, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfFileListW(directorypath : windows_core::PCWSTR, infstyle : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfFileListW(directorypath : windows_core::PCWSTR, infstyle : super::DWORD, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfFileListW(directorypath.param().abi(), infstyle, returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfInformationA(infspec: super::LPCVOID, searchcontrol: u32, returnbuffer: Option<PSP_INF_INFORMATION>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfInformationA(infspec : super::LPCVOID, searchcontrol : u32, returnbuffer : PSP_INF_INFORMATION, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetInfInformationA(infspec: super::LPCVOID, searchcontrol: super::DWORD, returnbuffer: Option<PSP_INF_INFORMATION>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfInformationA(infspec : super::LPCVOID, searchcontrol : super::DWORD, returnbuffer : PSP_INF_INFORMATION, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfInformationA(infspec, searchcontrol, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfInformationW(infspec: super::LPCVOID, searchcontrol: u32, returnbuffer: Option<PSP_INF_INFORMATION>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfInformationW(infspec : super::LPCVOID, searchcontrol : u32, returnbuffer : PSP_INF_INFORMATION, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetInfInformationW(infspec: super::LPCVOID, searchcontrol: super::DWORD, returnbuffer: Option<PSP_INF_INFORMATION>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfInformationW(infspec : super::LPCVOID, searchcontrol : super::DWORD, returnbuffer : PSP_INF_INFORMATION, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfInformationW(infspec, searchcontrol, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfPublishedNameA<P0>(driverstorelocation: P0, returnbuffer: windows_core::PSTR, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfPublishedNameA<P0>(driverstorelocation: P0, returnbuffer: windows_core::PSTR, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameA(driverstorelocation : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameA(driverstorelocation : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfPublishedNameA(driverstorelocation.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetInfPublishedNameW<P0>(driverstorelocation: P0, returnbuffer: windows_core::PWSTR, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetInfPublishedNameW<P0>(driverstorelocation: P0, returnbuffer: windows_core::PWSTR, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameW(driverstorelocation : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetInfPublishedNameW(driverstorelocation : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetInfPublishedNameW(driverstorelocation.param().abi(), returnbuffer, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetIntField(context: PINFCONTEXT, fieldindex: u32, integervalue: super::PINT) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetIntField(context : PINFCONTEXT, fieldindex : u32, integervalue : super::PINT) -> windows_core::BOOL);
+pub unsafe fn SetupGetIntField(context: PINFCONTEXT, fieldindex: super::DWORD, integervalue: super::PINT) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetIntField(context : PINFCONTEXT, fieldindex : super::DWORD, integervalue : super::PINT) -> windows_core::BOOL);
     unsafe { SetupGetIntField(context, fieldindex, integervalue as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetLineByIndexA<P1>(infhandle: HINF, section: P1, index: u32, context: PINFCONTEXT) -> windows_core::BOOL
+pub unsafe fn SetupGetLineByIndexA<P1>(infhandle: HINF, section: P1, index: super::DWORD, context: PINFCONTEXT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetLineByIndexA(infhandle : HINF, section : windows_core::PCSTR, index : u32, context : PINFCONTEXT) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetLineByIndexA(infhandle : HINF, section : windows_core::PCSTR, index : super::DWORD, context : PINFCONTEXT) -> windows_core::BOOL);
     unsafe { SetupGetLineByIndexA(infhandle, section.param().abi(), index, context as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetLineByIndexW<P1>(infhandle: HINF, section: P1, index: u32, context: PINFCONTEXT) -> windows_core::BOOL
+pub unsafe fn SetupGetLineByIndexW<P1>(infhandle: HINF, section: P1, index: super::DWORD, context: PINFCONTEXT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetLineByIndexW(infhandle : HINF, section : windows_core::PCWSTR, index : u32, context : PINFCONTEXT) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetLineByIndexW(infhandle : HINF, section : windows_core::PCWSTR, index : super::DWORD, context : PINFCONTEXT) -> windows_core::BOOL);
     unsafe { SetupGetLineByIndexW(infhandle, section.param().abi(), index, context as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupGetLineCountA<P1>(infhandle: HINF, section: P1) -> i32
+pub unsafe fn SetupGetLineCountA<P1>(infhandle: HINF, section: P1) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetLineCountA(infhandle : HINF, section : windows_core::PCSTR) -> i32);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetLineCountA(infhandle : HINF, section : windows_core::PCSTR) -> super::LONG);
     unsafe { SetupGetLineCountA(infhandle, section.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupGetLineCountW<P1>(infhandle: HINF, section: P1) -> i32
+pub unsafe fn SetupGetLineCountW<P1>(infhandle: HINF, section: P1) -> super::LONG
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetLineCountW(infhandle : HINF, section : windows_core::PCWSTR) -> i32);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetLineCountW(infhandle : HINF, section : windows_core::PCWSTR) -> super::LONG);
     unsafe { SetupGetLineCountW(infhandle, section.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetLineTextA<P2, P3>(context: Option<PINFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetLineTextA<P2, P3>(context: Option<PINFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetLineTextA(context : PINFCONTEXT, infhandle : HINF, section : windows_core::PCSTR, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetLineTextA(context : PINFCONTEXT, infhandle : HINF, section : windows_core::PCSTR, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetLineTextA(context.unwrap_or(core::mem::zeroed()) as _, infhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetLineTextW<P2, P3>(context: Option<PINFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetLineTextW<P2, P3>(context: Option<PINFCONTEXT>, infhandle: Option<HINF>, section: P2, key: P3, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetLineTextW(context : PINFCONTEXT, infhandle : HINF, section : windows_core::PCWSTR, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetLineTextW(context : PINFCONTEXT, infhandle : HINF, section : windows_core::PCWSTR, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetLineTextW(context.unwrap_or(core::mem::zeroed()) as _, infhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetMultiSzFieldA(context: PINFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::LPDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldA(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetMultiSzFieldA(context: PINFCONTEXT, fieldindex: super::DWORD, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldA(context : PINFCONTEXT, fieldindex : super::DWORD, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::LPDWORD) -> windows_core::BOOL);
     unsafe { SetupGetMultiSzFieldA(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetMultiSzFieldW(context: PINFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::LPDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldW(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetMultiSzFieldW(context: PINFCONTEXT, fieldindex: super::DWORD, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::LPDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetMultiSzFieldW(context : PINFCONTEXT, fieldindex : super::DWORD, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::LPDWORD) -> windows_core::BOOL);
     unsafe { SetupGetMultiSzFieldW(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1579,266 +1649,281 @@ pub unsafe fn SetupGetNonInteractiveMode() -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupGetNonInteractiveMode() -> windows_core::BOOL);
     unsafe { SetupGetNonInteractiveMode() }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetSourceFileLocationA<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, sourceid: super::PUINT, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetSourceFileLocationA<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, sourceid: super::PUINT, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationA(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCSTR, sourceid : super::PUINT, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationA(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCSTR, sourceid : super::PUINT, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetSourceFileLocationA(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), sourceid as _, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetSourceFileLocationW<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, sourceid: super::PUINT, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetSourceFileLocationW<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, sourceid: super::PUINT, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationW(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCWSTR, sourceid : super::PUINT, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileLocationW(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCWSTR, sourceid : super::PUINT, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetSourceFileLocationW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), sourceid as _, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetSourceFileSizeA<P2, P3>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, section: P3, filesize: super::PDWORD, roundingfactor: u32) -> windows_core::BOOL
+pub unsafe fn SetupGetSourceFileSizeA<P2, P3>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, section: P3, filesize: super::PDWORD, roundingfactor: super::UINT) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeA(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCSTR, section : windows_core::PCSTR, filesize : super::PDWORD, roundingfactor : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeA(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCSTR, section : windows_core::PCSTR, filesize : super::PDWORD, roundingfactor : super::UINT) -> windows_core::BOOL);
     unsafe { SetupGetSourceFileSizeA(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), section.param().abi(), filesize as _, roundingfactor) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetSourceFileSizeW<P2, P3>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, section: P3, filesize: super::PDWORD, roundingfactor: u32) -> windows_core::BOOL
+pub unsafe fn SetupGetSourceFileSizeW<P2, P3>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, filename: P2, section: P3, filesize: super::PDWORD, roundingfactor: super::UINT) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeW(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCWSTR, section : windows_core::PCWSTR, filesize : super::PDWORD, roundingfactor : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceFileSizeW(infhandle : HINF, infcontext : PINFCONTEXT, filename : windows_core::PCWSTR, section : windows_core::PCWSTR, filesize : super::PDWORD, roundingfactor : super::UINT) -> windows_core::BOOL);
     unsafe { SetupGetSourceFileSizeW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, filename.param().abi(), section.param().abi(), filesize as _, roundingfactor) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetSourceInfoA(infhandle: HINF, sourceid: u32, infodesired: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceInfoA(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetSourceInfoA(infhandle: HINF, sourceid: super::UINT, infodesired: super::UINT, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceInfoA(infhandle : HINF, sourceid : super::UINT, infodesired : super::UINT, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetSourceInfoA(infhandle, sourceid, infodesired, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupGetSourceInfoW(infhandle: HINF, sourceid: u32, infodesired: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceInfoW(infhandle : HINF, sourceid : u32, infodesired : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetSourceInfoW(infhandle: HINF, sourceid: super::UINT, infodesired: super::UINT, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetSourceInfoW(infhandle : HINF, sourceid : super::UINT, infodesired : super::UINT, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetSourceInfoW(infhandle, sourceid, infodesired, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetStringFieldA(context: PINFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetStringFieldA(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetStringFieldA(context: PINFCONTEXT, fieldindex: super::DWORD, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetStringFieldA(context : PINFCONTEXT, fieldindex : super::DWORD, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetStringFieldA(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetStringFieldW(context: PINFCONTEXT, fieldindex: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetStringFieldW(context : PINFCONTEXT, fieldindex : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupGetStringFieldW(context: PINFCONTEXT, fieldindex: super::DWORD, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupGetStringFieldW(context : PINFCONTEXT, fieldindex : super::DWORD, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetStringFieldW(context, fieldindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetTargetPathA<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, section: P2, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetTargetPathA<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, section: P2, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetTargetPathA(infhandle : HINF, infcontext : PINFCONTEXT, section : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetTargetPathA(infhandle : HINF, infcontext : PINFCONTEXT, section : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetTargetPathA(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupGetTargetPathW<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, section: P2, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupGetTargetPathW<P2>(infhandle: HINF, infcontext: Option<PINFCONTEXT>, section: P2, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupGetTargetPathW(infhandle : HINF, infcontext : PINFCONTEXT, section : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupGetTargetPathW(infhandle : HINF, infcontext : PINFCONTEXT, section : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupGetTargetPathW(infhandle, infcontext.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "spapidef", feature = "winnt"))]
+#[cfg(feature = "spapidef")]
 #[inline]
 pub unsafe fn SetupGetThreadLogToken() -> super::SP_LOG_TOKEN {
     windows_core::link!("setupapi.dll" "system" fn SetupGetThreadLogToken() -> super::SP_LOG_TOKEN);
     unsafe { SetupGetThreadLogToken() }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInitDefaultQueueCallback(ownerwindow: Option<super::HWND>) -> *mut core::ffi::c_void {
-    windows_core::link!("setupapi.dll" "system" fn SetupInitDefaultQueueCallback(ownerwindow : super::HWND) -> *mut core::ffi::c_void);
+pub unsafe fn SetupInitDefaultQueueCallback(ownerwindow: Option<super::HWND>) -> super::PVOID {
+    windows_core::link!("setupapi.dll" "system" fn SetupInitDefaultQueueCallback(ownerwindow : super::HWND) -> super::PVOID);
     unsafe { SetupInitDefaultQueueCallback(ownerwindow.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInitDefaultQueueCallbackEx(ownerwindow: Option<super::HWND>, alternateprogresswindow: Option<super::HWND>, progressmessage: u32, reserved1: Option<u32>, reserved2: Option<*mut core::ffi::c_void>) -> *mut core::ffi::c_void {
-    windows_core::link!("setupapi.dll" "system" fn SetupInitDefaultQueueCallbackEx(ownerwindow : super::HWND, alternateprogresswindow : super::HWND, progressmessage : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
-    unsafe { SetupInitDefaultQueueCallbackEx(ownerwindow.unwrap_or(core::mem::zeroed()) as _, alternateprogresswindow.unwrap_or(core::mem::zeroed()) as _, progressmessage, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SetupInitDefaultQueueCallbackEx(ownerwindow: Option<super::HWND>, alternateprogresswindow: Option<super::HWND>, progressmessage: super::UINT, reserved1: super::DWORD, reserved2: super::PVOID) -> super::PVOID {
+    windows_core::link!("setupapi.dll" "system" fn SetupInitDefaultQueueCallbackEx(ownerwindow : super::HWND, alternateprogresswindow : super::HWND, progressmessage : super::UINT, reserved1 : super::DWORD, reserved2 : super::PVOID) -> super::PVOID);
+    unsafe { SetupInitDefaultQueueCallbackEx(ownerwindow.unwrap_or(core::mem::zeroed()) as _, alternateprogresswindow.unwrap_or(core::mem::zeroed()) as _, progressmessage, reserved1, reserved2 as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupInitializeFileLogA<P0>(logfilename: P0, flags: u32) -> HSPFILELOG
+pub unsafe fn SetupInitializeFileLogA<P0>(logfilename: P0, flags: super::DWORD) -> HSPFILELOG
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInitializeFileLogA(logfilename : windows_core::PCSTR, flags : u32) -> HSPFILELOG);
+    windows_core::link!("setupapi.dll" "system" fn SetupInitializeFileLogA(logfilename : windows_core::PCSTR, flags : super::DWORD) -> HSPFILELOG);
     unsafe { SetupInitializeFileLogA(logfilename.param().abi(), flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupInitializeFileLogW<P0>(logfilename: P0, flags: u32) -> HSPFILELOG
+pub unsafe fn SetupInitializeFileLogW<P0>(logfilename: P0, flags: super::DWORD) -> HSPFILELOG
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInitializeFileLogW(logfilename : windows_core::PCWSTR, flags : u32) -> HSPFILELOG);
+    windows_core::link!("setupapi.dll" "system" fn SetupInitializeFileLogW(logfilename : windows_core::PCWSTR, flags : super::DWORD) -> HSPFILELOG);
     unsafe { SetupInitializeFileLogW(logfilename.param().abi(), flags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallFileA<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: u32, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupInstallFileA<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: super::DWORD, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<super::PVOID>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileA(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileA(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : super::DWORD, copymsghandler : PSP_FILE_CALLBACK_A, context : super::PVOID) -> windows_core::BOOL);
     unsafe { SetupInstallFileA(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallFileExA<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: u32, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, filewasinuse: super::PBOOL) -> windows_core::BOOL
+pub unsafe fn SetupInstallFileExA<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: super::DWORD, copymsghandler: PSP_FILE_CALLBACK_A, context: Option<super::PVOID>, filewasinuse: super::PBOOL) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileExA(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, filewasinuse : super::PBOOL) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileExA(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCSTR, sourcepathroot : windows_core::PCSTR, destinationname : windows_core::PCSTR, copystyle : super::DWORD, copymsghandler : PSP_FILE_CALLBACK_A, context : super::PVOID, filewasinuse : super::PBOOL) -> windows_core::BOOL);
     unsafe { SetupInstallFileExA(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _, filewasinuse as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallFileExW<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: u32, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, filewasinuse: super::PBOOL) -> windows_core::BOOL
+pub unsafe fn SetupInstallFileExW<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: super::DWORD, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<super::PVOID>, filewasinuse: super::PBOOL) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileExW(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, filewasinuse : super::PBOOL) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileExW(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : super::DWORD, copymsghandler : PSP_FILE_CALLBACK_W, context : super::PVOID, filewasinuse : super::PBOOL) -> windows_core::BOOL);
     unsafe { SetupInstallFileExW(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _, filewasinuse as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallFileW<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: u32, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupInstallFileW<P2, P3, P4>(infhandle: Option<HINF>, infcontext: Option<PINFCONTEXT>, sourcefile: P2, sourcepathroot: P3, destinationname: P4, copystyle: super::DWORD, copymsghandler: PSP_FILE_CALLBACK_W, context: Option<super::PVOID>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileW(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : u32, copymsghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFileW(infhandle : HINF, infcontext : PINFCONTEXT, sourcefile : windows_core::PCWSTR, sourcepathroot : windows_core::PCWSTR, destinationname : windows_core::PCWSTR, copystyle : super::DWORD, copymsghandler : PSP_FILE_CALLBACK_W, context : super::PVOID) -> windows_core::BOOL);
     unsafe { SetupInstallFileW(infhandle.unwrap_or(core::mem::zeroed()) as _, infcontext.unwrap_or(core::mem::zeroed()) as _, sourcefile.param().abi(), sourcepathroot.param().abi(), destinationname.param().abi(), copystyle, copymsghandler, context.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupInstallFilesFromInfSectionA<P3, P4>(infhandle: HINF, layoutinfhandle: Option<HINF>, filequeue: HSPFILEQ, sectionname: P3, sourcerootpath: P4, copyflags: u32) -> windows_core::BOOL
+pub unsafe fn SetupInstallFilesFromInfSectionA<P3, P4>(infhandle: HINF, layoutinfhandle: Option<HINF>, filequeue: HSPFILEQ, sectionname: P3, sourcerootpath: P4, copyflags: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionA(infhandle : HINF, layoutinfhandle : HINF, filequeue : HSPFILEQ, sectionname : windows_core::PCSTR, sourcerootpath : windows_core::PCSTR, copyflags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionA(infhandle : HINF, layoutinfhandle : HINF, filequeue : HSPFILEQ, sectionname : windows_core::PCSTR, sourcerootpath : windows_core::PCSTR, copyflags : super::UINT) -> windows_core::BOOL);
     unsafe { SetupInstallFilesFromInfSectionA(infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, filequeue, sectionname.param().abi(), sourcerootpath.param().abi(), copyflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupInstallFilesFromInfSectionW<P3, P4>(infhandle: HINF, layoutinfhandle: Option<HINF>, filequeue: HSPFILEQ, sectionname: P3, sourcerootpath: P4, copyflags: u32) -> windows_core::BOOL
+pub unsafe fn SetupInstallFilesFromInfSectionW<P3, P4>(infhandle: HINF, layoutinfhandle: Option<HINF>, filequeue: HSPFILEQ, sectionname: P3, sourcerootpath: P4, copyflags: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionW(infhandle : HINF, layoutinfhandle : HINF, filequeue : HSPFILEQ, sectionname : windows_core::PCWSTR, sourcerootpath : windows_core::PCWSTR, copyflags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFilesFromInfSectionW(infhandle : HINF, layoutinfhandle : HINF, filequeue : HSPFILEQ, sectionname : windows_core::PCWSTR, sourcerootpath : windows_core::PCWSTR, copyflags : super::UINT) -> windows_core::BOOL);
     unsafe { SetupInstallFilesFromInfSectionW(infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, filequeue, sectionname.param().abi(), sourcerootpath.param().abi(), copyflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionA<P2, P5>(owner: Option<super::HWND>, infhandle: HINF, sectionname: P2, flags: u32, relativekeyroot: Option<super::HKEY>, sourcerootpath: P5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_A, context: Option<*const core::ffi::c_void>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupInstallFromInfSectionA<P2, P5>(owner: Option<super::HWND>, infhandle: HINF, sectionname: P2, flags: super::UINT, relativekeyroot: Option<super::HKEY>, sourcerootpath: P5, copyflags: super::UINT, msghandler: PSP_FILE_CALLBACK_A, context: Option<super::PVOID>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionA(owner : super::HWND, infhandle : HINF, sectionname : windows_core::PCSTR, flags : u32, relativekeyroot : super::HKEY, sourcerootpath : windows_core::PCSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionA(owner : super::HWND, infhandle : HINF, sectionname : windows_core::PCSTR, flags : super::UINT, relativekeyroot : super::HKEY, sourcerootpath : windows_core::PCSTR, copyflags : super::UINT, msghandler : PSP_FILE_CALLBACK_A, context : super::PVOID, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupInstallFromInfSectionA(owner.unwrap_or(core::mem::zeroed()) as _, infhandle, sectionname.param().abi(), flags, relativekeyroot.unwrap_or(core::mem::zeroed()) as _, sourcerootpath.param().abi(), copyflags, msghandler, context.unwrap_or(core::mem::zeroed()) as _, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallFromInfSectionW<P2, P5>(owner: Option<super::HWND>, infhandle: HINF, sectionname: P2, flags: u32, relativekeyroot: Option<super::HKEY>, sourcerootpath: P5, copyflags: u32, msghandler: PSP_FILE_CALLBACK_W, context: Option<*const core::ffi::c_void>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
+pub unsafe fn SetupInstallFromInfSectionW<P2, P5>(owner: Option<super::HWND>, infhandle: HINF, sectionname: P2, flags: super::UINT, relativekeyroot: Option<super::HKEY>, sourcerootpath: P5, copyflags: super::UINT, msghandler: PSP_FILE_CALLBACK_W, context: Option<super::PVOID>, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionW(owner : super::HWND, infhandle : HINF, sectionname : windows_core::PCWSTR, flags : u32, relativekeyroot : super::HKEY, sourcerootpath : windows_core::PCWSTR, copyflags : u32, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallFromInfSectionW(owner : super::HWND, infhandle : HINF, sectionname : windows_core::PCWSTR, flags : super::UINT, relativekeyroot : super::HKEY, sourcerootpath : windows_core::PCWSTR, copyflags : super::UINT, msghandler : PSP_FILE_CALLBACK_W, context : super::PVOID, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA) -> windows_core::BOOL);
     unsafe { SetupInstallFromInfSectionW(owner.unwrap_or(core::mem::zeroed()) as _, infhandle, sectionname.param().abi(), flags, relativekeyroot.unwrap_or(core::mem::zeroed()) as _, sourcerootpath.param().abi(), copyflags, msghandler, context.unwrap_or(core::mem::zeroed()) as _, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionA<P1>(infhandle: HINF, sectionname: P1, flags: u32) -> windows_core::BOOL
+pub unsafe fn SetupInstallServicesFromInfSectionA<P1>(infhandle: HINF, sectionname: P1, flags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionA(infhandle : HINF, sectionname : windows_core::PCSTR, flags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionA(infhandle : HINF, sectionname : windows_core::PCSTR, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupInstallServicesFromInfSectionA(infhandle, sectionname.param().abi(), flags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionExA<P1>(infhandle: HINF, sectionname: P1, flags: u32, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupInstallServicesFromInfSectionExA<P1>(infhandle: HINF, sectionname: P1, flags: super::DWORD, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>, reserved1: super::PVOID, reserved2: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExA(infhandle : HINF, sectionname : windows_core::PCSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupInstallServicesFromInfSectionExA(infhandle, sectionname.param().abi(), flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExA(infhandle : HINF, sectionname : windows_core::PCSTR, flags : super::DWORD, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, reserved1 : super::PVOID, reserved2 : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupInstallServicesFromInfSectionExA(infhandle, sectionname.param().abi(), flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, reserved1 as _, reserved2 as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionExW<P1>(infhandle: HINF, sectionname: P1, flags: u32, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupInstallServicesFromInfSectionExW<P1>(infhandle: HINF, sectionname: P1, flags: super::DWORD, deviceinfoset: Option<HDEVINFO>, deviceinfodata: Option<PSP_DEVINFO_DATA>, reserved1: super::PVOID, reserved2: super::PVOID) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExW(infhandle : HINF, sectionname : windows_core::PCWSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, reserved1 : *mut core::ffi::c_void, reserved2 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupInstallServicesFromInfSectionExW(infhandle, sectionname.param().abi(), flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExW(infhandle : HINF, sectionname : windows_core::PCWSTR, flags : super::DWORD, deviceinfoset : HDEVINFO, deviceinfodata : PSP_DEVINFO_DATA, reserved1 : super::PVOID, reserved2 : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupInstallServicesFromInfSectionExW(infhandle, sectionname.param().abi(), flags, deviceinfoset.unwrap_or(core::mem::zeroed()) as _, deviceinfodata.unwrap_or(core::mem::zeroed()) as _, reserved1 as _, reserved2 as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionW<P1>(infhandle: HINF, sectionname: P1, flags: u32) -> windows_core::BOOL
+pub unsafe fn SetupInstallServicesFromInfSectionW<P1>(infhandle: HINF, sectionname: P1, flags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionW(infhandle : HINF, sectionname : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionW(infhandle : HINF, sectionname : windows_core::PCWSTR, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupInstallServicesFromInfSectionW(infhandle, sectionname.param().abi(), flags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupIterateCabinetA<P0>(cabinetfile: P0, reserved: Option<u32>, msghandler: PSP_FILE_CALLBACK_A, context: *const core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn SetupIterateCabinetA<P0>(cabinetfile: P0, reserved: super::DWORD, msghandler: PSP_FILE_CALLBACK_A, context: super::PVOID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupIterateCabinetA(cabinetfile : windows_core::PCSTR, reserved : u32, msghandler : PSP_FILE_CALLBACK_A, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupIterateCabinetA(cabinetfile.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, msghandler, context) }
+    windows_core::link!("setupapi.dll" "system" fn SetupIterateCabinetA(cabinetfile : windows_core::PCSTR, reserved : super::DWORD, msghandler : PSP_FILE_CALLBACK_A, context : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupIterateCabinetA(cabinetfile.param().abi(), reserved, msghandler, context) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupIterateCabinetW<P0>(cabinetfile: P0, reserved: Option<u32>, msghandler: PSP_FILE_CALLBACK_W, context: *const core::ffi::c_void) -> windows_core::BOOL
+pub unsafe fn SetupIterateCabinetW<P0>(cabinetfile: P0, reserved: super::DWORD, msghandler: PSP_FILE_CALLBACK_W, context: super::PVOID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupIterateCabinetW(cabinetfile : windows_core::PCWSTR, reserved : u32, msghandler : PSP_FILE_CALLBACK_W, context : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupIterateCabinetW(cabinetfile.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, msghandler, context) }
+    windows_core::link!("setupapi.dll" "system" fn SetupIterateCabinetW(cabinetfile : windows_core::PCWSTR, reserved : super::DWORD, msghandler : PSP_FILE_CALLBACK_W, context : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupIterateCabinetW(cabinetfile.param().abi(), reserved, msghandler, context) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupLogErrorA<P0>(messagestring: P0, severity: u32) -> windows_core::BOOL
+pub unsafe fn SetupLogErrorA<P0>(messagestring: P0, severity: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupLogErrorA(messagestring : windows_core::PCSTR, severity : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupLogErrorA(messagestring : windows_core::PCSTR, severity : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupLogErrorA(messagestring.param().abi(), severity) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupLogErrorW<P0>(messagestring: P0, severity: u32) -> windows_core::BOOL
+pub unsafe fn SetupLogErrorW<P0>(messagestring: P0, severity: super::DWORD) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupLogErrorW(messagestring : windows_core::PCWSTR, severity : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupLogErrorW(messagestring : windows_core::PCWSTR, severity : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupLogErrorW(messagestring.param().abi(), severity) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupLogFileA<P1, P2, P3, P5, P6, P7>(fileloghandle: HSPFILELOG, logsectionname: P1, sourcefilename: P2, targetfilename: P3, checksum: u32, disktagfile: P5, diskdescription: P6, otherinfo: P7, flags: u32) -> windows_core::BOOL
+pub unsafe fn SetupLogFileA<P1, P2, P3, P5, P6, P7>(fileloghandle: HSPFILELOG, logsectionname: P1, sourcefilename: P2, targetfilename: P3, checksum: super::DWORD, disktagfile: P5, diskdescription: P6, otherinfo: P7, flags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -1847,11 +1932,12 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
     P7: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupLogFileA(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, checksum : u32, disktagfile : windows_core::PCSTR, diskdescription : windows_core::PCSTR, otherinfo : windows_core::PCSTR, flags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupLogFileA(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, checksum : super::DWORD, disktagfile : windows_core::PCSTR, diskdescription : windows_core::PCSTR, otherinfo : windows_core::PCSTR, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupLogFileA(fileloghandle, logsectionname.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), checksum, disktagfile.param().abi(), diskdescription.param().abi(), otherinfo.param().abi(), flags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupLogFileW<P1, P2, P3, P5, P6, P7>(fileloghandle: HSPFILELOG, logsectionname: P1, sourcefilename: P2, targetfilename: P3, checksum: u32, disktagfile: P5, diskdescription: P6, otherinfo: P7, flags: u32) -> windows_core::BOOL
+pub unsafe fn SetupLogFileW<P1, P2, P3, P5, P6, P7>(fileloghandle: HSPFILELOG, logsectionname: P1, sourcefilename: P2, targetfilename: P3, checksum: super::DWORD, disktagfile: P5, diskdescription: P6, otherinfo: P7, flags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -1860,7 +1946,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupLogFileW(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, checksum : u32, disktagfile : windows_core::PCWSTR, diskdescription : windows_core::PCWSTR, otherinfo : windows_core::PCWSTR, flags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupLogFileW(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, checksum : super::DWORD, disktagfile : windows_core::PCWSTR, diskdescription : windows_core::PCWSTR, otherinfo : windows_core::PCWSTR, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupLogFileW(fileloghandle, logsectionname.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), checksum, disktagfile.param().abi(), diskdescription.param().abi(), otherinfo.param().abi(), flags) }
 }
 #[cfg(feature = "minwindef")]
@@ -1886,24 +1972,24 @@ pub unsafe fn SetupOpenFileQueue() -> HSPFILEQ {
     windows_core::link!("setupapi.dll" "system" fn SetupOpenFileQueue() -> HSPFILEQ);
     unsafe { SetupOpenFileQueue() }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupOpenInfFileA<P0, P1>(filename: P0, infclass: P1, infstyle: u32, errorline: Option<super::PUINT>) -> HINF
+pub unsafe fn SetupOpenInfFileA<P0, P1>(filename: P0, infclass: P1, infstyle: super::DWORD, errorline: Option<super::PUINT>) -> HINF
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupOpenInfFileA(filename : windows_core::PCSTR, infclass : windows_core::PCSTR, infstyle : u32, errorline : super::PUINT) -> HINF);
+    windows_core::link!("setupapi.dll" "system" fn SetupOpenInfFileA(filename : windows_core::PCSTR, infclass : windows_core::PCSTR, infstyle : super::DWORD, errorline : super::PUINT) -> HINF);
     unsafe { SetupOpenInfFileA(filename.param().abi(), infclass.param().abi(), infstyle, errorline.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupOpenInfFileW<P0, P1>(filename: P0, infclass: P1, infstyle: u32, errorline: Option<super::PUINT>) -> HINF
+pub unsafe fn SetupOpenInfFileW<P0, P1>(filename: P0, infclass: P1, infstyle: super::DWORD, errorline: Option<super::PUINT>) -> HINF
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupOpenInfFileW(filename : windows_core::PCWSTR, infclass : windows_core::PCWSTR, infstyle : u32, errorline : super::PUINT) -> HINF);
+    windows_core::link!("setupapi.dll" "system" fn SetupOpenInfFileW(filename : windows_core::PCWSTR, infclass : windows_core::PCWSTR, infstyle : super::DWORD, errorline : super::PUINT) -> HINF);
     unsafe { SetupOpenInfFileW(filename.param().abi(), infclass.param().abi(), infstyle, errorline.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1916,25 +2002,27 @@ pub unsafe fn SetupOpenMasterInf() -> HINF {
     windows_core::link!("setupapi.dll" "system" fn SetupOpenMasterInf() -> HINF);
     unsafe { SetupOpenMasterInf() }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupPrepareQueueForRestoreA<P1>(queuehandle: HSPFILEQ, backuppath: P1, restoreflags: u32) -> windows_core::BOOL
+pub unsafe fn SetupPrepareQueueForRestoreA<P1>(queuehandle: HSPFILEQ, backuppath: P1, restoreflags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreA(queuehandle : HSPFILEQ, backuppath : windows_core::PCSTR, restoreflags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreA(queuehandle : HSPFILEQ, backuppath : windows_core::PCSTR, restoreflags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupPrepareQueueForRestoreA(queuehandle, backuppath.param().abi(), restoreflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupPrepareQueueForRestoreW<P1>(queuehandle: HSPFILEQ, backuppath: P1, restoreflags: u32) -> windows_core::BOOL
+pub unsafe fn SetupPrepareQueueForRestoreW<P1>(queuehandle: HSPFILEQ, backuppath: P1, restoreflags: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreW(queuehandle : HSPFILEQ, backuppath : windows_core::PCWSTR, restoreflags : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupPrepareQueueForRestoreW(queuehandle : HSPFILEQ, backuppath : windows_core::PCWSTR, restoreflags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupPrepareQueueForRestoreW(queuehandle, backuppath.param().abi(), restoreflags) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupPromptForDiskA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: u32, pathbuffer: Option<windows_core::PSTR>, pathbuffersize: u32, pathrequiredsize: Option<super::PDWORD>) -> u32
+pub unsafe fn SetupPromptForDiskA<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: super::DWORD, pathbuffer: Option<windows_core::PSTR>, pathbuffersize: super::DWORD, pathrequiredsize: Option<super::PDWORD>) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -1942,12 +2030,12 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupPromptForDiskA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, diskname : windows_core::PCSTR, pathtosource : windows_core::PCSTR, filesought : windows_core::PCSTR, tagfile : windows_core::PCSTR, diskpromptstyle : u32, pathbuffer : windows_core::PSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupPromptForDiskA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, diskname : windows_core::PCSTR, pathtosource : windows_core::PCSTR, filesought : windows_core::PCSTR, tagfile : windows_core::PCSTR, diskpromptstyle : super::DWORD, pathbuffer : windows_core::PSTR, pathbuffersize : super::DWORD, pathrequiredsize : super::PDWORD) -> super::UINT);
     unsafe { SetupPromptForDiskA(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), diskpromptstyle, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupPromptForDiskW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: u32, pathbuffer: Option<windows_core::PWSTR>, pathbuffersize: u32, pathrequiredsize: Option<super::PDWORD>) -> u32
+pub unsafe fn SetupPromptForDiskW<P1, P2, P3, P4, P5>(hwndparent: super::HWND, dialogtitle: P1, diskname: P2, pathtosource: P3, filesought: P4, tagfile: P5, diskpromptstyle: super::DWORD, pathbuffer: Option<windows_core::PWSTR>, pathbuffersize: super::DWORD, pathrequiredsize: Option<super::PDWORD>) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -1955,117 +2043,122 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupPromptForDiskW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, diskname : windows_core::PCWSTR, pathtosource : windows_core::PCWSTR, filesought : windows_core::PCWSTR, tagfile : windows_core::PCWSTR, diskpromptstyle : u32, pathbuffer : windows_core::PWSTR, pathbuffersize : u32, pathrequiredsize : super::PDWORD) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupPromptForDiskW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, diskname : windows_core::PCWSTR, pathtosource : windows_core::PCWSTR, filesought : windows_core::PCWSTR, tagfile : windows_core::PCWSTR, diskpromptstyle : super::DWORD, pathbuffer : windows_core::PWSTR, pathbuffersize : super::DWORD, pathrequiredsize : super::PDWORD) -> super::UINT);
     unsafe { SetupPromptForDiskW(hwndparent, dialogtitle.param().abi(), diskname.param().abi(), pathtosource.param().abi(), filesought.param().abi(), tagfile.param().abi(), diskpromptstyle, pathbuffer.unwrap_or(core::mem::zeroed()) as _, pathbuffersize, pathrequiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupPromptReboot(filequeue: Option<HSPFILEQ>, owner: Option<super::HWND>, scanonly: bool) -> i32 {
-    windows_core::link!("setupapi.dll" "system" fn SetupPromptReboot(filequeue : HSPFILEQ, owner : super::HWND, scanonly : windows_core::BOOL) -> i32);
+pub unsafe fn SetupPromptReboot(filequeue: Option<HSPFILEQ>, owner: Option<super::HWND>, scanonly: bool) -> super::INT {
+    windows_core::link!("setupapi.dll" "system" fn SetupPromptReboot(filequeue : HSPFILEQ, owner : super::HWND, scanonly : windows_core::BOOL) -> super::INT);
     unsafe { SetupPromptReboot(filequeue.unwrap_or(core::mem::zeroed()) as _, owner.unwrap_or(core::mem::zeroed()) as _, scanonly.into()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: HDSKSPC, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListA(diskspace : HDSKSPC, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupQueryDrivesInDiskSpaceListA(diskspace: HDSKSPC, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListA(diskspace : HDSKSPC, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryDrivesInDiskSpaceListA(diskspace, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: HDSKSPC, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListW(diskspace : HDSKSPC, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupQueryDrivesInDiskSpaceListW(diskspace: HDSKSPC, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryDrivesInDiskSpaceListW(diskspace : HDSKSPC, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryDrivesInDiskSpaceListW(diskspace, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryFileLogA<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupQueryFileLogA<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryFileLogA(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCSTR, targetfilename : windows_core::PCSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryFileLogA(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCSTR, targetfilename : windows_core::PCSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryFileLogA(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, dataout.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryFileLogW<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupQueryFileLogW<P1, P2>(fileloghandle: HSPFILELOG, logsectionname: P1, targetfilename: P2, desiredinfo: SetupFileLogInfo, dataout: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryFileLogW(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryFileLogW(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, desiredinfo : SetupFileLogInfo, dataout : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryFileLogW(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi(), desiredinfo, dataout.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryInfFileInformationA(infinformation: PSP_INF_INFORMATION, infindex: u32, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationA(infinformation : PSP_INF_INFORMATION, infindex : u32, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupQueryInfFileInformationA(infinformation: PSP_INF_INFORMATION, infindex: super::UINT, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationA(infinformation : PSP_INF_INFORMATION, infindex : super::UINT, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryInfFileInformationA(infinformation, infindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryInfFileInformationW(infinformation: PSP_INF_INFORMATION, infindex: u32, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationW(infinformation : PSP_INF_INFORMATION, infindex : u32, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupQueryInfFileInformationW(infinformation: PSP_INF_INFORMATION, infindex: super::UINT, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfFileInformationW(infinformation : PSP_INF_INFORMATION, infindex : super::UINT, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryInfFileInformationW(infinformation, infindex, returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: PSP_INF_INFORMATION, infindex: u32, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, originalfileinfo: PSP_ORIGINAL_FILE_INFO_A) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationA(infinformation : PSP_INF_INFORMATION, infindex : u32, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : PSP_ORIGINAL_FILE_INFO_A) -> windows_core::BOOL);
+pub unsafe fn SetupQueryInfOriginalFileInformationA(infinformation: PSP_INF_INFORMATION, infindex: super::UINT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, originalfileinfo: PSP_ORIGINAL_FILE_INFO_A) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationA(infinformation : PSP_INF_INFORMATION, infindex : super::UINT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : PSP_ORIGINAL_FILE_INFO_A) -> windows_core::BOOL);
     unsafe { SetupQueryInfOriginalFileInformationA(infinformation, infindex, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, originalfileinfo as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: PSP_INF_INFORMATION, infindex: u32, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, originalfileinfo: PSP_ORIGINAL_FILE_INFO_W) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationW(infinformation : PSP_INF_INFORMATION, infindex : u32, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : PSP_ORIGINAL_FILE_INFO_W) -> windows_core::BOOL);
+pub unsafe fn SetupQueryInfOriginalFileInformationW(infinformation: PSP_INF_INFORMATION, infindex: super::UINT, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, originalfileinfo: PSP_ORIGINAL_FILE_INFO_W) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfOriginalFileInformationW(infinformation : PSP_INF_INFORMATION, infindex : super::UINT, alternateplatforminfo : PSP_ALTPLATFORM_INFO, originalfileinfo : PSP_ORIGINAL_FILE_INFO_W) -> windows_core::BOOL);
     unsafe { SetupQueryInfOriginalFileInformationW(infinformation, infindex, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, originalfileinfo as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryInfVersionInformationA<P2>(infinformation: PSP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupQueryInfVersionInformationA<P2>(infinformation: PSP_INF_INFORMATION, infindex: super::UINT, key: P2, returnbuffer: Option<windows_core::PSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationA(infinformation : PSP_INF_INFORMATION, infindex : u32, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationA(infinformation : PSP_INF_INFORMATION, infindex : super::UINT, key : windows_core::PCSTR, returnbuffer : windows_core::PSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryInfVersionInformationA(infinformation, infindex, key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQueryInfVersionInformationW<P2>(infinformation: PSP_INF_INFORMATION, infindex: u32, key: P2, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: u32, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
+pub unsafe fn SetupQueryInfVersionInformationW<P2>(infinformation: PSP_INF_INFORMATION, infindex: super::UINT, key: P2, returnbuffer: Option<windows_core::PWSTR>, returnbuffersize: super::DWORD, requiredsize: Option<super::PDWORD>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationW(infinformation : PSP_INF_INFORMATION, infindex : u32, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : u32, requiredsize : super::PDWORD) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueryInfVersionInformationW(infinformation : PSP_INF_INFORMATION, infindex : super::UINT, key : windows_core::PCWSTR, returnbuffer : windows_core::PWSTR, returnbuffersize : super::DWORD, requiredsize : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupQueryInfVersionInformationW(infinformation, infindex, key.param().abi(), returnbuffer.unwrap_or(core::mem::zeroed()) as _, returnbuffersize, requiredsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQuerySourceListA(flags: u32, list: *mut *mut windows_core::PCSTR, count: super::PUINT) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQuerySourceListA(flags : u32, list : *mut *mut windows_core::PCSTR, count : super::PUINT) -> windows_core::BOOL);
+pub unsafe fn SetupQuerySourceListA(flags: super::DWORD, list: *mut *mut windows_core::PCSTR, count: super::PUINT) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQuerySourceListA(flags : super::DWORD, list : *mut *mut windows_core::PCSTR, count : super::PUINT) -> windows_core::BOOL);
     unsafe { SetupQuerySourceListA(flags, list as _, count as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn SetupQuerySourceListW(flags: u32, list: *mut *mut windows_core::PCWSTR, count: super::PUINT) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupQuerySourceListW(flags : u32, list : *mut *mut windows_core::PCWSTR, count : super::PUINT) -> windows_core::BOOL);
+pub unsafe fn SetupQuerySourceListW(flags: super::DWORD, list: *mut *mut windows_core::PCWSTR, count: super::PUINT) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupQuerySourceListW(flags : super::DWORD, list : *mut *mut windows_core::PCWSTR, count : super::PUINT) -> windows_core::BOOL);
     unsafe { SetupQuerySourceListW(flags, list as _, count as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupQuerySpaceRequiredOnDriveA<P1>(diskspace: HDSKSPC, drivespec: P1, spacerequired: *mut i64, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupQuerySpaceRequiredOnDriveA<P1>(diskspace: HDSKSPC, drivespec: P1, spacerequired: *mut super::LONGLONG, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveA(diskspace : HDSKSPC, drivespec : windows_core::PCSTR, spacerequired : *mut i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupQuerySpaceRequiredOnDriveA(diskspace, drivespec.param().abi(), spacerequired as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveA(diskspace : HDSKSPC, drivespec : windows_core::PCSTR, spacerequired : *mut super::LONGLONG, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupQuerySpaceRequiredOnDriveA(diskspace, drivespec.param().abi(), spacerequired as _, reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupQuerySpaceRequiredOnDriveW<P1>(diskspace: HDSKSPC, drivespec: P1, spacerequired: *mut i64, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupQuerySpaceRequiredOnDriveW<P1>(diskspace: HDSKSPC, drivespec: P1, spacerequired: *mut super::LONGLONG, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveW(diskspace : HDSKSPC, drivespec : windows_core::PCWSTR, spacerequired : *mut i64, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupQuerySpaceRequiredOnDriveW(diskspace, drivespec.param().abi(), spacerequired as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupQuerySpaceRequiredOnDriveW(diskspace : HDSKSPC, drivespec : windows_core::PCWSTR, spacerequired : *mut super::LONGLONG, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupQuerySpaceRequiredOnDriveW(diskspace, drivespec.param().abi(), spacerequired as _, reserved1 as _, reserved2) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupQueueCopyA<P1, P2, P3, P4, P5, P6, P7>(queuehandle: HSPFILEQ, sourcerootpath: P1, sourcepath: P2, sourcefilename: P3, sourcedescription: P4, sourcetagfile: P5, targetdirectory: P6, targetfilename: P7, copystyle: u32) -> windows_core::BOOL
+pub unsafe fn SetupQueueCopyA<P1, P2, P3, P4, P5, P6, P7>(queuehandle: HSPFILEQ, sourcerootpath: P1, sourcepath: P2, sourcefilename: P3, sourcedescription: P4, sourcetagfile: P5, targetdirectory: P6, targetfilename: P7, copystyle: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -2075,39 +2168,44 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
     P7: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopyA(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCSTR, sourcepath : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, sourcedescription : windows_core::PCSTR, sourcetagfile : windows_core::PCSTR, targetdirectory : windows_core::PCSTR, targetfilename : windows_core::PCSTR, copystyle : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopyA(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCSTR, sourcepath : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, sourcedescription : windows_core::PCSTR, sourcetagfile : windows_core::PCSTR, targetdirectory : windows_core::PCSTR, targetfilename : windows_core::PCSTR, copystyle : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupQueueCopyA(queuehandle, sourcerootpath.param().abi(), sourcepath.param().abi(), sourcefilename.param().abi(), sourcedescription.param().abi(), sourcetagfile.param().abi(), targetdirectory.param().abi(), targetfilename.param().abi(), copystyle) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupQueueCopyIndirectA(copyparams: PSP_FILE_COPY_PARAMS_A) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupQueueCopyIndirectA(copyparams : PSP_FILE_COPY_PARAMS_A) -> windows_core::BOOL);
     unsafe { SetupQueueCopyIndirectA(copyparams) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupQueueCopyIndirectW(copyparams: PSP_FILE_COPY_PARAMS_W) -> windows_core::BOOL {
     windows_core::link!("setupapi.dll" "system" fn SetupQueueCopyIndirectW(copyparams : PSP_FILE_COPY_PARAMS_W) -> windows_core::BOOL);
     unsafe { SetupQueueCopyIndirectW(copyparams) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupQueueCopySectionA<P1, P4>(queuehandle: HSPFILEQ, sourcerootpath: P1, infhandle: HINF, listinfhandle: Option<HINF>, section: P4, copystyle: u32) -> windows_core::BOOL
+pub unsafe fn SetupQueueCopySectionA<P1, P4>(queuehandle: HSPFILEQ, sourcerootpath: P1, infhandle: HINF, listinfhandle: Option<HINF>, section: P4, copystyle: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopySectionA(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCSTR, infhandle : HINF, listinfhandle : HINF, section : windows_core::PCSTR, copystyle : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopySectionA(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCSTR, infhandle : HINF, listinfhandle : HINF, section : windows_core::PCSTR, copystyle : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupQueueCopySectionA(queuehandle, sourcerootpath.param().abi(), infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), copystyle) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupQueueCopySectionW<P1, P4>(queuehandle: HSPFILEQ, sourcerootpath: P1, infhandle: HINF, listinfhandle: Option<HINF>, section: P4, copystyle: u32) -> windows_core::BOOL
+pub unsafe fn SetupQueueCopySectionW<P1, P4>(queuehandle: HSPFILEQ, sourcerootpath: P1, infhandle: HINF, listinfhandle: Option<HINF>, section: P4, copystyle: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopySectionW(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCWSTR, infhandle : HINF, listinfhandle : HINF, section : windows_core::PCWSTR, copystyle : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopySectionW(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCWSTR, infhandle : HINF, listinfhandle : HINF, section : windows_core::PCWSTR, copystyle : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupQueueCopySectionW(queuehandle, sourcerootpath.param().abi(), infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, section.param().abi(), copystyle) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupQueueCopyW<P1, P2, P3, P4, P5, P6, P7>(queuehandle: HSPFILEQ, sourcerootpath: P1, sourcepath: P2, sourcefilename: P3, sourcedescription: P4, sourcetagfile: P5, targetdirectory: P6, targetfilename: P7, copystyle: u32) -> windows_core::BOOL
+pub unsafe fn SetupQueueCopyW<P1, P2, P3, P4, P5, P6, P7>(queuehandle: HSPFILEQ, sourcerootpath: P1, sourcepath: P2, sourcefilename: P3, sourcedescription: P4, sourcetagfile: P5, targetdirectory: P6, targetfilename: P7, copystyle: super::DWORD) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -2117,27 +2215,29 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopyW(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCWSTR, sourcepath : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, sourcedescription : windows_core::PCWSTR, sourcetagfile : windows_core::PCWSTR, targetdirectory : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, copystyle : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueueCopyW(queuehandle : HSPFILEQ, sourcerootpath : windows_core::PCWSTR, sourcepath : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, sourcedescription : windows_core::PCWSTR, sourcetagfile : windows_core::PCWSTR, targetdirectory : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, copystyle : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupQueueCopyW(queuehandle, sourcerootpath.param().abi(), sourcepath.param().abi(), sourcefilename.param().abi(), sourcedescription.param().abi(), sourcetagfile.param().abi(), targetdirectory.param().abi(), targetfilename.param().abi(), copystyle) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupQueueDefaultCopyA<P2, P3, P4>(queuehandle: HSPFILEQ, infhandle: HINF, sourcerootpath: P2, sourcefilename: P3, targetfilename: P4, copystyle: u32) -> windows_core::BOOL
+pub unsafe fn SetupQueueDefaultCopyA<P2, P3, P4>(queuehandle: HSPFILEQ, infhandle: HINF, sourcerootpath: P2, sourcefilename: P3, targetfilename: P4, copystyle: super::DWORD) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueueDefaultCopyA(queuehandle : HSPFILEQ, infhandle : HINF, sourcerootpath : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, copystyle : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueueDefaultCopyA(queuehandle : HSPFILEQ, infhandle : HINF, sourcerootpath : windows_core::PCSTR, sourcefilename : windows_core::PCSTR, targetfilename : windows_core::PCSTR, copystyle : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupQueueDefaultCopyA(queuehandle, infhandle, sourcerootpath.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), copystyle) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupQueueDefaultCopyW<P2, P3, P4>(queuehandle: HSPFILEQ, infhandle: HINF, sourcerootpath: P2, sourcefilename: P3, targetfilename: P4, copystyle: u32) -> windows_core::BOOL
+pub unsafe fn SetupQueueDefaultCopyW<P2, P3, P4>(queuehandle: HSPFILEQ, infhandle: HINF, sourcerootpath: P2, sourcefilename: P3, targetfilename: P4, copystyle: super::DWORD) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupQueueDefaultCopyW(queuehandle : HSPFILEQ, infhandle : HINF, sourcerootpath : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, copystyle : u32) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupQueueDefaultCopyW(queuehandle : HSPFILEQ, infhandle : HINF, sourcerootpath : windows_core::PCWSTR, sourcefilename : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR, copystyle : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupQueueDefaultCopyW(queuehandle, infhandle, sourcerootpath.param().abi(), sourcefilename.param().abi(), targetfilename.param().abi(), copystyle) }
 }
 #[inline]
@@ -2230,136 +2330,149 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupRemoveFileLogEntryW(fileloghandle : HSPFILELOG, logsectionname : windows_core::PCWSTR, targetfilename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetupRemoveFileLogEntryW(fileloghandle, logsectionname.param().abi(), targetfilename.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupRemoveFromDiskSpaceListA<P1>(diskspace: HDSKSPC, targetfilespec: P1, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupRemoveFromDiskSpaceListA<P1>(diskspace: HDSKSPC, targetfilespec: P1, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_core::PCSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupRemoveFromDiskSpaceListA(diskspace, targetfilespec.param().abi(), operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListA(diskspace : HDSKSPC, targetfilespec : windows_core::PCSTR, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupRemoveFromDiskSpaceListA(diskspace, targetfilespec.param().abi(), operation, reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupRemoveFromDiskSpaceListW<P1>(diskspace: HDSKSPC, targetfilespec: P1, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupRemoveFromDiskSpaceListW<P1>(diskspace: HDSKSPC, targetfilespec: P1, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_core::PCWSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupRemoveFromDiskSpaceListW(diskspace, targetfilespec.param().abi(), operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromDiskSpaceListW(diskspace : HDSKSPC, targetfilespec : windows_core::PCWSTR, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupRemoveFromDiskSpaceListW(diskspace, targetfilespec.param().abi(), operation, reserved1 as _, reserved2) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupRemoveFromSourceListA<P1>(flags: u32, source: P1) -> windows_core::BOOL
+pub unsafe fn SetupRemoveFromSourceListA<P1>(flags: super::DWORD, source: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListA(flags : u32, source : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListA(flags : super::DWORD, source : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { SetupRemoveFromSourceListA(flags, source.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupRemoveFromSourceListW<P1>(flags: u32, source: P1) -> windows_core::BOOL
+pub unsafe fn SetupRemoveFromSourceListW<P1>(flags: super::DWORD, source: P1) -> windows_core::BOOL
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListW(flags : u32, source : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveFromSourceListW(flags : super::DWORD, source : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetupRemoveFromSourceListW(flags, source.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupRemoveInstallSectionFromDiskSpaceListA(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCSTR, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupRemoveInstallSectionFromDiskSpaceListA(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupRemoveInstallSectionFromDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, layoutinfhandle: Option<HINF>, sectionname: P3, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCWSTR, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupRemoveInstallSectionFromDiskSpaceListW(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveInstallSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, layoutinfhandle : HINF, sectionname : windows_core::PCWSTR, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupRemoveInstallSectionFromDiskSpaceListW(diskspace, infhandle, layoutinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupRemoveSectionFromDiskSpaceListA<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupRemoveSectionFromDiskSpaceListA(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListA(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCSTR, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupRemoveSectionFromDiskSpaceListA(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1 as _, reserved2) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: u32, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>) -> windows_core::BOOL
+pub unsafe fn SetupRemoveSectionFromDiskSpaceListW<P3>(diskspace: HDSKSPC, infhandle: HINF, listinfhandle: Option<HINF>, sectionname: P3, operation: super::UINT, reserved1: super::PVOID, reserved2: super::UINT) -> windows_core::BOOL
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCWSTR, operation : u32, reserved1 : *mut core::ffi::c_void, reserved2 : u32) -> windows_core::BOOL);
-    unsafe { SetupRemoveSectionFromDiskSpaceListW(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupRemoveSectionFromDiskSpaceListW(diskspace : HDSKSPC, infhandle : HINF, listinfhandle : HINF, sectionname : windows_core::PCWSTR, operation : super::UINT, reserved1 : super::PVOID, reserved2 : super::UINT) -> windows_core::BOOL);
+    unsafe { SetupRemoveSectionFromDiskSpaceListW(diskspace, infhandle, listinfhandle.unwrap_or(core::mem::zeroed()) as _, sectionname.param().abi(), operation, reserved1 as _, reserved2) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupRenameErrorA<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: u32, style: u32) -> u32
+pub unsafe fn SetupRenameErrorA<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: super::UINT, style: super::DWORD) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRenameErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, sourcefile : windows_core::PCSTR, targetfile : windows_core::PCSTR, win32errorcode : u32, style : u32) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupRenameErrorA(hwndparent : super::HWND, dialogtitle : windows_core::PCSTR, sourcefile : windows_core::PCSTR, targetfile : windows_core::PCSTR, win32errorcode : super::UINT, style : super::DWORD) -> super::UINT);
     unsafe { SetupRenameErrorA(hwndparent, dialogtitle.param().abi(), sourcefile.param().abi(), targetfile.param().abi(), win32errorcode, style) }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[inline]
-pub unsafe fn SetupRenameErrorW<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: u32, style: u32) -> u32
+pub unsafe fn SetupRenameErrorW<P1, P2, P3>(hwndparent: super::HWND, dialogtitle: P1, sourcefile: P2, targetfile: P3, win32errorcode: super::UINT, style: super::DWORD) -> super::UINT
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupRenameErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, sourcefile : windows_core::PCWSTR, targetfile : windows_core::PCWSTR, win32errorcode : u32, style : u32) -> u32);
+    windows_core::link!("setupapi.dll" "system" fn SetupRenameErrorW(hwndparent : super::HWND, dialogtitle : windows_core::PCWSTR, sourcefile : windows_core::PCWSTR, targetfile : windows_core::PCWSTR, win32errorcode : super::UINT, style : super::DWORD) -> super::UINT);
     unsafe { SetupRenameErrorW(hwndparent, dialogtitle.param().abi(), sourcefile.param().abi(), targetfile.param().abi(), win32errorcode, style) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupScanFileQueueA(filequeue: HSPFILEQ, flags: u32, window: Option<super::HWND>, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Option<*const core::ffi::c_void>, result: super::PDWORD) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : HSPFILEQ, flags : u32, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : *const core::ffi::c_void, result : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupScanFileQueueA(filequeue: HSPFILEQ, flags: super::DWORD, window: Option<super::HWND>, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Option<super::PVOID>, result: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : HSPFILEQ, flags : super::DWORD, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : super::PVOID, result : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupScanFileQueueA(filequeue, flags, window.unwrap_or(core::mem::zeroed()) as _, callbackroutine, callbackcontext.unwrap_or(core::mem::zeroed()) as _, result as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupScanFileQueueW(filequeue: HSPFILEQ, flags: u32, window: Option<super::HWND>, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Option<*const core::ffi::c_void>, result: super::PDWORD) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : HSPFILEQ, flags : u32, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : *const core::ffi::c_void, result : super::PDWORD) -> windows_core::BOOL);
+pub unsafe fn SetupScanFileQueueW(filequeue: HSPFILEQ, flags: super::DWORD, window: Option<super::HWND>, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Option<super::PVOID>, result: super::PDWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : HSPFILEQ, flags : super::DWORD, window : super::HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : super::PVOID, result : super::PDWORD) -> windows_core::BOOL);
     unsafe { SetupScanFileQueueW(filequeue, flags, window.unwrap_or(core::mem::zeroed()) as _, callbackroutine, callbackcontext.unwrap_or(core::mem::zeroed()) as _, result as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupSetDirectoryIdA<P2>(infhandle: HINF, id: u32, directory: P2) -> windows_core::BOOL
+pub unsafe fn SetupSetDirectoryIdA<P2>(infhandle: HINF, id: super::DWORD, directory: P2) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdA(infhandle : HINF, id : u32, directory : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdA(infhandle : HINF, id : super::DWORD, directory : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { SetupSetDirectoryIdA(infhandle, id, directory.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupSetDirectoryIdExA<P2>(infhandle: HINF, id: u32, directory: P2, flags: u32, reserved1: Option<u32>, reserved2: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupSetDirectoryIdExA<P2>(infhandle: HINF, id: super::DWORD, directory: P2, flags: super::DWORD, reserved1: super::DWORD, reserved2: super::PVOID) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExA(infhandle : HINF, id : u32, directory : windows_core::PCSTR, flags : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupSetDirectoryIdExA(infhandle, id, directory.param().abi(), flags, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExA(infhandle : HINF, id : super::DWORD, directory : windows_core::PCSTR, flags : super::DWORD, reserved1 : super::DWORD, reserved2 : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupSetDirectoryIdExA(infhandle, id, directory.param().abi(), flags, reserved1, reserved2 as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupSetDirectoryIdExW<P2>(infhandle: HINF, id: u32, directory: P2, flags: u32, reserved1: Option<u32>, reserved2: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupSetDirectoryIdExW<P2>(infhandle: HINF, id: super::DWORD, directory: P2, flags: super::DWORD, reserved1: super::DWORD, reserved2: super::PVOID) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExW(infhandle : HINF, id : u32, directory : windows_core::PCWSTR, flags : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupSetDirectoryIdExW(infhandle, id, directory.param().abi(), flags, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdExW(infhandle : HINF, id : super::DWORD, directory : windows_core::PCWSTR, flags : super::DWORD, reserved1 : super::DWORD, reserved2 : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupSetDirectoryIdExW(infhandle, id, directory.param().abi(), flags, reserved1, reserved2 as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupSetDirectoryIdW<P2>(infhandle: HINF, id: u32, directory: P2) -> windows_core::BOOL
+pub unsafe fn SetupSetDirectoryIdW<P2>(infhandle: HINF, id: super::DWORD, directory: P2) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdW(infhandle : HINF, id : u32, directory : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("setupapi.dll" "system" fn SetupSetDirectoryIdW(infhandle : HINF, id : super::DWORD, directory : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetupSetDirectoryIdW(infhandle, id, directory.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformA<P2>(queuehandle: HSPFILEQ, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, alternatedefaultcatalogfile: P2) -> windows_core::BOOL
 where
@@ -2368,6 +2481,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupSetFileQueueAlternatePlatformA(queuehandle : HSPFILEQ, alternateplatforminfo : PSP_ALTPLATFORM_INFO, alternatedefaultcatalogfile : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { SetupSetFileQueueAlternatePlatformA(queuehandle, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, alternatedefaultcatalogfile.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupSetFileQueueAlternatePlatformW<P2>(queuehandle: HSPFILEQ, alternateplatforminfo: Option<PSP_ALTPLATFORM_INFO>, alternatedefaultcatalogfile: P2) -> windows_core::BOOL
 where
@@ -2376,9 +2490,10 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupSetFileQueueAlternatePlatformW(queuehandle : HSPFILEQ, alternateplatforminfo : PSP_ALTPLATFORM_INFO, alternatedefaultcatalogfile : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetupSetFileQueueAlternatePlatformW(queuehandle, alternateplatforminfo.unwrap_or(core::mem::zeroed()) as _, alternatedefaultcatalogfile.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupSetFileQueueFlags(filequeue: HSPFILEQ, flagmask: u32, flags: u32) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupSetFileQueueFlags(filequeue : HSPFILEQ, flagmask : u32, flags : u32) -> windows_core::BOOL);
+pub unsafe fn SetupSetFileQueueFlags(filequeue: HSPFILEQ, flagmask: super::DWORD, flags: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupSetFileQueueFlags(filequeue : HSPFILEQ, flagmask : super::DWORD, flags : super::DWORD) -> windows_core::BOOL);
     unsafe { SetupSetFileQueueFlags(filequeue, flagmask, flags) }
 }
 #[inline]
@@ -2402,25 +2517,28 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupSetPlatformPathOverrideW(r#override : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetupSetPlatformPathOverrideW(r#override.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupSetSourceListA(flags: u32, sourcelist: &[windows_core::PCSTR]) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupSetSourceListA(flags : u32, sourcelist : *const windows_core::PCSTR, sourcecount : u32) -> windows_core::BOOL);
+pub unsafe fn SetupSetSourceListA(flags: super::DWORD, sourcelist: &[windows_core::PCSTR]) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupSetSourceListA(flags : super::DWORD, sourcelist : *const windows_core::PCSTR, sourcecount : super::UINT) -> windows_core::BOOL);
     unsafe { SetupSetSourceListA(flags, sourcelist.as_ptr(), sourcelist.len().try_into().unwrap()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetupSetSourceListW(flags: u32, sourcelist: &[windows_core::PCWSTR]) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupSetSourceListW(flags : u32, sourcelist : *const windows_core::PCWSTR, sourcecount : u32) -> windows_core::BOOL);
+pub unsafe fn SetupSetSourceListW(flags: super::DWORD, sourcelist: &[windows_core::PCWSTR]) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupSetSourceListW(flags : super::DWORD, sourcelist : *const windows_core::PCWSTR, sourcecount : super::UINT) -> windows_core::BOOL);
     unsafe { SetupSetSourceListW(flags, sourcelist.as_ptr(), sourcelist.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "spapidef", feature = "winnt"))]
+#[cfg(feature = "spapidef")]
 #[inline]
 pub unsafe fn SetupSetThreadLogToken(logtoken: super::SP_LOG_TOKEN) {
     windows_core::link!("setupapi.dll" "system" fn SetupSetThreadLogToken(logtoken : super::SP_LOG_TOKEN));
     unsafe { SetupSetThreadLogToken(logtoken) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SetupTermDefaultQueueCallback(context: *const core::ffi::c_void) {
-    windows_core::link!("setupapi.dll" "system" fn SetupTermDefaultQueueCallback(context : *const core::ffi::c_void));
+pub unsafe fn SetupTermDefaultQueueCallback(context: super::PVOID) {
+    windows_core::link!("setupapi.dll" "system" fn SetupTermDefaultQueueCallback(context : super::PVOID));
     unsafe { SetupTermDefaultQueueCallback(context) }
 }
 #[inline]
@@ -2428,27 +2546,31 @@ pub unsafe fn SetupTerminateFileLog(fileloghandle: HSPFILELOG) -> windows_core::
     windows_core::link!("setupapi.dll" "system" fn SetupTerminateFileLog(fileloghandle : HSPFILELOG) -> windows_core::BOOL);
     unsafe { SetupTerminateFileLog(fileloghandle) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupUninstallNewlyCopiedInfs(filequeue: HSPFILEQ, flags: u32, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("setupapi.dll" "system" fn SetupUninstallNewlyCopiedInfs(filequeue : HSPFILEQ, flags : u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupUninstallNewlyCopiedInfs(filequeue, flags, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn SetupUninstallNewlyCopiedInfs(filequeue: HSPFILEQ, flags: super::DWORD, reserved: super::PVOID) -> windows_core::BOOL {
+    windows_core::link!("setupapi.dll" "system" fn SetupUninstallNewlyCopiedInfs(filequeue : HSPFILEQ, flags : super::DWORD, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupUninstallNewlyCopiedInfs(filequeue, flags, reserved as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupUninstallOEMInfA<P0>(inffilename: P0, flags: u32, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupUninstallOEMInfA<P0>(inffilename: P0, flags: super::DWORD, reserved: super::PVOID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupUninstallOEMInfA(inffilename : windows_core::PCSTR, flags : u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupUninstallOEMInfA(inffilename.param().abi(), flags, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupUninstallOEMInfA(inffilename : windows_core::PCSTR, flags : super::DWORD, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupUninstallOEMInfA(inffilename.param().abi(), flags, reserved as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupUninstallOEMInfW<P0>(inffilename: P0, flags: u32, reserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn SetupUninstallOEMInfW<P0>(inffilename: P0, flags: super::DWORD, reserved: super::PVOID) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupUninstallOEMInfW(inffilename : windows_core::PCWSTR, flags : u32, reserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SetupUninstallOEMInfW(inffilename.param().abi(), flags, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("setupapi.dll" "system" fn SetupUninstallOEMInfW(inffilename : windows_core::PCWSTR, flags : super::DWORD, reserved : super::PVOID) -> windows_core::BOOL);
+    unsafe { SetupUninstallOEMInfW(inffilename.param().abi(), flags, reserved as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SetupVerifyInfFileA<P0>(infname: P0, altplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsignerinfo: PSP_INF_SIGNER_INFO_A) -> windows_core::BOOL
 where
@@ -2457,6 +2579,7 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupVerifyInfFileA(infname : windows_core::PCSTR, altplatforminfo : PSP_ALTPLATFORM_INFO, infsignerinfo : PSP_INF_SIGNER_INFO_A) -> windows_core::BOOL);
     unsafe { SetupVerifyInfFileA(infname.param().abi(), altplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsignerinfo as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetupVerifyInfFileW<P0>(infname: P0, altplatforminfo: Option<PSP_ALTPLATFORM_INFO>, infsignerinfo: PSP_INF_SIGNER_INFO_W) -> windows_core::BOOL
 where
@@ -2465,68 +2588,75 @@ where
     windows_core::link!("setupapi.dll" "system" fn SetupVerifyInfFileW(infname : windows_core::PCWSTR, altplatforminfo : PSP_ALTPLATFORM_INFO, infsignerinfo : PSP_INF_SIGNER_INFO_W) -> windows_core::BOOL);
     unsafe { SetupVerifyInfFileW(infname.param().abi(), altplatforminfo.unwrap_or(core::mem::zeroed()) as _, infsignerinfo as _) }
 }
-#[cfg(all(feature = "spapidef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "spapidef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetupWriteTextLogInfLine(logtoken: super::SP_LOG_TOKEN, flags: u32, infhandle: HINF, context: PINFCONTEXT) {
-    windows_core::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : super::SP_LOG_TOKEN, flags : u32, infhandle : HINF, context : PINFCONTEXT));
+pub unsafe fn SetupWriteTextLogInfLine(logtoken: super::SP_LOG_TOKEN, flags: super::DWORD, infhandle: HINF, context: PINFCONTEXT) {
+    windows_core::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : super::SP_LOG_TOKEN, flags : super::DWORD, infhandle : HINF, context : PINFCONTEXT));
     unsafe { SetupWriteTextLogInfLine(logtoken, flags, infhandle, context) }
 }
+#[cfg(feature = "shared")]
 pub type CABINET_INFO = CABINET_INFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
     pub DiskName: windows_core::PCSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
+    pub SetId: super::USHORT,
+    pub CabinetNumber: super::USHORT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct CABINET_INFO_A {
     pub CabinetPath: windows_core::PCSTR,
     pub CabinetFile: windows_core::PCSTR,
     pub DiskName: windows_core::PCSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
+    pub SetId: super::USHORT,
+    pub CabinetNumber: super::USHORT,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
     pub DiskName: windows_core::PCWSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
+    pub SetId: super::USHORT,
+    pub CabinetNumber: super::USHORT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct CABINET_INFO_W {
     pub CabinetPath: windows_core::PCWSTR,
     pub CabinetFile: windows_core::PCWSTR,
     pub DiskName: windows_core::PCWSTR,
-    pub SetId: u16,
-    pub CabinetNumber: u16,
+    pub SetId: super::USHORT,
+    pub CabinetNumber: super::USHORT,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: windows_core::BOOL,
-    pub InstallResult: u32,
-    pub PrivateData: *mut core::ffi::c_void,
+    pub InstallResult: super::DWORD,
+    pub PrivateData: super::PVOID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct COINSTALLER_CONTEXT_DATA {
     pub PostProcessing: windows_core::BOOL,
-    pub InstallResult: u32,
-    pub PrivateData: *mut core::ffi::c_void,
+    pub InstallResult: super::DWORD,
+    pub PrivateData: super::PVOID,
 }
 pub const COPYFLG_FORCE_FILE_IN_USE: i32 = 8;
 pub const COPYFLG_IN_USE_TRY_RENAME: i32 = 16384;
@@ -2876,128 +3006,143 @@ pub const FILEOP_NEWPATH: i32 = 4;
 pub const FILEOP_RENAME: i32 = 1;
 pub const FILEOP_RETRY: i32 = 1;
 pub const FILEOP_SKIP: i32 = 2;
+#[cfg(feature = "shared")]
 pub type FILEPATHS = FILEPATHS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type FILEPATHS_SIGNERINFO = FILEPATHS_SIGNERINFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
     pub DigitalSigner: windows_core::PCSTR,
     pub Version: windows_core::PCSTR,
     pub CatalogFile: windows_core::PCSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_SIGNERINFO_A {
     pub Target: windows_core::PCSTR,
     pub Source: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
     pub DigitalSigner: windows_core::PCSTR,
     pub Version: windows_core::PCSTR,
     pub CatalogFile: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
     pub DigitalSigner: windows_core::PCWSTR,
     pub Version: windows_core::PCWSTR,
     pub CatalogFile: windows_core::PCWSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_SIGNERINFO_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
     pub DigitalSigner: windows_core::PCWSTR,
     pub Version: windows_core::PCWSTR,
     pub CatalogFile: windows_core::PCWSTR,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct FILEPATHS_W {
     pub Target: windows_core::PCWSTR,
     pub Source: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub Flags: u32,
+    pub Win32Error: super::UINT,
+    pub Flags: super::DWORD,
 }
 pub const FILE_COMPRESSION_MSZIP: i32 = 2;
 pub const FILE_COMPRESSION_NONE: i32 = 0;
 pub const FILE_COMPRESSION_NTCAB: i32 = 3;
 pub const FILE_COMPRESSION_WINLZA: i32 = 1;
+#[cfg(feature = "shared")]
 pub type FILE_IN_CABINET_INFO = FILE_IN_CABINET_INFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [i8; 260],
+    pub FileSize: super::DWORD,
+    pub Win32Error: super::DWORD,
+    pub DosDate: super::WORD,
+    pub DosTime: super::WORD,
+    pub DosAttribs: super::WORD,
+    pub FullTargetName: [super::CHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for FILE_IN_CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_A {
     pub NameInCabinet: windows_core::PCSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [i8; 260],
+    pub FileSize: super::DWORD,
+    pub Win32Error: super::DWORD,
+    pub DosDate: super::WORD,
+    pub DosTime: super::WORD,
+    pub DosAttribs: super::WORD,
+    pub FullTargetName: [super::CHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for FILE_IN_CABINET_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3005,35 +3150,39 @@ impl Default for FILE_IN_CABINET_INFO_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [u16; 260],
+    pub FileSize: super::DWORD,
+    pub Win32Error: super::DWORD,
+    pub DosDate: super::WORD,
+    pub DosTime: super::WORD,
+    pub DosAttribs: super::WORD,
+    pub FullTargetName: [super::WCHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_IN_CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct FILE_IN_CABINET_INFO_W {
     pub NameInCabinet: windows_core::PCWSTR,
-    pub FileSize: u32,
-    pub Win32Error: u32,
-    pub DosDate: u16,
-    pub DosTime: u16,
-    pub DosAttribs: u16,
-    pub FullTargetName: [u16; 260],
+    pub FileSize: super::DWORD,
+    pub Win32Error: super::DWORD,
+    pub DosDate: super::WORD,
+    pub DosTime: super::WORD,
+    pub DosAttribs: super::WORD,
+    pub FullTargetName: [super::WCHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_IN_CABINET_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3130,21 +3279,23 @@ pub const IDI_RESOURCEOVERLAYFIRST: i32 = 161;
 pub const IDI_RESOURCEOVERLAYLAST: i32 = 161;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct INFCONTEXT {
-    pub Inf: *mut core::ffi::c_void,
-    pub CurrentInf: *mut core::ffi::c_void,
-    pub Section: u32,
-    pub Line: u32,
+    pub Inf: super::PVOID,
+    pub CurrentInf: super::PVOID,
+    pub Section: super::UINT,
+    pub Line: super::UINT,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct INFCONTEXT {
-    pub Inf: *mut core::ffi::c_void,
-    pub CurrentInf: *mut core::ffi::c_void,
-    pub Section: u32,
-    pub Line: u32,
+    pub Inf: super::PVOID,
+    pub CurrentInf: super::PVOID,
+    pub Section: super::UINT,
+    pub Line: super::UINT,
 }
 pub const INFINFO_DEFAULT_SEARCH: i32 = 3;
 pub const INFINFO_INF_NAME_IS_ABSOLUTE: i32 = 2;
@@ -3188,125 +3339,207 @@ pub const NDW_INSTALLFLAG_PCMCIAMODE: i32 = 65536;
 pub const NDW_INSTALLFLAG_SKIPCLASSLIST: i32 = 16384;
 pub const NDW_INSTALLFLAG_SKIPISDEVINSTALLED: i32 = 2048;
 pub const NDW_INSTALLFLAG_USERCANCEL: i32 = 262144;
-pub type PCABINET_INFO = PCABINET_INFO_A;
+#[cfg(feature = "shared")]
+pub type PCABINET_INFO = *mut CABINET_INFO_A;
+#[cfg(feature = "shared")]
 pub type PCABINET_INFO_A = *mut CABINET_INFO_A;
+#[cfg(feature = "shared")]
 pub type PCABINET_INFO_W = *mut CABINET_INFO_W;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCOINSTALLER_CONTEXT_DATA = *mut COINSTALLER_CONTEXT_DATA;
-pub type PDETECT_PROGRESS_NOTIFY = Option<unsafe extern "system" fn(progressnotifyparam: *const core::ffi::c_void, detectcomplete: u32) -> windows_core::BOOL>;
-pub type PFILEPATHS = PFILEPATHS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PDETECT_PROGRESS_NOTIFY = Option<unsafe extern "system" fn(progressnotifyparam: super::PVOID, detectcomplete: super::DWORD) -> windows_core::BOOL>;
+#[cfg(feature = "shared")]
+pub type PFILEPATHS = *mut FILEPATHS_A;
+#[cfg(feature = "shared")]
 pub type PFILEPATHS_A = *mut FILEPATHS_A;
-pub type PFILEPATHS_SIGNERINFO = PFILEPATHS_SIGNERINFO_A;
+#[cfg(feature = "shared")]
+pub type PFILEPATHS_SIGNERINFO = *mut FILEPATHS_SIGNERINFO_A;
+#[cfg(feature = "shared")]
 pub type PFILEPATHS_SIGNERINFO_A = *mut FILEPATHS_SIGNERINFO_A;
+#[cfg(feature = "shared")]
 pub type PFILEPATHS_SIGNERINFO_W = *mut FILEPATHS_SIGNERINFO_W;
+#[cfg(feature = "shared")]
 pub type PFILEPATHS_W = *mut FILEPATHS_W;
-pub type PFILE_IN_CABINET_INFO = PFILE_IN_CABINET_INFO_A;
+#[cfg(feature = "shared")]
+pub type PFILE_IN_CABINET_INFO = *mut FILE_IN_CABINET_INFO_A;
+#[cfg(feature = "shared")]
 pub type PFILE_IN_CABINET_INFO_A = *mut FILE_IN_CABINET_INFO_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_IN_CABINET_INFO_W = *mut FILE_IN_CABINET_INFO_W;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PINFCONTEXT = *mut INFCONTEXT;
-pub type PSOURCE_MEDIA = PSOURCE_MEDIA_A;
+#[cfg(feature = "shared")]
+pub type PSOURCE_MEDIA = *mut SOURCE_MEDIA_A;
+#[cfg(feature = "shared")]
 pub type PSOURCE_MEDIA_A = *mut SOURCE_MEDIA_A;
+#[cfg(feature = "shared")]
 pub type PSOURCE_MEDIA_W = *mut SOURCE_MEDIA_W;
-#[cfg(all(feature = "prsht", feature = "windef"))]
-pub type PSP_ADDPROPERTYPAGE_DATA = PSP_NEWDEVICEWIZARD_DATA;
-pub type PSP_ALTPLATFORM_INFO = PSP_ALTPLATFORM_INFO_V2;
+#[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
+pub type PSP_ADDPROPERTYPAGE_DATA = *mut SP_NEWDEVICEWIZARD_DATA;
+#[cfg(feature = "shared")]
+pub type PSP_ALTPLATFORM_INFO = *mut SP_ALTPLATFORM_INFO_V2;
+#[cfg(feature = "shared")]
 pub type PSP_ALTPLATFORM_INFO_V1 = *mut SP_ALTPLATFORM_INFO_V1;
+#[cfg(feature = "shared")]
 pub type PSP_ALTPLATFORM_INFO_V2 = *mut SP_ALTPLATFORM_INFO_V2;
+#[cfg(feature = "shared")]
 pub type PSP_ALTPLATFORM_INFO_V3 = *mut SP_ALTPLATFORM_INFO_V3;
-pub type PSP_BACKUP_QUEUE_PARAMS = PSP_BACKUP_QUEUE_PARAMS_V2;
-pub type PSP_BACKUP_QUEUE_PARAMS_A = PSP_BACKUP_QUEUE_PARAMS_V2_A;
-pub type PSP_BACKUP_QUEUE_PARAMS_V1 = PSP_BACKUP_QUEUE_PARAMS_V1_A;
+#[cfg(feature = "shared")]
+pub type PSP_BACKUP_QUEUE_PARAMS = *mut SP_BACKUP_QUEUE_PARAMS_V2_A;
+#[cfg(feature = "shared")]
+pub type PSP_BACKUP_QUEUE_PARAMS_A = *mut SP_BACKUP_QUEUE_PARAMS_V2_A;
+#[cfg(feature = "shared")]
+pub type PSP_BACKUP_QUEUE_PARAMS_V1 = *mut SP_BACKUP_QUEUE_PARAMS_V1_A;
+#[cfg(feature = "shared")]
 pub type PSP_BACKUP_QUEUE_PARAMS_V1_A = *mut SP_BACKUP_QUEUE_PARAMS_V1_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_BACKUP_QUEUE_PARAMS_V1_W = *mut SP_BACKUP_QUEUE_PARAMS_V1_W;
-pub type PSP_BACKUP_QUEUE_PARAMS_V2 = PSP_BACKUP_QUEUE_PARAMS_V2_A;
+#[cfg(feature = "shared")]
+pub type PSP_BACKUP_QUEUE_PARAMS_V2 = *mut SP_BACKUP_QUEUE_PARAMS_V2_A;
+#[cfg(feature = "shared")]
 pub type PSP_BACKUP_QUEUE_PARAMS_V2_A = *mut SP_BACKUP_QUEUE_PARAMS_V2_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_BACKUP_QUEUE_PARAMS_V2_W = *mut SP_BACKUP_QUEUE_PARAMS_V2_W;
-pub type PSP_BACKUP_QUEUE_PARAMS_W = PSP_BACKUP_QUEUE_PARAMS_V2_W;
-#[cfg(feature = "commctrl")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSP_BACKUP_QUEUE_PARAMS_W = *mut SP_BACKUP_QUEUE_PARAMS_V2_W;
+#[cfg(all(feature = "commctrl", feature = "shared"))]
 pub type PSP_CLASSIMAGELIST_DATA = *mut SP_CLASSIMAGELIST_DATA;
+#[cfg(feature = "shared")]
 pub type PSP_CLASSINSTALL_HEADER = *mut SP_CLASSINSTALL_HEADER;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_DETECTDEVICE_PARAMS = *mut SP_DETECTDEVICE_PARAMS;
-pub type PSP_DETSIG_CMPPROC = Option<unsafe extern "system" fn(deviceinfoset: HDEVINFO, newdevicedata: PSP_DEVINFO_DATA, existingdevicedata: PSP_DEVINFO_DATA, comparecontext: *const core::ffi::c_void) -> u32>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSP_DETSIG_CMPPROC = Option<unsafe extern "system" fn(deviceinfoset: HDEVINFO, newdevicedata: PSP_DEVINFO_DATA, existingdevicedata: PSP_DEVINFO_DATA, comparecontext: super::PVOID) -> super::DWORD>;
+#[cfg(feature = "shared")]
 pub type PSP_DEVICE_INTERFACE_DATA = *mut SP_DEVICE_INTERFACE_DATA;
-pub type PSP_DEVICE_INTERFACE_DETAIL_DATA = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
+#[cfg(feature = "shared")]
+pub type PSP_DEVICE_INTERFACE_DETAIL_DATA = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+#[cfg(feature = "shared")]
 pub type PSP_DEVICE_INTERFACE_DETAIL_DATA_A = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_DEVICE_INTERFACE_DETAIL_DATA_W = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W;
+#[cfg(feature = "shared")]
 pub type PSP_DEVINFO_DATA = *mut SP_DEVINFO_DATA;
-#[cfg(feature = "winnt")]
-pub type PSP_DEVINFO_LIST_DETAIL_DATA = PSP_DEVINFO_LIST_DETAIL_DATA_A;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSP_DEVINFO_LIST_DETAIL_DATA = *mut SP_DEVINFO_LIST_DETAIL_DATA_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_DEVINFO_LIST_DETAIL_DATA_A = *mut SP_DEVINFO_LIST_DETAIL_DATA_A;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_DEVINFO_LIST_DETAIL_DATA_W = *mut SP_DEVINFO_LIST_DETAIL_DATA_W;
-#[cfg(feature = "windef")]
-pub type PSP_DEVINSTALL_PARAMS = PSP_DEVINSTALL_PARAMS_A;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+pub type PSP_DEVINSTALL_PARAMS = *mut SP_DEVINSTALL_PARAMS_A;
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PSP_DEVINSTALL_PARAMS_A = *mut SP_DEVINSTALL_PARAMS_A;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PSP_DEVINSTALL_PARAMS_W = *mut SP_DEVINSTALL_PARAMS_W;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PSP_DRVINFO_DATA = PSP_DRVINFO_DATA_V2;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PSP_DRVINFO_DATA_A = PSP_DRVINFO_DATA_V2_A;
-pub type PSP_DRVINFO_DATA_V1 = PSP_DRVINFO_DATA_V1_A;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PSP_DRVINFO_DATA = *mut SP_DRVINFO_DATA_V2_A;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PSP_DRVINFO_DATA_A = *mut SP_DRVINFO_DATA_V2_A;
+#[cfg(feature = "shared")]
+pub type PSP_DRVINFO_DATA_V1 = *mut SP_DRVINFO_DATA_V1_A;
+#[cfg(feature = "shared")]
 pub type PSP_DRVINFO_DATA_V1_A = *mut SP_DRVINFO_DATA_V1_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_DRVINFO_DATA_V1_W = *mut SP_DRVINFO_DATA_V1_W;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PSP_DRVINFO_DATA_V2 = PSP_DRVINFO_DATA_V2_A;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PSP_DRVINFO_DATA_V2 = *mut SP_DRVINFO_DATA_V2_A;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PSP_DRVINFO_DATA_V2_A = *mut SP_DRVINFO_DATA_V2_A;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PSP_DRVINFO_DATA_V2_W = *mut SP_DRVINFO_DATA_V2_W;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PSP_DRVINFO_DATA_W = PSP_DRVINFO_DATA_V2_W;
-#[cfg(feature = "minwindef")]
-pub type PSP_DRVINFO_DETAIL_DATA = PSP_DRVINFO_DETAIL_DATA_A;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PSP_DRVINFO_DATA_W = *mut SP_DRVINFO_DATA_V2_W;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PSP_DRVINFO_DETAIL_DATA = *mut SP_DRVINFO_DETAIL_DATA_A;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PSP_DRVINFO_DETAIL_DATA_A = *mut SP_DRVINFO_DETAIL_DATA_A;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PSP_DRVINFO_DETAIL_DATA_W = *mut SP_DRVINFO_DETAIL_DATA_W;
+#[cfg(feature = "shared")]
 pub type PSP_DRVINSTALL_PARAMS = *mut SP_DRVINSTALL_PARAMS;
+#[cfg(feature = "shared")]
 pub type PSP_ENABLECLASS_PARAMS = *mut SP_ENABLECLASS_PARAMS;
-pub type PSP_FILE_CALLBACK_A = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
-pub type PSP_FILE_CALLBACK_W = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
-pub type PSP_FILE_COPY_PARAMS = PSP_FILE_COPY_PARAMS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSP_FILE_CALLBACK_A = Option<unsafe extern "system" fn(context: super::PVOID, notification: super::UINT, param1: super::UINT_PTR, param2: super::UINT_PTR) -> super::UINT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSP_FILE_CALLBACK_W = Option<unsafe extern "system" fn(context: super::PVOID, notification: super::UINT, param1: super::UINT_PTR, param2: super::UINT_PTR) -> super::UINT>;
+#[cfg(feature = "shared")]
+pub type PSP_FILE_COPY_PARAMS = *mut SP_FILE_COPY_PARAMS_A;
+#[cfg(feature = "shared")]
 pub type PSP_FILE_COPY_PARAMS_A = *mut SP_FILE_COPY_PARAMS_A;
+#[cfg(feature = "shared")]
 pub type PSP_FILE_COPY_PARAMS_W = *mut SP_FILE_COPY_PARAMS_W;
+#[cfg(feature = "shared")]
 pub type PSP_INF_INFORMATION = *mut SP_INF_INFORMATION;
-pub type PSP_INF_SIGNER_INFO = PSP_INF_SIGNER_INFO_V2;
-pub type PSP_INF_SIGNER_INFO_A = PSP_INF_SIGNER_INFO_V2_A;
-pub type PSP_INF_SIGNER_INFO_V1 = PSP_INF_SIGNER_INFO_V1_A;
+#[cfg(feature = "shared")]
+pub type PSP_INF_SIGNER_INFO = *mut SP_INF_SIGNER_INFO_V2_A;
+#[cfg(feature = "shared")]
+pub type PSP_INF_SIGNER_INFO_A = *mut SP_INF_SIGNER_INFO_V2_A;
+#[cfg(feature = "shared")]
+pub type PSP_INF_SIGNER_INFO_V1 = *mut SP_INF_SIGNER_INFO_V1_A;
+#[cfg(feature = "shared")]
 pub type PSP_INF_SIGNER_INFO_V1_A = *mut SP_INF_SIGNER_INFO_V1_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_INF_SIGNER_INFO_V1_W = *mut SP_INF_SIGNER_INFO_V1_W;
-pub type PSP_INF_SIGNER_INFO_V2 = PSP_INF_SIGNER_INFO_V2_A;
+#[cfg(feature = "shared")]
+pub type PSP_INF_SIGNER_INFO_V2 = *mut SP_INF_SIGNER_INFO_V2_A;
+#[cfg(feature = "shared")]
 pub type PSP_INF_SIGNER_INFO_V2_A = *mut SP_INF_SIGNER_INFO_V2_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_INF_SIGNER_INFO_V2_W = *mut SP_INF_SIGNER_INFO_V2_W;
-pub type PSP_INF_SIGNER_INFO_W = PSP_INF_SIGNER_INFO_V2_W;
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSP_INF_SIGNER_INFO_W = *mut SP_INF_SIGNER_INFO_V2_W;
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
 pub type PSP_INSTALLWIZARD_DATA = *mut SP_INSTALLWIZARD_DATA;
-pub type PSP_INTERFACE_DEVICE_DATA = PSP_DEVICE_INTERFACE_DATA;
-pub type PSP_INTERFACE_DEVICE_DETAIL_DATA = PSP_INTERFACE_DEVICE_DETAIL_DATA_A;
-pub type PSP_INTERFACE_DEVICE_DETAIL_DATA_A = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
-pub type PSP_INTERFACE_DEVICE_DETAIL_DATA_W = PSP_DEVICE_INTERFACE_DETAIL_DATA_W;
-#[cfg(all(feature = "prsht", feature = "windef"))]
+#[cfg(feature = "shared")]
+pub type PSP_INTERFACE_DEVICE_DATA = *mut SP_DEVICE_INTERFACE_DATA;
+#[cfg(feature = "shared")]
+pub type PSP_INTERFACE_DEVICE_DETAIL_DATA = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+#[cfg(feature = "shared")]
+pub type PSP_INTERFACE_DEVICE_DETAIL_DATA_A = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PSP_INTERFACE_DEVICE_DETAIL_DATA_W = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W;
+#[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
 pub type PSP_NEWDEVICEWIZARD_DATA = *mut SP_NEWDEVICEWIZARD_DATA;
-pub type PSP_ORIGINAL_FILE_INFO = PSP_ORIGINAL_FILE_INFO_A;
+#[cfg(feature = "shared")]
+pub type PSP_ORIGINAL_FILE_INFO = *mut SP_ORIGINAL_FILE_INFO_A;
+#[cfg(feature = "shared")]
 pub type PSP_ORIGINAL_FILE_INFO_A = *mut SP_ORIGINAL_FILE_INFO_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_ORIGINAL_FILE_INFO_W = *mut SP_ORIGINAL_FILE_INFO_W;
-pub type PSP_POWERMESSAGEWAKE_PARAMS = PSP_POWERMESSAGEWAKE_PARAMS_A;
+#[cfg(feature = "shared")]
+pub type PSP_POWERMESSAGEWAKE_PARAMS = *mut SP_POWERMESSAGEWAKE_PARAMS_A;
+#[cfg(feature = "shared")]
 pub type PSP_POWERMESSAGEWAKE_PARAMS_A = *mut SP_POWERMESSAGEWAKE_PARAMS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_POWERMESSAGEWAKE_PARAMS_W = *mut SP_POWERMESSAGEWAKE_PARAMS_W;
+#[cfg(feature = "shared")]
 pub type PSP_PROPCHANGE_PARAMS = *mut SP_PROPCHANGE_PARAMS;
+#[cfg(feature = "shared")]
 pub type PSP_PROPSHEETPAGE_REQUEST = *mut SP_PROPSHEETPAGE_REQUEST;
-pub type PSP_REGISTER_CONTROL_STATUS = PSP_REGISTER_CONTROL_STATUSA;
+#[cfg(feature = "shared")]
+pub type PSP_REGISTER_CONTROL_STATUS = *mut SP_REGISTER_CONTROL_STATUSA;
+#[cfg(feature = "shared")]
 pub type PSP_REGISTER_CONTROL_STATUSA = *mut SP_REGISTER_CONTROL_STATUSA;
+#[cfg(feature = "shared")]
 pub type PSP_REGISTER_CONTROL_STATUSW = *mut SP_REGISTER_CONTROL_STATUSW;
+#[cfg(feature = "shared")]
 pub type PSP_REMOVEDEVICE_PARAMS = *mut SP_REMOVEDEVICE_PARAMS;
-pub type PSP_SELECTDEVICE_PARAMS = PSP_SELECTDEVICE_PARAMS_A;
+#[cfg(feature = "shared")]
+pub type PSP_SELECTDEVICE_PARAMS = *mut SP_SELECTDEVICE_PARAMS_A;
+#[cfg(feature = "shared")]
 pub type PSP_SELECTDEVICE_PARAMS_A = *mut SP_SELECTDEVICE_PARAMS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_SELECTDEVICE_PARAMS_W = *mut SP_SELECTDEVICE_PARAMS_W;
-pub type PSP_TROUBLESHOOTER_PARAMS = PSP_TROUBLESHOOTER_PARAMS_A;
+#[cfg(feature = "shared")]
+pub type PSP_TROUBLESHOOTER_PARAMS = *mut SP_TROUBLESHOOTER_PARAMS_A;
+#[cfg(feature = "shared")]
 pub type PSP_TROUBLESHOOTER_PARAMS_A = *mut SP_TROUBLESHOOTER_PARAMS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSP_TROUBLESHOOTER_PARAMS_W = *mut SP_TROUBLESHOOTER_PARAMS_W;
+#[cfg(feature = "shared")]
 pub type PSP_UNREMOVEDEVICE_PARAMS = *mut SP_UNREMOVEDEVICE_PARAMS;
 pub const SCWMI_CLOBBER_SECURITY: i32 = 1;
 pub const SETDIRID_NOT_FULL_PATH: i32 = 1;
@@ -3321,9 +3554,11 @@ pub const SIGNERSCORE_UNKNOWN: u32 = 4278190080;
 pub const SIGNERSCORE_UNSIGNED: u32 = 2147483648;
 pub const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472;
 pub const SIGNERSCORE_WHQL: i32 = 218103813;
+#[cfg(feature = "shared")]
 pub type SOURCE_MEDIA = SOURCE_MEDIA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
@@ -3331,21 +3566,23 @@ pub struct SOURCE_MEDIA_A {
     pub Description: windows_core::PCSTR,
     pub SourcePath: windows_core::PCSTR,
     pub SourceFile: windows_core::PCSTR,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SOURCE_MEDIA_A {
     pub Reserved: windows_core::PCSTR,
     pub Tagfile: windows_core::PCSTR,
     pub Description: windows_core::PCSTR,
     pub SourcePath: windows_core::PCSTR,
     pub SourceFile: windows_core::PCSTR,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
@@ -3353,18 +3590,19 @@ pub struct SOURCE_MEDIA_W {
     pub Description: windows_core::PCWSTR,
     pub SourcePath: windows_core::PCWSTR,
     pub SourceFile: windows_core::PCWSTR,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SOURCE_MEDIA_W {
     pub Reserved: windows_core::PCWSTR,
     pub Tagfile: windows_core::PCWSTR,
     pub Description: windows_core::PCWSTR,
     pub SourcePath: windows_core::PCWSTR,
     pub SourceFile: windows_core::PCWSTR,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 pub const SPCRP_CHARACTERISTICS: i32 = 27;
 pub const SPCRP_DEVTYPE: i32 = 25;
@@ -3531,47 +3769,52 @@ pub const SPSVCINST_TAGTOFRONT: i32 = 1;
 pub const SPSVCINST_UNIQUE_NAME: i32 = 65536;
 pub const SPWPT_SELECTDEVICE: i32 = 1;
 pub const SPWP_USE_DEVINFO_DATA: i32 = 1;
-#[cfg(all(feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
 pub type SP_ADDPROPERTYPAGE_DATA = SP_NEWDEVICEWIZARD_DATA;
 pub const SP_ALTPLATFORM_FLAGS_SUITE_MASK: i32 = 2;
 pub const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: i32 = 1;
+#[cfg(feature = "shared")]
 pub type SP_ALTPLATFORM_INFO = SP_ALTPLATFORM_INFO_V2;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
-    pub Reserved: u16,
+    pub cbSize: super::DWORD,
+    pub Platform: super::DWORD,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
+    pub ProcessorArchitecture: super::WORD,
+    pub Reserved: super::WORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_ALTPLATFORM_INFO_V1 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
-    pub Reserved: u16,
+    pub cbSize: super::DWORD,
+    pub Platform: super::DWORD,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
+    pub ProcessorArchitecture: super::WORD,
+    pub Reserved: super::WORD,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
+    pub cbSize: super::DWORD,
+    pub Platform: super::DWORD,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
+    pub ProcessorArchitecture: super::WORD,
     pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
+    pub FirstValidatedMajorVersion: super::DWORD,
+    pub FirstValidatedMinorVersion: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3579,44 +3822,50 @@ impl Default for SP_ALTPLATFORM_INFO_V2 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
+    pub Reserved: super::WORD,
+    pub Flags: super::WORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V2 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
+    pub cbSize: super::DWORD,
+    pub Platform: super::DWORD,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
+    pub ProcessorArchitecture: super::WORD,
     pub Anonymous: SP_ALTPLATFORM_INFO_V2_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
+    pub FirstValidatedMajorVersion: super::DWORD,
+    pub FirstValidatedMinorVersion: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
+    pub Reserved: super::WORD,
+    pub Flags: super::WORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3624,21 +3873,23 @@ impl Default for SP_ALTPLATFORM_INFO_V2_0 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
+    pub cbSize: super::DWORD,
+    pub Platform: super::DWORD,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
+    pub ProcessorArchitecture: super::WORD,
     pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
-    pub ProductType: u8,
-    pub SuiteMask: u16,
-    pub BuildNumber: u32,
+    pub FirstValidatedMajorVersion: super::DWORD,
+    pub FirstValidatedMinorVersion: super::DWORD,
+    pub ProductType: super::BYTE,
+    pub SuiteMask: super::WORD,
+    pub BuildNumber: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3646,47 +3897,53 @@ impl Default for SP_ALTPLATFORM_INFO_V3 {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
+    pub Reserved: super::WORD,
+    pub Flags: super::WORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_ALTPLATFORM_INFO_V3 {
-    pub cbSize: u32,
-    pub Platform: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ProcessorArchitecture: u16,
+    pub cbSize: super::DWORD,
+    pub Platform: super::DWORD,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
+    pub ProcessorArchitecture: super::WORD,
     pub Anonymous: SP_ALTPLATFORM_INFO_V3_0,
-    pub FirstValidatedMajorVersion: u32,
-    pub FirstValidatedMinorVersion: u32,
-    pub ProductType: u8,
-    pub SuiteMask: u16,
-    pub BuildNumber: u32,
+    pub FirstValidatedMajorVersion: super::DWORD,
+    pub FirstValidatedMinorVersion: super::DWORD,
+    pub ProductType: super::BYTE,
+    pub SuiteMask: super::WORD,
+    pub BuildNumber: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
-    pub Reserved: u16,
-    pub Flags: u16,
+    pub Reserved: super::WORD,
+    pub Flags: super::WORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_ALTPLATFORM_INFO_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3695,32 +3952,39 @@ impl Default for SP_ALTPLATFORM_INFO_V3_0 {
 pub const SP_BACKUP_BACKUPPASS: i32 = 1;
 pub const SP_BACKUP_BOOTFILE: i32 = 8;
 pub const SP_BACKUP_DEMANDPASS: i32 = 2;
-pub type SP_BACKUP_QUEUE_PARAMS = SP_BACKUP_QUEUE_PARAMS_V2;
+#[cfg(feature = "shared")]
+pub type SP_BACKUP_QUEUE_PARAMS = SP_BACKUP_QUEUE_PARAMS_V2_A;
+#[cfg(feature = "shared")]
 pub type SP_BACKUP_QUEUE_PARAMS_A = SP_BACKUP_QUEUE_PARAMS_V2_A;
+#[cfg(feature = "shared")]
 pub type SP_BACKUP_QUEUE_PARAMS_V1 = SP_BACKUP_QUEUE_PARAMS_V1_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::CHAR; 260],
+    pub FilenameOffset: super::INT,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::CHAR; 260],
+    pub FilenameOffset: super::INT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3728,58 +3992,67 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::WCHAR; 260],
+    pub FilenameOffset: super::INT,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::WCHAR; 260],
+    pub FilenameOffset: super::INT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type SP_BACKUP_QUEUE_PARAMS_V2 = SP_BACKUP_QUEUE_PARAMS_V2_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [i8; 260],
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::CHAR; 260],
+    pub FilenameOffset: super::INT,
+    pub ReinstallInstance: [super::CHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
-    pub cbSize: u32,
-    pub FullInfPath: [i8; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [i8; 260],
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::CHAR; 260],
+    pub FilenameOffset: super::INT,
+    pub ReinstallInstance: [super::CHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3787,66 +4060,73 @@ impl Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [u16; 260],
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::WCHAR; 260],
+    pub FilenameOffset: super::INT,
+    pub ReinstallInstance: [super::WCHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
-    pub cbSize: u32,
-    pub FullInfPath: [u16; 260],
-    pub FilenameOffset: i32,
-    pub ReinstallInstance: [u16; 260],
+    pub cbSize: super::DWORD,
+    pub FullInfPath: [super::WCHAR; 260],
+    pub FilenameOffset: super::INT,
+    pub ReinstallInstance: [super::WCHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SP_BACKUP_QUEUE_PARAMS_W = SP_BACKUP_QUEUE_PARAMS_V2_W;
 pub const SP_BACKUP_SPECIAL: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "commctrl")]
+#[cfg(all(feature = "commctrl", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SP_CLASSIMAGELIST_DATA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ImageList: super::HIMAGELIST,
-    pub Reserved: usize,
+    pub Reserved: super::ULONG_PTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "commctrl")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(all(feature = "commctrl", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct SP_CLASSIMAGELIST_DATA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ImageList: super::HIMAGELIST,
-    pub Reserved: usize,
+    pub Reserved: super::ULONG_PTR,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_CLASSINSTALL_HEADER {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InstallFunction: DI_FUNCTION,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_CLASSINSTALL_HEADER {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InstallFunction: DI_FUNCTION,
 }
 pub const SP_COPY_ALREADYDECOMP: i32 = 4194304;
@@ -3879,60 +4159,69 @@ pub const SP_COPY_WARNIFSKIP: i32 = 16384;
 pub const SP_COPY_WINDOWS_SIGNED: i32 = 16777216;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
-    pub ProgressNotifyParam: *mut core::ffi::c_void,
+    pub ProgressNotifyParam: super::PVOID,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SP_DETECTDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub DetectProgressNotify: PDETECT_PROGRESS_NOTIFY,
-    pub ProgressNotifyParam: *mut core::ffi::c_void,
+    pub ProgressNotifyParam: super::PVOID,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_DEVICE_INTERFACE_DATA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InterfaceClassGuid: windows_core::GUID,
-    pub Flags: u32,
-    pub Reserved: usize,
+    pub Flags: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_DEVICE_INTERFACE_DATA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InterfaceClassGuid: windows_core::GUID,
-    pub Flags: u32,
-    pub Reserved: usize,
+    pub Flags: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
 }
+#[cfg(feature = "shared")]
 pub type SP_DEVICE_INTERFACE_DETAIL_DATA = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub DevicePath: [i8; 1],
+    pub cbSize: super::DWORD,
+    pub DevicePath: [super::CHAR; 1],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    pub cbSize: u32,
-    pub DevicePath: [i8; 1],
+    pub cbSize: super::DWORD,
+    pub DevicePath: [super::CHAR; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3940,25 +4229,29 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub DevicePath: [u16; 1],
+    pub cbSize: super::DWORD,
+    pub DevicePath: [super::WCHAR; 1],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    pub cbSize: u32,
-    pub DevicePath: [u16; 1],
+    pub cbSize: super::DWORD,
+    pub DevicePath: [super::WCHAR; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3966,53 +4259,55 @@ impl Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_DEVINFO_DATA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
-    pub DevInst: u32,
-    pub Reserved: usize,
+    pub DevInst: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_DEVINFO_DATA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
-    pub DevInst: u32,
-    pub Reserved: usize,
+    pub DevInst: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SP_DEVINFO_LIST_DETAIL_DATA = SP_DEVINFO_LIST_DETAIL_DATA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
     pub RemoteMachineHandle: super::HANDLE,
-    pub RemoteMachineName: [i8; 263],
+    pub RemoteMachineName: [super::CHAR; 263],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
     pub RemoteMachineHandle: super::HANDLE,
-    pub RemoteMachineName: [i8; 263],
+    pub RemoteMachineName: [super::CHAR; 263],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4020,81 +4315,81 @@ impl Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
     pub RemoteMachineHandle: super::HANDLE,
-    pub RemoteMachineName: [u16; 263],
+    pub RemoteMachineName: [super::WCHAR; 263],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub ClassGuid: windows_core::GUID,
     pub RemoteMachineHandle: super::HANDLE,
-    pub RemoteMachineName: [u16; 263],
+    pub RemoteMachineName: [super::WCHAR; 263],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type SP_DEVINSTALL_PARAMS = SP_DEVINSTALL_PARAMS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_A {
-    pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub cbSize: super::DWORD,
+    pub Flags: super::DWORD,
+    pub FlagsEx: super::DWORD,
     pub hwndParent: super::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub InstallMsgHandlerContext: super::PVOID,
     pub FileQueue: HSPFILEQ,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [i8; 260],
+    pub ClassInstallReserved: super::ULONG_PTR,
+    pub Reserved: super::DWORD,
+    pub DriverPath: [super::CHAR; 260],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for SP_DEVINSTALL_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug)]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_A {
-    pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub cbSize: super::DWORD,
+    pub Flags: super::DWORD,
+    pub FlagsEx: super::DWORD,
     pub hwndParent: super::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub InstallMsgHandlerContext: super::PVOID,
     pub FileQueue: HSPFILEQ,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [i8; 260],
+    pub ClassInstallReserved: super::ULONG_PTR,
+    pub Reserved: super::DWORD,
+    pub DriverPath: [super::CHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for SP_DEVINSTALL_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4102,84 +4397,89 @@ impl Default for SP_DEVINSTALL_PARAMS_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_W {
-    pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub cbSize: super::DWORD,
+    pub Flags: super::DWORD,
+    pub FlagsEx: super::DWORD,
     pub hwndParent: super::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub InstallMsgHandlerContext: super::PVOID,
     pub FileQueue: HSPFILEQ,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [u16; 260],
+    pub ClassInstallReserved: super::ULONG_PTR,
+    pub Reserved: super::DWORD,
+    pub DriverPath: [super::WCHAR; 260],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for SP_DEVINSTALL_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug)]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DEVINSTALL_PARAMS_W {
-    pub cbSize: u32,
-    pub Flags: u32,
-    pub FlagsEx: u32,
+    pub cbSize: super::DWORD,
+    pub Flags: super::DWORD,
+    pub FlagsEx: super::DWORD,
     pub hwndParent: super::HWND,
     pub InstallMsgHandler: PSP_FILE_CALLBACK_A,
-    pub InstallMsgHandlerContext: *mut core::ffi::c_void,
+    pub InstallMsgHandlerContext: super::PVOID,
     pub FileQueue: HSPFILEQ,
-    pub ClassInstallReserved: usize,
-    pub Reserved: u32,
-    pub DriverPath: [u16; 260],
+    pub ClassInstallReserved: super::ULONG_PTR,
+    pub Reserved: super::DWORD,
+    pub DriverPath: [super::WCHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for SP_DEVINSTALL_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type SP_DRVINFO_DATA = SP_DRVINFO_DATA_V2;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type SP_DRVINFO_DATA = SP_DRVINFO_DATA_V2_A;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type SP_DRVINFO_DATA_A = SP_DRVINFO_DATA_V2_A;
+#[cfg(feature = "shared")]
 pub type SP_DRVINFO_DATA_V1 = SP_DRVINFO_DATA_V1_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::CHAR; 256],
+    pub MfgName: [super::CHAR; 256],
+    pub ProviderName: [super::CHAR; 256],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_DRVINFO_DATA_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::CHAR; 256],
+    pub MfgName: [super::CHAR; 256],
+    pub ProviderName: [super::CHAR; 256],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_DRVINFO_DATA_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4187,77 +4487,81 @@ impl Default for SP_DRVINFO_DATA_V1_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::WCHAR; 256],
+    pub MfgName: [super::WCHAR; 256],
+    pub ProviderName: [super::WCHAR; 256],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V1_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::WCHAR; 256],
+    pub MfgName: [super::WCHAR; 256],
+    pub ProviderName: [super::WCHAR; 256],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type SP_DRVINFO_DATA_V2 = SP_DRVINFO_DATA_V2_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::CHAR; 256],
+    pub MfgName: [super::CHAR; 256],
+    pub ProviderName: [super::CHAR; 256],
     pub DriverDate: super::FILETIME,
     pub DriverVersion: super::DWORDLONG,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for SP_DRVINFO_DATA_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_A {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [i8; 256],
-    pub MfgName: [i8; 256],
-    pub ProviderName: [i8; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::CHAR; 256],
+    pub MfgName: [super::CHAR; 256],
+    pub ProviderName: [super::CHAR; 256],
     pub DriverDate: super::FILETIME,
     pub DriverVersion: super::DWORDLONG,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for SP_DRVINFO_DATA_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4265,89 +4569,89 @@ impl Default for SP_DRVINFO_DATA_V2_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::WCHAR; 256],
+    pub MfgName: [super::WCHAR; 256],
+    pub ProviderName: [super::WCHAR; 256],
     pub DriverDate: super::FILETIME,
     pub DriverVersion: super::DWORDLONG,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for SP_DRVINFO_DATA_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DATA_V2_W {
-    pub cbSize: u32,
-    pub DriverType: u32,
-    pub Reserved: usize,
-    pub Description: [u16; 256],
-    pub MfgName: [u16; 256],
-    pub ProviderName: [u16; 256],
+    pub cbSize: super::DWORD,
+    pub DriverType: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub Description: [super::WCHAR; 256],
+    pub MfgName: [super::WCHAR; 256],
+    pub ProviderName: [super::WCHAR; 256],
     pub DriverDate: super::FILETIME,
     pub DriverVersion: super::DWORDLONG,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for SP_DRVINFO_DATA_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type SP_DRVINFO_DATA_W = SP_DRVINFO_DATA_V2_W;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type SP_DRVINFO_DETAIL_DATA = SP_DRVINFO_DETAIL_DATA_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [i8; 256],
-    pub InfFileName: [i8; 260],
-    pub DrvDescription: [i8; 256],
-    pub HardwareID: [i8; 1],
+    pub CompatIDsOffset: super::DWORD,
+    pub CompatIDsLength: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub SectionName: [super::CHAR; 256],
+    pub InfFileName: [super::CHAR; 260],
+    pub DrvDescription: [super::CHAR; 256],
+    pub HardwareID: [super::CHAR; 1],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for SP_DRVINFO_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_A {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [i8; 256],
-    pub InfFileName: [i8; 260],
-    pub DrvDescription: [i8; 256],
-    pub HardwareID: [i8; 1],
+    pub CompatIDsOffset: super::DWORD,
+    pub CompatIDsLength: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub SectionName: [super::CHAR; 256],
+    pub InfFileName: [super::CHAR; 260],
+    pub DrvDescription: [super::CHAR; 256],
+    pub HardwareID: [super::CHAR; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for SP_DRVINFO_DETAIL_DATA_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4355,43 +4659,43 @@ impl Default for SP_DRVINFO_DETAIL_DATA_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [u16; 256],
-    pub InfFileName: [u16; 260],
-    pub DrvDescription: [u16; 256],
-    pub HardwareID: [u16; 1],
+    pub CompatIDsOffset: super::DWORD,
+    pub CompatIDsLength: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub SectionName: [super::WCHAR; 256],
+    pub InfFileName: [super::WCHAR; 260],
+    pub DrvDescription: [super::WCHAR; 256],
+    pub HardwareID: [super::WCHAR; 1],
 }
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for SP_DRVINFO_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_DRVINFO_DETAIL_DATA_W {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub InfDate: super::FILETIME,
-    pub CompatIDsOffset: u32,
-    pub CompatIDsLength: u32,
-    pub Reserved: usize,
-    pub SectionName: [u16; 256],
-    pub InfFileName: [u16; 260],
-    pub DrvDescription: [u16; 256],
-    pub HardwareID: [u16; 1],
+    pub CompatIDsOffset: super::DWORD,
+    pub CompatIDsLength: super::DWORD,
+    pub Reserved: super::ULONG_PTR,
+    pub SectionName: [super::WCHAR; 256],
+    pub InfFileName: [super::WCHAR; 260],
+    pub DrvDescription: [super::WCHAR; 256],
+    pub HardwareID: [super::WCHAR; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for SP_DRVINFO_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4399,46 +4703,52 @@ impl Default for SP_DRVINFO_DETAIL_DATA_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_DRVINSTALL_PARAMS {
-    pub cbSize: u32,
-    pub Rank: u32,
-    pub Flags: u32,
-    pub PrivateData: usize,
-    pub Reserved: u32,
+    pub cbSize: super::DWORD,
+    pub Rank: super::DWORD,
+    pub Flags: super::DWORD,
+    pub PrivateData: super::DWORD_PTR,
+    pub Reserved: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_DRVINSTALL_PARAMS {
-    pub cbSize: u32,
-    pub Rank: u32,
-    pub Flags: u32,
-    pub PrivateData: usize,
-    pub Reserved: u32,
+    pub cbSize: super::DWORD,
+    pub Rank: super::DWORD,
+    pub Flags: super::DWORD,
+    pub PrivateData: super::DWORD_PTR,
+    pub Reserved: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
-    pub EnableMessage: u32,
+    pub EnableMessage: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_ENABLECLASS_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
     pub ClassGuid: windows_core::GUID,
-    pub EnableMessage: u32,
+    pub EnableMessage: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type SP_FILE_COPY_PARAMS = SP_FILE_COPY_PARAMS_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_FILE_COPY_PARAMS_A {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
     pub SourceRootPath: windows_core::PCSTR,
     pub SourcePath: windows_core::PCSTR,
@@ -4447,15 +4757,16 @@ pub struct SP_FILE_COPY_PARAMS_A {
     pub SourceTagfile: windows_core::PCSTR,
     pub TargetDirectory: windows_core::PCSTR,
     pub TargetFilename: windows_core::PCSTR,
-    pub CopyStyle: u32,
+    pub CopyStyle: super::DWORD,
     pub LayoutInf: HINF,
     pub SecurityDescriptor: windows_core::PCSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_FILE_COPY_PARAMS_A {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
     pub SourceRootPath: windows_core::PCSTR,
     pub SourcePath: windows_core::PCSTR,
@@ -4464,15 +4775,16 @@ pub struct SP_FILE_COPY_PARAMS_A {
     pub SourceTagfile: windows_core::PCSTR,
     pub TargetDirectory: windows_core::PCSTR,
     pub TargetFilename: windows_core::PCSTR,
-    pub CopyStyle: u32,
+    pub CopyStyle: super::DWORD,
     pub LayoutInf: HINF,
     pub SecurityDescriptor: windows_core::PCSTR,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_FILE_COPY_PARAMS_W {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
     pub SourceRootPath: windows_core::PCWSTR,
     pub SourcePath: windows_core::PCWSTR,
@@ -4481,15 +4793,16 @@ pub struct SP_FILE_COPY_PARAMS_W {
     pub SourceTagfile: windows_core::PCWSTR,
     pub TargetDirectory: windows_core::PCWSTR,
     pub TargetFilename: windows_core::PCWSTR,
-    pub CopyStyle: u32,
+    pub CopyStyle: super::DWORD,
     pub LayoutInf: HINF,
     pub SecurityDescriptor: windows_core::PCWSTR,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_FILE_COPY_PARAMS_W {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub QueueHandle: HSPFILEQ,
     pub SourceRootPath: windows_core::PCWSTR,
     pub SourcePath: windows_core::PCWSTR,
@@ -4498,67 +4811,78 @@ pub struct SP_FILE_COPY_PARAMS_W {
     pub SourceTagfile: windows_core::PCWSTR,
     pub TargetDirectory: windows_core::PCWSTR,
     pub TargetFilename: windows_core::PCWSTR,
-    pub CopyStyle: u32,
+    pub CopyStyle: super::DWORD,
     pub LayoutInf: HINF,
     pub SecurityDescriptor: windows_core::PCWSTR,
 }
 pub const SP_FLAG_CABINETCONTINUATION: i32 = 2048;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_INF_INFORMATION {
-    pub InfStyle: u32,
-    pub InfCount: u32,
-    pub VersionData: [u8; 1],
+    pub InfStyle: super::DWORD,
+    pub InfCount: super::DWORD,
+    pub VersionData: [super::BYTE; 1],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_INF_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_INFORMATION {
-    pub InfStyle: u32,
-    pub InfCount: u32,
-    pub VersionData: [u8; 1],
+    pub InfStyle: super::DWORD,
+    pub InfCount: super::DWORD,
+    pub VersionData: [super::BYTE; 1],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_INF_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type SP_INF_SIGNER_INFO = SP_INF_SIGNER_INFO_V2;
+#[cfg(feature = "shared")]
+pub type SP_INF_SIGNER_INFO = SP_INF_SIGNER_INFO_V2_A;
+#[cfg(feature = "shared")]
 pub type SP_INF_SIGNER_INFO_A = SP_INF_SIGNER_INFO_V2_A;
+#[cfg(feature = "shared")]
 pub type SP_INF_SIGNER_INFO_V1 = SP_INF_SIGNER_INFO_V1_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::CHAR; 260],
+    pub DigitalSigner: [super::CHAR; 260],
+    pub DigitalSignerVersion: [super::CHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_INF_SIGNER_INFO_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::CHAR; 260],
+    pub DigitalSigner: [super::CHAR; 260],
+    pub DigitalSignerVersion: [super::CHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_INF_SIGNER_INFO_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4566,62 +4890,71 @@ impl Default for SP_INF_SIGNER_INFO_V1_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::WCHAR; 260],
+    pub DigitalSigner: [super::WCHAR; 260],
+    pub DigitalSignerVersion: [super::WCHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V1_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::WCHAR; 260],
+    pub DigitalSigner: [super::WCHAR; 260],
+    pub DigitalSignerVersion: [super::WCHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type SP_INF_SIGNER_INFO_V2 = SP_INF_SIGNER_INFO_V2_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
-    pub SignerScore: u32,
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::CHAR; 260],
+    pub DigitalSigner: [super::CHAR; 260],
+    pub DigitalSignerVersion: [super::CHAR; 260],
+    pub SignerScore: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_INF_SIGNER_INFO_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_A {
-    pub cbSize: u32,
-    pub CatalogFile: [i8; 260],
-    pub DigitalSigner: [i8; 260],
-    pub DigitalSignerVersion: [i8; 260],
-    pub SignerScore: u32,
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::CHAR; 260],
+    pub DigitalSigner: [super::CHAR; 260],
+    pub DigitalSignerVersion: [super::CHAR; 260],
+    pub SignerScore: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_INF_SIGNER_INFO_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4629,144 +4962,158 @@ impl Default for SP_INF_SIGNER_INFO_V2_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
-    pub SignerScore: u32,
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::WCHAR; 260],
+    pub DigitalSigner: [super::WCHAR; 260],
+    pub DigitalSignerVersion: [super::WCHAR; 260],
+    pub SignerScore: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_INF_SIGNER_INFO_V2_W {
-    pub cbSize: u32,
-    pub CatalogFile: [u16; 260],
-    pub DigitalSigner: [u16; 260],
-    pub DigitalSignerVersion: [u16; 260],
-    pub SignerScore: u32,
+    pub cbSize: super::DWORD,
+    pub CatalogFile: [super::WCHAR; 260],
+    pub DigitalSigner: [super::WCHAR; 260],
+    pub DigitalSignerVersion: [super::WCHAR; 260],
+    pub SignerScore: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SP_INF_SIGNER_INFO_W = SP_INF_SIGNER_INFO_V2_W;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub DynamicPages: [super::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
-    pub DynamicPageFlags: u32,
-    pub PrivateFlags: u32,
+    pub NumDynamicPages: super::DWORD,
+    pub DynamicPageFlags: super::DWORD,
+    pub PrivateFlags: super::DWORD,
     pub PrivateData: super::LPARAM,
     pub hwndWizardDlg: super::HWND,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
 impl Default for SP_INSTALLWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SP_INSTALLWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub DynamicPages: [super::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
-    pub DynamicPageFlags: u32,
-    pub PrivateFlags: u32,
+    pub NumDynamicPages: super::DWORD,
+    pub DynamicPageFlags: super::DWORD,
+    pub PrivateFlags: super::DWORD,
     pub PrivateData: super::LPARAM,
     pub hwndWizardDlg: super::HWND,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared", feature = "windef"))]
 impl Default for SP_INSTALLWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type SP_INTERFACE_DEVICE_DATA = SP_DEVICE_INTERFACE_DATA;
-pub type SP_INTERFACE_DEVICE_DETAIL_DATA = SP_INTERFACE_DEVICE_DETAIL_DATA_A;
+#[cfg(feature = "shared")]
+pub type SP_INTERFACE_DEVICE_DETAIL_DATA = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+#[cfg(feature = "shared")]
 pub type SP_INTERFACE_DEVICE_DETAIL_DATA_A = SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SP_INTERFACE_DEVICE_DETAIL_DATA_W = SP_DEVICE_INTERFACE_DETAIL_DATA_W;
 pub const SP_MAX_MACHINENAME_LENGTH: i32 = 263;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub DynamicPages: [super::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
+    pub NumDynamicPages: super::DWORD,
     pub hwndWizardDlg: super::HWND,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
 impl Default for SP_NEWDEVICEWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SP_NEWDEVICEWIZARD_DATA {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub DynamicPages: [super::HPROPSHEETPAGE; 20],
-    pub NumDynamicPages: u32,
+    pub NumDynamicPages: super::DWORD,
     pub hwndWizardDlg: super::HWND,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "prsht", feature = "windef"))]
+#[cfg(all(feature = "prsht", feature = "shared", feature = "windef"))]
 impl Default for SP_NEWDEVICEWIZARD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type SP_ORIGINAL_FILE_INFO = SP_ORIGINAL_FILE_INFO_A;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
-    pub cbSize: u32,
-    pub OriginalInfName: [i8; 260],
-    pub OriginalCatalogName: [i8; 260],
+    pub cbSize: super::DWORD,
+    pub OriginalInfName: [super::CHAR; 260],
+    pub OriginalCatalogName: [super::CHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SP_ORIGINAL_FILE_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_A {
-    pub cbSize: u32,
-    pub OriginalInfName: [i8; 260],
-    pub OriginalCatalogName: [i8; 260],
+    pub cbSize: super::DWORD,
+    pub OriginalInfName: [super::CHAR; 260],
+    pub OriginalCatalogName: [super::CHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_ORIGINAL_FILE_INFO_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4774,39 +5121,63 @@ impl Default for SP_ORIGINAL_FILE_INFO_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
-    pub cbSize: u32,
-    pub OriginalInfName: [u16; 260],
-    pub OriginalCatalogName: [u16; 260],
+    pub cbSize: super::DWORD,
+    pub OriginalInfName: [super::WCHAR; 260],
+    pub OriginalCatalogName: [super::WCHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_ORIGINAL_FILE_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct SP_ORIGINAL_FILE_INFO_W {
-    pub cbSize: u32,
-    pub OriginalInfName: [u16; 260],
-    pub OriginalCatalogName: [u16; 260],
+    pub cbSize: super::DWORD,
+    pub OriginalInfName: [super::WCHAR; 260],
+    pub OriginalCatalogName: [super::WCHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_ORIGINAL_FILE_INFO_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type SP_POWERMESSAGEWAKE_PARAMS = SP_POWERMESSAGEWAKE_PARAMS_A;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [i8; 512],
+    pub PowerMessageWake: [super::CHAR; 512],
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub PowerMessageWake: [super::CHAR; 512],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4814,25 +5185,29 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [u16; 512],
+    pub PowerMessageWake: [super::WCHAR; 512],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub PowerMessageWake: [u16; 512],
+    pub PowerMessageWake: [super::WCHAR; 512],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4840,104 +5215,139 @@ impl Default for SP_POWERMESSAGEWAKE_PARAMS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub StateChange: u32,
-    pub Scope: u32,
-    pub HwProfile: u32,
+    pub StateChange: super::DWORD,
+    pub Scope: super::DWORD,
+    pub HwProfile: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_PROPCHANGE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub StateChange: u32,
-    pub Scope: u32,
-    pub HwProfile: u32,
+    pub StateChange: super::DWORD,
+    pub Scope: super::DWORD,
+    pub HwProfile: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
-    pub cbSize: u32,
-    pub PageRequested: u32,
+    pub cbSize: super::DWORD,
+    pub PageRequested: super::DWORD,
     pub DeviceInfoSet: HDEVINFO,
     pub DeviceInfoData: PSP_DEVINFO_DATA,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_PROPSHEETPAGE_REQUEST {
-    pub cbSize: u32,
-    pub PageRequested: u32,
+    pub cbSize: super::DWORD,
+    pub PageRequested: super::DWORD,
     pub DeviceInfoSet: HDEVINFO,
     pub DeviceInfoData: PSP_DEVINFO_DATA,
 }
+#[cfg(feature = "shared")]
 pub type SP_REGISTER_CONTROL_STATUS = SP_REGISTER_CONTROL_STATUSA;
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub FileName: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
+    pub Win32Error: super::DWORD,
+    pub FailureCode: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_REGISTER_CONTROL_STATUSA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub FileName: windows_core::PCSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
+    pub Win32Error: super::DWORD,
+    pub FailureCode: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub FileName: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
+    pub Win32Error: super::DWORD,
+    pub FailureCode: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct SP_REGISTER_CONTROL_STATUSW {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub FileName: windows_core::PCWSTR,
-    pub Win32Error: u32,
-    pub FailureCode: u32,
+    pub Win32Error: super::DWORD,
+    pub FailureCode: super::DWORD,
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
-    pub HwProfile: u32,
+    pub Scope: super::DWORD,
+    pub HwProfile: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_REMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
-    pub HwProfile: u32,
+    pub Scope: super::DWORD,
+    pub HwProfile: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type SP_SELECTDEVICE_PARAMS = SP_SELECTDEVICE_PARAMS_A;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [i8; 60],
-    pub Instructions: [i8; 256],
-    pub ListLabel: [i8; 30],
-    pub SubTitle: [i8; 256],
-    pub Reserved: [u8; 2],
+    pub Title: [super::CHAR; 60],
+    pub Instructions: [super::CHAR; 256],
+    pub ListLabel: [super::CHAR; 30],
+    pub SubTitle: [super::CHAR; 256],
+    pub Reserved: [super::BYTE; 2],
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for SP_SELECTDEVICE_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SP_SELECTDEVICE_PARAMS_A {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub Title: [super::CHAR; 60],
+    pub Instructions: [super::CHAR; 256],
+    pub ListLabel: [super::CHAR; 30],
+    pub SubTitle: [super::CHAR; 256],
+    pub Reserved: [super::BYTE; 2],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_SELECTDEVICE_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4945,44 +5355,69 @@ impl Default for SP_SELECTDEVICE_PARAMS_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [u16; 60],
-    pub Instructions: [u16; 256],
-    pub ListLabel: [u16; 30],
-    pub SubTitle: [u16; 256],
+    pub Title: [super::WCHAR; 60],
+    pub Instructions: [super::WCHAR; 256],
+    pub ListLabel: [super::WCHAR; 30],
+    pub SubTitle: [super::WCHAR; 256],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_SELECTDEVICE_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Title: [u16; 60],
-    pub Instructions: [u16; 256],
-    pub ListLabel: [u16; 30],
-    pub SubTitle: [u16; 256],
+    pub Title: [super::WCHAR; 60],
+    pub Instructions: [super::WCHAR; 256],
+    pub ListLabel: [super::WCHAR; 30],
+    pub SubTitle: [super::WCHAR; 256],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type SP_TROUBLESHOOTER_PARAMS = SP_TROUBLESHOOTER_PARAMS_A;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [i8; 260],
-    pub HtmlTroubleShooter: [i8; 260],
+    pub ChmFile: [super::CHAR; 260],
+    pub HtmlTroubleShooter: [super::CHAR; 260],
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for SP_TROUBLESHOOTER_PARAMS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct SP_TROUBLESHOOTER_PARAMS_A {
+    pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
+    pub ChmFile: [super::CHAR; 260],
+    pub HtmlTroubleShooter: [super::CHAR; 260],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SP_TROUBLESHOOTER_PARAMS_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4990,27 +5425,31 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_A {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [u16; 260],
-    pub HtmlTroubleShooter: [u16; 260],
+    pub ChmFile: [super::WCHAR; 260],
+    pub HtmlTroubleShooter: [super::WCHAR; 260],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_TROUBLESHOOTER_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub ChmFile: [u16; 260],
-    pub HtmlTroubleShooter: [u16; 260],
+    pub ChmFile: [super::WCHAR; 260],
+    pub HtmlTroubleShooter: [super::WCHAR; 260],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SP_TROUBLESHOOTER_PARAMS_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5018,19 +5457,21 @@ impl Default for SP_TROUBLESHOOTER_PARAMS_W {
 }
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
-    pub HwProfile: u32,
+    pub Scope: super::DWORD,
+    pub HwProfile: super::DWORD,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub ClassInstallHeader: SP_CLASSINSTALL_HEADER,
-    pub Scope: u32,
-    pub HwProfile: u32,
+    pub Scope: super::DWORD,
+    pub HwProfile: super::DWORD,
 }
 pub const SRCINFO_DESCRIPTION: i32 = 3;
 pub const SRCINFO_FLAGS: i32 = 4;

@@ -43,7 +43,7 @@ impl ISurfaceImageSourceNative {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDevice)(windows_core::Interface::as_raw(self), device.param().abi()) }
     }
-    #[cfg(all(feature = "dxgi", feature = "windef"))]
+    #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
     pub unsafe fn BeginDraw(&self, updaterect: super::RECT, surface: *mut Option<super::IDXGISurface>, offset: *mut super::POINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect, core::mem::transmute(surface), offset as _) }
     }
@@ -59,19 +59,19 @@ pub struct ISurfaceImageSourceNative_Vtbl {
     pub SetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "dxgi"))]
     SetDevice: usize,
-    #[cfg(all(feature = "dxgi", feature = "windef"))]
+    #[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
     pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::RECT, *mut *mut core::ffi::c_void, *mut super::POINT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "dxgi", feature = "windef")))]
+    #[cfg(not(all(feature = "dxgi", feature = "shared", feature = "windef")))]
     BeginDraw: usize,
     pub EndDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "dxgi", feature = "windef"))]
+#[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 pub trait ISurfaceImageSourceNative_Impl: windows_core::IUnknownImpl {
     fn SetDevice(&self, device: windows_core::Ref<super::IDXGIDevice>) -> windows_core::Result<()>;
     fn BeginDraw(&self, updaterect: &super::RECT, surface: windows_core::OutRef<super::IDXGISurface>, offset: *mut super::POINT) -> windows_core::Result<()>;
     fn EndDraw(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "dxgi", feature = "windef"))]
+#[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 impl ISurfaceImageSourceNative_Vtbl {
     pub const fn new<Identity: ISurfaceImageSourceNative_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDevice<Identity: ISurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -103,7 +103,7 @@ impl ISurfaceImageSourceNative_Vtbl {
         iid == &<ISurfaceImageSourceNative as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "dxgi", feature = "windef"))]
+#[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for ISurfaceImageSourceNative {}
 windows_core::imp::define_interface!(ISurfaceImageSourceNativeWithD2D, ISurfaceImageSourceNativeWithD2D_Vtbl, 0x54298223_41e1_4a41_9c08_02e8256864a1);
 windows_core::imp::interface_hierarchy!(ISurfaceImageSourceNativeWithD2D, windows_core::IUnknown);
@@ -114,7 +114,7 @@ impl ISurfaceImageSourceNativeWithD2D {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDevice)(windows_core::Interface::as_raw(self), device.param().abi()) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
     pub unsafe fn BeginDraw<T>(&self, updaterect: *const super::RECT, offset: *mut super::POINT) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -137,23 +137,23 @@ impl ISurfaceImageSourceNativeWithD2D {
 pub struct ISurfaceImageSourceNativeWithD2D_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::POINT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
+    pub BeginDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::RECT, *const super::IID, *mut *mut core::ffi::c_void, *mut super::POINT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared", feature = "windef")))]
     BeginDraw: usize,
     pub EndDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SuspendDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ResumeDraw: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 pub trait ISurfaceImageSourceNativeWithD2D_Impl: windows_core::IUnknownImpl {
     fn SetDevice(&self, device: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn BeginDraw(&self, updaterect: *const super::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::Result<()>;
+    fn BeginDraw(&self, updaterect: *const super::RECT, iid: *const super::IID, updateobject: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::Result<()>;
     fn EndDraw(&self) -> windows_core::Result<()>;
     fn SuspendDraw(&self) -> windows_core::Result<()>;
     fn ResumeDraw(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl ISurfaceImageSourceNativeWithD2D_Vtbl {
     pub const fn new<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDevice<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, device: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -162,7 +162,7 @@ impl ISurfaceImageSourceNativeWithD2D_Vtbl {
                 ISurfaceImageSourceNativeWithD2D_Impl::SetDevice(this, core::mem::transmute_copy(&device)).into()
             }
         }
-        unsafe extern "system" fn BeginDraw<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: *const super::RECT, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::HRESULT {
+        unsafe extern "system" fn BeginDraw<Identity: ISurfaceImageSourceNativeWithD2D_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: *const super::RECT, iid: *const super::IID, updateobject: *mut *mut core::ffi::c_void, offset: *mut super::POINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISurfaceImageSourceNativeWithD2D_Impl::BeginDraw(this, core::mem::transmute_copy(&updaterect), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&updateobject), core::mem::transmute_copy(&offset)).into()
@@ -199,7 +199,7 @@ impl ISurfaceImageSourceNativeWithD2D_Vtbl {
         iid == &<ISurfaceImageSourceNativeWithD2D as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for ISurfaceImageSourceNativeWithD2D {}
 windows_core::imp::define_interface!(ISwapChainBackgroundPanelNative, ISwapChainBackgroundPanelNative_Vtbl, 0x43bebd4e_add5_4035_8f85_5608d08e9dc9);
 windows_core::imp::interface_hierarchy!(ISwapChainBackgroundPanelNative, windows_core::IUnknown);
@@ -336,21 +336,22 @@ impl core::ops::Deref for IVirtualSurfaceImageSourceNative {
 }
 windows_core::imp::interface_hierarchy!(IVirtualSurfaceImageSourceNative, windows_core::IUnknown, ISurfaceImageSourceNative);
 impl IVirtualSurfaceImageSourceNative {
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn Invalidate(&self, updaterect: super::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Invalidate)(windows_core::Interface::as_raw(self), updaterect) }
     }
-    pub unsafe fn GetUpdateRectCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetUpdateRectCount(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUpdateRectCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetUpdateRects(&self, updates: *mut super::RECT, count: u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn GetUpdateRects(&self, updates: *mut super::RECT, count: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetUpdateRects)(windows_core::Interface::as_raw(self), updates as _, count) }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn GetVisibleBounds(&self) -> windows_core::Result<super::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -363,7 +364,8 @@ impl IVirtualSurfaceImageSourceNative {
     {
         unsafe { (windows_core::Interface::vtable(self).RegisterForUpdatesNeeded)(windows_core::Interface::as_raw(self), callback.param().abi()) }
     }
-    pub unsafe fn Resize(&self, newwidth: i32, newheight: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Resize(&self, newwidth: super::INT, newheight: super::INT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Resize)(windows_core::Interface::as_raw(self), newwidth, newheight) }
     }
 }
@@ -371,32 +373,38 @@ impl IVirtualSurfaceImageSourceNative {
 #[doc(hidden)]
 pub struct IVirtualSurfaceImageSourceNative_Vtbl {
     pub base__: ISurfaceImageSourceNative_Vtbl,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub Invalidate: unsafe extern "system" fn(*mut core::ffi::c_void, super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     Invalidate: usize,
-    pub GetUpdateRectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub GetUpdateRects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(feature = "shared")]
+    pub GetUpdateRectCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetUpdateRectCount: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub GetUpdateRects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetUpdateRects: usize,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub GetVisibleBounds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetVisibleBounds: usize,
     pub RegisterForUpdatesNeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Resize: unsafe extern "system" fn(*mut core::ffi::c_void, super::INT, super::INT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Resize: usize,
 }
-#[cfg(all(feature = "dxgi", feature = "windef"))]
+#[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 pub trait IVirtualSurfaceImageSourceNative_Impl: ISurfaceImageSourceNative_Impl {
     fn Invalidate(&self, updaterect: &super::RECT) -> windows_core::Result<()>;
-    fn GetUpdateRectCount(&self) -> windows_core::Result<u32>;
-    fn GetUpdateRects(&self, updates: *mut super::RECT, count: u32) -> windows_core::Result<()>;
+    fn GetUpdateRectCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetUpdateRects(&self, updates: *mut super::RECT, count: super::DWORD) -> windows_core::Result<()>;
     fn GetVisibleBounds(&self) -> windows_core::Result<super::RECT>;
     fn RegisterForUpdatesNeeded(&self, callback: windows_core::Ref<IVirtualSurfaceUpdatesCallbackNative>) -> windows_core::Result<()>;
-    fn Resize(&self, newwidth: i32, newheight: i32) -> windows_core::Result<()>;
+    fn Resize(&self, newwidth: super::INT, newheight: super::INT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "dxgi", feature = "windef"))]
+#[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 impl IVirtualSurfaceImageSourceNative_Vtbl {
     pub const fn new<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Invalidate<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updaterect: super::RECT) -> windows_core::HRESULT {
@@ -405,7 +413,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
                 IVirtualSurfaceImageSourceNative_Impl::Invalidate(this, core::mem::transmute(&updaterect)).into()
             }
         }
-        unsafe extern "system" fn GetUpdateRectCount<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUpdateRectCount<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IVirtualSurfaceImageSourceNative_Impl::GetUpdateRectCount(this) {
@@ -417,7 +425,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetUpdateRects<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updates: *mut super::RECT, count: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetUpdateRects<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, updates: *mut super::RECT, count: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVirtualSurfaceImageSourceNative_Impl::GetUpdateRects(this, core::mem::transmute_copy(&updates), core::mem::transmute_copy(&count)).into()
@@ -441,7 +449,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
                 IVirtualSurfaceImageSourceNative_Impl::RegisterForUpdatesNeeded(this, core::mem::transmute_copy(&callback)).into()
             }
         }
-        unsafe extern "system" fn Resize<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwidth: i32, newheight: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Resize<Identity: IVirtualSurfaceImageSourceNative_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwidth: super::INT, newheight: super::INT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVirtualSurfaceImageSourceNative_Impl::Resize(this, core::mem::transmute_copy(&newwidth), core::mem::transmute_copy(&newheight)).into()
@@ -461,7 +469,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
         iid == &<IVirtualSurfaceImageSourceNative as windows_core::Interface>::IID || iid == &<ISurfaceImageSourceNative as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "dxgi", feature = "windef"))]
+#[cfg(all(feature = "dxgi", feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IVirtualSurfaceImageSourceNative {}
 windows_core::imp::define_interface!(IVirtualSurfaceUpdatesCallbackNative, IVirtualSurfaceUpdatesCallbackNative_Vtbl, 0xdbf2e947_8e6c_4254_9eee_7738f71386c9);
 windows_core::imp::interface_hierarchy!(IVirtualSurfaceUpdatesCallbackNative, windows_core::IUnknown);

@@ -1,156 +1,179 @@
-windows_link::link!("advapi32.dll" "system" fn CredDeleteA(targetname : windows_sys::core::PCSTR, r#type : u32, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredDeleteW(targetname : windows_sys::core::PCWSTR, r#type : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredEnumerateA(filter : windows_sys::core::PCSTR, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALA) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredEnumerateW(filter : windows_sys::core::PCWSTR, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALW) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredFindBestCredentialA(targetname : windows_sys::core::PCSTR, r#type : u32, flags : u32, credential : *mut PCREDENTIALA) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredFindBestCredentialW(targetname : windows_sys::core::PCWSTR, r#type : u32, flags : u32, credential : *mut PCREDENTIALW) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredFree(buffer : *const core::ffi::c_void));
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : super::LPDWORD) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredGetTargetInfoA(targetname : windows_sys::core::PCSTR, flags : u32, targetinfo : *mut PCREDENTIAL_TARGET_INFORMATIONA) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredGetTargetInfoW(targetname : windows_sys::core::PCWSTR, flags : u32, targetinfo : *mut PCREDENTIAL_TARGET_INFORMATIONW) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredDeleteA(targetname : windows_sys::core::PCSTR, r#type : super::DWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredDeleteW(targetname : windows_sys::core::PCWSTR, r#type : super::DWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredEnumerateA(filter : windows_sys::core::PCSTR, flags : super::DWORD, count : *mut super::DWORD, credential : *mut *mut PCREDENTIALA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredEnumerateW(filter : windows_sys::core::PCWSTR, flags : super::DWORD, count : *mut super::DWORD, credential : *mut *mut PCREDENTIALW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredFindBestCredentialA(targetname : windows_sys::core::PCSTR, r#type : super::DWORD, flags : super::DWORD, credential : *mut PCREDENTIALA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredFindBestCredentialW(targetname : windows_sys::core::PCWSTR, r#type : super::DWORD, flags : super::DWORD, credential : *mut PCREDENTIALW) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn CredFree(buffer : super::PVOID));
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : super::DWORD, maximumpersist : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredGetTargetInfoA(targetname : windows_sys::core::PCSTR, flags : super::DWORD, targetinfo : *mut PCREDENTIAL_TARGET_INFORMATIONA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredGetTargetInfoW(targetname : windows_sys::core::PCWSTR, flags : super::DWORD, targetinfo : *mut PCREDENTIAL_TARGET_INFORMATIONW) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CredIsMarshaledCredentialA(marshaledcredential : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CredIsMarshaledCredentialW(marshaledcredential : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CredIsProtectedA(pszprotectedcredentials : windows_sys::core::PCSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn CredIsProtectedW(pszprotectedcredentials : windows_sys::core::PCWSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredMarshalCredentialA(credtype : CRED_MARSHAL_TYPE, credential : *const core::ffi::c_void, marshaledcredential : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : *const core::ffi::c_void, marshaledcredential : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : u32, pszusername : windows_sys::core::PCSTR, pszpassword : windows_sys::core::PCSTR, ppackedcredentials : super::PBYTE, pcbpackedcredentials : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : u32, pszusername : windows_sys::core::PCWSTR, pszpassword : windows_sys::core::PCWSTR, ppackedcredentials : super::PBYTE, pcbpackedcredentials : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredProtectA(fasself : windows_sys::core::BOOL, pszcredentials : windows_sys::core::PCSTR, cchcredentials : u32, pszprotectedcredentials : windows_sys::core::PSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredProtectW(fasself : windows_sys::core::BOOL, pszcredentials : windows_sys::core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : windows_sys::core::PWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredReadA(targetname : windows_sys::core::PCSTR, r#type : u32, flags : u32, credential : *mut PCREDENTIALA) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredReadDomainCredentialsA(targetinfo : PCREDENTIAL_TARGET_INFORMATIONA, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALA) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredReadDomainCredentialsW(targetinfo : PCREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut PCREDENTIALW) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredReadW(targetname : windows_sys::core::PCWSTR, r#type : u32, flags : u32, credential : *mut PCREDENTIALW) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredRenameA(oldtargetname : windows_sys::core::PCSTR, newtargetname : windows_sys::core::PCSTR, r#type : u32, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredRenameW(oldtargetname : windows_sys::core::PCWSTR, newtargetname : windows_sys::core::PCWSTR, r#type : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "sspi"))]
-windows_link::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_sys::core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : u32, username : windows_sys::core::PSTR, uluserbuffersize : u32, pszpassword : windows_sys::core::PSTR, ulpasswordbuffersize : u32, pfsave : super::PBOOL, dwflags : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "sspi"))]
-windows_link::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_sys::core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : u32, username : windows_sys::core::PWSTR, uluserbuffersize : u32, pszpassword : windows_sys::core::PWSTR, ulpasswordbuffersize : u32, pfsave : super::PBOOL, dwflags : u32) -> u32);
-windows_link::link!("credui.dll" "system" fn CredUIConfirmCredentialsA(psztargetname : windows_sys::core::PCSTR, bconfirm : windows_sys::core::BOOL) -> u32);
-windows_link::link!("credui.dll" "system" fn CredUIConfirmCredentialsW(psztargetname : windows_sys::core::PCWSTR, bconfirm : windows_sys::core::BOOL) -> u32);
-windows_link::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_sys::core::PCSTR, user : *mut i8, userbuffersize : u32, domain : *mut i8, domainbuffersize : u32) -> u32);
-windows_link::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_sys::core::PCWSTR, user : *mut u16, userbuffersize : u32, domain : *mut u16, domainbuffersize : u32) -> u32);
-#[cfg(all(feature = "sspi", feature = "windef"))]
-windows_link::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : PCREDUI_INFOA, psztargetname : windows_sys::core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : u32, pszusername : windows_sys::core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_sys::core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_sys::core::BOOL, dwflags : u32) -> u32);
-#[cfg(all(feature = "sspi", feature = "windef"))]
-windows_link::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : PCREDUI_INFOW, psztargetname : windows_sys::core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : u32, pszusername : windows_sys::core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_sys::core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_sys::core::BOOL, dwflags : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : PCREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : super::LPCVOID, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_sys::core::BOOL, dwflags : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsW(puiinfo : PCREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : super::LPCVOID, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut windows_sys::core::BOOL, dwflags : u32) -> u32);
-windows_link::link!("credui.dll" "system" fn CredUIReadSSOCredW(pszrealm : windows_sys::core::PCWSTR, ppszusername : *mut windows_sys::core::PWSTR) -> u32);
-windows_link::link!("credui.dll" "system" fn CredUIStoreSSOCredW(pszrealm : windows_sys::core::PCWSTR, pszusername : windows_sys::core::PCWSTR, pszpassword : windows_sys::core::PCWSTR, bpersist : windows_sys::core::BOOL) -> u32);
-windows_link::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferA(dwflags : u32, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_sys::core::PSTR, pcchlmaxusername : *mut u32, pszdomainname : windows_sys::core::PSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_sys::core::PSTR, pcchmaxpassword : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferW(dwflags : u32, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_sys::core::PWSTR, pcchmaxusername : *mut u32, pszdomainname : windows_sys::core::PWSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_sys::core::PWSTR, pcchmaxpassword : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredUnmarshalCredentialA(marshaledcredential : windows_sys::core::PCSTR, credtype : PCRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredUnmarshalCredentialW(marshaledcredential : windows_sys::core::PCWSTR, credtype : PCRED_MARSHAL_TYPE, credential : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredUnprotectA(fasself : windows_sys::core::BOOL, pszprotectedcredentials : windows_sys::core::PCSTR, cchprotectedcredentials : u32, pszcredentials : windows_sys::core::PSTR, pcchmaxchars : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CredUnprotectW(fasself : windows_sys::core::BOOL, pszprotectedcredentials : windows_sys::core::PCWSTR, cchprotectedcredentials : u32, pszcredentials : windows_sys::core::PWSTR, pcchmaxchars : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredWriteA(credential : PCREDENTIALA, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsA(targetinfo : PCREDENTIAL_TARGET_INFORMATIONA, credential : PCREDENTIALA, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsW(targetinfo : PCREDENTIAL_TARGET_INFORMATIONW, credential : PCREDENTIALW, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("advapi32.dll" "system" fn CredWriteW(credential : PCREDENTIALW, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn CredMarshalCredentialA(credtype : CRED_MARSHAL_TYPE, credential : super::PVOID, marshaledcredential : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : super::PVOID, marshaledcredential : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : super::DWORD, pszusername : windows_sys::core::PCSTR, pszpassword : windows_sys::core::PCSTR, ppackedcredentials : super::PBYTE, pcbpackedcredentials : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : super::DWORD, pszusername : windows_sys::core::PCWSTR, pszpassword : windows_sys::core::PCWSTR, ppackedcredentials : super::PBYTE, pcbpackedcredentials : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredProtectA(fasself : windows_sys::core::BOOL, pszcredentials : windows_sys::core::PCSTR, cchcredentials : super::DWORD, pszprotectedcredentials : windows_sys::core::PSTR, pcchmaxchars : *mut super::DWORD, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredProtectW(fasself : windows_sys::core::BOOL, pszcredentials : windows_sys::core::PCWSTR, cchcredentials : super::DWORD, pszprotectedcredentials : windows_sys::core::PWSTR, pcchmaxchars : *mut super::DWORD, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredReadA(targetname : windows_sys::core::PCSTR, r#type : super::DWORD, flags : super::DWORD, credential : *mut PCREDENTIALA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredReadDomainCredentialsA(targetinfo : PCREDENTIAL_TARGET_INFORMATIONA, flags : super::DWORD, count : *mut super::DWORD, credential : *mut *mut PCREDENTIALA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredReadDomainCredentialsW(targetinfo : PCREDENTIAL_TARGET_INFORMATIONW, flags : super::DWORD, count : *mut super::DWORD, credential : *mut *mut PCREDENTIALW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredReadW(targetname : windows_sys::core::PCWSTR, r#type : super::DWORD, flags : super::DWORD, credential : *mut PCREDENTIALW) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredRenameA(oldtargetname : windows_sys::core::PCSTR, newtargetname : windows_sys::core::PCSTR, r#type : super::DWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredRenameW(oldtargetname : windows_sys::core::PCWSTR, newtargetname : windows_sys::core::PCWSTR, r#type : super::DWORD, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "sspi"))]
+windows_link::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_sys::core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, username : windows_sys::core::PSTR, uluserbuffersize : super::ULONG, pszpassword : windows_sys::core::PSTR, ulpasswordbuffersize : super::ULONG, pfsave : super::PBOOL, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "sspi"))]
+windows_link::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_sys::core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, username : windows_sys::core::PWSTR, uluserbuffersize : super::ULONG, pszpassword : windows_sys::core::PWSTR, ulpasswordbuffersize : super::ULONG, pfsave : super::PBOOL, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("credui.dll" "system" fn CredUIConfirmCredentialsA(psztargetname : windows_sys::core::PCSTR, bconfirm : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("credui.dll" "system" fn CredUIConfirmCredentialsW(psztargetname : windows_sys::core::PCWSTR, bconfirm : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_sys::core::PCSTR, user : *mut super::CHAR, userbuffersize : super::ULONG, domain : *mut super::CHAR, domainbuffersize : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_sys::core::PCWSTR, user : *mut super::WCHAR, userbuffersize : super::ULONG, domain : *mut super::WCHAR, domainbuffersize : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "sspi", feature = "windef"))]
+windows_link::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : PCREDUI_INFOA, psztargetname : windows_sys::core::PCSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, pszusername : windows_sys::core::PSTR, ulusernamebuffersize : super::ULONG, pszpassword : windows_sys::core::PSTR, ulpasswordbuffersize : super::ULONG, save : *mut windows_sys::core::BOOL, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "sspi", feature = "windef"))]
+windows_link::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : PCREDUI_INFOW, psztargetname : windows_sys::core::PCWSTR, pcontext : super::PCtxtHandle, dwautherror : super::DWORD, pszusername : windows_sys::core::PWSTR, ulusernamebuffersize : super::ULONG, pszpassword : windows_sys::core::PWSTR, ulpasswordbuffersize : super::ULONG, save : *mut windows_sys::core::BOOL, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : PCREDUI_INFOA, dwautherror : super::DWORD, pulauthpackage : *mut super::ULONG, pvinauthbuffer : super::LPCVOID, ulinauthbuffersize : super::ULONG, ppvoutauthbuffer : *mut super::LPVOID, puloutauthbuffersize : *mut super::ULONG, pfsave : *mut windows_sys::core::BOOL, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsW(puiinfo : PCREDUI_INFOW, dwautherror : super::DWORD, pulauthpackage : *mut super::ULONG, pvinauthbuffer : super::LPCVOID, ulinauthbuffersize : super::ULONG, ppvoutauthbuffer : *mut super::LPVOID, puloutauthbuffersize : *mut super::ULONG, pfsave : *mut windows_sys::core::BOOL, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("credui.dll" "system" fn CredUIReadSSOCredW(pszrealm : windows_sys::core::PCWSTR, ppszusername : *mut windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("credui.dll" "system" fn CredUIStoreSSOCredW(pszrealm : windows_sys::core::PCWSTR, pszusername : windows_sys::core::PCWSTR, pszpassword : windows_sys::core::PCWSTR, bpersist : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferA(dwflags : super::DWORD, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, pszusername : windows_sys::core::PSTR, pcchlmaxusername : *mut super::DWORD, pszdomainname : windows_sys::core::PSTR, pcchmaxdomainname : *mut super::DWORD, pszpassword : windows_sys::core::PSTR, pcchmaxpassword : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferW(dwflags : super::DWORD, pauthbuffer : super::PVOID, cbauthbuffer : super::DWORD, pszusername : windows_sys::core::PWSTR, pcchmaxusername : *mut super::DWORD, pszdomainname : windows_sys::core::PWSTR, pcchmaxdomainname : *mut super::DWORD, pszpassword : windows_sys::core::PWSTR, pcchmaxpassword : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn CredUnmarshalCredentialA(marshaledcredential : windows_sys::core::PCSTR, credtype : PCRED_MARSHAL_TYPE, credential : *mut super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn CredUnmarshalCredentialW(marshaledcredential : windows_sys::core::PCWSTR, credtype : PCRED_MARSHAL_TYPE, credential : *mut super::PVOID) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredUnprotectA(fasself : windows_sys::core::BOOL, pszprotectedcredentials : windows_sys::core::PCSTR, cchprotectedcredentials : super::DWORD, pszcredentials : windows_sys::core::PSTR, pcchmaxchars : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("advapi32.dll" "system" fn CredUnprotectW(fasself : windows_sys::core::BOOL, pszprotectedcredentials : windows_sys::core::PCWSTR, cchprotectedcredentials : super::DWORD, pszcredentials : windows_sys::core::PWSTR, pcchmaxchars : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredWriteA(credential : PCREDENTIALA, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsA(targetinfo : PCREDENTIAL_TARGET_INFORMATIONA, credential : PCREDENTIALA, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredWriteDomainCredentialsW(targetinfo : PCREDENTIAL_TARGET_INFORMATIONW, credential : PCREDENTIALW, flags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("advapi32.dll" "system" fn CredWriteW(credential : PCREDENTIALW, flags : super::DWORD) -> windows_sys::core::BOOL);
 pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
-    pub cbBlob: u32,
+    pub cbBlob: super::ULONG,
     pub pbBlob: super::LPBYTE,
 }
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3;
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CERT_CREDENTIAL_INFO {
-    pub cbSize: u32,
-    pub rgbHashOfCert: [u8; 20],
+    pub cbSize: super::ULONG,
+    pub rgbHashOfCert: [super::UCHAR; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for CERT_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const CERT_HASH_LENGTH: i32 = 20;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type CREDENTIAL = CREDENTIALA;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIALA {
-    pub Flags: u32,
-    pub Type: u32,
+    pub Flags: super::DWORD,
+    pub Type: super::DWORD,
     pub TargetName: windows_sys::core::PSTR,
     pub Comment: windows_sys::core::PSTR,
     pub LastWritten: super::FILETIME,
-    pub CredentialBlobSize: u32,
+    pub CredentialBlobSize: super::DWORD,
     pub CredentialBlob: super::LPBYTE,
-    pub Persist: u32,
-    pub AttributeCount: u32,
+    pub Persist: super::DWORD,
+    pub AttributeCount: super::DWORD,
     pub Attributes: PCREDENTIAL_ATTRIBUTEA,
     pub TargetAlias: windows_sys::core::PSTR,
     pub UserName: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIALW {
-    pub Flags: u32,
-    pub Type: u32,
+    pub Flags: super::DWORD,
+    pub Type: super::DWORD,
     pub TargetName: windows_sys::core::PWSTR,
     pub Comment: windows_sys::core::PWSTR,
     pub LastWritten: super::FILETIME,
-    pub CredentialBlobSize: u32,
+    pub CredentialBlobSize: super::DWORD,
     pub CredentialBlob: super::LPBYTE,
-    pub Persist: u32,
-    pub AttributeCount: u32,
+    pub Persist: super::DWORD,
+    pub AttributeCount: super::DWORD,
     pub Attributes: PCREDENTIAL_ATTRIBUTEW,
     pub TargetAlias: windows_sys::core::PWSTR,
     pub UserName: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_sys::core::PSTR,
-    pub Flags: u32,
-    pub ValueSize: u32,
+    pub Flags: super::DWORD,
+    pub ValueSize: super::DWORD,
     pub Value: super::LPBYTE,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_sys::core::PWSTR,
-    pub Flags: u32,
-    pub ValueSize: u32,
+    pub Flags: super::DWORD,
+    pub ValueSize: super::DWORD,
     pub Value: super::LPBYTE,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_sys::core::PSTR,
@@ -160,12 +183,12 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub DnsDomainName: windows_sys::core::PSTR,
     pub DnsTreeName: windows_sys::core::PSTR,
     pub PackageName: windows_sys::core::PSTR,
-    pub Flags: u32,
-    pub CredTypeCount: u32,
+    pub Flags: super::ULONG,
+    pub CredTypeCount: super::DWORD,
     pub CredTypes: super::LPDWORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_sys::core::PWSTR,
@@ -175,8 +198,8 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub DnsDomainName: windows_sys::core::PWSTR,
     pub DnsTreeName: windows_sys::core::PWSTR,
     pub PackageName: windows_sys::core::PWSTR,
-    pub Flags: u32,
-    pub CredTypeCount: u32,
+    pub Flags: super::ULONG,
+    pub CredTypeCount: super::DWORD,
     pub CredTypes: super::LPDWORD,
 }
 pub const CREDUIWIN_AUTHPACKAGE_ONLY: i32 = 16;
@@ -211,23 +234,23 @@ pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: i32 = 64;
 pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: i32 = 524288;
 pub const CREDUI_FLAGS_VALIDATE_USERNAME: i32 = 1024;
 pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: i32 = 212664322;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type CREDUI_INFO = CREDUI_INFOA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREDUI_INFOA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub hwndParent: super::HWND,
     pub pszMessageText: windows_sys::core::PCSTR,
     pub pszCaptionText: windows_sys::core::PCSTR,
     pub hbmBanner: super::HBITMAP,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREDUI_INFOW {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub hwndParent: super::HWND,
     pub pszMessageText: windows_sys::core::PCWSTR,
     pub pszCaptionText: windows_sys::core::PCWSTR,
@@ -394,32 +417,33 @@ pub const CredUnprotected: CRED_PROTECTION_TYPE = 0;
 pub const CredUserProtection: CRED_PROTECTION_TYPE = 1;
 pub const NERR_BASE: i32 = 2100;
 pub const NERR_PasswordExpired: i32 = 2242;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PBINARY_BLOB_CREDENTIAL_INFO = *mut BINARY_BLOB_CREDENTIAL_INFO;
+#[cfg(feature = "shared")]
 pub type PCERT_CREDENTIAL_INFO = *mut CERT_CREDENTIAL_INFO;
-#[cfg(feature = "minwindef")]
-pub type PCREDENTIAL = PCREDENTIALA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCREDENTIAL = *mut CREDENTIALA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCREDENTIALA = *mut CREDENTIALA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCREDENTIALW = *mut CREDENTIALW;
-#[cfg(feature = "minwindef")]
-pub type PCREDENTIAL_ATTRIBUTE = PCREDENTIAL_ATTRIBUTEA;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
+pub type PCREDENTIAL_ATTRIBUTE = *mut CREDENTIAL_ATTRIBUTEA;
+#[cfg(feature = "shared")]
 pub type PCREDENTIAL_ATTRIBUTEA = *mut CREDENTIAL_ATTRIBUTEA;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PCREDENTIAL_ATTRIBUTEW = *mut CREDENTIAL_ATTRIBUTEW;
-#[cfg(feature = "minwindef")]
-pub type PCREDENTIAL_TARGET_INFORMATION = PCREDENTIAL_TARGET_INFORMATIONA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PCREDENTIAL_TARGET_INFORMATION = *mut CREDENTIAL_TARGET_INFORMATIONA;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCREDENTIAL_TARGET_INFORMATIONA = *mut CREDENTIAL_TARGET_INFORMATIONA;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PCREDENTIAL_TARGET_INFORMATIONW = *mut CREDENTIAL_TARGET_INFORMATIONW;
-#[cfg(feature = "windef")]
-pub type PCREDUI_INFO = PCREDUI_INFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PCREDUI_INFO = *mut CREDUI_INFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCREDUI_INFOA = *mut CREDUI_INFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCREDUI_INFOW = *mut CREDUI_INFOW;
 pub type PCRED_MARSHAL_TYPE = *mut CRED_MARSHAL_TYPE;
 pub type PCRED_PROTECTION_TYPE = *mut CRED_PROTECTION_TYPE;

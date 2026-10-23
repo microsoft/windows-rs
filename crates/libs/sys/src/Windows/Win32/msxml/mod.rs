@@ -702,10 +702,11 @@ pub const XHR_AUTH_ALL: XHR_AUTH = 0;
 pub const XHR_AUTH_NONE: XHR_AUTH = 1;
 pub const XHR_AUTH_PROXY: XHR_AUTH = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XHR_CERT {
-    pub cbCert: u32,
-    pub pbCert: *mut u8,
+    pub cbCert: super::DWORD,
+    pub pbCert: *mut super::BYTE,
 }
 pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = 125829120;
 pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = 33554432;
@@ -720,15 +721,15 @@ pub type XHR_CERT_IGNORE_FLAG = i32;
 pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128;
 pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct XHR_COOKIE {
-    pub pwszUrl: *mut u16,
-    pub pwszName: *mut u16,
-    pub pwszValue: *mut u16,
-    pub pwszP3PPolicy: *mut u16,
+    pub pwszUrl: *mut super::WCHAR,
+    pub pwszName: *mut super::WCHAR,
+    pub pwszValue: *mut super::WCHAR,
+    pub pwszP3PPolicy: *mut super::WCHAR,
     pub ftExpires: super::FILETIME,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = 128;
 pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = 64;
@@ -782,7 +783,8 @@ pub type XMLELEM_TYPE = i32;
 pub const XMLHTTP60: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x88d96a0a_f192_11d4_a65f_0040963251e5);
 pub const XMLHTTPRequest: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct XML_ERROR {
     pub _nLine: u32,
@@ -791,8 +793,8 @@ pub struct XML_ERROR {
     pub _ich: u32,
     pub _pszFound: windows_sys::core::BSTR,
     pub _pszExpected: windows_sys::core::BSTR,
-    pub _reserved1: u32,
-    pub _reserved2: u32,
+    pub _reserved1: super::DWORD,
+    pub _reserved2: super::DWORD,
 }
 pub const XSLTemplate60: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]

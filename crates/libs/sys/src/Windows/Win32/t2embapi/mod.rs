@@ -1,28 +1,31 @@
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : super::HDC, puccharcodes : *const u8, ulcharcodesize : u32, pusshortcodes : *mut u16, ulshortcodesize : u32, ulflags : u32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("t2embed.dll" "system" fn TTDeleteEmbeddedFont(hfontreference : super::HANDLE, ulflags : u32, pulstatus : *mut u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : super::HDC, ulflags : u32, ulcharset : u32, pulprivstatus : *mut u32, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : super::HDC, ulflags : u32, ulcharset : u32, pulprivstatus : *mut u32, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, pulcharcodeset : *const u32, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : super::HDC, szfontfilename : windows_sys::core::PCSTR, usttcindex : u16, ulflags : u32, ulcharset : u32, pulprivstatus : *mut u32, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-windows_link::link!("t2embed.dll" "system" fn TTEnableEmbeddingForFacename(lpszfacename : windows_sys::core::PCSTR, benable : windows_sys::core::BOOL) -> i32);
-windows_link::link!("t2embed.dll" "system" fn TTGetEmbeddedFontInfo(ulflags : u32, pulprivstatus : *mut u32, ulprivs : u32, pulstatus : *mut u32, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const core::ffi::c_void, pttloadinfo : *const TTLOADINFO) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTGetEmbeddingType(hdc : super::HDC, pulembedtype : *mut u32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::HANDLE, wzwinfamilyname : windows_sys::core::PWSTR, cchmaxwinname : i32, szmacfamilyname : windows_sys::core::PSTR, cchmaxmacname : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabled(hdc : super::HDC, pbenabled : *mut windows_sys::core::BOOL) -> i32);
-windows_link::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabledForFacename(lpszfacename : windows_sys::core::PCSTR, pbenabled : *mut windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("t2embed.dll" "system" fn TTLoadEmbeddedFont(phfontreference : *mut super::HANDLE, ulflags : u32, pulprivstatus : *mut u32, ulprivs : u32, pulstatus : *mut u32, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const core::ffi::c_void, szwinfamilyname : windows_sys::core::PCWSTR, szmacfamilyname : windows_sys::core::PCSTR, pttloadinfo : *const TTLOADINFO) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTRunValidationTests(hdc : super::HDC, ptestparam : *const TTVALIDATIONTESTSPARAMS) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("t2embed.dll" "system" fn TTRunValidationTestsEx(hdc : super::HDC, ptestparam : *const TTVALIDATIONTESTSPARAMSEX) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : super::HDC, puccharcodes : *const super::UCHAR, ulcharcodesize : super::ULONG, pusshortcodes : *mut super::USHORT, ulshortcodesize : super::ULONG, ulflags : super::ULONG) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("t2embed.dll" "system" fn TTDeleteEmbeddedFont(hfontreference : super::HANDLE, ulflags : super::ULONG, pulstatus : *mut super::ULONG) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : super::HDC, ulflags : super::ULONG, ulcharset : super::ULONG, pulprivstatus : *mut super::ULONG, pulstatus : *mut super::ULONG, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : super::LPVOID, puscharcodeset : *const super::USHORT, uscharcodecount : super::USHORT, uslanguage : super::USHORT, pttembedinfo : *const TTEMBEDINFO) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : super::HDC, ulflags : super::ULONG, ulcharset : super::ULONG, pulprivstatus : *mut super::ULONG, pulstatus : *mut super::ULONG, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : super::LPVOID, pulcharcodeset : *const super::ULONG, uscharcodecount : super::USHORT, uslanguage : super::USHORT, pttembedinfo : *const TTEMBEDINFO) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : super::HDC, szfontfilename : windows_sys::core::PCSTR, usttcindex : super::USHORT, ulflags : super::ULONG, ulcharset : super::ULONG, pulprivstatus : *mut super::ULONG, pulstatus : *mut super::ULONG, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : super::LPVOID, puscharcodeset : *const super::USHORT, uscharcodecount : super::USHORT, uslanguage : super::USHORT, pttembedinfo : *const TTEMBEDINFO) -> super::LONG);
+#[cfg(feature = "shared")]
+windows_link::link!("t2embed.dll" "system" fn TTEnableEmbeddingForFacename(lpszfacename : windows_sys::core::PCSTR, benable : windows_sys::core::BOOL) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("t2embed.dll" "system" fn TTGetEmbeddedFontInfo(ulflags : super::ULONG, pulprivstatus : *mut super::ULONG, ulprivs : super::ULONG, pulstatus : *mut super::ULONG, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : super::LPVOID, pttloadinfo : *const TTLOADINFO) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTGetEmbeddingType(hdc : super::HDC, pulembedtype : *mut super::ULONG) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::HANDLE, wzwinfamilyname : windows_sys::core::PWSTR, cchmaxwinname : super::LONG, szmacfamilyname : windows_sys::core::PSTR, cchmaxmacname : super::LONG) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabled(hdc : super::HDC, pbenabled : *mut windows_sys::core::BOOL) -> super::LONG);
+#[cfg(feature = "shared")]
+windows_link::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabledForFacename(lpszfacename : windows_sys::core::PCSTR, pbenabled : *mut windows_sys::core::BOOL) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("t2embed.dll" "system" fn TTLoadEmbeddedFont(phfontreference : *mut super::HANDLE, ulflags : super::ULONG, pulprivstatus : *mut super::ULONG, ulprivs : super::ULONG, pulstatus : *mut super::ULONG, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : super::LPVOID, szwinfamilyname : windows_sys::core::PCWSTR, szmacfamilyname : windows_sys::core::PCSTR, pttloadinfo : *const TTLOADINFO) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTRunValidationTests(hdc : super::HDC, ptestparam : *const TTVALIDATIONTESTSPARAMS) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("t2embed.dll" "system" fn TTRunValidationTestsEx(hdc : super::HDC, ptestparam : *const TTVALIDATIONTESTSPARAMSEX) -> super::LONG);
 pub const CHARSET_DEFAULT: i32 = 1;
 pub const CHARSET_GLYPHIDX: i32 = 3;
 pub const CHARSET_SYMBOL: i32 = 2;

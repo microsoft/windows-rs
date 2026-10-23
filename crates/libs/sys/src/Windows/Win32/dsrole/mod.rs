@@ -1,6 +1,7 @@
-windows_link::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *const core::ffi::c_void));
-#[cfg(feature = "minwindef")]
-windows_link::link!("netapi32.dll" "system" fn DsRoleGetPrimaryDomainInformation(lpserver : windows_sys::core::PCWSTR, infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer : *mut super::PBYTE) -> u32);
+#[cfg(feature = "winnt")]
+windows_link::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : super::PVOID));
+#[cfg(feature = "shared")]
+windows_link::link!("netapi32.dll" "system" fn DsRoleGetPrimaryDomainInformation(lpserver : windows_sys::core::PCWSTR, infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer : *mut super::PBYTE) -> super::DWORD);
 pub type DSROLE_MACHINE_ROLE = i32;
 pub type DSROLE_OPERATION_STATE = i32;
 #[repr(C)]
@@ -10,10 +11,11 @@ pub struct DSROLE_OPERATION_STATE_INFO {
 }
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: i32 = 16777216;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub MachineRole: DSROLE_MACHINE_ROLE,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub DomainNameFlat: windows_sys::core::PWSTR,
     pub DomainNameDns: windows_sys::core::PWSTR,
     pub DomainForestName: windows_sys::core::PWSTR,
@@ -26,9 +28,10 @@ pub const DSROLE_PRIMARY_DS_RUNNING: i32 = 1;
 pub type DSROLE_SERVER_STATE = i32;
 pub const DSROLE_UPGRADE_IN_PROGRESS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
-    pub OperationState: u32,
+    pub OperationState: super::ULONG,
     pub PreviousServerState: DSROLE_SERVER_STATE,
 }
 pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = 1;
@@ -47,6 +50,8 @@ pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = 5;
 pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = 2;
 pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = 0;
 pub type PDSROLE_OPERATION_STATE_INFO = *mut DSROLE_OPERATION_STATE_INFO;
+#[cfg(feature = "shared")]
 pub type PDSROLE_PRIMARY_DOMAIN_INFO_BASIC = *mut DSROLE_PRIMARY_DOMAIN_INFO_BASIC;
 pub type PDSROLE_SERVER_STATE = *mut DSROLE_SERVER_STATE;
+#[cfg(feature = "shared")]
 pub type PDSROLE_UPGRADE_STATUS_INFO = *mut DSROLE_UPGRADE_STATUS_INFO;

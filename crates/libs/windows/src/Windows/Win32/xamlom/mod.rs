@@ -1,12 +1,13 @@
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn InitializeXamlDiagnosticsEx<P0, P2, P3, P5>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P2, wsztapdllname: P3, tapclsid: windows_core::GUID, wszinitializationdata: P5) -> windows_core::HRESULT
+pub unsafe fn InitializeXamlDiagnosticsEx<P0, P2, P3, P5>(endpointname: P0, pid: super::DWORD, wszdllxamldiagnostics: P2, wsztapdllname: P3, tapclsid: super::CLSID, wszinitializationdata: P5) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("windows.ui.xaml.dll" "C" fn InitializeXamlDiagnosticsEx(endpointname : windows_core::PCWSTR, pid : u32, wszdllxamldiagnostics : windows_core::PCWSTR, wsztapdllname : windows_core::PCWSTR, tapclsid : windows_core::GUID, wszinitializationdata : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("windows.ui.xaml.dll" "C" fn InitializeXamlDiagnosticsEx(endpointname : windows_core::PCWSTR, pid : super::DWORD, wszdllxamldiagnostics : windows_core::PCWSTR, wsztapdllname : windows_core::PCWSTR, tapclsid : super::CLSID, wszinitializationdata : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { InitializeXamlDiagnosticsEx(endpointname.param().abi(), pid, wszdllxamldiagnostics.param().abi(), wsztapdllname.param().abi(), tapclsid, wszinitializationdata.param().abi()) }
 }
 pub const Add: VisualMutationType = 0;
@@ -39,7 +40,7 @@ pub struct CollectionElementValue {
 pub const DefaultStyleTrigger: BaseValueSource = 6;
 pub const E_UNKNOWNTYPE: windows_core::HRESULT = windows_core::HRESULT(0x802B0028_u32 as _);
 #[repr(C)]
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct EnumType {
     pub Name: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -176,7 +177,7 @@ impl IVisualTreeService {
     {
         unsafe { (windows_core::Interface::vtable(self).UnadviseVisualTreeChange)(windows_core::Interface::as_raw(self), pcallback.param().abi()) }
     }
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
     pub unsafe fn GetEnums(&self, pcount: *mut u32, ppenums: *mut *mut EnumType) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEnums)(windows_core::Interface::as_raw(self), pcount as _, ppenums as _) }
     }
@@ -220,9 +221,9 @@ pub struct IVisualTreeService_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AdviseVisualTreeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UnadviseVisualTreeChange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "oaidl")]
+    #[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
     pub GetEnums: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut EnumType) -> windows_core::HRESULT,
-    #[cfg(not(feature = "oaidl"))]
+    #[cfg(not(all(feature = "oaidl", feature = "shared", feature = "winnt")))]
     GetEnums: usize,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut InstanceHandle) -> windows_core::HRESULT,
     pub GetPropertyValuesChain: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, *mut u32, *mut *mut PropertyChainSource, *mut u32, *mut *mut PropertyChainValue) -> windows_core::HRESULT,
@@ -234,7 +235,7 @@ pub struct IVisualTreeService_Vtbl {
     pub RemoveChild: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, u32) -> windows_core::HRESULT,
     pub ClearChildren: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle) -> windows_core::HRESULT,
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IVisualTreeService_Impl: windows_core::IUnknownImpl {
     fn AdviseVisualTreeChange(&self, pcallback: windows_core::Ref<IVisualTreeServiceCallback>) -> windows_core::Result<()>;
     fn UnadviseVisualTreeChange(&self, pcallback: windows_core::Ref<IVisualTreeServiceCallback>) -> windows_core::Result<()>;
@@ -249,7 +250,7 @@ pub trait IVisualTreeService_Impl: windows_core::IUnknownImpl {
     fn RemoveChild(&self, parent: InstanceHandle, index: u32) -> windows_core::Result<()>;
     fn ClearChildren(&self, parent: InstanceHandle) -> windows_core::Result<()>;
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IVisualTreeService_Vtbl {
     pub const fn new<Identity: IVisualTreeService_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AdviseVisualTreeChange<Identity: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -356,7 +357,7 @@ impl IVisualTreeService_Vtbl {
         iid == &<IVisualTreeService as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IVisualTreeService {}
 windows_core::imp::define_interface!(IVisualTreeService2, IVisualTreeService2_Vtbl, 0x130f5136_ec43_4f61_89c7_9801a36d2e95);
 impl core::ops::Deref for IVisualTreeService2 {
@@ -401,14 +402,14 @@ pub struct IVisualTreeService2_Vtbl {
     pub ReplaceResource: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, InstanceHandle, InstanceHandle) -> windows_core::HRESULT,
     pub RenderTargetBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, RenderTargetBitmapOptions, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IVisualTreeService2_Impl: IVisualTreeService_Impl {
     fn GetPropertyIndex(&self, object: InstanceHandle, propertyname: &windows_core::PCWSTR) -> windows_core::Result<u32>;
     fn GetProperty(&self, object: InstanceHandle, propertyindex: u32) -> windows_core::Result<InstanceHandle>;
     fn ReplaceResource(&self, resourcedictionary: InstanceHandle, key: InstanceHandle, newvalue: InstanceHandle) -> windows_core::Result<()>;
     fn RenderTargetBitmap(&self, handle: InstanceHandle, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> windows_core::Result<IBitmapData>;
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IVisualTreeService2_Vtbl {
     pub const fn new<Identity: IVisualTreeService2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyIndex<Identity: IVisualTreeService2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, object: InstanceHandle, propertyname: windows_core::PCWSTR, ppropertyindex: *mut u32) -> windows_core::HRESULT {
@@ -465,7 +466,7 @@ impl IVisualTreeService2_Vtbl {
         iid == &<IVisualTreeService2 as windows_core::Interface>::IID || iid == &<IVisualTreeService as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IVisualTreeService2 {}
 windows_core::imp::define_interface!(IVisualTreeService3, IVisualTreeService3_Vtbl, 0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd);
 impl core::ops::Deref for IVisualTreeService3 {
@@ -507,14 +508,14 @@ pub struct IVisualTreeService3_Vtbl {
     pub AddDictionaryItem: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, InstanceHandle, InstanceHandle) -> windows_core::HRESULT,
     pub RemoveDictionaryItem: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, InstanceHandle) -> windows_core::HRESULT,
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 pub trait IVisualTreeService3_Impl: IVisualTreeService2_Impl {
     fn ResolveResource(&self, resourcecontext: InstanceHandle, resourcename: &windows_core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> windows_core::Result<()>;
     fn GetDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcename: &windows_core::PCWSTR, resourceisimplicitstyle: windows_core::BOOL) -> windows_core::Result<InstanceHandle>;
     fn AddDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle, resourcehandle: InstanceHandle) -> windows_core::Result<()>;
     fn RemoveDictionaryItem(&self, dictionaryhandle: InstanceHandle, resourcekey: InstanceHandle) -> windows_core::Result<()>;
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl IVisualTreeService3_Vtbl {
     pub const fn new<Identity: IVisualTreeService3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ResolveResource<Identity: IVisualTreeService3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourcecontext: InstanceHandle, resourcename: windows_core::PCWSTR, resourcetype: ResourceType, propertyindex: u32) -> windows_core::HRESULT {
@@ -559,7 +560,7 @@ impl IVisualTreeService3_Vtbl {
         iid == &<IVisualTreeService3 as windows_core::Interface>::IID || iid == &<IVisualTreeService as windows_core::Interface>::IID || iid == &<IVisualTreeService2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "oaidl")]
+#[cfg(all(feature = "oaidl", feature = "shared", feature = "winnt"))]
 impl windows_core::RuntimeName for IVisualTreeService3 {}
 windows_core::imp::define_interface!(IVisualTreeServiceCallback, IVisualTreeServiceCallback_Vtbl, 0xaa7a8931_80e4_4fec_8f3b_553f87b4966e);
 windows_core::imp::interface_hierarchy!(IVisualTreeServiceCallback, windows_core::IUnknown);
@@ -668,7 +669,7 @@ impl IXamlDiagnostics {
             (windows_core::Interface::vtable(self).GetHandleFromIInspectable)(windows_core::Interface::as_raw(self), pinstance.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub unsafe fn HitTest(&self, rect: super::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut InstanceHandle) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HitTest)(windows_core::Interface::as_raw(self), rect, pcount as _, ppinstancehandles as _) }
     }
@@ -697,14 +698,14 @@ pub struct IXamlDiagnostics_Vtbl {
     pub GetApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIInspectableFromHandle: unsafe extern "system" fn(*mut core::ffi::c_void, InstanceHandle, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetHandleFromIInspectable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut InstanceHandle) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
+    #[cfg(all(feature = "shared", feature = "windef"))]
     pub HitTest: unsafe extern "system" fn(*mut core::ffi::c_void, super::RECT, *mut u32, *mut *mut InstanceHandle) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     HitTest: usize,
     pub RegisterInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut InstanceHandle) -> windows_core::HRESULT,
     pub GetInitializationData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IXamlDiagnostics_Impl: windows_core::IUnknownImpl {
     fn GetDispatcher(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn GetUiLayer(&self) -> windows_core::Result<windows_core::IInspectable>;
@@ -715,7 +716,7 @@ pub trait IXamlDiagnostics_Impl: windows_core::IUnknownImpl {
     fn RegisterInstance(&self, pinstance: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<InstanceHandle>;
     fn GetInitializationData(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl IXamlDiagnostics_Vtbl {
     pub const fn new<Identity: IXamlDiagnostics_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDispatcher<Identity: IXamlDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdispatcher: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -824,7 +825,7 @@ impl IXamlDiagnostics_Vtbl {
         iid == &<IXamlDiagnostics as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IXamlDiagnostics {}
 pub const ImplicitStyleReference: BaseValueSource = 9;
 pub const Inherited: BaseValueSource = 5;

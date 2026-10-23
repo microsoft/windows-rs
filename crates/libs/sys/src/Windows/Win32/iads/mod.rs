@@ -46,20 +46,20 @@ pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = 19;
 pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = 26;
 pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = 9;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ADSVALUE {
     pub dwType: ADSTYPE,
     pub Anonymous: ADSVALUE_0,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 impl Default for ADSVALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union ADSVALUE_0 {
     pub DNString: ADS_DN_STRING,
@@ -90,7 +90,7 @@ pub union ADSVALUE_0 {
     pub pDNWithBinary: PADS_DN_WITH_BINARY,
     pub pDNWithString: PADS_DN_WITH_STRING,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 impl Default for ADSVALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -123,32 +123,34 @@ pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = 7;
 pub const ADS_ATTR_APPEND: i32 = 3;
 pub const ADS_ATTR_CLEAR: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwADsType: ADSTYPE,
-    pub dwMinRange: u32,
-    pub dwMaxRange: u32,
+    pub dwMinRange: super::DWORD,
+    pub dwMaxRange: super::DWORD,
     pub fMultiValued: windows_sys::core::BOOL,
 }
 pub const ADS_ATTR_DELETE: i32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: windows_sys::core::PWSTR,
-    pub dwControlCode: u32,
+    pub dwControlCode: super::DWORD,
     pub dwADsType: ADSTYPE,
     pub pADsValues: PADSVALUE,
-    pub dwNumValues: u32,
+    pub dwNumValues: super::DWORD,
 }
 pub const ADS_ATTR_UPDATE: i32 = 2;
 pub type ADS_AUTHENTICATION_ENUM = i32;
 pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = -2147483648;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_BACKLINK {
-    pub RemoteID: u32,
+    pub RemoteID: super::DWORD,
     pub ObjectName: windows_sys::core::PWSTR,
 }
 pub type ADS_BOOLEAN = u32;
@@ -158,24 +160,25 @@ pub struct ADS_CASEIGNORE_LIST {
     pub Next: *mut Self,
     pub String: windows_sys::core::PWSTR,
 }
-pub type ADS_CASE_EXACT_STRING = windows_sys::core::PWSTR;
-pub type ADS_CASE_IGNORE_STRING = windows_sys::core::PWSTR;
+pub type ADS_CASE_EXACT_STRING = *mut u16;
+pub type ADS_CASE_IGNORE_STRING = *mut u16;
 pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = 96;
 pub type ADS_CHASE_REFERRALS_ENUM = i32;
 pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = 64;
 pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = 0;
 pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_CLASS_DEF {
     pub pszClassName: windows_sys::core::PWSTR,
-    pub dwMandatoryAttrs: u32,
+    pub dwMandatoryAttrs: super::DWORD,
     pub ppszMandatoryAttrs: *mut windows_sys::core::PWSTR,
-    pub optionalAttrs: u32,
+    pub optionalAttrs: super::DWORD,
     pub ppszOptionalAttrs: *mut *mut windows_sys::core::PWSTR,
-    pub dwNamingAttrs: u32,
+    pub dwNamingAttrs: super::DWORD,
     pub ppszNamingAttrs: *mut *mut windows_sys::core::PWSTR,
-    pub dwSuperClasses: u32,
+    pub dwSuperClasses: super::DWORD,
     pub ppszSuperClasses: *mut *mut windows_sys::core::PWSTR,
     pub fIsContainer: windows_sys::core::BOOL,
 }
@@ -188,12 +191,12 @@ pub const ADS_DIRSYNC_COOKIE: windows_sys::core::PCWSTR = windows_sys::core::w!(
 pub type ADS_DISPLAY_ENUM = i32;
 pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = 1;
 pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = 2;
-pub type ADS_DN_STRING = windows_sys::core::PWSTR;
+pub type ADS_DN_STRING = *mut u16;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_DN_WITH_BINARY {
-    pub dwLength: u32,
+    pub dwLength: super::DWORD,
     pub lpBinaryValue: super::LPBYTE,
     pub pszDNString: windows_sys::core::PWSTR,
 }
@@ -204,10 +207,11 @@ pub struct ADS_DN_WITH_STRING {
     pub pszDNString: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_EMAIL {
     pub Address: windows_sys::core::PWSTR,
-    pub Type: u32,
+    pub Type: super::DWORD,
 }
 pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = 1;
 pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = 3;
@@ -220,11 +224,11 @@ pub const ADS_EXT_MAXEXTDISPID: i32 = 16777215;
 pub const ADS_EXT_MINEXTDISPID: i32 = 1;
 pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = 32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_FAXNUMBER {
     pub TelephoneNumber: windows_sys::core::PWSTR,
-    pub NumberOfBits: u32,
+    pub NumberOfBits: super::DWORD,
     pub Parameters: super::LPBYTE,
 }
 pub type ADS_FLAGTYPE_ENUM = i32;
@@ -249,13 +253,14 @@ pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = 4;
 pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = -2147483648;
 pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_HOLD {
     pub ObjectName: windows_sys::core::PWSTR,
-    pub Amount: u32,
+    pub Amount: super::DWORD,
 }
 pub type ADS_INTEGER = u32;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ADS_LARGE_INTEGER = super::LARGE_INTEGER;
 pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = 1;
 pub type ADS_NAME_INITTYPE_ENUM = i32;
@@ -275,23 +280,24 @@ pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = 12;
 pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = 8;
 pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = 9;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_NETADDRESS {
-    pub AddressType: u32,
-    pub AddressLength: u32,
-    pub Address: *mut u8,
+    pub AddressType: super::DWORD,
+    pub AddressLength: super::DWORD,
+    pub Address: *mut super::BYTE,
 }
 pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 16;
 pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = 1024;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_NT_SECURITY_DESCRIPTOR {
-    pub dwLength: u32,
+    pub dwLength: super::DWORD,
     pub lpValue: super::LPBYTE,
 }
-pub type ADS_NUMERIC_STRING = windows_sys::core::PWSTR;
-pub type ADS_OBJECT_CLASS = windows_sys::core::PWSTR;
+pub type ADS_NUMERIC_STRING = *mut u16;
+pub type ADS_OBJECT_CLASS = *mut u16;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_OBJECT_INFO {
@@ -302,17 +308,18 @@ pub struct ADS_OBJECT_INFO {
     pub pszClassName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_OCTET_LIST {
     pub Next: *mut Self,
-    pub Length: u32,
-    pub Data: *mut u8,
+    pub Length: super::DWORD,
+    pub Data: *mut super::BYTE,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_OCTET_STRING {
-    pub dwLength: u32,
+    pub dwLength: super::DWORD,
     pub lpValue: super::LPBYTE,
 }
 pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = 8;
@@ -330,9 +337,10 @@ pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = 1;
 pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = 0;
 pub type ADS_PASSWORD_ENCODING_ENUM = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_PATH {
-    pub Type: u32,
+    pub Type: super::DWORD,
     pub VolumeName: windows_sys::core::PWSTR,
     pub Path: windows_sys::core::PWSTR,
 }
@@ -351,7 +359,7 @@ impl Default for ADS_POSTALADDRESS {
     }
 }
 pub type ADS_PREFERENCES_ENUM = i32;
-pub type ADS_PRINTABLE_STRING = windows_sys::core::PWSTR;
+pub type ADS_PRINTABLE_STRING = *mut u16;
 pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = 8;
 pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = 3;
 pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = 1;
@@ -359,20 +367,21 @@ pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = 4;
 pub type ADS_PROPERTY_OPERATION_ENUM = i32;
 pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = 2;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_PROV_SPECIFIC {
-    pub dwLength: u32,
+    pub dwLength: super::DWORD,
     pub lpValue: super::LPBYTE,
 }
 pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_REPLICAPOINTER {
     pub ServerName: windows_sys::core::PWSTR,
-    pub ReplicaType: u32,
-    pub ReplicaNumber: u32,
-    pub Count: u32,
+    pub ReplicaType: super::DWORD,
+    pub ReplicaNumber: super::DWORD,
+    pub Count: super::DWORD,
     pub ReplicaAddressHints: PADS_NETADDRESS,
 }
 pub type ADS_RIGHTS_ENUM = i32;
@@ -431,14 +440,14 @@ pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = 17;
 pub type ADS_SEARCHPREF_ENUM = i32;
 pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = 18;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ADS_SEARCHPREF_INFO {
     pub dwSearchPref: ADS_SEARCHPREF,
     pub vValue: ADSVALUE,
     pub dwStatus: ADS_STATUS,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 impl Default for ADS_SEARCHPREF_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -455,17 +464,16 @@ pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = 3;
 pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = 13;
 pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = 14;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_SEARCH_COLUMN {
     pub pszAttrName: windows_sys::core::PWSTR,
     pub dwADsType: ADSTYPE,
     pub pADsValues: PADSVALUE,
-    pub dwNumValues: u32,
+    pub dwNumValues: super::DWORD,
     pub hReserved: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
-pub type ADS_SEARCH_HANDLE = super::HANDLE;
+pub type ADS_SEARCH_HANDLE = *mut core::ffi::c_void;
 pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 1;
 pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = 4;
 pub type ADS_SECURITY_INFO_ENUM = i32;
@@ -479,7 +487,7 @@ pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = 1;
 pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = 2;
 pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = 3;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_sys::core::PWSTR,
@@ -503,17 +511,19 @@ pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = 67108864;
 pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = 134217728;
 pub type ADS_SYSTEMFLAG_ENUM = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_TIMESTAMP {
-    pub WholeSeconds: u32,
-    pub EventID: u32,
+    pub WholeSeconds: super::DWORD,
+    pub EventID: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_TYPEDNAME {
     pub ObjectName: windows_sys::core::PWSTR,
-    pub Level: u32,
-    pub Interval: u32,
+    pub Level: super::DWORD,
+    pub Interval: super::DWORD,
 }
 pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = 2;
 pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = 65536;
@@ -542,18 +552,18 @@ pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = 2;
 pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = 128;
 pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = 64;
 pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = 2;
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 pub type ADS_UTC_TIME = super::SYSTEMTIME;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ADS_VLV {
-    pub dwBeforeCount: u32,
-    pub dwAfterCount: u32,
-    pub dwOffset: u32,
-    pub dwContentCount: u32,
+    pub dwBeforeCount: super::DWORD,
+    pub dwAfterCount: super::DWORD,
+    pub dwOffset: super::DWORD,
+    pub dwContentCount: super::DWORD,
     pub pszTarget: windows_sys::core::PWSTR,
-    pub dwContextIDLength: u32,
+    pub dwContextIDLength: super::DWORD,
     pub lpContextID: super::LPBYTE,
 }
 pub const ADS_VLV_RESPONSE: windows_sys::core::PCWSTR = windows_sys::core::w!("fc8cb04d-311d-406c-8cb9-1ae8b843b419");
@@ -568,65 +578,75 @@ pub const DNWithString: windows_sys::core::GUID = windows_sys::core::GUID::from_
 pub const Email: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
 pub const FaxNumber: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 pub const Hold: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 pub type LPADSVALUE = *mut ADSVALUE;
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 pub type LPADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
 pub type LPNDS_BOOLEAN = *mut u32;
 pub const LargeInteger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NameTranslate: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 pub const OctetList: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 pub type PADSVALUE = *mut ADSVALUE;
+#[cfg(feature = "shared")]
 pub type PADS_ATTR_DEF = *mut ADS_ATTR_DEF;
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 pub type PADS_ATTR_INFO = *mut ADS_ATTR_INFO;
+#[cfg(feature = "shared")]
 pub type PADS_BACKLINK = *mut ADS_BACKLINK;
 pub type PADS_CASEIGNORE_LIST = *mut ADS_CASEIGNORE_LIST;
-pub type PADS_CASE_EXACT_STRING = *mut windows_sys::core::PWSTR;
-pub type PADS_CASE_IGNORE_STRING = *mut windows_sys::core::PWSTR;
+pub type PADS_CASE_EXACT_STRING = *mut *mut u16;
+pub type PADS_CASE_IGNORE_STRING = *mut *mut u16;
+#[cfg(feature = "shared")]
 pub type PADS_CLASS_DEF = *mut ADS_CLASS_DEF;
-pub type PADS_DN_STRING = *mut windows_sys::core::PWSTR;
-#[cfg(feature = "minwindef")]
+pub type PADS_DN_STRING = *mut *mut u16;
+#[cfg(feature = "shared")]
 pub type PADS_DN_WITH_BINARY = *mut ADS_DN_WITH_BINARY;
 pub type PADS_DN_WITH_STRING = *mut ADS_DN_WITH_STRING;
+#[cfg(feature = "shared")]
 pub type PADS_EMAIL = *mut ADS_EMAIL;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
+#[cfg(feature = "shared")]
 pub type PADS_HOLD = *mut ADS_HOLD;
 pub type PADS_INTEGER = *mut u32;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PADS_LARGE_INTEGER = *mut super::LARGE_INTEGER;
+#[cfg(feature = "shared")]
 pub type PADS_NETADDRESS = *mut ADS_NETADDRESS;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
-pub type PADS_NUMERIC_STRING = *mut windows_sys::core::PWSTR;
-pub type PADS_OBJECT_CLASS = *mut windows_sys::core::PWSTR;
+pub type PADS_NUMERIC_STRING = *mut *mut u16;
+pub type PADS_OBJECT_CLASS = *mut *mut u16;
 pub type PADS_OBJECT_INFO = *mut ADS_OBJECT_INFO;
+#[cfg(feature = "shared")]
 pub type PADS_OCTET_LIST = *mut ADS_OCTET_LIST;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PADS_OCTET_STRING = *mut ADS_OCTET_STRING;
+#[cfg(feature = "shared")]
 pub type PADS_PATH = *mut ADS_PATH;
 pub type PADS_POSTALADDRESS = *mut ADS_POSTALADDRESS;
-pub type PADS_PRINTABLE_STRING = *mut windows_sys::core::PWSTR;
-#[cfg(feature = "minwindef")]
+pub type PADS_PRINTABLE_STRING = *mut *mut u16;
+#[cfg(feature = "shared")]
 pub type PADS_PROV_SPECIFIC = *mut ADS_PROV_SPECIFIC;
+#[cfg(feature = "shared")]
 pub type PADS_REPLICAPOINTER = *mut ADS_REPLICAPOINTER;
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 pub type PADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 pub type PADS_SEARCH_COLUMN = *mut ADS_SEARCH_COLUMN;
-#[cfg(feature = "winnt")]
-pub type PADS_SEARCH_HANDLE = *mut super::HANDLE;
-#[cfg(feature = "winnt")]
+pub type PADS_SEARCH_HANDLE = *mut *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PADS_SORTKEY = *mut ADS_SORTKEY;
 pub type PADS_STATUS = *mut ADS_STATUSENUM;
+#[cfg(feature = "shared")]
 pub type PADS_TIMESTAMP = *mut ADS_TIMESTAMP;
+#[cfg(feature = "shared")]
 pub type PADS_TYPEDNAME = *mut ADS_TYPEDNAME;
-#[cfg(feature = "minwinbase")]
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
 pub type PADS_UTC_TIME = *mut super::SYSTEMTIME;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PADS_VLV = *mut ADS_VLV;
 pub const Path: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
 pub const Pathname: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);

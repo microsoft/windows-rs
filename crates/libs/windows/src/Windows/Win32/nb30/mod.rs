@@ -1,47 +1,50 @@
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn Netbios(pncb: PNCB) -> u8 {
-    windows_core::link!("netapi32.dll" "system" fn Netbios(pncb : PNCB) -> u8);
-    unsafe { Netbios(pncb) }
+pub unsafe fn Netbios(pncb: PNCB) -> super::UCHAR {
+    windows_core::link!("netapi32.dll" "system" fn Netbios(pncb : PNCB) -> super::UCHAR);
+    unsafe { Netbios(pncb as _) }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTION_HEADER {
-    pub transport_id: u32,
-    pub action_code: u16,
-    pub reserved: u16,
+    pub transport_id: super::ULONG,
+    pub action_code: super::USHORT,
+    pub reserved: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADAPTER_STATUS {
-    pub adapter_address: [u8; 6],
-    pub rev_major: u8,
-    pub reserved0: u8,
-    pub adapter_type: u8,
-    pub rev_minor: u8,
-    pub duration: u16,
-    pub frmr_recv: u16,
-    pub frmr_xmit: u16,
-    pub iframe_recv_err: u16,
-    pub xmit_aborts: u16,
-    pub xmit_success: u32,
-    pub recv_success: u32,
-    pub iframe_xmit_err: u16,
-    pub recv_buff_unavail: u16,
-    pub t1_timeouts: u16,
-    pub ti_timeouts: u16,
-    pub reserved1: u32,
-    pub free_ncbs: u16,
-    pub max_cfg_ncbs: u16,
-    pub max_ncbs: u16,
-    pub xmit_buf_unavail: u16,
-    pub max_dgram_size: u16,
-    pub pending_sess: u16,
-    pub max_cfg_sess: u16,
-    pub max_sess: u16,
-    pub max_sess_pkt_size: u16,
-    pub name_count: u16,
+    pub adapter_address: [super::UCHAR; 6],
+    pub rev_major: super::UCHAR,
+    pub reserved0: super::UCHAR,
+    pub adapter_type: super::UCHAR,
+    pub rev_minor: super::UCHAR,
+    pub duration: super::WORD,
+    pub frmr_recv: super::WORD,
+    pub frmr_xmit: super::WORD,
+    pub iframe_recv_err: super::WORD,
+    pub xmit_aborts: super::WORD,
+    pub xmit_success: super::DWORD,
+    pub recv_success: super::DWORD,
+    pub iframe_xmit_err: super::WORD,
+    pub recv_buff_unavail: super::WORD,
+    pub t1_timeouts: super::WORD,
+    pub ti_timeouts: super::WORD,
+    pub reserved1: super::DWORD,
+    pub free_ncbs: super::WORD,
+    pub max_cfg_ncbs: super::WORD,
+    pub max_ncbs: super::WORD,
+    pub xmit_buf_unavail: super::WORD,
+    pub max_dgram_size: super::WORD,
+    pub pending_sess: super::WORD,
+    pub max_cfg_sess: super::WORD,
+    pub max_sess: super::WORD,
+    pub max_sess_pkt_size: super::WORD,
+    pub name_count: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for ADAPTER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -54,36 +57,41 @@ pub const DEREGISTERED: i32 = 5;
 pub const DUPLICATE: i32 = 6;
 pub const DUPLICATE_DEREG: i32 = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FIND_NAME_BUFFER {
-    pub length: u8,
-    pub access_control: u8,
-    pub frame_control: u8,
-    pub destination_addr: [u8; 6],
-    pub source_addr: [u8; 6],
-    pub routing_info: [u8; 18],
+    pub length: super::UCHAR,
+    pub access_control: super::UCHAR,
+    pub frame_control: super::UCHAR,
+    pub destination_addr: [super::UCHAR; 6],
+    pub source_addr: [super::UCHAR; 6],
+    pub routing_info: [super::UCHAR; 18],
 }
+#[cfg(feature = "shared")]
 impl Default for FIND_NAME_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIND_NAME_HEADER {
-    pub node_count: u16,
-    pub reserved: u8,
-    pub unique_group: u8,
+    pub node_count: super::WORD,
+    pub reserved: super::UCHAR,
+    pub unique_group: super::UCHAR,
 }
 pub const GROUP_NAME: i32 = 128;
 pub const HANGUP_COMPLETE: i32 = 5;
 pub const HANGUP_PENDING: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LANA_ENUM {
-    pub length: u8,
-    pub lana: [u8; 255],
+    pub length: super::UCHAR,
+    pub lana: [super::UCHAR; 255],
 }
+#[cfg(feature = "shared")]
 impl Default for LANA_ENUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -93,12 +101,14 @@ pub const LISTEN_OUTSTANDING: i32 = 1;
 pub const MAX_LANA: i32 = 254;
 pub const MS_NBF: windows_core::PCSTR = windows_core::s!("MNBF");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NAME_BUFFER {
-    pub name: [u8; 16],
-    pub name_num: u8,
-    pub name_flags: u8,
+    pub name: [super::UCHAR; 16],
+    pub name_num: super::UCHAR,
+    pub name_flags: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NAME_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -107,27 +117,27 @@ impl Default for NAME_BUFFER {
 pub const NAME_FLAGS_MASK: i32 = 135;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug)]
 pub struct NCB {
-    pub ncb_command: u8,
-    pub ncb_retcode: u8,
-    pub ncb_lsn: u8,
-    pub ncb_num: u8,
+    pub ncb_command: super::UCHAR,
+    pub ncb_retcode: super::UCHAR,
+    pub ncb_lsn: super::UCHAR,
+    pub ncb_num: super::UCHAR,
     pub ncb_buffer: super::PUCHAR,
-    pub ncb_length: u16,
-    pub ncb_callname: [u8; 16],
-    pub ncb_name: [u8; 16],
-    pub ncb_rto: u8,
-    pub ncb_sto: u8,
-    pub ncb_post: *mut u8,
-    pub ncb_lana_num: u8,
-    pub ncb_cmd_cplt: u8,
-    pub ncb_reserve: [u8; 10],
+    pub ncb_length: super::WORD,
+    pub ncb_callname: [super::UCHAR; 16],
+    pub ncb_name: [super::UCHAR; 16],
+    pub ncb_rto: super::UCHAR,
+    pub ncb_sto: super::UCHAR,
+    pub ncb_post: Option<unsafe extern "system" fn(*mut Self)>,
+    pub ncb_lana_num: super::UCHAR,
+    pub ncb_cmd_cplt: super::UCHAR,
+    pub ncb_reserve: [super::UCHAR; 10],
     pub ncb_event: super::HANDLE,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -135,27 +145,27 @@ impl Default for NCB {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Debug)]
 pub struct NCB {
-    pub ncb_command: u8,
-    pub ncb_retcode: u8,
-    pub ncb_lsn: u8,
-    pub ncb_num: u8,
+    pub ncb_command: super::UCHAR,
+    pub ncb_retcode: super::UCHAR,
+    pub ncb_lsn: super::UCHAR,
+    pub ncb_num: super::UCHAR,
     pub ncb_buffer: super::PUCHAR,
-    pub ncb_length: u16,
-    pub ncb_callname: [u8; 16],
-    pub ncb_name: [u8; 16],
-    pub ncb_rto: u8,
-    pub ncb_sto: u8,
-    pub ncb_post: *mut u8,
-    pub ncb_lana_num: u8,
-    pub ncb_cmd_cplt: u8,
-    pub ncb_reserve: [u8; 18],
+    pub ncb_length: super::WORD,
+    pub ncb_callname: [super::UCHAR; 16],
+    pub ncb_name: [super::UCHAR; 16],
+    pub ncb_rto: super::UCHAR,
+    pub ncb_sto: super::UCHAR,
+    pub ncb_post: Option<unsafe extern "system" fn(*mut Self)>,
+    pub ncb_lana_num: super::UCHAR,
+    pub ncb_cmd_cplt: super::UCHAR,
+    pub ncb_reserve: [super::UCHAR; 18],
     pub ncb_event: super::HANDLE,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for NCB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -227,29 +237,39 @@ pub const NRC_SCLOSED: i32 = 10;
 pub const NRC_SNUMOUT: i32 = 8;
 pub const NRC_SYSTEM: i32 = 64;
 pub const NRC_TOOMANY: i32 = 34;
+#[cfg(feature = "shared")]
 pub type PACTION_HEADER = *mut ACTION_HEADER;
+#[cfg(feature = "shared")]
 pub type PADAPTER_STATUS = *mut ADAPTER_STATUS;
+#[cfg(feature = "shared")]
 pub type PFIND_NAME_BUFFER = *mut FIND_NAME_BUFFER;
+#[cfg(feature = "shared")]
 pub type PFIND_NAME_HEADER = *mut FIND_NAME_HEADER;
+#[cfg(feature = "shared")]
 pub type PLANA_ENUM = *mut LANA_ENUM;
+#[cfg(feature = "shared")]
 pub type PNAME_BUFFER = *mut NAME_BUFFER;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PNCB = *mut NCB;
+#[cfg(feature = "shared")]
 pub type PSESSION_BUFFER = *mut SESSION_BUFFER;
+#[cfg(feature = "shared")]
 pub type PSESSION_HEADER = *mut SESSION_HEADER;
 pub const REGISTERED: i32 = 4;
 pub const REGISTERING: i32 = 0;
 pub const SESSION_ABORTED: i32 = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SESSION_BUFFER {
-    pub lsn: u8,
-    pub state: u8,
-    pub local_name: [u8; 16],
-    pub remote_name: [u8; 16],
-    pub rcvs_outstanding: u8,
-    pub sends_outstanding: u8,
+    pub lsn: super::UCHAR,
+    pub state: super::UCHAR,
+    pub local_name: [super::UCHAR; 16],
+    pub remote_name: [super::UCHAR; 16],
+    pub rcvs_outstanding: super::UCHAR,
+    pub sends_outstanding: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for SESSION_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -257,11 +277,12 @@ impl Default for SESSION_BUFFER {
 }
 pub const SESSION_ESTABLISHED: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_HEADER {
-    pub sess_name: u8,
-    pub num_sess: u8,
-    pub rcv_dg_outstanding: u8,
-    pub rcv_any_outstanding: u8,
+    pub sess_name: super::UCHAR,
+    pub num_sess: super::UCHAR,
+    pub rcv_dg_outstanding: super::UCHAR,
+    pub rcv_any_outstanding: super::UCHAR,
 }
 pub const UNIQUE_NAME: i32 = 0;

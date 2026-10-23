@@ -47,17 +47,19 @@ impl IMFContentDecryptionModule {
             (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), sessiontype, callbacks.param().abi(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetServerCertificate(&self, certificate: *const u8, certificatesize: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), certificate, certificatesize) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetServerCertificate(&self, certificate: &[super::BYTE]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), certificate.as_ptr(), certificate.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "mfidl")]
-    pub unsafe fn CreateTrustedInput(&self, contentinitdata: *const u8, contentinitdatasize: u32) -> windows_core::Result<super::IMFTrustedInput> {
+    #[cfg(all(feature = "mfidl", feature = "shared"))]
+    pub unsafe fn CreateTrustedInput(&self, contentinitdata: &[super::BYTE]) -> windows_core::Result<super::IMFTrustedInput> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateTrustedInput)(windows_core::Interface::as_raw(self), contentinitdata, contentinitdatasize, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateTrustedInput)(windows_core::Interface::as_raw(self), contentinitdata.as_ptr(), contentinitdata.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetProtectionSystemIds(&self, systemids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetProtectionSystemIds(&self, systemids: *mut *mut windows_core::GUID, count: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetProtectionSystemIds)(windows_core::Interface::as_raw(self), systemids as _, count as _) }
     }
 }
@@ -81,24 +83,30 @@ pub struct IMFContentDecryptionModule_Vtbl {
     pub CreateSession: unsafe extern "system" fn(*mut core::ffi::c_void, super::MF_MEDIAKEYSESSION_TYPE, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "mfidl"))]
     CreateSession: usize,
-    pub SetServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "mfidl")]
-    pub CreateTrustedInput: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mfidl"))]
+    #[cfg(feature = "shared")]
+    pub SetServerCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::BYTE, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetServerCertificate: usize,
+    #[cfg(all(feature = "mfidl", feature = "shared"))]
+    pub CreateTrustedInput: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::BYTE, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mfidl", feature = "shared")))]
     CreateTrustedInput: usize,
-    pub GetProtectionSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetProtectionSystemIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::GUID, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetProtectionSystemIds: usize,
 }
-#[cfg(all(feature = "mfidl", feature = "mfmediaengine", feature = "mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfmediaengine", feature = "mfobjects", feature = "shared"))]
 pub trait IMFContentDecryptionModule_Impl: windows_core::IUnknownImpl {
     fn SetContentEnabler(&self, contentenabler: windows_core::Ref<super::IMFContentEnabler>, result: windows_core::Ref<super::IMFAsyncResult>) -> windows_core::Result<()>;
     fn GetSuspendNotify(&self) -> windows_core::Result<super::IMFCdmSuspendNotify>;
     fn SetPMPHostApp(&self, pmphostapp: windows_core::Ref<super::IMFPMPHostApp>) -> windows_core::Result<()>;
     fn CreateSession(&self, sessiontype: super::MF_MEDIAKEYSESSION_TYPE, callbacks: windows_core::Ref<IMFContentDecryptionModuleSessionCallbacks>) -> windows_core::Result<IMFContentDecryptionModuleSession>;
-    fn SetServerCertificate(&self, certificate: *const u8, certificatesize: u32) -> windows_core::Result<()>;
-    fn CreateTrustedInput(&self, contentinitdata: *const u8, contentinitdatasize: u32) -> windows_core::Result<super::IMFTrustedInput>;
-    fn GetProtectionSystemIds(&self, systemids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_core::Result<()>;
+    fn SetServerCertificate(&self, certificate: *const super::BYTE, certificatesize: super::DWORD) -> windows_core::Result<()>;
+    fn CreateTrustedInput(&self, contentinitdata: *const super::BYTE, contentinitdatasize: super::DWORD) -> windows_core::Result<super::IMFTrustedInput>;
+    fn GetProtectionSystemIds(&self, systemids: *mut *mut windows_core::GUID, count: *mut super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "mfidl", feature = "mfmediaengine", feature = "mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfmediaengine", feature = "mfobjects", feature = "shared"))]
 impl IMFContentDecryptionModule_Vtbl {
     pub const fn new<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetContentEnabler<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentenabler: *mut core::ffi::c_void, result: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -137,13 +145,13 @@ impl IMFContentDecryptionModule_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetServerCertificate<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, certificate: *const u8, certificatesize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServerCertificate<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, certificate: *const super::BYTE, certificatesize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFContentDecryptionModule_Impl::SetServerCertificate(this, core::mem::transmute_copy(&certificate), core::mem::transmute_copy(&certificatesize)).into()
             }
         }
-        unsafe extern "system" fn CreateTrustedInput<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentinitdata: *const u8, contentinitdatasize: u32, trustedinput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTrustedInput<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, contentinitdata: *const super::BYTE, contentinitdatasize: super::DWORD, trustedinput: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModule_Impl::CreateTrustedInput(this, core::mem::transmute_copy(&contentinitdata), core::mem::transmute_copy(&contentinitdatasize)) {
@@ -155,7 +163,7 @@ impl IMFContentDecryptionModule_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetProtectionSystemIds<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProtectionSystemIds<Identity: IMFContentDecryptionModule_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemids: *mut *mut windows_core::GUID, count: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFContentDecryptionModule_Impl::GetProtectionSystemIds(this, core::mem::transmute_copy(&systemids), core::mem::transmute_copy(&count)).into()
@@ -176,7 +184,7 @@ impl IMFContentDecryptionModule_Vtbl {
         iid == &<IMFContentDecryptionModule as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mfidl", feature = "mfmediaengine", feature = "mfobjects"))]
+#[cfg(all(feature = "mfidl", feature = "mfmediaengine", feature = "mfobjects", feature = "shared"))]
 impl windows_core::RuntimeName for IMFContentDecryptionModule {}
 windows_core::imp::define_interface!(IMFContentDecryptionModuleAccess, IMFContentDecryptionModuleAccess_Vtbl, 0xa853d1f4_e2a0_4303_9edc_f1a68ee43136);
 windows_core::imp::interface_hierarchy!(IMFContentDecryptionModuleAccess, windows_core::IUnknown);
@@ -287,8 +295,8 @@ impl IMFContentDecryptionModuleFactory {
     {
         unsafe { (windows_core::Interface::vtable(self).IsTypeSupported)(windows_core::Interface::as_raw(self), keysystem.param().abi(), contenttype.param().abi()) }
     }
-    #[cfg(feature = "propsys")]
-    pub unsafe fn CreateContentDecryptionModuleAccess<P0>(&self, keysystem: P0, configurations: *const Option<super::IPropertyStore>, numconfigurations: u32) -> windows_core::Result<IMFContentDecryptionModuleAccess>
+    #[cfg(all(feature = "propsys", feature = "shared"))]
+    pub unsafe fn CreateContentDecryptionModuleAccess<P0>(&self, keysystem: P0, configurations: *const Option<super::IPropertyStore>, numconfigurations: super::DWORD) -> windows_core::Result<IMFContentDecryptionModuleAccess>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -303,17 +311,17 @@ impl IMFContentDecryptionModuleFactory {
 pub struct IMFContentDecryptionModuleFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsTypeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::BOOL,
-    #[cfg(feature = "propsys")]
-    pub CreateContentDecryptionModuleAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const *mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "propsys"))]
+    #[cfg(all(feature = "propsys", feature = "shared"))]
+    pub CreateContentDecryptionModuleAccess: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const *mut core::ffi::c_void, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "propsys", feature = "shared")))]
     CreateContentDecryptionModuleAccess: usize,
 }
-#[cfg(feature = "propsys")]
+#[cfg(all(feature = "propsys", feature = "shared"))]
 pub trait IMFContentDecryptionModuleFactory_Impl: windows_core::IUnknownImpl {
     fn IsTypeSupported(&self, keysystem: &windows_core::PCWSTR, contenttype: &windows_core::PCWSTR) -> windows_core::BOOL;
-    fn CreateContentDecryptionModuleAccess(&self, keysystem: &windows_core::PCWSTR, configurations: *const Option<super::IPropertyStore>, numconfigurations: u32) -> windows_core::Result<IMFContentDecryptionModuleAccess>;
+    fn CreateContentDecryptionModuleAccess(&self, keysystem: &windows_core::PCWSTR, configurations: *const Option<super::IPropertyStore>, numconfigurations: super::DWORD) -> windows_core::Result<IMFContentDecryptionModuleAccess>;
 }
-#[cfg(feature = "propsys")]
+#[cfg(all(feature = "propsys", feature = "shared"))]
 impl IMFContentDecryptionModuleFactory_Vtbl {
     pub const fn new<Identity: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn IsTypeSupported<Identity: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keysystem: windows_core::PCWSTR, contenttype: windows_core::PCWSTR) -> windows_core::BOOL {
@@ -322,7 +330,7 @@ impl IMFContentDecryptionModuleFactory_Vtbl {
                 IMFContentDecryptionModuleFactory_Impl::IsTypeSupported(this, core::mem::transmute(&keysystem), core::mem::transmute(&contenttype))
             }
         }
-        unsafe extern "system" fn CreateContentDecryptionModuleAccess<Identity: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keysystem: windows_core::PCWSTR, configurations: *const *mut core::ffi::c_void, numconfigurations: u32, contentdecryptionmoduleaccess: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateContentDecryptionModuleAccess<Identity: IMFContentDecryptionModuleFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keysystem: windows_core::PCWSTR, configurations: *const *mut core::ffi::c_void, numconfigurations: super::DWORD, contentdecryptionmoduleaccess: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMFContentDecryptionModuleFactory_Impl::CreateContentDecryptionModuleAccess(this, core::mem::transmute(&keysystem), core::mem::transmute_copy(&configurations), core::mem::transmute_copy(&numconfigurations)) {
@@ -344,7 +352,7 @@ impl IMFContentDecryptionModuleFactory_Vtbl {
         iid == &<IMFContentDecryptionModuleFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "propsys")]
+#[cfg(all(feature = "propsys", feature = "shared"))]
 impl windows_core::RuntimeName for IMFContentDecryptionModuleFactory {}
 windows_core::imp::define_interface!(IMFContentDecryptionModuleSession, IMFContentDecryptionModuleSession_Vtbl, 0x4e233efd_1dd2_49e8_b577_d63eee4c0d33);
 windows_core::imp::interface_hierarchy!(IMFContentDecryptionModuleSession, windows_core::IUnknown);
@@ -361,8 +369,8 @@ impl IMFContentDecryptionModuleSession {
             (windows_core::Interface::vtable(self).GetExpiration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "mfidl")]
-    pub unsafe fn GetKeyStatuses(&self, keystatuses: *mut *mut super::MFMediaKeyStatus, numkeystatuses: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "mfidl", feature = "shared"))]
+    pub unsafe fn GetKeyStatuses(&self, keystatuses: *mut *mut super::MFMediaKeyStatus, numkeystatuses: *mut super::UINT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetKeyStatuses)(windows_core::Interface::as_raw(self), keystatuses as _, numkeystatuses as _) }
     }
     pub unsafe fn Load<P0>(&self, sessionid: P0) -> windows_core::Result<windows_core::BOOL>
@@ -374,14 +382,16 @@ impl IMFContentDecryptionModuleSession {
             (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), sessionid.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GenerateRequest<P0>(&self, initdatatype: P0, initdata: *const u8, initdatasize: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn GenerateRequest<P0>(&self, initdatatype: P0, initdata: &[super::BYTE]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), initdatatype.param().abi(), initdata, initdatasize) }
+        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), initdatatype.param().abi(), initdata.as_ptr(), initdata.len().try_into().unwrap()) }
     }
-    pub unsafe fn Update(&self, response: *const u8, responsesize: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), response, responsesize) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn Update(&self, response: &[super::BYTE]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), response.as_ptr(), response.len().try_into().unwrap()) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -396,28 +406,34 @@ pub struct IMFContentDecryptionModuleSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSessionId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     pub GetExpiration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    #[cfg(feature = "mfidl")]
-    pub GetKeyStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::MFMediaKeyStatus, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mfidl"))]
+    #[cfg(all(feature = "mfidl", feature = "shared"))]
+    pub GetKeyStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut super::MFMediaKeyStatus, *mut super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mfidl", feature = "shared")))]
     GetKeyStatuses: usize,
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub GenerateRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8, u32) -> windows_core::HRESULT,
-    pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GenerateRequest: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const super::BYTE, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GenerateRequest: usize,
+    #[cfg(feature = "shared")]
+    pub Update: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::BYTE, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Update: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "mfidl")]
+#[cfg(all(feature = "mfidl", feature = "shared"))]
 pub trait IMFContentDecryptionModuleSession_Impl: windows_core::IUnknownImpl {
     fn GetSessionId(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetExpiration(&self) -> windows_core::Result<f64>;
-    fn GetKeyStatuses(&self, keystatuses: *mut *mut super::MFMediaKeyStatus, numkeystatuses: *mut u32) -> windows_core::Result<()>;
+    fn GetKeyStatuses(&self, keystatuses: *mut *mut super::MFMediaKeyStatus, numkeystatuses: *mut super::UINT) -> windows_core::Result<()>;
     fn Load(&self, sessionid: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-    fn GenerateRequest(&self, initdatatype: &windows_core::PCWSTR, initdata: *const u8, initdatasize: u32) -> windows_core::Result<()>;
-    fn Update(&self, response: *const u8, responsesize: u32) -> windows_core::Result<()>;
+    fn GenerateRequest(&self, initdatatype: &windows_core::PCWSTR, initdata: *const super::BYTE, initdatasize: super::DWORD) -> windows_core::Result<()>;
+    fn Update(&self, response: *const super::BYTE, responsesize: super::DWORD) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn Remove(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "mfidl")]
+#[cfg(all(feature = "mfidl", feature = "shared"))]
 impl IMFContentDecryptionModuleSession_Vtbl {
     pub const fn new<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSessionId<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sessionid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -444,7 +460,7 @@ impl IMFContentDecryptionModuleSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetKeyStatuses<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keystatuses: *mut *mut super::MFMediaKeyStatus, numkeystatuses: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetKeyStatuses<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, keystatuses: *mut *mut super::MFMediaKeyStatus, numkeystatuses: *mut super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFContentDecryptionModuleSession_Impl::GetKeyStatuses(this, core::mem::transmute_copy(&keystatuses), core::mem::transmute_copy(&numkeystatuses)).into()
@@ -462,13 +478,13 @@ impl IMFContentDecryptionModuleSession_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GenerateRequest<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initdatatype: windows_core::PCWSTR, initdata: *const u8, initdatasize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GenerateRequest<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initdatatype: windows_core::PCWSTR, initdata: *const super::BYTE, initdatasize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFContentDecryptionModuleSession_Impl::GenerateRequest(this, core::mem::transmute(&initdatatype), core::mem::transmute_copy(&initdata), core::mem::transmute_copy(&initdatasize)).into()
             }
         }
-        unsafe extern "system" fn Update<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, response: *const u8, responsesize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Update<Identity: IMFContentDecryptionModuleSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, response: *const super::BYTE, responsesize: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFContentDecryptionModuleSession_Impl::Update(this, core::mem::transmute_copy(&response), core::mem::transmute_copy(&responsesize)).into()
@@ -502,17 +518,17 @@ impl IMFContentDecryptionModuleSession_Vtbl {
         iid == &<IMFContentDecryptionModuleSession as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mfidl")]
+#[cfg(all(feature = "mfidl", feature = "shared"))]
 impl windows_core::RuntimeName for IMFContentDecryptionModuleSession {}
 windows_core::imp::define_interface!(IMFContentDecryptionModuleSessionCallbacks, IMFContentDecryptionModuleSessionCallbacks_Vtbl, 0x3f96ee40_ad81_4096_8470_59a4b770f89a);
 windows_core::imp::interface_hierarchy!(IMFContentDecryptionModuleSessionCallbacks, windows_core::IUnknown);
 impl IMFContentDecryptionModuleSessionCallbacks {
-    #[cfg(feature = "mfidl")]
-    pub unsafe fn KeyMessage<P3>(&self, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const u8, messagesize: u32, destinationurl: P3) -> windows_core::HRESULT
+    #[cfg(all(feature = "mfidl", feature = "shared"))]
+    pub unsafe fn KeyMessage<P3>(&self, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: &[super::BYTE], destinationurl: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), messagetype, message, messagesize, destinationurl.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), messagetype, message.as_ptr(), message.len().try_into().unwrap(), destinationurl.param().abi()) }
     }
     pub unsafe fn KeyStatusChanged(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).KeyStatusChanged)(windows_core::Interface::as_raw(self)) }
@@ -522,21 +538,21 @@ impl IMFContentDecryptionModuleSessionCallbacks {
 #[doc(hidden)]
 pub struct IMFContentDecryptionModuleSessionCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "mfidl")]
-    pub KeyMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::MF_MEDIAKEYSESSION_MESSAGETYPE, *const u8, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mfidl"))]
+    #[cfg(all(feature = "mfidl", feature = "shared"))]
+    pub KeyMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::MF_MEDIAKEYSESSION_MESSAGETYPE, *const super::BYTE, super::DWORD, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mfidl", feature = "shared")))]
     KeyMessage: usize,
     pub KeyStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "mfidl")]
+#[cfg(all(feature = "mfidl", feature = "shared"))]
 pub trait IMFContentDecryptionModuleSessionCallbacks_Impl: windows_core::IUnknownImpl {
-    fn KeyMessage(&self, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const u8, messagesize: u32, destinationurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn KeyMessage(&self, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const super::BYTE, messagesize: super::DWORD, destinationurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn KeyStatusChanged(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "mfidl")]
+#[cfg(all(feature = "mfidl", feature = "shared"))]
 impl IMFContentDecryptionModuleSessionCallbacks_Vtbl {
     pub const fn new<Identity: IMFContentDecryptionModuleSessionCallbacks_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn KeyMessage<Identity: IMFContentDecryptionModuleSessionCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const u8, messagesize: u32, destinationurl: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn KeyMessage<Identity: IMFContentDecryptionModuleSessionCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagetype: super::MF_MEDIAKEYSESSION_MESSAGETYPE, message: *const super::BYTE, messagesize: super::DWORD, destinationurl: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMFContentDecryptionModuleSessionCallbacks_Impl::KeyMessage(this, core::mem::transmute_copy(&messagetype), core::mem::transmute_copy(&message), core::mem::transmute_copy(&messagesize), core::mem::transmute(&destinationurl)).into()
@@ -558,5 +574,15 @@ impl IMFContentDecryptionModuleSessionCallbacks_Vtbl {
         iid == &<IMFContentDecryptionModuleSessionCallbacks as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mfidl")]
+#[cfg(all(feature = "mfidl", feature = "shared"))]
 impl windows_core::RuntimeName for IMFContentDecryptionModuleSessionCallbacks {}
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_CONTENTDECRYPTIONMODULE_INPRIVATESTOREPATH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x730cb3ac_51dc_49da_a578_b95386b62afe), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_CONTENTDECRYPTIONMODULE_PMPSTORECONTEXT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6d2a2835_c3a9_4681_97f2_0af56be93446), pid: 3 };
+pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: windows_core::GUID = windows_core::GUID::from_u128(0x15320c45_ff80_484a_9dcb_0df894e69a01);
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MF_CONTENTDECRYPTIONMODULE_STOREPATH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x77d993b9_ba61_4bb7_92c6_18c86a189c06), pid: 2 };
+pub const MF_ENCRYPTEDMEDIAEXTENSIONS_ACTIVATABLE_CLASS_ID: windows_core::GUID = windows_core::GUID::from_u128(0x77631a31_e5e7_4785_bf17_20f57b224802);
+pub const MF_ENCRYPTEDMEDIAEXTENSIONS_ACTIVATE: windows_core::GUID = windows_core::GUID::from_u128(0x2df7b51e_797b_4d06_be71_d14a52cf8421);
+pub const MF_ENCRYPTEDMEDIAEXTENSIONS_INITIALIZATION_DATA: windows_core::GUID = windows_core::GUID::from_u128(0x3e73735c_e6c0_481d_8260_ee5db1343b5f);

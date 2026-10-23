@@ -17,19 +17,20 @@ pub type AEC_VAD_MODE = i32;
 pub const AEC_VAD_NORMAL: AEC_VAD_MODE = 1;
 pub const ALawCodecWrapper: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AecQualityMetrics_Struct {
-    pub i64Timestamp: i64,
-    pub ConvergenceFlag: u8,
-    pub MicClippedFlag: u8,
-    pub MicSilenceFlag: u8,
-    pub PstvFeadbackFlag: u8,
-    pub SpkClippedFlag: u8,
-    pub SpkMuteFlag: u8,
-    pub GlitchFlag: u8,
-    pub DoubleTalkFlag: u8,
-    pub uGlitchCount: u32,
-    pub uMicClipCount: u32,
+    pub i64Timestamp: super::LONGLONG,
+    pub ConvergenceFlag: super::BYTE,
+    pub MicClippedFlag: super::BYTE,
+    pub MicSilenceFlag: super::BYTE,
+    pub PstvFeadbackFlag: super::BYTE,
+    pub SpkClippedFlag: super::BYTE,
+    pub SpkMuteFlag: super::BYTE,
+    pub GlitchFlag: super::BYTE,
+    pub DoubleTalkFlag: super::BYTE,
+    pub uGlitchCount: super::ULONG,
+    pub uMicClipCount: super::ULONG,
     pub fDuration: f32,
     pub fTSVariance: f32,
     pub fTSDriftRate: f32,
@@ -37,7 +38,7 @@ pub struct AecQualityMetrics_Struct {
     pub fNoiseLevel: f32,
     pub fERLE: f32,
     pub fAvgERLE: f32,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
 pub const CAC3DecMediaObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x03d7c802_ecfa_47d9_b268_5fb3e310dee4);
 pub const CClusterDetectorDmo: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x36e820c4_165a_4521_863c_619e1160d4d4);
@@ -204,6 +205,616 @@ pub const MFAMRNBByteStreamHandler: windows_sys::core::GUID = windows_sys::core:
 pub const MFAMRNBSinkClassFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0271158_70d2_4c5b_9f94_76f549d90fdf);
 pub const MFFLACBytestreamHandler: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0e41cfb8_0506_40f4_a516_77cc23642d91);
 pub const MFFLACSinkClassFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5);
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ADAPTIVERESOLUTION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 86 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ASFOVERHEADPERFRAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x0eac7502_1957_4beb_914d_885f85e75436), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_DOHRTFREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_DOPOSTREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_LFWEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_POSTREVERB_LEN: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_POSTREVERB_START: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_ROOMMODEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x73ae880e_8258_4e57_b85f_7daa6b7d5ef0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_SKIPHRTFREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_SKIPPOSTREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AVDecVideoSWPowerLevel: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xfb5d2347_4dd8_4509_aed0_db5fa9aa93f4), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AVGCONSTRAINED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AVGFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x41d700d6_95b1_4e3f_b759_2d66d8c7ada2), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_BIGROOM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xc816a1a7_a119_48a5_9ad2_85451f4b5a2e), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_CROSSOVER_FREQ: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x61e8acb9_f04f_4f40_a65f_8f49fab3ba10), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_INVERT_SUB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb1103003_c191_4275_9fa0_8c282c724bce), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_NO_SUB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5c3fd32e_0d40_4e2d_99fb_c91e96420be7), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_SPKRBASSCONFIG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bfd170d_4770_4dc5_924d_0b7b252ee918), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASS_BOOST_AMOUNT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xae7f0b2a_96fc_493a_9247_a019f1f701e1), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x10174e76_e0ca_4a39_948c_8510c2323276), pid: 23 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BDELTAQP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 50 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xff365211_21b6_4134_ab7c_52393a8f80f6), pid: 25 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BUFFERFULLNESSINFIRSTBYTE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb69dc3c5_64c4_4757_99cb_5d580fd5659e), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CHECKDATACONSISTENCY2P: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_XORIG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_YORIG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLOSEDENTRYPOINT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 63 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLUSTERDETECTOR_MAXCLUSTERDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb79a666d_8a9d_463c_9d97_e1b10045c13a), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLUSTERDETECTOR_MAXCLUSTERS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb79a666d_8a9d_463c_9d97_e1b10045c13a), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLUSTERDETECTOR_MINCLUSTERDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb79a666d_8a9d_463c_9d97_e1b10045c13a), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CODEDFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x62872b55_fe0e_4930_a6d2_ccaa37e8f535), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CODEDNONZEROFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7adf5b69_1e3f_42d3_991d_f81e0cebe93e), pid: 30 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_DSTLEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_DSTTOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_SRCLEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_SRCTOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYLIVE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYOFFLINE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_bSVideo: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_BRIGHTNESS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_CONTRAST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_HUE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_SATURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x44fa08c7_92f5_45dc_8376_8d1d324c652a), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COMPLEXITYEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd6e48f93_fd47_47a3_9262_8aefb5530332), pid: 17 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COMPRESSIONOPTIMIZATIONTYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 67 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAINDECLATENCY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAINENCCOMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAINENCLATENCY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAIN_ENUMERATED_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 26 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONV_INPUTFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x52f8d29b_2e76_43f7_a4f6_1717904e35df), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONV_OUTPUTFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x52f8d29b_2e76_43f7_a4f6_1717904e35df), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONV_REVERSEPLAYBACK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x52f8d29b_2e76_43f7_a4f6_1717904e35df), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_BASS_MANAGEMENT_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1864a4e0_efc1_45e6_a675_5786cbf3b9f0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_HEADPHONE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x445f3559_b43f_4b67_b0f8_32b67cf94b48), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_LOUDNESS_EQUALIZATION_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xfc52a749_4be9_4510_896e_966ba6525980), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_MULTICHANNEL_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x1b5c2483_0839_4523_ba87_95f89d27bd8c), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_NORMALIZATION_GAIN: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd61b266c_5aee_456b_8424_7225477dae77), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_ROOM_CORRECTION_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x01fb17e3_796c_4451_8163_68cdc1321a60), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_SPKRMASK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd328d8fb_d49f_4aa9_b721_e171e93ad563), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CRISP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x2985f772_3af2_4d15_8cfa_8a962ff32040), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DATARATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe0db0807_8003_4880_ac11_61b73f33dc60), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DECODERCOMPLEXITYPROFILE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xc0d912d6_14da_4d31_8d83_d108915e8d77), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DECODERCOMPLEXITYREQUESTED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb0d7d4a7_422b_44c3_97b4_b9760cceeea9), pid: 28 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DECODER_DEINTERLACING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_DETELECINE_FLAG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_EDGETHRESHOLD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_LASTFRAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_PROCESSTYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_SMOOTHLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_TELECINEPATTERN: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DELTAMVRANGEINDEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 47 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISEOPTION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 38 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_CACHEFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_CAUSAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_FILTER: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_ITERATIVE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA1: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA2: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA3: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA4: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA5: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PROCFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DESIRED_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 25 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DQUANTOPTION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 78 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DQUANTSTRENGTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 79 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DROPPEDFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xbdb5afd3_4027_4882_806c_4162e4a7a3f0), pid: 29 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DVDEC_SIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x75f2421a_e73a_45b3_aef0_913c66846461), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DVENC_FORMAT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf449a927_7b22_46ef_b2e7_4d2b728b699c), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DXVA_ENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x58e28605_1d51_48ed_a3eb_0f9baf785fbd), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYNCOMPLEXLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 82 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYNENCMODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 84 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_ALLOW_NOISESUB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_ALLOW_PCMRANGELIMITING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 27 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNCATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_BWCEIL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_BWFLOOR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_QCEIL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_QFLOOR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_SIMPLEMASK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_STEREO_PREPROC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_VBR_BAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_VBR_RAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_Decoder_MaxNumPCMSamplesWithPaddedSilence: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xc678ba85_1212_43da_5ac3_e748b92449ec), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENCCOMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENCODERCOMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 71 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENDOFPASS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb2030f2a_8bbc_46f8_a64b_a98ff7fcf02a), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENHANCED_WMA: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FACEDETECTOR_SKIPFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe1a124a6_4fa8_4ba5_a2d8_dc34536f7426), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_ALLOWED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_COMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_ENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe020c4ca_3bdd_40ec_bcf4_4039b1450eb8), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_SCAL_DST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_SCAL_SRC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_VALU_DST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_VALU_SRC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_SUPPORTED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5ce18788_b992_49a7_a4f1_60ea21caa55f), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEFRAMEHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 52 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEFRAMEWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 51 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEMEDIANSETTING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 57 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEOVERLAP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 80 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FOURCC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x593e3f2e_f84d_4e85_b68d_f669400edabc), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FRAMECOUNT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x75028eb4_4853_44d3_88a3_e499f89d227f), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FULLFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 45 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_INTERLACEDCODINGENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x56976073_06c3_4b3b_ad41_b7417fce8474), pid: 26 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_KEYDIST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x18d6f8c5_2416_4d7b_90d7_9f3f21e752b4), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LETTERBOXPRESENT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 73 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LIVEENCODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x3ffa1e60_5514_4634_86e6_1f3b7c545143), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOOKAHEAD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 54 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOOKAHEADRC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 77 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOOPFILTER: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 59 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOUDNESS_EQUALIZATION_RELEASE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x9c00eeed_edce_4cd8_ae08_cb05e8ef57a0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MACROBLOCKMODECOSTMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 66 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MAXDECLATENCYMS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MAXENCLATENCYMS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOST_RECENTLY_ENUMERATED_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 24 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONMATCHMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 65 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONSEARCHLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 64 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONSEARCHRANGE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 46 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONVECTORCOSTMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 81 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NOISEEDGEREMOVAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 60 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NUMBFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 48 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NUMTHREADS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 58 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NUMTHREADSDEC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PASSESRECOMMENDED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x38bdceea_393e_4f9a_8dc3_802cc405838f), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PASSESUSED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xb1653ac1_cb7d_43ee_8454_3f9d811b0331), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PEAKCONSTRAINED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PERCEPTUALOPTLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 56 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PERIODICALSPDISTANCE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 70 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PHANTOMING_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x12b53cb2_e12e_4579_8ac3_d02f94f1e89e), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PIXELASPECTRATIO: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 23 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_POSTPROCESSMODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PREFERRED_FRAMESIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 22 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PRODUCEDUMMYFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x61714bc6_08a1_49d1_b827_a33aada95526), pid: 27 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PROGRESS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5cefee10_e210_45c6_9e28_f5a8731c96c7), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_QPPERFRAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 31 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RANGEREDUX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 53 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x14b2aae6_2987_460a_8b22_9c077c55d05e), pid: 22 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RDSUBPIXELSEARCH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 49 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 34 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCENDBUFFERSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 36 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCQPREF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 37 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCSTARTBUFFERSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 35 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REQUESTING_A_FRAMESIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_LEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_TOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 17 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_INTERLACE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 22 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_QUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_LEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_TOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7d8dd246_aaf4_4a24_8166_19396b06ef69), pid: 24 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ROOMCORR_PROFILE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf311cdc7_f45f_4eb7_a864_9dc1aeeb7e6d), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SCENECHANGE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 74 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SCENECHANGEI: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 76 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SETDYNVIDRES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 87 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_ADAPTIVETHRESHOLD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_ADAPTIVEWINDOWSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_CLASSIFICATIONMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_GLOBALTHRESHOLD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MAXCLIPDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MAXCLIPSPERHOUR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MINCLIPDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MINCLIPWEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_PRESERVEMONOCLIPS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_TYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_BORDERCOLOR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_BORDERSOFTNESS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_BORDERWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_MASKNUM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_OFFSETX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_OFFSETY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_REPLICATEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_REPLICATEY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_REVERSE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STARTTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5cefee10_e210_45c6_9e28_f5a8731c96c7), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_BAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x036f6b60_ad43_485c_86c6_21a6db2c1ba3), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_BMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcd95e5b7_9143_47fb_a9d2_9db75f2e74be), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_RAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x23a0e3b5_fc62_4ab8_b77c_6e0c28ab3016), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_RMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x82ff7c67_6554_4749_a32b_3690dd1ae8de), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STOPTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x5cefee10_e210_45c6_9e28_f5a8731c96c7), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TARGETENCDELTA: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 85 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TARGETENCRATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 83 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_MAXMOTIONACTIVITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_MINCOLORENTROPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_SEARCHWINDOWSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILFILENAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 255 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILREADY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_CLUSTERDETECTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_CURRENTTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 253 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_ENDSIGNAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 251 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_ENDTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 252 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_FACEDETECTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_FEATUREEXTRACTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_INDEXFILENAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 255 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_PROCESSEDFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 254 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_SHOTDETECTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_THUMBNAILGENERATOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_TOCOBJECT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_TOCREADY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_USEENDSIGNAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 250 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOTALFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xce5f1e3c_d3d4_4c3f_88c8_01e989d998d2), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_USERDATASIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 72 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VARIABLEGOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 75 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VBRENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xe48d9459_6abe_4eb5_9211_60080c1ab984), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf97b3f3a_9eff_4ac9_8247_35b30eb925f4), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VIDEOSCALING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 55 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VIDEOWINDOW: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xc1c96060_76f0_47d4_a875_5bdda90df5e9), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VOLHEADERFORREENCODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 33 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VTYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 61 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_DEVICEPAIR_GUID: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 17 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_DEVICE_INDEXES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_DMO_SOURCE_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_AES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_AGC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_CENTER_CLIP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_ECHO_LENGTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_FRAME_SIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_MICARR_BEAM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_MICARR_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_MICARR_PREPROC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_NOISE_FILL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_NS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_VAD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATURE_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_MICARRAY_DESCPTR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_MIC_GAIN_BOUNDER: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_QUALITY_METRICS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_RETRIEVE_TS_STATS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_SYSTEM_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_DRCMODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_FOLDDOWN_MATRIX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x51647e9b_6a7f_4739_9e0b_294b278969eb), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_HIRESOUTPUT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8d3fe592_eecc_4f4e_9aff_5af1679d38d2), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_LTRTOUTPUT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_SPKRCFG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8fff67be_977f_41dc_8faf_23bac9a6df73), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_AVGREF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_AVGTARGET: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_PEAKREF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_PEAKTARGET: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_AVGBYTESPERSEC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x11caf780_921b_42ef_b755_f3a053ea1a41), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_BUFFERLESSCBR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 29 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_GENERATE_DRC_PARAMS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 28 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_ORIGWAVEFORMAT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xf5c760a2_3635_48e1_8fbd_0e498124e0a2), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_RTSPDIF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 30 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_DEC_RT_JitterControl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_DEC_RT_JitterMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_DEC_RT_PacketLossMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_BufferWindow: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_DecoderDelay: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_EDL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_MusicSpeechClassMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_BandWidth: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_MinBufferSize: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_PacketLossMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_VariableRate: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMA_ELEMENTARY_STREAM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 23 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMRESAMP_CHANNELMTX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xaf1adc73_a210_4b05_966e_5491cff48b1d), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMRESAMP_FILTERQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xaf1adc73_a210_4b05_966e_5491cff48b1d), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMRESAMP_LOWPASS_BANDWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xaf1adc73_a210_4b05_966e_5491cff48b1d), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ZEROBYTEFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0x8f04aba4_313d_40fb_8031_31517813d9ef), pid: 7 };
 pub const MFSampleExtension_VideoDSPMode: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc12d55cb_d7d9_476d_81f3_69117f163ea0);
 pub type MFVideoDSPMode = i32;
 pub const MFVideoDSPMode_Passthrough: MFVideoDSPMode = 1;
@@ -228,6 +839,8 @@ pub const OPENMODE_FAIL_IF_NOT_EXIST: FILE_OPENMODE = 0;
 pub const OPENMODE_RESET_IF_EXIST: FILE_OPENMODE = 2;
 pub const OPTIBEAM_ARRAY_AND_AEC: AEC_SYSTEM_MODE = 4;
 pub const OPTIBEAM_ARRAY_ONLY: AEC_SYSTEM_MODE = 2;
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_SYSFXUI_HIDE_MASK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_sys::core::GUID::from_u128(0xcb9c6bce_7a25_47aa_b2be_6ad84431edde), pid: 2 };
 pub type SEEK_ORIGIN = i32;
 pub const SINGLE_CHANNEL_AEC: AEC_SYSTEM_MODE = 0;
 pub const SINGLE_CHANNEL_NSAGC: AEC_SYSTEM_MODE = 5;
@@ -240,21 +853,23 @@ pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: i32 = 2;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: i32 = 64;
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TOC_DESCRIPTOR {
     pub guidID: windows_sys::core::GUID,
-    pub wStreamNumber: u16,
+    pub wStreamNumber: super::WORD,
     pub guidType: windows_sys::core::GUID,
-    pub wLanguageIndex: u16,
+    pub wLanguageIndex: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TOC_ENTRY_DESCRIPTOR {
-    pub qwStartTime: u64,
-    pub qwEndTime: u64,
-    pub qwStartPacketOffset: u64,
-    pub qwEndPacketOffset: u64,
-    pub qwRepresentativeFrameTime: u64,
+    pub qwStartTime: super::QWORD,
+    pub qwEndTime: super::QWORD,
+    pub qwStartPacketOffset: super::QWORD,
+    pub qwEndPacketOffset: super::QWORD,
+    pub qwRepresentativeFrameTime: super::QWORD,
 }
 pub const TOC_ENTRY_MAX_TITLE_SIZE: i32 = 65535;
 pub const TOC_MAX_DESCRIPTION_SIZE: i32 = 65535;
@@ -286,7 +901,6 @@ pub const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: i32 = 16;
 pub const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: i32 = 8;
 pub const _msoBegin: SEEK_ORIGIN = 0;
 pub const _msoCurrent: SEEK_ORIGIN = 1;
-pub const g_wszSpeechFormatCaps: windows_sys::core::PCWSTR = windows_sys::core::w!("SpeechFormatCap");
 pub const g_wszWMACAvgBytesPerSec: windows_sys::core::PCWSTR = windows_sys::core::w!("AvgBytesPerSec");
 pub const g_wszWMACAvgPCMValue: windows_sys::core::PCWSTR = windows_sys::core::w!("AverageLevel");
 pub const g_wszWMACDRCSetting: windows_sys::core::PCWSTR = windows_sys::core::w!("DynamicRangeControl");

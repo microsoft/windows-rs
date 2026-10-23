@@ -59,7 +59,7 @@ mod Windows {
         }
         #[guid(0xfd882d06_8aba_4fb8_b849_8be8b73e14de)]
         interface IDWriteFontFallbackBuilder: IUnknown {
-            fn AddMapping(&self, #[in] #[readable(entry, rangesCount)] ranges: *const DWRITE_UNICODE_RANGE, rangesCount: UINT32, #[in] #[readable(entry, targetFamilyNamesCount)] targetFamilyNames: *mut *const WCHAR, targetFamilyNamesCount: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fontCollection: IDWriteFontCollection, #[in] #[opt] #[null_terminated(entry)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] localeName: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] baseFamilyName: *const WCHAR, #[Windows::Win32::Metadata::NativeDefaultArgument("1.F")] scale: FLOAT) -> HRESULT;
+            fn AddMapping(&self, #[in] #[readable(entry, rangesCount)] ranges: *const DWRITE_UNICODE_RANGE, rangesCount: UINT32, #[in] #[readable(entry, targetFamilyNamesCount)] targetFamilyNames: *mut *const WCHAR, targetFamilyNamesCount: UINT32, #[in] #[opt] fontCollection: IDWriteFontCollection, #[in] #[opt] #[null_terminated(entry)] localeName: *const WCHAR, #[in] #[opt] #[null_terminated(entry)] baseFamilyName: *const WCHAR, scale: FLOAT) -> HRESULT;
             fn AddMappings(&self, fontFallback: IDWriteFontFallback) -> HRESULT;
             fn CreateFontFallback(&self, #[out] #[out_ptr(null_on_failure)] fontFallback: *mut IDWriteFontFallback) -> HRESULT;
         }

@@ -10,6 +10,32 @@
 include!(concat!(env!("OUT_DIR"), "/compile_fixtures.rs"));
 
 #[test]
+fn buffer_contracts_preserve_storage() {
+    use buffer_contracts::Buffers;
+    use core::ffi::c_void;
+    use windows_core::{GUID, HRESULT, IUnknown, Result};
+
+    let _: unsafe fn(&Buffers, &[u32]) = Buffers::Input;
+    let _: unsafe fn(&Buffers, u32, *mut u32) -> HRESULT = Buffers::Output;
+    let _: unsafe fn(&Buffers, *mut u32) -> HRESULT = Buffers::Explicit;
+    let _: unsafe fn(&Buffers, u32, *mut u32) -> HRESULT = Buffers::Arithmetic;
+    let _: unsafe fn(&Buffers, u32, *mut *mut u32) -> HRESULT = Buffers::Returned;
+    let _: unsafe fn(&Buffers, Option<*const u32>, *mut u32) -> HRESULT = Buffers::OptionalCount;
+    let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::UnknownDirection;
+    let _: unsafe fn(&Buffers, u32, *mut u32) -> HRESULT = Buffers::Residual;
+    let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::ResidualInput;
+    let _: unsafe fn(&Buffers, u32, *const u32) = Buffers::ResidualCount;
+    let _: unsafe fn(&Buffers) -> Result<u32> = Buffers::Scalar;
+    let _: unsafe fn(&Buffers) -> Result<IUnknown> = Buffers::Query::<IUnknown>;
+    let _: unsafe fn(&Buffers, &[GUID], *mut *mut c_void) -> HRESULT = Buffers::GuidBuffer;
+    let _: unsafe fn(&Buffers, *const GUID, u32, *mut *mut c_void) -> HRESULT =
+        Buffers::OutputBuffer;
+    let _: unsafe fn(&Buffers, *const GUID, *mut *mut c_void) -> HRESULT = Buffers::ResidualQuery;
+    let _: unsafe fn(&Buffers, *const GUID, *mut *mut c_void) -> HRESULT = Buffers::ResidualOutput;
+    let _: unsafe fn(u32, *mut u32) -> HRESULT = buffer_contracts::Output;
+}
+
+#[test]
 fn string_alias_projections() {
     use string_aliases::IStringAliases;
     use windows_core::{HRESULT, HSTRING, PCSTR, PSTR, PWSTR, Result};

@@ -22,7 +22,6 @@ pub unsafe fn MQCloseCursor(hcursor: super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQCloseCursor(hcursor : super::HANDLE) -> windows_core::HRESULT);
     unsafe { MQCloseCursor(hcursor) }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MQCloseQueue(hqueue: QUEUEHANDLE) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQCloseQueue(hqueue : QUEUEHANDLE) -> windows_core::HRESULT);
@@ -34,7 +33,7 @@ pub unsafe fn MQCreateCursor(hqueue: QUEUEHANDLE, phcursor: super::PHANDLE) -> w
     windows_core::link!("mqrt.dll" "system" fn MQCreateCursor(hqueue : QUEUEHANDLE, phcursor : super::PHANDLE) -> windows_core::HRESULT);
     unsafe { MQCreateCursor(hqueue, phcursor as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQCreateQueue(psecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, pqueueprops: *mut MQQUEUEPROPS, lpwcsformatname: Option<windows_core::PWSTR>, lpdwformatnamelength: super::LPDWORD) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQCreateQueue(psecuritydescriptor : super::PSECURITY_DESCRIPTOR, pqueueprops : *mut MQQUEUEPROPS, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : super::LPDWORD) -> windows_core::HRESULT);
@@ -48,9 +47,10 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQDeleteQueue(lpwcsformatname : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { MQDeleteQueue(lpwcsformatname.param().abi()) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn MQFreeMemory(pvmemory: *const core::ffi::c_void) {
-    windows_core::link!("mqrt.dll" "system" fn MQFreeMemory(pvmemory : *const core::ffi::c_void));
+pub unsafe fn MQFreeMemory(pvmemory: super::PVOID) {
+    windows_core::link!("mqrt.dll" "system" fn MQFreeMemory(pvmemory : super::PVOID));
     unsafe { MQFreeMemory(pvmemory) }
 }
 #[cfg(feature = "winnt")]
@@ -59,7 +59,7 @@ pub unsafe fn MQFreeSecurityContext(hsecuritycontext: super::HANDLE) {
     windows_core::link!("mqrt.dll" "system" fn MQFreeSecurityContext(hsecuritycontext : super::HANDLE));
     unsafe { MQFreeSecurityContext(hsecuritycontext) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQGetMachineProperties<P0>(lpwcsmachinename: P0, pguidmachineid: Option<*const windows_core::GUID>, pqmprops: *mut MQQMPROPS) -> windows_core::HRESULT
 where
@@ -68,13 +68,13 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQGetMachineProperties(lpwcsmachinename : windows_core::PCWSTR, pguidmachineid : *const windows_core::GUID, pqmprops : *mut MQQMPROPS) -> windows_core::HRESULT);
     unsafe { MQGetMachineProperties(lpwcsmachinename.param().abi(), pguidmachineid.unwrap_or(core::mem::zeroed()) as _, pqmprops as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn MQGetOverlappedResult(lpoverlapped: super::LPOVERLAPPED) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQGetOverlappedResult(lpoverlapped : super::LPOVERLAPPED) -> windows_core::HRESULT);
     unsafe { MQGetOverlappedResult(lpoverlapped) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQGetPrivateComputerInformation<P0>(lpwcscomputername: P0, pprivateprops: *mut MQPRIVATEPROPS) -> windows_core::HRESULT
 where
@@ -83,7 +83,7 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQGetPrivateComputerInformation(lpwcscomputername : windows_core::PCWSTR, pprivateprops : *mut MQPRIVATEPROPS) -> windows_core::HRESULT);
     unsafe { MQGetPrivateComputerInformation(lpwcscomputername.param().abi(), pprivateprops as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQGetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> windows_core::HRESULT
 where
@@ -92,28 +92,28 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQGetQueueProperties(lpwcsformatname : windows_core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> windows_core::HRESULT);
     unsafe { MQGetQueueProperties(lpwcsformatname.param().abi(), pqueueprops as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MQGetQueueSecurity<P0>(lpwcsformatname: P0, requestedinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: super::LPDWORD) -> windows_core::HRESULT
+pub unsafe fn MQGetQueueSecurity<P0>(lpwcsformatname: P0, requestedinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR, nlength: super::DWORD, lpnlengthneeded: super::LPDWORD) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mqrt.dll" "system" fn MQGetQueueSecurity(lpwcsformatname : windows_core::PCWSTR, requestedinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : super::LPDWORD) -> windows_core::HRESULT);
+    windows_core::link!("mqrt.dll" "system" fn MQGetQueueSecurity(lpwcsformatname : windows_core::PCWSTR, requestedinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, nlength : super::DWORD, lpnlengthneeded : super::LPDWORD) -> windows_core::HRESULT);
     unsafe { MQGetQueueSecurity(lpwcsformatname.param().abi(), requestedinformation, psecuritydescriptor as _, nlength, lpnlengthneeded as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MQGetSecurityContext(lpcertbuffer: Option<*const core::ffi::c_void>, dwcertbufferlength: u32, phsecuritycontext: *mut super::HANDLE) -> windows_core::HRESULT {
-    windows_core::link!("mqrt.dll" "system" fn MQGetSecurityContext(lpcertbuffer : *const core::ffi::c_void, dwcertbufferlength : u32, phsecuritycontext : *mut super::HANDLE) -> windows_core::HRESULT);
+pub unsafe fn MQGetSecurityContext(lpcertbuffer: Option<super::PVOID>, dwcertbufferlength: super::DWORD, phsecuritycontext: *mut super::HANDLE) -> windows_core::HRESULT {
+    windows_core::link!("mqrt.dll" "system" fn MQGetSecurityContext(lpcertbuffer : super::PVOID, dwcertbufferlength : super::DWORD, phsecuritycontext : *mut super::HANDLE) -> windows_core::HRESULT);
     unsafe { MQGetSecurityContext(lpcertbuffer.unwrap_or(core::mem::zeroed()) as _, dwcertbufferlength, phsecuritycontext as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MQGetSecurityContextEx(lpcertbuffer: Option<*const core::ffi::c_void>, dwcertbufferlength: u32, phsecuritycontext: *mut super::HANDLE) -> windows_core::HRESULT {
-    windows_core::link!("mqrt.dll" "system" fn MQGetSecurityContextEx(lpcertbuffer : *const core::ffi::c_void, dwcertbufferlength : u32, phsecuritycontext : *mut super::HANDLE) -> windows_core::HRESULT);
+pub unsafe fn MQGetSecurityContextEx(lpcertbuffer: Option<super::PVOID>, dwcertbufferlength: super::DWORD, phsecuritycontext: *mut super::HANDLE) -> windows_core::HRESULT {
+    windows_core::link!("mqrt.dll" "system" fn MQGetSecurityContextEx(lpcertbuffer : super::PVOID, dwcertbufferlength : super::DWORD, phsecuritycontext : *mut super::HANDLE) -> windows_core::HRESULT);
     unsafe { MQGetSecurityContextEx(lpcertbuffer.unwrap_or(core::mem::zeroed()) as _, dwcertbufferlength, phsecuritycontext as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn MQHandleToFormatName(hqueue: QUEUEHANDLE, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: super::LPDWORD) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQHandleToFormatName(hqueue : QUEUEHANDLE, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : super::LPDWORD) -> windows_core::HRESULT);
@@ -125,7 +125,7 @@ pub unsafe fn MQInstanceToFormatName(pguid: *const windows_core::GUID, lpwcsform
     windows_core::link!("mqrt.dll" "system" fn MQInstanceToFormatName(pguid : *const windows_core::GUID, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : super::LPDWORD) -> windows_core::HRESULT);
     unsafe { MQInstanceToFormatName(pguid, lpwcsformatname, lpdwformatnamelength as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQLocateBegin<P0>(lpwcscontext: P0, prestriction: Option<*const MQRESTRICTION>, pcolumns: *const MQCOLUMNSET, psort: *const MQSORTSET, phenum: super::PHANDLE) -> windows_core::HRESULT
 where
@@ -140,16 +140,16 @@ pub unsafe fn MQLocateEnd(henum: super::HANDLE) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQLocateEnd(henum : super::HANDLE) -> windows_core::HRESULT);
     unsafe { MQLocateEnd(henum) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn MQLocateNext(henum: super::HANDLE, pcprops: *mut u32, apropvar: *mut MQPROPVARIANT) -> windows_core::HRESULT {
-    windows_core::link!("mqrt.dll" "system" fn MQLocateNext(henum : super::HANDLE, pcprops : *mut u32, apropvar : *mut MQPROPVARIANT) -> windows_core::HRESULT);
+pub unsafe fn MQLocateNext(henum: super::HANDLE, pcprops: *mut super::DWORD, apropvar: *mut MQPROPVARIANT) -> windows_core::HRESULT {
+    windows_core::link!("mqrt.dll" "system" fn MQLocateNext(henum : super::HANDLE, pcprops : *mut super::DWORD, apropvar : *mut MQPROPVARIANT) -> windows_core::HRESULT);
     unsafe { MQLocateNext(henum, pcprops as _, apropvar) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MQMarkMessageRejected(hqueue: super::HANDLE, ulllookupid: u64) -> windows_core::HRESULT {
-    windows_core::link!("mqrt.dll" "system" fn MQMarkMessageRejected(hqueue : super::HANDLE, ulllookupid : u64) -> windows_core::HRESULT);
+pub unsafe fn MQMarkMessageRejected(hqueue: super::HANDLE, ulllookupid: super::ULONGLONG) -> windows_core::HRESULT {
+    windows_core::link!("mqrt.dll" "system" fn MQMarkMessageRejected(hqueue : super::HANDLE, ulllookupid : super::ULONGLONG) -> windows_core::HRESULT);
     unsafe { MQMarkMessageRejected(hqueue, ulllookupid) }
 }
 #[inline]
@@ -162,7 +162,7 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQMgmtAction(pcomputername : windows_core::PCWSTR, pobjectname : windows_core::PCWSTR, paction : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { MQMgmtAction(pcomputername.param().abi(), pobjectname.param().abi(), paction.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQMgmtGetInfo<P0, P1>(pcomputername: P0, pobjectname: P1, pmgmtprops: *mut MQMGMTPROPS) -> windows_core::HRESULT
 where
@@ -172,22 +172,22 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQMgmtGetInfo(pcomputername : windows_core::PCWSTR, pobjectname : windows_core::PCWSTR, pmgmtprops : *mut MQMGMTPROPS) -> windows_core::HRESULT);
     unsafe { MQMgmtGetInfo(pcomputername.param().abi(), pobjectname.param().abi(), pmgmtprops as _) }
 }
-#[cfg(all(feature = "transact", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "transact"))]
 #[inline]
-pub unsafe fn MQMoveMessage<P3>(hsourcequeue: QUEUEHANDLE, hdestinationqueue: QUEUEHANDLE, ulllookupid: u64, ptransaction: P3) -> windows_core::HRESULT
+pub unsafe fn MQMoveMessage<P3>(hsourcequeue: QUEUEHANDLE, hdestinationqueue: QUEUEHANDLE, ulllookupid: super::ULONGLONG, ptransaction: P3) -> windows_core::HRESULT
 where
     P3: windows_core::Param<super::ITransaction>,
 {
-    windows_core::link!("mqrt.dll" "system" fn MQMoveMessage(hsourcequeue : QUEUEHANDLE, hdestinationqueue : QUEUEHANDLE, ulllookupid : u64, ptransaction : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mqrt.dll" "system" fn MQMoveMessage(hsourcequeue : QUEUEHANDLE, hdestinationqueue : QUEUEHANDLE, ulllookupid : super::ULONGLONG, ptransaction : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn MQOpenQueue<P0>(lpwcsformatname: P0, dwaccess: u32, dwsharemode: u32, phqueue: *mut QUEUEHANDLE) -> windows_core::HRESULT
+pub unsafe fn MQOpenQueue<P0>(lpwcsformatname: P0, dwaccess: super::DWORD, dwsharemode: super::DWORD, phqueue: *mut QUEUEHANDLE) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mqrt.dll" "system" fn MQOpenQueue(lpwcsformatname : windows_core::PCWSTR, dwaccess : u32, dwsharemode : u32, phqueue : *mut QUEUEHANDLE) -> windows_core::HRESULT);
+    windows_core::link!("mqrt.dll" "system" fn MQOpenQueue(lpwcsformatname : windows_core::PCWSTR, dwaccess : super::DWORD, dwsharemode : super::DWORD, phqueue : *mut QUEUEHANDLE) -> windows_core::HRESULT);
     unsafe { MQOpenQueue(lpwcsformatname.param().abi(), dwaccess, dwsharemode, phqueue as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -199,36 +199,36 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQPathNameToFormatName(lpwcspathname : windows_core::PCWSTR, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : super::LPDWORD) -> windows_core::HRESULT);
     unsafe { MQPathNameToFormatName(lpwcspathname.param().abi(), lpwcsformatname, lpdwformatnamelength as _) }
 }
-#[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MQPurgeQueue(hqueue: QUEUEHANDLE) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQPurgeQueue(hqueue : QUEUEHANDLE) -> windows_core::HRESULT);
     unsafe { MQPurgeQueue(hqueue) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "transact", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "transact", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn MQReceiveMessage<P7>(hsource: QUEUEHANDLE, dwtimeout: u32, dwaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<super::LPOVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: Option<super::HANDLE>, ptransaction: P7) -> windows_core::HRESULT
+pub unsafe fn MQReceiveMessage<P7>(hsource: QUEUEHANDLE, dwtimeout: super::DWORD, dwaction: super::DWORD, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<super::LPOVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: Option<super::HANDLE>, ptransaction: P7) -> windows_core::HRESULT
 where
     P7: windows_core::Param<super::ITransaction>,
 {
-    windows_core::link!("mqrt.dll" "system" fn MQReceiveMessage(hsource : QUEUEHANDLE, dwtimeout : u32, dwaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : super::LPOVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::HANDLE, ptransaction : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mqrt.dll" "system" fn MQReceiveMessage(hsource : QUEUEHANDLE, dwtimeout : super::DWORD, dwaction : super::DWORD, pmessageprops : *mut MQMSGPROPS, lpoverlapped : super::LPOVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, hcursor : super::HANDLE, ptransaction : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MQReceiveMessage(hsource, dwtimeout, dwaction, pmessageprops.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, fnreceivecallback, hcursor.unwrap_or(core::mem::zeroed()) as _, ptransaction.param().abi()) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "transact", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "transact", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
-pub unsafe fn MQReceiveMessageByLookupId<P6>(hsource: QUEUEHANDLE, ulllookupid: u64, dwlookupaction: u32, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<super::LPOVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: P6) -> windows_core::HRESULT
+pub unsafe fn MQReceiveMessageByLookupId<P6>(hsource: QUEUEHANDLE, ulllookupid: super::ULONGLONG, dwlookupaction: super::DWORD, pmessageprops: Option<*mut MQMSGPROPS>, lpoverlapped: Option<super::LPOVERLAPPED>, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: P6) -> windows_core::HRESULT
 where
     P6: windows_core::Param<super::ITransaction>,
 {
-    windows_core::link!("mqrt.dll" "system" fn MQReceiveMessageByLookupId(hsource : QUEUEHANDLE, ulllookupid : u64, dwlookupaction : u32, pmessageprops : *mut MQMSGPROPS, lpoverlapped : super::LPOVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mqrt.dll" "system" fn MQReceiveMessageByLookupId(hsource : QUEUEHANDLE, ulllookupid : super::ULONGLONG, dwlookupaction : super::DWORD, pmessageprops : *mut MQMSGPROPS, lpoverlapped : super::LPOVERLAPPED, fnreceivecallback : PMQRECEIVECALLBACK, ptransaction : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, pmessageprops.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, fnreceivecallback, ptransaction.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MQRegisterCertificate(dwflags: u32, lpcertbuffer: *const core::ffi::c_void, dwcertbufferlength: u32) -> windows_core::HRESULT {
-    windows_core::link!("mqrt.dll" "system" fn MQRegisterCertificate(dwflags : u32, lpcertbuffer : *const core::ffi::c_void, dwcertbufferlength : u32) -> windows_core::HRESULT);
+pub unsafe fn MQRegisterCertificate(dwflags: super::DWORD, lpcertbuffer: super::PVOID, dwcertbufferlength: super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("mqrt.dll" "system" fn MQRegisterCertificate(dwflags : super::DWORD, lpcertbuffer : super::PVOID, dwcertbufferlength : super::DWORD) -> windows_core::HRESULT);
     unsafe { MQRegisterCertificate(dwflags, lpcertbuffer, dwcertbufferlength) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "transact", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "transact", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQSendMessage<P2>(hdestinationqueue: QUEUEHANDLE, pmessageprops: *const MQMSGPROPS, ptransaction: P2) -> windows_core::HRESULT
 where
@@ -237,7 +237,7 @@ where
     windows_core::link!("mqrt.dll" "system" fn MQSendMessage(hdestinationqueue : QUEUEHANDLE, pmessageprops : *const MQMSGPROPS, ptransaction : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MQSendMessage(hdestinationqueue, pmessageprops, ptransaction.param().abi()) }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn MQSetQueueProperties<P0>(lpwcsformatname: P0, pqueueprops: *mut MQQUEUEPROPS) -> windows_core::HRESULT
 where
@@ -259,8 +259,7 @@ pub const LONG_LIVED: u32 = 4294967294;
 pub const MACHINE_ACTION_CONNECT: windows_core::PCWSTR = windows_core::w!("CONNECT");
 pub const MACHINE_ACTION_DISCONNECT: windows_core::PCWSTR = windows_core::w!("DISCONNECT");
 pub const MACHINE_ACTION_TIDY: windows_core::PCWSTR = windows_core::w!("TIDY");
-#[cfg(feature = "wtypes")]
-pub type MGMTPROPID = super::PROPID;
+pub type MGMTPROPID = u32;
 pub const MGMT_QUEUE_CORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
 pub const MGMT_QUEUE_FOREIGN_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
 pub const MGMT_QUEUE_INCORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
@@ -289,10 +288,10 @@ pub const MO_QUEUE_TOKEN: windows_core::PCWSTR = windows_core::w!("QUEUE");
 pub const MQCERT_REGISTER_ALWAYS: i32 = 1;
 pub const MQCERT_REGISTER_IF_NOT_EXIST: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQCOLUMNSET {
-    pub cCol: u32,
+    pub cCol: super::ULONG,
     pub aCol: *mut super::PROPID,
 }
 pub const MQCONN_BIND_SOCKET_FAILURE: MQConnectionState = -2147483645;
@@ -314,27 +313,31 @@ pub const MQCONN_TCP_NOT_ENABLED: MQConnectionState = -2147483643;
 pub const MQCONN_UNKNOWN_FAILURE: MQConnectionState = -2147483648;
 pub type MQConnectionState = i32;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMGMTPROPS {
-    pub cProp: u32,
+    pub cProp: super::DWORD,
     pub aPropID: *mut MGMTPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQMSGPROPS {
-    pub cProp: u32,
+    pub cProp: super::DWORD,
     pub aPropID: *mut MSGPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
-pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: u8 = 5;
-pub const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: u8 = 14;
-pub const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: u8 = 4;
-pub const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: u8 = 12;
+#[cfg(feature = "shared")]
+pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: super::UCHAR = 5;
+#[cfg(feature = "shared")]
+pub const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: super::UCHAR = 14;
+#[cfg(feature = "shared")]
+pub const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: super::UCHAR = 4;
+#[cfg(feature = "shared")]
+pub const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: super::UCHAR = 12;
 pub const MQMSG_ACKNOWLEDGMENT_NEG_ARRIVAL: i32 = 4;
 pub const MQMSG_ACKNOWLEDGMENT_NEG_RECEIVE: i32 = 8;
 pub const MQMSG_ACKNOWLEDGMENT_NONE: i32 = 0;
@@ -355,29 +358,52 @@ pub const MQMSG_AUTH_LEVEL_NONE: i32 = 0;
 pub const MQMSG_AUTH_LEVEL_SIG10: i32 = 2;
 pub const MQMSG_AUTH_LEVEL_SIG20: i32 = 4;
 pub const MQMSG_AUTH_LEVEL_SIG30: i32 = 8;
-pub const MQMSG_CLASS_ACK_REACH_QUEUE: u16 = 2;
-pub const MQMSG_CLASS_ACK_RECEIVE: u16 = 16384;
-pub const MQMSG_CLASS_NACK_ACCESS_DENIED: u16 = 32772;
-pub const MQMSG_CLASS_NACK_BAD_DST_Q: u16 = 32768;
-pub const MQMSG_CLASS_NACK_BAD_ENCRYPTION: u16 = 32775;
-pub const MQMSG_CLASS_NACK_BAD_SIGNATURE: u16 = 32774;
-pub const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: u16 = 32776;
-pub const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: u16 = 32773;
-pub const MQMSG_CLASS_NACK_MESSAGE_TOO_LARGE: u16 = 32781;
-pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: u16 = 32778;
-pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: u16 = 32777;
-pub const MQMSG_CLASS_NACK_PURGED: u16 = 32769;
-pub const MQMSG_CLASS_NACK_Q_DELETED: u16 = 49152;
-pub const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: u16 = 32771;
-pub const MQMSG_CLASS_NACK_Q_PURGED: u16 = 49153;
-pub const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: u16 = 32770;
-pub const MQMSG_CLASS_NACK_RECEIVE_REJECTED: u16 = 49156;
-pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: u16 = 49154;
-pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: u16 = 49155;
-pub const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: u16 = 32780;
-pub const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: u16 = 32779;
-pub const MQMSG_CLASS_NORMAL: u16 = 0;
-pub const MQMSG_CLASS_REPORT: u16 = 1;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_ACK_REACH_QUEUE: super::USHORT = 2;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_ACK_RECEIVE: super::USHORT = 16384;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_ACCESS_DENIED: super::USHORT = 32772;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_BAD_DST_Q: super::USHORT = 32768;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_BAD_ENCRYPTION: super::USHORT = 32775;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_BAD_SIGNATURE: super::USHORT = 32774;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: super::USHORT = 32776;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: super::USHORT = 32773;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_MESSAGE_TOO_LARGE: super::USHORT = 32781;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: super::USHORT = 32778;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: super::USHORT = 32777;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_PURGED: super::USHORT = 32769;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_Q_DELETED: super::USHORT = 49152;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: super::USHORT = 32771;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_Q_PURGED: super::USHORT = 49153;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: super::USHORT = 32770;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_RECEIVE_REJECTED: super::USHORT = 49156;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: super::USHORT = 49154;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: super::USHORT = 49155;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: super::USHORT = 32780;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: super::USHORT = 32779;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_NORMAL: super::USHORT = 0;
+#[cfg(feature = "shared")]
+pub const MQMSG_CLASS_REPORT: super::USHORT = 1;
 pub const MQMSG_DEADLETTER: i32 = 1;
 pub const MQMSG_DELIVERY_EXPRESS: i32 = 0;
 pub const MQMSG_DELIVERY_RECOVERABLE: i32 = 1;
@@ -396,58 +422,58 @@ pub const MQMSG_SENDERID_TYPE_SID: i32 = 1;
 pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: i32 = 1;
 pub const MQMSG_TRACE_NONE: i32 = 0;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQPRIVATEPROPS {
-    pub cProp: u32,
+    pub cProp: super::DWORD,
     pub aPropID: *mut QMPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub struct MQPROPERTYRESTRICTION {
-    pub rel: u32,
+    pub rel: super::ULONG,
     pub prop: super::PROPID,
     pub prval: MQPROPVARIANT,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Clone for MQPROPERTYRESTRICTION {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for MQPROPERTYRESTRICTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-pub type MQPROPVARIANT = tagMQPROPVARIANT;
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+pub type MQPROPVARIANT = super::tagPROPVARIANT;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQQMPROPS {
-    pub cProp: u32,
+    pub cProp: super::DWORD,
     pub aPropID: *mut QMPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQQUEUEPROPS {
-    pub cProp: u32,
+    pub cProp: super::DWORD,
     pub aPropID: *mut QUEUEPROPID,
     pub aPropVar: *mut MQPROPVARIANT,
     pub aStatus: *mut windows_core::HRESULT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQRESTRICTION {
-    pub cRes: u32,
+    pub cRes: super::ULONG,
     pub paPropRes: *mut MQPROPERTYRESTRICTION,
 }
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: i32 = 262144;
@@ -467,17 +493,17 @@ pub const MQSEC_SET_QUEUE_PROPERTIES: i32 = 16;
 pub const MQSEC_TAKE_QUEUE_OWNERSHIP: i32 = 524288;
 pub const MQSEC_WRITE_MESSAGE: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQSORTKEY {
     pub propColumn: super::PROPID,
-    pub dwOrder: u32,
+    pub dwOrder: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQSORTSET {
-    pub cCol: u32,
+    pub cCol: super::ULONG,
     pub aCol: *mut MQSORTKEY,
 }
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648;
@@ -651,8 +677,6 @@ pub const MQ_MAX_Q_LABEL_LEN: i32 = 124;
 pub const MQ_MAX_Q_NAME_LEN: i32 = 124;
 pub const MQ_MIN_PRIORITY: i32 = 0;
 pub const MQ_MOVE_ACCESS: i32 = 4;
-#[cfg(feature = "transact")]
-pub const MQ_MTS_TRANSACTION: *mut Option<super::ITransaction> = core::ptr::without_provenance_mut::<Option<super::ITransaction>>(1usize);
 pub const MQ_NO_TRANSACTION: i32 = 0;
 pub const MQ_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);
 pub const MQ_PEEK_ACCESS: i32 = 32;
@@ -661,18 +685,13 @@ pub const MQ_PRIV_LEVEL_NONE: u32 = 0;
 pub const MQ_PRIV_LEVEL_OPTIONAL: u32 = 1;
 pub const MQ_RECEIVE_ACCESS: i32 = 1;
 pub const MQ_SEND_ACCESS: i32 = 2;
-#[cfg(feature = "transact")]
-pub const MQ_SINGLE_MESSAGE: *mut Option<super::ITransaction> = core::ptr::without_provenance_mut::<Option<super::ITransaction>>(3usize);
 pub const MQ_TRANSACTIONAL: u8 = 1;
 pub const MQ_TRANSACTIONAL_NONE: u8 = 0;
-#[cfg(feature = "transact")]
-pub const MQ_XA_TRANSACTION: *mut Option<super::ITransaction> = core::ptr::without_provenance_mut::<Option<super::ITransaction>>(2usize);
-#[cfg(feature = "wtypes")]
-pub type MSGPROPID = super::PROPID;
+pub type MSGPROPID = u32;
 pub const MSMQ_CONNECTED: windows_core::PCWSTR = windows_core::w!("CONNECTED");
 pub const MSMQ_DISCONNECTED: windows_core::PCWSTR = windows_core::w!("DISCONNECTED");
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-pub type PMQRECEIVECALLBACK = Option<unsafe extern "system" fn(hrstatus: windows_core::HRESULT, hsource: QUEUEHANDLE, dwtimeout: u32, dwaction: u32, pmessageprops: *mut MQMSGPROPS, lpoverlapped: super::LPOVERLAPPED, hcursor: super::HANDLE)>;
+#[cfg(all(feature = "guiddef", feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+pub type PMQRECEIVECALLBACK = Option<unsafe extern "system" fn(hrstatus: windows_core::HRESULT, hsource: QUEUEHANDLE, dwtimeout: super::DWORD, dwaction: super::DWORD, pmessageprops: *mut MQMSGPROPS, lpoverlapped: super::LPOVERLAPPED, hcursor: super::HANDLE)>;
 pub const PREQ: i32 = 4;
 pub const PRGE: i32 = 3;
 pub const PRGT: i32 = 2;
@@ -819,23 +838,21 @@ pub const PROPID_Q_PRIV_LEVEL: i32 = 112;
 pub const PROPID_Q_QUOTA: i32 = 105;
 pub const PROPID_Q_TRANSACTION: i32 = 113;
 pub const PROPID_Q_TYPE: i32 = 102;
-#[cfg(feature = "wtypes")]
-pub type QMPROPID = super::PROPID;
+pub type QMPROPID = u32;
 pub const QUERY_SORTASCEND: i32 = 0;
 pub const QUERY_SORTDESCEND: i32 = 1;
-#[cfg(feature = "winnt")]
-pub type QUEUEHANDLE = super::HANDLE;
-#[cfg(feature = "wtypes")]
-pub type QUEUEPROPID = super::PROPID;
+pub type QUEUEHANDLE = *mut core::ffi::c_void;
+pub type QUEUEPROPID = u32;
 pub const QUEUE_ACTION_EOD_RESEND: windows_core::PCWSTR = windows_core::w!("EOD_RESEND");
 pub const QUEUE_ACTION_PAUSE: windows_core::PCWSTR = windows_core::w!("PAUSE");
 pub const QUEUE_ACTION_RESUME: windows_core::PCWSTR = windows_core::w!("RESUME");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEQUENCE_INFO {
-    pub SeqID: i64,
-    pub SeqNo: u32,
-    pub PrevNo: u32,
+    pub SeqID: super::LONGLONG,
+    pub SeqNo: super::ULONG,
+    pub PrevNo: super::ULONG,
 }
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-pub type tagMQPROPVARIANT = super::PROPVARIANT;
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+pub type tagMQPROPVARIANT = super::tagPROPVARIANT;

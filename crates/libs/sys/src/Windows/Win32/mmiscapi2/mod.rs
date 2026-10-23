@@ -1,9 +1,11 @@
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn timeKillEvent(utimerid : u32) -> super::MMRESULT);
-#[cfg(feature = "mmsyscom")]
-windows_link::link!("winmm.dll" "system" fn timeSetEvent(udelay : u32, uresolution : u32, fptc : LPTIMECALLBACK, dwuser : usize, fuevent : u32) -> super::MMRESULT);
-pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-pub type TIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn timeKillEvent(utimerid : super::UINT) -> super::MMRESULT);
+#[cfg(all(feature = "mmsyscom", feature = "shared"))]
+windows_link::link!("winmm.dll" "system" fn timeSetEvent(udelay : super::UINT, uresolution : super::UINT, fptc : LPTIMECALLBACK, dwuser : super::DWORD_PTR, fuevent : super::UINT) -> super::MMRESULT);
+#[cfg(feature = "shared")]
+pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: super::UINT, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
+#[cfg(feature = "shared")]
+pub type TIMECALLBACK = Option<unsafe extern "system" fn(utimerid: super::UINT, umsg: super::UINT, dwuser: super::DWORD_PTR, dw1: super::DWORD_PTR, dw2: super::DWORD_PTR)>;
 pub const TIME_CALLBACK_EVENT_PULSE: i32 = 32;
 pub const TIME_CALLBACK_EVENT_SET: i32 = 16;
 pub const TIME_CALLBACK_FUNCTION: i32 = 0;

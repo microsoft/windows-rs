@@ -103,6 +103,7 @@ pub const PORTRAIT: i32 = 0;
 pub const POWERMODE_BATTERY: i32 = 2;
 pub const POWERMODE_LINE: i32 = 1;
 pub const PREFEED: i32 = 256;
+#[cfg(feature = "shared")]
 pub type PWIA_RAW_HEADER = *mut WIA_RAW_HEADER;
 pub const RIGHT_JUSTIFIED: i32 = 2;
 pub const ROT180: i32 = 2;
@@ -141,15 +142,17 @@ pub const WIA_AUTO_CROP_MULTI: i32 = 2;
 pub const WIA_AUTO_CROP_SINGLE: i32 = 1;
 pub const WIA_AUTO_DESKEW_OFF: i32 = 1;
 pub const WIA_AUTO_DESKEW_ON: i32 = 0;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIA_BARCODES {
-    pub Tag: u32,
-    pub Version: u32,
-    pub Size: u32,
-    pub Count: u32,
+    pub Tag: super::DWORD,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Count: super::DWORD,
     pub Barcodes: [WIA_BARCODE_INFO; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIA_BARCODES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -179,19 +182,21 @@ pub const WIA_BARCODE_GS1DATABAR: i32 = 14;
 pub const WIA_BARCODE_HIGH_CAPACITY_COLOR: i32 = 26;
 pub const WIA_BARCODE_HORIZONTAL_SEARCH: i32 = 0;
 pub const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: i32 = 2;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIA_BARCODE_INFO {
-    pub Size: u32,
-    pub Type: u32,
-    pub Page: u32,
-    pub Confidence: u32,
-    pub XOffset: u32,
-    pub YOffset: u32,
-    pub Rotation: u32,
-    pub Length: u32,
-    pub Text: [u16; 1],
+    pub Size: super::DWORD,
+    pub Type: super::DWORD,
+    pub Page: super::DWORD,
+    pub Confidence: super::DWORD,
+    pub XOffset: super::DWORD,
+    pub YOffset: super::DWORD,
+    pub Rotation: super::DWORD,
+    pub Length: super::DWORD,
+    pub Text: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIA_BARCODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -927,30 +932,34 @@ pub const WIA_MAJOR_EVENT_DEVICE_DISCONNECT: i32 = 2;
 pub const WIA_MAJOR_EVENT_PICTURE_DELETED: i32 = 4;
 pub const WIA_MAJOR_EVENT_PICTURE_TAKEN: i32 = 3;
 pub const WIA_MAX_CTX_SIZE: i32 = 16777216;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIA_MICR {
-    pub Tag: u32,
-    pub Version: u32,
-    pub Size: u32,
-    pub Placeholder: u16,
-    pub Reserved: u16,
-    pub Count: u32,
+    pub Tag: super::DWORD,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Placeholder: super::WCHAR,
+    pub Reserved: super::WORD,
+    pub Count: super::DWORD,
     pub Micr: [WIA_MICR_INFO; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIA_MICR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIA_MICR_INFO {
-    pub Size: u32,
-    pub Page: u32,
-    pub Length: u32,
-    pub Text: [u16; 1],
+    pub Size: super::DWORD,
+    pub Page: super::DWORD,
+    pub Length: super::DWORD,
+    pub Text: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIA_MICR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1034,15 +1043,17 @@ pub const WIA_PAGE_USLEDGER: i32 = 4;
 pub const WIA_PAGE_USLEGAL: i32 = 3;
 pub const WIA_PAGE_USLETTER: i32 = 1;
 pub const WIA_PAGE_USSTATEMENT: i32 = 5;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WIA_PATCH_CODES {
-    pub Tag: u32,
-    pub Version: u32,
-    pub Size: u32,
-    pub Count: u32,
+    pub Tag: super::DWORD,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Count: super::DWORD,
     pub PatchCodes: [WIA_PATCH_CODE_INFO; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for WIA_PATCH_CODES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1062,10 +1073,11 @@ pub const WIA_PATCH_CODE_7: i32 = 7;
 pub const WIA_PATCH_CODE_8: i32 = 8;
 pub const WIA_PATCH_CODE_9: i32 = 9;
 pub const WIA_PATCH_CODE_CUSTOM_BASE: i32 = 32768;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WIA_PATCH_CODE_INFO {
-    pub Type: u32,
+    pub Type: super::DWORD,
 }
 pub const WIA_PATCH_CODE_READER_AUTO: i32 = 1;
 pub const WIA_PATCH_CODE_READER_DISABLED: i32 = 0;
@@ -1156,29 +1168,31 @@ pub const WIA_RANGE_MIN: i32 = 0;
 pub const WIA_RANGE_NOM: i32 = 1;
 pub const WIA_RANGE_NUM_ELEMS: i32 = 4;
 pub const WIA_RANGE_STEP: i32 = 3;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WIA_RAW_HEADER {
-    pub Tag: u32,
-    pub Version: u32,
-    pub HeaderSize: u32,
-    pub XRes: u32,
-    pub YRes: u32,
-    pub XExtent: u32,
-    pub YExtent: u32,
-    pub BytesPerLine: u32,
-    pub BitsPerPixel: u32,
-    pub ChannelsPerPixel: u32,
-    pub DataType: u32,
-    pub BitsPerChannel: [u8; 8],
-    pub Compression: u32,
-    pub PhotometricInterp: u32,
-    pub LineOrder: u32,
-    pub RawDataOffset: u32,
-    pub RawDataSize: u32,
-    pub PaletteOffset: u32,
-    pub PaletteSize: u32,
+    pub Tag: super::DWORD,
+    pub Version: super::DWORD,
+    pub HeaderSize: super::DWORD,
+    pub XRes: super::DWORD,
+    pub YRes: super::DWORD,
+    pub XExtent: super::DWORD,
+    pub YExtent: super::DWORD,
+    pub BytesPerLine: super::DWORD,
+    pub BitsPerPixel: super::DWORD,
+    pub ChannelsPerPixel: super::DWORD,
+    pub DataType: super::DWORD,
+    pub BitsPerChannel: [super::BYTE; 8],
+    pub Compression: super::DWORD,
+    pub PhotometricInterp: super::DWORD,
+    pub LineOrder: super::DWORD,
+    pub RawDataOffset: super::DWORD,
+    pub RawDataSize: super::DWORD,
+    pub PaletteOffset: super::DWORD,
+    pub PaletteSize: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for WIA_RAW_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

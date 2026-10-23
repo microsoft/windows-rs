@@ -1,108 +1,118 @@
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn ActivateKeyboardLayout(hkl : super::HKL, flags : u32) -> super::HKL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn ActivateKeyboardLayout(hkl : super::HKL, flags : super::UINT) -> super::HKL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AddClipboardFormatListener(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn AdjustWindowRect(lprect : super::LPRECT, dwstyle : u32, bmenu : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn AdjustWindowRectEx(lprect : super::LPRECT, dwstyle : u32, bmenu : windows_sys::core::BOOL, dwexstyle : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : super::LPRECT, dwstyle : u32, bmenu : windows_sys::core::BOOL, dwexstyle : u32, dpi : u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn AllowSetForegroundWindow(dwprocessid : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn AnimateWindow(hwnd : super::HWND, dwtime : u32, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn AdjustWindowRect(lprect : super::LPRECT, dwstyle : super::DWORD, bmenu : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn AdjustWindowRectEx(lprect : super::LPRECT, dwstyle : super::DWORD, bmenu : windows_sys::core::BOOL, dwexstyle : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn AdjustWindowRectExForDpi(lprect : super::LPRECT, dwstyle : super::DWORD, bmenu : windows_sys::core::BOOL, dwexstyle : super::DWORD, dpi : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn AllowSetForegroundWindow(dwprocessid : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn AnimateWindow(hwnd : super::HWND, dwtime : super::DWORD, dwflags : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn AnyPopup() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn AppendMenuA(hmenu : super::HMENU, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn AppendMenuW(hmenu : super::HMENU, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn AppendMenuA(hmenu : super::HMENU, uflags : super::UINT, uidnewitem : super::UINT_PTR, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn AppendMenuW(hmenu : super::HMENU, uflags : super::UINT, uidnewitem : super::UINT_PTR, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ApplyWindowAction(hwnd : super::HWND, paction : *mut WINDOW_ACTION) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn AreDpiAwarenessContextsEqual(dpicontexta : super::DPI_AWARENESS_CONTEXT, dpicontextb : super::DPI_AWARENESS_CONTEXT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ArrangeIconicWindows(hwnd : super::HWND) -> u32);
-windows_link::link!("user32.dll" "system" fn AttachThreadInput(idattach : u32, idattachto : u32, fattach : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ArrangeIconicWindows(hwnd : super::HWND) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn AttachThreadInput(idattach : super::DWORD, idattachto : super::DWORD, fattach : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn BeginDeferWindowPos(nnumwindows : i32) -> HDWP);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn BeginPaint(hwnd : super::HWND, lppaint : LPPAINTSTRUCT) -> super::HDC);
 windows_link::link!("user32.dll" "system" fn BlockInput(fblockit : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn BringWindowToTop(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageA(flags : u32, lpinfo : super::LPDWORD, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageExA(flags : u32, lpinfo : super::LPDWORD, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM, pbsminfo : PBSMINFO) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageExW(flags : u32, lpinfo : super::LPDWORD, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM, pbsminfo : PBSMINFO) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageW(flags : u32, lpinfo : super::LPDWORD, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn CalculatePopupWindowPosition(anchorpoint : *const super::POINT, windowsize : *const super::SIZE, flags : u32, excluderect : *const super::RECT, popupwindowposition : *mut super::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageA(flags : super::DWORD, lpinfo : super::LPDWORD, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageExA(flags : super::DWORD, lpinfo : super::LPDWORD, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, pbsminfo : PBSMINFO) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageExW(flags : super::DWORD, lpinfo : super::LPDWORD, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, pbsminfo : PBSMINFO) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn BroadcastSystemMessageW(flags : super::DWORD, lpinfo : super::LPDWORD, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CalculatePopupWindowPosition(anchorpoint : *const super::POINT, windowsize : *const super::SIZE, flags : super::UINT, excluderect : *const super::RECT, popupwindowposition : *mut super::RECT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallMsgFilterA(lpmsg : LPMSG, ncode : i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallMsgFilterW(lpmsg : LPMSG, ncode : i32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CallNextHookEx(hhk : super::HHOOK, ncode : i32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CallWindowProcA(lpprevwndfunc : WNDPROC, hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CallWindowProcW(lpprevwndfunc : WNDPROC, hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CallWindowProcA(lpprevwndfunc : WNDPROC, hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CallWindowProcW(lpprevwndfunc : WNDPROC, hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
 windows_link::link!("user32.dll" "system" fn CancelShutdown() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn CascadeWindows(hwndparent : super::HWND, whow : u32, lprect : *const super::RECT, ckids : u32, lpkids : *const super::HWND) -> u16);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CascadeWindows(hwndparent : super::HWND, whow : super::UINT, lprect : *const super::RECT, ckids : super::UINT, lpkids : *const super::HWND) -> super::WORD);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ChangeClipboardChain(hwndremove : super::HWND, hwndnewnext : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsA(lpdevmode : *const super::DEVMODEA, dwflags : u32) -> i32);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, lpdevmode : *const super::DEVMODEA, hwnd : super::HWND, dwflags : u32, lparam : *const core::ffi::c_void) -> i32);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, lpdevmode : *const super::DEVMODEW, hwnd : super::HWND, dwflags : u32, lparam : *const core::ffi::c_void) -> i32);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsW(lpdevmode : *const super::DEVMODEW, dwflags : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ChangeMenuA(hmenu : super::HMENU, cmd : u32, lpsznewitem : windows_sys::core::PCSTR, cmdinsert : u32, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ChangeMenuW(hmenu : super::HMENU, cmd : u32, lpsznewitem : windows_sys::core::PCWSTR, cmdinsert : u32, flags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn ChangeWindowMessageFilter(message : u32, dwflag : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : super::HWND, message : u32, action : u32, pchangefilterstruct : PCHANGEFILTERSTRUCT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsA(lpdevmode : *const super::DEVMODEA, dwflags : super::DWORD) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, lpdevmode : *const super::DEVMODEA, hwnd : super::HWND, dwflags : super::DWORD, lparam : super::LPVOID) -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, lpdevmode : *const super::DEVMODEW, hwnd : super::HWND, dwflags : super::DWORD, lparam : super::LPVOID) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn ChangeDisplaySettingsW(lpdevmode : *const super::DEVMODEW, dwflags : super::DWORD) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ChangeMenuA(hmenu : super::HMENU, cmd : super::UINT, lpsznewitem : windows_sys::core::PCSTR, cmdinsert : super::UINT, flags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ChangeMenuW(hmenu : super::HMENU, cmd : super::UINT, lpsznewitem : windows_sys::core::PCWSTR, cmdinsert : super::UINT, flags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn ChangeWindowMessageFilter(message : super::UINT, dwflag : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : super::HWND, message : super::UINT, action : super::DWORD, pchangefilterstruct : PCHANGEFILTERSTRUCT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CharLowerA(lpsz : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
-windows_link::link!("user32.dll" "system" fn CharLowerBuffA(lpsz : windows_sys::core::PSTR, cchlength : u32) -> u32);
-windows_link::link!("user32.dll" "system" fn CharLowerBuffW(lpsz : windows_sys::core::PWSTR, cchlength : u32) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharLowerBuffA(lpsz : windows_sys::core::PSTR, cchlength : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharLowerBuffW(lpsz : windows_sys::core::PWSTR, cchlength : super::DWORD) -> super::DWORD);
 windows_link::link!("user32.dll" "system" fn CharLowerW(lpsz : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
 windows_link::link!("user32.dll" "system" fn CharNextA(lpsz : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
-windows_link::link!("user32.dll" "system" fn CharNextExA(codepage : u16, lpcurrentchar : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::PSTR);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharNextExA(codepage : super::WORD, lpcurrentchar : windows_sys::core::PCSTR, dwflags : super::DWORD) -> windows_sys::core::PSTR);
 windows_link::link!("user32.dll" "system" fn CharNextW(lpsz : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 windows_link::link!("user32.dll" "system" fn CharPrevA(lpszstart : windows_sys::core::PCSTR, lpszcurrent : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
-windows_link::link!("user32.dll" "system" fn CharPrevExA(codepage : u16, lpstart : windows_sys::core::PCSTR, lpcurrentchar : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::PSTR);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharPrevExA(codepage : super::WORD, lpstart : windows_sys::core::PCSTR, lpcurrentchar : windows_sys::core::PCSTR, dwflags : super::DWORD) -> windows_sys::core::PSTR);
 windows_link::link!("user32.dll" "system" fn CharPrevW(lpszstart : windows_sys::core::PCWSTR, lpszcurrent : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
 windows_link::link!("user32.dll" "system" fn CharToOemA(psrc : windows_sys::core::PCSTR, pdst : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn CharToOemBuffA(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PSTR, cchdstlength : u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn CharToOemBuffW(lpszsrc : windows_sys::core::PCWSTR, lpszdst : windows_sys::core::PSTR, cchdstlength : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharToOemBuffA(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PSTR, cchdstlength : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharToOemBuffW(lpszsrc : windows_sys::core::PCWSTR, lpszdst : windows_sys::core::PSTR, cchdstlength : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CharToOemW(psrc : windows_sys::core::PCWSTR, pdst : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CharUpperA(lpsz : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
-windows_link::link!("user32.dll" "system" fn CharUpperBuffA(lpsz : windows_sys::core::PSTR, cchlength : u32) -> u32);
-windows_link::link!("user32.dll" "system" fn CharUpperBuffW(lpsz : windows_sys::core::PWSTR, cchlength : u32) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharUpperBuffA(lpsz : windows_sys::core::PSTR, cchlength : super::DWORD) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CharUpperBuffW(lpsz : windows_sys::core::PWSTR, cchlength : super::DWORD) -> super::DWORD);
 windows_link::link!("user32.dll" "system" fn CharUpperW(lpsz : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn CheckDlgButton(hdlg : super::HWND, nidbutton : i32, ucheck : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn CheckMenuItem(hmenu : super::HMENU, uidcheckitem : u32, ucheck : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn CheckMenuRadioItem(hmenu : super::HMENU, first : u32, last : u32, check : u32, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CheckDlgButton(hdlg : super::HWND, nidbutton : i32, ucheck : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CheckMenuItem(hmenu : super::HMENU, uidcheckitem : super::UINT, ucheck : super::UINT) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CheckMenuRadioItem(hmenu : super::HMENU, first : super::UINT, last : super::UINT, check : super::UINT, flags : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CheckRadioButton(hdlg : super::HWND, nidfirstbutton : i32, nidlastbutton : i32, nidcheckbutton : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ChildWindowFromPoint(hwndparent : super::HWND, point : super::POINT) -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ChildWindowFromPointEx(hwnd : super::HWND, pt : super::POINT, flags : u32) -> super::HWND);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ChildWindowFromPointEx(hwnd : super::HWND, pt : super::POINT, flags : super::UINT) -> super::HWND);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ClientToScreen(hwnd : super::HWND, lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ClipCursor(lprect : *const super::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CloseClipboard() -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
@@ -116,88 +126,89 @@ windows_link::link!("user32.dll" "system" fn CloseWindowStation(hwinsta : super:
 windows_link::link!("user32.dll" "system" fn ConvertPrimaryPointerToMouseDrag() -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ConvertToInterceptWindow(toplevelwindow : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CopyAcceleratorTableA(haccelsrc : super::HACCEL, lpacceldst : LPACCEL, caccelentries : i32) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CopyAcceleratorTableW(haccelsrc : super::HACCEL, lpacceldst : LPACCEL, caccelentries : i32) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CopyIcon(hicon : super::HICON) -> super::HICON);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn CopyImage(h : super::HANDLE, r#type : u32, cx : i32, cy : i32, flags : u32) -> super::HANDLE);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn CopyImage(h : super::HANDLE, r#type : super::UINT, cx : i32, cy : i32, flags : super::UINT) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CopyRect(lprcdst : super::LPRECT, lprcsrc : *const super::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn CountClipboardFormats() -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateAcceleratorTableA(paccel : LPACCEL, caccel : i32) -> super::HACCEL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateAcceleratorTableW(paccel : LPACCEL, caccel : i32) -> super::HACCEL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateCaret(hwnd : super::HWND, hbitmap : super::HBITMAP, nwidth : i32, nheight : i32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateCursor(hinst : super::HINSTANCE, xhotspot : i32, yhotspot : i32, nwidth : i32, nheight : i32, pvandplane : *const core::ffi::c_void, pvxorplane : *const core::ffi::c_void) -> super::HCURSOR);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *mut super::DEVMODEA, dwflags : u32, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HDESK);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopExA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *mut super::DEVMODEA, dwflags : u32, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *mut core::ffi::c_void) -> super::HDESK);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopExW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *mut super::DEVMODEW, dwflags : u32, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *mut core::ffi::c_void) -> super::HDESK);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn CreateDesktopW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *mut super::DEVMODEW, dwflags : u32, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HDESK);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("user32.dll" "system" fn CreateDesktopA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *mut super::DEVMODEA, dwflags : super::DWORD, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HDESK);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn CreateDesktopExA(lpszdesktop : windows_sys::core::PCSTR, lpszdevice : windows_sys::core::PCSTR, pdevmode : *mut super::DEVMODEA, dwflags : super::DWORD, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES, ulheapsize : super::ULONG, pvoid : super::PVOID) -> super::HDESK);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn CreateDesktopExW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *mut super::DEVMODEW, dwflags : super::DWORD, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES, ulheapsize : super::ULONG, pvoid : super::PVOID) -> super::HDESK);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn CreateDesktopW(lpszdesktop : windows_sys::core::PCWSTR, lpszdevice : windows_sys::core::PCWSTR, pdevmode : *mut super::DEVMODEW, dwflags : super::DWORD, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HDESK);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogIndirectParamA(hinstance : super::HINSTANCE, lptemplate : LPCDLGTEMPLATEA, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogIndirectParamW(hinstance : super::HINSTANCE, lptemplate : LPCDLGTEMPLATEW, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogParamA(hinstance : super::HINSTANCE, lptemplatename : windows_sys::core::PCSTR, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateDialogParamW(hinstance : super::HINSTANCE, lptemplatename : windows_sys::core::PCWSTR, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CreateIcon(hinstance : super::HINSTANCE, nwidth : i32, nheight : i32, cplanes : u8, cbitspixel : u8, lpbandbits : *const u8, lpbxorbits : *const u8) -> super::HICON);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CreateIconFromResource(presbits : super::PBYTE, dwressize : u32, ficon : windows_sys::core::BOOL, dwver : u32) -> super::HICON);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CreateIconFromResourceEx(presbits : super::PBYTE, dwressize : u32, ficon : windows_sys::core::BOOL, dwver : u32, cxdesired : i32, cydesired : i32, flags : u32) -> super::HICON);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateIcon(hinstance : super::HINSTANCE, nwidth : i32, nheight : i32, cplanes : super::BYTE, cbitspixel : super::BYTE, lpbandbits : *const super::BYTE, lpbxorbits : *const super::BYTE) -> super::HICON);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateIconFromResource(presbits : super::PBYTE, dwressize : super::DWORD, ficon : windows_sys::core::BOOL, dwver : super::DWORD) -> super::HICON);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateIconFromResourceEx(presbits : super::PBYTE, dwressize : super::DWORD, ficon : windows_sys::core::BOOL, dwver : super::DWORD, cxdesired : i32, cydesired : i32, flags : super::UINT) -> super::HICON);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn CreateIconIndirect(piconinfo : PICONINFO) -> super::HICON);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CreateMDIWindowA(lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hinstance : super::HINSTANCE, lparam : super::LPARAM) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CreateMDIWindowW(lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hinstance : super::HINSTANCE, lparam : super::LPARAM) -> super::HWND);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateMDIWindowA(lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR, dwstyle : super::DWORD, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hinstance : super::HINSTANCE, lparam : super::LPARAM) -> super::HWND);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateMDIWindowW(lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR, dwstyle : super::DWORD, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hinstance : super::HINSTANCE, lparam : super::LPARAM) -> super::HWND);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreateMenu() -> super::HMENU);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn CreatePopupMenu() -> super::HMENU);
-windows_link::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : POINTER_INPUT_TYPE, maxcount : u32, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CreateWindowExA(dwexstyle : u32, lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hmenu : super::HMENU, hinstance : super::HINSTANCE, lpparam : *const core::ffi::c_void) -> super::HWND);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : u32, lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hmenu : super::HMENU, hinstance : super::HINSTANCE, lpparam : *const core::ffi::c_void) -> super::HWND);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn CreateWindowStationA(lpwinsta : windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HWINSTA);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn CreateWindowStationW(lpwinsta : windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HWINSTA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefDlgProcA(hdlg : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefDlgProcW(hdlg : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefFrameProcA(hwnd : super::HWND, hwndmdiclient : super::HWND, umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefFrameProcW(hwnd : super::HWND, hwndmdiclient : super::HWND, umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefMDIChildProcA(hwnd : super::HWND, umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefMDIChildProcW(hwnd : super::HWND, umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const PRAWINPUT, ninput : i32, cbsizeheader : u32) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefWindowProcA(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DefWindowProcW(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn DeferWindowPos(hwinposinfo : HDWP, hwnd : super::HWND, hwndinsertafter : super::HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> HDWP);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DeleteMenu(hmenu : super::HMENU, uposition : u32, uflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn CreateSyntheticPointerDevice(pointertype : POINTER_INPUT_TYPE, maxcount : super::ULONG, mode : POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateWindowExA(dwexstyle : super::DWORD, lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR, dwstyle : super::DWORD, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hmenu : super::HMENU, hinstance : super::HINSTANCE, lpparam : super::LPVOID) -> super::HWND);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn CreateWindowExW(dwexstyle : super::DWORD, lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR, dwstyle : super::DWORD, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::HWND, hmenu : super::HMENU, hinstance : super::HINSTANCE, lpparam : super::LPVOID) -> super::HWND);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn CreateWindowStationA(lpwinsta : windows_sys::core::PCSTR, dwflags : super::DWORD, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HWINSTA);
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn CreateWindowStationW(lpwinsta : windows_sys::core::PCWSTR, dwflags : super::DWORD, dwdesiredaccess : super::ACCESS_MASK, lpsa : super::LPSECURITY_ATTRIBUTES) -> super::HWINSTA);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefDlgProcA(hdlg : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefDlgProcW(hdlg : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefFrameProcA(hwnd : super::HWND, hwndmdiclient : super::HWND, umsg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefFrameProcW(hwnd : super::HWND, hwndmdiclient : super::HWND, umsg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefMDIChildProcA(hwnd : super::HWND, umsg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefMDIChildProcW(hwnd : super::HWND, umsg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn DefRawInputProc(parawinput : *const PRAWINPUT, ninput : super::INT, cbsizeheader : super::UINT) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefWindowProcA(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DefWindowProcW(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DeferWindowPos(hwinposinfo : HDWP, hwnd : super::HWND, hwndinsertafter : super::HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : super::UINT) -> HDWP);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DeleteMenu(hmenu : super::HMENU, uposition : super::UINT, uflags : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DeregisterShellHookWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
@@ -212,31 +223,31 @@ windows_link::link!("user32.dll" "system" fn DestroyMenu(hmenu : super::HMENU) -
 windows_link::link!("user32.dll" "system" fn DestroySyntheticPointerDevice(device : HSYNTHETICPOINTERDEVICE));
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DestroyWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamA(hinstance : super::HINSTANCE, hdialogtemplate : LPCDLGTEMPLATEA, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> isize);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamW(hinstance : super::HINSTANCE, hdialogtemplate : LPCDLGTEMPLATEW, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> isize);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DialogBoxParamA(hinstance : super::HINSTANCE, lptemplatename : windows_sys::core::PCSTR, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> isize);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DialogBoxParamW(hinstance : super::HINSTANCE, lptemplatename : windows_sys::core::PCWSTR, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> isize);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamA(hinstance : super::HINSTANCE, hdialogtemplate : LPCDLGTEMPLATEA, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::INT_PTR);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DialogBoxIndirectParamW(hinstance : super::HINSTANCE, hdialogtemplate : LPCDLGTEMPLATEW, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::INT_PTR);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DialogBoxParamA(hinstance : super::HINSTANCE, lptemplatename : windows_sys::core::PCSTR, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::INT_PTR);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DialogBoxParamW(hinstance : super::HINSTANCE, lptemplatename : windows_sys::core::PCWSTR, hwndparent : super::HWND, lpdialogfunc : DLGPROC, dwinitparam : super::LPARAM) -> super::INT_PTR);
 windows_link::link!("user32.dll" "system" fn DisableProcessWindowsGhosting());
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DispatchMessageA(lpmsg : *const MSG) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DispatchMessageW(lpmsg : *const MSG) -> super::LRESULT);
-#[cfg(all(feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn DisplayConfigGetDeviceInfo(requestpacket : *mut super::DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
-#[cfg(all(feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *const super::DISPLAYCONFIG_DEVICE_INFO_HEADER) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::HWND, lppathspec : windows_sys::core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::HWND, lppathspec : windows_sys::core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::HWND, lppathspec : windows_sys::core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::HWND, lppathspec : windows_sys::core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn DisplayConfigGetDeviceInfo(requestpacket : *mut super::DISPLAYCONFIG_DEVICE_INFO_HEADER) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn DisplayConfigSetDeviceInfo(setpacket : *const super::DISPLAYCONFIG_DEVICE_INFO_HEADER) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::HWND, lppathspec : windows_sys::core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::HWND, lppathspec : windows_sys::core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::HWND, lppathspec : windows_sys::core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::HWND, lppathspec : windows_sys::core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : super::UINT) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirSelectComboBoxExA(hwnddlg : super::HWND, lpstring : windows_sys::core::PSTR, cchout : i32, idcombobox : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
@@ -245,106 +256,107 @@ windows_link::link!("user32.dll" "system" fn DlgDirSelectComboBoxExW(hwnddlg : s
 windows_link::link!("user32.dll" "system" fn DlgDirSelectExA(hwnddlg : super::HWND, lpstring : windows_sys::core::PSTR, chcount : i32, idlistbox : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DlgDirSelectExW(hwnddlg : super::HWND, lpstring : windows_sys::core::PWSTR, chcount : i32, idlistbox : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DragDetect(hwnd : super::HWND, pt : super::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DragObject(hwndparent : super::HWND, hwndfrom : super::HWND, fmt : u32, data : usize, hcur : super::HCURSOR) -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DragObject(hwndparent : super::HWND, hwndfrom : super::HWND, fmt : super::UINT, data : super::ULONG_PTR, hcur : super::HCURSOR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DrawAnimatedRects(hwnd : super::HWND, idani : i32, lprcfrom : *const super::RECT, lprcto : *const super::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawCaption(hwnd : super::HWND, hdc : super::HDC, lprect : *const super::RECT, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawEdge(hdc : super::HDC, qrc : super::LPRECT, edge : u32, grfflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawCaption(hwnd : super::HWND, hdc : super::HDC, lprect : *const super::RECT, flags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawEdge(hdc : super::HDC, qrc : super::LPRECT, edge : super::UINT, grfflags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn DrawFocusRect(hdc : super::HDC, lprc : *const super::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawFrameControl(hdc : super::HDC, lprc : super::LPRECT, utype : u32, ustate : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawFrameControl(hdc : super::HDC, lprc : super::LPRECT, utype : super::UINT, ustate : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawIcon(hdc : super::HDC, x : i32, y : i32, hicon : super::HICON) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawIconEx(hdc : super::HDC, xleft : i32, ytop : i32, hicon : super::HICON, cxwidth : i32, cywidth : i32, istepifanicur : u32, hbrflickerfreedraw : super::HBRUSH, diflags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawIconEx(hdc : super::HDC, xleft : i32, ytop : i32, hicon : super::HICON, cxwidth : i32, cywidth : i32, istepifanicur : super::UINT, hbrflickerfreedraw : super::HBRUSH, diflags : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn DrawMenuBar(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DrawStateA(hdc : super::HDC, hbrfore : super::HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::LPARAM, wdata : super::WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn DrawStateW(hdc : super::HDC, hbrfore : super::HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::LPARAM, wdata : super::WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawTextA(hdc : super::HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : super::LPRECT, format : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawTextExA(hdc : super::HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : super::LPRECT, format : u32, lpdtp : LPDRAWTEXTPARAMS) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawTextExW(hdc : super::HDC, lpchtext : windows_sys::core::PCWSTR, cchtext : i32, lprc : super::LPRECT, format : u32, lpdtp : LPDRAWTEXTPARAMS) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn DrawTextW(hdc : super::HDC, lpchtext : windows_sys::core::PCWSTR, cchtext : i32, lprc : super::LPRECT, format : u32) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawStateA(hdc : super::HDC, hbrfore : super::HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::LPARAM, wdata : super::WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawStateW(hdc : super::HDC, hbrfore : super::HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::LPARAM, wdata : super::WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawTextA(hdc : super::HDC, lpchtext : windows_sys::core::PCSTR, cchtext : i32, lprc : super::LPRECT, format : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawTextExA(hdc : super::HDC, lpchtext : windows_sys::core::PSTR, cchtext : i32, lprc : super::LPRECT, format : super::UINT, lpdtp : LPDRAWTEXTPARAMS) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawTextExW(hdc : super::HDC, lpchtext : windows_sys::core::PWSTR, cchtext : i32, lprc : super::LPRECT, format : super::UINT, lpdtp : LPDRAWTEXTPARAMS) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn DrawTextW(hdc : super::HDC, lpchtext : windows_sys::core::PCWSTR, cchtext : i32, lprc : super::LPRECT, format : super::UINT) -> i32);
 windows_link::link!("user32.dll" "system" fn EmptyClipboard() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn EnableMenuItem(hmenu : super::HMENU, uidenableitem : u32, uenable : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn EnableMenuItem(hmenu : super::HMENU, uidenableitem : super::UINT, uenable : super::UINT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EnableNonClientDpiScaling(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn EnableScrollBar(hwnd : super::HWND, wsbflags : u32, warrows : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn EnableScrollBar(hwnd : super::HWND, wsbflags : super::UINT, warrows : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn EnableWindow(hwnd : super::HWND, benable : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn EndDeferWindowPos(hwinposinfo : HDWP) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn EndDialog(hdlg : super::HWND, nresult : isize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn EndDialog(hdlg : super::HWND, nresult : super::INT_PTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn EndMenu() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EndPaint(hwnd : super::HWND, lppaint : *const PAINTSTRUCT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnterMoveSizeLoop(hwnd : super::HWND, ptcursor : super::POINT, movesizecode : MOVESIZE_OPERATION) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumChildWindows(hwndparent : super::HWND, lpenumfunc : WNDENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn EnumClipboardFormats(format : u32) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn EnumClipboardFormats(format : super::UINT) -> super::UINT);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumDesktopWindows(hdesktop : super::HDESK, lpfn : WNDENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumDesktopsA(hwinsta : super::HWINSTA, lpenumfunc : DESKTOPENUMPROCA, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumDesktopsW(hwinsta : super::HWINSTA, lpenumfunc : DESKTOPENUMPROCW, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "wingdi")]
-windows_link::link!("user32.dll" "system" fn EnumDisplayDevicesA(lpdevice : windows_sys::core::PCSTR, idevnum : u32, lpdisplaydevice : super::PDISPLAY_DEVICEA, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "wingdi")]
-windows_link::link!("user32.dll" "system" fn EnumDisplayDevicesW(lpdevice : windows_sys::core::PCWSTR, idevnum : u32, lpdisplaydevice : super::PDISPLAY_DEVICEW, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+windows_link::link!("user32.dll" "system" fn EnumDisplayDevicesA(lpdevice : windows_sys::core::PCSTR, idevnum : super::DWORD, lpdisplaydevice : super::PDISPLAY_DEVICEA, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn EnumDisplayDevicesW(lpdevice : windows_sys::core::PCWSTR, idevnum : super::DWORD, lpdisplaydevice : super::PDISPLAY_DEVICEW, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumDisplayMonitors(hdc : super::HDC, lprcclip : super::LPCRECT, lpfnenum : MONITORENUMPROC, dwdata : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsA(lpszdevicename : windows_sys::core::PCSTR, imodenum : u32, lpdevmode : *mut super::DEVMODEA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, imodenum : u32, lpdevmode : *mut super::DEVMODEA, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : u32, lpdevmode : *mut super::DEVMODEW, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : u32, lpdevmode : *mut super::DEVMODEW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsA(lpszdevicename : windows_sys::core::PCSTR, imodenum : super::DWORD, lpdevmode : *mut super::DEVMODEA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsExA(lpszdevicename : windows_sys::core::PCSTR, imodenum : super::DWORD, lpdevmode : *mut super::DEVMODEA, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsExW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : super::DWORD, lpdevmode : *mut super::DEVMODEW, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn EnumDisplaySettingsW(lpszdevicename : windows_sys::core::PCWSTR, imodenum : super::DWORD, lpdevmode : *mut super::DEVMODEW) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsA(hwnd : super::HWND, lpenumfunc : PROPENUMPROCA) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsExA(hwnd : super::HWND, lpenumfunc : PROPENUMPROCEXA, lparam : super::LPARAM) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsExW(hwnd : super::HWND, lpenumfunc : PROPENUMPROCEXW, lparam : super::LPARAM) -> i32);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn EnumPropsW(hwnd : super::HWND, lpenumfunc : PROPENUMPROCW) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn EnumThreadWindows(dwthreadid : u32, lpfn : WNDENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn EnumThreadWindows(dwthreadid : super::DWORD, lpfn : WNDENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumWindowStationsA(lpenumfunc : WINSTAENUMPROCA, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn EnumWindowStationsW(lpenumfunc : WINSTAENUMPROCW, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EnumWindows(lpenumfunc : WNDENUMPROC, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EqualRect(lprc1 : *const super::RECT, lprc2 : *const super::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn EvaluateProximityToPolygon(numvertices : u32, controlpolygon : *const super::POINT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn EvaluateProximityToPolygon(numvertices : super::UINT32, controlpolygon : *const super::POINT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn EvaluateProximityToRect(controlboundingbox : *const super::RECT, phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ExcludeUpdateRgn(hdc : super::HDC, hwnd : super::HWND) -> i32);
-windows_link::link!("user32.dll" "system" fn ExitWindowsEx(uflags : u32, dwreason : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn ExitWindowsEx(uflags : super::UINT, dwreason : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn FillRect(hdc : super::HDC, lprc : *const super::RECT, hbr : super::HBRUSH) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FindWindowA(lpclassname : windows_sys::core::PCSTR, lpwindowname : windows_sys::core::PCSTR) -> super::HWND);
@@ -356,79 +368,85 @@ windows_link::link!("user32.dll" "system" fn FindWindowExW(hwndparent : super::H
 windows_link::link!("user32.dll" "system" fn FindWindowW(lpclassname : windows_sys::core::PCWSTR, lpwindowname : windows_sys::core::PCWSTR) -> super::HWND);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn FlashWindow(hwnd : super::HWND, binvert : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn FlashWindowEx(pfwi : PFLASHWINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn FrameRect(hdc : super::HDC, lprc : *const super::RECT, hbr : super::HBRUSH) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetActiveWindow() -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetAltTabInfoA(hwnd : super::HWND, iitem : i32, pati : PALTTABINFO, pszitemtext : windows_sys::core::PSTR, cchitemtext : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetAltTabInfoW(hwnd : super::HWND, iitem : i32, pati : PALTTABINFO, pszitemtext : windows_sys::core::PWSTR, cchitemtext : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetAncestor(hwnd : super::HWND, gaflags : u32) -> super::HWND);
-windows_link::link!("user32.dll" "system" fn GetAsyncKeyState(vkey : i32) -> i16);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetAltTabInfoA(hwnd : super::HWND, iitem : i32, pati : PALTTABINFO, pszitemtext : windows_sys::core::PSTR, cchitemtext : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetAltTabInfoW(hwnd : super::HWND, iitem : i32, pati : PALTTABINFO, pszitemtext : windows_sys::core::PWSTR, cchitemtext : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetAncestor(hwnd : super::HWND, gaflags : super::UINT) -> super::HWND);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetAsyncKeyState(vkey : i32) -> super::SHORT);
 windows_link::link!("user32.dll" "system" fn GetAutoRotationState(pstate : PAR_STATE) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetAwarenessFromDpiAwarenessContext(value : super::DPI_AWARENESS_CONTEXT) -> super::DPI_AWARENESS);
 windows_link::link!("user32.dll" "system" fn GetCIMSSM(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetCapture() -> super::HWND);
-windows_link::link!("user32.dll" "system" fn GetCaretBlinkTime() -> u32);
-#[cfg(feature = "windef")]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetCaretBlinkTime() -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetCaretPos(lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoA(hinstance : super::HINSTANCE, lpclassname : windows_sys::core::PCSTR, lpwndclass : LPWNDCLASSA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoExA(hinstance : super::HINSTANCE, lpszclass : windows_sys::core::PCSTR, lpwcx : LPWNDCLASSEXA) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoExW(hinstance : super::HINSTANCE, lpszclass : windows_sys::core::PCWSTR, lpwcx : LPWNDCLASSEXW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClassInfoW(hinstance : super::HINSTANCE, lpclassname : windows_sys::core::PCWSTR, lpwndclass : LPWNDCLASSW) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetClassLongA(hwnd : super::HWND, nindex : i32) -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetClassLongA(hwnd : super::HWND, nindex : i32) -> super::DWORD);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetClassLongPtrA(hwnd : super::HWND, nindex : i32) -> usize);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetClassLongPtrA(hwnd : super::HWND, nindex : i32) -> super::ULONG_PTR);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetClassLongPtrW(hwnd : super::HWND, nindex : i32) -> usize);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetClassLongW(hwnd : super::HWND, nindex : i32) -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetClassLongPtrW(hwnd : super::HWND, nindex : i32) -> super::ULONG_PTR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetClassLongW(hwnd : super::HWND, nindex : i32) -> super::DWORD);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassNameA(hwnd : super::HWND, lpclassname : windows_sys::core::PSTR, nmaxcount : i32) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClassNameW(hwnd : super::HWND, lpclassname : windows_sys::core::PWSTR, nmaxcount : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetClassWord(hwnd : super::HWND, nindex : i32) -> u16);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetClassWord(hwnd : super::HWND, nindex : i32) -> super::WORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClientRect(hwnd : super::HWND, lprect : super::LPRECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetClipCursor(lprect : super::LPRECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn GetClipboardData(uformat : u32) -> super::HANDLE);
-windows_link::link!("user32.dll" "system" fn GetClipboardFormatNameA(format : u32, lpszformatname : windows_sys::core::PSTR, cchmaxcount : i32) -> i32);
-windows_link::link!("user32.dll" "system" fn GetClipboardFormatNameW(format : u32, lpszformatname : windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetClipboardData(uformat : super::UINT) -> super::HANDLE);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetClipboardFormatNameA(format : super::UINT, lpszformatname : windows_sys::core::PSTR, cchmaxcount : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetClipboardFormatNameW(format : super::UINT, lpszformatname : windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClipboardOwner() -> super::HWND);
-windows_link::link!("user32.dll" "system" fn GetClipboardSequenceNumber() -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetClipboardSequenceNumber() -> super::DWORD);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetClipboardViewer() -> super::HWND);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetComboBoxInfo(hwndcombo : super::HWND, pcbi : PCOMBOBOXINFO) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetCurrentInputMessageSource(inputmessagesource : *mut INPUT_MESSAGE_SOURCE) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetCurrentMonitorTopologyId() -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetCurrentMonitorTopologyId() -> super::UINT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetCursor() -> super::HCURSOR);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetCursorInfo(pci : PCURSORINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetCursorPos(lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDC(hwnd : super::HWND) -> super::HDC);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn GetDCEx(hwnd : super::HWND, hrgnclip : super::HRGN, flags : u32) -> super::HDC);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetDCEx(hwnd : super::HWND, hrgnclip : super::HRGN, flags : super::DWORD) -> super::HDC);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDesktopWindow() -> super::HWND);
 windows_link::link!("user32.dll" "system" fn GetDialogBaseUnits() -> i32);
@@ -437,106 +455,118 @@ windows_link::link!("user32.dll" "system" fn GetDialogControlDpiChangeBehavior(h
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDialogDpiChangeBehavior(hdlg : super::HWND) -> DIALOG_DPI_CHANGE_BEHAVIORS);
 windows_link::link!("user32.dll" "system" fn GetDisplayAutoRotationPreferences(porientation : *mut ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetDisplayConfigBufferSizes(flags : u32, numpatharrayelements : *mut u32, nummodeinfoarrayelements : *mut u32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetDisplayConfigBufferSizes(flags : super::UINT32, numpatharrayelements : *mut super::UINT32, nummodeinfoarrayelements : *mut super::UINT32) -> super::LONG);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDlgCtrlID(hwnd : super::HWND) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetDlgItem(hdlg : super::HWND, niddlgitem : i32) -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetDlgItemInt(hdlg : super::HWND, niddlgitem : i32, lptranslated : *mut windows_sys::core::BOOL, bsigned : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetDlgItemTextA(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_sys::core::PSTR, cchmax : i32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetDlgItemTextW(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_sys::core::PWSTR, cchmax : i32) -> u32);
-windows_link::link!("user32.dll" "system" fn GetDoubleClickTime() -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetDlgItemInt(hdlg : super::HWND, niddlgitem : i32, lptranslated : *mut windows_sys::core::BOOL, bsigned : windows_sys::core::BOOL) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetDlgItemTextA(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_sys::core::PSTR, cchmax : i32) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetDlgItemTextW(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_sys::core::PWSTR, cchmax : i32) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetDoubleClickTime() -> super::UINT);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetDpiAwarenessContextForProcess(hprocess : super::HANDLE) -> super::DPI_AWARENESS_CONTEXT);
-windows_link::link!("user32.dll" "system" fn GetDpiForSystem() -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : super::HWND) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetDpiFromDpiAwarenessContext(value : super::DPI_AWARENESS_CONTEXT) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetDpiForSystem() -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : super::HWND) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetDpiFromDpiAwarenessContext(value : super::DPI_AWARENESS_CONTEXT) -> super::UINT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetFocus() -> super::HWND);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetForegroundWindow() -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetGUIThreadInfo(idthread : u32, pgui : PGUITHREADINFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::HWND, dwreserved : u32, dwflags : u32, pcids : super::PUINT, pgestureconfig : PGESTURECONFIG, cbsize : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : super::PBYTE) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetGUIThreadInfo(idthread : super::DWORD, pgui : PGUITHREADINFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::HWND, dwreserved : super::DWORD, dwflags : super::DWORD, pcids : super::PUINT, pgestureconfig : PGESTURECONFIG, cbsize : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : super::UINT, pextraargs : super::PBYTE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : PGESTUREINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn GetGuiResources(hprocess : super::HANDLE, uiflags : u32) -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetGuiResources(hprocess : super::HANDLE, uiflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetIconInfo(hicon : super::HICON, piconinfo : PICONINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetIconInfoExA(hicon : super::HICON, piconinfo : PICONINFOEXA) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetIconInfoExW(hicon : super::HICON, piconinfo : PICONINFOEXW) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetInputState() -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetKBCodePage() -> u32);
-windows_link::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : i32, lpstring : windows_sys::core::PSTR, cchsize : i32) -> i32);
-windows_link::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : i32, lpstring : windows_sys::core::PWSTR, cchsize : i32) -> i32);
-windows_link::link!("user32.dll" "system" fn GetKeyState(nvirtkey : i32) -> i16);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn GetKeyboardLayout(idthread : u32) -> super::HKL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetKBCodePage() -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetKeyNameTextA(lparam : super::LONG, lpstring : windows_sys::core::PSTR, cchsize : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetKeyNameTextW(lparam : super::LONG, lpstring : windows_sys::core::PWSTR, cchsize : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetKeyState(nvirtkey : i32) -> super::SHORT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn GetKeyboardLayout(idthread : super::DWORD) -> super::HKL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn GetKeyboardLayoutList(nbuff : i32, lplist : *mut super::HKL) -> i32);
 windows_link::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : super::PBYTE) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn GetKeyboardType(ntypeflag : i32) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetLastActivePopup(hwnd : super::HWND) -> super::HWND);
+#[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn GetLastInputInfo(plii : PLASTINPUTINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetLayeredWindowAttributes(hwnd : super::HWND, pcrkey : *mut super::COLORREF, pbalpha : *mut u8, pdwflags : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetListBoxInfo(hwnd : super::HWND) -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetLayeredWindowAttributes(hwnd : super::HWND, pcrkey : *mut super::COLORREF, pbalpha : *mut super::BYTE, pdwflags : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetListBoxInfo(hwnd : super::HWND) -> super::DWORD);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenu(hwnd : super::HWND) -> super::HMENU);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuBarInfo(hwnd : super::HWND, idobject : i32, iditem : i32, pmbi : PMENUBARINFO) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetMenuCheckMarkDimensions() -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuContextHelpId(param0 : super::HMENU) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuDefaultItem(hmenu : super::HMENU, fbypos : u32, gmdiflags : u32) -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuBarInfo(hwnd : super::HWND, idobject : super::LONG, iditem : super::LONG, pmbi : PMENUBARINFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetMenuCheckMarkDimensions() -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuContextHelpId(param0 : super::HMENU) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuDefaultItem(hmenu : super::HMENU, fbypos : super::UINT, gmdiflags : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetMenuInfo(param0 : super::HMENU, param1 : LPMENUINFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetMenuItemCount(hmenu : super::HMENU) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuItemID(hmenu : super::HMENU, npos : i32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuItemInfoA(hmenu : super::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmii : LPMENUITEMINFOA) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuItemInfoW(hmenu : super::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmii : LPMENUITEMINFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuItemRect(hwnd : super::HWND, hmenu : super::HMENU, uitem : u32, lprcitem : super::LPRECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuState(hmenu : super::HMENU, uid : u32, uflags : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuStringA(hmenu : super::HMENU, uiditem : u32, lpstring : windows_sys::core::PSTR, cchmax : i32, flags : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetMenuStringW(hmenu : super::HMENU, uiditem : u32, lpstring : windows_sys::core::PWSTR, cchmax : i32, flags : u32) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn GetMessageA(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuItemID(hmenu : super::HMENU, npos : i32) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuItemInfoA(hmenu : super::HMENU, item : super::UINT, fbyposition : windows_sys::core::BOOL, lpmii : LPMENUITEMINFOA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuItemInfoW(hmenu : super::HMENU, item : super::UINT, fbyposition : windows_sys::core::BOOL, lpmii : LPMENUITEMINFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuItemRect(hwnd : super::HWND, hmenu : super::HMENU, uitem : super::UINT, lprcitem : super::LPRECT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuState(hmenu : super::HMENU, uid : super::UINT, uflags : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuStringA(hmenu : super::HMENU, uiditem : super::UINT, lpstring : windows_sys::core::PSTR, cchmax : i32, flags : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMenuStringW(hmenu : super::HMENU, uiditem : super::UINT, lpstring : windows_sys::core::PWSTR, cchmax : i32, flags : super::UINT) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMessageA(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : super::UINT, wmsgfiltermax : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn GetMessageExtraInfo() -> super::LPARAM);
-windows_link::link!("user32.dll" "system" fn GetMessagePos() -> u32);
-windows_link::link!("user32.dll" "system" fn GetMessageTime() -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn GetMessageW(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetMessagePos() -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetMessageTime() -> super::LONG);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetMessageW(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : super::UINT, wmsgfiltermax : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetMonitorInfoA(hmonitor : super::HMONITOR, lpmi : LPMONITORINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : super::HMONITOR, lpmi : LPMONITORINFO) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : u32, lppt : LPMOUSEMOVEPOINT, lpptbuf : LPMOUSEMOVEPOINT, nbufpoints : i32, resolution : u32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetMouseMovePointsEx(cbsize : super::UINT, lppt : LPMOUSEMOVEPOINT, lpptbuf : LPMOUSEMOVEPOINT, nbufpoints : i32, resolution : super::DWORD) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetNextDlgGroupItem(hdlg : super::HWND, hctl : super::HWND, bprevious : windows_sys::core::BOOL) -> super::HWND);
 #[cfg(feature = "windef")]
@@ -545,70 +575,77 @@ windows_link::link!("user32.dll" "system" fn GetNextDlgTabItem(hdlg : super::HWN
 windows_link::link!("user32.dll" "system" fn GetOpenClipboardWindow() -> super::HWND);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetParent(hwnd : super::HWND) -> super::HWND);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetPhysicalCursorPos(lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetPointerCursorId(pointerid : u32, cursorid : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetPointerCursorId(pointerid : super::UINT32, cursorid : *mut super::UINT32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerDevice(device : super::HANDLE, pointerdevice : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::HANDLE, cursorcount : *mut u32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::HANDLE, propertycount : *mut u32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerDeviceCursors(device : super::HANDLE, cursorcount : *mut super::UINT32, devicecursors : *mut POINTER_DEVICE_CURSOR_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerDeviceProperties(device : super::HANDLE, propertycount : *mut super::UINT32, pointerproperties : *mut POINTER_DEVICE_PROPERTY) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPointerDeviceRects(device : super::HANDLE, pointerdevicerect : *mut super::RECT, displayrect : *mut super::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerDevices(devicecount : *mut u32, pointerdevices : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerFrameInfo(pointerid : u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerFrameInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfo(pointerid : u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfo(pointerid : u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfoHistory(pointerid : u32, entriescount : *mut u32, pointercount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerInfo(pointerid : u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerInfoHistory(pointerid : u32, entriescount : *mut u32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetPointerInputTransform(pointerid : u32, historycount : u32, inputtransform : *mut INPUT_TRANSFORM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerPenInfo(pointerid : u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerPenInfoHistory(pointerid : u32, entriescount : *mut u32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : u32, entriescount : *mut u32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : u32, pointertype : *mut POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *const u32, cformats : i32) -> i32);
-windows_link::link!("user32.dll" "system" fn GetProcessDefaultLayout(pdwdefaultlayout : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerDevices(devicecount : *mut super::UINT32, pointerdevices : *mut POINTER_DEVICE_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFrameInfo(pointerid : super::UINT32, pointercount : *mut super::UINT32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFrameInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointercount : *mut super::UINT32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfo(pointerid : super::UINT32, pointercount : *mut super::UINT32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFramePenInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointercount : *mut super::UINT32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfo(pointerid : super::UINT32, pointercount : *mut super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerFrameTouchInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointercount : *mut super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerInfo(pointerid : super::UINT32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, pointerinfo : *mut POINTER_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetPointerInputTransform(pointerid : super::UINT32, historycount : super::UINT32, inputtransform : *mut INPUT_TRANSFORM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerPenInfo(pointerid : super::UINT32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerPenInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, peninfo : *mut POINTER_PEN_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerTouchInfo(pointerid : super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetPointerTouchInfoHistory(pointerid : super::UINT32, entriescount : *mut super::UINT32, touchinfo : *mut POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetPointerType(pointerid : super::UINT32, pointertype : *mut POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetPriorityClipboardFormat(paformatprioritylist : *const super::UINT, cformats : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetProcessDefaultLayout(pdwdefaultlayout : *mut super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn GetProcessWindowStation() -> super::HWINSTA);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPropA(hwnd : super::HWND, lpstring : windows_sys::core::PCSTR) -> super::HANDLE);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn GetPropW(hwnd : super::HWND, lpstring : windows_sys::core::PCWSTR) -> super::HANDLE);
-windows_link::link!("user32.dll" "system" fn GetQueueStatus(flags : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetRawInputBuffer(pdata : PRAWINPUT, pcbsize : super::PUINT, cbsizeheader : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn GetRawInputData(hrawinput : HRAWINPUT, uicommand : u32, pdata : *mut core::ffi::c_void, pcbsize : super::PUINT, cbsizeheader : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::HANDLE, uicommand : u32, pdata : *mut core::ffi::c_void, pcbsize : super::PUINT) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::HANDLE, uicommand : u32, pdata : *mut core::ffi::c_void, pcbsize : super::PUINT) -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetRawInputDeviceList(prawinputdevicelist : PRAWINPUTDEVICELIST, puinumdevices : super::PUINT, cbsize : u32) -> u32);
-windows_link::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : u32, historycount : u32, propertiescount : u32, pproperties : *const POINTER_DEVICE_PROPERTY, pvalues : *mut i32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn GetRegisteredRawInputDevices(prawinputdevices : PRAWINPUTDEVICE, puinumdevices : super::PUINT, cbsize : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetScrollBarInfo(hwnd : super::HWND, idobject : i32, psbi : PSCROLLBARINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetQueueStatus(flags : super::UINT) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetRawInputBuffer(pdata : PRAWINPUT, pcbsize : super::PUINT, cbsizeheader : super::UINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn GetRawInputData(hrawinput : HRAWINPUT, uicommand : super::UINT, pdata : super::LPVOID, pcbsize : super::PUINT, cbsizeheader : super::UINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetRawInputDeviceInfoA(hdevice : super::HANDLE, uicommand : super::UINT, pdata : super::LPVOID, pcbsize : super::PUINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetRawInputDeviceInfoW(hdevice : super::HANDLE, uicommand : super::UINT, pdata : super::LPVOID, pcbsize : super::PUINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetRawInputDeviceList(prawinputdevicelist : PRAWINPUTDEVICELIST, puinumdevices : super::PUINT, cbsize : super::UINT) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetRawPointerDeviceData(pointerid : super::UINT32, historycount : super::UINT32, propertiescount : super::UINT32, pproperties : *const POINTER_DEVICE_PROPERTY, pvalues : *mut super::LONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetRegisteredRawInputDevices(prawinputdevices : PRAWINPUTDEVICE, puinumdevices : super::PUINT, cbsize : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetScrollBarInfo(hwnd : super::HWND, idobject : super::LONG, psbi : PSCROLLBARINFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetScrollInfo(hwnd : super::HWND, nbar : i32, lpsi : LPSCROLLINFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetScrollPos(hwnd : super::HWND, nbar : i32) -> i32);
@@ -618,85 +655,90 @@ windows_link::link!("user32.dll" "system" fn GetScrollRange(hwnd : super::HWND, 
 windows_link::link!("user32.dll" "system" fn GetShellWindow() -> super::HWND);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetSubMenu(hmenu : super::HMENU, npos : i32) -> super::HMENU);
-windows_link::link!("user32.dll" "system" fn GetSysColor(nindex : i32) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetSysColor(nindex : i32) -> super::DWORD);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetSysColorBrush(nindex : i32) -> super::HBRUSH);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn GetSystemDpiForProcess(hprocess : super::HANDLE) -> u32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetSystemDpiForProcess(hprocess : super::HANDLE) -> super::UINT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetSystemMenu(hwnd : super::HWND, brevert : windows_sys::core::BOOL) -> super::HMENU);
 windows_link::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
-windows_link::link!("user32.dll" "system" fn GetSystemMetricsForDpi(nindex : i32, dpi : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : super::HDC, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : super::HDC, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetThreadDesktop(dwthreadid : u32) -> super::HDESK);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetSystemMetricsForDpi(nindex : i32, dpi : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : super::HDC, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : super::HDC, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetThreadDesktop(dwthreadid : super::DWORD) -> super::HDESK);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetThreadDpiAwarenessContext() -> super::DPI_AWARENESS_CONTEXT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetThreadDpiHostingBehavior() -> super::DPI_HOSTING_BEHAVIOR);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetTitleBarInfo(hwnd : super::HWND, pti : PTITLEBARINFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetTopWindow(hwnd : super::HWND) -> super::HWND);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : PTOUCHINPUT, cbsize : i32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn GetUnpredictedMessagePos() -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : super::UINT, pinputs : PTOUCHINPUT, cbsize : i32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn GetUnpredictedMessagePos() -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetUpdateRect(hwnd : super::HWND, lprect : super::LPRECT, berase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetUpdateRgn(hwnd : super::HWND, hrgn : super::HRGN, berase : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : super::PUINT, cformats : u32, pcformatsout : super::PUINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetUserObjectInformationA(hobj : super::HANDLE, nindex : i32, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetUserObjectInformationW(hobj : super::HANDLE, nindex : i32, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn GetUserObjectSecurity(hobj : super::HANDLE, psirequested : super::PSECURITY_INFORMATION, psid : super::PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindow(hwnd : super::HWND, ucmd : u32) -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowContextHelpId(param0 : super::HWND) -> u32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn GetUpdatedClipboardFormats(lpuiformats : super::PUINT, cformats : super::UINT, pcformatsout : super::PUINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetUserObjectInformationA(hobj : super::HANDLE, nindex : i32, pvinfo : super::PVOID, nlength : super::DWORD, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetUserObjectInformationW(hobj : super::HANDLE, nindex : i32, pvinfo : super::PVOID, nlength : super::DWORD, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn GetUserObjectSecurity(hobj : super::HANDLE, psirequested : super::PSECURITY_INFORMATION, psid : super::PSECURITY_DESCRIPTOR, nlength : super::DWORD, lpnlengthneeded : super::LPDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindow(hwnd : super::HWND, ucmd : super::UINT) -> super::HWND);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowContextHelpId(param0 : super::HWND) -> super::DWORD);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowDC(hwnd : super::HWND) -> super::HDC);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowDisplayAffinity(hwnd : super::HWND, pdwaffinity : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowDisplayAffinity(hwnd : super::HWND, pdwaffinity : *mut super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowDpiAwarenessContext(hwnd : super::HWND) -> super::DPI_AWARENESS_CONTEXT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowDpiHostingBehavior(hwnd : super::HWND) -> super::DPI_HOSTING_BEHAVIOR);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::HWND, feedback : FEEDBACK_TYPE, dwflags : u32, psize : *mut u32, config : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowFeedbackSetting(hwnd : super::HWND, feedback : FEEDBACK_TYPE, dwflags : super::DWORD, psize : *mut super::UINT32, config : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetWindowInfo(hwnd : super::HWND, pwi : PWINDOWINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowLongA(hwnd : super::HWND, nindex : i32) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowLongA(hwnd : super::HWND, nindex : i32) -> super::LONG);
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" "GetWindowLongA" fn GetWindowLongPtrA(hwnd : super::HWND, nindex : i32) -> super::LONG);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowLongPtrA(hwnd : super::HWND, nindex : i32) -> isize);
-#[cfg(target_pointer_width = "32")]
-pub use GetWindowLongA as GetWindowLongPtrA;
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowLongPtrA(hwnd : super::HWND, nindex : i32) -> super::LONG_PTR);
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" "GetWindowLongW" fn GetWindowLongPtrW(hwnd : super::HWND, nindex : i32) -> super::LONG);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : super::HWND, nindex : i32) -> isize);
-#[cfg(target_pointer_width = "32")]
-pub use GetWindowLongW as GetWindowLongPtrW;
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowLongW(hwnd : super::HWND, nindex : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowModuleFileNameA(hwnd : super::HWND, pszfilename : windows_sys::core::PSTR, cchfilenamemax : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowModuleFileNameW(hwnd : super::HWND, pszfilename : windows_sys::core::PWSTR, cchfilenamemax : u32) -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowLongPtrW(hwnd : super::HWND, nindex : i32) -> super::LONG_PTR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowLongW(hwnd : super::HWND, nindex : i32) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowModuleFileNameA(hwnd : super::HWND, pszfilename : windows_sys::core::PSTR, cchfilenamemax : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowModuleFileNameW(hwnd : super::HWND, pszfilename : windows_sys::core::PWSTR, cchfilenamemax : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetWindowPlacement(hwnd : super::HWND, lpwndpl : *mut WINDOWPLACEMENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetWindowRect(hwnd : super::HWND, lprect : super::LPRECT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetWindowRgn(hwnd : super::HWND, hrgn : super::HRGN) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GetWindowRgnBox(hwnd : super::HWND, lprc : super::LPRECT) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowTextA(hwnd : super::HWND, lpstring : windows_sys::core::PSTR, nmaxcount : i32) -> i32);
@@ -706,64 +748,75 @@ windows_link::link!("user32.dll" "system" fn GetWindowTextLengthA(hwnd : super::
 windows_link::link!("user32.dll" "system" fn GetWindowTextLengthW(hwnd : super::HWND) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn GetWindowTextW(hwnd : super::HWND, lpstring : windows_sys::core::PWSTR, nmaxcount : i32) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn GetWindowThreadProcessId(hwnd : super::HWND, lpdwprocessid : super::LPDWORD) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn GetWindowWord(hwnd : super::HWND, nindex : i32) -> u16);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowThreadProcessId(hwnd : super::HWND, lpdwprocessid : super::LPDWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn GetWindowWord(hwnd : super::HWND, nindex : i32) -> super::WORD);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GrayStringA(hdc : super::HDC, hbrush : super::HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn GrayStringW(hdc : super::HDC, hbrush : super::HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn HideCaret(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn HiliteMenuItem(hwnd : super::HWND, hmenu : super::HMENU, uidhiliteitem : u32, uhilite : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn HiliteMenuItem(hwnd : super::HWND, hmenu : super::HMENU, uidhiliteitem : super::UINT, uhilite : super::UINT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn InSendMessage() -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn InSendMessageEx(lpreserved : *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn InSendMessageEx(lpreserved : super::LPVOID) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn InflateRect(lprc : super::LPRECT, dx : i32, dy : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InheritWindowMonitor(hwnd : super::HWND, hwndinherit : super::HWND) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount : u32, dwmode : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : HSYNTHETICPOINTERDEVICE, pointerinfo : *const POINTER_TYPE_INFO, count : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn InjectTouchInput(count : u32, contacts : *const POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn InsertMenuA(hmenu : super::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn InsertMenuItemA(hmenu : super::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmi : LPCMENUITEMINFOA) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn InsertMenuItemW(hmenu : super::HMENU, item : u32, fbyposition : windows_sys::core::BOOL, lpmi : LPCMENUITEMINFOW) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn InsertMenuW(hmenu : super::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn InitializeTouchInjection(maxcount : super::UINT32, dwmode : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn InjectSyntheticPointerInput(device : HSYNTHETICPOINTERDEVICE, pointerinfo : *const POINTER_TYPE_INFO, count : super::UINT32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn InjectTouchInput(count : super::UINT32, contacts : *const POINTER_TOUCH_INFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn InsertMenuA(hmenu : super::HMENU, uposition : super::UINT, uflags : super::UINT, uidnewitem : super::UINT_PTR, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn InsertMenuItemA(hmenu : super::HMENU, item : super::UINT, fbyposition : windows_sys::core::BOOL, lpmi : LPCMENUITEMINFOA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn InsertMenuItemW(hmenu : super::HMENU, item : super::UINT, fbyposition : windows_sys::core::BOOL, lpmi : LPCMENUITEMINFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn InsertMenuW(hmenu : super::HMENU, uposition : super::UINT, uflags : super::UINT, uidnewitem : super::UINT_PTR, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn InternalGetWindowText(hwnd : super::HWND, pstring : windows_sys::core::PWSTR, cchmaxcount : i32) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn IntersectRect(lprcdst : super::LPRECT, lprcsrc1 : *const super::RECT, lprcsrc2 : *const super::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn InvalidateRect(hwnd : super::HWND, lprect : *const super::RECT, berase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn InvalidateRgn(hwnd : super::HWND, hrgn : super::HRGN, berase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn InvertRect(hdc : super::HDC, lprc : *const super::RECT) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharAlphaA(ch : i8) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : i8) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharAlphaNumericW(ch : u16) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharAlphaW(ch : u16) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharLowerW(ch : u16) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharUpperA(ch : i8) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsCharUpperW(ch : u16) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn IsCharAlphaA(ch : super::CHAR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn IsCharAlphaNumericA(ch : super::CHAR) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("user32.dll" "system" fn IsCharAlphaNumericW(ch : super::WCHAR) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("user32.dll" "system" fn IsCharAlphaW(ch : super::WCHAR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn IsCharLowerA(ch : super::CHAR) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("user32.dll" "system" fn IsCharLowerW(ch : super::WCHAR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn IsCharUpperA(ch : super::CHAR) -> windows_sys::core::BOOL);
+#[cfg(feature = "winnt")]
+windows_link::link!("user32.dll" "system" fn IsCharUpperW(ch : super::WCHAR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsChild(hwndparent : super::HWND, hwnd : super::HWND) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsClipboardFormatAvailable(format : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn IsClipboardFormatAvailable(format : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn IsDialogMessageA(hdlg : super::HWND, lpmsg : LPMSG) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn IsDialogMessageW(hdlg : super::HWND, lpmsg : LPMSG) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn IsDlgButtonChecked(hdlg : super::HWND, nidbutton : i32) -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn IsDlgButtonChecked(hdlg : super::HWND, nidbutton : i32) -> super::UINT);
 windows_link::link!("user32.dll" "system" fn IsGUIThread(bconvert : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsHungAppWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
@@ -777,13 +830,14 @@ windows_link::link!("user32.dll" "system" fn IsInterceptWindow(toplevelwindow : 
 windows_link::link!("user32.dll" "system" fn IsMenu(hmenu : super::HMENU) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsMouseInPointerEnabled() -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn IsProcessDPIAware() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn IsRectEmpty(lprc : *const super::RECT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::HWND, pulflags : super::PULONG) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsValidDpiAwarenessContext(value : super::DPI_AWARENESS_CONTEXT) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
@@ -797,8 +851,8 @@ windows_link::link!("user32.dll" "system" fn IsWindowVisible(hwnd : super::HWND)
 windows_link::link!("user32.dll" "system" fn IsWow64Message() -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn IsZoomed(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn KillTimer(hwnd : super::HWND, uidevent : usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn KillTimer(hwnd : super::HWND, uidevent : super::UINT_PTR) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadAcceleratorsA(hinstance : super::HINSTANCE, lptablename : windows_sys::core::PCSTR) -> super::HACCEL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -819,288 +873,304 @@ windows_link::link!("user32.dll" "system" fn LoadCursorW(hinstance : super::HINS
 windows_link::link!("user32.dll" "system" fn LoadIconA(hinstance : super::HINSTANCE, lpiconname : windows_sys::core::PCSTR) -> super::HICON);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadIconW(hinstance : super::HINSTANCE, lpiconname : windows_sys::core::PCWSTR) -> super::HICON);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn LoadImageA(hinst : super::HINSTANCE, name : windows_sys::core::PCSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> super::HANDLE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn LoadImageW(hinst : super::HINSTANCE, name : windows_sys::core::PCWSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> super::HANDLE);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_sys::core::PCSTR, flags : u32) -> super::HKL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_sys::core::PCWSTR, flags : u32) -> super::HKL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn LoadImageA(hinst : super::HINSTANCE, name : windows_sys::core::PCSTR, r#type : super::UINT, cx : i32, cy : i32, fuload : super::UINT) -> super::HANDLE);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn LoadImageW(hinst : super::HINSTANCE, name : windows_sys::core::PCWSTR, r#type : super::UINT, cx : i32, cy : i32, fuload : super::UINT) -> super::HANDLE);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn LoadKeyboardLayoutA(pwszklid : windows_sys::core::PCSTR, flags : super::UINT) -> super::HKL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn LoadKeyboardLayoutW(pwszklid : windows_sys::core::PCWSTR, flags : super::UINT) -> super::HKL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadMenuA(hinstance : super::HINSTANCE, lpmenuname : windows_sys::core::PCSTR) -> super::HMENU);
 #[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn LoadMenuIndirectA(lpmenutemplate : *const MENUTEMPLATEA) -> super::HMENU);
+windows_link::link!("user32.dll" "system" fn LoadMenuIndirectA(lpmenutemplate : *const core::ffi::c_void) -> super::HMENU);
 #[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn LoadMenuIndirectW(lpmenutemplate : *const MENUTEMPLATEW) -> super::HMENU);
+windows_link::link!("user32.dll" "system" fn LoadMenuIndirectW(lpmenutemplate : *const core::ffi::c_void) -> super::HMENU);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LoadMenuW(hinstance : super::HINSTANCE, lpmenuname : windows_sys::core::PCWSTR) -> super::HMENU);
-windows_link::link!("user32.dll" "system" fn LockSetForegroundWindow(ulockcode : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn LockSetForegroundWindow(ulockcode : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn LockWindowUpdate(hwndlock : super::HWND) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn LockWorkStation() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LogicalToPhysicalPoint(hwnd : super::HWND, lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn LogicalToPhysicalPointForPerMonitorDPI(hwnd : super::HWND, lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn LookupIconIdFromDirectory(presbits : super::PBYTE, ficon : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn LookupIconIdFromDirectoryEx(presbits : super::PBYTE, ficon : windows_sys::core::BOOL, cxdesired : i32, cydesired : i32, flags : u32) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn LookupIconIdFromDirectoryEx(presbits : super::PBYTE, ficon : windows_sys::core::BOOL, cxdesired : i32, cydesired : i32, flags : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn MapDialogRect(hdlg : super::HWND, lprect : super::LPRECT) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn MapVirtualKeyA(ucode : u32, umaptype : u32) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : u32, umaptype : u32, dwhkl : super::HKL) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn MapVirtualKeyExW(ucode : u32, umaptype : u32, dwhkl : super::HKL) -> u32);
-windows_link::link!("user32.dll" "system" fn MapVirtualKeyW(ucode : u32, umaptype : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MapWindowPoints(hwndfrom : super::HWND, hwndto : super::HWND, lppoints : super::LPPOINT, cpoints : u32) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn MapVirtualKeyA(ucode : super::UINT, umaptype : super::UINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn MapVirtualKeyExA(ucode : super::UINT, umaptype : super::UINT, dwhkl : super::HKL) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn MapVirtualKeyExW(ucode : super::UINT, umaptype : super::UINT, dwhkl : super::HKL) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn MapVirtualKeyW(ucode : super::UINT, umaptype : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MapWindowPoints(hwndfrom : super::HWND, hwndto : super::HWND, lppoints : super::LPPOINT, cpoints : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn MenuItemFromPoint(hwnd : super::HWND, hmenu : super::HMENU, ptscreen : super::POINT) -> i32);
-windows_link::link!("user32.dll" "system" fn MessageBeep(utype : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MessageBoxA(hwnd : super::HWND, lptext : windows_sys::core::PCSTR, lpcaption : windows_sys::core::PCSTR, utype : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MessageBoxExA(hwnd : super::HWND, lptext : windows_sys::core::PCSTR, lpcaption : windows_sys::core::PCSTR, utype : u32, wlanguageid : u16) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MessageBoxExW(hwnd : super::HWND, lptext : windows_sys::core::PCWSTR, lpcaption : windows_sys::core::PCWSTR, utype : u32, wlanguageid : u16) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn MessageBeep(utype : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MessageBoxA(hwnd : super::HWND, lptext : windows_sys::core::PCSTR, lpcaption : windows_sys::core::PCSTR, utype : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MessageBoxExA(hwnd : super::HWND, lptext : windows_sys::core::PCSTR, lpcaption : windows_sys::core::PCSTR, utype : super::UINT, wlanguageid : super::WORD) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MessageBoxExW(hwnd : super::HWND, lptext : windows_sys::core::PCWSTR, lpcaption : windows_sys::core::PCWSTR, utype : super::UINT, wlanguageid : super::WORD) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn MessageBoxIndirectA(lpmbp : *const MSGBOXPARAMSA) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn MessageBoxIndirectW(lpmbp : *const MSGBOXPARAMSW) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MessageBoxW(hwnd : super::HWND, lptext : windows_sys::core::PCWSTR, lpcaption : windows_sys::core::PCWSTR, utype : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ModifyMenuA(hmnu : super::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ModifyMenuW(hmnu : super::HMENU, uposition : u32, uflags : u32, uidnewitem : usize, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MonitorFromPoint(pt : super::POINT, dwflags : u32) -> super::HMONITOR);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MonitorFromRect(lprc : super::LPCRECT, dwflags : u32) -> super::HMONITOR);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : super::HWND, dwflags : u32) -> super::HMONITOR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MessageBoxW(hwnd : super::HWND, lptext : windows_sys::core::PCWSTR, lpcaption : windows_sys::core::PCWSTR, utype : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ModifyMenuA(hmnu : super::HMENU, uposition : super::UINT, uflags : super::UINT, uidnewitem : super::UINT_PTR, lpnewitem : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ModifyMenuW(hmnu : super::HMENU, uposition : super::UINT, uflags : super::UINT, uidnewitem : super::UINT_PTR, lpnewitem : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MonitorFromPoint(pt : super::POINT, dwflags : super::DWORD) -> super::HMONITOR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MonitorFromRect(lprc : super::LPCRECT, dwflags : super::DWORD) -> super::HMONITOR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : super::HWND, dwflags : super::DWORD) -> super::HMONITOR);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn MoveWindow(hwnd : super::HWND, x : i32, y : i32, nwidth : i32, nheight : i32, brepaint : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : u32, phandles : *const super::HANDLE, fwaitall : windows_sys::core::BOOL, dwmilliseconds : u32, dwwakemask : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : u32, phandles : *const super::HANDLE, dwmilliseconds : u32, dwwakemask : u32, dwflags : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::HWND, idobject : i32, idchild : i32));
-windows_link::link!("user32.dll" "system" fn OemKeyScan(woemchar : u16) -> u32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn MsgWaitForMultipleObjects(ncount : super::DWORD, phandles : *const super::HANDLE, fwaitall : windows_sys::core::BOOL, dwmilliseconds : super::DWORD, dwwakemask : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn MsgWaitForMultipleObjectsEx(ncount : super::DWORD, phandles : *const super::HANDLE, dwmilliseconds : super::DWORD, dwwakemask : super::DWORD, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn NotifyWinEvent(event : super::DWORD, hwnd : super::HWND, idobject : super::LONG, idchild : super::LONG));
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn OemKeyScan(woemchar : super::WORD) -> super::DWORD);
 windows_link::link!("user32.dll" "system" fn OemToCharA(psrc : windows_sys::core::PCSTR, pdst : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn OemToCharBuffA(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PSTR, cchdstlength : u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn OemToCharBuffW(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PWSTR, cchdstlength : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn OemToCharBuffA(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PSTR, cchdstlength : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn OemToCharBuffW(lpszsrc : windows_sys::core::PCSTR, lpszdst : windows_sys::core::PWSTR, cchdstlength : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn OemToCharW(psrc : windows_sys::core::PCSTR, pdst : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn OffsetRect(lprc : super::LPRECT, dx : i32, dy : i32) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn OpenClipboard(hwndnewowner : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn OpenDesktopA(lpszdesktop : windows_sys::core::PCSTR, dwflags : u32, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HDESK);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn OpenDesktopW(lpszdesktop : windows_sys::core::PCWSTR, dwflags : u32, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HDESK);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn OpenDesktopA(lpszdesktop : windows_sys::core::PCSTR, dwflags : super::DWORD, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HDESK);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn OpenDesktopW(lpszdesktop : windows_sys::core::PCWSTR, dwflags : super::DWORD, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HDESK);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn OpenIcon(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn OpenInputDesktop(dwflags : u32, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HDESK);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn OpenInputDesktop(dwflags : super::DWORD, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HDESK);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("user32.dll" "system" fn OpenWindowStationA(lpszwinsta : windows_sys::core::PCSTR, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HWINSTA);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("user32.dll" "system" fn OpenWindowStationW(lpszwinsta : windows_sys::core::PCWSTR, finherit : windows_sys::core::BOOL, dwdesiredaccess : super::ACCESS_MASK) -> super::HWINSTA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PackTouchHitTestingProximityEvaluation(phittestinginput : *const TOUCH_HIT_TESTING_INPUT, pproximityeval : *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::LRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn PaintDesktop(hdc : super::HDC) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn PeekMessageA(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn PeekMessageW(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : u32, wmsgfiltermax : u32, wremovemsg : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn PeekMessageA(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : super::UINT, wmsgfiltermax : super::UINT, wremovemsg : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn PeekMessageW(lpmsg : LPMSG, hwnd : super::HWND, wmsgfiltermin : super::UINT, wmsgfiltermax : super::UINT, wremovemsg : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PhysicalToLogicalPoint(hwnd : super::HWND, lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PhysicalToLogicalPointForPerMonitorDPI(hwnd : super::HWND, lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn PostMessageA(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn PostMessageW(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn PostMessageA(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn PostMessageW(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn PostThreadMessageA(idthread : u32, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn PostThreadMessageW(idthread : u32, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn PrintWindow(hwnd : super::HWND, hdcblt : super::HDC, nflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn PrivateExtractIconsA(szfilename : windows_sys::core::PCSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::HICON, piconid : *mut u32, nicons : u32, flags : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn PrivateExtractIconsW(szfilename : windows_sys::core::PCWSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::HICON, piconid : *mut u32, nicons : u32, flags : u32) -> u32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn PostThreadMessageA(idthread : super::DWORD, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn PostThreadMessageW(idthread : super::DWORD, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn PrintWindow(hwnd : super::HWND, hdcblt : super::HDC, nflags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn PrivateExtractIconsA(szfilename : windows_sys::core::PCSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::HICON, piconid : *mut super::UINT, nicons : super::UINT, flags : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn PrivateExtractIconsW(szfilename : windows_sys::core::PCWSTR, niconindex : i32, cxicon : i32, cyicon : i32, phicon : *mut super::HICON, piconid : *mut super::UINT, nicons : super::UINT, flags : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn PtInRect(lprc : *const super::RECT, pt : super::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn QueryDisplayConfig(flags : u32, numpatharrayelements : *mut u32, patharray : *mut super::DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : *mut u32, modeinfoarray : *mut super::DISPLAYCONFIG_MODE_INFO, currenttopologyid : *mut super::DISPLAYCONFIG_TOPOLOGY_ID) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn QueryDisplayConfig(flags : super::UINT32, numpatharrayelements : *mut super::UINT32, patharray : *mut super::DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : *mut super::UINT32, modeinfoarray : *mut super::DISPLAYCONFIG_MODE_INFO, currenttopologyid : *mut super::DISPLAYCONFIG_TOPOLOGY_ID) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RealChildWindowFromPoint(hwndparent : super::HWND, ptparentclientcoords : super::POINT) -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn RealGetWindowClassA(hwnd : super::HWND, ptszclassname : windows_sys::core::PSTR, cchclassnamemax : u32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn RealGetWindowClassW(hwnd : super::HWND, ptszclassname : windows_sys::core::PWSTR, cchclassnamemax : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn RedrawWindow(hwnd : super::HWND, lprcupdate : *const super::RECT, hrgnupdate : super::HRGN, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RealGetWindowClassA(hwnd : super::HWND, ptszclassname : windows_sys::core::PSTR, cchclassnamemax : super::UINT) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RealGetWindowClassW(hwnd : super::HWND, ptszclassname : windows_sys::core::PWSTR, cchclassnamemax : super::UINT) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RedrawWindow(hwnd : super::HWND, lprcupdate : *const super::RECT, hrgnupdate : super::HRGN, flags : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassA(lpwndclass : *const WNDCLASSA) -> super::ATOM);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassExA(param0 : *const WNDCLASSEXA) -> super::ATOM);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassExW(param0 : *const WNDCLASSEXW) -> super::ATOM);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn RegisterClassW(lpwndclass : *const WNDCLASSW) -> super::ATOM);
-windows_link::link!("user32.dll" "system" fn RegisterClipboardFormatA(lpszformat : windows_sys::core::PCSTR) -> u32);
-windows_link::link!("user32.dll" "system" fn RegisterClipboardFormatW(lpszformat : windows_sys::core::PCWSTR) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn RegisterClipboardFormatA(lpszformat : windows_sys::core::PCSTR) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn RegisterClipboardFormatW(lpszformat : windows_sys::core::PCWSTR) -> super::UINT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterCloakedNotification(hwnd : super::HWND, fregister : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationA(hrecipient : super::HANDLE, notificationfilter : *const core::ffi::c_void, flags : u32) -> HDEVNOTIFY);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationW(hrecipient : super::HANDLE, notificationfilter : *const core::ffi::c_void, flags : u32) -> HDEVNOTIFY);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationA(hrecipient : super::HANDLE, notificationfilter : super::LPVOID, flags : super::DWORD) -> HDEVNOTIFY);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn RegisterDeviceNotificationW(hrecipient : super::HANDLE, notificationfilter : super::LPVOID, flags : super::DWORD) -> HDEVNOTIFY);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterForTooltipDismissNotification(hwnd : super::HWND, tdflags : TOOLTIP_DISMISS_FLAGS) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::HWND, id : i32, fsmodifiers : u32, vk : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RegisterHotKey(hwnd : super::HWND, id : i32, fsmodifiers : super::UINT, vk : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterPointerDeviceNotifications(window : super::HWND, notifyrange : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::HWND, pointertype : POINTER_INPUT_TYPE) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::HWND, pointertype : POINTER_INPUT_TYPE, fobserve : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::HANDLE, powersettingguid : super::LPCGUID, flags : u32) -> HPOWERNOTIFY);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : PCRAWINPUTDEVICE, uinumdevices : u32, cbsize : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn RegisterPowerSettingNotification(hrecipient : super::HANDLE, powersettingguid : super::LPCGUID, flags : super::DWORD) -> HPOWERNOTIFY);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RegisterRawInputDevices(prawinputdevices : PCRAWINPUTDEVICE, uinumdevices : super::UINT, cbsize : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RegisterShellHookWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn RegisterSuspendResumeNotification(hrecipient : super::HANDLE, flags : u32) -> HPOWERNOTIFY);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::HWND, value : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::HWND, ulflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn RegisterWindowMessageA(lpstring : windows_sys::core::PCSTR) -> u32);
-windows_link::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_sys::core::PCWSTR) -> u32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn RegisterSuspendResumeNotification(hrecipient : super::HANDLE, flags : super::DWORD) -> HPOWERNOTIFY);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RegisterTouchHitTestingWindow(hwnd : super::HWND, value : super::ULONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::HWND, ulflags : super::ULONG) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn RegisterWindowMessageA(lpstring : windows_sys::core::PCSTR) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_sys::core::PCWSTR) -> super::UINT);
 windows_link::link!("user32.dll" "system" fn ReleaseCapture() -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ReleaseDC(hwnd : super::HWND, hdc : super::HDC) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn RemoveClipboardFormatListener(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn RemoveMenu(hmenu : super::HMENU, uposition : u32, uflags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn RemoveMenu(hmenu : super::HMENU, uposition : super::UINT, uflags : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn RemovePropA(hwnd : super::HWND, lpstring : windows_sys::core::PCSTR) -> super::HANDLE);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn RemovePropW(hwnd : super::HWND, lpstring : windows_sys::core::PCWSTR) -> super::HANDLE);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn ReplyMessage(lresult : super::LRESULT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ScreenToClient(hwnd : super::HWND, lppoint : super::LPPOINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ScrollDC(hdc : super::HDC, dx : i32, dy : i32, lprcscroll : *const super::RECT, lprcclip : *const super::RECT, hrgnupdate : super::HRGN, lprcupdate : super::LPRECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ScrollWindow(hwnd : super::HWND, xamount : i32, yamount : i32, lprect : *const super::RECT, lpcliprect : *const super::RECT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn ScrollWindowEx(hwnd : super::HWND, dx : i32, dy : i32, prcscroll : *const super::RECT, prcclip : *const super::RECT, hrgnupdate : super::HRGN, prcupdate : super::LPRECT, flags : u32) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendDlgItemMessageA(hdlg : super::HWND, niddlgitem : i32, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendDlgItemMessageW(hdlg : super::HWND, niddlgitem : i32, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-windows_link::link!("user32.dll" "system" fn SendInput(cinputs : u32, pinputs : LPINPUT, cbsize : i32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendMessageA(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendMessageCallbackA(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM, lpresultcallback : SENDASYNCPROC, dwdata : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendMessageCallbackW(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM, lpresultcallback : SENDASYNCPROC, dwdata : usize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendMessageTimeoutA(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM, fuflags : u32, utimeout : u32, lpdwresult : super::PDWORD_PTR) -> super::LRESULT);
-#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendMessageTimeoutW(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM, fuflags : u32, utimeout : u32, lpdwresult : super::PDWORD_PTR) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendMessageW(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendNotifyMessageA(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SendNotifyMessageW(hwnd : super::HWND, msg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ScrollWindowEx(hwnd : super::HWND, dx : i32, dy : i32, prcscroll : *const super::RECT, prcclip : *const super::RECT, hrgnupdate : super::HRGN, prcupdate : super::LPRECT, flags : super::UINT) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendDlgItemMessageA(hdlg : super::HWND, niddlgitem : i32, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendDlgItemMessageW(hdlg : super::HWND, niddlgitem : i32, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn SendInput(cinputs : super::UINT, pinputs : LPINPUT, cbsize : i32) -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendMessageA(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendMessageCallbackA(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, lpresultcallback : SENDASYNCPROC, dwdata : super::ULONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendMessageCallbackW(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, lpresultcallback : SENDASYNCPROC, dwdata : super::ULONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendMessageTimeoutA(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, fuflags : super::UINT, utimeout : super::UINT, lpdwresult : super::PDWORD_PTR) -> super::LRESULT);
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendMessageTimeoutW(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM, fuflags : super::UINT, utimeout : super::UINT, lpdwresult : super::PDWORD_PTR) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendMessageW(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendNotifyMessageA(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SendNotifyMessageW(hwnd : super::HWND, msg : super::UINT, wparam : super::WPARAM, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetActiveWindow(hwnd : super::HWND) -> super::HWND);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn SetAdditionalForegroundBoostProcesses(toplevelwindow : super::HWND, processhandlecount : u32, processhandlearray : *const super::HANDLE) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SetAdditionalForegroundBoostProcesses(toplevelwindow : super::HWND, processhandlecount : super::DWORD, processhandlearray : *const super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetCapture(hwnd : super::HWND) -> super::HWND);
-windows_link::link!("user32.dll" "system" fn SetCaretBlinkTime(umseconds : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn SetCaretBlinkTime(umseconds : super::UINT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetCaretPos(x : i32, y : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetClassLongA(hwnd : super::HWND, nindex : i32, dwnewlong : i32) -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetClassLongA(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG) -> super::DWORD);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetClassLongPtrA(hwnd : super::HWND, nindex : i32, dwnewlong : isize) -> usize);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetClassLongPtrA(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG_PTR) -> super::ULONG_PTR);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetClassLongPtrW(hwnd : super::HWND, nindex : i32, dwnewlong : isize) -> usize);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetClassLongW(hwnd : super::HWND, nindex : i32, dwnewlong : i32) -> u32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetClassWord(hwnd : super::HWND, nindex : i32, wnewword : u16) -> u16);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn SetClipboardData(uformat : u32, hmem : super::HANDLE) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetClassLongPtrW(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG_PTR) -> super::ULONG_PTR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetClassLongW(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetClassWord(hwnd : super::HWND, nindex : i32, wnewword : super::WORD) -> super::WORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SetClipboardData(uformat : super::UINT, hmem : super::HANDLE) -> super::HANDLE);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetClipboardViewer(hwndnewviewer : super::HWND) -> super::HWND);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetCoalescableTimer(hwnd : super::HWND, nidevent : usize, uelapse : u32, lptimerfunc : TIMERPROC, utolerancedelay : u32) -> usize);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetCoalescableTimer(hwnd : super::HWND, nidevent : super::UINT_PTR, uelapse : super::UINT, lptimerfunc : TIMERPROC, utolerancedelay : super::ULONG) -> super::UINT_PTR);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetCursor(hcursor : super::HCURSOR) -> super::HCURSOR);
 windows_link::link!("user32.dll" "system" fn SetCursorPos(x : i32, y : i32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SetDebugErrorLevel(dwlevel : u32));
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn SetDebugErrorLevel(dwlevel : super::DWORD));
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDialogControlDpiChangeBehavior(hwnd : super::HWND, mask : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS, values : DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDialogDpiChangeBehavior(hdlg : super::HWND, mask : DIALOG_DPI_CHANGE_BEHAVIORS, values : DIALOG_DPI_CHANGE_BEHAVIORS) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetDisplayAutoRotationPreferences(orientation : ORIENTATION_PREFERENCE) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-windows_link::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : u32, patharray : *const super::DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : u32, modeinfoarray : *const super::DISPLAYCONFIG_MODE_INFO, flags : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetDlgItemInt(hdlg : super::HWND, niddlgitem : i32, uvalue : u32, bsigned : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SetDisplayConfig(numpatharrayelements : super::UINT32, patharray : *const super::DISPLAYCONFIG_PATH_INFO, nummodeinfoarrayelements : super::UINT32, modeinfoarray : *const super::DISPLAYCONFIG_MODE_INFO, flags : super::UINT32) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetDlgItemInt(hdlg : super::HWND, niddlgitem : i32, uvalue : super::UINT, bsigned : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDlgItemTextA(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetDlgItemTextW(hdlg : super::HWND, niddlgitem : i32, lpstring : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SetDoubleClickTime(param0 : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn SetDoubleClickTime(param0 : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetFocus(hwnd : super::HWND) -> super::HWND);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::HWND, dwreserved : u32, cids : u32, pgestureconfig : PGESTURECONFIG, cbsize : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::HWND, dwreserved : super::DWORD, cids : super::UINT, pgestureconfig : PGESTURECONFIG, cbsize : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn SetKeyboardState(lpkeystate : super::LPBYTE) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : u32, dwtype : u32));
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : super::HWND, crkey : super::COLORREF, balpha : u8, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : super::DWORD, dwtype : super::DWORD));
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : super::HWND, crkey : super::COLORREF, balpha : super::BYTE, dwflags : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetMenu(hwnd : super::HWND, hmenu : super::HMENU) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetMenuContextHelpId(param0 : super::HMENU, param1 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetMenuDefaultItem(hmenu : super::HMENU, uitem : u32, fbypos : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetMenuContextHelpId(param0 : super::HMENU, param1 : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetMenuDefaultItem(hmenu : super::HMENU, uitem : super::UINT, fbypos : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetMenuInfo(param0 : super::HMENU, param1 : LPCMENUINFO) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetMenuItemBitmaps(hmenu : super::HMENU, uposition : u32, uflags : u32, hbitmapunchecked : super::HBITMAP, hbitmapchecked : super::HBITMAP) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetMenuItemInfoA(hmenu : super::HMENU, item : u32, fbypositon : windows_sys::core::BOOL, lpmii : LPCMENUITEMINFOA) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetMenuItemInfoW(hmenu : super::HMENU, item : u32, fbypositon : windows_sys::core::BOOL, lpmii : LPCMENUITEMINFOW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetMenuItemBitmaps(hmenu : super::HMENU, uposition : super::UINT, uflags : super::UINT, hbitmapunchecked : super::HBITMAP, hbitmapchecked : super::HBITMAP) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetMenuItemInfoA(hmenu : super::HMENU, item : super::UINT, fbypositon : windows_sys::core::BOOL, lpmii : LPCMENUITEMINFOA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetMenuItemInfoW(hmenu : super::HMENU, item : super::UINT, fbypositon : windows_sys::core::BOOL, lpmii : LPCMENUITEMINFOW) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn SetMessageExtraInfo(lparam : super::LPARAM) -> super::LPARAM);
 windows_link::link!("user32.dll" "system" fn SetMessageQueue(cmessagesmax : i32) -> windows_sys::core::BOOL);
@@ -1108,7 +1178,8 @@ windows_link::link!("user32.dll" "system" fn SetMessageQueue(cmessagesmax : i32)
 windows_link::link!("user32.dll" "system" fn SetParent(hwndchild : super::HWND, hwndnewparent : super::HWND) -> super::HWND);
 windows_link::link!("user32.dll" "system" fn SetPhysicalCursorPos(x : i32, y : i32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetProcessDPIAware() -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SetProcessDefaultLayout(dwdefaultlayout : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn SetProcessDefaultLayout(dwdefaultlayout : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : super::DPI_AWARENESS_CONTEXT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SetProcessRestrictionExemption(fenableexemption : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
@@ -1118,74 +1189,76 @@ windows_link::link!("user32.dll" "system" fn SetProcessWindowStation(hwinsta : s
 windows_link::link!("user32.dll" "system" fn SetPropA(hwnd : super::HWND, lpstring : windows_sys::core::PCSTR, hdata : super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "windef", feature = "winnt"))]
 windows_link::link!("user32.dll" "system" fn SetPropW(hwnd : super::HWND, lpstring : windows_sys::core::PCWSTR, hdata : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetRect(lprc : super::LPRECT, xleft : i32, ytop : i32, xright : i32, ybottom : i32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetRectEmpty(lprc : super::LPRECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetScrollInfo(hwnd : super::HWND, nbar : i32, lpsi : LPCSCROLLINFO, redraw : windows_sys::core::BOOL) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetScrollPos(hwnd : super::HWND, nbar : i32, npos : i32, bredraw : windows_sys::core::BOOL) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetScrollRange(hwnd : super::HWND, nbar : i32, nminpos : i32, nmaxpos : i32, bredraw : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetSysColors(celements : i32, lpaelements : *const i32, lpargbvalues : *const super::COLORREF) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetSystemCursor(hcur : super::HCURSOR, id : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetSysColors(celements : i32, lpaelements : *const super::INT, lpargbvalues : *const super::COLORREF) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetSystemCursor(hcur : super::HCURSOR, id : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetThreadDesktop(hdesktop : super::HDESK) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetThreadDpiAwarenessContext(dpicontext : super::DPI_AWARENESS_CONTEXT) -> super::DPI_AWARENESS_CONTEXT);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetThreadDpiHostingBehavior(value : super::DPI_HOSTING_BEHAVIOR) -> super::DPI_HOSTING_BEHAVIOR);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetTimer(hwnd : super::HWND, nidevent : usize, uelapse : u32, lptimerfunc : TIMERPROC) -> usize);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn SetUserObjectInformationW(hobj : super::HANDLE, nindex : i32, pvinfo : *const core::ffi::c_void, nlength : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetTimer(hwnd : super::HWND, nidevent : super::UINT_PTR, uelapse : super::UINT, lptimerfunc : TIMERPROC) -> super::UINT_PTR);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SetUserObjectInformationA(hobj : super::HANDLE, nindex : i32, pvinfo : super::PVOID, nlength : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SetUserObjectInformationW(hobj : super::HANDLE, nindex : i32, pvinfo : super::PVOID, nlength : super::DWORD) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn SetUserObjectSecurity(hobj : super::HANDLE, psirequested : super::PSECURITY_INFORMATION, psid : super::PSECURITY_DESCRIPTOR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> super::HWINEVENTHOOK);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowContextHelpId(param0 : super::HWND, param1 : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowDisplayAffinity(hwnd : super::HWND, dwaffinity : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::HWND, feedback : FEEDBACK_TYPE, dwflags : u32, size : u32, configuration : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowLongA(hwnd : super::HWND, nindex : i32, dwnewlong : i32) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWinEventHook(eventmin : super::DWORD, eventmax : super::DWORD, hmodwineventproc : super::HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : super::DWORD, idthread : super::DWORD, dwflags : super::DWORD) -> super::HWINEVENTHOOK);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowContextHelpId(param0 : super::HWND, param1 : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowDisplayAffinity(hwnd : super::HWND, dwaffinity : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowFeedbackSetting(hwnd : super::HWND, feedback : FEEDBACK_TYPE, dwflags : super::DWORD, size : super::UINT32, configuration : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowLongA(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG) -> super::LONG);
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" "SetWindowLongA" fn SetWindowLongPtrA(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG) -> super::LONG);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : super::HWND, nindex : i32, dwnewlong : isize) -> isize);
-#[cfg(target_pointer_width = "32")]
-pub use SetWindowLongA as SetWindowLongPtrA;
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG_PTR) -> super::LONG_PTR);
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" "SetWindowLongW" fn SetWindowLongPtrW(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG) -> super::LONG);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : super::HWND, nindex : i32, dwnewlong : isize) -> isize);
-#[cfg(target_pointer_width = "32")]
-pub use SetWindowLongW as SetWindowLongPtrW;
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowLongW(hwnd : super::HWND, nindex : i32, dwnewlong : i32) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowLongPtrW(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG_PTR) -> super::LONG_PTR);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowLongW(hwnd : super::HWND, nindex : i32, dwnewlong : super::LONG) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowPlacement(hwnd : super::HWND, lpwndpl : *const WINDOWPLACEMENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowPos(hwnd : super::HWND, hwndinsertafter : super::HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowPos(hwnd : super::HWND, hwndinsertafter : super::HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : super::UINT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowRgn(hwnd : super::HWND, hrgn : super::HRGN, bredraw : windows_sys::core::BOOL) -> i32);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowTextA(hwnd : super::HWND, lpstring : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SetWindowTextW(hwnd : super::HWND, lpstring : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn SetWindowWord(hwnd : super::HWND, nindex : i32, wnewword : u16) -> u16);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowWord(hwnd : super::HWND, nindex : i32, wnewword : super::WORD) -> super::WORD);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowsHookA(nfiltertype : i32, pfnfilterproc : HOOKPROC) -> super::HHOOK);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SetWindowsHookExA(idhook : i32, lpfn : HOOKPROC, hmod : super::HINSTANCE, dwthreadid : u32) -> super::HHOOK);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("user32.dll" "system" fn SetWindowsHookExW(idhook : i32, lpfn : HOOKPROC, hmod : super::HINSTANCE, dwthreadid : u32) -> super::HHOOK);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowsHookExA(idhook : i32, lpfn : HOOKPROC, hmod : super::HINSTANCE, dwthreadid : super::DWORD) -> super::HHOOK);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn SetWindowsHookExW(idhook : i32, lpfn : HOOKPROC, hmod : super::HINSTANCE, dwthreadid : super::DWORD) -> super::HHOOK);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SetWindowsHookW(nfiltertype : i32, pfnfilterproc : HOOKPROC) -> super::HHOOK);
 #[cfg(feature = "windef")]
@@ -1203,46 +1276,51 @@ windows_link::link!("user32.dll" "system" fn ShowWindowAsync(hwnd : super::HWND,
 windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonCreate(hwnd : super::HWND, pwszreason : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonDestroy(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::HWND, pwszbuff : windows_sys::core::PWSTR, pcchbuff : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SkipPointerFrameMessages(pointerid : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::HWND, pwszbuff : windows_sys::core::PWSTR, pcchbuff : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn SkipPointerFrameMessages(pointerid : super::UINT32) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SoundSentry() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn SubtractRect(lprcdst : super::LPRECT, lprcsrc1 : *const super::RECT, lprcsrc2 : *const super::RECT) -> windows_sys::core::BOOL);
 windows_link::link!("user32.dll" "system" fn SwapMouseButton(fswap : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SwitchDesktop(hdesktop : super::HDESK) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn SwitchToThisWindow(hwnd : super::HWND, funknown : windows_sys::core::BOOL));
-windows_link::link!("user32.dll" "system" fn SystemParametersInfoA(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SystemParametersInfoForDpi(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32, dpi : u32) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn SystemParametersInfoW(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn TabbedTextOutA(hdc : super::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn TabbedTextOutW(hdc : super::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn TileWindows(hwndparent : super::HWND, whow : u32, lprect : *const super::RECT, ckids : u32, lpkids : *const super::HWND) -> u16);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn ToAscii(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : super::LPWORD, uflags : u32) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : u32, uscancode : u32, lpkeystate : *const u8, lpchar : super::LPWORD, uflags : u32, dwhkl : super::HKL) -> i32);
-windows_link::link!("user32.dll" "system" fn ToUnicode(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : u32) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : u32, wscancode : u32, lpkeystate : *const u8, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : u32, dwhkl : super::HKL) -> i32);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SystemParametersInfoA(uiaction : super::UINT, uiparam : super::UINT, pvparam : super::PVOID, fwinini : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SystemParametersInfoForDpi(uiaction : super::UINT, uiparam : super::UINT, pvparam : super::PVOID, fwinini : super::UINT, dpi : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn SystemParametersInfoW(uiaction : super::UINT, uiparam : super::UINT, pvparam : super::PVOID, fwinini : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn TabbedTextOutA(hdc : super::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT, ntaborigin : i32) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn TabbedTextOutW(hdc : super::HDC, x : i32, y : i32, lpstring : windows_sys::core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const super::INT, ntaborigin : i32) -> super::LONG);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn TileWindows(hwndparent : super::HWND, whow : super::UINT, lprect : *const super::RECT, ckids : super::UINT, lpkids : *const super::HWND) -> super::WORD);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn ToAscii(uvirtkey : super::UINT, uscancode : super::UINT, lpkeystate : *const super::BYTE, lpchar : super::LPWORD, uflags : super::UINT) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn ToAsciiEx(uvirtkey : super::UINT, uscancode : super::UINT, lpkeystate : *const super::BYTE, lpchar : super::LPWORD, uflags : super::UINT, dwhkl : super::HKL) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn ToUnicode(wvirtkey : super::UINT, wscancode : super::UINT, lpkeystate : *const super::BYTE, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : super::UINT) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn ToUnicodeEx(wvirtkey : super::UINT, wscancode : super::UINT, lpkeystate : *const super::BYTE, pwszbuff : windows_sys::core::PWSTR, cchbuff : i32, wflags : super::UINT, dwhkl : super::HKL) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TrackMouseEvent(lpeventtrack : LPTRACKMOUSEEVENT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn TrackPopupMenu(hmenu : super::HMENU, uflags : u32, x : i32, y : i32, nreserved : i32, hwnd : super::HWND, prcrect : *const super::RECT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn TrackPopupMenuEx(hmenu : super::HMENU, uflags : u32, x : i32, y : i32, hwnd : super::HWND, lptpm : LPTPMPARAMS) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn TrackPopupMenu(hmenu : super::HMENU, uflags : super::UINT, x : i32, y : i32, nreserved : i32, hwnd : super::HWND, prcrect : *const super::RECT) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn TrackPopupMenuEx(hmenu : super::HMENU, uflags : super::UINT, x : i32, y : i32, hwnd : super::HWND, lptpm : LPTPMPARAMS) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateAcceleratorA(hwnd : super::HWND, hacctable : super::HACCEL, lpmsg : LPMSG) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateAcceleratorW(hwnd : super::HWND, hacctable : super::HACCEL, lpmsg : LPMSG) -> i32);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateMDISysAccel(hwndclient : super::HWND, lpmsg : LPMSG) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : super::HWINEVENTHOOK) -> windows_sys::core::BOOL);
@@ -1250,7 +1328,7 @@ windows_link::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : supe
 windows_link::link!("user32.dll" "system" fn UnhookWindowsHook(ncode : i32, pfnfilterproc : HOOKPROC) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnhookWindowsHookEx(hhk : super::HHOOK) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn UnionRect(lprcdst : super::LPRECT, lprcsrc1 : *const super::RECT, lprcsrc2 : *const super::RECT) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("user32.dll" "system" fn UnloadKeyboardLayout(hkl : super::HKL) -> windows_sys::core::BOOL);
@@ -1269,58 +1347,64 @@ windows_link::link!("user32.dll" "system" fn UnregisterPowerSettingNotification(
 windows_link::link!("user32.dll" "system" fn UnregisterSuspendResumeNotification(handle : HPOWERNOTIFY) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-windows_link::link!("user32.dll" "system" fn UpdateLayeredWindow(hwnd : super::HWND, hdcdst : super::HDC, pptdst : *const super::POINT, psize : *const super::SIZE, hdcsrc : super::HDC, pptsrc : *const super::POINT, crkey : super::COLORREF, pblend : *const super::BLENDFUNCTION, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+windows_link::link!("user32.dll" "system" fn UpdateLayeredWindow(hwnd : super::HWND, hdcdst : super::HDC, pptdst : *const super::POINT, psize : *const super::SIZE, hdcsrc : super::HDC, pptsrc : *const super::POINT, crkey : super::COLORREF, pblend : *const super::BLENDFUNCTION, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 windows_link::link!("user32.dll" "system" fn UpdateLayeredWindowIndirect(hwnd : super::HWND, pulwinfo : *const UPDATELAYEREDWINDOWINFO) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn UpdateWindow(hwnd : super::HWND) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("user32.dll" "system" fn UserHandleGrantAccess(huserhandle : super::HANDLE, hjob : super::HANDLE, bgrant : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ValidateRect(hwnd : super::HWND, lprect : *const super::RECT) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn ValidateRgn(hwnd : super::HWND, hrgn : super::HRGN) -> windows_sys::core::BOOL);
-windows_link::link!("user32.dll" "system" fn VkKeyScanA(ch : i8) -> i16);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn VkKeyScanExA(ch : i8, dwhkl : super::HKL) -> i16);
-#[cfg(feature = "minwindef")]
-windows_link::link!("user32.dll" "system" fn VkKeyScanExW(ch : u16, dwhkl : super::HKL) -> i16);
-windows_link::link!("user32.dll" "system" fn VkKeyScanW(ch : u16) -> i16);
-#[cfg(feature = "winnt")]
-windows_link::link!("user32.dll" "system" fn WaitForInputIdle(hprocess : super::HANDLE, dwmilliseconds : u32) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn VkKeyScanA(ch : super::CHAR) -> super::SHORT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("user32.dll" "system" fn VkKeyScanExA(ch : super::CHAR, dwhkl : super::HKL) -> super::SHORT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn VkKeyScanExW(ch : super::WCHAR, dwhkl : super::HKL) -> super::SHORT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn VkKeyScanW(ch : super::WCHAR) -> super::SHORT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("user32.dll" "system" fn WaitForInputIdle(hprocess : super::HANDLE, dwmilliseconds : super::DWORD) -> super::DWORD);
 windows_link::link!("user32.dll" "system" fn WaitMessage() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn WinHelpA(hwndmain : super::HWND, lpszhelp : windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("user32.dll" "system" fn WinHelpW(hwndmain : super::HWND, lpszhelp : windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn WinHelpA(hwndmain : super::HWND, lpszhelp : windows_sys::core::PCSTR, ucommand : super::UINT, dwdata : super::ULONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("user32.dll" "system" fn WinHelpW(hwndmain : super::HWND, lpszhelp : windows_sys::core::PCWSTR, ucommand : super::UINT, dwdata : super::ULONG_PTR) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("user32.dll" "system" fn WindowFromDC(hdc : super::HDC) -> super::HWND);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn WindowFromPhysicalPoint(point : super::POINT) -> super::HWND);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("user32.dll" "system" fn WindowFromPoint(point : super::POINT) -> super::HWND);
-windows_link::link!("user32.dll" "system" fn keybd_event(bvk : u8, bscan : u8, dwflags : u32, dwextrainfo : usize));
-windows_link::link!("user32.dll" "system" fn mouse_event(dwflags : u32, dx : u32, dy : u32, dwdata : u32, dwextrainfo : usize));
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn keybd_event(bvk : super::BYTE, bscan : super::BYTE, dwflags : super::DWORD, dwextrainfo : super::ULONG_PTR));
+#[cfg(feature = "shared")]
+windows_link::link!("user32.dll" "system" fn mouse_event(dwflags : super::DWORD, dx : super::DWORD, dy : super::DWORD, dwdata : super::DWORD, dwextrainfo : super::ULONG_PTR));
 windows_link::link!("user32.dll" "C" fn wsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, ...) -> i32);
 windows_link::link!("user32.dll" "C" fn wsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, ...) -> i32);
-#[cfg(feature = "vadefs")]
+#[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_sys::core::PSTR, param1 : windows_sys::core::PCSTR, arglist : super::va_list) -> i32);
-#[cfg(feature = "vadefs")]
+#[cfg(feature = "shared")]
 windows_link::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_sys::core::PWSTR, param1 : windows_sys::core::PCWSTR, arglist : super::va_list) -> i32);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ACCEL {
-    pub fVirt: u8,
-    pub key: u16,
-    pub cmd: u16,
+    pub fVirt: super::BYTE,
+    pub key: super::WORD,
+    pub cmd: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ACCESSTIMEOUT {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iTimeOutMSec: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
+    pub iTimeOutMSec: super::DWORD,
 }
 pub const ALERT_SYSTEM_CRITICAL: i32 = 5;
 pub const ALERT_SYSTEM_ERROR: i32 = 3;
@@ -1328,10 +1412,10 @@ pub const ALERT_SYSTEM_INFORMATIONAL: i32 = 1;
 pub const ALERT_SYSTEM_QUERY: i32 = 4;
 pub const ALERT_SYSTEM_WARNING: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct ALTTABINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub cItems: i32,
     pub cColumns: i32,
     pub cRows: i32,
@@ -1342,9 +1426,10 @@ pub struct ALTTABINFO {
     pub ptStart: super::POINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ANIMATIONINFO {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iMinAnimate: i32,
 }
 pub const APPCOMMAND_BASS_BOOST: i32 = 20;
@@ -1421,16 +1506,17 @@ pub const AR_MULTIMON: AR_STATE = 8;
 pub const AR_NOSENSOR: AR_STATE = 16;
 pub const AR_NOT_SUPPORTED: AR_STATE = 32;
 pub const AR_REMOTESESSION: AR_STATE = 4;
-pub type AR_STATE = u32;
+pub type AR_STATE = i32;
 pub const AR_SUPPRESSED: AR_STATE = 2;
-pub const ASFW_ANY: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const ASFW_ANY: super::DWORD = 4294967295;
 pub const ATF_ONOFFFEEDBACK: i32 = 2;
 pub const ATF_TIMEOUTON: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIODESCRIPTION {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub Enabled: windows_sys::core::BOOL,
     pub Locale: super::LCID,
 }
@@ -1503,10 +1589,10 @@ pub const BSF_QUERY: i32 = 1;
 pub const BSF_RETURNHDESK: i32 = 512;
 pub const BSF_SENDNOTIFYMESSAGE: i32 = 256;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct BSMINFO {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub hdesk: super::HDESK,
     pub hwnd: super::HWND,
     pub luid: super::LUID,
@@ -1582,17 +1668,17 @@ pub struct CBTACTIVATESTRUCT {
     pub fMouse: windows_sys::core::BOOL,
     pub hWndActive: super::HWND,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type CBT_CREATEWND = CBT_CREATEWNDA;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CBT_CREATEWNDA {
     pub lpcs: *mut CREATESTRUCTA,
     pub hwndInsertAfter: super::HWND,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CBT_CREATEWNDW {
     pub lpcs: *mut CREATESTRUCTW,
@@ -1678,18 +1764,19 @@ pub const CF_TIFF: i32 = 6;
 pub const CF_UNICODETEXT: i32 = 13;
 pub const CF_WAVE: i32 = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CHANGEFILTERSTRUCT {
-    pub cbSize: u32,
-    pub ExtStatus: u32,
+    pub cbSize: super::DWORD,
+    pub ExtStatus: super::DWORD,
 }
 pub const CHILDID_SELF: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CLIENTCREATESTRUCT {
     pub hWindowMenu: super::HANDLE,
-    pub idFirstChild: u32,
+    pub idFirstChild: super::UINT,
 }
 pub const COLOR_3DDKSHADOW: i32 = 21;
 pub const COLOR_3DFACE: i32 = 15;
@@ -1728,29 +1815,29 @@ pub const COLOR_WINDOW: i32 = 5;
 pub const COLOR_WINDOWFRAME: i32 = 6;
 pub const COLOR_WINDOWTEXT: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct COMBOBOXINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcItem: super::RECT,
     pub rcButton: super::RECT,
-    pub stateButton: u32,
+    pub stateButton: super::DWORD,
     pub hwndCombo: super::HWND,
     pub hwndItem: super::HWND,
     pub hwndList: super::HWND,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct COMPAREITEMSTRUCT {
-    pub CtlType: u32,
-    pub CtlID: u32,
+    pub CtlType: super::UINT,
+    pub CtlID: super::UINT,
     pub hwndItem: super::HWND,
-    pub itemID1: u32,
-    pub itemData1: usize,
-    pub itemID2: u32,
-    pub itemData2: usize,
-    pub dwLocaleId: u32,
+    pub itemID1: super::UINT,
+    pub itemData1: super::ULONG_PTR,
+    pub itemID2: super::UINT,
+    pub itemData2: super::ULONG_PTR,
+    pub dwLocaleId: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
 pub const CONSOLE_APPLICATION_16BIT: i32 = 1;
@@ -1762,20 +1849,21 @@ pub const CONTACTVISUALIZATION_OFF: i32 = 0;
 pub const CONTACTVISUALIZATION_ON: i32 = 1;
 pub const CONTACTVISUALIZATION_PRESENTATIONMODE: i32 = 2;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct COPYDATASTRUCT {
-    pub dwData: usize,
-    pub cbData: u32,
-    pub lpData: *mut core::ffi::c_void,
+    pub dwData: super::ULONG_PTR,
+    pub cbData: super::DWORD,
+    pub lpData: super::PVOID,
 }
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: windows_sys::core::PCSTR = 1 as _;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type CREATESTRUCT = CREATESTRUCTA;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREATESTRUCTA {
-    pub lpCreateParams: *mut core::ffi::c_void,
+    pub lpCreateParams: super::LPVOID,
     pub hInstance: super::HINSTANCE,
     pub hMenu: super::HMENU,
     pub hwndParent: super::HWND,
@@ -1783,16 +1871,16 @@ pub struct CREATESTRUCTA {
     pub cx: i32,
     pub y: i32,
     pub x: i32,
-    pub style: i32,
+    pub style: super::LONG,
     pub lpszName: windows_sys::core::PCSTR,
     pub lpszClass: windows_sys::core::PCSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CREATESTRUCTW {
-    pub lpCreateParams: *mut core::ffi::c_void,
+    pub lpCreateParams: super::LPVOID,
     pub hInstance: super::HINSTANCE,
     pub hMenu: super::HMENU,
     pub hwndParent: super::HWND,
@@ -1800,10 +1888,10 @@ pub struct CREATESTRUCTW {
     pub cx: i32,
     pub y: i32,
     pub x: i32,
-    pub style: i32,
+    pub style: super::LONG,
     pub lpszName: windows_sys::core::PCWSTR,
     pub lpszClass: windows_sys::core::PCWSTR,
-    pub dwExStyle: u32,
+    pub dwExStyle: super::DWORD,
 }
 pub const CSOUND_SYSTEM: i32 = 16;
 pub const CS_BYTEALIGNCLIENT: i32 = 4096;
@@ -1828,15 +1916,16 @@ pub const CTLCOLOR_MSGBOX: i32 = 0;
 pub const CTLCOLOR_SCROLLBAR: i32 = 5;
 pub const CTLCOLOR_STATIC: i32 = 6;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CURSORINFO {
-    pub cbSize: u32,
-    pub flags: u32,
+    pub cbSize: super::DWORD,
+    pub flags: super::DWORD,
     pub hCursor: super::HCURSOR,
     pub ptScreenPos: super::POINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CURSORSHAPE {
     pub xHotSpot: i32,
@@ -1844,8 +1933,8 @@ pub struct CURSORSHAPE {
     pub cx: i32,
     pub cy: i32,
     pub cbWidth: i32,
-    pub Planes: u8,
-    pub BitsPixel: u8,
+    pub Planes: super::BYTE,
+    pub BitsPixel: super::BYTE,
 }
 pub const CURSOR_CREATION_SCALING_DEFAULT: i32 = 2;
 pub const CURSOR_CREATION_SCALING_NONE: i32 = 1;
@@ -1854,22 +1943,22 @@ pub const CURSOR_SHOWING: i32 = 1;
 pub const CURSOR_SUPPRESSED: i32 = 2;
 pub const CWF_CREATE_ONLY: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CWPRETSTRUCT {
     pub lResult: super::LRESULT,
     pub lParam: super::LPARAM,
     pub wParam: super::WPARAM,
-    pub message: u32,
+    pub message: super::UINT,
     pub hwnd: super::HWND,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CWPSTRUCT {
     pub lParam: super::LPARAM,
     pub wParam: super::WPARAM,
-    pub message: u32,
+    pub message: super::UINT,
     pub hwnd: super::HWND,
 }
 pub const CWP_ALL: i32 = 0;
@@ -1914,31 +2003,31 @@ pub const DDL_READONLY: i32 = 1;
 pub const DDL_READWRITE: i32 = 0;
 pub const DDL_SYSTEM: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUGHOOKINFO {
-    pub idThread: u32,
-    pub idThreadInstaller: u32,
+    pub idThread: super::DWORD,
+    pub idThreadInstaller: super::DWORD,
     pub lParam: super::LPARAM,
     pub wParam: super::WPARAM,
     pub code: i32,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DELETEITEMSTRUCT {
-    pub CtlType: u32,
-    pub CtlID: u32,
-    pub itemID: u32,
+    pub CtlType: super::UINT,
+    pub CtlID: super::UINT,
+    pub itemID: super::UINT,
     pub hwndItem: super::HWND,
-    pub itemData: usize,
+    pub itemData: super::ULONG_PTR,
 }
 #[cfg(feature = "minwindef")]
-pub type DESKTOPENUMPROC = DESKTOPENUMPROCA;
+pub type DESKTOPENUMPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type DESKTOPENUMPROCA = NAMEENUMPROCA;
+pub type DESKTOPENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type DESKTOPENUMPROCW = NAMEENUMPROCW;
+pub type DESKTOPENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 pub const DESKTOP_CREATEMENU: i32 = 4;
 pub const DESKTOP_CREATEWINDOW: i32 = 2;
 pub const DESKTOP_ENUMERATE: i32 = 64;
@@ -1987,8 +2076,8 @@ pub const DFC_MENU: i32 = 2;
 pub const DFC_POPUPMENU: i32 = 5;
 pub const DFC_SCROLL: i32 = 3;
 pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1;
-pub type DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = u32;
-pub type DIALOG_DPI_CHANGE_BEHAVIORS = u32;
+pub type DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = i32;
+pub type DIALOG_DPI_CHANGE_BEHAVIORS = i32;
 pub const DIFFERENCE: i32 = 11;
 pub const DISP_CHANGE_BADDUALVIEW: i32 = -6;
 pub const DISP_CHANGE_BADFLAGS: i32 = -4;
@@ -2016,24 +2105,26 @@ pub const DLGC_WANTCHARS: i32 = 128;
 pub const DLGC_WANTMESSAGE: i32 = 4;
 pub const DLGC_WANTTAB: i32 = 2;
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DLGITEMTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
+    pub style: super::DWORD,
+    pub dwExtendedStyle: super::DWORD,
     pub x: i16,
     pub y: i16,
     pub cx: i16,
     pub cy: i16,
-    pub id: u16,
+    pub id: super::WORD,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: u32, param2: super::WPARAM, param3: super::LPARAM) -> isize>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type DLGPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::UINT, param2: super::WPARAM, param3: super::LPARAM) -> super::INT_PTR>;
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DLGTEMPLATE {
-    pub style: u32,
-    pub dwExtendedStyle: u32,
-    pub cdit: u16,
+    pub style: super::DWORD,
+    pub dwExtendedStyle: super::DWORD,
+    pub cdit: super::WORD,
     pub x: i16,
     pub y: i16,
     pub cx: i16,
@@ -2053,40 +2144,41 @@ pub const DOF_SHELLDATA: i32 = 2;
 pub const DO_DROPFILE: i32 = 1162627398;
 pub const DO_PRINTFILE: i32 = 1414419024;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DRAWITEMSTRUCT {
-    pub CtlType: u32,
-    pub CtlID: u32,
-    pub itemID: u32,
-    pub itemAction: u32,
-    pub itemState: u32,
+    pub CtlType: super::UINT,
+    pub CtlID: super::UINT,
+    pub itemID: super::UINT,
+    pub itemAction: super::UINT,
+    pub itemState: super::UINT,
     pub hwndItem: super::HWND,
     pub hDC: super::HDC,
     pub rcItem: super::RECT,
-    pub itemData: usize,
+    pub itemData: super::ULONG_PTR,
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type DRAWSTATEPROC = Option<unsafe extern "system" fn(hdc: super::HDC, ldata: super::LPARAM, wdata: super::WPARAM, cx: i32, cy: i32) -> windows_sys::core::BOOL>;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DRAWTEXTPARAMS {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iTabLength: i32,
     pub iLeftMargin: i32,
     pub iRightMargin: i32,
-    pub uiLengthDrawn: u32,
+    pub uiLengthDrawn: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DROPSTRUCT {
     pub hwndSource: super::HWND,
     pub hwndSink: super::HWND,
-    pub wFmt: u32,
-    pub dwData: usize,
+    pub wFmt: super::DWORD,
+    pub dwData: super::ULONG_PTR,
     pub ptDrop: super::POINT,
-    pub dwControlData: u32,
+    pub dwControlData: super::DWORD,
 }
 pub const DSS_DISABLED: i32 = 32;
 pub const DSS_HIDEPREFIX: i32 = 512;
@@ -2162,9 +2254,9 @@ pub const EDGE_BUMP: i32 = 9;
 pub const EDGE_ETCHED: i32 = 6;
 pub const EDGE_RAISED: i32 = 5;
 pub const EDGE_SUNKEN: i32 = 10;
-pub type EDITWORDBREAKPROC = EDITWORDBREAKPROCA;
-pub type EDITWORDBREAKPROCA = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCSTR, ichcurrent: i32, cch: i32, code: i32) -> i32>;
-pub type EDITWORDBREAKPROCW = Option<unsafe extern "system" fn(lpch: windows_sys::core::PCWSTR, ichcurrent: i32, cch: i32, code: i32) -> i32>;
+pub type EDITWORDBREAKPROC = Option<unsafe extern "system" fn(lpch: windows_sys::core::PSTR, ichcurrent: i32, cch: i32, code: i32) -> i32>;
+pub type EDITWORDBREAKPROCA = Option<unsafe extern "system" fn(lpch: windows_sys::core::PSTR, ichcurrent: i32, cch: i32, code: i32) -> i32>;
+pub type EDITWORDBREAKPROCW = Option<unsafe extern "system" fn(lpch: windows_sys::core::PWSTR, ichcurrent: i32, cch: i32, code: i32) -> i32>;
 pub type EDIT_CONTROL_FEATURE = i32;
 pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = 0;
 pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = 1;
@@ -2217,8 +2309,10 @@ pub const EM_UNDO: i32 = 199;
 pub const ENDSESSION_CLOSEAPP: i32 = 1;
 pub const ENDSESSION_CRITICAL: i32 = 1073741824;
 pub const ENDSESSION_LOGOFF: u32 = 2147483648;
-pub const ENUM_CURRENT_SETTINGS: u32 = 4294967295;
-pub const ENUM_REGISTRY_SETTINGS: u32 = 4294967294;
+#[cfg(feature = "shared")]
+pub const ENUM_CURRENT_SETTINGS: super::DWORD = 4294967295;
+#[cfg(feature = "shared")]
+pub const ENUM_REGISTRY_SETTINGS: super::DWORD = 4294967294;
 pub const EN_AFTER_PASTE: i32 = 2049;
 pub const EN_ALIGN_LTR_EC: i32 = 1792;
 pub const EN_ALIGN_RTL_EC: i32 = 1793;
@@ -2254,13 +2348,13 @@ pub const ES_RIGHT: i32 = 2;
 pub const ES_UPPERCASE: i32 = 8;
 pub const ES_WANTRETURN: i32 = 4096;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct EVENTMSG {
-    pub message: u32,
-    pub paramL: u32,
-    pub paramH: u32,
-    pub time: u32,
+    pub message: super::UINT,
+    pub paramL: super::UINT,
+    pub paramH: super::UINT,
+    pub time: super::DWORD,
     pub hwnd: super::HWND,
 }
 pub const EVENT_AIA_END: i32 = 45055;
@@ -2386,14 +2480,15 @@ pub const FE_FONTSMOOTHINGORIENTATIONBGR: i32 = 0;
 pub const FE_FONTSMOOTHINGORIENTATIONRGB: i32 = 1;
 pub const FE_FONTSMOOTHINGSTANDARD: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTERKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iWaitMSec: u32,
-    pub iDelayMSec: u32,
-    pub iRepeatMSec: u32,
-    pub iBounceMSec: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
+    pub iWaitMSec: super::DWORD,
+    pub iDelayMSec: super::DWORD,
+    pub iRepeatMSec: super::DWORD,
+    pub iBounceMSec: super::DWORD,
 }
 pub const FKF_AVAILABLE: i32 = 2;
 pub const FKF_CLICKON: i32 = 64;
@@ -2403,14 +2498,14 @@ pub const FKF_HOTKEYACTIVE: i32 = 4;
 pub const FKF_HOTKEYSOUND: i32 = 16;
 pub const FKF_INDICATOR: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct FLASHWINFO {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub hwnd: super::HWND,
-    pub dwFlags: u32,
-    pub uCount: u32,
-    pub dwTimeout: u32,
+    pub dwFlags: super::DWORD,
+    pub uCount: super::UINT,
+    pub dwTimeout: super::DWORD,
 }
 pub const FLASHW_ALL: i32 = 3;
 pub const FLASHW_CAPTION: i32 = 1;
@@ -2470,36 +2565,37 @@ pub const GC_ROTATE: i32 = 1;
 pub const GC_TWOFINGERTAP: i32 = 1;
 pub const GC_ZOOM: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct GESTURECONFIG {
-    pub dwID: u32,
-    pub dwWant: u32,
-    pub dwBlock: u32,
+    pub dwID: super::DWORD,
+    pub dwWant: super::DWORD,
+    pub dwBlock: super::DWORD,
 }
 pub const GESTURECONFIGMAXCOUNT: i32 = 256;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct GESTUREINFO {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub dwID: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
+    pub dwID: super::DWORD,
     pub hwndTarget: super::HWND,
     pub ptsLocation: super::POINTS,
-    pub dwInstanceID: u32,
-    pub dwSequenceID: u32,
-    pub ullArguments: u64,
-    pub cbExtraArgs: u32,
+    pub dwInstanceID: super::DWORD,
+    pub dwSequenceID: super::DWORD,
+    pub ullArguments: super::ULONGLONG,
+    pub cbExtraArgs: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct GESTURENOTIFYSTRUCT {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
     pub hwndTarget: super::HWND,
     pub ptsLocation: super::POINTS,
-    pub dwInstanceID: u32,
+    pub dwInstanceID: super::DWORD,
 }
 pub const GESTUREVISUALIZATION_DOUBLETAP: i32 = 2;
 pub const GESTUREVISUALIZATION_OFF: i32 = 0;
@@ -2509,9 +2605,10 @@ pub const GESTUREVISUALIZATION_PRESSANDTAP: i32 = 4;
 pub const GESTUREVISUALIZATION_RIGHTTAP: i32 = 16;
 pub const GESTUREVISUALIZATION_TAP: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct GETCLIPBMETADATA {
-    pub Version: u32,
+    pub Version: super::UINT,
     pub IsDelayRendered: windows_sys::core::BOOL,
     pub IsSynthetic: windows_sys::core::BOOL,
 }
@@ -2541,11 +2638,11 @@ pub const GR_GLOBAL: super::HANDLE = -2 as _;
 pub const GR_USEROBJECTS: i32 = 1;
 pub const GR_USEROBJECTS_PEAK: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct GUITHREADINFO {
-    pub cbSize: u32,
-    pub flags: u32,
+    pub cbSize: super::DWORD,
+    pub flags: super::DWORD,
     pub hwndActive: super::HWND,
     pub hwndFocus: super::HWND,
     pub hwndCapture: super::HWND,
@@ -2592,20 +2689,21 @@ pub type HANDEDNESS = i32;
 pub const HANDEDNESS_LEFT: HANDEDNESS = 0;
 pub const HANDEDNESS_RIGHT: HANDEDNESS = 1;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct HARDWAREHOOKSTRUCT {
     pub hwnd: super::HWND,
-    pub message: u32,
+    pub message: super::UINT,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HARDWAREINPUT {
-    pub uMsg: u32,
-    pub wParamL: u16,
-    pub wParamH: u16,
+    pub uMsg: super::DWORD,
+    pub wParamL: super::WORD,
+    pub wParamH: super::WORD,
 }
 #[cfg(feature = "windef")]
 pub const HBMMENU_CALLBACK: super::HBITMAP = -1 as _;
@@ -2657,24 +2755,25 @@ pub const HC_SKIP: i32 = 2;
 pub const HC_SYSMODALOFF: i32 = 5;
 pub const HC_SYSMODALON: i32 = 4;
 pub type HDEVNOTIFY = *mut core::ffi::c_void;
-#[cfg(feature = "winnt")]
-pub type HDWP = super::HANDLE;
+pub type HDWP = *mut core::ffi::c_void;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct HELPINFO {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iContextType: i32,
     pub iCtrlId: i32,
     pub hItemHandle: super::HANDLE,
-    pub dwContextId: usize,
+    pub dwContextId: super::DWORD_PTR,
     pub MousePos: super::POINT,
 }
 pub const HELPINFO_MENUITEM: i32 = 2;
 pub const HELPINFO_WINDOW: i32 = 1;
 pub type HELPPOLY = u32;
+#[cfg(feature = "shared")]
 pub type HELPWININFO = HELPWININFOA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct HELPWININFOA {
     pub wStructSize: i32,
@@ -2683,14 +2782,16 @@ pub struct HELPWININFOA {
     pub dx: i32,
     pub dy: i32,
     pub wMax: i32,
-    pub rgchMember: [i8; 2],
+    pub rgchMember: [super::CHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for HELPWININFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct HELPWININFOW {
     pub wStructSize: i32,
@@ -2699,8 +2800,9 @@ pub struct HELPWININFOW {
     pub dx: i32,
     pub dy: i32,
     pub wMax: i32,
-    pub rgchMember: [u16; 2],
+    pub rgchMember: [super::WCHAR; 2],
 }
+#[cfg(feature = "winnt")]
 impl Default for HELPWININFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2734,19 +2836,22 @@ pub struct HGESTUREINFO__ {
     pub unused: i32,
 }
 pub const HIDE_WINDOW: i32 = 0;
+#[cfg(feature = "shared")]
 pub type HIGHCONTRAST = HIGHCONTRASTA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HIGHCONTRASTA {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
     pub lpszDefaultScheme: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct HIGHCONTRASTW {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
     pub lpszDefaultScheme: windows_sys::core::PWSTR,
 }
 pub const HKL_NEXT: i32 = 1;
@@ -2835,74 +2940,74 @@ pub const HWND_TOP: super::HWND = 0 as _;
 #[cfg(feature = "windef")]
 pub const HWND_TOPMOST: super::HWND = -1 as _;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct ICONINFO {
     pub fIcon: windows_sys::core::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
+    pub xHotspot: super::DWORD,
+    pub yHotspot: super::DWORD,
     pub hbmMask: super::HBITMAP,
     pub hbmColor: super::HBITMAP,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type ICONINFOEX = ICONINFOEXA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct ICONINFOEXA {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub fIcon: windows_sys::core::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
+    pub xHotspot: super::DWORD,
+    pub yHotspot: super::DWORD,
     pub hbmMask: super::HBITMAP,
     pub hbmColor: super::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [i8; 260],
-    pub szResName: [i8; 260],
+    pub wResID: super::WORD,
+    pub szModName: [super::CHAR; 260],
+    pub szResName: [super::CHAR; 260],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for ICONINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ICONINFOEXW {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub fIcon: windows_sys::core::BOOL,
-    pub xHotspot: u32,
-    pub yHotspot: u32,
+    pub xHotspot: super::DWORD,
+    pub yHotspot: super::DWORD,
     pub hbmMask: super::HBITMAP,
     pub hbmColor: super::HBITMAP,
-    pub wResID: u16,
-    pub szModName: [u16; 260],
-    pub szResName: [u16; 260],
+    pub wResID: super::WORD,
+    pub szModName: [super::WCHAR; 260],
+    pub szResName: [super::WCHAR; 260],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for ICONINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 pub type ICONMETRICS = ICONMETRICSA;
 #[repr(C)]
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct ICONMETRICSA {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iHorzSpacing: i32,
     pub iVertSpacing: i32,
     pub iTitleWrap: i32,
     pub lfFont: super::LOGFONTA,
 }
 #[repr(C)]
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ICONMETRICSW {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iHorzSpacing: i32,
     pub iVertSpacing: i32,
     pub iTitleWrap: i32,
@@ -2978,23 +3083,27 @@ pub const IMO_UNAVAILABLE: INPUT_MESSAGE_ORIGIN_ID = 0;
 pub const INDEXID_CONTAINER: i32 = 0;
 pub const INDEXID_OBJECT: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct INPUT {
-    pub r#type: u32,
+    pub r#type: super::DWORD,
     pub Anonymous: INPUT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union INPUT_0 {
     pub mi: MOUSEINPUT,
     pub ki: KEYBDINPUT,
     pub hi: HARDWAREINPUT,
 }
+#[cfg(feature = "shared")]
 impl Default for INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3005,12 +3114,13 @@ pub const INPUTLANGCHANGE_FORWARD: i32 = 2;
 pub const INPUTLANGCHANGE_SYSCHARSET: i32 = 1;
 pub const INPUT_HARDWARE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INPUT_INJECTION_VALUE {
-    pub page: u16,
-    pub usage: u16,
-    pub value: i32,
-    pub index: u16,
+    pub page: super::USHORT,
+    pub usage: super::USHORT,
+    pub value: super::INT32,
+    pub index: super::USHORT,
 }
 pub const INPUT_KEYBOARD: i32 = 1;
 pub type INPUT_MESSAGE_DEVICE_TYPE = i32;
@@ -3074,22 +3184,24 @@ pub const ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID: windows_sys::core:
 pub const ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID: windows_sys::core::PCSTR = 5 as _;
 pub const ISOLATIONPOLICY_MANIFEST_RESOURCE_ID: windows_sys::core::PCSTR = 4 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KBDLLHOOKSTRUCT {
-    pub vkCode: u32,
-    pub scanCode: u32,
-    pub flags: u32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
+    pub vkCode: super::DWORD,
+    pub scanCode: super::DWORD,
+    pub flags: super::DWORD,
+    pub time: super::DWORD,
+    pub dwExtraInfo: super::ULONG_PTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct KEYBDINPUT {
-    pub wVk: u16,
-    pub wScan: u16,
-    pub dwFlags: u32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
+    pub wVk: super::WORD,
+    pub wScan: super::WORD,
+    pub dwFlags: super::DWORD,
+    pub time: super::DWORD,
+    pub dwExtraInfo: super::ULONG_PTR,
 }
 pub const KEYEVENTF_EXTENDEDKEY: i32 = 1;
 pub const KEYEVENTF_KEYUP: i32 = 2;
@@ -3111,10 +3223,11 @@ pub const KLF_SHIFTLOCK: i32 = 65536;
 pub const KLF_SUBSTITUTE_OK: i32 = 2;
 pub const KL_NAMELENGTH: i32 = 9;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LASTINPUTINFO {
-    pub cbSize: u32,
-    pub dwTime: u32,
+    pub cbSize: super::UINT,
+    pub dwTime: super::DWORD,
 }
 pub const LBN_DBLCLK: i32 = 2;
 pub const LBN_ERRSPACE: i32 = -2;
@@ -3185,7 +3298,7 @@ pub const LB_SETLOCALE: i32 = 421;
 pub const LB_SETSEL: i32 = 389;
 pub const LB_SETTABSTOPS: i32 = 402;
 pub const LB_SETTOPINDEX: i32 = 407;
-pub type LEGACY_TOUCHPAD_FEATURES = u32;
+pub type LEGACY_TOUCHPAD_FEATURES = i32;
 pub const LEGACY_TOUCHPAD_FEATURE_ENABLE_DISABLE: LEGACY_TOUCHPAD_FEATURES = 1;
 pub const LEGACY_TOUCHPAD_FEATURE_NONE: LEGACY_TOUCHPAD_FEATURES = 0;
 pub const LEGACY_TOUCHPAD_FEATURE_REVERSE_SCROLL_DIRECTION: LEGACY_TOUCHPAD_FEATURES = 4;
@@ -3196,208 +3309,256 @@ pub const LLKHF_LOWER_IL_INJECTED: i32 = 2;
 pub const LLKHF_UP: i32 = 128;
 pub const LLMHF_INJECTED: i32 = 1;
 pub const LLMHF_LOWER_IL_INJECTED: i32 = 2;
+#[cfg(feature = "shared")]
 pub type LPACCEL = *mut ACCEL;
+#[cfg(feature = "shared")]
 pub type LPACCESSTIMEOUT = *mut ACCESSTIMEOUT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPALTTABINFO = *mut ALTTABINFO;
+#[cfg(feature = "shared")]
 pub type LPANIMATIONINFO = *mut ANIMATIONINFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type LPAUDIODESCRIPTION = *mut AUDIODESCRIPTION;
 #[cfg(feature = "windef")]
 pub type LPCBTACTIVATESTRUCT = *mut CBTACTIVATESTRUCT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type LPCBT_CREATEWND = LPCBT_CREATEWNDA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPCBT_CREATEWND = *mut CBT_CREATEWNDA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCBT_CREATEWNDA = *mut CBT_CREATEWNDA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCBT_CREATEWNDW = *mut CBT_CREATEWNDW;
-pub type LPCDLGTEMPLATE = LPCDLGTEMPLATEA;
+#[cfg(feature = "shared")]
+pub type LPCDLGTEMPLATE = *const DLGTEMPLATE;
+#[cfg(feature = "shared")]
 pub type LPCDLGTEMPLATEA = *const DLGTEMPLATE;
+#[cfg(feature = "shared")]
 pub type LPCDLGTEMPLATEW = *const DLGTEMPLATE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCLIENTCREATESTRUCT = *mut CLIENTCREATESTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCMENUINFO = *const MENUINFO;
-#[cfg(feature = "windef")]
-pub type LPCMENUITEMINFO = LPCMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPCMENUITEMINFO = *const MENUITEMINFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCMENUITEMINFOA = *const MENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCMENUITEMINFOW = *const MENUITEMINFOW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCOMBOBOXINFO = *mut COMBOBOXINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCOMPAREITEMSTRUCT = *mut COMPAREITEMSTRUCT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type LPCREATESTRUCT = LPCREATESTRUCTA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPCREATESTRUCT = *mut CREATESTRUCTA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCREATESTRUCTA = *mut CREATESTRUCTA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCREATESTRUCTW = *mut CREATESTRUCTW;
+#[cfg(feature = "shared")]
 pub type LPCSCROLLINFO = *const SCROLLINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPCURSORINFO = *mut CURSORINFO;
+#[cfg(feature = "shared")]
 pub type LPCURSORSHAPE = *mut CURSORSHAPE;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCWPRETSTRUCT = *mut CWPRETSTRUCT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPCWPSTRUCT = *mut CWPSTRUCT;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDEBUGHOOKINFO = *mut DEBUGHOOKINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDELETEITEMSTRUCT = *mut DELETEITEMSTRUCT;
-pub type LPDLGITEMTEMPLATE = LPDLGITEMTEMPLATEA;
+#[cfg(feature = "shared")]
+pub type LPDLGITEMTEMPLATE = *mut DLGITEMTEMPLATE;
+#[cfg(feature = "shared")]
 pub type LPDLGITEMTEMPLATEA = *mut DLGITEMTEMPLATE;
+#[cfg(feature = "shared")]
 pub type LPDLGITEMTEMPLATEW = *mut DLGITEMTEMPLATE;
-pub type LPDLGTEMPLATE = LPDLGTEMPLATEA;
+#[cfg(feature = "shared")]
+pub type LPDLGTEMPLATE = *mut DLGTEMPLATE;
+#[cfg(feature = "shared")]
 pub type LPDLGTEMPLATEA = *mut DLGTEMPLATE;
+#[cfg(feature = "shared")]
 pub type LPDLGTEMPLATEW = *mut DLGTEMPLATE;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDRAWITEMSTRUCT = *mut DRAWITEMSTRUCT;
+#[cfg(feature = "shared")]
 pub type LPDRAWTEXTPARAMS = *mut DRAWTEXTPARAMS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDROPSTRUCT = *mut DROPSTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPEVENTMSG = *mut EVENTMSG;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPEVENTMSGMSG = *mut EVENTMSG;
+#[cfg(feature = "shared")]
 pub type LPFILTERKEYS = *mut FILTERKEYS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPGUITHREADINFO = *mut GUITHREADINFO;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPHARDWAREHOOKSTRUCT = *mut HARDWAREHOOKSTRUCT;
+#[cfg(feature = "shared")]
 pub type LPHARDWAREINPUT = *mut HARDWAREINPUT;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPHELPINFO = *mut HELPINFO;
-pub type LPHELPWININFO = LPHELPWININFOA;
+#[cfg(feature = "shared")]
+pub type LPHELPWININFO = *mut HELPWININFOA;
+#[cfg(feature = "shared")]
 pub type LPHELPWININFOA = *mut HELPWININFOA;
+#[cfg(feature = "winnt")]
 pub type LPHELPWININFOW = *mut HELPWININFOW;
-pub type LPHIGHCONTRAST = LPHIGHCONTRASTA;
+#[cfg(feature = "shared")]
+pub type LPHIGHCONTRAST = *mut HIGHCONTRASTA;
+#[cfg(feature = "shared")]
 pub type LPHIGHCONTRASTA = *mut HIGHCONTRASTA;
+#[cfg(feature = "shared")]
 pub type LPHIGHCONTRASTW = *mut HIGHCONTRASTW;
-#[cfg(feature = "wingdi")]
-pub type LPICONMETRICS = LPICONMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+pub type LPICONMETRICS = *mut ICONMETRICSA;
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 pub type LPICONMETRICSA = *mut ICONMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 pub type LPICONMETRICSW = *mut ICONMETRICSW;
+#[cfg(feature = "shared")]
 pub type LPINPUT = *mut INPUT;
+#[cfg(feature = "shared")]
 pub type LPKBDLLHOOKSTRUCT = *mut KBDLLHOOKSTRUCT;
+#[cfg(feature = "shared")]
 pub type LPKEYBDINPUT = *mut KEYBDINPUT;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type LPMDICREATESTRUCT = LPMDICREATESTRUCTA;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type LPMDICREATESTRUCT = *mut MDICREATESTRUCTA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPMDICREATESTRUCTA = *mut MDICREATESTRUCTA;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPMDICREATESTRUCTW = *mut MDICREATESTRUCTW;
 #[cfg(feature = "windef")]
 pub type LPMDINEXTMENU = *mut MDINEXTMENU;
+#[cfg(feature = "shared")]
 pub type LPMEASUREITEMSTRUCT = *mut MEASUREITEMSTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMENUBARINFO = *mut MENUBARINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMENUINFO = *mut MENUINFO;
-#[cfg(feature = "windef")]
-pub type LPMENUITEMINFO = LPMENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMENUITEMINFO = *mut MENUITEMINFOA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMENUITEMINFOA = *mut MENUITEMINFOA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMENUITEMINFOW = *mut MENUITEMINFOW;
-pub type LPMENUTEMPLATE = LPMENUTEMPLATEA;
+pub type LPMENUTEMPLATE = *mut core::ffi::c_void;
 pub type LPMENUTEMPLATEA = *mut core::ffi::c_void;
 pub type LPMENUTEMPLATEW = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type LPMINIMIZEDMETRICS = *mut MINIMIZEDMETRICS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMINMAXINFO = *mut MINMAXINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMONITORINFO = *mut MONITORINFO;
-#[cfg(feature = "windef")]
-pub type LPMONITORINFOEX = LPMONITORINFOEXA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type LPMONITORINFOEX = *mut MONITORINFOEXA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMONITORINFOEXA = *mut MONITORINFOEXA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPMONITORINFOEXW = *mut MONITORINFOEXW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMOUSEHOOKSTRUCT = *mut MOUSEHOOKSTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMOUSEHOOKSTRUCTEX = *mut MOUSEHOOKSTRUCTEX;
+#[cfg(feature = "shared")]
 pub type LPMOUSEINPUT = *mut MOUSEINPUT;
+#[cfg(feature = "shared")]
 pub type LPMOUSEKEYS = *mut MOUSEKEYS;
+#[cfg(feature = "shared")]
 pub type LPMOUSEMOVEPOINT = *mut MOUSEMOVEPOINT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPMSG = *mut MSG;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-pub type LPMSGBOXPARAMS = LPMSGBOXPARAMSA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+pub type LPMSGBOXPARAMS = *mut MSGBOXPARAMSA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPMSGBOXPARAMSA = *mut MSGBOXPARAMSA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPMSGBOXPARAMSW = *mut MSGBOXPARAMSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPMSLLHOOKSTRUCT = *mut MSLLHOOKSTRUCT;
-pub type LPMULTIKEYHELP = LPMULTIKEYHELPA;
+#[cfg(feature = "shared")]
+pub type LPMULTIKEYHELP = *mut MULTIKEYHELPA;
+#[cfg(feature = "shared")]
 pub type LPMULTIKEYHELPA = *mut MULTIKEYHELPA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPMULTIKEYHELPW = *mut MULTIKEYHELPW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPNCCALCSIZE_PARAMS = *mut NCCALCSIZE_PARAMS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPNMHDR = *mut NMHDR;
-#[cfg(feature = "wingdi")]
-pub type LPNONCLIENTMETRICS = LPNONCLIENTMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+pub type LPNONCLIENTMETRICS = *mut NONCLIENTMETRICSA;
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 pub type LPNONCLIENTMETRICSA = *mut NONCLIENTMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 pub type LPNONCLIENTMETRICSW = *mut NONCLIENTMETRICSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPPAINTSTRUCT = *mut PAINTSTRUCT;
+#[cfg(feature = "shared")]
 pub type LPRAWHID = *mut RAWHID;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPRAWINPUT = *mut RAWINPUT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPRAWINPUTDEVICE = *mut RAWINPUTDEVICE;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type LPRAWINPUTHEADER = *mut RAWINPUTHEADER;
+#[cfg(feature = "shared")]
 pub type LPRAWKEYBOARD = *mut RAWKEYBOARD;
+#[cfg(feature = "shared")]
 pub type LPRAWMOUSE = *mut RAWMOUSE;
+#[cfg(feature = "shared")]
 pub type LPRID_DEVICE_INFO = *mut RID_DEVICE_INFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPSCROLLBARINFO = *mut SCROLLBARINFO;
+#[cfg(feature = "shared")]
 pub type LPSCROLLINFO = *mut SCROLLINFO;
-pub type LPSERIALKEYS = LPSERIALKEYSA;
+#[cfg(feature = "shared")]
+pub type LPSERIALKEYS = *mut SERIALKEYSA;
+#[cfg(feature = "shared")]
 pub type LPSERIALKEYSA = *mut SERIALKEYSA;
+#[cfg(feature = "shared")]
 pub type LPSERIALKEYSW = *mut SERIALKEYSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPSHELLHOOKINFO = *mut SHELLHOOKINFO;
-pub type LPSOUNDSENTRY = LPSOUNDSENTRYA;
+#[cfg(feature = "shared")]
+pub type LPSOUNDSENTRY = *mut SOUNDSENTRYA;
+#[cfg(feature = "shared")]
 pub type LPSOUNDSENTRYA = *mut SOUNDSENTRYA;
+#[cfg(feature = "shared")]
 pub type LPSOUNDSENTRYW = *mut SOUNDSENTRYW;
+#[cfg(feature = "shared")]
 pub type LPSTICKYKEYS = *mut STICKYKEYS;
+#[cfg(feature = "shared")]
 pub type LPSTYLESTRUCT = *mut STYLESTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPTITLEBARINFO = *mut TITLEBARINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPTITLEBARINFOEX = *mut TITLEBARINFOEX;
+#[cfg(feature = "shared")]
 pub type LPTOGGLEKEYS = *mut TOGGLEKEYS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPTPMPARAMS = *mut TPMPARAMS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPTRACKMOUSEEVENT = *mut TRACKMOUSEEVENT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPWINDOWINFO = *mut WINDOWINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPWINDOWPLACEMENT = *mut WINDOWPLACEMENT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPWINDOWPOS = *mut WINDOWPOS;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type LPWNDCLASS = LPWNDCLASSA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPWNDCLASS = *mut WNDCLASSA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPWNDCLASSA = *mut WNDCLASSA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type LPWNDCLASSEX = LPWNDCLASSEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type LPWNDCLASSEX = *mut WNDCLASSEXA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPWNDCLASSEXA = *mut WNDCLASSEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPWNDCLASSEXW = *mut WNDCLASSEXW;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPWNDCLASSW = *mut WNDCLASSW;
 pub const LR_COLOR: i32 = 2;
 pub const LR_COPYDELETEORG: i32 = 8;
@@ -3467,10 +3628,10 @@ pub const MB_TYPEMASK: i32 = 15;
 pub const MB_USERICON: i32 = 128;
 pub const MB_YESNO: i32 = 4;
 pub const MB_YESNOCANCEL: i32 = 3;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type MDICREATESTRUCT = MDICREATESTRUCTA;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MDICREATESTRUCTA {
     pub szClass: windows_sys::core::PCSTR,
@@ -3480,11 +3641,11 @@ pub struct MDICREATESTRUCTA {
     pub y: i32,
     pub cx: i32,
     pub cy: i32,
-    pub style: u32,
+    pub style: super::DWORD,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MDICREATESTRUCTW {
     pub szClass: windows_sys::core::PCWSTR,
@@ -3494,7 +3655,7 @@ pub struct MDICREATESTRUCTW {
     pub y: i32,
     pub cx: i32,
     pub cy: i32,
-    pub style: u32,
+    pub style: super::DWORD,
     pub lParam: super::LPARAM,
 }
 #[repr(C)]
@@ -3511,104 +3672,105 @@ pub const MDITILE_SKIPDISABLED: i32 = 2;
 pub const MDITILE_VERTICAL: i32 = 0;
 pub const MDITILE_ZORDER: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MEASUREITEMSTRUCT {
-    pub CtlType: u32,
-    pub CtlID: u32,
-    pub itemID: u32,
-    pub itemWidth: u32,
-    pub itemHeight: u32,
-    pub itemData: usize,
+    pub CtlType: super::UINT,
+    pub CtlID: super::UINT,
+    pub itemID: super::UINT,
+    pub itemWidth: super::UINT,
+    pub itemHeight: super::UINT,
+    pub itemData: super::ULONG_PTR,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MENUBARINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcBar: super::RECT,
     pub hMenu: super::HMENU,
     pub hwndMenu: super::HWND,
-    pub _bitfield: windows_sys::core::BOOL,
+    pub _bitfield: i32,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MENUGETOBJECTINFO {
-    pub dwFlags: u32,
-    pub uPos: u32,
+    pub dwFlags: super::DWORD,
+    pub uPos: super::UINT,
     pub hmenu: super::HMENU,
-    pub riid: *mut core::ffi::c_void,
-    pub pvObj: *mut core::ffi::c_void,
+    pub riid: super::PVOID,
+    pub pvObj: super::PVOID,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MENUINFO {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub dwStyle: u32,
-    pub cyMax: u32,
+    pub cbSize: super::DWORD,
+    pub fMask: super::DWORD,
+    pub dwStyle: super::DWORD,
+    pub cyMax: super::UINT,
     pub hbrBack: super::HBRUSH,
-    pub dwContextHelpID: u32,
-    pub dwMenuData: usize,
+    pub dwContextHelpID: super::DWORD,
+    pub dwMenuData: super::ULONG_PTR,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MENUITEMINFO = MENUITEMINFOA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MENUITEMINFOA {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub fType: u32,
-    pub fState: u32,
-    pub wID: u32,
+    pub cbSize: super::UINT,
+    pub fMask: super::UINT,
+    pub fType: super::UINT,
+    pub fState: super::UINT,
+    pub wID: super::UINT,
     pub hSubMenu: super::HMENU,
     pub hbmpChecked: super::HBITMAP,
     pub hbmpUnchecked: super::HBITMAP,
-    pub dwItemData: usize,
+    pub dwItemData: super::ULONG_PTR,
     pub dwTypeData: windows_sys::core::PSTR,
-    pub cch: u32,
+    pub cch: super::UINT,
     pub hbmpItem: super::HBITMAP,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MENUITEMINFOW {
-    pub cbSize: u32,
-    pub fMask: u32,
-    pub fType: u32,
-    pub fState: u32,
-    pub wID: u32,
+    pub cbSize: super::UINT,
+    pub fMask: super::UINT,
+    pub fType: super::UINT,
+    pub fState: super::UINT,
+    pub wID: super::UINT,
     pub hSubMenu: super::HMENU,
     pub hbmpChecked: super::HBITMAP,
     pub hbmpUnchecked: super::HBITMAP,
-    pub dwItemData: usize,
+    pub dwItemData: super::ULONG_PTR,
     pub dwTypeData: windows_sys::core::PWSTR,
-    pub cch: u32,
+    pub cch: super::UINT,
     pub hbmpItem: super::HBITMAP,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MENUITEMTEMPLATE {
-    pub mtOption: u16,
-    pub mtID: u16,
-    pub mtString: [u16; 1],
+    pub mtOption: super::WORD,
+    pub mtID: super::WORD,
+    pub mtString: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MENUITEMTEMPLATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MENUITEMTEMPLATEHEADER {
-    pub versionNumber: u16,
-    pub offset: u16,
+    pub versionNumber: super::WORD,
+    pub offset: super::WORD,
 }
-pub type MENUTEMPLATE = MENUTEMPLATEA;
-pub type MENUTEMPLATEA = core::ffi::c_void;
-pub type MENUTEMPLATEW = core::ffi::c_void;
 pub const MENU_ALL_ACCESS: i32 = 2035711;
 pub const MENU_CHECK_ITEM: i32 = 256;
 pub const MENU_DELETE_MENU: i32 = 32;
@@ -3687,9 +3849,10 @@ pub const MIM_MAXHEIGHT: i32 = 1;
 pub const MIM_MENUDATA: i32 = 8;
 pub const MIM_STYLE: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIMIZEDMETRICS {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iWidth: i32,
     pub iHorzGap: i32,
     pub iVertGap: i32,
@@ -3697,7 +3860,7 @@ pub struct MINIMIZEDMETRICS {
 }
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: windows_sys::core::PCSTR = 1 as _;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINMAXINFO {
     pub ptReserved: super::POINT,
@@ -3744,45 +3907,42 @@ pub const MNS_MODELESS: i32 = 1073741824;
 pub const MNS_NOCHECK: u32 = 2147483648;
 pub const MNS_NOTIFYBYPOS: i32 = 134217728;
 pub const MN_GETHMENU: i32 = 481;
-pub const MOD_ALT: i32 = 1;
-pub const MOD_CONTROL: i32 = 2;
 pub const MOD_NOREPEAT: i32 = 16384;
-pub const MOD_SHIFT: i32 = 4;
 pub const MOD_WIN: i32 = 8;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type MONITORENUMPROC = Option<unsafe extern "system" fn(param0: super::HMONITOR, param1: super::HDC, param2: super::LPRECT, param3: super::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MONITORINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcMonitor: super::RECT,
     pub rcWork: super::RECT,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type MONITORINFOEX = MONITORINFOEXA;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct MONITORINFOEXA {
-    pub Base: MONITORINFO,
-    pub szDevice: [i8; 32],
+    pub base: MONITORINFO,
+    pub szDevice: [super::CHAR; 32],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for MONITORINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MONITORINFOEXW {
-    pub Base: MONITORINFO,
-    pub szDevice: [u16; 32],
+    pub base: MONITORINFO,
+    pub szDevice: [super::WCHAR; 32],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for MONITORINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3807,98 +3967,101 @@ pub const MOUSEEVENTF_WHEEL: i32 = 2048;
 pub const MOUSEEVENTF_XDOWN: i32 = 128;
 pub const MOUSEEVENTF_XUP: i32 = 256;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MOUSEHOOKSTRUCT {
     pub pt: super::POINT,
     pub hwnd: super::HWND,
-    pub wHitTestCode: u32,
-    pub dwExtraInfo: usize,
+    pub wHitTestCode: super::UINT,
+    pub dwExtraInfo: super::ULONG_PTR,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MOUSEHOOKSTRUCTEX {
-    pub Base: MOUSEHOOKSTRUCT,
-    pub mouseData: u32,
+    pub base: MOUSEHOOKSTRUCT,
+    pub mouseData: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MOUSEINPUT {
-    pub dx: i32,
-    pub dy: i32,
-    pub mouseData: u32,
-    pub dwFlags: u32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
+    pub dx: super::LONG,
+    pub dy: super::LONG,
+    pub mouseData: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub time: super::DWORD,
+    pub dwExtraInfo: super::ULONG_PTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MOUSEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iMaxSpeed: u32,
-    pub iTimeToMaxSpeed: u32,
-    pub iCtrlSpeed: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
+    pub iMaxSpeed: super::DWORD,
+    pub iTimeToMaxSpeed: super::DWORD,
+    pub iCtrlSpeed: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MOUSEMOVEPOINT {
     pub x: i32,
     pub y: i32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
+    pub time: super::DWORD,
+    pub dwExtraInfo: super::ULONG_PTR,
 }
 pub const MOUSEWHEEL_ROUTING_FOCUS: i32 = 0;
 pub const MOUSEWHEEL_ROUTING_HYBRID: i32 = 1;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: i32 = 2;
 pub type MOVESIZE_OPERATION = i32;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSG {
     pub hwnd: super::HWND,
-    pub message: u32,
+    pub message: super::UINT,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
-    pub time: u32,
+    pub time: super::DWORD,
     pub pt: super::POINT,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type MSGBOXCALLBACK = Option<unsafe extern "system" fn(lphelpinfo: LPHELPINFO)>;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type MSGBOXPARAMS = MSGBOXPARAMSA;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSGBOXPARAMSA {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub hwndOwner: super::HWND,
     pub hInstance: super::HINSTANCE,
     pub lpszText: windows_sys::core::PCSTR,
     pub lpszCaption: windows_sys::core::PCSTR,
-    pub dwStyle: u32,
+    pub dwStyle: super::DWORD,
     pub lpszIcon: windows_sys::core::PCSTR,
-    pub dwContextHelpId: usize,
+    pub dwContextHelpId: super::DWORD_PTR,
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
-    pub dwLanguageId: u32,
+    pub dwLanguageId: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSGBOXPARAMSW {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub hwndOwner: super::HWND,
     pub hInstance: super::HINSTANCE,
     pub lpszText: windows_sys::core::PCWSTR,
     pub lpszCaption: windows_sys::core::PCWSTR,
-    pub dwStyle: u32,
+    pub dwStyle: super::DWORD,
     pub lpszIcon: windows_sys::core::PCWSTR,
-    pub dwContextHelpId: usize,
+    pub dwContextHelpId: super::DWORD_PTR,
     pub lpfnMsgBoxCallback: MSGBOXCALLBACK,
-    pub dwLanguageId: u32,
+    pub dwLanguageId: super::DWORD,
 }
 pub const MSGFLTINFO_ALLOWED_HIGHER: i32 = 3;
 pub const MSGFLTINFO_ALREADYALLOWED_FORWND: i32 = 1;
@@ -3917,14 +4080,14 @@ pub const MSGF_NEXTWINDOW: i32 = 6;
 pub const MSGF_SCROLLBAR: i32 = 5;
 pub const MSGF_USER: i32 = 4096;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct MSLLHOOKSTRUCT {
     pub pt: super::POINT,
-    pub mouseData: u32,
-    pub flags: u32,
-    pub time: u32,
-    pub dwExtraInfo: usize,
+    pub mouseData: super::DWORD,
+    pub flags: super::DWORD,
+    pub time: super::DWORD,
+    pub dwExtraInfo: super::ULONG_PTR,
 }
 pub const MSO_MOVE: MOVESIZE_OPERATION = 9;
 pub const MSO_SIZE_BOTTOM: MOVESIZE_OPERATION = 6;
@@ -3935,26 +4098,31 @@ pub const MSO_SIZE_RIGHT: MOVESIZE_OPERATION = 2;
 pub const MSO_SIZE_TOP: MOVESIZE_OPERATION = 3;
 pub const MSO_SIZE_TOPLEFT: MOVESIZE_OPERATION = 4;
 pub const MSO_SIZE_TOPRIGHT: MOVESIZE_OPERATION = 5;
+#[cfg(feature = "shared")]
 pub type MULTIKEYHELP = MULTIKEYHELPA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MULTIKEYHELPA {
-    pub mkSize: u32,
-    pub mkKeylist: i8,
-    pub szKeyphrase: [i8; 1],
+    pub mkSize: super::DWORD,
+    pub mkKeylist: super::CHAR,
+    pub szKeyphrase: [super::CHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MULTIKEYHELPA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MULTIKEYHELPW {
-    pub mkSize: u32,
-    pub mkKeylist: u16,
-    pub szKeyphrase: [u16; 1],
+    pub mkSize: super::DWORD,
+    pub mkKeylist: super::WCHAR,
+    pub szKeyphrase: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MULTIKEYHELPW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3964,17 +4132,17 @@ pub const MWMO_ALERTABLE: i32 = 2;
 pub const MWMO_INPUTAVAILABLE: i32 = 4;
 pub const MWMO_WAITALL: i32 = 1;
 #[cfg(feature = "minwindef")]
-pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type NAMEENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type NAMEENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct NCCALCSIZE_PARAMS {
     pub rgrc: [super::RECT; 3],
     pub lppos: PWINDOWPOS,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for NCCALCSIZE_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3991,20 +4159,20 @@ pub const NID_INTEGRATED_TOUCH: i32 = 1;
 pub const NID_MULTI_INPUT: i32 = 64;
 pub const NID_READY: i32 = 128;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct NMHDR {
     pub hwndFrom: super::HWND,
-    pub idFrom: usize,
-    pub code: u32,
+    pub idFrom: super::UINT_PTR,
+    pub code: super::UINT,
 }
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 pub type NONCLIENTMETRICS = NONCLIENTMETRICSA;
 #[repr(C)]
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct NONCLIENTMETRICSA {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iBorderWidth: i32,
     pub iScrollWidth: i32,
     pub iScrollHeight: i32,
@@ -4022,10 +4190,10 @@ pub struct NONCLIENTMETRICSA {
     pub iPaddedBorderWidth: i32,
 }
 #[repr(C)]
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct NONCLIENTMETRICSW {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub iBorderWidth: i32,
     pub iScrollWidth: i32,
     pub iScrollHeight: i32,
@@ -4042,46 +4210,60 @@ pub struct NONCLIENTMETRICSW {
     pub lfMessageFont: super::LOGFONTW,
     pub iPaddedBorderWidth: i32,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type NPCWPRETSTRUCT = *mut CWPRETSTRUCT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type NPCWPSTRUCT = *mut CWPSTRUCT;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type NPDEBUGHOOKINFO = *mut DEBUGHOOKINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type NPEVENTMSG = *mut EVENTMSG;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type NPEVENTMSGMSG = *mut EVENTMSG;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type NPMSG = *mut MSG;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type NPPAINTSTRUCT = *mut PAINTSTRUCT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type NPWNDCLASS = NPWNDCLASSA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type NPWNDCLASS = *mut WNDCLASSA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type NPWNDCLASSA = *mut WNDCLASSA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type NPWNDCLASSEX = NPWNDCLASSEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type NPWNDCLASSEX = *mut WNDCLASSEXA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type NPWNDCLASSEXA = *mut WNDCLASSEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type NPWNDCLASSEXW = *mut WNDCLASSEXW;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type NPWNDCLASSW = *mut WNDCLASSW;
-pub const OBJID_ALERT: i32 = -10;
-pub const OBJID_CARET: i32 = -8;
-pub const OBJID_CLIENT: i32 = -4;
-pub const OBJID_CURSOR: i32 = -9;
-pub const OBJID_HSCROLL: i32 = -6;
-pub const OBJID_MENU: i32 = -3;
-pub const OBJID_NATIVEOM: i32 = -16;
-pub const OBJID_QUERYCLASSNAMEIDX: i32 = -12;
-pub const OBJID_SIZEGRIP: i32 = -7;
-pub const OBJID_SOUND: i32 = -11;
-pub const OBJID_SYSMENU: i32 = -1;
-pub const OBJID_TITLEBAR: i32 = -2;
-pub const OBJID_VSCROLL: i32 = -5;
-pub const OBJID_WINDOW: i32 = 0;
+#[cfg(feature = "shared")]
+pub const OBJID_ALERT: super::LONG = 0xFFFFFFF6_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_CARET: super::LONG = 0xFFFFFFF8_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_CLIENT: super::LONG = 0xFFFFFFFC_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_CURSOR: super::LONG = 0xFFFFFFF7_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_HSCROLL: super::LONG = 0xFFFFFFFA_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_MENU: super::LONG = 0xFFFFFFFD_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_NATIVEOM: super::LONG = 0xFFFFFFF0_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_QUERYCLASSNAMEIDX: super::LONG = 0xFFFFFFF4_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_SIZEGRIP: super::LONG = 0xFFFFFFF9_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_SOUND: super::LONG = 0xFFFFFFF5_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_SYSMENU: super::LONG = 0xFFFFFFFF_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_TITLEBAR: super::LONG = 0xFFFFFFFE_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_VSCROLL: super::LONG = 0xFFFFFFFB_u32 as _;
+#[cfg(feature = "shared")]
+pub const OBJID_WINDOW: super::LONG = 0x0_u32 as _;
 pub const ODA_DRAWENTIRE: i32 = 1;
 pub const ODA_FOCUS: i32 = 4;
 pub const ODA_SELECT: i32 = 2;
@@ -4102,14 +4284,14 @@ pub const ODT_LISTBOX: i32 = 2;
 pub const ODT_MENU: i32 = 1;
 pub const ODT_STATIC: i32 = 5;
 pub const ORD_LANGDRIVER: i32 = 1;
-pub type ORIENTATION_PREFERENCE = u32;
+pub type ORIENTATION_PREFERENCE = i32;
 pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = 1;
 pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = 4;
 pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = 0;
 pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = 2;
 pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = 8;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct PAINTSTRUCT {
     pub hdc: super::HDC,
@@ -4117,20 +4299,20 @@ pub struct PAINTSTRUCT {
     pub rcPaint: super::RECT,
     pub fRestore: windows_sys::core::BOOL,
     pub fIncUpdate: windows_sys::core::BOOL,
-    pub rgbReserved: [u8; 32],
+    pub rgbReserved: [super::BYTE; 32],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for PAINTSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PALTTABINFO = *mut ALTTABINFO;
 pub type PAR_STATE = *mut AR_STATE;
 pub const PA_ACTIVATE: i32 = 1;
 pub const PA_NOACTIVATE: i32 = 3;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PBSMINFO = *mut BSMINFO;
 pub const PBTF_APMRESUMEFROMFAILURE: i32 = 1;
 pub const PBT_APMBATTERYLOW: i32 = 9;
@@ -4147,25 +4329,27 @@ pub const PBT_APMRESUMESUSPEND: i32 = 7;
 pub const PBT_APMSTANDBY: i32 = 5;
 pub const PBT_APMSUSPEND: i32 = 4;
 pub const PBT_POWERSETTINGCHANGE: i32 = 32787;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCGESTUREINFO = *const GESTUREINFO;
+#[cfg(feature = "shared")]
 pub type PCHANGEFILTERSTRUCT = *mut CHANGEFILTERSTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCOMBOBOXINFO = *mut COMBOBOXINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCOMPAREITEMSTRUCT = *mut COMPAREITEMSTRUCT;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCOPYDATASTRUCT = *mut COPYDATASTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCRAWINPUTDEVICE = *const RAWINPUTDEVICE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCTOUCHINPUT = *const TOUCHINPUT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCURSORINFO = *mut CURSORINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PCWINDOW_ACTION = *const WINDOW_ACTION;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PCWPRETSTRUCT = *mut CWPRETSTRUCT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PCWPSTRUCT = *mut CWPSTRUCT;
 pub const PDC_ARRIVAL: i32 = 1;
 pub const PDC_MAPPING_CHANGE: i32 = 256;
@@ -4179,16 +4363,19 @@ pub const PDC_ORIENTATION_90: i32 = 8;
 pub const PDC_ORIGIN: i32 = 1024;
 pub const PDC_REMOVAL: i32 = 2;
 pub const PDC_RESOLUTION: i32 = 512;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PDEBUGHOOKINFO = *mut DEBUGHOOKINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PDELETEITEMSTRUCT = *mut DELETEITEMSTRUCT;
-pub type PDLGITEMTEMPLATE = PDLGITEMTEMPLATEA;
+#[cfg(feature = "shared")]
+pub type PDLGITEMTEMPLATE = *mut DLGITEMTEMPLATE;
+#[cfg(feature = "shared")]
 pub type PDLGITEMTEMPLATEA = *mut DLGITEMTEMPLATE;
+#[cfg(feature = "shared")]
 pub type PDLGITEMTEMPLATEW = *mut DLGITEMTEMPLATE;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PDRAWITEMSTRUCT = *mut DRAWITEMSTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PDROPSTRUCT = *mut DROPSTRUCT;
 pub const PENARBITRATIONTYPE_FIS: i32 = 2;
 pub const PENARBITRATIONTYPE_MAX: i32 = 4;
@@ -4211,79 +4398,99 @@ pub const PEN_MASK_PRESSURE: i32 = 1;
 pub const PEN_MASK_ROTATION: i32 = 2;
 pub const PEN_MASK_TILT_X: i32 = 4;
 pub const PEN_MASK_TILT_Y: i32 = 8;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PEVENTMSG = *mut EVENTMSG;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PEVENTMSGMSG = *mut EVENTMSG;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PFLASHWINFO = *mut FLASHWINFO;
+#[cfg(feature = "shared")]
 pub type PGESTURECONFIG = *mut GESTURECONFIG;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PGESTUREINFO = *mut GESTUREINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PGESTURENOTIFYSTRUCT = *mut GESTURENOTIFYSTRUCT;
+#[cfg(feature = "shared")]
 pub type PGETCLIPBMETADATA = *mut GETCLIPBMETADATA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PGUITHREADINFO = *mut GUITHREADINFO;
 pub type PHANDEDNESS = *mut HANDEDNESS;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PHARDWAREHOOKSTRUCT = *mut HARDWAREHOOKSTRUCT;
+#[cfg(feature = "shared")]
 pub type PHARDWAREINPUT = *mut HARDWAREINPUT;
-pub type PHDEVNOTIFY = *mut HDEVNOTIFY;
-pub type PHELPWININFO = PHELPWININFOA;
+pub type PHDEVNOTIFY = *mut *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
+pub type PHELPWININFO = *mut HELPWININFOA;
+#[cfg(feature = "shared")]
 pub type PHELPWININFOA = *mut HELPWININFOA;
+#[cfg(feature = "winnt")]
 pub type PHELPWININFOW = *mut HELPWININFOW;
-pub type PHPOWERNOTIFY = *mut HPOWERNOTIFY;
-#[cfg(feature = "windef")]
+pub type PHPOWERNOTIFY = *mut *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PICONINFO = *mut ICONINFO;
-#[cfg(feature = "windef")]
-pub type PICONINFOEX = PICONINFOEXA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type PICONINFOEX = *mut ICONINFOEXA;
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PICONINFOEXA = *mut ICONINFOEXA;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PICONINFOEXW = *mut ICONINFOEXW;
-#[cfg(feature = "wingdi")]
-pub type PICONMETRICS = PICONMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+pub type PICONMETRICS = *mut ICONMETRICSA;
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 pub type PICONMETRICSA = *mut ICONMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 pub type PICONMETRICSW = *mut ICONMETRICSW;
+#[cfg(feature = "shared")]
 pub type PINPUT = *mut INPUT;
+#[cfg(feature = "shared")]
 pub type PINPUT_INJECTION_VALUE = *mut INPUT_INJECTION_VALUE;
+#[cfg(feature = "shared")]
 pub type PKBDLLHOOKSTRUCT = *mut KBDLLHOOKSTRUCT;
+#[cfg(feature = "shared")]
 pub type PKEYBDINPUT = *mut KEYBDINPUT;
+#[cfg(feature = "shared")]
 pub type PLASTINPUTINFO = *mut LASTINPUTINFO;
 pub const PMB_ACTIVE: i32 = 1;
 #[cfg(feature = "windef")]
 pub type PMDINEXTMENU = *mut MDINEXTMENU;
+#[cfg(feature = "shared")]
 pub type PMEASUREITEMSTRUCT = *mut MEASUREITEMSTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMENUBARINFO = *mut MENUBARINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PMENUGETOBJECTINFO = *mut MENUGETOBJECTINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMENUITEMTEMPLATE = *mut MENUITEMTEMPLATE;
+#[cfg(feature = "shared")]
 pub type PMENUITEMTEMPLATEHEADER = *mut MENUITEMTEMPLATEHEADER;
+#[cfg(feature = "shared")]
 pub type PMINIMIZEDMETRICS = *mut MINIMIZEDMETRICS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMINMAXINFO = *mut MINMAXINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMOUSEHOOKSTRUCT = *mut MOUSEHOOKSTRUCT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMOUSEHOOKSTRUCTEX = *mut MOUSEHOOKSTRUCTEX;
+#[cfg(feature = "shared")]
 pub type PMOUSEINPUT = *mut MOUSEINPUT;
+#[cfg(feature = "shared")]
 pub type PMOUSEMOVEPOINT = *mut MOUSEMOVEPOINT;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PMSG = *mut MSG;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-pub type PMSGBOXPARAMS = PMSGBOXPARAMSA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+pub type PMSGBOXPARAMS = *mut MSGBOXPARAMSA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PMSGBOXPARAMSA = *mut MSGBOXPARAMSA;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PMSGBOXPARAMSW = *mut MSGBOXPARAMSW;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PMSLLHOOKSTRUCT = *mut MSLLHOOKSTRUCT;
-pub type PMULTIKEYHELP = PMULTIKEYHELPA;
+#[cfg(feature = "shared")]
+pub type PMULTIKEYHELP = *mut MULTIKEYHELPA;
+#[cfg(feature = "shared")]
 pub type PMULTIKEYHELPA = *mut MULTIKEYHELPA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMULTIKEYHELPW = *mut MULTIKEYHELPW;
 pub const PM_NOREMOVE: i32 = 0;
 pub const PM_NOYIELD: i32 = 2;
@@ -4292,11 +4499,11 @@ pub const PM_QS_PAINT: i32 = 2097152;
 pub const PM_QS_POSTMESSAGE: i32 = 9961472;
 pub const PM_QS_SENDMESSAGE: i32 = 4194304;
 pub const PM_REMOVE: i32 = 1;
-#[cfg(feature = "wingdi")]
-pub type PNONCLIENTMETRICS = PNONCLIENTMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+pub type PNONCLIENTMETRICS = *mut NONCLIENTMETRICSA;
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 pub type PNONCLIENTMETRICSA = *mut NONCLIENTMETRICSA;
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi", feature = "winnt"))]
 pub type PNONCLIENTMETRICSW = *mut NONCLIENTMETRICSW;
 pub type POINTER_BUTTON_CHANGE_TYPE = i32;
 pub const POINTER_CHANGE_FIFTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = 9;
@@ -4311,9 +4518,10 @@ pub const POINTER_CHANGE_SECONDBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = 4;
 pub const POINTER_CHANGE_THIRDBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = 5;
 pub const POINTER_CHANGE_THIRDBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct POINTER_DEVICE_CURSOR_INFO {
-    pub cursorId: u32,
+    pub cursorId: super::UINT32,
     pub cursor: POINTER_DEVICE_CURSOR_TYPE,
 }
 pub type POINTER_DEVICE_CURSOR_TYPE = i32;
@@ -4322,18 +4530,18 @@ pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = -1;
 pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = 1;
 pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = 0;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POINTER_DEVICE_INFO {
-    pub displayOrientation: u32,
+    pub displayOrientation: super::DWORD,
     pub device: super::HANDLE,
     pub pointerDeviceType: POINTER_DEVICE_TYPE,
     pub monitor: super::HMONITOR,
-    pub startingCursorId: u32,
-    pub maxActiveContacts: u16,
-    pub productString: [u16; 520],
+    pub startingCursorId: super::ULONG,
+    pub maxActiveContacts: super::USHORT,
+    pub productString: [super::WCHAR; 520],
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for POINTER_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4341,16 +4549,17 @@ impl Default for POINTER_DEVICE_INFO {
 }
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: i32 = 520;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct POINTER_DEVICE_PROPERTY {
-    pub logicalMin: i32,
-    pub logicalMax: i32,
-    pub physicalMin: i32,
-    pub physicalMax: i32,
-    pub unit: u32,
-    pub unitExponent: u32,
-    pub usagePageId: u16,
-    pub usageId: u16,
+    pub logicalMin: super::INT32,
+    pub logicalMax: super::INT32,
+    pub physicalMin: super::INT32,
+    pub physicalMax: super::INT32,
+    pub unit: super::UINT32,
+    pub unitExponent: super::UINT32,
+    pub usagePageId: super::USHORT,
+    pub usageId: super::USHORT,
 }
 pub type POINTER_DEVICE_TYPE = i32;
 pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = 2;
@@ -4383,12 +4592,12 @@ pub const POINTER_FLAG_UP: i32 = 262144;
 pub const POINTER_FLAG_UPDATE: i32 = 131072;
 pub const POINTER_FLAG_WHEEL: i32 = 524288;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POINTER_INFO {
     pub pointerType: POINTER_INPUT_TYPE,
-    pub pointerId: u32,
-    pub frameId: u32,
+    pub pointerId: super::UINT32,
+    pub frameId: super::UINT32,
     pub pointerFlags: POINTER_FLAGS,
     pub sourceDevice: super::HANDLE,
     pub hwndTarget: super::HWND,
@@ -4396,11 +4605,11 @@ pub struct POINTER_INFO {
     pub ptHimetricLocation: super::POINT,
     pub ptPixelLocationRaw: super::POINT,
     pub ptHimetricLocationRaw: super::POINT,
-    pub dwTime: u32,
-    pub historyCount: u32,
-    pub InputData: i32,
-    pub dwKeyStates: u32,
-    pub PerformanceCount: u64,
+    pub dwTime: super::DWORD,
+    pub historyCount: super::UINT32,
+    pub InputData: super::INT32,
+    pub dwKeyStates: super::DWORD,
+    pub PerformanceCount: super::UINT64,
     pub ButtonChangeType: POINTER_BUTTON_CHANGE_TYPE,
 }
 pub type POINTER_INPUT_TYPE = u32;
@@ -4418,19 +4627,19 @@ pub const POINTER_MESSAGE_FLAG_THIRDBUTTON: i32 = 64;
 pub const POINTER_MOD_CTRL: i32 = 8;
 pub const POINTER_MOD_SHIFT: i32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POINTER_PEN_INFO {
     pub pointerInfo: POINTER_INFO,
     pub penFlags: PEN_FLAGS,
     pub penMask: PEN_MASK,
-    pub pressure: u32,
-    pub rotation: u32,
-    pub tiltX: i32,
-    pub tiltY: i32,
+    pub pressure: super::UINT32,
+    pub rotation: super::UINT32,
+    pub tiltX: super::INT32,
+    pub tiltY: super::INT32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct POINTER_TOUCH_INFO {
     pub pointerInfo: POINTER_INFO,
@@ -4438,65 +4647,71 @@ pub struct POINTER_TOUCH_INFO {
     pub touchMask: TOUCH_MASK,
     pub rcContact: super::RECT,
     pub rcContactRaw: super::RECT,
-    pub orientation: u32,
-    pub pressure: u32,
+    pub orientation: super::UINT32,
+    pub pressure: super::UINT32,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct POINTER_TYPE_INFO {
     pub r#type: POINTER_INPUT_TYPE,
     pub Anonymous: POINTER_TYPE_INFO_0,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for POINTER_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union POINTER_TYPE_INFO_0 {
     pub pointerInfo: POINTER_INFO,
     pub touchInfo: POINTER_TOUCH_INFO,
     pub penInfo: POINTER_PEN_INFO,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for POINTER_TYPE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct POWERBROADCAST_SETTING {
     pub PowerSetting: windows_sys::core::GUID,
-    pub DataLength: u32,
-    pub Data: [u8; 1],
+    pub DataLength: super::DWORD,
+    pub Data: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for POWERBROADCAST_SETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PPAINTSTRUCT = *mut PAINTSTRUCT;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PPOINTER_TYPE_INFO = *mut POINTER_TYPE_INFO;
+#[cfg(feature = "shared")]
 pub type PPOWERBROADCAST_SETTING = *mut POWERBROADCAST_SETTING;
+#[cfg(feature = "shared")]
 pub type PRAWHID = *mut RAWHID;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PRAWINPUT = *mut RAWINPUT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PRAWINPUTDEVICE = *mut RAWINPUTDEVICE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRAWINPUTDEVICELIST = *mut RAWINPUTDEVICELIST;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PRAWINPUTHEADER = *mut RAWINPUTHEADER;
+#[cfg(feature = "shared")]
 pub type PRAWKEYBOARD = *mut RAWKEYBOARD;
+#[cfg(feature = "shared")]
 pub type PRAWMOUSE = *mut RAWMOUSE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PREGISTERCLASSNAMEW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> super::BOOLEAN>;
 pub const PRF_CHECKVISIBLE: i32 = 1;
 pub const PRF_CHILDREN: i32 = 16;
@@ -4504,71 +4719,81 @@ pub const PRF_CLIENT: i32 = 4;
 pub const PRF_ERASEBKGND: i32 = 8;
 pub const PRF_NONCLIENT: i32 = 2;
 pub const PRF_OWNED: i32 = 32;
+#[cfg(feature = "shared")]
 pub type PRID_DEVICE_INFO = *mut RID_DEVICE_INFO;
+#[cfg(feature = "shared")]
 pub type PRID_DEVICE_INFO_HID = *mut RID_DEVICE_INFO_HID;
+#[cfg(feature = "shared")]
 pub type PRID_DEVICE_INFO_KEYBOARD = *mut RID_DEVICE_INFO_KEYBOARD;
+#[cfg(feature = "shared")]
 pub type PRID_DEVICE_INFO_MOUSE = *mut RID_DEVICE_INFO_MOUSE;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-pub type PROPENUMPROC = PROPENUMPROCA;
+pub type PROPENUMPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PCSTR, param2: super::HANDLE) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROCA = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PCSTR, param2: super::HANDLE) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "windef", feature = "winnt"))]
-pub type PROPENUMPROCEX = PROPENUMPROCEXA;
-#[cfg(all(feature = "windef", feature = "winnt"))]
-pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PCSTR, param2: super::HANDLE, param3: usize) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "windef", feature = "winnt"))]
-pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PCWSTR, param2: super::HANDLE, param3: usize) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+pub type PROPENUMPROCEX = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PSTR, param2: super::HANDLE, param3: super::ULONG_PTR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+pub type PROPENUMPROCEXA = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PSTR, param2: super::HANDLE, param3: super::ULONG_PTR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+pub type PROPENUMPROCEXW = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PWSTR, param2: super::HANDLE, param3: super::ULONG_PTR) -> windows_sys::core::BOOL>;
 #[cfg(all(feature = "windef", feature = "winnt"))]
 pub type PROPENUMPROCW = Option<unsafe extern "system" fn(param0: super::HWND, param1: windows_sys::core::PCWSTR, param2: super::HANDLE) -> windows_sys::core::BOOL>;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PSCROLLBARINFO = *mut SCROLLBARINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PTITLEBARINFO = *mut TITLEBARINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PTITLEBARINFOEX = *mut TITLEBARINFOEX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTOUCHINPUT = *mut TOUCHINPUT;
+#[cfg(feature = "shared")]
 pub type PTOUCHPAD_PARAMETERS_V1 = *mut TOUCHPAD_PARAMETERS_V1;
+#[cfg(feature = "shared")]
 pub type PTOUCHPAD_PARAMETERS_V2 = *mut TOUCHPAD_PARAMETERS_V2;
+#[cfg(feature = "shared")]
 pub type PTOUCHPREDICTIONPARAMETERS = *mut TOUCHPREDICTIONPARAMETERS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PTOUCH_HIT_TESTING_INPUT = *mut TOUCH_HIT_TESTING_INPUT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PTOUCH_HIT_TESTING_PROXIMITY_EVALUATION = *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION;
 pub const PT_MOUSE: tagPOINTER_INPUT_TYPE = 4;
 pub const PT_PEN: tagPOINTER_INPUT_TYPE = 3;
 pub const PT_POINTER: tagPOINTER_INPUT_TYPE = 1;
 pub const PT_TOUCH: tagPOINTER_INPUT_TYPE = 2;
 pub const PT_TOUCHPAD: tagPOINTER_INPUT_TYPE = 5;
-#[cfg(all(feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 pub type PUPDATELAYEREDWINDOWINFO = *mut UPDATELAYEREDWINDOWINFO;
+#[cfg(feature = "shared")]
 pub type PUSAGE_PROPERTIES = *mut USAGE_PROPERTIES;
+#[cfg(feature = "shared")]
 pub type PUSEROBJECTFLAGS = *mut USEROBJECTFLAGS;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PWINDOWINFO = *mut WINDOWINFO;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PWINDOWPLACEMENT = *mut WINDOWPLACEMENT;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PWINDOWPOS = *mut WINDOWPOS;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PWINDOW_ACTION = *mut WINDOW_ACTION;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type PWNDCLASS = PWNDCLASSA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type PWNDCLASS = *mut WNDCLASSA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PWNDCLASSA = *mut WNDCLASSA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type PWNDCLASSEX = PWNDCLASSEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type PWNDCLASSEX = *mut WNDCLASSEXA;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PWNDCLASSEXA = *mut WNDCLASSEXA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PWNDCLASSEXW = *mut WNDCLASSEXW;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PWNDCLASSW = *mut WNDCLASSW;
 pub const PWR_CRITICALRESUME: i32 = 3;
 pub const PWR_FAIL: i32 = -1;
 pub const PWR_OK: i32 = 1;
 pub const PWR_SUSPENDREQUEST: i32 = 1;
 pub const PWR_SUSPENDRESUME: i32 = 2;
+#[cfg(feature = "shared")]
 pub type PWTSSESSION_NOTIFICATION = *mut WTSSESSION_NOTIFICATION;
 pub const PW_CLIENTONLY: i32 = 1;
 pub const PW_RENDERFULLCONTENT: i32 = 2;
@@ -4589,110 +4814,118 @@ pub const QS_SENDMESSAGE: i32 = 64;
 pub const QS_TIMER: i32 = 16;
 pub const QS_TOUCH: i32 = 2048;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct RAWHID {
-    pub dwSizeHid: u32,
-    pub dwCount: u32,
-    pub bRawData: [u8; 1],
+    pub dwSizeHid: super::DWORD,
+    pub dwCount: super::DWORD,
+    pub bRawData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for RAWHID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RAWINPUT {
     pub header: RAWINPUTHEADER,
     pub data: RAWINPUT_0,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for RAWINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union RAWINPUT_0 {
     pub mouse: RAWMOUSE,
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 impl Default for RAWINPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct RAWINPUTDEVICE {
-    pub usUsagePage: u16,
-    pub usUsage: u16,
-    pub dwFlags: u32,
+    pub usUsagePage: super::USHORT,
+    pub usUsage: super::USHORT,
+    pub dwFlags: super::DWORD,
     pub hwndTarget: super::HWND,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct RAWINPUTDEVICELIST {
     pub hDevice: super::HANDLE,
-    pub dwType: u32,
+    pub dwType: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct RAWINPUTHEADER {
-    pub dwType: u32,
-    pub dwSize: u32,
+    pub dwType: super::DWORD,
+    pub dwSize: super::DWORD,
     pub hDevice: super::HANDLE,
     pub wParam: super::WPARAM,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RAWKEYBOARD {
-    pub MakeCode: u16,
-    pub Flags: u16,
-    pub Reserved: u16,
-    pub VKey: u16,
-    pub Message: u32,
-    pub ExtraInformation: u32,
+    pub MakeCode: super::USHORT,
+    pub Flags: super::USHORT,
+    pub Reserved: super::USHORT,
+    pub VKey: super::USHORT,
+    pub Message: super::UINT,
+    pub ExtraInformation: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct RAWMOUSE {
-    pub usFlags: u16,
+    pub usFlags: super::USHORT,
     pub Anonymous: RAWMOUSE_0,
-    pub ulRawButtons: u32,
-    pub lLastX: i32,
-    pub lLastY: i32,
-    pub ulExtraInformation: u32,
+    pub ulRawButtons: super::ULONG,
+    pub lLastX: super::LONG,
+    pub lLastY: super::LONG,
+    pub ulExtraInformation: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for RAWMOUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union RAWMOUSE_0 {
-    pub ulButtons: u32,
+    pub ulButtons: super::ULONG,
     pub Anonymous: RAWMOUSE_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for RAWMOUSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RAWMOUSE_0_0 {
-    pub usButtonFlags: u16,
-    pub usButtonData: u16,
+    pub usButtonFlags: super::USHORT,
+    pub usButtonData: super::USHORT,
 }
 pub const RDW_ALLCHILDREN: i32 = 128;
 pub const RDW_ERASE: i32 = 4;
@@ -4723,54 +4956,61 @@ pub const RIDI_DEVICEINFO: i32 = 536870923;
 pub const RIDI_DEVICENAME: i32 = 536870919;
 pub const RIDI_PREPARSEDDATA: i32 = 536870917;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct RID_DEVICE_INFO {
-    pub cbSize: u32,
-    pub dwType: u32,
+    pub cbSize: super::DWORD,
+    pub dwType: super::DWORD,
     pub Anonymous: RID_DEVICE_INFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for RID_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union RID_DEVICE_INFO_0 {
     pub mouse: RID_DEVICE_INFO_MOUSE,
     pub keyboard: RID_DEVICE_INFO_KEYBOARD,
     pub hid: RID_DEVICE_INFO_HID,
 }
+#[cfg(feature = "shared")]
 impl Default for RID_DEVICE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RID_DEVICE_INFO_HID {
-    pub dwVendorId: u32,
-    pub dwProductId: u32,
-    pub dwVersionNumber: u32,
-    pub usUsagePage: u16,
-    pub usUsage: u16,
+    pub dwVendorId: super::DWORD,
+    pub dwProductId: super::DWORD,
+    pub dwVersionNumber: super::DWORD,
+    pub usUsagePage: super::USHORT,
+    pub usUsage: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RID_DEVICE_INFO_KEYBOARD {
-    pub dwType: u32,
-    pub dwSubType: u32,
-    pub dwKeyboardMode: u32,
-    pub dwNumberOfFunctionKeys: u32,
-    pub dwNumberOfIndicators: u32,
-    pub dwNumberOfKeysTotal: u32,
+    pub dwType: super::DWORD,
+    pub dwSubType: super::DWORD,
+    pub dwKeyboardMode: super::DWORD,
+    pub dwNumberOfFunctionKeys: super::DWORD,
+    pub dwNumberOfIndicators: super::DWORD,
+    pub dwNumberOfKeysTotal: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct RID_DEVICE_INFO_MOUSE {
-    pub dwId: u32,
-    pub dwNumberOfButtons: u32,
-    pub dwSampleRate: u32,
+    pub dwId: super::DWORD,
+    pub dwNumberOfButtons: super::DWORD,
+    pub dwSampleRate: super::DWORD,
     pub fHasHorizontalWheel: windows_sys::core::BOOL,
 }
 pub const RID_HEADER: i32 = 268435461;
@@ -4867,31 +5107,32 @@ pub const SB_TOP: i32 = 6;
 pub const SB_VERT: i32 = 1;
 pub const SCF_ISSECURE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct SCROLLBARINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcScrollBar: super::RECT,
     pub dxyLineButton: i32,
     pub xyThumbTop: i32,
     pub xyThumbBottom: i32,
     pub reserved: i32,
-    pub rgstate: [u32; 6],
+    pub rgstate: [super::DWORD; 6],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for SCROLLBARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCROLLINFO {
-    pub cbSize: u32,
-    pub fMask: u32,
+    pub cbSize: super::UINT,
+    pub fMask: super::UINT,
     pub nMin: i32,
     pub nMax: i32,
-    pub nPage: u32,
+    pub nPage: super::UINT,
     pub nPos: i32,
     pub nTrackPos: i32,
 }
@@ -4917,37 +5158,40 @@ pub const SC_SIZE: i32 = 61440;
 pub const SC_TASKLIST: i32 = 61744;
 pub const SC_VSCROLL: i32 = 61552;
 pub const SC_ZOOM: i32 = 61488;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: u32, param2: usize, param3: super::LRESULT)>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type SENDASYNCPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::UINT, param2: super::ULONG_PTR, param3: super::LRESULT)>;
+#[cfg(feature = "shared")]
 pub type SERIALKEYS = SERIALKEYSA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SERIALKEYSA {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
     pub lpszActivePort: windows_sys::core::PSTR,
     pub lpszPort: windows_sys::core::PSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
+    pub iBaudRate: super::UINT,
+    pub iPortState: super::UINT,
+    pub iActive: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SERIALKEYSW {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
     pub lpszActivePort: windows_sys::core::PWSTR,
     pub lpszPort: windows_sys::core::PWSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
+    pub iBaudRate: super::UINT,
+    pub iPortState: super::UINT,
+    pub iActive: super::UINT,
 }
 pub const SERKF_AVAILABLE: i32 = 2;
 pub const SERKF_INDICATOR: i32 = 4;
 pub const SERKF_SERIALKEYSON: i32 = 1;
 pub const SETWALLPAPER_DEFAULT: windows_sys::core::PCWSTR = -1 as _;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLHOOKINFO {
     pub hwnd: super::HWND,
@@ -5107,38 +5351,41 @@ pub const SM_SYSTEMDOCKED: i32 = 8196;
 pub const SM_TABLETPC: i32 = 86;
 pub const SM_XVIRTUALSCREEN: i32 = 76;
 pub const SM_YVIRTUALSCREEN: i32 = 77;
+#[cfg(feature = "shared")]
 pub type SOUNDSENTRY = SOUNDSENTRYA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOUNDSENTRYA {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iFSTextEffect: u32,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: u32,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: u32,
-    pub iWindowsEffectMSec: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
+    pub iFSTextEffect: super::DWORD,
+    pub iFSTextEffectMSec: super::DWORD,
+    pub iFSTextEffectColorBits: super::DWORD,
+    pub iFSGrafEffect: super::DWORD,
+    pub iFSGrafEffectMSec: super::DWORD,
+    pub iFSGrafEffectColor: super::DWORD,
+    pub iWindowsEffect: super::DWORD,
+    pub iWindowsEffectMSec: super::DWORD,
     pub lpszWindowsEffectDLL: windows_sys::core::PSTR,
-    pub iWindowsEffectOrdinal: u32,
+    pub iWindowsEffectOrdinal: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SOUNDSENTRYW {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iFSTextEffect: u32,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: u32,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: u32,
-    pub iWindowsEffectMSec: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
+    pub iFSTextEffect: super::DWORD,
+    pub iFSTextEffectMSec: super::DWORD,
+    pub iFSTextEffectColorBits: super::DWORD,
+    pub iFSGrafEffect: super::DWORD,
+    pub iFSGrafEffectMSec: super::DWORD,
+    pub iFSGrafEffectColor: super::DWORD,
+    pub iWindowsEffect: super::DWORD,
+    pub iWindowsEffectMSec: super::DWORD,
     pub lpszWindowsEffectDLL: windows_sys::core::PWSTR,
-    pub iWindowsEffectOrdinal: u32,
+    pub iWindowsEffectOrdinal: super::DWORD,
 }
 pub const SOUND_SYSTEM_APPEND: i32 = 14;
 pub const SOUND_SYSTEM_APPSTART: i32 = 12;
@@ -5481,10 +5728,11 @@ pub const STATE_SYSTEM_TRAVERSED: i32 = 8388608;
 pub const STATE_SYSTEM_UNAVAILABLE: i32 = 1;
 pub const STATE_SYSTEM_VALID: i32 = 1073741823;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct STICKYKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
 }
 pub const STM_GETICON: i32 = 369;
 pub const STM_GETIMAGE: i32 = 371;
@@ -5496,10 +5744,11 @@ pub const STN_DBLCLK: i32 = 1;
 pub const STN_DISABLE: i32 = 3;
 pub const STN_ENABLE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct STYLESTRUCT {
-    pub styleOld: u32,
-    pub styleNew: u32,
+    pub styleOld: super::DWORD,
+    pub styleNew: super::DWORD,
 }
 pub const SWP_ASYNCWINDOWPOS: i32 = 16384;
 pub const SWP_DEFERERASE: i32 = 8192;
@@ -5542,36 +5791,36 @@ pub const SW_SHOWNORMAL: i32 = 1;
 pub const SW_SMOOTHSCROLL: i32 = 16;
 pub const TDF_REGISTER: TOOLTIP_DISMISS_FLAGS = 1;
 pub const TDF_UNREGISTER: TOOLTIP_DISMISS_FLAGS = 2;
-#[cfg(feature = "windef")]
-pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: u32, param2: usize, param3: u32)>;
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type TIMERPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::UINT, param2: super::UINT_PTR, param3: super::DWORD)>;
 pub const TIMERV_COALESCING_MAX: i32 = 2147483637;
 pub const TIMERV_COALESCING_MIN: i32 = 1;
 pub const TIMERV_DEFAULT_COALESCING: i32 = 0;
 pub const TIMERV_NO_COALESCING: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct TITLEBARINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcTitleBar: super::RECT,
-    pub rgstate: [u32; 6],
+    pub rgstate: [super::DWORD; 6],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for TITLEBARINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct TITLEBARINFOEX {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcTitleBar: super::RECT,
-    pub rgstate: [u32; 6],
+    pub rgstate: [super::DWORD; 6],
     pub rgrect: [super::RECT; 6],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for TITLEBARINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5589,10 +5838,11 @@ pub const TME_LEAVE: i32 = 2;
 pub const TME_NONCLIENT: i32 = 16;
 pub const TME_QUERY: i32 = 1073741824;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TOGGLEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::UINT,
+    pub dwFlags: super::DWORD,
 }
 pub type TOOLTIP_DISMISS_FLAGS = i32;
 pub const TOUCHEVENTF_DOWN: i32 = 2;
@@ -5604,43 +5854,45 @@ pub const TOUCHEVENTF_PEN: i32 = 64;
 pub const TOUCHEVENTF_PRIMARY: i32 = 16;
 pub const TOUCHEVENTF_UP: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCHINPUT {
-    pub x: i32,
-    pub y: i32,
+    pub x: super::LONG,
+    pub y: super::LONG,
     pub hSource: super::HANDLE,
-    pub dwID: u32,
-    pub dwFlags: u32,
-    pub dwMask: u32,
-    pub dwTime: u32,
-    pub dwExtraInfo: usize,
-    pub cxContact: u32,
-    pub cyContact: u32,
+    pub dwID: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwMask: super::DWORD,
+    pub dwTime: super::DWORD,
+    pub dwExtraInfo: super::ULONG_PTR,
+    pub cxContact: super::DWORD,
+    pub cyContact: super::DWORD,
 }
 pub const TOUCHINPUTMASKF_CONTACTAREA: i32 = 4;
 pub const TOUCHINPUTMASKF_EXTRAINFO: i32 = 2;
 pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCHPAD_PARAMETERS_V1 {
-    pub versionNumber: u32,
-    pub maxSupportedContacts: u32,
+    pub versionNumber: super::UINT,
+    pub maxSupportedContacts: super::UINT,
     pub legacyTouchpadFeatures: LEGACY_TOUCHPAD_FEATURES,
-    pub _bitfield1: windows_sys::core::BOOL,
-    pub _bitfield2: windows_sys::core::BOOL,
+    pub _bitfield1: i32,
+    pub _bitfield2: i32,
     pub sensitivityLevel: TOUCHPAD_SENSITIVITY_LEVEL,
-    pub cursorSpeed: u32,
-    pub feedbackIntensity: u32,
-    pub clickForceSensitivity: u32,
-    pub rightClickZoneWidth: u32,
-    pub rightClickZoneHeight: u32,
+    pub cursorSpeed: super::UINT,
+    pub feedbackIntensity: super::UINT,
+    pub clickForceSensitivity: super::UINT,
+    pub rightClickZoneWidth: super::UINT,
+    pub rightClickZoneHeight: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCHPAD_PARAMETERS_V2 {
-    pub Base: TOUCHPAD_PARAMETERS_V1,
-    pub _bitfield: windows_sys::core::BOOL,
+    pub base: TOUCHPAD_PARAMETERS_V1,
+    pub _bitfield: i32,
 }
 pub const TOUCHPAD_PARAMETERS_VERSION_1: i32 = 1;
 pub const TOUCHPAD_PARAMETERS_VERSION_2: i32 = 2;
@@ -5651,12 +5903,13 @@ pub const TOUCHPAD_SENSITIVITY_LEVEL_LOW_SENSITIVITY: TOUCHPAD_SENSITIVITY_LEVEL
 pub const TOUCHPAD_SENSITIVITY_LEVEL_MEDIUM_SENSITIVITY: TOUCHPAD_SENSITIVITY_LEVEL = 2;
 pub const TOUCHPAD_SENSITIVITY_LEVEL_MOST_SENSITIVE: TOUCHPAD_SENSITIVITY_LEVEL = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCHPREDICTIONPARAMETERS {
-    pub cbSize: u32,
-    pub dwLatency: u32,
-    pub dwSampleTime: u32,
-    pub bUseHWTimeStamp: u32,
+    pub cbSize: super::UINT,
+    pub dwLatency: super::UINT,
+    pub dwSampleTime: super::UINT,
+    pub bUseHWTimeStamp: super::UINT,
 }
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_LATENCY: i32 = 8;
 pub const TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_DELTA: f32 = 0.001;
@@ -5674,22 +5927,22 @@ pub const TOUCH_FLAG_NONE: i32 = 0;
 pub const TOUCH_HIT_TESTING_CLIENT: i32 = 1;
 pub const TOUCH_HIT_TESTING_DEFAULT: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCH_HIT_TESTING_INPUT {
-    pub pointerId: u32,
+    pub pointerId: super::UINT32,
     pub point: super::POINT,
     pub boundingBox: super::RECT,
     pub nonOccludedBoundingBox: super::RECT,
-    pub orientation: u32,
+    pub orientation: super::UINT32,
 }
 pub const TOUCH_HIT_TESTING_NONE: i32 = 2;
 pub const TOUCH_HIT_TESTING_PROXIMITY_CLOSEST: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
-    pub score: u16,
+    pub score: super::UINT16,
     pub adjustedPoint: super::POINT,
 }
 pub const TOUCH_HIT_TESTING_PROXIMITY_FARTHEST: i32 = 4095;
@@ -5699,10 +5952,10 @@ pub const TOUCH_MASK_NONE: i32 = 0;
 pub const TOUCH_MASK_ORIENTATION: i32 = 2;
 pub const TOUCH_MASK_PRESSURE: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TPMPARAMS {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub rcExclude: super::RECT,
 }
 pub const TPM_BOTTOMALIGN: i32 = 32;
@@ -5726,13 +5979,13 @@ pub const TPM_VERPOSANIMATION: i32 = 4096;
 pub const TPM_VERTICAL: i32 = 64;
 pub const TPM_WORKAREA: i32 = 65536;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct TRACKMOUSEEVENT {
-    pub cbSize: u32,
-    pub dwFlags: u32,
+    pub cbSize: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub hwndTrack: super::HWND,
-    pub dwHoverTime: u32,
+    pub dwHoverTime: super::DWORD,
 }
 pub const TWF_FINETOUCH: i32 = 1;
 pub const TWF_WANTPALM: i32 = 2;
@@ -5755,10 +6008,10 @@ pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: i32 = 7;
 pub const UOI_TYPE: i32 = 3;
 pub const UOI_USER_SID: i32 = 4;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct UPDATELAYEREDWINDOWINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub hdcDst: super::HDC,
     pub pptDst: *const super::POINT,
     pub psize: *const super::SIZE,
@@ -5766,29 +6019,31 @@ pub struct UPDATELAYEREDWINDOWINFO {
     pub pptSrc: *const super::POINT,
     pub crKey: super::COLORREF,
     pub pblend: *const super::BLENDFUNCTION,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub prcDirty: *const super::RECT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USAGE_PROPERTIES {
-    pub level: u16,
-    pub page: u16,
-    pub usage: u16,
-    pub logicalMinimum: i32,
-    pub logicalMaximum: i32,
-    pub unit: u16,
-    pub exponent: u16,
-    pub count: u8,
-    pub physicalMinimum: i32,
-    pub physicalMaximum: i32,
+    pub level: super::USHORT,
+    pub page: super::USHORT,
+    pub usage: super::USHORT,
+    pub logicalMinimum: super::INT32,
+    pub logicalMaximum: super::INT32,
+    pub unit: super::USHORT,
+    pub exponent: super::USHORT,
+    pub count: super::BYTE,
+    pub physicalMinimum: super::INT32,
+    pub physicalMaximum: super::INT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USEROBJECTFLAGS {
     pub fInherit: windows_sys::core::BOOL,
     pub fReserved: windows_sys::core::BOOL,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
 }
 pub const USER_DEFAULT_SCREEN_DPI: i32 = 96;
 pub const USER_TIMER_MAXIMUM: i32 = 2147483647;
@@ -6045,33 +6300,33 @@ pub const WH_MSGFILTER: i32 = -1;
 pub const WH_SHELL: i32 = 10;
 pub const WH_SYSMSGFILTER: i32 = 6;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDOWINFO {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub rcWindow: super::RECT,
     pub rcClient: super::RECT,
-    pub dwStyle: u32,
-    pub dwExStyle: u32,
-    pub dwWindowStatus: u32,
-    pub cxWindowBorders: u32,
-    pub cyWindowBorders: u32,
+    pub dwStyle: super::DWORD,
+    pub dwExStyle: super::DWORD,
+    pub dwWindowStatus: super::DWORD,
+    pub cxWindowBorders: super::UINT,
+    pub cyWindowBorders: super::UINT,
     pub atomWindowType: super::ATOM,
-    pub wCreatorVersion: u16,
+    pub wCreatorVersion: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDOWPLACEMENT {
-    pub length: u32,
-    pub flags: u32,
-    pub showCmd: u32,
+    pub length: super::UINT,
+    pub flags: super::UINT,
+    pub showCmd: super::UINT,
     pub ptMinPosition: super::POINT,
     pub ptMaxPosition: super::POINT,
     pub rcNormalPosition: super::RECT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDOWPOS {
     pub hwnd: super::HWND,
@@ -6080,10 +6335,10 @@ pub struct WINDOWPOS {
     pub y: i32,
     pub cx: i32,
     pub cy: i32,
-    pub flags: u32,
+    pub flags: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WINDOW_ACTION {
     pub kinds: WINDOW_ACTION_KINDS,
@@ -6095,25 +6350,25 @@ pub struct WINDOW_ACTION {
     pub placementState: WINDOW_PLACEMENT_STATE,
     pub normalRect: super::RECT,
     pub workArea: super::RECT,
-    pub dpi: u32,
+    pub dpi: super::UINT,
     pub pointOnMonitor: super::POINT,
-    pub monitorTopologyId: u32,
+    pub monitorTopologyId: super::UINT,
 }
-pub type WINDOW_ACTION_KINDS = u32;
-pub type WINDOW_ACTION_MODIFIERS = u32;
+pub type WINDOW_ACTION_KINDS = i32;
+pub type WINDOW_ACTION_MODIFIERS = i32;
 pub type WINDOW_PLACEMENT_STATE = i32;
-#[cfg(feature = "windef")]
-pub type WINEVENTPROC = Option<unsafe extern "system" fn(hwineventhook: super::HWINEVENTHOOK, event: u32, hwnd: super::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
+#[cfg(all(feature = "shared", feature = "windef"))]
+pub type WINEVENTPROC = Option<unsafe extern "system" fn(hwineventhook: super::HWINEVENTHOOK, event: super::DWORD, hwnd: super::HWND, idobject: super::LONG, idchild: super::LONG, ideventthread: super::DWORD, dwmseventtime: super::DWORD)>;
 pub const WINEVENT_INCONTEXT: i32 = 4;
 pub const WINEVENT_OUTOFCONTEXT: i32 = 0;
 pub const WINEVENT_SKIPOWNPROCESS: i32 = 2;
 pub const WINEVENT_SKIPOWNTHREAD: i32 = 1;
 #[cfg(feature = "minwindef")]
-pub type WINSTAENUMPROC = WINSTAENUMPROCA;
+pub type WINSTAENUMPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type WINSTAENUMPROCA = NAMEENUMPROCA;
+pub type WINSTAENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type WINSTAENUMPROCW = NAMEENUMPROCW;
+pub type WINSTAENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 pub const WINSTA_ACCESSCLIPBOARD: i32 = 4;
 pub const WINSTA_ACCESSGLOBALATOMS: i32 = 32;
 pub const WINSTA_ALL_ACCESS: i32 = 895;
@@ -6391,13 +6646,13 @@ pub const WM_WTSSESSION_CHANGE: i32 = 689;
 pub const WM_XBUTTONDBLCLK: i32 = 525;
 pub const WM_XBUTTONDOWN: i32 = 523;
 pub const WM_XBUTTONUP: i32 = 524;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type WNDCLASS = WNDCLASSA;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WNDCLASSA {
-    pub style: u32,
+    pub style: super::UINT,
     pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
@@ -6408,14 +6663,14 @@ pub struct WNDCLASSA {
     pub lpszMenuName: windows_sys::core::PCSTR,
     pub lpszClassName: windows_sys::core::PCSTR,
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type WNDCLASSEX = WNDCLASSEXA;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WNDCLASSEXA {
-    pub cbSize: u32,
-    pub style: u32,
+    pub cbSize: super::UINT,
+    pub style: super::UINT,
     pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
@@ -6428,11 +6683,11 @@ pub struct WNDCLASSEXA {
     pub hIconSm: super::HICON,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WNDCLASSEXW {
-    pub cbSize: u32,
-    pub style: u32,
+    pub cbSize: super::UINT,
+    pub style: super::UINT,
     pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
@@ -6445,10 +6700,10 @@ pub struct WNDCLASSEXW {
     pub hIconSm: super::HICON,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct WNDCLASSW {
-    pub style: u32,
+    pub style: super::UINT,
     pub lpfnWndProc: WNDPROC,
     pub cbClsExtra: i32,
     pub cbWndExtra: i32,
@@ -6461,8 +6716,8 @@ pub struct WNDCLASSW {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type WNDENUMPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::LPARAM) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: u32, param2: super::WPARAM, param3: super::LPARAM) -> super::LRESULT>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type WNDPROC = Option<unsafe extern "system" fn(param0: super::HWND, param1: super::UINT, param2: super::WPARAM, param3: super::LPARAM) -> super::LRESULT>;
 pub const WPF_ASYNCWINDOWPLACEMENT: i32 = 4;
 pub const WPF_RESTORETOMAXIMIZED: i32 = 2;
 pub const WPF_SETMINPOSITION: i32 = 1;
@@ -6527,10 +6782,11 @@ pub const WS_TILEDWINDOW: i32 = 13565952;
 pub const WS_VISIBLE: i32 = 268435456;
 pub const WS_VSCROLL: i32 = 2097152;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WTSSESSION_NOTIFICATION {
-    pub cbSize: u32,
-    pub dwSessionId: u32,
+    pub cbSize: super::DWORD,
+    pub dwSessionId: super::DWORD,
 }
 pub const WTS_CONSOLE_CONNECT: i32 = 1;
 pub const WTS_CONSOLE_DISCONNECT: i32 = 2;

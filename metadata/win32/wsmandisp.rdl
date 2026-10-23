@@ -21,7 +21,7 @@ mod Windows {
         }
         #[guid(0xf500c9ec_24ee_48ab_b38d_fc9a164c658e)]
         interface IWSManConnectionOptionsEx2: IWSManConnectionOptionsEx {
-            fn SetProxy(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] accessType: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] authenticationMechanism: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] userName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] password: BSTR) -> HRESULT;
+            fn SetProxy(&self, #[in] accessType: i32, #[in] authenticationMechanism: i32, #[in] userName: BSTR, #[in] password: BSTR) -> HRESULT;
             fn ProxyIEConfig(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
             fn ProxyWinHttpConfig(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
             fn ProxyAutoDetect(&self, #[out] #[retval] value: *mut i32) -> HRESULT;
@@ -87,7 +87,7 @@ mod Windows {
             fn put_FragmentPath(&self, #[in] text: BSTR) -> HRESULT;
             fn get_FragmentDialect(&self, #[out] #[retval] text: *mut BSTR) -> HRESULT;
             fn put_FragmentDialect(&self, #[in] text: BSTR) -> HRESULT;
-            fn AddOption(&self, #[in] OptionName: BSTR, #[in] OptionValue: VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] mustComply: BOOL) -> HRESULT;
+            fn AddOption(&self, #[in] OptionName: BSTR, #[in] OptionValue: VARIANT, #[in] mustComply: BOOL) -> HRESULT;
             fn put_MustUnderstandOptions(&self, #[in] mustUnderstand: BOOL) -> HRESULT;
             fn get_MustUnderstandOptions(&self, #[out] #[retval] mustUnderstand: *mut BOOL) -> HRESULT;
             fn ClearOptions(&self) -> HRESULT;
@@ -100,7 +100,7 @@ mod Windows {
             fn Get(&self, #[in] resourceUri: VARIANT, #[in] flags: i32, #[out] #[retval] resource: *mut BSTR) -> HRESULT;
             fn Put(&self, #[in] resourceUri: VARIANT, #[in] resource: BSTR, #[in] flags: i32, #[out] #[retval] resultResource: *mut BSTR) -> HRESULT;
             fn Create(&self, #[in] resourceUri: VARIANT, #[in] resource: BSTR, #[in] flags: i32, #[out] #[retval] newUri: *mut BSTR) -> HRESULT;
-            fn Delete(&self, #[in] resourceUri: VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] flags: i32) -> HRESULT;
+            fn Delete(&self, #[in] resourceUri: VARIANT, #[in] flags: i32) -> HRESULT;
             fn Invoke(&self, #[in] actionUri: BSTR, #[in] resourceUri: VARIANT, #[in] parameters: BSTR, #[in] flags: i32, #[out] #[retval] result: *mut BSTR) -> HRESULT;
             fn Enumerate(&self, #[in] resourceUri: VARIANT, #[in] filter: BSTR, #[in] dialect: BSTR, #[in] flags: i32, #[out] #[retval] resultSet: *mut IDispatch) -> HRESULT;
             fn Identify(&self, #[in] flags: i32, #[out] #[retval] result: *mut BSTR) -> HRESULT;

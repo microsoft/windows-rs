@@ -104,9 +104,8 @@ pub const OutlineStyles_None: OutlineStyles = 0;
 pub const OutlineStyles_Outline: OutlineStyles = 1;
 pub const OutlineStyles_Shadow: OutlineStyles = 2;
 pub type PATTERNID = i32;
-pub type PROPERTYID = i32;
 pub const Polite: LiveSetting = 1;
-pub type ProviderOptions = u32;
+pub type ProviderOptions = i32;
 pub const ProviderOptions_ClientSideProvider: ProviderOptions = 1;
 pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = 128;
 pub const ProviderOptions_NonClientAreaProvider: ProviderOptions = 4;
@@ -165,7 +164,7 @@ pub type SupportedTextSelection = i32;
 pub const SupportedTextSelection_Multiple: SupportedTextSelection = 2;
 pub const SupportedTextSelection_None: SupportedTextSelection = 0;
 pub const SupportedTextSelection_Single: SupportedTextSelection = 1;
-pub type SynchronizedInputType = u32;
+pub type SynchronizedInputType = i32;
 pub const SynchronizedInputType_KeyDown: SynchronizedInputType = 2;
 pub const SynchronizedInputType_KeyUp: SynchronizedInputType = 1;
 pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = 8;
@@ -222,12 +221,13 @@ pub struct UIAutomationEventInfo {
     pub pProgrammaticName: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: windows_sys::core::PCWSTR,
     pub doSetFocus: windows_sys::core::BOOL,
-    pub cInParameters: u32,
-    pub cOutParameters: u32,
+    pub cInParameters: super::UINT,
+    pub cOutParameters: super::UINT,
     pub pParameterTypes: *mut UIAutomationType,
     pub pParameterNames: *mut windows_sys::core::PCWSTR,
 }
@@ -238,17 +238,18 @@ pub struct UIAutomationParameter {
     pub pData: *mut core::ffi::c_void,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct UIAutomationPatternInfo {
     pub guid: windows_sys::core::GUID,
     pub pProgrammaticName: windows_sys::core::PCWSTR,
     pub providerInterfaceId: windows_sys::core::GUID,
     pub clientInterfaceId: windows_sys::core::GUID,
-    pub cProperties: u32,
+    pub cProperties: super::UINT,
     pub pProperties: *mut UIAutomationPropertyInfo,
-    pub cMethods: u32,
+    pub cMethods: super::UINT,
     pub pMethods: *mut UIAutomationMethodInfo,
-    pub cEvents: u32,
+    pub cEvents: super::UINT,
     pub pEvents: *mut UIAutomationEventInfo,
     pub pPatternHandler: *mut core::ffi::c_void,
 }
@@ -259,7 +260,7 @@ pub struct UIAutomationPropertyInfo {
     pub pProgrammaticName: windows_sys::core::PCWSTR,
     pub r#type: UIAutomationType,
 }
-pub type UIAutomationType = u32;
+pub type UIAutomationType = i32;
 pub const UIAutomationType_Array: UIAutomationType = 65536;
 pub const UIAutomationType_Bool: UIAutomationType = 2;
 pub const UIAutomationType_BoolArray: UIAutomationType = 65538;
@@ -291,14 +292,14 @@ pub const UIAutomationType_RectArray: UIAutomationType = 65542;
 pub const UIAutomationType_String: UIAutomationType = 3;
 pub const UIAutomationType_StringArray: UIAutomationType = 65539;
 #[repr(C)]
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
     pub payload: super::VARIANT,
     pub extraInfo: super::VARIANT,
 }
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl Default for UiaChangeInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

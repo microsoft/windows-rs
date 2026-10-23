@@ -1,7 +1,9 @@
 pub const DIALOPTION_BILLING: i32 = 64;
 pub const DIALOPTION_DIALTONE: i32 = 256;
 pub const DIALOPTION_QUIET: i32 = 128;
+#[cfg(feature = "shared")]
 pub type LPMODEMDEVCAPS = *mut MODEMDEVCAPS;
+#[cfg(feature = "shared")]
 pub type LPMODEMSETTINGS = *mut MODEMSETTINGS;
 pub const MDMSPKRFLAG_CALLSETUP: i32 = 8;
 pub const MDMSPKRFLAG_DIAL: i32 = 2;
@@ -149,54 +151,60 @@ pub const MDM_X75_DATA_BTX: i32 = 4;
 pub const MDM_X75_DATA_DEFAULT: i32 = 0;
 pub const MDM_X75_DATA_T_70: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MODEMDEVCAPS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwModemProviderVersion: u32,
-    pub dwModemManufacturerOffset: u32,
-    pub dwModemManufacturerSize: u32,
-    pub dwModemModelOffset: u32,
-    pub dwModemModelSize: u32,
-    pub dwModemVersionOffset: u32,
-    pub dwModemVersionSize: u32,
-    pub dwDialOptions: u32,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: u32,
-    pub dwSpeakerMode: u32,
-    pub dwModemOptions: u32,
-    pub dwMaxDTERate: u32,
-    pub dwMaxDCERate: u32,
-    pub abVariablePortion: [u8; 1],
+    pub dwActualSize: super::DWORD,
+    pub dwRequiredSize: super::DWORD,
+    pub dwDevSpecificOffset: super::DWORD,
+    pub dwDevSpecificSize: super::DWORD,
+    pub dwModemProviderVersion: super::DWORD,
+    pub dwModemManufacturerOffset: super::DWORD,
+    pub dwModemManufacturerSize: super::DWORD,
+    pub dwModemModelOffset: super::DWORD,
+    pub dwModemModelSize: super::DWORD,
+    pub dwModemVersionOffset: super::DWORD,
+    pub dwModemVersionSize: super::DWORD,
+    pub dwDialOptions: super::DWORD,
+    pub dwCallSetupFailTimer: super::DWORD,
+    pub dwInactivityTimeout: super::DWORD,
+    pub dwSpeakerVolume: super::DWORD,
+    pub dwSpeakerMode: super::DWORD,
+    pub dwModemOptions: super::DWORD,
+    pub dwMaxDTERate: super::DWORD,
+    pub dwMaxDCERate: super::DWORD,
+    pub abVariablePortion: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MODEMDEVCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MODEMSETTINGS {
-    pub dwActualSize: u32,
-    pub dwRequiredSize: u32,
-    pub dwDevSpecificOffset: u32,
-    pub dwDevSpecificSize: u32,
-    pub dwCallSetupFailTimer: u32,
-    pub dwInactivityTimeout: u32,
-    pub dwSpeakerVolume: u32,
-    pub dwSpeakerMode: u32,
-    pub dwPreferredModemOptions: u32,
-    pub dwNegotiatedModemOptions: u32,
-    pub dwNegotiatedDCERate: u32,
-    pub abVariablePortion: [u8; 1],
+    pub dwActualSize: super::DWORD,
+    pub dwRequiredSize: super::DWORD,
+    pub dwDevSpecificOffset: super::DWORD,
+    pub dwDevSpecificSize: super::DWORD,
+    pub dwCallSetupFailTimer: super::DWORD,
+    pub dwInactivityTimeout: super::DWORD,
+    pub dwSpeakerVolume: super::DWORD,
+    pub dwSpeakerMode: super::DWORD,
+    pub dwPreferredModemOptions: super::DWORD,
+    pub dwNegotiatedModemOptions: super::DWORD,
+    pub dwNegotiatedDCERate: super::DWORD,
+    pub abVariablePortion: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MODEMSETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type PMODEMDEVCAPS = *mut MODEMDEVCAPS;
+#[cfg(feature = "shared")]
 pub type PMODEMSETTINGS = *mut MODEMSETTINGS;

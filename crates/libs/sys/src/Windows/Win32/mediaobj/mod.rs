@@ -10,25 +10,27 @@ pub const DMO_INPUT_STREAMF_HOLDS_BUFFERS: _DMO_INPUT_STREAM_INFO_FLAGS = 8;
 pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLAGS = 2;
 pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub lSampleSize: u32,
+    pub lSampleSize: super::ULONG,
     pub formattype: windows_sys::core::GUID,
     pub pUnk: *mut core::ffi::c_void,
-    pub cbFormat: u32,
-    pub pbFormat: *mut u8,
+    pub cbFormat: super::ULONG,
+    pub pbFormat: *mut super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: *mut core::ffi::c_void,
-    pub dwStatus: u32,
-    pub rtTimestamp: REFERENCE_TIME,
-    pub rtTimelength: REFERENCE_TIME,
+    pub dwStatus: super::DWORD,
+    pub rtTimestamp: super::REFERENCE_TIME,
+    pub rtTimelength: super::REFERENCE_TIME,
 }
 pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 8;
 pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 16777216;
@@ -45,8 +47,8 @@ pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = 1;
 pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = 2;
 pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = 1;
 pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = 1;
+#[cfg(feature = "shared")]
 pub type PDMO_OUTPUT_DATA_BUFFER = *mut DMO_OUTPUT_DATA_BUFFER;
-pub type REFERENCE_TIME = i64;
 pub type _DMO_INPLACE_PROCESS_FLAGS = i32;
 pub type _DMO_INPUT_DATA_BUFFER_FLAGS = i32;
 pub type _DMO_INPUT_STATUS_FLAGS = i32;

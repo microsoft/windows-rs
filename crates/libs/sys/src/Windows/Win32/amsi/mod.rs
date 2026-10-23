@@ -1,8 +1,10 @@
 windows_link::link!("amsi.dll" "system" fn AmsiCloseSession(amsicontext : HAMSICONTEXT, amsisession : HAMSISESSION));
 windows_link::link!("amsi.dll" "system" fn AmsiInitialize(appname : windows_sys::core::PCWSTR, amsicontext : *mut HAMSICONTEXT) -> windows_sys::core::HRESULT);
-windows_link::link!("amsi.dll" "system" fn AmsiNotifyOperation(amsicontext : HAMSICONTEXT, buffer : *const core::ffi::c_void, length : u32, contentname : windows_sys::core::PCWSTR, result : *mut AMSI_RESULT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("amsi.dll" "system" fn AmsiNotifyOperation(amsicontext : HAMSICONTEXT, buffer : super::PVOID, length : super::ULONG, contentname : windows_sys::core::PCWSTR, result : *mut AMSI_RESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("amsi.dll" "system" fn AmsiOpenSession(amsicontext : HAMSICONTEXT, amsisession : *mut HAMSISESSION) -> windows_sys::core::HRESULT);
-windows_link::link!("amsi.dll" "system" fn AmsiScanBuffer(amsicontext : HAMSICONTEXT, buffer : *const core::ffi::c_void, length : u32, contentname : windows_sys::core::PCWSTR, amsisession : HAMSISESSION, result : *mut AMSI_RESULT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("amsi.dll" "system" fn AmsiScanBuffer(amsicontext : HAMSICONTEXT, buffer : super::PVOID, length : super::ULONG, contentname : windows_sys::core::PCWSTR, amsisession : HAMSISESSION, result : *mut AMSI_RESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("amsi.dll" "system" fn AmsiScanString(amsicontext : HAMSICONTEXT, string : windows_sys::core::PCWSTR, contentname : windows_sys::core::PCWSTR, amsisession : HAMSISESSION, result : *mut AMSI_RESULT) -> windows_sys::core::HRESULT);
 windows_link::link!("amsi.dll" "system" fn AmsiUninitialize(amsicontext : HAMSICONTEXT));
 pub type AMSI_ATTRIBUTE = i32;
@@ -29,36 +31,41 @@ pub const AMSI_UAC_MSI_ACTION_MAX: AMSI_UAC_MSI_ACTION = 4;
 pub const AMSI_UAC_MSI_ACTION_UNINSTALL: AMSI_UAC_MSI_ACTION = 1;
 pub const AMSI_UAC_MSI_ACTION_UPDATE: AMSI_UAC_MSI_ACTION = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_AX_INFO {
-    pub ulLength: u32,
+    pub ulLength: super::ULONG,
     pub lpwszLocalInstallPath: windows_sys::core::PWSTR,
     pub lpwszSourceURL: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_COM_INFO {
-    pub ulLength: u32,
+    pub ulLength: super::ULONG,
     pub lpwszServerBinary: windows_sys::core::PWSTR,
     pub lpwszRequestor: windows_sys::core::PWSTR,
     pub Clsid: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct AMSI_UAC_REQUEST_CONTEXT {
-    pub ulLength: u32,
-    pub ulRequestorProcessId: u32,
+    pub ulLength: super::ULONG,
+    pub ulRequestorProcessId: super::ULONG,
     pub UACTrustState: AMSI_UAC_TRUST_STATE,
     pub Type: AMSI_UAC_REQUEST_TYPE,
     pub RequestType: AMSI_UAC_REQUEST_CONTEXT_0,
     pub bAutoElevateRequest: windows_sys::core::BOOL,
 }
+#[cfg(feature = "shared")]
 impl Default for AMSI_UAC_REQUEST_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union AMSI_UAC_REQUEST_CONTEXT_0 {
     pub ExeInfo: AMSI_UAC_REQUEST_EXE_INFO,
@@ -67,23 +74,26 @@ pub union AMSI_UAC_REQUEST_CONTEXT_0 {
     pub ActiveXInfo: AMSI_UAC_REQUEST_AX_INFO,
     pub PackagedAppInfo: AMSI_UAC_REQUEST_PACKAGED_APP_INFO,
 }
+#[cfg(feature = "shared")]
 impl Default for AMSI_UAC_REQUEST_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_EXE_INFO {
-    pub ulLength: u32,
+    pub ulLength: super::ULONG,
     pub lpwszApplicationName: windows_sys::core::PWSTR,
     pub lpwszCommandLine: windows_sys::core::PWSTR,
     pub lpwszDLLParameter: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_MSI_INFO {
-    pub ulLength: u32,
+    pub ulLength: super::ULONG,
     pub MsiAction: AMSI_UAC_MSI_ACTION,
     pub lpwszProductName: windows_sys::core::PWSTR,
     pub lpwszVersion: windows_sys::core::PWSTR,
@@ -91,14 +101,15 @@ pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub lpwszManufacturer: windows_sys::core::PWSTR,
     pub lpwszPackagePath: windows_sys::core::PWSTR,
     pub lpwszPackageSource: windows_sys::core::PWSTR,
-    pub ulUpdates: u32,
+    pub ulUpdates: super::ULONG,
     pub ppwszUpdates: *mut windows_sys::core::PWSTR,
     pub ppwszUpdateSources: *mut windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AMSI_UAC_REQUEST_PACKAGED_APP_INFO {
-    pub ulLength: u32,
+    pub ulLength: super::ULONG,
     pub lpwszApplicationName: windows_sys::core::PWSTR,
     pub lpwszCommandLine: windows_sys::core::PWSTR,
     pub lpPackageFamilyName: windows_sys::core::PWSTR,
@@ -129,9 +140,15 @@ pub type HAMSISESSION = *mut HAMSISESSION__;
 pub struct HAMSISESSION__ {
     pub unused: i32,
 }
+#[cfg(feature = "shared")]
 pub type LPAMSI_UAC_REQUEST_AX_INFO = *mut AMSI_UAC_REQUEST_AX_INFO;
+#[cfg(feature = "shared")]
 pub type LPAMSI_UAC_REQUEST_COM_INFO = *mut AMSI_UAC_REQUEST_COM_INFO;
+#[cfg(feature = "shared")]
 pub type LPAMSI_UAC_REQUEST_CONTEXT = *mut AMSI_UAC_REQUEST_CONTEXT;
+#[cfg(feature = "shared")]
 pub type LPAMSI_UAC_REQUEST_EXE_INFO = *mut AMSI_UAC_REQUEST_EXE_INFO;
+#[cfg(feature = "shared")]
 pub type LPAMSI_UAC_REQUEST_MSI_INFO = *mut AMSI_UAC_REQUEST_MSI_INFO;
+#[cfg(feature = "shared")]
 pub type LPAMSI_UAC_REQUEST_PACKAGED_APP_INFO = *mut AMSI_UAC_REQUEST_PACKAGED_APP_INFO;

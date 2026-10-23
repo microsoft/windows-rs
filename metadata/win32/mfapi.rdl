@@ -169,7 +169,7 @@ mod Windows {
         const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: i32 = 2;
         const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: i32 = 1;
         #[library("MFPlat.DLL")]
-        extern fn MFCalculateBitmapImageSize(#[in] #[readable(entry, bytes(cbBufSize))] pBMIH: *const BITMAPINFOHEADER, #[in] cbBufSize: UINT32, #[out] pcbImageSize: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pbKnown: *mut BOOL) -> HRESULT;
+        extern fn MFCalculateBitmapImageSize(#[in] #[readable(entry, bytes(cbBufSize))] pBMIH: *const BITMAPINFOHEADER, #[in] cbBufSize: UINT32, #[out] pcbImageSize: *mut UINT32, #[out] #[opt] pbKnown: *mut BOOL) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCalculateImageSize(#[in] guidSubtype: &GUID, #[in] unWidth: UINT32, #[in] unHeight: UINT32, #[out] pcbImageSize: *mut UINT32) -> HRESULT;
         struct MFCameraExtrinsic_CalibratedTransform {
@@ -279,7 +279,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateWICBitmapBuffer(#[in] riid: &IID, #[in] punkSurface: IUnknown, #[out] #[out_ptr] ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateWaveFormatExFromMFMediaType(#[in] pMFType: IMFMediaType, #[out] ppWF: *mut *mut WAVEFORMATEX, #[out] #[opt] pcbSize: *mut UINT32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("MFWaveFormatExConvertFlag_Normal")] Flags: UINT32) -> HRESULT;
+        extern fn MFCreateWaveFormatExFromMFMediaType(#[in] pMFType: IMFMediaType, #[out] ppWF: *mut *mut WAVEFORMATEX, #[out] #[opt] pcbSize: *mut UINT32, #[in] Flags: UINT32) -> HRESULT;
         #[repr(i32)]
         enum MFDepthMeasurement {
             DistanceToFocalPlane = 0,
@@ -349,13 +349,13 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFInitMediaTypeFromMFVideoFormat(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMFVF: *const MFVIDEOFORMAT, #[in] cbBufSize: UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMPEG1VideoInfo(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMP1VI: *const MPEG1VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromMPEG1VideoInfo(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMP1VI: *const MPEG1VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromMPEG2VideoInfo(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMP2VI: *const MPEG2VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromMPEG2VideoInfo(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pMP2VI: *const MPEG2VIDEOINFO, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromVideoInfoHeader(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pVIH: *const VIDEOINFOHEADER, #[in] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromVideoInfoHeader(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pVIH: *const VIDEOINFOHEADER, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFInitMediaTypeFromVideoInfoHeader2(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pVIH2: *const VIDEOINFOHEADER2, #[in] cbBufSize: UINT32, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pSubtype: *const GUID) -> HRESULT;
+        extern fn MFInitMediaTypeFromVideoInfoHeader2(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pVIH2: *const VIDEOINFOHEADER2, #[in] cbBufSize: UINT32, #[in] #[opt] pSubtype: *const GUID) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFInitMediaTypeFromWaveFormatEx(#[in] pMFType: IMFMediaType, #[in] #[readable(entry, bytes(cbBufSize))] pWaveFormat: *const WAVEFORMATEX, #[in] cbBufSize: UINT32) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -528,7 +528,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFSplitSample(#[in] pSample: IMFSample, #[out] #[writable(entry, dwOutputSampleMaxCount)] #[readable(success, *pdwOutputSampleCount)] pOutputSamples: *mut IMFSample, #[in] dwOutputSampleMaxCount: DWORD, #[out] pdwOutputSampleCount: *mut DWORD) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFStartup(Version: ULONG, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] dwFlags: DWORD) -> HRESULT;
+        extern fn MFStartup(Version: ULONG, dwFlags: DWORD) -> HRESULT;
         const MFStreamExtension_CameraExtrinsics: GUID = 0x686196d0_13e2_41d9_9638_ef032c272a52;
         const MFStreamExtension_PinholeCameraIntrinsics: GUID = 0xdbac0455_0ec8_4aef_9c32_7a3ee3456f53;
         const MFStreamFormat_MPEG2Program: GUID = 0x263067d1_d330_45dc_b669_34d986e4e3e1;

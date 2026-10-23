@@ -1,287 +1,275 @@
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpAddFragmentToCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, datachunk: PHTTP_DATA_CHUNK, cachepolicy: PHTTP_CACHE_POLICY, overlapped: Option<super::LPOVERLAPPED>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, datachunk : PHTTP_DATA_CHUNK, cachepolicy : PHTTP_CACHE_POLICY, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpAddFragmentToCache(requestqueuehandle, urlprefix.param().abi(), datachunk, cachepolicy, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpAddFragmentToCache(requestqueuehandle: super::HANDLE, urlprefix: &windows_core::PCWSTR, datachunk: PHTTP_DATA_CHUNK, cachepolicy: PHTTP_CACHE_POLICY, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, datachunk : PHTTP_DATA_CHUNK, cachepolicy : PHTTP_CACHE_POLICY, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpAddFragmentToCache(requestqueuehandle as _, core::mem::transmute_copy(urlprefix), datachunk as _, cachepolicy as _, overlapped as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpAddUrl<P1>(requestqueuehandle: super::HANDLE, fullyqualifiedurl: P1, reserved: Option<*mut core::ffi::c_void>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_core::PCWSTR, reserved : *mut core::ffi::c_void) -> u32);
-    unsafe { HttpAddUrl(requestqueuehandle, fullyqualifiedurl.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpAddUrl(requestqueuehandle: super::HANDLE, fullyqualifiedurl: &windows_core::PCWSTR, reserved: super::PVOID) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_core::PCWSTR, reserved : super::PVOID) -> super::ULONG);
+    unsafe { HttpAddUrl(requestqueuehandle as _, core::mem::transmute_copy(fullyqualifiedurl), reserved as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpAddUrlToUrlGroup<P1>(urlgroupid: HTTP_URL_GROUP_ID, pfullyqualifiedurl: P1, urlcontext: Option<HTTP_URL_CONTEXT>, reserved: Option<u32>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpAddUrlToUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_core::PCWSTR, urlcontext : HTTP_URL_CONTEXT, reserved : u32) -> u32);
-    unsafe { HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.param().abi(), urlcontext.unwrap_or(core::mem::zeroed()) as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpAddUrlToUrlGroup(urlgroupid: HTTP_URL_GROUP_ID, pfullyqualifiedurl: &windows_core::PCWSTR, urlcontext: HTTP_URL_CONTEXT, reserved: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpAddUrlToUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_core::PCWSTR, urlcontext : HTTP_URL_CONTEXT, reserved : super::ULONG) -> super::ULONG);
+    unsafe { HttpAddUrlToUrlGroup(urlgroupid, core::mem::transmute_copy(pfullyqualifiedurl), urlcontext, reserved) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpCancelHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpCancelHttpRequest(requestqueuehandle, requestid, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpCancelHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpCancelHttpRequest(requestqueuehandle as _, requestid, overlapped as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpCloseRequestQueue(requestqueuehandle: super::HANDLE) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCloseRequestQueue(requestqueuehandle : super::HANDLE) -> u32);
-    unsafe { HttpCloseRequestQueue(requestqueuehandle) }
+pub unsafe fn HttpCloseRequestQueue(requestqueuehandle: super::HANDLE) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCloseRequestQueue(requestqueuehandle : super::HANDLE) -> super::ULONG);
+    unsafe { HttpCloseRequestQueue(requestqueuehandle as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpCloseServerSession(serversessionid: HTTP_SERVER_SESSION_ID) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCloseServerSession(serversessionid : HTTP_SERVER_SESSION_ID) -> u32);
+pub unsafe fn HttpCloseServerSession(serversessionid: HTTP_SERVER_SESSION_ID) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCloseServerSession(serversessionid : HTTP_SERVER_SESSION_ID) -> super::ULONG);
     unsafe { HttpCloseServerSession(serversessionid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpCloseUrlGroup(urlgroupid: HTTP_URL_GROUP_ID) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCloseUrlGroup(urlgroupid : HTTP_URL_GROUP_ID) -> u32);
+pub unsafe fn HttpCloseUrlGroup(urlgroupid: HTTP_URL_GROUP_ID) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCloseUrlGroup(urlgroupid : HTTP_URL_GROUP_ID) -> super::ULONG);
     unsafe { HttpCloseUrlGroup(urlgroupid) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: super::PHANDLE, reserved: Option<u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateHttpHandle(requestqueuehandle : super::PHANDLE, reserved : u32) -> u32);
-    unsafe { HttpCreateHttpHandle(requestqueuehandle as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: super::PHANDLE, reserved: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateHttpHandle(requestqueuehandle : super::PHANDLE, reserved : super::ULONG) -> super::ULONG);
+    unsafe { HttpCreateHttpHandle(requestqueuehandle as _, reserved) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue<P1>(version: HTTPAPI_VERSION, name: P1, securityattributes: Option<super::PSECURITY_ATTRIBUTES>, flags: Option<u32>, requestqueuehandle: super::PHANDLE) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : super::PSECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : super::PHANDLE) -> u32);
-    unsafe { HttpCreateRequestQueue(version, name.param().abi(), securityattributes.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, requestqueuehandle as _) }
+pub unsafe fn HttpCreateRequestQueue(version: &HTTPAPI_VERSION, name: &windows_core::PCWSTR, securityattributes: super::PSECURITY_ATTRIBUTES, flags: super::ULONG, requestqueuehandle: super::PHANDLE) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : super::PSECURITY_ATTRIBUTES, flags : super::ULONG, requestqueuehandle : super::PHANDLE) -> super::ULONG);
+    unsafe { HttpCreateRequestQueue(core::mem::transmute_copy(version), core::mem::transmute_copy(name), securityattributes as _, flags, requestqueuehandle as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: PHTTP_SERVER_SESSION_ID, reserved: Option<u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : PHTTP_SERVER_SESSION_ID, reserved : u32) -> u32);
-    unsafe { HttpCreateServerSession(version, serversessionid as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpCreateServerSession(version: &HTTPAPI_VERSION, serversessionid: PHTTP_SERVER_SESSION_ID, reserved: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : PHTTP_SERVER_SESSION_ID, reserved : super::ULONG) -> super::ULONG);
+    unsafe { HttpCreateServerSession(core::mem::transmute_copy(version), serversessionid as _, reserved) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpCreateUrlGroup(serversessionid: HTTP_SERVER_SESSION_ID, purlgroupid: PHTTP_URL_GROUP_ID, reserved: Option<u32>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpCreateUrlGroup(serversessionid : HTTP_SERVER_SESSION_ID, purlgroupid : PHTTP_URL_GROUP_ID, reserved : u32) -> u32);
-    unsafe { HttpCreateUrlGroup(serversessionid, purlgroupid as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpCreateUrlGroup(serversessionid: HTTP_SERVER_SESSION_ID, purlgroupid: PHTTP_URL_GROUP_ID, reserved: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpCreateUrlGroup(serversessionid : HTTP_SERVER_SESSION_ID, purlgroupid : PHTTP_URL_GROUP_ID, reserved : super::ULONG) -> super::ULONG);
+    unsafe { HttpCreateUrlGroup(serversessionid, purlgroupid as _, reserved) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpDeclarePush<P3, P4>(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, verb: HTTP_VERB, path: P3, query: P4, headers: Option<PHTTP_REQUEST_HEADERS>) -> u32
+pub unsafe fn HttpDeclarePush<P3, P4>(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, verb: HTTP_VERB, path: P3, query: P4, headers: Option<PHTTP_REQUEST_HEADERS>) -> super::ULONG
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, verb : HTTP_VERB, path : windows_core::PCWSTR, query : windows_core::PCSTR, headers : PHTTP_REQUEST_HEADERS) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, verb : HTTP_VERB, path : windows_core::PCWSTR, query : windows_core::PCSTR, headers : PHTTP_REQUEST_HEADERS) -> super::ULONG);
     unsafe { HttpDeclarePush(requestqueuehandle, requestid, verb, path.param().abi(), query.param().abi(), headers.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpDelegateRequestEx(requestqueuehandle: super::HANDLE, delegatequeuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, delegateurlgroupid: HTTP_URL_GROUP_ID, propertyinfosetsize: u32, propertyinfoset: PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpDelegateRequestEx(requestqueuehandle : super::HANDLE, delegatequeuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, delegateurlgroupid : HTTP_URL_GROUP_ID, propertyinfosetsize : u32, propertyinfoset : PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32);
+pub unsafe fn HttpDelegateRequestEx(requestqueuehandle: super::HANDLE, delegatequeuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, delegateurlgroupid: HTTP_URL_GROUP_ID, propertyinfosetsize: super::ULONG, propertyinfoset: PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpDelegateRequestEx(requestqueuehandle : super::HANDLE, delegatequeuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, delegateurlgroupid : HTTP_URL_GROUP_ID, propertyinfosetsize : super::ULONG, propertyinfoset : PHTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> super::ULONG);
     unsafe { HttpDelegateRequestEx(requestqueuehandle, delegatequeuehandle, requestid, delegateurlgroupid, propertyinfosetsize, propertyinfoset) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpDeleteServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const core::ffi::c_void, configinformationlength: u32, poverlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpDeleteServiceConfiguration(servicehandle.unwrap_or(core::mem::zeroed()) as _, configid, pconfiginformation, configinformationlength, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpDeleteServiceConfiguration(servicehandle: super::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: super::PVOID, configinformationlength: super::ULONG, poverlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : super::PVOID, configinformationlength : super::ULONG, poverlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpDeleteServiceConfiguration(servicehandle as _, configid, pconfiginformation, configinformationlength, poverlapped as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpFindUrlGroupId<P0>(fullyqualifiedurl: P0, requestqueuehandle: super::HANDLE, urlgroupid: PHTTP_URL_GROUP_ID) -> u32
+pub unsafe fn HttpFindUrlGroupId<P0>(fullyqualifiedurl: P0, requestqueuehandle: super::HANDLE, urlgroupid: PHTTP_URL_GROUP_ID) -> super::ULONG
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_core::PCWSTR, requestqueuehandle : super::HANDLE, urlgroupid : PHTTP_URL_GROUP_ID) -> u32);
+    windows_core::link!("httpapi.dll" "system" fn HttpFindUrlGroupId(fullyqualifiedurl : windows_core::PCWSTR, requestqueuehandle : super::HANDLE, urlgroupid : PHTTP_URL_GROUP_ID) -> super::ULONG);
     unsafe { HttpFindUrlGroupId(fullyqualifiedurl.param().abi(), requestqueuehandle, urlgroupid as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpFlushResponseCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, flags: u32, overlapped: Option<super::LPOVERLAPPED>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, flags : u32, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpFlushResponseCache(requestqueuehandle, urlprefix.param().abi(), flags, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpFlushResponseCache(requestqueuehandle: super::HANDLE, urlprefix: &windows_core::PCWSTR, flags: super::ULONG, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, flags : super::ULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpFlushResponseCache(requestqueuehandle as _, core::mem::transmute_copy(urlprefix), flags, overlapped as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut core::ffi::c_void, buffersize: u32) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpGetExtension(version : HTTPAPI_VERSION, extension : u32, buffer : *mut core::ffi::c_void, buffersize : u32) -> u32);
+pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: super::ULONG, buffer: super::PVOID, buffersize: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpGetExtension(version : HTTPAPI_VERSION, extension : super::ULONG, buffer : super::PVOID, buffersize : super::ULONG) -> super::ULONG);
     unsafe { HttpGetExtension(version, extension, buffer as _, buffersize) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: u32, preserved: Option<*mut core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : u32, preserved : *mut core::ffi::c_void) -> u32);
-    unsafe { HttpInitialize(version, flags, preserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpInitialize(version: &HTTPAPI_VERSION, flags: super::ULONG, preserved: super::PVOID) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : super::ULONG, preserved : super::PVOID) -> super::ULONG);
+    unsafe { HttpInitialize(core::mem::transmute_copy(version), flags, preserved as _) }
 }
 #[inline]
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> windows_core::BOOL {
     windows_core::link!("httpapi.dll" "system" fn HttpIsFeatureSupported(featureid : HTTP_FEATURE_ID) -> windows_core::BOOL);
     unsafe { HttpIsFeatureSupported(featureid) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpPrepareUrl<P2>(reserved: Option<*mut core::ffi::c_void>, flags: Option<u32>, url: P2, preparedurl: *mut windows_core::PWSTR) -> u32
+pub unsafe fn HttpPrepareUrl<P2>(reserved: super::PVOID, flags: super::ULONG, url: P2, preparedurl: *mut windows_core::PWSTR) -> super::ULONG
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *mut core::ffi::c_void, flags : u32, url : windows_core::PCWSTR, preparedurl : *mut windows_core::PWSTR) -> u32);
-    unsafe { HttpPrepareUrl(reserved.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, url.param().abi(), preparedurl as _) }
+    windows_core::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : super::PVOID, flags : super::ULONG, url : windows_core::PCWSTR, preparedurl : *mut windows_core::PWSTR) -> super::ULONG);
+    unsafe { HttpPrepareUrl(reserved as _, flags, url.param().abi(), preparedurl as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, qualifier: Option<*const core::ffi::c_void>, qualifiersize: u32, output: Option<*mut core::ffi::c_void>, outputbuffersize: u32, bytesreturned: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, qualifier : *const core::ffi::c_void, qualifiersize : u32, output : *mut core::ffi::c_void, outputbuffersize : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
+pub unsafe fn HttpQueryRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, qualifier: Option<*const core::ffi::c_void>, qualifiersize: super::ULONG, output: Option<super::PVOID>, outputbuffersize: super::ULONG, bytesreturned: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, qualifier : *const core::ffi::c_void, qualifiersize : super::ULONG, output : super::PVOID, outputbuffersize : super::ULONG, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
     unsafe { HttpQueryRequestProperty(requestqueuehandle, id, propertyid, qualifier.unwrap_or(core::mem::zeroed()) as _, qualifiersize, output.unwrap_or(core::mem::zeroed()) as _, outputbuffersize, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, reserved1: Option<u32>, returnlength: Option<super::PULONG>, reserved2: Option<*mut core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, returnlength : super::PULONG, reserved2 : *mut core::ffi::c_void) -> u32);
-    unsafe { HttpQueryRequestQueueProperty(requestqueuehandle, property, propertyinformation.unwrap_or(core::mem::zeroed()) as _, propertyinformationlength, reserved1.unwrap_or(core::mem::zeroed()) as _, returnlength.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpQueryRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<super::PVOID>, propertyinformationlength: super::ULONG, reserved1: super::ULONG, returnlength: Option<super::PULONG>, reserved2: super::PVOID) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : super::PVOID, propertyinformationlength : super::ULONG, reserved1 : super::ULONG, returnlength : super::PULONG, reserved2 : super::PVOID) -> super::ULONG);
+    unsafe { HttpQueryRequestQueueProperty(requestqueuehandle, property, propertyinformation.unwrap_or(core::mem::zeroed()) as _, propertyinformationlength, reserved1, returnlength.unwrap_or(core::mem::zeroed()) as _, reserved2 as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryServerSessionProperty(serversessionid: HTTP_SERVER_SESSION_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<super::PULONG>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : super::PULONG) -> u32);
+pub unsafe fn HttpQueryServerSessionProperty(serversessionid: HTTP_SERVER_SESSION_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<super::PVOID>, propertyinformationlength: super::ULONG, returnlength: Option<super::PULONG>) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : super::PVOID, propertyinformationlength : super::ULONG, returnlength : super::PULONG) -> super::ULONG);
     unsafe { HttpQueryServerSessionProperty(serversessionid, property, propertyinformation.unwrap_or(core::mem::zeroed()) as _, propertyinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pinput: Option<*const core::ffi::c_void>, inputlength: u32, poutput: Option<*mut core::ffi::c_void>, outputlength: u32, preturnlength: Option<super::PULONG>, poverlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : *const core::ffi::c_void, inputlength : u32, poutput : *mut core::ffi::c_void, outputlength : u32, preturnlength : super::PULONG, poverlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpQueryServiceConfiguration(servicehandle.unwrap_or(core::mem::zeroed()) as _, configid, pinput.unwrap_or(core::mem::zeroed()) as _, inputlength, poutput.unwrap_or(core::mem::zeroed()) as _, outputlength, preturnlength.unwrap_or(core::mem::zeroed()) as _, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpQueryServiceConfiguration(servicehandle: super::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pinput: Option<super::PVOID>, inputlength: super::ULONG, poutput: Option<super::PVOID>, outputlength: super::ULONG, preturnlength: Option<super::PULONG>, poverlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : super::PVOID, inputlength : super::ULONG, poutput : super::PVOID, outputlength : super::ULONG, preturnlength : super::PULONG, poverlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpQueryServiceConfiguration(servicehandle as _, configid, pinput.unwrap_or(core::mem::zeroed()) as _, inputlength, poutput.unwrap_or(core::mem::zeroed()) as _, outputlength, preturnlength.unwrap_or(core::mem::zeroed()) as _, poverlapped as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: HTTP_URL_GROUP_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<super::PULONG>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : super::PULONG) -> u32);
+pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: HTTP_URL_GROUP_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<super::PVOID>, propertyinformationlength: super::ULONG, returnlength: Option<super::PULONG>) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : super::PVOID, propertyinformationlength : super::ULONG, returnlength : super::PULONG) -> super::ULONG);
     unsafe { HttpQueryUrlGroupProperty(urlgroupid, property, propertyinformation.unwrap_or(core::mem::zeroed()) as _, propertyinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpReadFragmentFromCache<P1>(requestqueuehandle: super::HANDLE, urlprefix: P1, byterange: Option<PHTTP_BYTE_RANGE>, buffer: *mut core::ffi::c_void, bufferlength: u32, bytesread: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, byterange : PHTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpReadFragmentFromCache(requestqueuehandle, urlprefix.param().abi(), byterange.unwrap_or(core::mem::zeroed()) as _, buffer as _, bufferlength, bytesread.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpReadFragmentFromCache(requestqueuehandle: super::HANDLE, urlprefix: &windows_core::PCWSTR, byterange: PHTTP_BYTE_RANGE, buffer: super::PVOID, bufferlength: super::ULONG, bytesread: Option<super::PULONG>, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::HANDLE, urlprefix : windows_core::PCWSTR, byterange : PHTTP_BYTE_RANGE, buffer : super::PVOID, bufferlength : super::ULONG, bytesread : super::PULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpReadFragmentFromCache(requestqueuehandle as _, core::mem::transmute_copy(urlprefix), byterange as _, buffer as _, bufferlength, bytesread.unwrap_or(core::mem::zeroed()) as _, overlapped as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpReceiveClientCertificate(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, flags: u32, sslclientcertinfo: PHTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : u32, sslclientcertinfo : PHTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpReceiveClientCertificate(requestqueuehandle, connectionid, flags, sslclientcertinfo as _, sslclientcertinfosize, bytesreceived.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpReceiveClientCertificate(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, flags: super::ULONG, sslclientcertinfo: PHTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: super::ULONG, bytesreceived: Option<super::PULONG>, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : super::ULONG, sslclientcertinfo : PHTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : super::ULONG, bytesreceived : super::PULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpReceiveClientCertificate(requestqueuehandle as _, connectionid, flags, sslclientcertinfo as _, sslclientcertinfosize, bytesreceived.unwrap_or(core::mem::zeroed()) as _, overlapped as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn HttpReceiveHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, requestbuffer: PHTTP_REQUEST, requestbufferlength: u32, bytesreturned: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, requestbuffer : PHTTP_REQUEST, requestbufferlength : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpReceiveHttpRequest(requestqueuehandle, requestid, flags, requestbuffer as _, requestbufferlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpReceiveHttpRequest(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: super::ULONG, requestbuffer: PHTTP_REQUEST, requestbufferlength: super::ULONG, bytesreturned: Option<super::PULONG>, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : super::ULONG, requestbuffer : PHTTP_REQUEST, requestbufferlength : super::ULONG, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpReceiveHttpRequest(requestqueuehandle as _, requestid, flags, requestbuffer as _, requestbufferlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpReceiveRequestEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, entitybuffer: *mut core::ffi::c_void, entitybufferlength: u32, bytesreturned: Option<super::PULONG>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitybuffer : *mut core::ffi::c_void, entitybufferlength : u32, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpReceiveRequestEntityBody(requestqueuehandle, requestid, flags, entitybuffer as _, entitybufferlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpReceiveRequestEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: super::ULONG, entitybuffer: super::PVOID, entitybufferlength: super::ULONG, bytesreturned: Option<super::PULONG>, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : super::ULONG, entitybuffer : super::PVOID, entitybufferlength : super::ULONG, bytesreturned : super::PULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpReceiveRequestEntityBody(requestqueuehandle as _, requestid, flags, entitybuffer as _, entitybufferlength, bytesreturned.unwrap_or(core::mem::zeroed()) as _, overlapped as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpRemoveUrl<P1>(requestqueuehandle: super::HANDLE, fullyqualifiedurl: P1) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpRemoveUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_core::PCWSTR) -> u32);
-    unsafe { HttpRemoveUrl(requestqueuehandle, fullyqualifiedurl.param().abi()) }
+pub unsafe fn HttpRemoveUrl(requestqueuehandle: super::HANDLE, fullyqualifiedurl: &windows_core::PCWSTR) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpRemoveUrl(requestqueuehandle : super::HANDLE, fullyqualifiedurl : windows_core::PCWSTR) -> super::ULONG);
+    unsafe { HttpRemoveUrl(requestqueuehandle as _, core::mem::transmute_copy(fullyqualifiedurl)) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn HttpRemoveUrlFromUrlGroup<P1>(urlgroupid: HTTP_URL_GROUP_ID, pfullyqualifiedurl: P1, flags: u32) -> u32
-where
-    P1: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("httpapi.dll" "system" fn HttpRemoveUrlFromUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_core::PCWSTR, flags : u32) -> u32);
-    unsafe { HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.param().abi(), flags) }
+pub unsafe fn HttpRemoveUrlFromUrlGroup(urlgroupid: HTTP_URL_GROUP_ID, pfullyqualifiedurl: &windows_core::PCWSTR, flags: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpRemoveUrlFromUrlGroup(urlgroupid : HTTP_URL_GROUP_ID, pfullyqualifiedurl : windows_core::PCWSTR, flags : super::ULONG) -> super::ULONG);
+    unsafe { HttpRemoveUrlFromUrlGroup(urlgroupid, core::mem::transmute_copy(pfullyqualifiedurl), flags) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSendHttpResponse(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, httpresponse: PHTTP_RESPONSE, cachepolicy: Option<PHTTP_CACHE_POLICY>, bytessent: Option<super::PULONG>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, overlapped: Option<super::LPOVERLAPPED>, logdata: Option<PHTTP_LOG_DATA>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, httpresponse : PHTTP_RESPONSE, cachepolicy : PHTTP_CACHE_POLICY, bytessent : super::PULONG, reserved1 : *mut core::ffi::c_void, reserved2 : u32, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> u32);
-    unsafe { HttpSendHttpResponse(requestqueuehandle, requestid, flags, httpresponse, cachepolicy.unwrap_or(core::mem::zeroed()) as _, bytessent.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _, logdata.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpSendHttpResponse(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: super::ULONG, httpresponse: PHTTP_RESPONSE, cachepolicy: PHTTP_CACHE_POLICY, bytessent: super::PULONG, reserved1: super::PVOID, reserved2: super::ULONG, overlapped: super::LPOVERLAPPED, logdata: PHTTP_LOG_DATA) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : super::ULONG, httpresponse : PHTTP_RESPONSE, cachepolicy : PHTTP_CACHE_POLICY, bytessent : super::PULONG, reserved1 : super::PVOID, reserved2 : super::ULONG, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> super::ULONG);
+    unsafe { HttpSendHttpResponse(requestqueuehandle as _, requestid, flags, httpresponse as _, cachepolicy as _, bytessent as _, reserved1 as _, reserved2, overlapped as _, logdata as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSendResponseEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, entitychunks: Option<&[HTTP_DATA_CHUNK]>, bytessent: Option<super::PULONG>, reserved1: Option<*mut core::ffi::c_void>, reserved2: Option<u32>, overlapped: Option<super::LPOVERLAPPED>, logdata: Option<PHTTP_LOG_DATA>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitychunkcount : u16, entitychunks : PHTTP_DATA_CHUNK, bytessent : super::PULONG, reserved1 : *mut core::ffi::c_void, reserved2 : u32, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> u32);
-    unsafe { HttpSendResponseEntityBody(requestqueuehandle, requestid, flags, entitychunks.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entitychunks.map_or(core::ptr::null(), |slice| slice.as_ptr())), bytessent.unwrap_or(core::mem::zeroed()) as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _, logdata.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpSendResponseEntityBody(requestqueuehandle: super::HANDLE, requestid: HTTP_REQUEST_ID, flags: super::ULONG, entitychunkcount: super::USHORT, entitychunks: Option<PHTTP_DATA_CHUNK>, bytessent: super::PULONG, reserved1: super::PVOID, reserved2: super::ULONG, overlapped: super::LPOVERLAPPED, logdata: PHTTP_LOG_DATA) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::HANDLE, requestid : HTTP_REQUEST_ID, flags : super::ULONG, entitychunkcount : super::USHORT, entitychunks : PHTTP_DATA_CHUNK, bytessent : super::PULONG, reserved1 : super::PVOID, reserved2 : super::ULONG, overlapped : super::LPOVERLAPPED, logdata : PHTTP_LOG_DATA) -> super::ULONG);
+    unsafe { HttpSendResponseEntityBody(requestqueuehandle as _, requestid, flags, entitychunkcount, entitychunks.unwrap_or(core::mem::zeroed()) as _, bytessent as _, reserved1 as _, reserved2, overlapped as _, logdata as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSetRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, input: Option<*const core::ffi::c_void>, inputpropertysize: u32, overlapped: super::LPOVERLAPPED) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, input : *const core::ffi::c_void, inputpropertysize : u32, overlapped : super::LPOVERLAPPED) -> u32);
+pub unsafe fn HttpSetRequestProperty(requestqueuehandle: super::HANDLE, id: HTTP_OPAQUE_ID, propertyid: HTTP_REQUEST_PROPERTY, input: Option<super::PVOID>, inputpropertysize: super::ULONG, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::HANDLE, id : HTTP_OPAQUE_ID, propertyid : HTTP_REQUEST_PROPERTY, input : super::PVOID, inputpropertysize : super::ULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
     unsafe { HttpSetRequestProperty(requestqueuehandle, id, propertyid, input.unwrap_or(core::mem::zeroed()) as _, inputpropertysize, overlapped) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSetRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32, reserved1: Option<u32>, reserved2: Option<*mut core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, reserved2 : *mut core::ffi::c_void) -> u32);
-    unsafe { HttpSetRequestQueueProperty(requestqueuehandle, property, propertyinformation, propertyinformationlength, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpSetRequestQueueProperty(requestqueuehandle: super::HANDLE, property: HTTP_SERVER_PROPERTY, propertyinformation: super::PVOID, propertyinformationlength: super::ULONG, reserved1: super::ULONG, reserved2: super::PVOID) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : super::PVOID, propertyinformationlength : super::ULONG, reserved1 : super::ULONG, reserved2 : super::PVOID) -> super::ULONG);
+    unsafe { HttpSetRequestQueueProperty(requestqueuehandle, property, propertyinformation, propertyinformationlength, reserved1, reserved2 as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSetServerSessionProperty(serversessionid: HTTP_SERVER_SESSION_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32) -> u32);
+pub unsafe fn HttpSetServerSessionProperty(serversessionid: HTTP_SERVER_SESSION_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: super::PVOID, propertyinformationlength: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetServerSessionProperty(serversessionid : HTTP_SERVER_SESSION_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : super::PVOID, propertyinformationlength : super::ULONG) -> super::ULONG);
     unsafe { HttpSetServerSessionProperty(serversessionid, property, propertyinformation, propertyinformationlength) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSetServiceConfiguration(servicehandle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const core::ffi::c_void, configinformationlength: u32, poverlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpSetServiceConfiguration(servicehandle.unwrap_or(core::mem::zeroed()) as _, configid, pconfiginformation, configinformationlength, poverlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpSetServiceConfiguration(servicehandle: super::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: super::PVOID, configinformationlength: super::ULONG, poverlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : super::PVOID, configinformationlength : super::ULONG, poverlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpSetServiceConfiguration(servicehandle as _, configid, pconfiginformation, configinformationlength, poverlapped as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: HTTP_URL_GROUP_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpSetUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32) -> u32);
+pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: HTTP_URL_GROUP_ID, property: HTTP_SERVER_PROPERTY, propertyinformation: super::PVOID, propertyinformationlength: super::ULONG) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpSetUrlGroupProperty(urlgroupid : HTTP_URL_GROUP_ID, property : HTTP_SERVER_PROPERTY, propertyinformation : super::PVOID, propertyinformationlength : super::ULONG) -> super::ULONG);
     unsafe { HttpSetUrlGroupProperty(urlgroupid, property, propertyinformation, propertyinformationlength) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpShutdownRequestQueue(requestqueuehandle: super::HANDLE) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpShutdownRequestQueue(requestqueuehandle : super::HANDLE) -> u32);
-    unsafe { HttpShutdownRequestQueue(requestqueuehandle) }
+pub unsafe fn HttpShutdownRequestQueue(requestqueuehandle: super::HANDLE) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpShutdownRequestQueue(requestqueuehandle : super::HANDLE) -> super::ULONG);
+    unsafe { HttpShutdownRequestQueue(requestqueuehandle as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpTerminate(flags: u32, preserved: Option<*mut core::ffi::c_void>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpTerminate(flags : u32, preserved : *mut core::ffi::c_void) -> u32);
-    unsafe { HttpTerminate(flags, preserved.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpTerminate(flags: super::ULONG, preserved: super::PVOID) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpTerminate(flags : super::ULONG, preserved : super::PVOID) -> super::ULONG);
+    unsafe { HttpTerminate(flags, preserved as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpUpdateServiceConfiguration(handle: Option<super::HANDLE>, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const core::ffi::c_void, configinfolength: u32, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : *const core::ffi::c_void, configinfolength : u32, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpUpdateServiceConfiguration(handle.unwrap_or(core::mem::zeroed()) as _, configid, configinfo, configinfolength, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpUpdateServiceConfiguration(handle: super::HANDLE, configid: HTTP_SERVICE_CONFIG_ID, configinfo: super::PVOID, configinfolength: super::ULONG, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : super::PVOID, configinfolength : super::ULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpUpdateServiceConfiguration(handle as _, configid, configinfo, configinfolength, overlapped as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpWaitForDemandStart(requestqueuehandle: super::HANDLE, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::HANDLE, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpWaitForDemandStart(requestqueuehandle, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpWaitForDemandStart(requestqueuehandle: super::HANDLE, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::HANDLE, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpWaitForDemandStart(requestqueuehandle as _, overlapped as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnect(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpWaitForDisconnect(requestqueuehandle, connectionid, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpWaitForDisconnect(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpWaitForDisconnect(requestqueuehandle as _, connectionid, overlapped as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn HttpWaitForDisconnectEx(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, reserved: Option<u32>, overlapped: Option<super::LPOVERLAPPED>) -> u32 {
-    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, reserved : u32, overlapped : super::LPOVERLAPPED) -> u32);
-    unsafe { HttpWaitForDisconnectEx(requestqueuehandle, connectionid, reserved.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn HttpWaitForDisconnectEx(requestqueuehandle: super::HANDLE, connectionid: HTTP_CONNECTION_ID, reserved: super::ULONG, overlapped: super::LPOVERLAPPED) -> super::ULONG {
+    windows_core::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::HANDLE, connectionid : HTTP_CONNECTION_ID, reserved : super::ULONG, overlapped : super::LPOVERLAPPED) -> super::ULONG);
+    unsafe { HttpWaitForDisconnectEx(requestqueuehandle as _, connectionid, reserved, overlapped as _) }
 }
 pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 1;
 pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = 1;
@@ -297,21 +285,24 @@ pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 7;
 pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 3;
 pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {
-    pub Http2MaxSettingsPerFrame: u32,
-    pub Http2MaxSettingsPerMinute: u32,
+    pub Http2MaxSettingsPerFrame: super::DWORD,
+    pub Http2MaxSettingsPerMinute: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP2_WINDOW_SIZE_PARAM {
-    pub Http2ReceiveWindowSize: u32,
+    pub Http2ReceiveWindowSize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTPAPI_VERSION {
-    pub HttpApiMajorVersion: u16,
-    pub HttpApiMinorVersion: u16,
+    pub HttpApiMajorVersion: super::USHORT,
+    pub HttpApiMinorVersion: super::USHORT,
 }
 pub type HTTP_503_RESPONSE_VERBOSITY = i32;
 pub type HTTP_AUTHENTICATION_HARDENING_LEVELS = i32;
@@ -325,37 +316,40 @@ pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: i32 = 2;
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: i32 = 1;
 pub type HTTP_AUTH_STATUS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_BANDWIDTH_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub MaxBandwidth: u32,
+    pub MaxBandwidth: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_BINDING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub RequestQueueHandle: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_BYTE_RANGE {
     pub StartingOffset: super::ULARGE_INTEGER,
     pub Length: super::ULARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_BYTE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const HTTP_BYTE_RANGE_TO_EOF: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const HTTP_BYTE_RANGE_TO_EOF: super::ULONGLONG = 18446744073709551615;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CACHE_POLICY {
     pub Policy: HTTP_CACHE_POLICY_TYPE,
-    pub SecondsToLive: u32,
+    pub SecondsToLive: super::ULONG,
 }
 pub type HTTP_CACHE_POLICY_TYPE = i32;
 pub const HTTP_CERT_CHECK_MODE_CACHED_REVOCATION: i32 = 2;
@@ -365,54 +359,60 @@ pub const HTTP_CERT_CHECK_MODE_NO_REVOCATION: i32 = 1;
 pub const HTTP_CERT_CHECK_MODE_NO_USAGE_CHECK: i32 = 65536;
 pub const HTTP_CERT_CHECK_MODE_USE_REVOCATION_FRESHNESS: i32 = 4;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_CERT_CONFIG_ENTRY {
-    pub CertHash: [u8; 20],
-    pub CertStoreName: [u16; 128],
+    pub CertHash: [super::BYTE; 20],
+    pub CertStoreName: [super::WCHAR; 128],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_CERT_CONFIG_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CERT_CONFIG_PARAM {
-    pub CertConfigCount: u32,
+    pub CertConfigCount: super::ULONG,
     pub CertConfigs: PHTTP_CERT_CONFIG_ENTRY,
 }
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: i32 = 16;
 pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CHANNEL_BIND_INFO {
     pub Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub ServiceNames: *mut PHTTP_SERVICE_BINDING_BASE,
-    pub NumberOfServiceNames: u32,
+    pub NumberOfServiceNames: super::ULONG,
 }
 pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: i32 = 2;
 pub const HTTP_CHANNEL_BIND_PROXY: i32 = 1;
 pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: i32 = 32;
 pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: i32 = 8;
-pub type HTTP_CLIENT_CONNECTION_ID = HTTP_OPAQUE_ID;
-pub type HTTP_CLIENT_CREDENTIAL_ID = HTTP_OPAQUE_ID;
-pub type HTTP_CLIENT_REQUEST_ID = HTTP_OPAQUE_ID;
-pub type HTTP_CLIENT_STREAM_ID = HTTP_OPAQUE_ID;
-pub type HTTP_CONNECTION_ID = HTTP_OPAQUE_ID;
+pub type HTTP_CLIENT_CONNECTION_ID = u64;
+pub type HTTP_CLIENT_CREDENTIAL_ID = u64;
+pub type HTTP_CLIENT_REQUEST_ID = u64;
+pub type HTTP_CLIENT_STREAM_ID = u64;
+pub type HTTP_CONNECTION_ID = u64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CONNECTION_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub MaxConnections: u32,
+    pub MaxConnections: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_COOKED_URL {
-    pub FullUrlLength: u16,
-    pub HostLength: u16,
-    pub AbsPathLength: u16,
-    pub QueryStringLength: u16,
+    pub FullUrlLength: super::USHORT,
+    pub HostLength: super::USHORT,
+    pub AbsPathLength: super::USHORT,
+    pub QueryStringLength: super::USHORT,
     pub pFullUrl: windows_core::PCWSTR,
     pub pHost: windows_core::PCWSTR,
     pub pAbsPath: windows_core::PCWSTR,
@@ -423,27 +423,28 @@ pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: i32 = 8;
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: i32 = 1;
 pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
-    pub PropertyInfoLength: u32,
-    pub PropertyInfo: *mut core::ffi::c_void,
+    pub PropertyInfoLength: super::ULONG,
+    pub PropertyInfo: super::PVOID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK {
     pub DataChunkType: HTTP_DATA_CHUNK_TYPE,
     pub Anonymous: HTTP_DATA_CHUNK_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_DATA_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union HTTP_DATA_CHUNK_0 {
     pub FromMemory: HTTP_DATA_CHUNK_0_0,
@@ -453,61 +454,61 @@ pub union HTTP_DATA_CHUNK_0 {
     pub Trailers: HTTP_DATA_CHUNK_0_4,
     pub FromWinHttpFastForwarding: HTTP_DATA_CHUNK_0_5,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_DATA_CHUNK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_0 {
-    pub pBuffer: *mut core::ffi::c_void,
-    pub BufferLength: u32,
+    pub pBuffer: super::PVOID,
+    pub BufferLength: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_DATA_CHUNK_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_2 {
-    pub FragmentNameLength: u16,
+    pub FragmentNameLength: super::USHORT,
     pub pFragmentName: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_core::PCWSTR,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_DATA_CHUNK_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_4 {
-    pub TrailerCount: u16,
+    pub TrailerCount: super::USHORT,
     pub pTrailers: PHTTP_UNKNOWN_HEADER,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_5 {
     pub WhFastForwardingData: HTTP_WINHTTP_FAST_FORWARDING_DATA,
@@ -515,23 +516,25 @@ pub struct HTTP_DATA_CHUNK_0_5 {
 pub type HTTP_DATA_CHUNK_TYPE = i32;
 pub type HTTP_DELEGATE_REQUEST_PROPERTY_ID = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
-    pub PropertyInfoLength: u32,
-    pub PropertyInfo: *mut core::ffi::c_void,
+    pub PropertyInfoLength: super::ULONG,
+    pub PropertyInfo: super::PVOID,
 }
 pub const HTTP_DEMAND_CBT: i32 = 4;
 pub type HTTP_ENABLED_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_ERROR_HEADERS_PARAM {
-    pub StatusCode: u16,
-    pub HeaderCount: u16,
+    pub StatusCode: super::USHORT,
+    pub HeaderCount: super::USHORT,
     pub Headers: PHTTP_UNKNOWN_HEADER,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FAST_FORWARD_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -539,26 +542,29 @@ pub struct HTTP_FAST_FORWARD_INFO {
 }
 pub type HTTP_FEATURE_ID = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_FLOWRATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub MaxBandwidth: u32,
-    pub MaxPeakBandwidth: u32,
-    pub BurstSize: u32,
+    pub MaxBandwidth: super::ULONG,
+    pub MaxPeakBandwidth: super::ULONG,
+    pub BurstSize: super::ULONG,
 }
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: i32 = 1;
 pub type HTTP_HEADER_ID = i32;
 pub const HTTP_INITIALIZE_CONFIG: i32 = 2;
 pub const HTTP_INITIALIZE_SERVER: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_KNOWN_HEADER {
-    pub RawValueLength: u16,
+    pub RawValueLength: super::USHORT,
     pub pRawValue: windows_core::PCSTR,
 }
-pub const HTTP_LIMIT_INFINITE: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const HTTP_LIMIT_INFINITE: super::ULONG = 4294967295;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -569,22 +575,22 @@ pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: i32 = 4;
 pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: i32 = 8;
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub LoggingFlags: u32,
+    pub LoggingFlags: super::ULONG,
     pub SoftwareName: windows_core::PCWSTR,
-    pub SoftwareNameLength: u16,
-    pub DirectoryNameLength: u16,
+    pub SoftwareNameLength: super::USHORT,
+    pub DirectoryNameLength: super::USHORT,
     pub DirectoryName: windows_core::PCWSTR,
     pub Format: HTTP_LOGGING_TYPE,
-    pub Fields: u32,
-    pub pExtFields: *mut core::ffi::c_void,
-    pub NumOfExtFields: u16,
-    pub MaxRecordSize: u16,
+    pub Fields: super::ULONG,
+    pub pExtFields: super::PVOID,
+    pub NumOfExtFields: super::USHORT,
+    pub MaxRecordSize: super::USHORT,
     pub RolloverType: HTTP_LOGGING_ROLLOVER_TYPE,
-    pub RolloverSize: u32,
+    pub RolloverSize: super::ULONG,
     pub pSecurityDescriptor: super::PSECURITY_DESCRIPTOR,
 }
 pub type HTTP_LOGGING_ROLLOVER_TYPE = i32;
@@ -596,22 +602,22 @@ pub struct HTTP_LOG_DATA {
 }
 pub type HTTP_LOG_DATA_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LOG_FIELDS_DATA {
     pub Base: HTTP_LOG_DATA,
-    pub UserNameLength: u16,
-    pub UriStemLength: u16,
-    pub ClientIpLength: u16,
-    pub ServerNameLength: u16,
-    pub ServiceNameLength: u16,
-    pub ServerIpLength: u16,
-    pub MethodLength: u16,
-    pub UriQueryLength: u16,
-    pub HostLength: u16,
-    pub UserAgentLength: u16,
-    pub CookieLength: u16,
-    pub ReferrerLength: u16,
+    pub UserNameLength: super::USHORT,
+    pub UriStemLength: super::USHORT,
+    pub ClientIpLength: super::USHORT,
+    pub ServerNameLength: super::USHORT,
+    pub ServiceNameLength: super::USHORT,
+    pub ServerIpLength: super::USHORT,
+    pub MethodLength: super::USHORT,
+    pub UriQueryLength: super::USHORT,
+    pub HostLength: super::USHORT,
+    pub UserAgentLength: super::USHORT,
+    pub CookieLength: super::USHORT,
+    pub ReferrerLength: super::USHORT,
     pub UserName: super::PWCHAR,
     pub UriStem: super::PWCHAR,
     pub ClientIp: super::PCHAR,
@@ -624,11 +630,11 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub UserAgent: super::PCHAR,
     pub Cookie: super::PCHAR,
     pub Referrer: super::PCHAR,
-    pub ServerPort: u16,
-    pub ProtocolStatus: u16,
-    pub Win32Status: u32,
+    pub ServerPort: super::USHORT,
+    pub ProtocolStatus: super::USHORT,
+    pub Win32Status: super::ULONG,
     pub MethodNum: HTTP_VERB,
-    pub SubStatus: u16,
+    pub SubStatus: super::USHORT,
 }
 pub const HTTP_LOG_FIELD_BYTES_RECV: i32 = 8192;
 pub const HTTP_LOG_FIELD_BYTES_SENT: i32 = 4096;
@@ -664,41 +670,48 @@ pub const HTTP_LOG_FIELD_USER_NAME: i32 = 8;
 pub const HTTP_LOG_FIELD_VERSION: i32 = 524288;
 pub const HTTP_LOG_FIELD_WIN32_STATUS: i32 = 2048;
 pub const HTTP_MAX_SERVER_QUEUE_LENGTH: i32 = 2147483647;
-pub const HTTP_MIN_ALLOWED_BANDWIDTH_THROTTLING_RATE: u32 = 1024;
-pub const HTTP_MIN_ALLOWED_LOG_FILE_ROLLOVER_SIZE: u32 = 1048576;
+#[cfg(feature = "shared")]
+pub const HTTP_MIN_ALLOWED_BANDWIDTH_THROTTLING_RATE: super::ULONG = 1024;
+#[cfg(feature = "shared")]
+pub const HTTP_MIN_ALLOWED_LOG_FILE_ROLLOVER_SIZE: super::ULONG = 1048576;
 pub const HTTP_MIN_SERVER_QUEUE_LENGTH: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
     pub HeaderId: HTTP_HEADER_ID,
-    pub Flags: u32,
-    pub KnownHeaderCount: u16,
+    pub Flags: super::ULONG,
+    pub KnownHeaderCount: super::USHORT,
     pub KnownHeaders: PHTTP_KNOWN_HEADER,
 }
 pub const HTTP_NULL_ID: u64 = 0;
 pub type HTTP_OPAQUE_ID = u64;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PERFORMANCE_PARAM {
     pub Type: HTTP_PERFORMANCE_PARAM_TYPE,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
+    pub BufferSize: super::ULONG,
+    pub Buffer: super::PVOID,
 }
 pub type HTTP_PERFORMANCE_PARAM_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PROPERTY_FLAGS {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl HTTP_PROPERTY_FLAGS {
-    pub fn Present(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Present(&self) -> super::ULONG {
+        (self._bitfield) & 1
     }
-    pub fn set_Present(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Present(&mut self, value: super::ULONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_PROTECTION_LEVEL_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
@@ -706,121 +719,130 @@ pub struct HTTP_PROTECTION_LEVEL_INFO {
 }
 pub type HTTP_PROTECTION_LEVEL_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
-    pub QosSetting: *mut core::ffi::c_void,
+    pub QosSetting: super::PVOID,
 }
 pub type HTTP_QOS_SETTING_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-    pub Freshness: u64,
+    pub Freshness: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_TCP {
-    pub Freshness: u64,
+    pub Freshness: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QUIC_API_TIMINGS {
     pub ConnectionTimings: HTTP_QUIC_CONNECTION_API_TIMINGS,
     pub StreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
-    pub OpenTime: u64,
-    pub CloseTime: u64,
-    pub StartTime: u64,
-    pub ShutdownTime: u64,
-    pub SecConfigCreateTime: u64,
-    pub SecConfigDeleteTime: u64,
-    pub GetParamCount: u64,
-    pub GetParamSum: u64,
-    pub SetParamCount: u64,
-    pub SetParamSum: u64,
-    pub SetCallbackHandlerCount: u64,
-    pub SetCallbackHandlerSum: u64,
+    pub OpenTime: super::ULONGLONG,
+    pub CloseTime: super::ULONGLONG,
+    pub StartTime: super::ULONGLONG,
+    pub ShutdownTime: super::ULONGLONG,
+    pub SecConfigCreateTime: super::ULONGLONG,
+    pub SecConfigDeleteTime: super::ULONGLONG,
+    pub GetParamCount: super::ULONGLONG,
+    pub GetParamSum: super::ULONGLONG,
+    pub SetParamCount: super::ULONGLONG,
+    pub SetParamSum: super::ULONGLONG,
+    pub SetCallbackHandlerCount: super::ULONGLONG,
+    pub SetCallbackHandlerSum: super::ULONGLONG,
     pub ControlStreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
 }
-pub const HTTP_QUIC_KEEPALIVE_TIMEOUT_DISABLED: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const HTTP_QUIC_KEEPALIVE_TIMEOUT_DISABLED: super::ULONG = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QUIC_STREAM_API_TIMINGS {
-    pub OpenCount: u64,
-    pub OpenSum: u64,
-    pub CloseCount: u64,
-    pub CloseSum: u64,
-    pub StartCount: u64,
-    pub StartSum: u64,
-    pub ShutdownCount: u64,
-    pub ShutdownSum: u64,
-    pub SendCount: u64,
-    pub SendSum: u64,
-    pub ReceiveSetEnabledCount: u64,
-    pub ReceiveSetEnabledSum: u64,
-    pub GetParamCount: u64,
-    pub GetParamSum: u64,
-    pub SetParamCount: u64,
-    pub SetParamSum: u64,
-    pub SetCallbackHandlerCount: u64,
-    pub SetCallbackHandlerSum: u64,
+    pub OpenCount: super::ULONGLONG,
+    pub OpenSum: super::ULONGLONG,
+    pub CloseCount: super::ULONGLONG,
+    pub CloseSum: super::ULONGLONG,
+    pub StartCount: super::ULONGLONG,
+    pub StartSum: super::ULONGLONG,
+    pub ShutdownCount: super::ULONGLONG,
+    pub ShutdownSum: super::ULONGLONG,
+    pub SendCount: super::ULONGLONG,
+    pub SendSum: super::ULONGLONG,
+    pub ReceiveSetEnabledCount: super::ULONGLONG,
+    pub ReceiveSetEnabledSum: super::ULONGLONG,
+    pub GetParamCount: super::ULONGLONG,
+    pub GetParamSum: super::ULONGLONG,
+    pub SetParamCount: super::ULONGLONG,
+    pub SetParamSum: super::ULONGLONG,
+    pub SetCallbackHandlerCount: super::ULONGLONG,
+    pub SetCallbackHandlerSum: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
-    pub StreamWaitStart: u64,
-    pub StreamWaitEnd: u64,
-    pub RequestHeadersCompressionStart: u64,
-    pub RequestHeadersCompressionEnd: u64,
-    pub ResponseHeadersDecompressionStart: u64,
-    pub ResponseHeadersDecompressionEnd: u64,
-    pub RequestHeadersCompressedSize: u64,
-    pub ResponseHeadersCompressedSize: u64,
+    pub StreamWaitStart: super::ULONGLONG,
+    pub StreamWaitEnd: super::ULONGLONG,
+    pub RequestHeadersCompressionStart: super::ULONGLONG,
+    pub RequestHeadersCompressionEnd: super::ULONGLONG,
+    pub ResponseHeadersDecompressionStart: super::ULONGLONG,
+    pub ResponseHeadersDecompressionEnd: super::ULONGLONG,
+    pub RequestHeadersCompressedSize: super::ULONGLONG,
+    pub ResponseHeadersCompressedSize: super::ULONGLONG,
 }
-pub type HTTP_RAW_CONNECTION_ID = HTTP_OPAQUE_ID;
+pub type HTTP_RAW_CONNECTION_ID = u64;
 pub const HTTP_RECEIVE_FULL_CHAIN: i32 = 2;
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: i32 = 1;
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: i32 = 1;
 pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: i32 = 2;
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: i32 = 1;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type HTTP_REQUEST = HTTP_REQUEST_V2;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_AUTH_INFO {
     pub AuthStatus: HTTP_AUTH_STATUS,
     pub SecStatus: super::SECURITY_STATUS,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub AuthType: HTTP_REQUEST_AUTH_TYPE,
     pub AccessToken: super::HANDLE,
-    pub ContextAttributes: u32,
-    pub PackedContextLength: u32,
-    pub PackedContextType: u32,
-    pub PackedContext: *mut core::ffi::c_void,
-    pub MutualAuthDataLength: u32,
+    pub ContextAttributes: super::ULONG,
+    pub PackedContextLength: super::ULONG,
+    pub PackedContextType: super::ULONG,
+    pub PackedContext: super::PVOID,
+    pub MutualAuthDataLength: super::ULONG,
     pub pMutualAuthData: super::PCHAR,
-    pub PackageNameLength: u16,
+    pub PackageNameLength: super::USHORT,
     pub pPackageName: windows_core::PWSTR,
 }
 pub type HTTP_REQUEST_AUTH_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ServiceName: PHTTP_SERVICE_BINDING_BASE,
     pub ChannelToken: super::PUCHAR,
-    pub ChannelTokenSize: u32,
-    pub Flags: u32,
+    pub ChannelTokenSize: super::ULONG,
+    pub Flags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_DSCP_INFO {
-    pub DscpTag: u8,
+    pub DscpTag: super::BYTE,
 }
 pub const HTTP_REQUEST_FLAG_FAST_FORWARDING_ALLOWED: i32 = 16;
 pub const HTTP_REQUEST_FLAG_FAST_FORWARDING_RESPONSE_ALLOWED: i32 = 16;
@@ -829,47 +851,54 @@ pub const HTTP_REQUEST_FLAG_HTTP3: i32 = 8;
 pub const HTTP_REQUEST_FLAG_IP_ROUTED: i32 = 2;
 pub const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_REQUEST_HEADERS {
-    pub UnknownHeaderCount: u16,
+    pub UnknownHeaderCount: super::USHORT,
     pub pUnknownHeaders: PHTTP_UNKNOWN_HEADER,
-    pub TrailerCount: u16,
+    pub TrailerCount: super::USHORT,
     pub pTrailers: PHTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 41],
 }
+#[cfg(feature = "shared")]
 impl Default for HTTP_REQUEST_HEADERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type HTTP_REQUEST_ID = HTTP_OPAQUE_ID;
+pub type HTTP_REQUEST_ID = u64;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_INFO {
     pub InfoType: HTTP_REQUEST_INFO_TYPE,
-    pub InfoLength: u32,
-    pub pInfo: *mut core::ffi::c_void,
+    pub InfoLength: super::ULONG,
+    pub pInfo: super::PVOID,
 }
 pub const HTTP_REQUEST_INFO_FLAG_INITIAL_TTL: u64 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_INFO_PROPERTY_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub RequestInfoFlags: u64,
+    pub RequestInfoFlags: super::ULONGLONG,
 }
 pub type HTTP_REQUEST_INFO_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_INITIAL_PACKET_TTL_INFO {
-    pub InitialPacketTtl: u8,
+    pub InitialPacketTtl: super::BYTE,
 }
 pub type HTTP_REQUEST_PROPERTY = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_REQUEST_PROPERTY_SNI {
-    pub Hostname: [u16; 256],
-    pub Flags: u32,
+    pub Hostname: [super::WCHAR; 256],
+    pub Flags: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_REQUEST_PROPERTY_SNI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -879,18 +908,21 @@ pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: i32 = 2;
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED: i32 = 1;
 pub const HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH: i32 = 255;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
-    pub ErrorCode: u32,
+    pub ErrorCode: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_REQUEST_SIZING_INFO {
-    pub Flags: u64,
-    pub RequestIndex: u32,
-    pub RequestSizingCount: u32,
-    pub RequestSizing: [u64; 5],
+    pub Flags: super::ULONGLONG,
+    pub RequestIndex: super::ULONG,
+    pub RequestSizingCount: super::ULONG,
+    pub RequestSizing: [super::ULONGLONG; 5],
 }
+#[cfg(feature = "shared")]
 impl Default for HTTP_REQUEST_SIZING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -902,11 +934,13 @@ pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: i32 = 4;
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: i32 = 2;
 pub type HTTP_REQUEST_SIZING_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_REQUEST_TIMING_INFO {
-    pub RequestTimingCount: u32,
-    pub RequestTiming: [u64; 30],
+    pub RequestTimingCount: super::ULONG,
+    pub RequestTiming: [super::ULONGLONG; 30],
 }
+#[cfg(feature = "shared")]
 impl Default for HTTP_REQUEST_TIMING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -914,97 +948,101 @@ impl Default for HTTP_REQUEST_TIMING_INFO {
 }
 pub type HTTP_REQUEST_TIMING_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub TokenBinding: super::PUCHAR,
-    pub TokenBindingSize: u32,
+    pub TokenBindingSize: super::ULONG,
     pub EKM: super::PUCHAR,
-    pub EKMSize: u32,
-    pub KeyType: u8,
+    pub EKMSize: super::ULONG,
+    pub KeyType: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
-    pub TransportIdleConnectionTimeout: u16,
+    pub TransportIdleConnectionTimeout: super::USHORT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_V1 {
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub ConnectionId: HTTP_CONNECTION_ID,
     pub RequestId: HTTP_REQUEST_ID,
     pub UrlContext: HTTP_URL_CONTEXT,
     pub Version: HTTP_VERSION,
     pub Verb: HTTP_VERB,
-    pub UnknownVerbLength: u16,
-    pub RawUrlLength: u16,
+    pub UnknownVerbLength: super::USHORT,
+    pub RawUrlLength: super::USHORT,
     pub pUnknownVerb: windows_core::PCSTR,
     pub pRawUrl: windows_core::PCSTR,
     pub CookedUrl: HTTP_COOKED_URL,
     pub Address: HTTP_TRANSPORT_ADDRESS,
     pub Headers: HTTP_REQUEST_HEADERS,
-    pub BytesReceived: u64,
-    pub EntityChunkCount: u16,
+    pub BytesReceived: super::ULONGLONG,
+    pub EntityChunkCount: super::USHORT,
     pub pEntityChunks: PHTTP_DATA_CHUNK,
     pub RawConnectionId: HTTP_RAW_CONNECTION_ID,
     pub pSslInfo: PHTTP_SSL_INFO,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_REQUEST_V2 {
-    pub Base: HTTP_REQUEST_V1,
-    pub RequestInfoCount: u16,
+    pub base: HTTP_REQUEST_V1,
+    pub RequestInfoCount: super::USHORT,
     pub pRequestInfo: PHTTP_REQUEST_INFO,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type HTTP_RESPONSE = HTTP_RESPONSE_V2;
 pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: i32 = 2;
 pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_RESPONSE_HEADERS {
-    pub UnknownHeaderCount: u16,
+    pub UnknownHeaderCount: super::USHORT,
     pub pUnknownHeaders: PHTTP_UNKNOWN_HEADER,
-    pub TrailerCount: u16,
+    pub TrailerCount: super::USHORT,
     pub pTrailers: PHTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 30],
 }
+#[cfg(feature = "shared")]
 impl Default for HTTP_RESPONSE_HEADERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_RESPONSE_INFO {
     pub Type: HTTP_RESPONSE_INFO_TYPE,
-    pub Length: u32,
-    pub pInfo: *mut core::ffi::c_void,
+    pub Length: super::ULONG,
+    pub pInfo: super::PVOID,
 }
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: i32 = 1;
 pub type HTTP_RESPONSE_INFO_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_RESPONSE_V1 {
-    pub Flags: u32,
+    pub Flags: super::ULONG,
     pub Version: HTTP_VERSION,
-    pub StatusCode: u16,
-    pub ReasonLength: u16,
+    pub StatusCode: super::USHORT,
+    pub ReasonLength: super::USHORT,
     pub pReason: windows_core::PCSTR,
     pub Headers: HTTP_RESPONSE_HEADERS,
-    pub EntityChunkCount: u16,
+    pub EntityChunkCount: super::USHORT,
     pub pEntityChunks: PHTTP_DATA_CHUNK,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_RESPONSE_V2 {
-    pub Base: HTTP_RESPONSE_V1,
-    pub ResponseInfoCount: u16,
+    pub base: HTTP_RESPONSE_V1,
+    pub ResponseInfoCount: super::USHORT,
     pub pResponseInfo: PHTTP_RESPONSE_INFO,
 }
 pub type HTTP_SCHEME = i32;
@@ -1017,41 +1055,43 @@ pub const HTTP_SEND_RESPONSE_FLAG_MORE_DATA: i32 = 2;
 pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: i32 = 64;
 pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-    pub RealmLength: u16,
+    pub RealmLength: super::USHORT,
     pub Realm: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-    pub DomainNameLength: u16,
+    pub DomainNameLength: super::USHORT,
     pub DomainName: windows_core::PWSTR,
-    pub RealmLength: u16,
+    pub RealmLength: super::USHORT,
     pub Realm: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub AuthSchemes: u32,
+    pub AuthSchemes: super::ULONG,
     pub ReceiveMutualAuth: super::BOOLEAN,
     pub ReceiveContextHandle: super::BOOLEAN,
     pub DisableNTLMCredentialCaching: super::BOOLEAN,
-    pub ExFlags: u8,
+    pub ExFlags: super::UCHAR,
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
 }
 pub type HTTP_SERVER_PROPERTY = i32;
-pub type HTTP_SERVER_SESSION_ID = HTTP_OPAQUE_ID;
+pub type HTTP_SERVER_SESSION_ID = u64;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_BINDING_A {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: super::PCHAR,
-    pub BufferSize: u32,
+    pub BufferSize: super::ULONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1060,12 +1100,12 @@ pub struct HTTP_SERVICE_BINDING_BASE {
 }
 pub type HTTP_SERVICE_BINDING_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_BINDING_W {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: super::PWCHAR,
-    pub BufferSize: u32,
+    pub BufferSize: super::ULONG,
 }
 pub type HTTP_SERVICE_CONFIG_CACHE_KEY = i32;
 pub type HTTP_SERVICE_CONFIG_CACHE_PARAM = u32;
@@ -1077,20 +1117,20 @@ pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
 }
 pub type HTTP_SERVICE_CONFIG_ID = i32;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-    pub AddrLength: u16,
+    pub AddrLength: super::USHORT,
     pub pAddress: super::PSOCKADDR,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-    pub AddrCount: u32,
+    pub AddrCount: super::ULONG,
     pub AddrList: [super::SOCKADDR_STORAGE; 1],
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1106,43 +1146,43 @@ pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub ParamDesc: HTTP_SERVICE_CONFIG_SETTING_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub LocalAddress: super::SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-    pub dwToken: u32,
+    pub dwToken: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
-    pub dwToken: u32,
+    pub dwToken: super::DWORD,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1164,44 +1204,48 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT: i32 = 2;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: i32 = 8;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: super::PSOCKADDR,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::SOCKADDR_STORAGE,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
-    pub SslHashLength: u32,
-    pub pSslHash: *mut core::ffi::c_void,
+    pub SslHashLength: super::ULONG,
+    pub pSslHash: super::PVOID,
     pub AppId: windows_core::GUID,
     pub pSslCertStoreName: windows_core::PWSTR,
-    pub DefaultCertCheckMode: u32,
-    pub DefaultRevocationFreshnessTime: u32,
-    pub DefaultRevocationUrlRetrievalTimeout: u32,
+    pub DefaultCertCheckMode: super::DWORD,
+    pub DefaultRevocationFreshnessTime: super::DWORD,
+    pub DefaultRevocationUrlRetrievalTimeout: super::DWORD,
     pub pDefaultSslCtlIdentifier: windows_core::PWSTR,
     pub pDefaultSslCtlStoreName: windows_core::PWSTR,
-    pub DefaultFlags: u32,
+    pub DefaultFlags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
-    pub Flags: u64,
+    pub Flags: super::ULONGLONG,
     pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
@@ -1212,87 +1256,88 @@ pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub HttpTlsSessionTicketKeysParam: HTTP_TLS_SESSION_TICKET_KEYS_PARAM,
     pub HttpCertConfigParam: HTTP_CERT_CONFIG_PARAM,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
-    pub dwToken: u32,
+    pub dwToken: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
-    pub dwToken: u32,
+    pub dwToken: super::DWORD,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::SOCKADDR_STORAGE,
     pub Host: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-    pub dwToken: u32,
+    pub dwToken: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
-    pub dwToken: u32,
+    pub dwToken: super::DWORD,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1317,11 +1362,12 @@ pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
     pub pStringSecurityDescriptor: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
-    pub dwToken: u32,
+    pub dwToken: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1332,120 +1378,129 @@ pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
 pub const HTTP_SSL_CERT_SHA_HASH_LENGTH: i32 = 20;
 pub const HTTP_SSL_CERT_STORE_NAME_LENGTH: i32 = 128;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SSL_CLIENT_CERT_INFO {
-    pub CertFlags: u32,
-    pub CertEncodedSize: u32,
+    pub CertFlags: super::ULONG,
+    pub CertEncodedSize: super::ULONG,
     pub pCertEncoded: super::PUCHAR,
     pub Token: super::HANDLE,
     pub CertDeniedByMapper: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SSL_INFO {
-    pub ServerCertKeySize: u16,
-    pub ConnectionKeySize: u16,
-    pub ServerCertIssuerSize: u32,
-    pub ServerCertSubjectSize: u32,
+    pub ServerCertKeySize: super::USHORT,
+    pub ConnectionKeySize: super::USHORT,
+    pub ServerCertIssuerSize: super::ULONG,
+    pub ServerCertSubjectSize: super::ULONG,
     pub pServerCertIssuer: windows_core::PCSTR,
     pub pServerCertSubject: windows_core::PCSTR,
     pub pClientCertInfo: PHTTP_SSL_CLIENT_CERT_INFO,
-    pub SslClientCertNegotiated: u32,
+    pub SslClientCertNegotiated: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_SSL_PROTOCOL_INFO {
-    pub Protocol: u32,
-    pub CipherType: u32,
-    pub CipherStrength: u32,
-    pub HashType: u32,
-    pub HashStrength: u32,
-    pub KeyExchangeType: u32,
-    pub KeyExchangeStrength: u32,
+    pub Protocol: super::ULONG,
+    pub CipherType: super::ULONG,
+    pub CipherStrength: super::ULONG,
+    pub HashType: super::ULONG,
+    pub HashStrength: super::ULONG,
+    pub KeyExchangeType: super::ULONG,
+    pub KeyExchangeStrength: super::ULONG,
 }
 pub type HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_STATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub State: HTTP_ENABLED_STATE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_TIMEOUT_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EntityBody: u16,
-    pub DrainEntityBody: u16,
-    pub RequestQueue: u16,
-    pub IdleConnection: u16,
-    pub HeaderWait: u16,
-    pub MinSendRate: u32,
+    pub EntityBody: super::USHORT,
+    pub DrainEntityBody: super::USHORT,
+    pub RequestQueue: super::USHORT,
+    pub IdleConnection: super::USHORT,
+    pub HeaderWait: super::USHORT,
+    pub MinSendRate: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_TLS_RESTRICTIONS_PARAM {
-    pub RestrictionCount: u32,
-    pub TlsRestrictions: *mut core::ffi::c_void,
+    pub RestrictionCount: super::ULONG,
+    pub TlsRestrictions: super::PVOID,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    pub SessionTicketKeyCount: u32,
-    pub SessionTicketKeys: *mut core::ffi::c_void,
+    pub SessionTicketKeyCount: super::ULONG,
+    pub SessionTicketKeys: super::PVOID,
 }
 #[repr(C)]
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: super::PSOCKADDR,
     pub pLocalAddress: super::PSOCKADDR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_UNKNOWN_HEADER {
-    pub NameLength: u16,
-    pub RawValueLength: u16,
+    pub NameLength: super::USHORT,
+    pub RawValueLength: super::USHORT,
     pub pName: windows_core::PCSTR,
     pub pRawValue: windows_core::PCSTR,
 }
 pub type HTTP_URL_CONTEXT = u64;
 pub const HTTP_URL_FLAG_REMOVE_ALL: i32 = 1;
-pub type HTTP_URL_GROUP_ID = HTTP_OPAQUE_ID;
+pub type HTTP_URL_GROUP_ID = u64;
 pub type HTTP_VERB = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_VERSION {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
+    pub MajorVersion: super::USHORT,
+    pub MinorVersion: super::USHORT,
 }
-pub const HTTP_VERSION: windows_core::PCSTR = windows_core::s!("HTTP/1.0");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_WINHTTP_FAST_FORWARDING_DATA {
-    pub Reserved: [u8; 16],
+    pub Reserved: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for HTTP_WINHTTP_FAST_FORWARDING_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_WSK_API_TIMINGS {
-    pub ConnectCount: u64,
-    pub ConnectSum: u64,
-    pub DisconnectCount: u64,
-    pub DisconnectSum: u64,
-    pub SendCount: u64,
-    pub SendSum: u64,
-    pub ReceiveCount: u64,
-    pub ReceiveSum: u64,
-    pub ReleaseCount: u64,
-    pub ReleaseSum: u64,
-    pub ControlSocketCount: u64,
-    pub ControlSocketSum: u64,
+    pub ConnectCount: super::ULONGLONG,
+    pub ConnectSum: super::ULONGLONG,
+    pub DisconnectCount: super::ULONGLONG,
+    pub DisconnectSum: super::ULONGLONG,
+    pub SendCount: super::ULONGLONG,
+    pub SendSum: super::ULONGLONG,
+    pub ReceiveCount: super::ULONGLONG,
+    pub ReceiveSum: super::ULONGLONG,
+    pub ReleaseCount: super::ULONGLONG,
+    pub ReleaseSum: super::ULONGLONG,
+    pub ControlSocketCount: super::ULONGLONG,
+    pub ControlSocketSum: super::ULONGLONG,
 }
 pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = 1;
 pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = 0;
@@ -1700,188 +1755,240 @@ pub const HttpVerbUnknown: HTTP_VERB = 1;
 pub const HttpVerbUnparsed: HTTP_VERB = 0;
 pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = 0;
 pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 0;
+#[cfg(feature = "shared")]
 pub type PHTTP2_SETTINGS_LIMITS_PARAM = *mut HTTP2_SETTINGS_LIMITS_PARAM;
+#[cfg(feature = "shared")]
 pub type PHTTP2_WINDOW_SIZE_PARAM = *mut HTTP2_WINDOW_SIZE_PARAM;
+#[cfg(feature = "shared")]
 pub type PHTTPAPI_VERSION = *mut HTTPAPI_VERSION;
 pub type PHTTP_503_RESPONSE_VERBOSITY = *mut HTTP_503_RESPONSE_VERBOSITY;
 pub type PHTTP_AUTH_STATUS = *mut HTTP_AUTH_STATUS;
+#[cfg(feature = "shared")]
 pub type PHTTP_BANDWIDTH_LIMIT_INFO = *mut HTTP_BANDWIDTH_LIMIT_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_BINDING_INFO = *mut HTTP_BINDING_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_BYTE_RANGE = *mut HTTP_BYTE_RANGE;
+#[cfg(feature = "shared")]
 pub type PHTTP_CACHE_POLICY = *mut HTTP_CACHE_POLICY;
 pub type PHTTP_CACHE_POLICY_TYPE = *mut HTTP_CACHE_POLICY_TYPE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_CERT_CONFIG_ENTRY = *mut HTTP_CERT_CONFIG_ENTRY;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_CERT_CONFIG_PARAM = *mut HTTP_CERT_CONFIG_PARAM;
+#[cfg(feature = "shared")]
 pub type PHTTP_CHANNEL_BIND_INFO = *mut HTTP_CHANNEL_BIND_INFO;
-pub type PHTTP_CLIENT_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
-pub type PHTTP_CLIENT_CREDENTIAL_ID = *mut HTTP_OPAQUE_ID;
-pub type PHTTP_CLIENT_REQUEST_ID = *mut HTTP_OPAQUE_ID;
-pub type PHTTP_CLIENT_STREAM_ID = *mut HTTP_OPAQUE_ID;
-pub type PHTTP_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_CLIENT_CONNECTION_ID = *mut u64;
+pub type PHTTP_CLIENT_CREDENTIAL_ID = *mut u64;
+pub type PHTTP_CLIENT_REQUEST_ID = *mut u64;
+pub type PHTTP_CLIENT_STREAM_ID = *mut u64;
+pub type PHTTP_CONNECTION_ID = *mut u64;
+#[cfg(feature = "shared")]
 pub type PHTTP_CONNECTION_LIMIT_INFO = *mut HTTP_CONNECTION_LIMIT_INFO;
+#[cfg(feature = "shared")]
 pub type PHTTP_COOKED_URL = *mut HTTP_COOKED_URL;
 pub type PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO = *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_DATA_CHUNK = *mut HTTP_DATA_CHUNK;
 pub type PHTTP_DATA_CHUNK_TYPE = *mut HTTP_DATA_CHUNK_TYPE;
 pub type PHTTP_DELEGATE_REQUEST_PROPERTY_ID = *mut HTTP_DELEGATE_REQUEST_PROPERTY_ID;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_DELEGATE_REQUEST_PROPERTY_INFO = *mut HTTP_DELEGATE_REQUEST_PROPERTY_INFO;
 pub type PHTTP_ENABLED_STATE = *mut HTTP_ENABLED_STATE;
+#[cfg(feature = "shared")]
 pub type PHTTP_ERROR_HEADERS_PARAM = *mut HTTP_ERROR_HEADERS_PARAM;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PHTTP_FAST_FORWARD_INFO = *mut HTTP_FAST_FORWARD_INFO;
 pub type PHTTP_FEATURE_ID = *mut HTTP_FEATURE_ID;
+#[cfg(feature = "shared")]
 pub type PHTTP_FLOWRATE_INFO = *mut HTTP_FLOWRATE_INFO;
 pub type PHTTP_HEADER_ID = *mut HTTP_HEADER_ID;
+#[cfg(feature = "shared")]
 pub type PHTTP_KNOWN_HEADER = *mut HTTP_KNOWN_HEADER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PHTTP_LISTEN_ENDPOINT_INFO = *mut HTTP_LISTEN_ENDPOINT_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_LOGGING_INFO = *mut HTTP_LOGGING_INFO;
 pub type PHTTP_LOGGING_ROLLOVER_TYPE = *mut HTTP_LOGGING_ROLLOVER_TYPE;
 pub type PHTTP_LOGGING_TYPE = *mut HTTP_LOGGING_TYPE;
 pub type PHTTP_LOG_DATA = *mut HTTP_LOG_DATA;
 pub type PHTTP_LOG_DATA_TYPE = *mut HTTP_LOG_DATA_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_LOG_FIELDS_DATA = *mut HTTP_LOG_FIELDS_DATA;
+#[cfg(feature = "shared")]
 pub type PHTTP_MULTIPLE_KNOWN_HEADERS = *mut HTTP_MULTIPLE_KNOWN_HEADERS;
 pub type PHTTP_OPAQUE_ID = *mut u64;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_PERFORMANCE_PARAM = *mut HTTP_PERFORMANCE_PARAM;
 pub type PHTTP_PERFORMANCE_PARAM_TYPE = *mut HTTP_PERFORMANCE_PARAM_TYPE;
+#[cfg(feature = "shared")]
 pub type PHTTP_PROPERTY_FLAGS = *mut HTTP_PROPERTY_FLAGS;
+#[cfg(feature = "shared")]
 pub type PHTTP_PROTECTION_LEVEL_INFO = *mut HTTP_PROTECTION_LEVEL_INFO;
 pub type PHTTP_PROTECTION_LEVEL_TYPE = *mut HTTP_PROTECTION_LEVEL_TYPE;
+#[cfg(feature = "winnt")]
 pub type PHTTP_QOS_SETTING_INFO = *mut HTTP_QOS_SETTING_INFO;
 pub type PHTTP_QOS_SETTING_TYPE = *mut HTTP_QOS_SETTING_TYPE;
+#[cfg(feature = "shared")]
 pub type PHTTP_QUERY_REQUEST_QUALIFIER_QUIC = *mut HTTP_QUERY_REQUEST_QUALIFIER_QUIC;
+#[cfg(feature = "shared")]
 pub type PHTTP_QUERY_REQUEST_QUALIFIER_TCP = *mut HTTP_QUERY_REQUEST_QUALIFIER_TCP;
+#[cfg(feature = "shared")]
 pub type PHTTP_QUIC_API_TIMINGS = *mut HTTP_QUIC_API_TIMINGS;
+#[cfg(feature = "shared")]
 pub type PHTTP_QUIC_CONNECTION_API_TIMINGS = *mut HTTP_QUIC_CONNECTION_API_TIMINGS;
+#[cfg(feature = "shared")]
 pub type PHTTP_QUIC_STREAM_API_TIMINGS = *mut HTTP_QUIC_STREAM_API_TIMINGS;
+#[cfg(feature = "shared")]
 pub type PHTTP_QUIC_STREAM_REQUEST_STATS = *mut HTTP_QUIC_STREAM_REQUEST_STATS;
-pub type PHTTP_RAW_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-pub type PHTTP_REQUEST = *mut HTTP_REQUEST;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+pub type PHTTP_RAW_CONNECTION_ID = *mut u64;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
+pub type PHTTP_REQUEST = *mut HTTP_REQUEST_V2;
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type PHTTP_REQUEST_AUTH_INFO = *mut HTTP_REQUEST_AUTH_INFO;
 pub type PHTTP_REQUEST_AUTH_TYPE = *mut HTTP_REQUEST_AUTH_TYPE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PHTTP_REQUEST_CHANNEL_BIND_STATUS = *mut HTTP_REQUEST_CHANNEL_BIND_STATUS;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_DSCP_INFO = *mut HTTP_REQUEST_DSCP_INFO;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_HEADERS = *mut HTTP_REQUEST_HEADERS;
-pub type PHTTP_REQUEST_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_REQUEST_ID = *mut u64;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_REQUEST_INFO = *mut HTTP_REQUEST_INFO;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_INFO_PROPERTY_INFO = *mut HTTP_REQUEST_INFO_PROPERTY_INFO;
 pub type PHTTP_REQUEST_INFO_TYPE = *mut HTTP_REQUEST_INFO_TYPE;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_INITIAL_PACKET_TTL_INFO = *mut HTTP_REQUEST_INITIAL_PACKET_TTL_INFO;
 pub type PHTTP_REQUEST_PROPERTY = *mut HTTP_REQUEST_PROPERTY;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_REQUEST_PROPERTY_SNI = *mut HTTP_REQUEST_PROPERTY_SNI;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_PROPERTY_STREAM_ERROR = *mut HTTP_REQUEST_PROPERTY_STREAM_ERROR;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_SIZING_INFO = *mut HTTP_REQUEST_SIZING_INFO;
 pub type PHTTP_REQUEST_SIZING_TYPE = *mut HTTP_REQUEST_SIZING_TYPE;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_TIMING_INFO = *mut HTTP_REQUEST_TIMING_INFO;
 pub type PHTTP_REQUEST_TIMING_TYPE = *mut HTTP_REQUEST_TIMING_TYPE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PHTTP_REQUEST_TOKEN_BINDING_INFO = *mut HTTP_REQUEST_TOKEN_BINDING_INFO;
+#[cfg(feature = "shared")]
 pub type PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO = *mut HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_REQUEST_V1 = *mut HTTP_REQUEST_V1;
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_REQUEST_V2 = *mut HTTP_REQUEST_V2;
-#[cfg(feature = "winnt")]
-pub type PHTTP_RESPONSE = *mut HTTP_RESPONSE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PHTTP_RESPONSE = *mut HTTP_RESPONSE_V2;
+#[cfg(feature = "shared")]
 pub type PHTTP_RESPONSE_HEADERS = *mut HTTP_RESPONSE_HEADERS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_RESPONSE_INFO = *mut HTTP_RESPONSE_INFO;
 pub type PHTTP_RESPONSE_INFO_TYPE = *mut HTTP_RESPONSE_INFO_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_RESPONSE_V1 = *mut HTTP_RESPONSE_V1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_RESPONSE_V2 = *mut HTTP_RESPONSE_V2;
+#[cfg(feature = "shared")]
 pub type PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS;
+#[cfg(feature = "shared")]
 pub type PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PHTTP_SERVER_AUTHENTICATION_INFO = *mut HTTP_SERVER_AUTHENTICATION_INFO;
 pub type PHTTP_SERVER_PROPERTY = *mut HTTP_SERVER_PROPERTY;
-pub type PHTTP_SERVER_SESSION_ID = *mut HTTP_OPAQUE_ID;
-#[cfg(feature = "winnt")]
+pub type PHTTP_SERVER_SESSION_ID = *mut u64;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_SERVICE_BINDING_A = *mut HTTP_SERVICE_BINDING_A;
 pub type PHTTP_SERVICE_BINDING_BASE = *mut HTTP_SERVICE_BINDING_BASE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_SERVICE_BINDING_W = *mut HTTP_SERVICE_BINDING_W;
 pub type PHTTP_SERVICE_CONFIG_CACHE_KEY = *mut HTTP_SERVICE_CONFIG_CACHE_KEY;
 pub type PHTTP_SERVICE_CONFIG_CACHE_PARAM = *mut u32;
 pub type PHTTP_SERVICE_CONFIG_CACHE_SET = *mut HTTP_SERVICE_CONFIG_CACHE_SET;
 pub type PHTTP_SERVICE_CONFIG_ID = *mut HTTP_SERVICE_CONFIG_ID;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM = *mut HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY = *mut HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY;
 pub type PHTTP_SERVICE_CONFIG_QUERY_TYPE = *mut HTTP_SERVICE_CONFIG_QUERY_TYPE;
 pub type PHTTP_SERVICE_CONFIG_SETTING_KEY = *mut HTTP_SERVICE_CONFIG_SETTING_KEY;
 pub type PHTTP_SERVICE_CONFIG_SETTING_PARAM = *mut u32;
 pub type PHTTP_SERVICE_CONFIG_SETTING_SET = *mut HTTP_SERVICE_CONFIG_SETTING_SET;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_KEY = *mut HTTP_SERVICE_CONFIG_SSL_CCS_KEY;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_SET = *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_KEY = *mut HTTP_SERVICE_CONFIG_SSL_KEY;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_KEY_EX = *mut HTTP_SERVICE_CONFIG_SSL_KEY_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_PARAM = *mut HTTP_SERVICE_CONFIG_SSL_PARAM;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_PARAM_EX = *mut HTTP_SERVICE_CONFIG_SSL_PARAM_EX;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_QUERY;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_QUERY_EX;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_SET = *mut HTTP_SERVICE_CONFIG_SSL_SET;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_SET_EX;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_KEY = *mut HTTP_SERVICE_CONFIG_SSL_SNI_KEY;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_SET = *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "ws2"))]
 pub type PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX;
 pub type PHTTP_SERVICE_CONFIG_TIMEOUT_KEY = *mut HTTP_SERVICE_CONFIG_TIMEOUT_KEY;
 pub type PHTTP_SERVICE_CONFIG_TIMEOUT_PARAM = *mut u16;
 pub type PHTTP_SERVICE_CONFIG_TIMEOUT_SET = *mut HTTP_SERVICE_CONFIG_TIMEOUT_SET;
 pub type PHTTP_SERVICE_CONFIG_URLACL_KEY = *mut HTTP_SERVICE_CONFIG_URLACL_KEY;
 pub type PHTTP_SERVICE_CONFIG_URLACL_PARAM = *mut HTTP_SERVICE_CONFIG_URLACL_PARAM;
+#[cfg(feature = "shared")]
 pub type PHTTP_SERVICE_CONFIG_URLACL_QUERY = *mut HTTP_SERVICE_CONFIG_URLACL_QUERY;
 pub type PHTTP_SERVICE_CONFIG_URLACL_SET = *mut HTTP_SERVICE_CONFIG_URLACL_SET;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PHTTP_SSL_CLIENT_CERT_INFO = *mut HTTP_SSL_CLIENT_CERT_INFO;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PHTTP_SSL_INFO = *mut HTTP_SSL_INFO;
+#[cfg(feature = "shared")]
 pub type PHTTP_SSL_PROTOCOL_INFO = *mut HTTP_SSL_PROTOCOL_INFO;
 pub type PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = *mut HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE;
+#[cfg(feature = "shared")]
 pub type PHTTP_STATE_INFO = *mut HTTP_STATE_INFO;
+#[cfg(feature = "shared")]
 pub type PHTTP_TIMEOUT_LIMIT_INFO = *mut HTTP_TIMEOUT_LIMIT_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_TLS_RESTRICTIONS_PARAM = *mut HTTP_TLS_RESTRICTIONS_PARAM;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PHTTP_TLS_SESSION_TICKET_KEYS_PARAM = *mut HTTP_TLS_SESSION_TICKET_KEYS_PARAM;
-#[cfg(feature = "ws2")]
+#[cfg(all(feature = "shared", feature = "ws2"))]
 pub type PHTTP_TRANSPORT_ADDRESS = *mut HTTP_TRANSPORT_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PHTTP_UNKNOWN_HEADER = *mut HTTP_UNKNOWN_HEADER;
 pub type PHTTP_URI_SCHEME = *mut HTTP_SCHEME;
-pub type PHTTP_URL_GROUP_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_URL_GROUP_ID = *mut u64;
 pub type PHTTP_VERB = *mut HTTP_VERB;
+#[cfg(feature = "shared")]
 pub type PHTTP_VERSION = *mut HTTP_VERSION;
+#[cfg(feature = "shared")]
 pub type PHTTP_WINHTTP_FAST_FORWARDING_DATA = *mut HTTP_WINHTTP_FAST_FORWARDING_DATA;
+#[cfg(feature = "shared")]
 pub type PHTTP_WSK_API_TIMINGS = *mut HTTP_WSK_API_TIMINGS;
 pub const PerformanceParamAggressiveICW: HTTP_PERFORMANCE_PARAM_TYPE = 1;
 pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE = 5;

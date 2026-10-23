@@ -21,50 +21,58 @@ pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = 32;
 pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = 8;
 pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct AMCOPPCommand {
     pub macKDI: windows_sys::core::GUID,
     pub guidCommandID: windows_sys::core::GUID,
-    pub dwSequence: u32,
-    pub cbSizeData: u32,
-    pub CommandData: [u8; 4056],
+    pub dwSequence: super::DWORD,
+    pub cbSizeData: super::DWORD,
+    pub CommandData: [super::BYTE; 4056],
 }
+#[cfg(feature = "shared")]
 impl Default for AMCOPPCommand {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct AMCOPPSignature {
-    pub Signature: [u8; 256],
+    pub Signature: [super::BYTE; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for AMCOPPSignature {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct AMCOPPStatusInput {
     pub rApp: windows_sys::core::GUID,
     pub guidStatusRequestID: windows_sys::core::GUID,
-    pub dwSequence: u32,
-    pub cbSizeData: u32,
-    pub StatusData: [u8; 4056],
+    pub dwSequence: super::DWORD,
+    pub cbSizeData: super::DWORD,
+    pub StatusData: [super::BYTE; 4056],
 }
+#[cfg(feature = "shared")]
 impl Default for AMCOPPStatusInput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct AMCOPPStatusOutput {
     pub macKDI: windows_sys::core::GUID,
-    pub cbSizeData: u32,
-    pub COPPStatus: [u8; 4076],
+    pub cbSizeData: super::DWORD,
+    pub COPPStatus: [super::BYTE; 4076],
 }
+#[cfg(feature = "shared")]
 impl Default for AMCOPPStatusOutput {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -133,6 +141,7 @@ pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = 1;
 pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = 65535;
 pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_DVD_RENDERSTATUS {
     pub hrVPEStatus: windows_sys::core::HRESULT,
@@ -142,7 +151,7 @@ pub struct AM_DVD_RENDERSTATUS {
     pub bNoLine21Out: windows_sys::core::BOOL,
     pub iNumStreams: i32,
     pub iNumStreamsFailed: i32,
-    pub dwFailedStreamsFlag: u32,
+    pub dwFailedStreamsFlag: super::DWORD,
 }
 pub const AM_DVD_STREAM_AUDIO: AM_DVD_STREAM_FLAGS = 2;
 pub type AM_DVD_STREAM_FLAGS = i32;
@@ -173,17 +182,18 @@ pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = 1;
 pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = 2;
 pub const AM_MEDIAEVENT_NONOTIFY: tagAM_MEDIAEVENT_FLAGS = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
     pub bFixedSizeSamples: windows_sys::core::BOOL,
     pub bTemporalCompression: windows_sys::core::BOOL,
-    pub lSampleSize: u32,
+    pub lSampleSize: super::ULONG,
     pub formattype: windows_sys::core::GUID,
     pub pUnk: *mut core::ffi::c_void,
-    pub cbFormat: u32,
-    pub pbFormat: *mut u8,
+    pub cbFormat: super::ULONG,
+    pub pbFormat: *mut super::BYTE,
 }
 pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 4;
 pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = 2;
@@ -201,19 +211,19 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: i32 = 2;
 pub const AM_QUERY_DECODER_VMR_SUPPORT: i32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_SAMPLE2_PROPERTIES {
-    pub cbData: u32,
-    pub dwTypeSpecificFlags: u32,
-    pub dwSampleFlags: u32,
-    pub lActual: i32,
+    pub cbData: super::DWORD,
+    pub dwTypeSpecificFlags: super::DWORD,
+    pub dwSampleFlags: super::DWORD,
+    pub lActual: super::LONG,
     pub tStart: super::REFERENCE_TIME,
     pub tStop: super::REFERENCE_TIME,
-    pub dwStreamId: u32,
+    pub dwStreamId: super::DWORD,
     pub pMediaType: *mut AM_MEDIA_TYPE,
-    pub pbBuffer: *mut u8,
-    pub cbBuffer: i32,
+    pub pbBuffer: *mut super::BYTE,
+    pub cbBuffer: super::LONG,
 }
 pub const AM_SAMPLE_DATADISCONTINUITY: tagAM_SAMPLE_PROPERTY_FLAGS = 4;
 pub const AM_SAMPLE_ENDOFSTREAM: tagAM_SAMPLE_PROPERTY_FLAGS = 512;
@@ -246,14 +256,14 @@ pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16;
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_STREAM_INFO {
     pub tStart: super::REFERENCE_TIME,
     pub tStop: super::REFERENCE_TIME,
-    pub dwStartCookie: u32,
-    pub dwStopCookie: u32,
-    pub dwFlags: u32,
+    pub dwStartCookie: super::DWORD,
+    pub dwStopCookie: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
 pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = 4;
 pub type AM_STREAM_INFO_FLAGS = i32;
@@ -262,18 +272,19 @@ pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = 2;
 pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = 16;
 pub const AM_STREAM_MEDIA: tagAM_SAMPLE_PROPERTY_FLAGS = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct AUDIO_STREAM_CONFIG_CAPS {
     pub guid: windows_sys::core::GUID,
-    pub MinimumChannels: u32,
-    pub MaximumChannels: u32,
-    pub ChannelsGranularity: u32,
-    pub MinimumBitsPerSample: u32,
-    pub MaximumBitsPerSample: u32,
-    pub BitsPerSampleGranularity: u32,
-    pub MinimumSampleFrequency: u32,
-    pub MaximumSampleFrequency: u32,
-    pub SampleFrequencyGranularity: u32,
+    pub MinimumChannels: super::ULONG,
+    pub MaximumChannels: super::ULONG,
+    pub ChannelsGranularity: super::ULONG,
+    pub MinimumBitsPerSample: super::ULONG,
+    pub MaximumBitsPerSample: super::ULONG,
+    pub BitsPerSampleGranularity: super::ULONG,
+    pub MinimumSampleFrequency: super::ULONG,
+    pub MaximumSampleFrequency: super::ULONG,
+    pub SampleFrequencyGranularity: super::ULONG,
 }
 pub const AnalogVideoMask_MCE_NTSC: AnalogVideoStandard = 1052167;
 pub const AnalogVideoMask_MCE_PAL: AnalogVideoStandard = 496;
@@ -316,11 +327,11 @@ pub const CK_INDEX: i32 = 1;
 pub const CK_NOCOLORKEY: i32 = 0;
 pub const CK_RGB: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct COLORKEY {
-    pub KeyType: u32,
-    pub PaletteIndex: u32,
+    pub KeyType: super::DWORD,
+    pub PaletteIndex: super::DWORD,
     pub LowColorValue: super::COLORREF,
     pub HighColorValue: super::COLORREF,
 }
@@ -336,12 +347,14 @@ pub const CameraControl_Roll: CameraControlProperty = 2;
 pub const CameraControl_Tilt: CameraControlProperty = 1;
 pub const CameraControl_Zoom: CameraControlProperty = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CodecAPIEventData {
     pub guid: windows_sys::core::GUID,
-    pub dataLength: u32,
-    pub reserved: [u32; 3],
+    pub dataLength: super::DWORD,
+    pub reserved: [super::DWORD; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for CodecAPIEventData {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -370,11 +383,13 @@ pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = 1001;
 pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = 1000;
 pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = 1003;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVD_ATR {
-    pub ulCAT: u32,
-    pub pbATRI: [u8; 768],
+    pub ulCAT: super::ULONG,
+    pub pbATRI: [super::BYTE; 768],
 }
+#[cfg(feature = "shared")]
 impl Default for DVD_ATR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -406,21 +421,21 @@ pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = 0;
 pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = 1;
 pub type DVD_AudioATR = [u8; 8];
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVD_AudioAttributes {
     pub AppMode: DVD_AUDIO_APPMODE,
-    pub AppModeData: u8,
+    pub AppModeData: super::BYTE,
     pub AudioFormat: DVD_AUDIO_FORMAT,
     pub Language: super::LCID,
     pub LanguageExtension: DVD_AUDIO_LANG_EXT,
     pub fHasMultichannelInfo: windows_sys::core::BOOL,
-    pub dwFrequency: u32,
-    pub bQuantization: u8,
-    pub bNumberOfChannels: u8,
-    pub dwReserved: [u32; 2],
+    pub dwFrequency: super::DWORD,
+    pub bQuantization: super::BYTE,
+    pub bNumberOfChannels: super::BYTE,
+    pub dwReserved: [super::DWORD; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DVD_AudioAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -455,20 +470,21 @@ pub const DVD_CharSet_JIS_Roman_Kanji: DVD_TextCharSet = 2;
 pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: DVD_TextCharSet = 4;
 pub const DVD_CharSet_Unicode: DVD_TextCharSet = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_DECODER_CAPS {
-    pub dwSize: u32,
-    pub dwAudioCaps: u32,
+    pub dwSize: super::DWORD,
+    pub dwAudioCaps: super::DWORD,
     pub dFwdMaxRateVideo: f64,
     pub dFwdMaxRateAudio: f64,
     pub dFwdMaxRateSP: f64,
     pub dBwdMaxRateVideo: f64,
     pub dBwdMaxRateAudio: f64,
     pub dBwdMaxRateSP: f64,
-    pub dwRes1: u32,
-    pub dwRes2: u32,
-    pub dwRes3: u32,
-    pub dwRes4: u32,
+    pub dwRes1: super::DWORD,
+    pub dwRes2: super::DWORD,
+    pub dwRes3: super::DWORD,
+    pub dwRes4: super::DWORD,
 }
 pub const DVD_DEFAULT_AUDIO_STREAM: i32 = 15;
 pub type DVD_DISC_SIDE = i32;
@@ -493,12 +509,13 @@ pub type DVD_FRAMERATE = i32;
 pub const DVD_General_Comments: DVD_TextStringType = 49;
 pub const DVD_General_Name: DVD_TextStringType = 48;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_HMSF_TIMECODE {
-    pub bHours: u8,
-    pub bMinutes: u8,
-    pub bSeconds: u8,
-    pub bFrames: u8,
+    pub bHours: super::BYTE,
+    pub bMinutes: super::BYTE,
+    pub bSeconds: super::BYTE,
+    pub bFrames: super::BYTE,
 }
 pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = 3;
 pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = 10;
@@ -506,14 +523,16 @@ pub type DVD_KARAOKE_ASSIGNMENT = i32;
 pub type DVD_KARAOKE_CONTENTS = i32;
 pub type DVD_KARAOKE_DOWNMIX = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVD_KaraokeAttributes {
-    pub bVersion: u8,
+    pub bVersion: super::BYTE,
     pub fMasterOfCeremoniesInGuideVocal1: windows_sys::core::BOOL,
     pub fDuet: windows_sys::core::BOOL,
     pub ChannelAssignment: DVD_KARAOKE_ASSIGNMENT,
-    pub wChannelContents: [u16; 8],
+    pub wChannelContents: [super::WORD; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DVD_KaraokeAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -541,17 +560,18 @@ pub struct DVD_MUA_Coeff {
     pub log2_beta: f64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_MUA_MixingInfo {
     pub fMixTo0: windows_sys::core::BOOL,
     pub fMixTo1: windows_sys::core::BOOL,
     pub fMix0InPhase: windows_sys::core::BOOL,
     pub fMix1InPhase: windows_sys::core::BOOL,
-    pub dwSpeakerPosition: u32,
+    pub dwSpeakerPosition: super::DWORD,
 }
 pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVD_MenuAttributes {
     pub fCompatibleRegion: [windows_sys::core::BOOL; 8],
@@ -561,7 +581,7 @@ pub struct DVD_MenuAttributes {
     pub fSubpicturePresent: windows_sys::core::BOOL,
     pub SubpictureAttributes: DVD_SubpictureAttributes,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DVD_MenuAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -582,11 +602,13 @@ pub const DVD_Mix_Lto1: DVD_KARAOKE_DOWNMIX = 8192;
 pub const DVD_Mix_Rto0: DVD_KARAOKE_DOWNMIX = 64;
 pub const DVD_Mix_Rto1: DVD_KARAOKE_DOWNMIX = 16384;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVD_MultichannelAudioAttributes {
     pub Info: [DVD_MUA_MixingInfo; 8],
     pub Coeff: [DVD_MUA_Coeff; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DVD_MultichannelAudioAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -613,19 +635,21 @@ pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = 8192;
 pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = 16384;
 pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = 32768;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_PLAYBACK_LOCATION {
-    pub TitleNum: u32,
-    pub ChapterNum: u32,
-    pub TimeCode: u32,
+    pub TitleNum: super::ULONG,
+    pub ChapterNum: super::ULONG,
+    pub TimeCode: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_PLAYBACK_LOCATION2 {
-    pub TitleNum: u32,
-    pub ChapterNum: u32,
+    pub TitleNum: super::ULONG,
+    pub ChapterNum: super::ULONG,
     pub TimeCode: DVD_HMSF_TIMECODE,
-    pub TimeCodeFlags: u32,
+    pub TimeCodeFlags: super::ULONG,
 }
 pub type DVD_PREFERRED_DISPLAY_MODE = i32;
 pub type DVD_REGISTER = u16;
@@ -672,7 +696,7 @@ pub const DVD_Struct_Title: DVD_TextStringType = 2;
 pub const DVD_Struct_Volume: DVD_TextStringType = 1;
 pub type DVD_SubpictureATR = [u8; 6];
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_SubpictureAttributes {
     pub Type: DVD_SUBPICTURE_TYPE,
@@ -685,6 +709,7 @@ pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = 2;
 pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = 4;
 pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_TIMECODE {
     pub _bitfield: u32,
@@ -695,31 +720,31 @@ pub const DVD_TITLE_MENU: i32 = 0;
 pub type DVD_TextCharSet = i32;
 pub type DVD_TextStringType = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVD_TitleAttributes {
     pub Anonymous: DVD_TitleAttributes_0,
     pub VideoAttributes: DVD_VideoAttributes,
-    pub ulNumberOfAudioStreams: u32,
+    pub ulNumberOfAudioStreams: super::ULONG,
     pub AudioAttributes: [DVD_AudioAttributes; 8],
     pub MultichannelAudioAttributes: [DVD_MultichannelAudioAttributes; 8],
-    pub ulNumberOfSubpictureStreams: u32,
+    pub ulNumberOfSubpictureStreams: super::ULONG,
     pub SubpictureAttributes: [DVD_SubpictureAttributes; 32],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DVD_TitleAttributes {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DVD_TitleAttributes_0 {
     pub AppMode: DVD_TITLE_APPMODE,
     pub TitleLength: DVD_HMSF_TIMECODE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DVD_TitleAttributes_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -746,19 +771,20 @@ pub const DVD_Title_Video: DVD_TextStringType = 58;
 pub type DVD_VIDEO_COMPRESSION = i32;
 pub type DVD_VideoATR = [u8; 2];
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DVD_VideoAttributes {
     pub fPanscanPermitted: windows_sys::core::BOOL,
     pub fLetterboxPermitted: windows_sys::core::BOOL,
-    pub ulAspectX: u32,
-    pub ulAspectY: u32,
-    pub ulFrameRate: u32,
-    pub ulFrameHeight: u32,
+    pub ulAspectX: super::ULONG,
+    pub ulAspectY: super::ULONG,
+    pub ulFrameRate: super::ULONG,
+    pub ulFrameHeight: super::ULONG,
     pub Compression: DVD_VIDEO_COMPRESSION,
     pub fLine21Field1InGOP: windows_sys::core::BOOL,
     pub fLine21Field2InGOP: windows_sys::core::BOOL,
-    pub ulSourceResolutionX: u32,
-    pub ulSourceResolutionY: u32,
+    pub ulSourceResolutionX: super::ULONG,
+    pub ulSourceResolutionY: super::ULONG,
     pub fIsSourceLetterboxed: windows_sys::core::BOOL,
     pub fIsFilmMode: windows_sys::core::BOOL,
 }
@@ -775,16 +801,18 @@ pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = 2015;
 pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = 2000;
 pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = 2001;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DVINFO {
-    pub dwDVAAuxSrc: u32,
-    pub dwDVAAuxCtl: u32,
-    pub dwDVAAuxSrc1: u32,
-    pub dwDVAAuxCtl1: u32,
-    pub dwDVVAuxSrc: u32,
-    pub dwDVVAuxCtl: u32,
-    pub dwDVReserved: [u32; 2],
+    pub dwDVAAuxSrc: super::DWORD,
+    pub dwDVAAuxCtl: super::DWORD,
+    pub dwDVAAuxSrc1: super::DWORD,
+    pub dwDVAAuxCtl1: super::DWORD,
+    pub dwDVVAuxSrc: super::DWORD,
+    pub dwDVVAuxCtl: super::DWORD,
+    pub dwDVReserved: [super::DWORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for DVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -807,11 +835,13 @@ pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = 128;
 pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = 64;
 pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = 0;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct FILTER_INFO {
-    pub achName: [u16; 128],
+    pub achName: [super::WCHAR; 128],
     pub pGraph: *mut core::ffi::c_void,
 }
+#[cfg(feature = "winnt")]
 impl Default for FILTER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -820,17 +850,31 @@ impl Default for FILTER_INFO {
 pub type FILTER_STATE = i32;
 pub const Famine: QualityMessageType = 0;
 pub const Flood: QualityMessageType = 1;
-pub type GPRMARRAY = [DVD_REGISTER; 16];
-pub type HEVENT = usize;
-pub type HSEMAPHORE = usize;
+pub type GPRMARRAY = [u16; 16];
+#[cfg(target_arch = "x86")]
+pub type HEVENT = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type HEVENT = u64;
+#[cfg(target_arch = "x86")]
+pub type HSEMAPHORE = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type HSEMAPHORE = u64;
+pub const IID_IAMFilterGraphCallback: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56a868fd_0ad4_11ce_b0a3_0020af0ba770);
 pub const INTERLEAVE_CAPTURE: InterleavingMode = 1;
 pub const INTERLEAVE_FULL: InterleavingMode = 2;
 pub const INTERLEAVE_NONE: InterleavingMode = 0;
 pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = 3;
 pub type InterleavingMode = i32;
+#[cfg(feature = "shared")]
 pub type LPAMCOPPCommand = *mut AMCOPPCommand;
+#[cfg(feature = "shared")]
 pub type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
+#[cfg(feature = "shared")]
 pub type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
+#[cfg(feature = "oaidl")]
+pub type LPMEDIAPROPERTYBAG = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type LPPERSISTMEDIAPROPERTYBAG = *mut core::ffi::c_void;
 pub const MAX_FILTER_NAME: i32 = 128;
 pub const MAX_NUMBER_OF_STREAMS: i32 = 16;
 pub const MAX_PIN_NAME: i32 = 128;
@@ -873,26 +917,64 @@ pub struct NORMALIZEDRECT {
     pub right: f32,
     pub bottom: f32,
 }
+pub type PAMDEVMEMORYALLOCATOR = *mut core::ffi::c_void;
+pub type PAMDEVMEMORYCONTROL = *mut core::ffi::c_void;
+pub type PAMOVIESETUP = *mut core::ffi::c_void;
+pub type PAMPHYSICALPININFO = *mut core::ffi::c_void;
+pub type PAMSTREAMSELECT = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PDVINFO = *mut DVINFO;
+pub type PENUMFILTERS = *mut core::ffi::c_void;
+pub type PENUMMEDIATYPES = *mut core::ffi::c_void;
+pub type PENUMPINS = *mut core::ffi::c_void;
+pub type PENUMREGFILTERS = *mut core::ffi::c_void;
+pub type PEXTDEVICE = *mut core::ffi::c_void;
+pub type PFILESINKFILTER2 = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type PFILTER = *mut core::ffi::c_void;
+pub type PFILTERFILESINK = *mut core::ffi::c_void;
+pub type PFILTERFILESOURCE = *mut core::ffi::c_void;
+pub type PFILTERGRAPH = *mut core::ffi::c_void;
+pub type PIAMEXTTRANSPORT = *mut core::ffi::c_void;
+pub type PIAMTIMECODEDISPLAY = *mut core::ffi::c_void;
+pub type PIAMTIMECODEGENERATOR = *mut core::ffi::c_void;
+pub type PIAMTIMECODEREADER = *mut core::ffi::c_void;
 pub const PINDIR_INPUT: PIN_DIRECTION = 0;
 pub const PINDIR_OUTPUT: PIN_DIRECTION = 1;
 pub type PIN_DIRECTION = i32;
 #[repr(C)]
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PIN_INFO {
     pub pFilter: *mut core::ffi::c_void,
     pub dir: PIN_DIRECTION,
-    pub achName: [u16; 128],
+    pub achName: [super::WCHAR; 128],
 }
-#[cfg(feature = "objidl")]
+#[cfg(all(feature = "objidl", feature = "winnt"))]
 impl Default for PIN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+pub type PMEDIAEVENTSINK = *mut core::ffi::c_void;
+#[cfg(feature = "objidl")]
+pub type PMEDIAFILTER = *mut core::ffi::c_void;
+pub type PMEDIASAMPLE = *mut core::ffi::c_void;
+pub type PMEDIASAMPLE2 = *mut core::ffi::c_void;
+pub type PMEDIASEEKING = *mut core::ffi::c_void;
+pub type PMEMALLOCATOR = *mut core::ffi::c_void;
+pub type PMEMINPUTPIN = *mut core::ffi::c_void;
 pub type PNORMALIZEDRECT = *mut NORMALIZEDRECT;
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+pub type POVERLAY = *mut core::ffi::c_void;
+pub type POVERLAYNOTIFY = *mut core::ffi::c_void;
+pub type POVERLAYNOTIFY2 = *mut core::ffi::c_void;
+pub type PPIN = *mut core::ffi::c_void;
+pub type PQUALITYCONTROL = *mut core::ffi::c_void;
+#[cfg(feature = "dsound")]
+pub type PREFERENCECLOCK = *mut core::ffi::c_void;
+#[cfg(feature = "dsound")]
+pub type PREFERENCECLOCK2 = *mut core::ffi::c_void;
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type PVMRALPHABITMAP = *mut VMRALPHABITMAP;
 pub const PhysConn_Audio_1394: PhysicalConnectorType = 4103;
 pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = 4099;
@@ -921,7 +1003,7 @@ pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13;
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct Quality {
     pub Type: QualityMessageType,
@@ -930,49 +1012,56 @@ pub struct Quality {
     pub TimeStamp: super::REFERENCE_TIME,
 }
 pub type QualityMessageType = i32;
-pub type REFTIME = f64;
 #[repr(C)]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Default)]
 pub struct REGFILTER {
-    pub Clsid: windows_sys::core::GUID,
+    pub Clsid: super::CLSID,
     pub Name: windows_sys::core::PWSTR,
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct REGFILTER2 {
-    pub dwVersion: u32,
-    pub dwMerit: u32,
+    pub dwVersion: super::DWORD,
+    pub dwMerit: super::DWORD,
     pub Anonymous: REGFILTER2_0,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl Default for REGFILTER2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union REGFILTER2_0 {
     pub Anonymous: REGFILTER2_0_0,
     pub Anonymous2: REGFILTER2_0_1,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 impl Default for REGFILTER2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct REGFILTER2_0_0 {
-    pub cPins: u32,
+    pub cPins: super::ULONG,
     pub rgPins: *const REGFILTERPINS,
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct REGFILTER2_0_1 {
-    pub cPins2: u32,
+    pub cPins2: super::ULONG,
     pub rgPins2: *const REGFILTERPINS2,
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct REGFILTERPINS {
     pub strName: windows_sys::core::PWSTR,
@@ -980,34 +1069,37 @@ pub struct REGFILTERPINS {
     pub bOutput: windows_sys::core::BOOL,
     pub bZero: windows_sys::core::BOOL,
     pub bMany: windows_sys::core::BOOL,
-    pub clsConnectsToFilter: *const windows_sys::core::GUID,
-    pub strConnectsToPin: *const u16,
-    pub nMediaTypes: u32,
+    pub clsConnectsToFilter: *const super::CLSID,
+    pub strConnectsToPin: *const super::WCHAR,
+    pub nMediaTypes: super::UINT,
     pub lpMediaType: *const REGPINTYPES,
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct REGFILTERPINS2 {
-    pub dwFlags: u32,
-    pub cInstances: u32,
-    pub nMediaTypes: u32,
+    pub dwFlags: super::DWORD,
+    pub cInstances: super::UINT,
+    pub nMediaTypes: super::UINT,
     pub lpMediaType: *const REGPINTYPES,
-    pub nMediums: u32,
+    pub nMediums: super::UINT,
     pub lpMedium: *const REGPINMEDIUM,
-    pub clsPinCategory: *const windows_sys::core::GUID,
+    pub clsPinCategory: *const super::CLSID,
 }
 #[repr(C)]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct REGPINMEDIUM {
-    pub clsMedium: windows_sys::core::GUID,
-    pub dw1: u32,
-    pub dw2: u32,
+    pub clsMedium: super::CLSID,
+    pub dw1: super::DWORD,
+    pub dw2: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "guiddef")]
 #[derive(Clone, Copy, Default)]
 pub struct REGPINTYPES {
-    pub clsMajorType: *const windows_sys::core::GUID,
-    pub clsMinorType: *const windows_sys::core::GUID,
+    pub clsMajorType: *const super::CLSID,
+    pub clsMinorType: *const super::CLSID,
 }
 pub const REG_PINFLAG_B_MANY: i32 = 4;
 pub const REG_PINFLAG_B_OUTPUT: i32 = 8;
@@ -1023,13 +1115,14 @@ pub const RenderPrefs_Mask: VMRRenderPrefs = 63;
 pub const RenderPrefs_PreferAGPMemWhenMixing: VMRRenderPrefs = 32;
 pub const RenderPrefs_Reserved: VMRRenderPrefs = 16;
 pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = 0;
-pub type SPRMARRAY = [DVD_REGISTER; 24];
+pub type SPRMARRAY = [u16; 24];
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct STREAM_ID_MAP {
-    pub stream_id: u32,
-    pub dwMediaSampleContent: u32,
-    pub ulSubstreamFilterValue: u32,
+    pub stream_id: super::ULONG,
+    pub dwMediaSampleContent: super::DWORD,
+    pub ulSubstreamFilterValue: super::ULONG,
     pub iDataOffset: i32,
 }
 pub const SUBSTREAM_FILTER_VAL_NONE: i32 = 268435456;
@@ -1068,11 +1161,11 @@ pub const UOP_FLAG_Stop: VALID_UOP_FLAG = 8;
 pub type VALID_UOP_FLAG = i32;
 pub type VALID_UOP_SOMTHING_OR_OTHER = u32;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub guid: windows_sys::core::GUID,
-    pub VideoStandard: u32,
+    pub VideoStandard: super::ULONG,
     pub InputSize: super::SIZE,
     pub MinCroppingSize: super::SIZE,
     pub MaxCroppingSize: super::SIZE,
@@ -1088,34 +1181,34 @@ pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub StretchTapsY: i32,
     pub ShrinkTapsX: i32,
     pub ShrinkTapsY: i32,
-    pub MinFrameInterval: i64,
-    pub MaxFrameInterval: i64,
-    pub MinBitsPerSecond: i32,
-    pub MaxBitsPerSecond: i32,
+    pub MinFrameInterval: super::LONGLONG,
+    pub MaxFrameInterval: super::LONGLONG,
+    pub MinBitsPerSecond: super::LONG,
+    pub MaxBitsPerSecond: super::LONG,
 }
 #[repr(C)]
-#[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "ksmedia", feature = "shared", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRALLOCATIONINFO {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub lpHdr: super::LPBITMAPINFOHEADER,
     pub lpPixFmt: super::LPDDPIXELFORMAT,
     pub szAspectRatio: super::SIZE,
-    pub dwMinBuffers: u32,
-    pub dwMaxBuffers: u32,
-    pub dwInterlaceFlags: u32,
+    pub dwMinBuffers: super::DWORD,
+    pub dwMaxBuffers: super::DWORD,
+    pub dwInterlaceFlags: super::DWORD,
     pub szNativeSize: super::SIZE,
 }
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRALPHABITMAP {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub hdc: super::HDC,
-    pub pDDS: *mut core::ffi::c_void,
+    pub pDDS: super::LPDIRECTDRAWSURFACE7,
     pub rSrc: super::RECT,
     pub rDest: NORMALIZEDRECT,
-    pub fAlpha: f32,
+    pub fAlpha: super::FLOAT,
     pub clrSrcKey: super::COLORREF,
 }
 pub const VMRBITMAP_DISABLE: i32 = 1;
@@ -1124,21 +1217,23 @@ pub const VMRBITMAP_HDC: i32 = 2;
 pub const VMRBITMAP_SRCCOLORKEY: i32 = 8;
 pub const VMRBITMAP_SRCRECT: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VMRDeinterlaceCaps {
-    pub dwSize: u32,
-    pub dwNumPreviousOutputFrames: u32,
-    pub dwNumForwardRefSamples: u32,
-    pub dwNumBackwardRefSamples: u32,
+    pub dwSize: super::DWORD,
+    pub dwNumPreviousOutputFrames: super::DWORD,
+    pub dwNumForwardRefSamples: super::DWORD,
+    pub dwNumBackwardRefSamples: super::DWORD,
     pub DeinterlaceTechnology: VMRDeinterlaceTech,
 }
 pub type VMRDeinterlacePrefs = i32;
 pub type VMRDeinterlaceTech = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VMRFrequency {
-    pub dwNumerator: u32,
-    pub dwDenominator: u32,
+    pub dwNumerator: super::DWORD,
+    pub dwDenominator: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1147,22 +1242,22 @@ pub struct VMRGUID {
     pub GUID: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
     pub rcMonitor: super::RECT,
     pub hMon: super::HMONITOR,
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub szDevice: [u16; 32],
     pub szDescription: [u16; 256],
     pub liDriverVersion: super::LARGE_INTEGER,
-    pub dwVendorId: u32,
-    pub dwDeviceId: u32,
-    pub dwSubSysId: u32,
-    pub dwRevision: u32,
+    pub dwVendorId: super::DWORD,
+    pub dwDeviceId: super::DWORD,
+    pub dwSubSysId: super::DWORD,
+    pub dwRevision: super::DWORD,
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for VMRMONITORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1175,18 +1270,18 @@ pub const VMRMode_Renderless: VMRMode = 4;
 pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRPRESENTATIONINFO {
-    pub dwFlags: u32,
-    pub lpSurf: *mut core::ffi::c_void,
+    pub dwFlags: super::DWORD,
+    pub lpSurf: super::LPDIRECTDRAWSURFACE7,
     pub rtStart: super::REFERENCE_TIME,
     pub rtEnd: super::REFERENCE_TIME,
     pub szAspectRatio: super::SIZE,
     pub rcSrc: super::RECT,
     pub rcDst: super::RECT,
-    pub dwTypeSpecificFlags: u32,
-    pub dwInterlaceFlags: u32,
+    pub dwTypeSpecificFlags: super::DWORD,
+    pub dwInterlaceFlags: super::DWORD,
 }
 pub type VMRPresentationFlags = i32;
 pub type VMRRenderPrefs = i32;
@@ -1197,25 +1292,26 @@ pub const VMRSample_SyncPoint: VMRPresentationFlags = 1;
 pub const VMRSample_TimeValid: VMRPresentationFlags = 8;
 pub type VMRSurfaceAllocationFlags = i32;
 #[repr(C)]
-#[cfg(feature = "ddraw")]
+#[cfg(all(feature = "ddraw", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct VMRVIDEOSTREAMINFO {
-    pub pddsVideoSurface: *mut core::ffi::c_void,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwStrmID: u32,
-    pub fAlpha: f32,
+    pub pddsVideoSurface: super::LPDIRECTDRAWSURFACE7,
+    pub dwWidth: super::DWORD,
+    pub dwHeight: super::DWORD,
+    pub dwStrmID: super::DWORD,
+    pub fAlpha: super::FLOAT,
     pub ddClrKey: super::DDCOLORKEY,
     pub rNormal: NORMALIZEDRECT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct VMRVideoDesc {
-    pub dwSize: u32,
-    pub dwSampleWidth: u32,
-    pub dwSampleHeight: u32,
+    pub dwSize: super::DWORD,
+    pub dwSampleWidth: super::DWORD,
+    pub dwSampleHeight: super::DWORD,
     pub SingleFieldPerSample: windows_sys::core::BOOL,
-    pub dwFourCC: u32,
+    pub dwFourCC: super::DWORD,
     pub InputSampleFreq: VMRFrequency,
     pub OutputFrameFreq: VMRFrequency,
 }

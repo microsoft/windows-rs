@@ -1,26 +1,16 @@
-pub type CLONG = u32;
+#[cfg(feature = "shared")]
+pub type CLONG = super::ULONG;
 pub type CSHORT = i16;
-pub type EVENT_TYPE = i32;
-pub type KIRQL = u8;
-pub type LOGICAL = u32;
-pub type NT_PRODUCT_TYPE = i32;
-pub const NotificationEvent: EVENT_TYPE = 0;
-pub const NotificationTimer: TIMER_TYPE = 0;
-pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2;
-pub const NtProductServer: NT_PRODUCT_TYPE = 3;
-pub const NtProductWinNt: NT_PRODUCT_TYPE = 1;
-pub type PKIRQL = *mut KIRQL;
-pub type PNT_PRODUCT_TYPE = *mut NT_PRODUCT_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type KIRQL = super::UCHAR;
+#[cfg(feature = "shared")]
+pub type LOGICAL = super::ULONG;
+pub const NtProductLanManNt: _NT_PRODUCT_TYPE = 2;
+pub const NtProductServer: _NT_PRODUCT_TYPE = 3;
+pub const NtProductWinNt: _NT_PRODUCT_TYPE = 1;
+pub type PNT_PRODUCT_TYPE = *mut _NT_PRODUCT_TYPE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPHYSICAL_ADDRESS = *mut super::LARGE_INTEGER;
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 pub type PUTF8_STRING = super::PSTRING;
-pub const SynchronizationEvent: EVENT_TYPE = 1;
-pub const SynchronizationTimer: TIMER_TYPE = 1;
-pub type TIMER_TYPE = i32;
-pub type WAIT_TYPE = i32;
-pub const WaitAll: WAIT_TYPE = 0;
-pub const WaitAny: WAIT_TYPE = 1;
-pub const WaitDequeue: WAIT_TYPE = 3;
-pub const WaitDpc: WAIT_TYPE = 4;
-pub const WaitNotification: WAIT_TYPE = 2;
+pub type _NT_PRODUCT_TYPE = i32;

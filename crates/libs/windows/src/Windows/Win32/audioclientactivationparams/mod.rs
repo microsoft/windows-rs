@@ -1,19 +1,23 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct AUDIOCLIENT_ACTIVATION_PARAMS {
     pub ActivationType: AUDIOCLIENT_ACTIVATION_TYPE,
     pub Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for AUDIOCLIENT_ACTIVATION_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     pub ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS,
 }
+#[cfg(feature = "shared")]
 impl Default for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -23,9 +27,10 @@ pub type AUDIOCLIENT_ACTIVATION_TYPE = i32;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = 0;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
-    pub TargetProcessId: u32,
+    pub TargetProcessId: super::DWORD,
     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,
 }
 pub type PROCESS_LOOPBACK_MODE = i32;

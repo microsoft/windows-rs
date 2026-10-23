@@ -1,31 +1,31 @@
-windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_core::HRESULT);
-windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut u32, packagefullname : windows_core::PWSTR) -> i32);
-windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> u32);
+windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn AddPackageDependency(packagedependencyid : windows_core::PCWSTR, rank : INT32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+windows_core::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : LPVOID, dwcoinit : DWORD) -> windows_core::HRESULT);
+windows_core::link!("kernel32.dll" "system" fn GetCurrentPackageFullName(packagefullnamelength : *mut UINT32, packagefullname : windows_core::PWSTR) -> LONG);
+windows_core::link!("user32.dll" "system" fn GetDpiForWindow(hwnd : HWND) -> UINT);
 windows_core::link!("user32.dll" "system" fn GetKeyboardState(lpkeystate : PBYTE) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : LPMONITORINFO) -> windows_core::BOOL);
 windows_core::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
-windows_core::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : i32) -> i32);
+windows_core::link!("user32.dll" "system" fn GetWindowLongW(hwnd : HWND, nindex : i32) -> LONG);
 windows_core::link!("user32.dll" "system" fn GetWindowPlacement(hwnd : HWND, lpwndpl : *mut WINDOWPLACEMENT) -> windows_core::BOOL);
-windows_core::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> windows_core::BOOL);
+windows_core::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : DWORD, lpmem : LPVOID) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn IsIconic(hwnd : HWND) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn MessageBoxW(hwnd : HWND, lptext : windows_core::PCWSTR, lpcaption : windows_core::PCWSTR, utype : u32) -> i32);
-windows_core::link!("user32.dll" "system" fn MonitorFromRect(lprc : LPCRECT, dwflags : u32) -> HMONITOR);
-windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : u32) -> HMONITOR);
+windows_core::link!("user32.dll" "system" fn MessageBoxW(hwnd : HWND, lptext : windows_core::PCWSTR, lpcaption : windows_core::PCWSTR, utype : UINT) -> i32);
+windows_core::link!("user32.dll" "system" fn MonitorFromRect(lprc : LPCRECT, dwflags : DWORD) -> HMONITOR);
+windows_core::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : HWND, dwflags : DWORD) -> HMONITOR);
 windows_core::link!("user32.dll" "system" fn PostQuitMessage(nexitcode : i32));
-windows_core::link!("advapi32.dll" "system" fn RegGetValueW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, dwflags : u32, pdwtype : LPDWORD, pvdata : *mut core::ffi::c_void, pcbdata : LPDWORD) -> LSTATUS);
-windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : u32, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
+windows_core::link!("advapi32.dll" "system" fn RegGetValueW(hkey : HKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, dwflags : DWORD, pdwtype : LPDWORD, pvdata : PVOID, pcbdata : LPDWORD) -> LSTATUS);
+windows_core::link!("user32.dll" "system" fn SendMessageW(hwnd : HWND, msg : UINT, wparam : WPARAM, lparam : LPARAM) -> LRESULT);
 windows_core::link!("user32.dll" "system" fn SetForegroundWindow(hwnd : HWND) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : HWND, crkey : COLORREF, balpha : u8, dwflags : u32) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn SetLayeredWindowAttributes(hwnd : HWND, crkey : COLORREF, balpha : BYTE, dwflags : DWORD) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetThreadDpiAwarenessContext(dpicontext : DPI_AWARENESS_CONTEXT) -> DPI_AWARENESS_CONTEXT);
 windows_core::link!("user32.dll" "system" fn SetWindowPlacement(hwnd : HWND, lpwndpl : *const WINDOWPLACEMENT) -> windows_core::BOOL);
-windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_core::BOOL);
-windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : HWND, lpoperation : windows_core::PCWSTR, lpfile : windows_core::PCWSTR, lpparameters : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, nshowcmd : i32) -> HINSTANCE);
+windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : UINT) -> windows_core::BOOL);
+windows_core::link!("shell32.dll" "system" fn ShellExecuteW(hwnd : HWND, lpoperation : windows_core::PCWSTR, lpfile : windows_core::PCWSTR, lpparameters : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, nshowcmd : INT) -> HINSTANCE);
 windows_core::link!("user32.dll" "system" fn ShowWindow(hwnd : HWND, ncmdshow : i32) -> windows_core::BOOL);
 windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
 pub const APPMODEL_ERROR_NO_PACKAGE: i32 = 15700;
-pub type AddPackageDependencyOptions = u32;
+pub type AddPackageDependencyOptions = i32;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBar(windows_core::IUnknown);
@@ -840,6 +840,7 @@ impl windows_core::RuntimeName for AutomationProperties {
 }
 unsafe impl Send for AutomationProperties {}
 unsafe impl Sync for AutomationProperties {}
+pub type BYTE = u8;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct BitmapIcon(windows_core::IUnknown);
@@ -2848,7 +2849,7 @@ impl windows_core::RuntimeType for CornerRadius {
         b"struct(Microsoft.UI.Xaml.CornerRadius;f8;f8;f8;f8)",
     );
 }
-pub type CreatePackageDependencyOptions = u32;
+pub type CreatePackageDependencyOptions = i32;
 pub type DPI_AWARENESS_CONTEXT = *mut DPI_AWARENESS_CONTEXT__;
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4 as _;
 #[repr(C)]
@@ -2856,6 +2857,7 @@ pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = -4
 pub struct DPI_AWARENESS_CONTEXT__ {
     pub unused: i32,
 }
+pub type DWORD = u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DataPackageOperation(pub u32);
@@ -12647,6 +12649,8 @@ pub struct IMicaBackdropFactory_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+pub type INT = i32;
+pub type INT32 = i32;
 windows_core::imp::define_interface!(
     INavigationView,
     INavigationView_Vtbl,
@@ -22292,11 +22296,27 @@ impl windows_core::RuntimeType for KeyboardAcceleratorPlacementMode {
         b"enum(Microsoft.UI.Xaml.Input.KeyboardAcceleratorPlacementMode;i4)",
     );
 }
-pub type LPARAM = isize;
+pub type LONG = i32;
+#[cfg(target_arch = "x86")]
+pub type LPARAM = i32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type LPARAM = i64;
 pub type LPCRECT = *const RECT;
 pub type LPDWORD = *mut u32;
 pub type LPMONITORINFO = *mut MONITORINFO;
-pub type LRESULT = isize;
+pub type LPVOID = *mut core::ffi::c_void;
+#[cfg(target_arch = "x86")]
+pub type LRESULT = i32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type LRESULT = i64;
 pub type LSTATUS = i32;
 pub const LWA_ALPHA: i32 = 2;
 #[repr(transparent)]
@@ -22783,10 +22803,10 @@ pub const MB_YESNO: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITORINFO {
-    pub cbSize: u32,
+    pub cbSize: DWORD,
     pub rcMonitor: RECT,
     pub rcWork: RECT,
-    pub dwFlags: u32,
+    pub dwFlags: DWORD,
 }
 pub const MONITOR_DEFAULTTONEAREST: i32 = 2;
 #[repr(transparent)]
@@ -23846,7 +23866,7 @@ pub type PACKAGEDEPENDENCY_CONTEXT = *mut PACKAGEDEPENDENCY_CONTEXT__;
 pub struct PACKAGEDEPENDENCY_CONTEXT__ {
     pub unused: i32,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct PACKAGE_VERSION {
     pub Anonymous: PACKAGE_VERSION_0,
@@ -23859,7 +23879,7 @@ impl Default for PACKAGE_VERSION {
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub union PACKAGE_VERSION_0 {
-    pub Version: u64,
+    pub Version: UINT64,
     pub Anonymous: PACKAGE_VERSION_0_0,
 }
 impl Default for PACKAGE_VERSION_0 {
@@ -23867,24 +23887,25 @@ impl Default for PACKAGE_VERSION_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[derive(Clone, Copy, Default)]
 pub struct PACKAGE_VERSION_0_0 {
-    pub Revision: u16,
-    pub Build: u16,
-    pub Minor: u16,
-    pub Major: u16,
+    pub Revision: USHORT,
+    pub Build: USHORT,
+    pub Minor: USHORT,
+    pub Major: USHORT,
 }
 pub type PBYTE = *mut u8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
-    pub x: i32,
-    pub y: i32,
+    pub x: LONG,
+    pub y: LONG,
 }
 pub type PSID = *mut core::ffi::c_void;
+pub type PVOID = *mut core::ffi::c_void;
 pub type PackageDependencyLifetimeKind = i32;
-pub type PackageDependencyProcessorArchitectures = u32;
+pub type PackageDependencyProcessorArchitectures = i32;
 pub const PackageDependencyProcessorArchitectures_Arm: PackageDependencyProcessorArchitectures = 8;
 pub const PackageDependencyProcessorArchitectures_Arm64: PackageDependencyProcessorArchitectures =
     16;
@@ -24854,10 +24875,10 @@ unsafe impl Sync for ProgressRing {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: LONG,
+    pub top: LONG,
+    pub right: LONG,
+    pub bottom: LONG,
 }
 pub const RPC_E_CHANGED_MODE: windows_core::HRESULT = windows_core::HRESULT(0x80010106_u32 as _);
 pub const RRF_RT_REG_DWORD: i32 = 16;
@@ -29749,6 +29770,10 @@ impl windows_core::RuntimeName for UIElementCollection {
 }
 unsafe impl Send for UIElementCollection {}
 unsafe impl Sync for UIElementCollection {}
+pub type UINT = u32;
+pub type UINT32 = u32;
+pub type UINT64 = u64;
+pub type USHORT = u16;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Uri(windows_core::IUnknown);
@@ -30366,9 +30391,9 @@ unsafe impl Sync for VisualTreeHelper {}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOWPLACEMENT {
-    pub length: u32,
-    pub flags: u32,
-    pub showCmd: u32,
+    pub length: UINT,
+    pub flags: UINT,
+    pub showCmd: UINT,
     pub ptMinPosition: POINT,
     pub ptMaxPosition: POINT,
     pub rcNormalPosition: RECT,
@@ -30381,7 +30406,14 @@ pub const WINDOWSAPPSDK_RUNTIME_VERSION_UINT64: u64 = 562971428323328;
 pub const WM_SETICON: i32 = 128;
 pub const WM_SETTINGCHANGE: i32 = 26;
 pub const WM_THEMECHANGED: i32 = 794;
-pub type WPARAM = usize;
+#[cfg(target_arch = "x86")]
+pub type WPARAM = u32;
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+pub type WPARAM = u64;
 pub const WS_EX_LAYERED: i32 = 524288;
 pub const WS_EX_TOOLWINDOW: i32 = 128;
 pub const WS_EX_TOPMOST: i32 = 8;

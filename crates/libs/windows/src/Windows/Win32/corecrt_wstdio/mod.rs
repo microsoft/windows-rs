@@ -1,5 +1,5 @@
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct FILE {
     pub _Placeholder: *mut core::ffi::c_void,
 }

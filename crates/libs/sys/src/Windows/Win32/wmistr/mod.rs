@@ -1,29 +1,21 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct OFFSETINSTANCEDATAANDLENGTH {
-    pub OffsetInstanceData: u32,
-    pub LengthInstanceData: u32,
+    pub OffsetInstanceData: super::ULONG,
+    pub LengthInstanceData: super::ULONG,
 }
+#[cfg(feature = "shared")]
 pub type POFFSETINSTANCEDATAANDLENGTH = *mut OFFSETINSTANCEDATAANDLENGTH;
-pub type PWMIREGGUID = PWMIREGGUIDW;
+#[cfg(feature = "shared")]
+pub type PWMIREGGUID = *mut WMIREGGUIDW;
+#[cfg(feature = "shared")]
 pub type PWMIREGGUIDW = *mut WMIREGGUIDW;
-pub type PWMIREGINFO = PWMIREGINFOW;
-pub type PWMIREGINFOW = *mut WMIREGINFOW;
-#[cfg(feature = "winnt")]
-pub type PWNODE_ALL_DATA = *mut WNODE_ALL_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWNODE_EVENT_ITEM = *mut WNODE_EVENT_ITEM;
-#[cfg(feature = "winnt")]
-pub type PWNODE_EVENT_REFERENCE = *mut WNODE_EVENT_REFERENCE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWNODE_HEADER = *mut WNODE_HEADER;
-#[cfg(feature = "winnt")]
-pub type PWNODE_METHOD_ITEM = *mut WNODE_METHOD_ITEM;
-#[cfg(feature = "winnt")]
-pub type PWNODE_SINGLE_INSTANCE = *mut WNODE_SINGLE_INSTANCE;
-#[cfg(feature = "winnt")]
-pub type PWNODE_SINGLE_ITEM = *mut WNODE_SINGLE_ITEM;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWNODE_TOO_SMALL = *mut WNODE_TOO_SMALL;
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: i32 = 256;
 pub const TRACELOG_ACCESS_REALTIME: i32 = 1024;
@@ -44,45 +36,34 @@ pub const WMIGUID_NOTIFICATION: i32 = 4;
 pub const WMIGUID_QUERY: i32 = 1;
 pub const WMIGUID_READ_DESCRIPTION: i32 = 8;
 pub const WMIGUID_SET: i32 = 2;
+#[cfg(feature = "shared")]
 pub type WMIREGGUID = WMIREGGUIDW;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WMIREGGUIDW {
     pub Guid: windows_sys::core::GUID,
-    pub Flags: u32,
-    pub InstanceCount: u32,
+    pub Flags: super::ULONG,
+    pub InstanceCount: super::ULONG,
     pub Anonymous: WMIREGGUIDW_0,
 }
+#[cfg(feature = "shared")]
 impl Default for WMIREGGUIDW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WMIREGGUIDW_0 {
-    pub InstanceNameList: u32,
-    pub BaseNameOffset: u32,
-    pub Pdo: usize,
-    pub InstanceInfo: usize,
+    pub InstanceNameList: super::ULONG,
+    pub BaseNameOffset: super::ULONG,
+    pub Pdo: super::ULONG_PTR,
+    pub InstanceInfo: super::ULONG_PTR,
 }
+#[cfg(feature = "shared")]
 impl Default for WMIREGGUIDW_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type WMIREGINFO = WMIREGINFOW;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WMIREGINFOW {
-    pub BufferSize: u32,
-    pub NextWmiRegInfo: u32,
-    pub RegistryPath: u32,
-    pub MofResourceName: u32,
-    pub GuidCount: u32,
-    pub WmiRegGuid: [WMIREGGUIDW; 0],
-}
-impl Default for WMIREGINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -114,70 +95,13 @@ pub const WMI_REGINFO: WMIDPREQUESTCODE = 8;
 pub const WMI_SET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 2;
 pub const WMI_SET_SINGLE_ITEM: WMIDPREQUESTCODE = 3;
 #[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct WNODE_ALL_DATA {
-    pub WnodeHeader: WNODE_HEADER,
-    pub DataBlockOffset: u32,
-    pub InstanceCount: u32,
-    pub OffsetInstanceNameOffsets: u32,
-    pub Anonymous: WNODE_ALL_DATA_0,
-}
-#[cfg(feature = "winnt")]
-impl Default for WNODE_ALL_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub union WNODE_ALL_DATA_0 {
-    pub FixedInstanceSize: u32,
-    pub OffsetInstanceDataAndLength: [OFFSETINSTANCEDATAANDLENGTH; 0],
-}
-#[cfg(feature = "winnt")]
-impl Default for WNODE_ALL_DATA_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WNODE_EVENT_ITEM {
     pub WnodeHeader: WNODE_HEADER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WNODE_EVENT_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct WNODE_EVENT_REFERENCE {
-    pub WnodeHeader: WNODE_HEADER,
-    pub TargetGuid: windows_sys::core::GUID,
-    pub TargetDataBlockSize: u32,
-    pub Anonymous: WNODE_EVENT_REFERENCE_0,
-}
-#[cfg(feature = "winnt")]
-impl Default for WNODE_EVENT_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub union WNODE_EVENT_REFERENCE_0 {
-    pub TargetInstanceIndex: u32,
-    pub TargetInstanceName: [u16; 0],
-}
-#[cfg(feature = "winnt")]
-impl Default for WNODE_EVENT_REFERENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -206,118 +130,65 @@ pub const WNODE_FLAG_USE_MOF_PTR: i32 = 1048576;
 pub const WNODE_FLAG_USE_TIMESTAMP: i32 = 512;
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: i32 = 8388608;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WNODE_HEADER {
-    pub BufferSize: u32,
-    pub ProviderId: u32,
+    pub BufferSize: super::ULONG,
+    pub ProviderId: super::ULONG,
     pub Anonymous: WNODE_HEADER_0,
     pub Anonymous2: WNODE_HEADER_1,
     pub Guid: windows_sys::core::GUID,
-    pub ClientContext: u32,
-    pub Flags: u32,
+    pub ClientContext: super::ULONG,
+    pub Flags: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WNODE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union WNODE_HEADER_0 {
-    pub HistoricalContext: u64,
+    pub HistoricalContext: super::ULONG64,
     pub Anonymous: WNODE_HEADER_0_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WNODE_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WNODE_HEADER_0_0 {
-    pub Version: u32,
-    pub Linkage: u32,
+    pub Version: super::ULONG,
+    pub Linkage: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union WNODE_HEADER_1 {
-    pub CountLost: u32,
+    pub CountLost: super::ULONG,
     pub KernelHandle: super::HANDLE,
     pub TimeStamp: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WNODE_HEADER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct WNODE_METHOD_ITEM {
-    pub WnodeHeader: WNODE_HEADER,
-    pub OffsetInstanceName: u32,
-    pub InstanceIndex: u32,
-    pub MethodId: u32,
-    pub DataBlockOffset: u32,
-    pub SizeDataBlock: u32,
-    pub VariableData: [u8; 0],
-}
-#[cfg(feature = "winnt")]
-impl Default for WNODE_METHOD_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct WNODE_SINGLE_INSTANCE {
-    pub WnodeHeader: WNODE_HEADER,
-    pub OffsetInstanceName: u32,
-    pub InstanceIndex: u32,
-    pub DataBlockOffset: u32,
-    pub SizeDataBlock: u32,
-    pub VariableData: [u8; 0],
-}
-#[cfg(feature = "winnt")]
-impl Default for WNODE_SINGLE_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct WNODE_SINGLE_ITEM {
-    pub WnodeHeader: WNODE_HEADER,
-    pub OffsetInstanceName: u32,
-    pub InstanceIndex: u32,
-    pub ItemId: u32,
-    pub DataBlockOffset: u32,
-    pub SizeDataItem: u32,
-    pub VariableData: [u8; 0],
-}
-#[cfg(feature = "winnt")]
-impl Default for WNODE_SINGLE_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WNODE_TOO_SMALL {
     pub WnodeHeader: WNODE_HEADER,
-    pub SizeNeeded: u32,
+    pub SizeNeeded: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WNODE_TOO_SMALL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

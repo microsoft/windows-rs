@@ -21,10 +21,10 @@ mod Windows {
         }
         #[guid(0xf67fe177_5ef1_4535_b4ce_29df15e2e0c3)]
         interface ICertEncodeAltName2: ICertEncodeAltName {
-            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
             fn GetNameBlob(&self, #[in] NameIndex: LONG, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrName: *mut BSTR) -> HRESULT;
-            fn SetNameEntryBlob(&self, #[in] NameIndex: LONG, #[in] NameChoice: LONG, #[in] strName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn SetNameEntryBlob(&self, #[in] NameIndex: LONG, #[in] NameChoice: LONG, #[in] strName: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
         }
         #[guid(0x6db525be_1278_11d1_9bd4_00c04fb683fa)]
         interface ICertEncodeBitString: IDispatch {
@@ -35,7 +35,7 @@ mod Windows {
         }
         #[guid(0xe070d6e7_23ef_4dd2_8242_ebd9c928cb30)]
         interface ICertEncodeBitString2: ICertEncodeBitString {
-            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn EncodeBlob(&self, #[in] BitCount: LONG, #[in] strBitString: BSTR, #[in] EncodingIn: EncodingType, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
             fn GetBitStringBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrBitString: *mut BSTR) -> HRESULT;
         }
@@ -53,7 +53,7 @@ mod Windows {
         }
         #[guid(0xb4275d4b_3e30_446f_ad36_09d03120b078)]
         interface ICertEncodeCRLDistInfo2: ICertEncodeCRLDistInfo {
-            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x2f9469a0_a470_11d0_8821_00a0c903b83c)]
@@ -67,7 +67,7 @@ mod Windows {
         }
         #[guid(0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8)]
         interface ICertEncodeDateArray2: ICertEncodeDateArray {
-            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x15e2f230_a0a2_11d0_8821_00a0c903b83c)]
@@ -81,7 +81,7 @@ mod Windows {
         }
         #[guid(0x4efde84a_bd9b_4fc2_a108_c347d478840f)]
         interface ICertEncodeLongArray2: ICertEncodeLongArray {
-            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
         #[guid(0x12a88820_7494_11d0_8816_00a0c903b83c)]
@@ -96,7 +96,7 @@ mod Windows {
         }
         #[guid(0x9c680d93_9b7d_4e95_9018_4ffe10ba5ada)]
         interface ICertEncodeStringArray2: ICertEncodeStringArray {
-            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("XCN_CRYPT_STRING_BASE64")] Encoding: EncodingType) -> HRESULT;
+            fn DecodeBlob(&self, #[in] strEncodedData: BSTR, #[in] Encoding: EncodingType) -> HRESULT;
             fn EncodeBlob(&self, #[in] Encoding: EncodingType, #[out] #[retval] #[out_ptr] pstrEncodedData: *mut BSTR) -> HRESULT;
         }
     }

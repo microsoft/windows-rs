@@ -1,4 +1,4 @@
-#[cfg(all(feature = "windef", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wtypesbase"))]
 windows_link::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : LPGPOBROWSEINFO) -> windows_sys::core::HRESULT);
 #[cfg(feature = "wtypesbase")]
 windows_link::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : super::LPOLESTR, lpcontainer : super::LPOLESTR, fhighpriority : windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
@@ -19,18 +19,18 @@ pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = 4;
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2;
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0;
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "wtypesbase"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct GPOBROWSEINFO {
-    pub dwSize: u32,
-    pub dwFlags: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub hwndOwner: super::HWND,
     pub lpTitle: super::LPOLESTR,
     pub lpInitialOU: super::LPOLESTR,
     pub lpDSPath: super::LPOLESTR,
-    pub dwDSPathSize: u32,
+    pub dwDSPathSize: super::DWORD,
     pub lpName: super::LPOLESTR,
-    pub dwNameSize: u32,
+    pub dwNameSize: super::DWORD,
     pub gpoType: GROUP_POLICY_OBJECT_TYPE,
     pub gpoHint: GROUP_POLICY_HINT_TYPE,
 }
@@ -55,8 +55,14 @@ pub const GPO_SECTION_ROOT: i32 = 0;
 pub const GPO_SECTION_USER: i32 = 1;
 pub type GROUP_POLICY_HINT_TYPE = i32;
 pub type GROUP_POLICY_OBJECT_TYPE = i32;
-#[cfg(all(feature = "windef", feature = "wtypesbase"))]
+pub const IID_IGPEInformation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
+pub const IID_IGroupPolicyObject: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xea502723_a23d_11d1_a7d3_0000f87571e3);
+pub const IID_IRSOPInformation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
+pub type LPGPEINFORMATION = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "windef", feature = "wtypesbase"))]
 pub type LPGPOBROWSEINFO = *mut GPOBROWSEINFO;
+pub type LPGROUPPOLICYOBJECT = *mut core::ffi::c_void;
+pub type LPRSOPINFORMATION = *mut core::ffi::c_void;
 pub const NODEID_Machine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_MachineSWSettings: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_RSOPMachine: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);

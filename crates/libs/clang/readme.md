@@ -281,6 +281,10 @@ as duplicate `NativeInput` attributes. Input direction does not promise COM obje
 Composed contracts retain raw evidence; counts, termination and returned-pointer guarantees remain
 separate.
 
+C++ default arguments remain native evidence for reconciliation, not portable metadata expressions.
+Publication keeps every parameter required unless its independent contract permits optionality;
+it does not evaluate defaults or change callable arity.
+
 Unspecified parameter direction emits no attribute, not a type-inferred input or output contract.
 Complementary pointer-null `_When_` branches contribute only shared direction
 and optionality; both conditions remain evidence. A conditional input requirement must not become

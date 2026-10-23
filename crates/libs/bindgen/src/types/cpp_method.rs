@@ -41,6 +41,10 @@ fn param_hint(
     parameter_count: usize,
     reader: &Reader,
 ) -> ParamHint {
+    // Residual evidence cannot authorize a smaller or otherwise transformed argument list.
+    if param.has_unresolved_contracts() {
+        return ParamHint::ArrayRaw;
+    }
     if !param.has_direction() {
         return ParamHint::None;
     }
@@ -107,6 +111,7 @@ impl CppMethod {
                     // slice cannot represent. Required SAL-counted buffers use slices regardless
                     // of the count's signedness.
                     if relative_param.is_input_only()
+                        && !relative_param.has_unresolved_contracts()
                         && (relative_param.projection_type(reader).is_unsigned()
                             || !signature.params[position].is_optional_or_reserved())
                         && !relative_param.projection_type(reader).is_pointer()
@@ -176,6 +181,10 @@ impl CppMethod {
             if *hint == ParamHint::None {
                 let param = &signature.params[position];
                 let ty = param.projection_type(reader);
+                if param.has_buffer_attributes() {
+                    *hint = ParamHint::ArrayRaw;
+                    continue;
+                }
                 if !param.has_direction() {
                     if ty.is_pointer() || ty.is_primitive(reader) {
                         *hint = ParamHint::ValueType;
@@ -899,11 +908,13 @@ fn signature_param_is_query(params: &[Param], reader: &Reader) -> Option<(usize,
         param.projection_type(reader) == Type::PtrConst(Box::new(Type::GUID), 1)
             && param.is_input_only()
             && !param.has_buffer_attributes()
+            && !param.has_unresolved_contracts()
     }) && let Some(object) = params.iter().rposition(|param| {
         param.projection_type(reader) == Type::PtrMut(Box::new(Type::Void), 2)
             && param.has_direction()
             && param.has_attribute("ComOutPtrAttribute")
             && !param.has_buffer_attributes()
+            && !param.has_unresolved_contracts()
     }) {
         return Some((guid, object));
     }

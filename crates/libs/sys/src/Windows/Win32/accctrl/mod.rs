@@ -3,75 +3,78 @@ pub const ACCCTRL_DEFAULT_PROVIDERA: windows_sys::core::PCSTR = windows_sys::cor
 pub const ACCCTRL_DEFAULT_PROVIDERW: windows_sys::core::PCWSTR = windows_sys::core::w!("Windows NT Access Provider");
 pub type ACCESS_MODE = i32;
 pub type ACCESS_RIGHTS = u32;
-#[cfg(feature = "winnt")]
-pub type ACTRL_ACCESS = ACTRL_ACCESSA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type ACTRL_ACCESS = _ACTRL_ALISTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ACTRL_ACCESSA = _ACTRL_ALISTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ACTRL_ACCESSW = _ACTRL_ALISTW;
 pub const ACTRL_ACCESS_ALLOWED: i32 = 1;
 pub const ACTRL_ACCESS_DENIED: i32 = 2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ACTRL_ACCESS_ENTRY = ACTRL_ACCESS_ENTRYA;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_ACCESS_ENTRYA {
     pub Trustee: TRUSTEE_A,
-    pub fAccessFlags: u32,
+    pub fAccessFlags: super::ULONG,
     pub Access: ACCESS_RIGHTS,
     pub ProvSpecificAccess: ACCESS_RIGHTS,
     pub Inheritance: INHERIT_FLAGS,
     pub lpInheritProperty: windows_sys::core::PSTR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_ACCESS_ENTRYW {
     pub Trustee: TRUSTEE_W,
-    pub fAccessFlags: u32,
+    pub fAccessFlags: super::ULONG,
     pub Access: ACCESS_RIGHTS,
     pub ProvSpecificAccess: ACCESS_RIGHTS,
     pub Inheritance: INHERIT_FLAGS,
     pub lpInheritProperty: windows_sys::core::PWSTR,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ACTRL_ACCESS_ENTRY_LIST = ACTRL_ACCESS_ENTRY_LISTA;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
-    pub cEntries: u32,
+    pub cEntries: super::ULONG,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
-    pub cEntries: u32,
+    pub cEntries: super::ULONG,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
 }
+#[cfg(feature = "shared")]
 pub type ACTRL_ACCESS_INFO = ACTRL_ACCESS_INFOA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_ACCESS_INFOA {
-    pub fAccessPermission: u32,
+    pub fAccessPermission: super::ULONG,
     pub lpAccessPermissionName: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_ACCESS_INFOW {
-    pub fAccessPermission: u32,
+    pub fAccessPermission: super::ULONG,
     pub lpAccessPermissionName: windows_sys::core::PWSTR,
 }
 pub const ACTRL_ACCESS_NO_OPTIONS: i32 = 0;
 pub const ACTRL_ACCESS_PROTECTED: i32 = 1;
 pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: i32 = 1;
-#[cfg(feature = "winnt")]
-pub type ACTRL_AUDIT = ACTRL_AUDITA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type ACTRL_AUDIT = _ACTRL_ALISTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ACTRL_AUDITA = _ACTRL_ALISTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ACTRL_AUDITW = _ACTRL_ALISTW;
 pub const ACTRL_AUDIT_FAILURE: i32 = 8;
 pub const ACTRL_AUDIT_SUCCESS: i32 = 4;
@@ -132,27 +135,27 @@ pub const ACTRL_KERNEL_VM: i32 = 4;
 pub const ACTRL_KERNEL_VM_READ: i32 = 8;
 pub const ACTRL_KERNEL_VM_WRITE: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ACTRL_OVERLAPPED {
     pub Anonymous: ACTRL_OVERLAPPED_0,
-    pub Reserved2: u32,
+    pub Reserved2: super::ULONG,
     pub hEvent: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for ACTRL_OVERLAPPED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union ACTRL_OVERLAPPED_0 {
-    pub Provider: *mut core::ffi::c_void,
-    pub Reserved1: u32,
+    pub Provider: super::PVOID,
+    pub Reserved1: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for ACTRL_OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -183,23 +186,23 @@ pub const ACTRL_PRINT_PADMIN: i32 = 4;
 pub const ACTRL_PRINT_PUSE: i32 = 8;
 pub const ACTRL_PRINT_SADMIN: i32 = 1;
 pub const ACTRL_PRINT_SLIST: i32 = 2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type ACTRL_PROPERTY_ENTRY = ACTRL_PROPERTY_ENTRYA;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_PROPERTY_ENTRYA {
     pub lpProperty: windows_sys::core::PSTR,
     pub pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTA,
-    pub fListFlags: u32,
+    pub fListFlags: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct ACTRL_PROPERTY_ENTRYW {
     pub lpProperty: windows_sys::core::PWSTR,
     pub pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTW,
-    pub fListFlags: u32,
+    pub fListFlags: super::ULONG,
 }
 pub const ACTRL_READ_CONTROL: i32 = 268435456;
 pub const ACTRL_REG_CREATE_CHILD: i32 = 4;
@@ -232,50 +235,40 @@ pub const ACTRL_WIN_READ_ATTRIBS: i32 = 32;
 pub const ACTRL_WIN_SCREEN: i32 = 128;
 pub const ACTRL_WIN_WRITE_ATTRIBS: i32 = 64;
 pub const DENY_ACCESS: ACCESS_MODE = 3;
-#[cfg(feature = "winnt")]
-pub type EXPLICIT_ACCESS = EXPLICIT_ACCESSA;
-#[cfg(feature = "winnt")]
-pub type EXPLICIT_ACCESSA = EXPLICIT_ACCESS_A;
-#[cfg(feature = "winnt")]
-pub type EXPLICIT_ACCESSW = EXPLICIT_ACCESS_W;
-#[cfg(feature = "winnt")]
-pub type EXPLICIT_ACCESS_ = EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type EXPLICIT_ACCESS = _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type EXPLICIT_ACCESSA = _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type EXPLICIT_ACCESSW = _EXPLICIT_ACCESS_W;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type EXPLICIT_ACCESS_ = _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type EXPLICIT_ACCESS_A = _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type EXPLICIT_ACCESS_W = _EXPLICIT_ACCESS_W;
 #[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct EXPLICIT_ACCESS_A {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: u32,
-    pub Trustee: TRUSTEE_A,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct EXPLICIT_ACCESS_W {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: u32,
-    pub Trustee: TRUSTEE_W,
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FN_OBJECT_MGR_FUNCTS {
-    pub Placeholder: u32,
+    pub Placeholder: super::ULONG,
 }
 pub const GRANT_ACCESS: ACCESS_MODE = 1;
 pub const INHERITED_ACCESS_ENTRY: i32 = 16;
+#[cfg(feature = "shared")]
 pub type INHERITED_FROM = INHERITED_FROMA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INHERITED_FROMA {
-    pub GenerationGap: i32,
+    pub GenerationGap: super::LONG,
     pub AncestorName: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct INHERITED_FROMW {
-    pub GenerationGap: i32,
+    pub GenerationGap: super::LONG,
     pub AncestorName: windows_sys::core::PWSTR,
 }
 pub const INHERITED_GRANDPARENT: i32 = 536870912;
@@ -287,112 +280,128 @@ pub type MULTIPLE_TRUSTEE_OPERATION = i32;
 pub const NOT_USED_ACCESS: ACCESS_MODE = 0;
 pub const NO_INHERITANCE: i32 = 0;
 pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = 0;
+#[cfg(feature = "shared")]
 pub type OBJECTS_AND_NAME_ = OBJECTS_AND_NAME_A;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct OBJECTS_AND_NAME_A {
-    pub ObjectsPresent: u32,
+    pub ObjectsPresent: super::DWORD,
     pub ObjectType: SE_OBJECT_TYPE,
     pub ObjectTypeName: windows_sys::core::PSTR,
     pub InheritedObjectTypeName: windows_sys::core::PSTR,
     pub ptstrName: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct OBJECTS_AND_NAME_W {
-    pub ObjectsPresent: u32,
+    pub ObjectsPresent: super::DWORD,
     pub ObjectType: SE_OBJECT_TYPE,
     pub ObjectTypeName: windows_sys::core::PWSTR,
     pub InheritedObjectTypeName: windows_sys::core::PWSTR,
     pub ptstrName: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct OBJECTS_AND_SID {
-    pub ObjectsPresent: u32,
+    pub ObjectsPresent: super::DWORD,
     pub ObjectTypeGuid: windows_sys::core::GUID,
     pub InheritedObjectTypeGuid: windows_sys::core::GUID,
     pub pSid: *mut super::SID,
 }
 pub type PACCESS_RIGHTS = *mut u32;
-#[cfg(feature = "winnt")]
-pub type PACTRL_ACCESS = PACTRL_ACCESSA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PACTRL_ACCESS = *mut _ACTRL_ALISTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_ACCESSA = *mut _ACTRL_ALISTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_ACCESSW = *mut _ACTRL_ALISTW;
-#[cfg(feature = "winnt")]
-pub type PACTRL_ACCESS_ENTRY = PACTRL_ACCESS_ENTRYA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PACTRL_ACCESS_ENTRY = *mut ACTRL_ACCESS_ENTRYA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_ACCESS_ENTRYA = *mut ACTRL_ACCESS_ENTRYA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_ACCESS_ENTRYW = *mut ACTRL_ACCESS_ENTRYW;
-#[cfg(feature = "winnt")]
-pub type PACTRL_ACCESS_ENTRY_LIST = PACTRL_ACCESS_ENTRY_LISTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PACTRL_ACCESS_ENTRY_LIST = *mut ACTRL_ACCESS_ENTRY_LISTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_ACCESS_ENTRY_LISTA = *mut ACTRL_ACCESS_ENTRY_LISTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_ACCESS_ENTRY_LISTW = *mut ACTRL_ACCESS_ENTRY_LISTW;
-pub type PACTRL_ACCESS_INFO = PACTRL_ACCESS_INFOA;
+#[cfg(feature = "shared")]
+pub type PACTRL_ACCESS_INFO = *mut ACTRL_ACCESS_INFOA;
+#[cfg(feature = "shared")]
 pub type PACTRL_ACCESS_INFOA = *mut ACTRL_ACCESS_INFOA;
+#[cfg(feature = "shared")]
 pub type PACTRL_ACCESS_INFOW = *mut ACTRL_ACCESS_INFOW;
-#[cfg(feature = "winnt")]
-pub type PACTRL_AUDIT = PACTRL_AUDITA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PACTRL_AUDIT = *mut _ACTRL_ALISTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_AUDITA = *mut _ACTRL_ALISTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_AUDITW = *mut _ACTRL_ALISTW;
-pub type PACTRL_CONTROL_INFO = PACTRL_CONTROL_INFOA;
+pub type PACTRL_CONTROL_INFO = *mut ACTRL_CONTROL_INFOA;
 pub type PACTRL_CONTROL_INFOA = *mut ACTRL_CONTROL_INFOA;
 pub type PACTRL_CONTROL_INFOW = *mut ACTRL_CONTROL_INFOW;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_OVERLAPPED = *mut ACTRL_OVERLAPPED;
-#[cfg(feature = "winnt")]
-pub type PACTRL_PROPERTY_ENTRY = PACTRL_PROPERTY_ENTRYA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PACTRL_PROPERTY_ENTRY = *mut ACTRL_PROPERTY_ENTRYA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_PROPERTY_ENTRYA = *mut ACTRL_PROPERTY_ENTRYA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACTRL_PROPERTY_ENTRYW = *mut ACTRL_PROPERTY_ENTRYW;
-#[cfg(feature = "winnt")]
-pub type PEXPLICIT_ACCESS = PEXPLICIT_ACCESSA;
-#[cfg(feature = "winnt")]
-pub type PEXPLICIT_ACCESSA = *mut EXPLICIT_ACCESS_A;
-#[cfg(feature = "winnt")]
-pub type PEXPLICIT_ACCESSW = *mut EXPLICIT_ACCESS_W;
-#[cfg(feature = "winnt")]
-pub type PEXPLICIT_ACCESS_ = PEXPLICIT_ACCESS_A;
-#[cfg(feature = "winnt")]
-pub type PEXPLICIT_ACCESS_A = *mut EXPLICIT_ACCESS_A;
-#[cfg(feature = "winnt")]
-pub type PEXPLICIT_ACCESS_W = *mut EXPLICIT_ACCESS_W;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PEXPLICIT_ACCESS = *mut _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PEXPLICIT_ACCESSA = *mut _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PEXPLICIT_ACCESSW = *mut _EXPLICIT_ACCESS_W;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PEXPLICIT_ACCESS_ = *mut _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PEXPLICIT_ACCESS_A = *mut _EXPLICIT_ACCESS_A;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PEXPLICIT_ACCESS_W = *mut _EXPLICIT_ACCESS_W;
+#[cfg(feature = "shared")]
 pub type PFN_OBJECT_MGR_FUNCTS = *mut FN_OBJECT_MGR_FUNCTS;
-pub type PINHERITED_FROM = PINHERITED_FROMA;
+#[cfg(feature = "shared")]
+pub type PINHERITED_FROM = *mut INHERITED_FROMA;
+#[cfg(feature = "shared")]
 pub type PINHERITED_FROMA = *mut INHERITED_FROMA;
+#[cfg(feature = "shared")]
 pub type PINHERITED_FROMW = *mut INHERITED_FROMW;
 pub type PINHERIT_FLAGS = *mut u32;
-pub type POBJECTS_AND_NAME_ = POBJECTS_AND_NAME_A;
+#[cfg(feature = "shared")]
+pub type POBJECTS_AND_NAME_ = *mut OBJECTS_AND_NAME_A;
+#[cfg(feature = "shared")]
 pub type POBJECTS_AND_NAME_A = *mut OBJECTS_AND_NAME_A;
+#[cfg(feature = "shared")]
 pub type POBJECTS_AND_NAME_W = *mut OBJECTS_AND_NAME_W;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type POBJECTS_AND_SID = *mut OBJECTS_AND_SID;
 pub type PPROG_INVOKE_SETTING = *mut PROG_INVOKE_SETTING;
 pub type PROG_INVOKE_SETTING = i32;
 #[cfg(feature = "winnt")]
-pub type PTRUSTEE = PTRUSTEEA;
+pub type PTRUSTEE = *mut _TRUSTEE_A;
 #[cfg(feature = "winnt")]
-pub type PTRUSTEEA = *mut TRUSTEE_A;
+pub type PTRUSTEEA = *mut _TRUSTEE_A;
 #[cfg(feature = "winnt")]
-pub type PTRUSTEEW = *mut TRUSTEE_W;
+pub type PTRUSTEEW = *mut _TRUSTEE_W;
 #[cfg(feature = "winnt")]
-pub type PTRUSTEE_ = PTRUSTEE_A;
+pub type PTRUSTEE_ = *mut _TRUSTEE_A;
 #[cfg(feature = "winnt")]
-pub type PTRUSTEE_A = *mut TRUSTEE_A;
-pub type PTRUSTEE_ACCESS = PTRUSTEE_ACCESSA;
+pub type PTRUSTEE_A = *mut _TRUSTEE_A;
+#[cfg(feature = "shared")]
+pub type PTRUSTEE_ACCESS = *mut TRUSTEE_ACCESSA;
+#[cfg(feature = "shared")]
 pub type PTRUSTEE_ACCESSA = *mut TRUSTEE_ACCESSA;
+#[cfg(feature = "shared")]
 pub type PTRUSTEE_ACCESSW = *mut TRUSTEE_ACCESSW;
 #[cfg(feature = "winnt")]
-pub type PTRUSTEE_W = *mut TRUSTEE_W;
+pub type PTRUSTEE_W = *mut _TRUSTEE_W;
 pub const ProgressCancelOperation: PROG_INVOKE_SETTING = 4;
 pub const ProgressInvokeEveryObject: PROG_INVOKE_SETTING = 2;
 pub const ProgressInvokeNever: PROG_INVOKE_SETTING = 1;
@@ -425,39 +434,34 @@ pub const TREE_SEC_INFO_RESET: i32 = 2;
 pub const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: i32 = 3;
 pub const TREE_SEC_INFO_SET: i32 = 1;
 #[cfg(feature = "winnt")]
-pub type TRUSTEE = TRUSTEEA;
+pub type TRUSTEE = _TRUSTEE_A;
 #[cfg(feature = "winnt")]
-pub type TRUSTEEA = TRUSTEE_A;
+pub type TRUSTEEA = _TRUSTEE_A;
 #[cfg(feature = "winnt")]
-pub type TRUSTEEW = TRUSTEE_W;
+pub type TRUSTEEW = _TRUSTEE_W;
 #[cfg(feature = "winnt")]
-pub type TRUSTEE_ = TRUSTEE_A;
-#[repr(C)]
+pub type TRUSTEE_ = _TRUSTEE_A;
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct TRUSTEE_A {
-    pub pMultipleTrustee: *mut Self,
-    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
-    pub TrusteeForm: TRUSTEE_FORM,
-    pub TrusteeType: TRUSTEE_TYPE,
-    pub ptstrName: super::LPCH,
-}
+pub type TRUSTEE_A = _TRUSTEE_A;
+#[cfg(feature = "shared")]
 pub type TRUSTEE_ACCESS = TRUSTEE_ACCESSA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTEE_ACCESSA {
     pub lpProperty: windows_sys::core::PSTR,
     pub Access: ACCESS_RIGHTS,
-    pub fAccessFlags: u32,
-    pub fReturnedAccess: u32,
+    pub fAccessFlags: super::ULONG,
+    pub fReturnedAccess: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TRUSTEE_ACCESSW {
     pub lpProperty: windows_sys::core::PWSTR,
     pub Access: ACCESS_RIGHTS,
-    pub fAccessFlags: u32,
-    pub fReturnedAccess: u32,
+    pub fAccessFlags: super::ULONG,
+    pub fReturnedAccess: super::ULONG,
 }
 pub const TRUSTEE_ACCESS_ALL: u32 = 4294967295;
 pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1;
@@ -482,27 +486,57 @@ pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = 0;
 pub const TRUSTEE_IS_USER: TRUSTEE_TYPE = 1;
 pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = 5;
 pub type TRUSTEE_TYPE = i32;
+#[cfg(feature = "winnt")]
+pub type TRUSTEE_W = _TRUSTEE_W;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct _ACTRL_ALISTA {
+    pub cEntries: super::ULONG,
+    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct _ACTRL_ALISTW {
+    pub cEntries: super::ULONG,
+    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct _EXPLICIT_ACCESS_A {
+    pub grfAccessPermissions: super::DWORD,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::DWORD,
+    pub Trustee: TRUSTEE_A,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct _EXPLICIT_ACCESS_W {
+    pub grfAccessPermissions: super::DWORD,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::DWORD,
+    pub Trustee: TRUSTEE_W,
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
-pub struct TRUSTEE_W {
+pub struct _TRUSTEE_A {
+    pub pMultipleTrustee: *mut Self,
+    pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
+    pub TrusteeForm: TRUSTEE_FORM,
+    pub TrusteeType: TRUSTEE_TYPE,
+    pub ptstrName: super::LPCH,
+}
+#[repr(C)]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct _TRUSTEE_W {
     pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
     pub TrusteeForm: TRUSTEE_FORM,
     pub TrusteeType: TRUSTEE_TYPE,
     pub ptstrName: super::LPWCH,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct _ACTRL_ALISTA {
-    pub cEntries: u32,
-    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
-pub struct _ACTRL_ALISTW {
-    pub cEntries: u32,
-    pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
 }

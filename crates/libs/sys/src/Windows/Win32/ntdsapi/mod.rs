@@ -1,149 +1,164 @@
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::HANDLE, flags : u32, srcdomain : windows_sys::core::PCSTR, srcprincipal : windows_sys::core::PCSTR, srcdomaincontroller : windows_sys::core::PCSTR, srcdomaincreds : super::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::HANDLE, flags : u32, srcdomain : windows_sys::core::PCWSTR, srcprincipal : windows_sys::core::PCWSTR, srcdomaincontroller : windows_sys::core::PCWSTR, srcdomaincreds : super::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_sys::core::PCSTR, annotation : windows_sys::core::PCSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_sys::core::PCWSTR, annotation : windows_sys::core::PCWSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGA(sitename : windows_sys::core::PCSTR, phds : *mut super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGW(sitename : windows_sys::core::PCWSTR, phds : *mut super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::HANDLE) -> u32);
-#[cfg(all(feature = "rpc", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, phds : *mut super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindingSetTimeout(hds : super::HANDLE, ctimeoutsecs : u32) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PSTR) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_sys::core::PCSTR, ppresult : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesW(hds : super::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_sys::core::PCWSTR, ppresult : *mut PDS_NAME_RESULTW) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
-windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::HANDLE, flags : super::DWORD, srcdomain : windows_sys::core::PCSTR, srcprincipal : windows_sys::core::PCSTR, srcdomaincontroller : windows_sys::core::PCSTR, srcdomaincreds : super::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::HANDLE, flags : super::DWORD, srcdomain : windows_sys::core::PCWSTR, srcprincipal : windows_sys::core::PCWSTR, srcdomaincontroller : windows_sys::core::PCWSTR, srcdomaincreds : super::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_sys::core::PCSTR, annotation : windows_sys::core::PCSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_sys::core::PCWSTR, annotation : windows_sys::core::PCWSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGA(sitename : windows_sys::core::PCSTR, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGW(sitename : windows_sys::core::PCWSTR, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : super::DWORD, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, phds : *mut super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindingSetTimeout(hds : super::HANDLE, ctimeoutsecs : super::ULONG) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, pcspnlength : *mut super::DWORD, pszspn : windows_sys::core::PSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, pcspnlength : *mut super::DWORD, pszspn : windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : super::DWORD, rpnames : *const windows_sys::core::PCSTR, ppresult : *mut PDS_NAME_RESULTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsCrackNamesW(hds : super::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : super::DWORD, rpnames : *const windows_sys::core::PCWSTR, ppresult : *mut PDS_NAME_RESULTW) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : super::DWORD, cinfo : super::DWORD, pinfo : *const core::ffi::c_void));
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : super::DWORD, cinfo : super::DWORD, pinfo : *const core::ffi::c_void));
+#[cfg(feature = "shared")]
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const DS_NAME_RESULTA));
+#[cfg(feature = "shared")]
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW));
 #[cfg(feature = "rpc")]
 windows_link::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : super::RPC_AUTH_IDENTITY_HANDLE));
+#[cfg(feature = "shared")]
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : PDS_SCHEMA_GUID_MAPA));
+#[cfg(feature = "shared")]
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : PDS_SCHEMA_GUID_MAPW));
-windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut windows_sys::core::PSTR));
-windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut windows_sys::core::PWSTR));
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoA(hds : super::HANDLE, domainname : windows_sys::core::PCSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoW(hds : super::HANDLE, domainname : windows_sys::core::PCWSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_sys::core::PCSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_sys::core::PSTR) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const windows_sys::core::PCWSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::HANDLE, flags : u32, srcprincipal : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::HANDLE, flags : u32, srcprincipal : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteA(hds : super::HANDLE, site : windows_sys::core::PCSTR, ppdomains : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteW(hds : super::HANDLE, site : windows_sys::core::PCWSTR, ppdomains : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerA(hds : super::HANDLE, server : windows_sys::core::PCSTR, ppinfo : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerW(hds : super::HANDLE, server : windows_sys::core::PCWSTR, ppinfo : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListRolesA(hds : super::HANDLE, pproles : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListRolesW(hds : super::HANDLE, pproles : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteA(hds : super::HANDLE, domain : windows_sys::core::PCSTR, site : windows_sys::core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteW(hds : super::HANDLE, domain : windows_sys::core::PCWSTR, site : windows_sys::core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteA(hds : super::HANDLE, site : windows_sys::core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteW(hds : super::HANDLE, site : windows_sys::core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListSitesA(hds : super::HANDLE, ppsites : *mut PDS_NAME_RESULTA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsListSitesW(hds : super::HANDLE, ppsites : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "rpc")]
-windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_sys::core::PCSTR, domain : windows_sys::core::PCSTR, password : windows_sys::core::PCSTR, pauthidentity : *mut super::RPC_AUTH_IDENTITY_HANDLE) -> u32);
-#[cfg(feature = "rpc")]
-windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, pauthidentity : *mut super::RPC_AUTH_IDENTITY_HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::HANDLE, cguids : u32, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::HANDLE, cguids : u32, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::HANDLE, pszfromsite : windows_sys::core::PCSTR, rgsztosites : *const windows_sys::core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostW(hds : super::HANDLE, pwszfromsite : windows_sys::core::PCWSTR, rgwsztosites : *const windows_sys::core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : super::DWORD, rpszspn : *mut windows_sys::core::PSTR));
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : super::DWORD, rpszspn : *mut windows_sys::core::PWSTR));
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoA(hds : super::HANDLE, domainname : windows_sys::core::PCSTR, infolevel : super::DWORD, pcout : *mut super::DWORD, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsGetDomainControllerInfoW(hds : super::HANDLE, domainname : windows_sys::core::PCWSTR, infolevel : super::DWORD, pcout : *mut super::DWORD, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, instanceport : super::USHORT, cinstancenames : super::USHORT, pinstancenames : *const windows_sys::core::PCSTR, pinstanceports : *const super::USHORT, pcspn : *mut super::DWORD, prpszspn : *mut *mut windows_sys::core::PSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : windows_sys::core::PCWSTR, servicename : windows_sys::core::PCWSTR, instanceport : super::USHORT, cinstancenames : super::USHORT, pinstancenames : *const windows_sys::core::PCWSTR, pinstanceports : *const super::USHORT, pcspn : *mut super::DWORD, prpszspn : *mut *mut windows_sys::core::PWSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityA(hds : super::HANDLE, flags : super::DWORD, srcprincipal : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsInheritSecurityIdentityW(hds : super::HANDLE, flags : super::DWORD, srcprincipal : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteA(hds : super::HANDLE, site : windows_sys::core::PCSTR, ppdomains : *mut PDS_NAME_RESULTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListDomainsInSiteW(hds : super::HANDLE, site : windows_sys::core::PCWSTR, ppdomains : *mut PDS_NAME_RESULTW) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerA(hds : super::HANDLE, server : windows_sys::core::PCSTR, ppinfo : *mut PDS_NAME_RESULTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListInfoForServerW(hds : super::HANDLE, server : windows_sys::core::PCWSTR, ppinfo : *mut PDS_NAME_RESULTW) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListRolesA(hds : super::HANDLE, pproles : *mut PDS_NAME_RESULTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListRolesW(hds : super::HANDLE, pproles : *mut PDS_NAME_RESULTW) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteA(hds : super::HANDLE, domain : windows_sys::core::PCSTR, site : windows_sys::core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListServersForDomainInSiteW(hds : super::HANDLE, domain : windows_sys::core::PCWSTR, site : windows_sys::core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteA(hds : super::HANDLE, site : windows_sys::core::PCSTR, ppservers : *mut PDS_NAME_RESULTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteW(hds : super::HANDLE, site : windows_sys::core::PCWSTR, ppservers : *mut PDS_NAME_RESULTW) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListSitesA(hds : super::HANDLE, ppsites : *mut PDS_NAME_RESULTA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsListSitesW(hds : super::HANDLE, ppsites : *mut PDS_NAME_RESULTW) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_sys::core::PCSTR, domain : windows_sys::core::PCSTR, password : windows_sys::core::PCSTR, pauthidentity : *mut super::RPC_AUTH_IDENTITY_HANDLE) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, pauthidentity : *mut super::RPC_AUTH_IDENTITY_HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::HANDLE, cguids : super::DWORD, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::HANDLE, cguids : super::DWORD, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::HANDLE, pszfromsite : windows_sys::core::PCSTR, rgsztosites : *const windows_sys::core::PCSTR, ctosites : super::DWORD, dwflags : super::DWORD, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostW(hds : super::HANDLE, pwszfromsite : windows_sys::core::PCWSTR, rgwsztosites : *const windows_sys::core::PCWSTR, ctosites : super::DWORD, dwflags : super::DWORD, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> super::DWORD);
+#[cfg(feature = "shared")]
 windows_link::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : PDS_SITE_COST_INFO));
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::HANDLE, domaindn : windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainW(hds : super::HANDLE, domaindn : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::HANDLE, serverdn : windows_sys::core::PCSTR, domaindn : windows_sys::core::PCSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::HANDLE, serverdn : windows_sys::core::PCWSTR, domaindn : windows_sys::core::PCWSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> u32);
-#[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, sourcedsadn : windows_sys::core::PCSTR, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : super::PSCHEDULE, options : u32) -> u32);
-#[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, sourcedsadn : windows_sys::core::PCWSTR, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : super::PSCHEDULE, options : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, dsasrc : windows_sys::core::PCSTR, options : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, dsasrc : windows_sys::core::PCWSTR, options : u32) -> u32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainA(hds : super::HANDLE, domaindn : windows_sys::core::PCSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsDomainW(hds : super::HANDLE, domaindn : windows_sys::core::PCWSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerA(hds : super::HANDLE, serverdn : windows_sys::core::PCSTR, domaindn : windows_sys::core::PCSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsRemoveDsServerW(hds : super::HANDLE, serverdn : windows_sys::core::PCWSTR, domaindn : windows_sys::core::PCWSTR, flastdcindomain : *mut windows_sys::core::BOOL, fcommit : windows_sys::core::BOOL) -> super::DWORD);
+#[cfg(all(feature = "schedule", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, sourcedsadn : windows_sys::core::PCSTR, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : super::PSCHEDULE, options : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "schedule", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaAddW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, sourcedsadn : windows_sys::core::PCWSTR, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : super::PSCHEDULE, options : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaConsistencyCheck(hds : super::HANDLE, taskid : DS_KCC_TASKID, dwflags : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, dsasrc : windows_sys::core::PCSTR, options : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaDelW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, dsasrc : windows_sys::core::PCWSTR, options : super::ULONG) -> super::DWORD);
 windows_link::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const core::ffi::c_void));
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const windows_sys::core::GUID, pszattributename : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, dwflags : u32, dwenumerationcontext : u32, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const windows_sys::core::GUID, ppinfo : *mut *mut core::ffi::c_void) -> u32);
-#[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : super::PSCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-#[cfg(all(feature = "schedule", feature = "winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuidsourcedsa : *const windows_sys::core::GUID, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : super::PSCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllA(hds : super::HANDLE, psznamecontext : windows_sys::core::PCSTR, ulflags : u32, pfncallback : *mut u8, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOA) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllW(hds : super::HANDLE, psznamecontext : windows_sys::core::PCWSTR, ulflags : u32, pfncallback : *mut u8, pcallbackdata : *const core::ffi::c_void, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOW) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, dsadest : windows_sys::core::PCSTR, puuiddsadest : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, dsadest : windows_sys::core::PCWSTR, puuiddsadest : *const windows_sys::core::GUID, options : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const windows_sys::core::GUID, uloptions : u32) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const windows_sys::core::GUID, uloptions : u32) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnA(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCSTR, userobjectdn : windows_sys::core::PCSTR) -> u32);
-windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnW(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCWSTR, userobjectdn : windows_sys::core::PCWSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsUnBindA(phds : *const super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsUnBindW(phds : *const super::HANDLE) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCSTR, cspn : u32, rpszspn : *const windows_sys::core::PCSTR) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCWSTR, cspn : u32, rpszspn : *const windows_sys::core::PCWSTR) -> u32);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfo2W(hds : super::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const super::UUID, pszattributename : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, dwflags : super::DWORD, dwenumerationcontext : super::DWORD, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaGetInfoW(hds : super::HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const super::UUID, ppinfo : *mut *mut core::ffi::c_void) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "schedule", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuidsourcedsa : *const super::UUID, transportdn : windows_sys::core::PCSTR, sourcedsaaddress : windows_sys::core::PCSTR, pschedule : super::PSCHEDULE, replicaflags : super::DWORD, modifyfields : super::DWORD, options : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "schedule", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaModifyW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuidsourcedsa : *const super::UUID, transportdn : windows_sys::core::PCWSTR, sourcedsaaddress : windows_sys::core::PCWSTR, pschedule : super::PSCHEDULE, replicaflags : super::DWORD, modifyfields : super::DWORD, options : super::DWORD) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const super::UUID, options : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllA(hds : super::HANDLE, psznamecontext : windows_sys::core::PCSTR, ulflags : super::ULONG, pfncallback : Option < unsafe extern "system" fn(super::LPVOID, PDS_REPSYNCALL_UPDATEA) -> windows_sys::core::BOOL >, pcallbackdata : super::LPVOID, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOA) -> super::DWORD);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncAllW(hds : super::HANDLE, psznamecontext : windows_sys::core::PCWSTR, ulflags : super::ULONG, pfncallback : Option < unsafe extern "system" fn(super::LPVOID, PDS_REPSYNCALL_UPDATEW) -> windows_sys::core::BOOL >, pcallbackdata : super::LPVOID, perrors : *mut *mut PDS_REPSYNCALL_ERRINFOW) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaSyncW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const super::UUID, options : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, dsadest : windows_sys::core::PCSTR, puuiddsadest : *const super::UUID, options : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaUpdateRefsW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, dsadest : windows_sys::core::PCWSTR, puuiddsadest : *const super::UUID, options : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsA(hds : super::HANDLE, namecontext : windows_sys::core::PCSTR, puuiddsasrc : *const super::UUID, uloptions : super::ULONG) -> super::DWORD);
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsReplicaVerifyObjectsW(hds : super::HANDLE, namecontext : windows_sys::core::PCWSTR, puuiddsasrc : *const super::UUID, uloptions : super::ULONG) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnA(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCSTR, userobjectdn : windows_sys::core::PCSTR) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnW(operation : DS_SPN_WRITE_OP, serviceclass : windows_sys::core::PCWSTR, userobjectdn : windows_sys::core::PCWSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsUnBindA(phds : *const super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsUnBindW(phds : *const super::HANDLE) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCSTR, cspn : super::DWORD, rpszspn : *const windows_sys::core::PCSTR) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_sys::core::PCWSTR, cspn : super::DWORD, rpszspn : *const windows_sys::core::PCWSTR) -> super::DWORD);
 pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: i32 = 2;
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: i32 = 1;
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: i32 = 0;
@@ -175,7 +190,8 @@ pub const DS_BEHAVIOR_WINBLUE: i32 = 6;
 pub const DS_BEHAVIOR_WINTHRESHOLD: i32 = 7;
 pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = 7;
 pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = 9;
-pub const DS_DEFAULT_LOCALE: u32 = 1033;
+#[cfg(feature = "shared")]
+pub const DS_DEFAULT_LOCALE: super::DWORD = 1033;
 pub const DS_DEFAULT_LOCALE_COMPARE_FLAGS: i32 = 200707;
 pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = 3;
 pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = 12;
@@ -308,28 +324,32 @@ pub const DS_NAME_LEGAL_FLAGS: DS_NAME_FLAGS = 1;
 pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = 0;
 pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULTA {
-    pub cItems: u32,
+    pub cItems: super::DWORD,
     pub rItems: PDS_NAME_RESULT_ITEMA,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULTW {
-    pub cItems: u32,
+    pub cItems: super::DWORD,
     pub rItems: PDS_NAME_RESULT_ITEMW,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULT_ITEMA {
-    pub status: u32,
+    pub status: super::DWORD,
     pub pDomain: windows_sys::core::PSTR,
     pub pName: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_NAME_RESULT_ITEMW {
-    pub status: u32,
+    pub status: super::DWORD,
     pub pDomain: windows_sys::core::PWSTR,
     pub pName: windows_sys::core::PWSTR,
 }
@@ -356,156 +376,156 @@ pub const DS_REPDEL_NO_SOURCE: i32 = 32;
 pub const DS_REPDEL_REF_OK: i32 = 64;
 pub const DS_REPDEL_WRITEABLE: i32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
-    pub oszAttributeName: u32,
-    pub dwVersion: u32,
+    pub oszAttributeName: super::DWORD,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
-    pub oszLastOriginatingDsaDN: u32,
+    pub oszLastOriginatingDsaDN: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
+    pub cNumEntries: super::DWORD,
+    pub dwEnumerationContext: super::DWORD,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_VALUE_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
+    pub cNumEntries: super::DWORD,
+    pub dwEnumerationContext: super::DWORD,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
+    pub cNumEntries: super::DWORD,
+    pub dwEnumerationContext: super::DWORD,
     pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "rpc", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR {
-    pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
+    pub uuidSourceDsaInvocationID: super::UUID,
     pub usnAttributeFilter: super::USN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSORS {
-    pub cNumCursors: u32,
-    pub dwReserved: u32,
+    pub cNumCursors: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub rgCursor: [DS_REPL_CURSOR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_CURSORS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSORS_2 {
-    pub cNumCursors: u32,
-    pub dwEnumerationContext: u32,
+    pub cNumCursors: super::DWORD,
+    pub dwEnumerationContext: super::DWORD,
     pub rgCursor: [DS_REPL_CURSOR_2; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_CURSORS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_CURSORS_3W {
-    pub cNumCursors: u32,
-    pub dwEnumerationContext: u32,
+    pub cNumCursors: super::DWORD,
+    pub dwEnumerationContext: super::DWORD,
     pub rgCursor: [DS_REPL_CURSOR_3W; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_CURSORS_3W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_2 {
-    pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
+    pub uuidSourceDsaInvocationID: super::UUID,
     pub usnAttributeFilter: super::USN,
     pub ftimeLastSyncSuccess: super::FILETIME,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_3W {
-    pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
+    pub uuidSourceDsaInvocationID: super::UUID,
     pub usnAttributeFilter: super::USN,
     pub ftimeLastSyncSuccess: super::FILETIME,
     pub pszSourceDsaDN: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_CURSOR_BLOB {
-    pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
+    pub uuidSourceDsaInvocationID: super::UUID,
     pub usnAttributeFilter: super::USN,
     pub ftimeLastSyncSuccess: super::FILETIME,
-    pub oszSourceDsaDN: u32,
+    pub oszSourceDsaDN: super::DWORD,
 }
 pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = 7;
 pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = 8;
@@ -523,38 +543,38 @@ pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = 5;
 pub type DS_REPL_INFO_TYPE = i32;
 pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = 12;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
+    pub cNumEntries: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 impl Default for DS_REPL_KCC_DSA_FAILURESW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: windows_sys::core::PWSTR,
-    pub uuidDsaObjGuid: windows_sys::core::GUID,
+    pub uuidDsaObjGuid: super::UUID,
     pub ftimeFirstFailure: super::FILETIME,
-    pub cNumFailures: u32,
-    pub dwLastResult: u32,
+    pub cNumFailures: super::DWORD,
+    pub dwLastResult: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    pub oszDsaDN: u32,
-    pub uuidDsaObjGuid: windows_sys::core::GUID,
+    pub oszDsaDN: super::DWORD,
+    pub uuidDsaObjGuid: super::UUID,
     pub ftimeFirstFailure: super::FILETIME,
-    pub cNumFailures: u32,
-    pub dwLastResult: u32,
+    pub cNumFailures: super::DWORD,
+    pub dwLastResult: super::DWORD,
 }
 pub const DS_REPL_NBR_COMPRESS_CHANGES: i32 = 268435456;
 pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: i32 = 134217728;
@@ -576,118 +596,118 @@ pub const DS_REPL_NBR_TWO_WAY_SYNC: i32 = 512;
 pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: i32 = 128;
 pub const DS_REPL_NBR_WRITEABLE: i32 = 16;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_NEIGHBORSW {
-    pub cNumNeighbors: u32,
-    pub dwReserved: u32,
+    pub cNumNeighbors: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_NEIGHBORSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: windows_sys::core::PWSTR,
     pub pszSourceDsaDN: windows_sys::core::PWSTR,
     pub pszSourceDsaAddress: windows_sys::core::PWSTR,
     pub pszAsyncIntersiteTransportDN: windows_sys::core::PWSTR,
-    pub dwReplicaFlags: u32,
-    pub dwReserved: u32,
-    pub uuidNamingContextObjGuid: windows_sys::core::GUID,
-    pub uuidSourceDsaObjGuid: windows_sys::core::GUID,
-    pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
-    pub uuidAsyncIntersiteTransportObjGuid: windows_sys::core::GUID,
+    pub dwReplicaFlags: super::DWORD,
+    pub dwReserved: super::DWORD,
+    pub uuidNamingContextObjGuid: super::UUID,
+    pub uuidSourceDsaObjGuid: super::UUID,
+    pub uuidSourceDsaInvocationID: super::UUID,
+    pub uuidAsyncIntersiteTransportObjGuid: super::UUID,
     pub usnLastObjChangeSynced: super::USN,
     pub usnAttributeFilter: super::USN,
     pub ftimeLastSyncSuccess: super::FILETIME,
     pub ftimeLastSyncAttempt: super::FILETIME,
-    pub dwLastSyncResult: u32,
-    pub cNumConsecutiveSyncFailures: u32,
+    pub dwLastSyncResult: super::DWORD,
+    pub cNumConsecutiveSyncFailures: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_NEIGHBORW_BLOB {
-    pub oszNamingContext: u32,
-    pub oszSourceDsaDN: u32,
-    pub oszSourceDsaAddress: u32,
-    pub oszAsyncIntersiteTransportDN: u32,
-    pub dwReplicaFlags: u32,
-    pub dwReserved: u32,
-    pub uuidNamingContextObjGuid: windows_sys::core::GUID,
-    pub uuidSourceDsaObjGuid: windows_sys::core::GUID,
-    pub uuidSourceDsaInvocationID: windows_sys::core::GUID,
-    pub uuidAsyncIntersiteTransportObjGuid: windows_sys::core::GUID,
+    pub oszNamingContext: super::DWORD,
+    pub oszSourceDsaDN: super::DWORD,
+    pub oszSourceDsaAddress: super::DWORD,
+    pub oszAsyncIntersiteTransportDN: super::DWORD,
+    pub dwReplicaFlags: super::DWORD,
+    pub dwReserved: super::DWORD,
+    pub uuidNamingContextObjGuid: super::UUID,
+    pub uuidSourceDsaObjGuid: super::UUID,
+    pub uuidSourceDsaInvocationID: super::UUID,
+    pub uuidAsyncIntersiteTransportObjGuid: super::UUID,
     pub usnLastObjChangeSynced: super::USN,
     pub usnAttributeFilter: super::USN,
     pub ftimeLastSyncSuccess: super::FILETIME,
     pub ftimeLastSyncAttempt: super::FILETIME,
-    pub dwLastSyncResult: u32,
-    pub cNumConsecutiveSyncFailures: u32,
+    pub dwLastSyncResult: super::DWORD,
+    pub cNumConsecutiveSyncFailures: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_OBJ_META_DATA {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
+    pub cNumEntries: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_OBJ_META_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_OBJ_META_DATA_2 {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
+    pub cNumEntries: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 impl Default for DS_REPL_OBJ_META_DATA_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::FILETIME,
-    pub ulSerialNumber: u32,
-    pub ulPriority: u32,
+    pub ulSerialNumber: super::ULONG,
+    pub ulPriority: super::ULONG,
     pub OpType: DS_REPL_OP_TYPE,
-    pub ulOptions: u32,
+    pub ulOptions: super::ULONG,
     pub pszNamingContext: windows_sys::core::PWSTR,
     pub pszDsaDN: windows_sys::core::PWSTR,
     pub pszDsaAddress: windows_sys::core::PWSTR,
-    pub uuidNamingContextObjGuid: windows_sys::core::GUID,
-    pub uuidDsaObjGuid: windows_sys::core::GUID,
+    pub uuidNamingContextObjGuid: super::UUID,
+    pub uuidDsaObjGuid: super::UUID,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::FILETIME,
-    pub ulSerialNumber: u32,
-    pub ulPriority: u32,
+    pub ulSerialNumber: super::ULONG,
+    pub ulPriority: super::ULONG,
     pub OpType: DS_REPL_OP_TYPE,
-    pub ulOptions: u32,
-    pub oszNamingContext: u32,
-    pub oszDsaDN: u32,
-    pub oszDsaAddress: u32,
-    pub uuidNamingContextObjGuid: windows_sys::core::GUID,
-    pub uuidDsaObjGuid: windows_sys::core::GUID,
+    pub ulOptions: super::ULONG,
+    pub oszNamingContext: super::DWORD,
+    pub oszDsaDN: super::DWORD,
+    pub oszDsaAddress: super::DWORD,
+    pub uuidNamingContextObjGuid: super::UUID,
+    pub uuidDsaObjGuid: super::UUID,
 }
 pub type DS_REPL_OP_TYPE = i32;
 pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = 1;
@@ -696,112 +716,122 @@ pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = 3;
 pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = 0;
 pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = 4;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct DS_REPL_PENDING_OPSW {
     pub ftimeCurrentOpStarted: super::FILETIME,
-    pub cNumPendingOps: u32,
+    pub cNumPendingOps: super::DWORD,
     pub rgPendingOp: [DS_REPL_OPW; 1],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared"))]
 impl Default for DS_REPL_PENDING_OPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "minwindef")]
-pub type DS_REPL_QUEUE_STATISTICSW = _DS_REPL_QUEUE_STATISTICSW;
-#[cfg(feature = "minwindef")]
-pub type DS_REPL_QUEUE_STATISTICSW_BLOB = _DS_REPL_QUEUE_STATISTICSW;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
+pub struct DS_REPL_QUEUE_STATISTICSW {
+    pub ftimeCurrentOpStarted: super::FILETIME,
+    pub cNumPendingOps: super::DWORD,
+    pub ftimeOldestSync: super::FILETIME,
+    pub ftimeOldestAdd: super::FILETIME,
+    pub ftimeOldestMod: super::FILETIME,
+    pub ftimeOldestDel: super::FILETIME,
+    pub ftimeOldestUpdRefs: super::FILETIME,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
+    pub cbData: super::DWORD,
+    pub pbData: *mut super::BYTE,
     pub ftimeDeleted: super::FILETIME,
     pub ftimeCreated: super::FILETIME,
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
+    pub cbData: super::DWORD,
+    pub pbData: *mut super::BYTE,
     pub ftimeDeleted: super::FILETIME,
     pub ftimeCreated: super::FILETIME,
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
-    pub oszAttributeName: u32,
-    pub oszObjectDn: u32,
-    pub cbData: u32,
-    pub obData: u32,
+    pub oszAttributeName: super::DWORD,
+    pub oszObjectDn: super::DWORD,
+    pub cbData: super::DWORD,
+    pub obData: super::DWORD,
     pub ftimeDeleted: super::FILETIME,
     pub ftimeCreated: super::FILETIME,
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
-    pub oszLastOriginatingDsaDN: u32,
+    pub oszLastOriginatingDsaDN: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    pub oszAttributeName: u32,
-    pub oszObjectDn: u32,
-    pub cbData: u32,
-    pub obData: u32,
+    pub oszAttributeName: super::DWORD,
+    pub oszObjectDn: super::DWORD,
+    pub cbData: super::DWORD,
+    pub obData: super::DWORD,
     pub ftimeDeleted: super::FILETIME,
     pub ftimeCreated: super::FILETIME,
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
-    pub oszLastOriginatingDsaDN: u32,
-    pub dwUserIdentifier: u32,
-    pub dwPriorLinkState: u32,
-    pub dwCurrentLinkState: u32,
+    pub oszLastOriginatingDsaDN: super::DWORD,
+    pub dwUserIdentifier: super::DWORD,
+    pub dwPriorLinkState: super::DWORD,
+    pub dwCurrentLinkState: super::DWORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "rpc", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: windows_sys::core::PWSTR,
     pub pszObjectDn: windows_sys::core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
+    pub cbData: super::DWORD,
+    pub pbData: *mut super::BYTE,
     pub ftimeDeleted: super::FILETIME,
     pub ftimeCreated: super::FILETIME,
-    pub dwVersion: u32,
+    pub dwVersion: super::DWORD,
     pub ftimeLastOriginatingChange: super::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: windows_sys::core::GUID,
+    pub uuidLastOriginatingDsaInvocationID: super::UUID,
     pub usnOriginatingChange: super::USN,
     pub usnLocalChange: super::USN,
     pub pszLastOriginatingDsaDN: windows_sys::core::PWSTR,
-    pub dwUserIdentifier: u32,
-    pub dwPriorLinkState: u32,
-    pub dwCurrentLinkState: u32,
+    pub dwUserIdentifier: super::DWORD,
+    pub dwPriorLinkState: super::DWORD,
+    pub dwCurrentLinkState: super::DWORD,
 }
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: i32 = 1;
 pub const DS_REPMOD_UPDATE_ADDRESS: i32 = 2;
@@ -815,19 +845,21 @@ pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: i32 = 1;
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: i32 = 64;
 pub const DS_REPSYNCALL_DO_NOT_SYNC: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_ERRINFOA {
     pub pszSvrId: windows_sys::core::PSTR,
     pub error: DS_REPSYNCALL_ERROR,
-    pub dwWin32Err: u32,
+    pub dwWin32Err: super::DWORD,
     pub pszSrcId: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_ERRINFOW {
     pub pszSvrId: windows_sys::core::PWSTR,
     pub error: DS_REPSYNCALL_ERROR,
-    pub dwWin32Err: u32,
+    pub dwWin32Err: super::DWORD,
     pub pszSrcId: windows_sys::core::PWSTR,
 }
 pub type DS_REPSYNCALL_ERROR = i32;
@@ -861,6 +893,7 @@ pub struct DS_REPSYNCALL_SYNCW {
 }
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_UPDATEA {
     pub event: DS_REPSYNCALL_EVENT,
@@ -868,6 +901,7 @@ pub struct DS_REPSYNCALL_UPDATEA {
     pub pSync: *mut DS_REPSYNCALL_SYNCA,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_REPSYNCALL_UPDATEW {
     pub event: DS_REPSYNCALL_EVENT,
@@ -916,27 +950,30 @@ pub const DS_SCHEMA_GUID_ATTR_SET: i32 = 2;
 pub const DS_SCHEMA_GUID_CLASS: i32 = 3;
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_SCHEMA_GUID_MAPA {
     pub guid: windows_sys::core::GUID,
-    pub guidType: u32,
+    pub guidType: super::DWORD,
     pub pName: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_SCHEMA_GUID_MAPW {
     pub guid: windows_sys::core::GUID,
-    pub guidType: u32,
+    pub guidType: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
 }
 pub const DS_SCHEMA_GUID_NOT_FOUND: i32 = 0;
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = 10;
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = 11;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS_SITE_COST_INFO {
-    pub errorCode: u32,
-    pub cost: u32,
+    pub errorCode: super::DWORD,
+    pub cost: super::DWORD,
 }
 pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = 0;
 pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = 2;
@@ -1047,28 +1084,27 @@ pub type PDS_DOMAIN_CONTROLLER_INFO_2A = *mut DS_DOMAIN_CONTROLLER_INFO_2A;
 pub type PDS_DOMAIN_CONTROLLER_INFO_2W = *mut DS_DOMAIN_CONTROLLER_INFO_2W;
 pub type PDS_DOMAIN_CONTROLLER_INFO_3A = *mut DS_DOMAIN_CONTROLLER_INFO_3A;
 pub type PDS_DOMAIN_CONTROLLER_INFO_3W = *mut DS_DOMAIN_CONTROLLER_INFO_3W;
+#[cfg(feature = "shared")]
 pub type PDS_NAME_RESULTA = *mut DS_NAME_RESULTA;
+#[cfg(feature = "shared")]
 pub type PDS_NAME_RESULTW = *mut DS_NAME_RESULTW;
+#[cfg(feature = "shared")]
 pub type PDS_NAME_RESULT_ITEMA = *mut DS_NAME_RESULT_ITEMA;
+#[cfg(feature = "shared")]
 pub type PDS_NAME_RESULT_ITEMW = *mut DS_NAME_RESULT_ITEMW;
+#[cfg(feature = "shared")]
 pub type PDS_REPSYNCALL_ERRINFOA = *mut DS_REPSYNCALL_ERRINFOA;
+#[cfg(feature = "shared")]
 pub type PDS_REPSYNCALL_ERRINFOW = *mut DS_REPSYNCALL_ERRINFOW;
 pub type PDS_REPSYNCALL_SYNCA = *mut DS_REPSYNCALL_SYNCA;
 pub type PDS_REPSYNCALL_SYNCW = *mut DS_REPSYNCALL_SYNCW;
+#[cfg(feature = "shared")]
 pub type PDS_REPSYNCALL_UPDATEA = *mut DS_REPSYNCALL_UPDATEA;
+#[cfg(feature = "shared")]
 pub type PDS_REPSYNCALL_UPDATEW = *mut DS_REPSYNCALL_UPDATEW;
+#[cfg(feature = "shared")]
 pub type PDS_SCHEMA_GUID_MAPA = *mut DS_SCHEMA_GUID_MAPA;
+#[cfg(feature = "shared")]
 pub type PDS_SCHEMA_GUID_MAPW = *mut DS_SCHEMA_GUID_MAPW;
+#[cfg(feature = "shared")]
 pub type PDS_SITE_COST_INFO = *mut DS_SITE_COST_INFO;
-#[repr(C)]
-#[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
-pub struct _DS_REPL_QUEUE_STATISTICSW {
-    pub ftimeCurrentOpStarted: super::FILETIME,
-    pub cNumPendingOps: u32,
-    pub ftimeOldestSync: super::FILETIME,
-    pub ftimeOldestAdd: super::FILETIME,
-    pub ftimeOldestMod: super::FILETIME,
-    pub ftimeOldestDel: super::FILETIME,
-    pub ftimeOldestUpdRefs: super::FILETIME,
-}

@@ -1,178 +1,207 @@
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn CompareStringA(locale : super::LCID, dwcmpflags : u32, lpstring1 : super::PCNZCH, cchcount1 : i32, lpstring2 : super::PCNZCH, cchcount2 : i32) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn CompareStringA(locale : super::LCID, dwcmpflags : super::DWORD, lpstring1 : super::PCNZCH, cchcount1 : i32, lpstring2 : super::PCNZCH, cchcount2 : i32) -> i32);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn ConvertDefaultLocale(locale : super::LCID) -> super::LCID);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn EnumCalendarInfoA(lpcalinfoenumproc : CALINFO_ENUMPROCA, locale : super::LCID, calendar : CALID, caltype : CALTYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn EnumCalendarInfoExA(lpcalinfoenumprocex : CALINFO_ENUMPROCEXA, locale : super::LCID, calendar : CALID, caltype : CALTYPE) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : windows_sys::core::PCWSTR, calendar : CALID, lpreserved : windows_sys::core::PCWSTR, caltype : CALTYPE, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn EnumCalendarInfoExW(lpcalinfoenumprocex : CALINFO_ENUMPROCEXW, locale : super::LCID, calendar : CALID, caltype : CALTYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn EnumCalendarInfoW(lpcalinfoenumproc : CALINFO_ENUMPROCW, locale : super::LCID, calendar : CALID, caltype : CALTYPE) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsA(lpdatefmtenumproc : DATEFMT_ENUMPROCA, locale : super::LCID, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsExA(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXA, locale : super::LCID, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsExW(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXW, locale : super::LCID, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsW(lpdatefmtenumproc : DATEFMT_ENUMPROCW, locale : super::LCID, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCA, languagegroup : LGRPID, dwflags : u32, lparam : isize) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCW, languagegroup : LGRPID, dwflags : u32, lparam : isize) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumSystemCodePagesA(lpcodepageenumproc : CODEPAGE_ENUMPROCA, dwflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumSystemCodePagesW(lpcodepageenumproc : CODEPAGE_ENUMPROCW, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsA(lpdatefmtenumproc : DATEFMT_ENUMPROCA, locale : super::LCID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsExA(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXA, locale : super::LCID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : windows_sys::core::PCWSTR, dwflags : super::DWORD, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsExW(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXW, locale : super::LCID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumDateFormatsW(lpdatefmtenumproc : DATEFMT_ENUMPROCW, locale : super::LCID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCA, languagegroup : LGRPID, dwflags : super::DWORD, lparam : super::LONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCW, languagegroup : LGRPID, dwflags : super::DWORD, lparam : super::LONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumSystemCodePagesA(lpcodepageenumproc : CODEPAGE_ENUMPROCA, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumSystemCodePagesW(lpcodepageenumproc : CODEPAGE_ENUMPROCW, dwflags : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn EnumSystemGeoID(geoclass : GEOCLASS, parentgeoid : GEOID, lpgeoenumproc : GEO_ENUMPROC) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("kernel32.dll" "system" fn EnumSystemGeoNames(geoclass : GEOCLASS, geoenumproc : GEO_ENUMNAMEPROC, data : super::LPARAM) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCA, dwflags : u32, lparam : isize) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCW, dwflags : u32, lparam : isize) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumSystemLocalesA(lplocaleenumproc : LOCALE_ENUMPROCA, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::LPARAM, lpreserved : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumSystemLocalesW(lplocaleenumproc : LOCALE_ENUMPROCW, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumTimeFormatsA(lptimefmtenumproc : TIMEFMT_ENUMPROCA, locale : super::LCID, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lparam : super::LPARAM) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn EnumTimeFormatsW(lptimefmtenumproc : TIMEFMT_ENUMPROCW, locale : super::LCID, dwflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumUILanguagesA(lpuilanguageenumproc : UILANGUAGE_ENUMPROCA, dwflags : u32, lparam : isize) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn EnumUILanguagesW(lpuilanguageenumproc : UILANGUAGE_ENUMPROCW, dwflags : u32, lparam : isize) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn FindNLSString(locale : super::LCID, dwfindnlsstringflags : u32, lpstringsource : windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : super::LPINT) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_sys::core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : super::LPINT, lpversioninformation : LPNLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::LPARAM) -> i32);
-windows_link::link!("kernel32.dll" "system" fn FoldStringA(dwmapflags : u32, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
-windows_link::link!("kernel32.dll" "system" fn GetACP() -> u32);
-windows_link::link!("kernel32.dll" "system" fn GetCPInfo(codepage : u32, lpcpinfo : LPCPINFO) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetCPInfoExA(codepage : u32, dwflags : u32, lpcpinfoex : LPCPINFOEXA) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetCPInfoExW(codepage : u32, dwflags : u32, lpcpinfoex : LPCPINFOEXW) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCA, dwflags : super::DWORD, lparam : super::LONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCW, dwflags : super::DWORD, lparam : super::LONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumSystemLocalesA(lplocaleenumproc : LOCALE_ENUMPROCA, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : super::DWORD, lparam : super::LPARAM, lpreserved : super::LPVOID) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumSystemLocalesW(lplocaleenumproc : LOCALE_ENUMPROCW, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumTimeFormatsA(lptimefmtenumproc : TIMEFMT_ENUMPROCA, locale : super::LCID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : windows_sys::core::PCWSTR, dwflags : super::DWORD, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumTimeFormatsW(lptimefmtenumproc : TIMEFMT_ENUMPROCW, locale : super::LCID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumUILanguagesA(lpuilanguageenumproc : UILANGUAGE_ENUMPROCA, dwflags : super::DWORD, lparam : super::LONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn EnumUILanguagesW(lpuilanguageenumproc : UILANGUAGE_ENUMPROCW, dwflags : super::DWORD, lparam : super::LONG_PTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn FindNLSString(locale : super::LCID, dwfindnlsstringflags : super::DWORD, lpstringsource : windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : super::LPINT) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_sys::core::PCWSTR, dwfindnlsstringflags : super::DWORD, lpstringsource : windows_sys::core::PCWSTR, cchsource : i32, lpstringvalue : windows_sys::core::PCWSTR, cchvalue : i32, pcchfound : super::LPINT, lpversioninformation : LPNLSVERSIONINFO, lpreserved : super::LPVOID, sorthandle : super::LPARAM) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn FoldStringA(dwmapflags : super::DWORD, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetACP() -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetCPInfo(codepage : super::UINT, lpcpinfo : LPCPINFO) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetCPInfoExA(codepage : super::UINT, dwflags : super::DWORD, lpcpinfoex : LPCPINFOEXA) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetCPInfoExW(codepage : super::UINT, dwflags : super::DWORD, lpcpinfoex : LPCPINFOEXW) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("kernel32.dll" "system" fn GetCalendarInfoA(locale : super::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_sys::core::PSTR, cchdata : i32, lpvalue : super::LPDWORD) -> i32);
 #[cfg(feature = "minwindef")]
 windows_link::link!("kernel32.dll" "system" fn GetCalendarInfoEx(lplocalename : windows_sys::core::PCWSTR, calendar : CALID, lpreserved : windows_sys::core::PCWSTR, caltype : CALTYPE, lpcaldata : windows_sys::core::PWSTR, cchdata : i32, lpvalue : super::LPDWORD) -> i32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("kernel32.dll" "system" fn GetCalendarInfoW(locale : super::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_sys::core::PWSTR, cchdata : i32, lpvalue : super::LPDWORD) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetCurrencyFormatA(locale : super::LCID, dwflags : u32, lpvalue : windows_sys::core::PCSTR, lpformat : *const CURRENCYFMTA, lpcurrencystr : windows_sys::core::PSTR, cchcurrency : i32) -> i32);
-windows_link::link!("kernel32.dll" "system" fn GetCurrencyFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : super::LCID, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetDurationFormat(locale : super::LCID, dwflags : u32, lpduration : *const super::SYSTEMTIME, ullduration : u64, lpformat : windows_sys::core::PCWSTR, lpdurationstr : windows_sys::core::PWSTR, cchduration : i32) -> i32);
-windows_link::link!("kernel32.dll" "system" fn GetFileMUIInfo(dwflags : u32, pcwszfilepath : windows_sys::core::PCWSTR, pfilemuiinfo : PFILEMUIINFO, pcbfilemuiinfo : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetFileMUIPath(dwflags : u32, pcwszfilepath : windows_sys::core::PCWSTR, pwszlanguage : windows_sys::core::PWSTR, pcchlanguage : super::PULONG, pwszfilemuipath : windows_sys::core::PWSTR, pcchfilemuipath : super::PULONG, pululenumerator : super::PULONGLONG) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetCurrencyFormatA(locale : super::LCID, dwflags : super::DWORD, lpvalue : windows_sys::core::PCSTR, lpformat : *const CURRENCYFMTA, lpcurrencystr : windows_sys::core::PSTR, cchcurrency : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetCurrencyFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : super::DWORD, lpvalue : windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : super::LCID, dwflags : super::DWORD, lpvalue : windows_sys::core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_sys::core::PWSTR, cchcurrency : i32) -> i32);
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn GetDurationFormat(locale : super::LCID, dwflags : super::DWORD, lpduration : *const super::SYSTEMTIME, ullduration : super::ULONGLONG, lpformat : windows_sys::core::PCWSTR, lpdurationstr : windows_sys::core::PWSTR, cchduration : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetFileMUIInfo(dwflags : super::DWORD, pcwszfilepath : windows_sys::core::PCWSTR, pfilemuiinfo : PFILEMUIINFO, pcbfilemuiinfo : *mut super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetFileMUIPath(dwflags : super::DWORD, pcwszfilepath : windows_sys::core::PCWSTR, pwszlanguage : windows_sys::core::PWSTR, pcchlanguage : super::PULONG, pwszfilemuipath : windows_sys::core::PWSTR, pcchfilemuipath : super::PULONG, pululenumerator : super::PULONGLONG) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetGeoInfoA(location : GEOID, geotype : GEOTYPE, lpgeodata : windows_sys::core::PSTR, cchdata : i32, langid : super::LANGID) -> i32);
 windows_link::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : windows_sys::core::PCWSTR, geotype : GEOTYPE, geodata : windows_sys::core::PWSTR, geodatacount : i32) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetGeoInfoW(location : GEOID, geotype : GEOTYPE, lpgeodata : windows_sys::core::PWSTR, cchdata : i32, langid : super::LANGID) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetLocaleInfoA(locale : super::LCID, lctype : LCTYPE, lplcdata : windows_sys::core::PSTR, cchdata : i32) -> i32);
 windows_link::link!("kernel32.dll" "system" fn GetLocaleInfoEx(lplocalename : windows_sys::core::PCWSTR, lctype : LCTYPE, lplcdata : windows_sys::core::PWSTR, cchdata : i32) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetLocaleInfoW(locale : super::LCID, lctype : LCTYPE, lplcdata : windows_sys::core::PWSTR, cchdata : i32) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetNLSVersion(function : NLS_FUNCTION, locale : super::LCID, lpversioninformation : LPNLSVERSIONINFO) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetNLSVersionEx(function : NLS_FUNCTION, lplocalename : windows_sys::core::PCWSTR, lpversioninformation : LPNLSVERSIONINFOEX) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetNumberFormatA(locale : super::LCID, dwflags : u32, lpvalue : windows_sys::core::PCSTR, lpformat : *const NUMBERFMTA, lpnumberstr : windows_sys::core::PSTR, cchnumber : i32) -> i32);
-windows_link::link!("kernel32.dll" "system" fn GetNumberFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_sys::core::PWSTR, cchnumber : i32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn GetNumberFormatW(locale : super::LCID, dwflags : u32, lpvalue : windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_sys::core::PWSTR, cchnumber : i32) -> i32);
-windows_link::link!("kernel32.dll" "system" fn GetOEMCP() -> u32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetProcessPreferredUILanguages(dwflags : u32, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn GetStringScripts(dwflags : u32, lpstring : windows_sys::core::PCWSTR, cchstring : i32, lpscripts : windows_sys::core::PWSTR, cchscripts : i32) -> i32);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetStringTypeA(locale : super::LCID, dwinfotype : u32, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpchartype : super::LPWORD) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetStringTypeExA(locale : super::LCID, dwinfotype : u32, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpchartype : super::LPWORD) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetNumberFormatA(locale : super::LCID, dwflags : super::DWORD, lpvalue : windows_sys::core::PCSTR, lpformat : *const NUMBERFMTA, lpnumberstr : windows_sys::core::PSTR, cchnumber : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetNumberFormatEx(lplocalename : windows_sys::core::PCWSTR, dwflags : super::DWORD, lpvalue : windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_sys::core::PWSTR, cchnumber : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetNumberFormatW(locale : super::LCID, dwflags : super::DWORD, lpvalue : windows_sys::core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_sys::core::PWSTR, cchnumber : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetOEMCP() -> super::UINT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetProcessPreferredUILanguages(dwflags : super::DWORD, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn GetStringScripts(dwflags : super::DWORD, lpstring : windows_sys::core::PCWSTR, cchstring : i32, lpscripts : windows_sys::core::PWSTR, cchscripts : i32) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn GetStringTypeA(locale : super::LCID, dwinfotype : super::DWORD, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpchartype : super::LPWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn GetStringTypeExA(locale : super::LCID, dwinfotype : super::DWORD, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpchartype : super::LPWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetSystemDefaultLCID() -> super::LCID);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetSystemDefaultLangID() -> super::LANGID);
 windows_link::link!("kernel32.dll" "system" fn GetSystemDefaultLocaleName(lplocalename : windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetSystemDefaultUILanguage() -> super::LANGID);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetSystemPreferredUILanguages(dwflags : u32, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetSystemPreferredUILanguages(dwflags : super::DWORD, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetThreadLocale() -> super::LCID);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetThreadPreferredUILanguages(dwflags : u32, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetThreadPreferredUILanguages(dwflags : super::DWORD, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetThreadUILanguage() -> super::LANGID);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetUILanguageInfo(dwflags : u32, pwmszlanguage : super::PCZZWSTR, pwszfallbacklanguages : super::PZZWSTR, pcchfallbacklanguages : super::PDWORD, pattributes : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetUILanguageInfo(dwflags : super::DWORD, pwmszlanguage : super::PCZZWSTR, pwszfallbacklanguages : super::PZZWSTR, pcchfallbacklanguages : super::PDWORD, pattributes : super::PDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn GetUserDefaultGeoName(geoname : windows_sys::core::PWSTR, geonamecount : i32) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetUserDefaultLCID() -> super::LCID);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetUserDefaultLangID() -> super::LANGID);
 windows_link::link!("kernel32.dll" "system" fn GetUserDefaultLocaleName(lplocalename : windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn GetUserDefaultUILanguage() -> super::LANGID);
 windows_link::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : GEOCLASS) -> GEOID);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn GetUserPreferredUILanguages(dwflags : u32, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
-windows_link::link!("normaliz.dll" "system" fn IdnToAscii(dwflags : u32, lpunicodecharstr : windows_sys::core::PCWSTR, cchunicodechar : i32, lpasciicharstr : windows_sys::core::PWSTR, cchasciichar : i32) -> i32);
-windows_link::link!("normaliz.dll" "system" fn IdnToNameprepUnicode(dwflags : u32, lpunicodecharstr : windows_sys::core::PCWSTR, cchunicodechar : i32, lpnameprepcharstr : windows_sys::core::PWSTR, cchnameprepchar : i32) -> i32);
-windows_link::link!("normaliz.dll" "system" fn IdnToUnicode(dwflags : u32, lpasciicharstr : windows_sys::core::PCWSTR, cchasciichar : i32, lpunicodecharstr : windows_sys::core::PWSTR, cchunicodechar : i32) -> i32);
-windows_link::link!("kernel32.dll" "system" fn IsDBCSLeadByte(testchar : u8) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn IsDBCSLeadByteEx(codepage : u32, testchar : u8) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn IsNLSDefinedString(function : NLS_FUNCTION, dwflags : u32, lpversioninformation : LPNLSVERSIONINFO, lpstring : windows_sys::core::PCWSTR, cchstr : i32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn GetUserPreferredUILanguages(dwflags : super::DWORD, pulnumlanguages : super::PULONG, pwszlanguagesbuffer : super::PZZWSTR, pcchlanguagesbuffer : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("normaliz.dll" "system" fn IdnToAscii(dwflags : super::DWORD, lpunicodecharstr : windows_sys::core::PCWSTR, cchunicodechar : i32, lpasciicharstr : windows_sys::core::PWSTR, cchasciichar : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("normaliz.dll" "system" fn IdnToNameprepUnicode(dwflags : super::DWORD, lpunicodecharstr : windows_sys::core::PCWSTR, cchunicodechar : i32, lpnameprepcharstr : windows_sys::core::PWSTR, cchnameprepchar : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("normaliz.dll" "system" fn IdnToUnicode(dwflags : super::DWORD, lpasciicharstr : windows_sys::core::PCWSTR, cchasciichar : i32, lpunicodecharstr : windows_sys::core::PWSTR, cchunicodechar : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn IsDBCSLeadByte(testchar : super::BYTE) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn IsDBCSLeadByteEx(codepage : super::UINT, testchar : super::BYTE) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn IsNLSDefinedString(function : NLS_FUNCTION, dwflags : super::DWORD, lpversioninformation : LPNLSVERSIONINFO, lpstring : windows_sys::core::PCWSTR, cchstr : super::INT) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn IsNormalizedString(normform : NORM_FORM, lpstring : windows_sys::core::PCWSTR, cwlength : i32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn IsValidCodePage(codepage : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn IsValidLanguageGroup(languagegroup : LGRPID, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn IsValidLocale(locale : super::LCID, dwflags : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn IsValidCodePage(codepage : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn IsValidLanguageGroup(languagegroup : LGRPID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn IsValidLocale(locale : super::LCID, dwflags : super::DWORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn IsValidLocaleName(lplocalename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn IsValidNLSVersion(function : NLS_FUNCTION, lplocalename : windows_sys::core::PCWSTR, lpversioninformation : LPNLSVERSIONINFOEX) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn LCIDToLocaleName(locale : super::LCID, lpname : windows_sys::core::PWSTR, cchname : i32, dwflags : u32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn LCMapStringA(locale : super::LCID, dwmapflags : u32, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_sys::core::PCWSTR, dwmapflags : u32, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32, lpversioninformation : LPNLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::LPARAM) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn LCMapStringW(locale : super::LCID, dwmapflags : u32, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "system" fn LocaleNameToLCID(lpname : windows_sys::core::PCWSTR, dwflags : u32) -> super::LCID);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn IsValidNLSVersion(function : NLS_FUNCTION, lplocalename : windows_sys::core::PCWSTR, lpversioninformation : LPNLSVERSIONINFOEX) -> super::DWORD);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn LCIDToLocaleName(locale : super::LCID, lpname : windows_sys::core::PWSTR, cchname : i32, dwflags : super::DWORD) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn LCMapStringA(locale : super::LCID, dwmapflags : super::DWORD, lpsrcstr : windows_sys::core::PCSTR, cchsrc : i32, lpdeststr : windows_sys::core::PSTR, cchdest : i32) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_sys::core::PCWSTR, dwmapflags : super::DWORD, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32, lpversioninformation : LPNLSVERSIONINFO, lpreserved : super::LPVOID, sorthandle : super::LPARAM) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn LCMapStringW(locale : super::LCID, dwmapflags : super::DWORD, lpsrcstr : windows_sys::core::PCWSTR, cchsrc : i32, lpdeststr : windows_sys::core::PWSTR, cchdest : i32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn LocaleNameToLCID(lpname : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> super::LCID);
 windows_link::link!("kernel32.dll" "system" fn NormalizeString(normform : NORM_FORM, lpsrcstring : windows_sys::core::PCWSTR, cwsrclength : i32, lpdststring : windows_sys::core::PWSTR, cwdstlength : i32) -> i32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("kernel32.dll" "system" fn NotifyUILanguageChange(dwflags : u32, pcwstrnewlanguage : windows_sys::core::PCWSTR, pcwstrpreviouslanguage : windows_sys::core::PCWSTR, dwreserved : u32, pdwstatusrtrn : super::PDWORD) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("kernel32.dll" "system" fn NotifyUILanguageChange(dwflags : super::DWORD, pcwstrnewlanguage : windows_sys::core::PCWSTR, pcwstrpreviouslanguage : windows_sys::core::PCWSTR, dwreserved : super::DWORD, pdwstatusrtrn : super::PDWORD) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn ResolveLocaleName(lpnametoresolve : windows_sys::core::PCWSTR, lplocalename : windows_sys::core::PWSTR, cchlocalename : i32) -> i32);
 windows_link::link!("kernelbase.dll" "system" fn RestoreThreadPreferredUILanguages(snapshot : HSAVEDUILANGUAGES));
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn SetCalendarInfoA(locale : super::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn SetCalendarInfoW(locale : super::LCID, calendar : CALID, caltype : CALTYPE, lpcaldata : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn SetLocaleInfoA(locale : super::LCID, lctype : LCTYPE, lplcdata : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn SetLocaleInfoW(locale : super::LCID, lctype : LCTYPE, lplcdata : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : super::PCZZWSTR, pulnumlanguages : super::PULONG) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : super::DWORD, pwszlanguagesbuffer : super::PCZZWSTR, pulnumlanguages : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn SetThreadLocale(locale : super::LCID) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : super::PCZZWSTR, pulnumlanguages : super::PULONG) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernelbase.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : super::PCZZWSTR, numlanguagesset : super::PULONG, snapshot : *mut HSAVEDUILANGUAGES) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : super::DWORD, pwszlanguagesbuffer : super::PCZZWSTR, pulnumlanguages : super::PULONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("kernelbase.dll" "system" fn SetThreadPreferredUILanguages2(flags : super::ULONG, languages : super::PCZZWSTR, numlanguagesset : super::PULONG, snapshot : *mut HSAVEDUILANGUAGES) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("kernel32.dll" "system" fn SetThreadUILanguage(langid : super::LANGID) -> super::LANGID);
 windows_link::link!("kernel32.dll" "system" fn SetUserGeoID(geoid : GEOID) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetUserGeoName(geoname : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn VerifyScripts(dwflags : u32, lplocalescripts : windows_sys::core::PCWSTR, cchlocalescripts : i32, lptestscripts : windows_sys::core::PCWSTR, cchtestscripts : i32) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("kernel32.dll" "system" fn VerifyScripts(dwflags : super::DWORD, lplocalescripts : windows_sys::core::PCWSTR, cchlocalescripts : i32, lptestscripts : windows_sys::core::PCWSTR, cchtestscripts : i32) -> windows_sys::core::BOOL);
 pub const C1_ALPHA: i32 = 256;
 pub const C1_BLANK: i32 = 64;
 pub const C1_CNTRL: i32 = 32;
@@ -211,12 +240,12 @@ pub const C3_NOTAPPLICABLE: i32 = 0;
 pub const C3_SYMBOL: i32 = 8;
 pub const C3_VOWELMARK: i32 = 4;
 pub type CALID = u32;
-pub type CALINFO_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-pub type CALINFO_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: CALID) -> windows_sys::core::BOOL>;
+pub type CALINFO_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+pub type CALINFO_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: CALID) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type CALINFO_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: CALID, param2: windows_sys::core::PCWSTR, param3: super::LPARAM) -> windows_sys::core::BOOL>;
-pub type CALINFO_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: CALID) -> windows_sys::core::BOOL>;
-pub type CALINFO_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
+pub type CALINFO_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: CALID, param2: windows_sys::core::PWSTR, param3: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type CALINFO_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: CALID) -> windows_sys::core::BOOL>;
+pub type CALINFO_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
 pub type CALTYPE = u32;
 pub const CAL_GREGORIAN: i32 = 1;
 pub const CAL_GREGORIAN_ARABIC: i32 = 10;
@@ -297,47 +326,54 @@ pub const CAL_TAIWAN: i32 = 4;
 pub const CAL_THAI: i32 = 7;
 pub const CAL_UMALQURA: i32 = 23;
 pub const CAL_USE_CP_ACP: i32 = 1073741824;
-pub type CODEPAGE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-pub type CODEPAGE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
+pub type CODEPAGE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+pub type CODEPAGE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
 pub const COMPARE_STRING: SYSNLS_FUNCTION = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CPINFO {
-    pub MaxCharSize: u32,
-    pub DefaultChar: [u8; 2],
-    pub LeadByte: [u8; 12],
+    pub MaxCharSize: super::UINT,
+    pub DefaultChar: [super::BYTE; 2],
+    pub LeadByte: [super::BYTE; 12],
 }
+#[cfg(feature = "shared")]
 impl Default for CPINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type CPINFOEX = CPINFOEXA;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CPINFOEXA {
-    pub MaxCharSize: u32,
-    pub DefaultChar: [u8; 2],
-    pub LeadByte: [u8; 12],
-    pub UnicodeDefaultChar: u16,
-    pub CodePage: u32,
-    pub CodePageName: [i8; 260],
+    pub MaxCharSize: super::UINT,
+    pub DefaultChar: [super::BYTE; 2],
+    pub LeadByte: [super::BYTE; 12],
+    pub UnicodeDefaultChar: super::WCHAR,
+    pub CodePage: super::UINT,
+    pub CodePageName: [super::CHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CPINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CPINFOEXW {
-    pub MaxCharSize: u32,
-    pub DefaultChar: [u8; 2],
-    pub LeadByte: [u8; 12],
-    pub UnicodeDefaultChar: u16,
-    pub CodePage: u32,
-    pub CodePageName: [u16; 260],
+    pub MaxCharSize: super::UINT,
+    pub DefaultChar: [super::BYTE; 2],
+    pub LeadByte: [super::BYTE; 12],
+    pub UnicodeDefaultChar: super::WCHAR,
+    pub CodePage: super::UINT,
+    pub CodePageName: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CPINFOEXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -470,37 +506,40 @@ pub const CTRY_ZIMBABWE: i32 = 263;
 pub const CT_CTYPE1: i32 = 1;
 pub const CT_CTYPE2: i32 = 2;
 pub const CT_CTYPE3: i32 = 4;
+#[cfg(feature = "shared")]
 pub type CURRENCYFMT = CURRENCYFMTA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CURRENCYFMTA {
-    pub NumDigits: u32,
-    pub LeadingZero: u32,
-    pub Grouping: u32,
+    pub NumDigits: super::UINT,
+    pub LeadingZero: super::UINT,
+    pub Grouping: super::UINT,
     pub lpDecimalSep: windows_sys::core::PSTR,
     pub lpThousandSep: windows_sys::core::PSTR,
-    pub NegativeOrder: u32,
-    pub PositiveOrder: u32,
+    pub NegativeOrder: super::UINT,
+    pub PositiveOrder: super::UINT,
     pub lpCurrencySymbol: windows_sys::core::PSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CURRENCYFMTW {
-    pub NumDigits: u32,
-    pub LeadingZero: u32,
-    pub Grouping: u32,
+    pub NumDigits: super::UINT,
+    pub LeadingZero: super::UINT,
+    pub Grouping: super::UINT,
     pub lpDecimalSep: windows_sys::core::PWSTR,
     pub lpThousandSep: windows_sys::core::PWSTR,
-    pub NegativeOrder: u32,
-    pub PositiveOrder: u32,
+    pub NegativeOrder: super::UINT,
+    pub PositiveOrder: super::UINT,
     pub lpCurrencySymbol: windows_sys::core::PWSTR,
 }
-pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: CALID) -> windows_sys::core::BOOL>;
+pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: CALID) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type DATEFMT_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: CALID, param2: super::LPARAM) -> windows_sys::core::BOOL>;
-pub type DATEFMT_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: CALID) -> windows_sys::core::BOOL>;
-pub type DATEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
+pub type DATEFMT_ENUMPROCEXEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: CALID, param2: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type DATEFMT_ENUMPROCEXW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: CALID) -> windows_sys::core::BOOL>;
+pub type DATEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
 pub const DATE_AUTOLAYOUT: i32 = 64;
 pub const DATE_LONGDATE: i32 = 2;
 pub const DATE_LTRREADING: i32 = 16;
@@ -511,22 +550,24 @@ pub const DATE_USE_ALT_CALENDAR: i32 = 4;
 pub const DATE_YEARMONTH: i32 = 8;
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILEMUIINFO {
-    pub dwSize: u32,
-    pub dwVersion: u32,
-    pub dwFileType: u32,
-    pub pChecksum: [u8; 16],
-    pub pServiceChecksum: [u8; 16],
-    pub dwLanguageNameOffset: u32,
-    pub dwTypeIDMainSize: u32,
-    pub dwTypeIDMainOffset: u32,
-    pub dwTypeNameMainOffset: u32,
-    pub dwTypeIDMUISize: u32,
-    pub dwTypeIDMUIOffset: u32,
-    pub dwTypeNameMUIOffset: u32,
-    pub abBuffer: [u8; 8],
+    pub dwSize: super::DWORD,
+    pub dwVersion: super::DWORD,
+    pub dwFileType: super::DWORD,
+    pub pChecksum: [super::BYTE; 16],
+    pub pServiceChecksum: [super::BYTE; 16],
+    pub dwLanguageNameOffset: super::DWORD,
+    pub dwTypeIDMainSize: super::DWORD,
+    pub dwTypeIDMainOffset: super::DWORD,
+    pub dwTypeNameMainOffset: super::DWORD,
+    pub dwTypeIDMUISize: super::DWORD,
+    pub dwTypeIDMUIOffset: super::DWORD,
+    pub dwTypeNameMUIOffset: super::DWORD,
+    pub abBuffer: [super::BYTE; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for FILEMUIINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -547,7 +588,7 @@ pub const GEO_CURRENCYCODE: SYSGEOTYPE = 15;
 pub const GEO_CURRENCYSYMBOL: SYSGEOTYPE = 16;
 pub const GEO_DIALINGCODE: SYSGEOTYPE = 14;
 #[cfg(feature = "minwindef")]
-pub type GEO_ENUMNAMEPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type GEO_ENUMNAMEPROC = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
 pub type GEO_ENUMPROC = Option<unsafe extern "system" fn(param0: GEOID) -> windows_sys::core::BOOL>;
 pub const GEO_FRIENDLYNAME: SYSGEOTYPE = 8;
 pub const GEO_ID: SYSGEOTYPE = 18;
@@ -578,12 +619,14 @@ pub const IDN_ALLOW_UNASSIGNED: i32 = 1;
 pub const IDN_EMAIL_ADDRESS: i32 = 4;
 pub const IDN_RAW_PUNYCODE: i32 = 8;
 pub const IDN_USE_STD3_ASCII_RULES: i32 = 2;
-#[cfg(feature = "winnt")]
-pub type LANGGROUPLOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: LGRPID, param1: super::LCID, param2: windows_sys::core::PCSTR, param3: isize) -> windows_sys::core::BOOL>;
-#[cfg(feature = "winnt")]
-pub type LANGGROUPLOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: LGRPID, param1: super::LCID, param2: windows_sys::core::PCWSTR, param3: isize) -> windows_sys::core::BOOL>;
-pub type LANGUAGEGROUP_ENUMPROCA = Option<unsafe extern "system" fn(param0: LGRPID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: u32, param4: isize) -> windows_sys::core::BOOL>;
-pub type LANGUAGEGROUP_ENUMPROCW = Option<unsafe extern "system" fn(param0: LGRPID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: u32, param4: isize) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type LANGGROUPLOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: LGRPID, param1: super::LCID, param2: windows_sys::core::PSTR, param3: super::LONG_PTR) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type LANGGROUPLOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: LGRPID, param1: super::LCID, param2: windows_sys::core::PWSTR, param3: super::LONG_PTR) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type LANGUAGEGROUP_ENUMPROCA = Option<unsafe extern "system" fn(param0: LGRPID, param1: windows_sys::core::PSTR, param2: windows_sys::core::PSTR, param3: super::DWORD, param4: super::LONG_PTR) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type LANGUAGEGROUP_ENUMPROCW = Option<unsafe extern "system" fn(param0: LGRPID, param1: windows_sys::core::PWSTR, param2: windows_sys::core::PWSTR, param3: super::DWORD, param4: super::LONG_PTR) -> windows_sys::core::BOOL>;
 pub const LCID_ALTERNATE_SORTS: i32 = 4;
 pub const LCID_INSTALLED: i32 = 1;
 pub const LCID_SUPPORTED: i32 = 2;
@@ -628,10 +671,10 @@ pub const LINGUISTIC_IGNOREDIACRITIC: i32 = 32;
 pub const LOCALE_ALL: i32 = 0;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: i32 = 134217728;
 pub const LOCALE_ALTERNATE_SORTS: i32 = 4;
-pub type LOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
-#[cfg(feature = "minwindef")]
-pub type LOCALE_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: u32, param2: super::LPARAM) -> windows_sys::core::BOOL>;
-pub type LOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
+pub type LOCALE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type LOCALE_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: super::DWORD, param2: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type LOCALE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
 pub const LOCALE_FONTSIGNATURE: i32 = 88;
 pub const LOCALE_ICALENDARTYPE: i32 = 4105;
 pub const LOCALE_ICENTURY: i32 = 36;
@@ -804,17 +847,29 @@ pub const LOCALE_USE_CP_ACP: i32 = 1073741824;
 pub const LOCALE_WINDOWS: i32 = 1;
 pub const LOW_SURROGATE_END: i32 = 57343;
 pub const LOW_SURROGATE_START: i32 = 56320;
+#[cfg(feature = "shared")]
 pub type LPCPINFO = *mut CPINFO;
-pub type LPCPINFOEX = LPCPINFOEXA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type LPCPINFOEX = *mut CPINFOEXA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCPINFOEXA = *mut CPINFOEXA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCPINFOEXW = *mut CPINFOEXW;
-pub type LPCURRENCYFMT = LPCURRENCYFMTA;
+#[cfg(feature = "shared")]
+pub type LPCURRENCYFMT = *mut CURRENCYFMTA;
+#[cfg(feature = "shared")]
 pub type LPCURRENCYFMTA = *mut CURRENCYFMTA;
+#[cfg(feature = "shared")]
 pub type LPCURRENCYFMTW = *mut CURRENCYFMTW;
+#[cfg(feature = "shared")]
 pub type LPNLSVERSIONINFO = *mut NLSVERSIONINFO;
+#[cfg(feature = "shared")]
 pub type LPNLSVERSIONINFOEX = *mut NLSVERSIONINFOEX;
-pub type LPNUMBERFMT = LPNUMBERFMTA;
+#[cfg(feature = "shared")]
+pub type LPNUMBERFMT = *mut NUMBERFMTA;
+#[cfg(feature = "shared")]
 pub type LPNUMBERFMTA = *mut NUMBERFMTA;
+#[cfg(feature = "shared")]
 pub type LPNUMBERFMTW = *mut NUMBERFMTW;
 pub const MAP_COMPOSITE: i32 = 64;
 pub const MAP_EXPAND_LIGATURES: i32 = 8192;
@@ -861,21 +916,23 @@ pub const MUI_USE_INSTALLED_LANGUAGES: i32 = 32;
 pub const MUI_USE_SEARCH_ALL_LANGUAGES: i32 = 64;
 pub const MUI_VERIFY_FILE_EXISTS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NLSVERSIONINFO {
-    pub dwNLSVersionInfoSize: u32,
-    pub dwNLSVersion: u32,
-    pub dwDefinedVersion: u32,
-    pub dwEffectiveId: u32,
+    pub dwNLSVersionInfoSize: super::DWORD,
+    pub dwNLSVersion: super::DWORD,
+    pub dwDefinedVersion: super::DWORD,
+    pub dwEffectiveId: super::DWORD,
     pub guidCustomVersion: windows_sys::core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NLSVERSIONINFOEX {
-    pub dwNLSVersionInfoSize: u32,
-    pub dwNLSVersion: u32,
-    pub dwDefinedVersion: u32,
-    pub dwEffectiveId: u32,
+    pub dwNLSVersionInfoSize: super::DWORD,
+    pub dwNLSVersion: super::DWORD,
+    pub dwDefinedVersion: super::DWORD,
+    pub dwEffectiveId: super::DWORD,
     pub guidCustomVersion: windows_sys::core::GUID,
 }
 pub type NLS_FUNCTION = u32;
@@ -886,32 +943,36 @@ pub const NORM_IGNORENONSPACE: i32 = 2;
 pub const NORM_IGNORESYMBOLS: i32 = 4;
 pub const NORM_IGNOREWIDTH: i32 = 131072;
 pub const NORM_LINGUISTIC_CASING: i32 = 134217728;
+#[cfg(feature = "shared")]
 pub type NUMBERFMT = NUMBERFMTA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NUMBERFMTA {
-    pub NumDigits: u32,
-    pub LeadingZero: u32,
-    pub Grouping: u32,
+    pub NumDigits: super::UINT,
+    pub LeadingZero: super::UINT,
+    pub Grouping: super::UINT,
     pub lpDecimalSep: windows_sys::core::PSTR,
     pub lpThousandSep: windows_sys::core::PSTR,
-    pub NegativeOrder: u32,
+    pub NegativeOrder: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NUMBERFMTW {
-    pub NumDigits: u32,
-    pub LeadingZero: u32,
-    pub Grouping: u32,
+    pub NumDigits: super::UINT,
+    pub LeadingZero: super::UINT,
+    pub Grouping: super::UINT,
     pub lpDecimalSep: windows_sys::core::PWSTR,
     pub lpThousandSep: windows_sys::core::PWSTR,
-    pub NegativeOrder: u32,
+    pub NegativeOrder: super::UINT,
 }
 pub const NormalizationC: NORM_FORM = 1;
 pub const NormalizationD: NORM_FORM = 2;
 pub const NormalizationKC: NORM_FORM = 5;
 pub const NormalizationKD: NORM_FORM = 6;
 pub const NormalizationOther: NORM_FORM = 0;
+#[cfg(feature = "shared")]
 pub type PFILEMUIINFO = *mut FILEMUIINFO;
 pub const SORTING_PARADIGM_ICU: i32 = 16777216;
 pub const SORTING_PARADIGM_NLS: i32 = 0;
@@ -920,16 +981,18 @@ pub const SORT_STRINGSORT: i32 = 4096;
 pub type SYSGEOCLASS = i32;
 pub type SYSGEOTYPE = i32;
 pub type SYSNLS_FUNCTION = i32;
-pub type TIMEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR) -> windows_sys::core::BOOL>;
+pub type TIMEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
 #[cfg(feature = "minwindef")]
-pub type TIMEFMT_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
-pub type TIMEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR) -> windows_sys::core::BOOL>;
+pub type TIMEFMT_ENUMPROCEX = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: super::LPARAM) -> windows_sys::core::BOOL>;
+pub type TIMEFMT_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR) -> windows_sys::core::BOOL>;
 pub const TIME_FORCE24HOURFORMAT: i32 = 8;
 pub const TIME_NOMINUTESORSECONDS: i32 = 1;
 pub const TIME_NOSECONDS: i32 = 2;
 pub const TIME_NOTIMEMARKER: i32 = 4;
-pub type UILANGUAGE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PCSTR, param1: isize) -> windows_sys::core::BOOL>;
-pub type UILANGUAGE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PCWSTR, param1: isize) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type UILANGUAGE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: super::LONG_PTR) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type UILANGUAGE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_sys::core::PWSTR, param1: super::LONG_PTR) -> windows_sys::core::BOOL>;
 pub const VS_ALLOW_LATIN: i32 = 1;
 pub const WC_COMPOSITECHECK: i32 = 512;
 pub const WC_DEFAULTCHAR: i32 = 64;

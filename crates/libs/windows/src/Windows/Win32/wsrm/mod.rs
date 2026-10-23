@@ -8,12 +8,12 @@ pub const MAX_WINDOW_INCREMENT_PERCENTAGE: i32 = 25;
 pub const RM_ADD_RECEIVE_IF: i32 = 1008;
 pub const RM_DEL_RECEIVE_IF: i32 = 1009;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_FEC_INFO {
-    pub FECBlockSize: u16,
-    pub FECProActivePackets: u16,
-    pub FECGroupSize: u8,
+    pub FECBlockSize: super::USHORT,
+    pub FECProActivePackets: super::USHORT,
+    pub FECGroupSize: super::UCHAR,
     pub fFECOnDemandParityEnabled: super::BOOLEAN,
 }
 pub const RM_FLUSHCACHE: i32 = 1003;
@@ -23,52 +23,55 @@ pub const RM_OPTIONSBASE: i32 = 1000;
 pub const RM_RATE_WINDOW_SIZE: i32 = 1001;
 pub const RM_RECEIVER_STATISTICS: i32 = 1013;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_RECEIVER_STATS {
-    pub NumODataPacketsReceived: u64,
-    pub NumRDataPacketsReceived: u64,
-    pub NumDuplicateDataPackets: u64,
-    pub DataBytesReceived: u64,
-    pub TotalBytesReceived: u64,
-    pub RateKBitsPerSecOverall: u64,
-    pub RateKBitsPerSecLast: u64,
-    pub TrailingEdgeSeqId: u64,
-    pub LeadingEdgeSeqId: u64,
-    pub AverageSequencesInWindow: u64,
-    pub MinSequencesInWindow: u64,
-    pub MaxSequencesInWindow: u64,
-    pub FirstNakSequenceNumber: u64,
-    pub NumPendingNaks: u64,
-    pub NumOutstandingNaks: u64,
-    pub NumDataPacketsBuffered: u64,
-    pub TotalSelectiveNaksSent: u64,
-    pub TotalParityNaksSent: u64,
+    pub NumODataPacketsReceived: super::ULONGLONG,
+    pub NumRDataPacketsReceived: super::ULONGLONG,
+    pub NumDuplicateDataPackets: super::ULONGLONG,
+    pub DataBytesReceived: super::ULONGLONG,
+    pub TotalBytesReceived: super::ULONGLONG,
+    pub RateKBitsPerSecOverall: super::ULONGLONG,
+    pub RateKBitsPerSecLast: super::ULONGLONG,
+    pub TrailingEdgeSeqId: super::ULONGLONG,
+    pub LeadingEdgeSeqId: super::ULONGLONG,
+    pub AverageSequencesInWindow: super::ULONGLONG,
+    pub MinSequencesInWindow: super::ULONGLONG,
+    pub MaxSequencesInWindow: super::ULONGLONG,
+    pub FirstNakSequenceNumber: super::ULONGLONG,
+    pub NumPendingNaks: super::ULONGLONG,
+    pub NumOutstandingNaks: super::ULONGLONG,
+    pub NumDataPacketsBuffered: super::ULONGLONG,
+    pub TotalSelectiveNaksSent: super::ULONGLONG,
+    pub TotalParityNaksSent: super::ULONGLONG,
 }
 pub const RM_SENDER_STATISTICS: i32 = 1005;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_SENDER_STATS {
-    pub DataBytesSent: u64,
-    pub TotalBytesSent: u64,
-    pub NaksReceived: u64,
-    pub NaksReceivedTooLate: u64,
-    pub NumOutstandingNaks: u64,
-    pub NumNaksAfterRData: u64,
-    pub RepairPacketsSent: u64,
-    pub BufferSpaceAvailable: u64,
-    pub TrailingEdgeSeqId: u64,
-    pub LeadingEdgeSeqId: u64,
-    pub RateKBitsPerSecOverall: u64,
-    pub RateKBitsPerSecLast: u64,
-    pub TotalODataPacketsSent: u64,
+    pub DataBytesSent: super::ULONGLONG,
+    pub TotalBytesSent: super::ULONGLONG,
+    pub NaksReceived: super::ULONGLONG,
+    pub NaksReceivedTooLate: super::ULONGLONG,
+    pub NumOutstandingNaks: super::ULONGLONG,
+    pub NumNaksAfterRData: super::ULONGLONG,
+    pub RepairPacketsSent: super::ULONGLONG,
+    pub BufferSpaceAvailable: super::ULONGLONG,
+    pub TrailingEdgeSeqId: super::ULONGLONG,
+    pub LeadingEdgeSeqId: super::ULONGLONG,
+    pub RateKBitsPerSecOverall: super::ULONGLONG,
+    pub RateKBitsPerSecLast: super::ULONGLONG,
+    pub TotalODataPacketsSent: super::ULONGLONG,
 }
 pub const RM_SENDER_WINDOW_ADVANCE_METHOD: i32 = 1004;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_SEND_WINDOW {
-    pub RateKbitsPerSec: u32,
-    pub WindowSizeInMSecs: u32,
-    pub WindowSizeInBytes: u32,
+    pub RateKbitsPerSec: super::ULONG,
+    pub WindowSizeInMSecs: super::ULONG,
+    pub WindowSizeInBytes: super::ULONG,
 }
 pub const RM_SEND_WINDOW_ADV_RATE: i32 = 1010;
 pub const RM_SET_MCAST_TTL: i32 = 1012;

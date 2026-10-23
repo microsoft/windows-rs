@@ -1,99 +1,104 @@
 #[inline]
 pub unsafe fn CertSrvBackupClose(hbc: HCSBC) -> windows_core::HRESULT {
     windows_core::link!("certadm.dll" "system" fn CertSrvBackupClose(hbc : HCSBC) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupClose(hbc) }
+    unsafe { CertSrvBackupClose(hbc as _) }
 }
 #[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: HCSBC) -> windows_core::HRESULT {
     windows_core::link!("certadm.dll" "system" fn CertSrvBackupEnd(hbc : HCSBC) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupEnd(hbc) }
+    unsafe { CertSrvBackupEnd(hbc as _) }
 }
 #[inline]
-pub unsafe fn CertSrvBackupFree(pv: *const core::ffi::c_void) {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *const core::ffi::c_void));
-    unsafe { CertSrvBackupFree(pv) }
+pub unsafe fn CertSrvBackupFree(pv: *mut core::ffi::c_void) {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut core::ffi::c_void));
+    unsafe { CertSrvBackupFree(pv as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: HCSBC, ppwszzbackuplogfiles: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : HCSBC, ppwszzbackuplogfiles : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: HCSBC, ppwszzbackuplogfiles: *mut windows_core::PWSTR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : HCSBC, ppwszzbackuplogfiles : *mut windows_core::PWSTR, pcbsize : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe { CertSrvBackupGetBackupLogsW(hbc, ppwszzbackuplogfiles as _, pcbsize as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: HCSBC, ppwszzattachmentinformation: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : HCSBC, ppwszzattachmentinformation : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: HCSBC, ppwszzattachmentinformation: *mut windows_core::PWSTR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : HCSBC, ppwszzattachmentinformation : *mut windows_core::PWSTR, pcbsize : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe { CertSrvBackupGetDatabaseNamesW(hbc, ppwszzattachmentinformation as _, pcbsize as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: HCSBC, ppwszzfilelist: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : HCSBC, ppwszzfilelist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: HCSBC, ppwszzfilelist: *mut windows_core::PWSTR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : HCSBC, ppwszzfilelist : *mut windows_core::PWSTR, pcbsize : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe { CertSrvBackupGetDynamicFileListW(hbc, ppwszzfilelist as _, pcbsize as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CertSrvBackupOpenFileW(hbc: HCSBC, pwszattachmentname: *const u16, cbreadhintsize: u32) -> windows_core::Result<super::LARGE_INTEGER> {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : HCSBC, pwszattachmentname : *const u16, cbreadhintsize : u32, plifilesize : *mut super::LARGE_INTEGER) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CertSrvBackupOpenFileW(hbc, pwszattachmentname, cbreadhintsize, &mut result__).map(|| result__)
-    }
+pub unsafe fn CertSrvBackupOpenFileW(hbc: HCSBC, pwszattachmentname: *const super::WCHAR, cbreadhintsize: super::DWORD, plifilesize: *mut super::LARGE_INTEGER) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : HCSBC, pwszattachmentname : *const super::WCHAR, cbreadhintsize : super::DWORD, plifilesize : *mut super::LARGE_INTEGER) -> windows_core::HRESULT);
+    unsafe { CertSrvBackupOpenFileW(hbc as _, pwszattachmentname as _, cbreadhintsize, plifilesize as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CertSrvBackupPrepareW(pwszservername: *const u16, grbitjet: u32, dwbackupflags: u32, phbc: *mut HCSBC) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupPrepareW(pwszservername : *const u16, grbitjet : u32, dwbackupflags : u32, phbc : *mut HCSBC) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupPrepareW(pwszservername, grbitjet, dwbackupflags, phbc as _) }
+pub unsafe fn CertSrvBackupPrepareW(pwszservername: *const super::WCHAR, grbitjet: super::ULONG, dwbackupflags: super::ULONG, phbc: *mut HCSBC) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupPrepareW(pwszservername : *const super::WCHAR, grbitjet : super::ULONG, dwbackupflags : super::ULONG, phbc : *mut HCSBC) -> windows_core::HRESULT);
+    unsafe { CertSrvBackupPrepareW(pwszservername as _, grbitjet, dwbackupflags, phbc as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertSrvBackupRead(hbc: HCSBC, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvBackupRead(hbc : HCSBC, pvbuffer : *mut core::ffi::c_void, cbbuffer : u32, pcbread : *mut u32) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupRead(hbc, pvbuffer as _, cbbuffer, pcbread as _) }
+pub unsafe fn CertSrvBackupRead(hbc: HCSBC, pvbuffer: *mut core::ffi::c_void, cbbuffer: super::DWORD, pcbread: *mut super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupRead(hbc : HCSBC, pvbuffer : *mut core::ffi::c_void, cbbuffer : super::DWORD, pcbread : *mut super::DWORD) -> windows_core::HRESULT);
+    unsafe { CertSrvBackupRead(hbc as _, pvbuffer as _, cbbuffer, pcbread as _) }
 }
 #[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: HCSBC) -> windows_core::HRESULT {
     windows_core::link!("certadm.dll" "system" fn CertSrvBackupTruncateLogs(hbc : HCSBC) -> windows_core::HRESULT);
-    unsafe { CertSrvBackupTruncateLogs(hbc) }
+    unsafe { CertSrvBackupTruncateLogs(hbc as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CertSrvIsServerOnlineW(pwszservername: *const u16) -> windows_core::Result<windows_core::BOOL> {
-    windows_core::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : *const u16, pfserveronline : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        CertSrvIsServerOnlineW(pwszservername, &mut result__).map(|| result__)
-    }
+pub unsafe fn CertSrvIsServerOnlineW(pwszservername: *const super::WCHAR, pfserveronline: *mut windows_core::BOOL) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : *const super::WCHAR, pfserveronline : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    unsafe { CertSrvIsServerOnlineW(pwszservername as _, pfserveronline as _) }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: HCSBC) -> windows_core::HRESULT {
     windows_core::link!("certadm.dll" "system" fn CertSrvRestoreEnd(hbc : HCSBC) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreEnd(hbc) }
+    unsafe { CertSrvRestoreEnd(hbc as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: HCSBC, ppwszzdatabaselocationlist: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreGetDatabaseLocationsW(hbc : HCSBC, ppwszzdatabaselocationlist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: HCSBC, ppwszzdatabaselocationlist: *mut windows_core::PWSTR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreGetDatabaseLocationsW(hbc : HCSBC, ppwszzdatabaselocationlist : *mut windows_core::PWSTR, pcbsize : *mut super::DWORD) -> windows_core::HRESULT);
     unsafe { CertSrvRestoreGetDatabaseLocationsW(hbc, ppwszzdatabaselocationlist as _, pcbsize as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CertSrvRestorePrepareW(pwszservername: *const u16, dwrestoreflags: u32, phbc: *mut HCSBC) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvRestorePrepareW(pwszservername : *const u16, dwrestoreflags : u32, phbc : *mut HCSBC) -> windows_core::HRESULT);
-    unsafe { CertSrvRestorePrepareW(pwszservername, dwrestoreflags, phbc as _) }
+pub unsafe fn CertSrvRestorePrepareW(pwszservername: *const super::WCHAR, dwrestoreflags: super::ULONG, phbc: *mut HCSBC) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestorePrepareW(pwszservername : *const super::WCHAR, dwrestoreflags : super::ULONG, phbc : *mut HCSBC) -> windows_core::HRESULT);
+    unsafe { CertSrvRestorePrepareW(pwszservername as _, dwrestoreflags, phbc as _) }
 }
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterComplete(hbc: Option<HCSBC>, hrrestorestate: windows_core::HRESULT) -> windows_core::HRESULT {
+pub unsafe fn CertSrvRestoreRegisterComplete(hbc: HCSBC, hrrestorestate: windows_core::HRESULT) -> windows_core::HRESULT {
     windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterComplete(hbc : HCSBC, hrrestorestate : windows_core::HRESULT) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterComplete(hbc.unwrap_or(core::mem::zeroed()) as _, hrrestorestate) }
+    unsafe { CertSrvRestoreRegisterComplete(hbc as _, hrrestorestate) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszcheckpointfilepath: Option<*const u16>, pwszlogpath: Option<*const u16>, rgrstmap: Option<*const CSEDB_RSTMAPW>, crstmap: i32, pwszbackuplogpath: Option<*const u16>, genlow: u32, genhigh: u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *const CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterThroughFile(hbc, pwszcheckpointfilepath.unwrap_or(core::mem::zeroed()) as _, pwszlogpath.unwrap_or(core::mem::zeroed()) as _, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstmap, pwszbackuplogpath.unwrap_or(core::mem::zeroed()) as _, genlow, genhigh) }
+pub unsafe fn CertSrvRestoreRegisterThroughFile(hbc: HCSBC, pwszcheckpointfilepath: *const super::WCHAR, pwszlogpath: *const super::WCHAR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: super::LONG, pwszbackuplogpath: *const super::WCHAR, genlow: super::ULONG, genhigh: super::ULONG) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : HCSBC, pwszcheckpointfilepath : *const super::WCHAR, pwszlogpath : *const super::WCHAR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : super::LONG, pwszbackuplogpath : *const super::WCHAR, genlow : super::ULONG, genhigh : super::ULONG) -> windows_core::HRESULT);
+    unsafe { CertSrvRestoreRegisterThroughFile(hbc as _, pwszcheckpointfilepath as _, pwszlogpath as _, rgrstmap as _, crstmap, pwszbackuplogpath as _, genlow, genhigh) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CertSrvRestoreRegisterW(hbc: Option<HCSBC>, pwszcheckpointfilepath: Option<*const u16>, pwszlogpath: Option<*const u16>, rgrstmap: Option<*const CSEDB_RSTMAPW>, crstmap: i32, pwszbackuplogpath: Option<*const u16>, genlow: u32, genhigh: u32) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : HCSBC, pwszcheckpointfilepath : *const u16, pwszlogpath : *const u16, rgrstmap : *const CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : *const u16, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
-    unsafe { CertSrvRestoreRegisterW(hbc.unwrap_or(core::mem::zeroed()) as _, pwszcheckpointfilepath.unwrap_or(core::mem::zeroed()) as _, pwszlogpath.unwrap_or(core::mem::zeroed()) as _, rgrstmap.unwrap_or(core::mem::zeroed()) as _, crstmap, pwszbackuplogpath.unwrap_or(core::mem::zeroed()) as _, genlow, genhigh) }
+pub unsafe fn CertSrvRestoreRegisterW(hbc: HCSBC, pwszcheckpointfilepath: *const super::WCHAR, pwszlogpath: *const super::WCHAR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: super::LONG, pwszbackuplogpath: *const super::WCHAR, genlow: super::ULONG, genhigh: super::ULONG) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : HCSBC, pwszcheckpointfilepath : *const super::WCHAR, pwszlogpath : *const super::WCHAR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : super::LONG, pwszbackuplogpath : *const super::WCHAR, genlow : super::ULONG, genhigh : super::ULONG) -> windows_core::HRESULT);
+    unsafe { CertSrvRestoreRegisterW(hbc as _, pwszcheckpointfilepath as _, pwszlogpath as _, rgrstmap as _, crstmap, pwszbackuplogpath as _, genlow, genhigh) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CertSrvServerControlW(pwszservername: *const u16, dwcontrolflags: u32, pcbout: Option<*mut u32>, ppbout: Option<*mut *mut u8>) -> windows_core::HRESULT {
-    windows_core::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : *const u16, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> windows_core::HRESULT);
-    unsafe { CertSrvServerControlW(pwszservername, dwcontrolflags, pcbout.unwrap_or(core::mem::zeroed()) as _, ppbout.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn CertSrvServerControlW(pwszservername: *const super::WCHAR, dwcontrolflags: super::DWORD, pcbout: *mut super::DWORD, ppbout: *mut *mut super::BYTE) -> windows_core::HRESULT {
+    windows_core::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : *const super::WCHAR, dwcontrolflags : super::DWORD, pcbout : *mut super::DWORD, ppbout : *mut *mut super::BYTE) -> windows_core::HRESULT);
+    unsafe { CertSrvServerControlW(pwszservername as _, dwcontrolflags, pcbout as _, ppbout as _) }
 }
 pub const CSBACKUP_DISABLE_INCREMENTAL: u32 = 4294967295;
 pub const CSBACKUP_TYPE_FULL: i32 = 1;
@@ -113,10 +118,11 @@ pub const CSCONTROL_RESTART: i32 = 3;
 pub const CSCONTROL_SHUTDOWN: i32 = 1;
 pub const CSCONTROL_SUSPEND: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSEDB_RSTMAPW {
-    pub pwszDatabaseName: *mut u16,
-    pub pwszNewDatabaseName: *mut u16,
+    pub pwszDatabaseName: *mut super::WCHAR,
+    pub pwszNewDatabaseName: *mut super::WCHAR,
 }
 pub const CSRESTORE_TYPE_CATCHUP: i32 = 4;
 pub const CSRESTORE_TYPE_FULL: i32 = 1;
@@ -125,21 +131,33 @@ pub const CSRESTORE_TYPE_ONLINE: i32 = 2;
 pub type FNCERTSRVBACKUPCLOSE = Option<unsafe extern "system" fn(hbc: HCSBC) -> windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPEND = Option<unsafe extern "system" fn(hbc: HCSBC) -> windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPFREE = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
-pub type FNCERTSRVBACKUPGETBACKUPLOGSW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzbackuplogfiles: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPGETDATABASENAMESW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzattachmentinformation: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzfilelist: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-#[cfg(feature = "winnt")]
-pub type FNCERTSRVBACKUPOPENFILEW = Option<unsafe extern "system" fn(hbc: HCSBC, pwszattachmentname: *const u16, cbreadhintsize: u32, plifilesize: *mut super::LARGE_INTEGER) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPPREPAREW = Option<unsafe extern "system" fn(pwszservername: *const u16, grbitjet: u32, dwbackupflags: u32, phbc: *mut HCSBC) -> windows_core::HRESULT>;
-pub type FNCERTSRVBACKUPREAD = Option<unsafe extern "system" fn(hbc: HCSBC, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVBACKUPGETBACKUPLOGSW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzbackuplogfiles: *mut *mut super::WCHAR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVBACKUPGETDATABASENAMESW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzattachmentinformation: *mut *mut super::WCHAR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVBACKUPGETDYNAMICFILELISTW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzfilelist: *mut *mut super::WCHAR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVBACKUPOPENFILEW = Option<unsafe extern "system" fn(hbc: HCSBC, pwszattachmentname: *const super::WCHAR, cbreadhintsize: super::DWORD, plifilesize: *mut super::LARGE_INTEGER) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVBACKUPPREPAREW = Option<unsafe extern "system" fn(pwszservername: *const super::WCHAR, grbitjet: super::ULONG, dwbackupflags: super::ULONG, phbc: *mut HCSBC) -> windows_core::HRESULT>;
+#[cfg(feature = "shared")]
+pub type FNCERTSRVBACKUPREAD = Option<unsafe extern "system" fn(hbc: HCSBC, pvbuffer: *mut core::ffi::c_void, cbbuffer: super::DWORD, pcbread: *mut super::DWORD) -> windows_core::HRESULT>;
 pub type FNCERTSRVBACKUPTRUNCATELOGS = Option<unsafe extern "system" fn(hbc: HCSBC) -> windows_core::HRESULT>;
-pub type FNCERTSRVISSERVERONLINEW = Option<unsafe extern "system" fn(pwszservername: *const u16, pfserveronline: *mut windows_core::BOOL) -> windows_core::HRESULT>;
+#[cfg(feature = "winnt")]
+pub type FNCERTSRVISSERVERONLINEW = Option<unsafe extern "system" fn(pwszservername: *const super::WCHAR, pfserveronline: *mut windows_core::BOOL) -> windows_core::HRESULT>;
 pub type FNCERTSRVRESTOREEND = Option<unsafe extern "system" fn(hbc: HCSBC) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzdatabaselocationlist: *mut *mut u16, pcbsize: *mut u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREPREPAREW = Option<unsafe extern "system" fn(pwszservername: *const u16, dwrestoreflags: u32, phbc: *mut HCSBC) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVRESTOREGETDATABASELOCATIONSW = Option<unsafe extern "system" fn(hbc: HCSBC, ppwszzdatabaselocationlist: *mut *mut super::WCHAR, pcbsize: *mut super::DWORD) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVRESTOREPREPAREW = Option<unsafe extern "system" fn(pwszservername: *const super::WCHAR, dwrestoreflags: super::ULONG, phbc: *mut HCSBC) -> windows_core::HRESULT>;
 pub type FNCERTSRVRESTOREREGISTERCOMPLETE = Option<unsafe extern "system" fn(hbc: HCSBC, hrrestorestate: windows_core::HRESULT) -> windows_core::HRESULT>;
-pub type FNCERTSRVRESTOREREGISTERW = Option<unsafe extern "system" fn(hbc: HCSBC, pwszcheckpointfilepath: *const u16, pwszlogpath: *const u16, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: i32, pwszbackuplogpath: *const u16, genlow: u32, genhigh: u32) -> windows_core::HRESULT>;
-pub type FNCERTSRVSERVERCONTROLW = Option<unsafe extern "system" fn(pwszservername: *const u16, dwcontrolflags: u32, pcbout: *mut u32, ppbout: *mut *mut u8) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVRESTOREREGISTERW = Option<unsafe extern "system" fn(hbc: HCSBC, pwszcheckpointfilepath: *const super::WCHAR, pwszlogpath: *const super::WCHAR, rgrstmap: *mut CSEDB_RSTMAPW, crstmap: super::LONG, pwszbackuplogpath: *const super::WCHAR, genlow: super::ULONG, genhigh: super::ULONG) -> windows_core::HRESULT>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type FNCERTSRVSERVERCONTROLW = Option<unsafe extern "system" fn(pwszservername: *const super::WCHAR, dwcontrolflags: super::DWORD, pcbout: *mut super::DWORD, ppbout: *mut *mut super::BYTE) -> windows_core::HRESULT>;
 pub type HCSBC = *mut core::ffi::c_void;
 pub const szBACKUPANNOTATION: windows_core::PCSTR = windows_core::s!("Cert Server Backup Interface");
 pub const szRESTOREANNOTATION: windows_core::PCSTR = windows_core::s!("Cert Server Restore Interface");
+pub const wszBACKUPANNOTATION: windows_core::PCSTR = windows_core::s!("Cert Server Backup Interface");
+pub const wszRESTOREANNOTATION: windows_core::PCSTR = windows_core::s!("Cert Server Restore Interface");

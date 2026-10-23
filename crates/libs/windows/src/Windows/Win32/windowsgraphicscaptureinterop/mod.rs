@@ -1,51 +1,43 @@
 windows_core::imp::define_interface!(IGraphicsCaptureItemInterop, IGraphicsCaptureItemInterop_Vtbl, 0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 windows_core::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IGraphicsCaptureItemInterop {
-    #[cfg(feature = "windef")]
-    pub unsafe fn CreateForWindow<T>(&self, window: super::HWND) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(all(feature = "guiddef", feature = "windef"))]
+    pub unsafe fn CreateForWindow(&self, window: super::HWND, riid: *const super::IID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window as _, riid as _, result as _) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn CreateForMonitor<T>(&self, monitor: super::HMONITOR) -> windows_core::Result<T>
-    where
-        T: windows_core::Interface,
-    {
-        let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateForMonitor)(windows_core::Interface::as_raw(self), monitor, &T::IID, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__)) }
+    #[cfg(all(feature = "guiddef", feature = "windef"))]
+    pub unsafe fn CreateForMonitor(&self, monitor: super::HMONITOR, riid: *const super::IID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CreateForMonitor)(windows_core::Interface::as_raw(self), monitor as _, riid as _, result as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGraphicsCaptureItemInterop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "windef")]
-    pub CreateForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "guiddef", feature = "windef"))]
+    pub CreateForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::HWND, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "windef")))]
     CreateForWindow: usize,
-    #[cfg(feature = "windef")]
-    pub CreateForMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, super::HMONITOR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "guiddef", feature = "windef"))]
+    pub CreateForMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, super::HMONITOR, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "windef")))]
     CreateForMonitor: usize,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 pub trait IGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateForWindow(&self, window: super::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateForMonitor(&self, monitor: super::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateForWindow(&self, window: super::HWND, riid: *const super::IID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateForMonitor(&self, monitor: super::HMONITOR, riid: *const super::IID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl IGraphicsCaptureItemInterop_Vtbl {
     pub const fn new<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateForWindow<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: super::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateForWindow<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: super::HWND, riid: *const super::IID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGraphicsCaptureItemInterop_Impl::CreateForWindow(this, core::mem::transmute_copy(&window), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
             }
         }
-        unsafe extern "system" fn CreateForMonitor<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: super::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateForMonitor<Identity: IGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: super::HMONITOR, riid: *const super::IID, result: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGraphicsCaptureItemInterop_Impl::CreateForMonitor(this, core::mem::transmute_copy(&monitor), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&result)).into()
@@ -61,17 +53,14 @@ impl IGraphicsCaptureItemInterop_Vtbl {
         iid == &<IGraphicsCaptureItemInterop as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "guiddef", feature = "windef"))]
 impl windows_core::RuntimeName for IGraphicsCaptureItemInterop {}
 windows_core::imp::define_interface!(IMonitorGraphicsCaptureItemInterop, IMonitorGraphicsCaptureItemInterop_Vtbl, 0x33274d14_a076_4048_8416_747e9b04db7b);
 windows_core::imp::interface_hierarchy!(IMonitorGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IMonitorGraphicsCaptureItemInterop {
     #[cfg(feature = "windef")]
-    pub unsafe fn GetMonitor(&self) -> windows_core::Result<super::HMONITOR> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetMonitor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetMonitor(&self, monitor: *mut super::HMONITOR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMonitor)(windows_core::Interface::as_raw(self), monitor as _) }
     }
 }
 #[repr(C)]
@@ -85,7 +74,7 @@ pub struct IMonitorGraphicsCaptureItemInterop_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IMonitorGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
-    fn GetMonitor(&self) -> windows_core::Result<super::HMONITOR>;
+    fn GetMonitor(&self, monitor: *mut super::HMONITOR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
 impl IMonitorGraphicsCaptureItemInterop_Vtbl {
@@ -93,13 +82,7 @@ impl IMonitorGraphicsCaptureItemInterop_Vtbl {
         unsafe extern "system" fn GetMonitor<Identity: IMonitorGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, monitor: *mut super::HMONITOR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMonitorGraphicsCaptureItemInterop_Impl::GetMonitor(this) {
-                    Ok(ok__) => {
-                        monitor.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IMonitorGraphicsCaptureItemInterop_Impl::GetMonitor(this, core::mem::transmute_copy(&monitor)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetMonitor: GetMonitor::<Identity, OFFSET> }
@@ -114,11 +97,8 @@ windows_core::imp::define_interface!(IWindowGraphicsCaptureItemInterop, IWindowG
 windows_core::imp::interface_hierarchy!(IWindowGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IWindowGraphicsCaptureItemInterop {
     #[cfg(feature = "windef")]
-    pub unsafe fn GetWindow(&self) -> windows_core::Result<super::HWND> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
+    pub unsafe fn GetWindow(&self, window: *mut super::HWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWindow)(windows_core::Interface::as_raw(self), window as _) }
     }
 }
 #[repr(C)]
@@ -132,7 +112,7 @@ pub struct IWindowGraphicsCaptureItemInterop_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IWindowGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
-    fn GetWindow(&self) -> windows_core::Result<super::HWND>;
+    fn GetWindow(&self, window: *mut super::HWND) -> windows_core::Result<()>;
 }
 #[cfg(feature = "windef")]
 impl IWindowGraphicsCaptureItemInterop_Vtbl {
@@ -140,13 +120,7 @@ impl IWindowGraphicsCaptureItemInterop_Vtbl {
         unsafe extern "system" fn GetWindow<Identity: IWindowGraphicsCaptureItemInterop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut super::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWindowGraphicsCaptureItemInterop_Impl::GetWindow(this) {
-                    Ok(ok__) => {
-                        window.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IWindowGraphicsCaptureItemInterop_Impl::GetWindow(this, core::mem::transmute_copy(&window)).into()
             }
         }
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, OFFSET> }

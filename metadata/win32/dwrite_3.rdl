@@ -279,8 +279,8 @@ mod Windows {
         #[guid(0xaeec37db_c337_40f1_8e2a_9a41b167b238)]
         interface IDWriteBitmapRenderTarget3: IDWriteBitmapRenderTarget2 {
             fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
-            fn DrawPaintGlyphRun(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] glyphRun: *const DWRITE_GLYPH_RUN, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, textColor: COLORREF, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] colorPaletteIndex: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] blackBoxRect: *mut RECT) -> HRESULT;
-            fn DrawGlyphRunWithColorSupport(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] renderingParams: IDWriteRenderingParams, textColor: COLORREF, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] colorPaletteIndex: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] blackBoxRect: *mut RECT) -> HRESULT;
+            fn DrawPaintGlyphRun(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] glyphRun: *const DWRITE_GLYPH_RUN, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, textColor: COLORREF, colorPaletteIndex: UINT32, #[out] #[opt] blackBoxRect: *mut RECT) -> HRESULT;
+            fn DrawGlyphRunWithColorSupport(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] renderingParams: IDWriteRenderingParams, textColor: COLORREF, colorPaletteIndex: UINT32, #[out] #[opt] blackBoxRect: *mut RECT) -> HRESULT;
         }
         #[guid(0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35)]
         interface IDWriteColorGlyphRunEnumerator1: IDWriteColorGlyphRunEnumerator {
@@ -295,7 +295,7 @@ mod Windows {
             fn GetSystemFontSet(&self, #[out] #[out_ptr(null_on_failure)] fontSet: *mut IDWriteFontSet) -> HRESULT;
             fn CreateFontSetBuilder(&self, #[out] #[out_ptr(null_on_failure)] fontSetBuilder: *mut IDWriteFontSetBuilder) -> HRESULT;
             fn CreateFontCollectionFromFontSet(&self, fontSet: IDWriteFontSet, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection1) -> HRESULT;
-            fn GetSystemFontCollection(&self, includeDownloadableFonts: BOOL, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection1, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] checkForUpdates: BOOL) -> HRESULT;
+            fn GetSystemFontCollection(&self, includeDownloadableFonts: BOOL, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection1, checkForUpdates: BOOL) -> HRESULT;
             fn GetFontDownloadQueue(&self, #[out] #[out_ptr(null_on_failure)] fontDownloadQueue: *mut IDWriteFontDownloadQueue) -> HRESULT;
         }
         #[guid(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856)]
@@ -364,7 +364,7 @@ mod Windows {
             fn AddListener(&self, listener: IDWriteFontDownloadListener, #[out] token: *mut UINT32) -> HRESULT;
             fn RemoveListener(&self, token: UINT32) -> HRESULT;
             fn IsEmpty(&self) -> BOOL;
-            fn BeginDownload(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("nullptr")] context: IUnknown) -> HRESULT;
+            fn BeginDownload(&self, #[in] #[opt] context: IUnknown) -> HRESULT;
             fn CancelDownload(&self) -> HRESULT;
             fn GetGenerationCount(&self) -> UINT64;
         }
@@ -547,12 +547,12 @@ mod Windows {
         }
         #[guid(0x8128e912_3b97_42a5_ab6c_24aad3a86e54)]
         interface IDWritePaintReader: IUnknown {
-            fn SetCurrentGlyph(&self, glyphIndex: UINT32, #[out] #[writable(entry, bytes(structSize))] paintElement: *mut DWRITE_PAINT_ELEMENT, structSize: UINT32, #[out] clipBox: *mut D2D_RECT_F, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("nullptr")] glyphAttributes: *mut DWRITE_PAINT_ATTRIBUTES) -> HRESULT;
+            fn SetCurrentGlyph(&self, glyphIndex: UINT32, #[out] #[writable(entry, bytes(structSize))] paintElement: *mut DWRITE_PAINT_ELEMENT, structSize: UINT32, #[out] clipBox: *mut D2D_RECT_F, #[out] #[opt] glyphAttributes: *mut DWRITE_PAINT_ATTRIBUTES) -> HRESULT;
             fn SetTextColor(&self, textColor: &DWRITE_COLOR_F) -> HRESULT;
             fn SetColorPaletteIndex(&self, colorPaletteIndex: UINT32) -> HRESULT;
             fn SetCustomColorPalette(&self, #[in] #[readable(entry, paletteEntryCount)] paletteEntries: *const DWRITE_COLOR_F, paletteEntryCount: UINT32) -> HRESULT;
-            fn MoveToFirstChild(&self, #[out] #[writable(entry, bytes(structSize))] paintElement: *mut DWRITE_PAINT_ELEMENT, #[Windows::Win32::Metadata::NativeDefaultArgument("sizeof(DWRITE_PAINT_ELEMENT)")] structSize: UINT32) -> HRESULT;
-            fn MoveToNextSibling(&self, #[out] #[writable(entry, bytes(structSize))] paintElement: *mut DWRITE_PAINT_ELEMENT, #[Windows::Win32::Metadata::NativeDefaultArgument("sizeof(DWRITE_PAINT_ELEMENT)")] structSize: UINT32) -> HRESULT;
+            fn MoveToFirstChild(&self, #[out] #[writable(entry, bytes(structSize))] paintElement: *mut DWRITE_PAINT_ELEMENT, structSize: UINT32) -> HRESULT;
+            fn MoveToNextSibling(&self, #[out] #[writable(entry, bytes(structSize))] paintElement: *mut DWRITE_PAINT_ELEMENT, structSize: UINT32) -> HRESULT;
             fn MoveToParent(&self) -> HRESULT;
             fn GetGradientStops(&self, firstGradientStopIndex: UINT32, gradientStopCount: UINT32, #[out] #[writable(entry, gradientStopCount)] gradientStops: *mut D2D1_GRADIENT_STOP) -> HRESULT;
             fn GetGradientStopColors(&self, firstGradientStopIndex: UINT32, gradientStopCount: UINT32, #[out] #[writable(entry, gradientStopCount)] gradientStopColors: *mut DWRITE_PAINT_COLOR) -> HRESULT;
@@ -606,7 +606,7 @@ mod Windows {
         interface IDWriteTextLayout4: IDWriteTextLayout3 {
             fn SetFontAxisValues(&self, #[in] #[readable(entry, fontAxisValueCount)] fontAxisValues: *const DWRITE_FONT_AXIS_VALUE, fontAxisValueCount: UINT32, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetFontAxisValueCount(&self, currentPosition: UINT32) -> UINT32;
-            fn GetFontAxisValues(&self, currentPosition: UINT32, #[out] #[writable(entry, fontAxisValueCount)] fontAxisValues: *mut DWRITE_FONT_AXIS_VALUE, fontAxisValueCount: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("nullptr")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontAxisValues(&self, currentPosition: UINT32, #[out] #[writable(entry, fontAxisValueCount)] fontAxisValues: *mut DWRITE_FONT_AXIS_VALUE, fontAxisValueCount: UINT32, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetAutomaticFontAxes(&self) -> DWRITE_AUTOMATIC_FONT_AXES;
             fn SetAutomaticFontAxes(&self, automaticFontAxes: DWRITE_AUTOMATIC_FONT_AXES) -> HRESULT;
         }

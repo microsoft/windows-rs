@@ -570,7 +570,7 @@ mod Windows {
             fn GetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[out] #[retval] Listening: *mut VARIANT_BOOL) -> HRESULT;
             fn GetWindowInputRectangle(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
             fn SetWindowInputRectangle(&self, #[in] #[opt] WindowInputRectangle: IInkRectangle) -> HRESULT;
-            fn SetAllTabletsMode(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("-1")] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
+            fn SetAllTabletsMode(&self, #[in] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
             fn SetSingleTabletIntegratedMode(&self, #[in] #[opt] Tablet: IInkTablet) -> HRESULT;
             fn GetEventInterest(&self, #[in] EventId: InkCollectorEventInterest, #[out] #[retval] Listen: *mut VARIANT_BOOL) -> HRESULT;
             fn SetEventInterest(&self, #[in] EventId: InkCollectorEventInterest, #[in] Listen: VARIANT_BOOL) -> HRESULT;
@@ -620,7 +620,7 @@ mod Windows {
             fn put_Dirty(&self, #[in] Dirty: VARIANT_BOOL) -> HRESULT;
             fn get_CustomStrokes(&self, #[out] #[retval] #[out_ptr] ppunkInkCustomStrokes: *mut IInkCustomStrokes) -> HRESULT;
             fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
-            fn DeleteStrokes(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Strokes: IInkStrokes) -> HRESULT;
+            fn DeleteStrokes(&self, #[in] #[opt] Strokes: IInkStrokes) -> HRESULT;
             fn DeleteStroke(&self, #[in] #[opt] Stroke: IInkStrokeDisp) -> HRESULT;
             fn ExtractStrokes(&self, #[in] #[opt] Strokes: IInkStrokes, #[in] ExtractFlags: InkExtractFlags, #[out] #[retval] #[out_ptr] ExtractedInk: *mut IInkDisp) -> HRESULT;
             fn ExtractWithRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle, #[in] extractFlags: InkExtractFlags, #[out] #[retval] #[out_ptr] ExtractedInk: *mut IInkDisp) -> HRESULT;
@@ -746,7 +746,7 @@ mod Windows {
             fn GetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[out] #[retval] Listening: *mut VARIANT_BOOL) -> HRESULT;
             fn GetWindowInputRectangle(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
             fn SetWindowInputRectangle(&self, #[in] #[opt] WindowInputRectangle: IInkRectangle) -> HRESULT;
-            fn SetAllTabletsMode(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("-1")] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
+            fn SetAllTabletsMode(&self, #[in] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
             fn SetSingleTabletIntegratedMode(&self, #[in] #[opt] Tablet: IInkTablet) -> HRESULT;
             fn GetEventInterest(&self, #[in] EventId: InkCollectorEventInterest, #[out] #[retval] Listen: *mut VARIANT_BOOL) -> HRESULT;
             fn SetEventInterest(&self, #[in] EventId: InkCollectorEventInterest, #[in] Listen: VARIANT_BOOL) -> HRESULT;
@@ -804,7 +804,7 @@ mod Windows {
             fn GetGestureStatus(&self, #[in] Gesture: InkApplicationGesture, #[out] #[retval] Listening: *mut VARIANT_BOOL) -> HRESULT;
             fn GetWindowInputRectangle(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] WindowInputRectangle: *mut IInkRectangle) -> HRESULT;
             fn SetWindowInputRectangle(&self, #[in] #[opt] WindowInputRectangle: IInkRectangle) -> HRESULT;
-            fn SetAllTabletsMode(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("-1")] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
+            fn SetAllTabletsMode(&self, #[in] UseMouseForInput: VARIANT_BOOL) -> HRESULT;
             fn SetSingleTabletIntegratedMode(&self, #[in] #[opt] Tablet: IInkTablet) -> HRESULT;
             fn GetEventInterest(&self, #[in] EventId: InkCollectorEventInterest, #[out] #[retval] Listen: *mut VARIANT_BOOL) -> HRESULT;
             fn SetEventInterest(&self, #[in] EventId: InkCollectorEventInterest, #[in] Listen: VARIANT_BOOL) -> HRESULT;
@@ -939,7 +939,7 @@ mod Windows {
             fn GetObjectTransform(&self, #[in] #[opt] ObjectTransform: IInkTransform) -> HRESULT;
             fn SetObjectTransform(&self, #[in] #[opt] ObjectTransform: IInkTransform) -> HRESULT;
             fn Draw(&self, #[in] hDC: LONG_PTR, #[in] #[opt] Strokes: IInkStrokes) -> HRESULT;
-            fn DrawStroke(&self, #[in] hDC: LONG_PTR, #[in] #[opt] Stroke: IInkStrokeDisp, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] DrawingAttributes: IInkDrawingAttributes) -> HRESULT;
+            fn DrawStroke(&self, #[in] hDC: LONG_PTR, #[in] #[opt] Stroke: IInkStrokeDisp, #[in] #[opt] DrawingAttributes: IInkDrawingAttributes) -> HRESULT;
             fn PixelToInkSpace(&self, #[in] hDC: LONG_PTR, #[in] #[out] x: *mut i32, #[in] #[out] y: *mut i32) -> HRESULT;
             fn InkSpaceToPixel(&self, #[in] hdcDisplay: LONG_PTR, #[in] #[out] x: *mut i32, #[in] #[out] y: *mut i32) -> HRESULT;
             fn PixelToInkSpaceFromPoints(&self, #[in] hDC: LONG_PTR, #[in] #[out] Points: *mut VARIANT) -> HRESULT;
@@ -947,8 +947,8 @@ mod Windows {
             fn Measure(&self, #[in] #[opt] Strokes: IInkStrokes, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn MeasureStroke(&self, #[in] #[opt] Stroke: IInkStrokeDisp, #[in] #[opt] DrawingAttributes: IInkDrawingAttributes, #[out] #[retval] #[out_ptr] Rectangle: *mut IInkRectangle) -> HRESULT;
             fn Move(&self, #[in] HorizontalComponent: f32, #[in] VerticalComponent: f32) -> HRESULT;
-            fn Rotate(&self, #[in] Degrees: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] x: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] y: f32) -> HRESULT;
-            fn ScaleTransform(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("-1")] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
+            fn Rotate(&self, #[in] Degrees: f32, #[in] x: f32, #[in] y: f32) -> HRESULT;
+            fn ScaleTransform(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32, #[in] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0x43242fea_91d1_4a72_963e_fbb91829cfa2)]
         interface IInkStrokeDisp: IDispatch {
@@ -979,10 +979,10 @@ mod Windows {
             fn GetPacketValuesByProperty(&self, #[in] PropertyName: BSTR, #[in] Index: i32, #[in] Count: i32, #[out] #[retval] PacketValues: *mut VARIANT) -> HRESULT;
             fn SetPacketValuesByProperty(&self, #[in] bstrPropertyName: BSTR, #[in] PacketValues: VARIANT, #[in] Index: i32, #[in] Count: i32, #[out] #[retval] NumberOfPacketsSet: *mut i32) -> HRESULT;
             fn GetFlattenedBezierPoints(&self, #[in] FittingError: i32, #[out] #[retval] FlattenedBezierPoints: *mut VARIANT) -> HRESULT;
-            fn Transform(&self, #[in] #[opt] Transform: IInkTransform, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
+            fn Transform(&self, #[in] #[opt] Transform: IInkTransform, #[in] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
             fn ScaleToRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
             fn Move(&self, #[in] HorizontalComponent: f32, #[in] VerticalComponent: f32) -> HRESULT;
-            fn Rotate(&self, #[in] Degrees: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] x: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] y: f32) -> HRESULT;
+            fn Rotate(&self, #[in] Degrees: f32, #[in] x: f32, #[in] y: f32) -> HRESULT;
             fn Shear(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32) -> HRESULT;
             fn ScaleTransform(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32) -> HRESULT;
         }
@@ -1000,10 +1000,10 @@ mod Windows {
             fn RemoveStrokes(&self, #[in] #[opt] InkStrokes: IInkStrokes) -> HRESULT;
             fn ModifyDrawingAttributes(&self, #[in] #[opt] DrawAttrs: IInkDrawingAttributes) -> HRESULT;
             fn GetBoundingBox(&self, #[in] BoundingBoxMode: InkBoundingBoxMode, #[out] #[retval] #[out_ptr] BoundingBox: *mut IInkRectangle) -> HRESULT;
-            fn Transform(&self, #[in] #[opt] Transform: IInkTransform, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
+            fn Transform(&self, #[in] #[opt] Transform: IInkTransform, #[in] ApplyOnPenWidth: VARIANT_BOOL) -> HRESULT;
             fn ScaleToRectangle(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
             fn Move(&self, #[in] HorizontalComponent: f32, #[in] VerticalComponent: f32) -> HRESULT;
-            fn Rotate(&self, #[in] Degrees: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] x: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] y: f32) -> HRESULT;
+            fn Rotate(&self, #[in] Degrees: f32, #[in] x: f32, #[in] y: f32) -> HRESULT;
             fn Shear(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32) -> HRESULT;
             fn ScaleTransform(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32) -> HRESULT;
             fn Clip(&self, #[in] #[opt] Rectangle: IInkRectangle) -> HRESULT;
@@ -1039,7 +1039,7 @@ mod Windows {
         interface IInkTransform: IDispatch {
             fn Reset(&self) -> HRESULT;
             fn Translate(&self, #[in] HorizontalComponent: f32, #[in] VerticalComponent: f32) -> HRESULT;
-            fn Rotate(&self, #[in] Degrees: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] x: f32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] y: f32) -> HRESULT;
+            fn Rotate(&self, #[in] Degrees: f32, #[in] x: f32, #[in] y: f32) -> HRESULT;
             fn Reflect(&self, #[in] Horizontally: VARIANT_BOOL, #[in] Vertically: VARIANT_BOOL) -> HRESULT;
             fn Shear(&self, #[in] HorizontalComponent: f32, #[in] VerticalComponent: f32) -> HRESULT;
             fn ScaleTransform(&self, #[in] HorizontalMultiplier: f32, #[in] VerticalMultiplier: f32) -> HRESULT;

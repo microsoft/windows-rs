@@ -1,64 +1,74 @@
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ACTIVE_LATENCY_CONFIGURATION {
     pub Anonymous: ACTIVE_LATENCY_CONFIGURATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for ACTIVE_LATENCY_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ACTIVE_LATENCY_CONFIGURATION_0 {
     pub Anonymous: ACTIVE_LATENCY_CONFIGURATION_0_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for ACTIVE_LATENCY_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ACTIVE_LATENCY_CONFIGURATION_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BUCKET_COUNTER {
-    pub Reserved: u32,
-    pub Trim: u32,
-    pub Write: u32,
-    pub Read: u32,
+    pub Reserved: super::ULONG,
+    pub Trim: super::ULONG,
+    pub Write: super::ULONG,
+    pub Read: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEBUG_BIT_FIELD {
     pub _bitfield: u16,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSSD_POWER_STATE_DESCRIPTOR {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FIRMWARE_ACTIVATION_HISTORY_ENTRY {
-    pub VersionNumber: u8,
-    pub Length: u8,
-    pub Reserved0: u16,
-    pub ActivationCount: u16,
-    pub Timestamp: u64,
-    pub Reserved1: u64,
-    pub PowerCycleCount: u64,
-    pub PreviousFirmware: u64,
-    pub NewFirmware: u64,
-    pub SlotNumber: u8,
-    pub CommitActionType: u8,
-    pub Result: u16,
-    pub Reserved2: [u8; 14],
+    pub VersionNumber: super::UCHAR,
+    pub Length: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub ActivationCount: super::USHORT,
+    pub Timestamp: super::ULONGLONG,
+    pub Reserved1: super::ULONGLONG,
+    pub PowerCycleCount: super::ULONGLONG,
+    pub PreviousFirmware: super::ULONGLONG,
+    pub NewFirmware: super::ULONGLONG,
+    pub SlotNumber: super::UCHAR,
+    pub CommitActionType: super::UCHAR,
+    pub Result: super::USHORT,
+    pub Reserved2: [super::UCHAR; 14],
 }
+#[cfg(feature = "shared")]
 impl Default for FIRMWARE_ACTIVATION_HISTORY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -79,99 +89,111 @@ pub const GUID_OCP_DSSD_SPECIFIC_INFORMATION: windows_sys::core::GUID = windows_
 pub const GUID_WCS_DEVICE_ERROR_RECOVERY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2131d944_30fe_ae34_ab4d_fd3dba83195a);
 pub const GUID_WCS_DEVICE_SMART_ATTRIBUTES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2810afc5_bfea_a4f2_9c4f_6f7cc914d5af);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IO_COMMAND_SET_VECTOR {
     pub _bitfield: u64,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS {
     pub Anonymous: LATENCY_MONITOR_FEATURE_STATUS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for LATENCY_MONITOR_FEATURE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union LATENCY_MONITOR_FEATURE_STATUS_0 {
     pub Anonymous: LATENCY_MONITOR_FEATURE_STATUS_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for LATENCY_MONITOR_FEATURE_STATUS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LATENCY_MONITOR_FEATURE_STATUS_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LATENCY_STAMP {
-    pub Trim3: u64,
-    pub Write3: u64,
-    pub Read3: u64,
-    pub Trim2: u64,
-    pub Write2: u64,
-    pub Read2: u64,
-    pub Trim1: u64,
-    pub Write1: u64,
-    pub Read1: u64,
-    pub Trim0: u64,
-    pub Write0: u64,
-    pub Read0: u64,
+    pub Trim3: super::ULONGLONG,
+    pub Write3: super::ULONGLONG,
+    pub Read3: super::ULONGLONG,
+    pub Trim2: super::ULONGLONG,
+    pub Write2: super::ULONGLONG,
+    pub Read2: super::ULONGLONG,
+    pub Trim1: super::ULONGLONG,
+    pub Write1: super::ULONGLONG,
+    pub Read1: super::ULONGLONG,
+    pub Trim0: super::ULONGLONG,
+    pub Write0: super::ULONGLONG,
+    pub Read0: super::ULONGLONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct LATENCY_STAMP_UNITS {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MEASURED_LATENCY {
-    pub Trim3: u16,
-    pub Write3: u16,
-    pub Read3: u16,
-    pub Trim2: u16,
-    pub Write2: u16,
-    pub Read2: u16,
-    pub Trim1: u16,
-    pub Write1: u16,
-    pub Read1: u16,
-    pub Trim0: u16,
-    pub Write0: u16,
-    pub Read0: u16,
+    pub Trim3: super::USHORT,
+    pub Write3: super::USHORT,
+    pub Read3: super::USHORT,
+    pub Trim2: super::USHORT,
+    pub Write2: super::USHORT,
+    pub Read2: super::USHORT,
+    pub Trim1: super::USHORT,
+    pub Write1: super::USHORT,
+    pub Read1: super::USHORT,
+    pub Trim0: super::USHORT,
+    pub Write0: super::USHORT,
+    pub Read0: super::USHORT,
 }
 pub type NVMEOF_ADDRESS_FAMILY = i32;
 pub const NVMEOF_ADMINQ_MAX_DEPTH: i32 = 4096;
 pub const NVMEOF_ADMINQ_MIN_DEPTH: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_AUTH_DHCHAP_CHALLENGE {
-    pub AUTH_TYPE: u8,
-    pub AUTH_ID: u8,
-    pub Reserved0: u16,
-    pub T_ID: u16,
-    pub HL: u8,
-    pub Reserved1: u8,
-    pub HashID: u8,
-    pub DHgID: u8,
-    pub DHVLEN: u16,
-    pub SEQNUM: u32,
+    pub AUTH_TYPE: super::UCHAR,
+    pub AUTH_ID: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub T_ID: super::USHORT,
+    pub HL: super::UCHAR,
+    pub Reserved1: super::UCHAR,
+    pub HashID: super::UCHAR,
+    pub DHgID: super::UCHAR,
+    pub DHVLEN: super::USHORT,
+    pub SEQNUM: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_AUTH_DHCHAP_DESCRIPTOR {
-    pub AuthId: u8,
-    pub Reserved0: u8,
-    pub HALEN: u8,
-    pub DHLEN: u8,
-    pub IdList: [u8; 60],
+    pub AuthId: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub HALEN: super::UCHAR,
+    pub DHLEN: super::UCHAR,
+    pub IdList: [super::UCHAR; 60],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_AUTH_DHCHAP_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -180,238 +202,267 @@ impl Default for NVMEOF_AUTH_DHCHAP_DESCRIPTOR {
 pub type NVMEOF_AUTH_DHCHAP_GROUP_ID = i32;
 pub type NVMEOF_AUTH_DHCHAP_HASH_ID = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_AUTH_DHCHAP_REPLY {
-    pub AUTH_TYPE: u8,
-    pub AUTH_ID: u8,
-    pub Reserved0: u16,
-    pub T_ID: u16,
-    pub HL: u8,
-    pub Reserved1: u8,
-    pub CVALID: u8,
-    pub Reserved2: u8,
-    pub DHVLEN: u16,
-    pub SEQNUM: u32,
+    pub AUTH_TYPE: super::UCHAR,
+    pub AUTH_ID: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub T_ID: super::USHORT,
+    pub HL: super::UCHAR,
+    pub Reserved1: super::UCHAR,
+    pub CVALID: super::UCHAR,
+    pub Reserved2: super::UCHAR,
+    pub DHVLEN: super::USHORT,
+    pub SEQNUM: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_AUTH_DHCHAP_SUCCESS1 {
-    pub AUTH_TYPE: u8,
-    pub AUTH_ID: u8,
-    pub Reserved0: u16,
-    pub T_ID: u16,
-    pub HL: u8,
-    pub Reserved1: u8,
-    pub RVALID: u8,
-    pub Reserved2: [u8; 7],
+    pub AUTH_TYPE: super::UCHAR,
+    pub AUTH_ID: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub T_ID: super::USHORT,
+    pub HL: super::UCHAR,
+    pub Reserved1: super::UCHAR,
+    pub RVALID: super::UCHAR,
+    pub Reserved2: [super::UCHAR; 7],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_AUTH_DHCHAP_SUCCESS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_AUTH_DHCHAP_SUCCESS2 {
-    pub AUTH_TYPE: u8,
-    pub AUTH_ID: u8,
-    pub Reserved0: u16,
-    pub T_ID: u16,
-    pub Reserved1: [u8; 10],
+    pub AUTH_TYPE: super::UCHAR,
+    pub AUTH_ID: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub T_ID: super::USHORT,
+    pub Reserved1: [super::UCHAR; 10],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_AUTH_DHCHAP_SUCCESS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_AUTH_FAILURE {
-    pub AUTH_TYPE: u8,
-    pub AUTH_ID: u8,
-    pub Reserved0: u16,
-    pub T_ID: u16,
-    pub ReasonCode: u8,
-    pub ReasonExplanation: u8,
+    pub AUTH_TYPE: super::UCHAR,
+    pub AUTH_ID: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub T_ID: super::USHORT,
+    pub ReasonCode: super::UCHAR,
+    pub ReasonExplanation: super::UCHAR,
 }
 pub type NVMEOF_AUTH_FAIL_REASON_CODE = i32;
 pub type NVMEOF_AUTH_FAIL_REASON_EXPLANATION = i32;
 pub type NVMEOF_AUTH_ID = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_AUTH_NEGOTIATE {
-    pub AUTH_TYPE: u8,
-    pub AUTH_ID: u8,
-    pub Reserved0: u16,
-    pub T_ID: u16,
-    pub SC_C: u8,
-    pub NAPD: u8,
+    pub AUTH_TYPE: super::UCHAR,
+    pub AUTH_ID: super::UCHAR,
+    pub Reserved0: super::USHORT,
+    pub T_ID: super::USHORT,
+    pub SC_C: super::UCHAR,
+    pub NAPD: super::UCHAR,
 }
 pub type NVMEOF_AUTH_PROTOCOL = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_AUTH_RECEIVE_COMMAND {
-    pub OPC: u8,
-    pub Reserved0: u8,
-    pub CID: u16,
-    pub FCTYPE: u8,
-    pub Reserved1: [u8; 19],
+    pub OPC: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub CID: super::USHORT,
+    pub FCTYPE: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 19],
     pub SGL1: NVME_SGL_DESC,
-    pub Reserved2: u8,
-    pub SPSP0: u8,
-    pub SPSP1: u8,
-    pub SECP: u8,
-    pub AL: u32,
-    pub Reserved3: [u8; 16],
+    pub Reserved2: super::UCHAR,
+    pub SPSP0: super::UCHAR,
+    pub SPSP1: super::UCHAR,
+    pub SECP: super::UCHAR,
+    pub AL: super::ULONG,
+    pub Reserved3: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_AUTH_RECEIVE_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_AUTH_RECEIVE_RESPONSE {
-    pub Reserved0: u64,
-    pub SQHD: u16,
-    pub Reserved1: u16,
-    pub CID: u16,
-    pub STS: u16,
+    pub Reserved0: super::ULONGLONG,
+    pub SQHD: super::USHORT,
+    pub Reserved1: super::USHORT,
+    pub CID: super::USHORT,
+    pub STS: super::USHORT,
 }
 pub type NVMEOF_AUTH_SECURE_CHANNEL = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_AUTH_SEND_COMMAND {
-    pub OPC: u8,
-    pub Reserved0: u8,
-    pub CID: u16,
-    pub FCTYPE: u8,
-    pub Reserved1: [u8; 19],
+    pub OPC: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub CID: super::USHORT,
+    pub FCTYPE: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 19],
     pub SGL1: NVME_SGL_DESC,
-    pub Reserved2: u8,
-    pub SPSP0: u8,
-    pub SPSP1: u8,
-    pub SECP: u8,
-    pub TL: u32,
-    pub Reserved3: [u8; 16],
+    pub Reserved2: super::UCHAR,
+    pub SPSP0: super::UCHAR,
+    pub SPSP1: super::UCHAR,
+    pub SECP: super::UCHAR,
+    pub TL: super::ULONG,
+    pub Reserved3: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_AUTH_SEND_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_AUTH_SEND_RESPONSE {
-    pub Reserved0: u64,
-    pub SQHD: u16,
-    pub Reserved1: u16,
-    pub CID: u16,
-    pub STS: u16,
+    pub Reserved0: super::ULONGLONG,
+    pub SQHD: super::USHORT,
+    pub Reserved1: super::USHORT,
+    pub CID: super::USHORT,
+    pub STS: super::USHORT,
 }
 pub type NVMEOF_AUTH_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_CONNECT_COMMAND {
-    pub OPC: u8,
-    pub Reserved0: u8,
-    pub CID: u16,
-    pub FCTYPE: u8,
-    pub Reserved1: [u8; 19],
+    pub OPC: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub CID: super::USHORT,
+    pub FCTYPE: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 19],
     pub SGL1: NVME_SGL_DESC,
-    pub RECFMT: u16,
-    pub QID: u16,
-    pub SQSIZE: u16,
+    pub RECFMT: super::USHORT,
+    pub QID: super::USHORT,
+    pub SQSIZE: super::USHORT,
     pub CATTR: NVMEOF_CONNECT_COMMAND_0,
-    pub Reserved2: u8,
-    pub KATO: u32,
-    pub Reserved3: [u8; 12],
+    pub Reserved2: super::UCHAR,
+    pub KATO: super::ULONG,
+    pub Reserved3: [super::UCHAR; 12],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_CONNECT_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVMEOF_CONNECT_COMMAND_0 {
     pub Anonymous: NVMEOF_CONNECT_COMMAND_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_CONNECT_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_CONNECT_COMMAND_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_CONNECT_DATA {
-    pub HOSTID: [u8; 16],
-    pub CNTLID: u16,
-    pub Reserved0: [u8; 238],
-    pub SUBNQN: [u8; 256],
-    pub HOSTNQN: [u8; 256],
-    pub Reserved1: [u8; 256],
+    pub HOSTID: [super::UCHAR; 16],
+    pub CNTLID: super::USHORT,
+    pub Reserved0: [super::UCHAR; 238],
+    pub SUBNQN: [super::UCHAR; 256],
+    pub HOSTNQN: [super::UCHAR; 256],
+    pub Reserved1: [super::UCHAR; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_CONNECT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_CONNECT_RESPONSE {
     pub SCSpecific: NVMEOF_CONNECT_RESPONSE_0,
-    pub Reserved0: u32,
-    pub SQHD: u16,
-    pub Reserved1: u16,
-    pub CID: u16,
-    pub STS: u16,
+    pub Reserved0: super::ULONG,
+    pub SQHD: super::USHORT,
+    pub Reserved1: super::USHORT,
+    pub CID: super::USHORT,
+    pub STS: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_CONNECT_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVMEOF_CONNECT_RESPONSE_0 {
     pub Success: NVMEOF_CONNECT_RESPONSE_0_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_CONNECT_RESPONSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_CONNECT_RESPONSE_0_0 {
-    pub CNTLID: u16,
+    pub CNTLID: super::USHORT,
     pub AUTHREQ: NVMEOF_CONNECT_RESPONSE_0_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_CONNECT_RESPONSE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVMEOF_CONNECT_RESPONSE_0_0_0 {
     pub Anonymous: NVMEOF_CONNECT_RESPONSE_0_0_0_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_CONNECT_RESPONSE_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_CONNECT_RESPONSE_0_0_0_0 {
     pub _bitfield: u16,
@@ -423,57 +474,45 @@ pub const NVMEOF_DHCHAP_REPLY_CVAL_VALID: i32 = 1;
 pub const NVMEOF_DHCHAP_SUCCESS1_RVAL_NOTVALID: i32 = 0;
 pub const NVMEOF_DHCHAP_SUCCESS1_RVAL_VALID: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NVMEOF_DISCONNECT_COMMAND {
-    pub OPC: u8,
-    pub Reserved0: u8,
-    pub CID: u16,
-    pub FCTYPE: u8,
-    pub Reserved1: [u8; 19],
-    pub SGL1: NVME_SGL_DATABLOCK_DESC,
-    pub RECFMT: u16,
-    pub Reserved2: [u8; 22],
-}
-impl Default for NVMEOF_DISCONNECT_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_DISCONNECT_RESPONSE {
-    pub Reserved0: u64,
-    pub SQHD: u16,
-    pub Reserved1: u16,
-    pub CID: u16,
-    pub STS: u16,
+    pub Reserved0: super::ULONGLONG,
+    pub SQHD: super::USHORT,
+    pub Reserved1: super::USHORT,
+    pub CID: super::USHORT,
+    pub STS: super::USHORT,
 }
 pub const NVMEOF_DISCOVERY_LOG_VERSION_0: i32 = 0;
 pub const NVMEOF_DISCOVERY_NQN: windows_sys::core::PCSTR = windows_sys::core::s!("nqn.2014-08.org.nvmexpress.discovery");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_FABRICS_COMMAND {
-    pub OPC: u8,
-    pub PSDT: u8,
-    pub CID: u16,
-    pub FCTYPE: u8,
-    pub Reserved: [u8; 35],
-    pub Specific: [u8; 24],
+    pub OPC: super::UCHAR,
+    pub PSDT: super::UCHAR,
+    pub CID: super::USHORT,
+    pub FCTYPE: super::UCHAR,
+    pub Reserved: [super::UCHAR; 35],
+    pub Specific: [super::UCHAR; 24],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_FABRICS_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_FABRICS_RESPONSE {
-    pub Specific: [u8; 8],
-    pub SQHD: u16,
-    pub Reserved: u16,
-    pub CID: u16,
-    pub STS: u16,
+    pub Specific: [super::UCHAR; 8],
+    pub SQHD: super::USHORT,
+    pub Reserved: super::USHORT,
+    pub CID: super::USHORT,
+    pub STS: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_FABRICS_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -482,108 +521,123 @@ impl Default for NVMEOF_FABRICS_RESPONSE {
 pub const NVMEOF_IOQ_MAX_DEPTH: i32 = 65536;
 pub const NVMEOF_IOQ_MIN_DEPTH: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_PROPERTY_GET_COMMAND {
-    pub OPC: u8,
-    pub Reserved0: u8,
-    pub CID: u16,
-    pub FCTYPE: u8,
-    pub Reserved1: [u8; 35],
+    pub OPC: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub CID: super::USHORT,
+    pub FCTYPE: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 35],
     pub ATTRIB: NVMEOF_PROPERTY_GET_COMMAND_0,
-    pub Reserved2: [u8; 3],
-    pub OFST: u32,
-    pub Reserved3: [u8; 16],
+    pub Reserved2: [super::UCHAR; 3],
+    pub OFST: super::ULONG,
+    pub Reserved3: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_PROPERTY_GET_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_PROPERTY_GET_COMMAND_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_PROPERTY_GET_RESPONSE {
     pub VALUE: NVMEOF_PROPERTY_GET_RESPONSE_0,
-    pub SQHD: u16,
-    pub Reserved0: u16,
-    pub CID: u16,
-    pub STS: u16,
+    pub SQHD: super::USHORT,
+    pub Reserved0: super::USHORT,
+    pub CID: super::USHORT,
+    pub STS: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_PROPERTY_GET_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVMEOF_PROPERTY_GET_RESPONSE_0 {
     pub FourBytes: NVMEOF_PROPERTY_GET_RESPONSE_0_0,
-    pub EightBytes: u64,
+    pub EightBytes: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_PROPERTY_GET_RESPONSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_PROPERTY_GET_RESPONSE_0_0 {
-    pub Value: u32,
-    pub Reserved: u32,
+    pub Value: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVMEOF_PROPERTY_SET_COMMAND {
-    pub OPC: u8,
-    pub Reserved0: u8,
-    pub CID: u16,
-    pub FCTYPE: u8,
-    pub Reserved1: [u8; 35],
+    pub OPC: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub CID: super::USHORT,
+    pub FCTYPE: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 35],
     pub ATTRIB: NVMEOF_PROPERTY_SET_COMMAND_0,
-    pub Reserved2: [u8; 3],
-    pub OFST: u32,
+    pub Reserved2: [super::UCHAR; 3],
+    pub OFST: super::ULONG,
     pub VALUE: NVMEOF_PROPERTY_SET_COMMAND_1,
-    pub Reserved3: [u8; 8],
+    pub Reserved3: [super::UCHAR; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_PROPERTY_SET_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_PROPERTY_SET_COMMAND_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVMEOF_PROPERTY_SET_COMMAND_1 {
     pub FourBytes: NVMEOF_PROPERTY_SET_COMMAND_1_0,
-    pub EightBytes: u64,
+    pub EightBytes: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVMEOF_PROPERTY_SET_COMMAND_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_PROPERTY_SET_COMMAND_1_0 {
-    pub Value: u32,
-    pub Reserved: u32,
+    pub Value: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVMEOF_PROPERTY_SET_RESPONSE {
-    pub Reserved0: u64,
-    pub SQHD: u16,
-    pub Reserved1: u16,
-    pub CID: u16,
-    pub STS: u16,
+    pub Reserved0: super::ULONGLONG,
+    pub SQHD: super::USHORT,
+    pub Reserved1: super::USHORT,
+    pub CID: super::USHORT,
+    pub STS: super::USHORT,
 }
 pub const NVMEOF_PROPERTY_SIZE_4Bytes: i32 = 0;
 pub const NVMEOF_PROPERTY_SIZE_8Bytes: i32 = 1;
@@ -610,10 +664,12 @@ pub const NVME_ACCESS_LATENCY_LOW: NVME_ACCESS_LATENCIES = 3;
 pub const NVME_ACCESS_LATENCY_NONE: NVME_ACCESS_LATENCIES = 0;
 pub const NVME_ACCESS_LATENCY_NORMAL: NVME_ACCESS_LATENCIES = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_ACTIVE_NAMESPACE_ID_LIST {
-    pub NSID: [u32; 1024],
+    pub NSID: [super::ULONG; 1024],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ACTIVE_NAMESPACE_ID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -652,49 +708,58 @@ pub const NVME_ADMIN_COMMAND_SECURITY_SEND: NVME_ADMIN_COMMANDS = 129;
 pub const NVME_ADMIN_COMMAND_SET_FEATURES: NVME_ADMIN_COMMANDS = 9;
 pub const NVME_ADMIN_COMMAND_VIRTUALIZATION_MANAGEMENT: NVME_ADMIN_COMMANDS = 28;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
     pub Anonymous: NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0,
-    pub AsUlonglong: u64,
+    pub AsUlonglong: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_ADMIN_QUEUE_ATTRIBUTES {
     pub Anonymous: NVME_ADMIN_QUEUE_ATTRIBUTES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ADMIN_QUEUE_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ADMIN_QUEUE_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
     pub Anonymous: NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0,
-    pub AsUlonglong: u64,
+    pub AsUlonglong: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS_0 {
     pub _bitfield: u64,
@@ -740,36 +805,42 @@ pub const NVME_ASYNC_NOTICE_PREDICTABLE_LATENCY_EVENT_AGGREGATE_LOG_CHANGE: NVME
 pub const NVME_ASYNC_NOTICE_TELEMETRY_LOG_CHANGED: NVME_ASYNC_EVENT_NOTICE_CODES = 2;
 pub const NVME_ASYNC_NOTICE_ZONE_DESCRIPTOR_CHANGED: NVME_ASYNC_EVENT_NOTICE_CODES = 239;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
     pub _bitfield: u32,
-    pub Reserved1: u32,
+    pub Reserved1: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_BOOT_PARTITION_INFORMATION {
     pub Anonymous: NVME_BOOT_PARTITION_INFORMATION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_BOOT_PARTITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_BOOT_PARTITION_INFORMATION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_BOOT_PARTITION_LOG {
-    pub LogIdentifier: u8,
-    pub Reserved0: [u8; 3],
+    pub LogIdentifier: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
     pub BpInfo: NVME_BOOT_PARTITION_INFORMATION,
-    pub Reserved1: [u8; 8],
-    pub BootPartitionData: [u8; 1],
+    pub Reserved1: [super::UCHAR; 8],
+    pub BootPartitionData: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_BOOT_PARTITION_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -780,294 +851,350 @@ pub const NVME_CC_SHN_NORMAL_SHUTDOWN: NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = 1;
 pub const NVME_CC_SHN_NO_NOTIFICATION: NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = 0;
 pub type NVME_CC_SHN_SHUTDOWN_NOTIFICATIONS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW0_FEATURE_DSSD_POWER_STATE {
     pub Anonymous: NVME_CDW0_FEATURE_DSSD_POWER_STATE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW0_FEATURE_DSSD_POWER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW0_FEATURE_DSSD_POWER_STATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
     pub Anonymous: NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 pub type NVME_CDW0_FEATURE_ERROR_INJECTION = NVME_CDW11_FEATURE_ERROR_INJECTION;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
     pub Anonymous: NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW0_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_ABORT {
     pub Anonymous: NVME_CDW10_ABORT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_ABORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_ABORT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_CREATE_IO_QUEUE {
     pub Anonymous: NVME_CDW10_CREATE_IO_QUEUE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_CREATE_IO_QUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_CREATE_IO_QUEUE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_DATASET_MANAGEMENT {
     pub Anonymous: NVME_CDW10_DATASET_MANAGEMENT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_DATASET_MANAGEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_DELETE_IO_QUEUE {
     pub Anonymous: NVME_CDW10_DELETE_IO_QUEUE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_DELETE_IO_QUEUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_DELETE_IO_QUEUE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_DEVICE_SELF_TEST {
     pub Anonymous: NVME_CDW10_DEVICE_SELF_TEST_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_DEVICE_SELF_TEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_DEVICE_SELF_TEST_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_DIRECTIVE_RECEIVE {
-    pub NUMD: u32,
+    pub NUMD: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_DIRECTIVE_SEND {
-    pub NUMD: u32,
+    pub NUMD: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_DISCOVERY_INFO_MGMT {
     pub Anonymous: NVME_CDW10_DISCOVERY_INFO_MGMT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_DISCOVERY_INFO_MGMT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_DISCOVERY_INFO_MGMT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_FIRMWARE_ACTIVATE {
     pub Anonymous: NVME_CDW10_FIRMWARE_ACTIVATE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_FIRMWARE_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_FIRMWARE_ACTIVATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_FIRMWARE_DOWNLOAD {
-    pub NUMD: u32,
+    pub NUMD: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_FORMAT_NVM {
     pub Anonymous: NVME_CDW10_FORMAT_NVM_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_FORMAT_NVM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_FORMAT_NVM_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_FEATURES {
     pub Anonymous: NVME_CDW10_GET_FEATURES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_GET_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_GET_FEATURES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE {
     pub Anonymous: NVME_CDW10_GET_LOG_PAGE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_GET_LOG_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE_V121 {
     pub Anonymous: NVME_CDW10_GET_LOG_PAGE_V121_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_GET_LOG_PAGE_V121 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_GET_LOG_PAGE_V121_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE_V13 {
     pub Anonymous: NVME_CDW10_GET_LOG_PAGE_V13_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_GET_LOG_PAGE_V13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_GET_LOG_PAGE_V13_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_GET_LOG_PAGE_V20 {
     pub Anonymous: NVME_CDW10_GET_LOG_PAGE_V20_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_GET_LOG_PAGE_V20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_GET_LOG_PAGE_V20_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_IDENTIFY {
     pub Anonymous: NVME_CDW10_IDENTIFY_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_IDENTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_IDENTIFY_0 {
     pub _bitfield: u32,
@@ -1079,213 +1206,253 @@ pub const NVME_CDW10_LSP_ACTION_RELEASE_CONTEXT: i32 = 2;
 pub const NVME_CDW10_LSP_BOOT_PARTITION_0: i32 = 0;
 pub const NVME_CDW10_LSP_BOOT_PARTITION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_ACQUIRE {
     pub Anonymous: NVME_CDW10_RESERVATION_ACQUIRE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_RESERVATION_ACQUIRE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_RESERVATION_ACQUIRE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_REGISTER {
     pub Anonymous: NVME_CDW10_RESERVATION_REGISTER_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_RESERVATION_REGISTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_RESERVATION_REGISTER_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_RELEASE {
     pub Anonymous: NVME_CDW10_RESERVATION_RELEASE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_RESERVATION_RELEASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_RESERVATION_RELEASE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_RESERVATION_REPORT {
     pub Anonymous: NVME_CDW10_RESERVATION_REPORT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_RESERVATION_REPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_RESERVATION_REPORT_0 {
-    pub NUMD: u32,
+    pub NUMD: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_SANITIZE {
     pub Anonymous: NVME_CDW10_SANITIZE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_SANITIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_SANITIZE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_SECURITY_SEND_RECEIVE {
     pub Anonymous: NVME_CDW10_SECURITY_SEND_RECEIVE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_SECURITY_SEND_RECEIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_SECURITY_SEND_RECEIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW10_SET_FEATURES {
     pub Anonymous: NVME_CDW10_SET_FEATURES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW10_SET_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_SET_FEATURES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_ZONE_APPEND {
-    pub SLBA: u64,
+    pub SLBA: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_RECEIVE {
-    pub SLBA: u64,
+    pub SLBA: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW10_ZONE_MANAGEMENT_SEND {
-    pub SLBA: u64,
+    pub SLBA: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_CREATE_IO_CQ {
     pub Anonymous: NVME_CDW11_CREATE_IO_CQ_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_CREATE_IO_CQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_CREATE_IO_CQ_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_CREATE_IO_SQ {
     pub Anonymous: NVME_CDW11_CREATE_IO_SQ_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_CREATE_IO_SQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_CREATE_IO_SQ_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_DATASET_MANAGEMENT {
     pub Anonymous: NVME_CDW11_DATASET_MANAGEMENT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_DATASET_MANAGEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_DATASET_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_DIRECTIVE_RECEIVE {
     pub Anonymous: NVME_CDW11_DIRECTIVE_RECEIVE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_DIRECTIVE_RECEIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_DIRECTIVE_RECEIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_DIRECTIVE_SEND {
     pub Anonymous: NVME_CDW11_DIRECTIVE_SEND_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_DIRECTIVE_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_DIRECTIVE_SEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURES {
     pub NumberOfQueues: NVME_CDW11_FEATURE_NUMBER_OF_QUEUES,
@@ -1309,882 +1476,1046 @@ pub union NVME_CDW11_FEATURES {
     pub ReservationNotificationMask: NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK,
     pub GetHostMetadata: NVME_CDW11_FEATURE_GET_HOST_METADATA,
     pub SetHostMetadata: NVME_CDW11_FEATURE_SET_HOST_METADATA,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ARBITRATION {
     pub Anonymous: NVME_CDW11_FEATURE_ARBITRATION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_ARBITRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_ARBITRATION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
     pub Anonymous: NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
     pub Anonymous: NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
     pub Anonymous: NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
     pub Anonymous: NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
     pub Anonymous: NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ERROR_INJECTION {
     pub Anonymous: NVME_CDW11_FEATURE_ERROR_INJECTION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_ERROR_INJECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_ERROR_INJECTION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_ERROR_RECOVERY {
     pub Anonymous: NVME_CDW11_FEATURE_ERROR_RECOVERY_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_ERROR_RECOVERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_ERROR_RECOVERY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_GET_HOST_METADATA {
     pub Anonymous: NVME_CDW11_FEATURE_GET_HOST_METADATA_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_GET_HOST_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_GET_HOST_METADATA_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
     pub Anonymous: NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_COALESCING_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
     pub Anonymous: NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
     pub Anonymous: NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
     pub Anonymous: NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_LBA_RANGE_TYPE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
     pub Anonymous: NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
     pub Anonymous: NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_NUMBER_OF_QUEUES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_POWER_MANAGEMENT {
     pub Anonymous: NVME_CDW11_FEATURE_POWER_MANAGEMENT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_POWER_MANAGEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_POWER_MANAGEMENT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
     pub Anonymous: NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_SET_HOST_METADATA {
     pub Anonymous: NVME_CDW11_FEATURE_SET_HOST_METADATA_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_SET_HOST_METADATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_SET_HOST_METADATA_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
     pub Anonymous: NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
     pub Anonymous: NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
     pub Anonymous: NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
     pub Anonymous: NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_FIRMWARE_DOWNLOAD {
-    pub OFST: u32,
+    pub OFST: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_GET_LOG_PAGE {
     pub Anonymous: NVME_CDW11_GET_LOG_PAGE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_GET_LOG_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_IDENTIFY {
     pub Anonymous: NVME_CDW11_IDENTIFY_0,
     pub Anonymous2: NVME_CDW11_IDENTIFY_1,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_IDENTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_IDENTIFY_0 {
-    pub NVMSETID: u16,
-    pub Reserved: u16,
+    pub NVMSETID: super::USHORT,
+    pub Reserved: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_IDENTIFY_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_RESERVATION_REPORT {
     pub Anonymous: NVME_CDW11_RESERVATION_REPORT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_RESERVATION_REPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_RESERVATION_REPORT_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW11_SANITIZE {
     pub Anonymous: NVME_CDW11_SANITIZE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW11_SANITIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_SANITIZE_0 {
-    pub OVRPAT: u32,
+    pub OVRPAT: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_SECURITY_RECEIVE {
-    pub AL: u32,
+    pub AL: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW11_SECURITY_SEND {
-    pub TL: u32,
+    pub TL: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_RECEIVE {
     pub AllocateResources: NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_DIRECTIVE_RECEIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
     pub Anonymous: NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_SEND {
     pub EnableDirective: NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_DIRECTIVE_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
     pub Anonymous: NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_FEATURES {
     pub HostMemoryBuffer: NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER_0 {
-    pub HSIZE: u32,
+    pub HSIZE: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_GET_LOG_PAGE {
-    pub LPOL: u32,
-    pub AsUlong: u32,
+    pub LPOL: super::ULONG,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_GET_LOG_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_READ_WRITE {
     pub Anonymous: NVME_CDW12_READ_WRITE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_READ_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW12_READ_WRITE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_VERIFYCOMMAND {
     pub Anonymous: NVME_CDW12_VERIFYCOMMAND_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_VERIFYCOMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW12_VERIFYCOMMAND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW12_ZONE_APPEND {
     pub Anonymous: NVME_CDW12_ZONE_APPEND_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW12_ZONE_APPEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW12_ZONE_APPEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_FEATURES {
     pub HostMemoryBuffer: NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW13_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_GET_LOG_PAGE {
-    pub LPOU: u32,
-    pub AsUlong: u32,
+    pub LPOU: super::ULONG,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW13_GET_LOG_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_READ_WRITE {
     pub Anonymous: NVME_CDW13_READ_WRITE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW13_READ_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW13_READ_WRITE_0 {
     pub DSM: NVME_CDW13_READ_WRITE_0_0,
-    pub Reserved: u8,
-    pub DSPEC: u16,
+    pub Reserved: super::UCHAR,
+    pub DSPEC: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW13_READ_WRITE_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
     pub Anonymous: NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_RECEIVE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW13_ZONE_MANAGEMENT_SEND {
     pub Anonymous: NVME_CDW13_ZONE_MANAGEMENT_SEND_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW13_ZONE_MANAGEMENT_SEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW13_ZONE_MANAGEMENT_SEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_FEATURES {
     pub HostMemoryBuffer: NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW14_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER_0 {
-    pub HMDLUA: u32,
+    pub HMDLUA: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_GET_LOG_PAGE {
     pub Anonymous: NVME_CDW14_GET_LOG_PAGE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW14_GET_LOG_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW14_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_GET_LOG_PAGE_V20 {
     pub Anonymous: NVME_CDW14_GET_LOG_PAGE_V20_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW14_GET_LOG_PAGE_V20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW14_GET_LOG_PAGE_V20_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW14_IDENTIFY {
     pub Anonymous: NVME_CDW14_IDENTIFY_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW14_IDENTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW14_IDENTIFY_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_FEATURES {
     pub HostMemoryBuffer: NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW15_FEATURES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
     pub Anonymous: NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER_0 {
-    pub HMDLEC: u32,
+    pub HMDLEC: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_READ_WRITE {
     pub Anonymous: NVME_CDW15_READ_WRITE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW15_READ_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW15_READ_WRITE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_VERIFY_COMMAND {
     pub Anonymous: NVME_CDW15_VERIFY_COMMAND_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW15_VERIFY_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW15_VERIFY_COMMAND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CDW15_ZONE_APPEND {
     pub Anonymous: NVME_CDW15_ZONE_APPEND_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CDW15_ZONE_APPEND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CDW15_ZONE_APPEND_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_CHANGED_NAMESPACE_LIST_LOG {
-    pub NSID: [u32; 1024],
+    pub NSID: [super::ULONG; 1024],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CHANGED_NAMESPACE_LIST_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_CHANGED_ZONE_LIST_LOG {
-    pub ZoneIdentifiersCount: u16,
-    pub Reserved: [u8; 6],
-    pub ZoneIdentifier: [u64; 511],
+    pub ZoneIdentifiersCount: super::USHORT,
+    pub Reserved: [super::UCHAR; 6],
+    pub ZoneIdentifier: [super::ULONGLONG; 511],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CHANGED_ZONE_LIST_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2199,38 +2530,44 @@ pub const NVME_CMBSZ_SIZE_UNITS_4KB: NVME_CMBSZ_SIZE_UNITS = 0;
 pub const NVME_CMBSZ_SIZE_UNITS_64GB: NVME_CMBSZ_SIZE_UNITS = 6;
 pub const NVME_CMBSZ_SIZE_UNITS_64KB: NVME_CMBSZ_SIZE_UNITS = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND {
     pub CDW0: NVME_COMMAND_DWORD0,
-    pub NSID: u32,
-    pub Reserved0: [u32; 2],
-    pub MPTR: u64,
+    pub NSID: super::ULONG,
+    pub Reserved0: [super::ULONG; 2],
+    pub MPTR: super::ULONGLONG,
     pub Anonymous: NVME_COMMAND_0,
     pub u: NVME_COMMAND_1,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_0 {
     pub Anonymous: NVME_COMMAND_0_0,
-    pub SGL1: [u64; 2],
+    pub SGL1: [super::ULONGLONG; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMMAND_0_0 {
-    pub PRP1: u64,
-    pub PRP2: u64,
+    pub PRP1: super::ULONGLONG,
+    pub PRP2: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_1 {
     pub GENERAL: NVME_COMMAND_1_0,
@@ -2264,365 +2601,414 @@ pub union NVME_COMMAND_1 {
     pub VENDORSPECIFIC: NVME_COMMAND_1_28,
     pub VERIFYCOMMAND: NVME_COMMAND_1_29,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMMAND_1_0 {
-    pub CDW10: u32,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW10: super::ULONG,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_1 {
     pub CDW10: NVME_CDW10_IDENTIFY,
     pub CDW11: NVME_CDW11_IDENTIFY,
-    pub CDW12: u32,
-    pub CDW13: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
     pub Anonymous: NVME_COMMAND_1_1_0,
-    pub CDW15: u32,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_1_1_0 {
-    pub CDW14: u32,
+    pub CDW14: super::ULONG,
     pub CDW14_V20: NVME_CDW14_IDENTIFY,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_10 {
     pub CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
     pub CDW11: NVME_CDW11_SECURITY_SEND,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_11 {
     pub CDW10: NVME_CDW10_SECURITY_SEND_RECEIVE,
     pub CDW11: NVME_CDW11_SECURITY_RECEIVE,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMMAND_1_12 {
     pub CDW10: NVME_CDW10_FIRMWARE_DOWNLOAD,
     pub CDW11: NVME_CDW11_FIRMWARE_DOWNLOAD,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_13 {
     pub CDW10: NVME_CDW10_FIRMWARE_ACTIVATE,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_14 {
     pub CDW10: NVME_CDW10_FORMAT_NVM,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_14 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_15 {
     pub CDW10: NVME_CDW10_DIRECTIVE_RECEIVE,
     pub CDW11: NVME_CDW11_DIRECTIVE_RECEIVE,
     pub CDW12: NVME_CDW12_DIRECTIVE_RECEIVE,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_15 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_16 {
     pub CDW10: NVME_CDW10_DIRECTIVE_SEND,
     pub CDW11: NVME_CDW11_DIRECTIVE_SEND,
     pub CDW12: NVME_CDW12_DIRECTIVE_SEND,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_17 {
     pub CDW10: NVME_CDW10_SANITIZE,
     pub CDW11: NVME_CDW11_SANITIZE,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_18 {
-    pub LBALOW: u32,
-    pub LBAHIGH: u32,
+    pub LBALOW: super::ULONG,
+    pub LBAHIGH: super::ULONG,
     pub CDW12: NVME_CDW12_READ_WRITE,
     pub CDW13: NVME_CDW13_READ_WRITE,
-    pub CDW14: u32,
+    pub CDW14: super::ULONG,
     pub CDW15: NVME_CDW15_READ_WRITE,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_18 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_19 {
     pub CDW10: NVME_CDW10_RESERVATION_ACQUIRE,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_2 {
     pub CDW10: NVME_CDW10_ABORT,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_20 {
     pub CDW10: NVME_CDW10_RESERVATION_REGISTER,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_20 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_21 {
     pub CDW10: NVME_CDW10_RESERVATION_RELEASE,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_21 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_22 {
     pub CDW10: NVME_CDW10_RESERVATION_REPORT,
     pub CDW11: NVME_CDW11_RESERVATION_REPORT,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_22 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_23 {
     pub CDW1011: NVME_CDW10_ZONE_MANAGEMENT_SEND,
-    pub CDW12: u32,
+    pub CDW12: super::ULONG,
     pub CDW13: NVME_CDW13_ZONE_MANAGEMENT_SEND,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_23 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_24 {
     pub CDW1011: NVME_CDW10_ZONE_MANAGEMENT_RECEIVE,
-    pub DWORDCOUNT: u32,
+    pub DWORDCOUNT: super::ULONG,
     pub CDW13: NVME_CDW13_ZONE_MANAGEMENT_RECEIVE,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_24 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_25 {
     pub CDW1011: NVME_CDW10_ZONE_APPEND,
     pub CDW12: NVME_CDW12_ZONE_APPEND,
-    pub CDW13: u32,
-    pub ILBRT: u32,
+    pub CDW13: super::ULONG,
+    pub ILBRT: super::ULONG,
     pub CDW15: NVME_CDW15_ZONE_APPEND,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_25 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_26 {
     pub CDW10: NVME_CDW10_DEVICE_SELF_TEST,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_26 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_27 {
     pub CDW10: NVME_CDW10_DISCOVERY_INFO_MGMT,
-    pub CDW11: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW11: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_27 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMMAND_1_28 {
-    pub NDT: u32,
-    pub NDM: u32,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub NDT: super::ULONG,
+    pub NDM: super::ULONG,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_29 {
-    pub LBALOW: u32,
-    pub LBAHIGH: u32,
+    pub LBALOW: super::ULONG,
+    pub LBAHIGH: super::ULONG,
     pub CDW12: NVME_CDW12_VERIFYCOMMAND,
-    pub CDW13: u32,
-    pub EILBRT: u32,
+    pub CDW13: super::ULONG,
+    pub EILBRT: super::ULONG,
     pub CDW15: NVME_CDW15_VERIFY_COMMAND,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_29 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_3 {
     pub CDW10: NVME_CDW10_GET_FEATURES,
     pub CDW11: NVME_CDW11_FEATURES,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_4 {
     pub CDW10: NVME_CDW10_SET_FEATURES,
@@ -2632,12 +3018,14 @@ pub struct NVME_COMMAND_1_4 {
     pub CDW14: NVME_CDW14_FEATURES,
     pub CDW15: NVME_CDW15_FEATURES,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_5 {
     pub Anonymous: NVME_COMMAND_1_5_0,
@@ -2645,14 +3033,16 @@ pub struct NVME_COMMAND_1_5 {
     pub CDW12: NVME_CDW12_GET_LOG_PAGE,
     pub CDW13: NVME_CDW13_GET_LOG_PAGE,
     pub Anonymous2: NVME_COMMAND_1_5_1,
-    pub CDW15: u32,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_1_5_0 {
     pub CDW10: NVME_CDW10_GET_LOG_PAGE,
@@ -2660,116 +3050,135 @@ pub union NVME_COMMAND_1_5_0 {
     pub CDW10_V13: NVME_CDW10_GET_LOG_PAGE_V13,
     pub CDW10_V20: NVME_CDW10_GET_LOG_PAGE_V20,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_5_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_1_5_1 {
     pub CDW14: NVME_CDW14_GET_LOG_PAGE,
     pub CDW14_V20: NVME_CDW14_GET_LOG_PAGE_V20,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_5_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_6 {
     pub CDW10: NVME_CDW10_CREATE_IO_QUEUE,
     pub CDW11: NVME_CDW11_CREATE_IO_CQ,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_7 {
     pub CDW10: NVME_CDW10_CREATE_IO_QUEUE,
     pub CDW11: NVME_CDW11_CREATE_IO_SQ,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_8 {
     pub CDW10: NVME_CDW10_DELETE_IO_QUEUE,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_1_9 {
     pub CDW10: NVME_CDW10_DATASET_MANAGEMENT,
     pub CDW11: NVME_CDW11_DATASET_MANAGEMENT,
-    pub CDW12: u32,
-    pub CDW13: u32,
-    pub CDW14: u32,
-    pub CDW15: u32,
+    pub CDW12: super::ULONG,
+    pub CDW13: super::ULONG,
+    pub CDW14: super::ULONG,
+    pub CDW15: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_1_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_DWORD0 {
     pub Anonymous: NVME_COMMAND_DWORD0_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_DWORD0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMMAND_DWORD0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_EFFECTS_DATA {
     pub Anonymous: NVME_COMMAND_EFFECTS_DATA_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_EFFECTS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMMAND_EFFECTS_DATA_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMMAND_EFFECTS_LOG {
     pub ACS: [NVME_COMMAND_EFFECTS_DATA; 256],
     pub IOCS: [NVME_COMMAND_EFFECTS_DATA; 256],
-    pub Reserved: [u8; 2048],
+    pub Reserved: [super::UCHAR; 2048],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_EFFECTS_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2784,149 +3193,176 @@ pub const NVME_COMMAND_SET_KEY_VALUE: NVME_COMMAND_SET_IDENTIFIERS = 1;
 pub const NVME_COMMAND_SET_NVM: NVME_COMMAND_SET_IDENTIFIERS = 0;
 pub const NVME_COMMAND_SET_ZONED_NAMESPACE: NVME_COMMAND_SET_IDENTIFIERS = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMMAND_STATUS {
     pub Anonymous: NVME_COMMAND_STATUS_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMMAND_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMMAND_STATUS_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
     pub Anonymous: NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_ENTRY {
-    pub DW0: u32,
-    pub DW1: u32,
+    pub DW0: super::ULONG,
+    pub DW1: super::ULONG,
     pub DW2: NVME_COMPLETION_ENTRY_0,
     pub DW3: NVME_COMPLETION_ENTRY_1,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMPLETION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMPLETION_ENTRY_0 {
     pub Anonymous: NVME_COMPLETION_ENTRY_0_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMPLETION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMPLETION_ENTRY_0_0 {
-    pub SQHD: u16,
-    pub SQID: u16,
+    pub SQHD: super::USHORT,
+    pub SQID: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMPLETION_ENTRY_1 {
     pub Anonymous: NVME_COMPLETION_ENTRY_1_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMPLETION_ENTRY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_COMPLETION_ENTRY_1_0 {
-    pub CID: u16,
+    pub CID: super::USHORT,
     pub Status: NVME_COMMAND_STATUS,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMPLETION_ENTRY_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
     pub Anonymous: NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_COMPLETION_QUEUE_HEAD_DOORBELL_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CONTEXT_ATTRIBUTES {
     pub Anonymous: NVME_CONTEXT_ATTRIBUTES_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTEXT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CONTEXT_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_CAPABILITIES {
     pub Anonymous: NVME_CONTROLLER_CAPABILITIES_0,
-    pub AsUlonglong: u64,
+    pub AsUlonglong: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CONTROLLER_CAPABILITIES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_CONFIGURATION {
     pub Anonymous: NVME_CONTROLLER_CONFIGURATION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CONTROLLER_CONFIGURATION_0 {
     pub _bitfield: u32,
@@ -2936,44 +3372,52 @@ pub const NVME_CONTROLLER_ID_MAX: i32 = 65519;
 pub const NVME_CONTROLLER_ID_MIN: i32 = 0;
 pub const NVME_CONTROLLER_ID_STAT_PERSIST: i32 = 65534;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_LIST {
-    pub NumberOfIdentifiers: u16,
-    pub ControllerID: [u16; 2047],
+    pub NumberOfIdentifiers: super::USHORT,
+    pub ControllerID: [super::USHORT; 2047],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
     pub Anonymous: NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_LOCATION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
     pub Anonymous: NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CONTROLLER_MEMORY_BUFFER_SIZE_0 {
     pub _bitfield: u32,
@@ -2996,31 +3440,35 @@ pub const NVME_CONTROLLER_METADATA_PREBOOT_DRIVER_VERSION: NVME_CONTROLLER_METAD
 pub const NVME_CONTROLLER_METADATA_SYSTEM_PROCESSOR_MODEL: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = 7;
 pub const NVME_CONTROLLER_METADATA_SYSTEM_PRODUCT_NAME: NVME_CONTROLLER_METADATA_ELEMENT_TYPES = 11;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_READY_TIMEOUTS {
     pub Anonymous: NVME_CONTROLLER_READY_TIMEOUTS_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_READY_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CONTROLLER_READY_TIMEOUTS_0 {
-    pub CRWMT: u16,
-    pub CRIMT: u16,
+    pub CRWMT: super::USHORT,
+    pub CRIMT: super::USHORT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_CONTROLLER_REGISTERS {
     pub CAP: NVME_CONTROLLER_CAPABILITIES,
     pub VS: NVME_VERSION,
-    pub INTMS: u32,
-    pub INTMC: u32,
+    pub INTMS: super::ULONG,
+    pub INTMC: super::ULONG,
     pub CC: NVME_CONTROLLER_CONFIGURATION,
-    pub Reserved0: u32,
+    pub Reserved0: super::ULONG,
     pub CSTS: NVME_CONTROLLER_STATUS,
     pub NSSR: NVME_NVM_SUBSYSTEM_RESET,
     pub AQA: NVME_ADMIN_QUEUE_ATTRIBUTES,
@@ -3029,30 +3477,34 @@ pub struct NVME_CONTROLLER_REGISTERS {
     pub CMBLOC: NVME_CONTROLLER_MEMORY_BUFFER_LOCATION,
     pub CMBSZ: NVME_CONTROLLER_MEMORY_BUFFER_SIZE,
     pub BPINFO: NVME_BOOT_PARTITION_INFORMATION,
-    pub Reserved1: [u32; 8],
+    pub Reserved1: [super::ULONG; 8],
     pub NSSD: NVME_NVM_SUBSYSTEM_SHUTDOWN,
     pub CRTO: NVME_CONTROLLER_READY_TIMEOUTS,
-    pub Reserved2: [u32; 933],
-    pub Reserved3: [u32; 64],
-    pub Doorbells: [u32; 0],
+    pub Reserved2: [super::ULONG; 933],
+    pub Reserved3: [super::ULONG; 64],
+    pub Doorbells: [super::ULONG; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_REGISTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_CONTROLLER_STATUS {
     pub Anonymous: NVME_CONTROLLER_STATUS_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_CONTROLLER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_CONTROLLER_STATUS_0 {
     pub _bitfield: u32,
@@ -3072,70 +3524,81 @@ pub const NVME_CSTS_SHST_SHUTDOWN_COMPLETED: NVME_CSTS_SHST_SHUTDOWN_STATUS = 2;
 pub const NVME_CSTS_SHST_SHUTDOWN_IN_PROCESS: NVME_CSTS_SHST_SHUTDOWN_STATUS = 1;
 pub type NVME_CSTS_SHST_SHUTDOWN_STATUS = i32;
 pub type NVME_DEALLOCATE_READ_BEHAVIOR = i32;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_DEVICE_SELF_TEST_LOG {
     pub CurrentOperation: NVME_DEVICE_SELF_TEST_LOG_0,
     pub CurrentCompletion: NVME_DEVICE_SELF_TEST_LOG_1,
-    pub Reserved: [u8; 2],
+    pub Reserved: [super::UCHAR; 2],
     pub ResultData: [NVME_DEVICE_SELF_TEST_RESULT_DATA; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DEVICE_SELF_TEST_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_0 {
     pub _bitfield: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DEVICE_SELF_TEST_LOG_1 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
     pub Status: NVME_DEVICE_SELF_TEST_RESULT_DATA_0,
-    pub SegmentNumber: u8,
+    pub SegmentNumber: super::UCHAR,
     pub ValidDiagnostics: NVME_DEVICE_SELF_TEST_RESULT_DATA_1,
-    pub Reserved: u8,
-    pub POH: u64,
-    pub NSID: u32,
-    pub FailingLBA: u64,
+    pub Reserved: super::UCHAR,
+    pub POH: super::ULONGLONG,
+    pub NSID: super::ULONG,
+    pub FailingLBA: super::ULONGLONG,
     pub StatusCodeType: NVME_DEVICE_SELF_TEST_RESULT_DATA_2,
-    pub StatusCode: u8,
-    pub VendorSpecific: u16,
+    pub StatusCode: super::UCHAR,
+    pub VendorSpecific: super::USHORT,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_0 {
     pub _bitfield: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_1 {
     pub _bitfield: u8,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DEVICE_SELF_TEST_RESULT_DATA_2 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS {
     pub DirectivesSupported: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
     pub DirectivesEnabled: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
     pub _bitfield: u8,
-    pub Reserved1: [u8; 31],
+    pub Reserved1: [super::UCHAR; 31],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3153,29 +3616,33 @@ pub type NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS = i32;
 pub const NVME_DIRECTIVE_SEND_STREAMS_OPERATION_RELEASE_IDENTIFIER: NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS = 1;
 pub const NVME_DIRECTIVE_SEND_STREAMS_OPERATION_RELEASE_RESOURCES: NVME_DIRECTIVE_SEND_STREAMS_OPERATIONS = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA {
-    pub OpenStreamCount: u16,
-    pub StreamIdentifiers: [u16; 65535],
+    pub OpenStreamCount: super::USHORT,
+    pub StreamIdentifiers: [super::USHORT; 65535],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
-    pub MSL: u16,
-    pub NSSA: u16,
-    pub NSSO: u16,
-    pub Reserved0: [u8; 10],
-    pub SWS: u32,
-    pub SGS: u16,
-    pub NSA: u16,
-    pub NSO: u16,
-    pub Reserved1: [u8; 6],
+    pub MSL: super::USHORT,
+    pub NSSA: super::USHORT,
+    pub NSSO: super::USHORT,
+    pub Reserved0: [super::UCHAR; 10],
+    pub SWS: super::ULONG,
+    pub SGS: super::USHORT,
+    pub NSA: super::USHORT,
+    pub NSO: super::USHORT,
+    pub Reserved1: [super::UCHAR; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3185,88 +3652,101 @@ pub type NVME_DIRECTIVE_TYPES = i32;
 pub const NVME_DIRECTIVE_TYPE_IDENTIFY: NVME_DIRECTIVE_TYPES = 0;
 pub const NVME_DIRECTIVE_TYPE_STREAMS: NVME_DIRECTIVE_TYPES = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_DISCOVERY_ENTRY {
-    pub TRTYPE: u8,
-    pub ADRFAM: u8,
-    pub SUBTYPE: u8,
+    pub TRTYPE: super::UCHAR,
+    pub ADRFAM: super::UCHAR,
+    pub SUBTYPE: super::UCHAR,
     pub TREQ: NVME_DISCOVERY_ENTRY_0,
-    pub PORTID: u16,
-    pub CNTLID: u16,
-    pub ASQSZ: u16,
+    pub PORTID: super::USHORT,
+    pub CNTLID: super::USHORT,
+    pub ASQSZ: super::USHORT,
     pub EFLAGS: NVME_DISCOVERY_ENTRY_1,
-    pub Reserved0: [u8; 20],
-    pub TRSVCID: [u8; 32],
-    pub Reserved1: [u8; 192],
-    pub NQN: [u8; 256],
-    pub TRADDR: [u8; 256],
-    pub TSAS: [u8; 256],
+    pub Reserved0: [super::UCHAR; 20],
+    pub TRSVCID: [super::UCHAR; 32],
+    pub Reserved1: [super::UCHAR; 192],
+    pub NQN: [super::UCHAR; 256],
+    pub TRADDR: [super::UCHAR; 256],
+    pub TSAS: [super::UCHAR; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DISCOVERY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_DISCOVERY_ENTRY_0 {
     pub Anonymous: NVME_DISCOVERY_ENTRY_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DISCOVERY_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DISCOVERY_ENTRY_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_DISCOVERY_ENTRY_1 {
     pub Anonymous: NVME_DISCOVERY_ENTRY_1_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DISCOVERY_ENTRY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DISCOVERY_ENTRY_1_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_DISCOVERY_HEADER {
-    pub GENCTR: u64,
-    pub NUMREC: u64,
-    pub RECFMT: u16,
+    pub GENCTR: super::ULONGLONG,
+    pub NUMREC: super::ULONGLONG,
+    pub RECFMT: super::USHORT,
     pub DLPF: NVME_DISCOVERY_HEADER_0,
-    pub Reserved0: u8,
-    pub TDLPL: u32,
-    pub Reserved1: [u8; 1000],
+    pub Reserved0: super::UCHAR,
+    pub TDLPL: super::ULONG,
+    pub Reserved1: [super::UCHAR; 1000],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DISCOVERY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_DISCOVERY_HEADER_0 {
     pub Anonymous: NVME_DISCOVERY_HEADER_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DISCOVERY_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DISCOVERY_HEADER_0_0 {
     pub _bitfield: u8,
@@ -3283,38 +3763,43 @@ pub const NVME_DISCOVERY_INFO_ENTRY_FORMAT_RESERVED: NVME_DISCOVERY_INFO_ENTRY_F
 pub const NVME_DISCOVERY_INFO_MGMT_EKTYPE_PORTID: i32 = 63;
 pub const NVME_DISCOVERY_INFO_MGMT_EKTYPE_TRADDR: i32 = 95;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_DISCOVERY_INFO_MGMT_HEADER {
-    pub TDL: u32,
-    pub Reserved0: u32,
-    pub NUMENT: u64,
-    pub ENTFMT: u16,
-    pub ETYPE: u16,
-    pub PORTLCL: u8,
-    pub Reserved1: u8,
+    pub TDL: super::ULONG,
+    pub Reserved0: super::ULONG,
+    pub NUMENT: super::ULONGLONG,
+    pub ENTFMT: super::USHORT,
+    pub ETYPE: super::USHORT,
+    pub PORTLCL: super::UCHAR,
+    pub Reserved1: super::UCHAR,
     pub EKTYPE: NVME_DISCOVERY_INFO_MGMT_HEADER_0,
-    pub EID: [u8; 256],
-    pub ENAME: [u8; 256],
-    pub EVER: [u8; 64],
-    pub Reserved2: [u8; 424],
+    pub EID: [super::UCHAR; 256],
+    pub ENAME: [super::UCHAR; 256],
+    pub EVER: [super::UCHAR; 64],
+    pub Reserved2: [super::UCHAR; 424],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DISCOVERY_INFO_MGMT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_DISCOVERY_INFO_MGMT_HEADER_0 {
     pub Anonymous: NVME_DISCOVERY_INFO_MGMT_HEADER_0_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_DISCOVERY_INFO_MGMT_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_DISCOVERY_INFO_MGMT_HEADER_0_0 {
     pub _bitfield: u16,
@@ -3325,75 +3810,85 @@ pub const NVME_DISCOVERY_INFO_MGMT_TASK_REGISTER: NVME_DISCOVERY_INFO_MGMT_TASK 
 pub const NVME_DISCOVERY_INFO_MGMT_TASK_UPDATE: NVME_DISCOVERY_INFO_MGMT_TASK = 2;
 pub type NVME_DISC_CTRL_TYPE = i32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_ENDURANCE_GROUP_LOG {
-    pub Reserved0: u32,
-    pub AvailableSpareThreshold: u8,
-    pub PercentageUsed: u8,
-    pub Reserved1: [u8; 26],
-    pub EnduranceEstimate: [u8; 16],
-    pub DataUnitsRead: [u8; 16],
-    pub DataUnitsWritten: [u8; 16],
-    pub MediaUnitsWritten: [u8; 16],
-    pub Reserved2: [u8; 416],
+    pub Reserved0: super::ULONG,
+    pub AvailableSpareThreshold: super::UCHAR,
+    pub PercentageUsed: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 26],
+    pub EnduranceEstimate: [super::UCHAR; 16],
+    pub DataUnitsRead: [super::UCHAR; 16],
+    pub DataUnitsWritten: [super::UCHAR; 16],
+    pub MediaUnitsWritten: [super::UCHAR; 16],
+    pub Reserved2: [super::UCHAR; 416],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ENDURANCE_GROUP_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_ERROR_INFO_LOG {
-    pub ErrorCount: u64,
-    pub SQID: u16,
-    pub CMDID: u16,
+    pub ErrorCount: super::ULONGLONG,
+    pub SQID: super::USHORT,
+    pub CMDID: super::USHORT,
     pub Status: NVME_COMMAND_STATUS,
     pub ParameterErrorLocation: NVME_ERROR_INFO_LOG_0,
-    pub Lba: u64,
-    pub NameSpace: u32,
-    pub VendorInfoAvailable: u8,
-    pub TRTYPE: u8,
-    pub Reserved0: [u8; 2],
-    pub CommandSpecificInfo: u64,
-    pub TransportTypeSpecificInfo: u16,
-    pub Reserved1: [u8; 22],
+    pub Lba: super::ULONGLONG,
+    pub NameSpace: super::ULONG,
+    pub VendorInfoAvailable: super::UCHAR,
+    pub TRTYPE: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 2],
+    pub CommandSpecificInfo: super::ULONGLONG,
+    pub TransportTypeSpecificInfo: super::USHORT,
+    pub Reserved1: [super::UCHAR; 22],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ERROR_INFO_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ERROR_INFO_LOG_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_ERROR_INJECTION_ENTRY {
     pub Flags: NVME_ERROR_INJECTION_ENTRY_0,
-    pub Reserved1: u8,
-    pub ErrorInjectionType: u16,
-    pub ErrorInjectionTypeSpecific: [u8; 28],
+    pub Reserved1: super::UCHAR,
+    pub ErrorInjectionType: super::USHORT,
+    pub ErrorInjectionTypeSpecific: [super::UCHAR; 28],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ERROR_INJECTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_ERROR_INJECTION_ENTRY_0 {
     pub Anonymous: NVME_ERROR_INJECTION_ENTRY_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ERROR_INJECTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ERROR_INJECTION_ENTRY_0_0 {
     pub _bitfield: u8,
@@ -3412,12 +3907,14 @@ pub const NVME_ERROR_INJECTION_TYPE_MAX: NVME_ERROR_INJECTION_TYPES = 65535;
 pub const NVME_ERROR_INJECTION_TYPE_RESERVED0: NVME_ERROR_INJECTION_TYPES = 0;
 pub const NVME_ERROR_INJECTION_TYPE_RESERVED1: NVME_ERROR_INJECTION_TYPES = 10;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_EXTENDED_ATTR {
-    pub EXATTYPE: u16,
-    pub EXATLEN: u16,
-    pub EXATVAL: [u8; 0],
+    pub EXATTYPE: super::USHORT,
+    pub EXATLEN: super::USHORT,
+    pub EXATVAL: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_EXTENDED_ATTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3425,71 +3922,81 @@ impl Default for NVME_EXTENDED_ATTR {
 }
 pub type NVME_EXTENDED_ATTR_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_EXTENDED_DISCOVERY_ENTRY {
-    pub TRTYPE: u8,
-    pub ADRFAM: u8,
-    pub SUBTYPE: u8,
+    pub TRTYPE: super::UCHAR,
+    pub ADRFAM: super::UCHAR,
+    pub SUBTYPE: super::UCHAR,
     pub TREQ: NVME_EXTENDED_DISCOVERY_ENTRY_0,
-    pub PORTID: u16,
-    pub CNTLID: u16,
-    pub ASQSZ: u16,
+    pub PORTID: super::USHORT,
+    pub CNTLID: super::USHORT,
+    pub ASQSZ: super::USHORT,
     pub EFLAGS: NVME_EXTENDED_DISCOVERY_ENTRY_1,
-    pub Reserved0: [u8; 20],
-    pub TRSVCID: [u8; 32],
-    pub Reserved1: [u8; 192],
-    pub NQN: [u8; 256],
-    pub TRADDR: [u8; 256],
-    pub TSAS: [u8; 256],
-    pub TEL: u32,
-    pub NUMEXAT: u16,
-    pub Reserved2: u16,
+    pub Reserved0: [super::UCHAR; 20],
+    pub TRSVCID: [super::UCHAR; 32],
+    pub Reserved1: [super::UCHAR; 192],
+    pub NQN: [super::UCHAR; 256],
+    pub TRADDR: [super::UCHAR; 256],
+    pub TSAS: [super::UCHAR; 256],
+    pub TEL: super::ULONG,
+    pub NUMEXAT: super::USHORT,
+    pub Reserved2: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_EXTENDED_DISCOVERY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_EXTENDED_DISCOVERY_ENTRY_0 {
     pub Anonymous: NVME_EXTENDED_DISCOVERY_ENTRY_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_EXTENDED_DISCOVERY_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_EXTENDED_DISCOVERY_ENTRY_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_EXTENDED_DISCOVERY_ENTRY_1 {
     pub Anonymous: NVME_EXTENDED_DISCOVERY_ENTRY_1_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_EXTENDED_DISCOVERY_ENTRY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_EXTENDED_DISCOVERY_ENTRY_1_0 {
     pub _bitfield: u16,
 }
 pub const NVME_EXTENDED_HOST_IDENTIFIER_SIZE: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_EXTENDED_REPORT_ZONE_INFO {
-    pub ZoneCount: u64,
-    pub Reserved: [u64; 7],
+    pub ZoneCount: super::ULONGLONG,
+    pub Reserved: [super::ULONGLONG; 7],
     pub Desc: [NVME_ZONE_EXTENDED_REPORT_ZONE_DESC; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_EXTENDED_REPORT_ZONE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3518,10 +4025,12 @@ pub const NVME_FEATURE_ERROR_RECOVERY: NVME_FEATURES = 5;
 pub const NVME_FEATURE_HOST_BEHAVIOR_SUPPORT: NVME_FEATURES = 22;
 pub const NVME_FEATURE_HOST_CONTROLLED_THERMAL_MANAGEMENT: NVME_FEATURES = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_FEATURE_HOST_IDENTIFIER_DATA {
-    pub HOSTID: [u8; 16],
+    pub HOSTID: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_FEATURE_HOST_IDENTIFIER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3529,22 +4038,26 @@ impl Default for NVME_FEATURE_HOST_IDENTIFIER_DATA {
 }
 pub const NVME_FEATURE_HOST_MEMORY_BUFFER: NVME_FEATURES = 13;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_FEATURE_HOST_METADATA_DATA {
-    pub NumberOfMetadataElementDescriptors: u8,
-    pub Reserved0: u8,
-    pub MetadataElementDescriptors: [u8; 4094],
+    pub NumberOfMetadataElementDescriptors: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub MetadataElementDescriptors: [super::UCHAR; 4094],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_FEATURE_HOST_METADATA_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_FEATURE_IDENTIFIERS_EFFECTS_LOG {
     pub FeatureIdentifierSupported: [NVME_FID_SUPPORTED_AND_EFFECTS; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_FEATURE_IDENTIFIERS_EFFECTS_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3582,6 +4095,7 @@ pub const NVME_FEATURE_VALUE_SUPPORTED_CAPABILITIES: NVME_FEATURE_VALUE_CODES = 
 pub const NVME_FEATURE_VOLATILE_WRITE_CACHE: NVME_FEATURES = 6;
 pub const NVME_FEATURE_WRITE_ATOMICITY: NVME_FEATURES = 10;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_FID_SUPPORTED_AND_EFFECTS {
     pub _bitfield: u32,
@@ -3594,19 +4108,22 @@ pub const NVME_FIRMWARE_ACTIVATE_ACTION_DOWNLOAD_TO_SLOT_AND_ACTIVATE: NVME_FIRM
 pub const NVME_FIRMWARE_ACTIVATE_ACTION_DOWNLOAD_TO_SLOT_AND_ACTIVATE_IMMEDIATE: NVME_FIRMWARE_ACTIVATE_ACTIONS = 3;
 pub const NVME_FIRMWARE_ACTIVATE_ACTION_REPLACE_BOOT_PARTITION: NVME_FIRMWARE_ACTIVATE_ACTIONS = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_FIRMWARE_SLOT_INFO_LOG {
     pub AFI: NVME_FIRMWARE_SLOT_INFO_LOG_0,
-    pub Reserved0: [u8; 7],
-    pub FRS: [u64; 7],
-    pub Reserved1: [u8; 448],
+    pub Reserved0: [super::UCHAR; 7],
+    pub FRS: [super::ULONGLONG; 7],
+    pub Reserved1: [super::UCHAR; 448],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_FIRMWARE_SLOT_INFO_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_FIRMWARE_SLOT_INFO_LOG_0 {
     pub _bitfield: u8,
@@ -3616,76 +4133,85 @@ pub const NVME_FUSED_OPERATION_FIRST_CMD: NVME_FUSED_OPERATION_CODES = 1;
 pub const NVME_FUSED_OPERATION_NORMAL: NVME_FUSED_OPERATION_CODES = 0;
 pub const NVME_FUSED_OPERATION_SECOND_CMD: NVME_FUSED_OPERATION_CODES = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_GET_FEATURE_TIMESTAMP {
     pub Anonymous: NVME_GET_FEATURE_TIMESTAMP_0,
-    pub AsUlonglong: u64,
+    pub AsUlonglong: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_GET_FEATURE_TIMESTAMP_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_HEALTH_INFO_LOG {
     pub CriticalWarning: NVME_HEALTH_INFO_LOG_0,
-    pub Temperature: [u8; 2],
-    pub AvailableSpare: u8,
-    pub AvailableSpareThreshold: u8,
-    pub PercentageUsed: u8,
-    pub Reserved0: [u8; 26],
-    pub DataUnitRead: [u8; 16],
-    pub DataUnitWritten: [u8; 16],
-    pub HostReadCommands: [u8; 16],
-    pub HostWrittenCommands: [u8; 16],
-    pub ControllerBusyTime: [u8; 16],
-    pub PowerCycle: [u8; 16],
-    pub PowerOnHours: [u8; 16],
-    pub UnsafeShutdowns: [u8; 16],
-    pub MediaErrors: [u8; 16],
-    pub ErrorInfoLogEntryCount: [u8; 16],
-    pub WarningCompositeTemperatureTime: u32,
-    pub CriticalCompositeTemperatureTime: u32,
-    pub TemperatureSensor1: u16,
-    pub TemperatureSensor2: u16,
-    pub TemperatureSensor3: u16,
-    pub TemperatureSensor4: u16,
-    pub TemperatureSensor5: u16,
-    pub TemperatureSensor6: u16,
-    pub TemperatureSensor7: u16,
-    pub TemperatureSensor8: u16,
-    pub Reserved1: [u8; 296],
+    pub Temperature: [super::UCHAR; 2],
+    pub AvailableSpare: super::UCHAR,
+    pub AvailableSpareThreshold: super::UCHAR,
+    pub PercentageUsed: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 26],
+    pub DataUnitRead: [super::UCHAR; 16],
+    pub DataUnitWritten: [super::UCHAR; 16],
+    pub HostReadCommands: [super::UCHAR; 16],
+    pub HostWrittenCommands: [super::UCHAR; 16],
+    pub ControllerBusyTime: [super::UCHAR; 16],
+    pub PowerCycle: [super::UCHAR; 16],
+    pub PowerOnHours: [super::UCHAR; 16],
+    pub UnsafeShutdowns: [super::UCHAR; 16],
+    pub MediaErrors: [super::UCHAR; 16],
+    pub ErrorInfoLogEntryCount: [super::UCHAR; 16],
+    pub WarningCompositeTemperatureTime: super::ULONG,
+    pub CriticalCompositeTemperatureTime: super::ULONG,
+    pub TemperatureSensor1: super::USHORT,
+    pub TemperatureSensor2: super::USHORT,
+    pub TemperatureSensor3: super::USHORT,
+    pub TemperatureSensor4: super::USHORT,
+    pub TemperatureSensor5: super::USHORT,
+    pub TemperatureSensor6: super::USHORT,
+    pub TemperatureSensor7: super::USHORT,
+    pub TemperatureSensor8: super::USHORT,
+    pub Reserved1: [super::UCHAR; 296],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_HEALTH_INFO_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_HEALTH_INFO_LOG_0 {
     pub Anonymous: NVME_HEALTH_INFO_LOG_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_HEALTH_INFO_LOG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_HEALTH_INFO_LOG_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_HOST_BEHAVIOR_SUPPORT_DATA {
-    pub ACRE: u8,
-    pub ETDAS: u8,
-    pub LBAFEE: u8,
-    pub Reserved: [u8; 509],
+    pub ACRE: super::UCHAR,
+    pub ETDAS: super::UCHAR,
+    pub LBAFEE: super::UCHAR,
+    pub Reserved: [super::UCHAR; 509],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_HOST_BEHAVIOR_SUPPORT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3693,22 +4219,25 @@ impl Default for NVME_HOST_BEHAVIOR_SUPPORT_DATA {
 }
 pub const NVME_HOST_IDENTIFIER_SIZE: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY {
-    pub BADD: u64,
-    pub BSIZE: u32,
-    pub Reserved: u32,
+    pub BADD: super::ULONGLONG,
+    pub BSIZE: super::ULONG,
+    pub Reserved: super::ULONG,
 }
 pub const NVME_HOST_METADATA_ADD_ENTRY_MULTIPLE: NVME_HOST_METADATA_ELEMENT_ACTIONS = 2;
 pub const NVME_HOST_METADATA_ADD_REPLACE_ENTRY: NVME_HOST_METADATA_ELEMENT_ACTIONS = 0;
 pub const NVME_HOST_METADATA_DELETE_ENTRY_MULTIPLE: NVME_HOST_METADATA_ELEMENT_ACTIONS = 1;
 pub type NVME_HOST_METADATA_ELEMENT_ACTIONS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
     pub _bitfield: u32,
-    pub EVAL: [u8; 1],
+    pub EVAL: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3748,251 +4277,280 @@ pub const NVME_IDENTIFY_CNS_SPECIFIC_NAMESPACE: NVME_IDENTIFY_CNS_CODES = 0;
 pub const NVME_IDENTIFY_CNS_SPECIFIC_NAMESPACE_IO_COMMAND_SET: NVME_IDENTIFY_CNS_CODES = 5;
 pub const NVME_IDENTIFY_CNS_UUID_LIST: NVME_IDENTIFY_CNS_CODES = 23;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA {
-    pub VID: u16,
-    pub SSVID: u16,
-    pub SN: [u8; 20],
-    pub MN: [u8; 40],
-    pub FR: [u8; 8],
-    pub RAB: u8,
-    pub IEEE: [u8; 3],
+    pub VID: super::USHORT,
+    pub SSVID: super::USHORT,
+    pub SN: [super::UCHAR; 20],
+    pub MN: [super::UCHAR; 40],
+    pub FR: [super::UCHAR; 8],
+    pub RAB: super::UCHAR,
+    pub IEEE: [super::UCHAR; 3],
     pub CMIC: NVME_IDENTIFY_CONTROLLER_DATA_0,
-    pub MDTS: u8,
-    pub CNTLID: u16,
-    pub VER: u32,
-    pub RTD3R: u32,
-    pub RTD3E: u32,
+    pub MDTS: super::UCHAR,
+    pub CNTLID: super::USHORT,
+    pub VER: super::ULONG,
+    pub RTD3R: super::ULONG,
+    pub RTD3E: super::ULONG,
     pub OAES: NVME_IDENTIFY_CONTROLLER_DATA_1,
     pub CTRATT: NVME_IDENTIFY_CONTROLLER_DATA_2,
     pub RRLS: NVME_IDENTIFY_CONTROLLER_DATA_3,
-    pub Reserved0: [u8; 9],
-    pub CNTRLTYPE: u8,
-    pub FGUID: [u8; 16],
-    pub CRDT1: u16,
-    pub CRDT2: u16,
-    pub CRDT3: u16,
-    pub Reserved1: [u8; 106],
-    pub ReservedForManagement: [u8; 13],
-    pub NVMSR: u8,
-    pub VWCI: u8,
-    pub MEC: u8,
+    pub Reserved0: [super::UCHAR; 9],
+    pub CNTRLTYPE: super::UCHAR,
+    pub FGUID: [super::UCHAR; 16],
+    pub CRDT1: super::USHORT,
+    pub CRDT2: super::USHORT,
+    pub CRDT3: super::USHORT,
+    pub Reserved1: [super::UCHAR; 106],
+    pub ReservedForManagement: [super::UCHAR; 13],
+    pub NVMSR: super::UCHAR,
+    pub VWCI: super::UCHAR,
+    pub MEC: super::UCHAR,
     pub OACS: NVME_IDENTIFY_CONTROLLER_DATA_4,
-    pub ACL: u8,
-    pub AERL: u8,
+    pub ACL: super::UCHAR,
+    pub AERL: super::UCHAR,
     pub FRMW: NVME_IDENTIFY_CONTROLLER_DATA_5,
     pub LPA: NVME_IDENTIFY_CONTROLLER_DATA_6,
-    pub ELPE: u8,
-    pub NPSS: u8,
+    pub ELPE: super::UCHAR,
+    pub NPSS: super::UCHAR,
     pub AVSCC: NVME_IDENTIFY_CONTROLLER_DATA_7,
     pub APSTA: NVME_IDENTIFY_CONTROLLER_DATA_8,
-    pub WCTEMP: u16,
-    pub CCTEMP: u16,
-    pub MTFA: u16,
-    pub HMPRE: u32,
-    pub HMMIN: u32,
-    pub TNVMCAP: [u8; 16],
-    pub UNVMCAP: [u8; 16],
+    pub WCTEMP: super::USHORT,
+    pub CCTEMP: super::USHORT,
+    pub MTFA: super::USHORT,
+    pub HMPRE: super::ULONG,
+    pub HMMIN: super::ULONG,
+    pub TNVMCAP: [super::UCHAR; 16],
+    pub UNVMCAP: [super::UCHAR; 16],
     pub RPMBS: NVME_IDENTIFY_CONTROLLER_DATA_9,
-    pub EDSTT: u16,
-    pub DSTO: u8,
-    pub FWUG: u8,
-    pub KAS: u16,
+    pub EDSTT: super::USHORT,
+    pub DSTO: super::UCHAR,
+    pub FWUG: super::UCHAR,
+    pub KAS: super::USHORT,
     pub HCTMA: NVME_IDENTIFY_CONTROLLER_DATA_10,
-    pub MNTMT: u16,
-    pub MXTMT: u16,
+    pub MNTMT: super::USHORT,
+    pub MXTMT: super::USHORT,
     pub SANICAP: NVME_IDENTIFY_CONTROLLER_DATA_11,
-    pub HMMINDS: u32,
-    pub HMMAXD: u16,
-    pub NSETIDMAX: u16,
-    pub ENDGIDMAX: u16,
-    pub ANATT: u8,
+    pub HMMINDS: super::ULONG,
+    pub HMMAXD: super::USHORT,
+    pub NSETIDMAX: super::USHORT,
+    pub ENDGIDMAX: super::USHORT,
+    pub ANATT: super::UCHAR,
     pub ANACAP: NVME_IDENTIFY_CONTROLLER_DATA_12,
-    pub ANAGRPMAX: u32,
-    pub NANAGRPID: u32,
-    pub PELS: u32,
-    pub DomainId: u16,
-    pub Reserved2: [u8; 10],
-    pub MEGCAP: [u8; 16],
-    pub TMPTHHA: u8,
-    pub Reserved3: u8,
-    pub CQT: u16,
-    pub Reserved4: [u8; 124],
+    pub ANAGRPMAX: super::ULONG,
+    pub NANAGRPID: super::ULONG,
+    pub PELS: super::ULONG,
+    pub DomainId: super::USHORT,
+    pub Reserved2: [super::UCHAR; 10],
+    pub MEGCAP: [super::UCHAR; 16],
+    pub TMPTHHA: super::UCHAR,
+    pub Reserved3: super::UCHAR,
+    pub CQT: super::USHORT,
+    pub Reserved4: [super::UCHAR; 124],
     pub SQES: NVME_IDENTIFY_CONTROLLER_DATA_13,
     pub CQES: NVME_IDENTIFY_CONTROLLER_DATA_14,
-    pub MAXCMD: u16,
-    pub NN: u32,
+    pub MAXCMD: super::USHORT,
+    pub NN: super::ULONG,
     pub ONCS: NVME_IDENTIFY_CONTROLLER_DATA_15,
     pub FUSES: NVME_IDENTIFY_CONTROLLER_DATA_16,
     pub FNA: NVME_IDENTIFY_CONTROLLER_DATA_17,
     pub VWC: NVME_IDENTIFY_CONTROLLER_DATA_18,
-    pub AWUN: u16,
-    pub AWUPF: u16,
+    pub AWUN: super::USHORT,
+    pub AWUPF: super::USHORT,
     pub NVSCC: NVME_IDENTIFY_CONTROLLER_DATA_19,
     pub NWPC: NVME_IDENTIFY_CONTROLLER_DATA_20,
-    pub ACWU: u16,
-    pub CopyDescFormats: u16,
+    pub ACWU: super::USHORT,
+    pub CopyDescFormats: super::USHORT,
     pub SGLS: NVME_IDENTIFY_CONTROLLER_DATA_21,
-    pub MNAN: u32,
-    pub MAXDNA: [u8; 16],
-    pub MAXCNA: u32,
-    pub Reserved6: [u8; 204],
-    pub SUBNQN: [u8; 256],
-    pub Reserved7: [u8; 768],
-    pub IOCCSZ: u32,
-    pub IORCSZ: u32,
-    pub ICDOFF: u16,
+    pub MNAN: super::ULONG,
+    pub MAXDNA: [super::UCHAR; 16],
+    pub MAXCNA: super::ULONG,
+    pub Reserved6: [super::UCHAR; 204],
+    pub SUBNQN: [super::UCHAR; 256],
+    pub Reserved7: [super::UCHAR; 768],
+    pub IOCCSZ: super::ULONG,
+    pub IORCSZ: super::ULONG,
+    pub ICDOFF: super::USHORT,
     pub FCATT: NVME_IDENTIFY_CONTROLLER_DATA_22,
-    pub MSDBD: u8,
+    pub MSDBD: super::UCHAR,
     pub OFCS: NVME_IDENTIFY_CONTROLLER_DATA_23,
-    pub DCTYPE: u8,
-    pub Reserved8: [u8; 241],
+    pub DCTYPE: super::UCHAR,
+    pub Reserved8: [super::UCHAR; 241],
     pub PDS: [NVME_POWER_STATE_DESC; 32],
-    pub VS: [u8; 1024],
+    pub VS: [super::UCHAR; 1024],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_IDENTIFY_CONTROLLER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_10 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_11 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_12 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_13 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_14 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_15 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_16 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_17 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_18 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_19 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_2 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_20 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_21 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_22 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_23 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_3 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_4 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_5 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_6 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_7 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_8 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_CONTROLLER_DATA_9 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_IO_COMMAND_SET {
     pub IOCommandSetVector: [IO_COMMAND_SET_VECTOR; 512],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_IDENTIFY_IO_COMMAND_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA {
-    pub NSZE: u64,
-    pub NCAP: u64,
-    pub NUSE: u64,
+    pub NSZE: super::ULONGLONG,
+    pub NCAP: super::ULONGLONG,
+    pub NUSE: super::ULONGLONG,
     pub NSFEAT: NVME_IDENTIFY_NAMESPACE_DATA_0,
-    pub NLBAF: u8,
+    pub NLBAF: super::UCHAR,
     pub FLBAS: NVME_IDENTIFY_NAMESPACE_DATA_1,
     pub MC: NVME_IDENTIFY_NAMESPACE_DATA_2,
     pub DPC: NVME_IDENTIFY_NAMESPACE_DATA_3,
@@ -4001,147 +4559,167 @@ pub struct NVME_IDENTIFY_NAMESPACE_DATA {
     pub RESCAP: NVM_RESERVATION_CAPABILITIES,
     pub FPI: NVME_IDENTIFY_NAMESPACE_DATA_6,
     pub DLFEAT: NVME_IDENTIFY_NAMESPACE_DATA_7,
-    pub NAWUN: u16,
-    pub NAWUPF: u16,
-    pub NACWU: u16,
-    pub NABSN: u16,
-    pub NABO: u16,
-    pub NABSPF: u16,
-    pub NOIOB: u16,
-    pub NVMCAP: [u8; 16],
-    pub NPWG: u16,
-    pub NPWA: u16,
-    pub NPDG: u16,
-    pub NPDA: u16,
-    pub NOWS: u16,
-    pub MSSRL: u16,
-    pub MCL: u32,
-    pub MSRC: u8,
-    pub Reserved2: [u8; 11],
-    pub ANAGRPID: u32,
-    pub Reserved3: [u8; 3],
+    pub NAWUN: super::USHORT,
+    pub NAWUPF: super::USHORT,
+    pub NACWU: super::USHORT,
+    pub NABSN: super::USHORT,
+    pub NABO: super::USHORT,
+    pub NABSPF: super::USHORT,
+    pub NOIOB: super::USHORT,
+    pub NVMCAP: [super::UCHAR; 16],
+    pub NPWG: super::USHORT,
+    pub NPWA: super::USHORT,
+    pub NPDG: super::USHORT,
+    pub NPDA: super::USHORT,
+    pub NOWS: super::USHORT,
+    pub MSSRL: super::USHORT,
+    pub MCL: super::ULONG,
+    pub MSRC: super::UCHAR,
+    pub Reserved2: [super::UCHAR; 11],
+    pub ANAGRPID: super::ULONG,
+    pub Reserved3: [super::UCHAR; 3],
     pub NSATTR: NVME_IDENTIFY_NAMESPACE_DATA_8,
-    pub NVMSETID: u16,
-    pub ENDGID: u16,
-    pub NGUID: [u8; 16],
-    pub EUI64: [u8; 8],
+    pub NVMSETID: super::USHORT,
+    pub ENDGID: super::USHORT,
+    pub NGUID: [super::UCHAR; 16],
+    pub EUI64: [super::UCHAR; 8],
     pub LBAF: [NVME_LBA_FORMAT; 64],
-    pub VS: [u8; 3712],
+    pub VS: [super::UCHAR; 3712],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_IDENTIFY_NAMESPACE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_2 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_3 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_4 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_5 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_6 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_7 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_NAMESPACE_DATA_8 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
-    pub NIDT: u8,
-    pub NIDL: u8,
-    pub Reserved: [u8; 2],
-    pub NID: [u8; 1],
+    pub NIDT: super::UCHAR,
+    pub NIDL: super::UCHAR,
+    pub Reserved: [super::UCHAR; 2],
+    pub NID: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_IDENTIFY_NAMESPACE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
-    pub VSL: u8,
-    pub WZSL: u8,
-    pub WUSL: u8,
-    pub DMRL: u8,
-    pub DMRSL: u32,
-    pub DMSL: u64,
-    pub Reserved: [u8; 4080],
+    pub VSL: super::UCHAR,
+    pub WZSL: super::UCHAR,
+    pub WUSL: super::UCHAR,
+    pub DMRL: super::UCHAR,
+    pub DMRSL: super::ULONG,
+    pub DMSL: super::ULONGLONG,
+    pub Reserved: [super::UCHAR; 4080],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
     pub ZOC: NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0,
     pub OZCS: NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1,
-    pub MAR: u32,
-    pub MOR: u32,
-    pub RRL: u32,
-    pub FRL: u32,
-    pub Reserved0: [u8; 2796],
+    pub MAR: super::ULONG,
+    pub MOR: super::ULONG,
+    pub RRL: super::ULONG,
+    pub FRL: super::ULONG,
+    pub Reserved0: [super::UCHAR; 2796],
     pub LBAEF: [NVME_LBA_ZONE_FORMAT; 16],
-    pub Reserved1: [u8; 768],
-    pub VS: [u8; 256],
+    pub Reserved1: [super::UCHAR; 768],
+    pub VS: [super::UCHAR; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET_1 {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
-    pub ZASL: u8,
-    pub Reserved: [u8; 4095],
+    pub ZASL: super::UCHAR,
+    pub Reserved: [super::UCHAR; 4095],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4152,72 +4730,82 @@ pub const NVME_IO_COMMAND_SET_INVALID: NVME_STATUS_COMMAND_SPECIFIC_CODES = 44;
 pub const NVME_IO_COMMAND_SET_NOT_ENABLED: NVME_STATUS_COMMAND_SPECIFIC_CODES = 42;
 pub const NVME_IO_COMMAND_SET_NOT_SUPPORTED: NVME_STATUS_COMMAND_SPECIFIC_CODES = 41;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_LATENCY_MONITORING_ENTRY {
-    pub ActiveBucketTimerThreshold: u16,
-    pub ActiveThresholdA: u8,
-    pub ActiveThresholdB: u8,
-    pub ActiveThresholdC: u8,
-    pub ActiveThresholdD: u8,
-    pub ActiveLatencyConfig: u16,
-    pub ActiveLatencyMinimumWindow: u8,
-    pub DebugLogTriggerEnable: u16,
-    pub DiscardDebugLog: u8,
-    pub LatencyMonitorFeatureEnable: u8,
-    pub Reserved0: [u8; 4083],
+    pub ActiveBucketTimerThreshold: super::USHORT,
+    pub ActiveThresholdA: super::UCHAR,
+    pub ActiveThresholdB: super::UCHAR,
+    pub ActiveThresholdC: super::UCHAR,
+    pub ActiveThresholdD: super::UCHAR,
+    pub ActiveLatencyConfig: super::USHORT,
+    pub ActiveLatencyMinimumWindow: super::UCHAR,
+    pub DebugLogTriggerEnable: super::USHORT,
+    pub DiscardDebugLog: super::UCHAR,
+    pub LatencyMonitorFeatureEnable: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 4083],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_LATENCY_MONITORING_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_LBA_FORMAT {
     pub Anonymous: NVME_LBA_FORMAT_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_LBA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_LBA_FORMAT_0 {
-    pub MS: u16,
-    pub LBADS: u8,
+    pub MS: super::USHORT,
+    pub LBADS: super::UCHAR,
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_LBA_RANGE {
     pub Attributes: NVME_CONTEXT_ATTRIBUTES,
-    pub LogicalBlockCount: u32,
-    pub StartingLBA: u64,
+    pub LogicalBlockCount: super::ULONG,
+    pub StartingLBA: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_LBA_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_LBA_RANGET_TYPE_ENTRY {
-    pub Type: u8,
+    pub Type: super::UCHAR,
     pub Attributes: NVME_LBA_RANGET_TYPE_ENTRY_0,
-    pub Reserved0: [u8; 14],
-    pub SLBA: u64,
-    pub NLB: u64,
-    pub GUID: [u8; 16],
-    pub Reserved1: [u8; 16],
+    pub Reserved0: [super::UCHAR; 14],
+    pub SLBA: super::ULONGLONG,
+    pub NLB: super::ULONGLONG,
+    pub GUID: [super::UCHAR; 16],
+    pub Reserved1: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_LBA_RANGET_TYPE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_LBA_RANGET_TYPE_ENTRY_0 {
     pub _bitfield: u8,
@@ -4229,23 +4817,27 @@ pub const NVME_LBA_RANGE_TYPE_PAGE_SWAP_FILE: NVME_LBA_RANGE_TYPES = 4;
 pub const NVME_LBA_RANGE_TYPE_RAID: NVME_LBA_RANGE_TYPES = 2;
 pub const NVME_LBA_RANGE_TYPE_RESERVED: NVME_LBA_RANGE_TYPES = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_LBA_ZONE_FORMAT {
-    pub ZoneSize: u64,
-    pub ZDES: u8,
-    pub Reserved: [u8; 7],
+    pub ZoneSize: super::ULONGLONG,
+    pub ZDES: super::UCHAR,
+    pub Reserved: [super::UCHAR; 7],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_LBA_ZONE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_LID_SUPPORTED_AND_EFFECTS {
     pub _bitfield: u32,
@@ -4309,16 +4901,19 @@ pub const NVME_NUM_LOG_PAGE_IDENTIFIERS: i32 = 256;
 pub const NVME_NUM_NVME_MI_COMMANDS_SUPPORTED: i32 = 256;
 pub const NVME_NUM_UUID_LIST_ENTRIES: i32 = 128;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG {
     pub ManagementInterfaceCommandSupported: [NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS; 256],
-    pub Reserved: [u8; 3072],
+    pub Reserved: [super::UCHAR; 3072],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4347,129 +4942,151 @@ pub const NVME_NVM_QUEUE_PRIORITY_LOW: NVME_NVM_QUEUE_PRIORITIES = 3;
 pub const NVME_NVM_QUEUE_PRIORITY_MEDIUM: NVME_NVM_QUEUE_PRIORITIES = 2;
 pub const NVME_NVM_QUEUE_PRIORITY_URGENT: NVME_NVM_QUEUE_PRIORITIES = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_NVM_SUBSYSTEM_RESET {
-    pub NSSRC: u32,
+    pub NSSRC: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_NVM_SUBSYSTEM_SHUTDOWN {
-    pub NSSC: u32,
+    pub NSSC: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG {
-    pub PciePorts: u16,
+    pub PciePorts: super::USHORT,
     pub OobMgmtSupport: NVME_OCP_DEVICE_CAPABILITIES_LOG_0,
     pub WriteZeroesCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_1,
     pub SanitizeCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_2,
     pub DatasetMgmtCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_3,
     pub WriteUncorrectableCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_4,
     pub FusedCommand: NVME_OCP_DEVICE_CAPABILITIES_LOG_5,
-    pub MinimumValidDSSDPowerState: u16,
-    pub Reserved0: u8,
+    pub MinimumValidDSSDPowerState: super::USHORT,
+    pub Reserved0: super::UCHAR,
     pub DssdDescriptors: [DSSD_POWER_STATE_DESCRIPTOR; 127],
-    pub Reserved1: [u8; 3934],
-    pub LogPageVersionNumber: u16,
+    pub Reserved1: [super::UCHAR; 3934],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_1_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_2_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_3_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_4_0 {
     pub _bitfield: u16,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
     pub Anonymous: NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_CAPABILITIES_LOG_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_CAPABILITIES_LOG_5_0 {
     pub _bitfield: u16,
@@ -4478,24 +5095,26 @@ pub const NVME_OCP_DEVICE_CAPABILITIES_LOG_VERSION_1: i32 = 1;
 pub const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_0: i32 = 0;
 pub const NVME_OCP_DEVICE_DSSD_SPEC_MAJOR_VERSION_2: i32 = 2;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
-    pub PanicResetWaitTime: u16,
+    pub PanicResetWaitTime: super::USHORT,
     pub PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
-    pub DeviceRecoveryAction1: u8,
-    pub PanicId: u64,
+    pub DeviceRecoveryAction1: super::UCHAR,
+    pub PanicId: super::ULONGLONG,
     pub DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
-    pub VendorSpecificRecoveryCode: u8,
-    pub Reserved0: [u8; 3],
-    pub VendorSpecificCommandCDW12: u32,
-    pub VendorSpecificCommandCDW13: u32,
-    pub VendorSpecificCommandTimeout: u8,
-    pub DeviceRecoveryAction2: u8,
-    pub DeviceRecoveryAction2Timeout: u8,
-    pub Reserved1: [u8; 463],
-    pub LogPageVersionNumber: u16,
+    pub VendorSpecificRecoveryCode: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
+    pub VendorSpecificCommandCDW12: super::ULONG,
+    pub VendorSpecificCommandCDW13: super::ULONG,
+    pub VendorSpecificCommandTimeout: super::UCHAR,
+    pub DeviceRecoveryAction2: super::UCHAR,
+    pub DeviceRecoveryAction2Timeout: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 463],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4503,16 +5122,18 @@ impl Default for NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 {
 }
 pub const NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_VERSION_2: i32 = 2;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
-    pub LID: u8,
-    pub Reserved0: [u8; 3],
-    pub ValidNumberOfEntries: u32,
+    pub LID: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
+    pub ValidNumberOfEntries: super::ULONG,
     pub Entries: [FIRMWARE_ACTIVATION_HISTORY_ENTRY; 20],
-    pub Reserved1: [u8; 2790],
-    pub LogPageVersionNumber: u16,
+    pub Reserved1: [super::UCHAR; 2790],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4520,19 +5141,20 @@ impl Default for NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG {
 }
 pub const NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
     pub FeatureStatus: LATENCY_MONITOR_FEATURE_STATUS,
-    pub Reserved0: u8,
-    pub ActiveBucketTimer: u16,
-    pub ActiveBucketTimerThreshold: u16,
-    pub ActiveThresholdA: u8,
-    pub ActiveThresholdB: u8,
-    pub ActiveThresholdC: u8,
-    pub ActiveThresholdD: u8,
+    pub Reserved0: super::UCHAR,
+    pub ActiveBucketTimer: super::USHORT,
+    pub ActiveBucketTimerThreshold: super::USHORT,
+    pub ActiveThresholdA: super::UCHAR,
+    pub ActiveThresholdB: super::UCHAR,
+    pub ActiveThresholdC: super::UCHAR,
+    pub ActiveThresholdD: super::UCHAR,
     pub ActiveLatencyConfig: ACTIVE_LATENCY_CONFIGURATION,
-    pub ActiveLatencyMinimumWindow: u8,
-    pub Reserved1: [u8; 19],
+    pub ActiveLatencyMinimumWindow: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 19],
     pub ActiveBucketCounter0: BUCKET_COUNTER,
     pub ActiveBucketCounter1: BUCKET_COUNTER,
     pub ActiveBucketCounter2: BUCKET_COUNTER,
@@ -4540,7 +5162,7 @@ pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
     pub ActiveLatencyStamp: LATENCY_STAMP,
     pub ActiveMeasuredLatency: MEASURED_LATENCY,
     pub ActiveLatencyStampUnits: LATENCY_STAMP_UNITS,
-    pub Reserved2: [u8; 22],
+    pub Reserved2: [super::UCHAR; 22],
     pub StaticBucketCounter0: BUCKET_COUNTER,
     pub StaticBucketCounter1: BUCKET_COUNTER,
     pub StaticBucketCounter2: BUCKET_COUNTER,
@@ -4548,186 +5170,207 @@ pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
     pub StaticLatencyStamp: LATENCY_STAMP,
     pub StaticMeasuredLatency: MEASURED_LATENCY,
     pub StaticLatencyStampUnits: LATENCY_STAMP_UNITS,
-    pub Reserved3: [u8; 22],
+    pub Reserved3: [super::UCHAR; 22],
     pub DebugLogTriggerEnable: DEBUG_BIT_FIELD,
-    pub DebugLogMeasuredLatency: u16,
-    pub DebugLogLatencyStamp: u64,
-    pub DebugLogPointer: u16,
+    pub DebugLogMeasuredLatency: super::USHORT,
+    pub DebugLogLatencyStamp: super::ULONGLONG,
+    pub DebugLogPointer: super::USHORT,
     pub DebugCounterTriggerSource: DEBUG_BIT_FIELD,
     pub DebugLogStampUnits: NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0,
-    pub Reserved4: [u8; 29],
-    pub LogPageVersionNumber: u16,
+    pub Reserved4: [super::UCHAR; 29],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
     pub Anonymous: NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_0_0 {
     pub _bitfield: u8,
 }
 pub const NVME_OCP_DEVICE_LATENCY_MONITOR_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
-    pub MediaUnitsWritten: [u8; 16],
-    pub MediaUnitsRead: [u8; 16],
+    pub MediaUnitsWritten: [super::UCHAR; 16],
+    pub MediaUnitsRead: [super::UCHAR; 16],
     pub BadUserNANDBlockCount: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0,
     pub BadSystemNANDBlockCount: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1,
-    pub XORRecoveryCount: u64,
-    pub UnrecoverableReadErrorCount: u64,
-    pub SoftECCErrorCount: u64,
+    pub XORRecoveryCount: super::ULONGLONG,
+    pub UnrecoverableReadErrorCount: super::ULONGLONG,
+    pub SoftECCErrorCount: super::ULONGLONG,
     pub EndToEndCorrectionCounts: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2,
-    pub PercentageSystemDataUsed: u8,
-    pub RefreshCount: [u8; 7],
+    pub PercentageSystemDataUsed: super::UCHAR,
+    pub RefreshCount: [super::UCHAR; 7],
     pub UserDataEraseCounts: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3,
     pub ThermalThrottling: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4,
     pub DSSDSpecVersion: NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_5,
-    pub PCIeCorrectableErrorCount: u64,
-    pub IncompleteShutdownCount: u32,
-    pub Reserved1: u32,
-    pub PercentageFreeBlocks: u8,
-    pub Reserved2: [u8; 7],
-    pub CapacitorHealth: u16,
-    pub NvmeErrata: u8,
-    pub Reserved3: [u8; 5],
-    pub UnalignedIOCount: u64,
-    pub SecurityVersionNumber: u64,
-    pub NUSE: u64,
-    pub PLPStartCount: [u8; 16],
-    pub EnduranceEstimate: [u8; 16],
-    pub PCIeLinkRetrainingCount: u64,
-    pub PowerStateChangeCount: u64,
-    pub Reserved4: [u8; 286],
-    pub LogPageVersionNumber: u16,
+    pub PCIeCorrectableErrorCount: super::ULONGLONG,
+    pub IncompleteShutdownCount: super::ULONG,
+    pub Reserved1: super::ULONG,
+    pub PercentageFreeBlocks: super::UCHAR,
+    pub Reserved2: [super::UCHAR; 7],
+    pub CapacitorHealth: super::USHORT,
+    pub NvmeErrata: super::UCHAR,
+    pub Reserved3: [super::UCHAR; 5],
+    pub UnalignedIOCount: super::ULONGLONG,
+    pub SecurityVersionNumber: super::ULONGLONG,
+    pub NUSE: super::ULONGLONG,
+    pub PLPStartCount: [super::UCHAR; 16],
+    pub EnduranceEstimate: [super::UCHAR; 16],
+    pub PCIeLinkRetrainingCount: super::ULONGLONG,
+    pub PowerStateChangeCount: super::ULONGLONG,
+    pub Reserved4: [super::UCHAR; 286],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
-    pub RawCount: [u8; 6],
-    pub Normalized: [u8; 2],
+    pub RawCount: [super::UCHAR; 6],
+    pub Normalized: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
-    pub RawCount: [u8; 6],
-    pub Normalized: [u8; 2],
+    pub RawCount: [super::UCHAR; 6],
+    pub Normalized: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_2 {
-    pub DetectedCounts: u32,
-    pub CorrectedCounts: u32,
+    pub DetectedCounts: super::ULONG,
+    pub CorrectedCounts: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_3 {
-    pub MaximumCount: u32,
-    pub MinimumCount: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
-    pub EventCount: u8,
-    pub Status: u8,
+    pub MaximumCount: super::ULONG,
+    pub MinimumCount: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_4 {
+    pub EventCount: super::UCHAR,
+    pub Status: super::UCHAR,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3_5 {
-    pub Errata: u8,
-    pub PointVersion: u16,
-    pub MinorVersion: u16,
-    pub MajorVersion: u8,
+    pub Errata: super::UCHAR,
+    pub PointVersion: super::USHORT,
+    pub MinorVersion: super::USHORT,
+    pub MajorVersion: super::UCHAR,
 }
 pub const NVME_OCP_DEVICE_SMART_INFORMATION_LOG_VERSION_3: i32 = 3;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
     pub State: NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0,
-    pub Reserved0: [u8; 3],
-    pub LSPActivationCount: u8,
-    pub TPRevertCount: u8,
-    pub LSPRevertCount: u8,
-    pub LOCount: u8,
-    pub SUMLOCount: u8,
-    pub RPLOCount: u8,
-    pub NPLOCount: u8,
-    pub RLLOCount: u8,
-    pub WLLOCount: u8,
-    pub RULOCount: u8,
-    pub WULOCount: u8,
-    pub Reserved1: u8,
-    pub SIDAuthTryCount: u32,
-    pub SIDAuthTryLimit: u32,
-    pub ResetCount: u32,
-    pub ResetLockCount: u32,
-    pub Reserved2: [u8; 462],
-    pub LogPageVersionNumber: u16,
+    pub Reserved0: [super::UCHAR; 3],
+    pub LSPActivationCount: super::UCHAR,
+    pub TPRevertCount: super::UCHAR,
+    pub LSPRevertCount: super::UCHAR,
+    pub LOCount: super::UCHAR,
+    pub SUMLOCount: super::UCHAR,
+    pub RPLOCount: super::UCHAR,
+    pub NPLOCount: super::UCHAR,
+    pub RLLOCount: super::UCHAR,
+    pub WLLOCount: super::UCHAR,
+    pub RULOCount: super::UCHAR,
+    pub WULOCount: super::UCHAR,
+    pub Reserved1: super::UCHAR,
+    pub SIDAuthTryCount: super::ULONG,
+    pub SIDAuthTryLimit: super::ULONG,
+    pub ResetCount: super::ULONG,
+    pub ResetLockCount: super::ULONG,
+    pub Reserved2: [super::UCHAR; 462],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
     pub Anonymous: NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_0_0 {
     pub _bitfield: u8,
 }
 pub const NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_TCG_HISTORY_LOG {
-    pub LID: u8,
-    pub Reserved0: [u8; 3],
-    pub HistoryEntryCount: u32,
+    pub LID: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
+    pub HistoryEntryCount: super::ULONG,
     pub HistoryEntries: [TCG_HISTORY_ENTRY; 84],
-    pub Reserved1: [u8; 38],
-    pub LogPageVersionNumber: u16,
+    pub Reserved1: [super::UCHAR; 38],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_TCG_HISTORY_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4735,15 +5378,17 @@ impl Default for NVME_OCP_DEVICE_TCG_HISTORY_LOG {
 }
 pub const NVME_OCP_DEVICE_TCG_HISTORY_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
-    pub UnsupportedCount: u16,
-    pub Reserved0: [u8; 14],
+    pub UnsupportedCount: super::USHORT,
+    pub Reserved0: [super::UCHAR; 14],
     pub UnsupportedReqList: [UNSUPPORTED_REQUIREMENT; 253],
-    pub Reserved1: [u8; 14],
-    pub LogPageVersionNumber: u16,
+    pub Reserved1: [super::UCHAR; 14],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4751,18 +5396,20 @@ impl Default for NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG {
 }
 pub const NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG_VERSION_1: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
-    pub EventType: u8,
-    pub EventTypeRevision: u8,
-    pub EventHeaderLength: u8,
-    pub Reserved0: u8,
-    pub ControllerIdentifier: u16,
-    pub EventTimestamp: u64,
-    pub Reserved1: [u8; 6],
-    pub VendorSpecificInformationLength: u16,
-    pub EventLength: u16,
+    pub EventType: super::UCHAR,
+    pub EventTypeRevision: super::UCHAR,
+    pub EventHeaderLength: super::UCHAR,
+    pub Reserved0: super::UCHAR,
+    pub ControllerIdentifier: super::USHORT,
+    pub EventTimestamp: super::ULONGLONG,
+    pub Reserved1: [super::UCHAR; 6],
+    pub VendorSpecificInformationLength: super::USHORT,
+    pub EventLength: super::USHORT,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4770,26 +5417,28 @@ impl Default for NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER {
 }
 pub type NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES = i32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_PERSISTENT_EVENT_LOG_HEADER {
-    pub LogIdentifier: u8,
-    pub Reserved0: [u8; 3],
-    pub TotalNumberOfEvents: u32,
-    pub TotalLogLength: u64,
-    pub LogRevision: u8,
-    pub Reserved1: u8,
-    pub LogHeaderLength: u16,
-    pub Timestamp: u64,
-    pub PowerOnHours: [u8; 16],
-    pub PowerCycleCount: u64,
-    pub PciVendorId: u16,
-    pub PciSubsystemVendorId: u16,
-    pub SerialNumber: [u8; 20],
-    pub ModelNumber: [u8; 40],
-    pub NVMSubsystemNVMeQualifiedName: [u8; 256],
-    pub Reserved: [u8; 108],
-    pub SupportedEventsBitmap: [u8; 32],
+    pub LogIdentifier: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
+    pub TotalNumberOfEvents: super::ULONG,
+    pub TotalLogLength: super::ULONGLONG,
+    pub LogRevision: super::UCHAR,
+    pub Reserved1: super::UCHAR,
+    pub LogHeaderLength: super::USHORT,
+    pub Timestamp: super::ULONGLONG,
+    pub PowerOnHours: [super::UCHAR; 16],
+    pub PowerCycleCount: super::ULONGLONG,
+    pub PciVendorId: super::USHORT,
+    pub PciSubsystemVendorId: super::USHORT,
+    pub SerialNumber: [super::UCHAR; 20],
+    pub ModelNumber: [super::UCHAR; 40],
+    pub NVMSubsystemNVMeQualifiedName: [super::UCHAR; 256],
+    pub Reserved: [super::UCHAR; 108],
+    pub SupportedEventsBitmap: [super::UCHAR; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_PERSISTENT_EVENT_LOG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4817,24 +5466,26 @@ pub const NVME_PERSISTENT_EVENT_TYPE_THERMAL_EXCURSION: NVME_PERSISTENT_EVENT_LO
 pub const NVME_PERSISTENT_EVENT_TYPE_TIMESTAMP_CHANGE: NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES = 3;
 pub const NVME_PERSISTENT_EVENT_TYPE_VENDOR_SPECIFIC_EVENT: NVME_PERSISTENT_EVENT_LOG_EVENT_TYPES = 222;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_POWER_STATE_DESC {
-    pub MP: u16,
-    pub Reserved0: u8,
+    pub MP: super::USHORT,
+    pub Reserved0: super::UCHAR,
     pub _bitfield1: u8,
-    pub ENLAT: u32,
-    pub EXLAT: u32,
+    pub ENLAT: super::ULONG,
+    pub EXLAT: super::ULONG,
     pub _bitfield2: u8,
     pub _bitfield3: u8,
     pub _bitfield4: u8,
     pub _bitfield5: u8,
-    pub IDLP: u16,
+    pub IDLP: super::USHORT,
     pub _bitfield6: u8,
-    pub Reserved7: u8,
-    pub ACTP: u16,
+    pub Reserved7: super::UCHAR,
+    pub ACTP: super::USHORT,
     pub _bitfield7: u8,
-    pub Reserved9: [u8; 9],
+    pub Reserved9: [super::UCHAR; 9],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_POWER_STATE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4847,17 +5498,20 @@ pub const NVME_PROTECTION_INFORMATION_TYPE2: NVME_PROTECTION_INFORMATION_TYPES =
 pub const NVME_PROTECTION_INFORMATION_TYPE3: NVME_PROTECTION_INFORMATION_TYPES = 3;
 pub type NVME_PROTECTION_INFORMATION_TYPES = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_PRP_ENTRY {
     pub Anonymous: NVME_PRP_ENTRY_0,
-    pub AsUlonglong: u64,
+    pub AsUlonglong: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_PRP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_PRP_ENTRY_0 {
     pub _bitfield: u64,
@@ -4871,51 +5525,59 @@ pub const NVME_READ_BEHAVIOR_NOT_REPORTED: NVME_DEALLOCATE_READ_BEHAVIOR = 0;
 pub const NVME_READ_BEHAVIOR_RETURN_ONES: NVME_DEALLOCATE_READ_BEHAVIOR = 2;
 pub const NVME_READ_BEHAVIOR_RETURN_ZERO: NVME_DEALLOCATE_READ_BEHAVIOR = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_REGISTERED_CONTROLLER_DATA {
-    pub CNTLID: u16,
+    pub CNTLID: super::USHORT,
     pub RCSTS: NVME_REGISTERED_CONTROLLER_DATA_0,
-    pub Reserved: [u8; 5],
-    pub HOSTID: [u8; 8],
-    pub RKEY: u64,
+    pub Reserved: [super::UCHAR; 5],
+    pub HOSTID: [super::UCHAR; 8],
+    pub RKEY: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_REGISTERED_CONTROLLER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_REGISTERED_CONTROLLER_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
-    pub CNTLID: u16,
+    pub CNTLID: super::USHORT,
     pub RCSTS: NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0,
-    pub Reserved: [u8; 5],
-    pub RKEY: u64,
-    pub HOSTID: [u8; 16],
-    pub Reserved1: [u8; 32],
+    pub Reserved: [super::UCHAR; 5],
+    pub RKEY: super::ULONGLONG,
+    pub HOSTID: [super::UCHAR; 16],
+    pub Reserved1: [super::UCHAR; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_REPORT_ZONE_INFO {
-    pub ZoneCount: u64,
-    pub Reserved: [u64; 7],
+    pub ZoneCount: super::ULONGLONG,
+    pub Reserved: [super::ULONGLONG; 7],
     pub ZoneDescriptor: [NVME_ZONE_DESCRIPTOR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_REPORT_ZONE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4926,21 +5588,24 @@ pub const NVME_RESERVATION_ACQUIRE_ACTION_ACQUIRE: NVME_RESERVATION_ACQUIRE_ACTI
 pub const NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT: NVME_RESERVATION_ACQUIRE_ACTIONS = 1;
 pub const NVME_RESERVATION_ACQUIRE_ACTION_PREEMPT_AND_ABORT: NVME_RESERVATION_ACQUIRE_ACTIONS = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE {
-    pub CRKEY: u64,
-    pub PRKEY: u64,
+    pub CRKEY: super::ULONGLONG,
+    pub PRKEY: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_NOTIFICATION_LOG {
-    pub LogPageCount: u64,
-    pub LogPageType: u8,
-    pub AvailableLogPageCount: u8,
-    pub Reserved0: [u8; 2],
-    pub NameSpaceId: u32,
-    pub Reserved1: [u8; 48],
+    pub LogPageCount: super::ULONGLONG,
+    pub LogPageType: super::UCHAR,
+    pub AvailableLogPageCount: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 2],
+    pub NameSpaceId: super::ULONG,
+    pub Reserved1: [super::UCHAR; 48],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_RESERVATION_NOTIFICATION_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4956,10 +5621,11 @@ pub const NVME_RESERVATION_REGISTER_ACTION_REGISTER: NVME_RESERVATION_REGISTER_A
 pub const NVME_RESERVATION_REGISTER_ACTION_REPLACE: NVME_RESERVATION_REGISTER_ACTIONS = 2;
 pub const NVME_RESERVATION_REGISTER_ACTION_UNREGISTER: NVME_RESERVATION_REGISTER_ACTIONS = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_RESERVATION_REGISTER_DATA_STRUCTURE {
-    pub CRKEY: u64,
-    pub NRKEY: u64,
+    pub CRKEY: super::ULONGLONG,
+    pub NRKEY: super::ULONGLONG,
 }
 pub type NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES = i32;
 pub const NVME_RESERVATION_REGISTER_PTPL_STATE_NO_CHANGE: NVME_RESERVATION_REGISTER_PTPL_STATE_CHANGES = 0;
@@ -4970,43 +5636,50 @@ pub type NVME_RESERVATION_RELEASE_ACTIONS = i32;
 pub const NVME_RESERVATION_RELEASE_ACTION_CLEAR: NVME_RESERVATION_RELEASE_ACTIONS = 1;
 pub const NVME_RESERVATION_RELEASE_ACTION_RELEASE: NVME_RESERVATION_RELEASE_ACTIONS = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_RESERVATION_RELEASE_DATA_STRUCTURE {
-    pub CRKEY: u64,
+    pub CRKEY: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
     pub Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
     pub RegisteredControllersData: [NVME_REGISTERED_CONTROLLER_DATA; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
     pub Header: NVME_RESERVATION_REPORT_STATUS_HEADER,
-    pub Reserved1: [u8; 40],
+    pub Reserved1: [super::UCHAR; 40],
     pub RegisteredControllersExtendedData: [NVME_REGISTERED_CONTROLLER_EXTENDED_DATA; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_RESERVATION_REPORT_STATUS_HEADER {
-    pub GEN: u32,
-    pub RTYPE: u8,
-    pub REGCTL: u16,
-    pub Reserved: [u8; 2],
-    pub PTPLS: u8,
-    pub Reserved1: [u8; 14],
+    pub GEN: super::ULONG,
+    pub RTYPE: super::UCHAR,
+    pub REGCTL: super::USHORT,
+    pub Reserved: [super::UCHAR; 2],
+    pub PTPLS: super::UCHAR,
+    pub Reserved1: [super::UCHAR; 14],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_RESERVATION_REPORT_STATUS_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5033,37 +5706,42 @@ pub type NVME_SANITIZE_OPERATION_STATUS = i32;
 pub const NVME_SANITIZE_OPERATION_SUCCEEDED: NVME_SANITIZE_OPERATION_STATUS = 1;
 pub const NVME_SANITIZE_OPERATION_SUCCEEDED_WITH_FORCED_DEALLOCATION: NVME_SANITIZE_OPERATION_STATUS = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_SANITIZE_STATUS {
     pub _bitfield: u16,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_SANITIZE_STATUS_LOG {
-    pub SPROG: u16,
+    pub SPROG: super::USHORT,
     pub SSTAT: NVME_SANITIZE_STATUS,
-    pub SCDW10: u32,
-    pub EstimatedTimeForOverwrite: u32,
-    pub EstimatedTimeForBlockErase: u32,
-    pub EstimatedTimeForCryptoErase: u32,
-    pub EstimatedTimeForOverwriteWithNoDeallocateMediaModification: u32,
-    pub EstimatedTimeForBlockEraseWithNoDeallocateMediaModification: u32,
-    pub EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification: u32,
-    pub Reserved: [u8; 480],
+    pub SCDW10: super::ULONG,
+    pub EstimatedTimeForOverwrite: super::ULONG,
+    pub EstimatedTimeForBlockErase: super::ULONG,
+    pub EstimatedTimeForCryptoErase: super::ULONG,
+    pub EstimatedTimeForOverwriteWithNoDeallocateMediaModification: super::ULONG,
+    pub EstimatedTimeForBlockEraseWithNoDeallocateMediaModification: super::ULONG,
+    pub EstimatedTimeForCryptoEraseWithNoDeallocateMediaModification: super::ULONG,
+    pub Reserved: [super::UCHAR; 480],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_SANITIZE_STATUS_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_SCSI_NAME_STRING {
-    pub PCIVendorID: [i8; 4],
-    pub ModelNumber: [i8; 40],
-    pub NamespaceID: [i8; 4],
-    pub SerialNumber: [i8; 20],
+    pub PCIVendorID: [super::CHAR; 4],
+    pub ModelNumber: [super::CHAR; 40],
+    pub NamespaceID: [super::CHAR; 4],
+    pub SerialNumber: [super::CHAR; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_SCSI_NAME_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5074,225 +5752,58 @@ pub const NVME_SECURE_ERASE_NONE: NVME_SECURE_ERASE_SETTINGS = 0;
 pub type NVME_SECURE_ERASE_SETTINGS = i32;
 pub const NVME_SECURE_ERASE_USER_DATA: NVME_SECURE_ERASE_SETTINGS = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_SET_ATTRIBUTES_ENTRY {
-    pub Identifier: u16,
-    pub ENDGID: u16,
-    pub Reserved1: u32,
-    pub Random4KBReadTypical: u32,
-    pub OptimalWriteSize: u32,
-    pub TotalCapacity: [u8; 16],
-    pub UnallocatedCapacity: [u8; 16],
-    pub Reserved2: [u8; 80],
+    pub Identifier: super::USHORT,
+    pub ENDGID: super::USHORT,
+    pub Reserved1: super::ULONG,
+    pub Random4KBReadTypical: super::ULONG,
+    pub OptimalWriteSize: super::ULONG,
+    pub TotalCapacity: [super::UCHAR; 16],
+    pub UnallocatedCapacity: [super::UCHAR; 16],
+    pub Reserved2: [super::UCHAR; 80],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_SET_ATTRIBUTES_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NVME_SGL_BITBUCKET_DESC {
-    pub Reserved0: u64,
-    pub Length: u32,
-    pub Reserved1: [u8; 3],
-    pub Identifier: NVME_SGL_BITBUCKET_DESC_0,
-}
-impl Default for NVME_SGL_BITBUCKET_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NVME_SGL_BITBUCKET_DESC_0 {
-    pub Anonymous: NVME_SGL_BITBUCKET_DESC_0_0,
-    pub AsUchar: u8,
-}
-impl Default for NVME_SGL_BITBUCKET_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NVME_SGL_BITBUCKET_DESC_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NVME_SGL_DATABLOCK_DESC {
-    pub Address: u64,
-    pub Length: u32,
-    pub Reserved0: [u8; 3],
-    pub Identifier: NVME_SGL_DATABLOCK_DESC_0,
-}
-impl Default for NVME_SGL_DATABLOCK_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NVME_SGL_DATABLOCK_DESC_0 {
-    pub Anonymous: NVME_SGL_DATABLOCK_DESC_0_0,
-    pub AsUchar: u8,
-}
-impl Default for NVME_SGL_DATABLOCK_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NVME_SGL_DATABLOCK_DESC_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_SGL_DESC {
-    pub Reserved0: [u8; 15],
+    pub Reserved0: [super::UCHAR; 15],
     pub Identifier: NVME_SGL_DESC_0,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_SGL_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_SGL_DESC_0 {
     pub Anonymous: NVME_SGL_DESC_0_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_SGL_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_SGL_DESC_0_0 {
     pub _bitfield: u8,
 }
 pub type NVME_SGL_DESC_SUBTYPE = i32;
 pub type NVME_SGL_DESC_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NVME_SGL_KEYDATABLOCK_DESC {
-    pub Address: u64,
-    pub Length: [u8; 3],
-    pub Key: [u8; 4],
-    pub Identifier: NVME_SGL_KEYDATABLOCK_DESC_0,
-}
-impl Default for NVME_SGL_KEYDATABLOCK_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NVME_SGL_KEYDATABLOCK_DESC_0 {
-    pub Anonymous: NVME_SGL_KEYDATABLOCK_DESC_0_0,
-    pub AsUchar: u8,
-}
-impl Default for NVME_SGL_KEYDATABLOCK_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NVME_SGL_KEYDATABLOCK_DESC_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NVME_SGL_LASTSEG_DESC {
-    pub Address: u64,
-    pub Length: u32,
-    pub Reserved0: [u8; 3],
-    pub Identifier: NVME_SGL_LASTSEG_DESC_0,
-}
-impl Default for NVME_SGL_LASTSEG_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NVME_SGL_LASTSEG_DESC_0 {
-    pub Anonymous: NVME_SGL_LASTSEG_DESC_0_0,
-    pub AsUchar: u8,
-}
-impl Default for NVME_SGL_LASTSEG_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NVME_SGL_LASTSEG_DESC_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NVME_SGL_SEGMENT_DESC {
-    pub Address: u64,
-    pub Length: u32,
-    pub Reserved0: [u8; 3],
-    pub Identifier: NVME_SGL_SEGMENT_DESC_0,
-}
-impl Default for NVME_SGL_SEGMENT_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NVME_SGL_SEGMENT_DESC_0 {
-    pub Anonymous: NVME_SGL_SEGMENT_DESC_0_0,
-    pub AsUchar: u8,
-}
-impl Default for NVME_SGL_SEGMENT_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NVME_SGL_SEGMENT_DESC_0_0 {
-    pub _bitfield: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NVME_SGL_TRANSPORTDATA_DESC {
-    pub Reserved0: u64,
-    pub Length: u32,
-    pub Reserved1: [u8; 3],
-    pub Identifier: NVME_SGL_TRANSPORTDATA_DESC_0,
-}
-impl Default for NVME_SGL_TRANSPORTDATA_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union NVME_SGL_TRANSPORTDATA_DESC_0 {
-    pub Anonymous: NVME_SGL_TRANSPORTDATA_DESC_0_0,
-    pub AsUchar: u8,
-}
-impl Default for NVME_SGL_TRANSPORTDATA_DESC_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct NVME_SGL_TRANSPORTDATA_DESC_0_0 {
-    pub _bitfield: u8,
-}
 pub const NVME_STATE_ZSC: ZONE_STATE = 4;
 pub const NVME_STATE_ZSE: ZONE_STATE = 1;
 pub const NVME_STATE_ZSEO: ZONE_STATE = 3;
@@ -5437,47 +5948,54 @@ pub const NVME_STREAMS_GET_STATUS_MAX_IDS: i32 = 65535;
 pub const NVME_STREAMS_ID_MAX: i32 = 65535;
 pub const NVME_STREAMS_ID_MIN: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
     pub Anonymous: NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_SUBMISSION_QUEUE_TAIL_DOORBELL_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_SUPPORTED_LOG_PAGES_LOG {
     pub LogPageIdentifierSupported: [NVME_LID_SUPPORTED_AND_EFFECTS; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_SUPPORTED_LOG_PAGES_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
-    pub LogIdentifier: u8,
-    pub Reserved0: [u8; 4],
-    pub OrganizationID: [u8; 3],
-    pub Area1LastBlock: u16,
-    pub Area2LastBlock: u16,
-    pub Area3LastBlock: u16,
-    pub Reserved1: [u8; 2],
-    pub Area4LastBlock: u32,
-    pub Reserved2: [u8; 362],
-    pub ControllerInitiatedDataAvailable: u8,
-    pub ControllerInitiatedDataGenerationNumber: u8,
-    pub ReasonIdentifier: [u8; 128],
+    pub LogIdentifier: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 4],
+    pub OrganizationID: [super::UCHAR; 3],
+    pub Area1LastBlock: super::USHORT,
+    pub Area2LastBlock: super::USHORT,
+    pub Area3LastBlock: super::USHORT,
+    pub Reserved1: [super::UCHAR; 2],
+    pub Area4LastBlock: super::ULONG,
+    pub Reserved2: [super::UCHAR; 362],
+    pub ControllerInitiatedDataAvailable: super::UCHAR,
+    pub ControllerInitiatedDataGenerationNumber: super::UCHAR,
+    pub ReasonIdentifier: [super::UCHAR; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5485,22 +6003,24 @@ impl Default for NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
 }
 pub const NVME_TELEMETRY_DATA_BLOCK_SIZE: i32 = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_TELEMETRY_HOST_INITIATED_LOG {
-    pub LogIdentifier: u8,
-    pub Reserved0: [u8; 4],
-    pub OrganizationID: [u8; 3],
-    pub Area1LastBlock: u16,
-    pub Area2LastBlock: u16,
-    pub Area3LastBlock: u16,
-    pub Reserved1: [u8; 2],
-    pub Area4LastBlock: u32,
-    pub Reserved2: [u8; 361],
-    pub HostInitiatedDataGenerationNumber: u8,
-    pub ControllerInitiatedDataAvailable: u8,
-    pub ControllerInitiatedDataGenerationNumber: u8,
-    pub ReasonIdentifier: [u8; 128],
+    pub LogIdentifier: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 4],
+    pub OrganizationID: [super::UCHAR; 3],
+    pub Area1LastBlock: super::USHORT,
+    pub Area2LastBlock: super::USHORT,
+    pub Area3LastBlock: super::USHORT,
+    pub Reserved1: [super::UCHAR; 2],
+    pub Area4LastBlock: super::ULONG,
+    pub Reserved2: [super::UCHAR; 361],
+    pub HostInitiatedDataGenerationNumber: super::UCHAR,
+    pub ControllerInitiatedDataAvailable: super::UCHAR,
+    pub ControllerInitiatedDataGenerationNumber: super::UCHAR,
+    pub ReasonIdentifier: [super::UCHAR; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_TELEMETRY_HOST_INITIATED_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5514,22 +6034,26 @@ pub const NVME_UUID_ASSOCIATION_PCI_SUBSYSTEM_VID: i32 = 2;
 pub const NVME_UUID_ASSOCIATION_PCI_VID: i32 = 1;
 pub const NVME_UUID_ASSOCIATION_RESERVED: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_UUID_LIST {
     pub UUID: [NVME_UUID_LIST_ENTRY; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_UUID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_UUID_LIST_ENTRY {
     pub _bitfield: u8,
-    pub Reserved1: [u8; 15],
-    pub UUID: [u8; 16],
+    pub Reserved1: [super::UCHAR; 15],
+    pub UUID: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_UUID_LIST_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5545,236 +6069,272 @@ pub const NVME_VENDOR_SPECIFIC_LOG_PAGE_MIN_IDENTIFIER: i32 = 192;
 pub const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MAX_OPCODE: i32 = 255;
 pub const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MIN_OPCODE: i32 = 128;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_VERSION {
     pub Anonymous: NVME_VERSION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_VERSION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES {
     pub Anonymous: NVME_WCS_DEVICE_CAPABILITIES_0,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_WCS_DEVICE_CAPABILITIES_0 {
     pub Anonymous: NVME_WCS_DEVICE_CAPABILITIES_0_0,
-    pub AsULONG: u32,
+    pub AsULONG: super::ULONG,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_CAPABILITIES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_WCS_DEVICE_CAPABILITIES_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
-    pub PanicResetWaitTime: u16,
+    pub PanicResetWaitTime: super::USHORT,
     pub PanicResetAction: NVME_WCS_DEVICE_RESET_ACTION,
-    pub DriveRecoveryAction: u8,
-    pub PanicId: u64,
+    pub DriveRecoveryAction: super::UCHAR,
+    pub PanicId: super::ULONGLONG,
     pub DeviceCapabilitiesA: NVME_WCS_DEVICE_CAPABILITIES,
-    pub VendorSpecificRecoveryCode: u8,
-    pub Reserved0: [u8; 3],
-    pub VendorSpecificCommandCDW12: u32,
-    pub VendorSpecificCommandCDW13: u32,
-    pub Reserved1: [u8; 466],
-    pub LogPageVersionNumber: u16,
+    pub VendorSpecificRecoveryCode: super::UCHAR,
+    pub Reserved0: [super::UCHAR; 3],
+    pub VendorSpecificCommandCDW12: super::ULONG,
+    pub VendorSpecificCommandCDW13: super::ULONG,
+    pub Reserved1: [super::UCHAR; 466],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_ERROR_RECOVERY_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_V1 = NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
 pub const NVME_WCS_DEVICE_ERROR_RECOVERY_LOG_VERSION_1: i32 = 1;
 pub type NVME_WCS_DEVICE_RECOVERY_ACTION1 = i32;
 pub type NVME_WCS_DEVICE_RECOVERY_ACTION2 = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_RESET_ACTION {
     pub Anonymous: NVME_WCS_DEVICE_RESET_ACTION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_RESET_ACTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVME_WCS_DEVICE_RESET_ACTION_0 {
     pub Anonymous: NVME_WCS_DEVICE_RESET_ACTION_0_0,
-    pub AsUCHAR: u8,
+    pub AsUCHAR: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_RESET_ACTION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_WCS_DEVICE_RESET_ACTION_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
-    pub VersionSpecificData: [u8; 494],
-    pub LogPageVersionNumber: u16,
+    pub VersionSpecificData: [super::UCHAR; 494],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
-    pub MediaUnitsWritten: [u8; 16],
-    pub MediaUnitsRead: [u8; 16],
+    pub MediaUnitsWritten: [super::UCHAR; 16],
+    pub MediaUnitsRead: [super::UCHAR; 16],
     pub BadUserNANDBlockCount: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0,
     pub BadSystemNANDBlockCount: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1,
-    pub XORRecoveryCount: u64,
-    pub UnrecoverableReadErrorCount: u64,
-    pub SoftECCErrorCount: u64,
+    pub XORRecoveryCount: super::ULONGLONG,
+    pub UnrecoverableReadErrorCount: super::ULONGLONG,
+    pub SoftECCErrorCount: super::ULONGLONG,
     pub EndToEndCorrectionCounts: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2,
-    pub PercentageSystemDataUsed: u8,
-    pub RefreshCount: [u8; 7],
+    pub PercentageSystemDataUsed: super::UCHAR,
+    pub RefreshCount: [super::UCHAR; 7],
     pub UserDataEraseCounts: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3,
     pub ThermalThrottling: NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4,
-    pub Reserved0: [u8; 6],
-    pub PCIeCorrectableErrorCount: u64,
-    pub IncompleteShutdownCount: u32,
-    pub Reserved1: u32,
-    pub PercentageFreeBlocks: u8,
-    pub Reserved2: [u8; 7],
-    pub CapacitorHealth: u16,
-    pub Reserved3: [u8; 6],
-    pub UnalignedIOCount: u64,
-    pub SecurityVersionNumber: u64,
-    pub NUSE: u64,
-    pub PLPStartCount: [u8; 16],
-    pub EnduranceEstimate: [u8; 16],
-    pub Reserved4: [u8; 302],
-    pub LogPageVersionNumber: u16,
+    pub Reserved0: [super::UCHAR; 6],
+    pub PCIeCorrectableErrorCount: super::ULONGLONG,
+    pub IncompleteShutdownCount: super::ULONG,
+    pub Reserved1: super::ULONG,
+    pub PercentageFreeBlocks: super::UCHAR,
+    pub Reserved2: [super::UCHAR; 7],
+    pub CapacitorHealth: super::USHORT,
+    pub Reserved3: [super::UCHAR; 6],
+    pub UnalignedIOCount: super::ULONGLONG,
+    pub SecurityVersionNumber: super::ULONGLONG,
+    pub NUSE: super::ULONGLONG,
+    pub PLPStartCount: [super::UCHAR; 16],
+    pub EnduranceEstimate: [super::UCHAR; 16],
+    pub Reserved4: [super::UCHAR; 302],
+    pub LogPageVersionNumber: super::USHORT,
     pub LogPageGUID: windows_sys::core::GUID,
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
-    pub RawCount: [u8; 6],
-    pub Normalized: [u8; 2],
+    pub RawCount: [super::UCHAR; 6],
+    pub Normalized: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
-    pub RawCount: [u8; 6],
-    pub Normalized: [u8; 2],
+    pub RawCount: [super::UCHAR; 6],
+    pub Normalized: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_2 {
-    pub DetectedCounts: u32,
-    pub CorrectedCounts: u32,
+    pub DetectedCounts: super::ULONG,
+    pub CorrectedCounts: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_3 {
-    pub MaximumCount: u32,
-    pub MinimumCount: u32,
+    pub MaximumCount: super::ULONG,
+    pub MinimumCount: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2_4 {
-    pub EventCount: u8,
-    pub Status: u8,
+    pub EventCount: super::UCHAR,
+    pub Status: super::UCHAR,
 }
 pub const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_ZONE_DESCRIPTOR {
     pub Anonymous: NVME_ZONE_DESCRIPTOR_0,
     pub Anonymous2: NVME_ZONE_DESCRIPTOR_1,
     pub ZA: NVME_ZONE_DESCRIPTOR_2,
-    pub Reserved3: [u8; 5],
-    pub ZCAP: u64,
-    pub ZSLBA: u64,
-    pub WritePointer: u64,
-    pub Reserved4: [u8; 32],
+    pub Reserved3: [super::UCHAR; 5],
+    pub ZCAP: super::ULONGLONG,
+    pub ZSLBA: super::ULONGLONG,
+    pub WritePointer: super::ULONGLONG,
+    pub Reserved4: [super::UCHAR; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ZONE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ZONE_DESCRIPTOR_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ZONE_DESCRIPTOR_1 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVME_ZONE_DESCRIPTOR_2 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_ZONE_DESCRIPTOR_EXTENSION {
-    pub ZoneDescriptorExtensionInfo: [u8; 64],
+    pub ZoneDescriptorExtensionInfo: [super::UCHAR; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ZONE_DESCRIPTOR_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
     pub ZoneDescriptor: NVME_ZONE_DESCRIPTOR,
     pub ZoneDescriptorExtension: [NVME_ZONE_DESCRIPTOR_EXTENSION; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVME_ZONE_EXTENDED_REPORT_ZONE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5800,28 +6360,33 @@ pub const NVME_ZRA_IO_STATE_ZONES: NVME_ZONE_RECEIVE_ACTION_SPECIFIC = 2;
 pub const NVME_ZRA_OFFLINE_STATE_ZONES: NVME_ZONE_RECEIVE_ACTION_SPECIFIC = 7;
 pub const NVME_ZRA_RO_STATE_ZONES: NVME_ZONE_RECEIVE_ACTION_SPECIFIC = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NVM_RESERVATION_CAPABILITIES {
     pub Anonymous: NVM_RESERVATION_CAPABILITIES_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for NVM_RESERVATION_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NVM_RESERVATION_CAPABILITIES_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NVM_SET_LIST {
-    pub IdentifierCount: u8,
-    pub Reserved: [u8; 127],
+    pub IdentifierCount: super::UCHAR,
+    pub Reserved: [super::UCHAR; 127],
     pub Entry: [NVME_SET_ATTRIBUTES_ENTRY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for NVM_SET_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5966,318 +6531,567 @@ pub const NvmeofTransportMax: NVMEOF_TRANSPORT_TYPE = 255;
 pub const NvmeofTransportRdma: NVMEOF_TRANSPORT_TYPE = 1;
 pub const NvmeofTransportTcp: NVMEOF_TRANSPORT_TYPE = 3;
 pub const NvmeofTransportUnknown: NVMEOF_TRANSPORT_TYPE = 0;
+#[cfg(feature = "shared")]
 pub type PACTIVE_LATENCY_CONFIGURATION = *mut ACTIVE_LATENCY_CONFIGURATION;
+#[cfg(feature = "shared")]
 pub type PBUCKET_COUNTER = *mut BUCKET_COUNTER;
+#[cfg(feature = "shared")]
 pub type PDEBUG_BIT_FIELD = *mut DEBUG_BIT_FIELD;
+#[cfg(feature = "shared")]
 pub type PDSSD_POWER_STATE_DESCRIPTOR = *mut DSSD_POWER_STATE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PFIRMWARE_ACTIVATION_HISTORY_ENTRY = *mut FIRMWARE_ACTIVATION_HISTORY_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIO_COMMAND_SET_VECTOR = *mut IO_COMMAND_SET_VECTOR;
+#[cfg(feature = "shared")]
 pub type PLATENCY_MONITOR_FEATURE_STATUS = *mut LATENCY_MONITOR_FEATURE_STATUS;
+#[cfg(feature = "shared")]
 pub type PLATENCY_STAMP = *mut LATENCY_STAMP;
+#[cfg(feature = "shared")]
 pub type PLATENCY_STAMP_UNITS = *mut LATENCY_STAMP_UNITS;
+#[cfg(feature = "shared")]
 pub type PMEASURED_LATENCY = *mut MEASURED_LATENCY;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_DHCHAP_CHALLENGE = *mut NVMEOF_AUTH_DHCHAP_CHALLENGE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_DHCHAP_DESCRIPTOR = *mut NVMEOF_AUTH_DHCHAP_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_DHCHAP_REPLY = *mut NVMEOF_AUTH_DHCHAP_REPLY;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_DHCHAP_SUCCESS1 = *mut NVMEOF_AUTH_DHCHAP_SUCCESS1;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_DHCHAP_SUCCESS2 = *mut NVMEOF_AUTH_DHCHAP_SUCCESS2;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_FAILURE = *mut NVMEOF_AUTH_FAILURE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_NEGOTIATE = *mut NVMEOF_AUTH_NEGOTIATE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_RECEIVE_COMMAND = *mut NVMEOF_AUTH_RECEIVE_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_RECEIVE_RESPONSE = *mut NVMEOF_AUTH_RECEIVE_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_SEND_COMMAND = *mut NVMEOF_AUTH_SEND_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_AUTH_SEND_RESPONSE = *mut NVMEOF_AUTH_SEND_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_CONNECT_COMMAND = *mut NVMEOF_CONNECT_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_CONNECT_DATA = *mut NVMEOF_CONNECT_DATA;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_CONNECT_RESPONSE = *mut NVMEOF_CONNECT_RESPONSE;
-pub type PNVMEOF_DISCONNECT_COMMAND = *mut NVMEOF_DISCONNECT_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_DISCONNECT_RESPONSE = *mut NVMEOF_DISCONNECT_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_FABRICS_COMMAND = *mut NVMEOF_FABRICS_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_FABRICS_RESPONSE = *mut NVMEOF_FABRICS_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_PROPERTY_GET_COMMAND = *mut NVMEOF_PROPERTY_GET_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_PROPERTY_GET_RESPONSE = *mut NVMEOF_PROPERTY_GET_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_PROPERTY_SET_COMMAND = *mut NVMEOF_PROPERTY_SET_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVMEOF_PROPERTY_SET_RESPONSE = *mut NVMEOF_PROPERTY_SET_RESPONSE;
+#[cfg(feature = "shared")]
 pub type PNVME_ACTIVE_NAMESPACE_ID_LIST = *mut NVME_ACTIVE_NAMESPACE_ID_LIST;
+#[cfg(feature = "shared")]
 pub type PNVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS = *mut NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PNVME_ADMIN_QUEUE_ATTRIBUTES = *mut NVME_ADMIN_QUEUE_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PNVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS = *mut NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS;
+#[cfg(feature = "shared")]
 pub type PNVME_AUTO_POWER_STATE_TRANSITION_ENTRY = *mut NVME_AUTO_POWER_STATE_TRANSITION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_BOOT_PARTITION_INFORMATION = *mut NVME_BOOT_PARTITION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PNVME_BOOT_PARTITION_LOG = *mut NVME_BOOT_PARTITION_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW0_FEATURE_DSSD_POWER_STATE = *mut NVME_CDW0_FEATURE_DSSD_POWER_STATE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO = *mut NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW0_FEATURE_ERROR_INJECTION = *mut NVME_CDW11_FEATURE_ERROR_INJECTION;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE = *mut NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW0_RESERVATION_PERSISTENCE = *mut NVME_CDW0_RESERVATION_PERSISTENCE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_ABORT = *mut NVME_CDW10_ABORT;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_CREATE_IO_QUEUE = *mut NVME_CDW10_CREATE_IO_QUEUE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_DATASET_MANAGEMENT = *mut NVME_CDW10_DATASET_MANAGEMENT;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_DELETE_IO_QUEUE = *mut NVME_CDW10_DELETE_IO_QUEUE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_DEVICE_SELF_TEST = *mut NVME_CDW10_DEVICE_SELF_TEST;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_DIRECTIVE_RECEIVE = *mut NVME_CDW10_DIRECTIVE_RECEIVE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_DIRECTIVE_SEND = *mut NVME_CDW10_DIRECTIVE_SEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_DISCOVERY_INFO_MGMT = *mut NVME_CDW10_DISCOVERY_INFO_MGMT;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_FIRMWARE_ACTIVATE = *mut NVME_CDW10_FIRMWARE_ACTIVATE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_FIRMWARE_DOWNLOAD = *mut NVME_CDW10_FIRMWARE_DOWNLOAD;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_FORMAT_NVM = *mut NVME_CDW10_FORMAT_NVM;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_GET_FEATURES = *mut NVME_CDW10_GET_FEATURES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_GET_LOG_PAGE = *mut NVME_CDW10_GET_LOG_PAGE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_GET_LOG_PAGE_V121 = *mut NVME_CDW10_GET_LOG_PAGE_V121;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_GET_LOG_PAGE_V13 = *mut NVME_CDW10_GET_LOG_PAGE_V13;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_GET_LOG_PAGE_V20 = *mut NVME_CDW10_GET_LOG_PAGE_V20;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_IDENTIFY = *mut NVME_CDW10_IDENTIFY;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_RESERVATION_ACQUIRE = *mut NVME_CDW10_RESERVATION_ACQUIRE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_RESERVATION_REGISTER = *mut NVME_CDW10_RESERVATION_REGISTER;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_RESERVATION_RELEASE = *mut NVME_CDW10_RESERVATION_RELEASE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_RESERVATION_REPORT = *mut NVME_CDW10_RESERVATION_REPORT;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_SANITIZE = *mut NVME_CDW10_SANITIZE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_SECURITY_SEND_RECEIVE = *mut NVME_CDW10_SECURITY_SEND_RECEIVE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_SET_FEATURES = *mut NVME_CDW10_SET_FEATURES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_ZONE_APPEND = *mut NVME_CDW10_ZONE_APPEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_ZONE_MANAGEMENT_RECEIVE = *mut NVME_CDW10_ZONE_MANAGEMENT_RECEIVE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW10_ZONE_MANAGEMENT_SEND = *mut NVME_CDW10_ZONE_MANAGEMENT_SEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_CREATE_IO_CQ = *mut NVME_CDW11_CREATE_IO_CQ;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_CREATE_IO_SQ = *mut NVME_CDW11_CREATE_IO_SQ;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_DATASET_MANAGEMENT = *mut NVME_CDW11_DATASET_MANAGEMENT;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_DIRECTIVE_RECEIVE = *mut NVME_CDW11_DIRECTIVE_RECEIVE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_DIRECTIVE_SEND = *mut NVME_CDW11_DIRECTIVE_SEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURES = *mut NVME_CDW11_FEATURES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_ARBITRATION = *mut NVME_CDW11_FEATURE_ARBITRATION;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG = *mut NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION = *mut NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY = *mut NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS = *mut NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO = *mut NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_ERROR_INJECTION = *mut NVME_CDW11_FEATURE_ERROR_INJECTION;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_ERROR_RECOVERY = *mut NVME_CDW11_FEATURE_ERROR_RECOVERY;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_GET_HOST_METADATA = *mut NVME_CDW11_FEATURE_GET_HOST_METADATA;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_HOST_IDENTIFIER = *mut NVME_CDW11_FEATURE_HOST_IDENTIFIER;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_INTERRUPT_COALESCING = *mut NVME_CDW11_FEATURE_INTERRUPT_COALESCING;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG = *mut NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE = *mut NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_LBA_RANGE_TYPE = *mut NVME_CDW11_FEATURE_LBA_RANGE_TYPE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE = *mut NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_NUMBER_OF_QUEUES = *mut NVME_CDW11_FEATURE_NUMBER_OF_QUEUES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_POWER_MANAGEMENT = *mut NVME_CDW11_FEATURE_POWER_MANAGEMENT;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE = *mut NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK = *mut NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_RESERVATION_PERSISTENCE = *mut NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_SET_HOST_METADATA = *mut NVME_CDW11_FEATURE_SET_HOST_METADATA;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_SUPPORTED_CAPABILITY = *mut NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD = *mut NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE = *mut NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL = *mut NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_FIRMWARE_DOWNLOAD = *mut NVME_CDW11_FIRMWARE_DOWNLOAD;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_GET_LOG_PAGE = *mut NVME_CDW11_GET_LOG_PAGE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_IDENTIFY = *mut NVME_CDW11_IDENTIFY;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_RESERVATION_REPORT = *mut NVME_CDW11_RESERVATION_REPORT;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_SECURITY_RECEIVE = *mut NVME_CDW11_SECURITY_RECEIVE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW11_SECURITY_SEND = *mut NVME_CDW11_SECURITY_SEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES = *mut NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE = *mut NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_FEATURES = *mut NVME_CDW12_FEATURES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW12_FEATURE_HOST_MEMORY_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_GET_LOG_PAGE = *mut NVME_CDW12_GET_LOG_PAGE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_READ_WRITE = *mut NVME_CDW12_READ_WRITE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_VERIFYCOMMAND = *mut NVME_CDW12_VERIFYCOMMAND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW12_ZONE_APPEND = *mut NVME_CDW12_ZONE_APPEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW13_FEATURES = *mut NVME_CDW13_FEATURES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW13_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW13_GET_LOG_PAGE = *mut NVME_CDW13_GET_LOG_PAGE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW13_READ_WRITE = *mut NVME_CDW13_READ_WRITE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW13_ZONE_MANAGEMENT_RECEIVE = *mut NVME_CDW13_ZONE_MANAGEMENT_RECEIVE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW13_ZONE_MANAGEMENT_SEND = *mut NVME_CDW13_ZONE_MANAGEMENT_SEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW14_FEATURES = *mut NVME_CDW14_FEATURES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW14_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW14_FEATURE_HOST_MEMORY_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW14_GET_LOG_PAGE = *mut NVME_CDW14_GET_LOG_PAGE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW14_GET_LOG_PAGE_V20 = *mut NVME_CDW14_GET_LOG_PAGE_V20;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW14_IDENTIFY = *mut NVME_CDW14_IDENTIFY;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW15_FEATURES = *mut NVME_CDW15_FEATURES;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW15_FEATURE_HOST_MEMORY_BUFFER = *mut NVME_CDW15_FEATURE_HOST_MEMORY_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW15_READ_WRITE = *mut NVME_CDW15_READ_WRITE;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW15_VERIFY_COMMAND = *mut NVME_CDW15_VERIFY_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVME_CDW15_ZONE_APPEND = *mut NVME_CDW15_ZONE_APPEND;
+#[cfg(feature = "shared")]
 pub type PNVME_CHANGED_NAMESPACE_LIST_LOG = *mut NVME_CHANGED_NAMESPACE_LIST_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_CHANGED_ZONE_LIST_LOG = *mut NVME_CHANGED_ZONE_LIST_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_COMMAND = *mut NVME_COMMAND;
+#[cfg(feature = "shared")]
 pub type PNVME_COMMAND_DWORD0 = *mut NVME_COMMAND_DWORD0;
+#[cfg(feature = "shared")]
 pub type PNVME_COMMAND_EFFECTS_DATA = *mut NVME_COMMAND_EFFECTS_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_COMMAND_EFFECTS_LOG = *mut NVME_COMMAND_EFFECTS_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_COMMAND_STATUS = *mut NVME_COMMAND_STATUS;
+#[cfg(feature = "shared")]
 pub type PNVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST = *mut NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST;
+#[cfg(feature = "shared")]
 pub type PNVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES = *mut NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES;
+#[cfg(feature = "shared")]
 pub type PNVME_COMPLETION_ENTRY = *mut NVME_COMPLETION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_COMPLETION_QUEUE_HEAD_DOORBELL = *mut NVME_COMPLETION_QUEUE_HEAD_DOORBELL;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTEXT_ATTRIBUTES = *mut NVME_CONTEXT_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_CAPABILITIES = *mut NVME_CONTROLLER_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_CONFIGURATION = *mut NVME_CONTROLLER_CONFIGURATION;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_LIST = *mut NVME_CONTROLLER_LIST;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_MEMORY_BUFFER_LOCATION = *mut NVME_CONTROLLER_MEMORY_BUFFER_LOCATION;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_MEMORY_BUFFER_SIZE = *mut NVME_CONTROLLER_MEMORY_BUFFER_SIZE;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_READY_TIMEOUTS = *mut NVME_CONTROLLER_READY_TIMEOUTS;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_REGISTERS = *mut NVME_CONTROLLER_REGISTERS;
+#[cfg(feature = "shared")]
 pub type PNVME_CONTROLLER_STATUS = *mut NVME_CONTROLLER_STATUS;
+#[cfg(feature = "shared")]
 pub type PNVME_DEVICE_SELF_TEST_LOG = *mut NVME_DEVICE_SELF_TEST_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_DEVICE_SELF_TEST_RESULT_DATA = *mut NVME_DEVICE_SELF_TEST_RESULT_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS = *mut NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PNVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR = *mut NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PNVME_DIRECTIVE_STREAMS_GET_STATUS_DATA = *mut NVME_DIRECTIVE_STREAMS_GET_STATUS_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS = *mut NVME_DIRECTIVE_STREAMS_RETURN_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PNVME_DISCOVERY_ENTRY = *mut NVME_DISCOVERY_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_DISCOVERY_HEADER = *mut NVME_DISCOVERY_HEADER;
+#[cfg(feature = "shared")]
 pub type PNVME_DISCOVERY_INFO_MGMT_HEADER = *mut NVME_DISCOVERY_INFO_MGMT_HEADER;
+#[cfg(feature = "shared")]
 pub type PNVME_ENDURANCE_GROUP_LOG = *mut NVME_ENDURANCE_GROUP_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_ERROR_INFO_LOG = *mut NVME_ERROR_INFO_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_ERROR_INJECTION_ENTRY = *mut NVME_ERROR_INJECTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_EXTENDED_ATTR = *mut NVME_EXTENDED_ATTR;
+#[cfg(feature = "shared")]
 pub type PNVME_EXTENDED_DISCOVERY_ENTRY = *mut NVME_EXTENDED_DISCOVERY_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_EXTENDED_REPORT_ZONE_INFO = *mut NVME_EXTENDED_REPORT_ZONE_INFO;
+#[cfg(feature = "shared")]
 pub type PNVME_FEATURE_HOST_IDENTIFIER_DATA = *mut NVME_FEATURE_HOST_IDENTIFIER_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_FEATURE_HOST_METADATA_DATA = *mut NVME_FEATURE_HOST_METADATA_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_FEATURE_IDENTIFIERS_EFFECTS_LOG = *mut NVME_FEATURE_IDENTIFIERS_EFFECTS_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_FID_SUPPORTED_AND_EFFECTS = *mut NVME_FID_SUPPORTED_AND_EFFECTS;
+#[cfg(feature = "shared")]
 pub type PNVME_FIRMWARE_SLOT_INFO_LOG = *mut NVME_FIRMWARE_SLOT_INFO_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_GET_FEATURE_TIMESTAMP = *mut NVME_GET_FEATURE_TIMESTAMP;
+#[cfg(feature = "shared")]
 pub type PNVME_HEALTH_INFO_LOG = *mut NVME_HEALTH_INFO_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_HOST_BEHAVIOR_SUPPORT_DATA = *mut NVME_HOST_BEHAVIOR_SUPPORT_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY = *mut NVME_HOST_MEMORY_BUFFER_DESCRIPTOR_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_HOST_METADATA_ELEMENT_DESCRIPTOR = *mut NVME_HOST_METADATA_ELEMENT_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PNVME_IDENTIFY_CONTROLLER_DATA = *mut NVME_IDENTIFY_CONTROLLER_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_IDENTIFY_IO_COMMAND_SET = *mut NVME_IDENTIFY_IO_COMMAND_SET;
+#[cfg(feature = "shared")]
 pub type PNVME_IDENTIFY_NAMESPACE_DATA = *mut NVME_IDENTIFY_NAMESPACE_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_IDENTIFY_NAMESPACE_DESCRIPTOR = *mut NVME_IDENTIFY_NAMESPACE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PNVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET = *mut NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET;
+#[cfg(feature = "shared")]
 pub type PNVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET = *mut NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET;
+#[cfg(feature = "shared")]
 pub type PNVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET = *mut NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET;
+#[cfg(feature = "shared")]
 pub type PNVME_LATENCY_MONITORING_ENTRY = *mut NVME_LATENCY_MONITORING_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_LBA_FORMAT = *mut NVME_LBA_FORMAT;
+#[cfg(feature = "shared")]
 pub type PNVME_LBA_RANGE = *mut NVME_LBA_RANGE;
+#[cfg(feature = "shared")]
 pub type PNVME_LBA_RANGET_TYPE_ENTRY = *mut NVME_LBA_RANGET_TYPE_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_LBA_ZONE_FORMAT = *mut NVME_LBA_ZONE_FORMAT;
+#[cfg(feature = "shared")]
 pub type PNVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG = *mut NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_LID_SUPPORTED_AND_EFFECTS = *mut NVME_LID_SUPPORTED_AND_EFFECTS;
 pub type PNVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE = *mut NVME_NO_DEALLOCATE_MODIFIES_MEDIA_AFTER_SANITIZE;
+#[cfg(feature = "shared")]
 pub type PNVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS = *mut NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS;
+#[cfg(feature = "shared")]
 pub type PNVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG = *mut NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_NVM_SUBSYSTEM_RESET = *mut NVME_NVM_SUBSYSTEM_RESET;
+#[cfg(feature = "shared")]
 pub type PNVME_NVM_SUBSYSTEM_SHUTDOWN = *mut NVME_NVM_SUBSYSTEM_SHUTDOWN;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_CAPABILITIES_LOG = *mut NVME_OCP_DEVICE_CAPABILITIES_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2 = *mut NVME_OCP_DEVICE_ERROR_RECOVERY_LOG_V2;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG = *mut NVME_OCP_DEVICE_FIRMWARE_ACTIVATION_HISTORY_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_LATENCY_MONITOR_LOG = *mut NVME_OCP_DEVICE_LATENCY_MONITOR_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3 = *mut NVME_OCP_DEVICE_SMART_INFORMATION_LOG_V3;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_TCG_CONFIGURATION_LOG = *mut NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_TCG_HISTORY_LOG = *mut NVME_OCP_DEVICE_TCG_HISTORY_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG = *mut NVME_OCP_DEVICE_UNSUPPORTED_REQUIREMENTS_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_PERSISTENT_EVENT_LOG_EVENT_HEADER = *mut NVME_PERSISTENT_EVENT_LOG_EVENT_HEADER;
+#[cfg(feature = "shared")]
 pub type PNVME_PERSISTENT_EVENT_LOG_HEADER = *mut NVME_PERSISTENT_EVENT_LOG_HEADER;
+#[cfg(feature = "shared")]
 pub type PNVME_POWER_STATE_DESC = *mut NVME_POWER_STATE_DESC;
+#[cfg(feature = "shared")]
 pub type PNVME_PRP_ENTRY = *mut NVME_PRP_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_REGISTERED_CONTROLLER_DATA = *mut NVME_REGISTERED_CONTROLLER_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_REGISTERED_CONTROLLER_EXTENDED_DATA = *mut NVME_REGISTERED_CONTROLLER_EXTENDED_DATA;
+#[cfg(feature = "shared")]
 pub type PNVME_REPORT_ZONE_INFO = *mut NVME_REPORT_ZONE_INFO;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_ACQUIRE_DATA_STRUCTURE = *mut NVME_RESERVATION_ACQUIRE_DATA_STRUCTURE;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_CAPABILITIES = *mut NVM_RESERVATION_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_NOTIFICATION_LOG = *mut NVME_RESERVATION_NOTIFICATION_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_REGISTER_DATA_STRUCTURE = *mut NVME_RESERVATION_REGISTER_DATA_STRUCTURE;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_RELEASE_DATA_STRUCTURE = *mut NVME_RESERVATION_RELEASE_DATA_STRUCTURE;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE = *mut NVME_RESERVATION_REPORT_STATUS_DATA_STRUCTURE;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE = *mut NVME_RESERVATION_REPORT_STATUS_EXTENDED_DATA_STRUCTURE;
+#[cfg(feature = "shared")]
 pub type PNVME_RESERVATION_REPORT_STATUS_HEADER = *mut NVME_RESERVATION_REPORT_STATUS_HEADER;
 pub type PNVME_SANITIZE_ACTION = *mut NVME_SANITIZE_ACTION;
 pub type PNVME_SANITIZE_OPERATION_STATUS = *mut NVME_SANITIZE_OPERATION_STATUS;
+#[cfg(feature = "shared")]
 pub type PNVME_SANITIZE_STATUS = *mut NVME_SANITIZE_STATUS;
+#[cfg(feature = "shared")]
 pub type PNVME_SANITIZE_STATUS_LOG = *mut NVME_SANITIZE_STATUS_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_SCSI_NAME_STRING = *mut NVME_SCSI_NAME_STRING;
+#[cfg(feature = "shared")]
 pub type PNVME_SET_ATTRIBUTES_ENTRY = *mut NVME_SET_ATTRIBUTES_ENTRY;
-pub type PNVME_SGL_BITBUCKET_DESC = *mut NVME_SGL_BITBUCKET_DESC;
-pub type PNVME_SGL_DATABLOCK_DESC = *mut NVME_SGL_DATABLOCK_DESC;
+#[cfg(feature = "shared")]
 pub type PNVME_SGL_DESC = *mut NVME_SGL_DESC;
-pub type PNVME_SGL_KEYDATABLOCK_DESC = *mut NVME_SGL_KEYDATABLOCK_DESC;
-pub type PNVME_SGL_LASTSEG_DESC = *mut NVME_SGL_LASTSEG_DESC;
-pub type PNVME_SGL_SEGMENT_DESC = *mut NVME_SGL_SEGMENT_DESC;
-pub type PNVME_SGL_TRANSPORTDATA_DESC = *mut NVME_SGL_TRANSPORTDATA_DESC;
+#[cfg(feature = "shared")]
 pub type PNVME_SUBMISSION_QUEUE_TAIL_DOORBELL = *mut NVME_SUBMISSION_QUEUE_TAIL_DOORBELL;
+#[cfg(feature = "shared")]
 pub type PNVME_SUPPORTED_LOG_PAGES_LOG = *mut NVME_SUPPORTED_LOG_PAGES_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_TELEMETRY_CONTROLLER_INITIATED_LOG = *mut NVME_TELEMETRY_CONTROLLER_INITIATED_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_TELEMETRY_HOST_INITIATED_LOG = *mut NVME_TELEMETRY_HOST_INITIATED_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_UUID_LIST = *mut NVME_UUID_LIST;
+#[cfg(feature = "shared")]
 pub type PNVME_UUID_LIST_ENTRY = *mut NVME_UUID_LIST_ENTRY;
+#[cfg(feature = "shared")]
 pub type PNVME_VERSION = *mut NVME_VERSION;
+#[cfg(feature = "shared")]
 pub type PNVME_WCS_DEVICE_CAPABILITIES = *mut NVME_WCS_DEVICE_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PNVME_WCS_DEVICE_ERROR_RECOVERY_LOG = *mut NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_WCS_DEVICE_ERROR_RECOVERY_LOG_V1 = *mut NVME_WCS_DEVICE_ERROR_RECOVERY_LOG;
 pub type PNVME_WCS_DEVICE_RECOVERY_ACTION1 = *mut NVME_WCS_DEVICE_RECOVERY_ACTION1;
 pub type PNVME_WCS_DEVICE_RECOVERY_ACTION2 = *mut NVME_WCS_DEVICE_RECOVERY_ACTION2;
+#[cfg(feature = "shared")]
 pub type PNVME_WCS_DEVICE_RESET_ACTION = *mut NVME_WCS_DEVICE_RESET_ACTION;
+#[cfg(feature = "shared")]
 pub type PNVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG = *mut NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG;
+#[cfg(feature = "shared")]
 pub type PNVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2 = *mut NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_V2;
+#[cfg(feature = "shared")]
 pub type PNVME_ZONE_DESCRIPTOR = *mut NVME_ZONE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PNVME_ZONE_DESCRIPTOR_EXTENSION = *mut NVME_ZONE_DESCRIPTOR_EXTENSION;
+#[cfg(feature = "shared")]
 pub type PNVME_ZONE_EXTENDED_REPORT_ZONE_DESC = *mut NVME_ZONE_EXTENDED_REPORT_ZONE_DESC;
+#[cfg(feature = "shared")]
 pub type PNVM_SET_LIST = *mut NVM_SET_LIST;
+#[cfg(feature = "shared")]
 pub type PTCG_ACTIVATE_METHOD_SPECIFIC = *mut TCG_ACTIVATE_METHOD_SPECIFIC;
+#[cfg(feature = "shared")]
 pub type PTCG_ASSIGN_METHOD_SPECIFIC = *mut TCG_ASSIGN_METHOD_SPECIFIC;
+#[cfg(feature = "shared")]
 pub type PTCG_AUTH_METHOD_SPECIFIC = *mut TCG_AUTH_METHOD_SPECIFIC;
+#[cfg(feature = "shared")]
 pub type PTCG_BLOCKSID_METHOD_SPECIFIC = *mut TCG_BLOCKSID_METHOD_SPECIFIC;
+#[cfg(feature = "shared")]
 pub type PTCG_HISTORY_ENTRY = *mut TCG_HISTORY_ENTRY;
+#[cfg(feature = "shared")]
 pub type PTCG_REACTIVATE_METHOD_SPECIFIC = *mut TCG_REACTIVATE_METHOD_SPECIFIC;
+#[cfg(feature = "shared")]
 pub type PUNSUPPORTED_REQUIREMENT = *mut UNSUPPORTED_REQUIREMENT;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCG_ACTIVATE_METHOD_SPECIFIC {
-    pub RangeStartLengthPolicy: u8,
+    pub RangeStartLengthPolicy: super::UCHAR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCG_ASSIGN_METHOD_SPECIFIC {
-    pub NamespaceId: u32,
+    pub NamespaceId: super::ULONG,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCG_AUTH_METHOD_SPECIFIC {
-    pub AuthorityId: u64,
-    pub TriesCount: u8,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct TCG_BLOCKSID_METHOD_SPECIFIC {
-    pub ClearEvents: u8,
+    pub AuthorityId: super::ULONGLONG,
+    pub TriesCount: super::UCHAR,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct TCG_BLOCKSID_METHOD_SPECIFIC {
+    pub ClearEvents: super::UCHAR,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TCG_HISTORY_ENTRY {
-    pub VersionNumber: u8,
-    pub EntryLength: u8,
-    pub PowerCycleCount: u16,
-    pub TcgCommandCount: u32,
-    pub TcgCommandCompletionTS: u64,
-    pub InvokingId: u64,
-    pub MethodId: u64,
-    pub ComId: u16,
-    pub ProtocolId: u8,
-    pub TcgStatus: u8,
-    pub ProcessTime: u16,
-    pub CommandSpecific: [u8; 10],
+    pub VersionNumber: super::UCHAR,
+    pub EntryLength: super::UCHAR,
+    pub PowerCycleCount: super::USHORT,
+    pub TcgCommandCount: super::ULONG,
+    pub TcgCommandCompletionTS: super::ULONGLONG,
+    pub InvokingId: super::ULONGLONG,
+    pub MethodId: super::ULONGLONG,
+    pub ComId: super::USHORT,
+    pub ProtocolId: super::UCHAR,
+    pub TcgStatus: super::UCHAR,
+    pub ProcessTime: super::USHORT,
+    pub CommandSpecific: [super::UCHAR; 10],
 }
+#[cfg(feature = "shared")]
 impl Default for TCG_HISTORY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const TCG_HISTORY_ENTRY_VERSION_1: i32 = 1;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TCG_REACTIVATE_METHOD_SPECIFIC {
-    pub RangeStartLengthPolicy: u8,
+    pub RangeStartLengthPolicy: super::UCHAR,
 }
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct UNSUPPORTED_REQUIREMENT {
-    pub ReqId: [u8; 16],
+    pub ReqId: [super::UCHAR; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for UNSUPPORTED_REQUIREMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -92,8 +92,15 @@ impl Param {
         self.attributes().any(|attribute| {
             matches!(
                 attribute.name(),
-                "NativeArrayInfoAttribute" | "MemorySizeAttribute"
+                "BufferExtentAttribute" | "NativeArrayInfoAttribute" | "MemorySizeAttribute"
             )
+        })
+    }
+
+    pub fn has_unresolved_contracts(&self) -> bool {
+        self.attributes().any(|attribute| {
+            attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "NativeSalAttribute"
         })
     }
 
@@ -130,7 +137,7 @@ impl Param {
             return false;
         }
 
-        if self.has_buffer_attributes() {
+        if self.has_buffer_attributes() || self.has_unresolved_contracts() {
             return false;
         }
 

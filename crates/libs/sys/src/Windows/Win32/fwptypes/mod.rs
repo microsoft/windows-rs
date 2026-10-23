@@ -24,10 +24,12 @@ pub const FWP_AF_INET6: FWP_AF = 1;
 pub const FWP_AF_NONE: FWP_AF = 3;
 pub const FWP_BYTEMAP_ARRAY64_SIZE: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FWP_BYTE_ARRAY16 {
-    pub byteArray16: [u8; 16],
+    pub byteArray16: [super::UINT8; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for FWP_BYTE_ARRAY16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -35,10 +37,12 @@ impl Default for FWP_BYTE_ARRAY16 {
 }
 pub const FWP_BYTE_ARRAY16_TYPE: FWP_DATA_TYPE = 11;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FWP_BYTE_ARRAY6 {
-    pub byteArray6: [u8; 6],
+    pub byteArray6: [super::UINT8; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for FWP_BYTE_ARRAY6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -47,10 +51,11 @@ impl Default for FWP_BYTE_ARRAY6 {
 pub const FWP_BYTE_ARRAY6_SIZE: i32 = 6;
 pub const FWP_BYTE_ARRAY6_TYPE: FWP_DATA_TYPE = 18;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FWP_BYTE_BLOB {
-    pub size: u32,
-    pub data: *mut u8,
+    pub size: super::UINT32,
+    pub data: *mut super::UINT8,
 }
 pub const FWP_BYTE_BLOB_TYPE: FWP_DATA_TYPE = 12;
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: i32 = 128;
@@ -121,30 +126,30 @@ pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_ALLOW_EDGE_TRAFFIC: i32 = 2;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_DENY_EDGE_TRAFFIC: i32 = 4;
 pub const FWP_CONDITION_SOCKET_PROPERTY_FLAG_IS_SYSTEM_PORT_RPC: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWP_CONDITION_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_CONDITION_VALUE0_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FWP_CONDITION_VALUE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWP_CONDITION_VALUE0_0 {
-    pub uint8: u8,
-    pub uint16: u16,
-    pub uint32: u32,
-    pub uint64: *mut u64,
-    pub int8: i8,
-    pub int16: i16,
-    pub int32: i32,
-    pub int64: *mut i64,
+    pub uint8: super::UINT8,
+    pub uint16: super::UINT16,
+    pub uint32: super::UINT32,
+    pub uint64: *mut super::UINT64,
+    pub int8: super::INT8,
+    pub int16: super::INT16,
+    pub int32: super::INT32,
+    pub int64: *mut super::INT64,
     pub float32: f32,
     pub double64: *mut f64,
     pub byteArray16: *mut FWP_BYTE_ARRAY16,
@@ -159,7 +164,7 @@ pub union FWP_CONDITION_VALUE0_0 {
     pub v6AddrMask: *mut FWP_V6_ADDR_AND_MASK,
     pub rangeValue: *mut FWP_RANGE0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FWP_CONDITION_VALUE0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -226,13 +231,13 @@ pub const FWP_OPTION_VALUE_DISABLE_LOOSE_SOURCE: i32 = 0;
 pub const FWP_OPTION_VALUE_ENABLE_LOCAL_ONLY_MAPPING: i32 = 1;
 pub const FWP_OPTION_VALUE_ENABLE_LOOSE_SOURCE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWP_RANGE0 {
     pub valueLow: FWP_VALUE0,
     pub valueHigh: FWP_VALUE0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FWP_RANGE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -244,12 +249,12 @@ pub const FWP_SID: FWP_DATA_TYPE = 13;
 pub const FWP_SINGLE_DATA_TYPE_MAX: FWP_DATA_TYPE = 255;
 pub const FWP_TOKEN_ACCESS_INFORMATION_TYPE: FWP_DATA_TYPE = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct FWP_TOKEN_INFORMATION {
-    pub sidCount: u32,
+    pub sidCount: super::ULONG,
     pub sids: super::PSID_AND_ATTRIBUTES,
-    pub restrictedSidCount: u32,
+    pub restrictedSidCount: super::ULONG,
     pub restrictedSids: super::PSID_AND_ATTRIBUTES,
 }
 pub const FWP_TOKEN_INFORMATION_TYPE: FWP_DATA_TYPE = 15;
@@ -259,18 +264,21 @@ pub const FWP_UINT64: FWP_DATA_TYPE = 4;
 pub const FWP_UINT8: FWP_DATA_TYPE = 1;
 pub const FWP_UNICODE_STRING_TYPE: FWP_DATA_TYPE = 17;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FWP_V4_ADDR_AND_MASK {
-    pub addr: u32,
-    pub mask: u32,
+    pub addr: super::UINT32,
+    pub mask: super::UINT32,
 }
 pub const FWP_V4_ADDR_MASK: FWP_DATA_TYPE = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FWP_V6_ADDR_AND_MASK {
-    pub addr: [u8; 16],
-    pub prefixLength: u8,
+    pub addr: [super::UINT8; 16],
+    pub prefixLength: super::UINT8,
 }
+#[cfg(feature = "shared")]
 impl Default for FWP_V6_ADDR_AND_MASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -279,30 +287,30 @@ impl Default for FWP_V6_ADDR_AND_MASK {
 pub const FWP_V6_ADDR_MASK: FWP_DATA_TYPE = 257;
 pub const FWP_V6_ADDR_SIZE: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FWP_VALUE0 {
     pub r#type: FWP_DATA_TYPE,
     pub Anonymous: FWP_VALUE0_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FWP_VALUE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FWP_VALUE0_0 {
-    pub uint8: u8,
-    pub uint16: u16,
-    pub uint32: u32,
-    pub uint64: *mut u64,
-    pub int8: i8,
-    pub int16: i16,
-    pub int32: i32,
-    pub int64: *mut i64,
+    pub uint8: super::UINT8,
+    pub uint16: super::UINT16,
+    pub uint32: super::UINT32,
+    pub uint64: *mut super::UINT64,
+    pub int8: super::INT8,
+    pub int16: super::INT16,
+    pub int32: super::INT32,
+    pub int64: *mut super::INT64,
     pub float32: f32,
     pub double64: *mut f64,
     pub byteArray16: *mut FWP_BYTE_ARRAY16,
@@ -314,7 +322,7 @@ pub union FWP_VALUE0_0 {
     pub unicodeString: windows_sys::core::PWSTR,
     pub byteArray6: *mut FWP_BYTE_ARRAY6,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FWP_VALUE0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -326,8 +334,9 @@ pub const FWP_VSWITCH_NETWORK_TYPE_INTERNAL: FWP_VSWITCH_NETWORK_TYPE = 2;
 pub const FWP_VSWITCH_NETWORK_TYPE_PRIVATE: FWP_VSWITCH_NETWORK_TYPE = 1;
 pub const FWP_VSWITCH_NETWORK_TYPE_UNKNOWN: FWP_VSWITCH_NETWORK_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
-    pub virtualIfTunnelId: u64,
-    pub trafficSelectorId: u64,
+    pub virtualIfTunnelId: super::UINT64,
+    pub trafficSelectorId: super::UINT64,
 }

@@ -7,10 +7,10 @@ pub const AME_8mm: STORAGE_MEDIA_TYPE = 37;
 pub const ASSERT_ALTERNATE: i32 = 9;
 pub const ASSERT_PRIMARY: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASYNC_DUPLICATE_EXTENTS_STATUS {
-    pub Version: u32,
+    pub Version: super::DWORD,
     pub State: DUPLICATE_EXTENTS_STATE,
     pub SourceFileOffset: super::DWORDLONG,
     pub TargetFileOffset: super::DWORDLONG,
@@ -29,39 +29,39 @@ pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = 2;
 pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = 0;
 pub type BAD_TRACK_NUMBER = u16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BIN_COUNT {
     pub BinRange: BIN_RANGE,
-    pub BinCount: u32,
+    pub BinCount: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for BIN_COUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BIN_RANGE {
     pub StartValue: super::LARGE_INTEGER,
     pub Length: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for BIN_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BIN_RESULTS {
-    pub NumberOfBins: u32,
+    pub NumberOfBins: super::DWORD,
     pub BinCounts: [BIN_COUNT; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for BIN_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -69,38 +69,38 @@ impl Default for BIN_RESULTS {
 }
 pub type BIN_TYPES = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BOOT_AREA_INFO {
-    pub BootSectorCount: u32,
+    pub BootSectorCount: super::DWORD,
     pub BootSectors: [BOOT_AREA_INFO_0; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for BOOT_AREA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct BOOT_AREA_INFO_0 {
     pub Offset: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for BOOT_AREA_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BULK_SECURITY_TEST_DATA {
     pub DesiredAccess: super::ACCESS_MASK,
-    pub SecurityIds: [u32; 1],
+    pub SecurityIds: [super::DWORD; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for BULK_SECURITY_TEST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -148,51 +148,57 @@ pub const CHANGER_DEVICE_REINITIALIZE_CAPABLE: i32 = 134217728;
 pub const CHANGER_DRIVE_CLEANING_REQUIRED: i32 = 65536;
 pub const CHANGER_DRIVE_EMPTY_ON_DOOR_ACCESS: i32 = 536870912;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_ELEMENT {
     pub ElementType: ELEMENT_TYPE,
-    pub ElementAddress: u32,
+    pub ElementAddress: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_ELEMENT_LIST {
     pub Element: CHANGER_ELEMENT,
-    pub NumberOfElements: u32,
+    pub NumberOfElements: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGER_ELEMENT_STATUS {
     pub Element: CHANGER_ELEMENT,
     pub SrcElementAddress: CHANGER_ELEMENT,
-    pub Flags: u32,
-    pub ExceptionCode: u32,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub Reserved: u16,
-    pub PrimaryVolumeID: [u8; 36],
-    pub AlternateVolumeID: [u8; 36],
+    pub Flags: super::DWORD,
+    pub ExceptionCode: super::DWORD,
+    pub TargetId: super::BYTE,
+    pub Lun: super::BYTE,
+    pub Reserved: super::WORD,
+    pub PrimaryVolumeID: [super::BYTE; 36],
+    pub AlternateVolumeID: [super::BYTE; 36],
 }
+#[cfg(feature = "shared")]
 impl Default for CHANGER_ELEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGER_ELEMENT_STATUS_EX {
     pub Element: CHANGER_ELEMENT,
     pub SrcElementAddress: CHANGER_ELEMENT,
-    pub Flags: u32,
-    pub ExceptionCode: u32,
-    pub TargetId: u8,
-    pub Lun: u8,
-    pub Reserved: u16,
-    pub PrimaryVolumeID: [u8; 36],
-    pub AlternateVolumeID: [u8; 36],
-    pub VendorIdentification: [u8; 8],
-    pub ProductIdentification: [u8; 16],
-    pub SerialNumber: [u8; 32],
+    pub Flags: super::DWORD,
+    pub ExceptionCode: super::DWORD,
+    pub TargetId: super::BYTE,
+    pub Lun: super::BYTE,
+    pub Reserved: super::WORD,
+    pub PrimaryVolumeID: [super::BYTE; 36],
+    pub AlternateVolumeID: [super::BYTE; 36],
+    pub VendorIdentification: [super::BYTE; 8],
+    pub ProductIdentification: [super::BYTE; 16],
+    pub SerialNumber: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for CHANGER_ELEMENT_STATUS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -200,7 +206,7 @@ impl Default for CHANGER_ELEMENT_STATUS_EX {
 }
 pub const CHANGER_EXCHANGE_MEDIA: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
@@ -213,7 +219,7 @@ pub struct CHANGER_EXCHANGE_MEDIUM {
 pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: u32 = 2147483904;
 pub const CHANGER_IEPORT_USER_CONTROL_OPEN: u32 = 2147483776;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
@@ -225,7 +231,7 @@ pub const CHANGER_LOCK_UNLOCK: i32 = 128;
 pub const CHANGER_MEDIUM_FLIP: i32 = 512;
 pub const CHANGER_MOVE_EXTENDS_IEPORT: u32 = 2147484160;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
@@ -241,21 +247,23 @@ pub const CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: u32 = 2147483649;
 pub const CHANGER_PREDISMOUNT_EJECT_REQUIRED: i32 = 131072;
 pub const CHANGER_PREMOUNT_EJECT_REQUIRED: i32 = 524288;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGER_PRODUCT_DATA {
-    pub VendorId: [u8; 8],
-    pub ProductId: [u8; 16],
-    pub Revision: [u8; 4],
-    pub SerialNumber: [u8; 32],
-    pub DeviceType: u8,
+    pub VendorId: [super::BYTE; 8],
+    pub ProductId: [super::BYTE; 16],
+    pub Revision: [super::BYTE; 4],
+    pub SerialNumber: [super::BYTE; 32],
+    pub DeviceType: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for CHANGER_PRODUCT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
@@ -265,12 +273,14 @@ pub const CHANGER_REPORT_IEPORT_STATE: i32 = 2048;
 pub const CHANGER_RESERVED_BIT: u32 = 2147483648;
 pub const CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: u32 = 2147483680;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGER_SEND_VOLUME_TAG_INFORMATION {
     pub StartingElement: CHANGER_ELEMENT,
-    pub ActionCode: u32,
-    pub VolumeIDTemplate: [u8; 40],
+    pub ActionCode: super::DWORD,
+    pub VolumeIDTemplate: [super::BYTE; 40],
 }
+#[cfg(feature = "shared")]
 impl Default for CHANGER_SEND_VOLUME_TAG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -278,13 +288,14 @@ impl Default for CHANGER_SEND_VOLUME_TAG_INFORMATION {
 }
 pub const CHANGER_SERIAL_NUMBER_VALID: i32 = 67108864;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_SET_ACCESS {
     pub Element: CHANGER_ELEMENT,
-    pub Control: u32,
+    pub Control: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
@@ -313,25 +324,26 @@ pub const CHECKSUM_TYPE_ECC: i32 = 3;
 pub const CHECKSUM_TYPE_FIRST_UNUSED_TYPE: i32 = 6;
 pub const CHECKSUM_TYPE_NONE: i32 = 0;
 pub const CHECKSUM_TYPE_SHA256: i32 = 4;
-pub const CHECKSUM_TYPE_UNCHANGED: u16 = 65535;
+#[cfg(feature = "shared")]
+pub const CHECKSUM_TYPE_UNCHANGED: super::WORD = 65535;
 pub const CHECKSUM_TYPE_XXH64: i32 = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLASS_MEDIA_CHANGE_CONTEXT {
-    pub MediaChangeCount: u32,
-    pub NewState: u32,
+    pub MediaChangeCount: super::DWORD,
+    pub NewState: super::DWORD,
 }
 pub const CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = 50;
-#[cfg(feature = "winnt")]
-pub type CLSN = super::DWORDLONG;
+pub type CLSN = u64;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CLUSTER_RANGE {
     pub StartingCluster: super::LARGE_INTEGER,
     pub ClusterCount: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CLUSTER_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -348,16 +360,19 @@ pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_EXCEPTION_ROOT: i32 = 16;
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_ROOT: i32 = 4;
 pub const CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_TARGET_ROOT: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTAINER_ROOT_INFO_INPUT {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTAINER_ROOT_INFO_OUTPUT {
-    pub ContainerRootIdLength: u16,
-    pub ContainerRootId: [u8; 1],
+    pub ContainerRootIdLength: super::WORD,
+    pub ContainerRootId: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CONTAINER_ROOT_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -365,49 +380,56 @@ impl Default for CONTAINER_ROOT_INFO_OUTPUT {
 }
 pub const CONTAINER_ROOT_INFO_VALID_FLAGS: i32 = 1023;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTAINER_VOLUME_STATE {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 pub const CONTAINER_VOLUME_STATE_HOSTING_CONTAINER: i32 = 1;
 pub const COPYFILE_SIS_FLAGS: i32 = 3;
 pub const COPYFILE_SIS_LINK: i32 = 1;
 pub const COPYFILE_SIS_REPLACE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CREATE_DISK {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: CREATE_DISK_0,
 }
+#[cfg(feature = "shared")]
 impl Default for CREATE_DISK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union CREATE_DISK_0 {
     pub Mbr: CREATE_DISK_MBR,
     pub Gpt: CREATE_DISK_GPT,
 }
+#[cfg(feature = "shared")]
 impl Default for CREATE_DISK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_DISK_GPT {
     pub DiskId: windows_core::GUID,
-    pub MaxPartitionCount: u32,
+    pub MaxPartitionCount: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_DISK_MBR {
-    pub Signature: u32,
+    pub Signature: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_USN_JOURNAL_DATA {
     pub MaximumSize: super::DWORDLONG,
@@ -416,34 +438,36 @@ pub struct CREATE_USN_JOURNAL_DATA {
 pub type CSVFS_DISK_CONNECTIVITY = i32;
 pub type CSV_CONTROL_OP = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_CONTROL_PARAM {
     pub Operation: CSV_CONTROL_OP,
-    pub Unused: i64,
+    pub Unused: super::LONGLONG,
 }
 pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_IS_OWNED_BY_CSVFS {
     pub OwnedByCSVFS: super::BOOLEAN,
 }
 pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_MGMT_LOCK {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CSV_NAMESPACE_INFO {
-    pub Version: u32,
-    pub DeviceNumber: u32,
+    pub Version: super::DWORD,
+    pub DeviceNumber: super::DWORD,
     pub StartingOffset: super::LARGE_INTEGER,
-    pub SectorSize: u32,
+    pub SectorSize: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CSV_NAMESPACE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -454,37 +478,41 @@ pub const CSV_NAMESPACE_INFO_V1: u32 = 24;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const CSV_NAMESPACE_INFO_V1: u64 = 24;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION {
-    pub FileId: i64,
-    pub FileRevision: [i64; 3],
+    pub FileId: super::LONGLONG,
+    pub FileRevision: [super::LONGLONG; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for CSV_QUERY_FILE_REVISION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     pub FileId: super::FILE_ID_128,
-    pub FileRevision: [i64; 3],
+    pub FileRevision: [super::LONGLONG; 3],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_MDS_PATH {
-    pub MdsNodeId: u32,
-    pub DsNodeId: u32,
-    pub PathLength: u32,
-    pub Path: [u16; 1],
+    pub MdsNodeId: super::DWORD,
+    pub DsNodeId: super::DWORD,
+    pub PathLength: super::DWORD,
+    pub Path: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CSV_QUERY_MDS_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -494,38 +522,39 @@ pub const CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED: i32 = 2;
 pub const CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED: i32 = 4;
 pub const CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_QUERY_MDS_PATH_V2 {
-    pub Version: i64,
-    pub RequiredSize: u32,
-    pub MdsNodeId: u32,
-    pub DsNodeId: u32,
-    pub Flags: u32,
+    pub Version: super::LONGLONG,
+    pub RequiredSize: super::DWORD,
+    pub MdsNodeId: super::DWORD,
+    pub DsNodeId: super::DWORD,
+    pub Flags: super::DWORD,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
     pub VolumeId: windows_core::GUID,
-    pub IpAddressOffset: u32,
-    pub IpAddressLength: u32,
-    pub PathOffset: u32,
-    pub PathLength: u32,
+    pub IpAddressOffset: super::DWORD,
+    pub IpAddressLength: super::DWORD,
+    pub PathOffset: super::DWORD,
+    pub PathLength: super::DWORD,
 }
 pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_QUERY_REDIRECT_STATE {
-    pub MdsNodeId: u32,
-    pub DsNodeId: u32,
+    pub MdsNodeId: super::DWORD,
+    pub DsNodeId: super::DWORD,
     pub FileRedirected: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     pub VetoedFromAltitudeIntegral: super::DWORDLONG,
     pub VetoedFromAltitudeDecimal: super::DWORDLONG,
-    pub Reason: [u16; 256],
+    pub Reason: [super::WCHAR; 256],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -537,11 +566,11 @@ pub struct CSV_QUERY_VOLUME_ID {
     pub VolumeId: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
-    pub MdsNodeId: u32,
-    pub DsNodeId: u32,
+    pub MdsNodeId: super::DWORD,
+    pub DsNodeId: super::DWORD,
     pub IsDiskConnected: super::BOOLEAN,
     pub ClusterEnableDirectIo: super::BOOLEAN,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
@@ -586,17 +615,17 @@ pub const DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: i32 = 1;
 pub const DDS_4mm: STORAGE_MEDIA_TYPE = 32;
 pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DECRYPTION_STATUS_BUFFER {
     pub NoEncryptedStreams: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DELETE_USN_JOURNAL_DATA {
     pub UsnJournalID: super::DWORDLONG,
-    pub DeleteFlags: u32,
+    pub DeleteFlags: super::DWORD,
 }
 pub type DETECTION_TYPE = i32;
 pub const DEVICEDUMP_CAP_PRIVATE_SECTION: i32 = 1;
@@ -604,218 +633,191 @@ pub const DEVICEDUMP_CAP_RESTRICTED_SECTION: i32 = 2;
 pub type DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = i32;
 pub const DEVICEDUMP_MAX_IDSTRING: i32 = 32;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_PRIVATE_SUBSECTION {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub GPLogId: GP_LOG_PAGE_DESCRIPTOR,
-    pub bData: [u8; 1],
+    pub bData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICEDUMP_PRIVATE_SUBSECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_PUBLIC_SUBSECTION {
-    pub dwFlags: u32,
+    pub dwFlags: super::DWORD,
     pub GPLogTable: [GP_LOG_PAGE_DESCRIPTOR; 16],
-    pub szDescription: [i8; 16],
-    pub bData: [u8; 1],
+    pub szDescription: [super::CHAR; 16],
+    pub bData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICEDUMP_PUBLIC_SUBSECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct DEVICEDUMP_RESTRICTED_SUBSECTION {
-    pub bData: [u8; 1],
+    pub bData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICEDUMP_RESTRICTED_SUBSECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_SECTION_HEADER {
     pub guidDeviceDataId: windows_core::GUID,
-    pub sOrganizationID: [u8; 16],
-    pub dwFirmwareRevision: u32,
-    pub sModelNumber: [u8; 32],
-    pub szDeviceManufacturingID: [u8; 32],
-    pub dwFlags: u32,
-    pub bRestrictedPrivateDataVersion: u32,
-    pub dwFirmwareIssueId: u32,
-    pub szIssueDescriptionString: [u8; 132],
+    pub sOrganizationID: [super::BYTE; 16],
+    pub dwFirmwareRevision: super::DWORD,
+    pub sModelNumber: [super::BYTE; 32],
+    pub szDeviceManufacturingID: [super::BYTE; 32],
+    pub dwFlags: super::DWORD,
+    pub bRestrictedPrivateDataVersion: super::DWORD,
+    pub dwFirmwareIssueId: super::DWORD,
+    pub szIssueDescriptionString: [super::BYTE; 132],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICEDUMP_SECTION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGEDEVICE_DATA {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
     pub SectionHeader: DEVICEDUMP_SECTION_HEADER,
-    pub dwBufferSize: u32,
-    pub dwReasonForCollection: u32,
+    pub dwBufferSize: super::DWORD,
+    pub dwReasonForCollection: super::DWORD,
     pub PublicData: DEVICEDUMP_SUBSECTION_POINTER,
     pub RestrictedData: DEVICEDUMP_SUBSECTION_POINTER,
     pub PrivateData: DEVICEDUMP_SUBSECTION_POINTER,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     pub Descriptor: DEVICEDUMP_STRUCTURE_VERSION,
-    pub dwReasonForCollection: u32,
-    pub cDriverName: [u8; 16],
-    pub uiNumRecords: u32,
+    pub dwReasonForCollection: super::DWORD,
+    pub cDriverName: [super::BYTE; 16],
+    pub uiNumRecords: super::DWORD,
     pub RecordArray: [DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
-    pub Cdb: [u8; 16],
-    pub Command: [u8; 16],
+    pub Cdb: [super::BYTE; 16],
+    pub Command: [super::BYTE; 16],
     pub StartTime: super::DWORDLONG,
     pub EndTime: super::DWORDLONG,
-    pub OperationStatus: u32,
-    pub OperationError: u32,
+    pub OperationStatus: super::DWORD,
+    pub OperationError: super::DWORD,
     pub StackSpecific: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     pub ExternalStack: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0,
     pub AtaPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1,
     pub StorPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
-    pub dwAtaPortSpecific: u32,
+    pub dwAtaPortSpecific: super::DWORD,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2 {
-    pub SrbTag: u32,
+    pub SrbTag: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_STRUCTURE_VERSION {
-    pub dwSignature: u32,
-    pub dwVersion: u32,
-    pub dwSize: u32,
+    pub dwSignature: super::DWORD,
+    pub dwVersion: super::DWORD,
+    pub dwSize: super::DWORD,
 }
 pub const DEVICEDUMP_STRUCTURE_VERSION_V1: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICEDUMP_SUBSECTION_POINTER {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwOffset: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwOffset: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_COPY_OFFLOAD_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub MaximumTokenLifetime: u32,
-    pub DefaultTokenLifetime: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub MaximumTokenLifetime: super::DWORD,
+    pub DefaultTokenLifetime: super::DWORD,
     pub MaximumTransferSize: super::DWORDLONG,
     pub OptimalTransferCount: super::DWORDLONG,
-    pub MaximumDataDescriptors: u32,
-    pub MaximumTransferLengthPerDescriptor: u32,
-    pub OptimalTransferLengthPerDescriptor: u32,
-    pub OptimalTransferLengthGranularity: u16,
-    pub Reserved: [u8; 2],
+    pub MaximumDataDescriptors: super::DWORD,
+    pub MaximumTransferLengthPerDescriptor: super::DWORD,
+    pub OptimalTransferLengthPerDescriptor: super::DWORD,
+    pub OptimalTransferLengthGranularity: super::WORD,
+    pub Reserved: [super::BYTE; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type DEVICE_DATA_MANAGEMENT_SET_ACTION = u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub OutputVersion: u32,
-}
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_LBP_STATE_PARAMETERS = _DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
 pub const DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1: i32 = 1;
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE {
-    pub Size: u32,
-    pub Version: u32,
-    pub SlabSizeInBytes: super::DWORDLONG,
-    pub SlabOffsetDeltaInBytes: u32,
-    pub SlabAllocationBitMapBitCount: u32,
-    pub SlabAllocationBitMapLength: u32,
-    pub SlabAllocationBitMap: [u32; 1],
-}
-#[cfg(feature = "winnt")]
-impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
-    pub Size: u32,
-    pub Version: u32,
-    pub SlabSizeInBytes: super::DWORDLONG,
-    pub SlabOffsetDeltaInBytes: super::DWORDLONG,
-    pub SlabAllocationBitMapBitCount: u32,
-    pub SlabAllocationBitMapLength: u32,
-    pub SlabAllocationBitMap: [u32; 1],
-}
-#[cfg(feature = "winnt")]
-impl Default for DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_LB_PROVISIONING_STATE = _DEVICE_DATA_SET_LB_PROVISIONING_STATE;
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 = _DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
 #[cfg(target_arch = "x86")]
 pub const DEVICE_DATA_SET_LB_PROVISIONING_STATE_VERSION_V1: u32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -824,67 +826,23 @@ pub const DEVICE_DATA_SET_LB_PROVISIONING_STATE_VERSION_V1: u64 = 32;
 pub const DEVICE_DATA_SET_LB_PROVISIONING_STATE_VERSION_V2: u32 = 40;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DEVICE_DATA_SET_LB_PROVISIONING_STATE_VERSION_V2: u64 = 40;
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_RANGE {
-    pub StartingOffset: i64,
-    pub LengthInBytes: super::DWORDLONG,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_REPAIR_OUTPUT {
-    pub ParityExtent: DEVICE_DSM_RANGE,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_REPAIR_PARAMETERS {
-    pub NumberOfRepairCopies: u32,
-    pub SourceCopy: u32,
-    pub RepairCopies: [u32; 1],
-}
-impl Default for DEVICE_DATA_SET_REPAIR_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
-    pub BytesProcessed: super::DWORDLONG,
-    pub BytesRepaired: super::DWORDLONG,
-    pub BytesFailed: super::DWORDLONG,
-    pub ParityExtent: DEVICE_DSM_RANGE,
-    pub BytesScrubbed: super::DWORDLONG,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_SCRUB_OUTPUT {
-    pub BytesProcessed: super::DWORDLONG,
-    pub BytesRepaired: super::DWORDLONG,
-    pub BytesFailed: super::DWORDLONG,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
-    pub TopologyRangeBytes: super::DWORDLONG,
-    pub TopologyId: [u8; 16],
-}
-#[cfg(feature = "winnt")]
-impl Default for DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_RANGE = _DEVICE_DATA_SET_RANGE;
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_REPAIR_OUTPUT = _DEVICE_DATA_SET_REPAIR_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_REPAIR_PARAMETERS = _DEVICE_DATA_SET_REPAIR_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_SCRUB_EX_OUTPUT = _DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_SCRUB_OUTPUT = _DEVICE_DATA_SET_SCRUB_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT = _DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
 pub type DEVICE_DSM_ACTION = u32;
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_ALLOCATION_OUTPUT = DEVICE_DATA_SET_LB_PROVISIONING_STATE;
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_ALLOCATION_OUTPUT2 = DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_ALLOCATION_OUTPUT = _DEVICE_DATA_SET_LB_PROVISIONING_STATE;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_ALLOCATION_OUTPUT2 = _DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
 #[cfg(target_arch = "x86")]
 pub const DEVICE_DSM_ALLOCATION_OUTPUT_V1: u32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -893,24 +851,26 @@ pub const DEVICE_DSM_ALLOCATION_OUTPUT_V1: u64 = 32;
 pub const DEVICE_DSM_ALLOCATION_OUTPUT_V2: u32 = 40;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DEVICE_DSM_ALLOCATION_OUTPUT_V2: u64 = 40;
-pub type DEVICE_DSM_ALLOCATION_PARAMETERS = DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_ALLOCATION_PARAMETERS = _DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DSM_CONVERSION_OUTPUT {
-    pub Version: u32,
+    pub Version: super::DWORD,
     pub Source: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: DEVICE_DSM_ACTION,
     pub SingleRange: super::BOOLEAN,
-    pub ParameterBlockAlignment: u32,
-    pub ParameterBlockLength: u32,
+    pub ParameterBlockAlignment: super::DWORD,
+    pub ParameterBlockLength: super::DWORD,
     pub HasOutput: super::BOOLEAN,
-    pub OutputBlockAlignment: u32,
-    pub OutputBlockLength: u32,
+    pub OutputBlockAlignment: super::DWORD,
+    pub OutputBlockLength: super::DWORD,
 }
 pub const DEVICE_DSM_FLAG_ALLOCATION_CONSOLIDATEABLE_ONLY: i32 = 1073741824;
 pub const DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE: i32 = 1;
@@ -922,44 +882,47 @@ pub const DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC: i32 = 268435456;
 pub const DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT: i32 = 1073741824;
 pub const DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED: u32 = 2147483648;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DSM_FREE_SPACE_OUTPUT {
-    pub Version: u32,
+    pub Version: super::DWORD,
     pub FreeSpace: super::DWORDLONG,
 }
-pub type DEVICE_DSM_INPUT = DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_INPUT = _DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DSM_LOST_QUERY_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Alignment: super::DWORDLONG,
-    pub NumberOfBits: u32,
-    pub BitMap: [u32; 1],
+    pub NumberOfBits: super::DWORD,
+    pub BitMap: [super::DWORD; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_LOST_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DSM_LOST_QUERY_PARAMETERS {
-    pub Version: u32,
+    pub Version: super::DWORD,
     pub Granularity: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DSM_NOTIFICATION_PARAMETERS {
-    pub Size: u32,
-    pub Flags: u32,
-    pub NumFileTypeIDs: u32,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub NumFileTypeIDs: super::DWORD,
     pub FileTypeID: [windows_core::GUID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_NOTIFICATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -968,57 +931,62 @@ impl Default for DEVICE_DSM_NOTIFICATION_PARAMETERS {
 pub const DEVICE_DSM_NOTIFY_FLAG_BEGIN: i32 = 1;
 pub const DEVICE_DSM_NOTIFY_FLAG_END: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
-    pub Size: u32,
-    pub TargetPriority: u8,
-    pub Reserved: [u8; 3],
+    pub Size: super::DWORD,
+    pub TargetPriority: super::BYTE,
+    pub Reserved: [super::BYTE; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
-    pub Flags: u32,
-    pub TimeToLive: u32,
-    pub Reserved: [u32; 2],
+    pub Flags: super::DWORD,
+    pub TimeToLive: super::DWORD,
+    pub Reserved: [super::DWORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_OFFLOAD_READ_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub Flags: super::DWORD,
+    pub Reserved: super::DWORD,
     pub TokenOffset: super::DWORDLONG,
     pub Token: STORAGE_OFFLOAD_TOKEN,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DEVICE_DSM_OUTPUT = DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_OUTPUT = _DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
 pub const DEVICE_DSM_PARAMETERS_V1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
-    pub Version: u32,
-    pub Flags: u32,
-    pub TotalNumberOfRanges: u32,
-    pub NumberOfRangesReturned: u32,
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
+    pub TotalNumberOfRanges: super::DWORD,
+    pub NumberOfRangesReturned: super::DWORD,
     pub Ranges: [DEVICE_STORAGE_ADDRESS_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1026,128 +994,93 @@ impl Default for DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT {
 }
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1: i32 = 1;
 pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: i32 = 1;
-pub const DEVICE_DSM_PHYSICAL_ADDRESS_HAS_MEMORY_ERROR: i64 = -1;
+#[cfg(feature = "shared")]
+pub const DEVICE_DSM_PHYSICAL_ADDRESS_HAS_MEMORY_ERROR: super::LONGLONG = -1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT {
-    pub Version: u32,
+    pub Version: super::DWORD,
     pub PreferLocalRepair: super::BOOLEAN,
 }
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_RANGE = DEVICE_DATA_SET_RANGE;
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct DEVICE_DSM_RANGE_ERROR_INFO {
-    pub Version: u32,
-    pub Flags: u32,
-    pub TotalNumberOfRanges: u32,
-    pub NumberOfRangesReturned: u32,
-    pub Ranges: [DEVICE_STORAGE_RANGE_ATTRIBUTES; 1],
-}
-#[cfg(feature = "winnt")]
-impl Default for DEVICE_DSM_RANGE_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_RANGE = _DEVICE_DATA_SET_RANGE;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_RANGE_ERROR_INFO = _DEVICE_DSM_RANGE_ERROR_INFO;
 pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: i32 = 1;
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_RANGE_ERROR_OUTPUT = DEVICE_DSM_RANGE_ERROR_INFO;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_RANGE_ERROR_OUTPUT = _DEVICE_DSM_RANGE_ERROR_INFO;
 pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: i32 = 1;
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_REPAIR_OUTPUT = DEVICE_DATA_SET_REPAIR_OUTPUT;
-pub type DEVICE_DSM_REPAIR_PARAMETERS = DEVICE_DATA_SET_REPAIR_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_REPAIR_OUTPUT = _DEVICE_DATA_SET_REPAIR_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_REPAIR_PARAMETERS = _DEVICE_DATA_SET_REPAIR_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_REPORT_ZONES_DATA = _DEVICE_DSM_REPORT_ZONES_DATA;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_REPORT_ZONES_OUTPUT = _DEVICE_DSM_REPORT_ZONES_DATA;
 #[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVICE_DSM_REPORT_ZONES_DATA {
-    pub Size: u32,
-    pub ZoneCount: u32,
-    pub Attributes: STORAGE_ZONES_ATTRIBUTES,
-    pub Reserved0: u32,
-    pub ZoneDescriptors: [STORAGE_ZONE_DESCRIPTOR; 1],
-}
-#[cfg(feature = "winnt")]
-impl Default for DEVICE_DSM_REPORT_ZONES_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_REPORT_ZONES_OUTPUT = DEVICE_DSM_REPORT_ZONES_DATA;
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DSM_REPORT_ZONES_PARAMETERS {
-    pub Size: u32,
-    pub ReportOption: u8,
-    pub Partial: u8,
-    pub Reserved: [u8; 2],
+    pub Size: super::DWORD,
+    pub ReportOption: super::BYTE,
+    pub Partial: super::BYTE,
+    pub Reserved: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_REPORT_ZONES_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_SCRUB_OUTPUT = DEVICE_DATA_SET_SCRUB_OUTPUT;
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_SCRUB_OUTPUT2 = DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_SCRUB_OUTPUT = _DEVICE_DATA_SET_SCRUB_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_SCRUB_OUTPUT2 = _DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_TIERING_QUERY_INPUT = _DEVICE_DSM_TIERING_QUERY_INPUT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVICE_DSM_TIERING_QUERY_INPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub NumberOfTierIds: u32,
-    pub TierIds: [windows_core::GUID; 1],
-}
-impl Default for DEVICE_DSM_TIERING_QUERY_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_DSM_TIERING_QUERY_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Reserved: super::DWORD,
     pub Alignment: super::DWORDLONG,
-    pub TotalNumberOfRegions: u32,
-    pub NumberOfRegionsReturned: u32,
+    pub TotalNumberOfRegions: super::DWORD,
+    pub NumberOfRegionsReturned: super::DWORD,
     pub Regions: [STORAGE_TIER_REGION; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_DSM_TIERING_QUERY_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type DEVICE_DSM_TIERING_QUERY_PARAMETERS = DEVICE_DSM_TIERING_QUERY_INPUT;
-#[cfg(feature = "winnt")]
-pub type DEVICE_DSM_TOPOLOGY_ID_QUERY_OUTPUT = DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_TIERING_QUERY_PARAMETERS = _DEVICE_DSM_TIERING_QUERY_INPUT;
+#[cfg(feature = "shared")]
+pub type DEVICE_DSM_TOPOLOGY_ID_QUERY_OUTPUT = _DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_INTERNAL_STATUS_DATA {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub T10VendorId: super::DWORDLONG,
-    pub DataSet1Length: u32,
-    pub DataSet2Length: u32,
-    pub DataSet3Length: u32,
-    pub DataSet4Length: u32,
-    pub StatusDataVersion: u8,
-    pub Reserved: [u8; 3],
-    pub ReasonIdentifier: [u8; 128],
-    pub StatusDataLength: u32,
-    pub StatusData: [u8; 1],
+    pub DataSet1Length: super::DWORD,
+    pub DataSet2Length: super::DWORD,
+    pub DataSet3Length: super::DWORD,
+    pub DataSet4Length: super::DWORD,
+    pub StatusDataVersion: super::BYTE,
+    pub Reserved: [super::BYTE; 3],
+    pub ReasonIdentifier: [super::BYTE; 128],
+    pub StatusDataLength: super::DWORD,
+    pub StatusData: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_INTERNAL_STATUS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1156,58 +1089,58 @@ impl Default for DEVICE_INTERNAL_STATUS_DATA {
 pub type DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = i32;
 pub type DEVICE_INTERNAL_STATUS_DATA_SET = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub _bitfield: u8,
-    pub Reserved1: [u8; 7],
+    pub Reserved1: [super::BYTE; 7],
     pub OptimalUnmapGranularity: super::DWORDLONG,
     pub UnmapGranularityAlignment: super::DWORDLONG,
-    pub MaxUnmapLbaCount: u32,
-    pub MaxUnmapBlockDescriptorCount: u32,
+    pub MaxUnmapLbaCount: super::DWORD,
+    pub MaxUnmapBlockDescriptorCount: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    pub fn ThinProvisioningEnabled(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ThinProvisioningEnabled(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_ThinProvisioningEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_ThinProvisioningEnabled(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ThinProvisioningReadZeros(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn ThinProvisioningReadZeros(&self) -> super::BYTE {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_ThinProvisioningReadZeros(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_ThinProvisioningReadZeros(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn AnchorSupported(&self) -> u8 {
-        (self._bitfield << 3) >> 5
+    pub fn AnchorSupported(&self) -> super::BYTE {
+        (self._bitfield >> 2) & 7
     }
-    pub fn set_AnchorSupported(&mut self, value: u8) {
+    pub fn set_AnchorSupported(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
     }
-    pub fn UnmapGranularityAlignmentValid(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn UnmapGranularityAlignmentValid(&self) -> super::BYTE {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_UnmapGranularityAlignmentValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    pub fn set_UnmapGranularityAlignmentValid(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn GetFreeSpaceSupported(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn GetFreeSpaceSupported(&self) -> super::BYTE {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_GetFreeSpaceSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    pub fn set_GetFreeSpaceSupported(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn MapSupported(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn MapSupported(&self) -> super::BYTE {
+        self._bitfield >> 7
     }
-    pub fn set_MapSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    pub fn set_MapSupported(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1218,280 +1151,250 @@ pub const DEVICE_LB_PROVISIONING_DESCRIPTOR_V1_SIZE: u32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DEVICE_LB_PROVISIONING_DESCRIPTOR_V1_SIZE: u64 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_LOCATION {
-    pub Socket: u32,
-    pub Slot: u32,
-    pub Adapter: u32,
-    pub Port: u32,
+    pub Socket: super::DWORD,
+    pub Slot: super::DWORD,
+    pub Adapter: super::DWORD,
+    pub Port: super::DWORD,
     pub Anonymous: DEVICE_LOCATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICE_LOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DEVICE_LOCATION_0 {
     pub Anonymous: DEVICE_LOCATION_0_0,
     pub Anonymous2: DEVICE_LOCATION_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for DEVICE_LOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_LOCATION_0_0 {
-    pub Channel: u32,
-    pub Device: u32,
+    pub Channel: super::DWORD,
+    pub Device: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_LOCATION_0_1 {
-    pub Target: u32,
-    pub Lun: u32,
+    pub Target: super::DWORD,
+    pub Lun: super::DWORD,
 }
+#[cfg(feature = "shared")]
+pub type DEVICE_MANAGE_DATA_SET_ATTRIBUTES = _DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
+#[cfg(feature = "shared")]
+pub type DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT = _DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
-    pub Size: u32,
-    pub Action: DEVICE_DSM_ACTION,
-    pub Flags: u32,
-    pub ParameterBlockOffset: u32,
-    pub ParameterBlockLength: u32,
-    pub DataSetRangesOffset: u32,
-    pub DataSetRangesLength: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
-    pub Size: u32,
-    pub Action: DEVICE_DSM_ACTION,
-    pub Flags: u32,
-    pub OperationStatus: u32,
-    pub ExtendedError: u32,
-    pub TargetDetailedError: u32,
-    pub ReservedStatus: u32,
-    pub OutputBlockOffset: u32,
-    pub OutputBlockLength: u32,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO {
     pub DeviceSpecific: DEVICE_MEDIA_INFO_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DEVICE_MEDIA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DEVICE_MEDIA_INFO_0 {
     pub DiskInfo: DEVICE_MEDIA_INFO_0_0,
     pub RemovableDiskInfo: DEVICE_MEDIA_INFO_0_1,
     pub TapeInfo: DEVICE_MEDIA_INFO_0_2,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DEVICE_MEDIA_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO_0_0 {
     pub Cylinders: super::LARGE_INTEGER,
     pub MediaType: STORAGE_MEDIA_TYPE,
-    pub TracksPerCylinder: u32,
-    pub SectorsPerTrack: u32,
-    pub BytesPerSector: u32,
-    pub NumberMediaSides: u32,
-    pub MediaCharacteristics: u32,
+    pub TracksPerCylinder: super::DWORD,
+    pub SectorsPerTrack: super::DWORD,
+    pub BytesPerSector: super::DWORD,
+    pub NumberMediaSides: super::DWORD,
+    pub MediaCharacteristics: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DEVICE_MEDIA_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO_0_1 {
     pub Cylinders: super::LARGE_INTEGER,
     pub MediaType: STORAGE_MEDIA_TYPE,
-    pub TracksPerCylinder: u32,
-    pub SectorsPerTrack: u32,
-    pub BytesPerSector: u32,
-    pub NumberMediaSides: u32,
-    pub MediaCharacteristics: u32,
+    pub TracksPerCylinder: super::DWORD,
+    pub SectorsPerTrack: super::DWORD,
+    pub BytesPerSector: super::DWORD,
+    pub NumberMediaSides: super::DWORD,
+    pub MediaCharacteristics: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DEVICE_MEDIA_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_MEDIA_INFO_0_2 {
     pub MediaType: STORAGE_MEDIA_TYPE,
-    pub MediaCharacteristics: u32,
-    pub CurrentBlockSize: u32,
+    pub MediaCharacteristics: super::DWORD,
+    pub CurrentBlockSize: super::DWORD,
     pub BusType: STORAGE_BUS_TYPE,
     pub BusSpecificData: DEVICE_MEDIA_INFO_0_2_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DEVICE_MEDIA_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DEVICE_MEDIA_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
-    pub MediumType: u8,
-    pub DensityCode: u8,
+    pub MediumType: super::BYTE,
+    pub DensityCode: super::BYTE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_POWER_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub DeviceAttentionSupported: super::BOOLEAN,
     pub AsynchronousNotificationSupported: super::BOOLEAN,
     pub IdlePowerManagementEnabled: super::BOOLEAN,
     pub D3ColdEnabled: super::BOOLEAN,
     pub D3ColdSupported: super::BOOLEAN,
     pub NoVerifyDuringIdlePower: super::BOOLEAN,
-    pub Reserved: [u8; 2],
-    pub IdleTimeoutInMS: u32,
+    pub Reserved: [super::BYTE; 2],
+    pub IdleTimeoutInMS: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_POWER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub IncursSeekPenalty: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_STORAGE_ADDRESS_RANGE {
-    pub StartAddress: i64,
+    pub StartAddress: super::LONGLONG,
     pub LengthInBytes: super::DWORDLONG,
 }
 pub const DEVICE_STORAGE_NO_ERRORS: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES {
     pub LengthInBytes: super::DWORDLONG,
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0,
-    pub Reserved: u32,
+    pub Reserved: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
-    pub AllFlags: u32,
+    pub AllFlags: super::DWORD,
     pub Anonymous: DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
-    pub fn IsRangeBad(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn IsRangeBad(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_IsRangeBad(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_IsRangeBad(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_TRIM_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub TrimEnabled: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub BenefitsFromWriteAggregation: super::BOOLEAN,
 }
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_Disk_Number: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_Gpt_Name: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9 };
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_Gpt_Type: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 8 };
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_Mbr_Type: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 7 };
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_Partition_Number: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 6 };
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_Portable: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 2 };
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_Removable_Media: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 3 };
-#[cfg(feature = "devpropdef")]
-pub const DEVPKEY_Storage_System_Critical: super::DEVPROPKEY = super::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 4 };
 pub const DISABLE_SMART: i32 = 217;
 pub const DISK_ATTRIBUTE_OFFLINE: i32 = 1;
 pub const DISK_ATTRIBUTE_READ_ONLY: i32 = 2;
 pub const DISK_BINNING: i32 = 3;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DISK_CACHE_INFORMATION {
     pub ParametersSavable: super::BOOLEAN,
@@ -1499,150 +1402,157 @@ pub struct DISK_CACHE_INFORMATION {
     pub WriteCacheEnabled: super::BOOLEAN,
     pub ReadRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
     pub WriteRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
-    pub DisablePrefetchTransferLength: u16,
+    pub DisablePrefetchTransferLength: super::WORD,
     pub PrefetchScalar: super::BOOLEAN,
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DISK_CACHE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_0,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_1,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for DISK_CACHE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_CACHE_INFORMATION_0_0 {
-    pub Minimum: u16,
-    pub Maximum: u16,
-    pub MaximumBlocks: u16,
+    pub Minimum: super::WORD,
+    pub Maximum: super::WORD,
+    pub MaximumBlocks: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_CACHE_INFORMATION_0_1 {
-    pub Minimum: u16,
-    pub Maximum: u16,
+    pub Minimum: super::WORD,
+    pub Maximum: super::WORD,
 }
 pub type DISK_CACHE_RETENTION_PRIORITY = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_CONTROLLER_NUMBER {
-    pub ControllerNumber: u32,
-    pub DiskNumber: u32,
+    pub ControllerNumber: super::DWORD,
+    pub DiskNumber: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DISK_DETECTION_INFO {
-    pub SizeOfDetectInfo: u32,
+    pub SizeOfDetectInfo: super::DWORD,
     pub DetectionType: DETECTION_TYPE,
     pub Anonymous: DISK_DETECTION_INFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DISK_DETECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DISK_DETECTION_INFO_0 {
     pub Anonymous: DISK_DETECTION_INFO_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DISK_DETECTION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_DETECTION_INFO_0_0 {
     pub Int13: DISK_INT13_INFO,
     pub ExInt13: DISK_EX_INT13_INFO,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISK_EXTENT {
-    pub DiskNumber: u32,
+    pub DiskNumber: super::DWORD,
     pub StartingOffset: super::LARGE_INTEGER,
     pub ExtentLength: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DISK_EXTENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_EX_INT13_INFO {
-    pub ExBufferSize: u16,
-    pub ExFlags: u16,
-    pub ExCylinders: u32,
-    pub ExHeads: u32,
-    pub ExSectorsPerTrack: u32,
-    pub ExSectorsPerDrive: u64,
-    pub ExSectorSize: u16,
-    pub ExReserved: u16,
+    pub ExBufferSize: super::WORD,
+    pub ExFlags: super::WORD,
+    pub ExCylinders: super::DWORD,
+    pub ExHeads: super::DWORD,
+    pub ExSectorsPerTrack: super::DWORD,
+    pub ExSectorsPerDrive: super::DWORD64,
+    pub ExSectorSize: super::WORD,
+    pub ExReserved: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISK_GEOMETRY {
     pub Cylinders: super::LARGE_INTEGER,
     pub MediaType: MEDIA_TYPE,
-    pub TracksPerCylinder: u32,
-    pub SectorsPerTrack: u32,
-    pub BytesPerSector: u32,
+    pub TracksPerCylinder: super::DWORD,
+    pub SectorsPerTrack: super::DWORD,
+    pub BytesPerSector: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DISK_GEOMETRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISK_GEOMETRY_EX {
     pub Geometry: DISK_GEOMETRY,
     pub DiskSize: super::LARGE_INTEGER,
-    pub Data: [u8; 1],
+    pub Data: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DISK_GEOMETRY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISK_GROW_PARTITION {
-    pub PartitionNumber: u32,
+    pub PartitionNumber: super::DWORD,
     pub BytesToGrow: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DISK_GROW_PARTITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISK_HISTOGRAM {
     pub DiskSize: super::LARGE_INTEGER,
@@ -1651,13 +1561,13 @@ pub struct DISK_HISTOGRAM {
     pub Average: super::LARGE_INTEGER,
     pub AverageRead: super::LARGE_INTEGER,
     pub AverageWrite: super::LARGE_INTEGER,
-    pub Granularity: u32,
-    pub Size: u32,
-    pub ReadCount: u32,
-    pub WriteCount: u32,
+    pub Granularity: super::DWORD,
+    pub Size: super::DWORD,
+    pub ReadCount: super::DWORD,
+    pub WriteCount: super::DWORD,
     pub Histogram: PHISTOGRAM_BUCKET,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DISK_HISTOGRAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1668,60 +1578,68 @@ pub const DISK_HISTOGRAM_SIZE: u32 = 72;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DISK_HISTOGRAM_SIZE: u64 = 72;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_INT13_INFO {
-    pub DriveSelect: u16,
-    pub MaxCylinders: u32,
-    pub SectorsPerTrack: u16,
-    pub MaxHeads: u16,
-    pub NumberDrives: u16,
+    pub DriveSelect: super::WORD,
+    pub MaxCylinders: super::DWORD,
+    pub SectorsPerTrack: super::WORD,
+    pub MaxHeads: super::WORD,
+    pub NumberDrives: super::WORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_LOGGING {
-    pub Function: u8,
-    pub BufferAddress: *mut core::ffi::c_void,
-    pub BufferSize: u32,
+    pub Function: super::BYTE,
+    pub BufferAddress: super::PVOID,
+    pub BufferSize: super::DWORD,
 }
 pub const DISK_LOGGING_DUMP: i32 = 2;
 pub const DISK_LOGGING_START: i32 = 0;
 pub const DISK_LOGGING_STOP: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DISK_PARTITION_INFO {
-    pub SizeOfPartitionInfo: u32,
+    pub SizeOfPartitionInfo: super::DWORD,
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: DISK_PARTITION_INFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DISK_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DISK_PARTITION_INFO_0 {
     pub Mbr: DISK_PARTITION_INFO_0_0,
     pub Gpt: DISK_PARTITION_INFO_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for DISK_PARTITION_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_PARTITION_INFO_0_0 {
-    pub Signature: u32,
-    pub CheckSum: u32,
+    pub Signature: super::DWORD,
+    pub CheckSum: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_PARTITION_INFO_0_1 {
     pub DiskId: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISK_PERFORMANCE {
     pub BytesRead: super::LARGE_INTEGER,
@@ -1729,33 +1647,33 @@ pub struct DISK_PERFORMANCE {
     pub ReadTime: super::LARGE_INTEGER,
     pub WriteTime: super::LARGE_INTEGER,
     pub IdleTime: super::LARGE_INTEGER,
-    pub ReadCount: u32,
-    pub WriteCount: u32,
-    pub QueueDepth: u32,
-    pub SplitCount: u32,
+    pub ReadCount: super::DWORD,
+    pub WriteCount: super::DWORD,
+    pub QueueDepth: super::DWORD,
+    pub SplitCount: super::DWORD,
     pub QueryTime: super::LARGE_INTEGER,
-    pub StorageDeviceNumber: u32,
-    pub StorageManagerName: [u16; 8],
+    pub StorageDeviceNumber: super::DWORD,
+    pub StorageManagerName: [super::WCHAR; 8],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DISK_PERFORMANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DISK_RECORD {
     pub ByteOffset: super::LARGE_INTEGER,
     pub StartTime: super::LARGE_INTEGER,
     pub EndTime: super::LARGE_INTEGER,
-    pub VirtualAddress: *mut core::ffi::c_void,
-    pub NumberOfBytes: u32,
-    pub DeviceNumber: u8,
+    pub VirtualAddress: super::PVOID,
+    pub NumberOfBytes: super::DWORD,
+    pub DeviceNumber: super::BYTE,
     pub ReadRequest: super::BOOLEAN,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DISK_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1764,86 +1682,89 @@ impl Default for DISK_RECORD {
 pub const DLT: STORAGE_MEDIA_TYPE = 39;
 pub const DMI: STORAGE_MEDIA_TYPE = 48;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DRIVERSTATUS {
-    pub bDriverError: u8,
-    pub bIDEError: u8,
-    pub bReserved: [u8; 2],
-    pub dwReserved: [u32; 2],
+    pub bDriverError: super::BYTE,
+    pub bIDEError: super::BYTE,
+    pub bReserved: [super::BYTE; 2],
+    pub dwReserved: [super::DWORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for DRIVERSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRIVE_LAYOUT_INFORMATION {
-    pub PartitionCount: u32,
-    pub Signature: u32,
+    pub PartitionCount: super::DWORD,
+    pub Signature: super::DWORD,
     pub PartitionEntry: [PARTITION_INFORMATION; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DRIVE_LAYOUT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRIVE_LAYOUT_INFORMATION_EX {
-    pub PartitionStyle: u32,
-    pub PartitionCount: u32,
+    pub PartitionStyle: super::DWORD,
+    pub PartitionCount: super::DWORD,
     pub Anonymous: DRIVE_LAYOUT_INFORMATION_EX_0,
     pub PartitionEntry: [PARTITION_INFORMATION_EX; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DRIVE_LAYOUT_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DRIVE_LAYOUT_INFORMATION_GPT {
     pub DiskId: windows_core::GUID,
     pub StartingUsableOffset: super::LARGE_INTEGER,
     pub UsableLength: super::LARGE_INTEGER,
-    pub MaxPartitionCount: u32,
+    pub MaxPartitionCount: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DRIVE_LAYOUT_INFORMATION_GPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVE_LAYOUT_INFORMATION_MBR {
-    pub Signature: u32,
-    pub CheckSum: u32,
+    pub Signature: super::DWORD,
+    pub CheckSum: super::DWORD,
 }
 pub const DST_L: STORAGE_MEDIA_TYPE = 82;
 pub const DST_M: STORAGE_MEDIA_TYPE = 81;
 pub const DST_S: STORAGE_MEDIA_TYPE = 80;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::HANDLE,
@@ -1851,7 +1772,7 @@ pub struct DUPLICATE_EXTENTS_DATA {
     pub TargetFileOffset: super::LARGE_INTEGER,
     pub ByteCount: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DUPLICATE_EXTENTS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1859,33 +1780,33 @@ impl Default for DUPLICATE_EXTENTS_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA32 {
-    pub FileHandle: u32,
+    pub FileHandle: super::UINT32,
     pub SourceFileOffset: super::LARGE_INTEGER,
     pub TargetFileOffset: super::LARGE_INTEGER,
     pub ByteCount: super::LARGE_INTEGER,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DUPLICATE_EXTENTS_DATA32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
-    pub Size: usize,
+    pub Size: super::SIZE_T,
     pub FileHandle: super::HANDLE,
     pub SourceFileOffset: super::LARGE_INTEGER,
     pub TargetFileOffset: super::LARGE_INTEGER,
     pub ByteCount: super::LARGE_INTEGER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DUPLICATE_EXTENTS_DATA_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1893,18 +1814,18 @@ impl Default for DUPLICATE_EXTENTS_DATA_EX {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DUPLICATE_EXTENTS_DATA_EX32 {
-    pub Size: u32,
-    pub FileHandle: u32,
+    pub Size: super::DWORD32,
+    pub FileHandle: super::DWORD32,
     pub SourceFileOffset: super::LARGE_INTEGER,
     pub TargetFileOffset: super::LARGE_INTEGER,
     pub ByteCount: super::LARGE_INTEGER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for DUPLICATE_EXTENTS_DATA_EX32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2033,22 +1954,22 @@ pub const ENABLE_DISABLE_AUTOSAVE: i32 = 210;
 pub const ENABLE_DISABLE_AUTO_OFFLINE: i32 = 219;
 pub const ENABLE_SMART: i32 = 216;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTED_DATA_INFO {
     pub StartingFileOffset: super::DWORDLONG,
-    pub OutputBufferOffset: u32,
-    pub BytesWithinFileSize: u32,
-    pub BytesWithinValidDataLength: u32,
-    pub CompressionFormat: u16,
-    pub DataUnitShift: u8,
-    pub ChunkShift: u8,
-    pub ClusterShift: u8,
-    pub EncryptionFormat: u8,
-    pub NumberOfDataBlocks: u16,
-    pub DataBlockSize: [u32; 1],
+    pub OutputBufferOffset: super::DWORD,
+    pub BytesWithinFileSize: super::DWORD,
+    pub BytesWithinValidDataLength: super::DWORD,
+    pub CompressionFormat: super::WORD,
+    pub DataUnitShift: super::BYTE,
+    pub ChunkShift: super::BYTE,
+    pub ClusterShift: super::BYTE,
+    pub EncryptionFormat: super::BYTE,
+    pub NumberOfDataBlocks: super::WORD,
+    pub DataBlockSize: [super::DWORD; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for ENCRYPTED_DATA_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2058,11 +1979,13 @@ pub const ENCRYPTED_DATA_INFO_4K_SPARSE_UNIT: i32 = 4;
 pub const ENCRYPTED_DATA_INFO_SPARSE_DATA: i32 = 2;
 pub const ENCRYPTED_DATA_INFO_SPARSE_FILE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_BUFFER {
-    pub EncryptionOperation: u32,
-    pub Private: [u8; 1],
+    pub EncryptionOperation: super::DWORD,
+    pub Private: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for ENCRYPTION_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2070,14 +1993,14 @@ impl Default for ENCRYPTION_BUFFER {
 }
 pub const ENCRYPTION_FORMAT_DEFAULT: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTION_KEY_CTRL_INPUT {
-    pub HeaderSize: u32,
-    pub StructureSize: u32,
-    pub KeyOffset: u16,
-    pub KeySize: u16,
-    pub DplLock: u32,
+    pub HeaderSize: super::DWORD,
+    pub StructureSize: super::DWORD,
+    pub KeyOffset: super::WORD,
+    pub KeySize: super::WORD,
+    pub DplLock: super::DWORD,
     pub DplUserId: super::DWORDLONG,
     pub DplCredentialId: super::DWORDLONG,
 }
@@ -2091,25 +2014,27 @@ pub const ERROR_TRAY_MALFUNCTION: i32 = 16;
 pub const ERROR_UNHANDLED_ERROR: u32 = 4294967295;
 pub const EXECUTE_OFFLINE_DIAGS: i32 = 212;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXFAT_STATISTICS {
-    pub CreateHits: u32,
-    pub SuccessfulCreates: u32,
-    pub FailedCreates: u32,
-    pub NonCachedReads: u32,
-    pub NonCachedReadBytes: u32,
-    pub NonCachedWrites: u32,
-    pub NonCachedWriteBytes: u32,
-    pub NonCachedDiskReads: u32,
-    pub NonCachedDiskWrites: u32,
+    pub CreateHits: super::DWORD,
+    pub SuccessfulCreates: super::DWORD,
+    pub FailedCreates: super::DWORD,
+    pub NonCachedReads: super::DWORD,
+    pub NonCachedReadBytes: super::DWORD,
+    pub NonCachedWrites: super::DWORD,
+    pub NonCachedWriteBytes: super::DWORD,
+    pub NonCachedDiskReads: super::DWORD,
+    pub NonCachedDiskWrites: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXTENDED_ENCRYPTED_DATA_INFO {
-    pub ExtendedCode: u32,
-    pub Length: u32,
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub ExtendedCode: super::DWORD,
+    pub Length: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub const EXTEND_IEPORT: i32 = 2;
 pub const EqualPriority: DISK_CACHE_RETENTION_PRIORITY = 0;
@@ -2137,44 +2062,46 @@ pub const F5_640_512: MEDIA_TYPE = 15;
 pub const F5_720_512: MEDIA_TYPE = 16;
 pub const F8_256_128: MEDIA_TYPE = 22;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAT_STATISTICS {
-    pub CreateHits: u32,
-    pub SuccessfulCreates: u32,
-    pub FailedCreates: u32,
-    pub NonCachedReads: u32,
-    pub NonCachedReadBytes: u32,
-    pub NonCachedWrites: u32,
-    pub NonCachedWriteBytes: u32,
-    pub NonCachedDiskReads: u32,
-    pub NonCachedDiskWrites: u32,
+    pub CreateHits: super::DWORD,
+    pub SuccessfulCreates: super::DWORD,
+    pub FailedCreates: super::DWORD,
+    pub NonCachedReads: super::DWORD,
+    pub NonCachedReadBytes: super::DWORD,
+    pub NonCachedWrites: super::DWORD,
+    pub NonCachedWriteBytes: super::DWORD,
+    pub NonCachedDiskReads: super::DWORD,
+    pub NonCachedDiskWrites: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILESYSTEM_STATISTICS {
-    pub FileSystemType: u16,
-    pub Version: u16,
-    pub SizeOfCompleteStructure: u32,
-    pub UserFileReads: u32,
-    pub UserFileReadBytes: u32,
-    pub UserDiskReads: u32,
-    pub UserFileWrites: u32,
-    pub UserFileWriteBytes: u32,
-    pub UserDiskWrites: u32,
-    pub MetaDataReads: u32,
-    pub MetaDataReadBytes: u32,
-    pub MetaDataDiskReads: u32,
-    pub MetaDataWrites: u32,
-    pub MetaDataWriteBytes: u32,
-    pub MetaDataDiskWrites: u32,
+    pub FileSystemType: super::WORD,
+    pub Version: super::WORD,
+    pub SizeOfCompleteStructure: super::DWORD,
+    pub UserFileReads: super::DWORD,
+    pub UserFileReadBytes: super::DWORD,
+    pub UserDiskReads: super::DWORD,
+    pub UserFileWrites: super::DWORD,
+    pub UserFileWriteBytes: super::DWORD,
+    pub UserDiskWrites: super::DWORD,
+    pub MetaDataReads: super::DWORD,
+    pub MetaDataReadBytes: super::DWORD,
+    pub MetaDataDiskReads: super::DWORD,
+    pub MetaDataWrites: super::DWORD,
+    pub MetaDataWriteBytes: super::DWORD,
+    pub MetaDataDiskWrites: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILESYSTEM_STATISTICS_EX {
-    pub FileSystemType: u16,
-    pub Version: u16,
-    pub SizeOfCompleteStructure: u32,
+    pub FileSystemType: super::WORD,
+    pub Version: super::WORD,
+    pub SizeOfCompleteStructure: super::DWORD,
     pub UserFileReads: super::DWORDLONG,
     pub UserFileReadBytes: super::DWORDLONG,
     pub UserDiskReads: super::DWORDLONG,
@@ -2193,13 +2120,13 @@ pub const FILESYSTEM_STATISTICS_TYPE_FAT: i32 = 2;
 pub const FILESYSTEM_STATISTICS_TYPE_NTFS: i32 = 1;
 pub const FILESYSTEM_STATISTICS_TYPE_REFS: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILE_ALLOCATED_RANGE_BUFFER {
     pub FileOffset: super::LARGE_INTEGER,
     pub Length: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_ALLOCATED_RANGE_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2208,10 +2135,11 @@ impl Default for FILE_ALLOCATED_RANGE_BUFFER {
 pub const FILE_ANY_ACCESS: i32 = 0;
 pub const FILE_CLEAR_ENCRYPTION: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_DESIRED_STORAGE_CLASS_INFORMATION {
     pub Class: FILE_STORAGE_TIER_CLASS,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 pub const FILE_DEVICE_8042_PORT: i32 = 39;
 pub const FILE_DEVICE_ACPI: i32 = 50;
@@ -2281,7 +2209,6 @@ pub const FILE_DEVICE_SDFXHCI: i32 = 92;
 pub const FILE_DEVICE_SERENUM: i32 = 55;
 pub const FILE_DEVICE_SERIAL_MOUSE_PORT: i32 = 26;
 pub const FILE_DEVICE_SERIAL_PORT: i32 = 27;
-pub const FILE_DEVICE_SMARTCARD: i32 = 49;
 pub const FILE_DEVICE_SMB: i32 = 46;
 pub const FILE_DEVICE_SOUND: i32 = 29;
 pub const FILE_DEVICE_SOUNDWIRE: i32 = 97;
@@ -2309,12 +2236,13 @@ pub const FILE_DEVICE_WAVE_IN: i32 = 37;
 pub const FILE_DEVICE_WAVE_OUT: i32 = 38;
 pub const FILE_DEVICE_WPD: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_PERSISTENT_VOLUME_INFORMATION {
-    pub VolumeFlags: u32,
-    pub FlagMask: u32,
-    pub Version: u32,
-    pub Reserved: u32,
+    pub VolumeFlags: super::DWORD,
+    pub FlagMask: super::DWORD,
+    pub Version: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NON_RESIDENT: i64 = 137438953472;
 pub const FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NOT_FOUND: i32 = 4096;
@@ -2360,72 +2288,72 @@ pub const FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE: i32 = 16;
 pub const FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR: i32 = 64;
 pub const FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY: i32 = 536870912;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER {
     pub Hint1: super::DWORDLONG,
     pub Hint2: super::DWORDLONG,
     pub Clsn: CLSN,
-    pub Status: u32,
+    pub Status: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LAYOUT_ENTRY {
-    pub Version: u32,
-    pub NextFileOffset: u32,
-    pub Flags: u32,
-    pub FileAttributes: u32,
+    pub Version: super::DWORD,
+    pub NextFileOffset: super::DWORD,
+    pub Flags: super::DWORD,
+    pub FileAttributes: super::DWORD,
     pub FileReferenceNumber: super::DWORDLONG,
-    pub FirstNameOffset: u32,
-    pub FirstStreamOffset: u32,
-    pub ExtraInfoOffset: u32,
-    pub ExtraInfoLength: u32,
+    pub FirstNameOffset: super::DWORD,
+    pub FirstStreamOffset: super::DWORD,
+    pub ExtraInfoOffset: super::DWORD,
+    pub ExtraInfoLength: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILE_LAYOUT_INFO_ENTRY {
     pub BasicInformation: FILE_LAYOUT_INFO_ENTRY_0,
-    pub OwnerId: u32,
-    pub SecurityId: u32,
+    pub OwnerId: super::DWORD,
+    pub SecurityId: super::DWORD,
     pub Usn: super::USN,
     pub StorageReserveId: STORAGE_RESERVE_ID,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_LAYOUT_INFO_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILE_LAYOUT_INFO_ENTRY_0 {
     pub CreationTime: super::LARGE_INTEGER,
     pub LastAccessTime: super::LARGE_INTEGER,
     pub LastWriteTime: super::LARGE_INTEGER,
     pub ChangeTime: super::LARGE_INTEGER,
-    pub FileAttributes: u32,
+    pub FileAttributes: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_LAYOUT_INFO_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LAYOUT_NAME_ENTRY {
-    pub NextNameOffset: u32,
-    pub Flags: u32,
+    pub NextNameOffset: super::DWORD,
+    pub Flags: super::DWORD,
     pub ParentFileReferenceNumber: super::DWORDLONG,
-    pub FileNameLength: u32,
-    pub Reserved: u32,
-    pub FileName: [u16; 1],
+    pub FileNameLength: super::DWORD,
+    pub Reserved: super::DWORD,
+    pub FileName: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_LAYOUT_NAME_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2434,95 +2362,102 @@ impl Default for FILE_LAYOUT_NAME_ENTRY {
 pub const FILE_LAYOUT_NAME_ENTRY_DOS: i32 = 2;
 pub const FILE_LAYOUT_NAME_ENTRY_PRIMARY: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LEVEL_TRIM {
-    pub Key: u32,
-    pub NumRanges: u32,
+    pub Key: super::DWORD,
+    pub NumRanges: super::DWORD,
     pub Ranges: [FILE_LEVEL_TRIM_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for FILE_LEVEL_TRIM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LEVEL_TRIM_OUTPUT {
-    pub NumRangesProcessed: u32,
+    pub NumRangesProcessed: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LEVEL_TRIM_RANGE {
     pub Offset: super::DWORDLONG,
     pub Length: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
     pub CloseDisc: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_OBJECTID_BUFFER {
-    pub ObjectId: [u8; 16],
+    pub ObjectId: [super::BYTE; 16],
     pub Anonymous: FILE_OBJECTID_BUFFER_0,
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_OBJECTID_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union FILE_OBJECTID_BUFFER_0 {
     pub Anonymous: FILE_OBJECTID_BUFFER_0_0,
-    pub ExtendedInfo: [u8; 48],
+    pub ExtendedInfo: [super::BYTE; 48],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_OBJECTID_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_OBJECTID_BUFFER_0_0 {
-    pub BirthVolumeId: [u8; 16],
-    pub BirthObjectId: [u8; 16],
-    pub DomainId: [u8; 16],
+    pub BirthVolumeId: [super::BYTE; 16],
+    pub BirthObjectId: [super::BYTE; 16],
+    pub DomainId: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_OBJECTID_BUFFER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PREFETCH {
-    pub Type: u32,
-    pub Count: u32,
+    pub Type: super::DWORD,
+    pub Count: super::DWORD,
     pub Prefetch: [super::DWORDLONG; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for FILE_PREFETCH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PREFETCH_EX {
-    pub Type: u32,
-    pub Count: u32,
-    pub Context: *mut core::ffi::c_void,
+    pub Type: super::DWORD,
+    pub Count: super::DWORD,
+    pub Context: super::PVOID,
     pub Prefetch: [super::DWORDLONG; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_PREFETCH_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2539,85 +2474,92 @@ pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: i32 = 3;
 pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: i32 = 0;
 pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: i32 = 2;
 pub const FILE_PROVIDER_CURRENT_VERSION: i32 = 1;
+#[cfg(feature = "shared")]
 pub type FILE_PROVIDER_EXTERNAL_INFO = FILE_PROVIDER_EXTERNAL_INFO_V1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V0 {
-    pub Version: u32,
-    pub Algorithm: u32,
+    pub Version: super::DWORD,
+    pub Algorithm: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PROVIDER_EXTERNAL_INFO_V1 {
-    pub Version: u32,
-    pub Algorithm: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Algorithm: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE: i32 = 1;
 pub const FILE_PROVIDER_SINGLE_FILE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     pub DirectoryCount: super::LARGE_INTEGER,
     pub FileCount: super::LARGE_INTEGER,
-    pub FsFormatMajVersion: u16,
-    pub FsFormatMinVersion: u16,
-    pub FsFormatName: [u16; 12],
+    pub FsFormatMajVersion: super::WORD,
+    pub FsFormatMinVersion: super::WORD,
+    pub FsFormatName: [super::WCHAR; 12],
     pub FormatTime: super::LARGE_INTEGER,
     pub LastUpdateTime: super::LARGE_INTEGER,
-    pub CopyrightInfo: [u16; 34],
-    pub AbstractInfo: [u16; 34],
-    pub FormattingImplementationInfo: [u16; 34],
-    pub LastModifyingImplementationInfo: [u16; 34],
+    pub CopyrightInfo: [super::WCHAR; 34],
+    pub AbstractInfo: [super::WCHAR; 34],
+    pub FormattingImplementationInfo: [super::WCHAR; 34],
+    pub LastModifyingImplementationInfo: [super::WCHAR; 34],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_QUERY_SPARING_BUFFER {
-    pub SparingUnitBytes: u32,
+    pub SparingUnitBytes: super::DWORD,
     pub SoftwareSparing: super::BOOLEAN,
-    pub TotalSpareBlocks: u32,
-    pub FreeSpareBlocks: u32,
+    pub TotalSpareBlocks: super::DWORD,
+    pub FreeSpareBlocks: super::DWORD,
 }
 pub const FILE_READ_ACCESS: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REFERENCE_RANGE {
     pub StartingFileReferenceNumber: super::DWORDLONG,
     pub EndingFileReferenceNumber: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REGION_INFO {
-    pub FileOffset: i64,
-    pub Length: i64,
-    pub Usage: u32,
-    pub Reserved: u32,
+    pub FileOffset: super::LONGLONG,
+    pub Length: super::LONGLONG,
+    pub Usage: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REGION_INPUT {
-    pub FileOffset: i64,
-    pub Length: i64,
-    pub DesiredUsage: u32,
+    pub FileOffset: super::LONGLONG,
+    pub Length: super::LONGLONG,
+    pub DesiredUsage: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REGION_OUTPUT {
-    pub Flags: u32,
-    pub TotalRegionEntryCount: u32,
-    pub RegionEntryCount: u32,
-    pub Reserved: u32,
+    pub Flags: super::DWORD,
+    pub TotalRegionEntryCount: super::DWORD,
+    pub RegionEntryCount: super::DWORD,
+    pub Reserved: super::DWORD,
     pub Region: [FILE_REGION_INFO; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_REGION_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2634,32 +2576,32 @@ pub const FILE_REGION_USAGE_QUERY_ALIGNMENT: i32 = 24;
 pub const FILE_REGION_USAGE_VALID_CACHED_DATA: i32 = 1;
 pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
     pub Disable: super::BOOLEAN,
 }
 pub const FILE_SET_ENCRYPTION: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_SET_SPARSE_BUFFER {
     pub SetSparse: super::BOOLEAN,
 }
 pub const FILE_SPECIAL_ACCESS: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STORAGE_TIER {
     pub Id: windows_core::GUID,
-    pub Name: [u16; 256],
-    pub Description: [u16; 256],
+    pub Name: [super::WCHAR; 256],
+    pub Description: [super::WCHAR; 256],
     pub Flags: super::DWORDLONG,
     pub ProvisionedCapacity: super::DWORDLONG,
     pub MediaType: FILE_STORAGE_TIER_MEDIA_TYPE,
     pub Class: FILE_STORAGE_TIER_CLASS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_STORAGE_TIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2675,7 +2617,7 @@ pub const FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE: i32 = 2097152;
 pub type FILE_STORAGE_TIER_MEDIA_TYPE = i32;
 pub const FILE_STORAGE_TIER_NAME_LENGTH: i32 = 256;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STORAGE_TIER_REGION {
     pub TierId: windows_core::GUID,
@@ -2683,10 +2625,12 @@ pub struct FILE_STORAGE_TIER_REGION {
     pub Length: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
-    pub FileSystem: [i8; 9],
+    pub FileSystem: [super::CHAR; 9],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2698,12 +2642,14 @@ pub const FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: windows_core::GUID = windo
 pub const FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: windows_core::GUID = windows_core::GUID::from_u128(0xb7624d64_b9a3_4cf8_8011_5b86c940e7b7);
 pub const FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: windows_core::GUID = windows_core::GUID::from_u128(0x0d0a64a1_38fc_4db8_9fe7_3f4352cd7c5c);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_TYPE_NOTIFICATION_INPUT {
-    pub Flags: u32,
-    pub NumFileTypeIDs: u32,
+    pub Flags: super::DWORD,
+    pub NumFileTypeIDs: super::DWORD,
     pub FileTypeID: [windows_core::GUID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_TYPE_NOTIFICATION_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2711,27 +2657,27 @@ impl Default for FILE_TYPE_NOTIFICATION_INPUT {
 }
 pub const FILE_WRITE_ACCESS: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILE_ZERO_DATA_INFORMATION {
     pub FileOffset: super::LARGE_INTEGER,
     pub BeyondFinalZero: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_ZERO_DATA_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILE_ZERO_DATA_INFORMATION_EX {
     pub FileOffset: super::LARGE_INTEGER,
     pub BeyondFinalZero: super::LARGE_INTEGER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FILE_ZERO_DATA_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2739,20 +2685,22 @@ impl Default for FILE_ZERO_DATA_INFORMATION_EX {
 }
 pub const FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIND_BY_SID_DATA {
-    pub Restart: u32,
+    pub Restart: super::DWORD,
     pub Sid: super::SID,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FIND_BY_SID_OUTPUT {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
+    pub NextEntryOffset: super::DWORD,
+    pub FileIndex: super::DWORD,
+    pub FileNameLength: super::DWORD,
+    pub FileName: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FIND_BY_SID_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2760,30 +2708,33 @@ impl Default for FIND_BY_SID_OUTPUT {
 }
 pub const FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORMAT_EX_PARAMETERS {
     pub MediaType: MEDIA_TYPE,
-    pub StartCylinderNumber: u32,
-    pub EndCylinderNumber: u32,
-    pub StartHeadNumber: u32,
-    pub EndHeadNumber: u32,
-    pub FormatGapLength: u16,
-    pub SectorsPerTrack: u16,
-    pub SectorNumber: [u16; 1],
+    pub StartCylinderNumber: super::DWORD,
+    pub EndCylinderNumber: super::DWORD,
+    pub StartHeadNumber: super::DWORD,
+    pub EndHeadNumber: super::DWORD,
+    pub FormatGapLength: super::WORD,
+    pub SectorsPerTrack: super::WORD,
+    pub SectorNumber: [super::WORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FORMAT_EX_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORMAT_PARAMETERS {
     pub MediaType: MEDIA_TYPE,
-    pub StartCylinderNumber: u32,
-    pub EndCylinderNumber: u32,
-    pub StartHeadNumber: u32,
-    pub EndHeadNumber: u32,
+    pub StartCylinderNumber: super::DWORD,
+    pub EndCylinderNumber: super::DWORD,
+    pub StartHeadNumber: super::DWORD,
+    pub EndHeadNumber: super::DWORD,
 }
 pub const FSBPIO_INFL_None: FS_BPIO_INFLAGS = 0;
 pub const FSBPIO_INFL_SKIP_STORAGE_STACK_QUERY: FS_BPIO_INFLAGS = 1;
@@ -2849,13 +2800,14 @@ pub const FSCTL_GET_EXTERNAL_BACKING: i32 = 590608;
 pub const FSCTL_GET_FILTER_FILE_IDENTIFIER: i32 = 590788;
 pub const FSCTL_GET_INTEGRITY_INFORMATION: i32 = 590460;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
-    pub ChecksumAlgorithm: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub ChecksumChunkSizeInBytes: u32,
-    pub ClusterSizeInBytes: u32,
+    pub ChecksumAlgorithm: super::WORD,
+    pub Reserved: super::WORD,
+    pub Flags: super::DWORD,
+    pub ChecksumChunkSizeInBytes: super::DWORD,
+    pub ClusterSizeInBytes: super::DWORD,
 }
 pub const FSCTL_GET_NTFS_FILE_RECORD: i32 = 589928;
 pub const FSCTL_GET_NTFS_VOLUME_DATA: i32 = 589924;
@@ -2896,26 +2848,26 @@ pub const FSCTL_NOTIFY_DATA_CHANGE: i32 = 590844;
 pub const FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION: i32 = 590748;
 pub const FSCTL_OFFLOAD_READ: i32 = 606820;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_OFFLOAD_READ_INPUT {
-    pub Size: u32,
-    pub Flags: u32,
-    pub TokenTimeToLive: u32,
-    pub Reserved: u32,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub TokenTimeToLive: super::DWORD,
+    pub Reserved: super::DWORD,
     pub FileOffset: super::DWORDLONG,
     pub CopyLength: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_OFFLOAD_READ_OUTPUT {
-    pub Size: u32,
-    pub Flags: u32,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
     pub TransferLength: super::DWORDLONG,
-    pub Token: [u8; 512],
+    pub Token: [super::BYTE; 512],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for FSCTL_OFFLOAD_READ_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2923,28 +2875,28 @@ impl Default for FSCTL_OFFLOAD_READ_OUTPUT {
 }
 pub const FSCTL_OFFLOAD_WRITE: i32 = 623208;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_OFFLOAD_WRITE_INPUT {
-    pub Size: u32,
-    pub Flags: u32,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
     pub FileOffset: super::DWORDLONG,
     pub CopyLength: super::DWORDLONG,
     pub TransferOffset: super::DWORDLONG,
-    pub Token: [u8; 512],
+    pub Token: [super::BYTE; 512],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for FSCTL_OFFLOAD_WRITE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_OFFLOAD_WRITE_OUTPUT {
-    pub Size: u32,
-    pub Flags: u32,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
     pub LengthWritten: super::DWORDLONG,
 }
 pub const FSCTL_OPBATCH_ACK_CLOSE_PENDING: i32 = 589840;
@@ -2960,10 +2912,12 @@ pub const FSCTL_QUERY_DIRECT_IMAGE_ORIGINAL_BASE: i32 = 590756;
 pub const FSCTL_QUERY_EXTENT_READ_CACHE_INFO: i32 = 590711;
 pub const FSCTL_QUERY_FAT_BPB: i32 = 589912;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_FAT_BPB_BUFFER {
-    pub First0x24BytesOfBootSector: [u8; 36],
+    pub First0x24BytesOfBootSector: [super::BYTE; 36],
 }
+#[cfg(feature = "shared")]
 impl Default for FSCTL_QUERY_FAT_BPB_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2982,14 +2936,16 @@ pub const FSCTL_QUERY_REFS_SMR_VOLUME_INFO: i32 = 590812;
 pub const FSCTL_QUERY_REFS_VOLUME_COUNTER_INFO: i32 = 590715;
 pub const FSCTL_QUERY_REGION_INFO: i32 = 590576;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_REGION_INFO_INPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub NumberOfTierIds: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub NumberOfTierIds: super::DWORD,
     pub TierIds: [windows_core::GUID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FSCTL_QUERY_REGION_INFO_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3000,19 +2956,19 @@ pub const FSCTL_QUERY_REGION_INFO_INPUT_VERSION: u32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const FSCTL_QUERY_REGION_INFO_INPUT_VERSION: u64 = 32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Reserved: super::DWORD,
     pub Alignment: super::DWORDLONG,
-    pub TotalNumberOfRegions: u32,
-    pub NumberOfRegionsReturned: u32,
+    pub TotalNumberOfRegions: super::DWORD,
+    pub NumberOfRegionsReturned: super::DWORD,
     pub Regions: [FILE_STORAGE_TIER_REGION; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3027,17 +2983,17 @@ pub const FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT: i32 = 590592;
 pub const FSCTL_QUERY_SPARING_INFO: i32 = 590136;
 pub const FSCTL_QUERY_STORAGE_CLASSES: i32 = 590572;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub TotalNumberOfTiers: u32,
-    pub NumberOfTiersReturned: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub TotalNumberOfTiers: super::DWORD,
+    pub NumberOfTiersReturned: super::DWORD,
     pub Tiers: [FILE_STORAGE_TIER; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3095,22 +3051,25 @@ pub const FSCTL_SET_ENCRYPTION: i32 = 590039;
 pub const FSCTL_SET_EXTERNAL_BACKING: i32 = 590604;
 pub const FSCTL_SET_INTEGRITY_INFORMATION: i32 = 639616;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
-    pub ChecksumAlgorithm: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
+    pub ChecksumAlgorithm: super::WORD,
+    pub Reserved: super::WORD,
+    pub Flags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
-    pub EnableIntegrity: u8,
-    pub KeepIntegrityStateUnchanged: u8,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub Version: u8,
-    pub Reserved2: [u8; 7],
+    pub EnableIntegrity: super::BYTE,
+    pub KeepIntegrityStateUnchanged: super::BYTE,
+    pub Reserved: super::WORD,
+    pub Flags: super::DWORD,
+    pub Version: super::BYTE,
+    pub Reserved2: [super::BYTE; 7],
 }
+#[cfg(feature = "shared")]
 impl Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3179,21 +3138,23 @@ pub const FSCTL_WAIT_FOR_REPAIR: i32 = 590240;
 pub const FSCTL_WRITE_RAW_ENCRYPTED: i32 = 590047;
 pub const FSCTL_WRITE_USN_CLOSE_RECORD: i32 = 590063;
 pub const FSCTL_WRITE_USN_REASON: i32 = 590544;
-pub type FS_BPIO_INFLAGS = u32;
+pub type FS_BPIO_INFLAGS = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_BPIO_INFO {
-    pub ActiveBypassIoCount: u32,
-    pub StorageDriverNameLen: u16,
-    pub StorageDriverName: [u16; 32],
+    pub ActiveBypassIoCount: super::DWORD,
+    pub StorageDriverNameLen: super::WORD,
+    pub StorageDriverName: [super::WCHAR; 32],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FS_BPIO_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_BPIO_INPUT {
     pub Operation: FS_BPIO_OPERATIONS,
@@ -3211,9 +3172,9 @@ pub const FS_BPIO_OP_STREAM_PAUSE: FS_BPIO_OPERATIONS = 6;
 pub const FS_BPIO_OP_STREAM_RESUME: FS_BPIO_OPERATIONS = 7;
 pub const FS_BPIO_OP_VOLUME_STACK_PAUSE: FS_BPIO_OPERATIONS = 4;
 pub const FS_BPIO_OP_VOLUME_STACK_RESUME: FS_BPIO_OPERATIONS = 5;
-pub type FS_BPIO_OUTFLAGS = u32;
+pub type FS_BPIO_OUTFLAGS = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FS_BPIO_OUTPUT {
     pub Operation: FS_BPIO_OPERATIONS,
@@ -3222,14 +3183,14 @@ pub struct FS_BPIO_OUTPUT {
     pub Reserved2: super::DWORDLONG,
     pub Anonymous: FS_BPIO_OUTPUT_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FS_BPIO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union FS_BPIO_OUTPUT_0 {
     pub Enable: FS_BPIO_RESULTS,
@@ -3238,13 +3199,14 @@ pub union FS_BPIO_OUTPUT_0 {
     pub StreamResume: FS_BPIO_RESULTS,
     pub GetInfo: FS_BPIO_INFO,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FS_BPIO_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FS_BPIO_OUTPUT_DISABLE_SIZE: usize = 24;
+#[cfg(feature = "shared")]
+pub const FS_BPIO_OUTPUT_DISABLE_SIZE: super::size_t = 24 as _;
 #[cfg(target_arch = "x86")]
 pub const FS_BPIO_OUTPUT_ENABLE_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3257,25 +3219,29 @@ pub const FS_BPIO_OUTPUT_GET_INFO_SIZE: u64 = 96;
 pub const FS_BPIO_OUTPUT_QUERY_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const FS_BPIO_OUTPUT_QUERY_SIZE: u64 = 352;
-pub const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: usize = 24;
+#[cfg(feature = "shared")]
+pub const FS_BPIO_OUTPUT_STREAM_PAUSE_SIZE: super::size_t = 24 as _;
 #[cfg(target_arch = "x86")]
 pub const FS_BPIO_OUTPUT_STREAM_RESUME_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const FS_BPIO_OUTPUT_STREAM_RESUME_SIZE: u64 = 352;
-pub const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: usize = 24;
+#[cfg(feature = "shared")]
+pub const FS_BPIO_OUTPUT_VOLUME_STACK_PAUSE_SIZE: super::size_t = 24 as _;
 #[cfg(target_arch = "x86")]
 pub const FS_BPIO_OUTPUT_VOLUME_STACK_RESUME_SIZE: u32 = 352;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const FS_BPIO_OUTPUT_VOLUME_STACK_RESUME_SIZE: u64 = 352;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_BPIO_RESULTS {
-    pub OpStatus: u32,
-    pub FailingDriverNameLen: u16,
-    pub FailingDriverName: [u16; 32],
-    pub FailureReasonLen: u16,
-    pub FailureReason: [u16; 128],
+    pub OpStatus: super::DWORD,
+    pub FailingDriverNameLen: super::WORD,
+    pub FailingDriverName: [super::WCHAR; 32],
+    pub FailureReasonLen: super::WORD,
+    pub FailureReason: [super::WCHAR; 128],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for FS_BPIO_RESULTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3308,116 +3274,125 @@ pub const FormFactorPCIeBoard: STORAGE_DEVICE_FORM_FACTOR = 9;
 pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = 0;
 pub const FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = 7;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct GETVERSIONINPARAMS {
-    pub bVersion: u8,
-    pub bRevision: u8,
-    pub bReserved: u8,
-    pub bIDEDeviceMap: u8,
-    pub fCapabilities: u32,
-    pub dwReserved: [u32; 4],
+    pub bVersion: super::BYTE,
+    pub bRevision: super::BYTE,
+    pub bReserved: super::BYTE,
+    pub bIDEDeviceMap: super::BYTE,
+    pub fCapabilities: super::DWORD,
+    pub dwReserved: [super::DWORD; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for GETVERSIONINPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_CHANGER_PARAMETERS {
-    pub Size: u32,
-    pub NumberTransportElements: u16,
-    pub NumberStorageElements: u16,
-    pub NumberCleanerSlots: u16,
-    pub NumberIEElements: u16,
-    pub NumberDataTransferElements: u16,
-    pub NumberOfDoors: u16,
-    pub FirstSlotNumber: u16,
-    pub FirstDriveNumber: u16,
-    pub FirstTransportNumber: u16,
-    pub FirstIEPortNumber: u16,
-    pub FirstCleanerSlotAddress: u16,
-    pub MagazineSize: u16,
-    pub DriveCleanTimeout: u32,
-    pub Features0: u32,
-    pub Features1: u32,
-    pub MoveFromTransport: u8,
-    pub MoveFromSlot: u8,
-    pub MoveFromIePort: u8,
-    pub MoveFromDrive: u8,
-    pub ExchangeFromTransport: u8,
-    pub ExchangeFromSlot: u8,
-    pub ExchangeFromIePort: u8,
-    pub ExchangeFromDrive: u8,
-    pub LockUnlockCapabilities: u8,
-    pub PositionCapabilities: u8,
-    pub Reserved1: [u8; 2],
-    pub Reserved2: [u32; 2],
+    pub Size: super::DWORD,
+    pub NumberTransportElements: super::WORD,
+    pub NumberStorageElements: super::WORD,
+    pub NumberCleanerSlots: super::WORD,
+    pub NumberIEElements: super::WORD,
+    pub NumberDataTransferElements: super::WORD,
+    pub NumberOfDoors: super::WORD,
+    pub FirstSlotNumber: super::WORD,
+    pub FirstDriveNumber: super::WORD,
+    pub FirstTransportNumber: super::WORD,
+    pub FirstIEPortNumber: super::WORD,
+    pub FirstCleanerSlotAddress: super::WORD,
+    pub MagazineSize: super::WORD,
+    pub DriveCleanTimeout: super::DWORD,
+    pub Features0: super::DWORD,
+    pub Features1: super::DWORD,
+    pub MoveFromTransport: super::BYTE,
+    pub MoveFromSlot: super::BYTE,
+    pub MoveFromIePort: super::BYTE,
+    pub MoveFromDrive: super::BYTE,
+    pub ExchangeFromTransport: super::BYTE,
+    pub ExchangeFromSlot: super::BYTE,
+    pub ExchangeFromIePort: super::BYTE,
+    pub ExchangeFromDrive: super::BYTE,
+    pub LockUnlockCapabilities: super::BYTE,
+    pub PositionCapabilities: super::BYTE,
+    pub Reserved1: [super::BYTE; 2],
+    pub Reserved2: [super::DWORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for GET_CHANGER_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub RequestDataType: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE,
     pub RequestDataSet: DEVICE_INTERNAL_STATUS_DATA_SET,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_DISK_ATTRIBUTES {
-    pub Version: u32,
-    pub Reserved1: u32,
+    pub Version: super::DWORD,
+    pub Reserved1: super::DWORD,
     pub Attributes: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_FILTER_FILE_IDENTIFIER_INPUT {
-    pub AltitudeLength: u16,
-    pub Altitude: [u16; 1],
+    pub AltitudeLength: super::WORD,
+    pub Altitude: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for GET_FILTER_FILE_IDENTIFIER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_FILTER_FILE_IDENTIFIER_OUTPUT {
-    pub FilterFileIdentifierLength: u16,
-    pub FilterFileIdentifier: [u8; 1],
+    pub FilterFileIdentifierLength: super::WORD,
+    pub FilterFileIdentifier: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for GET_FILTER_FILE_IDENTIFIER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct GET_LENGTH_INFORMATION {
     pub Length: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for GET_LENGTH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct GET_MEDIA_TYPES {
-    pub DeviceType: u32,
-    pub MediaInfoCount: u32,
+    pub DeviceType: super::DWORD,
+    pub MediaInfoCount: super::DWORD,
     pub MediaInfo: [DEVICE_MEDIA_INFO; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for GET_MEDIA_TYPES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3436,38 +3411,21 @@ pub const GPT_BASIC_DATA_ATTRIBUTE_SERVICE: i64 = 144115188075855872;
 pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: i64 = 2305843009213693952;
 pub const GPT_SPACES_ATTRIBUTE_NO_METADATA: u64 = 9223372036854775808;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct GP_LOG_PAGE_DESCRIPTOR {
-    pub LogAddress: u16,
-    pub LogSectors: u16,
+    pub LogAddress: super::WORD,
+    pub LogSectors: super::WORD,
 }
-pub const GUID_DEVINTERFACE_CDCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56312_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_CDROM: windows_core::GUID = windows_core::GUID::from_u128(0x53f56308_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_COMPORT: windows_core::GUID = windows_core::GUID::from_u128(0x86e0d1e0_8089_11d0_9ce4_08003e301f73);
-pub const GUID_DEVINTERFACE_DISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f56307_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_FLOPPY: windows_core::GUID = windows_core::GUID::from_u128(0x53f56311_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_HIDDEN_DISK: windows_core::GUID = windows_core::GUID::from_u128(0x7fccc86c_228a_40ad_8a58_f590af7bfdce);
-pub const GUID_DEVINTERFACE_HIDDEN_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x7f108a28_9833_4b3b_b780_2c6b5fa5c062);
-pub const GUID_DEVINTERFACE_MEDIUMCHANGER: windows_core::GUID = windows_core::GUID::from_u128(0x53f56310_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_PARTITION: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630a_b6bf_11d0_94f2_00a0c91efb8b);
 pub const GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: windows_core::GUID = windows_core::GUID::from_u128(0x4283609d_4dc2_43be_bbb4_4f15dfce2c61);
-pub const GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x4d36e978_e325_11ce_bfc1_08002be10318);
-pub const GUID_DEVINTERFACE_SERVICE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x6ead3d82_25ec_46bc_b7fd_c1f0df8f5037);
-pub const GUID_DEVINTERFACE_SES: windows_core::GUID = windows_core::GUID::from_u128(0x1790c9ec_47d5_4df3_b5af_9adf3cf23e48);
-pub const GUID_DEVINTERFACE_STORAGEPORT: windows_core::GUID = windows_core::GUID::from_u128(0x2accfe60_c130_11d2_b082_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_TAPE: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630b_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: windows_core::GUID = windows_core::GUID::from_u128(0x27447c21_bcc3_4d07_a05b_a3395bb4eee7);
-pub const GUID_DEVINTERFACE_VMLUN: windows_core::GUID = windows_core::GUID::from_u128(0x6f416619_9f29_42a5_b20b_37e219ca02b0);
-pub const GUID_DEVINTERFACE_VOLUME: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630d_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_WRITEONCEDISK: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630c_b6bf_11d0_94f2_00a0c91efb8b);
-pub const GUID_DEVINTERFACE_ZNSDISK: windows_core::GUID = windows_core::GUID::from_u128(0xb87941c5_ffdb_43c7_b6b1_20b632f0b109);
 pub const GUID_SCM_PD_HEALTH_NOTIFICATION: windows_core::GUID = windows_core::GUID::from_u128(0x9da2d386_72f5_4ee3_8155_eca0678e3b06);
 pub const GUID_SCM_PD_PASSTHROUGH_INVDIMM: windows_core::GUID = windows_core::GUID::from_u128(0x4309ac30_0d11_11e4_9191_0800200c9a66);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HISTOGRAM_BUCKET {
-    pub Reads: u32,
-    pub Writes: u32,
+    pub Reads: super::DWORD,
+    pub Writes: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
 pub const HISTOGRAM_BUCKET_SIZE: u32 = 8;
@@ -3486,17 +3444,18 @@ pub const IBM_3490E: STORAGE_MEDIA_TYPE = 42;
 pub const IBM_Magstar_3590: STORAGE_MEDIA_TYPE = 43;
 pub const IBM_Magstar_MP: STORAGE_MEDIA_TYPE = 44;
 pub const IDENTIFY_BUFFER_SIZE: i32 = 512;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IDEREGS {
-    pub bFeaturesReg: u8,
-    pub bSectorCountReg: u8,
-    pub bSectorNumberReg: u8,
-    pub bCylLowReg: u8,
-    pub bCylHighReg: u8,
-    pub bDriveHeadReg: u8,
-    pub bCommandReg: u8,
-    pub bReserved: u8,
+    pub bFeaturesReg: super::BYTE,
+    pub bSectorCountReg: super::BYTE,
+    pub bSectorNumberReg: super::BYTE,
+    pub bCylLowReg: super::BYTE,
+    pub bCylHighReg: super::BYTE,
+    pub bDriveHeadReg: super::BYTE,
+    pub bCommandReg: super::BYTE,
+    pub bReserved: super::BYTE,
 }
 pub const ID_CMD: i32 = 236;
 pub const IOCTL_CHANGER_BASE: i32 = 48;
@@ -3652,10 +3611,11 @@ pub const IOCTL_VOLUME_ONLINE: i32 = 5685256;
 pub const IOMEGA_JAZ: STORAGE_MEDIA_TYPE = 74;
 pub const IOMEGA_ZIP: STORAGE_MEDIA_TYPE = 73;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct IO_IRP_EXT_TRACK_OFFSET_HEADER {
-    pub Validation: u16,
-    pub Flags: u16,
+    pub Validation: super::WORD,
+    pub Flags: super::WORD,
     pub TrackedOffsetCallback: PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK,
 }
 pub const IRP_EXT_TRACK_OFFSET_HEADER_VALIDATION_VALUE: i32 = 21583;
@@ -3670,25 +3630,26 @@ pub struct LMR_QUERY_INFO_PARAM {
     pub Operation: LMR_QUERY_INFO_CLASS,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LMR_QUERY_SESSION_INFO {
-    pub SessionId: u64,
+    pub SessionId: super::UINT64,
 }
 pub const LOCK_ELEMENT: i32 = 0;
 pub const LOCK_UNLOCK_DOOR: i32 = 2;
 pub const LOCK_UNLOCK_IEPORT: i32 = 1;
 pub const LOCK_UNLOCK_KEYPAD: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
-    pub OffsetToNext: u32,
-    pub Flags: u32,
+    pub OffsetToNext: super::DWORD,
+    pub Flags: super::DWORD,
     pub Reserved: super::LARGE_INTEGER,
     pub Cluster: super::LARGE_INTEGER,
-    pub FileName: [u16; 1],
+    pub FileName: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3703,30 +3664,36 @@ pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_FS_SYSTEM_FILE: i32 = 4;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE: i32 = 1;
 pub const LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_INPUT {
-    pub Flags: u32,
-    pub NumberOfClusters: u32,
+    pub Flags: super::DWORD,
+    pub NumberOfClusters: super::DWORD,
     pub Cluster: [super::LARGE_INTEGER; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
-    pub Offset: u32,
-    pub NumberOfMatches: u32,
-    pub BufferSizeRequired: u32,
+    pub Offset: super::DWORD,
+    pub NumberOfMatches: super::DWORD,
+    pub BufferSizeRequired: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type LPDRIVERSTATUS = *mut DRIVERSTATUS;
+#[cfg(feature = "shared")]
 pub type LPGETVERSIONINPARAMS = *mut GETVERSIONINPARAMS;
+#[cfg(feature = "shared")]
 pub type LPIDEREGS = *mut IDEREGS;
+#[cfg(feature = "shared")]
 pub type LPSENDCMDINPARAMS = *mut SENDCMDINPARAMS;
+#[cfg(feature = "shared")]
 pub type LPSENDCMDOUTPARAMS = *mut SENDCMDOUTPARAMS;
 pub const LTO_Accelis: STORAGE_MEDIA_TYPE = 87;
 pub const LTO_Ultrium: STORAGE_MEDIA_TYPE = 86;
@@ -3736,27 +3703,27 @@ pub const MARK_HANDLE_ENABLE_CPU_CACHE: i32 = 268435456;
 pub const MARK_HANDLE_ENABLE_USN_SOURCE_ON_PAGING_IO: i32 = 8192;
 pub const MARK_HANDLE_FILTER_METADATA: i32 = 512;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MARK_HANDLE_INFO {
     pub Anonymous: MARK_HANDLE_INFO_0,
     pub VolumeHandle: super::HANDLE,
-    pub HandleInfo: u32,
+    pub HandleInfo: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MARK_HANDLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MARK_HANDLE_INFO_0 {
-    pub UsnSourceInfo: u32,
-    pub CopyNumber: u32,
+    pub UsnSourceInfo: super::DWORD,
+    pub CopyNumber: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MARK_HANDLE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3764,13 +3731,15 @@ impl Default for MARK_HANDLE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MARK_HANDLE_INFO32 {
     pub Anonymous: MARK_HANDLE_INFO32_0,
-    pub VolumeHandle: u32,
-    pub HandleInfo: u32,
+    pub VolumeHandle: super::UINT32,
+    pub HandleInfo: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for MARK_HANDLE_INFO32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3778,12 +3747,14 @@ impl Default for MARK_HANDLE_INFO32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MARK_HANDLE_INFO32_0 {
-    pub UsnSourceInfo: u32,
-    pub CopyNumber: u32,
+    pub UsnSourceInfo: super::DWORD,
+    pub CopyNumber: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for MARK_HANDLE_INFO32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3817,10 +3788,10 @@ pub const METHOD_DIRECT_TO_HARDWARE: i32 = 1;
 pub const METHOD_IN_DIRECT: i32 = 1;
 pub const METHOD_NEITHER: i32 = 3;
 pub const METHOD_OUT_DIRECT: i32 = 2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type MFT_ENUM_DATA = MFT_ENUM_DATA_V1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_ENUM_DATA_V0 {
     pub StartFileReferenceNumber: super::DWORDLONG,
@@ -3828,25 +3799,25 @@ pub struct MFT_ENUM_DATA_V0 {
     pub HighUsn: super::USN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_ENUM_DATA_V1 {
     pub StartFileReferenceNumber: super::DWORDLONG,
     pub LowUsn: super::USN,
     pub HighUsn: super::USN,
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
+    pub MinMajorVersion: super::WORD,
+    pub MaxMajorVersion: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::HANDLE,
     pub StartingVcn: super::LARGE_INTEGER,
     pub StartingLcn: super::LARGE_INTEGER,
-    pub ClusterCount: u32,
+    pub ClusterCount: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MOVE_FILE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3854,30 +3825,30 @@ impl Default for MOVE_FILE_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MOVE_FILE_DATA32 {
-    pub FileHandle: u32,
+    pub FileHandle: super::UINT32,
     pub StartingVcn: super::LARGE_INTEGER,
     pub StartingLcn: super::LARGE_INTEGER,
-    pub ClusterCount: u32,
+    pub ClusterCount: super::DWORD,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MOVE_FILE_DATA32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::HANDLE,
     pub SourceFileRecord: super::LARGE_INTEGER,
     pub TargetFileRecord: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MOVE_FILE_RECORD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3893,162 +3864,170 @@ pub const MP_8mm: STORAGE_MEDIA_TYPE = 36;
 pub const MiniQic: STORAGE_MEDIA_TYPE = 33;
 pub const NCTP: STORAGE_MEDIA_TYPE = 40;
 pub const NIKON_12_RW: STORAGE_MEDIA_TYPE = 72;
-pub const NO_SRBTYPE_ADAPTER_DESCRIPTOR_SIZE: u32 = 30;
+#[cfg(feature = "shared")]
+pub const NO_SRBTYPE_ADAPTER_DESCRIPTOR_SIZE: super::DWORD = 30;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_EXTENDED_VOLUME_DATA {
-    pub ByteCount: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub BytesPerPhysicalSector: u32,
-    pub LfsMajorVersion: u16,
-    pub LfsMinorVersion: u16,
-    pub MaxDeviceTrimExtentCount: u32,
-    pub MaxDeviceTrimByteCount: u32,
-    pub MaxVolumeTrimExtentCount: u32,
-    pub MaxVolumeTrimByteCount: u32,
+    pub ByteCount: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub BytesPerPhysicalSector: super::DWORD,
+    pub LfsMajorVersion: super::WORD,
+    pub LfsMinorVersion: super::WORD,
+    pub MaxDeviceTrimExtentCount: super::DWORD,
+    pub MaxDeviceTrimByteCount: super::DWORD,
+    pub MaxVolumeTrimExtentCount: super::DWORD,
+    pub MaxVolumeTrimByteCount: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NTFS_FILE_RECORD_INPUT_BUFFER {
     pub FileReferenceNumber: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for NTFS_FILE_RECORD_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NTFS_FILE_RECORD_OUTPUT_BUFFER {
     pub FileReferenceNumber: super::LARGE_INTEGER,
-    pub FileRecordLength: u32,
-    pub FileRecordBuffer: [u8; 1],
+    pub FileRecordLength: super::DWORD,
+    pub FileRecordBuffer: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for NTFS_FILE_RECORD_OUTPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS {
-    pub LogFileFullExceptions: u32,
-    pub OtherExceptions: u32,
-    pub MftReads: u32,
-    pub MftReadBytes: u32,
-    pub MftWrites: u32,
-    pub MftWriteBytes: u32,
+    pub LogFileFullExceptions: super::DWORD,
+    pub OtherExceptions: super::DWORD,
+    pub MftReads: super::DWORD,
+    pub MftReadBytes: super::DWORD,
+    pub MftWrites: super::DWORD,
+    pub MftWriteBytes: super::DWORD,
     pub MftWritesUserLevel: NTFS_STATISTICS_0,
-    pub MftWritesFlushForLogFileFull: u16,
-    pub MftWritesLazyWriter: u16,
-    pub MftWritesUserRequest: u16,
-    pub Mft2Writes: u32,
-    pub Mft2WriteBytes: u32,
+    pub MftWritesFlushForLogFileFull: super::WORD,
+    pub MftWritesLazyWriter: super::WORD,
+    pub MftWritesUserRequest: super::WORD,
+    pub Mft2Writes: super::DWORD,
+    pub Mft2WriteBytes: super::DWORD,
     pub Mft2WritesUserLevel: NTFS_STATISTICS_1,
-    pub Mft2WritesFlushForLogFileFull: u16,
-    pub Mft2WritesLazyWriter: u16,
-    pub Mft2WritesUserRequest: u16,
-    pub RootIndexReads: u32,
-    pub RootIndexReadBytes: u32,
-    pub RootIndexWrites: u32,
-    pub RootIndexWriteBytes: u32,
-    pub BitmapReads: u32,
-    pub BitmapReadBytes: u32,
-    pub BitmapWrites: u32,
-    pub BitmapWriteBytes: u32,
-    pub BitmapWritesFlushForLogFileFull: u16,
-    pub BitmapWritesLazyWriter: u16,
-    pub BitmapWritesUserRequest: u16,
+    pub Mft2WritesFlushForLogFileFull: super::WORD,
+    pub Mft2WritesLazyWriter: super::WORD,
+    pub Mft2WritesUserRequest: super::WORD,
+    pub RootIndexReads: super::DWORD,
+    pub RootIndexReadBytes: super::DWORD,
+    pub RootIndexWrites: super::DWORD,
+    pub RootIndexWriteBytes: super::DWORD,
+    pub BitmapReads: super::DWORD,
+    pub BitmapReadBytes: super::DWORD,
+    pub BitmapWrites: super::DWORD,
+    pub BitmapWriteBytes: super::DWORD,
+    pub BitmapWritesFlushForLogFileFull: super::WORD,
+    pub BitmapWritesLazyWriter: super::WORD,
+    pub BitmapWritesUserRequest: super::WORD,
     pub BitmapWritesUserLevel: NTFS_STATISTICS_2,
-    pub MftBitmapReads: u32,
-    pub MftBitmapReadBytes: u32,
-    pub MftBitmapWrites: u32,
-    pub MftBitmapWriteBytes: u32,
-    pub MftBitmapWritesFlushForLogFileFull: u16,
-    pub MftBitmapWritesLazyWriter: u16,
-    pub MftBitmapWritesUserRequest: u16,
+    pub MftBitmapReads: super::DWORD,
+    pub MftBitmapReadBytes: super::DWORD,
+    pub MftBitmapWrites: super::DWORD,
+    pub MftBitmapWriteBytes: super::DWORD,
+    pub MftBitmapWritesFlushForLogFileFull: super::WORD,
+    pub MftBitmapWritesLazyWriter: super::WORD,
+    pub MftBitmapWritesUserRequest: super::WORD,
     pub MftBitmapWritesUserLevel: NTFS_STATISTICS_3,
-    pub UserIndexReads: u32,
-    pub UserIndexReadBytes: u32,
-    pub UserIndexWrites: u32,
-    pub UserIndexWriteBytes: u32,
-    pub LogFileReads: u32,
-    pub LogFileReadBytes: u32,
-    pub LogFileWrites: u32,
-    pub LogFileWriteBytes: u32,
+    pub UserIndexReads: super::DWORD,
+    pub UserIndexReadBytes: super::DWORD,
+    pub UserIndexWrites: super::DWORD,
+    pub UserIndexWriteBytes: super::DWORD,
+    pub LogFileReads: super::DWORD,
+    pub LogFileReadBytes: super::DWORD,
+    pub LogFileWrites: super::DWORD,
+    pub LogFileWriteBytes: super::DWORD,
     pub Allocate: NTFS_STATISTICS_4,
-    pub DiskResourcesExhausted: u32,
+    pub DiskResourcesExhausted: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_0 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
+    pub Write: super::WORD,
+    pub Create: super::WORD,
+    pub SetInfo: super::WORD,
+    pub Flush: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_1 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
+    pub Write: super::WORD,
+    pub Create: super::WORD,
+    pub SetInfo: super::WORD,
+    pub Flush: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_2 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
+    pub Write: super::WORD,
+    pub Create: super::WORD,
+    pub SetInfo: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_3 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
+    pub Write: super::WORD,
+    pub Create: super::WORD,
+    pub SetInfo: super::WORD,
+    pub Flush: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_4 {
-    pub Calls: u32,
-    pub Clusters: u32,
-    pub Hints: u32,
-    pub RunsReturned: u32,
-    pub HintsHonored: u32,
-    pub HintsClusters: u32,
-    pub Cache: u32,
-    pub CacheClusters: u32,
-    pub CacheMiss: u32,
-    pub CacheMissClusters: u32,
+    pub Calls: super::DWORD,
+    pub Clusters: super::DWORD,
+    pub Hints: super::DWORD,
+    pub RunsReturned: super::DWORD,
+    pub HintsHonored: super::DWORD,
+    pub HintsClusters: super::DWORD,
+    pub Cache: super::DWORD,
+    pub CacheClusters: super::DWORD,
+    pub CacheMiss: super::DWORD,
+    pub CacheMissClusters: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_EX {
-    pub LogFileFullExceptions: u32,
-    pub OtherExceptions: u32,
+    pub LogFileFullExceptions: super::DWORD,
+    pub OtherExceptions: super::DWORD,
     pub MftReads: super::DWORDLONG,
     pub MftReadBytes: super::DWORDLONG,
     pub MftWrites: super::DWORDLONG,
     pub MftWriteBytes: super::DWORDLONG,
     pub MftWritesUserLevel: NTFS_STATISTICS_EX_0,
-    pub MftWritesFlushForLogFileFull: u32,
-    pub MftWritesLazyWriter: u32,
-    pub MftWritesUserRequest: u32,
+    pub MftWritesFlushForLogFileFull: super::DWORD,
+    pub MftWritesLazyWriter: super::DWORD,
+    pub MftWritesUserRequest: super::DWORD,
     pub Mft2Writes: super::DWORDLONG,
     pub Mft2WriteBytes: super::DWORDLONG,
     pub Mft2WritesUserLevel: NTFS_STATISTICS_EX_1,
-    pub Mft2WritesFlushForLogFileFull: u32,
-    pub Mft2WritesLazyWriter: u32,
-    pub Mft2WritesUserRequest: u32,
+    pub Mft2WritesFlushForLogFileFull: super::DWORD,
+    pub Mft2WritesLazyWriter: super::DWORD,
+    pub Mft2WritesUserRequest: super::DWORD,
     pub RootIndexReads: super::DWORDLONG,
     pub RootIndexReadBytes: super::DWORDLONG,
     pub RootIndexWrites: super::DWORDLONG,
@@ -4057,17 +4036,17 @@ pub struct NTFS_STATISTICS_EX {
     pub BitmapReadBytes: super::DWORDLONG,
     pub BitmapWrites: super::DWORDLONG,
     pub BitmapWriteBytes: super::DWORDLONG,
-    pub BitmapWritesFlushForLogFileFull: u32,
-    pub BitmapWritesLazyWriter: u32,
-    pub BitmapWritesUserRequest: u32,
+    pub BitmapWritesFlushForLogFileFull: super::DWORD,
+    pub BitmapWritesLazyWriter: super::DWORD,
+    pub BitmapWritesUserRequest: super::DWORD,
     pub BitmapWritesUserLevel: NTFS_STATISTICS_EX_2,
     pub MftBitmapReads: super::DWORDLONG,
     pub MftBitmapReadBytes: super::DWORDLONG,
     pub MftBitmapWrites: super::DWORDLONG,
     pub MftBitmapWriteBytes: super::DWORDLONG,
-    pub MftBitmapWritesFlushForLogFileFull: u32,
-    pub MftBitmapWritesLazyWriter: u32,
-    pub MftBitmapWritesUserRequest: u32,
+    pub MftBitmapWritesFlushForLogFileFull: super::DWORD,
+    pub MftBitmapWritesLazyWriter: super::DWORD,
+    pub MftBitmapWritesUserRequest: super::DWORD,
     pub MftBitmapWritesUserLevel: NTFS_STATISTICS_EX_3,
     pub UserIndexReads: super::DWORDLONG,
     pub UserIndexReadBytes: super::DWORDLONG,
@@ -4078,7 +4057,7 @@ pub struct NTFS_STATISTICS_EX {
     pub LogFileWrites: super::DWORDLONG,
     pub LogFileWriteBytes: super::DWORDLONG,
     pub Allocate: NTFS_STATISTICS_EX_4,
-    pub DiskResourcesExhausted: u32,
+    pub DiskResourcesExhausted: super::DWORD,
     pub VolumeTrimCount: super::DWORDLONG,
     pub VolumeTrimTime: super::DWORDLONG,
     pub VolumeTrimByteCount: super::DWORDLONG,
@@ -4092,58 +4071,58 @@ pub struct NTFS_STATISTICS_EX {
     pub NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_EX_0 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
+    pub Write: super::DWORD,
+    pub Create: super::DWORD,
+    pub SetInfo: super::DWORD,
+    pub Flush: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_EX_1 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
+    pub Write: super::DWORD,
+    pub Create: super::DWORD,
+    pub SetInfo: super::DWORD,
+    pub Flush: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_EX_2 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
+    pub Write: super::DWORD,
+    pub Create: super::DWORD,
+    pub SetInfo: super::DWORD,
+    pub Flush: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_EX_3 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
+    pub Write: super::DWORD,
+    pub Create: super::DWORD,
+    pub SetInfo: super::DWORD,
+    pub Flush: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTFS_STATISTICS_EX_4 {
-    pub Calls: u32,
-    pub RunsReturned: u32,
-    pub Hints: u32,
-    pub HintsHonored: u32,
-    pub Cache: u32,
-    pub CacheMiss: u32,
+    pub Calls: super::DWORD,
+    pub RunsReturned: super::DWORD,
+    pub Hints: super::DWORD,
+    pub HintsHonored: super::DWORD,
+    pub Cache: super::DWORD,
+    pub CacheMiss: super::DWORD,
     pub Clusters: super::DWORDLONG,
     pub HintsClusters: super::DWORDLONG,
     pub CacheClusters: super::DWORDLONG,
     pub CacheMissClusters: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NTFS_VOLUME_DATA_BUFFER {
     pub VolumeSerialNumber: super::LARGE_INTEGER,
@@ -4151,17 +4130,17 @@ pub struct NTFS_VOLUME_DATA_BUFFER {
     pub TotalClusters: super::LARGE_INTEGER,
     pub FreeClusters: super::LARGE_INTEGER,
     pub TotalReserved: super::LARGE_INTEGER,
-    pub BytesPerSector: u32,
-    pub BytesPerCluster: u32,
-    pub BytesPerFileRecordSegment: u32,
-    pub ClustersPerFileRecordSegment: u32,
+    pub BytesPerSector: super::DWORD,
+    pub BytesPerCluster: super::DWORD,
+    pub BytesPerFileRecordSegment: super::DWORD,
+    pub ClustersPerFileRecordSegment: super::DWORD,
     pub MftValidDataLength: super::LARGE_INTEGER,
     pub MftStartLcn: super::LARGE_INTEGER,
     pub Mft2StartLcn: super::LARGE_INTEGER,
     pub MftZoneStart: super::LARGE_INTEGER,
     pub MftZoneEnd: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for NTFS_VOLUME_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4195,77 +4174,79 @@ pub const PARTITION_GPT: i32 = 238;
 pub const PARTITION_HUGE: i32 = 6;
 pub const PARTITION_IFS: i32 = 7;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PARTITION_INFORMATION {
     pub StartingOffset: super::LARGE_INTEGER,
     pub PartitionLength: super::LARGE_INTEGER,
-    pub HiddenSectors: u32,
-    pub PartitionNumber: u32,
-    pub PartitionType: u8,
+    pub HiddenSectors: super::DWORD,
+    pub PartitionNumber: super::DWORD,
+    pub PartitionType: super::BYTE,
     pub BootIndicator: super::BOOLEAN,
     pub RecognizedPartition: super::BOOLEAN,
     pub RewritePartition: super::BOOLEAN,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PARTITION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
-    pub PartitionOrdinal: u16,
+    pub PartitionOrdinal: super::WORD,
     pub StartingOffset: super::LARGE_INTEGER,
     pub PartitionLength: super::LARGE_INTEGER,
-    pub PartitionNumber: u32,
+    pub PartitionNumber: super::DWORD,
     pub RewritePartition: super::BOOLEAN,
     pub IsServicePartition: super::BOOLEAN,
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PARTITION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
     pub Gpt: PARTITION_INFORMATION_GPT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PARTITION_INFORMATION_GPT {
     pub PartitionType: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
-    pub Attributes: u64,
-    pub Name: [u16; 36],
+    pub Attributes: super::DWORD64,
+    pub Name: [super::WCHAR; 36],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PARTITION_INFORMATION_GPT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARTITION_INFORMATION_MBR {
-    pub PartitionType: u8,
+    pub PartitionType: super::BYTE,
     pub BootIndicator: super::BOOLEAN,
     pub RecognizedPartition: super::BOOLEAN,
-    pub HiddenSectors: u32,
+    pub HiddenSectors: super::DWORD,
     pub PartitionId: windows_core::GUID,
 }
 pub const PARTITION_LDM: i32 = 66;
@@ -4288,328 +4269,392 @@ pub const PARTITION_XENIX_1: i32 = 2;
 pub const PARTITION_XENIX_2: i32 = 3;
 pub const PARTITION_XINT13: i32 = 14;
 pub const PARTITION_XINT13_EXTENDED: i32 = 15;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PASYNC_DUPLICATE_EXTENTS_STATUS = *mut ASYNC_DUPLICATE_EXTENTS_STATUS;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PATHNAME_BUFFER {
-    pub PathNameLength: u32,
-    pub Name: [u16; 1],
+    pub PathNameLength: super::DWORD,
+    pub Name: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PATHNAME_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PBAD_TRACK_NUMBER = *mut u16;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBIN_COUNT = *mut BIN_COUNT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBIN_RANGE = *mut BIN_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBIN_RESULTS = *mut BIN_RESULTS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PBOOT_AREA_INFO = *mut BOOT_AREA_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PBULK_SECURITY_TEST_DATA = *mut BULK_SECURITY_TEST_DATA;
 pub type PCHANGER_DEVICE_PROBLEM_TYPE = *mut CHANGER_DEVICE_PROBLEM_TYPE;
+#[cfg(feature = "shared")]
 pub type PCHANGER_ELEMENT = *mut CHANGER_ELEMENT;
+#[cfg(feature = "shared")]
 pub type PCHANGER_ELEMENT_LIST = *mut CHANGER_ELEMENT_LIST;
+#[cfg(feature = "shared")]
 pub type PCHANGER_ELEMENT_STATUS = *mut CHANGER_ELEMENT_STATUS;
+#[cfg(feature = "shared")]
 pub type PCHANGER_ELEMENT_STATUS_EX = *mut CHANGER_ELEMENT_STATUS_EX;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCHANGER_EXCHANGE_MEDIUM = *mut CHANGER_EXCHANGE_MEDIUM;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCHANGER_INITIALIZE_ELEMENT_STATUS = *mut CHANGER_INITIALIZE_ELEMENT_STATUS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCHANGER_MOVE_MEDIUM = *mut CHANGER_MOVE_MEDIUM;
+#[cfg(feature = "shared")]
 pub type PCHANGER_PRODUCT_DATA = *mut CHANGER_PRODUCT_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCHANGER_READ_ELEMENT_STATUS = *mut CHANGER_READ_ELEMENT_STATUS;
+#[cfg(feature = "shared")]
 pub type PCHANGER_SEND_VOLUME_TAG_INFORMATION = *mut CHANGER_SEND_VOLUME_TAG_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PCHANGER_SET_ACCESS = *mut CHANGER_SET_ACCESS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCHANGER_SET_POSITION = *mut CHANGER_SET_POSITION;
+#[cfg(feature = "shared")]
 pub type PCLASS_MEDIA_CHANGE_CONTEXT = *mut CLASS_MEDIA_CHANGE_CONTEXT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCLUSTER_RANGE = *mut CLUSTER_RANGE;
+#[cfg(feature = "shared")]
 pub type PCONTAINER_ROOT_INFO_INPUT = *mut CONTAINER_ROOT_INFO_INPUT;
+#[cfg(feature = "shared")]
 pub type PCONTAINER_ROOT_INFO_OUTPUT = *mut CONTAINER_ROOT_INFO_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PCONTAINER_VOLUME_STATE = *mut CONTAINER_VOLUME_STATE;
+#[cfg(feature = "shared")]
 pub type PCREATE_DISK = *mut CREATE_DISK;
+#[cfg(feature = "shared")]
 pub type PCREATE_DISK_GPT = *mut CREATE_DISK_GPT;
+#[cfg(feature = "shared")]
 pub type PCREATE_DISK_MBR = *mut CREATE_DISK_MBR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCREATE_USN_JOURNAL_DATA = *mut CREATE_USN_JOURNAL_DATA;
+#[cfg(feature = "shared")]
 pub type PCSMB_SHARE_FLUSH_AND_PURGE_INPUT = *const SMB_SHARE_FLUSH_AND_PURGE_INPUT;
+#[cfg(feature = "shared")]
 pub type PCSMB_SHARE_FLUSH_AND_PURGE_OUTPUT = *const SMB_SHARE_FLUSH_AND_PURGE_OUTPUT;
 pub type PCSVFS_DISK_CONNECTIVITY = *mut CSVFS_DISK_CONNECTIVITY;
 pub type PCSV_CONTROL_OP = *mut CSV_CONTROL_OP;
+#[cfg(feature = "shared")]
 pub type PCSV_CONTROL_PARAM = *mut CSV_CONTROL_PARAM;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCSV_IS_OWNED_BY_CSVFS = *mut CSV_IS_OWNED_BY_CSVFS;
+#[cfg(feature = "shared")]
 pub type PCSV_MGMT_LOCK = *mut CSV_MGMT_LOCK;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCSV_NAMESPACE_INFO = *mut CSV_NAMESPACE_INFO;
+#[cfg(feature = "shared")]
 pub type PCSV_QUERY_FILE_REVISION = *mut CSV_QUERY_FILE_REVISION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCSV_QUERY_FILE_REVISION_FILE_ID_128 = *mut CSV_QUERY_FILE_REVISION_FILE_ID_128;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCSV_QUERY_MDS_PATH = *mut CSV_QUERY_MDS_PATH;
+#[cfg(feature = "shared")]
 pub type PCSV_QUERY_MDS_PATH_V2 = *mut CSV_QUERY_MDS_PATH_V2;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCSV_QUERY_REDIRECT_STATE = *mut CSV_QUERY_REDIRECT_STATE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT = *mut CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT;
 pub type PCSV_QUERY_VOLUME_ID = *mut CSV_QUERY_VOLUME_ID;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PCSV_QUERY_VOLUME_REDIRECT_STATE = *mut CSV_QUERY_VOLUME_REDIRECT_STATE;
 pub type PCSV_SET_VOLUME_ID = *mut CSV_SET_VOLUME_ID;
 pub const PC_5_RW: STORAGE_MEDIA_TYPE = 62;
 pub const PC_5_WO: STORAGE_MEDIA_TYPE = 61;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDECRYPTION_STATUS_BUFFER = *mut DECRYPTION_STATUS_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDELETE_USN_JOURNAL_DATA = *mut DELETE_USN_JOURNAL_DATA;
 pub type PDEVICEDUMP_COLLECTION_TYPE = *mut DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE;
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_PRIVATE_SUBSECTION = *mut DEVICEDUMP_PRIVATE_SUBSECTION;
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_PUBLIC_SUBSECTION = *mut DEVICEDUMP_PUBLIC_SUBSECTION;
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_RESTRICTED_SUBSECTION = *mut DEVICEDUMP_RESTRICTED_SUBSECTION;
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_SECTION_HEADER = *mut DEVICEDUMP_SECTION_HEADER;
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_STORAGEDEVICE_DATA = *mut DEVICEDUMP_STORAGEDEVICE_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_STORAGESTACK_PUBLIC_DUMP = *mut DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD = *mut DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD;
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_STRUCTURE_VERSION = *mut DEVICEDUMP_STRUCTURE_VERSION;
+#[cfg(feature = "shared")]
 pub type PDEVICEDUMP_SUBSECTION_POINTER = *mut DEVICEDUMP_SUBSECTION_POINTER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_COPY_OFFLOAD_DESCRIPTOR = *mut DEVICE_COPY_OFFLOAD_DESCRIPTOR;
-pub type PDEVICE_DATA_SET_LBP_STATE_PARAMETERS = *mut DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DATA_SET_LB_PROVISIONING_STATE = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DATA_SET_RANGE = *mut DEVICE_DATA_SET_RANGE;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DATA_SET_REPAIR_OUTPUT = *mut DEVICE_DATA_SET_REPAIR_OUTPUT;
-pub type PDEVICE_DATA_SET_REPAIR_PARAMETERS = *mut DEVICE_DATA_SET_REPAIR_PARAMETERS;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DATA_SET_SCRUB_EX_OUTPUT = *mut DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DATA_SET_SCRUB_OUTPUT = *mut DEVICE_DATA_SET_SCRUB_OUTPUT;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT = *mut DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_ALLOCATION_OUTPUT = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_ALLOCATION_OUTPUT2 = *mut DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
-pub type PDEVICE_DSM_ALLOCATION_PARAMETERS = *mut DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_LBP_STATE_PARAMETERS = *mut _DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_LB_PROVISIONING_STATE = *mut _DEVICE_DATA_SET_LB_PROVISIONING_STATE;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 = *mut _DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_RANGE = *mut _DEVICE_DATA_SET_RANGE;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_REPAIR_OUTPUT = *mut _DEVICE_DATA_SET_REPAIR_OUTPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_REPAIR_PARAMETERS = *mut _DEVICE_DATA_SET_REPAIR_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_SCRUB_EX_OUTPUT = *mut _DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_SCRUB_OUTPUT = *mut _DEVICE_DATA_SET_SCRUB_OUTPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT = *mut _DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_ALLOCATION_OUTPUT = *mut _DEVICE_DATA_SET_LB_PROVISIONING_STATE;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_ALLOCATION_OUTPUT2 = *mut _DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_ALLOCATION_PARAMETERS = *mut _DEVICE_DATA_SET_LBP_STATE_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_CONVERSION_OUTPUT = *mut DEVICE_DSM_CONVERSION_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_DEFINITION = *mut DEVICE_DSM_DEFINITION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_FREE_SPACE_OUTPUT = *mut DEVICE_DSM_FREE_SPACE_OUTPUT;
-pub type PDEVICE_DSM_INPUT = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_INPUT = *mut _DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_LOST_QUERY_OUTPUT = *mut DEVICE_DSM_LOST_QUERY_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_LOST_QUERY_PARAMETERS = *mut DEVICE_DSM_LOST_QUERY_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_NOTIFICATION_PARAMETERS = *mut DEVICE_DSM_NOTIFICATION_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS = *mut DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_OFFLOAD_READ_PARAMETERS = *mut DEVICE_DSM_OFFLOAD_READ_PARAMETERS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_OFFLOAD_WRITE_PARAMETERS = *mut DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS;
-pub type PDEVICE_DSM_OUTPUT = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_OUTPUT = *mut _DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT = *mut DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT = *mut DEVICE_DSM_QUERY_PREFER_LOCAL_REPAIR_OUTPUT;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_RANGE = *mut DEVICE_DATA_SET_RANGE;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_RANGE_ERROR_INFO = *mut DEVICE_DSM_RANGE_ERROR_INFO;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_RANGE_ERROR_OUTPUT = *mut DEVICE_DSM_RANGE_ERROR_INFO;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_REPAIR_OUTPUT = *mut DEVICE_DATA_SET_REPAIR_OUTPUT;
-pub type PDEVICE_DSM_REPAIR_PARAMETERS = *mut DEVICE_DATA_SET_REPAIR_PARAMETERS;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_REPORT_ZONES_DATA = *mut DEVICE_DSM_REPORT_ZONES_DATA;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_REPORT_ZONES_OUTPUT = *mut DEVICE_DSM_REPORT_ZONES_DATA;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_RANGE = *mut _DEVICE_DATA_SET_RANGE;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_RANGE_ERROR_INFO = *mut _DEVICE_DSM_RANGE_ERROR_INFO;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_RANGE_ERROR_OUTPUT = *mut _DEVICE_DSM_RANGE_ERROR_INFO;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_REPAIR_OUTPUT = *mut _DEVICE_DATA_SET_REPAIR_OUTPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_REPAIR_PARAMETERS = *mut _DEVICE_DATA_SET_REPAIR_PARAMETERS;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_REPORT_ZONES_DATA = *mut _DEVICE_DSM_REPORT_ZONES_DATA;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_REPORT_ZONES_OUTPUT = *mut _DEVICE_DSM_REPORT_ZONES_DATA;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_REPORT_ZONES_PARAMETERS = *mut DEVICE_DSM_REPORT_ZONES_PARAMETERS;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_SCRUB_OUTPUT = *mut DEVICE_DATA_SET_SCRUB_OUTPUT;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_SCRUB_OUTPUT2 = *mut DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
-pub type PDEVICE_DSM_TIERING_QUERY_INPUT = *mut DEVICE_DSM_TIERING_QUERY_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_SCRUB_OUTPUT = *mut _DEVICE_DATA_SET_SCRUB_OUTPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_SCRUB_OUTPUT2 = *mut _DEVICE_DATA_SET_SCRUB_EX_OUTPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_TIERING_QUERY_INPUT = *mut _DEVICE_DSM_TIERING_QUERY_INPUT;
+#[cfg(feature = "shared")]
 pub type PDEVICE_DSM_TIERING_QUERY_OUTPUT = *mut DEVICE_DSM_TIERING_QUERY_OUTPUT;
-pub type PDEVICE_DSM_TIERING_QUERY_PARAMETERS = *mut DEVICE_DSM_TIERING_QUERY_INPUT;
-#[cfg(feature = "winnt")]
-pub type PDEVICE_DSM_TOPOLOGY_ID_QUERY_OUTPUT = *mut DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_TIERING_QUERY_PARAMETERS = *mut _DEVICE_DSM_TIERING_QUERY_INPUT;
+#[cfg(feature = "shared")]
+pub type PDEVICE_DSM_TOPOLOGY_ID_QUERY_OUTPUT = *mut _DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PDEVICE_INTERNAL_STATUS_DATA = *mut DEVICE_INTERNAL_STATUS_DATA;
 pub type PDEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = *mut DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE;
 pub type PDEVICE_INTERNAL_STATUS_DATA_SET = *mut DEVICE_INTERNAL_STATUS_DATA_SET;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_LB_PROVISIONING_DESCRIPTOR = *mut DEVICE_LB_PROVISIONING_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PDEVICE_LOCATION = *mut DEVICE_LOCATION;
-pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
-pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT = *mut DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES = *mut _DEVICE_MANAGE_DATA_SET_ATTRIBUTES;
+#[cfg(feature = "shared")]
+pub type PDEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT = *mut _DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEVICE_MEDIA_INFO = *mut DEVICE_MEDIA_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_POWER_DESCRIPTOR = *mut DEVICE_POWER_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_SEEK_PENALTY_DESCRIPTOR = *mut DEVICE_SEEK_PENALTY_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_STORAGE_ADDRESS_RANGE = *mut DEVICE_STORAGE_ADDRESS_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_STORAGE_RANGE_ATTRIBUTES = *mut DEVICE_STORAGE_RANGE_ATTRIBUTES;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_TRIM_DESCRIPTOR = *mut DEVICE_TRIM_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDEVICE_WRITE_AGGREGATION_DESCRIPTOR = *mut DEVICE_WRITE_AGGREGATION_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PDISK_CACHE_INFORMATION = *mut DISK_CACHE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PDISK_CONTROLLER_NUMBER = *mut DISK_CONTROLLER_NUMBER;
+#[cfg(feature = "shared")]
 pub type PDISK_DETECTION_INFO = *mut DISK_DETECTION_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_EXTENT = *mut DISK_EXTENT;
+#[cfg(feature = "shared")]
 pub type PDISK_EX_INT13_INFO = *mut DISK_EX_INT13_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_GEOMETRY = *mut DISK_GEOMETRY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_GEOMETRY_EX = *mut DISK_GEOMETRY_EX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_GROW_PARTITION = *mut DISK_GROW_PARTITION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_HISTOGRAM = *mut DISK_HISTOGRAM;
+#[cfg(feature = "shared")]
 pub type PDISK_INT13_INFO = *mut DISK_INT13_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_LOGGING = *mut DISK_LOGGING;
+#[cfg(feature = "shared")]
 pub type PDISK_PARTITION_INFO = *mut DISK_PARTITION_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_PERFORMANCE = *mut DISK_PERFORMANCE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDISK_RECORD = *mut DISK_RECORD;
+#[cfg(feature = "shared")]
 pub type PDRIVERSTATUS = *mut DRIVERSTATUS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDRIVE_LAYOUT_INFORMATION = *mut DRIVE_LAYOUT_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDRIVE_LAYOUT_INFORMATION_EX = *mut DRIVE_LAYOUT_INFORMATION_EX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDRIVE_LAYOUT_INFORMATION_GPT = *mut DRIVE_LAYOUT_INFORMATION_GPT;
+#[cfg(feature = "shared")]
 pub type PDRIVE_LAYOUT_INFORMATION_MBR = *mut DRIVE_LAYOUT_INFORMATION_MBR;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDUPLICATE_EXTENTS_DATA = *mut DUPLICATE_EXTENTS_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDUPLICATE_EXTENTS_DATA32 = *mut DUPLICATE_EXTENTS_DATA32;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDUPLICATE_EXTENTS_DATA_EX = *mut DUPLICATE_EXTENTS_DATA_EX;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PDUPLICATE_EXTENTS_DATA_EX32 = *mut DUPLICATE_EXTENTS_DATA_EX32;
 pub type PDUPLICATE_EXTENTS_STATE = *mut DUPLICATE_EXTENTS_STATE;
 pub const PD_5_RW: STORAGE_MEDIA_TYPE = 63;
 pub type PELEMENT_TYPE = *mut ELEMENT_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PENCRYPTED_DATA_INFO = *mut ENCRYPTED_DATA_INFO;
+#[cfg(feature = "shared")]
 pub type PENCRYPTION_BUFFER = *mut ENCRYPTION_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PENCRYPTION_KEY_CTRL_INPUT = *mut ENCRYPTION_KEY_CTRL_INPUT;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PERF_BIN {
-    pub NumberOfBins: u32,
-    pub TypeOfBin: u32,
+    pub NumberOfBins: super::DWORD,
+    pub TypeOfBin: super::DWORD,
     pub BinsRanges: [BIN_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PERF_BIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PERSISTENT_RESERVE_COMMAND {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Anonymous: PERSISTENT_RESERVE_COMMAND_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PERSISTENT_RESERVE_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PERSISTENT_RESERVE_COMMAND_0 {
     pub PR_IN: PERSISTENT_RESERVE_COMMAND_0_0,
     pub PR_OUT: PERSISTENT_RESERVE_COMMAND_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for PERSISTENT_RESERVE_COMMAND_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERSISTENT_RESERVE_COMMAND_0_0 {
     pub _bitfield: u8,
-    pub AllocationLength: u16,
+    pub AllocationLength: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl PERSISTENT_RESERVE_COMMAND_0_0 {
-    pub fn ServiceAction(&self) -> u8 {
-        (self._bitfield << 3) >> 3
+    pub fn ServiceAction(&self) -> super::BYTE {
+        (self._bitfield) & 31
     }
-    pub fn set_ServiceAction(&mut self, value: u8) {
+    pub fn set_ServiceAction(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !31) | (value & 31);
     }
-    pub fn Reserved1(&self) -> u8 {
+    pub fn Reserved1(&self) -> super::BYTE {
         self._bitfield >> 5
     }
-    pub fn set_Reserved1(&mut self, value: u8) {
+    pub fn set_Reserved1(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERSISTENT_RESERVE_COMMAND_0_1 {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
-    pub ParameterList: [u8; 0],
+    pub ParameterList: [super::BYTE; 0],
 }
+#[cfg(feature = "shared")]
 impl PERSISTENT_RESERVE_COMMAND_0_1 {
-    pub fn ServiceAction(&self) -> u8 {
-        (self._bitfield1 << 3) >> 3
+    pub fn ServiceAction(&self) -> super::BYTE {
+        (self._bitfield1) & 31
     }
-    pub fn set_ServiceAction(&mut self, value: u8) {
+    pub fn set_ServiceAction(&mut self, value: super::BYTE) {
         self._bitfield1 = (self._bitfield1 & !31) | (value & 31);
     }
-    pub fn Reserved1(&self) -> u8 {
+    pub fn Reserved1(&self) -> super::BYTE {
         self._bitfield1 >> 5
     }
-    pub fn set_Reserved1(&mut self, value: u8) {
+    pub fn set_Reserved1(&mut self, value: super::BYTE) {
         self._bitfield1 = (self._bitfield1 & !(7 << 5)) | ((value & 7) << 5);
     }
-    pub fn Type(&self) -> u8 {
-        (self._bitfield2 << 4) >> 4
+    pub fn Type(&self) -> super::BYTE {
+        (self._bitfield2) & 15
     }
-    pub fn set_Type(&mut self, value: u8) {
+    pub fn set_Type(&mut self, value: super::BYTE) {
         self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
     }
-    pub fn Scope(&self) -> u8 {
+    pub fn Scope(&self) -> super::BYTE {
         self._bitfield2 >> 4
     }
-    pub fn set_Scope(&mut self, value: u8) {
+    pub fn set_Scope(&mut self, value: super::BYTE) {
         self._bitfield2 = (self._bitfield2 & !(15 << 4)) | ((value & 15) << 4);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for PERSISTENT_RESERVE_COMMAND_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4630,171 +4675,209 @@ pub const PERSISTENT_VOLUME_STATE_SHORT_NAME_CREATION_DISABLED: i32 = 1;
 pub const PERSISTENT_VOLUME_STATE_TRUSTED_VOLUME: i32 = 16384;
 pub const PERSISTENT_VOLUME_STATE_TXF_DISABLED: i32 = 256;
 pub const PERSISTENT_VOLUME_STATE_VOLUME_SCRUB_DISABLED: i32 = 2;
+#[cfg(feature = "shared")]
 pub type PEXFAT_STATISTICS = *mut EXFAT_STATISTICS;
+#[cfg(feature = "shared")]
 pub type PEXTENDED_ENCRYPTED_DATA_INFO = *mut EXTENDED_ENCRYPTED_DATA_INFO;
+#[cfg(feature = "shared")]
 pub type PFAT_STATISTICS = *mut FAT_STATISTICS;
+#[cfg(feature = "shared")]
 pub type PFILESYSTEM_STATISTICS = *mut FILESYSTEM_STATISTICS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILESYSTEM_STATISTICS_EX = *mut FILESYSTEM_STATISTICS_EX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_ALLOCATED_RANGE_BUFFER = *mut FILE_ALLOCATED_RANGE_BUFFER;
+#[cfg(feature = "shared")]
 pub type PFILE_DESIRED_STORAGE_CLASS_INFORMATION = *mut FILE_DESIRED_STORAGE_CLASS_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_FS_PERSISTENT_VOLUME_INFORMATION = *mut FILE_FS_PERSISTENT_VOLUME_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_INITIATE_REPAIR_OUTPUT_BUFFER = *mut FILE_INITIATE_REPAIR_OUTPUT_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_LAYOUT_ENTRY = *mut FILE_LAYOUT_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_LAYOUT_INFO_ENTRY = *mut FILE_LAYOUT_INFO_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_LAYOUT_NAME_ENTRY = *mut FILE_LAYOUT_NAME_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_LEVEL_TRIM = *mut FILE_LEVEL_TRIM;
+#[cfg(feature = "shared")]
 pub type PFILE_LEVEL_TRIM_OUTPUT = *mut FILE_LEVEL_TRIM_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_LEVEL_TRIM_RANGE = *mut FILE_LEVEL_TRIM_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_MAKE_COMPATIBLE_BUFFER = *mut FILE_MAKE_COMPATIBLE_BUFFER;
+#[cfg(feature = "shared")]
 pub type PFILE_OBJECTID_BUFFER = *mut FILE_OBJECTID_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_PREFETCH = *mut FILE_PREFETCH;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_PREFETCH_EX = *mut FILE_PREFETCH_EX;
-pub type PFILE_PROVIDER_EXTERNAL_INFO = PFILE_PROVIDER_EXTERNAL_INFO_V1;
+#[cfg(feature = "shared")]
+pub type PFILE_PROVIDER_EXTERNAL_INFO = *mut FILE_PROVIDER_EXTERNAL_INFO_V1;
+#[cfg(feature = "shared")]
 pub type PFILE_PROVIDER_EXTERNAL_INFO_V0 = *mut FILE_PROVIDER_EXTERNAL_INFO_V0;
+#[cfg(feature = "shared")]
 pub type PFILE_PROVIDER_EXTERNAL_INFO_V1 = *mut FILE_PROVIDER_EXTERNAL_INFO_V1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_QUERY_ON_DISK_VOL_INFO_BUFFER = *mut FILE_QUERY_ON_DISK_VOL_INFO_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_QUERY_SPARING_BUFFER = *mut FILE_QUERY_SPARING_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_REFERENCE_RANGE = *mut FILE_REFERENCE_RANGE;
+#[cfg(feature = "shared")]
 pub type PFILE_REGION_INFO = *mut FILE_REGION_INFO;
+#[cfg(feature = "shared")]
 pub type PFILE_REGION_INPUT = *mut FILE_REGION_INPUT;
+#[cfg(feature = "shared")]
 pub type PFILE_REGION_OUTPUT = *mut FILE_REGION_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_SET_DEFECT_MGMT_BUFFER = *mut FILE_SET_DEFECT_MGMT_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_SET_SPARSE_BUFFER = *mut FILE_SET_SPARSE_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_STORAGE_TIER = *mut FILE_STORAGE_TIER;
 pub type PFILE_STORAGE_TIER_CLASS = *mut FILE_STORAGE_TIER_CLASS;
 pub type PFILE_STORAGE_TIER_MEDIA_TYPE = *mut FILE_STORAGE_TIER_MEDIA_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFILE_STORAGE_TIER_REGION = *mut FILE_STORAGE_TIER_REGION;
+#[cfg(feature = "shared")]
 pub type PFILE_SYSTEM_RECOGNITION_INFORMATION = *mut FILE_SYSTEM_RECOGNITION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_TYPE_NOTIFICATION_INPUT = *mut FILE_TYPE_NOTIFICATION_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_ZERO_DATA_INFORMATION = *mut FILE_ZERO_DATA_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFILE_ZERO_DATA_INFORMATION_EX = *mut FILE_ZERO_DATA_INFORMATION_EX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFIND_BY_SID_DATA = *mut FIND_BY_SID_DATA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFIND_BY_SID_OUTPUT = *mut FIND_BY_SID_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PFORMAT_EX_PARAMETERS = *mut FORMAT_EX_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PFORMAT_PARAMETERS = *mut FORMAT_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PFSCTL_GET_INTEGRITY_INFORMATION_BUFFER = *mut FSCTL_GET_INTEGRITY_INFORMATION_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFSCTL_OFFLOAD_READ_INPUT = *mut FSCTL_OFFLOAD_READ_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFSCTL_OFFLOAD_READ_OUTPUT = *mut FSCTL_OFFLOAD_READ_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFSCTL_OFFLOAD_WRITE_INPUT = *mut FSCTL_OFFLOAD_WRITE_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFSCTL_OFFLOAD_WRITE_OUTPUT = *mut FSCTL_OFFLOAD_WRITE_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PFSCTL_QUERY_FAT_BPB_BUFFER = *mut FSCTL_QUERY_FAT_BPB_BUFFER;
+#[cfg(feature = "shared")]
 pub type PFSCTL_QUERY_REGION_INFO_INPUT = *mut FSCTL_QUERY_REGION_INFO_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFSCTL_QUERY_REGION_INFO_OUTPUT = *mut FSCTL_QUERY_REGION_INFO_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFSCTL_QUERY_STORAGE_CLASSES_OUTPUT = *mut FSCTL_QUERY_STORAGE_CLASSES_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PFSCTL_SET_INTEGRITY_INFORMATION_BUFFER = *mut FSCTL_SET_INTEGRITY_INFORMATION_BUFFER;
+#[cfg(feature = "shared")]
 pub type PFSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX = *mut FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFS_BPIO_INFO = *mut FS_BPIO_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PFS_BPIO_INPUT = *mut FS_BPIO_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFS_BPIO_OUTPUT = *mut FS_BPIO_OUTPUT;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFS_BPIO_RESULTS = *mut FS_BPIO_RESULTS;
+#[cfg(feature = "shared")]
 pub type PGETVERSIONINPARAMS = *mut GETVERSIONINPARAMS;
+#[cfg(feature = "shared")]
 pub type PGET_CHANGER_PARAMETERS = *mut GET_CHANGER_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PGET_DEVICE_INTERNAL_STATUS_DATA_REQUEST = *mut GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PGET_DISK_ATTRIBUTES = *mut GET_DISK_ATTRIBUTES;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGET_FILTER_FILE_IDENTIFIER_INPUT = *mut GET_FILTER_FILE_IDENTIFIER_INPUT;
+#[cfg(feature = "shared")]
 pub type PGET_FILTER_FILE_IDENTIFIER_OUTPUT = *mut GET_FILTER_FILE_IDENTIFIER_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGET_LENGTH_INFORMATION = *mut GET_LENGTH_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGET_MEDIA_TYPES = *mut GET_MEDIA_TYPES;
+#[cfg(feature = "shared")]
 pub type PGP_LOG_PAGE_DESCRIPTOR = *mut GP_LOG_PAGE_DESCRIPTOR;
 pub const PHILIPS_12_WO: STORAGE_MEDIA_TYPE = 67;
+#[cfg(feature = "shared")]
 pub type PHISTOGRAM_BUCKET = *mut HISTOGRAM_BUCKET;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_ELEMENT_STATUS {
-    pub Version: u32,
-    pub Size: u32,
-    pub DescriptorCount: u32,
-    pub ReturnedDescriptorCount: u32,
-    pub ElementIdentifierBeingDepoped: u32,
-    pub Reserved: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub DescriptorCount: super::DWORD,
+    pub ReturnedDescriptorCount: super::DWORD,
+    pub ElementIdentifierBeingDepoped: super::DWORD,
+    pub Reserved: super::DWORD,
     pub Descriptors: [PHYSICAL_ELEMENT_STATUS_DESCRIPTOR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for PHYSICAL_ELEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub ElementIdentifier: u32,
-    pub PhysicalElementType: u8,
-    pub PhysicalElementHealth: u8,
-    pub Reserved1: [u8; 2],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub ElementIdentifier: super::DWORD,
+    pub PhysicalElementType: super::BYTE,
+    pub PhysicalElementHealth: super::BYTE,
+    pub Reserved1: [super::BYTE; 2],
     pub AssociatedCapacity: super::DWORDLONG,
-    pub Reserved2: [u32; 4],
+    pub Reserved2: [super::DWORD; 4],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for PHYSICAL_ELEMENT_STATUS_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_ELEMENT_STATUS_REQUEST {
-    pub Version: u32,
-    pub Size: u32,
-    pub StartingElement: u32,
-    pub Filter: u8,
-    pub ReportType: u8,
-    pub Reserved: [u8; 2],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub StartingElement: super::DWORD,
+    pub Filter: super::BYTE,
+    pub ReportType: super::BYTE,
+    pub Reserved: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for PHYSICAL_ELEMENT_STATUS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type PIDEREGS = *mut IDEREGS;
 pub const PINNACLE_APEX_5_RW: STORAGE_MEDIA_TYPE = 65;
-pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "C" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: i64)>;
+#[cfg(feature = "shared")]
+pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = Option<unsafe extern "C" fn(sourcecontext: *const IO_IRP_EXT_TRACK_OFFSET_HEADER, targetcontext: *mut IO_IRP_EXT_TRACK_OFFSET_HEADER, relativeoffset: super::LONGLONG)>;
+#[cfg(feature = "shared")]
 pub type PIO_IRP_EXT_TRACK_OFFSET_HEADER = *mut IO_IRP_EXT_TRACK_OFFSET_HEADER;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PLEX_READ_DATA_REQUEST {
     pub ByteOffset: super::LARGE_INTEGER,
-    pub ByteLength: u32,
-    pub PlexNumber: u32,
+    pub ByteLength: super::DWORD,
+    pub PlexNumber: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PLEX_READ_DATA_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4802,474 +4885,609 @@ impl Default for PLEX_READ_DATA_REQUEST {
 }
 pub type PLMR_QUERY_INFO_CLASS = *mut LMR_QUERY_INFO_CLASS;
 pub type PLMR_QUERY_INFO_PARAM = *mut LMR_QUERY_INFO_PARAM;
+#[cfg(feature = "shared")]
 pub type PLMR_QUERY_SESSION_INFO = *mut LMR_QUERY_SESSION_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PLOOKUP_STREAM_FROM_CLUSTER_ENTRY = *mut LOOKUP_STREAM_FROM_CLUSTER_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PLOOKUP_STREAM_FROM_CLUSTER_INPUT = *mut LOOKUP_STREAM_FROM_CLUSTER_INPUT;
+#[cfg(feature = "shared")]
 pub type PLOOKUP_STREAM_FROM_CLUSTER_OUTPUT = *mut LOOKUP_STREAM_FROM_CLUSTER_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMARK_HANDLE_INFO = *mut MARK_HANDLE_INFO;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PMARK_HANDLE_INFO32 = *mut MARK_HANDLE_INFO32;
 pub type PMEDIA_TYPE = *mut MEDIA_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMFT_ENUM_DATA = *mut MFT_ENUM_DATA_V1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMFT_ENUM_DATA_V0 = *mut MFT_ENUM_DATA_V0;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMFT_ENUM_DATA_V1 = *mut MFT_ENUM_DATA_V1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMOVE_FILE_DATA = *mut MOVE_FILE_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMOVE_FILE_DATA32 = *mut MOVE_FILE_DATA32;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMOVE_FILE_RECORD_DATA = *mut MOVE_FILE_RECORD_DATA;
+#[cfg(feature = "shared")]
 pub type PNTFS_EXTENDED_VOLUME_DATA = *mut NTFS_EXTENDED_VOLUME_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNTFS_FILE_RECORD_INPUT_BUFFER = *mut NTFS_FILE_RECORD_INPUT_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNTFS_FILE_RECORD_OUTPUT_BUFFER = *mut NTFS_FILE_RECORD_OUTPUT_BUFFER;
+#[cfg(feature = "shared")]
 pub type PNTFS_STATISTICS = *mut NTFS_STATISTICS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PNTFS_STATISTICS_EX = *mut NTFS_STATISTICS_EX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PNTFS_VOLUME_DATA_BUFFER = *mut NTFS_VOLUME_DATA_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPARTITION_INFORMATION = *mut PARTITION_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPARTITION_INFORMATION_EX = *mut PARTITION_INFORMATION_EX;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPARTITION_INFORMATION_GPT = *mut PARTITION_INFORMATION_GPT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPARTITION_INFORMATION_MBR = *mut PARTITION_INFORMATION_MBR;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPATHNAME_BUFFER = *mut PATHNAME_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPERF_BIN = *mut PERF_BIN;
+#[cfg(feature = "shared")]
 pub type PPERSISTENT_RESERVE_COMMAND = *mut PERSISTENT_RESERVE_COMMAND;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPHYSICAL_ELEMENT_STATUS = *mut PHYSICAL_ELEMENT_STATUS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPHYSICAL_ELEMENT_STATUS_DESCRIPTOR = *mut PHYSICAL_ELEMENT_STATUS_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PPHYSICAL_ELEMENT_STATUS_REQUEST = *mut PHYSICAL_ELEMENT_STATUS_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPLEX_READ_DATA_REQUEST = *mut PLEX_READ_DATA_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PPREVENT_MEDIA_REMOVAL = *mut PREVENT_MEDIA_REMOVAL;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PQUERY_BAD_RANGES_INPUT = *mut QUERY_BAD_RANGES_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PQUERY_BAD_RANGES_INPUT_RANGE = *mut QUERY_BAD_RANGES_INPUT_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PQUERY_BAD_RANGES_OUTPUT = *mut QUERY_BAD_RANGES_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PQUERY_BAD_RANGES_OUTPUT_RANGE = *mut QUERY_BAD_RANGES_OUTPUT_RANGE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PQUERY_FILE_LAYOUT_INPUT = *mut QUERY_FILE_LAYOUT_INPUT;
+#[cfg(feature = "shared")]
 pub type PQUERY_FILE_LAYOUT_OUTPUT = *mut QUERY_FILE_LAYOUT_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PREAD_ELEMENT_ADDRESS_INFO = *mut READ_ELEMENT_ADDRESS_INFO;
+#[cfg(feature = "shared")]
 pub type PREAD_FILE_USN_DATA = *mut READ_FILE_USN_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREAD_USN_JOURNAL_DATA = *mut READ_USN_JOURNAL_DATA_V1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREAD_USN_JOURNAL_DATA_V0 = *mut READ_USN_JOURNAL_DATA_V0;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREAD_USN_JOURNAL_DATA_V1 = *mut READ_USN_JOURNAL_DATA_V1;
+#[cfg(feature = "shared")]
 pub type PREASSIGN_BLOCKS = *mut REASSIGN_BLOCKS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREASSIGN_BLOCKS_EX = *mut REASSIGN_BLOCKS_EX;
 pub type PREFS_SMR_VOLUME_GC_ACTION = *mut REFS_SMR_VOLUME_GC_ACTION;
 pub type PREFS_SMR_VOLUME_GC_METHOD = *mut REFS_SMR_VOLUME_GC_METHOD;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PREFS_SMR_VOLUME_GC_PARAMETERS = *mut REFS_SMR_VOLUME_GC_PARAMETERS;
 pub type PREFS_SMR_VOLUME_GC_STATE = *mut REFS_SMR_VOLUME_GC_STATE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREFS_SMR_VOLUME_INFO_OUTPUT = *mut REFS_SMR_VOLUME_INFO_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREFS_VOLUME_DATA_BUFFER = *mut REFS_VOLUME_DATA_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PREMOVE_ELEMENT_AND_TRUNCATE_REQUEST = *mut REMOVE_ELEMENT_AND_TRUNCATE_REQUEST;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREPAIR_COPIES_INPUT = *mut REPAIR_COPIES_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREPAIR_COPIES_OUTPUT = *mut REPAIR_COPIES_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PREQUEST_OPLOCK_INPUT_BUFFER = *mut REQUEST_OPLOCK_INPUT_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PREQUEST_OPLOCK_OUTPUT_BUFFER = *mut REQUEST_OPLOCK_OUTPUT_BUFFER;
+#[cfg(feature = "shared")]
 pub type PREQUEST_RAW_ENCRYPTED_DATA = *mut REQUEST_RAW_ENCRYPTED_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER = *mut RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRETRIEVAL_POINTERS_BUFFER = *mut RETRIEVAL_POINTERS_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRETRIEVAL_POINTER_BASE = *mut RETRIEVAL_POINTER_BASE;
+#[cfg(feature = "shared")]
 pub type PRETRIEVAL_POINTER_COUNT = *mut RETRIEVAL_POINTER_COUNT;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREVENT_MEDIA_REMOVAL {
     pub PreventMediaRemoval: super::BOOLEAN,
 }
 pub const PRODUCT_ID_LENGTH: i32 = 16;
 pub const PROJFS_PROTOCOL_VERSION: i32 = 3;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSCM_BUS_DEDICATED_MEMORY_DEVICES_INFO = *mut SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSCM_BUS_DEDICATED_MEMORY_DEVICE_INFO = *mut SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSCM_BUS_DEDICATED_MEMORY_STATE = *mut SCM_BUS_DEDICATED_MEMORY_STATE;
 pub type PSCM_BUS_FIRMWARE_ACTIVATION_STATE = *mut SCM_BUS_FIRMWARE_ACTIVATION_STATE;
 pub type PSCM_BUS_PROPERTY_ID = *mut SCM_BUS_PROPERTY_ID;
+#[cfg(feature = "shared")]
 pub type PSCM_BUS_PROPERTY_QUERY = *mut SCM_BUS_PROPERTY_QUERY;
+#[cfg(feature = "shared")]
 pub type PSCM_BUS_PROPERTY_SET = *mut SCM_BUS_PROPERTY_SET;
 pub type PSCM_BUS_QUERY_TYPE = *mut SCM_BUS_QUERY_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSCM_BUS_RUNTIME_FW_ACTIVATION_INFO = *mut SCM_BUS_RUNTIME_FW_ACTIVATION_INFO;
 pub type PSCM_BUS_SET_TYPE = *mut SCM_BUS_SET_TYPE;
+#[cfg(feature = "shared")]
 pub type PSCM_INTERLEAVED_PD_INFO = *mut SCM_INTERLEAVED_PD_INFO;
+#[cfg(feature = "shared")]
 pub type PSCM_LD_INTERLEAVE_SET_INFO = *mut SCM_LD_INTERLEAVE_SET_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCM_LOGICAL_DEVICES = *mut SCM_LOGICAL_DEVICES;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCM_LOGICAL_DEVICE_INSTANCE = *mut SCM_LOGICAL_DEVICE_INSTANCE;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_DESCRIPTOR_HEADER = *mut SCM_PD_DESCRIPTOR_HEADER;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_DEVICE_HANDLE = *mut SCM_PD_DEVICE_HANDLE;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_DEVICE_INFO = *mut SCM_PD_DEVICE_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCM_PD_DEVICE_SPECIFIC_INFO = *mut SCM_PD_DEVICE_SPECIFIC_INFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCM_PD_DEVICE_SPECIFIC_PROPERTY = *mut SCM_PD_DEVICE_SPECIFIC_PROPERTY;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_FIRMWARE_ACTIVATE = *mut SCM_PD_FIRMWARE_ACTIVATE;
 pub type PSCM_PD_FIRMWARE_ACTIVATION_STATE = *mut SCM_PD_FIRMWARE_ACTIVATION_STATE;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_FIRMWARE_DOWNLOAD = *mut SCM_PD_FIRMWARE_DOWNLOAD;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_FIRMWARE_INFO = *mut SCM_PD_FIRMWARE_INFO;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_FIRMWARE_SLOT_INFO = *mut SCM_PD_FIRMWARE_SLOT_INFO;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_FRU_ID_STRING = *mut SCM_PD_FRU_ID_STRING;
 pub type PSCM_PD_HEALTH_NOTIFICATION_DATA = *mut SCM_PD_HEALTH_NOTIFICATION_DATA;
 pub type PSCM_PD_HEALTH_STATUS = *mut SCM_PD_HEALTH_STATUS;
 pub type PSCM_PD_LAST_FW_ACTIVATION_STATUS = *mut SCM_PD_LAST_FW_ACTIVATION_STATUS;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCM_PD_LOCATION_STRING = *mut SCM_PD_LOCATION_STRING;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_MANAGEMENT_STATUS = *mut SCM_PD_MANAGEMENT_STATUS;
 pub type PSCM_PD_MEDIA_REINITIALIZATION_STATUS = *mut SCM_PD_MEDIA_REINITIALIZATION_STATUS;
 pub type PSCM_PD_OPERATIONAL_STATUS = *mut SCM_PD_OPERATIONAL_STATUS;
 pub type PSCM_PD_OPERATIONAL_STATUS_REASON = *mut SCM_PD_OPERATIONAL_STATUS_REASON;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_PASSTHROUGH_INPUT = *mut SCM_PD_PASSTHROUGH_INPUT;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_PASSTHROUGH_INVDIMM_INPUT = *mut SCM_PD_PASSTHROUGH_INVDIMM_INPUT;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_PASSTHROUGH_INVDIMM_OUTPUT = *mut SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_PASSTHROUGH_OUTPUT = *mut SCM_PD_PASSTHROUGH_OUTPUT;
 pub type PSCM_PD_PROPERTY_ID = *mut SCM_PD_PROPERTY_ID;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_PROPERTY_QUERY = *mut SCM_PD_PROPERTY_QUERY;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_PROPERTY_SET = *mut SCM_PD_PROPERTY_SET;
 pub type PSCM_PD_QUERY_TYPE = *mut SCM_PD_QUERY_TYPE;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_REINITIALIZE_MEDIA_INPUT = *mut SCM_PD_REINITIALIZE_MEDIA_INPUT;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_REINITIALIZE_MEDIA_OUTPUT = *mut SCM_PD_REINITIALIZE_MEDIA_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE = *mut SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE;
+#[cfg(feature = "shared")]
 pub type PSCM_PD_RUNTIME_FW_ACTIVATION_INFO = *mut SCM_PD_RUNTIME_FW_ACTIVATION_INFO;
 pub type PSCM_PD_SET_TYPE = *mut SCM_PD_SET_TYPE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCM_PHYSICAL_DEVICES = *mut SCM_PHYSICAL_DEVICES;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCM_PHYSICAL_DEVICE_INSTANCE = *mut SCM_PHYSICAL_DEVICE_INSTANCE;
+#[cfg(feature = "shared")]
 pub type PSCM_REGION = *mut SCM_REGION;
+#[cfg(feature = "shared")]
 pub type PSCM_REGIONS = *mut SCM_REGIONS;
 pub type PSCM_REGION_FLAG = *mut SCM_REGION_FLAG;
+#[cfg(feature = "shared")]
 pub type PSD_CHANGE_MACHINE_SID_INPUT = *mut SD_CHANGE_MACHINE_SID_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSD_CHANGE_MACHINE_SID_OUTPUT = *mut SD_CHANGE_MACHINE_SID_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSD_ENUM_SDS_ENTRY = *mut SD_ENUM_SDS_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSD_ENUM_SDS_INPUT = *mut SD_ENUM_SDS_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSD_ENUM_SDS_OUTPUT = *mut SD_ENUM_SDS_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSD_GLOBAL_CHANGE_INPUT = *mut SD_GLOBAL_CHANGE_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSD_GLOBAL_CHANGE_OUTPUT = *mut SD_GLOBAL_CHANGE_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PSD_QUERY_STATS_INPUT = *mut SD_QUERY_STATS_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSD_QUERY_STATS_OUTPUT = *mut SD_QUERY_STATS_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PSENDCMDINPARAMS = *mut SENDCMDINPARAMS;
+#[cfg(feature = "shared")]
 pub type PSENDCMDOUTPARAMS = *mut SENDCMDOUTPARAMS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSET_DAX_ALLOC_ALIGNMENT_HINT_INPUT = *mut SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSET_DISK_ATTRIBUTES = *mut SET_DISK_ATTRIBUTES;
+#[cfg(feature = "shared")]
 pub type PSET_PARTITION_INFORMATION = *mut SET_PARTITION_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSET_PARTITION_INFORMATION_EX = *mut SET_PARTITION_INFORMATION_EX;
+#[cfg(feature = "shared")]
 pub type PSET_PURGE_FAILURE_MODE_INPUT = *mut SET_PURGE_FAILURE_MODE_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSHRINK_VOLUME_INFORMATION = *mut SHRINK_VOLUME_INFORMATION;
 pub type PSHRINK_VOLUME_REQUEST_TYPES = *mut SHRINK_VOLUME_REQUEST_TYPES;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSI_COPYFILE = *mut SI_COPYFILE;
+#[cfg(feature = "shared")]
 pub type PSMB_SHARE_FLUSH_AND_PURGE_INPUT = *mut SMB_SHARE_FLUSH_AND_PURGE_INPUT;
+#[cfg(feature = "shared")]
 pub type PSMB_SHARE_FLUSH_AND_PURGE_OUTPUT = *mut SMB_SHARE_FLUSH_AND_PURGE_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTARTING_LCN_INPUT_BUFFER = *mut STARTING_LCN_INPUT_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTARTING_LCN_INPUT_BUFFER_EX = *mut STARTING_LCN_INPUT_BUFFER_EX;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTARTING_VCN_INPUT_BUFFER = *mut STARTING_VCN_INPUT_BUFFER;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ACCESS_ALIGNMENT_DESCRIPTOR = *mut STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ADAPTER_DESCRIPTOR = *mut STORAGE_ADAPTER_DESCRIPTOR;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTORAGE_ADAPTER_SERIAL_NUMBER = *mut STORAGE_ADAPTER_SERIAL_NUMBER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ALLOCATE_BC_STREAM_INPUT = *mut STORAGE_ALLOCATE_BC_STREAM_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ALLOCATE_BC_STREAM_OUTPUT = *mut STORAGE_ALLOCATE_BC_STREAM_OUTPUT;
 pub type PSTORAGE_ASSOCIATION_TYPE = *mut STORAGE_ASSOCIATION_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ATTRIBUTE_MGMT = *mut STORAGE_ATTRIBUTE_MGMT;
 pub type PSTORAGE_ATTRIBUTE_MGMT_ACTION = *mut STORAGE_ATTRIBUTE_MGMT_ACTION;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_BREAK_RESERVATION_REQUEST = *mut STORAGE_BREAK_RESERVATION_REQUEST;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_BUS_RESET_REQUEST = *mut STORAGE_BUS_RESET_REQUEST;
 pub type PSTORAGE_BUS_TYPE = *mut STORAGE_BUS_TYPE;
 pub type PSTORAGE_COMPONENT_HEALTH_STATUS = *mut STORAGE_COMPONENT_HEALTH_STATUS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_COUNTER = *mut STORAGE_COUNTER;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_COUNTERS = *mut STORAGE_COUNTERS;
 pub type PSTORAGE_COUNTER_TYPE = *mut STORAGE_COUNTER_TYPE;
 pub type PSTORAGE_CRYPTO_ALGORITHM_ID = *mut STORAGE_CRYPTO_ALGORITHM_ID;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_CRYPTO_CAPABILITY = *mut STORAGE_CRYPTO_CAPABILITY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_CRYPTO_CAPABILITY_V2 = *mut STORAGE_CRYPTO_CAPABILITY_V2;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_CRYPTO_DESCRIPTOR = *mut STORAGE_CRYPTO_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_CRYPTO_DESCRIPTOR_V2 = *mut STORAGE_CRYPTO_DESCRIPTOR_V2;
 pub type PSTORAGE_CRYPTO_KEY_SIZE = *mut STORAGE_CRYPTO_KEY_SIZE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DESCRIPTOR_HEADER = *mut STORAGE_DESCRIPTOR_HEADER;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR = *mut STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_DESCRIPTOR = *mut STORAGE_DEVICE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR = *mut STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR;
 pub type PSTORAGE_DEVICE_FORM_FACTOR = *mut STORAGE_DEVICE_FORM_FACTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_ID_DESCRIPTOR = *mut STORAGE_DEVICE_ID_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR = *mut STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_LED_STATE_DESCRIPTOR = *mut STORAGE_DEVICE_LED_STATE_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_LOCATION_DESCRIPTOR = *mut STORAGE_DEVICE_LOCATION_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_MANAGEMENT_STATUS = *mut STORAGE_DEVICE_MANAGEMENT_STATUS;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_NUMA_PROPERTY = *mut STORAGE_DEVICE_NUMA_PROPERTY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_NUMBER = *mut STORAGE_DEVICE_NUMBER;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_NUMBERS = *mut STORAGE_DEVICE_NUMBERS;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_NUMBER_EX = *mut STORAGE_DEVICE_NUMBER_EX;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_POWER_CAP = *mut STORAGE_DEVICE_POWER_CAP;
 pub type PSTORAGE_DEVICE_POWER_CAP_UNITS = *mut STORAGE_DEVICE_POWER_CAP_UNITS;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_RESILIENCY_DESCRIPTOR = *mut STORAGE_DEVICE_RESILIENCY_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 = *mut STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTORAGE_DEVICE_TIERING_DESCRIPTOR = *mut STORAGE_DEVICE_TIERING_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT = *mut STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DIAGNOSTIC_DATA = *mut STORAGE_DIAGNOSTIC_DATA;
 pub type PSTORAGE_DIAGNOSTIC_LEVEL = *mut STORAGE_DIAGNOSTIC_LEVEL;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_DIAGNOSTIC_REQUEST = *mut STORAGE_DIAGNOSTIC_REQUEST;
 pub type PSTORAGE_DIAGNOSTIC_TARGET_TYPE = *mut STORAGE_DIAGNOSTIC_TARGET_TYPE;
 pub type PSTORAGE_DISK_HEALTH_STATUS = *mut STORAGE_DISK_HEALTH_STATUS;
 pub type PSTORAGE_DISK_OPERATIONAL_STATUS = *mut STORAGE_DISK_OPERATIONAL_STATUS;
 pub type PSTORAGE_ENCRYPTION_TYPE = *mut STORAGE_ENCRYPTION_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_EVENT_NOTIFICATION = *mut STORAGE_EVENT_NOTIFICATION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FAILURE_PREDICTION_CONFIG = *mut STORAGE_FAILURE_PREDICTION_CONFIG;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FEATURE_SUPPORT = *mut STORAGE_FEATURE_SUPPORT;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_FRU_ID_DESCRIPTOR = *mut STORAGE_FRU_ID_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_GET_BC_PROPERTIES_OUTPUT = *mut STORAGE_GET_BC_PROPERTIES_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HOTPLUG_INFO = *mut STORAGE_HOTPLUG_INFO;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_BOOT_PARTITION_ACTIVATE = *mut STORAGE_HW_BOOT_PARTITION_ACTIVATE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_BOOT_PARTITION_DOWNLOAD = *mut STORAGE_HW_BOOT_PARTITION_DOWNLOAD;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_BOOT_PARTITION_INFO = *mut STORAGE_HW_BOOT_PARTITION_INFO;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_CRYPTO_CAPABILITY = *mut STORAGE_HW_CRYPTO_CAPABILITY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_CRYPTO_DESCRIPTOR = *mut STORAGE_HW_CRYPTO_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_ENDURANCE_DATA_DESCRIPTOR = *mut STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_ENDURANCE_INFO = *mut STORAGE_HW_ENDURANCE_INFO;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_FIRMWARE_ACTIVATE = *mut STORAGE_HW_FIRMWARE_ACTIVATE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_FIRMWARE_DOWNLOAD = *mut STORAGE_HW_FIRMWARE_DOWNLOAD;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_FIRMWARE_DOWNLOAD_V2 = *mut STORAGE_HW_FIRMWARE_DOWNLOAD_V2;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_FIRMWARE_INFO = *mut STORAGE_HW_FIRMWARE_INFO;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_FIRMWARE_INFO_QUERY = *mut STORAGE_HW_FIRMWARE_INFO_QUERY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_HW_FIRMWARE_SLOT_INFO = *mut STORAGE_HW_FIRMWARE_SLOT_INFO;
 pub type PSTORAGE_ICE_TYPE = *mut STORAGE_ICE_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_IDENTIFIER = *mut STORAGE_IDENTIFIER;
 pub type PSTORAGE_IDENTIFIER_CODE_SET = *mut STORAGE_IDENTIFIER_CODE_SET;
 pub type PSTORAGE_IDENTIFIER_TYPE = *mut STORAGE_IDENTIFIER_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_IDLE_POWER = *mut STORAGE_IDLE_POWER;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_IDLE_POWERUP_REASON = *mut STORAGE_IDLE_POWERUP_REASON;
 pub type PSTORAGE_ID_NAA_FORMAT = *mut STORAGE_ID_NAA_FORMAT;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_LB_PROVISIONING_MAP_RESOURCES = *mut STORAGE_LB_PROVISIONING_MAP_RESOURCES;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_MEDIA_SERIAL_NUMBER_DATA = *mut STORAGE_MEDIA_SERIAL_NUMBER_DATA;
 pub type PSTORAGE_MEDIA_TYPE = *mut STORAGE_MEDIA_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR = *mut STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_MINIPORT_DESCRIPTOR = *mut STORAGE_MINIPORT_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_OFFLOAD_READ_OUTPUT = *mut STORAGE_OFFLOAD_READ_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_OFFLOAD_TOKEN = *mut STORAGE_OFFLOAD_TOKEN;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_OFFLOAD_WRITE_OUTPUT = *mut STORAGE_OFFLOAD_WRITE_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_OPERATIONAL_REASON = *mut STORAGE_OPERATIONAL_REASON;
 pub type PSTORAGE_OPERATIONAL_STATUS_REASON = *mut STORAGE_OPERATIONAL_STATUS_REASON;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PHYSICAL_ADAPTER_DATA = *mut STORAGE_PHYSICAL_ADAPTER_DATA;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PHYSICAL_DEVICE_DATA = *mut STORAGE_PHYSICAL_DEVICE_DATA;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PHYSICAL_NODE_DATA = *mut STORAGE_PHYSICAL_NODE_DATA;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR = *mut STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR;
 pub type PSTORAGE_PORT_CODE_SET = *mut STORAGE_PORT_CODE_SET;
 pub type PSTORAGE_POWERUP_REASON_TYPE = *mut STORAGE_POWERUP_REASON_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PREDICT_FAILURE = *mut STORAGE_PREDICT_FAILURE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PRIORITY_HINT_SUPPORT = *mut STORAGE_PRIORITY_HINT_SUPPORT;
 pub type PSTORAGE_PROPERTY_ID = *mut STORAGE_PROPERTY_ID;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROPERTY_QUERY = *mut STORAGE_PROPERTY_QUERY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROPERTY_SET = *mut STORAGE_PROPERTY_SET;
 pub type PSTORAGE_PROTOCOL_ATA_DATA_TYPE = *mut STORAGE_PROTOCOL_ATA_DATA_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROTOCOL_COMMAND = *mut STORAGE_PROTOCOL_COMMAND;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROTOCOL_DATA_DESCRIPTOR = *mut STORAGE_PROTOCOL_DATA_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT = *mut STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE = *mut STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE;
 pub type PSTORAGE_PROTOCOL_NVME_DATA_TYPE = *mut STORAGE_PROTOCOL_NVME_DATA_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROTOCOL_SPECIFIC_DATA = *mut STORAGE_PROTOCOL_SPECIFIC_DATA;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_PROTOCOL_SPECIFIC_DATA_EXT = *mut STORAGE_PROTOCOL_SPECIFIC_DATA_EXT;
 pub type PSTORAGE_PROTOCOL_TYPE = *mut STORAGE_PROTOCOL_TYPE;
 pub type PSTORAGE_PROTOCOL_UFS_DATA_TYPE = *mut STORAGE_PROTOCOL_UFS_DATA_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY = *mut STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY = *mut STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_QUERY_DEPENDENT_VOLUME_REQUEST = *mut STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST;
-pub type PSTORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE = *mut STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE;
 pub type PSTORAGE_QUERY_TYPE = *mut STORAGE_QUERY_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTORAGE_READ_CAPACITY = *mut STORAGE_READ_CAPACITY;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_REINITIALIZE_MEDIA = *mut STORAGE_REINITIALIZE_MEDIA;
 pub type PSTORAGE_RESERVE_ID = *mut STORAGE_RESERVE_ID;
 pub type PSTORAGE_RPMB_COMMAND_TYPE = *mut STORAGE_RPMB_COMMAND_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_RPMB_DATA_FRAME = *mut STORAGE_RPMB_DATA_FRAME;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_RPMB_DESCRIPTOR = *mut STORAGE_RPMB_DESCRIPTOR;
 pub type PSTORAGE_RPMB_FRAME_TYPE = *mut STORAGE_RPMB_FRAME_TYPE;
 pub type PSTORAGE_SANITIZE_METHOD = *mut STORAGE_SANITIZE_METHOD;
 pub type PSTORAGE_SET_TYPE = *mut STORAGE_SET_TYPE;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_SPEC_VERSION = *mut STORAGE_SPEC_VERSION;
+#[cfg(feature = "shared")]
 pub type PSTORAGE_STACK_DESCRIPTOR = *mut STORAGE_STACK_DESCRIPTOR;
 pub type PSTORAGE_STACK_TYPE = *mut STORAGE_STACK_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_TEMPERATURE_DATA_DESCRIPTOR = *mut STORAGE_TEMPERATURE_DATA_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_TEMPERATURE_INFO = *mut STORAGE_TEMPERATURE_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_TEMPERATURE_THRESHOLD = *mut STORAGE_TEMPERATURE_THRESHOLD;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTORAGE_TIER = *mut STORAGE_TIER;
 pub type PSTORAGE_TIER_CLASS = *mut STORAGE_TIER_CLASS;
 pub type PSTORAGE_TIER_MEDIA_TYPE = *mut STORAGE_TIER_MEDIA_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_TIER_REGION = *mut STORAGE_TIER_REGION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_WRITE_CACHE_PROPERTY = *mut STORAGE_WRITE_CACHE_PROPERTY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ZONED_DEVICE_DESCRIPTOR = *mut STORAGE_ZONED_DEVICE_DESCRIPTOR;
 pub type PSTORAGE_ZONED_DEVICE_TYPES = *mut STORAGE_ZONED_DEVICE_TYPES;
 pub type PSTORAGE_ZONES_ATTRIBUTES = *mut STORAGE_ZONES_ATTRIBUTES;
 pub type PSTORAGE_ZONE_CONDITION = *mut STORAGE_ZONE_CONDITION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ZONE_DESCRIPTOR = *mut STORAGE_ZONE_DESCRIPTOR;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTORAGE_ZONE_GROUP = *mut STORAGE_ZONE_GROUP;
 pub type PSTORAGE_ZONE_TYPES = *mut STORAGE_ZONE_TYPES;
+#[cfg(feature = "shared")]
 pub type PSTREAMS_ASSOCIATE_ID_INPUT_BUFFER = *mut STREAMS_ASSOCIATE_ID_INPUT_BUFFER;
+#[cfg(feature = "shared")]
 pub type PSTREAMS_QUERY_ID_OUTPUT_BUFFER = *mut STREAMS_QUERY_ID_OUTPUT_BUFFER;
+#[cfg(feature = "shared")]
 pub type PSTREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER = *mut STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTREAM_EXTENT_ENTRY = *mut STREAM_EXTENT_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSTREAM_INFORMATION_ENTRY = *mut STREAM_INFORMATION_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSTREAM_LAYOUT_ENTRY = *mut STREAM_LAYOUT_ENTRY;
+#[cfg(feature = "shared")]
 pub type PTAPE_GET_STATISTICS = *mut TAPE_GET_STATISTICS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTAPE_STATISTICS = *mut TAPE_STATISTICS;
+#[cfg(feature = "shared")]
 pub type PTXFS_CREATE_MINIVERSION_INFO = *mut TXFS_CREATE_MINIVERSION_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTXFS_GET_METADATA_INFO_OUT = *mut TXFS_GET_METADATA_INFO_OUT;
+#[cfg(feature = "shared")]
 pub type PTXFS_GET_TRANSACTED_VERSION = *mut TXFS_GET_TRANSACTED_VERSION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTXFS_LIST_TRANSACTIONS = *mut TXFS_LIST_TRANSACTIONS;
+#[cfg(feature = "shared")]
 pub type PTXFS_LIST_TRANSACTIONS_ENTRY = *mut TXFS_LIST_TRANSACTIONS_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTXFS_LIST_TRANSACTION_LOCKED_FILES = *mut TXFS_LIST_TRANSACTION_LOCKED_FILES;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY = *mut TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTXFS_MODIFY_RM = *mut TXFS_MODIFY_RM;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTXFS_QUERY_RM_INFORMATION = *mut TXFS_QUERY_RM_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTXFS_READ_BACKUP_INFORMATION_OUT = *mut TXFS_READ_BACKUP_INFORMATION_OUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTXFS_ROLLFORWARD_REDO_INFORMATION = *mut TXFS_ROLLFORWARD_REDO_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTXFS_SAVEPOINT_INFORMATION = *mut TXFS_SAVEPOINT_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTXFS_START_RM_INFORMATION = *mut TXFS_START_RM_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PTXFS_TRANSACTION_ACTIVE_INFO = *mut TXFS_TRANSACTION_ACTIVE_INFO;
+#[cfg(feature = "shared")]
 pub type PTXFS_WRITE_BACKUP_INFORMATION = *mut TXFS_WRITE_BACKUP_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_JOURNAL_DATA = *mut USN_JOURNAL_DATA_V1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_JOURNAL_DATA_V0 = *mut USN_JOURNAL_DATA_V0;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_JOURNAL_DATA_V1 = *mut USN_JOURNAL_DATA_V1;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_JOURNAL_DATA_V2 = *mut USN_JOURNAL_DATA_V2;
 #[cfg(feature = "winnt")]
 pub type PUSN_RANGE_TRACK_OUTPUT = *mut USN_RANGE_TRACK_OUTPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_RECORD = *mut USN_RECORD_V2;
+#[cfg(feature = "shared")]
 pub type PUSN_RECORD_COMMON_HEADER = *mut USN_RECORD_COMMON_HEADER;
+#[cfg(feature = "shared")]
 pub type PUSN_RECORD_EXTENT = *mut USN_RECORD_EXTENT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_RECORD_UNION = *mut USN_RECORD_UNION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_RECORD_V2 = *mut USN_RECORD_V2;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_RECORD_V3 = *mut USN_RECORD_V3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSN_RECORD_V4 = *mut USN_RECORD_V4;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PUSN_TRACK_MODIFIED_RANGES = *mut USN_TRACK_MODIFIED_RANGES;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PVERIFY_INFORMATION = *mut VERIFY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PVIRTUALIZATION_INSTANCE_INFO_INPUT = *mut VIRTUALIZATION_INSTANCE_INFO_INPUT;
+#[cfg(feature = "shared")]
 pub type PVIRTUALIZATION_INSTANCE_INFO_INPUT_EX = *mut VIRTUALIZATION_INSTANCE_INFO_INPUT_EX;
 pub type PVIRTUALIZATION_INSTANCE_INFO_OUTPUT = *mut VIRTUALIZATION_INSTANCE_INFO_OUTPUT;
 pub type PVIRTUAL_STORAGE_BEHAVIOR_CODE = *mut VIRTUAL_STORAGE_BEHAVIOR_CODE;
+#[cfg(feature = "shared")]
 pub type PVIRTUAL_STORAGE_SET_BEHAVIOR_INPUT = *mut VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT;
+#[cfg(feature = "shared")]
 pub type PVIRTUAL_STORAGE_TYPE = *mut VIRTUAL_STORAGE_TYPE;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PVOLUME_BITMAP_BUFFER = *mut VOLUME_BITMAP_BUFFER;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PVOLUME_DISK_EXTENTS = *mut VOLUME_DISK_EXTENTS;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PVOLUME_GET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_GET_GPT_ATTRIBUTES_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PWIM_PROVIDER_ADD_OVERLAY_INPUT = *mut WIM_PROVIDER_ADD_OVERLAY_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWIM_PROVIDER_EXTERNAL_INFO = *mut WIM_PROVIDER_EXTERNAL_INFO;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWIM_PROVIDER_OVERLAY_ENTRY = *mut WIM_PROVIDER_OVERLAY_ENTRY;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWIM_PROVIDER_REMOVE_OVERLAY_INPUT = *mut WIM_PROVIDER_REMOVE_OVERLAY_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWIM_PROVIDER_SUSPEND_OVERLAY_INPUT = *mut WIM_PROVIDER_SUSPEND_OVERLAY_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWIM_PROVIDER_UPDATE_OVERLAY_INPUT = *mut WIM_PROVIDER_UPDATE_OVERLAY_INPUT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWOF_EXTERNAL_FILE_ID = *mut WOF_EXTERNAL_FILE_ID;
+#[cfg(feature = "shared")]
 pub type PWOF_EXTERNAL_INFO = *mut WOF_EXTERNAL_INFO;
+#[cfg(feature = "shared")]
 pub type PWOF_VERSION_INFO = *mut WOF_VERSION_INFO;
+#[cfg(feature = "shared")]
 pub type PWRITE_USN_REASON_INPUT = *mut WRITE_USN_REASON_INPUT;
 pub const PropertyExistsQuery: STORAGE_QUERY_TYPE = 1;
 pub const PropertyExistsSet: STORAGE_SET_TYPE = 1;
@@ -5288,47 +5506,47 @@ pub const ProtocolTypeUfs: STORAGE_PROTOCOL_TYPE = 5;
 pub const ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = 0;
 pub const QIC: STORAGE_MEDIA_TYPE = 35;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_BAD_RANGES_INPUT {
-    pub Flags: u32,
-    pub NumRanges: u32,
+    pub Flags: super::DWORD,
+    pub NumRanges: super::DWORD,
     pub Ranges: [QUERY_BAD_RANGES_INPUT_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for QUERY_BAD_RANGES_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_BAD_RANGES_INPUT_RANGE {
     pub StartOffset: super::DWORDLONG,
     pub LengthInBytes: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_BAD_RANGES_OUTPUT {
-    pub Flags: u32,
-    pub NumBadRanges: u32,
+    pub Flags: super::DWORD,
+    pub NumBadRanges: super::DWORD,
     pub NextOffsetToLookUp: super::DWORDLONG,
     pub BadRanges: [QUERY_BAD_RANGES_OUTPUT_RANGE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for QUERY_BAD_RANGES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_BAD_RANGES_OUTPUT_RANGE {
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub Flags: super::DWORD,
+    pub Reserved: super::DWORD,
     pub StartOffset: super::DWORDLONG,
     pub LengthInBytes: super::DWORDLONG,
 }
@@ -5355,43 +5573,43 @@ pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EFS_ATTRIBUTE: i32 = 
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE: i32 = 16384;
 pub const QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE: i32 = 512;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct QUERY_FILE_LAYOUT_INPUT {
     pub Anonymous: QUERY_FILE_LAYOUT_INPUT_0,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub FilterType: QUERY_FILE_LAYOUT_FILTER_TYPE,
-    pub Reserved: u32,
+    pub Reserved: super::DWORD,
     pub Filter: QUERY_FILE_LAYOUT_INPUT_1,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for QUERY_FILE_LAYOUT_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union QUERY_FILE_LAYOUT_INPUT_0 {
-    pub FilterEntryCount: u32,
-    pub NumberOfPairs: u32,
+    pub FilterEntryCount: super::DWORD,
+    pub NumberOfPairs: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for QUERY_FILE_LAYOUT_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union QUERY_FILE_LAYOUT_INPUT_1 {
     pub ClusterRanges: [CLUSTER_RANGE; 1],
     pub FileReferenceRanges: [FILE_REFERENCE_RANGE; 1],
     pub StorageReserveIds: [STORAGE_RESERVE_ID; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for QUERY_FILE_LAYOUT_INPUT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5399,12 +5617,13 @@ impl Default for QUERY_FILE_LAYOUT_INPUT_1 {
 }
 pub const QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_FILE_LAYOUT_OUTPUT {
-    pub FileEntryCount: u32,
-    pub FirstFileOffset: u32,
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub FileEntryCount: super::DWORD,
+    pub FirstFileOffset: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub const QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID: i32 = 1;
 pub const QUERY_FILE_LAYOUT_REPARSE_TAG_INVALID: i32 = 2;
@@ -5419,71 +5638,76 @@ pub const READ_COMPRESSION_INFO_VALID: i32 = 32;
 pub const READ_COPY_NUMBER_BYPASS_CACHE_FLAG: i32 = 256;
 pub const READ_COPY_NUMBER_KEY: i32 = 1380142592;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct READ_ELEMENT_ADDRESS_INFO {
-    pub NumberOfElements: u32,
+    pub NumberOfElements: super::DWORD,
     pub ElementStatus: [CHANGER_ELEMENT_STATUS; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for READ_ELEMENT_ADDRESS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READ_FILE_USN_DATA {
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
+    pub MinMajorVersion: super::WORD,
+    pub MaxMajorVersion: super::WORD,
 }
 pub const READ_THRESHOLDS: i32 = 209;
 pub const READ_THRESHOLD_BUFFER_SIZE: i32 = 512;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type READ_USN_JOURNAL_DATA = READ_USN_JOURNAL_DATA_V1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READ_USN_JOURNAL_DATA_V0 {
     pub StartUsn: super::USN,
-    pub ReasonMask: u32,
-    pub ReturnOnlyOnClose: u32,
+    pub ReasonMask: super::DWORD,
+    pub ReturnOnlyOnClose: super::DWORD,
     pub Timeout: super::DWORDLONG,
     pub BytesToWaitFor: super::DWORDLONG,
     pub UsnJournalID: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READ_USN_JOURNAL_DATA_V1 {
     pub StartUsn: super::USN,
-    pub ReasonMask: u32,
-    pub ReturnOnlyOnClose: u32,
+    pub ReasonMask: super::DWORD,
+    pub ReturnOnlyOnClose: super::DWORD,
     pub Timeout: super::DWORDLONG,
     pub BytesToWaitFor: super::DWORDLONG,
     pub UsnJournalID: super::DWORDLONG,
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
+    pub MinMajorVersion: super::WORD,
+    pub MaxMajorVersion: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REASSIGN_BLOCKS {
-    pub Reserved: u16,
-    pub Count: u16,
-    pub BlockNumber: [u32; 1],
+    pub Reserved: super::WORD,
+    pub Count: super::WORD,
+    pub BlockNumber: [super::DWORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for REASSIGN_BLOCKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct REASSIGN_BLOCKS_EX {
-    pub Reserved: u16,
-    pub Count: u16,
+    pub Reserved: super::WORD,
+    pub Count: super::WORD,
     pub BlockNumber: [super::LARGE_INTEGER; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for REASSIGN_BLOCKS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5494,18 +5718,18 @@ pub const RECOVERED_WRITES_VALID: i32 = 1;
 pub type REFS_SMR_VOLUME_GC_ACTION = i32;
 pub type REFS_SMR_VOLUME_GC_METHOD = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SMR_VOLUME_GC_PARAMETERS {
-    pub Version: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
     pub Action: REFS_SMR_VOLUME_GC_ACTION,
     pub Method: REFS_SMR_VOLUME_GC_METHOD,
-    pub IoGranularity: u32,
-    pub CompressionFormat: u32,
+    pub IoGranularity: super::DWORD,
+    pub CompressionFormat: super::DWORD,
     pub Unused: [super::DWORDLONG; 8],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for REFS_SMR_VOLUME_GC_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5514,22 +5738,22 @@ impl Default for REFS_SMR_VOLUME_GC_PARAMETERS {
 pub const REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1: i32 = 1;
 pub type REFS_SMR_VOLUME_GC_STATE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct REFS_SMR_VOLUME_INFO_OUTPUT {
-    pub Version: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
     pub SizeOfRandomlyWritableTier: super::LARGE_INTEGER,
     pub FreeSpaceInRandomlyWritableTier: super::LARGE_INTEGER,
     pub SizeofSMRTier: super::LARGE_INTEGER,
     pub FreeSpaceInSMRTier: super::LARGE_INTEGER,
     pub UsableFreeSpaceInSMRTier: super::LARGE_INTEGER,
     pub VolumeGcState: REFS_SMR_VOLUME_GC_STATE,
-    pub VolumeGcLastStatus: u32,
-    pub CurrentGcBandFillPercentage: u32,
+    pub VolumeGcLastStatus: super::DWORD,
+    pub CurrentGcBandFillPercentage: super::DWORD,
     pub Unused: [super::DWORDLONG; 6],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for REFS_SMR_VOLUME_INFO_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5538,73 +5762,73 @@ impl Default for REFS_SMR_VOLUME_INFO_OUTPUT {
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0: i32 = 0;
 pub const REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct REFS_VOLUME_DATA_BUFFER {
-    pub ByteCount: u32,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub BytesPerPhysicalSector: u32,
+    pub ByteCount: super::DWORD,
+    pub MajorVersion: super::DWORD,
+    pub MinorVersion: super::DWORD,
+    pub BytesPerPhysicalSector: super::DWORD,
     pub VolumeSerialNumber: super::LARGE_INTEGER,
     pub NumberSectors: super::LARGE_INTEGER,
     pub TotalClusters: super::LARGE_INTEGER,
     pub FreeClusters: super::LARGE_INTEGER,
     pub TotalReserved: super::LARGE_INTEGER,
-    pub BytesPerSector: u32,
-    pub BytesPerCluster: u32,
+    pub BytesPerSector: super::DWORD,
+    pub BytesPerCluster: super::DWORD,
     pub MaximumSizeOfResidentFile: super::LARGE_INTEGER,
-    pub FastTierDataFillRatio: u16,
-    pub SlowTierDataFillRatio: u16,
-    pub DestagesFastTierToSlowTierRate: u32,
-    pub MetadataChecksumType: u16,
-    pub Reserved0: [u8; 6],
-    pub DriverMajorVersion: u32,
-    pub DriverMinorVersion: u32,
+    pub FastTierDataFillRatio: super::WORD,
+    pub SlowTierDataFillRatio: super::WORD,
+    pub DestagesFastTierToSlowTierRate: super::DWORD,
+    pub MetadataChecksumType: super::WORD,
+    pub Reserved0: [super::BYTE; 6],
+    pub DriverMajorVersion: super::DWORD,
+    pub DriverMinorVersion: super::DWORD,
     pub Reserved: [super::LARGE_INTEGER; 7],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for REFS_VOLUME_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub RequestCapacity: super::DWORDLONG,
-    pub ElementIdentifier: u32,
-    pub Reserved: u32,
+    pub ElementIdentifier: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct REPAIR_COPIES_INPUT {
-    pub Size: u32,
-    pub Flags: u32,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
     pub FileOffset: super::LARGE_INTEGER,
-    pub Length: u32,
-    pub SourceCopy: u32,
-    pub NumberOfRepairCopies: u32,
-    pub RepairCopies: [u32; 1],
+    pub Length: super::DWORD,
+    pub SourceCopy: super::DWORD,
+    pub NumberOfRepairCopies: super::DWORD,
+    pub RepairCopies: [super::DWORD; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for REPAIR_COPIES_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct REPAIR_COPIES_OUTPUT {
-    pub Size: u32,
-    pub Status: u32,
+    pub Size: super::DWORD,
+    pub Status: super::DWORD,
     pub ResumeFileOffset: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for REPAIR_COPIES_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5614,12 +5838,13 @@ pub const REPLACE_ALTERNATE: i32 = 11;
 pub const REPLACE_PRIMARY: i32 = 10;
 pub const REQUEST_OPLOCK_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REQUEST_OPLOCK_INPUT_BUFFER {
-    pub StructureVersion: u16,
-    pub StructureLength: u16,
-    pub RequestedOplockLevel: u32,
-    pub Flags: u32,
+    pub StructureVersion: super::WORD,
+    pub StructureLength: super::WORD,
+    pub RequestedOplockLevel: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const REQUEST_OPLOCK_INPUT_FLAG_ACK: i32 = 2;
 pub const REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE: i32 = 4;
@@ -5628,99 +5853,101 @@ pub const REQUEST_OPLOCK_INPUT_FLAG_RH_ALWAYS_BLOCK_UNTIL_ACK: i32 = 8;
 pub const REQUEST_OPLOCK_INPUT_FLAG_RH_IGNORE_WRITES: i32 = 16;
 pub const REQUEST_OPLOCK_INPUT_FLAG_RH_NO_NON_CACHED_IO: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REQUEST_OPLOCK_OUTPUT_BUFFER {
-    pub StructureVersion: u16,
-    pub StructureLength: u16,
-    pub OriginalOplockLevel: u32,
-    pub NewOplockLevel: u32,
-    pub Flags: u32,
+    pub StructureVersion: super::WORD,
+    pub StructureLength: super::WORD,
+    pub OriginalOplockLevel: super::DWORD,
+    pub NewOplockLevel: super::DWORD,
+    pub Flags: super::DWORD,
     pub AccessMode: super::ACCESS_MASK,
-    pub ShareMode: u16,
+    pub ShareMode: super::WORD,
 }
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED: i32 = 1;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED: i32 = 2;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_NON_CACHED_IO_PRESENT: i32 = 8;
 pub const REQUEST_OPLOCK_OUTPUT_FLAG_WRITABLE_SECTION_PRESENT: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REQUEST_RAW_ENCRYPTED_DATA {
-    pub FileOffset: i64,
-    pub Length: u32,
+    pub FileOffset: super::LONGLONG,
+    pub Length: super::DWORD,
 }
 pub const RETRACT_IEPORT: i32 = 3;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
-    pub ExtentCount: u32,
+    pub ExtentCount: super::DWORD,
     pub StartingVcn: super::LARGE_INTEGER,
     pub Extents: [RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     pub NextVcn: super::LARGE_INTEGER,
     pub Lcn: super::LARGE_INTEGER,
-    pub ReferenceCount: u32,
+    pub ReferenceCount: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_BUFFER {
-    pub ExtentCount: u32,
+    pub ExtentCount: super::DWORD,
     pub StartingVcn: super::LARGE_INTEGER,
     pub Extents: [RETRIEVAL_POINTERS_BUFFER_0; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for RETRIEVAL_POINTERS_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTERS_BUFFER_0 {
     pub NextVcn: super::LARGE_INTEGER,
     pub Lcn: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for RETRIEVAL_POINTERS_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RETRIEVAL_POINTER_BASE {
     pub FileAreaOffset: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for RETRIEVAL_POINTER_BASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RETRIEVAL_POINTER_COUNT {
-    pub ExtentCount: u32,
+    pub ExtentCount: super::DWORD,
 }
 pub const RETURN_SMART_STATUS: i32 = 218;
 pub const REVISION_LENGTH: i32 = 4;
@@ -5730,58 +5957,58 @@ pub const RequestSize: BIN_TYPES = 0;
 pub const SAIT: STORAGE_MEDIA_TYPE = 93;
 pub const SAVE_ATTRIBUTE_VALUES: i32 = 211;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub DeviceCount: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub DeviceCount: super::DWORD,
     pub Devices: [SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
     pub DeviceGuid: windows_core::GUID,
-    pub DeviceNumber: u32,
+    pub DeviceNumber: super::DWORD,
     pub Flags: SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0,
     pub DeviceSize: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
-    pub fn ForcedByRegistry(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ForcedByRegistry(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_ForcedByRegistry(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_ForcedByRegistry(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Initialized(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Initialized(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Initialized(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Initialized(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
     pub ActivateState: super::BOOLEAN,
@@ -5789,28 +6016,32 @@ pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
 pub type SCM_BUS_FIRMWARE_ACTIVATION_STATE = i32;
 pub type SCM_BUS_PROPERTY_ID = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_BUS_PROPERTY_QUERY {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub PropertyId: SCM_BUS_PROPERTY_ID,
     pub QueryType: SCM_BUS_QUERY_TYPE,
-    pub AdditionalParameters: [u8; 1],
+    pub AdditionalParameters: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_BUS_PROPERTY_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_BUS_PROPERTY_SET {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub PropertyId: SCM_BUS_PROPERTY_ID,
     pub SetType: SCM_BUS_SET_TYPE,
-    pub AdditionalParameters: [u8; 1],
+    pub AdditionalParameters: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_BUS_PROPERTY_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5818,11 +6049,11 @@ impl Default for SCM_BUS_PROPERTY_SET {
 }
 pub type SCM_BUS_QUERY_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub RuntimeFwActivationSupported: super::BOOLEAN,
     pub FirmwareActivationState: SCM_BUS_FIRMWARE_ACTIVATION_STATE,
     pub FirmwareActivationCapability: SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0,
@@ -5832,79 +6063,86 @@ pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub PlatformSupportedMaxIOAccessQuiesceTimeInUSecs: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
-    pub fn FwManagedIoQuiesceFwActivationSupported(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn FwManagedIoQuiesceFwActivationSupported(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_FwManagedIoQuiesceFwActivationSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_FwManagedIoQuiesceFwActivationSupported(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn OsManagedIoQuiesceFwActivationSupported(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn OsManagedIoQuiesceFwActivationSupported(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_OsManagedIoQuiesceFwActivationSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_OsManagedIoQuiesceFwActivationSupported(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn WarmResetBasedFwActivationSupported(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn WarmResetBasedFwActivationSupported(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_WarmResetBasedFwActivationSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_WarmResetBasedFwActivationSupported(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
 pub type SCM_BUS_SET_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_INTERLEAVED_PD_INFO {
-    pub DeviceHandle: u32,
+    pub DeviceHandle: super::DWORD,
     pub DeviceGuid: windows_core::GUID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_LD_INTERLEAVE_SET_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub InterleaveSetSize: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub InterleaveSetSize: super::DWORD,
     pub InterleaveSet: [SCM_INTERLEAVED_PD_INFO; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_LD_INTERLEAVE_SET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_LOGICAL_DEVICES {
-    pub Version: u32,
-    pub Size: u32,
-    pub DeviceCount: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub DeviceCount: super::DWORD,
     pub Devices: [SCM_LOGICAL_DEVICE_INSTANCE; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCM_LOGICAL_DEVICES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_LOGICAL_DEVICE_INSTANCE {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub DeviceGuid: windows_core::GUID,
-    pub SymbolicLink: [u16; 256],
+    pub SymbolicLink: [super::WCHAR; 256],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCM_LOGICAL_DEVICE_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5912,110 +6150,123 @@ impl Default for SCM_LOGICAL_DEVICE_INSTANCE {
 }
 pub const SCM_MAX_SYMLINK_LEN_IN_CHARS: i32 = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_DESCRIPTOR_HEADER {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_DEVICE_HANDLE {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub DeviceGuid: windows_core::GUID,
-    pub DeviceHandle: u32,
+    pub DeviceHandle: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_DEVICE_INFO {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub DeviceGuid: windows_core::GUID,
-    pub UnsafeShutdownCount: u32,
-    pub PersistentMemorySizeInBytes: u64,
-    pub VolatileMemorySizeInBytes: u64,
-    pub TotalMemorySizeInBytes: u64,
-    pub SlotNumber: u32,
-    pub DeviceHandle: u32,
-    pub PhysicalId: u16,
-    pub NumberOfFormatInterfaceCodes: u8,
-    pub FormatInterfaceCodes: [u16; 8],
-    pub VendorId: u32,
-    pub ProductId: u32,
-    pub SubsystemDeviceId: u32,
-    pub SubsystemVendorId: u32,
-    pub ManufacturingLocation: u8,
-    pub ManufacturingWeek: u8,
-    pub ManufacturingYear: u8,
-    pub SerialNumber4Byte: u32,
-    pub SerialNumberLengthInChars: u32,
-    pub SerialNumber: [i8; 1],
+    pub UnsafeShutdownCount: super::DWORD,
+    pub PersistentMemorySizeInBytes: super::DWORD64,
+    pub VolatileMemorySizeInBytes: super::DWORD64,
+    pub TotalMemorySizeInBytes: super::DWORD64,
+    pub SlotNumber: super::DWORD,
+    pub DeviceHandle: super::DWORD,
+    pub PhysicalId: super::WORD,
+    pub NumberOfFormatInterfaceCodes: super::BYTE,
+    pub FormatInterfaceCodes: [super::WORD; 8],
+    pub VendorId: super::DWORD,
+    pub ProductId: super::DWORD,
+    pub SubsystemDeviceId: super::DWORD,
+    pub SubsystemVendorId: super::DWORD,
+    pub ManufacturingLocation: super::BYTE,
+    pub ManufacturingWeek: super::BYTE,
+    pub ManufacturingYear: super::BYTE,
+    pub SerialNumber4Byte: super::DWORD,
+    pub SerialNumberLengthInChars: super::DWORD,
+    pub SerialNumber: [super::CHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_DEVICE_SPECIFIC_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumberOfProperties: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumberOfProperties: super::DWORD,
     pub DeviceSpecificProperties: [SCM_PD_DEVICE_SPECIFIC_PROPERTY; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCM_PD_DEVICE_SPECIFIC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_DEVICE_SPECIFIC_PROPERTY {
-    pub Name: [u16; 128],
-    pub Value: i64,
+    pub Name: [super::WCHAR; 128],
+    pub Value: super::LONGLONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCM_PD_DEVICE_SPECIFIC_PROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_FIRMWARE_ACTIVATE {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Slot: u8,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Slot: super::BYTE,
 }
 pub type SCM_PD_FIRMWARE_ACTIVATION_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_FIRMWARE_DOWNLOAD {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Slot: u8,
-    pub Reserved: [u8; 3],
-    pub Offset: u64,
-    pub FirmwareImageSizeInBytes: u32,
-    pub FirmwareImage: [u8; 1],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Slot: super::BYTE,
+    pub Reserved: [super::BYTE; 3],
+    pub Offset: super::DWORD64,
+    pub FirmwareImageSizeInBytes: super::DWORD,
+    pub FirmwareImage: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_FIRMWARE_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub ActiveSlot: u8,
-    pub NextActiveSlot: u8,
-    pub SlotCount: u8,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub ActiveSlot: super::BYTE,
+    pub NextActiveSlot: super::BYTE,
+    pub SlotCount: super::BYTE,
     pub Slots: [SCM_PD_FIRMWARE_SLOT_INFO; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6024,42 +6275,47 @@ impl Default for SCM_PD_FIRMWARE_INFO {
 pub const SCM_PD_FIRMWARE_LAST_DOWNLOAD: i32 = 1;
 pub const SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_FIRMWARE_SLOT_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub SlotNumber: u8,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub SlotNumber: super::BYTE,
     pub _bitfield: u8,
-    pub Reserved1: [u8; 6],
-    pub Revision: [u8; 32],
+    pub Reserved1: [super::BYTE; 6],
+    pub Revision: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl SCM_PD_FIRMWARE_SLOT_INFO {
-    pub fn ReadOnly(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ReadOnly(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_ReadOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_ReadOnly(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved0(&self) -> u8 {
+    pub fn Reserved0(&self) -> super::BYTE {
         self._bitfield >> 1
     }
-    pub fn set_Reserved0(&mut self, value: u8) {
+    pub fn set_Reserved0(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_FIRMWARE_SLOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_FRU_ID_STRING {
-    pub Version: u32,
-    pub Size: u32,
-    pub IdentifierSize: u32,
-    pub Identifier: [u8; 1],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub IdentifierSize: super::DWORD,
+    pub Identifier: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_FRU_ID_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6073,28 +6329,32 @@ pub struct SCM_PD_HEALTH_NOTIFICATION_DATA {
 pub type SCM_PD_HEALTH_STATUS = i32;
 pub type SCM_PD_LAST_FW_ACTIVATION_STATUS = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_LOCATION_STRING {
-    pub Version: u32,
-    pub Size: u32,
-    pub Location: [u16; 1],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Location: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCM_PD_LOCATION_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_MANAGEMENT_STATUS {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Health: SCM_PD_HEALTH_STATUS,
-    pub NumberOfOperationalStatus: u32,
-    pub NumberOfAdditionalReasons: u32,
+    pub NumberOfOperationalStatus: super::DWORD,
+    pub NumberOfAdditionalReasons: super::DWORD,
     pub OperationalStatus: [SCM_PD_OPERATIONAL_STATUS; 16],
     pub AdditionalReasons: [SCM_PD_OPERATIONAL_STATUS_REASON; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_MANAGEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6102,57 +6362,66 @@ impl Default for SCM_PD_MANAGEMENT_STATUS {
 }
 pub const SCM_PD_MAX_OPERATIONAL_STATUS: i32 = 16;
 pub type SCM_PD_MEDIA_REINITIALIZATION_STATUS = i32;
-pub const SCM_PD_MEMORY_SIZE_UNKNOWN: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const SCM_PD_MEMORY_SIZE_UNKNOWN: super::DWORD64 = 18446744073709551615;
 pub type SCM_PD_OPERATIONAL_STATUS = i32;
 pub type SCM_PD_OPERATIONAL_STATUS_REASON = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_PASSTHROUGH_INPUT {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub ProtocolGuid: windows_core::GUID,
-    pub DataSize: u32,
-    pub Data: [u8; 1],
+    pub DataSize: super::DWORD,
+    pub Data: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_PASSTHROUGH_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
-    pub Opcode: u32,
-    pub OpcodeParametersLength: u32,
-    pub OpcodeParameters: [u8; 1],
+    pub Opcode: super::DWORD,
+    pub OpcodeParametersLength: super::DWORD,
+    pub OpcodeParameters: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_PASSTHROUGH_INVDIMM_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
-    pub GeneralStatus: u16,
-    pub ExtendedStatus: u16,
-    pub OutputDataLength: u32,
-    pub OutputData: [u8; 1],
+    pub GeneralStatus: super::WORD,
+    pub ExtendedStatus: super::WORD,
+    pub OutputDataLength: super::DWORD,
+    pub OutputData: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_PASSTHROUGH_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub ProtocolGuid: windows_core::GUID,
-    pub DataSize: u32,
-    pub Data: [u8; 1],
+    pub DataSize: super::DWORD,
+    pub Data: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_PASSTHROUGH_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6161,28 +6430,32 @@ impl Default for SCM_PD_PASSTHROUGH_OUTPUT {
 pub type SCM_PD_PROPERTY_ID = i32;
 pub const SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS: i32 = 128;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_PROPERTY_QUERY {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub PropertyId: SCM_PD_PROPERTY_ID,
     pub QueryType: SCM_PD_QUERY_TYPE,
-    pub AdditionalParameters: [u8; 1],
+    pub AdditionalParameters: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_PROPERTY_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PD_PROPERTY_SET {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub PropertyId: SCM_PD_PROPERTY_ID,
     pub SetType: SCM_PD_SET_TYPE,
-    pub AdditionalParameters: [u8; 1],
+    pub AdditionalParameters: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_PD_PROPERTY_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6190,114 +6463,128 @@ impl Default for SCM_PD_PROPERTY_SET {
 }
 pub type SCM_PD_QUERY_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Options: SCM_PD_REINITIALIZE_MEDIA_INPUT_0,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
-    pub fn Overwrite(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Overwrite(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_Overwrite(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Overwrite(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Status: SCM_PD_MEDIA_REINITIALIZATION_STATUS,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     pub ArmState: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub LastFirmwareActivationStatus: SCM_PD_LAST_FW_ACTIVATION_STATUS,
     pub FirmwareActivationState: SCM_PD_FIRMWARE_ACTIVATION_STATE,
 }
 pub type SCM_PD_SET_TYPE = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PHYSICAL_DEVICES {
-    pub Version: u32,
-    pub Size: u32,
-    pub DeviceCount: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub DeviceCount: super::DWORD,
     pub Devices: [SCM_PHYSICAL_DEVICE_INSTANCE; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCM_PHYSICAL_DEVICES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_PHYSICAL_DEVICE_INSTANCE {
-    pub Version: u32,
-    pub Size: u32,
-    pub NfitHandle: u32,
-    pub SymbolicLink: [u16; 256],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NfitHandle: super::DWORD,
+    pub SymbolicLink: [super::WCHAR; 256],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SCM_PHYSICAL_DEVICE_INSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_REGION {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub NfitHandle: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub NfitHandle: super::DWORD,
     pub LogicalDeviceGuid: windows_core::GUID,
     pub AddressRangeType: windows_core::GUID,
-    pub AssociatedId: u32,
-    pub Length: u64,
-    pub StartingDPA: u64,
-    pub BaseSPA: u64,
-    pub SPAOffset: u64,
-    pub RegionOffset: u64,
+    pub AssociatedId: super::DWORD,
+    pub Length: super::DWORD64,
+    pub StartingDPA: super::DWORD64,
+    pub BaseSPA: super::DWORD64,
+    pub SPAOffset: super::DWORD64,
+    pub RegionOffset: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCM_REGIONS {
-    pub Version: u32,
-    pub Size: u32,
-    pub RegionCount: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub RegionCount: super::DWORD,
     pub Regions: [SCM_REGION; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCM_REGIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type SCM_REGION_FLAG = i32;
-pub const SCM_REGION_SPA_UNKNOWN: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const SCM_REGION_SPA_UNKNOWN: super::DWORD64 = 18446744073709551615;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SD_CHANGE_MACHINE_SID_INPUT {
-    pub CurrentMachineSIDOffset: u16,
-    pub CurrentMachineSIDLength: u16,
-    pub NewMachineSIDOffset: u16,
-    pub NewMachineSIDLength: u16,
+    pub CurrentMachineSIDOffset: super::WORD,
+    pub CurrentMachineSIDLength: super::WORD,
+    pub NewMachineSIDOffset: super::WORD,
+    pub NewMachineSIDLength: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SD_CHANGE_MACHINE_SID_OUTPUT {
     pub NumSDChangedSuccess: super::DWORDLONG,
@@ -6309,30 +6596,30 @@ pub struct SD_CHANGE_MACHINE_SID_OUTPUT {
     pub NumMftSDTotal: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SD_ENUM_SDS_ENTRY {
-    pub Hash: u32,
-    pub SecurityId: u32,
+    pub Hash: super::DWORD,
+    pub SecurityId: super::DWORD,
     pub Offset: super::DWORDLONG,
-    pub Length: u32,
-    pub Descriptor: [u8; 1],
+    pub Length: super::DWORD,
+    pub Descriptor: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SD_ENUM_SDS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SD_ENUM_SDS_INPUT {
     pub StartingOffset: super::DWORDLONG,
     pub MaxSDEntriesToReturn: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SD_ENUM_SDS_OUTPUT {
     pub NextOffset: super::DWORDLONG,
@@ -6340,63 +6627,63 @@ pub struct SD_ENUM_SDS_OUTPUT {
     pub NumSDBytesReturned: super::DWORDLONG,
     pub SDEntry: [SD_ENUM_SDS_ENTRY; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SD_ENUM_SDS_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_INPUT {
-    pub Flags: u32,
-    pub ChangeType: u32,
+    pub Flags: super::DWORD,
+    pub ChangeType: super::DWORD,
     pub Anonymous: SD_GLOBAL_CHANGE_INPUT_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SD_GLOBAL_CHANGE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SD_GLOBAL_CHANGE_INPUT_0 {
     pub SdChange: SD_CHANGE_MACHINE_SID_INPUT,
     pub SdQueryStats: SD_QUERY_STATS_INPUT,
     pub SdEnumSds: SD_ENUM_SDS_INPUT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SD_GLOBAL_CHANGE_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SD_GLOBAL_CHANGE_OUTPUT {
-    pub Flags: u32,
-    pub ChangeType: u32,
+    pub Flags: super::DWORD,
+    pub ChangeType: super::DWORD,
     pub Anonymous: SD_GLOBAL_CHANGE_OUTPUT_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SD_GLOBAL_CHANGE_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SD_GLOBAL_CHANGE_OUTPUT_0 {
     pub SdChange: SD_CHANGE_MACHINE_SID_OUTPUT,
     pub SdQueryStats: SD_QUERY_STATS_OUTPUT,
     pub SdEnumSds: SD_ENUM_SDS_OUTPUT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SD_GLOBAL_CHANGE_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6406,12 +6693,13 @@ pub const SD_GLOBAL_CHANGE_TYPE_ENUM_SDS: i32 = 131072;
 pub const SD_GLOBAL_CHANGE_TYPE_MACHINE_SID: i32 = 1;
 pub const SD_GLOBAL_CHANGE_TYPE_QUERY_STATS: i32 = 65536;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SD_QUERY_STATS_INPUT {
-    pub Reserved: u32,
+    pub Reserved: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SD_QUERY_STATS_OUTPUT {
     pub SdsStreamSize: super::DWORDLONG,
@@ -6430,27 +6718,31 @@ pub const SEARCH_ALT_NO_SEQ: i32 = 6;
 pub const SEARCH_PRIMARY: i32 = 1;
 pub const SEARCH_PRI_NO_SEQ: i32 = 5;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SENDCMDINPARAMS {
-    pub cBufferSize: u32,
+    pub cBufferSize: super::DWORD,
     pub irDriveRegs: IDEREGS,
-    pub bDriveNumber: u8,
-    pub bReserved: [u8; 3],
-    pub dwReserved: [u32; 4],
-    pub bBuffer: [u8; 1],
+    pub bDriveNumber: super::BYTE,
+    pub bReserved: [super::BYTE; 3],
+    pub dwReserved: [super::DWORD; 4],
+    pub bBuffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SENDCMDINPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SENDCMDOUTPARAMS {
-    pub cBufferSize: u32,
+    pub cBufferSize: super::DWORD,
     pub DriverStatus: DRIVERSTATUS,
-    pub bBuffer: [u8; 1],
+    pub bBuffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SENDCMDOUTPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6458,88 +6750,98 @@ impl Default for SENDCMDOUTPARAMS {
 }
 pub const SERIAL_NUMBER_LENGTH: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
-    pub Flags: u32,
-    pub AlignmentShift: u32,
+    pub Flags: super::DWORD,
+    pub AlignmentShift: super::DWORD,
     pub FileOffsetToAlign: super::DWORDLONG,
-    pub FallbackAlignmentShift: u32,
+    pub FallbackAlignmentShift: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_DISK_ATTRIBUTES {
-    pub Version: u32,
+    pub Version: super::DWORD,
     pub Persist: super::BOOLEAN,
-    pub Reserved1: [u8; 3],
+    pub Reserved1: [super::BYTE; 3],
     pub Attributes: super::DWORDLONG,
     pub AttributesMask: super::DWORDLONG,
-    pub Reserved2: [u32; 4],
+    pub Reserved2: [super::DWORD; 4],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for SET_DISK_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_PARTITION_INFORMATION {
-    pub PartitionType: u8,
+    pub PartitionType: super::BYTE,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SET_PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
     pub Anonymous: SET_PARTITION_INFORMATION_EX_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SET_PARTITION_INFORMATION_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union SET_PARTITION_INFORMATION_EX_0 {
     pub Mbr: SET_PARTITION_INFORMATION_MBR,
     pub Gpt: SET_PARTITION_INFORMATION_GPT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SET_PARTITION_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SET_PARTITION_INFORMATION_GPT = PARTITION_INFORMATION_GPT;
+#[cfg(feature = "shared")]
 pub type SET_PARTITION_INFORMATION_MBR = SET_PARTITION_INFORMATION;
 pub const SET_PURGE_FAILURE_MODE_DISABLED: i32 = 2;
 pub const SET_PURGE_FAILURE_MODE_ENABLED: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_PURGE_FAILURE_MODE_INPUT {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 pub const SET_REPAIR_DISABLED_AND_BUGCHECK_ON_CORRUPT: i32 = 16;
 pub const SET_REPAIR_ENABLED: i32 = 1;
 pub const SET_REPAIR_VALID_MASK: i32 = 25;
 pub const SET_REPAIR_WARN_ABOUT_DATA_LOSS: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHRINK_VOLUME_INFORMATION {
     pub ShrinkRequestType: SHRINK_VOLUME_REQUEST_TYPES,
     pub Flags: super::DWORDLONG,
-    pub NewNumberOfSectors: i64,
+    pub NewNumberOfSectors: super::LONGLONG,
 }
 pub type SHRINK_VOLUME_REQUEST_TYPES = i32;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SI_COPYFILE {
-    pub SourceFileNameLength: u32,
-    pub DestinationFileNameLength: u32,
-    pub Flags: u32,
-    pub FileNameBuffer: [u16; 1],
+    pub SourceFileNameLength: super::DWORD,
+    pub DestinationFileNameLength: super::DWORD,
+    pub Flags: super::DWORD,
+    pub FileNameBuffer: [super::WCHAR; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SI_COPYFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6573,14 +6875,16 @@ pub const SMART_SHORT_SELFTEST_CAPTIVE: i32 = 129;
 pub const SMART_SHORT_SELFTEST_OFFLINE: i32 = 1;
 pub const SMART_WRITE_LOG: i32 = 214;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_INPUT {
-    pub Version: u16,
+    pub Version: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMB_SHARE_FLUSH_AND_PURGE_OUTPUT {
-    pub cEntriesPurged: u32,
+    pub cEntriesPurged: super::DWORD,
 }
 pub const SONY_12_WO: STORAGE_MEDIA_TYPE = 66;
 pub const SONY_D2: STORAGE_MEDIA_TYPE = 49;
@@ -6589,37 +6893,37 @@ pub const SPACES_TRACKED_OFFSET_HEADER_FLAG: i32 = 2;
 pub const SRB_TYPE_SCSI_REQUEST_BLOCK: i32 = 0;
 pub const SRB_TYPE_STORAGE_REQUEST_BLOCK: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STARTING_LCN_INPUT_BUFFER {
     pub StartingLcn: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STARTING_LCN_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STARTING_LCN_INPUT_BUFFER_EX {
     pub StartingLcn: super::LARGE_INTEGER,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STARTING_LCN_INPUT_BUFFER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STARTING_VCN_INPUT_BUFFER {
     pub StartingVcn: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STARTING_VCN_INPUT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6629,42 +6933,45 @@ pub const STK_9840: STORAGE_MEDIA_TYPE = 85;
 pub const STK_9940: STORAGE_MEDIA_TYPE = 92;
 pub const STK_DATA_D3: STORAGE_MEDIA_TYPE = 45;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub BytesPerCacheLine: u32,
-    pub BytesOffsetForCacheAlignment: u32,
-    pub BytesPerLogicalSector: u32,
-    pub BytesPerPhysicalSector: u32,
-    pub BytesOffsetForSectorAlignment: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub BytesPerCacheLine: super::DWORD,
+    pub BytesOffsetForCacheAlignment: super::DWORD,
+    pub BytesPerLogicalSector: super::DWORD,
+    pub BytesPerPhysicalSector: super::DWORD,
+    pub BytesOffsetForSectorAlignment: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ADAPTER_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub MaximumTransferLength: u32,
-    pub MaximumPhysicalPages: u32,
-    pub AlignmentMask: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub MaximumTransferLength: super::DWORD,
+    pub MaximumPhysicalPages: super::DWORD,
+    pub AlignmentMask: super::DWORD,
     pub AdapterUsesPio: super::BOOLEAN,
     pub AdapterScansDown: super::BOOLEAN,
     pub CommandQueueing: super::BOOLEAN,
     pub AcceleratedTransfer: super::BOOLEAN,
-    pub BusType: u8,
-    pub BusMajorVersion: u16,
-    pub BusMinorVersion: u16,
-    pub SrbType: u8,
-    pub AddressType: u8,
+    pub BusType: super::BYTE,
+    pub BusMajorVersion: super::WORD,
+    pub BusMinorVersion: super::WORD,
+    pub SrbType: super::BYTE,
+    pub AddressType: super::BYTE,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_ADAPTER_SERIAL_NUMBER {
-    pub Version: u32,
-    pub Size: u32,
-    pub SerialNumber: [u16; 128],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub SerialNumber: [super::WCHAR; 128],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STORAGE_ADAPTER_SERIAL_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6681,30 +6988,30 @@ pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_VERSION: u32 = 264;
 pub const STORAGE_ADAPTER_SERIAL_NUMBER_V1_VERSION: u64 = 264;
 pub const STORAGE_ADDRESS_TYPE_BTL8: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
-    pub Version: u32,
-    pub RequestsPerPeriod: u32,
-    pub Period: u32,
+    pub Version: super::DWORD,
+    pub RequestsPerPeriod: super::DWORD,
+    pub Period: super::DWORD,
     pub RetryFailures: super::BOOLEAN,
     pub Discardable: super::BOOLEAN,
     pub Reserved1: [super::BOOLEAN; 2],
-    pub AccessType: u32,
-    pub AccessMode: u32,
+    pub AccessType: super::DWORD,
+    pub AccessMode: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_ALLOCATE_BC_STREAM_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: super::DWORDLONG,
-    pub NumOutStandingRequests: u32,
+    pub NumOutStandingRequests: super::DWORD,
 }
 pub type STORAGE_ASSOCIATION_TYPE = i32;
 pub const STORAGE_ATTRIBUTE_ASYNC_EVENT_NOTIFICATION: i32 = 16;
@@ -6712,29 +7019,32 @@ pub const STORAGE_ATTRIBUTE_BLOCK_IO: i32 = 2;
 pub const STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO: i32 = 1;
 pub const STORAGE_ATTRIBUTE_DYNAMIC_PERSISTENCE: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ATTRIBUTE_MGMT {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Action: STORAGE_ATTRIBUTE_MGMT_ACTION,
-    pub Attribute: u32,
+    pub Attribute: super::DWORD,
 }
 pub type STORAGE_ATTRIBUTE_MGMT_ACTION = i32;
 pub const STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT: i32 = 32;
 pub const STORAGE_ATTRIBUTE_VOLATILE: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_BREAK_RESERVATION_REQUEST {
-    pub Length: u32,
-    pub _unused: u8,
-    pub PathId: u8,
-    pub TargetId: u8,
-    pub Lun: u8,
+    pub Length: super::DWORD,
+    pub _unused: super::BYTE,
+    pub PathId: super::BYTE,
+    pub TargetId: super::BYTE,
+    pub Lun: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_BUS_RESET_REQUEST {
-    pub PathId: u8,
+    pub PathId: super::BYTE,
 }
 pub type STORAGE_BUS_TYPE = i32;
 pub type STORAGE_COMPONENT_HEALTH_STATUS = i32;
@@ -6742,48 +7052,48 @@ pub const STORAGE_COMPONENT_ROLE_CACHE: i32 = 1;
 pub const STORAGE_COMPONENT_ROLE_DATA: i32 = 4;
 pub const STORAGE_COMPONENT_ROLE_TIERING: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_COUNTER {
     pub Type: STORAGE_COUNTER_TYPE,
     pub Value: STORAGE_COUNTER_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_COUNTER_0 {
     pub ManufactureDate: STORAGE_COUNTER_0_0,
     pub AsUlonglong: super::DWORDLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_COUNTER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_COUNTER_0_0 {
-    pub Week: u32,
-    pub Year: u32,
+    pub Week: super::DWORD,
+    pub Year: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_COUNTERS {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumberOfCounters: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumberOfCounters: super::DWORD,
     pub Counters: [STORAGE_COUNTER; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_COUNTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6797,28 +7107,31 @@ pub type STORAGE_COUNTER_TYPE = i32;
 pub const STORAGE_CRASH_TELEMETRY_REGKEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry");
 pub type STORAGE_CRYPTO_ALGORITHM_ID = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_CRYPTO_CAPABILITY {
-    pub Version: u32,
-    pub Size: u32,
-    pub CryptoCapabilityIndex: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub CryptoCapabilityIndex: super::DWORD,
     pub AlgorithmId: STORAGE_CRYPTO_ALGORITHM_ID,
     pub KeySize: STORAGE_CRYPTO_KEY_SIZE,
-    pub DataUnitSizeBitmask: u32,
+    pub DataUnitSizeBitmask: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_CRYPTO_CAPABILITY_V2 {
-    pub Version: u32,
-    pub Size: u32,
-    pub CryptoCapabilityIndex: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub CryptoCapabilityIndex: super::DWORD,
     pub AlgorithmId: STORAGE_CRYPTO_ALGORITHM_ID,
     pub KeySize: STORAGE_CRYPTO_KEY_SIZE,
-    pub DataUnitSizeBitmask: u32,
-    pub MaxIVBitSize: u16,
-    pub Reserved: u16,
+    pub DataUnitSizeBitmask: super::DWORD,
+    pub MaxIVBitSize: super::WORD,
+    pub Reserved: super::WORD,
     pub SecurityComplianceBitmask: STORAGE_SECURITY_COMPLIANCE_BITMASK,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_CRYPTO_CAPABILITY_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6827,31 +7140,35 @@ impl Default for STORAGE_CRYPTO_CAPABILITY_V2 {
 pub const STORAGE_CRYPTO_CAPABILITY_VERSION_1: i32 = 1;
 pub const STORAGE_CRYPTO_CAPABILITY_VERSION_2: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_CRYPTO_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumKeysSupported: u32,
-    pub NumCryptoCapabilities: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumKeysSupported: super::DWORD,
+    pub NumCryptoCapabilities: super::DWORD,
     pub CryptoCapabilities: [STORAGE_CRYPTO_CAPABILITY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_CRYPTO_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_CRYPTO_DESCRIPTOR_V2 {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumKeysSupported: u32,
-    pub NumCryptoCapabilities: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumKeysSupported: super::DWORD,
+    pub NumCryptoCapabilities: super::DWORD,
     pub IceType: STORAGE_ICE_TYPE,
     pub SecurityComplianceBitmask: STORAGE_SECURITY_COMPLIANCE_BITMASK,
     pub KeyTypeBitmask: STORAGE_CRYPTO_KEY_TYPE,
     pub CryptoCapabilities: [STORAGE_CRYPTO_CAPABILITY_V2; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_CRYPTO_DESCRIPTOR_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6861,92 +7178,100 @@ pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_1: i32 = 1;
 pub const STORAGE_CRYPTO_DESCRIPTOR_VERSION_2: i32 = 2;
 pub type STORAGE_CRYPTO_KEY_SIZE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_CRYPTO_KEY_TYPE {
     pub Anonymous: STORAGE_CRYPTO_KEY_TYPE_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_CRYPTO_KEY_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_CRYPTO_KEY_TYPE_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "shared")]
 impl STORAGE_CRYPTO_KEY_TYPE_0 {
-    pub fn DirectKey(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DirectKey(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_DirectKey(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_DirectKey(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn PlatformWrappedKey(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn PlatformWrappedKey(&self) -> super::BYTE {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_PlatformWrappedKey(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_PlatformWrappedKey(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn PlutonWrappedKey(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn PlutonWrappedKey(&self) -> super::BYTE {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_PlutonWrappedKey(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    pub fn set_PlutonWrappedKey(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::BYTE {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DESCRIPTOR_HEADER {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub Attributes: u64,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Attributes: super::DWORD64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub DeviceType: u8,
-    pub DeviceTypeModifier: u8,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub DeviceType: super::BYTE,
+    pub DeviceTypeModifier: super::BYTE,
     pub RemovableMedia: super::BOOLEAN,
     pub CommandQueueing: super::BOOLEAN,
-    pub VendorIdOffset: u32,
-    pub ProductIdOffset: u32,
-    pub ProductRevisionOffset: u32,
-    pub SerialNumberOffset: u32,
+    pub VendorIdOffset: super::DWORD,
+    pub ProductIdOffset: super::DWORD,
+    pub ProductRevisionOffset: super::DWORD,
+    pub SerialNumberOffset: super::DWORD,
     pub BusType: STORAGE_BUS_TYPE,
-    pub RawPropertiesLength: u32,
-    pub RawDeviceProperties: [u8; 1],
+    pub RawPropertiesLength: super::DWORD,
+    pub RawDeviceProperties: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumberOfFaultDomains: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumberOfFaultDomains: super::DWORD,
     pub FaultDomainIds: [windows_core::GUID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6957,58 +7282,65 @@ pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT: i32 = 1;
 pub const STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID: i32 = 2;
 pub type STORAGE_DEVICE_FORM_FACTOR = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_ID_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumberOfIdentifiers: u32,
-    pub Identifiers: [u8; 1],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumberOfIdentifiers: super::DWORD,
+    pub Identifiers: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DEVICE_ID_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub LunMaxIoCount: u32,
-    pub AdapterMaxIoCount: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub LunMaxIoCount: super::DWORD,
+    pub AdapterMaxIoCount: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub State: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_DEVICE_LOCATION_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Location: DEVICE_LOCATION,
-    pub StringOffset: u32,
+    pub StringOffset: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DEVICE_LOCATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_DEVICE_MANAGEMENT_STATUS {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Health: STORAGE_DISK_HEALTH_STATUS,
-    pub NumberOfOperationalStatus: u32,
-    pub NumberOfAdditionalReasons: u32,
+    pub NumberOfOperationalStatus: super::DWORD,
+    pub NumberOfAdditionalReasons: super::DWORD,
     pub OperationalStatus: [STORAGE_DISK_OPERATIONAL_STATUS; 16],
     pub AdditionalReasons: [STORAGE_OPERATIONAL_REASON; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DEVICE_MANAGEMENT_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7017,118 +7349,127 @@ impl Default for STORAGE_DEVICE_MANAGEMENT_STATUS {
 pub const STORAGE_DEVICE_MAX_OPERATIONAL_STATUS: i32 = 16;
 pub const STORAGE_DEVICE_NUMA_NODE_UNKNOWN: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_NUMA_PROPERTY {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumaNode: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumaNode: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_NUMBER {
-    pub DeviceType: u32,
-    pub DeviceNumber: u32,
-    pub PartitionNumber: u32,
+    pub DeviceType: super::DWORD,
+    pub DeviceNumber: super::DWORD,
+    pub PartitionNumber: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_NUMBERS {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumberOfDevices: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NumberOfDevices: super::DWORD,
     pub Devices: [STORAGE_DEVICE_NUMBER; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DEVICE_NUMBERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_NUMBER_EX {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub DeviceType: u32,
-    pub DeviceNumber: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub DeviceType: super::DWORD,
+    pub DeviceNumber: super::DWORD,
     pub DeviceGuid: windows_core::GUID,
-    pub PartitionNumber: u32,
+    pub PartitionNumber: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_POWER_CAP {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Units: STORAGE_DEVICE_POWER_CAP_UNITS,
     pub MaxPower: super::DWORDLONG,
 }
 pub type STORAGE_DEVICE_POWER_CAP_UNITS = i32;
 pub const STORAGE_DEVICE_POWER_CAP_VERSION_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NameOffset: u32,
-    pub NumberOfLogicalCopies: u32,
-    pub NumberOfPhysicalCopies: u32,
-    pub PhysicalDiskRedundancy: u32,
-    pub NumberOfColumns: u32,
-    pub Interleave: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NameOffset: super::DWORD,
+    pub NumberOfLogicalCopies: super::DWORD,
+    pub NumberOfPhysicalCopies: super::DWORD,
+    pub PhysicalDiskRedundancy: super::DWORD,
+    pub NumberOfColumns: super::DWORD,
+    pub Interleave: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub SupportsSelfEncryption: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub SupportsSelfEncryption: super::BOOLEAN,
     pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
 }
 pub const STORAGE_DEVICE_TELEMETRY_REGKEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_TIERING_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub TotalNumberOfTiers: u32,
-    pub NumberOfTiersReturned: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub TotalNumberOfTiers: super::DWORD,
+    pub NumberOfTiersReturned: super::DWORD,
     pub Tiers: [STORAGE_TIER; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STORAGE_DEVICE_TIERING_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT {
-    pub Version: u32,
-    pub Size: u32,
-    pub UnsafeShutdownCount: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub UnsafeShutdownCount: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_DATA {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub ProviderId: windows_core::GUID,
-    pub BufferSize: u32,
-    pub Reserved: u32,
-    pub DiagnosticDataBuffer: [u8; 1],
+    pub BufferSize: super::DWORD,
+    pub Reserved: super::DWORD,
+    pub DiagnosticDataBuffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_DIAGNOSTIC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7137,11 +7478,12 @@ impl Default for STORAGE_DIAGNOSTIC_DATA {
 pub const STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: i32 = 1;
 pub type STORAGE_DIAGNOSTIC_LEVEL = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_REQUEST {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
     pub TargetType: STORAGE_DIAGNOSTIC_TARGET_TYPE,
     pub Level: STORAGE_DIAGNOSTIC_LEVEL,
 }
@@ -7154,103 +7496,122 @@ pub const STORAGE_EVENT_DEVICE_OPERATION: i32 = 4;
 pub const STORAGE_EVENT_DEVICE_STATUS: i32 = 2;
 pub const STORAGE_EVENT_MEDIA_STATUS: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_EVENT_NOTIFICATION {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Events: super::DWORDLONG,
 }
 pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Set: super::BOOLEAN,
     pub Enabled: super::BOOLEAN,
-    pub Reserved: u16,
+    pub Reserved: super::WORD,
 }
 pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_FEATURE_SUPPORT {
-    pub Size: u32,
-    pub Version: u32,
+    pub Size: super::DWORD,
+    pub Version: super::DWORD,
     pub Flags: STORAGE_FEATURE_SUPPORT_0,
     pub Reserved: [super::DWORDLONG; 6],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FEATURE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_FEATURE_SUPPORT_0 {
     pub Anonymous: STORAGE_FEATURE_SUPPORT_0_0,
     pub AsUlonglong: super::DWORDLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FEATURE_SUPPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_FEATURE_SUPPORT_0_0 {
-    pub _bitfield: super::DWORDLONG,
+    pub _bitfield: u64,
+}
+#[cfg(feature = "shared")]
+impl STORAGE_FEATURE_SUPPORT_0_0 {
+    pub fn StorMQMiniportsSupported(&self) -> super::DWORDLONG {
+        (self._bitfield) & 1
+    }
+    pub fn set_StorMQMiniportsSupported(&mut self, value: super::DWORDLONG) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Reserved(&self) -> super::DWORDLONG {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: super::DWORDLONG) {
+        self._bitfield = (self._bitfield & !(9223372036854775807 << 1)) | ((value & 9223372036854775807) << 1);
+    }
 }
 pub const STORAGE_FEATURE_SUPPORT_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FRU_ID_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub IdentifierSize: u32,
-    pub Identifier: [u8; 1],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub IdentifierSize: super::DWORD,
+    pub Identifier: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_FRU_ID_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT {
-    pub MaximumRequestsPerPeriod: u32,
-    pub MinimumPeriod: u32,
+    pub MaximumRequestsPerPeriod: super::DWORD,
+    pub MinimumPeriod: super::DWORD,
     pub MaximumRequestSize: super::DWORDLONG,
-    pub EstimatedTimePerRequest: u32,
-    pub NumOutStandingRequests: u32,
+    pub EstimatedTimePerRequest: super::DWORD,
+    pub NumOutStandingRequests: super::DWORD,
     pub RequestSize: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_HOTPLUG_INFO {
-    pub Size: u32,
+    pub Size: super::DWORD,
     pub MediaRemovable: super::BOOLEAN,
     pub MediaHotplug: super::BOOLEAN,
     pub DeviceHotplug: super::BOOLEAN,
     pub WriteCacheEnableOverride: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_BOOT_PARTITION_ACTIVATE {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub BPID: u8,
-    pub Reserved: [u8; 3],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub BPID: super::BYTE,
+    pub Reserved: [super::BYTE; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_BOOT_PARTITION_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7258,19 +7619,19 @@ impl Default for STORAGE_HW_BOOT_PARTITION_ACTIVATE {
 }
 pub const STORAGE_HW_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_BOOT_PARTITION_DOWNLOAD {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub BPID: u8,
-    pub Reserved: [u8; 3],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub BPID: super::BYTE,
+    pub Reserved: [super::BYTE; 3],
     pub Offset: super::DWORDLONG,
     pub BufferSize: super::DWORDLONG,
-    pub ImageBuffer: [u8; 1],
+    pub ImageBuffer: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_BOOT_PARTITION_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7278,35 +7639,37 @@ impl Default for STORAGE_HW_BOOT_PARTITION_DOWNLOAD {
 }
 pub const STORAGE_HW_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_HW_BOOT_PARTITION_INFO {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub BPSZ: super::DWORDLONG,
-    pub Flags: u32,
-    pub ImagePayloadAlignment: u32,
-    pub ImagePayloadMaxSize: u32,
-    pub SlotCount: u8,
-    pub ABPID: u8,
+    pub Flags: super::DWORD,
+    pub ImagePayloadAlignment: super::DWORD,
+    pub ImagePayloadMaxSize: super::DWORD,
+    pub SlotCount: super::BYTE,
+    pub ABPID: super::BYTE,
 }
 pub const STORAGE_HW_BOOT_PARTITION_INFO_STRUCTURE_VERSION_V1: i32 = 1;
 pub const STORAGE_HW_BOOT_PARTITION_REQUEST_ACTIVATE_EXISTING_BOOT_PARTITION: u32 = 2147483648;
 pub const STORAGE_HW_BOOT_PARTITION_REQUEST_FLAG_CONTROLLER: i32 = 1;
 pub const STORAGE_HW_BOOT_PARTITION_REQUEST_REPLACE_EXISTING_BOOT_PARTITION: i32 = 1073741824;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_HW_CRYPTO_CAPABILITY {
-    pub Version: u32,
-    pub Size: u32,
-    pub CryptoCapabilityIndex: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub CryptoCapabilityIndex: super::DWORD,
     pub AlgorithmId: STORAGE_CRYPTO_ALGORITHM_ID,
     pub KeySize: STORAGE_CRYPTO_KEY_SIZE,
-    pub DataUnitSizeBitmask: u32,
-    pub MaxIVBitSize: u16,
-    pub Reserved: u16,
+    pub DataUnitSizeBitmask: super::DWORD,
+    pub MaxIVBitSize: super::WORD,
+    pub Reserved: super::WORD,
     pub SecurityComplianceBitmask: STORAGE_SECURITY_COMPLIANCE_BITMASK,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_CRYPTO_CAPABILITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7314,17 +7677,19 @@ impl Default for STORAGE_HW_CRYPTO_CAPABILITY {
 }
 pub const STORAGE_HW_CRYPTO_CAPABILITY_VERSION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_HW_CRYPTO_DESCRIPTOR {
     pub Header: STORAGE_DESCRIPTOR_HEADER,
-    pub NumKeysSupported: u32,
-    pub NumCryptoCapabilities: u32,
-    pub OffsetToCryptoCapabilities: u32,
-    pub SizeOfCryptoCapability: u32,
+    pub NumKeysSupported: super::DWORD,
+    pub NumCryptoCapabilities: super::DWORD,
+    pub OffsetToCryptoCapabilities: super::DWORD,
+    pub SizeOfCryptoCapability: super::DWORD,
     pub IceType: STORAGE_ICE_TYPE,
     pub SecurityComplianceBitmask: STORAGE_SECURITY_COMPLIANCE_BITMASK,
     pub KeyTypeBitmask: STORAGE_CRYPTO_KEY_TYPE,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_CRYPTO_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7332,144 +7697,152 @@ impl Default for STORAGE_HW_CRYPTO_DESCRIPTOR {
 }
 pub const STORAGE_HW_CRYPTO_DESCRIPTOR_VERSION_1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub EnduranceInfo: STORAGE_HW_ENDURANCE_INFO,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_ENDURANCE_INFO {
-    pub ValidFields: u32,
-    pub GroupId: u32,
+    pub ValidFields: super::DWORD,
+    pub GroupId: super::DWORD,
     pub Flags: STORAGE_HW_ENDURANCE_INFO_0,
-    pub LifePercentage: u32,
-    pub BytesReadCount: [u8; 16],
-    pub ByteWriteCount: [u8; 16],
+    pub LifePercentage: super::DWORD,
+    pub BytesReadCount: [super::BYTE; 16],
+    pub ByteWriteCount: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_ENDURANCE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_HW_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl STORAGE_HW_ENDURANCE_INFO_0 {
-    pub fn Shared(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Shared(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_Shared(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Shared(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_ACTIVATE {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Slot: u8,
-    pub Reserved0: [u8; 3],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Slot: super::BYTE,
+    pub Reserved0: [super::BYTE; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_FIRMWARE_ACTIVATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Slot: u8,
-    pub Reserved: [u8; 3],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Slot: super::BYTE,
+    pub Reserved: [super::BYTE; 3],
     pub Offset: super::DWORDLONG,
     pub BufferSize: super::DWORDLONG,
-    pub ImageBuffer: [u8; 1],
+    pub ImageBuffer: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Slot: u8,
-    pub Reserved: [u8; 3],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Slot: super::BYTE,
+    pub Reserved: [super::BYTE; 3],
     pub Offset: super::DWORDLONG,
     pub BufferSize: super::DWORDLONG,
-    pub ImageSize: u32,
-    pub Reserved2: u32,
-    pub ImageBuffer: [u8; 1],
+    pub ImageSize: super::DWORD,
+    pub Reserved2: super::DWORD,
+    pub ImageBuffer: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_INFO {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub _bitfield: u8,
-    pub SlotCount: u8,
-    pub ActiveSlot: u8,
-    pub PendingActivateSlot: u8,
+    pub SlotCount: super::BYTE,
+    pub ActiveSlot: super::BYTE,
+    pub PendingActivateSlot: super::BYTE,
     pub FirmwareShared: super::BOOLEAN,
-    pub Reserved: [u8; 3],
-    pub ImagePayloadAlignment: u32,
-    pub ImagePayloadMaxSize: u32,
+    pub Reserved: [super::BYTE; 3],
+    pub ImagePayloadAlignment: super::DWORD,
+    pub ImagePayloadMaxSize: super::DWORD,
     pub Slot: [STORAGE_HW_FIRMWARE_SLOT_INFO; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl STORAGE_HW_FIRMWARE_INFO {
-    pub fn SupportUpgrade(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SupportUpgrade(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_SupportUpgrade(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_SupportUpgrade(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved0(&self) -> u8 {
+    pub fn Reserved0(&self) -> super::BYTE {
         self._bitfield >> 1
     }
-    pub fn set_Reserved0(&mut self, value: u8) {
+    pub fn set_Reserved0(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_INFO_QUERY {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Reserved: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub const STORAGE_HW_FIRMWARE_INVALID_SLOT: i32 = 255;
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER: i32 = 1;
@@ -7481,29 +7854,32 @@ pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE: u32 = 21
 pub const STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_FIRMWARE_WITHOUT_RESET: i32 = 268435456;
 pub const STORAGE_HW_FIRMWARE_REVISION_LENGTH: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_SLOT_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub SlotNumber: u8,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub SlotNumber: super::BYTE,
     pub _bitfield: u8,
-    pub Reserved1: [u8; 6],
-    pub Revision: [u8; 16],
+    pub Reserved1: [super::BYTE; 6],
+    pub Revision: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl STORAGE_HW_FIRMWARE_SLOT_INFO {
-    pub fn ReadOnly(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ReadOnly(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_ReadOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_ReadOnly(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved0(&self) -> u8 {
+    pub fn Reserved0(&self) -> super::BYTE {
         self._bitfield >> 1
     }
-    pub fn set_Reserved0(&mut self, value: u8) {
+    pub fn set_Reserved0(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_HW_FIRMWARE_SLOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7511,15 +7887,17 @@ impl Default for STORAGE_HW_FIRMWARE_SLOT_INFO {
 }
 pub type STORAGE_ICE_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_IDENTIFIER {
     pub CodeSet: STORAGE_IDENTIFIER_CODE_SET,
     pub Type: STORAGE_IDENTIFIER_TYPE,
-    pub IdentifierSize: u16,
-    pub NextOffset: u16,
+    pub IdentifierSize: super::WORD,
+    pub NextOffset: super::WORD,
     pub Association: STORAGE_ASSOCIATION_TYPE,
-    pub Identifier: [u8; 1],
+    pub Identifier: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_IDENTIFIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7528,107 +7906,112 @@ impl Default for STORAGE_IDENTIFIER {
 pub type STORAGE_IDENTIFIER_CODE_SET = i32;
 pub type STORAGE_IDENTIFIER_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_IDLE_POWER {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub _bitfield: u32,
-    pub D3IdleTimeout: u32,
+    pub D3IdleTimeout: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl STORAGE_IDLE_POWER {
-    pub fn WakeCapableHint(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn WakeCapableHint(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_WakeCapableHint(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_WakeCapableHint(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn D3ColdSupported(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn D3ColdSupported(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_D3ColdSupported(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_D3ColdSupported(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_IDLE_POWERUP_REASON {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub PowerupReason: STORAGE_POWERUP_REASON_TYPE,
 }
 pub const STORAGE_IDLE_POWERUP_REASON_VERSION_V1: i32 = 1;
 pub type STORAGE_ID_NAA_FORMAT = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
-    pub Size: u32,
-    pub Version: u32,
+    pub Size: super::DWORD,
+    pub Version: super::DWORD,
     pub _bitfield1: u8,
-    pub Reserved1: [u8; 3],
+    pub Reserved1: [super::BYTE; 3],
     pub _bitfield2: u8,
-    pub Reserved3: [u8; 3],
+    pub Reserved3: [super::BYTE; 3],
     pub AvailableMappingResources: super::DWORDLONG,
     pub UsedMappingResources: super::DWORDLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl STORAGE_LB_PROVISIONING_MAP_RESOURCES {
-    pub fn AvailableMappingResourcesValid(&self) -> bool {
-        self._bitfield1 & 1 != 0
+    pub fn AvailableMappingResourcesValid(&self) -> super::BYTE {
+        (self._bitfield1) & 1
     }
-    pub fn set_AvailableMappingResourcesValid(&mut self, value: bool) {
-        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    pub fn set_AvailableMappingResourcesValid(&mut self, value: super::BYTE) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value & 1);
     }
-    pub fn UsedMappingResourcesValid(&self) -> bool {
-        (self._bitfield1 >> 1) & 1 != 0
+    pub fn UsedMappingResourcesValid(&self) -> super::BYTE {
+        (self._bitfield1 >> 1) & 1
     }
-    pub fn set_UsedMappingResourcesValid(&mut self, value: bool) {
-        self._bitfield1 = (self._bitfield1 & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_UsedMappingResourcesValid(&mut self, value: super::BYTE) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved0(&self) -> u8 {
+    pub fn Reserved0(&self) -> super::BYTE {
         self._bitfield1 >> 2
     }
-    pub fn set_Reserved0(&mut self, value: u8) {
+    pub fn set_Reserved0(&mut self, value: super::BYTE) {
         self._bitfield1 = (self._bitfield1 & !(63 << 2)) | ((value & 63) << 2);
     }
-    pub fn AvailableMappingResourcesScope(&self) -> u8 {
-        (self._bitfield2 << 6) >> 6
+    pub fn AvailableMappingResourcesScope(&self) -> super::BYTE {
+        (self._bitfield2) & 3
     }
-    pub fn set_AvailableMappingResourcesScope(&mut self, value: u8) {
+    pub fn set_AvailableMappingResourcesScope(&mut self, value: super::BYTE) {
         self._bitfield2 = (self._bitfield2 & !3) | (value & 3);
     }
-    pub fn UsedMappingResourcesScope(&self) -> u8 {
-        (self._bitfield2 << 4) >> 6
+    pub fn UsedMappingResourcesScope(&self) -> super::BYTE {
+        (self._bitfield2 >> 2) & 3
     }
-    pub fn set_UsedMappingResourcesScope(&mut self, value: u8) {
+    pub fn set_UsedMappingResourcesScope(&mut self, value: super::BYTE) {
         self._bitfield2 = (self._bitfield2 & !(3 << 2)) | ((value & 3) << 2);
     }
-    pub fn Reserved2(&self) -> u8 {
+    pub fn Reserved2(&self) -> super::BYTE {
         self._bitfield2 >> 4
     }
-    pub fn set_Reserved2(&mut self, value: u8) {
+    pub fn set_Reserved2(&mut self, value: super::BYTE) {
         self._bitfield2 = (self._bitfield2 & !(15 << 4)) | ((value & 15) << 4);
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_MEDIA_SERIAL_NUMBER_DATA {
-    pub Reserved: u16,
-    pub SerialNumberLength: u16,
-    pub SerialNumber: [u8; 0],
+    pub Reserved: super::WORD,
+    pub SerialNumberLength: super::WORD,
+    pub SerialNumber: [super::BYTE; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7636,70 +8019,71 @@ impl Default for STORAGE_MEDIA_SERIAL_NUMBER_DATA {
 }
 pub type STORAGE_MEDIA_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub MediumProductType: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub MediumProductType: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Portdriver: STORAGE_PORT_CODE_SET,
     pub LUNResetSupported: super::BOOLEAN,
     pub TargetResetSupported: super::BOOLEAN,
-    pub IoTimeoutValue: u16,
+    pub IoTimeoutValue: super::WORD,
     pub ExtraIoInfoSupported: super::BOOLEAN,
     pub Flags: STORAGE_MINIPORT_DESCRIPTOR_0,
-    pub Reserved0: [u8; 2],
-    pub Reserved1: u32,
+    pub Reserved0: [super::BYTE; 2],
+    pub Reserved1: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_MINIPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
-    pub AsBYTE: u8,
+    pub AsBYTE: super::BYTE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl STORAGE_MINIPORT_DESCRIPTOR_0_0 {
-    pub fn LogicalPoFxForDisk(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn LogicalPoFxForDisk(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_LogicalPoFxForDisk(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_LogicalPoFxForDisk(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ForwardIo(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn ForwardIo(&self) -> super::BYTE {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_ForwardIo(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    pub fn set_ForwardIo(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::BYTE {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
     }
 }
@@ -7709,16 +8093,16 @@ pub const STORAGE_MINIPORT_DESCRIPTOR_V1_SIZE: u32 = 16;
 pub const STORAGE_MINIPORT_DESCRIPTOR_V1_SIZE: u64 = 16;
 pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: i32 = 512;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OFFLOAD_READ_OUTPUT {
-    pub OffloadReadFlags: u32,
-    pub Reserved: u32,
+    pub OffloadReadFlags: super::DWORD,
+    pub Reserved: super::DWORD,
     pub LengthProtected: super::DWORDLONG,
-    pub TokenLength: u32,
+    pub TokenLength: super::DWORD,
     pub Token: STORAGE_OFFLOAD_TOKEN,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_OFFLOAD_READ_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7726,34 +8110,40 @@ impl Default for STORAGE_OFFLOAD_READ_OUTPUT {
 }
 pub const STORAGE_OFFLOAD_READ_RANGE_TRUNCATED: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OFFLOAD_TOKEN {
-    pub TokenType: [u8; 4],
-    pub Reserved: [u8; 2],
-    pub TokenIdLength: [u8; 2],
+    pub TokenType: [super::BYTE; 4],
+    pub Reserved: [super::BYTE; 2],
+    pub TokenIdLength: [super::BYTE; 2],
     pub Anonymous: STORAGE_OFFLOAD_TOKEN_0,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_OFFLOAD_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_OFFLOAD_TOKEN_0 {
     pub StorageOffloadZeroDataToken: STORAGE_OFFLOAD_TOKEN_0_0,
-    pub Token: [u8; 504],
+    pub Token: [super::BYTE; 504],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_OFFLOAD_TOKEN_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_OFFLOAD_TOKEN_0_0 {
-    pub Reserved2: [u8; 504],
+    pub Reserved2: [super::BYTE; 504],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_OFFLOAD_TOKEN_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7763,54 +8153,61 @@ pub const STORAGE_OFFLOAD_TOKEN_ID_LENGTH: i32 = 504;
 pub const STORAGE_OFFLOAD_TOKEN_INVALID: i32 = 2;
 pub const STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA: u32 = 4294901761;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_OFFLOAD_WRITE_OUTPUT {
-    pub OffloadWriteFlags: u32,
-    pub Reserved: u32,
+    pub OffloadWriteFlags: super::DWORD,
+    pub Reserved: super::DWORD,
     pub LengthCopied: super::DWORDLONG,
 }
 pub const STORAGE_OFFLOAD_WRITE_RANGE_TRUNCATED: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_OPERATIONAL_REASON {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub Reason: STORAGE_OPERATIONAL_STATUS_REASON,
     pub RawBytes: STORAGE_OPERATIONAL_REASON_0,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_OPERATIONAL_REASON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_OPERATIONAL_REASON_0 {
     pub ScsiSenseKey: STORAGE_OPERATIONAL_REASON_0_0,
     pub NVDIMM_N: STORAGE_OPERATIONAL_REASON_0_1,
-    pub AsUlong: u32,
+    pub AsUlong: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_OPERATIONAL_REASON_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_OPERATIONAL_REASON_0_0 {
-    pub SenseKey: u8,
-    pub ASC: u8,
-    pub ASCQ: u8,
-    pub Reserved: u8,
+    pub SenseKey: super::BYTE,
+    pub ASC: super::BYTE,
+    pub ASCQ: super::BYTE,
+    pub Reserved: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_OPERATIONAL_REASON_0_1 {
-    pub CriticalHealth: u8,
-    pub ModuleHealth: [u8; 2],
-    pub ErrorThresholdStatus: u8,
+    pub CriticalHealth: super::BYTE,
+    pub ModuleHealth: [super::BYTE; 2],
+    pub ErrorThresholdStatus: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_OPERATIONAL_REASON_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7818,76 +8215,80 @@ impl Default for STORAGE_OPERATIONAL_REASON_0_1 {
 }
 pub type STORAGE_OPERATIONAL_STATUS_REASON = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
-    pub AdapterId: u32,
+    pub AdapterId: super::DWORD,
     pub HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS,
     pub CommandProtocol: STORAGE_PROTOCOL_TYPE,
     pub SpecVersion: STORAGE_SPEC_VERSION,
-    pub Vendor: [u8; 8],
-    pub Model: [u8; 40],
-    pub FirmwareRevision: [u8; 16],
-    pub PhysicalLocation: [u8; 32],
+    pub Vendor: [super::BYTE; 8],
+    pub Model: [super::BYTE; 40],
+    pub FirmwareRevision: [super::BYTE; 16],
+    pub PhysicalLocation: [super::BYTE; 32],
     pub ExpanderConnected: super::BOOLEAN,
-    pub Reserved0: [u8; 3],
-    pub Reserved1: [u32; 3],
+    pub Reserved0: [super::BYTE; 3],
+    pub Reserved1: [super::DWORD; 3],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PHYSICAL_ADAPTER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_PHYSICAL_DEVICE_DATA {
-    pub DeviceId: u32,
-    pub Role: u32,
+    pub DeviceId: super::DWORD,
+    pub Role: super::DWORD,
     pub HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS,
     pub CommandProtocol: STORAGE_PROTOCOL_TYPE,
     pub SpecVersion: STORAGE_SPEC_VERSION,
     pub FormFactor: STORAGE_DEVICE_FORM_FACTOR,
-    pub Vendor: [u8; 8],
-    pub Model: [u8; 40],
-    pub FirmwareRevision: [u8; 16],
+    pub Vendor: [super::BYTE; 8],
+    pub Model: [super::BYTE; 40],
+    pub FirmwareRevision: [super::BYTE; 16],
     pub Capacity: super::DWORDLONG,
-    pub PhysicalLocation: [u8; 32],
-    pub Reserved: [u32; 2],
+    pub PhysicalLocation: [super::BYTE; 32],
+    pub Reserved: [super::DWORD; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PHYSICAL_DEVICE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_PHYSICAL_NODE_DATA {
-    pub NodeId: u32,
-    pub AdapterCount: u32,
-    pub AdapterDataLength: u32,
-    pub AdapterDataOffset: u32,
-    pub DeviceCount: u32,
-    pub DeviceDataLength: u32,
-    pub DeviceDataOffset: u32,
-    pub Reserved: [u32; 3],
+    pub NodeId: super::DWORD,
+    pub AdapterCount: super::DWORD,
+    pub AdapterDataLength: super::DWORD,
+    pub AdapterDataOffset: super::DWORD,
+    pub DeviceCount: super::DWORD,
+    pub DeviceDataLength: super::DWORD,
+    pub DeviceDataOffset: super::DWORD,
+    pub Reserved: [super::DWORD; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PHYSICAL_NODE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NodeCount: u32,
-    pub Reserved: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub NodeCount: super::DWORD,
+    pub Reserved: super::DWORD,
     pub Node: [STORAGE_PHYSICAL_NODE_DATA; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7896,42 +8297,49 @@ impl Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
 pub type STORAGE_PORT_CODE_SET = i32;
 pub type STORAGE_POWERUP_REASON_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_PREDICT_FAILURE {
-    pub PredictFailure: u32,
-    pub VendorSpecific: [u8; 512],
+    pub PredictFailure: super::DWORD,
+    pub VendorSpecific: [super::BYTE; 512],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PREDICT_FAILURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PRIORITY_HINT_SUPPORT {
-    pub SupportFlags: u32,
+    pub SupportFlags: super::DWORD,
 }
 pub const STORAGE_PRIORITY_HINT_SUPPORTED: i32 = 1;
 pub type STORAGE_PROPERTY_ID = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_PROPERTY_QUERY {
     pub PropertyId: STORAGE_PROPERTY_ID,
     pub QueryType: STORAGE_QUERY_TYPE,
-    pub AdditionalParameters: [u8; 1],
+    pub AdditionalParameters: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PROPERTY_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_PROPERTY_SET {
     pub PropertyId: STORAGE_PROPERTY_ID,
     pub SetType: STORAGE_SET_TYPE,
-    pub AdditionalParameters: [u8; 1],
+    pub AdditionalParameters: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PROPERTY_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7939,29 +8347,31 @@ impl Default for STORAGE_PROPERTY_SET {
 }
 pub type STORAGE_PROTOCOL_ATA_DATA_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_COMMAND {
-    pub Version: u32,
-    pub Length: u32,
+    pub Version: super::DWORD,
+    pub Length: super::DWORD,
     pub ProtocolType: STORAGE_PROTOCOL_TYPE,
-    pub Flags: u32,
-    pub ReturnStatus: u32,
-    pub ErrorCode: u32,
-    pub CommandLength: u32,
-    pub ErrorInfoLength: u32,
-    pub DataToDeviceTransferLength: u32,
-    pub DataFromDeviceTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub ErrorInfoOffset: u32,
-    pub DataToDeviceBufferOffset: u32,
-    pub DataFromDeviceBufferOffset: u32,
-    pub CommandSpecific: u32,
-    pub Reserved0: u32,
-    pub FixedProtocolReturnData: u32,
-    pub FixedProtocolReturnData2: u32,
-    pub Reserved1: [u32; 2],
-    pub Command: [u8; 1],
+    pub Flags: super::DWORD,
+    pub ReturnStatus: super::DWORD,
+    pub ErrorCode: super::DWORD,
+    pub CommandLength: super::DWORD,
+    pub ErrorInfoLength: super::DWORD,
+    pub DataToDeviceTransferLength: super::DWORD,
+    pub DataFromDeviceTransferLength: super::DWORD,
+    pub TimeOutValue: super::DWORD,
+    pub ErrorInfoOffset: super::DWORD,
+    pub DataToDeviceBufferOffset: super::DWORD,
+    pub DataFromDeviceBufferOffset: super::DWORD,
+    pub CommandSpecific: super::DWORD,
+    pub Reserved0: super::DWORD,
+    pub FixedProtocolReturnData: super::DWORD,
+    pub FixedProtocolReturnData2: super::DWORD,
+    pub Reserved1: [super::DWORD; 2],
+    pub Command: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PROTOCOL_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7970,100 +8380,109 @@ impl Default for STORAGE_PROTOCOL_COMMAND {
 pub const STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST: u32 = 2147483648;
 pub const STORAGE_PROTOCOL_COMMAND_LENGTH_NVME: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub ProtocolSpecificData: STORAGE_PROTOCOL_SPECIFIC_DATA,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub ProtocolSpecificData: STORAGE_PROTOCOL_SPECIFIC_DATA_EXT,
 }
 pub const STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT_VERSION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
     pub Anonymous: STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
-    pub fn RetainAsynEvent(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn RetainAsynEvent(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_RetainAsynEvent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_RetainAsynEvent(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn LogSpecificField(&self) -> u32 {
-        (self._bitfield << 27) >> 28
+    pub fn LogSpecificField(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 15
     }
-    pub fn set_LogSpecificField(&mut self, value: u32) {
+    pub fn set_LogSpecificField(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(15 << 1)) | ((value & 15) << 1);
     }
-    pub fn Reserved0(&self) -> u32 {
-        (self._bitfield << 24) >> 29
+    pub fn Reserved0(&self) -> super::DWORD {
+        (self._bitfield >> 5) & 7
     }
-    pub fn set_Reserved0(&mut self, value: u32) {
+    pub fn set_Reserved0(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
-    pub fn UUIDIndex(&self) -> u32 {
-        (self._bitfield << 17) >> 25
+    pub fn UUIDIndex(&self) -> super::DWORD {
+        (self._bitfield >> 8) & 127
     }
-    pub fn set_UUIDIndex(&mut self, value: u32) {
+    pub fn set_UUIDIndex(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(127 << 8)) | ((value & 127) << 8);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 15
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(131071 << 15)) | ((value & 131071) << 15);
     }
 }
 pub type STORAGE_PROTOCOL_NVME_DATA_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA {
     pub ProtocolType: STORAGE_PROTOCOL_TYPE,
-    pub DataType: u32,
-    pub ProtocolDataRequestValue: u32,
-    pub ProtocolDataRequestSubValue: u32,
-    pub ProtocolDataOffset: u32,
-    pub ProtocolDataLength: u32,
-    pub FixedProtocolReturnData: u32,
-    pub ProtocolDataRequestSubValue2: u32,
-    pub ProtocolDataRequestSubValue3: u32,
-    pub ProtocolDataRequestSubValue4: u32,
+    pub DataType: super::DWORD,
+    pub ProtocolDataRequestValue: super::DWORD,
+    pub ProtocolDataRequestSubValue: super::DWORD,
+    pub ProtocolDataOffset: super::DWORD,
+    pub ProtocolDataLength: super::DWORD,
+    pub FixedProtocolReturnData: super::DWORD,
+    pub ProtocolDataRequestSubValue2: super::DWORD,
+    pub ProtocolDataRequestSubValue3: super::DWORD,
+    pub ProtocolDataRequestSubValue4: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     pub ProtocolType: STORAGE_PROTOCOL_TYPE,
-    pub DataType: u32,
-    pub ProtocolDataValue: u32,
-    pub ProtocolDataSubValue: u32,
-    pub ProtocolDataOffset: u32,
-    pub ProtocolDataLength: u32,
-    pub FixedProtocolReturnData: u32,
-    pub ProtocolDataSubValue2: u32,
-    pub ProtocolDataSubValue3: u32,
-    pub ProtocolDataSubValue4: u32,
-    pub ProtocolDataSubValue5: u32,
-    pub ProtocolDataSubValue6: u32,
-    pub Reserved: [u32; 4],
+    pub DataType: super::DWORD,
+    pub ProtocolDataValue: super::DWORD,
+    pub ProtocolDataSubValue: super::DWORD,
+    pub ProtocolDataOffset: super::DWORD,
+    pub ProtocolDataLength: super::DWORD,
+    pub FixedProtocolReturnData: super::DWORD,
+    pub ProtocolDataSubValue2: super::DWORD,
+    pub ProtocolDataSubValue3: super::DWORD,
+    pub ProtocolDataSubValue4: super::DWORD,
+    pub ProtocolDataSubValue5: super::DWORD,
+    pub ProtocolDataSubValue6: super::DWORD,
+    pub Reserved: [super::DWORD; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8085,136 +8504,122 @@ pub const STORAGE_PROTOCOL_STRUCTURE_VERSION: i32 = 1;
 pub type STORAGE_PROTOCOL_TYPE = i32;
 pub type STORAGE_PROTOCOL_UFS_DATA_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
-    pub EntryLength: u32,
-    pub DependencyTypeFlags: u32,
-    pub ProviderSpecificFlags: u32,
+    pub EntryLength: super::DWORD,
+    pub DependencyTypeFlags: super::DWORD,
+    pub ProviderSpecificFlags: super::DWORD,
     pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
-    pub EntryLength: u32,
-    pub DependencyTypeFlags: u32,
-    pub ProviderSpecificFlags: u32,
+    pub EntryLength: super::DWORD,
+    pub DependencyTypeFlags: super::DWORD,
+    pub ProviderSpecificFlags: super::DWORD,
     pub VirtualStorageType: VIRTUAL_STORAGE_TYPE,
-    pub AncestorLevel: u32,
-    pub HostVolumeNameOffset: u32,
-    pub HostVolumeNameSize: u32,
-    pub DependentVolumeNameOffset: u32,
-    pub DependentVolumeNameSize: u32,
-    pub RelativePathOffset: u32,
-    pub RelativePathSize: u32,
-    pub DependentDeviceNameOffset: u32,
-    pub DependentDeviceNameSize: u32,
+    pub AncestorLevel: super::DWORD,
+    pub HostVolumeNameOffset: super::DWORD,
+    pub HostVolumeNameSize: super::DWORD,
+    pub DependentVolumeNameOffset: super::DWORD,
+    pub DependentVolumeNameSize: super::DWORD,
+    pub RelativePathOffset: super::DWORD,
+    pub RelativePathSize: super::DWORD,
+    pub DependentDeviceNameOffset: super::DWORD,
+    pub DependentDeviceNameSize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
-    pub RequestLevel: u32,
-    pub RequestFlags: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
-    pub ResponseLevel: u32,
-    pub NumberEntries: u32,
-    pub Anonymous: STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0,
-}
-impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
-    pub Lev1Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY; 0],
-    pub Lev2Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY; 0],
-}
-impl Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub RequestLevel: super::DWORD,
+    pub RequestFlags: super::DWORD,
 }
 pub type STORAGE_QUERY_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STORAGE_READ_CAPACITY {
-    pub Version: u32,
-    pub Size: u32,
-    pub BlockLength: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub BlockLength: super::DWORD,
     pub NumberOfBlocks: super::LARGE_INTEGER,
     pub DiskLength: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STORAGE_READ_CAPACITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_REINITIALIZE_MEDIA {
-    pub Version: u32,
-    pub Size: u32,
-    pub TimeoutInSeconds: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub TimeoutInSeconds: super::DWORD,
     pub SanitizeOption: STORAGE_REINITIALIZE_MEDIA_0,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_REINITIALIZE_MEDIA_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl STORAGE_REINITIALIZE_MEDIA_0 {
-    pub fn SanitizeMethod(&self) -> u32 {
-        (self._bitfield << 28) >> 28
+    pub fn SanitizeMethod(&self) -> super::DWORD {
+        (self._bitfield) & 15
     }
-    pub fn set_SanitizeMethod(&mut self, value: u32) {
+    pub fn set_SanitizeMethod(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn DisallowUnrestrictedSanitizeExit(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn DisallowUnrestrictedSanitizeExit(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_DisallowUnrestrictedSanitizeExit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_DisallowUnrestrictedSanitizeExit(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 5
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
 pub type STORAGE_RESERVE_ID = i32;
 pub type STORAGE_RPMB_COMMAND_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct STORAGE_RPMB_DATA_FRAME {
-    pub Stuff: [u8; 196],
-    pub KeyOrMAC: [u8; 32],
-    pub Data: [u8; 256],
-    pub Nonce: [u8; 16],
-    pub WriteCounter: [u8; 4],
-    pub Address: [u8; 2],
-    pub BlockCount: [u8; 2],
-    pub OperationResult: [u8; 2],
-    pub RequestOrResponseType: [u8; 2],
+    pub Stuff: [super::BYTE; 196],
+    pub KeyOrMAC: [super::BYTE; 32],
+    pub Data: [super::BYTE; 256],
+    pub Nonce: [super::BYTE; 16],
+    pub WriteCounter: [super::BYTE; 4],
+    pub Address: [super::BYTE; 2],
+    pub BlockCount: [super::BYTE; 2],
+    pub OperationResult: [super::BYTE; 2],
+    pub RequestOrResponseType: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_RPMB_DATA_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_RPMB_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub SizeInBytes: u32,
-    pub MaxReliableWriteSizeInBytes: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub SizeInBytes: super::DWORD,
+    pub MaxReliableWriteSizeInBytes: super::DWORD,
     pub FrameFormat: STORAGE_RPMB_FRAME_TYPE,
 }
 pub const STORAGE_RPMB_DESCRIPTOR_VERSION_1: i32 = 1;
@@ -8222,143 +8627,155 @@ pub type STORAGE_RPMB_FRAME_TYPE = i32;
 pub const STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE: i32 = 512;
 pub type STORAGE_SANITIZE_METHOD = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_SECURITY_COMPLIANCE_BITMASK {
     pub Anonymous: STORAGE_SECURITY_COMPLIANCE_BITMASK_0,
-    pub AsUchar: u8,
+    pub AsUchar: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_SECURITY_COMPLIANCE_BITMASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_SECURITY_COMPLIANCE_BITMASK_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "shared")]
 impl STORAGE_SECURITY_COMPLIANCE_BITMASK_0 {
-    pub fn FIPS(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn FIPS(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_FIPS(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_FIPS(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::BYTE {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
     }
 }
 pub type STORAGE_SET_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_SPEC_VERSION {
     pub Anonymous: STORAGE_SPEC_VERSION_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_SPEC_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_SPEC_VERSION_0 {
     pub MinorVersion: STORAGE_SPEC_VERSION_0_0,
-    pub MajorVersion: u16,
+    pub MajorVersion: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_SPEC_VERSION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_SPEC_VERSION_0_0 {
     pub Anonymous: STORAGE_SPEC_VERSION_0_0_0,
-    pub AsUshort: u16,
+    pub AsUshort: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for STORAGE_SPEC_VERSION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_SPEC_VERSION_0_0_0 {
-    pub SubMinor: u8,
-    pub Minor: u8,
+    pub SubMinor: super::BYTE,
+    pub Minor: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_STACK_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub StorageStackType: STORAGE_STACK_TYPE,
 }
 pub type STORAGE_STACK_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub CriticalTemperature: i16,
-    pub WarningTemperature: i16,
-    pub InfoCount: u16,
-    pub Reserved0: [u8; 2],
-    pub Reserved1: [u32; 2],
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub CriticalTemperature: super::SHORT,
+    pub WarningTemperature: super::SHORT,
+    pub InfoCount: super::WORD,
+    pub Reserved0: [super::BYTE; 2],
+    pub Reserved1: [super::DWORD; 2],
     pub TemperatureInfo: [STORAGE_TEMPERATURE_INFO; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_TEMPERATURE_INFO {
-    pub Index: u16,
-    pub Temperature: i16,
-    pub OverThreshold: i16,
-    pub UnderThreshold: i16,
+    pub Index: super::WORD,
+    pub Temperature: super::SHORT,
+    pub OverThreshold: super::SHORT,
+    pub UnderThreshold: super::SHORT,
     pub OverThresholdChangable: super::BOOLEAN,
     pub UnderThresholdChangable: super::BOOLEAN,
     pub EventGenerated: super::BOOLEAN,
-    pub Reserved0: u8,
-    pub Reserved1: u32,
+    pub Reserved0: super::BYTE,
+    pub Reserved1: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u16,
-    pub Index: u16,
-    pub Threshold: i16,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::WORD,
+    pub Index: super::WORD,
+    pub Threshold: super::SHORT,
     pub OverThreshold: super::BOOLEAN,
-    pub Reserved: u8,
+    pub Reserved: super::BYTE,
 }
 pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: i32 = 1;
 pub const STORAGE_TEMPERATURE_VALUE_NOT_REPORTED: i32 = 32768;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_TIER {
     pub Id: windows_core::GUID,
-    pub Name: [u16; 256],
-    pub Description: [u16; 256],
+    pub Name: [super::WCHAR; 256],
+    pub Description: [super::WCHAR; 256],
     pub Flags: super::DWORDLONG,
     pub ProvisionedCapacity: super::DWORDLONG,
     pub MediaType: STORAGE_TIER_MEDIA_TYPE,
     pub Class: STORAGE_TIER_CLASS,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STORAGE_TIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8374,7 +8791,7 @@ pub const STORAGE_TIER_FLAG_WRITE_BACK_CACHE: i32 = 2097152;
 pub type STORAGE_TIER_MEDIA_TYPE = i32;
 pub const STORAGE_TIER_NAME_LENGTH: i32 = 256;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_TIER_REGION {
     pub TierId: windows_core::GUID,
@@ -8382,11 +8799,11 @@ pub struct STORAGE_TIER_REGION {
     pub Length: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub WriteCacheType: WRITE_CACHE_TYPE,
     pub WriteCacheEnabled: WRITE_CACHE_ENABLE,
     pub WriteCacheChangeable: WRITE_CACHE_CHANGE,
@@ -8396,83 +8813,83 @@ pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub NVCacheEnabled: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
     pub DeviceType: STORAGE_ZONED_DEVICE_TYPES,
-    pub ZoneCount: u32,
+    pub ZoneCount: super::DWORD,
     pub ZoneAttributes: STORAGE_ZONED_DEVICE_DESCRIPTOR_0,
-    pub ZoneGroupCount: u32,
+    pub ZoneGroupCount: super::DWORD,
     pub ZoneGroup: [STORAGE_ZONE_GROUP; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
     pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
-    pub MaxOpenZoneCount: u32,
+    pub MaxOpenZoneCount: super::DWORD,
     pub UnrestrictedRead: super::BOOLEAN,
-    pub Reserved: [u8; 3],
+    pub Reserved: [super::BYTE; 3],
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
-    pub OptimalOpenZoneCount: u32,
-    pub Reserved: u32,
+    pub OptimalOpenZoneCount: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub type STORAGE_ZONED_DEVICE_TYPES = i32;
 pub type STORAGE_ZONES_ATTRIBUTES = i32;
 pub type STORAGE_ZONE_CONDITION = i32;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_ZONE_DESCRIPTOR {
-    pub Size: u32,
+    pub Size: super::DWORD,
     pub ZoneType: STORAGE_ZONE_TYPES,
     pub ZoneCondition: STORAGE_ZONE_CONDITION,
     pub ResetWritePointerRecommend: super::BOOLEAN,
-    pub Reserved0: [u8; 3],
+    pub Reserved0: [super::BYTE; 3],
     pub ZoneSize: super::DWORDLONG,
     pub WritePointerOffset: super::DWORDLONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STORAGE_ZONE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ZONE_GROUP {
-    pub ZoneCount: u32,
+    pub ZoneCount: super::DWORD,
     pub ZoneType: STORAGE_ZONE_TYPES,
     pub ZoneSize: super::DWORDLONG,
 }
@@ -8481,48 +8898,51 @@ pub const STORATTRIBUTE_MANAGEMENT_STATE: i32 = 1;
 pub const STORATTRIBUTE_NONE: i32 = 0;
 pub const STREAMS_ASSOCIATE_ID_CLEAR: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER {
-    pub Flags: u32,
-    pub StreamId: u32,
+    pub Flags: super::DWORD,
+    pub StreamId: super::DWORD,
 }
 pub const STREAMS_ASSOCIATE_ID_SET: i32 = 2;
 pub const STREAMS_INVALID_ID: i32 = 0;
 pub const STREAMS_MAX_ID: i32 = 65535;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAMS_QUERY_ID_OUTPUT_BUFFER {
-    pub StreamId: u32,
+    pub StreamId: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER {
-    pub OptimalWriteSize: u32,
-    pub StreamGranularitySize: u32,
-    pub StreamIdMin: u32,
-    pub StreamIdMax: u32,
+    pub OptimalWriteSize: super::DWORD,
+    pub StreamGranularitySize: super::DWORD,
+    pub StreamIdMin: super::DWORD,
+    pub StreamIdMax: super::DWORD,
 }
 pub const STREAM_CLEAR_ENCRYPTION: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STREAM_EXTENT_ENTRY {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub ExtentInformation: STREAM_EXTENT_ENTRY_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STREAM_EXTENT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union STREAM_EXTENT_ENTRY_0 {
     pub RetrievalPointers: RETRIEVAL_POINTERS_BUFFER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STREAM_EXTENT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8531,36 +8951,85 @@ impl Default for STREAM_EXTENT_ENTRY_0 {
 pub const STREAM_EXTENT_ENTRY_ALL_EXTENTS: i32 = 2;
 pub const STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STREAM_INFORMATION_ENTRY {
-    pub Version: u32,
-    pub Flags: u32,
-    pub StreamInformation: _StreamInformation,
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
+    pub StreamInformation: STREAM_INFORMATION_ENTRY_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 impl Default for STREAM_INFORMATION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union STREAM_INFORMATION_ENTRY_0 {
+    pub DesiredStorageClass: STREAM_INFORMATION_ENTRY_0_1,
+    pub DataStream: STREAM_INFORMATION_ENTRY_0_0,
+    pub Reparse: STREAM_INFORMATION_ENTRY_0_3,
+    pub Ea: STREAM_INFORMATION_ENTRY_0_2,
+}
+#[cfg(feature = "shared")]
+impl Default for STREAM_INFORMATION_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAM_INFORMATION_ENTRY_0_0 {
+    pub Length: super::WORD,
+    pub Flags: super::WORD,
+    pub Reserved: super::DWORD,
+    pub Vdl: super::DWORDLONG,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAM_INFORMATION_ENTRY_0_1 {
+    pub Class: FILE_STORAGE_TIER_CLASS,
+    pub Flags: super::DWORD,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAM_INFORMATION_ENTRY_0_2 {
+    pub Length: super::WORD,
+    pub Flags: super::WORD,
+    pub EaSize: super::DWORD,
+    pub EaInformationOffset: super::DWORD,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct STREAM_INFORMATION_ENTRY_0_3 {
+    pub Length: super::WORD,
+    pub Flags: super::WORD,
+    pub ReparseDataSize: super::DWORD,
+    pub ReparseDataOffset: super::DWORD,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct STREAM_LAYOUT_ENTRY {
-    pub Version: u32,
-    pub NextStreamOffset: u32,
-    pub Flags: u32,
-    pub ExtentInformationOffset: u32,
+    pub Version: super::DWORD,
+    pub NextStreamOffset: super::DWORD,
+    pub Flags: super::DWORD,
+    pub ExtentInformationOffset: super::DWORD,
     pub AllocationSize: super::LARGE_INTEGER,
     pub EndOfFile: super::LARGE_INTEGER,
-    pub StreamInformationOffset: u32,
-    pub AttributeTypeCode: u32,
-    pub AttributeFlags: u32,
-    pub StreamIdentifierLength: u32,
-    pub StreamIdentifier: [u16; 1],
+    pub StreamInformationOffset: super::DWORD,
+    pub AttributeTypeCode: super::DWORD,
+    pub AttributeFlags: super::DWORD,
+    pub StreamIdentifierLength: super::DWORD,
+    pub StreamIdentifier: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for STREAM_LAYOUT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8837,27 +9306,28 @@ pub const StorageTierMediaTypeScm: STORAGE_TIER_MEDIA_TYPE = 4;
 pub const StorageTierMediaTypeSsd: STORAGE_TIER_MEDIA_TYPE = 2;
 pub const StorageTierMediaTypeUnspecified: STORAGE_TIER_MEDIA_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_STATISTICS {
-    pub Operation: u32,
+    pub Operation: super::DWORD,
 }
 pub const TAPE_RESET_STATISTICS: i32 = 2;
 pub const TAPE_RETURN_ENV_INFO: i32 = 1;
 pub const TAPE_RETURN_STATISTICS: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TAPE_STATISTICS {
-    pub Version: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
     pub RecoveredWrites: super::LARGE_INTEGER,
     pub UnrecoveredWrites: super::LARGE_INTEGER,
     pub RecoveredReads: super::LARGE_INTEGER,
     pub UnrecoveredReads: super::LARGE_INTEGER,
-    pub CompressionRatioReads: u8,
-    pub CompressionRatioWrites: u8,
+    pub CompressionRatioReads: super::BYTE,
+    pub CompressionRatioWrites: super::BYTE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for TAPE_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8874,56 +9344,59 @@ pub const TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX: i32 = 16;
 pub const TC_PUBLIC_DEVICEDUMP_CONTENT_SMART: i32 = 1;
 pub const TELEMETRY_COMMAND_SIZE: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_CREATE_MINIVERSION_INFO {
-    pub StructureVersion: u16,
-    pub StructureLength: u16,
-    pub BaseVersion: u32,
-    pub MiniVersion: u16,
+    pub StructureVersion: super::WORD,
+    pub StructureLength: super::WORD,
+    pub BaseVersion: super::DWORD,
+    pub MiniVersion: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_GET_METADATA_INFO_OUT {
     pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
     pub LockingTransaction: windows_core::GUID,
     pub LastLsn: super::DWORDLONG,
-    pub TransactionState: u32,
+    pub TransactionState: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_GET_METADATA_INFO_OUT_0 {
-    pub LowPart: i64,
-    pub HighPart: i64,
+    pub LowPart: super::LONGLONG,
+    pub HighPart: super::LONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_GET_TRANSACTED_VERSION {
-    pub ThisBaseVersion: u32,
-    pub LatestVersion: u32,
-    pub ThisMiniVersion: u16,
-    pub FirstMiniVersion: u16,
-    pub LatestMiniVersion: u16,
+    pub ThisBaseVersion: super::DWORD,
+    pub LatestVersion: super::DWORD,
+    pub ThisMiniVersion: super::WORD,
+    pub FirstMiniVersion: super::WORD,
+    pub LatestMiniVersion: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_LIST_TRANSACTIONS {
     pub NumberOfTransactions: super::DWORDLONG,
     pub BufferSizeRequired: super::DWORDLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
     pub TransactionId: windows_core::GUID,
-    pub TransactionState: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: i64,
+    pub TransactionState: super::DWORD,
+    pub Reserved1: super::DWORD,
+    pub Reserved2: super::DWORD,
+    pub Reserved3: super::LONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
     pub KtmTransaction: windows_core::GUID,
@@ -8932,18 +9405,18 @@ pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
     pub Offset: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     pub Offset: super::DWORDLONG,
-    pub NameFlags: u32,
-    pub FileId: i64,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: i64,
-    pub FileName: [u16; 1],
+    pub NameFlags: super::DWORD,
+    pub FileId: super::LONGLONG,
+    pub Reserved1: super::DWORD,
+    pub Reserved2: super::DWORD,
+    pub Reserved3: super::LONGLONG,
+    pub FileName: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8954,38 +9427,38 @@ pub const TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED: i32 = 2;
 pub const TXFS_LOGGING_MODE_FULL: i32 = 2;
 pub const TXFS_LOGGING_MODE_SIMPLE: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_MODIFY_RM {
-    pub Flags: u32,
-    pub LogContainerCountMax: u32,
-    pub LogContainerCountMin: u32,
-    pub LogContainerCount: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
+    pub Flags: super::DWORD,
+    pub LogContainerCountMax: super::DWORD,
+    pub LogContainerCountMin: super::DWORD,
+    pub LogContainerCount: super::DWORD,
+    pub LogGrowthIncrement: super::DWORD,
+    pub LogAutoShrinkPercentage: super::DWORD,
     pub Reserved: super::DWORDLONG,
-    pub LoggingMode: u16,
+    pub LoggingMode: super::WORD,
 }
 pub const TXFS_MODIFY_RM_VALID_FLAGS: i32 = 261631;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TXFS_QUERY_RM_INFORMATION {
-    pub BytesRequired: u32,
+    pub BytesRequired: super::DWORD,
     pub TailLsn: super::DWORDLONG,
     pub CurrentLsn: super::DWORDLONG,
     pub ArchiveTailLsn: super::DWORDLONG,
     pub LogContainerSize: super::DWORDLONG,
     pub HighestVirtualClock: super::LARGE_INTEGER,
-    pub LogContainerCount: u32,
-    pub LogContainerCountMax: u32,
-    pub LogContainerCountMin: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
-    pub Flags: u32,
-    pub LoggingMode: u16,
-    pub Reserved: u16,
-    pub RmState: u32,
+    pub LogContainerCount: super::DWORD,
+    pub LogContainerCountMax: super::DWORD,
+    pub LogContainerCountMin: super::DWORD,
+    pub LogGrowthIncrement: super::DWORD,
+    pub LogAutoShrinkPercentage: super::DWORD,
+    pub Flags: super::DWORD,
+    pub LoggingMode: super::WORD,
+    pub Reserved: super::WORD,
+    pub RmState: super::DWORD,
     pub LogCapacity: super::DWORDLONG,
     pub LogFree: super::DWORDLONG,
     pub TopsSize: super::DWORDLONG,
@@ -8996,9 +9469,9 @@ pub struct TXFS_QUERY_RM_INFORMATION {
     pub NumberLogFileFull: super::DWORDLONG,
     pub OldestTransactionAge: super::DWORDLONG,
     pub RMName: windows_core::GUID,
-    pub TmLogPathOffset: u32,
+    pub TmLogPathOffset: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for TXFS_QUERY_RM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9006,21 +9479,25 @@ impl Default for TXFS_QUERY_RM_INFORMATION {
 }
 pub const TXFS_QUERY_RM_INFORMATION_VALID_FLAGS: i32 = 246192;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
     pub Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for TXFS_READ_BACKUP_INFORMATION_OUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    pub BufferLength: u32,
-    pub Buffer: [u8; 1],
+    pub BufferLength: super::DWORD,
+    pub Buffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9050,15 +9527,15 @@ pub const TXFS_RM_STATE_STARTING: i32 = 1;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN: i32 = 1;
 pub const TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TXFS_ROLLFORWARD_REDO_INFORMATION {
     pub LastVirtualClock: super::LARGE_INTEGER,
     pub LastRedoLsn: super::DWORDLONG,
     pub HighestRecoveryLsn: super::DWORDLONG,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9068,12 +9545,12 @@ pub const TXFS_ROLLFORWARD_REDO_VALID_FLAGS: i32 = 3;
 pub const TXFS_SAVEPOINT_CLEAR: i32 = 4;
 pub const TXFS_SAVEPOINT_CLEAR_ALL: i32 = 16;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::HANDLE,
-    pub ActionCode: u32,
-    pub SavepointId: u32,
+    pub ActionCode: super::DWORD,
+    pub SavepointId: super::DWORD,
 }
 pub const TXFS_SAVEPOINT_ROLLBACK: i32 = 2;
 pub const TXFS_SAVEPOINT_SET: i32 = 1;
@@ -9091,23 +9568,23 @@ pub const TXFS_START_RM_FLAG_PREFER_CONSISTENCY: i32 = 4096;
 pub const TXFS_START_RM_FLAG_PRESERVE_CHANGES: i32 = 2048;
 pub const TXFS_START_RM_FLAG_RECOVER_BEST_EFFORT: i32 = 512;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TXFS_START_RM_INFORMATION {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub LogContainerSize: super::DWORDLONG,
-    pub LogContainerCountMin: u32,
-    pub LogContainerCountMax: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
-    pub TmLogPathOffset: u32,
-    pub TmLogPathLength: u16,
-    pub LoggingMode: u16,
-    pub LogPathLength: u16,
-    pub Reserved: u16,
-    pub LogPath: [u16; 1],
+    pub LogContainerCountMin: super::DWORD,
+    pub LogContainerCountMax: super::DWORD,
+    pub LogGrowthIncrement: super::DWORD,
+    pub LogAutoShrinkPercentage: super::DWORD,
+    pub TmLogPathOffset: super::DWORD,
+    pub TmLogPathLength: super::WORD,
+    pub LoggingMode: super::WORD,
+    pub LogPathLength: super::WORD,
+    pub Reserved: super::WORD,
+    pub LogPath: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for TXFS_START_RM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9117,7 +9594,7 @@ pub const TXFS_START_RM_VALID_FLAGS: i32 = 15999;
 pub const TXFS_TRANSACTED_VERSION_NONTRANSACTED: u32 = 4294967294;
 pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
     pub TransactionsActiveAtSnapshot: super::BOOLEAN,
@@ -9127,10 +9604,12 @@ pub const TXFS_TRANSACTION_STATE_NONE: i32 = 0;
 pub const TXFS_TRANSACTION_STATE_NOTACTIVE: i32 = 3;
 pub const TXFS_TRANSACTION_STATE_PREPARED: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TXFS_WRITE_BACKUP_INFORMATION {
-    pub Buffer: [u8; 1],
+    pub Buffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TXFS_WRITE_BACKUP_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9145,10 +9624,10 @@ pub const UNRECOVERED_WRITES_VALID: i32 = 2;
 pub const USN_DELETE_FLAG_DELETE: i32 = 1;
 pub const USN_DELETE_FLAG_NOTIFY: i32 = 2;
 pub const USN_DELETE_VALID_FLAGS: i32 = 3;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type USN_JOURNAL_DATA = USN_JOURNAL_DATA_V1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_JOURNAL_DATA_V0 {
     pub UsnJournalID: super::DWORDLONG,
@@ -9160,7 +9639,7 @@ pub struct USN_JOURNAL_DATA_V0 {
     pub AllocationDelta: super::DWORDLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_JOURNAL_DATA_V1 {
     pub UsnJournalID: super::DWORDLONG,
@@ -9170,11 +9649,11 @@ pub struct USN_JOURNAL_DATA_V1 {
     pub MaxUsn: super::USN,
     pub MaximumSize: super::DWORDLONG,
     pub AllocationDelta: super::DWORDLONG,
-    pub MinSupportedMajorVersion: u16,
-    pub MaxSupportedMajorVersion: u16,
+    pub MinSupportedMajorVersion: super::WORD,
+    pub MaxSupportedMajorVersion: super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_JOURNAL_DATA_V2 {
     pub UsnJournalID: super::DWORDLONG,
@@ -9184,11 +9663,11 @@ pub struct USN_JOURNAL_DATA_V2 {
     pub MaxUsn: super::USN,
     pub MaximumSize: super::DWORDLONG,
     pub AllocationDelta: super::DWORDLONG,
-    pub MinSupportedMajorVersion: u16,
-    pub MaxSupportedMajorVersion: u16,
-    pub Flags: u32,
+    pub MinSupportedMajorVersion: super::WORD,
+    pub MaxSupportedMajorVersion: super::WORD,
+    pub Flags: super::DWORD,
     pub RangeTrackChunkSize: super::DWORDLONG,
-    pub RangeTrackFileSizeThreshold: i64,
+    pub RangeTrackFileSizeThreshold: super::LONGLONG,
 }
 pub const USN_PAGE_SIZE: i32 = 4096;
 #[repr(C)]
@@ -9221,23 +9700,25 @@ pub const USN_REASON_REPARSE_POINT_CHANGE: i32 = 1048576;
 pub const USN_REASON_SECURITY_CHANGE: i32 = 2048;
 pub const USN_REASON_STREAM_CHANGE: i32 = 2097152;
 pub const USN_REASON_TRANSACTED_CHANGE: i32 = 4194304;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type USN_RECORD = USN_RECORD_V2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_RECORD_COMMON_HEADER {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
+    pub RecordLength: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_RECORD_EXTENT {
-    pub Offset: i64,
-    pub Length: i64,
+    pub Offset: super::LONGLONG,
+    pub Length: super::LONGLONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union USN_RECORD_UNION {
     pub Header: USN_RECORD_COMMON_HEADER,
@@ -9245,78 +9726,78 @@ pub union USN_RECORD_UNION {
     pub V3: USN_RECORD_V3,
     pub V4: USN_RECORD_V4,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USN_RECORD_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USN_RECORD_V2 {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
+    pub RecordLength: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
     pub FileReferenceNumber: super::DWORDLONG,
     pub ParentFileReferenceNumber: super::DWORDLONG,
     pub Usn: super::USN,
     pub TimeStamp: super::LARGE_INTEGER,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub SecurityId: u32,
-    pub FileAttributes: u32,
-    pub FileNameLength: u16,
-    pub FileNameOffset: u16,
-    pub FileName: [u16; 1],
+    pub Reason: super::DWORD,
+    pub SourceInfo: super::DWORD,
+    pub SecurityId: super::DWORD,
+    pub FileAttributes: super::DWORD,
+    pub FileNameLength: super::WORD,
+    pub FileNameOffset: super::WORD,
+    pub FileName: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USN_RECORD_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USN_RECORD_V3 {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
+    pub RecordLength: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
     pub FileReferenceNumber: super::FILE_ID_128,
     pub ParentFileReferenceNumber: super::FILE_ID_128,
     pub Usn: super::USN,
     pub TimeStamp: super::LARGE_INTEGER,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub SecurityId: u32,
-    pub FileAttributes: u32,
-    pub FileNameLength: u16,
-    pub FileNameOffset: u16,
-    pub FileName: [u16; 1],
+    pub Reason: super::DWORD,
+    pub SourceInfo: super::DWORD,
+    pub SecurityId: super::DWORD,
+    pub FileAttributes: super::DWORD,
+    pub FileNameLength: super::WORD,
+    pub FileNameOffset: super::WORD,
+    pub FileName: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USN_RECORD_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USN_RECORD_V4 {
     pub Header: USN_RECORD_COMMON_HEADER,
     pub FileReferenceNumber: super::FILE_ID_128,
     pub ParentFileReferenceNumber: super::FILE_ID_128,
     pub Usn: super::USN,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub RemainingExtents: u32,
-    pub NumberOfExtents: u16,
-    pub ExtentSize: u16,
+    pub Reason: super::DWORD,
+    pub SourceInfo: super::DWORD,
+    pub RemainingExtents: super::DWORD,
+    pub NumberOfExtents: super::WORD,
+    pub ExtentSize: super::WORD,
     pub Extents: [USN_RECORD_EXTENT; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USN_RECORD_V4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9328,13 +9809,13 @@ pub const USN_SOURCE_DATA_MANAGEMENT: i32 = 1;
 pub const USN_SOURCE_REPLICATION_MANAGEMENT: i32 = 4;
 pub const USN_SOURCE_VALID_FLAGS: i32 = 15;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USN_TRACK_MODIFIED_RANGES {
-    pub Flags: u32,
-    pub Unused: u32,
+    pub Flags: super::DWORD,
+    pub Unused: super::DWORD,
     pub ChunkSize: super::DWORDLONG,
-    pub FileSizeThreshold: i64,
+    pub FileSizeThreshold: super::LONGLONG,
 }
 pub const UfsDataTypeMax: STORAGE_PROTOCOL_UFS_DATA_TYPE = 6;
 pub const UfsDataTypeQueryAttribute: STORAGE_PROTOCOL_UFS_DATA_TYPE = 2;
@@ -9348,32 +9829,34 @@ pub const VALID_NTFT: i32 = 192;
 pub const VALID_WRITE_USN_REASON_MASK: u32 = 2147483649;
 pub const VENDOR_ID_LENGTH: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct VERIFY_INFORMATION {
     pub StartingOffset: super::LARGE_INTEGER,
-    pub Length: u32,
+    pub Length: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for VERIFY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT {
-    pub NumberOfWorkerThreads: u32,
-    pub Flags: u32,
+    pub NumberOfWorkerThreads: super::DWORD,
+    pub Flags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX {
-    pub HeaderSize: u16,
-    pub Flags: u32,
-    pub NotificationInfoSize: u32,
-    pub NotificationInfoOffset: u16,
-    pub ProviderMajorVersion: u16,
+    pub HeaderSize: super::WORD,
+    pub Flags: super::DWORD,
+    pub NotificationInfoSize: super::DWORD,
+    pub NotificationInfoOffset: super::WORD,
+    pub ProviderMajorVersion: super::WORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9382,46 +9865,48 @@ pub struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT {
 }
 pub type VIRTUAL_STORAGE_BEHAVIOR_CODE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT {
-    pub Size: u32,
+    pub Size: super::DWORD,
     pub BehaviorCode: VIRTUAL_STORAGE_BEHAVIOR_CODE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_STORAGE_TYPE {
-    pub DeviceId: u32,
+    pub DeviceId: super::DWORD,
     pub VendorId: windows_core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct VOLUME_BITMAP_BUFFER {
     pub StartingLcn: super::LARGE_INTEGER,
     pub BitmapSize: super::LARGE_INTEGER,
-    pub Buffer: [u8; 1],
+    pub Buffer: [super::BYTE; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for VOLUME_BITMAP_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct VOLUME_DISK_EXTENTS {
-    pub NumberOfDiskExtents: u32,
+    pub NumberOfDiskExtents: super::DWORD,
     pub Extents: [DISK_EXTENT; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for VOLUME_DISK_EXTENTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: super::DWORDLONG,
@@ -9440,26 +9925,27 @@ pub const VirtualStorageBehaviorUndefined: VIRTUAL_STORAGE_BEHAVIOR_CODE = 0;
 pub const WIM_BOOT_NOT_OS_WIM: i32 = 0;
 pub const WIM_BOOT_OS_WIM: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIM_PROVIDER_ADD_OVERLAY_INPUT {
-    pub WimType: u32,
-    pub WimIndex: u32,
-    pub WimFileNameOffset: u32,
-    pub WimFileNameLength: u32,
+    pub WimType: super::DWORD,
+    pub WimIndex: super::DWORD,
+    pub WimFileNameOffset: super::DWORD,
+    pub WimFileNameLength: super::DWORD,
 }
 pub const WIM_PROVIDER_CURRENT_VERSION: i32 = 1;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE: i32 = 1;
 pub const WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_EXTERNAL_INFO {
-    pub Version: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
     pub DataSourceId: super::LARGE_INTEGER,
-    pub ResourceHash: [u8; 20],
+    pub ResourceHash: [super::BYTE; 20],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIM_PROVIDER_EXTERNAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9467,56 +9953,56 @@ impl Default for WIM_PROVIDER_EXTERNAL_INFO {
 }
 pub const WIM_PROVIDER_HASH_SIZE: i32 = 20;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_OVERLAY_ENTRY {
-    pub NextEntryOffset: u32,
+    pub NextEntryOffset: super::DWORD,
     pub DataSourceId: super::LARGE_INTEGER,
     pub WimGuid: windows_core::GUID,
-    pub WimFileNameOffset: u32,
-    pub WimType: u32,
-    pub WimIndex: u32,
-    pub Flags: u32,
+    pub WimFileNameOffset: super::DWORD,
+    pub WimType: super::DWORD,
+    pub WimIndex: super::DWORD,
+    pub Flags: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIM_PROVIDER_OVERLAY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     pub DataSourceId: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIM_PROVIDER_REMOVE_OVERLAY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     pub DataSourceId: super::LARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIM_PROVIDER_SUSPEND_OVERLAY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     pub DataSourceId: super::LARGE_INTEGER,
-    pub WimFileNameOffset: u32,
-    pub WimFileNameLength: u32,
+    pub WimFileNameOffset: super::DWORD,
+    pub WimFileNameLength: super::DWORD,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9524,24 +10010,26 @@ impl Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
 }
 pub const WOF_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOF_EXTERNAL_FILE_ID {
     pub FileId: super::FILE_ID_128,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOF_EXTERNAL_INFO {
-    pub Version: u32,
-    pub Provider: u32,
+    pub Version: super::DWORD,
+    pub Provider: super::DWORD,
 }
 pub const WOF_PROVIDER_CLOUD: i32 = 3;
 pub const WOF_PROVIDER_FILE: i32 = 2;
 pub const WOF_PROVIDER_WIM: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOF_VERSION_INFO {
-    pub WofVersion: u32,
+    pub WofVersion: super::DWORD,
 }
 pub type WRITE_CACHE_CHANGE = i32;
 pub type WRITE_CACHE_ENABLE = i32;
@@ -9549,10 +10037,11 @@ pub type WRITE_CACHE_TYPE = i32;
 pub const WRITE_COMPRESSION_INFO_VALID: i32 = 16;
 pub type WRITE_THROUGH = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WRITE_USN_REASON_INPUT {
-    pub Flags: u32,
-    pub UsnReasonToWrite: u32,
+    pub Flags: super::DWORD,
+    pub UsnReasonToWrite: super::DWORD,
 }
 pub const WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = 0;
 pub const WriteCacheChangeable: WRITE_CACHE_CHANGE = 2;
@@ -9589,48 +10078,179 @@ pub const ZonesAttributeTypeMayDifferentLengthSame: STORAGE_ZONES_ATTRIBUTES = 3
 pub const ZonesAttributeTypeSameLastZoneLengthDifferent: STORAGE_ZONES_ATTRIBUTES = 2;
 pub const ZonesAttributeTypeSameLengthSame: STORAGE_ZONES_ATTRIBUTES = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _DataStream {
-    pub Length: u16,
-    pub Flags: u16,
-    pub Reserved: u32,
-    pub Vdl: super::DWORDLONG,
+pub struct _DEVICE_DATA_SET_LBP_STATE_PARAMETERS {
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub OutputVersion: super::DWORD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _DesiredStorageClass {
-    pub Class: FILE_STORAGE_TIER_CLASS,
-    pub Flags: u32,
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_LB_PROVISIONING_STATE {
+    pub Size: super::DWORD,
+    pub Version: super::DWORD,
+    pub SlabSizeInBytes: super::DWORDLONG,
+    pub SlabOffsetDeltaInBytes: super::DWORD,
+    pub SlabAllocationBitMapBitCount: super::DWORD,
+    pub SlabAllocationBitMapLength: super::DWORD,
+    pub SlabAllocationBitMap: [super::DWORD; 1],
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _Ea {
-    pub Length: u16,
-    pub Flags: u16,
-    pub EaSize: u32,
-    pub EaInformationOffset: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _Reparse {
-    pub Length: u16,
-    pub Flags: u16,
-    pub ReparseDataSize: u32,
-    pub ReparseDataOffset: u32,
-}
-#[repr(C)]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub union _StreamInformation {
-    pub DesiredStorageClass: _DesiredStorageClass,
-    pub DataStream: _DataStream,
-    pub Reparse: _Reparse,
-    pub Ea: _Ea,
-}
-#[cfg(feature = "winnt")]
-impl Default for _StreamInformation {
+#[cfg(feature = "shared")]
+impl Default for _DEVICE_DATA_SET_LB_PROVISIONING_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
+    pub Size: super::DWORD,
+    pub Version: super::DWORD,
+    pub SlabSizeInBytes: super::DWORDLONG,
+    pub SlabOffsetDeltaInBytes: super::DWORDLONG,
+    pub SlabAllocationBitMapBitCount: super::DWORD,
+    pub SlabAllocationBitMapLength: super::DWORD,
+    pub SlabAllocationBitMap: [super::DWORD; 1],
+}
+#[cfg(feature = "shared")]
+impl Default for _DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_RANGE {
+    pub StartingOffset: super::LONGLONG,
+    pub LengthInBytes: super::DWORDLONG,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_REPAIR_OUTPUT {
+    pub ParityExtent: DEVICE_DSM_RANGE,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_REPAIR_PARAMETERS {
+    pub NumberOfRepairCopies: super::DWORD,
+    pub SourceCopy: super::DWORD,
+    pub RepairCopies: [super::DWORD; 1],
+}
+#[cfg(feature = "shared")]
+impl Default for _DEVICE_DATA_SET_REPAIR_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
+    pub BytesProcessed: super::DWORDLONG,
+    pub BytesRepaired: super::DWORDLONG,
+    pub BytesFailed: super::DWORDLONG,
+    pub ParityExtent: DEVICE_DSM_RANGE,
+    pub BytesScrubbed: super::DWORDLONG,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_SCRUB_OUTPUT {
+    pub BytesProcessed: super::DWORDLONG,
+    pub BytesRepaired: super::DWORDLONG,
+    pub BytesFailed: super::DWORDLONG,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
+    pub TopologyRangeBytes: super::DWORDLONG,
+    pub TopologyId: [super::BYTE; 16],
+}
+#[cfg(feature = "shared")]
+impl Default for _DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct _DEVICE_DSM_RANGE_ERROR_INFO {
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
+    pub TotalNumberOfRanges: super::DWORD,
+    pub NumberOfRangesReturned: super::DWORD,
+    pub Ranges: [DEVICE_STORAGE_RANGE_ATTRIBUTES; 1],
+}
+#[cfg(feature = "shared")]
+impl Default for _DEVICE_DSM_RANGE_ERROR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _DEVICE_DSM_REPORT_ZONES_DATA {
+    pub Size: super::DWORD,
+    pub ZoneCount: super::DWORD,
+    pub Attributes: STORAGE_ZONES_ATTRIBUTES,
+    pub Reserved0: super::DWORD,
+    pub ZoneDescriptors: [STORAGE_ZONE_DESCRIPTOR; 1],
+}
+#[cfg(feature = "shared")]
+impl Default for _DEVICE_DSM_REPORT_ZONES_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _DEVICE_DSM_TIERING_QUERY_INPUT {
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub NumberOfTierIds: super::DWORD,
+    pub TierIds: [windows_core::GUID; 1],
+}
+#[cfg(feature = "shared")]
+impl Default for _DEVICE_DSM_TIERING_QUERY_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _DEVICE_MANAGE_DATA_SET_ATTRIBUTES {
+    pub Size: super::DWORD,
+    pub Action: DEVICE_DSM_ACTION,
+    pub Flags: super::DWORD,
+    pub ParameterBlockOffset: super::DWORD,
+    pub ParameterBlockLength: super::DWORD,
+    pub DataSetRangesOffset: super::DWORD,
+    pub DataSetRangesLength: super::DWORD,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
+    pub Size: super::DWORD,
+    pub Action: DEVICE_DSM_ACTION,
+    pub Flags: super::DWORD,
+    pub OperationStatus: super::DWORD,
+    pub ExtendedError: super::DWORD,
+    pub TargetDetailedError: super::DWORD,
+    pub ReservedStatus: super::DWORD,
+    pub OutputBlockOffset: super::DWORD,
+    pub OutputBlockLength: super::DWORD,
 }

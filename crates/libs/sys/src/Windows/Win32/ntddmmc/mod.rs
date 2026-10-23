@@ -1,14 +1,16 @@
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct BD_CLASS_SUPPORT_BITMAP {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_BD_READ {
     pub Header: FEATURE_HEADER,
-    pub Reserved: [u8; 4],
+    pub Reserved: [super::UCHAR; 4],
     pub Class0BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
     pub Class1BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
     pub Class2BitmapBDREReadSupport: BD_CLASS_SUPPORT_BITMAP,
@@ -22,28 +24,32 @@ pub struct FEATURE_BD_READ {
     pub Class2BitmapBDROMReadSupport: BD_CLASS_SUPPORT_BITMAP,
     pub Class3BitmapBDROMReadSupport: BD_CLASS_SUPPORT_BITMAP,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_BD_READ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_BD_R_PSEUDO_OVERWRITE {
     pub Header: FEATURE_HEADER,
-    pub Reserved: [u8; 4],
+    pub Reserved: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_BD_R_PSEUDO_OVERWRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_BD_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
     pub Class0BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
     pub Class1BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
     pub Class2BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
@@ -53,624 +59,724 @@ pub struct FEATURE_BD_WRITE {
     pub Class2BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
     pub Class3BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_BD_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_CD_RW_MEDIA_WRITE_SUPPORT {
     pub Header: FEATURE_HEADER,
-    pub Reserved1: u8,
+    pub Reserved1: super::UCHAR,
     pub CDRWMediaSubtypeSupport: FEATURE_CD_RW_MEDIA_WRITE_SUPPORT_0,
-    pub Reserved2: [u8; 2],
+    pub Reserved2: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_CD_RW_MEDIA_WRITE_SUPPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_CD_RW_MEDIA_WRITE_SUPPORT_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_AACS {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
-    pub BindingNonceBlockCount: u8,
+    pub BindingNonceBlockCount: super::UCHAR,
     pub _bitfield2: u8,
-    pub AACSVersion: u8,
+    pub AACSVersion: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_CDRW_CAV_WRITE {
     pub Header: FEATURE_HEADER,
-    pub Reserved1: [u8; 4],
+    pub Reserved1: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_CDRW_CAV_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: u8,
-    pub NumerOfVolumeLevels: [u8; 2],
+    pub Reserved2: super::UCHAR,
+    pub NumerOfVolumeLevels: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_CD_MASTERING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub MaximumCueSheetLength: [u8; 3],
+    pub MaximumCueSheetLength: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_CD_MASTERING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_CD_READ {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_CD_READ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_CD_TRACK_AT_ONCE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: u8,
-    pub DataTypeSupported: [u8; 2],
+    pub Reserved2: super::UCHAR,
+    pub DataTypeSupported: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_CD_TRACK_AT_ONCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_CORE {
     pub Header: FEATURE_HEADER,
-    pub PhysicalInterface: [u8; 4],
+    pub PhysicalInterface: [super::UCHAR; 4],
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_CORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_DDCD_READ {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DDCD_RW_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DDCD_RW_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DDCD_R_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved3: [u8; 3],
+    pub Reserved3: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DDCD_R_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DEFECT_MANAGEMENT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DEFECT_MANAGEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DISC_CONTROL_BLOCKS {
     pub Header: FEATURE_HEADER,
     pub Data: [FEATURE_DATA_DISC_CONTROL_BLOCKS_EX; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DISC_CONTROL_BLOCKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DISC_CONTROL_BLOCKS_EX {
-    pub ContentDescriptor: [u8; 4],
+    pub ContentDescriptor: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DISC_CONTROL_BLOCKS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_CPRM {
     pub Header: FEATURE_HEADER,
-    pub Reserved0: [u8; 3],
-    pub CPRMVersion: u8,
+    pub Reserved0: [super::UCHAR; 3],
+    pub CPRMVersion: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_CPRM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_CSS {
     pub Header: FEATURE_HEADER,
-    pub Reserved1: [u8; 3],
-    pub CssVersion: u8,
+    pub Reserved1: [super::UCHAR; 3],
+    pub CssVersion: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_CSS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_PLUS_R {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_PLUS_R {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_PLUS_RW {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
     pub _bitfield2: u8,
-    pub Reserved03: [u8; 2],
+    pub Reserved03: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_PLUS_RW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
     pub _bitfield2: u8,
-    pub Reserved3: [u8; 2],
+    pub Reserved3: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_DVD_READ {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
-    pub Reserved2: u8,
+    pub Reserved2: super::UCHAR,
     pub _bitfield2: u8,
-    pub Reserved4: u8,
+    pub Reserved4: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_RECORDABLE_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved4: [u8; 3],
+    pub Reserved4: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_RECORDABLE_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved1: [u8; 3],
+    pub Reserved1: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_EMBEDDED_CHANGER {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
-    pub Reserved4: [u8; 2],
+    pub Reserved4: [super::UCHAR; 2],
     pub _bitfield2: u8,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_EMBEDDED_CHANGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_FIRMWARE_DATE {
     pub Header: FEATURE_HEADER,
-    pub Year: [u8; 4],
-    pub Month: [u8; 2],
-    pub Day: [u8; 2],
-    pub Hour: [u8; 2],
-    pub Minute: [u8; 2],
-    pub Seconds: [u8; 2],
-    pub Reserved: [u8; 2],
+    pub Year: [super::UCHAR; 4],
+    pub Month: [super::UCHAR; 2],
+    pub Day: [super::UCHAR; 2],
+    pub Hour: [super::UCHAR; 2],
+    pub Minute: [super::UCHAR; 2],
+    pub Seconds: [super::UCHAR; 2],
+    pub Reserved: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_FIRMWARE_DATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_FORMATTABLE {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
     pub _bitfield2: u8,
-    pub Reserved4: [u8; 3],
+    pub Reserved4: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_FORMATTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_HDDVD_READ {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
-    pub Reserved1: u8,
+    pub Reserved1: super::UCHAR,
     pub _bitfield2: u8,
-    pub Reserved3: u8,
+    pub Reserved3: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_HDDVD_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
-    pub Reserved1: u8,
+    pub Reserved1: super::UCHAR,
     pub _bitfield2: u8,
-    pub Reserved3: u8,
+    pub Reserved3: super::UCHAR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
     pub Header: FEATURE_HEADER,
-    pub DataTypeSupported: [u8; 2],
+    pub DataTypeSupported: [super::UCHAR; 2],
     pub _bitfield: u8,
-    pub NumberOfLinkSizes: u8,
-    pub LinkSize: [u8; 0],
+    pub NumberOfLinkSizes: super::UCHAR,
+    pub LinkSize: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_LAYER_JUMP_RECORDING {
     pub Header: FEATURE_HEADER,
-    pub Reserved0: [u8; 3],
-    pub NumberOfLinkSizes: u8,
-    pub LinkSizes: [u8; 0],
+    pub Reserved0: [super::UCHAR; 3],
+    pub NumberOfLinkSizes: super::UCHAR,
+    pub LinkSizes: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_LAYER_JUMP_RECORDING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER {
     pub Header: FEATURE_HEADER,
-    pub SerialNumber: [u8; 0],
+    pub SerialNumber: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_MICROCODE_UPDATE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_MICROCODE_UPDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_MORPHING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_MORPHING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_MRW {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_MRW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_MULTI_READ {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_POWER_MANAGEMENT {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_PROFILE_LIST {
     pub Header: FEATURE_HEADER,
     pub Profiles: [FEATURE_DATA_PROFILE_LIST_EX; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_PROFILE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_PROFILE_LIST_EX {
-    pub ProfileNumber: [u8; 2],
+    pub ProfileNumber: [super::UCHAR; 2],
     pub _bitfield: u8,
-    pub Reserved2: u8,
+    pub Reserved2: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_PROFILE_LIST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_RANDOM_READABLE {
     pub Header: FEATURE_HEADER,
-    pub LogicalBlockSize: [u8; 4],
-    pub Blocking: [u8; 2],
+    pub LogicalBlockSize: [super::UCHAR; 4],
+    pub Blocking: [super::UCHAR; 2],
     pub _bitfield: u8,
-    pub Reserved2: u8,
+    pub Reserved2: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_RANDOM_READABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_RANDOM_WRITABLE {
     pub Header: FEATURE_HEADER,
-    pub LastLBA: [u8; 4],
-    pub LogicalBlockSize: [u8; 4],
-    pub Blocking: [u8; 2],
+    pub LastLBA: [super::UCHAR; 4],
+    pub LogicalBlockSize: [super::UCHAR; 4],
+    pub Blocking: [super::UCHAR; 2],
     pub _bitfield: u8,
-    pub Reserved2: u8,
+    pub Reserved2: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_RANDOM_WRITABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_REAL_TIME_STREAMING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_REAL_TIME_STREAMING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_REMOVABLE_MEDIUM {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved3: [u8; 3],
+    pub Reserved3: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_REMOVABLE_MEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_RESERVED {
     pub Header: FEATURE_HEADER,
-    pub Data: [u8; 0],
+    pub Data: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_RESERVED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_RESTRICTED_OVERWRITE {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_DATA_SECTOR_ERASABLE {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_SMART {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved02: [u8; 3],
+    pub Reserved02: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_SMART {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_TIMEOUT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: u8,
-    pub UnitLength: [u8; 2],
+    pub Reserved2: super::UCHAR,
+    pub UnitLength: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_TIMEOUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_VENDOR_SPECIFIC {
     pub Header: FEATURE_HEADER,
-    pub VendorSpecificData: [u8; 0],
+    pub VendorSpecificData: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_VENDOR_SPECIFIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_WRITE_ONCE {
     pub Header: FEATURE_HEADER,
-    pub LogicalBlockSize: [u8; 4],
-    pub Blocking: [u8; 2],
+    pub LogicalBlockSize: [super::UCHAR; 4],
+    pub Blocking: [super::UCHAR; 2],
     pub _bitfield: u8,
-    pub Reserved2: u8,
+    pub Reserved2: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_WRITE_ONCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_DATA_WRITE_PROTECT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_DATA_WRITE_PROTECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_ENHANCED_DEFECT_REPORTING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub NumberOfDBICacheZones: u8,
-    pub NumberOfEntries: [u8; 2],
+    pub NumberOfDBICacheZones: super::UCHAR,
+    pub NumberOfEntries: [super::UCHAR; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_ENHANCED_DEFECT_REPORTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_HEADER {
-    pub FeatureCode: [u8; 2],
+    pub FeatureCode: [super::UCHAR; 2],
     pub _bitfield: u8,
-    pub AdditionalLength: u8,
+    pub AdditionalLength: super::UCHAR,
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_HYBRID_DISC {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
-    pub Reserved2: [u8; 3],
+    pub Reserved2: [super::UCHAR; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_HYBRID_DISC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_MEDIA_SERIAL_NUMBER {
     pub Header: FEATURE_HEADER,
@@ -678,16 +784,19 @@ pub struct FEATURE_MEDIA_SERIAL_NUMBER {
 pub type FEATURE_NUMBER = i32;
 pub type FEATURE_PROFILE_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct FEATURE_TSR {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FEATURE_VCPS {
     pub Header: FEATURE_HEADER,
-    pub Reserved: [u8; 4],
+    pub Reserved: [super::UCHAR; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for FEATURE_VCPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -748,110 +857,160 @@ pub const FeatureVCPS: FEATURE_NUMBER = 272;
 pub const FeatureWriteOnce: FEATURE_NUMBER = 37;
 pub const FeatureWriteProtect: FEATURE_NUMBER = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct GET_CONFIGURATION_HEADER {
-    pub DataLength: [u8; 4],
-    pub Reserved: [u8; 2],
-    pub CurrentProfile: [u8; 2],
-    pub Data: [u8; 0],
+    pub DataLength: [super::UCHAR; 4],
+    pub Reserved: [super::UCHAR; 2],
+    pub CurrentProfile: [super::UCHAR; 2],
+    pub Data: [super::UCHAR; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for GET_CONFIGURATION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct GET_CONFIGURATION_IOCTL_INPUT {
     pub Feature: FEATURE_NUMBER,
-    pub RequestType: u32,
-    pub Reserved: [*mut core::ffi::c_void; 2],
+    pub RequestType: super::ULONG,
+    pub Reserved: [super::PVOID; 2],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for GET_CONFIGURATION_IOCTL_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct GET_CONFIGURATION_IOCTL_INPUT32 {
-    pub Feature: FEATURE_NUMBER,
-    pub RequestType: u32,
-    pub Reserved: [*mut core::ffi::c_void; 2],
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for GET_CONFIGURATION_IOCTL_INPUT32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
 pub type PBD_CLASS_SUPPORT_BITMAP = *mut BD_CLASS_SUPPORT_BITMAP;
+#[cfg(feature = "shared")]
 pub type PFEATURE_BD_READ = *mut FEATURE_BD_READ;
+#[cfg(feature = "shared")]
 pub type PFEATURE_BD_R_PSEUDO_OVERWRITE = *mut FEATURE_BD_R_PSEUDO_OVERWRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_BD_WRITE = *mut FEATURE_BD_WRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_CD_RW_MEDIA_WRITE_SUPPORT = *mut FEATURE_CD_RW_MEDIA_WRITE_SUPPORT;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_AACS = *mut FEATURE_DATA_AACS;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_CDRW_CAV_WRITE = *mut FEATURE_DATA_CDRW_CAV_WRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_CD_AUDIO_ANALOG_PLAY = *mut FEATURE_DATA_CD_AUDIO_ANALOG_PLAY;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_CD_MASTERING = *mut FEATURE_DATA_CD_MASTERING;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_CD_READ = *mut FEATURE_DATA_CD_READ;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_CD_TRACK_AT_ONCE = *mut FEATURE_DATA_CD_TRACK_AT_ONCE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_CORE = *mut FEATURE_DATA_CORE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DDCD_READ = *mut FEATURE_DATA_DDCD_READ;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DDCD_RW_WRITE = *mut FEATURE_DATA_DDCD_RW_WRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DDCD_R_WRITE = *mut FEATURE_DATA_DDCD_R_WRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DEFECT_MANAGEMENT = *mut FEATURE_DATA_DEFECT_MANAGEMENT;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DISC_CONTROL_BLOCKS = *mut FEATURE_DATA_DISC_CONTROL_BLOCKS;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DISC_CONTROL_BLOCKS_EX = *mut FEATURE_DATA_DISC_CONTROL_BLOCKS_EX;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_CPRM = *mut FEATURE_DATA_DVD_CPRM;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_CSS = *mut FEATURE_DATA_DVD_CSS;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_PLUS_R = *mut FEATURE_DATA_DVD_PLUS_R;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_PLUS_RW = *mut FEATURE_DATA_DVD_PLUS_RW;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER = *mut FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_PLUS_R_DUAL_LAYER = *mut FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_READ = *mut FEATURE_DATA_DVD_READ;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_RECORDABLE_WRITE = *mut FEATURE_DATA_DVD_RECORDABLE_WRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE = *mut FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_EMBEDDED_CHANGER = *mut FEATURE_DATA_EMBEDDED_CHANGER;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_FIRMWARE_DATE = *mut FEATURE_DATA_FIRMWARE_DATE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_FORMATTABLE = *mut FEATURE_DATA_FORMATTABLE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_HDDVD_READ = *mut FEATURE_DATA_HDDVD_READ;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_HDDVD_WRITE = *mut FEATURE_DATA_HDDVD_WRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE = *mut FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_LAYER_JUMP_RECORDING = *mut FEATURE_DATA_LAYER_JUMP_RECORDING;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER = *mut FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_MICROCODE_UPDATE = *mut FEATURE_DATA_MICROCODE_UPDATE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_MORPHING = *mut FEATURE_DATA_MORPHING;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_MRW = *mut FEATURE_DATA_MRW;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_MULTI_READ = *mut FEATURE_DATA_MULTI_READ;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_POWER_MANAGEMENT = *mut FEATURE_DATA_POWER_MANAGEMENT;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_PROFILE_LIST = *mut FEATURE_DATA_PROFILE_LIST;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_PROFILE_LIST_EX = *mut FEATURE_DATA_PROFILE_LIST_EX;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_RANDOM_READABLE = *mut FEATURE_DATA_RANDOM_READABLE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_RANDOM_WRITABLE = *mut FEATURE_DATA_RANDOM_WRITABLE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_REAL_TIME_STREAMING = *mut FEATURE_DATA_REAL_TIME_STREAMING;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_REMOVABLE_MEDIUM = *mut FEATURE_DATA_REMOVABLE_MEDIUM;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_RESERVED = *mut FEATURE_DATA_RESERVED;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_RESTRICTED_OVERWRITE = *mut FEATURE_DATA_RESTRICTED_OVERWRITE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_SECTOR_ERASABLE = *mut FEATURE_DATA_SECTOR_ERASABLE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_SMART = *mut FEATURE_DATA_SMART;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_TIMEOUT = *mut FEATURE_DATA_TIMEOUT;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_VENDOR_SPECIFIC = *mut FEATURE_DATA_VENDOR_SPECIFIC;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_WRITE_ONCE = *mut FEATURE_DATA_WRITE_ONCE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_DATA_WRITE_PROTECT = *mut FEATURE_DATA_WRITE_PROTECT;
+#[cfg(feature = "shared")]
 pub type PFEATURE_ENHANCED_DEFECT_REPORTING = *mut FEATURE_ENHANCED_DEFECT_REPORTING;
+#[cfg(feature = "shared")]
 pub type PFEATURE_HEADER = *mut FEATURE_HEADER;
+#[cfg(feature = "shared")]
 pub type PFEATURE_HYBRID_DISC = *mut FEATURE_HYBRID_DISC;
+#[cfg(feature = "shared")]
 pub type PFEATURE_MEDIA_SERIAL_NUMBER = *mut FEATURE_MEDIA_SERIAL_NUMBER;
 pub type PFEATURE_NUMBER = *mut FEATURE_NUMBER;
 pub type PFEATURE_PROFILE_TYPE = *mut FEATURE_PROFILE_TYPE;
+#[cfg(feature = "shared")]
 pub type PFEATURE_TSR = *mut FEATURE_TSR;
+#[cfg(feature = "shared")]
 pub type PFEATURE_VCPS = *mut FEATURE_VCPS;
+#[cfg(feature = "shared")]
 pub type PGET_CONFIGURATION_HEADER = *mut GET_CONFIGURATION_HEADER;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGET_CONFIGURATION_IOCTL_INPUT = *mut GET_CONFIGURATION_IOCTL_INPUT;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PGET_CONFIGURATION_IOCTL_INPUT32 = *mut GET_CONFIGURATION_IOCTL_INPUT32;
 pub const ProfileAS_MO: FEATURE_PROFILE_TYPE = 5;
 pub const ProfileBDRRandomWritable: FEATURE_PROFILE_TYPE = 66;
 pub const ProfileBDRSequentialWritable: FEATURE_PROFILE_TYPE = 65;

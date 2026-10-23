@@ -12,50 +12,58 @@ pub const OHCI_Generic: USB_CONTROLLER_FLAVOR = 100;
 pub const OHCI_Hydra: USB_CONTROLLER_FLAVOR = 101;
 pub const OHCI_NEC: USB_CONTROLLER_FLAVOR = 102;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct OS_STRING {
-    pub bLength: u8,
-    pub bDescriptorType: u8,
-    pub MicrosoftString: [u16; 7],
-    pub bVendorCode: u8,
+    pub bLength: super::UCHAR,
+    pub bDescriptorType: super::UCHAR,
+    pub MicrosoftString: [super::WCHAR; 7],
+    pub bVendorCode: super::UCHAR,
     pub Anonymous: OS_STRING_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for OS_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union OS_STRING_0 {
-    pub bPad: u8,
-    pub bFlags: u8,
+    pub bPad: super::UCHAR,
+    pub bFlags: super::UCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for OS_STRING_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const OS_STRING_DESCRIPTOR_INDEX: i32 = 238;
-#[cfg(feature = "winnt")]
-pub type PHYSICAL_ADDRESS = super::LARGE_INTEGER;
 pub type PIRP = *mut core::ffi::c_void;
 pub type PMDL = *mut core::ffi::c_void;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type POS_STRING = *mut OS_STRING;
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 pub type PURB = *mut URB;
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 pub type PUSBD_DEVICE_INFORMATION = *mut USBD_DEVICE_INFORMATION;
-#[cfg(feature = "winnt")]
-pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut _USBD_ENDPOINT_OFFLOAD_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION_V1;
-#[cfg(feature = "winnt")]
-pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = *mut _USBD_ENDPOINT_OFFLOAD_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PUSBD_INTERFACE_INFORMATION = *mut USBD_INTERFACE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PUSBD_ISO_PACKET_DESCRIPTOR = *mut USBD_ISO_PACKET_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PUSBD_PIPE_INFORMATION = *mut USBD_PIPE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PUSBD_STREAM_INFORMATION = *mut USBD_STREAM_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PUSBD_VERSION_INFORMATION = *mut USBD_VERSION_INFORMATION;
 pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = 200;
 pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = 205;
@@ -75,19 +83,19 @@ pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = 253;
 pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = 254;
 pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = 264;
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct URB {
     pub Anonymous: URB_0,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for URB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union URB_0 {
     pub UrbHeader: _URB_HEADER,
@@ -112,7 +120,7 @@ pub union URB_0 {
     pub UrbOpenStaticStreams: _URB_OPEN_STATIC_STREAMS,
     pub UrbGetIsochPipeTransferPathDelays: _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for URB_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -183,99 +191,72 @@ pub type USBD_CONFIGURATION_HANDLE = *mut core::ffi::c_void;
 pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295;
 pub const USBD_DEFAULT_PIPE_TRANSFER: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct USBD_DEVICE_INFORMATION {
-    pub OffsetNext: u32,
-    pub UsbdDeviceHandle: *mut core::ffi::c_void,
+    pub OffsetNext: super::ULONG,
+    pub UsbdDeviceHandle: super::PVOID,
     pub DeviceDescriptor: super::USB_DEVICE_DESCRIPTOR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type USBD_ENDPOINT_OFFLOAD_INFORMATION = _USBD_ENDPOINT_OFFLOAD_INFORMATION;
 #[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
-    pub Size: u32,
-    pub EndpointAddress: u16,
-    pub ResourceId: u32,
-    pub Mode: USBD_ENDPOINT_OFFLOAD_MODE,
-    pub _bitfield1: u32,
-    pub _bitfield2: u32,
-    pub TransferSegmentLA: PHYSICAL_ADDRESS,
-    pub TransferSegmentVA: *mut core::ffi::c_void,
-    pub TransferRingSize: usize,
-    pub TransferRingInitialCycleBit: u32,
-    pub MessageNumber: u32,
-    pub EventRingSegmentLA: PHYSICAL_ADDRESS,
-    pub EventRingSegmentVA: *mut core::ffi::c_void,
-    pub EventRingSize: usize,
-    pub EventRingInitialCycleBit: u32,
-    pub ClientTransferRingSegmentPAIn: PHYSICAL_ADDRESS,
-    pub ClientTransferRingSizeIn: usize,
-    pub ClientDataBufferPAIn: PHYSICAL_ADDRESS,
-    pub ClientDataBufferSizeIn: usize,
-    pub ClientDataBufferLAOut: PHYSICAL_ADDRESS,
-    pub ClientDataBufferVAOut: *mut core::ffi::c_void,
-}
-#[cfg(feature = "winnt")]
-impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
-    pub Size: u32,
-    pub EndpointAddress: u16,
-    pub ResourceId: u32,
+    pub Size: super::ULONG,
+    pub EndpointAddress: super::USHORT,
+    pub ResourceId: super::ULONG,
     pub Mode: USBD_ENDPOINT_OFFLOAD_MODE,
     pub _bitfield1: u32,
     pub _bitfield2: u32,
-    pub TransferSegmentLA: PHYSICAL_ADDRESS,
-    pub TransferSegmentVA: *mut core::ffi::c_void,
-    pub TransferRingSize: usize,
-    pub TransferRingInitialCycleBit: u32,
-    pub MessageNumber: u32,
-    pub EventRingSegmentLA: PHYSICAL_ADDRESS,
-    pub EventRingSegmentVA: *mut core::ffi::c_void,
-    pub EventRingSize: usize,
-    pub EventRingInitialCycleBit: u32,
+    pub TransferSegmentLA: super::PHYSICAL_ADDRESS,
+    pub TransferSegmentVA: super::PVOID,
+    pub TransferRingSize: super::size_t,
+    pub TransferRingInitialCycleBit: super::ULONG,
+    pub MessageNumber: super::ULONG,
+    pub EventRingSegmentLA: super::PHYSICAL_ADDRESS,
+    pub EventRingSegmentVA: super::PVOID,
+    pub EventRingSize: super::size_t,
+    pub EventRingInitialCycleBit: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for USBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "winnt")]
-pub type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = USBD_ENDPOINT_OFFLOAD_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type USBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = _USBD_ENDPOINT_OFFLOAD_INFORMATION;
 pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
 pub type USBD_INTERFACE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct USBD_INTERFACE_INFORMATION {
-    pub Length: u16,
-    pub InterfaceNumber: u8,
-    pub AlternateSetting: u8,
-    pub Class: u8,
-    pub SubClass: u8,
-    pub Protocol: u8,
-    pub Reserved: u8,
+    pub Length: super::USHORT,
+    pub InterfaceNumber: super::UCHAR,
+    pub AlternateSetting: super::UCHAR,
+    pub Class: super::UCHAR,
+    pub SubClass: super::UCHAR,
+    pub Protocol: super::UCHAR,
+    pub Reserved: super::UCHAR,
     pub InterfaceHandle: USBD_INTERFACE_HANDLE,
-    pub NumberOfPipes: u32,
+    pub NumberOfPipes: super::ULONG,
     pub Pipes: [USBD_PIPE_INFORMATION; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for USBD_INTERFACE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USBD_ISO_PACKET_DESCRIPTOR {
-    pub Offset: u32,
-    pub Length: u32,
+    pub Offset: super::ULONG,
+    pub Length: super::ULONG,
     pub Status: USBD_STATUS,
 }
 pub const USBD_ISO_START_FRAME_RANGE: i32 = 1024;
@@ -292,15 +273,16 @@ pub const USBD_PF_VIDEO_PRIORITY: i32 = 16;
 pub const USBD_PF_VOICE_PRIORITY: i32 = 32;
 pub type USBD_PIPE_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USBD_PIPE_INFORMATION {
-    pub MaximumPacketSize: u16,
-    pub EndpointAddress: u8,
-    pub Interval: u8,
+    pub MaximumPacketSize: super::USHORT,
+    pub EndpointAddress: super::UCHAR,
+    pub Interval: super::UCHAR,
     pub PipeType: USBD_PIPE_TYPE,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub MaximumTransferSize: u32,
-    pub PipeFlags: u32,
+    pub MaximumTransferSize: super::ULONG,
+    pub PipeFlags: super::ULONG,
 }
 pub type USBD_PIPE_TYPE = i32;
 pub const USBD_SHORT_TRANSFER_OK: i32 = 2;
@@ -370,21 +352,23 @@ pub const USBD_STATUS_TIMEOUT: USBD_STATUS = 0xC0006000_u32 as _;
 pub const USBD_STATUS_UNEXPECTED_PID: USBD_STATUS = 0xC0000007_u32 as _;
 pub const USBD_STATUS_XACT_ERROR: USBD_STATUS = 0xC0000011_u32 as _;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USBD_STREAM_INFORMATION {
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub StreamID: u32,
-    pub MaximumTransferSize: u32,
-    pub PipeFlags: u32,
+    pub StreamID: super::ULONG,
+    pub MaximumTransferSize: super::ULONG,
+    pub PipeFlags: super::ULONG,
 }
 pub const USBD_TRANSFER_DIRECTION: i32 = 1;
 pub const USBD_TRANSFER_DIRECTION_IN: i32 = 1;
 pub const USBD_TRANSFER_DIRECTION_OUT: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct USBD_VERSION_INFORMATION {
-    pub USBDI_Version: u32,
-    pub Supported_USB_Version: u32,
+    pub USBDI_Version: super::ULONG,
+    pub Supported_USB_Version: super::ULONG,
 }
 pub type USB_CONTROLLER_FLAVOR = i32;
 pub const USB_DEFAULT_DEVICE_ADDRESS: i32 = 0;
@@ -406,279 +390,290 @@ pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = 3;
 pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1;
 pub const VALID_TRANSFER_FLAGS_MASK: i32 = 15;
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub TransferFlags: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub TransferFlags: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
-    pub Reserved: *mut core::ffi::c_void,
-    pub Reserved0: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub Reserved: super::PVOID,
+    pub Reserved0: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub Reserved1: u16,
-    pub Index: u8,
-    pub DescriptorType: u8,
-    pub LanguageId: u16,
-    pub Reserved2: u16,
+    pub Reserved1: super::USHORT,
+    pub Index: super::UCHAR,
+    pub DescriptorType: super::UCHAR,
+    pub LanguageId: super::USHORT,
+    pub Reserved2: super::USHORT,
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
-    pub Reserved: *mut core::ffi::c_void,
-    pub Reserved2: u32,
-    pub Reserved3: u32,
-    pub Reserved4: *mut core::ffi::c_void,
+    pub Reserved: super::PVOID,
+    pub Reserved2: super::ULONG,
+    pub Reserved3: super::ULONG,
+    pub Reserved4: super::PVOID,
     pub Reserved5: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub Reserved0: u16,
-    pub FeatureSelector: u16,
-    pub Index: u16,
-    pub Reserved1: u16,
+    pub Reserved0: super::USHORT,
+    pub FeatureSelector: super::USHORT,
+    pub Index: super::USHORT,
+    pub Reserved1: super::USHORT,
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub Hdr: _URB_HEADER,
-    pub Reserved: *mut core::ffi::c_void,
-    pub Reserved0: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub Reserved: super::PVOID,
+    pub Reserved0: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub Reserved1: [u8; 8],
+    pub Reserved1: [super::UCHAR; 8],
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Hdr: _URB_HEADER,
-    pub Reserved: *mut core::ffi::c_void,
-    pub Reserved0: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub Reserved: super::PVOID,
+    pub Reserved0: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub Reserved1: [u8; 4],
-    pub Interface: u16,
-    pub Reserved2: u16,
+    pub Reserved1: [super::UCHAR; 4],
+    pub Interface: super::USHORT,
+    pub Reserved2: super::USHORT,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for _URB_CONTROL_GET_INTERFACE_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Hdr: _URB_HEADER,
-    pub Reserved: *mut core::ffi::c_void,
-    pub Reserved0: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub Reserved: super::PVOID,
+    pub Reserved0: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub Reserved1: [u8; 4],
-    pub Index: u16,
-    pub Reserved2: u16,
+    pub Reserved1: [super::UCHAR; 4],
+    pub Index: super::USHORT,
+    pub Reserved2: super::USHORT,
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for _URB_CONTROL_GET_STATUS_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct _URB_CONTROL_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub TransferFlags: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub TransferFlags: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub SetupPacket: [u8; 8],
+    pub SetupPacket: [super::UCHAR; 8],
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for _URB_CONTROL_TRANSFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct _URB_CONTROL_TRANSFER_EX {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub TransferFlags: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub TransferFlags: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
-    pub Timeout: u32,
+    pub Timeout: super::ULONG,
     pub hca: _URB_HCD_AREA,
-    pub SetupPacket: [u8; 8],
+    pub SetupPacket: [super::UCHAR; 8],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for _URB_CONTROL_TRANSFER_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
-    pub Reserved: *mut core::ffi::c_void,
-    pub TransferFlags: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub Reserved: super::PVOID,
+    pub TransferFlags: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub RequestTypeReservedBits: u8,
-    pub Request: u8,
-    pub Value: u16,
-    pub Index: u16,
-    pub Reserved1: u16,
+    pub RequestTypeReservedBits: super::UCHAR,
+    pub Request: super::UCHAR,
+    pub Value: super::USHORT,
+    pub Index: super::USHORT,
+    pub Reserved1: super::USHORT,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_FRAME_LENGTH_CONTROL {
     pub Hdr: _URB_HEADER,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_GET_CURRENT_FRAME_NUMBER {
     pub Hdr: _URB_HEADER,
-    pub FrameNumber: u32,
+    pub FrameNumber: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_GET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
-    pub FrameLength: u32,
-    pub FrameNumber: u32,
+    pub FrameLength: super::ULONG,
+    pub FrameNumber: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub MaximumSendPathDelayInMilliSeconds: u32,
-    pub MaximumCompletionPathDelayInMilliSeconds: u32,
+    pub MaximumSendPathDelayInMilliSeconds: super::ULONG,
+    pub MaximumCompletionPathDelayInMilliSeconds: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct _URB_HCD_AREA {
-    pub Reserved8: [*mut core::ffi::c_void; 8],
+    pub Reserved8: [super::PVOID; 8],
 }
+#[cfg(feature = "winnt")]
 impl Default for _URB_HCD_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_HEADER {
-    pub Length: u16,
-    pub Function: u16,
+    pub Length: super::USHORT,
+    pub Function: super::USHORT,
     pub Status: USBD_STATUS,
-    pub UsbdDeviceHandle: *mut core::ffi::c_void,
-    pub UsbdFlags: u32,
+    pub UsbdDeviceHandle: super::PVOID,
+    pub UsbdFlags: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct _URB_ISOCH_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub TransferFlags: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub TransferFlags: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
-    pub StartFrame: u32,
-    pub NumberOfPackets: u32,
-    pub ErrorCount: u32,
+    pub StartFrame: super::ULONG,
+    pub NumberOfPackets: super::ULONG,
+    pub ErrorCount: super::ULONG,
     pub IsoPacket: [USBD_ISO_PACKET_DESCRIPTOR; 1],
 }
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 impl Default for _URB_ISOCH_TRANSFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_OPEN_STATIC_STREAMS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub NumberOfStreams: u32,
-    pub StreamInfoVersion: u16,
-    pub StreamInfoSize: u16,
+    pub NumberOfStreams: super::ULONG,
+    pub StreamInfoVersion: super::USHORT,
+    pub StreamInfoSize: super::USHORT,
     pub Streams: PUSBD_STREAM_INFORMATION,
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
-    pub Reserved: *mut core::ffi::c_void,
-    pub Reserved0: u32,
-    pub TransferBufferLength: u32,
-    pub TransferBuffer: *mut core::ffi::c_void,
+    pub Reserved: super::PVOID,
+    pub Reserved0: super::ULONG,
+    pub TransferBufferLength: super::ULONG,
+    pub TransferBuffer: super::PVOID,
     pub TransferBufferMDL: PMDL,
     pub UrbLink: *mut URB,
     pub hca: _URB_HCD_AREA,
     pub _bitfield: u8,
-    pub Reserved2: u8,
-    pub InterfaceNumber: u8,
-    pub MS_PageIndex: u8,
-    pub MS_FeatureDescriptorIndex: u16,
-    pub Reserved3: u16,
+    pub Reserved2: super::UCHAR,
+    pub InterfaceNumber: super::UCHAR,
+    pub MS_PageIndex: super::UCHAR,
+    pub MS_FeatureDescriptorIndex: super::USHORT,
+    pub Reserved3: super::USHORT,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_PIPE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
-    pub Reserved: u32,
+    pub Reserved: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "usbspec")]
+#[cfg(all(feature = "shared", feature = "usbspec", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_SELECT_CONFIGURATION {
     pub Hdr: _URB_HEADER,
@@ -687,6 +682,7 @@ pub struct _URB_SELECT_CONFIGURATION {
     pub Interface: USBD_INTERFACE_INFORMATION,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_SELECT_INTERFACE {
     pub Hdr: _URB_HEADER,
@@ -694,8 +690,41 @@ pub struct _URB_SELECT_INTERFACE {
     pub Interface: USBD_INTERFACE_INFORMATION,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct _URB_SET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
-    pub FrameLengthDelta: i32,
+    pub FrameLengthDelta: super::LONG,
+}
+#[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct _USBD_ENDPOINT_OFFLOAD_INFORMATION {
+    pub Size: super::ULONG,
+    pub EndpointAddress: super::USHORT,
+    pub ResourceId: super::ULONG,
+    pub Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+    pub _bitfield1: u32,
+    pub _bitfield2: u32,
+    pub TransferSegmentLA: super::PHYSICAL_ADDRESS,
+    pub TransferSegmentVA: super::PVOID,
+    pub TransferRingSize: super::size_t,
+    pub TransferRingInitialCycleBit: super::ULONG,
+    pub MessageNumber: super::ULONG,
+    pub EventRingSegmentLA: super::PHYSICAL_ADDRESS,
+    pub EventRingSegmentVA: super::PVOID,
+    pub EventRingSize: super::size_t,
+    pub EventRingInitialCycleBit: super::ULONG,
+    pub ClientTransferRingSegmentPAIn: super::PHYSICAL_ADDRESS,
+    pub ClientTransferRingSizeIn: super::size_t,
+    pub ClientDataBufferPAIn: super::PHYSICAL_ADDRESS,
+    pub ClientDataBufferSizeIn: super::size_t,
+    pub ClientDataBufferLAOut: super::PHYSICAL_ADDRESS,
+    pub ClientDataBufferVAOut: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for _USBD_ENDPOINT_OFFLOAD_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

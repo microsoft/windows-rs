@@ -329,7 +329,7 @@ mod Windows {
             fn SetMaximumTextureMemory(&self, maximumInBytes: UINT64);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetMaximumTextureMemory(&self) -> UINT64;
-            fn ClearResources(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] millisecondsSinceUse: UINT32);
+            fn ClearResources(&self, millisecondsSinceUse: UINT32);
         }
         #[guid(0xe8f7fe7a_191c_466d_ad95_975678bda998)]
         interface ID2D1DeviceContext: ID2D1RenderTarget {
@@ -368,16 +368,16 @@ mod Windows {
             fn SetUnitMode(&self, unitMode: D2D1_UNIT_MODE);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetUnitMode(&self) -> D2D1_UNIT_MODE;
-            fn DrawGlyphRun(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[in] foregroundBrush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("DWRITE_MEASURING_MODE_NATURAL")] measuringMode: DWRITE_MEASURING_MODE);
-            fn DrawImage(&self, #[in] image: ID2D1Image, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] targetOffset: *const D2D1_POINT_2F, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] imageRectangle: *const D2D1_RECT_F, #[Windows::Win32::Metadata::NativeDefaultArgument("D2D1_INTERPOLATION_MODE_LINEAR")] interpolationMode: D2D1_INTERPOLATION_MODE, #[Windows::Win32::Metadata::NativeDefaultArgument("D2D1_COMPOSITE_MODE_SOURCE_OVER")] compositeMode: D2D1_COMPOSITE_MODE);
-            fn DrawGdiMetafile(&self, #[in] gdiMetafile: ID2D1GdiMetafile, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] targetOffset: *const D2D1_POINT_2F);
-            fn DrawBitmap(&self, #[in] bitmap: ID2D1Bitmap, #[in] #[opt] destinationRectangle: *const D2D1_RECT_F, opacity: FLOAT, interpolationMode: D2D1_INTERPOLATION_MODE, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] sourceRectangle: *const D2D1_RECT_F, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] perspectiveTransform: *const D2D1_MATRIX_4X4_F);
+            fn DrawGlyphRun(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, #[in] foregroundBrush: ID2D1Brush, measuringMode: DWRITE_MEASURING_MODE);
+            fn DrawImage(&self, #[in] image: ID2D1Image, #[in] #[opt] targetOffset: *const D2D1_POINT_2F, #[in] #[opt] imageRectangle: *const D2D1_RECT_F, interpolationMode: D2D1_INTERPOLATION_MODE, compositeMode: D2D1_COMPOSITE_MODE);
+            fn DrawGdiMetafile(&self, #[in] gdiMetafile: ID2D1GdiMetafile, #[in] #[opt] targetOffset: *const D2D1_POINT_2F);
+            fn DrawBitmap(&self, #[in] bitmap: ID2D1Bitmap, #[in] #[opt] destinationRectangle: *const D2D1_RECT_F, opacity: FLOAT, interpolationMode: D2D1_INTERPOLATION_MODE, #[in] #[opt] sourceRectangle: *const D2D1_RECT_F, #[in] #[opt] perspectiveTransform: *const D2D1_MATRIX_4X4_F);
             fn PushLayer(&self, #[in] layerParameters: *const D2D1_LAYER_PARAMETERS1, #[in] #[opt] layer: ID2D1Layer);
             fn InvalidateEffectInputRectangle(&self, #[in] effect: ID2D1Effect, input: UINT32, #[in] inputRectangle: *const D2D1_RECT_F) -> HRESULT;
             fn GetEffectInvalidRectangleCount(&self, #[in] effect: ID2D1Effect, #[out] rectangleCount: *mut UINT32) -> HRESULT;
             fn GetEffectInvalidRectangles(&self, #[in] effect: ID2D1Effect, #[out] #[writable(entry, rectanglesCount)] rectangles: *mut D2D1_RECT_F, rectanglesCount: UINT32) -> HRESULT;
             fn GetEffectRequiredInputRectangles(&self, #[in] renderEffect: ID2D1Effect, #[in] #[opt] renderImageRectangle: *const D2D1_RECT_F, #[in] #[readable(entry, inputCount)] inputDescriptions: *const D2D1_EFFECT_INPUT_DESCRIPTION, #[out] #[writable(entry, inputCount)] requiredInputRects: *mut D2D1_RECT_F, inputCount: UINT32) -> HRESULT;
-            fn FillOpacityMask(&self, #[in] opacityMask: ID2D1Bitmap, #[in] brush: ID2D1Brush, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] destinationRectangle: *const D2D1_RECT_F, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] sourceRectangle: *const D2D1_RECT_F);
+            fn FillOpacityMask(&self, #[in] opacityMask: ID2D1Bitmap, #[in] brush: ID2D1Brush, #[in] #[opt] destinationRectangle: *const D2D1_RECT_F, #[in] #[opt] sourceRectangle: *const D2D1_RECT_F);
         }
         #[guid(0x689f1f85_c72e_4e33_8f19_85754efd5ace)]
         interface ID2D1DrawingStateBlock1: ID2D1DrawingStateBlock {
@@ -387,7 +387,7 @@ mod Windows {
         }
         #[guid(0x28211a43_7d89_476f_8181_2d6159b220ad)]
         interface ID2D1Effect: ID2D1Properties {
-            fn SetInput(&self, index: UINT32, #[in] #[opt] input: ID2D1Image, #[Windows::Win32::Metadata::NativeDefaultArgument("1")] invalidate: BOOL);
+            fn SetInput(&self, index: UINT32, #[in] #[opt] input: ID2D1Image, invalidate: BOOL);
             fn SetInputCount(&self, inputCount: UINT32) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetInput(&self, index: UINT32, #[out] #[out_ptr(nullable)] input: *mut ID2D1Image);
@@ -465,7 +465,7 @@ mod Windows {
         }
         #[guid(0x2c1d867d_c290_41c8_ae7e_34a98702e9a5)]
         interface ID2D1PrintControl: IUnknown {
-            fn AddPage(&self, #[in] commandList: ID2D1CommandList, pageSize: D2D_SIZE_F, #[in] #[opt] pagePrintTicketStream: IStream, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag1: *mut D2D1_TAG, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn AddPage(&self, #[in] commandList: ID2D1CommandList, pageSize: D2D_SIZE_F, #[in] #[opt] pagePrintTicketStream: IStream, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0x483473d7_cd46_4f9d_9d3a_3112aa80159d)]

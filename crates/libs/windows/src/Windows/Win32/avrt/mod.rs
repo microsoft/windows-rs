@@ -10,13 +10,13 @@ pub unsafe fn AvRevertMmThreadCharacteristics(avrthandle: super::HANDLE) -> wind
     windows_core::link!("avrt.dll" "system" fn AvRevertMmThreadCharacteristics(avrthandle : super::HANDLE) -> windows_core::BOOL);
     unsafe { AvRevertMmThreadCharacteristics(avrthandle) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroup(context: super::PHANDLE, period: super::PLARGE_INTEGER, threadorderingguid: *mut windows_core::GUID, timeout: Option<super::PLARGE_INTEGER>) -> windows_core::BOOL {
     windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroup(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_core::GUID, timeout : super::PLARGE_INTEGER) -> windows_core::BOOL);
     unsafe { AvRtCreateThreadOrderingGroup(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExA<P4>(context: super::PHANDLE, period: super::PLARGE_INTEGER, threadorderingguid: *mut windows_core::GUID, timeout: Option<super::PLARGE_INTEGER>, taskname: P4) -> windows_core::BOOL
 where
@@ -25,7 +25,7 @@ where
     windows_core::link!("avrt.dll" "system" fn AvRtCreateThreadOrderingGroupExA(context : super::PHANDLE, period : super::PLARGE_INTEGER, threadorderingguid : *mut windows_core::GUID, timeout : super::PLARGE_INTEGER, taskname : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { AvRtCreateThreadOrderingGroupExA(context as _, period, threadorderingguid as _, timeout.unwrap_or(core::mem::zeroed()) as _, taskname.param().abi()) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AvRtCreateThreadOrderingGroupExW<P4>(context: super::PHANDLE, period: super::PLARGE_INTEGER, threadorderingguid: *mut windows_core::GUID, timeout: Option<super::PLARGE_INTEGER>, taskname: P4) -> windows_core::BOOL
 where

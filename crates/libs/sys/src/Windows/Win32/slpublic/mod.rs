@@ -1,48 +1,66 @@
-windows_link::link!("slcext.dll" "system" fn SLAcquireGenuineTicket(ppticketblob : *mut *mut core::ffi::c_void, pcbticketblob : *mut u32, pwsztemplateid : windows_sys::core::PCWSTR, pwszserverurl : windows_sys::core::PCWSTR, pwszclienttoken : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("slcext.dll" "system" fn SLActivateProduct(hslc : HSLC, pproductskuid : *const SLID, cbappspecificdata : u32, pvappspecificdata : *const core::ffi::c_void, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver : windows_sys::core::PCWSTR, wproxyport : u16) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slcext.dll" "system" fn SLAcquireGenuineTicket(ppticketblob : *mut *mut core::ffi::c_void, pcbticketblob : *mut super::UINT, pwsztemplateid : windows_sys::core::PCWSTR, pwszserverurl : windows_sys::core::PCWSTR, pwszclienttoken : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("slcext.dll" "system" fn SLActivateProduct(hslc : HSLC, pproductskuid : *const SLID, cbappspecificdata : super::UINT, pvappspecificdata : super::PVOID, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszproxyserver : windows_sys::core::PCWSTR, wproxyport : super::WORD) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLClose(hslc : HSLC) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLConsumeRight(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_sys::core::PCWSTR, pvreserved : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "winnt")]
+windows_link::link!("slc.dll" "system" fn SLConsumeRight(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_sys::core::PCWSTR, pvreserved : super::PVOID) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLDepositOfflineConfirmationId(hslc : HSLC, pproductskuid : *const SLID, pwszinstallationid : windows_sys::core::PCWSTR, pwszconfirmationid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("slc.dll" "system" fn SLDepositOfflineConfirmationIdEx(hslc : HSLC, pproductskuid : *const SLID, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, pwszinstallationid : windows_sys::core::PCWSTR, pwszconfirmationid : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLFireEvent(hslc : HSLC, pwszeventid : windows_sys::core::PCWSTR, papplicationid : *const SLID) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLGenerateOfflineInstallationId(hslc : HSLC, pproductskuid : *const SLID, ppwszinstallationid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("slc.dll" "system" fn SLGenerateOfflineInstallationIdEx(hslc : HSLC, pproductskuid : *const SLID, pactivationinfo : *const SL_ACTIVATION_INFO_HEADER, ppwszinstallationid : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetApplicationInformation(hslc : HSLC, papplicationid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetGenuineInformation(pqueryid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut *mut u8) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetInstalledProductKeyIds(hslc : HSLC, pproductskuid : *const SLID, pnproductkeyids : *mut u32, ppproductkeyids : *mut *mut SLID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetLicense(hslc : HSLC, plicensefileid : *const SLID, pcblicensefile : *mut u32, ppblicensefile : *mut super::PBYTE) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : HSLC, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut SLID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetLicenseInformation(hslc : HSLC, psllicenseid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetLicensingStatusInformation(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_sys::core::PCWSTR, pnstatuscount : *mut u32, pplicensingstatus : *mut *mut SL_LICENSING_STATUS) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetPKeyId(hslc : HSLC, pwszpkeyalgorithm : windows_sys::core::PCWSTR, pwszpkeystring : windows_sys::core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut SLID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetPKeyInformation(hslc : HSLC, ppkeyid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetPolicyInformation(hslc : HSLC, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetPolicyInformationDWORD(hslc : HSLC, pwszvaluename : windows_sys::core::PCWSTR, pdwvalue : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetProductSkuInformation(hslc : HSLC, pproductskuid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetApplicationInformation(hslc : HSLC, papplicationid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetGenuineInformation(pqueryid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut *mut super::BYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetInstalledProductKeyIds(hslc : HSLC, pproductskuid : *const SLID, pnproductkeyids : *mut super::UINT, ppproductkeyids : *mut *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetLicense(hslc : HSLC, plicensefileid : *const SLID, pcblicensefile : *mut super::UINT, ppblicensefile : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : HSLC, cblicenseblob : super::UINT, pblicenseblob : *const super::BYTE, plicensefileid : *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetLicenseInformation(hslc : HSLC, psllicenseid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetLicensingStatusInformation(hslc : HSLC, pappid : *const SLID, pproductskuid : *const SLID, pwszrightname : windows_sys::core::PCWSTR, pnstatuscount : *mut super::UINT, pplicensingstatus : *mut *mut SL_LICENSING_STATUS) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetPKeyId(hslc : HSLC, pwszpkeyalgorithm : windows_sys::core::PCWSTR, pwszpkeystring : windows_sys::core::PCWSTR, cbpkeyspecificdata : super::UINT, pbpkeyspecificdata : *const super::BYTE, ppkeyid : *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetPKeyInformation(hslc : HSLC, ppkeyid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetPolicyInformation(hslc : HSLC, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetPolicyInformationDWORD(hslc : HSLC, pwszvaluename : windows_sys::core::PCWSTR, pdwvalue : *mut super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetProductSkuInformation(hslc : HSLC, pproductskuid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
 windows_link::link!("slcext.dll" "system" fn SLGetReferralInformation(hslc : HSLC, ereferraltype : SLREFERRALTYPE, pskuorappid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, ppwszvalue : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetSLIDList(hslc : HSLC, equeryidtype : SLIDTYPE, pqueryid : *const SLID, ereturnidtype : SLIDTYPE, pnreturnids : *mut u32, ppreturnids : *mut *mut SLID) -> windows_sys::core::HRESULT);
-windows_link::link!("slcext.dll" "system" fn SLGetServerStatus(pwszserverurl : windows_sys::core::PCWSTR, pwszacquisitiontype : windows_sys::core::PCWSTR, pwszproxyserver : windows_sys::core::PCWSTR, wproxyport : u16, phrstatus : *mut windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetServiceInformation(hslc : HSLC, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLGetWindowsInformation(pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut u32, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLGetWindowsInformationDWORD(pwszvaluename : windows_sys::core::PCWSTR, pdwvalue : *mut u32) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLInstallLicense(hslc : HSLC, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut SLID) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_sys::core::PCWSTR, pwszpkeystring : windows_sys::core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : super::PBYTE, ppkeyid : *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetSLIDList(hslc : HSLC, equeryidtype : SLIDTYPE, pqueryid : *const SLID, ereturnidtype : SLIDTYPE, pnreturnids : *mut super::UINT, ppreturnids : *mut *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slcext.dll" "system" fn SLGetServerStatus(pwszserverurl : windows_sys::core::PCWSTR, pwszacquisitiontype : windows_sys::core::PCWSTR, pwszproxyserver : windows_sys::core::PCWSTR, wproxyport : super::WORD, phrstatus : *mut windows_sys::core::HRESULT) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetServiceInformation(hslc : HSLC, pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetWindowsInformation(pwszvaluename : windows_sys::core::PCWSTR, pedatatype : *mut SLDATATYPE, pcbvalue : *mut super::UINT, ppbvalue : *mut super::PBYTE) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLGetWindowsInformationDWORD(pwszvaluename : windows_sys::core::PCWSTR, pdwvalue : *mut super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLInstallLicense(hslc : HSLC, cblicenseblob : super::UINT, pblicenseblob : *const super::BYTE, plicensefileid : *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_sys::core::PCWSTR, pwszpkeystring : windows_sys::core::PCWSTR, cbpkeyspecificdata : super::UINT, pbpkeyspecificdata : super::PBYTE, ppkeyid : *mut SLID) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
 windows_link::link!("slwga.dll" "system" fn SLIsGenuineLocal(pappid : *const SLID, pgenuinestate : *mut SL_GENUINE_STATE, puioptions : *mut SL_NONGENUINE_UI_OPTIONS) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLOpen(phslc : *mut HSLC) -> windows_sys::core::HRESULT);
-windows_link::link!("api-ms-win-core-slapi-l1-1-0.dll" "system" fn SLQueryLicenseValueFromApp(valuename : windows_sys::core::PCWSTR, valuetype : *mut u32, databuffer : *mut core::ffi::c_void, datasize : u32, resultdatasize : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("api-ms-win-core-slapi-l1-1-0.dll" "system" fn SLQueryLicenseValueFromApp(valuename : windows_sys::core::PCWSTR, valuetype : *mut super::ULONG, databuffer : super::PVOID, datasize : super::ULONG, resultdatasize : *mut super::ULONG) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("slc.dll" "system" fn SLRegisterEvent(hslc : HSLC, pwszeventid : windows_sys::core::PCWSTR, papplicationid : *const SLID, hevent : super::HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLSetCurrentProductKey(hslc : HSLC, pproductskuid : *const SLID, pproductkeyid : *const SLID) -> windows_sys::core::HRESULT);
-windows_link::link!("slc.dll" "system" fn SLSetGenuineInformation(pqueryid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, edatatype : SLDATATYPE, cbvalue : u32, pbvalue : *const u8) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("slc.dll" "system" fn SLSetGenuineInformation(pqueryid : *const SLID, pwszvaluename : windows_sys::core::PCWSTR, edatatype : SLDATATYPE, cbvalue : super::UINT, pbvalue : *const super::BYTE) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLUninstallLicense(hslc : HSLC, plicensefileid : *const SLID) -> windows_sys::core::HRESULT);
 windows_link::link!("slc.dll" "system" fn SLUninstallProofOfPurchase(hslc : HSLC, ppkeyid : *const SLID) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
@@ -50,6 +68,7 @@ windows_link::link!("slc.dll" "system" fn SLUnregisterEvent(hslc : HSLC, pwszeve
 pub type HSLC = *mut core::ffi::c_void;
 pub type HSLP = *mut core::ffi::c_void;
 pub const ID_CAP_SLAPI: windows_sys::core::PCWSTR = windows_sys::core::w!("slapiQueryLicenseValue");
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSL_SYSTEM_POLICY_INFORMATION = *mut SL_SYSTEM_POLICY_INFORMATION;
 pub type SLDATATYPE = i32;
 pub type SLID = windows_sys::core::GUID;
@@ -57,15 +76,17 @@ pub type SLIDTYPE = i32;
 pub type SLLICENSINGSTATUS = i32;
 pub type SLREFERRALTYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SL_ACTIVATION_INFO_HEADER {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub r#type: SL_ACTIVATION_TYPE,
 }
 pub type SL_ACTIVATION_TYPE = i32;
 pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1;
 pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SL_AD_ACTIVATION_INFO {
     pub header: SL_ACTIVATION_INFO_HEADER,
@@ -133,14 +154,15 @@ pub const SL_INFO_KEY_SYSTEM_STATE: windows_sys::core::PCWSTR = windows_sys::cor
 pub const SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: windows_sys::core::PCWSTR = windows_sys::core::w!("EULURL");
 pub const SL_INFO_KEY_VERSION: windows_sys::core::PCWSTR = windows_sys::core::w!("Version");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SL_LICENSING_STATUS {
     pub SkuId: SLID,
     pub eStatus: SLLICENSINGSTATUS,
-    pub dwGraceTime: u32,
-    pub dwTotalGraceDays: u32,
+    pub dwGraceTime: super::DWORD,
+    pub dwTotalGraceDays: super::DWORD,
     pub hrReason: windows_sys::core::HRESULT,
-    pub qwValidityExpiration: u64,
+    pub qwValidityExpiration: super::UINT64,
 }
 pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = 2;
 pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = 4;
@@ -148,9 +170,10 @@ pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1;
 pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3;
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SL_NONGENUINE_UI_OPTIONS {
-    pub cbSize: u32,
+    pub cbSize: super::DWORD,
     pub pComponentId: *const SLID,
     pub hResultUI: windows_sys::core::HRESULT,
 }
@@ -175,11 +198,13 @@ pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = 3;
 pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = 2;
 pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = 0;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SL_SYSTEM_POLICY_INFORMATION {
-    pub Reserved1: [*mut core::ffi::c_void; 2],
-    pub Reserved2: [u32; 3],
+    pub Reserved1: [super::PVOID; 2],
+    pub Reserved2: [super::ULONG; 3],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SL_SYSTEM_POLICY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

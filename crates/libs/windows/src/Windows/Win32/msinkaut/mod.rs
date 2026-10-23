@@ -394,6 +394,27 @@ pub const FACTOID_UPPERCHAR: windows_core::PCWSTR = windows_core::w!("UPPERCHAR"
 pub const FACTOID_WEB: windows_core::PCWSTR = windows_core::w!("WEB");
 pub const FACTOID_WORDLIST: windows_core::PCWSTR = windows_core::w!("WORDLIST");
 pub type GET_DANDIDATE_FLAGS = i32;
+pub const GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION: windows_core::GUID = windows_core::GUID::from_u128(0x82dec5c7_f6ba_4906_894f_66d68dfc456c);
+pub const GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION: windows_core::GUID = windows_core::GUID::from_u128(0x029123b4_8828_410b_b250_a0536595e5dc);
+pub const GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE: windows_core::GUID = windows_core::GUID::from_u128(0x8b7fefc4_96aa_4bfe_ac26_8a5f0be07bf5);
+pub const GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID: windows_core::GUID = windows_core::GUID::from_u128(0x02585b91_049b_4750_9615_df8948ab3c9c);
+pub const GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE: windows_core::GUID = windows_core::GUID::from_u128(0xe706c804_57f0_4f00_8a0c_853d57789be9);
+pub const GUID_PACKETPROPERTY_GUID_HEIGHT: windows_core::GUID = windows_core::GUID::from_u128(0xe61858d2_e447_4218_9d3f_18865c203df4);
+pub const GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE: windows_core::GUID = windows_core::GUID::from_u128(0x7307502d_f9f4_4e18_b3f2_2ce1b1a3610c);
+pub const GUID_PACKETPROPERTY_GUID_PACKET_STATUS: windows_core::GUID = windows_core::GUID::from_u128(0x6e0e07bf_afe7_4cf7_87d1_af6446208418);
+pub const GUID_PACKETPROPERTY_GUID_PITCH_ROTATION: windows_core::GUID = windows_core::GUID::from_u128(0x7f7e57b7_be37_4be1_a356_7a84160e1893);
+pub const GUID_PACKETPROPERTY_GUID_ROLL_ROTATION: windows_core::GUID = windows_core::GUID::from_u128(0x5d5d5e56_6ba9_4c5b_9fb0_851c91714e56);
+pub const GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER: windows_core::GUID = windows_core::GUID::from_u128(0x78a81b56_0935_4493_baae_00541a8a16c4);
+pub const GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE: windows_core::GUID = windows_core::GUID::from_u128(0x6da4488b_5244_41ec_905b_32d89ab80809);
+pub const GUID_PACKETPROPERTY_GUID_TIMER_TICK: windows_core::GUID = windows_core::GUID::from_u128(0x436510c5_fed3_45d1_8b76_71d3ea7a829d);
+pub const GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION: windows_core::GUID = windows_core::GUID::from_u128(0x0d324960_13b2_41e4_ace6_7ae9d43d2d3b);
+pub const GUID_PACKETPROPERTY_GUID_WIDTH: windows_core::GUID = windows_core::GUID::from_u128(0xbaabe94d_2712_48f5_be9d_8f8b5ea0711a);
+pub const GUID_PACKETPROPERTY_GUID_X: windows_core::GUID = windows_core::GUID::from_u128(0x598a6a8f_52c0_4ba0_93af_af357411a561);
+pub const GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION: windows_core::GUID = windows_core::GUID::from_u128(0xa8d07b3a_8bf0_40b0_95a9_b80a6bb787bf);
+pub const GUID_PACKETPROPERTY_GUID_Y: windows_core::GUID = windows_core::GUID::from_u128(0xb53f9f75_04e0_4498_a7ee_c30dbb5a9011);
+pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: windows_core::GUID = windows_core::GUID::from_u128(0x6a849980_7c3a_45b7_aa82_90a262950e89);
+pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: windows_core::GUID = windows_core::GUID::from_u128(0x0e932389_1d77_43af_ac00_5b950d6d4b2d);
+pub const GUID_PACKETPROPERTY_GUID_Z: windows_core::GUID = windows_core::GUID::from_u128(0x735adb30_0ebb_4788_a0e4_0f316490055d);
 pub const IAG_AllGestures: InkApplicationGesture = 0;
 pub const IAG_ArrowDown: InkApplicationGesture = 61497;
 pub const IAG_ArrowLeft: InkApplicationGesture = 61498;
@@ -508,9 +529,9 @@ windows_core::imp::interface_hierarchy!(IInk, windows_core::IUnknown, super::IDi
 pub struct IInk_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInk_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInk_Vtbl {
     pub const fn new<Identity: IInk_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -519,7 +540,7 @@ impl IInk_Vtbl {
         iid == &<IInk as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInk {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkCollector, IInkCollector_Vtbl, 0xf0f060b5_8b1f_4a7c_89ec_880692588a4f);
@@ -534,30 +555,32 @@ impl core::ops::Deref for IInkCollector {
 windows_core::imp::interface_hierarchy!(IInkCollector, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkCollector {
-    pub unsafe fn hWnd(&self) -> windows_core::Result<isize> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_hWnd(&self) -> windows_core::Result<super::LONG_PTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SethWnd(&self, newwindow: isize) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SethWnd)(windows_core::Interface::as_raw(self), newwindow) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn put_hWnd(&self, newwindow: super::LONG_PTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_hWnd)(windows_core::Interface::as_raw(self), newwindow) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), collecting) }
+    pub unsafe fn put_Enabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Enabled)(windows_core::Interface::as_raw(self), collecting) }
     }
-    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn get_DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_core::HRESULT
@@ -566,10 +589,10 @@ impl IInkCollector {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()) }
     }
-    pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
+    pub unsafe fn get_Renderer(&self) -> windows_core::Result<IInkRenderer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_core::HRESULT
@@ -578,10 +601,10 @@ impl IInkCollector {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()) }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn get_Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_core::HRESULT
@@ -591,67 +614,67 @@ impl IInkCollector {
         unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw) }
+    pub unsafe fn put_AutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_AutoRedraw)(windows_core::Interface::as_raw(self), autoredraw) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
+    pub unsafe fn get_CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCollectionMode)(windows_core::Interface::as_raw(self), mode) }
+    pub unsafe fn put_CollectionMode(&self, mode: InkCollectionMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_CollectionMode)(windows_core::Interface::as_raw(self), mode) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled) }
+    pub unsafe fn put_DynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DynamicRendering)(windows_core::Interface::as_raw(self), enabled) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn put_DesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn MouseIcon(&self) -> windows_core::Result<super::IPictureDisp> {
+    pub unsafe fn get_MouseIcon(&self) -> windows_core::Result<super::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
+    pub unsafe fn put_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
     }
     #[cfg(feature = "ocidl")]
     pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
@@ -660,55 +683,55 @@ impl IInkCollector {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
     }
-    pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
+    pub unsafe fn get_MousePointer(&self) -> windows_core::Result<InkMousePointer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMousePointer)(windows_core::Interface::as_raw(self), mousepointer) }
+    pub unsafe fn put_MousePointer(&self, mousepointer: InkMousePointer) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MousePointer)(windows_core::Interface::as_raw(self), mousepointer) }
     }
-    pub unsafe fn Cursors(&self) -> windows_core::Result<IInkCursors> {
+    pub unsafe fn get_Cursors(&self) -> windows_core::Result<IInkCursors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MarginX(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MarginX(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMarginX)(windows_core::Interface::as_raw(self), marginx) }
+    pub unsafe fn put_MarginX(&self, marginx: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MarginX)(windows_core::Interface::as_raw(self), marginx) }
     }
-    pub unsafe fn MarginY(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MarginY(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMarginY)(windows_core::Interface::as_raw(self), marginy) }
+    pub unsafe fn put_MarginY(&self, marginy: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MarginY)(windows_core::Interface::as_raw(self), marginy) }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn get_Tablet(&self) -> windows_core::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support) }
+    pub unsafe fn get_SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn put_SupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SupportHighContrastInk)(windows_core::Interface::as_raw(self), support) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -757,80 +780,86 @@ impl IInkCollector {
 #[doc(hidden)]
 pub struct IInkCollector_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize) -> windows_core::HRESULT,
-    pub SethWnd: unsafe extern "system" fn(*mut core::ffi::c_void, isize) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_hWnd: usize,
+    #[cfg(feature = "shared")]
+    pub put_hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    put_hWnd: usize,
     #[cfg(feature = "wtypes")]
-    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Enabled: usize,
+    get_Enabled: usize,
     #[cfg(feature = "wtypes")]
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetEnabled: usize,
-    pub DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    put_Enabled: usize,
+    pub get_DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    AutoRedraw: usize,
+    get_AutoRedraw: usize,
     #[cfg(feature = "wtypes")]
-    pub SetAutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetAutoRedraw: usize,
+    put_AutoRedraw: usize,
     #[cfg(feature = "wtypes")]
-    pub CollectingInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_CollectingInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    CollectingInk: usize,
-    pub CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCollectionMode) -> windows_core::HRESULT,
-    pub SetCollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkCollectionMode) -> windows_core::HRESULT,
+    get_CollectingInk: usize,
+    pub get_CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCollectionMode) -> windows_core::HRESULT,
+    pub put_CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkCollectionMode) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    DynamicRendering: usize,
+    get_DynamicRendering: usize,
     #[cfg(feature = "wtypes")]
-    pub SetDynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetDynamicRendering: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    DesiredPacketDescription: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SetDesiredPacketDescription: usize,
+    put_DynamicRendering: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_DesiredPacketDescription: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub put_DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    put_DesiredPacketDescription: usize,
     #[cfg(feature = "ocidl")]
-    pub MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    MouseIcon: usize,
+    get_MouseIcon: usize,
     #[cfg(feature = "ocidl")]
-    pub SetMouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    SetMouseIcon: usize,
+    put_MouseIcon: usize,
     #[cfg(feature = "ocidl")]
     pub putref_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
     putref_MouseIcon: usize,
-    pub MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkMousePointer) -> windows_core::HRESULT,
-    pub SetMousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, InkMousePointer) -> windows_core::HRESULT,
-    pub Cursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetMarginX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetMarginY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkMousePointer) -> windows_core::HRESULT,
+    pub put_MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, InkMousePointer) -> windows_core::HRESULT,
+    pub get_Cursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SupportHighContrastInk: usize,
+    get_SupportHighContrastInk: usize,
     #[cfg(feature = "wtypes")]
-    pub SetSupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetSupportHighContrastInk: usize,
+    put_SupportHighContrastInk: usize,
     #[cfg(feature = "wtypes")]
     pub SetGestureStatus: unsafe extern "system" fn(*mut core::ffi::c_void, InkApplicationGesture, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -855,56 +884,56 @@ pub struct IInkCollector_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetEventInterest: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkCollector_Impl: super::IDispatch_Impl {
-    fn hWnd(&self) -> windows_core::Result<isize>;
-    fn SethWnd(&self, newwindow: isize) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
+    fn get_hWnd(&self) -> windows_core::Result<super::LONG_PTR>;
+    fn put_hWnd(&self, newwindow: super::LONG_PTR) -> windows_core::Result<()>;
+    fn get_Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_Enabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
     fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
+    fn get_Renderer(&self) -> windows_core::Result<IInkRenderer>;
     fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
+    fn get_Ink(&self) -> windows_core::Result<IInkDisp>;
     fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
-    fn AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
-    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
-    fn DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetDynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::Result<()>;
-    fn MouseIcon(&self) -> windows_core::Result<super::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
+    fn get_AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_AutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
+    fn put_CollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
+    fn get_DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_DynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
+    fn put_DesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::Result<()>;
+    fn get_MouseIcon(&self) -> windows_core::Result<super::IPictureDisp>;
+    fn put_MouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
     fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
-    fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
-    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
-    fn Cursors(&self) -> windows_core::Result<IInkCursors>;
-    fn MarginX(&self) -> windows_core::Result<i32>;
-    fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()>;
-    fn MarginY(&self) -> windows_core::Result<i32>;
-    fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_MousePointer(&self) -> windows_core::Result<InkMousePointer>;
+    fn put_MousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
+    fn get_Cursors(&self) -> windows_core::Result<IInkCursors>;
+    fn get_MarginX(&self) -> windows_core::Result<i32>;
+    fn put_MarginX(&self, marginx: i32) -> windows_core::Result<()>;
+    fn get_MarginY(&self) -> windows_core::Result<i32>;
+    fn put_MarginY(&self, marginy: i32) -> windows_core::Result<()>;
+    fn get_Tablet(&self) -> windows_core::Result<IInkTablet>;
+    fn get_SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_SupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
+    fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::Result<()>;
     fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
     fn SetAllTabletsMode(&self, usemouseforinput: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkCollector_Vtbl {
     pub const fn new<Identity: IInkCollector_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn hWnd<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwindow: *mut isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_hWnd<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwindow: *mut super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::hWnd(this) {
+                match IInkCollector_Impl::get_hWnd(this) {
                     Ok(ok__) => {
                         currentwindow.write(ok__);
                         windows_core::HRESULT(0)
@@ -913,16 +942,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SethWnd<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwindow: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_hWnd<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwindow: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SethWnd(this, core::mem::transmute_copy(&newwindow)).into()
+                IInkCollector_Impl::put_hWnd(this, core::mem::transmute_copy(&newwindow)).into()
             }
         }
-        unsafe extern "system" fn Enabled<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Enabled<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::Enabled(this) {
+                match IInkCollector_Impl::get_Enabled(this) {
                     Ok(ok__) => {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
@@ -931,16 +960,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Enabled<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetEnabled(this, core::mem::transmute_copy(&collecting)).into()
+                IInkCollector_Impl::put_Enabled(this, core::mem::transmute_copy(&collecting)).into()
             }
         }
-        unsafe extern "system" fn DefaultDrawingAttributes<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DefaultDrawingAttributes<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::DefaultDrawingAttributes(this) {
+                match IInkCollector_Impl::get_DefaultDrawingAttributes(this) {
                     Ok(ok__) => {
                         currentattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -955,10 +984,10 @@ impl IInkCollector_Vtbl {
                 IInkCollector_Impl::putref_DefaultDrawingAttributes(this, core::mem::transmute_copy(&newattributes)).into()
             }
         }
-        unsafe extern "system" fn Renderer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Renderer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::Renderer(this) {
+                match IInkCollector_Impl::get_Renderer(this) {
                     Ok(ok__) => {
                         currentinkrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -973,10 +1002,10 @@ impl IInkCollector_Vtbl {
                 IInkCollector_Impl::putref_Renderer(this, core::mem::transmute_copy(&newinkrenderer)).into()
             }
         }
-        unsafe extern "system" fn Ink<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Ink<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::Ink(this) {
+                match IInkCollector_Impl::get_Ink(this) {
                     Ok(ok__) => {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -991,10 +1020,10 @@ impl IInkCollector_Vtbl {
                 IInkCollector_Impl::putref_Ink(this, core::mem::transmute_copy(&newink)).into()
             }
         }
-        unsafe extern "system" fn AutoRedraw<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AutoRedraw<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::AutoRedraw(this) {
+                match IInkCollector_Impl::get_AutoRedraw(this) {
                     Ok(ok__) => {
                         autoredraw.write(ok__);
                         windows_core::HRESULT(0)
@@ -1003,16 +1032,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAutoRedraw<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AutoRedraw<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetAutoRedraw(this, core::mem::transmute_copy(&autoredraw)).into()
+                IInkCollector_Impl::put_AutoRedraw(this, core::mem::transmute_copy(&autoredraw)).into()
             }
         }
-        unsafe extern "system" fn CollectingInk<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CollectingInk<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::CollectingInk(this) {
+                match IInkCollector_Impl::get_CollectingInk(this) {
                     Ok(ok__) => {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
@@ -1021,10 +1050,10 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CollectionMode<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkCollectionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CollectionMode<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkCollectionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::CollectionMode(this) {
+                match IInkCollector_Impl::get_CollectionMode(this) {
                     Ok(ok__) => {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
@@ -1033,16 +1062,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCollectionMode<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkCollectionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_CollectionMode<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkCollectionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetCollectionMode(this, core::mem::transmute_copy(&mode)).into()
+                IInkCollector_Impl::put_CollectionMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
-        unsafe extern "system" fn DynamicRendering<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DynamicRendering<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::DynamicRendering(this) {
+                match IInkCollector_Impl::get_DynamicRendering(this) {
                     Ok(ok__) => {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
@@ -1051,16 +1080,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDynamicRendering<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DynamicRendering<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetDynamicRendering(this, core::mem::transmute_copy(&enabled)).into()
+                IInkCollector_Impl::put_DynamicRendering(this, core::mem::transmute_copy(&enabled)).into()
             }
         }
-        unsafe extern "system" fn DesiredPacketDescription<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DesiredPacketDescription<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::DesiredPacketDescription(this) {
+                match IInkCollector_Impl::get_DesiredPacketDescription(this) {
                     Ok(ok__) => {
                         packetguids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1069,16 +1098,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDesiredPacketDescription<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DesiredPacketDescription<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetDesiredPacketDescription(this, core::mem::transmute(&packetguids)).into()
+                IInkCollector_Impl::put_DesiredPacketDescription(this, core::mem::transmute(&packetguids)).into()
             }
         }
-        unsafe extern "system" fn MouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::MouseIcon(this) {
+                match IInkCollector_Impl::get_MouseIcon(this) {
                     Ok(ok__) => {
                         mouseicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1087,10 +1116,10 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetMouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkCollector_Impl::put_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn putref_MouseIcon<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1099,10 +1128,10 @@ impl IInkCollector_Vtbl {
                 IInkCollector_Impl::putref_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
             }
         }
-        unsafe extern "system" fn MousePointer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MousePointer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::MousePointer(this) {
+                match IInkCollector_Impl::get_MousePointer(this) {
                     Ok(ok__) => {
                         mousepointer.write(ok__);
                         windows_core::HRESULT(0)
@@ -1111,16 +1140,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMousePointer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: InkMousePointer) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MousePointer<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: InkMousePointer) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetMousePointer(this, core::mem::transmute_copy(&mousepointer)).into()
+                IInkCollector_Impl::put_MousePointer(this, core::mem::transmute_copy(&mousepointer)).into()
             }
         }
-        unsafe extern "system" fn Cursors<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Cursors<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::Cursors(this) {
+                match IInkCollector_Impl::get_Cursors(this) {
                     Ok(ok__) => {
                         cursors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1129,10 +1158,10 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MarginX<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MarginX<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::MarginX(this) {
+                match IInkCollector_Impl::get_MarginX(this) {
                     Ok(ok__) => {
                         marginx.write(ok__);
                         windows_core::HRESULT(0)
@@ -1141,16 +1170,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMarginX<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MarginX<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetMarginX(this, core::mem::transmute_copy(&marginx)).into()
+                IInkCollector_Impl::put_MarginX(this, core::mem::transmute_copy(&marginx)).into()
             }
         }
-        unsafe extern "system" fn MarginY<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MarginY<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::MarginY(this) {
+                match IInkCollector_Impl::get_MarginY(this) {
                     Ok(ok__) => {
                         marginy.write(ok__);
                         windows_core::HRESULT(0)
@@ -1159,16 +1188,16 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMarginY<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MarginY<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetMarginY(this, core::mem::transmute_copy(&marginy)).into()
+                IInkCollector_Impl::put_MarginY(this, core::mem::transmute_copy(&marginy)).into()
             }
         }
-        unsafe extern "system" fn Tablet<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, singletablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Tablet<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, singletablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::Tablet(this) {
+                match IInkCollector_Impl::get_Tablet(this) {
                     Ok(ok__) => {
                         singletablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1177,10 +1206,10 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SupportHighContrastInk<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SupportHighContrastInk<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCollector_Impl::SupportHighContrastInk(this) {
+                match IInkCollector_Impl::get_SupportHighContrastInk(this) {
                     Ok(ok__) => {
                         support.write(ok__);
                         windows_core::HRESULT(0)
@@ -1189,10 +1218,10 @@ impl IInkCollector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSupportHighContrastInk<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SupportHighContrastInk<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkCollector_Impl::SetSupportHighContrastInk(this, core::mem::transmute_copy(&support)).into()
+                IInkCollector_Impl::put_SupportHighContrastInk(this, core::mem::transmute_copy(&support)).into()
             }
         }
         unsafe extern "system" fn SetGestureStatus<Identity: IInkCollector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gesture: InkApplicationGesture, listen: super::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -1257,38 +1286,38 @@ impl IInkCollector_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            hWnd: hWnd::<Identity, OFFSET>,
-            SethWnd: SethWnd::<Identity, OFFSET>,
-            Enabled: Enabled::<Identity, OFFSET>,
-            SetEnabled: SetEnabled::<Identity, OFFSET>,
-            DefaultDrawingAttributes: DefaultDrawingAttributes::<Identity, OFFSET>,
+            get_hWnd: get_hWnd::<Identity, OFFSET>,
+            put_hWnd: put_hWnd::<Identity, OFFSET>,
+            get_Enabled: get_Enabled::<Identity, OFFSET>,
+            put_Enabled: put_Enabled::<Identity, OFFSET>,
+            get_DefaultDrawingAttributes: get_DefaultDrawingAttributes::<Identity, OFFSET>,
             putref_DefaultDrawingAttributes: putref_DefaultDrawingAttributes::<Identity, OFFSET>,
-            Renderer: Renderer::<Identity, OFFSET>,
+            get_Renderer: get_Renderer::<Identity, OFFSET>,
             putref_Renderer: putref_Renderer::<Identity, OFFSET>,
-            Ink: Ink::<Identity, OFFSET>,
+            get_Ink: get_Ink::<Identity, OFFSET>,
             putref_Ink: putref_Ink::<Identity, OFFSET>,
-            AutoRedraw: AutoRedraw::<Identity, OFFSET>,
-            SetAutoRedraw: SetAutoRedraw::<Identity, OFFSET>,
-            CollectingInk: CollectingInk::<Identity, OFFSET>,
-            CollectionMode: CollectionMode::<Identity, OFFSET>,
-            SetCollectionMode: SetCollectionMode::<Identity, OFFSET>,
-            DynamicRendering: DynamicRendering::<Identity, OFFSET>,
-            SetDynamicRendering: SetDynamicRendering::<Identity, OFFSET>,
-            DesiredPacketDescription: DesiredPacketDescription::<Identity, OFFSET>,
-            SetDesiredPacketDescription: SetDesiredPacketDescription::<Identity, OFFSET>,
-            MouseIcon: MouseIcon::<Identity, OFFSET>,
-            SetMouseIcon: SetMouseIcon::<Identity, OFFSET>,
+            get_AutoRedraw: get_AutoRedraw::<Identity, OFFSET>,
+            put_AutoRedraw: put_AutoRedraw::<Identity, OFFSET>,
+            get_CollectingInk: get_CollectingInk::<Identity, OFFSET>,
+            get_CollectionMode: get_CollectionMode::<Identity, OFFSET>,
+            put_CollectionMode: put_CollectionMode::<Identity, OFFSET>,
+            get_DynamicRendering: get_DynamicRendering::<Identity, OFFSET>,
+            put_DynamicRendering: put_DynamicRendering::<Identity, OFFSET>,
+            get_DesiredPacketDescription: get_DesiredPacketDescription::<Identity, OFFSET>,
+            put_DesiredPacketDescription: put_DesiredPacketDescription::<Identity, OFFSET>,
+            get_MouseIcon: get_MouseIcon::<Identity, OFFSET>,
+            put_MouseIcon: put_MouseIcon::<Identity, OFFSET>,
             putref_MouseIcon: putref_MouseIcon::<Identity, OFFSET>,
-            MousePointer: MousePointer::<Identity, OFFSET>,
-            SetMousePointer: SetMousePointer::<Identity, OFFSET>,
-            Cursors: Cursors::<Identity, OFFSET>,
-            MarginX: MarginX::<Identity, OFFSET>,
-            SetMarginX: SetMarginX::<Identity, OFFSET>,
-            MarginY: MarginY::<Identity, OFFSET>,
-            SetMarginY: SetMarginY::<Identity, OFFSET>,
-            Tablet: Tablet::<Identity, OFFSET>,
-            SupportHighContrastInk: SupportHighContrastInk::<Identity, OFFSET>,
-            SetSupportHighContrastInk: SetSupportHighContrastInk::<Identity, OFFSET>,
+            get_MousePointer: get_MousePointer::<Identity, OFFSET>,
+            put_MousePointer: put_MousePointer::<Identity, OFFSET>,
+            get_Cursors: get_Cursors::<Identity, OFFSET>,
+            get_MarginX: get_MarginX::<Identity, OFFSET>,
+            put_MarginX: put_MarginX::<Identity, OFFSET>,
+            get_MarginY: get_MarginY::<Identity, OFFSET>,
+            put_MarginY: put_MarginY::<Identity, OFFSET>,
+            get_Tablet: get_Tablet::<Identity, OFFSET>,
+            get_SupportHighContrastInk: get_SupportHighContrastInk::<Identity, OFFSET>,
+            put_SupportHighContrastInk: put_SupportHighContrastInk::<Identity, OFFSET>,
             SetGestureStatus: SetGestureStatus::<Identity, OFFSET>,
             GetGestureStatus: GetGestureStatus::<Identity, OFFSET>,
             GetWindowInputRectangle: GetWindowInputRectangle::<Identity, OFFSET>,
@@ -1303,7 +1332,7 @@ impl IInkCollector_Vtbl {
         iid == &<IInkCollector as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkCollector {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkCursor, IInkCursor_Vtbl, 0xad30c630_40c5_4350_8405_9c71012fc558);
@@ -1318,29 +1347,29 @@ impl core::ops::Deref for IInkCursor {
 windows_core::imp::interface_hierarchy!(IInkCursor, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkCursor {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Id(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Id(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Inverted(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_Inverted(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Inverted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Inverted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn get_DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_DrawingAttributes<P0>(&self, attributes: P0) -> windows_core::HRESULT
@@ -1349,16 +1378,16 @@ impl IInkCursor {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), attributes.param().abi()) }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn get_Tablet(&self) -> windows_core::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Buttons(&self) -> windows_core::Result<IInkCursorButtons> {
+    pub unsafe fn get_Buttons(&self) -> windows_core::Result<IInkCursorButtons> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Buttons)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Buttons)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -1367,34 +1396,34 @@ impl IInkCursor {
 #[doc(hidden)]
 pub struct IInkCursor_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub Inverted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Inverted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Inverted: usize,
-    pub DrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    get_Inverted: usize,
+    pub get_DrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_DrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Buttons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Buttons: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkCursor_Impl: super::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Id(&self) -> windows_core::Result<i32>;
-    fn Inverted(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
+    fn get_Name(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Id(&self) -> windows_core::Result<i32>;
+    fn get_Inverted(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
     fn putref_DrawingAttributes(&self, attributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn Buttons(&self) -> windows_core::Result<IInkCursorButtons>;
+    fn get_Tablet(&self) -> windows_core::Result<IInkTablet>;
+    fn get_Buttons(&self) -> windows_core::Result<IInkCursorButtons>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkCursor_Vtbl {
     pub const fn new<Identity: IInkCursor_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursor_Impl::Name(this) {
+                match IInkCursor_Impl::get_Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1403,10 +1432,10 @@ impl IInkCursor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Id<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Id<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursor_Impl::Id(this) {
+                match IInkCursor_Impl::get_Id(this) {
                     Ok(ok__) => {
                         id.write(ok__);
                         windows_core::HRESULT(0)
@@ -1415,10 +1444,10 @@ impl IInkCursor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Inverted<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Inverted<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, status: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursor_Impl::Inverted(this) {
+                match IInkCursor_Impl::get_Inverted(this) {
                     Ok(ok__) => {
                         status.write(ok__);
                         windows_core::HRESULT(0)
@@ -1427,10 +1456,10 @@ impl IInkCursor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DrawingAttributes<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DrawingAttributes<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursor_Impl::DrawingAttributes(this) {
+                match IInkCursor_Impl::get_DrawingAttributes(this) {
                     Ok(ok__) => {
                         attributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1445,10 +1474,10 @@ impl IInkCursor_Vtbl {
                 IInkCursor_Impl::putref_DrawingAttributes(this, core::mem::transmute_copy(&attributes)).into()
             }
         }
-        unsafe extern "system" fn Tablet<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Tablet<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursor_Impl::Tablet(this) {
+                match IInkCursor_Impl::get_Tablet(this) {
                     Ok(ok__) => {
                         tablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1457,10 +1486,10 @@ impl IInkCursor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Buttons<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buttons: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Buttons<Identity: IInkCursor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buttons: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursor_Impl::Buttons(this) {
+                match IInkCursor_Impl::get_Buttons(this) {
                     Ok(ok__) => {
                         buttons.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1471,20 +1500,20 @@ impl IInkCursor_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Name: Name::<Identity, OFFSET>,
-            Id: Id::<Identity, OFFSET>,
-            Inverted: Inverted::<Identity, OFFSET>,
-            DrawingAttributes: DrawingAttributes::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
+            get_Id: get_Id::<Identity, OFFSET>,
+            get_Inverted: get_Inverted::<Identity, OFFSET>,
+            get_DrawingAttributes: get_DrawingAttributes::<Identity, OFFSET>,
             putref_DrawingAttributes: putref_DrawingAttributes::<Identity, OFFSET>,
-            Tablet: Tablet::<Identity, OFFSET>,
-            Buttons: Buttons::<Identity, OFFSET>,
+            get_Tablet: get_Tablet::<Identity, OFFSET>,
+            get_Buttons: get_Buttons::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkCursor as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkCursor {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkCursorButton, IInkCursorButton_Vtbl, 0x85ef9417_1d59_49b2_a13c_702c85430894);
@@ -1499,22 +1528,22 @@ impl core::ops::Deref for IInkCursorButton {
 windows_core::imp::interface_hierarchy!(IInkCursorButton, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkCursorButton {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Id(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Id(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<InkCursorButtonState> {
+    pub unsafe fn get_State(&self) -> windows_core::Result<InkCursorButtonState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
 }
@@ -1523,23 +1552,23 @@ impl IInkCursorButton {
 #[doc(hidden)]
 pub struct IInkCursorButton_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCursorButtonState) -> windows_core::HRESULT,
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCursorButtonState) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkCursorButton_Impl: super::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn State(&self) -> windows_core::Result<InkCursorButtonState>;
+    fn get_Name(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Id(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_State(&self) -> windows_core::Result<InkCursorButtonState>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkCursorButton_Vtbl {
     pub const fn new<Identity: IInkCursorButton_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IInkCursorButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: IInkCursorButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursorButton_Impl::Name(this) {
+                match IInkCursorButton_Impl::get_Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1548,10 +1577,10 @@ impl IInkCursorButton_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Id<Identity: IInkCursorButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Id<Identity: IInkCursorButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursorButton_Impl::Id(this) {
+                match IInkCursorButton_Impl::get_Id(this) {
                     Ok(ok__) => {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1560,10 +1589,10 @@ impl IInkCursorButton_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn State<Identity: IInkCursorButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentstate: *mut InkCursorButtonState) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_State<Identity: IInkCursorButton_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentstate: *mut InkCursorButtonState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursorButton_Impl::State(this) {
+                match IInkCursorButton_Impl::get_State(this) {
                     Ok(ok__) => {
                         currentstate.write(ok__);
                         windows_core::HRESULT(0)
@@ -1574,16 +1603,16 @@ impl IInkCursorButton_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Name: Name::<Identity, OFFSET>,
-            Id: Id::<Identity, OFFSET>,
-            State: State::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
+            get_Id: get_Id::<Identity, OFFSET>,
+            get_State: get_State::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkCursorButton as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkCursorButton {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkCursorButtons, IInkCursorButtons_Vtbl, 0x3671cc40_b624_4671_9fa0_db119d952d54);
@@ -1598,19 +1627,19 @@ impl core::ops::Deref for IInkCursorButtons {
 windows_core::imp::interface_hierarchy!(IInkCursorButtons, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkCursorButtons {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, identifier: &super::VARIANT) -> windows_core::Result<IInkCursorButton> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1623,26 +1652,26 @@ impl IInkCursorButtons {
 #[doc(hidden)]
 pub struct IInkCursorButtons_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkCursorButtons_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, identifier: &super::VARIANT) -> windows_core::Result<IInkCursorButton>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkCursorButtons_Vtbl {
     pub const fn new<Identity: IInkCursorButtons_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursorButtons_Impl::Count(this) {
+                match IInkCursorButtons_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -1651,10 +1680,10 @@ impl IInkCursorButtons_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursorButtons_Impl::_NewEnum(this) {
+                match IInkCursorButtons_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1677,8 +1706,8 @@ impl IInkCursorButtons_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
         }
     }
@@ -1686,7 +1715,7 @@ impl IInkCursorButtons_Vtbl {
         iid == &<IInkCursorButtons as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkCursorButtons {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkCursors, IInkCursors_Vtbl, 0xa248c1ac_c698_4e06_9e5c_d57f77c7e647);
@@ -1701,16 +1730,16 @@ impl core::ops::Deref for IInkCursors {
 windows_core::imp::interface_hierarchy!(IInkCursors, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkCursors {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkCursor> {
@@ -1725,23 +1754,23 @@ impl IInkCursors {
 #[doc(hidden)]
 pub struct IInkCursors_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkCursors_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, index: i32) -> windows_core::Result<IInkCursor>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkCursors_Vtbl {
     pub const fn new<Identity: IInkCursors_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkCursors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkCursors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursors_Impl::Count(this) {
+                match IInkCursors_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -1750,10 +1779,10 @@ impl IInkCursors_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkCursors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkCursors_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCursors_Impl::_NewEnum(this) {
+                match IInkCursors_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1776,8 +1805,8 @@ impl IInkCursors_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
         }
     }
@@ -1785,7 +1814,7 @@ impl IInkCursors_Vtbl {
         iid == &<IInkCursors as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkCursors {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkCustomStrokes, IInkCustomStrokes_Vtbl, 0x7e23a88f_c30e_420f_9bdb_28902543f0c1);
@@ -1800,19 +1829,19 @@ impl core::ops::Deref for IInkCustomStrokes {
 windows_core::imp::interface_hierarchy!(IInkCustomStrokes, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkCustomStrokes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, identifier: &super::VARIANT) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1825,7 +1854,7 @@ impl IInkCustomStrokes {
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), strokes.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, identifier: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier)) }
     }
@@ -1838,35 +1867,35 @@ impl IInkCustomStrokes {
 #[doc(hidden)]
 pub struct IInkCustomStrokes_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkCustomStrokes_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, identifier: &super::VARIANT) -> windows_core::Result<IInkStrokes>;
     fn Add(&self, name: &windows_core::BSTR, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
     fn Remove(&self, identifier: &super::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkCustomStrokes_Vtbl {
     pub const fn new<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCustomStrokes_Impl::Count(this) {
+                match IInkCustomStrokes_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -1875,10 +1904,10 @@ impl IInkCustomStrokes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkCustomStrokes_Impl::_NewEnum(this) {
+                match IInkCustomStrokes_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1919,8 +1948,8 @@ impl IInkCustomStrokes_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
             Add: Add::<Identity, OFFSET>,
             Remove: Remove::<Identity, OFFSET>,
@@ -1931,7 +1960,7 @@ impl IInkCustomStrokes_Vtbl {
         iid == &<IInkCustomStrokes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkCustomStrokes {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkDisp, IInkDisp_Vtbl, 0x9d398fa0_c4e2_4fcd_9973_975caaf47ea6);
@@ -1946,33 +1975,33 @@ impl core::ops::Deref for IInkDisp {
 windows_core::imp::interface_hierarchy!(IInkDisp, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkDisp {
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn get_Strokes(&self) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
+    pub unsafe fn get_ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn Dirty(&self) -> windows_core::Result<super::VARIANT_BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Dirty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetDirty(&self, dirty: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDirty)(windows_core::Interface::as_raw(self), dirty) }
-    }
-    pub unsafe fn CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes> {
+    pub unsafe fn get_Dirty(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CustomStrokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Dirty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn put_Dirty(&self, dirty: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Dirty)(windows_core::Interface::as_raw(self), dirty) }
+    }
+    pub unsafe fn get_CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_CustomStrokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle> {
@@ -2038,11 +2067,11 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).HitTestWithRectangle)(windows_core::Interface::as_raw(self), selectionrectangle.param().abi(), intersectpercent, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn HitTestWithLasso(&self, points: &super::VARIANT, intersectpercent: f32, lassopoints: *mut super::VARIANT) -> windows_core::Result<IInkStrokes> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn HitTestWithLasso(&self, points: &super::VARIANT, intersectpercent: f32, lassopoints: Option<*mut super::VARIANT>) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), intersectpercent, lassopoints, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), intersectpercent, lassopoints.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32) -> windows_core::Result<IInkStrokeDisp> {
@@ -2051,7 +2080,7 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).NearestPoint)(windows_core::Interface::as_raw(self), x, y, pointonstroke as _, distancefrompacket as _, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateStrokes(&self, strokeids: &super::VARIANT) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2065,18 +2094,18 @@ impl IInkDisp {
     {
         unsafe { (windows_core::Interface::vtable(self).AddStrokesAtRectangle)(windows_core::Interface::as_raw(self), sourcestrokes.param().abi(), targetrectangle.param().abi()) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), persistenceformat, compressionmode, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Load(&self, data: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateStroke(&self, packetdata: &super::VARIANT, packetdescription: &super::VARIANT) -> windows_core::Result<IInkStrokeDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2129,17 +2158,17 @@ impl IInkDisp {
 #[doc(hidden)]
 pub struct IInkDisp_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub Dirty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Dirty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Dirty: usize,
+    get_Dirty: usize,
     #[cfg(feature = "wtypes")]
-    pub SetDirty: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_Dirty: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetDirty: usize,
-    pub CustomStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    put_Dirty: usize,
+    pub get_CustomStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetBoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, InkBoundingBoxMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DeleteStroke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2149,27 +2178,27 @@ pub struct IInkDisp_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HitTestCircle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub HitTestWithRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub HitTestWithLasso: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, f32, *mut super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     HitTestWithLasso: usize,
     pub NearestPoint: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut f32, *mut f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CreateStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateStrokes: usize,
     pub AddStrokesAtRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, InkPersistenceFormat, InkPersistenceCompressionMode, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Save: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Load: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Load: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CreateStroke: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CreateStroke: usize,
     #[cfg(feature = "objidl")]
     pub ClipboardCopyWithRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, InkClipboardFormats, InkClipboardModes, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2188,13 +2217,13 @@ pub struct IInkDisp_Vtbl {
     #[cfg(not(feature = "objidl"))]
     ClipboardPaste: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkDisp_Impl: super::IDispatch_Impl {
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
-    fn Dirty(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetDirty(&self, dirty: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes>;
+    fn get_Strokes(&self) -> windows_core::Result<IInkStrokes>;
+    fn get_ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
+    fn get_Dirty(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_Dirty(&self, dirty: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes>;
     fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
     fn DeleteStrokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
     fn DeleteStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
@@ -2216,13 +2245,13 @@ pub trait IInkDisp_Impl: super::IDispatch_Impl {
     fn CanPaste(&self, dataobject: windows_core::Ref<super::IDataObject>) -> windows_core::Result<super::VARIANT_BOOL>;
     fn ClipboardPaste(&self, x: i32, y: i32, dataobject: windows_core::Ref<super::IDataObject>) -> windows_core::Result<IInkStrokes>;
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkDisp_Vtbl {
     pub const fn new<Identity: IInkDisp_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Strokes<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Strokes<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::Strokes(this) {
+                match IInkDisp_Impl::get_Strokes(this) {
                     Ok(ok__) => {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2231,10 +2260,10 @@ impl IInkDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExtendedProperties<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ExtendedProperties<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::ExtendedProperties(this) {
+                match IInkDisp_Impl::get_ExtendedProperties(this) {
                     Ok(ok__) => {
                         properties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2243,10 +2272,10 @@ impl IInkDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Dirty<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dirty: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Dirty<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dirty: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::Dirty(this) {
+                match IInkDisp_Impl::get_Dirty(this) {
                     Ok(ok__) => {
                         dirty.write(ok__);
                         windows_core::HRESULT(0)
@@ -2255,16 +2284,16 @@ impl IInkDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDirty<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dirty: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Dirty<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dirty: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDisp_Impl::SetDirty(this, core::mem::transmute_copy(&dirty)).into()
+                IInkDisp_Impl::put_Dirty(this, core::mem::transmute_copy(&dirty)).into()
             }
         }
-        unsafe extern "system" fn CustomStrokes<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkinkcustomstrokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CustomStrokes<Identity: IInkDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunkinkcustomstrokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDisp_Impl::CustomStrokes(this) {
+                match IInkDisp_Impl::get_CustomStrokes(this) {
                     Ok(ok__) => {
                         ppunkinkcustomstrokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2485,11 +2514,11 @@ impl IInkDisp_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Strokes: Strokes::<Identity, OFFSET>,
-            ExtendedProperties: ExtendedProperties::<Identity, OFFSET>,
-            Dirty: Dirty::<Identity, OFFSET>,
-            SetDirty: SetDirty::<Identity, OFFSET>,
-            CustomStrokes: CustomStrokes::<Identity, OFFSET>,
+            get_Strokes: get_Strokes::<Identity, OFFSET>,
+            get_ExtendedProperties: get_ExtendedProperties::<Identity, OFFSET>,
+            get_Dirty: get_Dirty::<Identity, OFFSET>,
+            put_Dirty: put_Dirty::<Identity, OFFSET>,
+            get_CustomStrokes: get_CustomStrokes::<Identity, OFFSET>,
             GetBoundingBox: GetBoundingBox::<Identity, OFFSET>,
             DeleteStrokes: DeleteStrokes::<Identity, OFFSET>,
             DeleteStroke: DeleteStroke::<Identity, OFFSET>,
@@ -2516,7 +2545,7 @@ impl IInkDisp_Vtbl {
         iid == &<IInkDisp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "objidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkDisp {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkDrawingAttributes, IInkDrawingAttributes_Vtbl, 0xbf519b75_0a15_4623_adc9_c00d436a8092);
@@ -2531,97 +2560,97 @@ impl core::ops::Deref for IInkDrawingAttributes {
 windows_core::imp::interface_hierarchy!(IInkDrawingAttributes, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkDrawingAttributes {
-    pub unsafe fn Color(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Color(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Color)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Color)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColor(&self, newcolor: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), newcolor) }
+    pub unsafe fn put_Color(&self, newcolor: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Color)(windows_core::Interface::as_raw(self), newcolor) }
     }
-    pub unsafe fn Width(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_Width(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWidth(&self, newwidth: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), newwidth) }
+    pub unsafe fn put_Width(&self, newwidth: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Width)(windows_core::Interface::as_raw(self), newwidth) }
     }
-    pub unsafe fn Height(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_Height(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHeight(&self, newheight: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetHeight)(windows_core::Interface::as_raw(self), newheight) }
+    pub unsafe fn put_Height(&self, newheight: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Height)(windows_core::Interface::as_raw(self), newheight) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn FitToCurve(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_FitToCurve(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FitToCurve)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn SetFitToCurve(&self, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFitToCurve)(windows_core::Interface::as_raw(self), flag) }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn IgnorePressure(&self) -> windows_core::Result<super::VARIANT_BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IgnorePressure)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_FitToCurve)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetIgnorePressure(&self, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetIgnorePressure)(windows_core::Interface::as_raw(self), flag) }
+    pub unsafe fn put_FitToCurve(&self, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_FitToCurve)(windows_core::Interface::as_raw(self), flag) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn AntiAliased(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_IgnorePressure(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AntiAliased)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_IgnorePressure)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetAntiAliased(&self, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAntiAliased)(windows_core::Interface::as_raw(self), flag) }
+    pub unsafe fn put_IgnorePressure(&self, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_IgnorePressure)(windows_core::Interface::as_raw(self), flag) }
     }
-    pub unsafe fn Transparency(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn get_AntiAliased(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Transparency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AntiAliased)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTransparency(&self, newtransparency: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTransparency)(windows_core::Interface::as_raw(self), newtransparency) }
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn put_AntiAliased(&self, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_AntiAliased)(windows_core::Interface::as_raw(self), flag) }
     }
-    pub unsafe fn RasterOperation(&self) -> windows_core::Result<InkRasterOperation> {
+    pub unsafe fn get_Transparency(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RasterOperation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Transparency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRasterOperation)(windows_core::Interface::as_raw(self), newrasteroperation) }
+    pub unsafe fn put_Transparency(&self, newtransparency: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Transparency)(windows_core::Interface::as_raw(self), newtransparency) }
     }
-    pub unsafe fn PenTip(&self) -> windows_core::Result<InkPenTip> {
+    pub unsafe fn get_RasterOperation(&self) -> windows_core::Result<InkRasterOperation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PenTip)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_RasterOperation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPenTip(&self, newpentip: InkPenTip) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPenTip)(windows_core::Interface::as_raw(self), newpentip) }
+    pub unsafe fn put_RasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_RasterOperation)(windows_core::Interface::as_raw(self), newrasteroperation) }
     }
-    pub unsafe fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
+    pub unsafe fn get_PenTip(&self) -> windows_core::Result<InkPenTip> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_PenTip)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    pub unsafe fn put_PenTip(&self, newpentip: InkPenTip) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_PenTip)(windows_core::Interface::as_raw(self), newpentip) }
+    }
+    pub unsafe fn get_ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
@@ -2636,75 +2665,75 @@ impl IInkDrawingAttributes {
 #[doc(hidden)]
 pub struct IInkDrawingAttributes_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetColor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetWidth: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SetHeight: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub get_Color: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Color: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_Width: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub get_Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_Height: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub FitToCurve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_FitToCurve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    FitToCurve: usize,
+    get_FitToCurve: usize,
     #[cfg(feature = "wtypes")]
-    pub SetFitToCurve: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_FitToCurve: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetFitToCurve: usize,
+    put_FitToCurve: usize,
     #[cfg(feature = "wtypes")]
-    pub IgnorePressure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_IgnorePressure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    IgnorePressure: usize,
+    get_IgnorePressure: usize,
     #[cfg(feature = "wtypes")]
-    pub SetIgnorePressure: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_IgnorePressure: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetIgnorePressure: usize,
+    put_IgnorePressure: usize,
     #[cfg(feature = "wtypes")]
-    pub AntiAliased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_AntiAliased: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    AntiAliased: usize,
+    get_AntiAliased: usize,
     #[cfg(feature = "wtypes")]
-    pub SetAntiAliased: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_AntiAliased: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetAntiAliased: usize,
-    pub Transparency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetTransparency: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub RasterOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRasterOperation) -> windows_core::HRESULT,
-    pub SetRasterOperation: unsafe extern "system" fn(*mut core::ffi::c_void, InkRasterOperation) -> windows_core::HRESULT,
-    pub PenTip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkPenTip) -> windows_core::HRESULT,
-    pub SetPenTip: unsafe extern "system" fn(*mut core::ffi::c_void, InkPenTip) -> windows_core::HRESULT,
-    pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    put_AntiAliased: usize,
+    pub get_Transparency: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Transparency: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_RasterOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRasterOperation) -> windows_core::HRESULT,
+    pub put_RasterOperation: unsafe extern "system" fn(*mut core::ffi::c_void, InkRasterOperation) -> windows_core::HRESULT,
+    pub get_PenTip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkPenTip) -> windows_core::HRESULT,
+    pub put_PenTip: unsafe extern "system" fn(*mut core::ffi::c_void, InkPenTip) -> windows_core::HRESULT,
+    pub get_ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkDrawingAttributes_Impl: super::IDispatch_Impl {
-    fn Color(&self) -> windows_core::Result<i32>;
-    fn SetColor(&self, newcolor: i32) -> windows_core::Result<()>;
-    fn Width(&self) -> windows_core::Result<f32>;
-    fn SetWidth(&self, newwidth: f32) -> windows_core::Result<()>;
-    fn Height(&self) -> windows_core::Result<f32>;
-    fn SetHeight(&self, newheight: f32) -> windows_core::Result<()>;
-    fn FitToCurve(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetFitToCurve(&self, flag: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn IgnorePressure(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetIgnorePressure(&self, flag: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn AntiAliased(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAntiAliased(&self, flag: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Transparency(&self) -> windows_core::Result<i32>;
-    fn SetTransparency(&self, newtransparency: i32) -> windows_core::Result<()>;
-    fn RasterOperation(&self) -> windows_core::Result<InkRasterOperation>;
-    fn SetRasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_core::Result<()>;
-    fn PenTip(&self) -> windows_core::Result<InkPenTip>;
-    fn SetPenTip(&self, newpentip: InkPenTip) -> windows_core::Result<()>;
-    fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
+    fn get_Color(&self) -> windows_core::Result<i32>;
+    fn put_Color(&self, newcolor: i32) -> windows_core::Result<()>;
+    fn get_Width(&self) -> windows_core::Result<f32>;
+    fn put_Width(&self, newwidth: f32) -> windows_core::Result<()>;
+    fn get_Height(&self) -> windows_core::Result<f32>;
+    fn put_Height(&self, newheight: f32) -> windows_core::Result<()>;
+    fn get_FitToCurve(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_FitToCurve(&self, flag: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_IgnorePressure(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_IgnorePressure(&self, flag: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_AntiAliased(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_AntiAliased(&self, flag: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_Transparency(&self) -> windows_core::Result<i32>;
+    fn put_Transparency(&self, newtransparency: i32) -> windows_core::Result<()>;
+    fn get_RasterOperation(&self) -> windows_core::Result<InkRasterOperation>;
+    fn put_RasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_core::Result<()>;
+    fn get_PenTip(&self) -> windows_core::Result<InkPenTip>;
+    fn put_PenTip(&self, newpentip: InkPenTip) -> windows_core::Result<()>;
+    fn get_ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
     fn Clone(&self) -> windows_core::Result<IInkDrawingAttributes>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkDrawingAttributes_Vtbl {
     pub const fn new<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Color<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentcolor: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Color<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentcolor: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::Color(this) {
+                match IInkDrawingAttributes_Impl::get_Color(this) {
                     Ok(ok__) => {
                         currentcolor.write(ok__);
                         windows_core::HRESULT(0)
@@ -2713,16 +2742,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetColor<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcolor: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Color<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcolor: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetColor(this, core::mem::transmute_copy(&newcolor)).into()
+                IInkDrawingAttributes_Impl::put_Color(this, core::mem::transmute_copy(&newcolor)).into()
             }
         }
-        unsafe extern "system" fn Width<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwidth: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Width<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwidth: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::Width(this) {
+                match IInkDrawingAttributes_Impl::get_Width(this) {
                     Ok(ok__) => {
                         currentwidth.write(ok__);
                         windows_core::HRESULT(0)
@@ -2731,16 +2760,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWidth<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwidth: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Width<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwidth: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetWidth(this, core::mem::transmute_copy(&newwidth)).into()
+                IInkDrawingAttributes_Impl::put_Width(this, core::mem::transmute_copy(&newwidth)).into()
             }
         }
-        unsafe extern "system" fn Height<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentheight: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Height<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentheight: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::Height(this) {
+                match IInkDrawingAttributes_Impl::get_Height(this) {
                     Ok(ok__) => {
                         currentheight.write(ok__);
                         windows_core::HRESULT(0)
@@ -2749,16 +2778,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetHeight<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newheight: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Height<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newheight: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetHeight(this, core::mem::transmute_copy(&newheight)).into()
+                IInkDrawingAttributes_Impl::put_Height(this, core::mem::transmute_copy(&newheight)).into()
             }
         }
-        unsafe extern "system" fn FitToCurve<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_FitToCurve<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::FitToCurve(this) {
+                match IInkDrawingAttributes_Impl::get_FitToCurve(this) {
                     Ok(ok__) => {
                         flag.write(ok__);
                         windows_core::HRESULT(0)
@@ -2767,16 +2796,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFitToCurve<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_FitToCurve<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetFitToCurve(this, core::mem::transmute_copy(&flag)).into()
+                IInkDrawingAttributes_Impl::put_FitToCurve(this, core::mem::transmute_copy(&flag)).into()
             }
         }
-        unsafe extern "system" fn IgnorePressure<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_IgnorePressure<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::IgnorePressure(this) {
+                match IInkDrawingAttributes_Impl::get_IgnorePressure(this) {
                     Ok(ok__) => {
                         flag.write(ok__);
                         windows_core::HRESULT(0)
@@ -2785,16 +2814,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetIgnorePressure<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_IgnorePressure<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetIgnorePressure(this, core::mem::transmute_copy(&flag)).into()
+                IInkDrawingAttributes_Impl::put_IgnorePressure(this, core::mem::transmute_copy(&flag)).into()
             }
         }
-        unsafe extern "system" fn AntiAliased<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AntiAliased<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::AntiAliased(this) {
+                match IInkDrawingAttributes_Impl::get_AntiAliased(this) {
                     Ok(ok__) => {
                         flag.write(ok__);
                         windows_core::HRESULT(0)
@@ -2803,16 +2832,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAntiAliased<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AntiAliased<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetAntiAliased(this, core::mem::transmute_copy(&flag)).into()
+                IInkDrawingAttributes_Impl::put_AntiAliased(this, core::mem::transmute_copy(&flag)).into()
             }
         }
-        unsafe extern "system" fn Transparency<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currenttransparency: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Transparency<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currenttransparency: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::Transparency(this) {
+                match IInkDrawingAttributes_Impl::get_Transparency(this) {
                     Ok(ok__) => {
                         currenttransparency.write(ok__);
                         windows_core::HRESULT(0)
@@ -2821,16 +2850,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTransparency<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newtransparency: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Transparency<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newtransparency: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetTransparency(this, core::mem::transmute_copy(&newtransparency)).into()
+                IInkDrawingAttributes_Impl::put_Transparency(this, core::mem::transmute_copy(&newtransparency)).into()
             }
         }
-        unsafe extern "system" fn RasterOperation<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentrasteroperation: *mut InkRasterOperation) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_RasterOperation<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentrasteroperation: *mut InkRasterOperation) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::RasterOperation(this) {
+                match IInkDrawingAttributes_Impl::get_RasterOperation(this) {
                     Ok(ok__) => {
                         currentrasteroperation.write(ok__);
                         windows_core::HRESULT(0)
@@ -2839,16 +2868,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRasterOperation<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newrasteroperation: InkRasterOperation) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_RasterOperation<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newrasteroperation: InkRasterOperation) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetRasterOperation(this, core::mem::transmute_copy(&newrasteroperation)).into()
+                IInkDrawingAttributes_Impl::put_RasterOperation(this, core::mem::transmute_copy(&newrasteroperation)).into()
             }
         }
-        unsafe extern "system" fn PenTip<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentpentip: *mut InkPenTip) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PenTip<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentpentip: *mut InkPenTip) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::PenTip(this) {
+                match IInkDrawingAttributes_Impl::get_PenTip(this) {
                     Ok(ok__) => {
                         currentpentip.write(ok__);
                         windows_core::HRESULT(0)
@@ -2857,16 +2886,16 @@ impl IInkDrawingAttributes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPenTip<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newpentip: InkPenTip) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PenTip<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newpentip: InkPenTip) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkDrawingAttributes_Impl::SetPenTip(this, core::mem::transmute_copy(&newpentip)).into()
+                IInkDrawingAttributes_Impl::put_PenTip(this, core::mem::transmute_copy(&newpentip)).into()
             }
         }
-        unsafe extern "system" fn ExtendedProperties<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ExtendedProperties<Identity: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkDrawingAttributes_Impl::ExtendedProperties(this) {
+                match IInkDrawingAttributes_Impl::get_ExtendedProperties(this) {
                     Ok(ok__) => {
                         properties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2889,25 +2918,25 @@ impl IInkDrawingAttributes_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Color: Color::<Identity, OFFSET>,
-            SetColor: SetColor::<Identity, OFFSET>,
-            Width: Width::<Identity, OFFSET>,
-            SetWidth: SetWidth::<Identity, OFFSET>,
-            Height: Height::<Identity, OFFSET>,
-            SetHeight: SetHeight::<Identity, OFFSET>,
-            FitToCurve: FitToCurve::<Identity, OFFSET>,
-            SetFitToCurve: SetFitToCurve::<Identity, OFFSET>,
-            IgnorePressure: IgnorePressure::<Identity, OFFSET>,
-            SetIgnorePressure: SetIgnorePressure::<Identity, OFFSET>,
-            AntiAliased: AntiAliased::<Identity, OFFSET>,
-            SetAntiAliased: SetAntiAliased::<Identity, OFFSET>,
-            Transparency: Transparency::<Identity, OFFSET>,
-            SetTransparency: SetTransparency::<Identity, OFFSET>,
-            RasterOperation: RasterOperation::<Identity, OFFSET>,
-            SetRasterOperation: SetRasterOperation::<Identity, OFFSET>,
-            PenTip: PenTip::<Identity, OFFSET>,
-            SetPenTip: SetPenTip::<Identity, OFFSET>,
-            ExtendedProperties: ExtendedProperties::<Identity, OFFSET>,
+            get_Color: get_Color::<Identity, OFFSET>,
+            put_Color: put_Color::<Identity, OFFSET>,
+            get_Width: get_Width::<Identity, OFFSET>,
+            put_Width: put_Width::<Identity, OFFSET>,
+            get_Height: get_Height::<Identity, OFFSET>,
+            put_Height: put_Height::<Identity, OFFSET>,
+            get_FitToCurve: get_FitToCurve::<Identity, OFFSET>,
+            put_FitToCurve: put_FitToCurve::<Identity, OFFSET>,
+            get_IgnorePressure: get_IgnorePressure::<Identity, OFFSET>,
+            put_IgnorePressure: put_IgnorePressure::<Identity, OFFSET>,
+            get_AntiAliased: get_AntiAliased::<Identity, OFFSET>,
+            put_AntiAliased: put_AntiAliased::<Identity, OFFSET>,
+            get_Transparency: get_Transparency::<Identity, OFFSET>,
+            put_Transparency: put_Transparency::<Identity, OFFSET>,
+            get_RasterOperation: get_RasterOperation::<Identity, OFFSET>,
+            put_RasterOperation: put_RasterOperation::<Identity, OFFSET>,
+            get_PenTip: get_PenTip::<Identity, OFFSET>,
+            put_PenTip: put_PenTip::<Identity, OFFSET>,
+            get_ExtendedProperties: get_ExtendedProperties::<Identity, OFFSET>,
             Clone: Clone::<Identity, OFFSET>,
         }
     }
@@ -2915,7 +2944,7 @@ impl IInkDrawingAttributes_Vtbl {
         iid == &<IInkDrawingAttributes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkDrawingAttributes {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkExtendedProperties, IInkExtendedProperties_Vtbl, 0x89f2a8be_95a9_4530_8b8f_88e971e3e25f);
@@ -2930,33 +2959,33 @@ impl core::ops::Deref for IInkExtendedProperties {
 windows_core::imp::interface_hierarchy!(IInkExtendedProperties, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkExtendedProperties {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Item(&self, identifier: &super::VARIANT) -> windows_core::Result<IInkExtendedProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add(&self, guid: &windows_core::BSTR, data: &super::VARIANT) -> windows_core::Result<IInkExtendedProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(guid), core::mem::transmute_copy(data), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Remove(&self, identifier: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier)) }
     }
@@ -2976,19 +3005,19 @@ impl IInkExtendedProperties {
 #[doc(hidden)]
 pub struct IInkExtendedProperties_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Item: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Add: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     Remove: usize,
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
@@ -2996,23 +3025,23 @@ pub struct IInkExtendedProperties_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     DoesPropertyExist: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkExtendedProperties_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, identifier: &super::VARIANT) -> windows_core::Result<IInkExtendedProperty>;
     fn Add(&self, guid: &windows_core::BSTR, data: &super::VARIANT) -> windows_core::Result<IInkExtendedProperty>;
     fn Remove(&self, identifier: &super::VARIANT) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn DoesPropertyExist(&self, guid: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkExtendedProperties_Vtbl {
     pub const fn new<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkExtendedProperties_Impl::Count(this) {
+                match IInkExtendedProperties_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -3021,10 +3050,10 @@ impl IInkExtendedProperties_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkExtendedProperties_Impl::_NewEnum(this) {
+                match IInkExtendedProperties_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3083,8 +3112,8 @@ impl IInkExtendedProperties_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
             Add: Add::<Identity, OFFSET>,
             Remove: Remove::<Identity, OFFSET>,
@@ -3096,7 +3125,7 @@ impl IInkExtendedProperties_Vtbl {
         iid == &<IInkExtendedProperties as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkExtendedProperties {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkExtendedProperty, IInkExtendedProperty_Vtbl, 0xdb489209_b7c3_411d_90f6_1548cfff271e);
@@ -3111,22 +3140,22 @@ impl core::ops::Deref for IInkExtendedProperty {
 windows_core::imp::interface_hierarchy!(IInkExtendedProperty, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkExtendedProperty {
-    pub unsafe fn Guid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Guid(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Guid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Guid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Data(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Data(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetData(&self, data: &super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn put_Data(&self, data: &super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Data)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -3134,29 +3163,29 @@ impl IInkExtendedProperty {
 #[doc(hidden)]
 pub struct IInkExtendedProperty_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Guid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Data: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SetData: usize,
+    pub get_Guid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Data: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub put_Data: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    put_Data: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkExtendedProperty_Impl: super::IDispatch_Impl {
-    fn Guid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Data(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetData(&self, data: &super::VARIANT) -> windows_core::Result<()>;
+    fn get_Guid(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Data(&self) -> windows_core::Result<super::VARIANT>;
+    fn put_Data(&self, data: &super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkExtendedProperty_Vtbl {
     pub const fn new<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Guid<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Guid<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkExtendedProperty_Impl::Guid(this) {
+                match IInkExtendedProperty_Impl::get_Guid(this) {
                     Ok(ok__) => {
                         guid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3165,10 +3194,10 @@ impl IInkExtendedProperty_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Data<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Data<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkExtendedProperty_Impl::Data(this) {
+                match IInkExtendedProperty_Impl::get_Data(this) {
                     Ok(ok__) => {
                         data.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3177,24 +3206,24 @@ impl IInkExtendedProperty_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetData<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Data<Identity: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkExtendedProperty_Impl::SetData(this, core::mem::transmute(&data)).into()
+                IInkExtendedProperty_Impl::put_Data(this, core::mem::transmute(&data)).into()
             }
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Guid: Guid::<Identity, OFFSET>,
-            Data: Data::<Identity, OFFSET>,
-            SetData: SetData::<Identity, OFFSET>,
+            get_Guid: get_Guid::<Identity, OFFSET>,
+            get_Data: get_Data::<Identity, OFFSET>,
+            put_Data: put_Data::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkExtendedProperty as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkExtendedProperty {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkGesture, IInkGesture_Vtbl, 0x3bdc0a97_04e5_4e26_b813_18f052d41def);
@@ -3209,16 +3238,16 @@ impl core::ops::Deref for IInkGesture {
 windows_core::imp::interface_hierarchy!(IInkGesture, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkGesture {
-    pub unsafe fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
+    pub unsafe fn get_Confidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Id(&self) -> windows_core::Result<InkApplicationGesture> {
+    pub unsafe fn get_Id(&self) -> windows_core::Result<InkApplicationGesture> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetHotPoint(&self, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
@@ -3230,23 +3259,23 @@ impl IInkGesture {
 #[doc(hidden)]
 pub struct IInkGesture_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionConfidence) -> windows_core::HRESULT,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkApplicationGesture) -> windows_core::HRESULT,
+    pub get_Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionConfidence) -> windows_core::HRESULT,
+    pub get_Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkApplicationGesture) -> windows_core::HRESULT,
     pub GetHotPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkGesture_Impl: super::IDispatch_Impl {
-    fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
-    fn Id(&self) -> windows_core::Result<InkApplicationGesture>;
+    fn get_Confidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
+    fn get_Id(&self) -> windows_core::Result<InkApplicationGesture>;
     fn GetHotPoint(&self, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkGesture_Vtbl {
     pub const fn new<Identity: IInkGesture_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Confidence<Identity: IInkGesture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Confidence<Identity: IInkGesture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkGesture_Impl::Confidence(this) {
+                match IInkGesture_Impl::get_Confidence(this) {
                     Ok(ok__) => {
                         confidence.write(ok__);
                         windows_core::HRESULT(0)
@@ -3255,10 +3284,10 @@ impl IInkGesture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Id<Identity: IInkGesture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut InkApplicationGesture) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Id<Identity: IInkGesture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut InkApplicationGesture) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkGesture_Impl::Id(this) {
+                match IInkGesture_Impl::get_Id(this) {
                     Ok(ok__) => {
                         id.write(ok__);
                         windows_core::HRESULT(0)
@@ -3275,8 +3304,8 @@ impl IInkGesture_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Confidence: Confidence::<Identity, OFFSET>,
-            Id: Id::<Identity, OFFSET>,
+            get_Confidence: get_Confidence::<Identity, OFFSET>,
+            get_Id: get_Id::<Identity, OFFSET>,
             GetHotPoint: GetHotPoint::<Identity, OFFSET>,
         }
     }
@@ -3284,30 +3313,32 @@ impl IInkGesture_Vtbl {
         iid == &<IInkGesture as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkGesture {}
 windows_core::imp::define_interface!(IInkLineInfo, IInkLineInfo_Vtbl, 0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
 windows_core::imp::interface_hierarchy!(IInkLineInfo, windows_core::IUnknown);
 impl IInkLineInfo {
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetFormat(&self, pim: *mut INKMETRIC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), pim as _) }
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn SetFormat(&self, pim: *const INKMETRIC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), pim) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetFormat(&self, pim: *mut INKMETRIC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), pim as _) }
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn GetFormat(&self, pim: *const INKMETRIC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), pim) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GetInkExtent(&self, pim: *mut INKMETRIC, pnwidth: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInkExtent)(windows_core::Interface::as_raw(self), pim as _, pnwidth as _) }
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const super::UINT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInkExtent)(windows_core::Interface::as_raw(self), pim, pnwidth) }
     }
-    pub unsafe fn GetCandidate<P1>(&self, ncandidatenum: u32, pwcrecogword: P1, pcwcrecogword: *mut u32, dwflags: u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCandidate<P1>(&self, ncandidatenum: super::UINT, pwcrecogword: P1, pcwcrecogword: *const super::UINT, dwflags: super::DWORD) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, pwcrecogword.param().abi(), pcwcrecogword as _, dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, pwcrecogword.param().abi(), pcwcrecogword, dwflags) }
     }
-    pub unsafe fn SetCandidate<P1>(&self, ncandidatenum: u32, strrecogword: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetCandidate<P1>(&self, ncandidatenum: super::UINT, strrecogword: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3321,59 +3352,65 @@ impl IInkLineInfo {
 #[doc(hidden)]
 pub struct IInkLineInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "windef")]
-    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut INKMETRIC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const INKMETRIC) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     SetFormat: usize,
-    #[cfg(feature = "windef")]
-    pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut INKMETRIC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const INKMETRIC) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetFormat: usize,
-    #[cfg(feature = "windef")]
-    pub GetInkExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut INKMETRIC, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub GetInkExtent: unsafe extern "system" fn(*mut core::ffi::c_void, *const INKMETRIC, *const super::UINT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
     GetInkExtent: usize,
-    pub GetCandidate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut u32, u32) -> windows_core::HRESULT,
-    pub SetCandidate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCandidate: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, windows_core::PCWSTR, *const super::UINT, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCandidate: usize,
+    #[cfg(feature = "shared")]
+    pub SetCandidate: unsafe extern "system" fn(*mut core::ffi::c_void, super::UINT, windows_core::PCWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetCandidate: usize,
     pub Recognize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub trait IInkLineInfo_Impl: windows_core::IUnknownImpl {
-    fn SetFormat(&self, pim: *mut INKMETRIC) -> windows_core::Result<()>;
-    fn GetFormat(&self, pim: *mut INKMETRIC) -> windows_core::Result<()>;
-    fn GetInkExtent(&self, pim: *mut INKMETRIC, pnwidth: *mut u32) -> windows_core::Result<()>;
-    fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: &windows_core::PCWSTR, pcwcrecogword: *mut u32, dwflags: u32) -> windows_core::Result<()>;
-    fn SetCandidate(&self, ncandidatenum: u32, strrecogword: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFormat(&self, pim: *const INKMETRIC) -> windows_core::Result<()>;
+    fn GetFormat(&self, pim: *const INKMETRIC) -> windows_core::Result<()>;
+    fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const super::UINT) -> windows_core::Result<()>;
+    fn GetCandidate(&self, ncandidatenum: super::UINT, pwcrecogword: &windows_core::PCWSTR, pcwcrecogword: *const super::UINT, dwflags: super::DWORD) -> windows_core::Result<()>;
+    fn SetCandidate(&self, ncandidatenum: super::UINT, strrecogword: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Recognize(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl IInkLineInfo_Vtbl {
     pub const fn new<Identity: IInkLineInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetFormat<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pim: *mut INKMETRIC) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFormat<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pim: *const INKMETRIC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkLineInfo_Impl::SetFormat(this, core::mem::transmute_copy(&pim)).into()
             }
         }
-        unsafe extern "system" fn GetFormat<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pim: *mut INKMETRIC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFormat<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pim: *const INKMETRIC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkLineInfo_Impl::GetFormat(this, core::mem::transmute_copy(&pim)).into()
             }
         }
-        unsafe extern "system" fn GetInkExtent<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pim: *mut INKMETRIC, pnwidth: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetInkExtent<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pim: *const INKMETRIC, pnwidth: *const super::UINT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkLineInfo_Impl::GetInkExtent(this, core::mem::transmute_copy(&pim), core::mem::transmute_copy(&pnwidth)).into()
             }
         }
-        unsafe extern "system" fn GetCandidate<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncandidatenum: u32, pwcrecogword: windows_core::PCWSTR, pcwcrecogword: *mut u32, dwflags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCandidate<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncandidatenum: super::UINT, pwcrecogword: windows_core::PCWSTR, pcwcrecogword: *const super::UINT, dwflags: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkLineInfo_Impl::GetCandidate(this, core::mem::transmute_copy(&ncandidatenum), core::mem::transmute(&pwcrecogword), core::mem::transmute_copy(&pcwcrecogword), core::mem::transmute_copy(&dwflags)).into()
             }
         }
-        unsafe extern "system" fn SetCandidate<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncandidatenum: u32, strrecogword: windows_core::PCWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCandidate<Identity: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncandidatenum: super::UINT, strrecogword: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkLineInfo_Impl::SetCandidate(this, core::mem::transmute_copy(&ncandidatenum), core::mem::transmute(&strrecogword)).into()
@@ -3399,7 +3436,7 @@ impl IInkLineInfo_Vtbl {
         iid == &<IInkLineInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl windows_core::RuntimeName for IInkLineInfo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkOverlay, IInkOverlay_Vtbl, 0xb82a463b_c1c5_45a3_997c_deab5651b67a);
@@ -3414,30 +3451,32 @@ impl core::ops::Deref for IInkOverlay {
 windows_core::imp::interface_hierarchy!(IInkOverlay, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkOverlay {
-    pub unsafe fn hWnd(&self) -> windows_core::Result<isize> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_hWnd(&self) -> windows_core::Result<super::LONG_PTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SethWnd(&self, newwindow: isize) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SethWnd)(windows_core::Interface::as_raw(self), newwindow) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn put_hWnd(&self, newwindow: super::LONG_PTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_hWnd)(windows_core::Interface::as_raw(self), newwindow) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), collecting) }
+    pub unsafe fn put_Enabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Enabled)(windows_core::Interface::as_raw(self), collecting) }
     }
-    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn get_DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_core::HRESULT
@@ -3446,10 +3485,10 @@ impl IInkOverlay {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()) }
     }
-    pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
+    pub unsafe fn get_Renderer(&self) -> windows_core::Result<IInkRenderer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_core::HRESULT
@@ -3458,10 +3497,10 @@ impl IInkOverlay {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()) }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn get_Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_core::HRESULT
@@ -3471,67 +3510,67 @@ impl IInkOverlay {
         unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw) }
+    pub unsafe fn put_AutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_AutoRedraw)(windows_core::Interface::as_raw(self), autoredraw) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
+    pub unsafe fn get_CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCollectionMode)(windows_core::Interface::as_raw(self), mode) }
+    pub unsafe fn put_CollectionMode(&self, mode: InkCollectionMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_CollectionMode)(windows_core::Interface::as_raw(self), mode) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled) }
+    pub unsafe fn put_DynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DynamicRendering)(windows_core::Interface::as_raw(self), enabled) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn put_DesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn MouseIcon(&self) -> windows_core::Result<super::IPictureDisp> {
+    pub unsafe fn get_MouseIcon(&self) -> windows_core::Result<super::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
+    pub unsafe fn put_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
     }
     #[cfg(feature = "ocidl")]
     pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
@@ -3540,114 +3579,114 @@ impl IInkOverlay {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
     }
-    pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
+    pub unsafe fn get_MousePointer(&self) -> windows_core::Result<InkMousePointer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMousePointer)(windows_core::Interface::as_raw(self), mousepointer) }
+    pub unsafe fn put_MousePointer(&self, mousepointer: InkMousePointer) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MousePointer)(windows_core::Interface::as_raw(self), mousepointer) }
     }
-    pub unsafe fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode> {
+    pub unsafe fn get_EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EditingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_EditingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEditingMode)(windows_core::Interface::as_raw(self), editingmode) }
+    pub unsafe fn put_EditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EditingMode)(windows_core::Interface::as_raw(self), editingmode) }
     }
-    pub unsafe fn Selection(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn get_Selection(&self) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSelection<P0>(&self, selection: P0) -> windows_core::HRESULT
+    pub unsafe fn put_Selection<P0>(&self, selection: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), selection.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_Selection)(windows_core::Interface::as_raw(self), selection.param().abi()) }
     }
-    pub unsafe fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
+    pub unsafe fn get_EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EraserMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_EraserMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEraserMode)(windows_core::Interface::as_raw(self), erasermode) }
+    pub unsafe fn put_EraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EraserMode)(windows_core::Interface::as_raw(self), erasermode) }
     }
-    pub unsafe fn EraserWidth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_EraserWidth(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EraserWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_EraserWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEraserWidth)(windows_core::Interface::as_raw(self), neweraserwidth) }
+    pub unsafe fn put_EraserWidth(&self, neweraserwidth: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EraserWidth)(windows_core::Interface::as_raw(self), neweraserwidth) }
     }
-    pub unsafe fn AttachMode(&self) -> windows_core::Result<InkOverlayAttachMode> {
+    pub unsafe fn get_AttachMode(&self) -> windows_core::Result<InkOverlayAttachMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AttachMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AttachMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAttachMode)(windows_core::Interface::as_raw(self), attachmode) }
+    pub unsafe fn put_AttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_AttachMode)(windows_core::Interface::as_raw(self), attachmode) }
     }
-    pub unsafe fn Cursors(&self) -> windows_core::Result<IInkCursors> {
+    pub unsafe fn get_Cursors(&self) -> windows_core::Result<IInkCursors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MarginX(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MarginX(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMarginX)(windows_core::Interface::as_raw(self), marginx) }
+    pub unsafe fn put_MarginX(&self, marginx: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MarginX)(windows_core::Interface::as_raw(self), marginx) }
     }
-    pub unsafe fn MarginY(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MarginY(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMarginY)(windows_core::Interface::as_raw(self), marginy) }
+    pub unsafe fn put_MarginY(&self, marginy: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MarginY)(windows_core::Interface::as_raw(self), marginy) }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn get_Tablet(&self) -> windows_core::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support) }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support) }
+    pub unsafe fn put_SupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SupportHighContrastInk)(windows_core::Interface::as_raw(self), support) }
+    }
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn get_SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn put_SupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support) }
     }
     pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult> {
         unsafe {
@@ -3708,98 +3747,104 @@ impl IInkOverlay {
 #[doc(hidden)]
 pub struct IInkOverlay_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize) -> windows_core::HRESULT,
-    pub SethWnd: unsafe extern "system" fn(*mut core::ffi::c_void, isize) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_hWnd: usize,
+    #[cfg(feature = "shared")]
+    pub put_hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    put_hWnd: usize,
     #[cfg(feature = "wtypes")]
-    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Enabled: usize,
+    get_Enabled: usize,
     #[cfg(feature = "wtypes")]
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetEnabled: usize,
-    pub DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    put_Enabled: usize,
+    pub get_DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    AutoRedraw: usize,
+    get_AutoRedraw: usize,
     #[cfg(feature = "wtypes")]
-    pub SetAutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetAutoRedraw: usize,
+    put_AutoRedraw: usize,
     #[cfg(feature = "wtypes")]
-    pub CollectingInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_CollectingInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    CollectingInk: usize,
-    pub CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCollectionMode) -> windows_core::HRESULT,
-    pub SetCollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkCollectionMode) -> windows_core::HRESULT,
+    get_CollectingInk: usize,
+    pub get_CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCollectionMode) -> windows_core::HRESULT,
+    pub put_CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkCollectionMode) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    DynamicRendering: usize,
+    get_DynamicRendering: usize,
     #[cfg(feature = "wtypes")]
-    pub SetDynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetDynamicRendering: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    DesiredPacketDescription: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SetDesiredPacketDescription: usize,
+    put_DynamicRendering: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_DesiredPacketDescription: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub put_DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    put_DesiredPacketDescription: usize,
     #[cfg(feature = "ocidl")]
-    pub MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    MouseIcon: usize,
+    get_MouseIcon: usize,
     #[cfg(feature = "ocidl")]
-    pub SetMouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    SetMouseIcon: usize,
+    put_MouseIcon: usize,
     #[cfg(feature = "ocidl")]
     pub putref_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
     putref_MouseIcon: usize,
-    pub MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkMousePointer) -> windows_core::HRESULT,
-    pub SetMousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, InkMousePointer) -> windows_core::HRESULT,
-    pub EditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEditingMode) -> windows_core::HRESULT,
-    pub SetEditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEditingMode) -> windows_core::HRESULT,
-    pub Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEraserMode) -> windows_core::HRESULT,
-    pub SetEraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEraserMode) -> windows_core::HRESULT,
-    pub EraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetEraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub AttachMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayAttachMode) -> windows_core::HRESULT,
-    pub SetAttachMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayAttachMode) -> windows_core::HRESULT,
-    pub Cursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetMarginX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetMarginY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkMousePointer) -> windows_core::HRESULT,
+    pub put_MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, InkMousePointer) -> windows_core::HRESULT,
+    pub get_EditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEditingMode) -> windows_core::HRESULT,
+    pub put_EditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEditingMode) -> windows_core::HRESULT,
+    pub get_Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_EraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEraserMode) -> windows_core::HRESULT,
+    pub put_EraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEraserMode) -> windows_core::HRESULT,
+    pub get_EraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_EraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_AttachMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayAttachMode) -> windows_core::HRESULT,
+    pub put_AttachMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayAttachMode) -> windows_core::HRESULT,
+    pub get_Cursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SupportHighContrastInk: usize,
+    get_SupportHighContrastInk: usize,
     #[cfg(feature = "wtypes")]
-    pub SetSupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetSupportHighContrastInk: usize,
+    put_SupportHighContrastInk: usize,
     #[cfg(feature = "wtypes")]
-    pub SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SupportHighContrastSelectionUI: usize,
+    get_SupportHighContrastSelectionUI: usize,
     #[cfg(feature = "wtypes")]
-    pub SetSupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetSupportHighContrastSelectionUI: usize,
+    put_SupportHighContrastSelectionUI: usize,
     pub HitTestSelection: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut SelectionHitResult) -> windows_core::HRESULT,
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
@@ -3826,70 +3871,70 @@ pub struct IInkOverlay_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetEventInterest: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkOverlay_Impl: super::IDispatch_Impl {
-    fn hWnd(&self) -> windows_core::Result<isize>;
-    fn SethWnd(&self, newwindow: isize) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
+    fn get_hWnd(&self) -> windows_core::Result<super::LONG_PTR>;
+    fn put_hWnd(&self, newwindow: super::LONG_PTR) -> windows_core::Result<()>;
+    fn get_Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_Enabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
     fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
+    fn get_Renderer(&self) -> windows_core::Result<IInkRenderer>;
     fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
+    fn get_Ink(&self) -> windows_core::Result<IInkDisp>;
     fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
-    fn AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
-    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
-    fn DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetDynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::Result<()>;
-    fn MouseIcon(&self) -> windows_core::Result<super::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
+    fn get_AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_AutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
+    fn put_CollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
+    fn get_DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_DynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
+    fn put_DesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::Result<()>;
+    fn get_MouseIcon(&self) -> windows_core::Result<super::IPictureDisp>;
+    fn put_MouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
     fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
-    fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
-    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
-    fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
-    fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
-    fn Selection(&self) -> windows_core::Result<IInkStrokes>;
-    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
-    fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
-    fn EraserWidth(&self) -> windows_core::Result<i32>;
-    fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()>;
-    fn AttachMode(&self) -> windows_core::Result<InkOverlayAttachMode>;
-    fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_core::Result<()>;
-    fn Cursors(&self) -> windows_core::Result<IInkCursors>;
-    fn MarginX(&self) -> windows_core::Result<i32>;
-    fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()>;
-    fn MarginY(&self) -> windows_core::Result<i32>;
-    fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_MousePointer(&self) -> windows_core::Result<InkMousePointer>;
+    fn put_MousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
+    fn get_EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
+    fn put_EditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
+    fn get_Selection(&self) -> windows_core::Result<IInkStrokes>;
+    fn put_Selection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn get_EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
+    fn put_EraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
+    fn get_EraserWidth(&self) -> windows_core::Result<i32>;
+    fn put_EraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()>;
+    fn get_AttachMode(&self) -> windows_core::Result<InkOverlayAttachMode>;
+    fn put_AttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_core::Result<()>;
+    fn get_Cursors(&self) -> windows_core::Result<IInkCursors>;
+    fn get_MarginX(&self) -> windows_core::Result<i32>;
+    fn put_MarginX(&self, marginx: i32) -> windows_core::Result<()>;
+    fn get_MarginY(&self) -> windows_core::Result<i32>;
+    fn put_MarginY(&self, marginy: i32) -> windows_core::Result<()>;
+    fn get_Tablet(&self) -> windows_core::Result<IInkTablet>;
+    fn get_SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_SupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_SupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult>;
     fn Draw(&self, rect: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
     fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
+    fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::Result<()>;
     fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
     fn SetAllTabletsMode(&self, usemouseforinput: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkOverlay_Vtbl {
     pub const fn new<Identity: IInkOverlay_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn hWnd<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwindow: *mut isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_hWnd<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwindow: *mut super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::hWnd(this) {
+                match IInkOverlay_Impl::get_hWnd(this) {
                     Ok(ok__) => {
                         currentwindow.write(ok__);
                         windows_core::HRESULT(0)
@@ -3898,16 +3943,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SethWnd<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwindow: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_hWnd<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwindow: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SethWnd(this, core::mem::transmute_copy(&newwindow)).into()
+                IInkOverlay_Impl::put_hWnd(this, core::mem::transmute_copy(&newwindow)).into()
             }
         }
-        unsafe extern "system" fn Enabled<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Enabled<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::Enabled(this) {
+                match IInkOverlay_Impl::get_Enabled(this) {
                     Ok(ok__) => {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
@@ -3916,16 +3961,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Enabled<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetEnabled(this, core::mem::transmute_copy(&collecting)).into()
+                IInkOverlay_Impl::put_Enabled(this, core::mem::transmute_copy(&collecting)).into()
             }
         }
-        unsafe extern "system" fn DefaultDrawingAttributes<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DefaultDrawingAttributes<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::DefaultDrawingAttributes(this) {
+                match IInkOverlay_Impl::get_DefaultDrawingAttributes(this) {
                     Ok(ok__) => {
                         currentattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3940,10 +3985,10 @@ impl IInkOverlay_Vtbl {
                 IInkOverlay_Impl::putref_DefaultDrawingAttributes(this, core::mem::transmute_copy(&newattributes)).into()
             }
         }
-        unsafe extern "system" fn Renderer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Renderer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::Renderer(this) {
+                match IInkOverlay_Impl::get_Renderer(this) {
                     Ok(ok__) => {
                         currentinkrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3958,10 +4003,10 @@ impl IInkOverlay_Vtbl {
                 IInkOverlay_Impl::putref_Renderer(this, core::mem::transmute_copy(&newinkrenderer)).into()
             }
         }
-        unsafe extern "system" fn Ink<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Ink<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::Ink(this) {
+                match IInkOverlay_Impl::get_Ink(this) {
                     Ok(ok__) => {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -3976,10 +4021,10 @@ impl IInkOverlay_Vtbl {
                 IInkOverlay_Impl::putref_Ink(this, core::mem::transmute_copy(&newink)).into()
             }
         }
-        unsafe extern "system" fn AutoRedraw<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AutoRedraw<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::AutoRedraw(this) {
+                match IInkOverlay_Impl::get_AutoRedraw(this) {
                     Ok(ok__) => {
                         autoredraw.write(ok__);
                         windows_core::HRESULT(0)
@@ -3988,16 +4033,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAutoRedraw<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AutoRedraw<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetAutoRedraw(this, core::mem::transmute_copy(&autoredraw)).into()
+                IInkOverlay_Impl::put_AutoRedraw(this, core::mem::transmute_copy(&autoredraw)).into()
             }
         }
-        unsafe extern "system" fn CollectingInk<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CollectingInk<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::CollectingInk(this) {
+                match IInkOverlay_Impl::get_CollectingInk(this) {
                     Ok(ok__) => {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
@@ -4006,10 +4051,10 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CollectionMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkCollectionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CollectionMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkCollectionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::CollectionMode(this) {
+                match IInkOverlay_Impl::get_CollectionMode(this) {
                     Ok(ok__) => {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
@@ -4018,16 +4063,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCollectionMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkCollectionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_CollectionMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkCollectionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetCollectionMode(this, core::mem::transmute_copy(&mode)).into()
+                IInkOverlay_Impl::put_CollectionMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
-        unsafe extern "system" fn DynamicRendering<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DynamicRendering<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::DynamicRendering(this) {
+                match IInkOverlay_Impl::get_DynamicRendering(this) {
                     Ok(ok__) => {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
@@ -4036,16 +4081,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDynamicRendering<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DynamicRendering<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetDynamicRendering(this, core::mem::transmute_copy(&enabled)).into()
+                IInkOverlay_Impl::put_DynamicRendering(this, core::mem::transmute_copy(&enabled)).into()
             }
         }
-        unsafe extern "system" fn DesiredPacketDescription<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DesiredPacketDescription<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::DesiredPacketDescription(this) {
+                match IInkOverlay_Impl::get_DesiredPacketDescription(this) {
                     Ok(ok__) => {
                         packetguids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4054,16 +4099,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDesiredPacketDescription<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DesiredPacketDescription<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetDesiredPacketDescription(this, core::mem::transmute(&packetguids)).into()
+                IInkOverlay_Impl::put_DesiredPacketDescription(this, core::mem::transmute(&packetguids)).into()
             }
         }
-        unsafe extern "system" fn MouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::MouseIcon(this) {
+                match IInkOverlay_Impl::get_MouseIcon(this) {
                     Ok(ok__) => {
                         mouseicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4072,10 +4117,10 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetMouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkOverlay_Impl::put_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn putref_MouseIcon<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4084,10 +4129,10 @@ impl IInkOverlay_Vtbl {
                 IInkOverlay_Impl::putref_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
             }
         }
-        unsafe extern "system" fn MousePointer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MousePointer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::MousePointer(this) {
+                match IInkOverlay_Impl::get_MousePointer(this) {
                     Ok(ok__) => {
                         mousepointer.write(ok__);
                         windows_core::HRESULT(0)
@@ -4096,16 +4141,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMousePointer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: InkMousePointer) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MousePointer<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: InkMousePointer) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetMousePointer(this, core::mem::transmute_copy(&mousepointer)).into()
+                IInkOverlay_Impl::put_MousePointer(this, core::mem::transmute_copy(&mousepointer)).into()
             }
         }
-        unsafe extern "system" fn EditingMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: *mut InkOverlayEditingMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_EditingMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: *mut InkOverlayEditingMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::EditingMode(this) {
+                match IInkOverlay_Impl::get_EditingMode(this) {
                     Ok(ok__) => {
                         editingmode.write(ok__);
                         windows_core::HRESULT(0)
@@ -4114,16 +4159,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEditingMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EditingMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetEditingMode(this, core::mem::transmute_copy(&editingmode)).into()
+                IInkOverlay_Impl::put_EditingMode(this, core::mem::transmute_copy(&editingmode)).into()
             }
         }
-        unsafe extern "system" fn Selection<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Selection<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::Selection(this) {
+                match IInkOverlay_Impl::get_Selection(this) {
                     Ok(ok__) => {
                         selection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4132,16 +4177,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSelection<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Selection<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetSelection(this, core::mem::transmute_copy(&selection)).into()
+                IInkOverlay_Impl::put_Selection(this, core::mem::transmute_copy(&selection)).into()
             }
         }
-        unsafe extern "system" fn EraserMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_EraserMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::EraserMode(this) {
+                match IInkOverlay_Impl::get_EraserMode(this) {
                     Ok(ok__) => {
                         erasermode.write(ok__);
                         windows_core::HRESULT(0)
@@ -4150,16 +4195,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEraserMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EraserMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetEraserMode(this, core::mem::transmute_copy(&erasermode)).into()
+                IInkOverlay_Impl::put_EraserMode(this, core::mem::transmute_copy(&erasermode)).into()
             }
         }
-        unsafe extern "system" fn EraserWidth<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eraserwidth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_EraserWidth<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eraserwidth: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::EraserWidth(this) {
+                match IInkOverlay_Impl::get_EraserWidth(this) {
                     Ok(ok__) => {
                         eraserwidth.write(ok__);
                         windows_core::HRESULT(0)
@@ -4168,16 +4213,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEraserWidth<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, neweraserwidth: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EraserWidth<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, neweraserwidth: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetEraserWidth(this, core::mem::transmute_copy(&neweraserwidth)).into()
+                IInkOverlay_Impl::put_EraserWidth(this, core::mem::transmute_copy(&neweraserwidth)).into()
             }
         }
-        unsafe extern "system" fn AttachMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmode: *mut InkOverlayAttachMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AttachMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmode: *mut InkOverlayAttachMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::AttachMode(this) {
+                match IInkOverlay_Impl::get_AttachMode(this) {
                     Ok(ok__) => {
                         attachmode.write(ok__);
                         windows_core::HRESULT(0)
@@ -4186,16 +4231,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAttachMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmode: InkOverlayAttachMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AttachMode<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attachmode: InkOverlayAttachMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetAttachMode(this, core::mem::transmute_copy(&attachmode)).into()
+                IInkOverlay_Impl::put_AttachMode(this, core::mem::transmute_copy(&attachmode)).into()
             }
         }
-        unsafe extern "system" fn Cursors<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Cursors<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::Cursors(this) {
+                match IInkOverlay_Impl::get_Cursors(this) {
                     Ok(ok__) => {
                         cursors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4204,10 +4249,10 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MarginX<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MarginX<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::MarginX(this) {
+                match IInkOverlay_Impl::get_MarginX(this) {
                     Ok(ok__) => {
                         marginx.write(ok__);
                         windows_core::HRESULT(0)
@@ -4216,16 +4261,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMarginX<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MarginX<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetMarginX(this, core::mem::transmute_copy(&marginx)).into()
+                IInkOverlay_Impl::put_MarginX(this, core::mem::transmute_copy(&marginx)).into()
             }
         }
-        unsafe extern "system" fn MarginY<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MarginY<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::MarginY(this) {
+                match IInkOverlay_Impl::get_MarginY(this) {
                     Ok(ok__) => {
                         marginy.write(ok__);
                         windows_core::HRESULT(0)
@@ -4234,16 +4279,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMarginY<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MarginY<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetMarginY(this, core::mem::transmute_copy(&marginy)).into()
+                IInkOverlay_Impl::put_MarginY(this, core::mem::transmute_copy(&marginy)).into()
             }
         }
-        unsafe extern "system" fn Tablet<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, singletablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Tablet<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, singletablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::Tablet(this) {
+                match IInkOverlay_Impl::get_Tablet(this) {
                     Ok(ok__) => {
                         singletablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -4252,10 +4297,10 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SupportHighContrastInk<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SupportHighContrastInk<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::SupportHighContrastInk(this) {
+                match IInkOverlay_Impl::get_SupportHighContrastInk(this) {
                     Ok(ok__) => {
                         support.write(ok__);
                         windows_core::HRESULT(0)
@@ -4264,16 +4309,16 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSupportHighContrastInk<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SupportHighContrastInk<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetSupportHighContrastInk(this, core::mem::transmute_copy(&support)).into()
+                IInkOverlay_Impl::put_SupportHighContrastInk(this, core::mem::transmute_copy(&support)).into()
             }
         }
-        unsafe extern "system" fn SupportHighContrastSelectionUI<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SupportHighContrastSelectionUI<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkOverlay_Impl::SupportHighContrastSelectionUI(this) {
+                match IInkOverlay_Impl::get_SupportHighContrastSelectionUI(this) {
                     Ok(ok__) => {
                         support.write(ok__);
                         windows_core::HRESULT(0)
@@ -4282,10 +4327,10 @@ impl IInkOverlay_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSupportHighContrastSelectionUI<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SupportHighContrastSelectionUI<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkOverlay_Impl::SetSupportHighContrastSelectionUI(this, core::mem::transmute_copy(&support)).into()
+                IInkOverlay_Impl::put_SupportHighContrastSelectionUI(this, core::mem::transmute_copy(&support)).into()
             }
         }
         unsafe extern "system" fn HitTestSelection<Identity: IInkOverlay_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, selarea: *mut SelectionHitResult) -> windows_core::HRESULT {
@@ -4368,50 +4413,50 @@ impl IInkOverlay_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            hWnd: hWnd::<Identity, OFFSET>,
-            SethWnd: SethWnd::<Identity, OFFSET>,
-            Enabled: Enabled::<Identity, OFFSET>,
-            SetEnabled: SetEnabled::<Identity, OFFSET>,
-            DefaultDrawingAttributes: DefaultDrawingAttributes::<Identity, OFFSET>,
+            get_hWnd: get_hWnd::<Identity, OFFSET>,
+            put_hWnd: put_hWnd::<Identity, OFFSET>,
+            get_Enabled: get_Enabled::<Identity, OFFSET>,
+            put_Enabled: put_Enabled::<Identity, OFFSET>,
+            get_DefaultDrawingAttributes: get_DefaultDrawingAttributes::<Identity, OFFSET>,
             putref_DefaultDrawingAttributes: putref_DefaultDrawingAttributes::<Identity, OFFSET>,
-            Renderer: Renderer::<Identity, OFFSET>,
+            get_Renderer: get_Renderer::<Identity, OFFSET>,
             putref_Renderer: putref_Renderer::<Identity, OFFSET>,
-            Ink: Ink::<Identity, OFFSET>,
+            get_Ink: get_Ink::<Identity, OFFSET>,
             putref_Ink: putref_Ink::<Identity, OFFSET>,
-            AutoRedraw: AutoRedraw::<Identity, OFFSET>,
-            SetAutoRedraw: SetAutoRedraw::<Identity, OFFSET>,
-            CollectingInk: CollectingInk::<Identity, OFFSET>,
-            CollectionMode: CollectionMode::<Identity, OFFSET>,
-            SetCollectionMode: SetCollectionMode::<Identity, OFFSET>,
-            DynamicRendering: DynamicRendering::<Identity, OFFSET>,
-            SetDynamicRendering: SetDynamicRendering::<Identity, OFFSET>,
-            DesiredPacketDescription: DesiredPacketDescription::<Identity, OFFSET>,
-            SetDesiredPacketDescription: SetDesiredPacketDescription::<Identity, OFFSET>,
-            MouseIcon: MouseIcon::<Identity, OFFSET>,
-            SetMouseIcon: SetMouseIcon::<Identity, OFFSET>,
+            get_AutoRedraw: get_AutoRedraw::<Identity, OFFSET>,
+            put_AutoRedraw: put_AutoRedraw::<Identity, OFFSET>,
+            get_CollectingInk: get_CollectingInk::<Identity, OFFSET>,
+            get_CollectionMode: get_CollectionMode::<Identity, OFFSET>,
+            put_CollectionMode: put_CollectionMode::<Identity, OFFSET>,
+            get_DynamicRendering: get_DynamicRendering::<Identity, OFFSET>,
+            put_DynamicRendering: put_DynamicRendering::<Identity, OFFSET>,
+            get_DesiredPacketDescription: get_DesiredPacketDescription::<Identity, OFFSET>,
+            put_DesiredPacketDescription: put_DesiredPacketDescription::<Identity, OFFSET>,
+            get_MouseIcon: get_MouseIcon::<Identity, OFFSET>,
+            put_MouseIcon: put_MouseIcon::<Identity, OFFSET>,
             putref_MouseIcon: putref_MouseIcon::<Identity, OFFSET>,
-            MousePointer: MousePointer::<Identity, OFFSET>,
-            SetMousePointer: SetMousePointer::<Identity, OFFSET>,
-            EditingMode: EditingMode::<Identity, OFFSET>,
-            SetEditingMode: SetEditingMode::<Identity, OFFSET>,
-            Selection: Selection::<Identity, OFFSET>,
-            SetSelection: SetSelection::<Identity, OFFSET>,
-            EraserMode: EraserMode::<Identity, OFFSET>,
-            SetEraserMode: SetEraserMode::<Identity, OFFSET>,
-            EraserWidth: EraserWidth::<Identity, OFFSET>,
-            SetEraserWidth: SetEraserWidth::<Identity, OFFSET>,
-            AttachMode: AttachMode::<Identity, OFFSET>,
-            SetAttachMode: SetAttachMode::<Identity, OFFSET>,
-            Cursors: Cursors::<Identity, OFFSET>,
-            MarginX: MarginX::<Identity, OFFSET>,
-            SetMarginX: SetMarginX::<Identity, OFFSET>,
-            MarginY: MarginY::<Identity, OFFSET>,
-            SetMarginY: SetMarginY::<Identity, OFFSET>,
-            Tablet: Tablet::<Identity, OFFSET>,
-            SupportHighContrastInk: SupportHighContrastInk::<Identity, OFFSET>,
-            SetSupportHighContrastInk: SetSupportHighContrastInk::<Identity, OFFSET>,
-            SupportHighContrastSelectionUI: SupportHighContrastSelectionUI::<Identity, OFFSET>,
-            SetSupportHighContrastSelectionUI: SetSupportHighContrastSelectionUI::<Identity, OFFSET>,
+            get_MousePointer: get_MousePointer::<Identity, OFFSET>,
+            put_MousePointer: put_MousePointer::<Identity, OFFSET>,
+            get_EditingMode: get_EditingMode::<Identity, OFFSET>,
+            put_EditingMode: put_EditingMode::<Identity, OFFSET>,
+            get_Selection: get_Selection::<Identity, OFFSET>,
+            put_Selection: put_Selection::<Identity, OFFSET>,
+            get_EraserMode: get_EraserMode::<Identity, OFFSET>,
+            put_EraserMode: put_EraserMode::<Identity, OFFSET>,
+            get_EraserWidth: get_EraserWidth::<Identity, OFFSET>,
+            put_EraserWidth: put_EraserWidth::<Identity, OFFSET>,
+            get_AttachMode: get_AttachMode::<Identity, OFFSET>,
+            put_AttachMode: put_AttachMode::<Identity, OFFSET>,
+            get_Cursors: get_Cursors::<Identity, OFFSET>,
+            get_MarginX: get_MarginX::<Identity, OFFSET>,
+            put_MarginX: put_MarginX::<Identity, OFFSET>,
+            get_MarginY: get_MarginY::<Identity, OFFSET>,
+            put_MarginY: put_MarginY::<Identity, OFFSET>,
+            get_Tablet: get_Tablet::<Identity, OFFSET>,
+            get_SupportHighContrastInk: get_SupportHighContrastInk::<Identity, OFFSET>,
+            put_SupportHighContrastInk: put_SupportHighContrastInk::<Identity, OFFSET>,
+            get_SupportHighContrastSelectionUI: get_SupportHighContrastSelectionUI::<Identity, OFFSET>,
+            put_SupportHighContrastSelectionUI: put_SupportHighContrastSelectionUI::<Identity, OFFSET>,
             HitTestSelection: HitTestSelection::<Identity, OFFSET>,
             Draw: Draw::<Identity, OFFSET>,
             SetGestureStatus: SetGestureStatus::<Identity, OFFSET>,
@@ -4428,7 +4473,7 @@ impl IInkOverlay_Vtbl {
         iid == &<IInkOverlay as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkOverlay {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkPicture, IInkPicture_Vtbl, 0xe85662e0_379a_40d7_9b5c_757d233f9923);
@@ -4443,16 +4488,17 @@ impl core::ops::Deref for IInkPicture {
 windows_core::imp::interface_hierarchy!(IInkPicture, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkPicture {
-    pub unsafe fn hWnd(&self) -> windows_core::Result<isize> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_hWnd(&self) -> windows_core::Result<super::LONG_PTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn get_DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_core::HRESULT
@@ -4461,10 +4507,10 @@ impl IInkPicture {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()) }
     }
-    pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
+    pub unsafe fn get_Renderer(&self) -> windows_core::Result<IInkRenderer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_core::HRESULT
@@ -4473,10 +4519,10 @@ impl IInkPicture {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()) }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn get_Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_core::HRESULT
@@ -4486,67 +4532,67 @@ impl IInkPicture {
         unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw) }
+    pub unsafe fn put_AutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_AutoRedraw)(windows_core::Interface::as_raw(self), autoredraw) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
+    pub unsafe fn get_CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCollectionMode)(windows_core::Interface::as_raw(self), mode) }
+    pub unsafe fn put_CollectionMode(&self, mode: InkCollectionMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_CollectionMode)(windows_core::Interface::as_raw(self), mode) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled) }
+    pub unsafe fn put_DynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DynamicRendering)(windows_core::Interface::as_raw(self), enabled) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn put_DesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn MouseIcon(&self) -> windows_core::Result<super::IPictureDisp> {
+    pub unsafe fn get_MouseIcon(&self) -> windows_core::Result<super::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
+    pub unsafe fn put_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
     }
     #[cfg(feature = "ocidl")]
     pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::HRESULT
@@ -4555,53 +4601,53 @@ impl IInkPicture {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()) }
     }
-    pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
+    pub unsafe fn get_MousePointer(&self) -> windows_core::Result<InkMousePointer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMousePointer)(windows_core::Interface::as_raw(self), mousepointer) }
+    pub unsafe fn put_MousePointer(&self, mousepointer: InkMousePointer) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MousePointer)(windows_core::Interface::as_raw(self), mousepointer) }
     }
-    pub unsafe fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode> {
+    pub unsafe fn get_EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EditingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_EditingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEditingMode)(windows_core::Interface::as_raw(self), editingmode) }
+    pub unsafe fn put_EditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EditingMode)(windows_core::Interface::as_raw(self), editingmode) }
     }
-    pub unsafe fn Selection(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn get_Selection(&self) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSelection<P0>(&self, selection: P0) -> windows_core::HRESULT
+    pub unsafe fn put_Selection<P0>(&self, selection: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IInkStrokes>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), selection.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_Selection)(windows_core::Interface::as_raw(self), selection.param().abi()) }
     }
-    pub unsafe fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
+    pub unsafe fn get_EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EraserMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_EraserMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEraserMode)(windows_core::Interface::as_raw(self), erasermode) }
+    pub unsafe fn put_EraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EraserMode)(windows_core::Interface::as_raw(self), erasermode) }
     }
-    pub unsafe fn EraserWidth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_EraserWidth(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EraserWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_EraserWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEraserWidth)(windows_core::Interface::as_raw(self), neweraserwidth) }
+    pub unsafe fn put_EraserWidth(&self, neweraserwidth: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EraserWidth)(windows_core::Interface::as_raw(self), neweraserwidth) }
     }
     #[cfg(feature = "ocidl")]
     pub unsafe fn putref_Picture<P0>(&self, ppicture: P0) -> windows_core::HRESULT
@@ -4611,90 +4657,90 @@ impl IInkPicture {
         unsafe { (windows_core::Interface::vtable(self).putref_Picture)(windows_core::Interface::as_raw(self), ppicture.param().abi()) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn SetPicture<P0>(&self, ppicture: P0) -> windows_core::HRESULT
+    pub unsafe fn put_Picture<P0>(&self, ppicture: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::IPictureDisp>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPicture)(windows_core::Interface::as_raw(self), ppicture.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_Picture)(windows_core::Interface::as_raw(self), ppicture.param().abi()) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn Picture(&self) -> windows_core::Result<super::IPictureDisp> {
+    pub unsafe fn get_Picture(&self) -> windows_core::Result<super::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Picture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Picture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSizeMode)(windows_core::Interface::as_raw(self), smnewsizemode) }
+    pub unsafe fn put_SizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SizeMode)(windows_core::Interface::as_raw(self), smnewsizemode) }
     }
-    pub unsafe fn SizeMode(&self) -> windows_core::Result<InkPictureSizeMode> {
+    pub unsafe fn get_SizeMode(&self) -> windows_core::Result<InkPictureSizeMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SizeMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_SizeMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn SetBackColor(&self, newcolor: super::OLE_COLOR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), newcolor) }
+    pub unsafe fn put_BackColor(&self, newcolor: super::OLE_COLOR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_BackColor)(windows_core::Interface::as_raw(self), newcolor) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn BackColor(&self) -> windows_core::Result<super::OLE_COLOR> {
+    pub unsafe fn get_BackColor(&self) -> windows_core::Result<super::OLE_COLOR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Cursors(&self) -> windows_core::Result<IInkCursors> {
+    pub unsafe fn get_Cursors(&self) -> windows_core::Result<IInkCursors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MarginX(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MarginX(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMarginX)(windows_core::Interface::as_raw(self), marginx) }
+    pub unsafe fn put_MarginX(&self, marginx: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MarginX)(windows_core::Interface::as_raw(self), marginx) }
     }
-    pub unsafe fn MarginY(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MarginY(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMarginY)(windows_core::Interface::as_raw(self), marginy) }
+    pub unsafe fn put_MarginY(&self, marginy: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MarginY)(windows_core::Interface::as_raw(self), marginy) }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn get_Tablet(&self) -> windows_core::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support) }
-    }
-    #[cfg(feature = "wtypes")]
-    pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support) }
+    pub unsafe fn put_SupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SupportHighContrastInk)(windows_core::Interface::as_raw(self), support) }
+    }
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn get_SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).get_SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "wtypes")]
+    pub unsafe fn put_SupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support) }
     }
     pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult> {
         unsafe {
@@ -4744,26 +4790,26 @@ impl IInkPicture {
         unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), eventid, listen) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn InkEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_InkEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InkEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_InkEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetInkEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetInkEnabled)(windows_core::Interface::as_raw(self), collecting) }
+    pub unsafe fn put_InkEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_InkEnabled)(windows_core::Interface::as_raw(self), collecting) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn SetEnabled(&self, vbool: super::VARIANT_BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), vbool) }
+    pub unsafe fn put_Enabled(&self, vbool: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Enabled)(windows_core::Interface::as_raw(self), vbool) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -4771,109 +4817,112 @@ impl IInkPicture {
 #[doc(hidden)]
 pub struct IInkPicture_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut isize) -> windows_core::HRESULT,
-    pub DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_hWnd: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_hWnd: usize,
+    pub get_DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_DefaultDrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Renderer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    AutoRedraw: usize,
+    get_AutoRedraw: usize,
     #[cfg(feature = "wtypes")]
-    pub SetAutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_AutoRedraw: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetAutoRedraw: usize,
+    put_AutoRedraw: usize,
     #[cfg(feature = "wtypes")]
-    pub CollectingInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_CollectingInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    CollectingInk: usize,
-    pub CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCollectionMode) -> windows_core::HRESULT,
-    pub SetCollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkCollectionMode) -> windows_core::HRESULT,
+    get_CollectingInk: usize,
+    pub get_CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkCollectionMode) -> windows_core::HRESULT,
+    pub put_CollectionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkCollectionMode) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    DynamicRendering: usize,
+    get_DynamicRendering: usize,
     #[cfg(feature = "wtypes")]
-    pub SetDynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_DynamicRendering: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetDynamicRendering: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    DesiredPacketDescription: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetDesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SetDesiredPacketDescription: usize,
+    put_DynamicRendering: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_DesiredPacketDescription: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub put_DesiredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    put_DesiredPacketDescription: usize,
     #[cfg(feature = "ocidl")]
-    pub MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    MouseIcon: usize,
+    get_MouseIcon: usize,
     #[cfg(feature = "ocidl")]
-    pub SetMouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    SetMouseIcon: usize,
+    put_MouseIcon: usize,
     #[cfg(feature = "ocidl")]
     pub putref_MouseIcon: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
     putref_MouseIcon: usize,
-    pub MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkMousePointer) -> windows_core::HRESULT,
-    pub SetMousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, InkMousePointer) -> windows_core::HRESULT,
-    pub EditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEditingMode) -> windows_core::HRESULT,
-    pub SetEditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEditingMode) -> windows_core::HRESULT,
-    pub Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSelection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEraserMode) -> windows_core::HRESULT,
-    pub SetEraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEraserMode) -> windows_core::HRESULT,
-    pub EraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetEraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkMousePointer) -> windows_core::HRESULT,
+    pub put_MousePointer: unsafe extern "system" fn(*mut core::ffi::c_void, InkMousePointer) -> windows_core::HRESULT,
+    pub get_EditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEditingMode) -> windows_core::HRESULT,
+    pub put_EditingMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEditingMode) -> windows_core::HRESULT,
+    pub get_Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Selection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_EraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkOverlayEraserMode) -> windows_core::HRESULT,
+    pub put_EraserMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkOverlayEraserMode) -> windows_core::HRESULT,
+    pub get_EraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_EraserWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     #[cfg(feature = "ocidl")]
     pub putref_Picture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
     putref_Picture: usize,
     #[cfg(feature = "ocidl")]
-    pub SetPicture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Picture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    SetPicture: usize,
+    put_Picture: usize,
     #[cfg(feature = "ocidl")]
-    pub Picture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Picture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    Picture: usize,
-    pub SetSizeMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkPictureSizeMode) -> windows_core::HRESULT,
-    pub SizeMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkPictureSizeMode) -> windows_core::HRESULT,
+    get_Picture: usize,
+    pub put_SizeMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkPictureSizeMode) -> windows_core::HRESULT,
+    pub get_SizeMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkPictureSizeMode) -> windows_core::HRESULT,
     #[cfg(feature = "ocidl")]
-    pub SetBackColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::OLE_COLOR) -> windows_core::HRESULT,
+    pub put_BackColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::OLE_COLOR) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    SetBackColor: usize,
+    put_BackColor: usize,
     #[cfg(feature = "ocidl")]
-    pub BackColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::OLE_COLOR) -> windows_core::HRESULT,
+    pub get_BackColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::OLE_COLOR) -> windows_core::HRESULT,
     #[cfg(not(feature = "ocidl"))]
-    BackColor: usize,
-    pub Cursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetMarginX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetMarginY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    get_BackColor: usize,
+    pub get_Cursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_MarginX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_MarginY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Tablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SupportHighContrastInk: usize,
+    get_SupportHighContrastInk: usize,
     #[cfg(feature = "wtypes")]
-    pub SetSupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_SupportHighContrastInk: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetSupportHighContrastInk: usize,
+    put_SupportHighContrastInk: usize,
     #[cfg(feature = "wtypes")]
-    pub SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SupportHighContrastSelectionUI: usize,
+    get_SupportHighContrastSelectionUI: usize,
     #[cfg(feature = "wtypes")]
-    pub SetSupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_SupportHighContrastSelectionUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetSupportHighContrastSelectionUI: usize,
+    put_SupportHighContrastSelectionUI: usize,
     pub HitTestSelection: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut SelectionHitResult) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
     pub SetGestureStatus: unsafe extern "system" fn(*mut core::ffi::c_void, InkApplicationGesture, super::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -4899,91 +4948,91 @@ pub struct IInkPicture_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     SetEventInterest: usize,
     #[cfg(feature = "wtypes")]
-    pub InkEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_InkEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    InkEnabled: usize,
+    get_InkEnabled: usize,
     #[cfg(feature = "wtypes")]
-    pub SetInkEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_InkEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetInkEnabled: usize,
+    put_InkEnabled: usize,
     #[cfg(feature = "wtypes")]
-    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Enabled: usize,
+    get_Enabled: usize,
     #[cfg(feature = "wtypes")]
-    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub put_Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    SetEnabled: usize,
+    put_Enabled: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkPicture_Impl: super::IDispatch_Impl {
-    fn hWnd(&self) -> windows_core::Result<isize>;
-    fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
+    fn get_hWnd(&self) -> windows_core::Result<super::LONG_PTR>;
+    fn get_DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
     fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
+    fn get_Renderer(&self) -> windows_core::Result<IInkRenderer>;
     fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
+    fn get_Ink(&self) -> windows_core::Result<IInkDisp>;
     fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
-    fn AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetAutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
-    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
-    fn DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetDynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::Result<()>;
-    fn MouseIcon(&self) -> windows_core::Result<super::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
+    fn get_AutoRedraw(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_AutoRedraw(&self, autoredraw: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_CollectingInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
+    fn put_CollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
+    fn get_DynamicRendering(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_DynamicRendering(&self, enabled: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_DesiredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
+    fn put_DesiredPacketDescription(&self, packetguids: &super::VARIANT) -> windows_core::Result<()>;
+    fn get_MouseIcon(&self) -> windows_core::Result<super::IPictureDisp>;
+    fn put_MouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
     fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
-    fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
-    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
-    fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
-    fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
-    fn Selection(&self) -> windows_core::Result<IInkStrokes>;
-    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
-    fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
-    fn EraserWidth(&self) -> windows_core::Result<i32>;
-    fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()>;
+    fn get_MousePointer(&self) -> windows_core::Result<InkMousePointer>;
+    fn put_MousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
+    fn get_EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
+    fn put_EditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
+    fn get_Selection(&self) -> windows_core::Result<IInkStrokes>;
+    fn put_Selection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn get_EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
+    fn put_EraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
+    fn get_EraserWidth(&self) -> windows_core::Result<i32>;
+    fn put_EraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()>;
     fn putref_Picture(&self, ppicture: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
-    fn SetPicture(&self, ppicture: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
-    fn Picture(&self) -> windows_core::Result<super::IPictureDisp>;
-    fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_core::Result<()>;
-    fn SizeMode(&self) -> windows_core::Result<InkPictureSizeMode>;
-    fn SetBackColor(&self, newcolor: super::OLE_COLOR) -> windows_core::Result<()>;
-    fn BackColor(&self) -> windows_core::Result<super::OLE_COLOR>;
-    fn Cursors(&self) -> windows_core::Result<IInkCursors>;
-    fn MarginX(&self) -> windows_core::Result<i32>;
-    fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()>;
-    fn MarginY(&self) -> windows_core::Result<i32>;
-    fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetSupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn put_Picture(&self, ppicture: windows_core::Ref<super::IPictureDisp>) -> windows_core::Result<()>;
+    fn get_Picture(&self) -> windows_core::Result<super::IPictureDisp>;
+    fn put_SizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_core::Result<()>;
+    fn get_SizeMode(&self) -> windows_core::Result<InkPictureSizeMode>;
+    fn put_BackColor(&self, newcolor: super::OLE_COLOR) -> windows_core::Result<()>;
+    fn get_BackColor(&self) -> windows_core::Result<super::OLE_COLOR>;
+    fn get_Cursors(&self) -> windows_core::Result<IInkCursors>;
+    fn get_MarginX(&self) -> windows_core::Result<i32>;
+    fn put_MarginX(&self, marginx: i32) -> windows_core::Result<()>;
+    fn get_MarginY(&self) -> windows_core::Result<i32>;
+    fn put_MarginY(&self, marginy: i32) -> windows_core::Result<()>;
+    fn get_Tablet(&self) -> windows_core::Result<IInkTablet>;
+    fn get_SupportHighContrastInk(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_SupportHighContrastInk(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_SupportHighContrastSelectionUI(&self, support: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult>;
     fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
+    fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::Result<()>;
     fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
     fn SetAllTabletsMode(&self, usemouseforinput: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn InkEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetInkEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn SetEnabled(&self, vbool: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_InkEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_InkEnabled(&self, collecting: super::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn get_Enabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn put_Enabled(&self, vbool: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkPicture_Vtbl {
     pub const fn new<Identity: IInkPicture_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn hWnd<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwindow: *mut isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_hWnd<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentwindow: *mut super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::hWnd(this) {
+                match IInkPicture_Impl::get_hWnd(this) {
                     Ok(ok__) => {
                         currentwindow.write(ok__);
                         windows_core::HRESULT(0)
@@ -4992,10 +5041,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DefaultDrawingAttributes<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DefaultDrawingAttributes<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentattributes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::DefaultDrawingAttributes(this) {
+                match IInkPicture_Impl::get_DefaultDrawingAttributes(this) {
                     Ok(ok__) => {
                         currentattributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5010,10 +5059,10 @@ impl IInkPicture_Vtbl {
                 IInkPicture_Impl::putref_DefaultDrawingAttributes(this, core::mem::transmute_copy(&newattributes)).into()
             }
         }
-        unsafe extern "system" fn Renderer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Renderer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, currentinkrenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::Renderer(this) {
+                match IInkPicture_Impl::get_Renderer(this) {
                     Ok(ok__) => {
                         currentinkrenderer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5028,10 +5077,10 @@ impl IInkPicture_Vtbl {
                 IInkPicture_Impl::putref_Renderer(this, core::mem::transmute_copy(&newinkrenderer)).into()
             }
         }
-        unsafe extern "system" fn Ink<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Ink<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::Ink(this) {
+                match IInkPicture_Impl::get_Ink(this) {
                     Ok(ok__) => {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5046,10 +5095,10 @@ impl IInkPicture_Vtbl {
                 IInkPicture_Impl::putref_Ink(this, core::mem::transmute_copy(&newink)).into()
             }
         }
-        unsafe extern "system" fn AutoRedraw<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AutoRedraw<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::AutoRedraw(this) {
+                match IInkPicture_Impl::get_AutoRedraw(this) {
                     Ok(ok__) => {
                         autoredraw.write(ok__);
                         windows_core::HRESULT(0)
@@ -5058,16 +5107,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAutoRedraw<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AutoRedraw<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoredraw: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetAutoRedraw(this, core::mem::transmute_copy(&autoredraw)).into()
+                IInkPicture_Impl::put_AutoRedraw(this, core::mem::transmute_copy(&autoredraw)).into()
             }
         }
-        unsafe extern "system" fn CollectingInk<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CollectingInk<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::CollectingInk(this) {
+                match IInkPicture_Impl::get_CollectingInk(this) {
                     Ok(ok__) => {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
@@ -5076,10 +5125,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CollectionMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkCollectionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CollectionMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkCollectionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::CollectionMode(this) {
+                match IInkPicture_Impl::get_CollectionMode(this) {
                     Ok(ok__) => {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
@@ -5088,16 +5137,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCollectionMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkCollectionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_CollectionMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkCollectionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetCollectionMode(this, core::mem::transmute_copy(&mode)).into()
+                IInkPicture_Impl::put_CollectionMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
-        unsafe extern "system" fn DynamicRendering<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DynamicRendering<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::DynamicRendering(this) {
+                match IInkPicture_Impl::get_DynamicRendering(this) {
                     Ok(ok__) => {
                         enabled.write(ok__);
                         windows_core::HRESULT(0)
@@ -5106,16 +5155,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDynamicRendering<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DynamicRendering<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enabled: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetDynamicRendering(this, core::mem::transmute_copy(&enabled)).into()
+                IInkPicture_Impl::put_DynamicRendering(this, core::mem::transmute_copy(&enabled)).into()
             }
         }
-        unsafe extern "system" fn DesiredPacketDescription<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DesiredPacketDescription<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::DesiredPacketDescription(this) {
+                match IInkPicture_Impl::get_DesiredPacketDescription(this) {
                     Ok(ok__) => {
                         packetguids.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5124,16 +5173,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDesiredPacketDescription<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DesiredPacketDescription<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetguids: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetDesiredPacketDescription(this, core::mem::transmute(&packetguids)).into()
+                IInkPicture_Impl::put_DesiredPacketDescription(this, core::mem::transmute(&packetguids)).into()
             }
         }
-        unsafe extern "system" fn MouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::MouseIcon(this) {
+                match IInkPicture_Impl::get_MouseIcon(this) {
                     Ok(ok__) => {
                         mouseicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5142,10 +5191,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetMouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
+                IInkPicture_Impl::put_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
             }
         }
         unsafe extern "system" fn putref_MouseIcon<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mouseicon: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5154,10 +5203,10 @@ impl IInkPicture_Vtbl {
                 IInkPicture_Impl::putref_MouseIcon(this, core::mem::transmute_copy(&mouseicon)).into()
             }
         }
-        unsafe extern "system" fn MousePointer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MousePointer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: *mut InkMousePointer) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::MousePointer(this) {
+                match IInkPicture_Impl::get_MousePointer(this) {
                     Ok(ok__) => {
                         mousepointer.write(ok__);
                         windows_core::HRESULT(0)
@@ -5166,16 +5215,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMousePointer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: InkMousePointer) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MousePointer<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mousepointer: InkMousePointer) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetMousePointer(this, core::mem::transmute_copy(&mousepointer)).into()
+                IInkPicture_Impl::put_MousePointer(this, core::mem::transmute_copy(&mousepointer)).into()
             }
         }
-        unsafe extern "system" fn EditingMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: *mut InkOverlayEditingMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_EditingMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: *mut InkOverlayEditingMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::EditingMode(this) {
+                match IInkPicture_Impl::get_EditingMode(this) {
                     Ok(ok__) => {
                         editingmode.write(ok__);
                         windows_core::HRESULT(0)
@@ -5184,16 +5233,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEditingMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EditingMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, editingmode: InkOverlayEditingMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetEditingMode(this, core::mem::transmute_copy(&editingmode)).into()
+                IInkPicture_Impl::put_EditingMode(this, core::mem::transmute_copy(&editingmode)).into()
             }
         }
-        unsafe extern "system" fn Selection<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Selection<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::Selection(this) {
+                match IInkPicture_Impl::get_Selection(this) {
                     Ok(ok__) => {
                         selection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5202,16 +5251,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSelection<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Selection<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selection: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetSelection(this, core::mem::transmute_copy(&selection)).into()
+                IInkPicture_Impl::put_Selection(this, core::mem::transmute_copy(&selection)).into()
             }
         }
-        unsafe extern "system" fn EraserMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_EraserMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: *mut InkOverlayEraserMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::EraserMode(this) {
+                match IInkPicture_Impl::get_EraserMode(this) {
                     Ok(ok__) => {
                         erasermode.write(ok__);
                         windows_core::HRESULT(0)
@@ -5220,16 +5269,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEraserMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EraserMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, erasermode: InkOverlayEraserMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetEraserMode(this, core::mem::transmute_copy(&erasermode)).into()
+                IInkPicture_Impl::put_EraserMode(this, core::mem::transmute_copy(&erasermode)).into()
             }
         }
-        unsafe extern "system" fn EraserWidth<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eraserwidth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_EraserWidth<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eraserwidth: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::EraserWidth(this) {
+                match IInkPicture_Impl::get_EraserWidth(this) {
                     Ok(ok__) => {
                         eraserwidth.write(ok__);
                         windows_core::HRESULT(0)
@@ -5238,10 +5287,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEraserWidth<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, neweraserwidth: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EraserWidth<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, neweraserwidth: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetEraserWidth(this, core::mem::transmute_copy(&neweraserwidth)).into()
+                IInkPicture_Impl::put_EraserWidth(this, core::mem::transmute_copy(&neweraserwidth)).into()
             }
         }
         unsafe extern "system" fn putref_Picture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicture: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5250,16 +5299,16 @@ impl IInkPicture_Vtbl {
                 IInkPicture_Impl::putref_Picture(this, core::mem::transmute_copy(&ppicture)).into()
             }
         }
-        unsafe extern "system" fn SetPicture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicture: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Picture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppicture: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetPicture(this, core::mem::transmute_copy(&ppicture)).into()
+                IInkPicture_Impl::put_Picture(this, core::mem::transmute_copy(&ppicture)).into()
             }
         }
-        unsafe extern "system" fn Picture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppicture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Picture<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pppicture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::Picture(this) {
+                match IInkPicture_Impl::get_Picture(this) {
                     Ok(ok__) => {
                         pppicture.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5268,16 +5317,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSizeMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smnewsizemode: InkPictureSizeMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SizeMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smnewsizemode: InkPictureSizeMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetSizeMode(this, core::mem::transmute_copy(&smnewsizemode)).into()
+                IInkPicture_Impl::put_SizeMode(this, core::mem::transmute_copy(&smnewsizemode)).into()
             }
         }
-        unsafe extern "system" fn SizeMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smsizemode: *mut InkPictureSizeMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SizeMode<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, smsizemode: *mut InkPictureSizeMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::SizeMode(this) {
+                match IInkPicture_Impl::get_SizeMode(this) {
                     Ok(ok__) => {
                         smsizemode.write(ok__);
                         windows_core::HRESULT(0)
@@ -5286,16 +5335,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBackColor<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcolor: super::OLE_COLOR) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_BackColor<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newcolor: super::OLE_COLOR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetBackColor(this, core::mem::transmute_copy(&newcolor)).into()
+                IInkPicture_Impl::put_BackColor(this, core::mem::transmute_copy(&newcolor)).into()
             }
         }
-        unsafe extern "system" fn BackColor<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolor: *mut super::OLE_COLOR) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_BackColor<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcolor: *mut super::OLE_COLOR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::BackColor(this) {
+                match IInkPicture_Impl::get_BackColor(this) {
                     Ok(ok__) => {
                         pcolor.write(ok__);
                         windows_core::HRESULT(0)
@@ -5304,10 +5353,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Cursors<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Cursors<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cursors: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::Cursors(this) {
+                match IInkPicture_Impl::get_Cursors(this) {
                     Ok(ok__) => {
                         cursors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5316,10 +5365,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MarginX<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MarginX<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::MarginX(this) {
+                match IInkPicture_Impl::get_MarginX(this) {
                     Ok(ok__) => {
                         marginx.write(ok__);
                         windows_core::HRESULT(0)
@@ -5328,16 +5377,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMarginX<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MarginX<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginx: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetMarginX(this, core::mem::transmute_copy(&marginx)).into()
+                IInkPicture_Impl::put_MarginX(this, core::mem::transmute_copy(&marginx)).into()
             }
         }
-        unsafe extern "system" fn MarginY<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MarginY<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::MarginY(this) {
+                match IInkPicture_Impl::get_MarginY(this) {
                     Ok(ok__) => {
                         marginy.write(ok__);
                         windows_core::HRESULT(0)
@@ -5346,16 +5395,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMarginY<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MarginY<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, marginy: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetMarginY(this, core::mem::transmute_copy(&marginy)).into()
+                IInkPicture_Impl::put_MarginY(this, core::mem::transmute_copy(&marginy)).into()
             }
         }
-        unsafe extern "system" fn Tablet<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, singletablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Tablet<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, singletablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::Tablet(this) {
+                match IInkPicture_Impl::get_Tablet(this) {
                     Ok(ok__) => {
                         singletablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5364,10 +5413,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SupportHighContrastInk<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SupportHighContrastInk<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::SupportHighContrastInk(this) {
+                match IInkPicture_Impl::get_SupportHighContrastInk(this) {
                     Ok(ok__) => {
                         support.write(ok__);
                         windows_core::HRESULT(0)
@@ -5376,16 +5425,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSupportHighContrastInk<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SupportHighContrastInk<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetSupportHighContrastInk(this, core::mem::transmute_copy(&support)).into()
+                IInkPicture_Impl::put_SupportHighContrastInk(this, core::mem::transmute_copy(&support)).into()
             }
         }
-        unsafe extern "system" fn SupportHighContrastSelectionUI<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SupportHighContrastSelectionUI<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::SupportHighContrastSelectionUI(this) {
+                match IInkPicture_Impl::get_SupportHighContrastSelectionUI(this) {
                     Ok(ok__) => {
                         support.write(ok__);
                         windows_core::HRESULT(0)
@@ -5394,10 +5443,10 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSupportHighContrastSelectionUI<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SupportHighContrastSelectionUI<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, support: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetSupportHighContrastSelectionUI(this, core::mem::transmute_copy(&support)).into()
+                IInkPicture_Impl::put_SupportHighContrastSelectionUI(this, core::mem::transmute_copy(&support)).into()
             }
         }
         unsafe extern "system" fn HitTestSelection<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, x: i32, y: i32, selarea: *mut SelectionHitResult) -> windows_core::HRESULT {
@@ -5472,10 +5521,10 @@ impl IInkPicture_Vtbl {
                 IInkPicture_Impl::SetEventInterest(this, core::mem::transmute_copy(&eventid), core::mem::transmute_copy(&listen)).into()
             }
         }
-        unsafe extern "system" fn InkEnabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_InkEnabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::InkEnabled(this) {
+                match IInkPicture_Impl::get_InkEnabled(this) {
                     Ok(ok__) => {
                         collecting.write(ok__);
                         windows_core::HRESULT(0)
@@ -5484,16 +5533,16 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetInkEnabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_InkEnabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, collecting: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetInkEnabled(this, core::mem::transmute_copy(&collecting)).into()
+                IInkPicture_Impl::put_InkEnabled(this, core::mem::transmute_copy(&collecting)).into()
             }
         }
-        unsafe extern "system" fn Enabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbool: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Enabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbool: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkPicture_Impl::Enabled(this) {
+                match IInkPicture_Impl::get_Enabled(this) {
                     Ok(ok__) => {
                         pbool.write(ok__);
                         windows_core::HRESULT(0)
@@ -5502,60 +5551,60 @@ impl IInkPicture_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbool: super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Enabled<Identity: IInkPicture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vbool: super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkPicture_Impl::SetEnabled(this, core::mem::transmute_copy(&vbool)).into()
+                IInkPicture_Impl::put_Enabled(this, core::mem::transmute_copy(&vbool)).into()
             }
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            hWnd: hWnd::<Identity, OFFSET>,
-            DefaultDrawingAttributes: DefaultDrawingAttributes::<Identity, OFFSET>,
+            get_hWnd: get_hWnd::<Identity, OFFSET>,
+            get_DefaultDrawingAttributes: get_DefaultDrawingAttributes::<Identity, OFFSET>,
             putref_DefaultDrawingAttributes: putref_DefaultDrawingAttributes::<Identity, OFFSET>,
-            Renderer: Renderer::<Identity, OFFSET>,
+            get_Renderer: get_Renderer::<Identity, OFFSET>,
             putref_Renderer: putref_Renderer::<Identity, OFFSET>,
-            Ink: Ink::<Identity, OFFSET>,
+            get_Ink: get_Ink::<Identity, OFFSET>,
             putref_Ink: putref_Ink::<Identity, OFFSET>,
-            AutoRedraw: AutoRedraw::<Identity, OFFSET>,
-            SetAutoRedraw: SetAutoRedraw::<Identity, OFFSET>,
-            CollectingInk: CollectingInk::<Identity, OFFSET>,
-            CollectionMode: CollectionMode::<Identity, OFFSET>,
-            SetCollectionMode: SetCollectionMode::<Identity, OFFSET>,
-            DynamicRendering: DynamicRendering::<Identity, OFFSET>,
-            SetDynamicRendering: SetDynamicRendering::<Identity, OFFSET>,
-            DesiredPacketDescription: DesiredPacketDescription::<Identity, OFFSET>,
-            SetDesiredPacketDescription: SetDesiredPacketDescription::<Identity, OFFSET>,
-            MouseIcon: MouseIcon::<Identity, OFFSET>,
-            SetMouseIcon: SetMouseIcon::<Identity, OFFSET>,
+            get_AutoRedraw: get_AutoRedraw::<Identity, OFFSET>,
+            put_AutoRedraw: put_AutoRedraw::<Identity, OFFSET>,
+            get_CollectingInk: get_CollectingInk::<Identity, OFFSET>,
+            get_CollectionMode: get_CollectionMode::<Identity, OFFSET>,
+            put_CollectionMode: put_CollectionMode::<Identity, OFFSET>,
+            get_DynamicRendering: get_DynamicRendering::<Identity, OFFSET>,
+            put_DynamicRendering: put_DynamicRendering::<Identity, OFFSET>,
+            get_DesiredPacketDescription: get_DesiredPacketDescription::<Identity, OFFSET>,
+            put_DesiredPacketDescription: put_DesiredPacketDescription::<Identity, OFFSET>,
+            get_MouseIcon: get_MouseIcon::<Identity, OFFSET>,
+            put_MouseIcon: put_MouseIcon::<Identity, OFFSET>,
             putref_MouseIcon: putref_MouseIcon::<Identity, OFFSET>,
-            MousePointer: MousePointer::<Identity, OFFSET>,
-            SetMousePointer: SetMousePointer::<Identity, OFFSET>,
-            EditingMode: EditingMode::<Identity, OFFSET>,
-            SetEditingMode: SetEditingMode::<Identity, OFFSET>,
-            Selection: Selection::<Identity, OFFSET>,
-            SetSelection: SetSelection::<Identity, OFFSET>,
-            EraserMode: EraserMode::<Identity, OFFSET>,
-            SetEraserMode: SetEraserMode::<Identity, OFFSET>,
-            EraserWidth: EraserWidth::<Identity, OFFSET>,
-            SetEraserWidth: SetEraserWidth::<Identity, OFFSET>,
+            get_MousePointer: get_MousePointer::<Identity, OFFSET>,
+            put_MousePointer: put_MousePointer::<Identity, OFFSET>,
+            get_EditingMode: get_EditingMode::<Identity, OFFSET>,
+            put_EditingMode: put_EditingMode::<Identity, OFFSET>,
+            get_Selection: get_Selection::<Identity, OFFSET>,
+            put_Selection: put_Selection::<Identity, OFFSET>,
+            get_EraserMode: get_EraserMode::<Identity, OFFSET>,
+            put_EraserMode: put_EraserMode::<Identity, OFFSET>,
+            get_EraserWidth: get_EraserWidth::<Identity, OFFSET>,
+            put_EraserWidth: put_EraserWidth::<Identity, OFFSET>,
             putref_Picture: putref_Picture::<Identity, OFFSET>,
-            SetPicture: SetPicture::<Identity, OFFSET>,
-            Picture: Picture::<Identity, OFFSET>,
-            SetSizeMode: SetSizeMode::<Identity, OFFSET>,
-            SizeMode: SizeMode::<Identity, OFFSET>,
-            SetBackColor: SetBackColor::<Identity, OFFSET>,
-            BackColor: BackColor::<Identity, OFFSET>,
-            Cursors: Cursors::<Identity, OFFSET>,
-            MarginX: MarginX::<Identity, OFFSET>,
-            SetMarginX: SetMarginX::<Identity, OFFSET>,
-            MarginY: MarginY::<Identity, OFFSET>,
-            SetMarginY: SetMarginY::<Identity, OFFSET>,
-            Tablet: Tablet::<Identity, OFFSET>,
-            SupportHighContrastInk: SupportHighContrastInk::<Identity, OFFSET>,
-            SetSupportHighContrastInk: SetSupportHighContrastInk::<Identity, OFFSET>,
-            SupportHighContrastSelectionUI: SupportHighContrastSelectionUI::<Identity, OFFSET>,
-            SetSupportHighContrastSelectionUI: SetSupportHighContrastSelectionUI::<Identity, OFFSET>,
+            put_Picture: put_Picture::<Identity, OFFSET>,
+            get_Picture: get_Picture::<Identity, OFFSET>,
+            put_SizeMode: put_SizeMode::<Identity, OFFSET>,
+            get_SizeMode: get_SizeMode::<Identity, OFFSET>,
+            put_BackColor: put_BackColor::<Identity, OFFSET>,
+            get_BackColor: get_BackColor::<Identity, OFFSET>,
+            get_Cursors: get_Cursors::<Identity, OFFSET>,
+            get_MarginX: get_MarginX::<Identity, OFFSET>,
+            put_MarginX: put_MarginX::<Identity, OFFSET>,
+            get_MarginY: get_MarginY::<Identity, OFFSET>,
+            put_MarginY: put_MarginY::<Identity, OFFSET>,
+            get_Tablet: get_Tablet::<Identity, OFFSET>,
+            get_SupportHighContrastInk: get_SupportHighContrastInk::<Identity, OFFSET>,
+            put_SupportHighContrastInk: put_SupportHighContrastInk::<Identity, OFFSET>,
+            get_SupportHighContrastSelectionUI: get_SupportHighContrastSelectionUI::<Identity, OFFSET>,
+            put_SupportHighContrastSelectionUI: put_SupportHighContrastSelectionUI::<Identity, OFFSET>,
             HitTestSelection: HitTestSelection::<Identity, OFFSET>,
             SetGestureStatus: SetGestureStatus::<Identity, OFFSET>,
             GetGestureStatus: GetGestureStatus::<Identity, OFFSET>,
@@ -5565,17 +5614,17 @@ impl IInkPicture_Vtbl {
             SetSingleTabletIntegratedMode: SetSingleTabletIntegratedMode::<Identity, OFFSET>,
             GetEventInterest: GetEventInterest::<Identity, OFFSET>,
             SetEventInterest: SetEventInterest::<Identity, OFFSET>,
-            InkEnabled: InkEnabled::<Identity, OFFSET>,
-            SetInkEnabled: SetInkEnabled::<Identity, OFFSET>,
-            Enabled: Enabled::<Identity, OFFSET>,
-            SetEnabled: SetEnabled::<Identity, OFFSET>,
+            get_InkEnabled: get_InkEnabled::<Identity, OFFSET>,
+            put_InkEnabled: put_InkEnabled::<Identity, OFFSET>,
+            get_Enabled: get_Enabled::<Identity, OFFSET>,
+            put_Enabled: put_Enabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkPicture as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "ocidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "ocidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkPicture {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognitionAlternate, IInkRecognitionAlternate_Vtbl, 0xb7e660ad_77e4_429b_adda_873780d1fc4a);
@@ -5590,68 +5639,68 @@ impl core::ops::Deref for IInkRecognitionAlternate {
 windows_core::imp::interface_hierarchy!(IInkRecognitionAlternate, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognitionAlternate {
-    pub unsafe fn String(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_String(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).String)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_String)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
+    pub unsafe fn get_Confidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Baseline(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Baseline(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Baseline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Baseline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Midline(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Midline(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Midline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Midline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Ascender(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Ascender(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Ascender)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Ascender)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Descender(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Descender(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Descender)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Descender)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn LineNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_LineNumber(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LineNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_LineNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn get_Strokes(&self) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LineAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn get_LineAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LineAlternates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_LineAlternates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ConfidenceAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn get_ConfidenceAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConfidenceAlternates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_ConfidenceAlternates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetStrokesFromStrokeRanges<P0>(&self, strokes: P0) -> windows_core::Result<IInkStrokes>
@@ -5681,7 +5730,7 @@ impl IInkRecognitionAlternate {
             (windows_core::Interface::vtable(self).AlternatesWithConstantPropertyValues)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertytype), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyValue(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5694,62 +5743,62 @@ impl IInkRecognitionAlternate {
 #[doc(hidden)]
 pub struct IInkRecognitionAlternate_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub String: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionConfidence) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Baseline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Baseline: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Midline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Midline: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Ascender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Ascender: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Descender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Descender: usize,
-    pub LineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub LineAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ConfidenceAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_String: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionConfidence) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Baseline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Baseline: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Midline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Midline: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Ascender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Ascender: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Descender: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Descender: usize,
+    pub get_LineNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_LineAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ConfidenceAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStrokesFromStrokeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetStrokesFromTextRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetTextRangeFromStrokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub AlternatesWithConstantPropertyValues: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPropertyValue: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognitionAlternate_Impl: super::IDispatch_Impl {
-    fn String(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
-    fn Baseline(&self) -> windows_core::Result<super::VARIANT>;
-    fn Midline(&self) -> windows_core::Result<super::VARIANT>;
-    fn Ascender(&self) -> windows_core::Result<super::VARIANT>;
-    fn Descender(&self) -> windows_core::Result<super::VARIANT>;
-    fn LineNumber(&self) -> windows_core::Result<i32>;
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn LineAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
-    fn ConfidenceAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
+    fn get_String(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Confidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
+    fn get_Baseline(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Midline(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Ascender(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Descender(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_LineNumber(&self) -> windows_core::Result<i32>;
+    fn get_Strokes(&self) -> windows_core::Result<IInkStrokes>;
+    fn get_LineAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
+    fn get_ConfidenceAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
     fn GetStrokesFromStrokeRanges(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<IInkStrokes>;
     fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_core::Result<IInkStrokes>;
     fn GetTextRangeFromStrokes(&self, strokes: windows_core::Ref<IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_core::Result<()>;
     fn AlternatesWithConstantPropertyValues(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<IInkRecognitionAlternates>;
     fn GetPropertyValue(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognitionAlternate_Vtbl {
     pub const fn new<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn String<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recostring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_String<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recostring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::String(this) {
+                match IInkRecognitionAlternate_Impl::get_String(this) {
                     Ok(ok__) => {
                         recostring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5758,10 +5807,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Confidence<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Confidence<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::Confidence(this) {
+                match IInkRecognitionAlternate_Impl::get_Confidence(this) {
                     Ok(ok__) => {
                         confidence.write(ok__);
                         windows_core::HRESULT(0)
@@ -5770,10 +5819,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Baseline<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baseline: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Baseline<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baseline: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::Baseline(this) {
+                match IInkRecognitionAlternate_Impl::get_Baseline(this) {
                     Ok(ok__) => {
                         baseline.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5782,10 +5831,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Midline<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midline: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Midline<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midline: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::Midline(this) {
+                match IInkRecognitionAlternate_Impl::get_Midline(this) {
                     Ok(ok__) => {
                         midline.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5794,10 +5843,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Ascender<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ascender: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Ascender<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ascender: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::Ascender(this) {
+                match IInkRecognitionAlternate_Impl::get_Ascender(this) {
                     Ok(ok__) => {
                         ascender.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5806,10 +5855,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Descender<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descender: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Descender<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, descender: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::Descender(this) {
+                match IInkRecognitionAlternate_Impl::get_Descender(this) {
                     Ok(ok__) => {
                         descender.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5818,10 +5867,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LineNumber<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_LineNumber<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linenumber: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::LineNumber(this) {
+                match IInkRecognitionAlternate_Impl::get_LineNumber(this) {
                     Ok(ok__) => {
                         linenumber.write(ok__);
                         windows_core::HRESULT(0)
@@ -5830,10 +5879,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Strokes<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Strokes<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::Strokes(this) {
+                match IInkRecognitionAlternate_Impl::get_Strokes(this) {
                     Ok(ok__) => {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5842,10 +5891,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LineAlternates<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linealternates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_LineAlternates<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, linealternates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::LineAlternates(this) {
+                match IInkRecognitionAlternate_Impl::get_LineAlternates(this) {
                     Ok(ok__) => {
                         linealternates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5854,10 +5903,10 @@ impl IInkRecognitionAlternate_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ConfidenceAlternates<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confidencealternates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ConfidenceAlternates<Identity: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, confidencealternates: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternate_Impl::ConfidenceAlternates(this) {
+                match IInkRecognitionAlternate_Impl::get_ConfidenceAlternates(this) {
                     Ok(ok__) => {
                         confidencealternates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -5922,16 +5971,16 @@ impl IInkRecognitionAlternate_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            String: String::<Identity, OFFSET>,
-            Confidence: Confidence::<Identity, OFFSET>,
-            Baseline: Baseline::<Identity, OFFSET>,
-            Midline: Midline::<Identity, OFFSET>,
-            Ascender: Ascender::<Identity, OFFSET>,
-            Descender: Descender::<Identity, OFFSET>,
-            LineNumber: LineNumber::<Identity, OFFSET>,
-            Strokes: Strokes::<Identity, OFFSET>,
-            LineAlternates: LineAlternates::<Identity, OFFSET>,
-            ConfidenceAlternates: ConfidenceAlternates::<Identity, OFFSET>,
+            get_String: get_String::<Identity, OFFSET>,
+            get_Confidence: get_Confidence::<Identity, OFFSET>,
+            get_Baseline: get_Baseline::<Identity, OFFSET>,
+            get_Midline: get_Midline::<Identity, OFFSET>,
+            get_Ascender: get_Ascender::<Identity, OFFSET>,
+            get_Descender: get_Descender::<Identity, OFFSET>,
+            get_LineNumber: get_LineNumber::<Identity, OFFSET>,
+            get_Strokes: get_Strokes::<Identity, OFFSET>,
+            get_LineAlternates: get_LineAlternates::<Identity, OFFSET>,
+            get_ConfidenceAlternates: get_ConfidenceAlternates::<Identity, OFFSET>,
             GetStrokesFromStrokeRanges: GetStrokesFromStrokeRanges::<Identity, OFFSET>,
             GetStrokesFromTextRange: GetStrokesFromTextRange::<Identity, OFFSET>,
             GetTextRangeFromStrokes: GetTextRangeFromStrokes::<Identity, OFFSET>,
@@ -5943,7 +5992,7 @@ impl IInkRecognitionAlternate_Vtbl {
         iid == &<IInkRecognitionAlternate as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognitionAlternate {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognitionAlternates, IInkRecognitionAlternates_Vtbl, 0x286a167f_9f19_4c61_9d53_4f07be622b84);
@@ -5958,22 +6007,22 @@ impl core::ops::Deref for IInkRecognitionAlternates {
 windows_core::imp::interface_hierarchy!(IInkRecognitionAlternates, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognitionAlternates {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn get_Strokes(&self) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkRecognitionAlternate> {
@@ -5988,25 +6037,25 @@ impl IInkRecognitionAlternates {
 #[doc(hidden)]
 pub struct IInkRecognitionAlternates_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognitionAlternates_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Strokes(&self) -> windows_core::Result<IInkStrokes>;
     fn Item(&self, index: i32) -> windows_core::Result<IInkRecognitionAlternate>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognitionAlternates_Vtbl {
     pub const fn new<Identity: IInkRecognitionAlternates_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkRecognitionAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkRecognitionAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternates_Impl::Count(this) {
+                match IInkRecognitionAlternates_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -6015,10 +6064,10 @@ impl IInkRecognitionAlternates_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkRecognitionAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkRecognitionAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternates_Impl::_NewEnum(this) {
+                match IInkRecognitionAlternates_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6027,10 +6076,10 @@ impl IInkRecognitionAlternates_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Strokes<Identity: IInkRecognitionAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Strokes<Identity: IInkRecognitionAlternates_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionAlternates_Impl::Strokes(this) {
+                match IInkRecognitionAlternates_Impl::get_Strokes(this) {
                     Ok(ok__) => {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6053,9 +6102,9 @@ impl IInkRecognitionAlternates_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
-            Strokes: Strokes::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
+            get_Strokes: get_Strokes::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
         }
     }
@@ -6063,7 +6112,7 @@ impl IInkRecognitionAlternates_Vtbl {
         iid == &<IInkRecognitionAlternates as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognitionAlternates {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognitionResult, IInkRecognitionResult_Vtbl, 0x3bc129a8_86cd_45ad_bde8_e0d32d61c16d);
@@ -6078,28 +6127,28 @@ impl core::ops::Deref for IInkRecognitionResult {
 windows_core::imp::interface_hierarchy!(IInkRecognitionResult, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognitionResult {
-    pub unsafe fn TopString(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_TopString(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TopString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_TopString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn TopAlternate(&self) -> windows_core::Result<IInkRecognitionAlternate> {
+    pub unsafe fn get_TopAlternate(&self) -> windows_core::Result<IInkRecognitionAlternate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TopAlternate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_TopAlternate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TopConfidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
+    pub unsafe fn get_TopConfidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TopConfidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_TopConfidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn get_Strokes(&self) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> windows_core::Result<IInkRecognitionAlternates> {
@@ -6123,31 +6172,31 @@ impl IInkRecognitionResult {
 #[doc(hidden)]
 pub struct IInkRecognitionResult_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub TopString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TopAlternate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub TopConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionConfidence) -> windows_core::HRESULT,
-    pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_TopString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_TopAlternate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_TopConfidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionConfidence) -> windows_core::HRESULT,
+    pub get_Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AlternatesFromSelection: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ModifyTopAlternate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetResultOnStrokes: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognitionResult_Impl: super::IDispatch_Impl {
-    fn TopString(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn TopAlternate(&self) -> windows_core::Result<IInkRecognitionAlternate>;
-    fn TopConfidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
+    fn get_TopString(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_TopAlternate(&self) -> windows_core::Result<IInkRecognitionAlternate>;
+    fn get_TopConfidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
+    fn get_Strokes(&self) -> windows_core::Result<IInkStrokes>;
     fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> windows_core::Result<IInkRecognitionAlternates>;
     fn ModifyTopAlternate(&self, alternate: windows_core::Ref<IInkRecognitionAlternate>) -> windows_core::Result<()>;
     fn SetResultOnStrokes(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognitionResult_Vtbl {
     pub const fn new<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TopString<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_TopString<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topstring: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionResult_Impl::TopString(this) {
+                match IInkRecognitionResult_Impl::get_TopString(this) {
                     Ok(ok__) => {
                         topstring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6156,10 +6205,10 @@ impl IInkRecognitionResult_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TopAlternate<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topalternate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_TopAlternate<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topalternate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionResult_Impl::TopAlternate(this) {
+                match IInkRecognitionResult_Impl::get_TopAlternate(this) {
                     Ok(ok__) => {
                         topalternate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6168,10 +6217,10 @@ impl IInkRecognitionResult_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn TopConfidence<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topconfidence: *mut InkRecognitionConfidence) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_TopConfidence<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, topconfidence: *mut InkRecognitionConfidence) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionResult_Impl::TopConfidence(this) {
+                match IInkRecognitionResult_Impl::get_TopConfidence(this) {
                     Ok(ok__) => {
                         topconfidence.write(ok__);
                         windows_core::HRESULT(0)
@@ -6180,10 +6229,10 @@ impl IInkRecognitionResult_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Strokes<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Strokes<Identity: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognitionResult_Impl::Strokes(this) {
+                match IInkRecognitionResult_Impl::get_Strokes(this) {
                     Ok(ok__) => {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6218,10 +6267,10 @@ impl IInkRecognitionResult_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            TopString: TopString::<Identity, OFFSET>,
-            TopAlternate: TopAlternate::<Identity, OFFSET>,
-            TopConfidence: TopConfidence::<Identity, OFFSET>,
-            Strokes: Strokes::<Identity, OFFSET>,
+            get_TopString: get_TopString::<Identity, OFFSET>,
+            get_TopAlternate: get_TopAlternate::<Identity, OFFSET>,
+            get_TopConfidence: get_TopConfidence::<Identity, OFFSET>,
+            get_Strokes: get_Strokes::<Identity, OFFSET>,
             AlternatesFromSelection: AlternatesFromSelection::<Identity, OFFSET>,
             ModifyTopAlternate: ModifyTopAlternate::<Identity, OFFSET>,
             SetResultOnStrokes: SetResultOnStrokes::<Identity, OFFSET>,
@@ -6231,7 +6280,7 @@ impl IInkRecognitionResult_Vtbl {
         iid == &<IInkRecognitionResult as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognitionResult {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognizer, IInkRecognizer_Vtbl, 0x782bf7cf_034b_4396_8a32_3a1833cf6b56);
@@ -6246,43 +6295,43 @@ impl core::ops::Deref for IInkRecognizer {
 windows_core::imp::interface_hierarchy!(IInkRecognizer, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognizer {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Vendor(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Vendor(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Vendor)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Vendor)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Capabilities(&self) -> windows_core::Result<InkRecognizerCapabilities> {
+    pub unsafe fn get_Capabilities(&self) -> windows_core::Result<InkRecognizerCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Capabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Capabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Languages(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Languages(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Languages)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SupportedProperties(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_SupportedProperties(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SupportedProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_SupportedProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn PreferredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_PreferredPacketDescription(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreferredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_PreferredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub unsafe fn CreateRecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext> {
@@ -6297,40 +6346,40 @@ impl IInkRecognizer {
 #[doc(hidden)]
 pub struct IInkRecognizer_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Vendor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognizerCapabilities) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Languages: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SupportedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SupportedProperties: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub PreferredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    PreferredPacketDescription: usize,
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Vendor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Capabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognizerCapabilities) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Languages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Languages: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_SupportedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_SupportedProperties: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_PreferredPacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_PreferredPacketDescription: usize,
     pub CreateRecognizerContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognizer_Impl: super::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Vendor(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Capabilities(&self) -> windows_core::Result<InkRecognizerCapabilities>;
-    fn Languages(&self) -> windows_core::Result<super::VARIANT>;
-    fn SupportedProperties(&self) -> windows_core::Result<super::VARIANT>;
-    fn PreferredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Name(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Vendor(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Capabilities(&self) -> windows_core::Result<InkRecognizerCapabilities>;
+    fn get_Languages(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_SupportedProperties(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_PreferredPacketDescription(&self) -> windows_core::Result<super::VARIANT>;
     fn CreateRecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognizer_Vtbl {
     pub const fn new<Identity: IInkRecognizer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer_Impl::Name(this) {
+                match IInkRecognizer_Impl::get_Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6339,10 +6388,10 @@ impl IInkRecognizer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Vendor<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Vendor<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vendor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer_Impl::Vendor(this) {
+                match IInkRecognizer_Impl::get_Vendor(this) {
                     Ok(ok__) => {
                         vendor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6351,10 +6400,10 @@ impl IInkRecognizer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Capabilities<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilitiesflags: *mut InkRecognizerCapabilities) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Capabilities<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilitiesflags: *mut InkRecognizerCapabilities) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer_Impl::Capabilities(this) {
+                match IInkRecognizer_Impl::get_Capabilities(this) {
                     Ok(ok__) => {
                         capabilitiesflags.write(ok__);
                         windows_core::HRESULT(0)
@@ -6363,10 +6412,10 @@ impl IInkRecognizer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Languages<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languages: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Languages<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, languages: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer_Impl::Languages(this) {
+                match IInkRecognizer_Impl::get_Languages(this) {
                     Ok(ok__) => {
                         languages.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6375,10 +6424,10 @@ impl IInkRecognizer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SupportedProperties<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedproperties: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SupportedProperties<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, supportedproperties: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer_Impl::SupportedProperties(this) {
+                match IInkRecognizer_Impl::get_SupportedProperties(this) {
                     Ok(ok__) => {
                         supportedproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6387,10 +6436,10 @@ impl IInkRecognizer_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PreferredPacketDescription<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preferredpacketdescription: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PreferredPacketDescription<Identity: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, preferredpacketdescription: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer_Impl::PreferredPacketDescription(this) {
+                match IInkRecognizer_Impl::get_PreferredPacketDescription(this) {
                     Ok(ok__) => {
                         preferredpacketdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6413,12 +6462,12 @@ impl IInkRecognizer_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Name: Name::<Identity, OFFSET>,
-            Vendor: Vendor::<Identity, OFFSET>,
-            Capabilities: Capabilities::<Identity, OFFSET>,
-            Languages: Languages::<Identity, OFFSET>,
-            SupportedProperties: SupportedProperties::<Identity, OFFSET>,
-            PreferredPacketDescription: PreferredPacketDescription::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
+            get_Vendor: get_Vendor::<Identity, OFFSET>,
+            get_Capabilities: get_Capabilities::<Identity, OFFSET>,
+            get_Languages: get_Languages::<Identity, OFFSET>,
+            get_SupportedProperties: get_SupportedProperties::<Identity, OFFSET>,
+            get_PreferredPacketDescription: get_PreferredPacketDescription::<Identity, OFFSET>,
             CreateRecognizerContext: CreateRecognizerContext::<Identity, OFFSET>,
         }
     }
@@ -6426,7 +6475,7 @@ impl IInkRecognizer_Vtbl {
         iid == &<IInkRecognizer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognizer {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognizer2, IInkRecognizer2_Vtbl, 0x6110118a_3a75_4ad6_b2aa_04b2b72bbe65);
@@ -6441,17 +6490,17 @@ impl core::ops::Deref for IInkRecognizer2 {
 windows_core::imp::interface_hierarchy!(IInkRecognizer2, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognizer2 {
-    pub unsafe fn Id(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Id(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn UnicodeRanges(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_UnicodeRanges(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UnicodeRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_UnicodeRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -6460,24 +6509,24 @@ impl IInkRecognizer2 {
 #[doc(hidden)]
 pub struct IInkRecognizer2_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub UnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    UnicodeRanges: usize,
+    pub get_Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_UnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_UnicodeRanges: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognizer2_Impl: super::IDispatch_Impl {
-    fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UnicodeRanges(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Id(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_UnicodeRanges(&self) -> windows_core::Result<super::VARIANT>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognizer2_Vtbl {
     pub const fn new<Identity: IInkRecognizer2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Id<Identity: IInkRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Id<Identity: IInkRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer2_Impl::Id(this) {
+                match IInkRecognizer2_Impl::get_Id(this) {
                     Ok(ok__) => {
                         pbstrid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6486,10 +6535,10 @@ impl IInkRecognizer2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UnicodeRanges<Identity: IInkRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicoderanges: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_UnicodeRanges<Identity: IInkRecognizer2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicoderanges: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizer2_Impl::UnicodeRanges(this) {
+                match IInkRecognizer2_Impl::get_UnicodeRanges(this) {
                     Ok(ok__) => {
                         unicoderanges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6498,13 +6547,17 @@ impl IInkRecognizer2_Vtbl {
                 }
             }
         }
-        Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Id: Id::<Identity, OFFSET>, UnicodeRanges: UnicodeRanges::<Identity, OFFSET> }
+        Self {
+            base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
+            get_Id: get_Id::<Identity, OFFSET>,
+            get_UnicodeRanges: get_UnicodeRanges::<Identity, OFFSET>,
+        }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkRecognizer2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognizer2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognizerContext, IInkRecognizerContext_Vtbl, 0xc68f52f9_32a3_4625_906c_44fc23b40958);
@@ -6519,10 +6572,10 @@ impl core::ops::Deref for IInkRecognizerContext {
 windows_core::imp::interface_hierarchy!(IInkRecognizerContext, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognizerContext {
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn get_Strokes(&self) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Strokes<P0>(&self, strokes: P0) -> windows_core::HRESULT
@@ -6531,28 +6584,28 @@ impl IInkRecognizerContext {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Strokes)(windows_core::Interface::as_raw(self), strokes.param().abi()) }
     }
-    pub unsafe fn CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode> {
+    pub unsafe fn get_CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CharacterAutoCompletionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CharacterAutoCompletionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCharacterAutoCompletionMode)(windows_core::Interface::as_raw(self), mode) }
+    pub unsafe fn put_CharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_CharacterAutoCompletionMode)(windows_core::Interface::as_raw(self), mode) }
     }
-    pub unsafe fn Factoid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Factoid(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Factoid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Factoid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFactoid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(factoid)) }
+    pub unsafe fn put_Factoid(&self, factoid: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Factoid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(factoid)) }
     }
-    pub unsafe fn Guide(&self) -> windows_core::Result<IInkRecognizerGuide> {
+    pub unsafe fn get_Guide(&self) -> windows_core::Result<IInkRecognizerGuide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Guide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Guide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_Guide<P0>(&self, recognizerguide: P0) -> windows_core::HRESULT
@@ -6561,37 +6614,37 @@ impl IInkRecognizerContext {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Guide)(windows_core::Interface::as_raw(self), recognizerguide.param().abi()) }
     }
-    pub unsafe fn PrefixText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_PrefixText(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrefixText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_PrefixText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPrefixText(&self, prefix: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPrefixText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(prefix)) }
+    pub unsafe fn put_PrefixText(&self, prefix: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_PrefixText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(prefix)) }
     }
-    pub unsafe fn SuffixText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_SuffixText(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SuffixText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_SuffixText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSuffixText(&self, suffix: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSuffixText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(suffix)) }
+    pub unsafe fn put_SuffixText(&self, suffix: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SuffixText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(suffix)) }
     }
-    pub unsafe fn RecognitionFlags(&self) -> windows_core::Result<InkRecognitionModes> {
+    pub unsafe fn get_RecognitionFlags(&self) -> windows_core::Result<InkRecognitionModes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecognitionFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_RecognitionFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRecognitionFlags)(windows_core::Interface::as_raw(self), modes) }
+    pub unsafe fn put_RecognitionFlags(&self, modes: InkRecognitionModes) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_RecognitionFlags)(windows_core::Interface::as_raw(self), modes) }
     }
-    pub unsafe fn WordList(&self) -> windows_core::Result<IInkWordList> {
+    pub unsafe fn get_WordList(&self) -> windows_core::Result<IInkWordList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WordList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_WordList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_WordList<P0>(&self, wordlist: P0) -> windows_core::HRESULT
@@ -6600,10 +6653,10 @@ impl IInkRecognizerContext {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_WordList)(windows_core::Interface::as_raw(self), wordlist.param().abi()) }
     }
-    pub unsafe fn Recognizer(&self) -> windows_core::Result<IInkRecognizer> {
+    pub unsafe fn get_Recognizer(&self) -> windows_core::Result<IInkRecognizer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Recognizer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Recognizer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus) -> windows_core::Result<IInkRecognitionResult> {
@@ -6618,11 +6671,11 @@ impl IInkRecognizerContext {
     pub unsafe fn EndInkInput(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndInkInput)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn BackgroundRecognize(&self, customdata: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BackgroundRecognize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(customdata)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn BackgroundRecognizeWithAlternates(&self, customdata: &super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BackgroundRecognizeWithAlternates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(customdata)) }
     }
@@ -6645,33 +6698,33 @@ impl IInkRecognizerContext {
 #[doc(hidden)]
 pub struct IInkRecognizerContext_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Strokes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CharacterAutoCompletionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT,
-    pub SetCharacterAutoCompletionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT,
-    pub Factoid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetFactoid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Guide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_CharacterAutoCompletionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT,
+    pub put_CharacterAutoCompletionMode: unsafe extern "system" fn(*mut core::ffi::c_void, InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT,
+    pub get_Factoid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Factoid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Guide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_Guide: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PrefixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPrefixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SuffixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetSuffixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RecognitionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionModes) -> windows_core::HRESULT,
-    pub SetRecognitionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, InkRecognitionModes) -> windows_core::HRESULT,
-    pub WordList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_PrefixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_PrefixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_SuffixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_SuffixText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_RecognitionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionModes) -> windows_core::HRESULT,
+    pub put_RecognitionFlags: unsafe extern "system" fn(*mut core::ffi::c_void, InkRecognitionModes) -> windows_core::HRESULT,
+    pub get_WordList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_WordList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Recognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Recognizer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Recognize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecognitionStatus, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopBackgroundRecognition: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndInkInput: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub BackgroundRecognize: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     BackgroundRecognize: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub BackgroundRecognizeWithAlternates: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     BackgroundRecognizeWithAlternates: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
@@ -6679,25 +6732,25 @@ pub struct IInkRecognizerContext_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     IsStringSupported: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognizerContext_Impl: super::IDispatch_Impl {
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
+    fn get_Strokes(&self) -> windows_core::Result<IInkStrokes>;
     fn putref_Strokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode>;
-    fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::Result<()>;
-    fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Guide(&self) -> windows_core::Result<IInkRecognizerGuide>;
+    fn get_CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode>;
+    fn put_CharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::Result<()>;
+    fn get_Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn put_Factoid(&self, factoid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_Guide(&self) -> windows_core::Result<IInkRecognizerGuide>;
     fn putref_Guide(&self, recognizerguide: windows_core::Ref<IInkRecognizerGuide>) -> windows_core::Result<()>;
-    fn PrefixText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPrefixText(&self, prefix: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SuffixText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSuffixText(&self, suffix: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RecognitionFlags(&self) -> windows_core::Result<InkRecognitionModes>;
-    fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> windows_core::Result<()>;
-    fn WordList(&self) -> windows_core::Result<IInkWordList>;
+    fn get_PrefixText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn put_PrefixText(&self, prefix: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_SuffixText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn put_SuffixText(&self, suffix: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_RecognitionFlags(&self) -> windows_core::Result<InkRecognitionModes>;
+    fn put_RecognitionFlags(&self, modes: InkRecognitionModes) -> windows_core::Result<()>;
+    fn get_WordList(&self) -> windows_core::Result<IInkWordList>;
     fn putref_WordList(&self, wordlist: windows_core::Ref<IInkWordList>) -> windows_core::Result<()>;
-    fn Recognizer(&self) -> windows_core::Result<IInkRecognizer>;
+    fn get_Recognizer(&self) -> windows_core::Result<IInkRecognizer>;
     fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus) -> windows_core::Result<IInkRecognitionResult>;
     fn StopBackgroundRecognition(&self) -> windows_core::Result<()>;
     fn EndInkInput(&self) -> windows_core::Result<()>;
@@ -6706,13 +6759,13 @@ pub trait IInkRecognizerContext_Impl: super::IDispatch_Impl {
     fn Clone(&self) -> windows_core::Result<IInkRecognizerContext>;
     fn IsStringSupported(&self, string: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognizerContext_Vtbl {
     pub const fn new<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Strokes<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Strokes<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strokes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::Strokes(this) {
+                match IInkRecognizerContext_Impl::get_Strokes(this) {
                     Ok(ok__) => {
                         strokes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6727,10 +6780,10 @@ impl IInkRecognizerContext_Vtbl {
                 IInkRecognizerContext_Impl::putref_Strokes(this, core::mem::transmute_copy(&strokes)).into()
             }
         }
-        unsafe extern "system" fn CharacterAutoCompletionMode<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CharacterAutoCompletionMode<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: *mut InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::CharacterAutoCompletionMode(this) {
+                match IInkRecognizerContext_Impl::get_CharacterAutoCompletionMode(this) {
                     Ok(ok__) => {
                         mode.write(ok__);
                         windows_core::HRESULT(0)
@@ -6739,16 +6792,16 @@ impl IInkRecognizerContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCharacterAutoCompletionMode<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_CharacterAutoCompletionMode<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetCharacterAutoCompletionMode(this, core::mem::transmute_copy(&mode)).into()
+                IInkRecognizerContext_Impl::put_CharacterAutoCompletionMode(this, core::mem::transmute_copy(&mode)).into()
             }
         }
-        unsafe extern "system" fn Factoid<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factoid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Factoid<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factoid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::Factoid(this) {
+                match IInkRecognizerContext_Impl::get_Factoid(this) {
                     Ok(ok__) => {
                         factoid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6757,16 +6810,16 @@ impl IInkRecognizerContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFactoid<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factoid: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Factoid<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, factoid: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetFactoid(this, core::mem::transmute(&factoid)).into()
+                IInkRecognizerContext_Impl::put_Factoid(this, core::mem::transmute(&factoid)).into()
             }
         }
-        unsafe extern "system" fn Guide<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizerguide: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Guide<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizerguide: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::Guide(this) {
+                match IInkRecognizerContext_Impl::get_Guide(this) {
                     Ok(ok__) => {
                         recognizerguide.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6781,10 +6834,10 @@ impl IInkRecognizerContext_Vtbl {
                 IInkRecognizerContext_Impl::putref_Guide(this, core::mem::transmute_copy(&recognizerguide)).into()
             }
         }
-        unsafe extern "system" fn PrefixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PrefixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::PrefixText(this) {
+                match IInkRecognizerContext_Impl::get_PrefixText(this) {
                     Ok(ok__) => {
                         prefix.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6793,16 +6846,16 @@ impl IInkRecognizerContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPrefixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PrefixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetPrefixText(this, core::mem::transmute(&prefix)).into()
+                IInkRecognizerContext_Impl::put_PrefixText(this, core::mem::transmute(&prefix)).into()
             }
         }
-        unsafe extern "system" fn SuffixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, suffix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SuffixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, suffix: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::SuffixText(this) {
+                match IInkRecognizerContext_Impl::get_SuffixText(this) {
                     Ok(ok__) => {
                         suffix.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6811,16 +6864,16 @@ impl IInkRecognizerContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSuffixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, suffix: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SuffixText<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, suffix: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetSuffixText(this, core::mem::transmute(&suffix)).into()
+                IInkRecognizerContext_Impl::put_SuffixText(this, core::mem::transmute(&suffix)).into()
             }
         }
-        unsafe extern "system" fn RecognitionFlags<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modes: *mut InkRecognitionModes) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_RecognitionFlags<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modes: *mut InkRecognitionModes) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::RecognitionFlags(this) {
+                match IInkRecognizerContext_Impl::get_RecognitionFlags(this) {
                     Ok(ok__) => {
                         modes.write(ok__);
                         windows_core::HRESULT(0)
@@ -6829,16 +6882,16 @@ impl IInkRecognizerContext_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRecognitionFlags<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modes: InkRecognitionModes) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_RecognitionFlags<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, modes: InkRecognitionModes) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext_Impl::SetRecognitionFlags(this, core::mem::transmute_copy(&modes)).into()
+                IInkRecognizerContext_Impl::put_RecognitionFlags(this, core::mem::transmute_copy(&modes)).into()
             }
         }
-        unsafe extern "system" fn WordList<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wordlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_WordList<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wordlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::WordList(this) {
+                match IInkRecognizerContext_Impl::get_WordList(this) {
                     Ok(ok__) => {
                         wordlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6853,10 +6906,10 @@ impl IInkRecognizerContext_Vtbl {
                 IInkRecognizerContext_Impl::putref_WordList(this, core::mem::transmute_copy(&wordlist)).into()
             }
         }
-        unsafe extern "system" fn Recognizer<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Recognizer<Identity: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognizer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext_Impl::Recognizer(this) {
+                match IInkRecognizerContext_Impl::get_Recognizer(this) {
                     Ok(ok__) => {
                         recognizer.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -6927,23 +6980,23 @@ impl IInkRecognizerContext_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Strokes: Strokes::<Identity, OFFSET>,
+            get_Strokes: get_Strokes::<Identity, OFFSET>,
             putref_Strokes: putref_Strokes::<Identity, OFFSET>,
-            CharacterAutoCompletionMode: CharacterAutoCompletionMode::<Identity, OFFSET>,
-            SetCharacterAutoCompletionMode: SetCharacterAutoCompletionMode::<Identity, OFFSET>,
-            Factoid: Factoid::<Identity, OFFSET>,
-            SetFactoid: SetFactoid::<Identity, OFFSET>,
-            Guide: Guide::<Identity, OFFSET>,
+            get_CharacterAutoCompletionMode: get_CharacterAutoCompletionMode::<Identity, OFFSET>,
+            put_CharacterAutoCompletionMode: put_CharacterAutoCompletionMode::<Identity, OFFSET>,
+            get_Factoid: get_Factoid::<Identity, OFFSET>,
+            put_Factoid: put_Factoid::<Identity, OFFSET>,
+            get_Guide: get_Guide::<Identity, OFFSET>,
             putref_Guide: putref_Guide::<Identity, OFFSET>,
-            PrefixText: PrefixText::<Identity, OFFSET>,
-            SetPrefixText: SetPrefixText::<Identity, OFFSET>,
-            SuffixText: SuffixText::<Identity, OFFSET>,
-            SetSuffixText: SetSuffixText::<Identity, OFFSET>,
-            RecognitionFlags: RecognitionFlags::<Identity, OFFSET>,
-            SetRecognitionFlags: SetRecognitionFlags::<Identity, OFFSET>,
-            WordList: WordList::<Identity, OFFSET>,
+            get_PrefixText: get_PrefixText::<Identity, OFFSET>,
+            put_PrefixText: put_PrefixText::<Identity, OFFSET>,
+            get_SuffixText: get_SuffixText::<Identity, OFFSET>,
+            put_SuffixText: put_SuffixText::<Identity, OFFSET>,
+            get_RecognitionFlags: get_RecognitionFlags::<Identity, OFFSET>,
+            put_RecognitionFlags: put_RecognitionFlags::<Identity, OFFSET>,
+            get_WordList: get_WordList::<Identity, OFFSET>,
             putref_WordList: putref_WordList::<Identity, OFFSET>,
-            Recognizer: Recognizer::<Identity, OFFSET>,
+            get_Recognizer: get_Recognizer::<Identity, OFFSET>,
             Recognize: Recognize::<Identity, OFFSET>,
             StopBackgroundRecognition: StopBackgroundRecognition::<Identity, OFFSET>,
             EndInkInput: EndInkInput::<Identity, OFFSET>,
@@ -6957,7 +7010,7 @@ impl IInkRecognizerContext_Vtbl {
         iid == &<IInkRecognizerContext as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognizerContext {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognizerContext2, IInkRecognizerContext2_Vtbl, 0xd6f0e32f_73d8_408e_8e9f_5fea592c363f);
@@ -6972,16 +7025,16 @@ impl core::ops::Deref for IInkRecognizerContext2 {
 windows_core::imp::interface_hierarchy!(IInkRecognizerContext2, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognizerContext2 {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn EnabledUnicodeRanges(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_EnabledUnicodeRanges(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EnabledUnicodeRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_EnabledUnicodeRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEnabledUnicodeRanges)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(unicoderanges)) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn put_EnabledUnicodeRanges(&self, unicoderanges: &super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_EnabledUnicodeRanges)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(unicoderanges)) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -6989,27 +7042,27 @@ impl IInkRecognizerContext2 {
 #[doc(hidden)]
 pub struct IInkRecognizerContext2_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub EnabledUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    EnabledUnicodeRanges: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetEnabledUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SetEnabledUnicodeRanges: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_EnabledUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_EnabledUnicodeRanges: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub put_EnabledUnicodeRanges: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    put_EnabledUnicodeRanges: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognizerContext2_Impl: super::IDispatch_Impl {
-    fn EnabledUnicodeRanges(&self) -> windows_core::Result<super::VARIANT>;
-    fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::VARIANT) -> windows_core::Result<()>;
+    fn get_EnabledUnicodeRanges(&self) -> windows_core::Result<super::VARIANT>;
+    fn put_EnabledUnicodeRanges(&self, unicoderanges: &super::VARIANT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognizerContext2_Vtbl {
     pub const fn new<Identity: IInkRecognizerContext2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnabledUnicodeRanges<Identity: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicoderanges: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_EnabledUnicodeRanges<Identity: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicoderanges: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerContext2_Impl::EnabledUnicodeRanges(this) {
+                match IInkRecognizerContext2_Impl::get_EnabledUnicodeRanges(this) {
                     Ok(ok__) => {
                         unicoderanges.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7018,23 +7071,23 @@ impl IInkRecognizerContext2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetEnabledUnicodeRanges<Identity: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicoderanges: super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_EnabledUnicodeRanges<Identity: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, unicoderanges: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerContext2_Impl::SetEnabledUnicodeRanges(this, core::mem::transmute(&unicoderanges)).into()
+                IInkRecognizerContext2_Impl::put_EnabledUnicodeRanges(this, core::mem::transmute(&unicoderanges)).into()
             }
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            EnabledUnicodeRanges: EnabledUnicodeRanges::<Identity, OFFSET>,
-            SetEnabledUnicodeRanges: SetEnabledUnicodeRanges::<Identity, OFFSET>,
+            get_EnabledUnicodeRanges: get_EnabledUnicodeRanges::<Identity, OFFSET>,
+            put_EnabledUnicodeRanges: put_EnabledUnicodeRanges::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkRecognizerContext2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognizerContext2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognizerGuide, IInkRecognizerGuide_Vtbl, 0xd934be07_7b84_4208_9136_83c20994e905);
@@ -7049,67 +7102,67 @@ impl core::ops::Deref for IInkRecognizerGuide {
 windows_core::imp::interface_hierarchy!(IInkRecognizerGuide, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognizerGuide {
-    pub unsafe fn WritingBox(&self) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn get_WritingBox(&self) -> windows_core::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WritingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_WritingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetWritingBox<P0>(&self, rectangle: P0) -> windows_core::HRESULT
+    pub unsafe fn put_WritingBox<P0>(&self, rectangle: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetWritingBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_WritingBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()) }
     }
-    pub unsafe fn DrawnBox(&self) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn get_DrawnBox(&self) -> windows_core::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DrawnBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_DrawnBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetDrawnBox<P0>(&self, rectangle: P0) -> windows_core::HRESULT
+    pub unsafe fn put_DrawnBox<P0>(&self, rectangle: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IInkRectangle>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetDrawnBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).put_DrawnBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()) }
     }
-    pub unsafe fn Rows(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Rows(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Rows)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Rows)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRows(&self, units: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRows)(windows_core::Interface::as_raw(self), units) }
+    pub unsafe fn put_Rows(&self, units: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Rows)(windows_core::Interface::as_raw(self), units) }
     }
-    pub unsafe fn Columns(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Columns(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Columns)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Columns)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColumns(&self, units: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColumns)(windows_core::Interface::as_raw(self), units) }
+    pub unsafe fn put_Columns(&self, units: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Columns)(windows_core::Interface::as_raw(self), units) }
     }
-    pub unsafe fn Midline(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Midline(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Midline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Midline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMidline(&self, units: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMidline)(windows_core::Interface::as_raw(self), units) }
+    pub unsafe fn put_Midline(&self, units: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Midline)(windows_core::Interface::as_raw(self), units) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn GuideData(&self) -> windows_core::Result<InkRecoGuide> {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn get_GuideData(&self) -> windows_core::Result<InkRecoGuide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GuideData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_GuideData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetGuideData(&self, recoguide: InkRecoGuide) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGuideData)(windows_core::Interface::as_raw(self), recoguide) }
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn put_GuideData(&self, recoguide: InkRecoGuide) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_GuideData)(windows_core::Interface::as_raw(self), recoguide) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -7117,47 +7170,47 @@ impl IInkRecognizerGuide {
 #[doc(hidden)]
 pub struct IInkRecognizerGuide_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub WritingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetWritingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DrawnBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetDrawnBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Rows: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetRows: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Columns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetColumns: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Midline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetMidline: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub GuideData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecoGuide) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    GuideData: usize,
-    #[cfg(feature = "windef")]
-    pub SetGuideData: unsafe extern "system" fn(*mut core::ffi::c_void, InkRecoGuide) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    SetGuideData: usize,
+    pub get_WritingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_WritingBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_DrawnBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_DrawnBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Rows: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Rows: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Columns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Columns: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Midline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Midline: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub get_GuideData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut InkRecoGuide) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
+    get_GuideData: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub put_GuideData: unsafe extern "system" fn(*mut core::ffi::c_void, InkRecoGuide) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
+    put_GuideData: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognizerGuide_Impl: super::IDispatch_Impl {
-    fn WritingBox(&self) -> windows_core::Result<IInkRectangle>;
-    fn SetWritingBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn DrawnBox(&self) -> windows_core::Result<IInkRectangle>;
-    fn SetDrawnBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn Rows(&self) -> windows_core::Result<i32>;
-    fn SetRows(&self, units: i32) -> windows_core::Result<()>;
-    fn Columns(&self) -> windows_core::Result<i32>;
-    fn SetColumns(&self, units: i32) -> windows_core::Result<()>;
-    fn Midline(&self) -> windows_core::Result<i32>;
-    fn SetMidline(&self, units: i32) -> windows_core::Result<()>;
-    fn GuideData(&self) -> windows_core::Result<InkRecoGuide>;
-    fn SetGuideData(&self, recoguide: &InkRecoGuide) -> windows_core::Result<()>;
+    fn get_WritingBox(&self) -> windows_core::Result<IInkRectangle>;
+    fn put_WritingBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn get_DrawnBox(&self) -> windows_core::Result<IInkRectangle>;
+    fn put_DrawnBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
+    fn get_Rows(&self) -> windows_core::Result<i32>;
+    fn put_Rows(&self, units: i32) -> windows_core::Result<()>;
+    fn get_Columns(&self) -> windows_core::Result<i32>;
+    fn put_Columns(&self, units: i32) -> windows_core::Result<()>;
+    fn get_Midline(&self) -> windows_core::Result<i32>;
+    fn put_Midline(&self, units: i32) -> windows_core::Result<()>;
+    fn get_GuideData(&self) -> windows_core::Result<InkRecoGuide>;
+    fn put_GuideData(&self, recoguide: &InkRecoGuide) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognizerGuide_Vtbl {
     pub const fn new<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn WritingBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_WritingBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerGuide_Impl::WritingBox(this) {
+                match IInkRecognizerGuide_Impl::get_WritingBox(this) {
                     Ok(ok__) => {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7166,16 +7219,16 @@ impl IInkRecognizerGuide_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWritingBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_WritingBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetWritingBox(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkRecognizerGuide_Impl::put_WritingBox(this, core::mem::transmute_copy(&rectangle)).into()
             }
         }
-        unsafe extern "system" fn DrawnBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DrawnBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerGuide_Impl::DrawnBox(this) {
+                match IInkRecognizerGuide_Impl::get_DrawnBox(this) {
                     Ok(ok__) => {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7184,16 +7237,16 @@ impl IInkRecognizerGuide_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDrawnBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DrawnBox<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetDrawnBox(this, core::mem::transmute_copy(&rectangle)).into()
+                IInkRecognizerGuide_Impl::put_DrawnBox(this, core::mem::transmute_copy(&rectangle)).into()
             }
         }
-        unsafe extern "system" fn Rows<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Rows<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerGuide_Impl::Rows(this) {
+                match IInkRecognizerGuide_Impl::get_Rows(this) {
                     Ok(ok__) => {
                         units.write(ok__);
                         windows_core::HRESULT(0)
@@ -7202,16 +7255,16 @@ impl IInkRecognizerGuide_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRows<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Rows<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetRows(this, core::mem::transmute_copy(&units)).into()
+                IInkRecognizerGuide_Impl::put_Rows(this, core::mem::transmute_copy(&units)).into()
             }
         }
-        unsafe extern "system" fn Columns<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Columns<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerGuide_Impl::Columns(this) {
+                match IInkRecognizerGuide_Impl::get_Columns(this) {
                     Ok(ok__) => {
                         units.write(ok__);
                         windows_core::HRESULT(0)
@@ -7220,16 +7273,16 @@ impl IInkRecognizerGuide_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetColumns<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Columns<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetColumns(this, core::mem::transmute_copy(&units)).into()
+                IInkRecognizerGuide_Impl::put_Columns(this, core::mem::transmute_copy(&units)).into()
             }
         }
-        unsafe extern "system" fn Midline<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Midline<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerGuide_Impl::Midline(this) {
+                match IInkRecognizerGuide_Impl::get_Midline(this) {
                     Ok(ok__) => {
                         units.write(ok__);
                         windows_core::HRESULT(0)
@@ -7238,16 +7291,16 @@ impl IInkRecognizerGuide_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMidline<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Midline<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetMidline(this, core::mem::transmute_copy(&units)).into()
+                IInkRecognizerGuide_Impl::put_Midline(this, core::mem::transmute_copy(&units)).into()
             }
         }
-        unsafe extern "system" fn GuideData<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precoguide: *mut InkRecoGuide) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_GuideData<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, precoguide: *mut InkRecoGuide) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizerGuide_Impl::GuideData(this) {
+                match IInkRecognizerGuide_Impl::get_GuideData(this) {
                     Ok(ok__) => {
                         precoguide.write(ok__);
                         windows_core::HRESULT(0)
@@ -7256,33 +7309,33 @@ impl IInkRecognizerGuide_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetGuideData<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recoguide: InkRecoGuide) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_GuideData<Identity: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recoguide: InkRecoGuide) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRecognizerGuide_Impl::SetGuideData(this, core::mem::transmute(&recoguide)).into()
+                IInkRecognizerGuide_Impl::put_GuideData(this, core::mem::transmute(&recoguide)).into()
             }
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            WritingBox: WritingBox::<Identity, OFFSET>,
-            SetWritingBox: SetWritingBox::<Identity, OFFSET>,
-            DrawnBox: DrawnBox::<Identity, OFFSET>,
-            SetDrawnBox: SetDrawnBox::<Identity, OFFSET>,
-            Rows: Rows::<Identity, OFFSET>,
-            SetRows: SetRows::<Identity, OFFSET>,
-            Columns: Columns::<Identity, OFFSET>,
-            SetColumns: SetColumns::<Identity, OFFSET>,
-            Midline: Midline::<Identity, OFFSET>,
-            SetMidline: SetMidline::<Identity, OFFSET>,
-            GuideData: GuideData::<Identity, OFFSET>,
-            SetGuideData: SetGuideData::<Identity, OFFSET>,
+            get_WritingBox: get_WritingBox::<Identity, OFFSET>,
+            put_WritingBox: put_WritingBox::<Identity, OFFSET>,
+            get_DrawnBox: get_DrawnBox::<Identity, OFFSET>,
+            put_DrawnBox: put_DrawnBox::<Identity, OFFSET>,
+            get_Rows: get_Rows::<Identity, OFFSET>,
+            put_Rows: put_Rows::<Identity, OFFSET>,
+            get_Columns: get_Columns::<Identity, OFFSET>,
+            put_Columns: put_Columns::<Identity, OFFSET>,
+            get_Midline: get_Midline::<Identity, OFFSET>,
+            put_Midline: put_Midline::<Identity, OFFSET>,
+            get_GuideData: get_GuideData::<Identity, OFFSET>,
+            put_GuideData: put_GuideData::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkRecognizerGuide as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognizerGuide {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRecognizers, IInkRecognizers_Vtbl, 0x9ccc4f12_b0b7_4a8b_bf58_4aeca4e8cefd);
@@ -7297,16 +7350,16 @@ impl core::ops::Deref for IInkRecognizers {
 windows_core::imp::interface_hierarchy!(IInkRecognizers, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRecognizers {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDefaultRecognizer(&self, lcid: i32) -> windows_core::Result<IInkRecognizer> {
@@ -7327,25 +7380,25 @@ impl IInkRecognizers {
 #[doc(hidden)]
 pub struct IInkRecognizers_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDefaultRecognizer: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRecognizers_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetDefaultRecognizer(&self, lcid: i32) -> windows_core::Result<IInkRecognizer>;
     fn Item(&self, index: i32) -> windows_core::Result<IInkRecognizer>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRecognizers_Vtbl {
     pub const fn new<Identity: IInkRecognizers_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkRecognizers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkRecognizers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizers_Impl::Count(this) {
+                match IInkRecognizers_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -7354,10 +7407,10 @@ impl IInkRecognizers_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkRecognizers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkRecognizers_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRecognizers_Impl::_NewEnum(this) {
+                match IInkRecognizers_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -7392,8 +7445,8 @@ impl IInkRecognizers_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
             GetDefaultRecognizer: GetDefaultRecognizer::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
         }
@@ -7402,7 +7455,7 @@ impl IInkRecognizers_Vtbl {
         iid == &<IInkRecognizers as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRecognizers {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRectangle, IInkRectangle_Vtbl, 0x9794ff82_6071_4717_8a8b_6ac7c64a686e);
@@ -7417,52 +7470,52 @@ impl core::ops::Deref for IInkRectangle {
 windows_core::imp::interface_hierarchy!(IInkRectangle, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkRectangle {
-    pub unsafe fn Top(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Top(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTop(&self, units: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), units) }
+    pub unsafe fn put_Top(&self, units: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Top)(windows_core::Interface::as_raw(self), units) }
     }
-    pub unsafe fn Left(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Left(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLeft(&self, units: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), units) }
+    pub unsafe fn put_Left(&self, units: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Left)(windows_core::Interface::as_raw(self), units) }
     }
-    pub unsafe fn Bottom(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Bottom(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Bottom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Bottom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBottom(&self, units: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBottom)(windows_core::Interface::as_raw(self), units) }
+    pub unsafe fn put_Bottom(&self, units: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Bottom)(windows_core::Interface::as_raw(self), units) }
     }
-    pub unsafe fn Right(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Right(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Right)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Right)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRight(&self, units: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRight)(windows_core::Interface::as_raw(self), units) }
+    pub unsafe fn put_Right(&self, units: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Right)(windows_core::Interface::as_raw(self), units) }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn Data(&self) -> windows_core::Result<super::RECT> {
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn get_Data(&self) -> windows_core::Result<super::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetData(&self, rect: super::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), rect) }
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub unsafe fn put_Data(&self, rect: super::RECT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Data)(windows_core::Interface::as_raw(self), rect) }
     }
     pub unsafe fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRectangle)(windows_core::Interface::as_raw(self), top as _, left as _, bottom as _, right as _) }
@@ -7476,47 +7529,47 @@ impl IInkRectangle {
 #[doc(hidden)]
 pub struct IInkRectangle_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetTop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Left: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetLeft: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Bottom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetBottom: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Right: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetRight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    Data: usize,
-    #[cfg(feature = "windef")]
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, super::RECT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    SetData: usize,
+    pub get_Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Top: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Left: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Left: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Bottom: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Bottom: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Right: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Right: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub get_Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::RECT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
+    get_Data: usize,
+    #[cfg(all(feature = "shared", feature = "windef"))]
+    pub put_Data: unsafe extern "system" fn(*mut core::ffi::c_void, super::RECT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "windef")))]
+    put_Data: usize,
     pub GetRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub SetRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRectangle_Impl: super::IDispatch_Impl {
-    fn Top(&self) -> windows_core::Result<i32>;
-    fn SetTop(&self, units: i32) -> windows_core::Result<()>;
-    fn Left(&self) -> windows_core::Result<i32>;
-    fn SetLeft(&self, units: i32) -> windows_core::Result<()>;
-    fn Bottom(&self) -> windows_core::Result<i32>;
-    fn SetBottom(&self, units: i32) -> windows_core::Result<()>;
-    fn Right(&self) -> windows_core::Result<i32>;
-    fn SetRight(&self, units: i32) -> windows_core::Result<()>;
-    fn Data(&self) -> windows_core::Result<super::RECT>;
-    fn SetData(&self, rect: &super::RECT) -> windows_core::Result<()>;
+    fn get_Top(&self) -> windows_core::Result<i32>;
+    fn put_Top(&self, units: i32) -> windows_core::Result<()>;
+    fn get_Left(&self) -> windows_core::Result<i32>;
+    fn put_Left(&self, units: i32) -> windows_core::Result<()>;
+    fn get_Bottom(&self) -> windows_core::Result<i32>;
+    fn put_Bottom(&self, units: i32) -> windows_core::Result<()>;
+    fn get_Right(&self) -> windows_core::Result<i32>;
+    fn put_Right(&self, units: i32) -> windows_core::Result<()>;
+    fn get_Data(&self) -> windows_core::Result<super::RECT>;
+    fn put_Data(&self, rect: &super::RECT) -> windows_core::Result<()>;
     fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_core::Result<()>;
     fn SetRectangle(&self, top: i32, left: i32, bottom: i32, right: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRectangle_Vtbl {
     pub const fn new<Identity: IInkRectangle_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Top<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Top<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRectangle_Impl::Top(this) {
+                match IInkRectangle_Impl::get_Top(this) {
                     Ok(ok__) => {
                         units.write(ok__);
                         windows_core::HRESULT(0)
@@ -7525,16 +7578,16 @@ impl IInkRectangle_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTop<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Top<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRectangle_Impl::SetTop(this, core::mem::transmute_copy(&units)).into()
+                IInkRectangle_Impl::put_Top(this, core::mem::transmute_copy(&units)).into()
             }
         }
-        unsafe extern "system" fn Left<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Left<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRectangle_Impl::Left(this) {
+                match IInkRectangle_Impl::get_Left(this) {
                     Ok(ok__) => {
                         units.write(ok__);
                         windows_core::HRESULT(0)
@@ -7543,16 +7596,16 @@ impl IInkRectangle_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLeft<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Left<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRectangle_Impl::SetLeft(this, core::mem::transmute_copy(&units)).into()
+                IInkRectangle_Impl::put_Left(this, core::mem::transmute_copy(&units)).into()
             }
         }
-        unsafe extern "system" fn Bottom<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Bottom<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRectangle_Impl::Bottom(this) {
+                match IInkRectangle_Impl::get_Bottom(this) {
                     Ok(ok__) => {
                         units.write(ok__);
                         windows_core::HRESULT(0)
@@ -7561,16 +7614,16 @@ impl IInkRectangle_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBottom<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Bottom<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRectangle_Impl::SetBottom(this, core::mem::transmute_copy(&units)).into()
+                IInkRectangle_Impl::put_Bottom(this, core::mem::transmute_copy(&units)).into()
             }
         }
-        unsafe extern "system" fn Right<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Right<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRectangle_Impl::Right(this) {
+                match IInkRectangle_Impl::get_Right(this) {
                     Ok(ok__) => {
                         units.write(ok__);
                         windows_core::HRESULT(0)
@@ -7579,16 +7632,16 @@ impl IInkRectangle_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRight<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Right<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, units: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRectangle_Impl::SetRight(this, core::mem::transmute_copy(&units)).into()
+                IInkRectangle_Impl::put_Right(this, core::mem::transmute_copy(&units)).into()
             }
         }
-        unsafe extern "system" fn Data<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *mut super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Data<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: *mut super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkRectangle_Impl::Data(this) {
+                match IInkRectangle_Impl::get_Data(this) {
                     Ok(ok__) => {
                         rect.write(ok__);
                         windows_core::HRESULT(0)
@@ -7597,10 +7650,10 @@ impl IInkRectangle_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetData<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Data<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkRectangle_Impl::SetData(this, core::mem::transmute(&rect)).into()
+                IInkRectangle_Impl::put_Data(this, core::mem::transmute(&rect)).into()
             }
         }
         unsafe extern "system" fn GetRectangle<Identity: IInkRectangle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_core::HRESULT {
@@ -7617,16 +7670,16 @@ impl IInkRectangle_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Top: Top::<Identity, OFFSET>,
-            SetTop: SetTop::<Identity, OFFSET>,
-            Left: Left::<Identity, OFFSET>,
-            SetLeft: SetLeft::<Identity, OFFSET>,
-            Bottom: Bottom::<Identity, OFFSET>,
-            SetBottom: SetBottom::<Identity, OFFSET>,
-            Right: Right::<Identity, OFFSET>,
-            SetRight: SetRight::<Identity, OFFSET>,
-            Data: Data::<Identity, OFFSET>,
-            SetData: SetData::<Identity, OFFSET>,
+            get_Top: get_Top::<Identity, OFFSET>,
+            put_Top: put_Top::<Identity, OFFSET>,
+            get_Left: get_Left::<Identity, OFFSET>,
+            put_Left: put_Left::<Identity, OFFSET>,
+            get_Bottom: get_Bottom::<Identity, OFFSET>,
+            put_Bottom: put_Bottom::<Identity, OFFSET>,
+            get_Right: get_Right::<Identity, OFFSET>,
+            put_Right: put_Right::<Identity, OFFSET>,
+            get_Data: get_Data::<Identity, OFFSET>,
+            put_Data: put_Data::<Identity, OFFSET>,
             GetRectangle: GetRectangle::<Identity, OFFSET>,
             SetRectangle: SetRectangle::<Identity, OFFSET>,
         }
@@ -7635,7 +7688,7 @@ impl IInkRectangle_Vtbl {
         iid == &<IInkRectangle as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "windef", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRectangle {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkRenderer, IInkRenderer_Vtbl, 0xe6257a9c_b511_4f4c_a8b0_a7dbc9506b83);
@@ -7674,31 +7727,35 @@ impl IInkRenderer {
     {
         unsafe { (windows_core::Interface::vtable(self).SetObjectTransform)(windows_core::Interface::as_raw(self), objecttransform.param().abi()) }
     }
-    pub unsafe fn Draw<P1>(&self, hdc: isize, strokes: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn Draw<P1>(&self, hdc: super::LONG_PTR, strokes: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), hdc, strokes.param().abi()) }
     }
-    pub unsafe fn DrawStroke<P1, P2>(&self, hdc: isize, stroke: P1, drawingattributes: P2) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn DrawStroke<P1, P2>(&self, hdc: super::LONG_PTR, stroke: P1, drawingattributes: P2) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IInkStrokeDisp>,
         P2: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).DrawStroke)(windows_core::Interface::as_raw(self), hdc, stroke.param().abi(), drawingattributes.param().abi()) }
     }
-    pub unsafe fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn PixelToInkSpace(&self, hdc: super::LONG_PTR, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PixelToInkSpace)(windows_core::Interface::as_raw(self), hdc, x as _, y as _) }
     }
-    pub unsafe fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn InkSpaceToPixel(&self, hdcdisplay: super::LONG_PTR, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InkSpaceToPixel)(windows_core::Interface::as_raw(self), hdcdisplay, x as _, y as _) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::VARIANT) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: super::LONG_PTR, points: *mut super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PixelToInkSpaceFromPoints)(windows_core::Interface::as_raw(self), hdc, points) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::VARIANT) -> windows_core::HRESULT {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: super::LONG_PTR, points: *mut super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InkSpaceToPixelFromPoints)(windows_core::Interface::as_raw(self), hdc, points) }
     }
     pub unsafe fn Measure<P0>(&self, strokes: P0) -> windows_core::Result<IInkRectangle>
@@ -7740,17 +7797,29 @@ pub struct IInkRenderer_Vtbl {
     pub SetViewTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetObjectTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetObjectTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DrawStroke: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PixelToInkSpace: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut i32, *mut i32) -> windows_core::HRESULT,
-    pub InkSpaceToPixel: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub PixelToInkSpaceFromPoints: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(feature = "shared")]
+    pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Draw: usize,
+    #[cfg(feature = "shared")]
+    pub DrawStroke: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    DrawStroke: usize,
+    #[cfg(feature = "shared")]
+    pub PixelToInkSpace: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR, *mut i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    PixelToInkSpace: usize,
+    #[cfg(feature = "shared")]
+    pub InkSpaceToPixel: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR, *mut i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    InkSpaceToPixel: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub PixelToInkSpaceFromPoints: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     PixelToInkSpaceFromPoints: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub InkSpaceToPixelFromPoints: unsafe extern "system" fn(*mut core::ffi::c_void, isize, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub InkSpaceToPixelFromPoints: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG_PTR, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     InkSpaceToPixelFromPoints: usize,
     pub Measure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MeasureStroke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -7761,25 +7830,25 @@ pub struct IInkRenderer_Vtbl {
     #[cfg(not(feature = "wtypes"))]
     ScaleTransform: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkRenderer_Impl: super::IDispatch_Impl {
     fn GetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
     fn SetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
     fn GetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
     fn SetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn Draw(&self, hdc: isize, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn DrawStroke(&self, hdc: isize, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
-    fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
-    fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::VARIANT) -> windows_core::Result<()>;
-    fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::VARIANT) -> windows_core::Result<()>;
+    fn Draw(&self, hdc: super::LONG_PTR, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
+    fn DrawStroke(&self, hdc: super::LONG_PTR, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
+    fn PixelToInkSpace(&self, hdc: super::LONG_PTR, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
+    fn InkSpaceToPixel(&self, hdcdisplay: super::LONG_PTR, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
+    fn PixelToInkSpaceFromPoints(&self, hdc: super::LONG_PTR, points: *mut super::VARIANT) -> windows_core::Result<()>;
+    fn InkSpaceToPixelFromPoints(&self, hdc: super::LONG_PTR, points: *mut super::VARIANT) -> windows_core::Result<()>;
     fn Measure(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<IInkRectangle>;
     fn MeasureStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<IInkRectangle>;
     fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
     fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
     fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::VARIANT_BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkRenderer_Vtbl {
     pub const fn new<Identity: IInkRenderer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetViewTransform<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, viewtransform: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7806,37 +7875,37 @@ impl IInkRenderer_Vtbl {
                 IInkRenderer_Impl::SetObjectTransform(this, core::mem::transmute_copy(&objecttransform)).into()
             }
         }
-        unsafe extern "system" fn Draw<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Draw<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::LONG_PTR, strokes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkRenderer_Impl::Draw(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&strokes)).into()
             }
         }
-        unsafe extern "system" fn DrawStroke<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, stroke: *mut core::ffi::c_void, drawingattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawStroke<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::LONG_PTR, stroke: *mut core::ffi::c_void, drawingattributes: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkRenderer_Impl::DrawStroke(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&stroke), core::mem::transmute_copy(&drawingattributes)).into()
             }
         }
-        unsafe extern "system" fn PixelToInkSpace<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn PixelToInkSpace<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::LONG_PTR, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkRenderer_Impl::PixelToInkSpace(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
-        unsafe extern "system" fn InkSpaceToPixel<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn InkSpaceToPixel<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdcdisplay: super::LONG_PTR, x: *mut i32, y: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkRenderer_Impl::InkSpaceToPixel(this, core::mem::transmute_copy(&hdcdisplay), core::mem::transmute_copy(&x), core::mem::transmute_copy(&y)).into()
             }
         }
-        unsafe extern "system" fn PixelToInkSpaceFromPoints<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, points: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn PixelToInkSpaceFromPoints<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::LONG_PTR, points: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkRenderer_Impl::PixelToInkSpaceFromPoints(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&points)).into()
             }
         }
-        unsafe extern "system" fn InkSpaceToPixelFromPoints<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: isize, points: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn InkSpaceToPixelFromPoints<Identity: IInkRenderer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hdc: super::LONG_PTR, points: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IInkRenderer_Impl::InkSpaceToPixelFromPoints(this, core::mem::transmute_copy(&hdc), core::mem::transmute_copy(&points)).into()
@@ -7907,7 +7976,7 @@ impl IInkRenderer_Vtbl {
         iid == &<IInkRenderer as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkRenderer {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkStrokeDisp, IInkStrokeDisp_Vtbl, 0x43242fea_91d1_4a72_963e_fbb91829cfa2);
@@ -7922,23 +7991,23 @@ impl core::ops::Deref for IInkStrokeDisp {
 windows_core::imp::interface_hierarchy!(IInkStrokeDisp, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkStrokeDisp {
-    pub unsafe fn ID(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_ID(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_ID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn BezierPoints(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_BezierPoints(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BezierPoints)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_BezierPoints)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn get_DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn putref_DrawingAttributes<P0>(&self, drawattrs: P0) -> windows_core::HRESULT
@@ -7947,63 +8016,63 @@ impl IInkStrokeDisp {
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), drawattrs.param().abi()) }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn get_Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
+    pub unsafe fn get_ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn PolylineCusps(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_PolylineCusps(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PolylineCusps)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_PolylineCusps)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn BezierCusps(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_BezierCusps(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BezierCusps)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_BezierCusps)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SelfIntersections(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_SelfIntersections(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelfIntersections)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_SelfIntersections)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PacketCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_PacketCount(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PacketCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_PacketCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PacketSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_PacketSize(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_PacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn PacketDescription(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_PacketDescription(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_PacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Deleted(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_Deleted(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Deleted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Deleted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle> {
@@ -8012,7 +8081,7 @@ impl IInkStrokeDisp {
             (windows_core::Interface::vtable(self).GetBoundingBox)(windows_core::Interface::as_raw(self), boundingboxmode, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FindIntersections<P0>(&self, strokes: P0) -> windows_core::Result<super::VARIANT>
     where
         P0: windows_core::Param<IInkStrokes>,
@@ -8022,7 +8091,7 @@ impl IInkStrokeDisp {
             (windows_core::Interface::vtable(self).FindIntersections)(windows_core::Interface::as_raw(self), strokes.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetRectangleIntersections<P0>(&self, rectangle: P0) -> windows_core::Result<super::VARIANT>
     where
         P0: windows_core::Param<IInkRectangle>,
@@ -8060,42 +8129,42 @@ impl IInkStrokeDisp {
     pub unsafe fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPacketDescriptionPropertyMetrics)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), minimum as _, maximum as _, units as _, resolution as _) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPoints(&self, index: i32, count: i32) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPoints)(windows_core::Interface::as_raw(self), index, count, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetPoints(&self, points: &super::VARIANT, index: i32, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetPoints)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), index, count, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPacketData(&self, index: i32, count: i32) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPacketData)(windows_core::Interface::as_raw(self), index, count, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPacketValuesByProperty(&self, propertyname: &windows_core::BSTR, index: i32, count: i32) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPacketValuesByProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), index, count, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetPacketValuesByProperty(&self, bstrpropertyname: &windows_core::BSTR, packetvalues: &super::VARIANT, index: i32, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetPacketValuesByProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute_copy(packetvalues), index, count, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -8133,45 +8202,45 @@ impl IInkStrokeDisp {
 #[doc(hidden)]
 pub struct IInkStrokeDisp_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub ID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub BezierPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    BezierPoints: usize,
-    pub DrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_BezierPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_BezierPoints: usize,
+    pub get_DrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub putref_DrawingAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub PolylineCusps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    PolylineCusps: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub BezierCusps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    BezierCusps: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SelfIntersections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SelfIntersections: usize,
-    pub PacketCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub PacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub PacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    PacketDescription: usize,
+    pub get_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ExtendedProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_PolylineCusps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_PolylineCusps: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_BezierCusps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_BezierCusps: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_SelfIntersections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_SelfIntersections: usize,
+    pub get_PacketCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_PacketSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_PacketDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_PacketDescription: usize,
     #[cfg(feature = "wtypes")]
-    pub Deleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Deleted: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Deleted: usize,
+    get_Deleted: usize,
     pub GetBoundingBox: unsafe extern "system" fn(*mut core::ffi::c_void, InkBoundingBoxMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub FindIntersections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     FindIntersections: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetRectangleIntersections: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetRectangleIntersections: usize,
     pub Clip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
@@ -8181,29 +8250,29 @@ pub struct IInkStrokeDisp_Vtbl {
     pub NearestPoint: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut f32, *mut f32) -> windows_core::HRESULT,
     pub Split: unsafe extern "system" fn(*mut core::ffi::c_void, f32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPacketDescriptionPropertyMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut i32, *mut TabletPropertyMetricUnit, *mut f32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPoints: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPoints: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetPoints: unsafe extern "system" fn(*mut core::ffi::c_void, super::VARIANT, i32, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetPoints: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPacketData: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPacketData: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetPacketValuesByProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetPacketValuesByProperty: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub SetPacketValuesByProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT, i32, i32, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     SetPacketValuesByProperty: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetFlattenedBezierPoints: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetFlattenedBezierPoints: usize,
     #[cfg(feature = "wtypes")]
     pub Transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -8215,21 +8284,21 @@ pub struct IInkStrokeDisp_Vtbl {
     pub Shear: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32) -> windows_core::HRESULT,
     pub ScaleTransform: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkStrokeDisp_Impl: super::IDispatch_Impl {
-    fn ID(&self) -> windows_core::Result<i32>;
-    fn BezierPoints(&self) -> windows_core::Result<super::VARIANT>;
-    fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
+    fn get_ID(&self) -> windows_core::Result<i32>;
+    fn get_BezierPoints(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
     fn putref_DrawingAttributes(&self, drawattrs: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
-    fn PolylineCusps(&self) -> windows_core::Result<super::VARIANT>;
-    fn BezierCusps(&self) -> windows_core::Result<super::VARIANT>;
-    fn SelfIntersections(&self) -> windows_core::Result<super::VARIANT>;
-    fn PacketCount(&self) -> windows_core::Result<i32>;
-    fn PacketSize(&self) -> windows_core::Result<i32>;
-    fn PacketDescription(&self) -> windows_core::Result<super::VARIANT>;
-    fn Deleted(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_Ink(&self) -> windows_core::Result<IInkDisp>;
+    fn get_ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
+    fn get_PolylineCusps(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_BezierCusps(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_SelfIntersections(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_PacketCount(&self) -> windows_core::Result<i32>;
+    fn get_PacketSize(&self) -> windows_core::Result<i32>;
+    fn get_PacketDescription(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Deleted(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
     fn FindIntersections(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<super::VARIANT>;
     fn GetRectangleIntersections(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<super::VARIANT>;
@@ -8251,13 +8320,13 @@ pub trait IInkStrokeDisp_Impl: super::IDispatch_Impl {
     fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
     fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkStrokeDisp_Vtbl {
     pub const fn new<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ID<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ID<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::ID(this) {
+                match IInkStrokeDisp_Impl::get_ID(this) {
                     Ok(ok__) => {
                         id.write(ok__);
                         windows_core::HRESULT(0)
@@ -8266,10 +8335,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BezierPoints<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_BezierPoints<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, points: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::BezierPoints(this) {
+                match IInkStrokeDisp_Impl::get_BezierPoints(this) {
                     Ok(ok__) => {
                         points.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8278,10 +8347,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DrawingAttributes<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawattrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DrawingAttributes<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drawattrs: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::DrawingAttributes(this) {
+                match IInkStrokeDisp_Impl::get_DrawingAttributes(this) {
                     Ok(ok__) => {
                         drawattrs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8296,10 +8365,10 @@ impl IInkStrokeDisp_Vtbl {
                 IInkStrokeDisp_Impl::putref_DrawingAttributes(this, core::mem::transmute_copy(&drawattrs)).into()
             }
         }
-        unsafe extern "system" fn Ink<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Ink<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::Ink(this) {
+                match IInkStrokeDisp_Impl::get_Ink(this) {
                     Ok(ok__) => {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8308,10 +8377,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ExtendedProperties<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ExtendedProperties<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, properties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::ExtendedProperties(this) {
+                match IInkStrokeDisp_Impl::get_ExtendedProperties(this) {
                     Ok(ok__) => {
                         properties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8320,10 +8389,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PolylineCusps<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cusps: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PolylineCusps<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cusps: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::PolylineCusps(this) {
+                match IInkStrokeDisp_Impl::get_PolylineCusps(this) {
                     Ok(ok__) => {
                         cusps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8332,10 +8401,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BezierCusps<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cusps: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_BezierCusps<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cusps: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::BezierCusps(this) {
+                match IInkStrokeDisp_Impl::get_BezierCusps(this) {
                     Ok(ok__) => {
                         cusps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8344,10 +8413,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SelfIntersections<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intersections: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SelfIntersections<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, intersections: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::SelfIntersections(this) {
+                match IInkStrokeDisp_Impl::get_SelfIntersections(this) {
                     Ok(ok__) => {
                         intersections.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8356,10 +8425,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PacketCount<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PacketCount<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::PacketCount(this) {
+                match IInkStrokeDisp_Impl::get_PacketCount(this) {
                     Ok(ok__) => {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
@@ -8368,10 +8437,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PacketSize<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsize: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PacketSize<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsize: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::PacketSize(this) {
+                match IInkStrokeDisp_Impl::get_PacketSize(this) {
                     Ok(ok__) => {
                         plsize.write(ok__);
                         windows_core::HRESULT(0)
@@ -8380,10 +8449,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PacketDescription<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetdescription: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PacketDescription<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, packetdescription: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::PacketDescription(this) {
+                match IInkStrokeDisp_Impl::get_PacketDescription(this) {
                     Ok(ok__) => {
                         packetdescription.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8392,10 +8461,10 @@ impl IInkStrokeDisp_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Deleted<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deleted: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Deleted<Identity: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deleted: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokeDisp_Impl::Deleted(this) {
+                match IInkStrokeDisp_Impl::get_Deleted(this) {
                     Ok(ok__) => {
                         deleted.write(ok__);
                         windows_core::HRESULT(0)
@@ -8598,19 +8667,19 @@ impl IInkStrokeDisp_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            ID: ID::<Identity, OFFSET>,
-            BezierPoints: BezierPoints::<Identity, OFFSET>,
-            DrawingAttributes: DrawingAttributes::<Identity, OFFSET>,
+            get_ID: get_ID::<Identity, OFFSET>,
+            get_BezierPoints: get_BezierPoints::<Identity, OFFSET>,
+            get_DrawingAttributes: get_DrawingAttributes::<Identity, OFFSET>,
             putref_DrawingAttributes: putref_DrawingAttributes::<Identity, OFFSET>,
-            Ink: Ink::<Identity, OFFSET>,
-            ExtendedProperties: ExtendedProperties::<Identity, OFFSET>,
-            PolylineCusps: PolylineCusps::<Identity, OFFSET>,
-            BezierCusps: BezierCusps::<Identity, OFFSET>,
-            SelfIntersections: SelfIntersections::<Identity, OFFSET>,
-            PacketCount: PacketCount::<Identity, OFFSET>,
-            PacketSize: PacketSize::<Identity, OFFSET>,
-            PacketDescription: PacketDescription::<Identity, OFFSET>,
-            Deleted: Deleted::<Identity, OFFSET>,
+            get_Ink: get_Ink::<Identity, OFFSET>,
+            get_ExtendedProperties: get_ExtendedProperties::<Identity, OFFSET>,
+            get_PolylineCusps: get_PolylineCusps::<Identity, OFFSET>,
+            get_BezierCusps: get_BezierCusps::<Identity, OFFSET>,
+            get_SelfIntersections: get_SelfIntersections::<Identity, OFFSET>,
+            get_PacketCount: get_PacketCount::<Identity, OFFSET>,
+            get_PacketSize: get_PacketSize::<Identity, OFFSET>,
+            get_PacketDescription: get_PacketDescription::<Identity, OFFSET>,
+            get_Deleted: get_Deleted::<Identity, OFFSET>,
             GetBoundingBox: GetBoundingBox::<Identity, OFFSET>,
             FindIntersections: FindIntersections::<Identity, OFFSET>,
             GetRectangleIntersections: GetRectangleIntersections::<Identity, OFFSET>,
@@ -8637,7 +8706,7 @@ impl IInkStrokeDisp_Vtbl {
         iid == &<IInkStrokeDisp as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkStrokeDisp {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkStrokes, IInkStrokes_Vtbl, 0xf1f4c9d8_590a_4963_b3ae_1935671bb6f3);
@@ -8652,28 +8721,28 @@ impl core::ops::Deref for IInkStrokes {
 windows_core::imp::interface_hierarchy!(IInkStrokes, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkStrokes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn get_Ink(&self) -> windows_core::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RecognitionResult(&self) -> windows_core::Result<IInkRecognitionResult> {
+    pub unsafe fn get_RecognitionResult(&self) -> windows_core::Result<IInkRecognitionResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecognitionResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_RecognitionResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn ToString(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -8764,10 +8833,10 @@ impl IInkStrokes {
 #[doc(hidden)]
 pub struct IInkStrokes_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RecognitionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Ink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_RecognitionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ToString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -8788,12 +8857,12 @@ pub struct IInkStrokes_Vtbl {
     pub Clip: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RemoveRecognitionResult: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkStrokes_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn RecognitionResult(&self) -> windows_core::Result<IInkRecognitionResult>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Ink(&self) -> windows_core::Result<IInkDisp>;
+    fn get_RecognitionResult(&self) -> windows_core::Result<IInkRecognitionResult>;
     fn ToString(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Item(&self, index: i32) -> windows_core::Result<IInkStrokeDisp>;
     fn Add(&self, inkstroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
@@ -8811,13 +8880,13 @@ pub trait IInkStrokes_Impl: super::IDispatch_Impl {
     fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
     fn RemoveRecognitionResult(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkStrokes_Vtbl {
     pub const fn new<Identity: IInkStrokes_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokes_Impl::Count(this) {
+                match IInkStrokes_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -8826,10 +8895,10 @@ impl IInkStrokes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokes_Impl::_NewEnum(this) {
+                match IInkStrokes_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8838,10 +8907,10 @@ impl IInkStrokes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Ink<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Ink<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ink: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokes_Impl::Ink(this) {
+                match IInkStrokes_Impl::get_Ink(this) {
                     Ok(ok__) => {
                         ink.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8850,10 +8919,10 @@ impl IInkStrokes_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RecognitionResult<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognitionresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_RecognitionResult<Identity: IInkStrokes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, recognitionresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkStrokes_Impl::RecognitionResult(this) {
+                match IInkStrokes_Impl::get_RecognitionResult(this) {
                     Ok(ok__) => {
                         recognitionresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -8978,10 +9047,10 @@ impl IInkStrokes_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
-            Ink: Ink::<Identity, OFFSET>,
-            RecognitionResult: RecognitionResult::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
+            get_Ink: get_Ink::<Identity, OFFSET>,
+            get_RecognitionResult: get_RecognitionResult::<Identity, OFFSET>,
             ToString: ToString::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
             Add: Add::<Identity, OFFSET>,
@@ -9004,7 +9073,7 @@ impl IInkStrokes_Vtbl {
         iid == &<IInkStrokes as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkStrokes {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkTablet, IInkTablet_Vtbl, 0x2de25eaa_6ef8_42d5_aee9_185bc81b912d);
@@ -9019,28 +9088,28 @@ impl core::ops::Deref for IInkTablet {
 windows_core::imp::interface_hierarchy!(IInkTablet, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkTablet {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PlugAndPlayId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_PlugAndPlayId(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlugAndPlayId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_PlugAndPlayId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MaximumInputRectangle(&self) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn get_MaximumInputRectangle(&self) -> windows_core::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MaximumInputRectangle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_MaximumInputRectangle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn HardwareCapabilities(&self) -> windows_core::Result<TabletHardwareCapabilities> {
+    pub unsafe fn get_HardwareCapabilities(&self) -> windows_core::Result<TabletHardwareCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HardwareCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_HardwareCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
@@ -9059,32 +9128,32 @@ impl IInkTablet {
 #[doc(hidden)]
 pub struct IInkTablet_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub PlugAndPlayId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MaximumInputRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HardwareCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TabletHardwareCapabilities) -> windows_core::HRESULT,
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_PlugAndPlayId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MaximumInputRectangle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_HardwareCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TabletHardwareCapabilities) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
     pub IsPacketPropertySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     IsPacketPropertySupported: usize,
     pub GetPropertyMetrics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut i32, *mut TabletPropertyMetricUnit, *mut f32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkTablet_Impl: super::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn PlugAndPlayId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn MaximumInputRectangle(&self) -> windows_core::Result<IInkRectangle>;
-    fn HardwareCapabilities(&self) -> windows_core::Result<TabletHardwareCapabilities>;
+    fn get_Name(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_PlugAndPlayId(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_MaximumInputRectangle(&self) -> windows_core::Result<IInkRectangle>;
+    fn get_HardwareCapabilities(&self) -> windows_core::Result<TabletHardwareCapabilities>;
     fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
     fn GetPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkTablet_Vtbl {
     pub const fn new<Identity: IInkTablet_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet_Impl::Name(this) {
+                match IInkTablet_Impl::get_Name(this) {
                     Ok(ok__) => {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -9093,10 +9162,10 @@ impl IInkTablet_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PlugAndPlayId<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PlugAndPlayId<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet_Impl::PlugAndPlayId(this) {
+                match IInkTablet_Impl::get_PlugAndPlayId(this) {
                     Ok(ok__) => {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -9105,10 +9174,10 @@ impl IInkTablet_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MaximumInputRectangle<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MaximumInputRectangle<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rectangle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet_Impl::MaximumInputRectangle(this) {
+                match IInkTablet_Impl::get_MaximumInputRectangle(this) {
                     Ok(ok__) => {
                         rectangle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -9117,10 +9186,10 @@ impl IInkTablet_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn HardwareCapabilities<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut TabletHardwareCapabilities) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_HardwareCapabilities<Identity: IInkTablet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, capabilities: *mut TabletHardwareCapabilities) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet_Impl::HardwareCapabilities(this) {
+                match IInkTablet_Impl::get_HardwareCapabilities(this) {
                     Ok(ok__) => {
                         capabilities.write(ok__);
                         windows_core::HRESULT(0)
@@ -9149,10 +9218,10 @@ impl IInkTablet_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Name: Name::<Identity, OFFSET>,
-            PlugAndPlayId: PlugAndPlayId::<Identity, OFFSET>,
-            MaximumInputRectangle: MaximumInputRectangle::<Identity, OFFSET>,
-            HardwareCapabilities: HardwareCapabilities::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
+            get_PlugAndPlayId: get_PlugAndPlayId::<Identity, OFFSET>,
+            get_MaximumInputRectangle: get_MaximumInputRectangle::<Identity, OFFSET>,
+            get_HardwareCapabilities: get_HardwareCapabilities::<Identity, OFFSET>,
             IsPacketPropertySupported: IsPacketPropertySupported::<Identity, OFFSET>,
             GetPropertyMetrics: GetPropertyMetrics::<Identity, OFFSET>,
         }
@@ -9161,7 +9230,7 @@ impl IInkTablet_Vtbl {
         iid == &<IInkTablet as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkTablet {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkTablet2, IInkTablet2_Vtbl, 0x90c91ad2_fa36_49d6_9516_ce8d570f6f85);
@@ -9176,10 +9245,10 @@ impl core::ops::Deref for IInkTablet2 {
 windows_core::imp::interface_hierarchy!(IInkTablet2, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkTablet2 {
-    pub unsafe fn DeviceKind(&self) -> windows_core::Result<TabletDeviceKind> {
+    pub unsafe fn get_DeviceKind(&self) -> windows_core::Result<TabletDeviceKind> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DeviceKind)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DeviceKind)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
 }
@@ -9188,19 +9257,19 @@ impl IInkTablet2 {
 #[doc(hidden)]
 pub struct IInkTablet2_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub DeviceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TabletDeviceKind) -> windows_core::HRESULT,
+    pub get_DeviceKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TabletDeviceKind) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkTablet2_Impl: super::IDispatch_Impl {
-    fn DeviceKind(&self) -> windows_core::Result<TabletDeviceKind>;
+    fn get_DeviceKind(&self) -> windows_core::Result<TabletDeviceKind>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkTablet2_Vtbl {
     pub const fn new<Identity: IInkTablet2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DeviceKind<Identity: IInkTablet2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kind: *mut TabletDeviceKind) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DeviceKind<Identity: IInkTablet2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kind: *mut TabletDeviceKind) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet2_Impl::DeviceKind(this) {
+                match IInkTablet2_Impl::get_DeviceKind(this) {
                     Ok(ok__) => {
                         kind.write(ok__);
                         windows_core::HRESULT(0)
@@ -9209,13 +9278,13 @@ impl IInkTablet2_Vtbl {
                 }
             }
         }
-        Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), DeviceKind: DeviceKind::<Identity, OFFSET> }
+        Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), get_DeviceKind: get_DeviceKind::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkTablet2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkTablet2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkTablet3, IInkTablet3_Vtbl, 0x7e313997_1327_41dd_8ca9_79f24be17250);
@@ -9231,16 +9300,17 @@ windows_core::imp::interface_hierarchy!(IInkTablet3, windows_core::IUnknown, sup
 #[cfg(feature = "oaidl")]
 impl IInkTablet3 {
     #[cfg(feature = "wtypes")]
-    pub unsafe fn IsMultiTouch(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_IsMultiTouch(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsMultiTouch)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_IsMultiTouch)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MaximumCursors(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_MaximumCursors(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MaximumCursors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MaximumCursors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
 }
@@ -9250,23 +9320,26 @@ impl IInkTablet3 {
 pub struct IInkTablet3_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     #[cfg(feature = "wtypes")]
-    pub IsMultiTouch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_IsMultiTouch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    IsMultiTouch: usize,
-    pub MaximumCursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    get_IsMultiTouch: usize,
+    #[cfg(feature = "shared")]
+    pub get_MaximumCursors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_MaximumCursors: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkTablet3_Impl: super::IDispatch_Impl {
-    fn IsMultiTouch(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn MaximumCursors(&self) -> windows_core::Result<u32>;
+    fn get_IsMultiTouch(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_MaximumCursors(&self) -> windows_core::Result<super::ULONG>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkTablet3_Vtbl {
     pub const fn new<Identity: IInkTablet3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn IsMultiTouch<Identity: IInkTablet3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pismultitouch: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_IsMultiTouch<Identity: IInkTablet3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pismultitouch: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet3_Impl::IsMultiTouch(this) {
+                match IInkTablet3_Impl::get_IsMultiTouch(this) {
                     Ok(ok__) => {
                         pismultitouch.write(ok__);
                         windows_core::HRESULT(0)
@@ -9275,10 +9348,10 @@ impl IInkTablet3_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MaximumCursors<Identity: IInkTablet3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaximumcursors: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MaximumCursors<Identity: IInkTablet3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaximumcursors: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablet3_Impl::MaximumCursors(this) {
+                match IInkTablet3_Impl::get_MaximumCursors(this) {
                     Ok(ok__) => {
                         pmaximumcursors.write(ok__);
                         windows_core::HRESULT(0)
@@ -9289,15 +9362,15 @@ impl IInkTablet3_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            IsMultiTouch: IsMultiTouch::<Identity, OFFSET>,
-            MaximumCursors: MaximumCursors::<Identity, OFFSET>,
+            get_IsMultiTouch: get_IsMultiTouch::<Identity, OFFSET>,
+            get_MaximumCursors: get_MaximumCursors::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkTablet3 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkTablet3 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkTablets, IInkTablets_Vtbl, 0x112086d9_7779_4535_a699_862b43ac1863);
@@ -9312,22 +9385,22 @@ impl core::ops::Deref for IInkTablets {
 windows_core::imp::interface_hierarchy!(IInkTablets, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IInkTablets {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DefaultTablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn get_DefaultTablet(&self) -> windows_core::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultTablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_DefaultTablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkTablet> {
@@ -9349,30 +9422,30 @@ impl IInkTablets {
 #[doc(hidden)]
 pub struct IInkTablets_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DefaultTablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_DefaultTablet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
     pub IsPacketPropertySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     IsPacketPropertySupported: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkTablets_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn DefaultTablet(&self) -> windows_core::Result<IInkTablet>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_DefaultTablet(&self) -> windows_core::Result<IInkTablet>;
     fn Item(&self, index: i32) -> windows_core::Result<IInkTablet>;
     fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkTablets_Vtbl {
     pub const fn new<Identity: IInkTablets_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IInkTablets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IInkTablets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablets_Impl::Count(this) {
+                match IInkTablets_Impl::get_Count(this) {
                     Ok(ok__) => {
                         count.write(ok__);
                         windows_core::HRESULT(0)
@@ -9381,10 +9454,10 @@ impl IInkTablets_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IInkTablets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IInkTablets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, _newenum: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablets_Impl::_NewEnum(this) {
+                match IInkTablets_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         _newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -9393,10 +9466,10 @@ impl IInkTablets_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DefaultTablet<Identity: IInkTablets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, defaulttablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DefaultTablet<Identity: IInkTablets_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, defaulttablet: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTablets_Impl::DefaultTablet(this) {
+                match IInkTablets_Impl::get_DefaultTablet(this) {
                     Ok(ok__) => {
                         defaulttablet.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -9431,9 +9504,9 @@ impl IInkTablets_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
-            DefaultTablet: DefaultTablet::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
+            get_DefaultTablet: get_DefaultTablet::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
             IsPacketPropertySupported: IsPacketPropertySupported::<Identity, OFFSET>,
         }
@@ -9442,7 +9515,7 @@ impl IInkTablets_Vtbl {
         iid == &<IInkTablets as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkTablets {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkTransform, IInkTransform_Vtbl, 0x615f1d43_8703_4565_88e2_8201d2ecd7b7);
@@ -9482,70 +9555,70 @@ impl IInkTransform {
     pub unsafe fn SetTransform(&self, em11: f32, em12: f32, em21: f32, em22: f32, edx: f32, edy: f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), em11, em12, em21, em22, edx, edy) }
     }
-    pub unsafe fn eM11(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_eM11(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).eM11)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_eM11)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM11(&self, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SeteM11)(windows_core::Interface::as_raw(self), value) }
+    pub unsafe fn put_eM11(&self, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_eM11)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn eM12(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_eM12(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).eM12)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_eM12)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM12(&self, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SeteM12)(windows_core::Interface::as_raw(self), value) }
+    pub unsafe fn put_eM12(&self, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_eM12)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn eM21(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_eM21(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).eM21)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_eM21)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM21(&self, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SeteM21)(windows_core::Interface::as_raw(self), value) }
+    pub unsafe fn put_eM21(&self, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_eM21)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn eM22(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_eM22(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).eM22)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_eM22)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM22(&self, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SeteM22)(windows_core::Interface::as_raw(self), value) }
+    pub unsafe fn put_eM22(&self, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_eM22)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn eDx(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_eDx(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).eDx)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_eDx)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteDx(&self, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SeteDx)(windows_core::Interface::as_raw(self), value) }
+    pub unsafe fn put_eDx(&self, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_eDx)(windows_core::Interface::as_raw(self), value) }
     }
-    pub unsafe fn eDy(&self) -> windows_core::Result<f32> {
+    pub unsafe fn get_eDy(&self) -> windows_core::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).eDy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_eDy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteDy(&self, value: f32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SeteDy)(windows_core::Interface::as_raw(self), value) }
+    pub unsafe fn put_eDy(&self, value: f32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_eDy)(windows_core::Interface::as_raw(self), value) }
     }
-    #[cfg(feature = "wingdi")]
-    pub unsafe fn Data(&self) -> windows_core::Result<super::XFORM> {
+    #[cfg(all(feature = "minwindef", feature = "wingdi"))]
+    pub unsafe fn get_Data(&self) -> windows_core::Result<super::XFORM> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "wingdi")]
-    pub unsafe fn SetData(&self, xform: super::XFORM) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), xform) }
+    #[cfg(all(feature = "minwindef", feature = "wingdi"))]
+    pub unsafe fn put_Data(&self, xform: super::XFORM) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Data)(windows_core::Interface::as_raw(self), xform) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -9564,28 +9637,28 @@ pub struct IInkTransform_Vtbl {
     pub ScaleTransform: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32) -> windows_core::HRESULT,
     pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32, *mut f32, *mut f32, *mut f32, *mut f32, *mut f32) -> windows_core::HRESULT,
     pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32, f32, f32, f32) -> windows_core::HRESULT,
-    pub eM11: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SeteM11: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub eM12: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SeteM12: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub eM21: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SeteM21: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub eM22: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SeteM22: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub eDx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SeteDx: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    pub eDy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
-    pub SeteDy: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
-    #[cfg(feature = "wingdi")]
-    pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::XFORM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wingdi"))]
-    Data: usize,
-    #[cfg(feature = "wingdi")]
-    pub SetData: unsafe extern "system" fn(*mut core::ffi::c_void, super::XFORM) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wingdi"))]
-    SetData: usize,
+    pub get_eM11: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_eM11: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub get_eM12: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_eM12: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub get_eM21: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_eM21: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub get_eM22: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_eM22: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub get_eDx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_eDx: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    pub get_eDy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub put_eDy: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "minwindef", feature = "wingdi"))]
+    pub get_Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::XFORM) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wingdi")))]
+    get_Data: usize,
+    #[cfg(all(feature = "minwindef", feature = "wingdi"))]
+    pub put_Data: unsafe extern "system" fn(*mut core::ffi::c_void, super::XFORM) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "wingdi")))]
+    put_Data: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "wingdi", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wingdi", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkTransform_Impl: super::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
     fn Translate(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
@@ -9595,22 +9668,22 @@ pub trait IInkTransform_Impl: super::IDispatch_Impl {
     fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
     fn GetTransform(&self, em11: *mut f32, em12: *mut f32, em21: *mut f32, em22: *mut f32, edx: *mut f32, edy: *mut f32) -> windows_core::Result<()>;
     fn SetTransform(&self, em11: f32, em12: f32, em21: f32, em22: f32, edx: f32, edy: f32) -> windows_core::Result<()>;
-    fn eM11(&self) -> windows_core::Result<f32>;
-    fn SeteM11(&self, value: f32) -> windows_core::Result<()>;
-    fn eM12(&self) -> windows_core::Result<f32>;
-    fn SeteM12(&self, value: f32) -> windows_core::Result<()>;
-    fn eM21(&self) -> windows_core::Result<f32>;
-    fn SeteM21(&self, value: f32) -> windows_core::Result<()>;
-    fn eM22(&self) -> windows_core::Result<f32>;
-    fn SeteM22(&self, value: f32) -> windows_core::Result<()>;
-    fn eDx(&self) -> windows_core::Result<f32>;
-    fn SeteDx(&self, value: f32) -> windows_core::Result<()>;
-    fn eDy(&self) -> windows_core::Result<f32>;
-    fn SeteDy(&self, value: f32) -> windows_core::Result<()>;
-    fn Data(&self) -> windows_core::Result<super::XFORM>;
-    fn SetData(&self, xform: &super::XFORM) -> windows_core::Result<()>;
+    fn get_eM11(&self) -> windows_core::Result<f32>;
+    fn put_eM11(&self, value: f32) -> windows_core::Result<()>;
+    fn get_eM12(&self) -> windows_core::Result<f32>;
+    fn put_eM12(&self, value: f32) -> windows_core::Result<()>;
+    fn get_eM21(&self) -> windows_core::Result<f32>;
+    fn put_eM21(&self, value: f32) -> windows_core::Result<()>;
+    fn get_eM22(&self) -> windows_core::Result<f32>;
+    fn put_eM22(&self, value: f32) -> windows_core::Result<()>;
+    fn get_eDx(&self) -> windows_core::Result<f32>;
+    fn put_eDx(&self, value: f32) -> windows_core::Result<()>;
+    fn get_eDy(&self) -> windows_core::Result<f32>;
+    fn put_eDy(&self, value: f32) -> windows_core::Result<()>;
+    fn get_Data(&self) -> windows_core::Result<super::XFORM>;
+    fn put_Data(&self, xform: &super::XFORM) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "wingdi", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wingdi", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkTransform_Vtbl {
     pub const fn new<Identity: IInkTransform_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Reset<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9661,10 +9734,10 @@ impl IInkTransform_Vtbl {
                 IInkTransform_Impl::SetTransform(this, core::mem::transmute_copy(&em11), core::mem::transmute_copy(&em12), core::mem::transmute_copy(&em21), core::mem::transmute_copy(&em22), core::mem::transmute_copy(&edx), core::mem::transmute_copy(&edy)).into()
             }
         }
-        unsafe extern "system" fn eM11<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_eM11<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTransform_Impl::eM11(this) {
+                match IInkTransform_Impl::get_eM11(this) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -9673,16 +9746,16 @@ impl IInkTransform_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SeteM11<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_eM11<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SeteM11(this, core::mem::transmute_copy(&value)).into()
+                IInkTransform_Impl::put_eM11(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn eM12<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_eM12<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTransform_Impl::eM12(this) {
+                match IInkTransform_Impl::get_eM12(this) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -9691,16 +9764,16 @@ impl IInkTransform_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SeteM12<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_eM12<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SeteM12(this, core::mem::transmute_copy(&value)).into()
+                IInkTransform_Impl::put_eM12(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn eM21<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_eM21<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTransform_Impl::eM21(this) {
+                match IInkTransform_Impl::get_eM21(this) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -9709,16 +9782,16 @@ impl IInkTransform_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SeteM21<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_eM21<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SeteM21(this, core::mem::transmute_copy(&value)).into()
+                IInkTransform_Impl::put_eM21(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn eM22<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_eM22<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTransform_Impl::eM22(this) {
+                match IInkTransform_Impl::get_eM22(this) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -9727,16 +9800,16 @@ impl IInkTransform_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SeteM22<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_eM22<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SeteM22(this, core::mem::transmute_copy(&value)).into()
+                IInkTransform_Impl::put_eM22(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn eDx<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_eDx<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTransform_Impl::eDx(this) {
+                match IInkTransform_Impl::get_eDx(this) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -9745,16 +9818,16 @@ impl IInkTransform_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SeteDx<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_eDx<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SeteDx(this, core::mem::transmute_copy(&value)).into()
+                IInkTransform_Impl::put_eDx(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn eDy<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_eDy<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTransform_Impl::eDy(this) {
+                match IInkTransform_Impl::get_eDy(this) {
                     Ok(ok__) => {
                         value.write(ok__);
                         windows_core::HRESULT(0)
@@ -9763,16 +9836,16 @@ impl IInkTransform_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SeteDy<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_eDy<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: f32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SeteDy(this, core::mem::transmute_copy(&value)).into()
+                IInkTransform_Impl::put_eDy(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn Data<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xform: *mut super::XFORM) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Data<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xform: *mut super::XFORM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IInkTransform_Impl::Data(this) {
+                match IInkTransform_Impl::get_Data(this) {
                     Ok(ok__) => {
                         xform.write(ok__);
                         windows_core::HRESULT(0)
@@ -9781,10 +9854,10 @@ impl IInkTransform_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetData<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xform: super::XFORM) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Data<Identity: IInkTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xform: super::XFORM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IInkTransform_Impl::SetData(this, core::mem::transmute(&xform)).into()
+                IInkTransform_Impl::put_Data(this, core::mem::transmute(&xform)).into()
             }
         }
         Self {
@@ -9797,27 +9870,27 @@ impl IInkTransform_Vtbl {
             ScaleTransform: ScaleTransform::<Identity, OFFSET>,
             GetTransform: GetTransform::<Identity, OFFSET>,
             SetTransform: SetTransform::<Identity, OFFSET>,
-            eM11: eM11::<Identity, OFFSET>,
-            SeteM11: SeteM11::<Identity, OFFSET>,
-            eM12: eM12::<Identity, OFFSET>,
-            SeteM12: SeteM12::<Identity, OFFSET>,
-            eM21: eM21::<Identity, OFFSET>,
-            SeteM21: SeteM21::<Identity, OFFSET>,
-            eM22: eM22::<Identity, OFFSET>,
-            SeteM22: SeteM22::<Identity, OFFSET>,
-            eDx: eDx::<Identity, OFFSET>,
-            SeteDx: SeteDx::<Identity, OFFSET>,
-            eDy: eDy::<Identity, OFFSET>,
-            SeteDy: SeteDy::<Identity, OFFSET>,
-            Data: Data::<Identity, OFFSET>,
-            SetData: SetData::<Identity, OFFSET>,
+            get_eM11: get_eM11::<Identity, OFFSET>,
+            put_eM11: put_eM11::<Identity, OFFSET>,
+            get_eM12: get_eM12::<Identity, OFFSET>,
+            put_eM12: put_eM12::<Identity, OFFSET>,
+            get_eM21: get_eM21::<Identity, OFFSET>,
+            put_eM21: put_eM21::<Identity, OFFSET>,
+            get_eM22: get_eM22::<Identity, OFFSET>,
+            put_eM22: put_eM22::<Identity, OFFSET>,
+            get_eDx: get_eDx::<Identity, OFFSET>,
+            put_eDx: put_eDx::<Identity, OFFSET>,
+            get_eDy: get_eDy::<Identity, OFFSET>,
+            put_eDy: put_eDy::<Identity, OFFSET>,
+            get_Data: get_Data::<Identity, OFFSET>,
+            put_Data: put_Data::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IInkTransform as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "wingdi", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wingdi", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkTransform {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkWordList, IInkWordList_Vtbl, 0x76ba3491_cb2f_406b_9961_0e0c4cdaaef2);
@@ -9854,13 +9927,13 @@ pub struct IInkWordList_Vtbl {
     pub RemoveWord: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Merge: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkWordList_Impl: super::IDispatch_Impl {
     fn AddWord(&self, newword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn RemoveWord(&self, removeword: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Merge(&self, mergewordlist: windows_core::Ref<IInkWordList>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkWordList_Vtbl {
     pub const fn new<Identity: IInkWordList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddWord<Identity: IInkWordList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newword: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9892,7 +9965,7 @@ impl IInkWordList_Vtbl {
         iid == &<IInkWordList as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkWordList {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IInkWordList2, IInkWordList2_Vtbl, 0x14542586_11bf_4f5f_b6e7_49d0744aab6e);
@@ -9918,11 +9991,11 @@ pub struct IInkWordList2_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub AddWords: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IInkWordList2_Impl: super::IDispatch_Impl {
     fn AddWords(&self, newwords: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IInkWordList2_Vtbl {
     pub const fn new<Identity: IInkWordList2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddWords<Identity: IInkWordList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newwords: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9937,7 +10010,7 @@ impl IInkWordList2_Vtbl {
         iid == &<IInkWordList2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IInkWordList2 {}
 pub const IKM_Alt: InkShiftKeyModifierFlags = 4;
 pub const IKM_Control: InkShiftKeyModifierFlags = 2;
@@ -9965,13 +10038,13 @@ pub const IMP_SizeNWSE: InkMousePointer = 6;
 pub const IMP_SizeWE: InkMousePointer = 7;
 pub const IMP_UpArrow: InkMousePointer = 8;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INKMETRIC {
-    pub iHeight: i32,
-    pub iFontAscent: i32,
-    pub iFontDescent: i32,
-    pub dwFlags: u32,
+    pub iHeight: super::INT,
+    pub iFontAscent: super::INT,
+    pub iFontDescent: super::INT,
+    pub dwFlags: super::DWORD,
     pub color: super::COLORREF,
 }
 pub const INKRECOGNITIONPROPERTY_BOXNUMBER: windows_core::PCWSTR = windows_core::w!("{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}");
@@ -10109,9 +10182,9 @@ windows_core::imp::interface_hierarchy!(ISketchInk, windows_core::IUnknown, supe
 pub struct ISketchInk_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ISketchInk_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ISketchInk_Vtbl {
     pub const fn new<Identity: ISketchInk_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -10120,7 +10193,7 @@ impl ISketchInk_Vtbl {
         iid == &<ISketchInk as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ISketchInk {}
 pub const Ink: windows_core::GUID = windows_core::GUID::from_u128(0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca);
 pub type InkApplicationGesture = i32;
@@ -10129,11 +10202,19 @@ pub type InkClipboardFormats = i32;
 pub type InkClipboardModes = i32;
 pub type InkCollectionMode = i32;
 pub const InkCollector: windows_core::GUID = windows_core::GUID::from_u128(0x43fb1553_ad74_4ee8_88e4_3e6daac915db);
+#[cfg(feature = "shared")]
+pub const InkCollectorClipInkToMargin: super::LONG = 0x0_u32 as _;
+#[cfg(feature = "shared")]
+pub const InkCollectorDefaultMargin: super::LONG = 0x80000000_u32 as _;
 pub type InkCollectorEventInterest = i32;
 pub type InkCursorButtonState = i32;
 pub const InkDisp: windows_core::GUID = windows_core::GUID::from_u128(0x937c1a34_151d_4610_9ca6_a8cc9bdb5d83);
 pub const InkDrawingAttributes: windows_core::GUID = windows_core::GUID::from_u128(0xd8bf32a2_05a5_44c3_b3aa_5e80ac7d2576);
 pub type InkExtractFlags = i32;
+#[cfg(feature = "shared")]
+pub const InkMaxTransparencyValue: super::LONG = 0xFF_u32 as _;
+#[cfg(feature = "shared")]
+pub const InkMinTransparencyValue: super::LONG = 0x0_u32 as _;
 pub type InkMouseButton = i32;
 pub type InkMousePointer = i32;
 pub const InkOverlay: windows_core::GUID = windows_core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
@@ -10147,7 +10228,7 @@ pub const InkPicture: windows_core::GUID = windows_core::GUID::from_u128(0x04a1e
 pub type InkPictureSizeMode = i32;
 pub type InkRasterOperation = i32;
 #[repr(C)]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::RECT,
@@ -10174,7 +10255,7 @@ pub type InkSystemGesture = i32;
 pub const InkTablets: windows_core::GUID = windows_core::GUID::from_u128(0x6e4fcb12_510a_4d40_9304_1da10ae9147c);
 pub const InkTransform: windows_core::GUID = windows_core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
 pub const InkWordList: windows_core::GUID = windows_core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type PINKMETRIC = *mut INKMETRIC;
 pub const SHR_E: SelectionHitResult = 5;
 pub const SHR_N: SelectionHitResult = 7;
@@ -10246,9 +10327,9 @@ windows_core::imp::interface_hierarchy!(_IInkCollectorEvents, windows_core::IUnk
 pub struct _IInkCollectorEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IInkCollectorEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IInkCollectorEvents_Vtbl {
     pub const fn new<Identity: _IInkCollectorEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -10257,7 +10338,7 @@ impl _IInkCollectorEvents_Vtbl {
         iid == &<_IInkCollectorEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IInkCollectorEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_IInkEvents, _IInkEvents_Vtbl, 0x427b1865_ca3f_479a_83a9_0f420f2a0073);
@@ -10276,9 +10357,9 @@ windows_core::imp::interface_hierarchy!(_IInkEvents, windows_core::IUnknown, sup
 pub struct _IInkEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IInkEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IInkEvents_Vtbl {
     pub const fn new<Identity: _IInkEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -10287,7 +10368,7 @@ impl _IInkEvents_Vtbl {
         iid == &<_IInkEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IInkEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_IInkOverlayEvents, _IInkOverlayEvents_Vtbl, 0x31179b69_e563_489e_b16f_712f1e8a0651);
@@ -10306,9 +10387,9 @@ windows_core::imp::interface_hierarchy!(_IInkOverlayEvents, windows_core::IUnkno
 pub struct _IInkOverlayEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IInkOverlayEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IInkOverlayEvents_Vtbl {
     pub const fn new<Identity: _IInkOverlayEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -10317,7 +10398,7 @@ impl _IInkOverlayEvents_Vtbl {
         iid == &<_IInkOverlayEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IInkOverlayEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_IInkPictureEvents, _IInkPictureEvents_Vtbl, 0x60ff4fee_22ff_4484_acc1_d308d9cd7ea3);
@@ -10336,9 +10417,9 @@ windows_core::imp::interface_hierarchy!(_IInkPictureEvents, windows_core::IUnkno
 pub struct _IInkPictureEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IInkPictureEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IInkPictureEvents_Vtbl {
     pub const fn new<Identity: _IInkPictureEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -10347,7 +10428,7 @@ impl _IInkPictureEvents_Vtbl {
         iid == &<_IInkPictureEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IInkPictureEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_IInkRecognitionEvents, _IInkRecognitionEvents_Vtbl, 0x17bce92f_2e21_47fd_9d33_3c6afbfd8c59);
@@ -10366,9 +10447,9 @@ windows_core::imp::interface_hierarchy!(_IInkRecognitionEvents, windows_core::IU
 pub struct _IInkRecognitionEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IInkRecognitionEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IInkRecognitionEvents_Vtbl {
     pub const fn new<Identity: _IInkRecognitionEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -10377,7 +10458,7 @@ impl _IInkRecognitionEvents_Vtbl {
         iid == &<_IInkRecognitionEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IInkRecognitionEvents {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(_IInkStrokesEvents, _IInkStrokesEvents_Vtbl, 0xf33053ec_5d25_430a_928f_76a6491dde15);
@@ -10396,9 +10477,9 @@ windows_core::imp::interface_hierarchy!(_IInkStrokesEvents, windows_core::IUnkno
 pub struct _IInkStrokesEvents_Vtbl {
     pub base__: super::IDispatch_Vtbl,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait _IInkStrokesEvents_Impl: super::IDispatch_Impl {}
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl _IInkStrokesEvents_Vtbl {
     pub const fn new<Identity: _IInkStrokesEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>() }
@@ -10407,5 +10488,5 @@ impl _IInkStrokesEvents_Vtbl {
         iid == &<_IInkStrokesEvents as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for _IInkStrokesEvents {}

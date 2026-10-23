@@ -467,7 +467,7 @@ mod Windows {
         const FACILITY_DWRITE: i32 = 2200;
         #[guid(0x5e5a32a3_8dff_4773_9ff6_0696eab77267)]
         interface IDWriteBitmapRenderTarget: IUnknown {
-            fn DrawGlyphRun(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] renderingParams: IDWriteRenderingParams, textColor: COLORREF, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] blackBoxRect: *mut RECT) -> HRESULT;
+            fn DrawGlyphRun(&self, baselineOriginX: FLOAT, baselineOriginY: FLOAT, measuringMode: DWRITE_MEASURING_MODE, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] renderingParams: IDWriteRenderingParams, textColor: COLORREF, #[out] #[opt] blackBoxRect: *mut RECT) -> HRESULT;
             fn GetMemoryDC(&self) -> HDC;
             fn GetPixelsPerDip(&self) -> FLOAT;
             fn SetPixelsPerDip(&self, pixelsPerDip: FLOAT) -> HRESULT;
@@ -478,7 +478,7 @@ mod Windows {
         }
         #[guid(0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48)]
         interface IDWriteFactory: IUnknown {
-            fn GetSystemFontCollection(&self, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] checkForUpdates: BOOL) -> HRESULT;
+            fn GetSystemFontCollection(&self, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection, checkForUpdates: BOOL) -> HRESULT;
             fn CreateCustomFontCollection(&self, #[in] collectionLoader: IDWriteFontCollectionLoader, #[in] #[readable(entry, bytes(collectionKeySize))] collectionKey: *const void, collectionKeySize: UINT32, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection) -> HRESULT;
             fn RegisterFontCollectionLoader(&self, #[in] fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
             fn UnregisterFontCollectionLoader(&self, #[in] fontCollectionLoader: IDWriteFontCollectionLoader) -> HRESULT;
@@ -534,14 +534,14 @@ mod Windows {
             fn IsSymbolFont(&self) -> BOOL;
             fn GetMetrics(&self, #[out] fontFaceMetrics: *mut DWRITE_FONT_METRICS);
             fn GetGlyphCount(&self) -> UINT16;
-            fn GetDesignGlyphMetrics(&self, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, glyphCount: UINT32, #[out] #[writable(entry, glyphCount)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] isSideways: BOOL) -> HRESULT;
+            fn GetDesignGlyphMetrics(&self, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, glyphCount: UINT32, #[out] #[writable(entry, glyphCount)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, isSideways: BOOL) -> HRESULT;
             fn GetGlyphIndicesA(&self, #[in] #[readable(entry, codePointCount)] codePoints: *const UINT32, codePointCount: UINT32, #[out] #[writable(entry, codePointCount)] glyphIndices: *mut UINT16) -> HRESULT;
             fn TryGetFontTable(&self, #[in] openTypeTableTag: UINT32, #[out] #[writable(success, bytes(*tableSize), indirect)] tableData: *mut *const void, #[out] tableSize: *mut UINT32, #[out] tableContext: *mut *mut void, #[out] exists: *mut BOOL) -> HRESULT;
             fn ReleaseFontTable(&self, #[in] tableContext: *mut void);
             fn GetGlyphRunOutline(&self, emSize: FLOAT, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, #[in] #[opt] #[readable(entry, glyphCount)] glyphAdvances: *const FLOAT, #[in] #[opt] #[readable(entry, glyphCount)] glyphOffsets: *const DWRITE_GLYPH_OFFSET, glyphCount: UINT32, isSideways: BOOL, isRightToLeft: BOOL, #[in] geometrySink: ID2D1SimplifiedGeometrySink) -> HRESULT;
             fn GetRecommendedRenderingMode(&self, emSize: FLOAT, pixelsPerDip: FLOAT, measuringMode: DWRITE_MEASURING_MODE, renderingParams: IDWriteRenderingParams, #[out] renderingMode: *mut DWRITE_RENDERING_MODE) -> HRESULT;
             fn GetGdiCompatibleMetrics(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, #[out] fontFaceMetrics: *mut DWRITE_FONT_METRICS) -> HRESULT;
-            fn GetGdiCompatibleGlyphMetrics(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, glyphCount: UINT32, #[out] #[writable(entry, glyphCount)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] isSideways: BOOL) -> HRESULT;
+            fn GetGdiCompatibleGlyphMetrics(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, glyphCount: UINT32, #[out] #[writable(entry, glyphCount)] glyphMetrics: *mut DWRITE_GLYPH_METRICS, isSideways: BOOL) -> HRESULT;
         }
         #[guid(0xda20d8ef_812a_4c43_9802_62ec4abd7add)]
         interface IDWriteFontFamily: IDWriteFontList {
@@ -701,20 +701,20 @@ mod Windows {
             fn SetLocaleName(&self, #[in] #[null_terminated(entry)] localeName: *const WCHAR, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
             fn GetMaxWidth(&self) -> FLOAT;
             fn GetMaxHeight(&self) -> FLOAT;
-            fn GetFontCollection(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontFamilyNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontFamilyName(&self, currentPosition: UINT32, #[out] #[writable(entry, nameSize)] #[null_terminated(success)] fontFamilyName: *mut WCHAR, nameSize: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontWeight(&self, currentPosition: UINT32, #[out] fontWeight: *mut DWRITE_FONT_WEIGHT, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontStyle(&self, currentPosition: UINT32, #[out] fontStyle: *mut DWRITE_FONT_STYLE, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontStretch(&self, currentPosition: UINT32, #[out] fontStretch: *mut DWRITE_FONT_STRETCH, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetFontSize(&self, currentPosition: UINT32, #[out] fontSize: *mut FLOAT, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetUnderline(&self, currentPosition: UINT32, #[out] hasUnderline: *mut BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetStrikethrough(&self, currentPosition: UINT32, #[out] hasStrikethrough: *mut BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetDrawingEffect(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] drawingEffect: *mut IUnknown, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetInlineObject(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] inlineObject: *mut IDWriteInlineObject, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetTypography(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] typography: *mut IDWriteTypography, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetLocaleNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetLocaleName(&self, currentPosition: UINT32, #[out] #[writable(entry, nameSize)] #[null_terminated(success)] localeName: *mut WCHAR, nameSize: UINT32, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontCollection(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontFamilyNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontFamilyName(&self, currentPosition: UINT32, #[out] #[writable(entry, nameSize)] #[null_terminated(success)] fontFamilyName: *mut WCHAR, nameSize: UINT32, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontWeight(&self, currentPosition: UINT32, #[out] fontWeight: *mut DWRITE_FONT_WEIGHT, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontStyle(&self, currentPosition: UINT32, #[out] fontStyle: *mut DWRITE_FONT_STYLE, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontStretch(&self, currentPosition: UINT32, #[out] fontStretch: *mut DWRITE_FONT_STRETCH, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetFontSize(&self, currentPosition: UINT32, #[out] fontSize: *mut FLOAT, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetUnderline(&self, currentPosition: UINT32, #[out] hasUnderline: *mut BOOL, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetStrikethrough(&self, currentPosition: UINT32, #[out] hasStrikethrough: *mut BOOL, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetDrawingEffect(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] drawingEffect: *mut IUnknown, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetInlineObject(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] inlineObject: *mut IDWriteInlineObject, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetTypography(&self, currentPosition: UINT32, #[out] #[out_ptr(null_on_failure)] typography: *mut IDWriteTypography, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetLocaleNameLength(&self, currentPosition: UINT32, #[out] nameLength: *mut UINT32, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetLocaleName(&self, currentPosition: UINT32, #[out] #[writable(entry, nameSize)] #[null_terminated(success)] localeName: *mut WCHAR, nameSize: UINT32, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn Draw(&self, #[in] #[opt] clientDrawingContext: *mut void, #[in] renderer: IDWriteTextRenderer, originX: FLOAT, originY: FLOAT) -> HRESULT;
             fn GetLineMetrics(&self, #[out] #[opt] #[writable(entry, maxLineCount)] lineMetrics: *mut DWRITE_LINE_METRICS, maxLineCount: UINT32, #[out] actualLineCount: *mut UINT32) -> HRESULT;
             fn GetMetrics(&self, #[out] textMetrics: *mut DWRITE_TEXT_METRICS) -> HRESULT;

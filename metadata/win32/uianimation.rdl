@@ -57,7 +57,7 @@ mod Windows {
             #[must_use]
             fn AbandonAllStoryboards(&self) -> HRESULT;
             #[must_use]
-            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
             #[must_use]
             fn GetVariableFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[retval] #[out_ptr] variable: *mut IUIAnimationVariable) -> HRESULT;
             #[must_use]
@@ -100,7 +100,7 @@ mod Windows {
             #[must_use]
             fn AbandonAllStoryboards(&self) -> HRESULT;
             #[must_use]
-            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
+            fn Update(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] updateResult: *mut UI_ANIMATION_UPDATE_RESULT) -> HRESULT;
             #[must_use]
             fn GetVariableFromTag(&self, #[in] #[opt] object: IUnknown, #[in] id: UINT32, #[out] #[retval] #[out_ptr] variable: *mut IUIAnimationVariable2) -> HRESULT;
             #[must_use]
@@ -116,7 +116,7 @@ mod Windows {
             #[must_use]
             fn Resume(&self) -> HRESULT;
             #[must_use]
-            fn SetManagerEventHandler(&self, #[in] #[opt] handler: IUIAnimationManagerEventHandler2, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn SetManagerEventHandler(&self, #[in] #[opt] handler: IUIAnimationManagerEventHandler2, #[in] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
             #[must_use]
             fn SetCancelPriorityComparison(&self, #[in] #[opt] comparison: IUIAnimationPriorityComparison2) -> HRESULT;
             #[must_use]
@@ -175,7 +175,7 @@ mod Windows {
             #[must_use]
             fn SetLongestAcceptableDelay(&self, #[in] delay: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
             #[must_use]
             fn Conclude(&self) -> HRESULT;
             #[must_use]
@@ -206,7 +206,7 @@ mod Windows {
             #[must_use]
             fn AddTransitionBetweenKeyframes(&self, #[in] variable: IUIAnimationVariable2, #[in] transition: IUIAnimationTransition2, #[in] startKeyframe: UI_ANIMATION_KEYFRAME, #[in] endKeyframe: UI_ANIMATION_KEYFRAME) -> HRESULT;
             #[must_use]
-            fn RepeatBetweenKeyframes(&self, #[in] startKeyframe: UI_ANIMATION_KEYFRAME, #[in] endKeyframe: UI_ANIMATION_KEYFRAME, #[in] cRepetition: DOUBLE, #[in] repeatMode: UI_ANIMATION_REPEAT_MODE, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] pIterationChangeHandler: IUIAnimationLoopIterationChangeHandler2, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] id: UINT_PTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn RepeatBetweenKeyframes(&self, #[in] startKeyframe: UI_ANIMATION_KEYFRAME, #[in] endKeyframe: UI_ANIMATION_KEYFRAME, #[in] cRepetition: DOUBLE, #[in] repeatMode: UI_ANIMATION_REPEAT_MODE, #[in] #[opt] pIterationChangeHandler: IUIAnimationLoopIterationChangeHandler2, #[in] id: UINT_PTR, #[in] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
             #[must_use]
             fn HoldVariable(&self, #[in] variable: IUIAnimationVariable2) -> HRESULT;
             #[must_use]
@@ -214,7 +214,7 @@ mod Windows {
             #[must_use]
             fn SetSkipDuration(&self, #[in] secondsDuration: UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
+            fn Schedule(&self, #[in] timeNow: UI_ANIMATION_SECONDS, #[out] #[opt] schedulingResult: *mut UI_ANIMATION_SCHEDULING_RESULT) -> HRESULT;
             #[must_use]
             fn Conclude(&self) -> HRESULT;
             #[must_use]
@@ -230,7 +230,7 @@ mod Windows {
             #[must_use]
             fn GetElapsedTime(&self, #[out] elapsedTime: *mut UI_ANIMATION_SECONDS) -> HRESULT;
             #[must_use]
-            fn SetStoryboardEventHandler(&self, #[in] #[opt] handler: IUIAnimationStoryboardEventHandler2, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterStatusChangeForNextAnimationEvent: BOOL, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterUpdateForNextAnimationEvent: BOOL) -> HRESULT;
+            fn SetStoryboardEventHandler(&self, #[in] #[opt] handler: IUIAnimationStoryboardEventHandler2, #[in] fRegisterStatusChangeForNextAnimationEvent: BOOL, #[in] fRegisterUpdateForNextAnimationEvent: BOOL) -> HRESULT;
         }
         #[guid(0x3d5c9008_ec7c_4364_9f8a_9af3c58cbae6)]
         interface IUIAnimationStoryboardEventHandler: IUnknown {
@@ -472,9 +472,9 @@ mod Windows {
             #[must_use]
             fn GetTag(&self, #[out] #[opt] #[out_ptr] object: *mut IUnknown, #[out] #[opt] id: *mut UINT32) -> HRESULT;
             #[must_use]
-            fn SetVariableChangeHandler(&self, #[in] #[opt] handler: IUIAnimationVariableChangeHandler2, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn SetVariableChangeHandler(&self, #[in] #[opt] handler: IUIAnimationVariableChangeHandler2, #[in] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
             #[must_use]
-            fn SetVariableIntegerChangeHandler(&self, #[in] #[opt] handler: IUIAnimationVariableIntegerChangeHandler2, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
+            fn SetVariableIntegerChangeHandler(&self, #[in] #[opt] handler: IUIAnimationVariableIntegerChangeHandler2, #[in] fRegisterForNextAnimationEvent: BOOL) -> HRESULT;
             #[must_use]
             fn SetVariableCurveChangeHandler(&self, #[in] #[opt] handler: IUIAnimationVariableCurveChangeHandler2) -> HRESULT;
         }

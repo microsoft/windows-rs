@@ -1,20 +1,20 @@
 pub const IKEEXT_ANONYMOUS: IKEEXT_AUTHENTICATION_METHOD_TYPE = 3;
 pub type IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = i32;
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_AUTHENTICATION_METHOD0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
@@ -24,27 +24,27 @@ pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_AUTHENTICATION_METHOD0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_AUTHENTICATION_METHOD1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
@@ -55,27 +55,27 @@ pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_AUTHENTICATION_METHOD1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_AUTHENTICATION_METHOD2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_AUTHENTICATION_METHOD2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
@@ -87,7 +87,7 @@ pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0,
     pub eapAuthentication: IKEEXT_EAP_AUTHENTICATION0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_AUTHENTICATION_METHOD2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -97,235 +97,235 @@ pub type IKEEXT_AUTHENTICATION_METHOD_TYPE = i32;
 pub const IKEEXT_AUTHENTICATION_METHOD_TYPE_MAX: IKEEXT_AUTHENTICATION_METHOD_TYPE = 13;
 pub const IKEEXT_CERTIFICATE: IKEEXT_AUTHENTICATION_METHOD_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_0,
     pub outboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION0_1,
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0,
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
-    pub inboundRootArraySize: u32,
+    pub inboundRootArraySize: super::UINT32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0,
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
-    pub outboundRootArraySize: u32,
+    pub outboundRootArraySize: super::UINT32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_0,
     pub outboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION1_1,
-    pub flags: u32,
+    pub flags: super::UINT32,
     pub localCertLocationUrl: super::FWP_BYTE_BLOB,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0,
     pub inboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub inboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
-    pub inboundRootArraySize: u32,
+    pub inboundRootArraySize: super::UINT32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0,
     pub outboundEnterpriseStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
     pub outboundTrustedRootStoreConfig: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
-    pub outboundRootArraySize: u32,
+    pub outboundRootArraySize: super::UINT32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     pub inboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION2_0,
     pub outboundConfigType: IKEEXT_CERT_CONFIG_TYPE,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1,
-    pub flags: u32,
+    pub flags: super::UINT32,
     pub localCertLocationUrl: super::FWP_BYTE_BLOB,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
-    pub inboundRootArraySize: u32,
+    pub inboundRootArraySize: super::UINT32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
-    pub inboundEnterpriseStoreArraySize: u32,
+    pub inboundEnterpriseStoreArraySize: super::UINT32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
-    pub inboundRootStoreArraySize: u32,
+    pub inboundRootStoreArraySize: super::UINT32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     pub Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1,
     pub Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
-    pub outboundRootArraySize: u32,
+    pub outboundRootArraySize: super::UINT32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
-    pub outboundEnterpriseStoreArraySize: u32,
+    pub outboundEnterpriseStoreArraySize: super::UINT32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
-    pub outboundRootStoreArraySize: u32,
+    pub outboundRootStoreArraySize: super::UINT32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
     pub subjectName: super::FWP_BYTE_BLOB,
     pub certHash: super::FWP_BYTE_BLOB,
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
     pub subjectName: super::FWP_BYTE_BLOB,
     pub certHash: super::FWP_BYTE_BLOB,
-    pub flags: u32,
+    pub flags: super::UINT32,
     pub certificate: super::FWP_BYTE_BLOB,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub certData: super::FWP_BYTE_BLOB,
     pub certHash: super::FWP_BYTE_BLOB,
     pub eku: *mut IKEEXT_CERT_EKUS0,
     pub name: *mut IKEEXT_CERT_NAME0,
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 pub const IKEEXT_CERTIFICATE_ECDSA_P256: IKEEXT_AUTHENTICATION_METHOD_TYPE = 7;
 pub const IKEEXT_CERTIFICATE_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = 8;
@@ -353,9 +353,10 @@ pub const IKEEXT_CERT_CRITERIA_OU: IKEEXT_CERT_CRITERIA_NAME_TYPE = 4;
 pub const IKEEXT_CERT_CRITERIA_RFC822: IKEEXT_CERT_CRITERIA_NAME_TYPE = 2;
 pub const IKEEXT_CERT_CRITERIA_UPN: IKEEXT_CERT_CRITERIA_NAME_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_EKUS0 {
-    pub numEku: u32,
+    pub numEku: super::ULONG,
     pub eku: *mut windows_core::PSTR,
 }
 pub const IKEEXT_CERT_FLAG_DISABLE_REQUEST_PAYLOAD: i32 = 2;
@@ -374,11 +375,11 @@ pub struct IKEEXT_CERT_NAME0 {
     pub certName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_ROOT_CONFIG0 {
     pub certData: super::FWP_BYTE_BLOB,
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 pub const IKEEXT_CIPHER_3DES: IKEEXT_CIPHER_TYPE = 1;
 pub const IKEEXT_CIPHER_AES_128: IKEEXT_CIPHER_TYPE = 2;
@@ -387,32 +388,35 @@ pub const IKEEXT_CIPHER_AES_256: IKEEXT_CIPHER_TYPE = 4;
 pub const IKEEXT_CIPHER_AES_GCM_128_16ICV: IKEEXT_CIPHER_TYPE = 5;
 pub const IKEEXT_CIPHER_AES_GCM_256_16ICV: IKEEXT_CIPHER_TYPE = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CIPHER_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_CIPHER_TYPE,
-    pub keyLen: u32,
-    pub rounds: u32,
+    pub keyLen: super::UINT32,
+    pub rounds: super::UINT32,
 }
 pub const IKEEXT_CIPHER_DES: IKEEXT_CIPHER_TYPE = 0;
 pub type IKEEXT_CIPHER_TYPE = i32;
 pub const IKEEXT_CIPHER_TYPE_MAX: IKEEXT_CIPHER_TYPE = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_COMMON_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
-    pub totalPacketsReceived: u32,
-    pub totalInvalidPacketsReceived: u32,
-    pub currentQueuedWorkitems: u32,
+    pub totalPacketsReceived: super::UINT32,
+    pub totalInvalidPacketsReceived: super::UINT32,
+    pub currentQueuedWorkitems: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_COMMON_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
-    pub totalPacketsReceived: u32,
-    pub totalInvalidPacketsReceived: u32,
-    pub currentQueuedWorkitems: u32,
+    pub totalPacketsReceived: super::UINT32,
+    pub totalInvalidPacketsReceived: super::UINT32,
+    pub currentQueuedWorkitems: super::UINT32,
 }
 pub type IKEEXT_COOKIE = u64;
 #[repr(C)]
@@ -422,144 +426,144 @@ pub struct IKEEXT_COOKIE_PAIR0 {
     pub responder: IKEEXT_COOKIE,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL0 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL0_0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL0_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL1 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL1_0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL1_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL2 {
     pub authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE,
     pub impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
     pub Anonymous: IKEEXT_CREDENTIAL2_0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_CREDENTIAL2_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
     pub name: *mut IKEEXT_NAME_CREDENTIAL0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CREDENTIALS0 {
-    pub numCredentials: u32,
+    pub numCredentials: super::UINT32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CREDENTIALS1 {
-    pub numCredentials: u32,
+    pub numCredentials: super::UINT32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CREDENTIALS2 {
-    pub numCredentials: u32,
+    pub numCredentials: super::UINT32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR0 {
     pub localCredentials: IKEEXT_CREDENTIAL0,
     pub peerCredentials: IKEEXT_CREDENTIAL0,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL_PAIR0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR1 {
     pub localCredentials: IKEEXT_CREDENTIAL1,
     pub peerCredentials: IKEEXT_CREDENTIAL1,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL_PAIR1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_CREDENTIAL_PAIR2 {
     pub localCredentials: IKEEXT_CREDENTIAL2,
     pub peerCredentials: IKEEXT_CREDENTIAL2,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_CREDENTIAL_PAIR2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -577,33 +581,34 @@ pub const IKEEXT_DH_GROUP_MAX: IKEEXT_DH_GROUP = 7;
 pub const IKEEXT_DH_GROUP_NONE: IKEEXT_DH_GROUP = 0;
 pub const IKEEXT_EAP: IKEEXT_AUTHENTICATION_METHOD_TYPE = 11;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_EAP_AUTHENTICATION0 {
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 pub const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: i32 = 1;
 pub const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_EM_POLICY0 {
-    pub numAuthenticationMethods: u32,
+    pub numAuthenticationMethods: super::UINT32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_EM_POLICY1 {
-    pub numAuthenticationMethods: u32,
+    pub numAuthenticationMethods: super::UINT32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_EM_POLICY2 {
-    pub numAuthenticationMethods: u32,
+    pub numAuthenticationMethods: super::UINT32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
 }
@@ -632,111 +637,121 @@ pub type IKEEXT_INTEGRITY_TYPE = i32;
 pub const IKEEXT_INTEGRITY_TYPE_MAX: IKEEXT_INTEGRITY_TYPE = 4;
 pub const IKEEXT_IPV6_CGA: IKEEXT_AUTHENTICATION_METHOD_TYPE = 6;
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     pub keyContainerName: *mut u16,
     pub cspName: *mut u16,
-    pub cspType: u32,
+    pub cspType: super::UINT32,
     pub cgaModifier: super::FWP_BYTE_ARRAY16,
-    pub cgaCollisionCount: u8,
+    pub cgaCollisionCount: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
-    pub totalSocketReceiveFailures: u32,
-    pub totalSocketSendFailures: u32,
+    pub totalSocketReceiveFailures: super::UINT32,
+    pub totalSocketSendFailures: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
-    pub totalSocketReceiveFailures: u32,
-    pub totalSocketSendFailures: u32,
+    pub totalSocketReceiveFailures: super::UINT32,
+    pub totalSocketSendFailures: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
-    pub currentActiveMainModes: u32,
-    pub totalMainModesStarted: u32,
-    pub totalSuccessfulMainModes: u32,
-    pub totalFailedMainModes: u32,
-    pub totalResponderMainModes: u32,
-    pub currentNewResponderMainModes: u32,
-    pub currentActiveQuickModes: u32,
-    pub totalQuickModesStarted: u32,
-    pub totalSuccessfulQuickModes: u32,
-    pub totalFailedQuickModes: u32,
-    pub totalAcquires: u32,
-    pub totalReinitAcquires: u32,
-    pub currentActiveExtendedModes: u32,
-    pub totalExtendedModesStarted: u32,
-    pub totalSuccessfulExtendedModes: u32,
-    pub totalFailedExtendedModes: u32,
-    pub totalImpersonationExtendedModes: u32,
-    pub totalImpersonationMainModes: u32,
+    pub currentActiveMainModes: super::UINT32,
+    pub totalMainModesStarted: super::UINT32,
+    pub totalSuccessfulMainModes: super::UINT32,
+    pub totalFailedMainModes: super::UINT32,
+    pub totalResponderMainModes: super::UINT32,
+    pub currentNewResponderMainModes: super::UINT32,
+    pub currentActiveQuickModes: super::UINT32,
+    pub totalQuickModesStarted: super::UINT32,
+    pub totalSuccessfulQuickModes: super::UINT32,
+    pub totalFailedQuickModes: super::UINT32,
+    pub totalAcquires: super::UINT32,
+    pub totalReinitAcquires: super::UINT32,
+    pub currentActiveExtendedModes: super::UINT32,
+    pub totalExtendedModesStarted: super::UINT32,
+    pub totalSuccessfulExtendedModes: super::UINT32,
+    pub totalFailedExtendedModes: super::UINT32,
+    pub totalImpersonationExtendedModes: super::UINT32,
+    pub totalImpersonationMainModes: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
-    pub currentActiveMainModes: u32,
-    pub totalMainModesStarted: u32,
-    pub totalSuccessfulMainModes: u32,
-    pub totalFailedMainModes: u32,
-    pub totalResponderMainModes: u32,
-    pub currentNewResponderMainModes: u32,
-    pub currentActiveQuickModes: u32,
-    pub totalQuickModesStarted: u32,
-    pub totalSuccessfulQuickModes: u32,
-    pub totalFailedQuickModes: u32,
-    pub totalAcquires: u32,
-    pub totalReinitAcquires: u32,
-    pub currentActiveExtendedModes: u32,
-    pub totalExtendedModesStarted: u32,
-    pub totalSuccessfulExtendedModes: u32,
-    pub totalFailedExtendedModes: u32,
-    pub totalImpersonationExtendedModes: u32,
-    pub totalImpersonationMainModes: u32,
+    pub currentActiveMainModes: super::UINT32,
+    pub totalMainModesStarted: super::UINT32,
+    pub totalSuccessfulMainModes: super::UINT32,
+    pub totalFailedMainModes: super::UINT32,
+    pub totalResponderMainModes: super::UINT32,
+    pub currentNewResponderMainModes: super::UINT32,
+    pub currentActiveQuickModes: super::UINT32,
+    pub totalQuickModesStarted: super::UINT32,
+    pub totalSuccessfulQuickModes: super::UINT32,
+    pub totalFailedQuickModes: super::UINT32,
+    pub totalAcquires: super::UINT32,
+    pub totalReinitAcquires: super::UINT32,
+    pub currentActiveExtendedModes: super::UINT32,
+    pub totalExtendedModesStarted: super::UINT32,
+    pub totalSuccessfulExtendedModes: super::UINT32,
+    pub totalFailedExtendedModes: super::UINT32,
+    pub totalImpersonationExtendedModes: super::UINT32,
+    pub totalImpersonationMainModes: super::UINT32,
 }
 pub const IKEEXT_KERBEROS: IKEEXT_AUTHENTICATION_METHOD_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
-    pub flags: u32,
+    pub flags: super::UINT32,
     pub proxyServer: *mut u16,
 }
 pub const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: i32 = 1;
 pub const IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: i32 = 2;
 pub const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_KEYMODULE_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
-    pub errorFrequencyTable: [u32; 97],
-    pub mainModeNegotiationTime: u32,
-    pub quickModeNegotiationTime: u32,
-    pub extendedModeNegotiationTime: u32,
+    pub errorFrequencyTable: [super::UINT32; 97],
+    pub mainModeNegotiationTime: super::UINT32,
+    pub quickModeNegotiationTime: super::UINT32,
+    pub extendedModeNegotiationTime: super::UINT32,
 }
+#[cfg(feature = "shared")]
 impl Default for IKEEXT_KEYMODULE_STATISTICS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_KEYMODULE_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
-    pub errorFrequencyTable: [u32; 97],
-    pub mainModeNegotiationTime: u32,
-    pub quickModeNegotiationTime: u32,
-    pub extendedModeNegotiationTime: u32,
+    pub errorFrequencyTable: [super::UINT32; 97],
+    pub mainModeNegotiationTime: super::UINT32,
+    pub quickModeNegotiationTime: super::UINT32,
+    pub extendedModeNegotiationTime: super::UINT32,
 }
+#[cfg(feature = "shared")]
 impl Default for IKEEXT_KEYMODULE_STATISTICS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -762,51 +777,52 @@ pub struct IKEEXT_NAME_CREDENTIAL0 {
 }
 pub const IKEEXT_NTLM_V2: IKEEXT_AUTHENTICATION_METHOD_TYPE = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_POLICY0 {
-    pub softExpirationTime: u32,
-    pub numAuthenticationMethods: u32,
+    pub softExpirationTime: super::UINT32,
+    pub numAuthenticationMethods: super::UINT32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
-    pub numIkeProposals: u32,
+    pub numIkeProposals: super::UINT32,
     pub ikeProposals: *mut IKEEXT_PROPOSAL0,
-    pub flags: u32,
-    pub maxDynamicFilters: u32,
+    pub flags: super::UINT32,
+    pub maxDynamicFilters: super::UINT32,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_POLICY1 {
-    pub softExpirationTime: u32,
-    pub numAuthenticationMethods: u32,
+    pub softExpirationTime: super::UINT32,
+    pub numAuthenticationMethods: super::UINT32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
-    pub numIkeProposals: u32,
+    pub numIkeProposals: super::UINT32,
     pub ikeProposals: *mut IKEEXT_PROPOSAL0,
-    pub flags: u32,
-    pub maxDynamicFilters: u32,
-    pub retransmitDurationSecs: u32,
+    pub flags: super::UINT32,
+    pub maxDynamicFilters: super::UINT32,
+    pub retransmitDurationSecs: super::UINT32,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_POLICY2 {
-    pub softExpirationTime: u32,
-    pub numAuthenticationMethods: u32,
+    pub softExpirationTime: super::UINT32,
+    pub numAuthenticationMethods: super::UINT32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
     pub initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE,
-    pub numIkeProposals: u32,
+    pub numIkeProposals: super::UINT32,
     pub ikeProposals: *mut IKEEXT_PROPOSAL0,
-    pub flags: u32,
-    pub maxDynamicFilters: u32,
-    pub retransmitDurationSecs: u32,
+    pub flags: super::UINT32,
+    pub maxDynamicFilters: super::UINT32,
+    pub retransmitDurationSecs: super::UINT32,
 }
 pub const IKEEXT_POLICY_ENABLE_IKEV2_FRAGMENTATION: i32 = 128;
 pub const IKEEXT_POLICY_FLAG_DISABLE_DIAGNOSTICS: i32 = 1;
@@ -820,26 +836,27 @@ pub const IKEEXT_POLICY_FLAG_SITE_TO_SITE: i32 = 32;
 pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: i32 = 256;
 pub const IKEEXT_PRESHARED_KEY: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     pub presharedKey: super::FWP_BYTE_BLOB,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     pub presharedKey: super::FWP_BYTE_BLOB,
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_PROPOSAL0 {
     pub cipherAlgorithm: IKEEXT_CIPHER_ALGORITHM0,
     pub integrityAlgorithm: IKEEXT_INTEGRITY_ALGORITHM0,
-    pub maxLifetimeSeconds: u32,
+    pub maxLifetimeSeconds: super::UINT32,
     pub dhGroup: IKEEXT_DH_GROUP,
-    pub quickModeLimit: u32,
+    pub quickModeLimit: super::UINT32,
 }
 pub const IKEEXT_PSK_FLAG_LOCAL_AUTH_ONLY: i32 = 1;
 pub const IKEEXT_PSK_FLAG_REMOTE_AUTH_ONLY: i32 = 2;
@@ -851,16 +868,17 @@ pub const IKEEXT_QM_SA_STATE_MAX: IKEEXT_QM_SA_STATE = 4;
 pub const IKEEXT_QM_SA_STATE_NONE: IKEEXT_QM_SA_STATE = 0;
 pub const IKEEXT_RESERVED: IKEEXT_AUTHENTICATION_METHOD_TYPE = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION0 {
-    pub flags: u32,
+    pub flags: super::UINT32,
 }
 pub const IKEEXT_RESERVED_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_SA_DETAILS0 {
-    pub saId: u64,
+    pub saId: super::UINT64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
     pub ipVersion: super::FWP_IP_VERSION,
     pub Anonymous: IKEEXT_SA_DETAILS0_0,
@@ -869,31 +887,31 @@ pub struct IKEEXT_SA_DETAILS0 {
     pub cookiePair: IKEEXT_COOKIE_PAIR0,
     pub ikeCredentials: IKEEXT_CREDENTIALS0,
     pub ikePolicyKey: windows_core::GUID,
-    pub virtualIfTunnelId: u64,
+    pub virtualIfTunnelId: super::UINT64,
 }
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 impl Default for IKEEXT_SA_DETAILS0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut super::IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 impl Default for IKEEXT_SA_DETAILS0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_SA_DETAILS1 {
-    pub saId: u64,
+    pub saId: super::UINT64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
     pub ipVersion: super::FWP_IP_VERSION,
     pub Anonymous: IKEEXT_SA_DETAILS1_0,
@@ -902,32 +920,32 @@ pub struct IKEEXT_SA_DETAILS1 {
     pub cookiePair: IKEEXT_COOKIE_PAIR0,
     pub ikeCredentials: IKEEXT_CREDENTIALS1,
     pub ikePolicyKey: windows_core::GUID,
-    pub virtualIfTunnelId: u64,
+    pub virtualIfTunnelId: super::UINT64,
     pub correlationKey: super::FWP_BYTE_BLOB,
 }
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 impl Default for IKEEXT_SA_DETAILS1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut super::IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 impl Default for IKEEXT_SA_DETAILS1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_SA_DETAILS2 {
-    pub saId: u64,
+    pub saId: super::UINT64,
     pub keyModuleType: IKEEXT_KEY_MODULE_TYPE,
     pub ipVersion: super::FWP_IP_VERSION,
     pub Anonymous: IKEEXT_SA_DETAILS2_0,
@@ -936,36 +954,36 @@ pub struct IKEEXT_SA_DETAILS2 {
     pub cookiePair: IKEEXT_COOKIE_PAIR0,
     pub ikeCredentials: IKEEXT_CREDENTIALS2,
     pub ikePolicyKey: windows_core::GUID,
-    pub virtualIfTunnelId: u64,
+    pub virtualIfTunnelId: super::UINT64,
     pub correlationKey: super::FWP_BYTE_BLOB,
 }
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 impl Default for IKEEXT_SA_DETAILS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut super::IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
+#[cfg(all(feature = "fwptypes", feature = "ipsectypes", feature = "shared"))]
 impl Default for IKEEXT_SA_DETAILS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "fwptypes", feature = "winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_SA_ENUM_TEMPLATE0 {
     pub localSubNet: super::FWP_CONDITION_VALUE0,
     pub remoteSubNet: super::FWP_CONDITION_VALUE0,
     pub localMainModeCertHash: super::FWP_BYTE_BLOB,
 }
-#[cfg(all(feature = "fwptypes", feature = "winnt"))]
+#[cfg(all(feature = "fwptypes", feature = "shared", feature = "winnt"))]
 impl Default for IKEEXT_SA_ENUM_TEMPLATE0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -979,6 +997,7 @@ pub const IKEEXT_SSL: IKEEXT_AUTHENTICATION_METHOD_TYPE = 4;
 pub const IKEEXT_SSL_ECDSA_P256: IKEEXT_AUTHENTICATION_METHOD_TYPE = 9;
 pub const IKEEXT_SSL_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = 10;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_STATISTICS0 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS0,
@@ -986,6 +1005,7 @@ pub struct IKEEXT_STATISTICS0 {
     pub commonStatistics: IKEEXT_COMMON_STATISTICS0,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_STATISTICS1 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS1,
@@ -994,41 +1014,41 @@ pub struct IKEEXT_STATISTICS1 {
     pub commonStatistics: IKEEXT_COMMON_STATISTICS1,
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct IKEEXT_TRAFFIC0 {
     pub ipVersion: super::FWP_IP_VERSION,
     pub Anonymous: IKEEXT_TRAFFIC0_0,
     pub Anonymous2: IKEEXT_TRAFFIC0_1,
-    pub authIpFilterId: u64,
+    pub authIpFilterId: super::UINT64,
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_TRAFFIC0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_0 {
-    pub localV4Address: u32,
-    pub localV6Address: [u8; 16],
+    pub localV4Address: super::UINT32,
+    pub localV6Address: [super::UINT8; 16],
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_TRAFFIC0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union IKEEXT_TRAFFIC0_1 {
-    pub remoteV4Address: u32,
-    pub remoteV6Address: [u8; 16],
+    pub remoteV4Address: super::UINT32,
+    pub remoteV6Address: [super::UINT8; 16],
 }
-#[cfg(feature = "fwptypes")]
+#[cfg(all(feature = "fwptypes", feature = "shared"))]
 impl Default for IKEEXT_TRAFFIC0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

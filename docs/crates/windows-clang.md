@@ -336,7 +336,7 @@ empty locations. The implicit original precedes authored redeclarations to avoid
 | `MSAllocator` | Profiling evidence only; no inferred malloc optimization, ownership, nullability or deallocator. |
 | `noreturn` / `Cxx11NoReturn` | Function-type and declaration bits remain distinct; emit one DoesNotReturn attribute without changing result type. |
 | `noexcept`, `nothrow`, empty `throw()` | Native-only written/canonical evidence checked during agreement and callback matching. No public exception attribute, unwind ABI, translation or consumer optimization is implied. Computed/dependent/nonempty forms fail. |
-| Parameter defaults | Compiler-owned expression cursor, location and printed expression; NativeDefaultArgument does not evaluate it or change arity. |
+| Parameter defaults | Compiler-owned expression cursor, location and printed expression remain native-only evidence. No default-expression attribute, optional argument or arity change is published. |
 | Method CVR | Const becomes NativeConstMethod; volatile/restrict/ref-qualified methods remain rejected. |
 | Native lvalue reference parameters | Distinct metadata byrefs; bindgen uses pointer ABI and mutability without changing WinRT byrefs or caller-owned mutable storage. Fields/reference returns remain unsupported. |
 

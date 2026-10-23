@@ -74,6 +74,13 @@ references are not heuristic return values: the caller's existing mutable storag
 available unless metadata explicitly marks a return value. Query-return projection excludes
 counted GUID buffers and counted object outputs from its scalar parameter candidates.
 
+`BufferExtentAttribute` marks buffer storage even when its count cannot become a Rust slice.
+Indirect, successful, arithmetic and other unsupported extents do not authorize scalar-return or
+COM-query inference. Parameter-owned `NativeSalAttribute` keeps unresolved contracts opaque:
+bindgen preserves storage rather than parsing SAL or hiding unresolved count parameters.
+Known simple entry extents still support slices, and unambiguous scalar/query projections remain.
+See the [canonical attribute policy](../clang-attributes.md) for owner and phase semantics.
+
 Win32 `NativeOverrideSlotAttribute` methods redeclare inherited entries. Bindgen validates their
 slot, name, and resolved signature, preserving pointer depth and qualifiers. Rust exposes these
 calls through inherited methods and vtable fields, without additional `_Impl` requirements.

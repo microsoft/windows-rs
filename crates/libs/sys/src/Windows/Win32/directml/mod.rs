@@ -1,20 +1,22 @@
-#[cfg(feature = "d3d12")]
-windows_link::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "d3d12")]
-windows_link::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3d12", feature = "guiddef"))]
+windows_link::link!("directml.dll" "system" fn DMLCreateDevice(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "d3d12", feature = "guiddef"))]
+windows_link::link!("directml.dll" "system" fn DMLCreateDevice1(d3d12device : *mut core::ffi::c_void, flags : DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel : DML_FEATURE_LEVEL, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_CELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_ELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -23,12 +25,13 @@ pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -37,19 +40,21 @@ pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_LEAKY_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -65,12 +70,13 @@ pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -86,28 +92,31 @@ pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_SCALED_ELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Gamma: f32,
+    pub Alpha: super::FLOAT,
+    pub Gamma: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_SCALED_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Bias: f32,
-    pub Threshold: f32,
+    pub Bias: super::FLOAT,
+    pub Threshold: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -122,11 +131,12 @@ pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Steepness: f32,
+    pub Steepness: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -141,13 +151,15 @@ pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ACTIVATION_THRESHOLDED_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Alpha: f32,
+    pub Alpha: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub InputParametersTensor: *const DML_TENSOR_DESC,
@@ -158,57 +170,62 @@ pub struct DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     pub OutputParametersTensor: *const DML_TENSOR_DESC,
     pub OutputFirstMomentTensor: *const DML_TENSOR_DESC,
     pub OutputSecondMomentTensor: *const DML_TENSOR_DESC,
-    pub LearningRate: f32,
-    pub Beta1: f32,
-    pub Beta2: f32,
-    pub Epsilon: f32,
+    pub LearningRate: super::FLOAT,
+    pub Beta1: super::FLOAT,
+    pub Beta2: super::FLOAT,
+    pub Epsilon: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ARGMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub AxisCount: u32,
-    pub Axes: *const u32,
+    pub AxisCount: super::UINT,
+    pub Axes: *const super::UINT,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ARGMIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub AxisCount: u32,
-    pub Axes: *const u32,
+    pub AxisCount: super::UINT,
+    pub Axes: *const super::UINT,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub WindowSize: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub WindowSize: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
     pub IncludePadding: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub WindowSize: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub WindowSize: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
     pub IncludePadding: windows_sys::core::BOOL,
 }
 pub type DML_AXIS_DIRECTION = i32;
 pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = 1;
 pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = 0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -219,9 +236,10 @@ pub struct DML_BATCH_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
     pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -231,10 +249,11 @@ pub struct DML_BATCH_NORMALIZATION_OPERATOR_DESC {
     pub BiasTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Spatial: windows_sys::core::BOOL,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -245,9 +264,10 @@ pub struct DML_BATCH_NORMALIZATION_TRAINING_GRAD_OPERATOR_DESC {
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputScaleGradientTensor: *const DML_TENSOR_DESC,
     pub OutputBiasGradientTensor: *const DML_TENSOR_DESC,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -257,7 +277,7 @@ pub struct DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub OutputMeanTensor: *const DML_TENSOR_DESC,
     pub OutputVarianceTensor: *const DML_TENSOR_DESC,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
@@ -267,50 +287,52 @@ pub struct DML_BINDING_DESC {
     pub Desc: *const core::ffi::c_void,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BINDING_PROPERTIES {
-    pub RequiredDescriptorCount: u32,
-    pub TemporaryResourceSize: u64,
-    pub PersistentResourceSize: u64,
+    pub RequiredDescriptorCount: super::UINT,
+    pub TemporaryResourceSize: super::UINT64,
+    pub PersistentResourceSize: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "d3d12")]
+#[cfg(all(feature = "d3d12", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BINDING_TABLE_DESC {
     pub Dispatchable: *mut core::ffi::c_void,
     pub CPUDescriptorHandle: super::D3D12_CPU_DESCRIPTOR_HANDLE,
     pub GPUDescriptorHandle: super::D3D12_GPU_DESCRIPTOR_HANDLE,
-    pub SizeInDescriptors: u32,
+    pub SizeInDescriptors: super::UINT,
 }
 pub type DML_BINDING_TYPE = i32;
 pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = 1;
 pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = 2;
 pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "d3d12")]
+#[cfg(all(feature = "d3d12", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BUFFER_ARRAY_BINDING {
-    pub BindingCount: u32,
+    pub BindingCount: super::UINT,
     pub Bindings: *const DML_BUFFER_BINDING,
 }
 #[repr(C)]
-#[cfg(feature = "d3d12")]
+#[cfg(all(feature = "d3d12", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BUFFER_BINDING {
     pub Buffer: *mut core::ffi::c_void,
-    pub Offset: u64,
-    pub SizeInBytes: u64,
+    pub Offset: super::UINT64,
+    pub SizeInBytes: super::UINT64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_BUFFER_TENSOR_DESC {
     pub DataType: DML_TENSOR_DATA_TYPE,
     pub Flags: DML_TENSOR_FLAGS,
-    pub DimensionCount: u32,
-    pub Sizes: *const u32,
-    pub Strides: *const u32,
-    pub TotalTensorSizeInBytes: u64,
-    pub GuaranteedBaseOffsetAlignment: u32,
+    pub DimensionCount: super::UINT,
+    pub Sizes: *const super::UINT,
+    pub Strides: *const super::UINT,
+    pub TotalTensorSizeInBytes: super::UINT64,
+    pub GuaranteedBaseOffsetAlignment: super::UINT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -322,6 +344,7 @@ pub type DML_CONVOLUTION_DIRECTION = i32;
 pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = 1;
 pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -329,17 +352,18 @@ pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub FilterTensor: *const DML_TENSOR_DESC,
     pub FilterZeroPointTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub Dilations: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
-    pub GroupCount: u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub Dilations: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
+    pub GroupCount: super::UINT,
 }
 pub type DML_CONVOLUTION_MODE = i32;
 pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = 0;
 pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -348,33 +372,35 @@ pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub Mode: DML_CONVOLUTION_MODE,
     pub Direction: DML_CONVOLUTION_DIRECTION,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub Dilations: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
-    pub OutputPadding: *const u32,
-    pub GroupCount: u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub Dilations: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
+    pub OutputPadding: *const super::UINT,
+    pub GroupCount: super::UINT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
-pub type DML_CREATE_DEVICE_FLAGS = u32;
+pub type DML_CREATE_DEVICE_FLAGS = i32;
 pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = 1;
 pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
     pub AxisDirection: DML_AXIS_DIRECTION,
     pub HasExclusiveProduct: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
     pub AxisDirection: DML_AXIS_DIRECTION,
     pub HasExclusiveSum: windows_sys::core::BOOL,
 }
@@ -382,26 +408,29 @@ pub type DML_DEPTH_SPACE_ORDER = i32;
 pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = 1;
 pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub BlockSize: u32,
+    pub BlockSize: super::UINT,
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub BlockSize: u32,
+    pub BlockSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Offset: i32,
-    pub Value: f32,
+    pub Offset: super::INT,
+    pub Value: super::FLOAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -412,6 +441,7 @@ pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -419,6 +449,7 @@ pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -426,6 +457,7 @@ pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -448,6 +480,7 @@ pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -455,6 +488,7 @@ pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -462,6 +496,7 @@ pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -469,6 +504,7 @@ pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -530,6 +566,7 @@ pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -537,6 +574,7 @@ pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -546,12 +584,14 @@ pub struct DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
     pub Min: DML_SCALAR_UNION,
     pub Max: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 impl Default for DML_ELEMENT_WISE_CLIP1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -561,38 +601,43 @@ pub struct DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
     pub Min: DML_SCALAR_UNION,
     pub Max: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 impl Default for DML_ELEMENT_WISE_CLIP_GRAD1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_CLIP_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
-    pub Min: f32,
-    pub Max: f32,
+    pub Min: super::FLOAT,
+    pub Max: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_CLIP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
-    pub Min: f32,
-    pub Max: f32,
+    pub Min: super::FLOAT,
+    pub Max: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
-    pub Exponent: f32,
+    pub Exponent: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -600,6 +645,7 @@ pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -629,6 +675,7 @@ pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -636,6 +683,7 @@ pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -643,6 +691,7 @@ pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -650,6 +699,7 @@ pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -740,6 +790,7 @@ pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -795,6 +846,7 @@ pub struct DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -824,6 +876,7 @@ pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -844,6 +897,7 @@ pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -851,6 +905,7 @@ pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -858,6 +913,7 @@ pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -872,6 +928,7 @@ pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -879,6 +936,7 @@ pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -886,14 +944,15 @@ pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub ScaleBias: *const DML_SCALE_BIAS,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ELEMENT_WISE_THRESHOLD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ScaleBias: *const DML_SCALE_BIAS,
-    pub Min: f32,
+    pub Min: super::FLOAT,
 }
-pub type DML_EXECUTION_FLAGS = u32;
+pub type DML_EXECUTION_FLAGS = i32;
 pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = 1;
 pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = 4;
 pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = 2;
@@ -927,9 +986,10 @@ pub const DML_FEATURE_LEVEL_6_2: DML_FEATURE_LEVEL = 25088;
 pub const DML_FEATURE_LEVEL_6_3: DML_FEATURE_LEVEL = 25344;
 pub const DML_FEATURE_LEVEL_6_4: DML_FEATURE_LEVEL = 25600;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
-    pub RequestedFeatureLevelCount: u32,
+    pub RequestedFeatureLevelCount: super::UINT,
     pub RequestedFeatureLevels: *const DML_FEATURE_LEVEL,
 }
 #[repr(C)]
@@ -939,18 +999,21 @@ pub struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
 }
 pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = 0;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ValueDataType: DML_TENSOR_DATA_TYPE,
     pub Value: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 impl Default for DML_FILL_VALUE_CONSTANT_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -958,48 +1021,54 @@ pub struct DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     pub ValueStart: DML_SCALAR_UNION,
     pub ValueDelta: DML_SCALAR_UNION,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 impl Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_GATHER_ND1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub InputDimensionCount: u32,
-    pub IndicesDimensionCount: u32,
-    pub BatchDimensionCount: u32,
+    pub InputDimensionCount: super::UINT,
+    pub IndicesDimensionCount: super::UINT,
+    pub BatchDimensionCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_GATHER_ND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub InputDimensionCount: u32,
-    pub IndicesDimensionCount: u32,
+    pub InputDimensionCount: super::UINT,
+    pub IndicesDimensionCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_GATHER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
-    pub IndexDimensions: u32,
+    pub Axis: super::UINT,
+    pub IndexDimensions: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_GEMM_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
@@ -1008,22 +1077,23 @@ pub struct DML_GEMM_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub TransA: DML_MATRIX_TRANSFORM,
     pub TransB: DML_MATRIX_TRANSFORM,
-    pub Alpha: f32,
-    pub Beta: f32,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_GRAPH_DESC {
-    pub InputCount: u32,
-    pub OutputCount: u32,
-    pub NodeCount: u32,
+    pub InputCount: super::UINT,
+    pub OutputCount: super::UINT,
+    pub NodeCount: super::UINT,
     pub Nodes: *const DML_GRAPH_NODE_DESC,
-    pub InputEdgeCount: u32,
+    pub InputEdgeCount: super::UINT,
     pub InputEdges: *const DML_GRAPH_EDGE_DESC,
-    pub OutputEdgeCount: u32,
+    pub OutputEdgeCount: super::UINT,
     pub OutputEdges: *const DML_GRAPH_EDGE_DESC,
-    pub IntermediateEdgeCount: u32,
+    pub IntermediateEdgeCount: super::UINT,
     pub IntermediateEdges: *const DML_GRAPH_EDGE_DESC,
 }
 #[repr(C)]
@@ -1047,6 +1117,7 @@ pub type DML_GRAPH_NODE_TYPE = i32;
 pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = 0;
 pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_GRU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1057,26 +1128,28 @@ pub struct DML_GRU_OPERATOR_DESC {
     pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
     pub OutputSequenceTensor: *const DML_TENSOR_DESC,
     pub OutputSingleTensor: *const DML_TENSOR_DESC,
-    pub ActivationDescCount: u32,
+    pub ActivationDescCount: super::UINT,
     pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
     pub LinearBeforeReset: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_INPUT_GRAPH_EDGE_DESC {
-    pub GraphInputIndex: u32,
-    pub ToNodeIndex: u32,
-    pub ToNodeInputIndex: u32,
+    pub GraphInputIndex: super::UINT,
+    pub ToNodeIndex: super::UINT,
+    pub ToNodeInputIndex: super::UINT,
     pub Name: *const i8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
-    pub FromNodeIndex: u32,
-    pub FromNodeOutputIndex: u32,
-    pub ToNodeIndex: u32,
-    pub ToNodeInputIndex: u32,
+    pub FromNodeIndex: super::UINT,
+    pub FromNodeOutputIndex: super::UINT,
+    pub ToNodeIndex: super::UINT,
+    pub ToNodeInputIndex: super::UINT,
     pub Name: *const i8,
 }
 pub type DML_INTERPOLATION_MODE = i32;
@@ -1087,58 +1160,64 @@ pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = 0;
 pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = 2;
 pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_JOIN_OPERATOR_DESC {
-    pub InputCount: u32,
+    pub InputCount: super::UINT,
     pub InputTensors: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: windows_sys::core::BOOL,
-    pub LocalSize: u32,
-    pub Alpha: f32,
-    pub Beta: f32,
-    pub Bias: f32,
+    pub LocalSize: super::UINT,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
+    pub Bias: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_LOCAL_RESPONSE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: windows_sys::core::BOOL,
-    pub LocalSize: u32,
-    pub Alpha: f32,
-    pub Beta: f32,
-    pub Bias: f32,
+    pub LocalSize: super::UINT,
+    pub Alpha: super::FLOAT,
+    pub Beta: super::FLOAT,
+    pub Bias: super::FLOAT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_LP_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
-    pub Epsilon: f32,
-    pub P: u32,
+    pub Axis: super::UINT,
+    pub Epsilon: super::FLOAT,
+    pub P: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_LP_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub WindowSize: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
-    pub P: u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub WindowSize: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
+    pub P: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_LSTM_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1152,7 +1231,7 @@ pub struct DML_LSTM_OPERATOR_DESC {
     pub OutputSequenceTensor: *const DML_TENSOR_DESC,
     pub OutputSingleTensor: *const DML_TENSOR_DESC,
     pub OutputCellSingleTensor: *const DML_TENSOR_DESC,
-    pub ActivationDescCount: u32,
+    pub ActivationDescCount: super::UINT,
     pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
     pub ClipThreshold: f32,
@@ -1172,53 +1251,57 @@ pub type DML_MATRIX_TRANSFORM = i32;
 pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = 0;
 pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub OutputIndicesTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub WindowSize: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub WindowSize: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_MAX_POOLING2_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub OutputIndicesTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub WindowSize: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
-    pub Dilations: *const u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub WindowSize: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
+    pub Dilations: *const super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub WindowSize: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
-    pub Dilations: *const u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub WindowSize: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
+    pub Dilations: *const super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_MAX_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub WindowSize: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub WindowSize: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1228,19 +1311,21 @@ pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ScaleTensor: *const DML_TENSOR_DESC,
     pub BiasTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub AxisCount: u32,
-    pub Axes: *const u32,
+    pub AxisCount: super::UINT,
+    pub Axes: *const super::UINT,
     pub NormalizeVariance: windows_sys::core::BOOL,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1249,9 +1334,11 @@ pub struct DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub CrossChannel: windows_sys::core::BOOL,
     pub NormalizeVariance: windows_sys::core::BOOL,
-    pub Epsilon: f32,
+    pub Epsilon: super::FLOAT,
     pub FusedActivation: *const DML_OPERATOR_DESC,
 }
+#[cfg(feature = "shared")]
+pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: super::UINT = 16;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
@@ -1260,12 +1347,13 @@ pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
     pub OutputCoordinatesTensor: *const DML_TENSOR_DESC,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ONE_HOT_OPERATOR_DESC {
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub ValuesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
 }
 pub const DML_OPERATOR_ACTIVATION_CELU: DML_OPERATOR_TYPE = 128;
 pub const DML_OPERATOR_ACTIVATION_ELU: DML_OPERATOR_TYPE = 35;
@@ -1439,14 +1527,16 @@ pub type DML_OPERATOR_TYPE = i32;
 pub const DML_OPERATOR_UPSAMPLE_2D: DML_OPERATOR_TYPE = 66;
 pub const DML_OPERATOR_VALUE_SCALE_2D: DML_OPERATOR_TYPE = 65;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
-    pub FromNodeIndex: u32,
-    pub FromNodeOutputIndex: u32,
-    pub GraphOutputIndex: u32,
+    pub FromNodeIndex: super::UINT,
+    pub FromNodeOutputIndex: super::UINT,
+    pub GraphOutputIndex: super::UINT,
     pub Name: *const i8,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct DML_PADDING1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1454,10 +1544,11 @@ pub struct DML_PADDING1_OPERATOR_DESC {
     pub PaddingMode: DML_PADDING_MODE,
     pub PaddingValueDataType: DML_TENSOR_DATA_TYPE,
     pub PaddingValue: DML_SCALAR_UNION,
-    pub DimensionCount: u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
+    pub DimensionCount: super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 impl Default for DML_PADDING1_OPERATOR_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1469,17 +1560,21 @@ pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = 1;
 pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = 2;
 pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = 3;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_PADDING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub PaddingMode: DML_PADDING_MODE,
-    pub PaddingValue: f32,
-    pub DimensionCount: u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
+    pub PaddingValue: super::FLOAT,
+    pub DimensionCount: super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
 }
+#[cfg(feature = "shared")]
+pub const DML_PERSISTENT_BUFFER_ALIGNMENT: super::UINT = 256;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1492,12 +1587,12 @@ pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     pub OutputScaleTensor: *const DML_TENSOR_DESC,
     pub OutputZeroPointTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Strides: *const u32,
-    pub Dilations: *const u32,
-    pub StartPadding: *const u32,
-    pub EndPadding: *const u32,
-    pub GroupCount: u32,
+    pub DimensionCount: super::UINT,
+    pub Strides: *const super::UINT,
+    pub Dilations: *const super::UINT,
+    pub StartPadding: *const super::UINT,
+    pub EndPadding: *const super::UINT,
+    pub GroupCount: super::UINT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1540,54 +1635,60 @@ pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = 9;
 pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = 10;
 pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = 11;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_REDUCE_OPERATOR_DESC {
     pub Function: DML_REDUCE_FUNCTION,
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub AxisCount: u32,
-    pub Axes: *const u32,
+    pub AxisCount: super::UINT,
+    pub Axes: *const super::UINT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_RESAMPLE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub DimensionCount: u32,
-    pub Scales: *const f32,
-    pub InputPixelOffsets: *const f32,
-    pub OutputPixelOffsets: *const f32,
+    pub DimensionCount: super::UINT,
+    pub Scales: *const super::FLOAT,
+    pub InputPixelOffsets: *const super::FLOAT,
+    pub OutputPixelOffsets: *const super::FLOAT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub DimensionCount: u32,
-    pub Scales: *const f32,
-    pub InputPixelOffsets: *const f32,
-    pub OutputPixelOffsets: *const f32,
+    pub DimensionCount: super::UINT,
+    pub Scales: *const super::FLOAT,
+    pub InputPixelOffsets: *const super::FLOAT,
+    pub OutputPixelOffsets: *const super::FLOAT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_RESAMPLE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub ScaleCount: u32,
-    pub Scales: *const f32,
+    pub ScaleCount: super::UINT,
+    pub Scales: *const super::FLOAT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_RNN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1598,11 +1699,12 @@ pub struct DML_RNN_OPERATOR_DESC {
     pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
     pub OutputSequenceTensor: *const DML_TENSOR_DESC,
     pub OutputSingleTensor: *const DML_TENSOR_DESC,
-    pub ActivationDescCount: u32,
+    pub ActivationDescCount: super::UINT,
     pub ActivationDescs: *const DML_OPERATOR_DESC,
     pub Direction: DML_RECURRENT_NETWORK_DIRECTION,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1611,16 +1713,17 @@ pub struct DML_ROI_ALIGN1_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub SpatialScaleX: f32,
-    pub SpatialScaleY: f32,
-    pub InputPixelOffset: f32,
-    pub OutputPixelOffset: f32,
-    pub OutOfBoundsInputValue: f32,
-    pub MinimumSamplesPerOutput: u32,
-    pub MaximumSamplesPerOutput: u32,
+    pub SpatialScaleX: super::FLOAT,
+    pub SpatialScaleY: super::FLOAT,
+    pub InputPixelOffset: super::FLOAT,
+    pub OutputPixelOffset: super::FLOAT,
+    pub OutOfBoundsInputValue: super::FLOAT,
+    pub MinimumSamplesPerOutput: super::UINT,
+    pub MaximumSamplesPerOutput: super::UINT,
     pub AlignRegionsToCorners: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1631,15 +1734,16 @@ pub struct DML_ROI_ALIGN_GRAD_OPERATOR_DESC {
     pub OutputROIGradientTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub SpatialScaleX: f32,
-    pub SpatialScaleY: f32,
-    pub InputPixelOffset: f32,
-    pub OutputPixelOffset: f32,
-    pub MinimumSamplesPerOutput: u32,
-    pub MaximumSamplesPerOutput: u32,
+    pub SpatialScaleX: super::FLOAT,
+    pub SpatialScaleY: super::FLOAT,
+    pub InputPixelOffset: super::FLOAT,
+    pub OutputPixelOffset: super::FLOAT,
+    pub MinimumSamplesPerOutput: super::UINT,
+    pub MaximumSamplesPerOutput: super::UINT,
     pub AlignRegionsToCorners: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1648,19 +1752,20 @@ pub struct DML_ROI_ALIGN_OPERATOR_DESC {
     pub OutputTensor: *const DML_TENSOR_DESC,
     pub ReductionFunction: DML_REDUCE_FUNCTION,
     pub InterpolationMode: DML_INTERPOLATION_MODE,
-    pub SpatialScaleX: f32,
-    pub SpatialScaleY: f32,
-    pub OutOfBoundsInputValue: f32,
-    pub MinimumSamplesPerOutput: u32,
-    pub MaximumSamplesPerOutput: u32,
+    pub SpatialScaleX: super::FLOAT,
+    pub SpatialScaleY: super::FLOAT,
+    pub OutOfBoundsInputValue: super::FLOAT,
+    pub MinimumSamplesPerOutput: super::UINT,
+    pub MaximumSamplesPerOutput: super::UINT,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_ROI_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ROITensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub SpatialScale: f32,
+    pub SpatialScale: super::FLOAT,
     pub PooledSize: DML_SIZE_2D,
 }
 pub type DML_ROUNDING_MODE = i32;
@@ -1668,110 +1773,126 @@ pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = 0;
 pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = 2;
 pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = 1;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union DML_SCALAR_UNION {
-    pub Bytes: [u8; 8],
-    pub Int8: i8,
-    pub UInt8: u8,
-    pub Int16: i16,
-    pub UInt16: u16,
-    pub Int32: i32,
-    pub UInt32: u32,
-    pub Int64: i64,
-    pub UInt64: u64,
-    pub Float32: f32,
-    pub Float64: f64,
+    pub Bytes: [super::BYTE; 8],
+    pub Int8: super::INT8,
+    pub UInt8: super::UINT8,
+    pub Int16: super::INT16,
+    pub UInt16: super::UINT16,
+    pub Int32: super::INT32,
+    pub UInt32: super::UINT32,
+    pub Int64: super::INT64,
+    pub UInt64: super::UINT64,
+    pub Float32: super::FLOAT,
+    pub Float64: super::DOUBLE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wtypesbase"))]
 impl Default for DML_SCALAR_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SCALE_BIAS {
-    pub Scale: f32,
-    pub Bias: f32,
+    pub Scale: super::FLOAT,
+    pub Bias: super::FLOAT,
 }
+#[cfg(feature = "shared")]
+pub type DML_SCATTER_ELEMENTS_OPERATOR_DESC = DML_SCATTER_OPERATOR_DESC;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SCATTER_ND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub UpdatesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub InputDimensionCount: u32,
-    pub IndicesDimensionCount: u32,
+    pub InputDimensionCount: super::UINT,
+    pub IndicesDimensionCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SCATTER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub UpdatesTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SIZE_2D {
-    pub Width: u32,
-    pub Height: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SLICE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub InputWindowOffsets: *const u32,
-    pub InputWindowSizes: *const u32,
-    pub InputWindowStrides: *const i32,
+    pub DimensionCount: super::UINT,
+    pub InputWindowOffsets: *const super::UINT,
+    pub InputWindowSizes: *const super::UINT,
+    pub InputWindowStrides: *const super::INT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SLICE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub InputWindowOffsets: *const u32,
-    pub InputWindowSizes: *const u32,
-    pub InputWindowStrides: *const i32,
+    pub DimensionCount: super::UINT,
+    pub InputWindowOffsets: *const super::UINT,
+    pub InputWindowSizes: *const super::UINT,
+    pub InputWindowStrides: *const super::INT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SLICE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub DimensionCount: u32,
-    pub Offsets: *const u32,
-    pub Sizes: *const u32,
-    pub Strides: *const u32,
+    pub DimensionCount: super::UINT,
+    pub Offsets: *const super::UINT,
+    pub Sizes: *const super::UINT,
+    pub Strides: *const super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub BlockSize: u32,
+    pub BlockSize: super::UINT,
     pub Order: DML_DEPTH_SPACE_ORDER,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub BlockSize: u32,
+    pub BlockSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_SPLIT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
-    pub OutputCount: u32,
+    pub OutputCount: super::UINT,
     pub OutputTensors: *const DML_TENSOR_DESC,
-    pub Axis: u32,
+    pub Axis: super::UINT,
 }
 pub const DML_TARGET_VERSION: i32 = 20480;
+#[cfg(feature = "shared")]
+pub const DML_TEMPORARY_BUFFER_ALIGNMENT: super::UINT = 256;
 pub type DML_TENSOR_DATA_TYPE = i32;
 pub const DML_TENSOR_DATA_TYPE_FLOAT16: DML_TENSOR_DATA_TYPE = 2;
 pub const DML_TENSOR_DATA_TYPE_FLOAT32: DML_TENSOR_DATA_TYPE = 1;
@@ -1791,40 +1912,48 @@ pub struct DML_TENSOR_DESC {
     pub Type: DML_TENSOR_TYPE,
     pub Desc: *const core::ffi::c_void,
 }
-pub type DML_TENSOR_FLAGS = u32;
+#[cfg(feature = "shared")]
+pub const DML_TENSOR_DIMENSION_COUNT_MAX: super::UINT = 5;
+#[cfg(feature = "shared")]
+pub const DML_TENSOR_DIMENSION_COUNT_MAX1: super::UINT = 8;
+pub type DML_TENSOR_FLAGS = i32;
 pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = 0;
 pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = 1;
 pub type DML_TENSOR_TYPE = i32;
 pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = 1;
 pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_TILE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub RepeatsCount: u32,
-    pub Repeats: *const u32,
+    pub RepeatsCount: super::UINT,
+    pub Repeats: *const super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_TOP_K1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputValueTensor: *const DML_TENSOR_DESC,
     pub OutputIndexTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
-    pub K: u32,
+    pub Axis: super::UINT,
+    pub K: super::UINT,
     pub AxisDirection: DML_AXIS_DIRECTION,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_TOP_K_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputValueTensor: *const DML_TENSOR_DESC,
     pub OutputIndexTensor: *const DML_TENSOR_DESC,
-    pub Axis: u32,
-    pub K: u32,
+    pub Axis: super::UINT,
+    pub K: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -1833,11 +1962,12 @@ pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
     pub InterpolationMode: DML_INTERPOLATION_MODE,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DML_VALUE_SCALE_2D_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
-    pub Scale: f32,
-    pub ChannelCount: u32,
-    pub Bias: *const f32,
+    pub Scale: super::FLOAT,
+    pub ChannelCount: super::UINT,
+    pub Bias: *const super::FLOAT,
 }

@@ -317,7 +317,7 @@ mod Windows {
             fn get_allowOverride(&self, #[out] #[retval] fOverride: *mut VARIANT_BOOL) -> HRESULT;
             fn reset(&self) -> HRESULT;
             fn pushContext(&self) -> HRESULT;
-            fn pushNodeContext(&self, #[in] contextNode: IXMLDOMNode, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("-1")] fDeep: VARIANT_BOOL) -> HRESULT;
+            fn pushNodeContext(&self, #[in] contextNode: IXMLDOMNode, #[in] fDeep: VARIANT_BOOL) -> HRESULT;
             fn popContext(&self) -> HRESULT;
             fn declarePrefix(&self, #[in] prefix: BSTR, #[in] namespaceURI: BSTR) -> HRESULT;
             fn getDeclaredPrefixes(&self, #[out] #[retval] prefixes: *mut IMXNamespacePrefixes) -> HRESULT;
@@ -532,7 +532,7 @@ mod Windows {
             fn put_input(&self, #[in] var: VARIANT) -> HRESULT;
             fn get_input(&self, #[out] #[retval] pVar: *mut VARIANT) -> HRESULT;
             fn get_ownerTemplate(&self, #[out] #[retval] ppTemplate: *mut IXSLTemplate) -> HRESULT;
-            fn setStartMode(&self, #[in] mode: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] namespaceURI: BSTR) -> HRESULT;
+            fn setStartMode(&self, #[in] mode: BSTR, #[in] namespaceURI: BSTR) -> HRESULT;
             fn get_startMode(&self, #[out] #[retval] mode: *mut BSTR) -> HRESULT;
             fn get_startModeURI(&self, #[out] #[retval] namespaceURI: *mut BSTR) -> HRESULT;
             fn put_output(&self, #[in] output: VARIANT) -> HRESULT;
@@ -540,7 +540,7 @@ mod Windows {
             fn transform(&self, #[out] #[retval] pDone: *mut VARIANT_BOOL) -> HRESULT;
             fn reset(&self) -> HRESULT;
             fn get_readyState(&self, #[out] #[retval] pReadyState: *mut i32) -> HRESULT;
-            fn addParameter(&self, #[in] baseName: BSTR, #[in] parameter: VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] namespaceURI: BSTR) -> HRESULT;
+            fn addParameter(&self, #[in] baseName: BSTR, #[in] parameter: VARIANT, #[in] namespaceURI: BSTR) -> HRESULT;
             fn addObject(&self, #[in] obj: IDispatch, #[in] namespaceURI: BSTR) -> HRESULT;
             fn get_stylesheet(&self, #[out] #[retval] stylesheet: *mut IXMLDOMNode) -> HRESULT;
         }

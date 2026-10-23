@@ -1,39 +1,39 @@
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
     pub MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-    pub MultisampleQuality: u32,
+    pub MultisampleQuality: super::UINT,
     pub pSurfList: *const D3DDDI_SURFACEINFO,
-    pub SurfCount: u32,
-    pub MipLevels: u32,
-    pub Fvf: u32,
+    pub SurfCount: super::UINT,
+    pub MipLevels: super::UINT,
+    pub Fvf: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub RefreshRate: D3DDDI_RATIONAL,
     pub hResource: super::HANDLE,
     pub Flags: D3DDDI_RESOURCEFLAGS,
     pub Rotation: D3DDDI_ROTATION,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDIARG_CREATERESOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Format: D3DDDIFORMAT,
     pub Pool: D3DDDI_POOL,
     pub MultisampleType: D3DDDIMULTISAMPLE_TYPE,
-    pub MultisampleQuality: u32,
+    pub MultisampleQuality: super::UINT,
     pub pSurfList: *const D3DDDI_SURFACEINFO,
-    pub SurfCount: u32,
-    pub MipLevels: u32,
-    pub Fvf: u32,
+    pub SurfCount: super::UINT,
+    pub MipLevels: super::UINT,
+    pub Fvf: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub RefreshRate: D3DDDI_RATIONAL,
     pub hResource: super::HANDLE,
@@ -41,112 +41,132 @@ pub struct D3DDDIARG_CREATERESOURCE2 {
     pub Rotation: D3DDDI_ROTATION,
     pub Flags2: D3DDDI_RESOURCEFLAGS2,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDIARG_CREATERESOURCE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     pub Anonymous: D3DDDICB_DESTROYALLOCATION2FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCK2FLAGS {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCK2FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_LOCK2FLAGS_0 {
     pub Anonymous: D3DDDICB_LOCK2FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCK2FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDICB_LOCK2FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_LOCKFLAGS {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCKFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_LOCKFLAGS_0 {
     pub Anonymous: D3DDDICB_LOCKFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_LOCKFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDICB_LOCKFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDICB_SIGNALFLAGS {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_SIGNALFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDICB_SIGNALFLAGS_0 {
     pub Anonymous: D3DDDICB_SIGNALFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDICB_SIGNALFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDICB_SIGNALFLAGS_0_0 {
     pub _bitfield: u32,
@@ -260,27 +280,32 @@ pub const D3DDDIFMT_X8R8G8B8: D3DDDIFORMAT = 22;
 pub const D3DDDIFMT_YUY2: D3DDDIFORMAT = 844715353;
 pub type D3DDDIFORMAT = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     pub Anonymous: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0,
-    pub Value: u64,
+    pub Value: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     pub _bitfield: u64,
@@ -314,132 +339,143 @@ pub const D3DDDIPOOL_STAGINGMEM: D3DDDI_POOL = 5;
 pub const D3DDDIPOOL_SYSTEMMEM: D3DDDI_POOL = 1;
 pub const D3DDDIPOOL_VIDEOMEMORY: D3DDDI_POOL = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDIRECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
+    pub left: super::LONG,
+    pub top: super::LONG,
+    pub right: super::LONG,
+    pub bottom: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub pSystemMem: *const core::ffi::c_void,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Flags: D3DDDI_ALLOCATIONINFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO_0 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONINFO2 {
     pub hAllocation: D3DKMT_HANDLE,
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_0,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Flags: D3DDDI_ALLOCATIONINFO2_1,
     pub GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub Anonymous2: D3DDDI_ALLOCATIONINFO2_2,
-    pub Reserved: [usize; 5],
+    pub Reserved: [super::ULONG_PTR; 5],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_0 {
     pub hSection: super::HANDLE,
     pub pSystemMem: *const core::ffi::c_void,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_1 {
     pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONINFO2_2 {
-    pub Priority: u32,
-    pub Unused: usize,
+    pub Priority: super::UINT,
+    pub Unused: super::ULONG_PTR,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_ALLOCATIONINFO2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ALLOCATIONLIST {
     pub hAllocation: D3DKMT_HANDLE,
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ALLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_ALLOCATIONLIST_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ALLOCATIONLIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_ALLOCATIONLIST_0_0 {
     pub _bitfield: u32,
@@ -450,27 +486,32 @@ pub const D3DDDI_ALLOCATIONPRIORITY_MAXIMUM: u32 = 3355443200;
 pub const D3DDDI_ALLOCATIONPRIORITY_MINIMUM: i32 = 671088640;
 pub const D3DDDI_ALLOCATIONPRIORITY_NORMAL: i32 = 2013265920;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS {
     pub Anonymous: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0 {
     pub Anonymous: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0_0 {
     pub _bitfield: u32,
@@ -505,105 +546,125 @@ pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_
 pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = 18;
 pub const D3DDDI_CPU_NOTIFICATION: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATECONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATECONTEXTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATECONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATECONTEXTFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATECONTEXTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_CREATECONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWCONTEXTFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWCONTEXTFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWQUEUEFLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0 {
     pub Anonymous: D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -632,6 +693,7 @@ pub const D3DDDI_DRIVERESCAPETYPE_MAX: D3DDDI_DRIVERESCAPETYPE = 4;
 pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE: D3DDDI_DRIVERESCAPETYPE = 0;
 pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE: D3DDDI_DRIVERESCAPETYPE = 1;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
@@ -639,26 +701,29 @@ pub struct D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
     pub hContext: D3DKMT_HANDLE,
     pub Flags: D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS,
     pub Command: D3DDDI_TESTCOMMANDBUFFER,
-    pub pDmaBuffer: *mut core::ffi::c_void,
-    pub pDmaBufferPrivateData: *mut core::ffi::c_void,
-    pub DmaBufferSize: u32,
-    pub DmaBufferPrivateDataSize: u32,
-    pub HardwareProgressFenceId: u64,
-    pub HardwareProgressFenceGpuVa: u64,
+    pub pDmaBuffer: super::PVOID,
+    pub pDmaBufferPrivateData: super::PVOID,
+    pub DmaBufferSize: super::UINT,
+    pub DmaBufferPrivateDataSize: super::UINT,
+    pub HardwareProgressFenceId: super::UINT64,
+    pub HardwareProgressFenceGpuVa: super::UINT64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hSyncObject: D3DKMT_HANDLE,
-    pub hKmdCpuEvent: u64,
-    pub Usage: [u32; 8],
+    pub hKmdCpuEvent: super::UINT64,
+    pub Usage: [super::UINT; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -684,53 +749,63 @@ pub struct D3DDDI_DXGI_RGB {
     pub Blue: f32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_ESCAPEFLAGS {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ESCAPEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_ESCAPEFLAGS_0 {
     pub Anonymous: D3DDDI_ESCAPEFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_ESCAPEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_ESCAPEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_EVICT_FLAGS {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_EVICT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_EVICT_FLAGS_0 {
     pub Anonymous: D3DDDI_EVICT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_EVICT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_EVICT_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -763,46 +838,53 @@ impl Default for D3DDDI_GAMMA_RAMP_DXGI_1 {
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
-    pub Red: [u16; 256],
-    pub Green: [u16; 256],
-    pub Blue: [u16; 256],
+    pub Red: [super::USHORT; 256],
+    pub Green: [super::USHORT; 256],
+    pub Blue: [super::USHORT; 256],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     pub hResource: D3DKMT_HANDLE,
-    pub PrivateDriverDataSize: u32,
-    pub pPrivateDriverData: *mut core::ffi::c_void,
+    pub PrivateDriverDataSize: super::UINT,
+    pub pPrivateDriverData: super::PVOID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_HDR_METADATA_HDR10 {
-    pub RedPrimary: [u16; 2],
-    pub GreenPrimary: [u16; 2],
-    pub BluePrimary: [u16; 2],
-    pub WhitePoint: [u16; 2],
-    pub MaxMasteringLuminance: u32,
-    pub MinMasteringLuminance: u32,
-    pub MaxContentLightLevel: u16,
-    pub MaxFrameAverageLightLevel: u16,
+    pub RedPrimary: [super::UINT16; 2],
+    pub GreenPrimary: [super::UINT16; 2],
+    pub BluePrimary: [super::UINT16; 2],
+    pub WhitePoint: [super::UINT16; 2],
+    pub MaxMasteringLuminance: super::UINT,
+    pub MinMasteringLuminance: super::UINT,
+    pub MaxContentLightLevel: super::UINT16,
+    pub MaxFrameAverageLightLevel: super::UINT16,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_HDR_METADATA_HDR10 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_HDR_METADATA_HDR10PLUS {
-    pub Data: [u8; 72],
+    pub Data: [super::BYTE; 72],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_HDR_METADATA_HDR10PLUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -812,62 +894,75 @@ pub type D3DDDI_HDR_METADATA_TYPE = i32;
 pub const D3DDDI_HDR_METADATA_TYPE_HDR10: D3DDDI_HDR_METADATA_TYPE = 1;
 pub const D3DDDI_HDR_METADATA_TYPE_HDR10PLUS: D3DDDI_HDR_METADATA_TYPE = 2;
 pub const D3DDDI_HDR_METADATA_TYPE_NONE: D3DDDI_HDR_METADATA_TYPE = 0;
-pub const D3DDDI_ID_ALL: u32 = 4294967293;
-pub const D3DDDI_ID_ANY: u32 = 4294967294;
-pub const D3DDDI_ID_NOTAPPLICABLE: u32 = 0;
-pub const D3DDDI_ID_UNINITIALIZED: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_ALL: super::UINT = 4294967293;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_ANY: super::UINT = 4294967294;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_NOTAPPLICABLE: super::UINT = 0;
+#[cfg(feature = "shared")]
+pub const D3DDDI_ID_UNINITIALIZED: super::UINT = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_KERNELOVERLAYINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub DstRect: D3DDDIRECT,
     pub SrcRect: D3DDDIRECT,
     pub pPrivateDriverData: *mut core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT {
     pub hPagingQueue: D3DKMT_HANDLE,
-    pub NumAllocations: u32,
+    pub NumAllocations: super::UINT,
     pub AllocationList: *const D3DKMT_HANDLE,
-    pub PriorityList: *const u32,
+    pub PriorityList: *const super::UINT,
     pub Flags: D3DDDI_MAKERESIDENT_FLAGS,
-    pub PagingFenceValue: u64,
-    pub NumBytesToTrim: u64,
+    pub PagingFenceValue: super::UINT64,
+    pub NumBytesToTrim: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAKERESIDENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAKERESIDENT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_MAKERESIDENT_FLAGS_0 {
     pub Anonymous: D3DDDI_MAKERESIDENT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAKERESIDENT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub hPagingQueue: D3DKMT_HANDLE,
@@ -878,12 +973,13 @@ pub struct D3DDDI_MAPGPUVIRTUALADDRESS {
     pub OffsetInPages: D3DGPU_SIZE_T,
     pub SizeInPages: D3DGPU_SIZE_T,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-    pub DriverProtection: u64,
-    pub Reserved0: u32,
-    pub Reserved1: u64,
+    pub DriverProtection: super::UINT64,
+    pub Reserved0: super::UINT,
+    pub Reserved1: super::UINT64,
     pub VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub PagingFenceValue: u64,
+    pub PagingFenceValue: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_MAPGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -898,49 +994,56 @@ pub const D3DDDI_MAX_OBJECT_WAITED_ON: i32 = 32;
 pub const D3DDDI_MAX_WRITTEN_PRIMARIES: i32 = 16;
 pub const D3DDDI_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_MULTISAMPLINGMETHOD {
-    pub NumSamples: u32,
-    pub NumQualityLevels: u32,
+    pub NumSamples: super::UINT,
+    pub NumQualityLevels: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_NATIVEFENCEINFO {
-    pub InitialFenceValue: u64,
-    pub EngineAffinity: u32,
+    pub InitialFenceValue: super::UINT64,
+    pub EngineAffinity: super::UINT,
     pub Type: D3DDDI_NATIVEFENCE_TYPE,
     pub Flags: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS,
     pub NativeFenceMapping: D3DDDI_NATIVEFENCEMAPPING,
-    pub PhysicalAdapterIndex: u32,
-    pub Reserved: [u8; 24],
+    pub PhysicalAdapterIndex: super::UINT,
+    pub Reserved: [super::BYTE; 24],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_NATIVEFENCEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_NATIVEFENCELOGDETAIL {
-    pub WaitLogNumberOfEntries: u32,
-    pub SignalLogNumberOfEntries: u32,
+    pub WaitLogNumberOfEntries: super::UINT32,
+    pub SignalLogNumberOfEntries: super::UINT32,
     pub WaitLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub SignalLogGpuBaseAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub Reserved: [u8; 64],
+    pub Reserved: [super::BYTE; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_NATIVEFENCELOGDETAIL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_NATIVEFENCEMAPPING {
     pub CurrentValueCpuVa: *mut core::ffi::c_void,
     pub CurrentValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
     pub MonitoredValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
-    pub Reserved: [u8; 32],
+    pub Reserved: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_NATIVEFENCEMAPPING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -952,27 +1055,32 @@ pub const D3DDDI_NATIVEFENCE_TYPE_INTRA_GPU: D3DDDI_NATIVEFENCE_TYPE = 1;
 pub const D3DDDI_NATIVE_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 7;
 pub const D3DDDI_NATIVE_FENCE_PDD_SIZE: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_OFFER_FLAGS {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_OFFER_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_OFFER_FLAGS_0 {
     pub Anonymous: D3DDDI_OFFER_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_OFFER_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -984,21 +1092,24 @@ pub const D3DDDI_OFFER_PRIORITY_LOW: D3DDDI_OFFER_PRIORITY = 1;
 pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = 0;
 pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub hAllocation: D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
-    pub PrivateDriverDataSize: u32,
+    pub PrivateDriverDataSize: super::UINT,
     pub GpuVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub Reserved: [usize; 6],
+    pub Reserved: [super::ULONG_PTR; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_OPENALLOCATIONINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1017,32 +1128,37 @@ pub const D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY 
 pub const D3DDDI_PAGINGQUEUE_PRIORITY_BELOW_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = -1;
 pub const D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_PATCHLOCATIONLIST {
-    pub AllocationIndex: u32,
+    pub AllocationIndex: super::UINT,
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0,
-    pub DriverId: u32,
-    pub AllocationOffset: u32,
-    pub PatchOffset: u32,
-    pub SplitOffset: u32,
+    pub DriverId: super::UINT,
+    pub AllocationOffset: super::UINT,
+    pub PatchOffset: super::UINT,
+    pub SplitOffset: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_PATCHLOCATIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_PATCHLOCATIONLIST_0 {
     pub Anonymous: D3DDDI_PATCHLOCATIONLIST_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_PATCHLOCATIONLIST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_PATCHLOCATIONLIST_0_0 {
     pub _bitfield: u32,
@@ -1053,56 +1169,65 @@ pub const D3DDDI_QUERYREGISTRY_ADAPTERKEY: D3DDDI_QUERYREGISTRY_TYPE = 1;
 pub const D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH: D3DDDI_QUERYREGISTRY_TYPE = 3;
 pub const D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH: D3DDDI_QUERYREGISTRY_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_QUERYREGISTRY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_QUERYREGISTRY_FLAGS_0 {
     pub Anonymous: D3DDDI_QUERYREGISTRY_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_QUERYREGISTRY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_QUERYREGISTRY_INFO {
     pub QueryType: D3DDDI_QUERYREGISTRY_TYPE,
     pub QueryFlags: D3DDDI_QUERYREGISTRY_FLAGS,
-    pub ValueName: [u16; 260],
-    pub ValueType: u32,
-    pub PhysicalAdapterIndex: u32,
-    pub OutputValueSize: u32,
+    pub ValueName: [super::WCHAR; 260],
+    pub ValueType: super::ULONG,
+    pub PhysicalAdapterIndex: super::ULONG,
+    pub OutputValueSize: super::ULONG,
     pub Status: D3DDDI_QUERYREGISTRY_STATUS,
     pub Anonymous: D3DDDI_QUERYREGISTRY_INFO_0,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_QUERYREGISTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_QUERYREGISTRY_INFO_0 {
-    pub OutputDword: u32,
-    pub OutputQword: u64,
-    pub OutputString: [u16; 1],
-    pub OutputBinary: [u8; 1],
+    pub OutputDword: super::DWORD,
+    pub OutputQword: super::UINT64,
+    pub OutputString: [super::WCHAR; 1],
+    pub OutputBinary: [super::BYTE; 1],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_QUERYREGISTRY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1117,16 +1242,18 @@ pub const D3DDDI_QUERYREGISTRY_STATUS_MAX: D3DDDI_QUERYREGISTRY_STATUS = 3;
 pub const D3DDDI_QUERYREGISTRY_STATUS_SUCCESS: D3DDDI_QUERYREGISTRY_STATUS = 0;
 pub type D3DDDI_QUERYREGISTRY_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_RATIONAL {
-    pub Numerator: u32,
-    pub Denominator: u32,
+    pub Numerator: super::UINT,
+    pub Denominator: super::UINT,
 }
 pub type D3DDDI_RECLAIM_RESULT = i32;
 pub const D3DDDI_RECLAIM_RESULT_DISCARDED: D3DDDI_RECLAIM_RESULT = 1;
 pub const D3DDDI_RECLAIM_RESULT_NOT_COMMITTED: D3DDDI_RECLAIM_RESULT = 2;
 pub const D3DDDI_RECLAIM_RESULT_OK: D3DDDI_RECLAIM_RESULT = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub Anonymous: D3DDDI_RESERVEGPUVIRTUALADDRESS_0,
@@ -1139,103 +1266,122 @@ pub struct D3DDDI_RESERVEGPUVIRTUALADDRESS {
     pub VirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub Anonymous4: D3DDDI_RESERVEGPUVIRTUALADDRESS_3,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     pub hPagingQueue: D3DKMT_HANDLE,
     pub hAdapter: D3DKMT_HANDLE,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     pub ReservationType: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE,
-    pub Reserved0: u32,
+    pub Reserved0: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
-    pub DriverProtection: u64,
-    pub Reserved1: u64,
+    pub DriverProtection: super::UINT64,
+    pub Reserved1: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
-    pub PagingFenceValue: u64,
-    pub Reserved2: u64,
+    pub PagingFenceValue: super::UINT64,
+    pub Reserved2: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESERVEGPUVIRTUALADDRESS_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESOURCEFLAGS_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_RESOURCEFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_RESOURCEFLAGS2 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_RESOURCEFLAGS2_0 {
     pub Anonymous: D3DDDI_RESOURCEFLAGS2_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_RESOURCEFLAGS2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_RESOURCEFLAGS2_0_0 {
     pub _bitfield: u32,
@@ -1250,88 +1396,102 @@ pub const D3DDDI_SCANLINEORDERING_INTERLACED: D3DDDI_SCANLINEORDERING = 2;
 pub const D3DDDI_SCANLINEORDERING_PROGRESSIVE: D3DDDI_SCANLINEORDERING = 1;
 pub const D3DDDI_SCANLINEORDERING_UNKNOWN: D3DDDI_SCANLINEORDERING = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SEGMENTPREFERENCE {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SEGMENTPREFERENCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SEGMENTPREFERENCE_0 {
     pub Anonymous: D3DDDI_SEGMENTPREFERENCE_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SEGMENTPREFERENCE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SEGMENTPREFERENCE_0_0 {
     pub _bitfield: u32,
 }
 pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SURFACEINFO {
-    pub Width: u32,
-    pub Height: u32,
-    pub Depth: u32,
+    pub Width: super::UINT,
+    pub Height: super::UINT,
+    pub Depth: super::UINT,
     pub pSysMem: *const core::ffi::c_void,
-    pub SysMemPitch: u32,
-    pub SysMemSlicePitch: u32,
+    pub SysMemPitch: super::UINT,
+    pub SysMemSlicePitch: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub InitialState: windows_sys::core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
-    pub MaxCount: u32,
-    pub InitialCount: u32,
+    pub MaxCount: super::UINT,
+    pub InitialCount: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
-    pub Reserved: [u32; 16],
+    pub Reserved: [super::UINT; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Type: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE,
@@ -1339,14 +1499,14 @@ pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0,
     pub SharedHandle: D3DKMT_HANDLE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0,
@@ -1357,93 +1517,98 @@ pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5,
     pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub InitialState: windows_sys::core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    pub MaxCount: u32,
-    pub InitialCount: u32,
+    pub MaxCount: super::UINT,
+    pub InitialCount: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
-    pub InitialFenceValue: u64,
+    pub InitialFenceValue: super::UINT64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub EngineAffinity: u32,
-    pub Padding: u32,
+    pub EngineAffinity: super::UINT,
+    pub Padding: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub hAdapter: D3DKMT_HANDLE,
     pub VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
-    pub Time: u64,
+    pub Time: super::UINT64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub EngineAffinity: u32,
-    pub Padding: u32,
+    pub EngineAffinity: super::UINT,
+    pub Padding: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
-    pub Reserved: [u64; 8],
+    pub Reserved: [super::UINT64; 8],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     pub Anonymous: D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -1455,24 +1620,28 @@ pub const D3DDDI_SYNC_OBJECT_ALL_ACCESS: i32 = 2031619;
 pub const D3DDDI_SYNC_OBJECT_SIGNAL: i32 = 2;
 pub const D3DDDI_SYNC_OBJECT_WAIT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_TESTCOMMANDBUFFER {
     pub Anonymous: D3DDDI_TESTCOMMANDBUFFER_0,
     pub Operation: D3DDDI_TESTCOMMANDBUFFEROP,
-    pub Reserved1: u32,
+    pub Reserved1: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TESTCOMMANDBUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_TESTCOMMANDBUFFER_0 {
     pub Copy: D3DDDI_TESTCOMMANDBUFFER_COPY,
     pub Fill: D3DDDI_TESTCOMMANDBUFFER_FILL,
     pub Reserved: [i8; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TESTCOMMANDBUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1487,100 +1656,117 @@ pub const D3DDDI_TESTCOMMANDBUFFEROP_INFINITE_PREEMPTABLE_LOOP: D3DDDI_TESTCOMMA
 pub const D3DDDI_TESTCOMMANDBUFFEROP_INVALID: D3DDDI_TESTCOMMANDBUFFEROP = 0;
 pub const D3DDDI_TESTCOMMANDBUFFEROP_MAX: D3DDDI_TESTCOMMANDBUFFEROP = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_TESTCOMMANDBUFFER_COPY {
     pub SrcAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub NumBytes: u32,
+    pub NumBytes: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_TESTCOMMANDBUFFER_FILL {
     pub DstAddress: D3DGPU_VIRTUAL_ADDRESS,
-    pub NumBytes: u32,
-    pub Pattern: u32,
+    pub NumBytes: super::UINT,
+    pub Pattern: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     pub Anonymous: D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 pub const D3DDDI_UMS_PDD_SIZE: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY {
     pub hPagingQueue: D3DKMT_HANDLE,
     pub hAllocation: D3DKMT_HANDLE,
-    pub SupportedSegmentSet: u32,
+    pub SupportedSegmentSet: super::UINT,
     pub PreferredSegment: D3DDDI_SEGMENTPREFERENCE,
     pub Flags: D3DDDI_UPDATEALLOCPROPERTY_FLAGS,
-    pub PagingFenceValue: u64,
+    pub PagingFenceValue: super::UINT64,
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEALLOCPROPERTY_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_0_0,
-    pub PropertyMaskValue: u32,
+    pub PropertyMaskValue: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     pub Anonymous: D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     pub _bitfield: u32,
@@ -1589,17 +1775,20 @@ pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY: D3DDDI_UPDATEGPUVIRTUALADDRESS_OP
 pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = 0;
 pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     pub OperationType: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE,
     pub Anonymous: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Map: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0,
@@ -1607,12 +1796,14 @@ pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     pub Unmap: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2,
     pub Copy: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -1622,6 +1813,7 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub AllocationSizeInBytes: D3DGPU_SIZE_T,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -1630,26 +1822,30 @@ pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     pub AllocationOffsetInBytes: D3DGPU_SIZE_T,
     pub AllocationSizeInBytes: D3DGPU_SIZE_T,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
-    pub DriverProtection: u64,
+    pub DriverProtection: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: D3DGPU_SIZE_T,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     pub SourceAddress: D3DGPU_VIRTUAL_ADDRESS,
@@ -1667,38 +1863,44 @@ pub const D3DDDI_VSSLO_OTHER: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 255;
 pub const D3DDDI_VSSLO_PROGRESSIVE: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 1;
 pub const D3DDDI_VSSLO_UNINITIALIZED: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     pub Anonymous: D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0,
-    pub Value: u32,
+    pub Value: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 pub const D3DGPU_NULL: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
-    pub SegmentId: u32,
-    pub Padding: u32,
-    pub SegmentOffset: u64,
+    pub SegmentId: super::UINT,
+    pub Padding: super::UINT,
+    pub SegmentOffset: super::UINT64,
 }
 pub type D3DGPU_SIZE_T = u64;
 pub const D3DGPU_UNIQUE_DRIVER_PROTECTION: u64 = 9223372036854775808;
@@ -1739,11 +1941,19 @@ pub const D3DKMDT_MAX_VIDPN_SOURCES_BITCOUNT: i32 = 4;
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: i32 = 4;
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: i32 = 128;
 pub type D3DKMT_HANDLE = u32;
-#[cfg(feature = "winnt")]
-pub type D3DKMT_PTR_TYPE = super::HANDLE;
-pub type D3DKMT_SIZE_T = usize;
-pub type D3DKMT_UINT_PTR = usize;
-pub type D3DKMT_ULONG_PTR = usize;
+pub type D3DKMT_PTR_TYPE = *mut core::ffi::c_void;
+#[cfg(target_arch = "x86")]
+pub type D3DKMT_SIZE_T = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type D3DKMT_SIZE_T = u64;
+#[cfg(target_arch = "x86")]
+pub type D3DKMT_UINT_PTR = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type D3DKMT_UINT_PTR = u64;
+#[cfg(target_arch = "x86")]
+pub type D3DKMT_ULONG_PTR = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type D3DKMT_ULONG_PTR = u64;
 pub const D3D_UMD_INTERFACE_VERSION: i32 = 69633;
 pub const D3D_UMD_INTERFACE_VERSION_VISTA: i32 = 12;
 pub const D3D_UMD_INTERFACE_VERSION_WDDM1_3: i32 = 16386;
@@ -1816,86 +2026,86 @@ pub const DXGKDDI_INTERFACE_VERSION_WDDM3_2: i32 = 69640;
 pub const DXGKDDI_INTERFACE_VERSION_WIN7: i32 = 8197;
 pub const DXGKDDI_INTERFACE_VERSION_WIN8: i32 = 12302;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub VmGuid: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGKVGPU_ESCAPE_PAUSE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::LUID,
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGKVGPU_ESCAPE_PAUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DXGKVGPU_ESCAPE_PAUSE_0 {
     pub Anonymous: DXGKVGPU_ESCAPE_PAUSE_0_0,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGKVGPU_ESCAPE_PAUSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
-    pub PowerState: u32,
+    pub PowerState: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
-    pub Offset: u32,
-    pub Size: u32,
+    pub Offset: super::UINT,
+    pub Size: super::UINT,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_RESUME {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::LUID,
-    pub Flags: u32,
+    pub Flags: super::UINT,
 }
 pub type DXGKVGPU_ESCAPE_TYPE = i32;
 pub const DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE: DXGKVGPU_ESCAPE_TYPE = 4;
@@ -1907,25 +2117,28 @@ pub const DXGKVGPU_ESCAPE_TYPE_RELEASE: DXGKVGPU_ESCAPE_TYPE = 3;
 pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = 7;
 pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
-    pub Offset: u32,
-    pub Size: u32,
+    pub Offset: super::UINT,
+    pub Size: super::UINT,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_DETAILED_FEATURE_ID {
     pub Anonymous: DXGK_DETAILED_FEATURE_ID_0,
     pub Value: DXGK_FEATURE_ID,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_DETAILED_FEATURE_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_DETAILED_FEATURE_ID_0 {
     pub _bitfield: u32,
@@ -2035,28 +2248,33 @@ pub const DXGK_FEATURE_UNIFIED_SCHEDULING_MODEL: DXGK_FEATURE_ID = 42;
 pub const DXGK_FEATURE_USER_MODE_SUBMISSION: DXGK_FEATURE_ID = 4;
 pub type DXGK_FEATURE_VERSION = u16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_ISFEATUREENABLED_RESULT {
-    pub Version: u16,
+    pub Version: super::UINT16,
     pub Anonymous: DXGK_ISFEATUREENABLED_RESULT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_ISFEATUREENABLED_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_ISFEATUREENABLED_RESULT_0 {
     pub Anonymous: DXGK_ISFEATUREENABLED_RESULT_0_0,
     pub Value: DXGK_FEATURE_VERSION,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_ISFEATUREENABLED_RESULT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_ISFEATUREENABLED_RESULT_0_0 {
     pub _bitfield: u16,
@@ -2065,29 +2283,34 @@ pub const DXGK_MAX_GPU_VA_BIT_COUNT: i32 = 63;
 pub const DXGK_MAX_PAGE_TABLE_LEVEL_COUNT: i32 = 6;
 pub const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_MIRACAST_CHUNK_ID {
     pub Anonymous: DXGK_MIRACAST_CHUNK_ID_0,
-    pub Value: u64,
+    pub Value: super::UINT64,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_MIRACAST_CHUNK_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_MIRACAST_CHUNK_ID_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_MIRACAST_CHUNK_INFO {
     pub ChunkType: DXGK_MIRACAST_CHUNK_TYPE,
     pub ChunkId: DXGK_MIRACAST_CHUNK_ID,
-    pub ProcessingTime: u32,
-    pub EncodeRate: u32,
+    pub ProcessingTime: super::UINT,
+    pub EncodeRate: super::UINT,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_MIRACAST_CHUNK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2102,63 +2325,64 @@ pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = 4;
 pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = 3;
 pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_BUFFER {
     pub Header: DXGK_NATIVE_FENCE_LOG_HEADER,
     pub Entries: [DXGK_NATIVE_FENCE_LOG_ENTRY; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGK_NATIVE_FENCE_LOG_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NATIVE_FENCE_LOG_ENTRY {
-    pub FenceValue: u64,
+    pub FenceValue: super::UINT64,
     pub hNativeFence: D3DKMT_HANDLE,
-    pub OperationType: u32,
-    pub Reserved0: u64,
-    pub FenceObservedGpuTimestamp: u64,
-    pub Reserved1: u64,
-    pub FenceEndGpuTimestamp: u64,
+    pub OperationType: super::UINT,
+    pub Reserved0: super::UINT64,
+    pub FenceObservedGpuTimestamp: super::UINT64,
+    pub Reserved1: super::UINT64,
+    pub FenceEndGpuTimestamp: super::UINT64,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0,
     pub Type: DXGK_NATIVE_FENCE_LOG_TYPE,
-    pub NumberOfEntries: u64,
-    pub Reserved: [u64; 2],
+    pub NumberOfEntries: super::UINT64,
+    pub Reserved: [super::UINT64; 2],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     pub Anonymous: DXGK_NATIVE_FENCE_LOG_HEADER_0_0,
     pub AtomicWraparoundAndEntryIndex: super::ULARGE_INTEGER,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER_0_0 {
-    pub FirstFreeEntryIndex: u32,
-    pub WraparoundCount: u32,
+    pub FirstFreeEntryIndex: super::UINT32,
+    pub WraparoundCount: super::UINT32,
 }
 pub type DXGK_NATIVE_FENCE_LOG_OPERATION = i32;
 pub const DXGK_NATIVE_FENCE_LOG_OPERATION_SIGNAL_EXECUTED: DXGK_NATIVE_FENCE_LOG_OPERATION = 0;
@@ -2177,38 +2401,45 @@ pub const DXGK_OS_FEATURE_READONLY_EXISTINGSYSMEM: DXGK_OS_FEATURE = 6;
 pub const DXGK_OS_FEATURE_RESERVE_GPUVA_ZERO_BASE_ADDRESS: DXGK_OS_FEATURE = 1;
 pub const DXGK_OS_FEATURE_SUPPRESSVSYNC_INTERRUPTS: DXGK_OS_FEATURE = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DXGK_PTE {
     pub Anonymous: DXGK_PTE_0,
     pub Anonymous2: DXGK_PTE_1,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_PTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_PTE_0 {
     pub Anonymous: DXGK_PTE_0_0,
-    pub Flags: u64,
+    pub Flags: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_PTE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_PTE_0_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DXGK_PTE_1 {
-    pub PageAddress: u64,
-    pub PageTableAddress: u64,
+    pub PageAddress: super::ULONGLONG,
+    pub PageTableAddress: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for DXGK_PTE_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2222,7 +2453,7 @@ pub type DXGK_PTE_PAGE_SIZE = i32;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = 0;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::LUID,
@@ -2231,5 +2462,5 @@ pub const IOCTL_GPUP_DRIVER_ESCAPE: i32 = 2253920;
 pub type PD3DDDI_3x4_COLORSPACE_TRANSFORM = *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM;
 pub type PD3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 = *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2;
 pub type PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = *mut D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGPUP_DRIVER_ESCAPE_INPUT = *mut GPUP_DRIVER_ESCAPE_INPUT;

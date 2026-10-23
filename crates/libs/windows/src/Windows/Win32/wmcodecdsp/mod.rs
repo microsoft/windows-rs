@@ -17,19 +17,20 @@ pub type AEC_VAD_MODE = i32;
 pub const AEC_VAD_NORMAL: AEC_VAD_MODE = 1;
 pub const ALawCodecWrapper: windows_core::GUID = windows_core::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct AecQualityMetrics_Struct {
-    pub i64Timestamp: i64,
-    pub ConvergenceFlag: u8,
-    pub MicClippedFlag: u8,
-    pub MicSilenceFlag: u8,
-    pub PstvFeadbackFlag: u8,
-    pub SpkClippedFlag: u8,
-    pub SpkMuteFlag: u8,
-    pub GlitchFlag: u8,
-    pub DoubleTalkFlag: u8,
-    pub uGlitchCount: u32,
-    pub uMicClipCount: u32,
+    pub i64Timestamp: super::LONGLONG,
+    pub ConvergenceFlag: super::BYTE,
+    pub MicClippedFlag: super::BYTE,
+    pub MicSilenceFlag: super::BYTE,
+    pub PstvFeadbackFlag: super::BYTE,
+    pub SpkClippedFlag: super::BYTE,
+    pub SpkMuteFlag: super::BYTE,
+    pub GlitchFlag: super::BYTE,
+    pub DoubleTalkFlag: super::BYTE,
+    pub uGlitchCount: super::ULONG,
+    pub uMicClipCount: super::ULONG,
     pub fDuration: f32,
     pub fTSVariance: f32,
     pub fTSDriftRate: f32,
@@ -37,7 +38,7 @@ pub struct AecQualityMetrics_Struct {
     pub fNoiseLevel: f32,
     pub fERLE: f32,
     pub fAvgERLE: f32,
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
 }
 pub const CAC3DecMediaObject: windows_core::GUID = windows_core::GUID::from_u128(0x03d7c802_ecfa_47d9_b268_5fb3e310dee4);
 pub const CClusterDetectorDmo: windows_core::GUID = windows_core::GUID::from_u128(0x36e820c4_165a_4521_863c_619e1160d4d4);
@@ -142,10 +143,12 @@ pub type FILE_OPENMODE = i32;
 windows_core::imp::define_interface!(IClusterDetector, IClusterDetector_Vtbl, 0x3f07f7b7_c680_41d9_9423_915107ec9ff9);
 windows_core::imp::interface_hierarchy!(IClusterDetector, windows_core::IUnknown);
 impl IClusterDetector {
-    pub unsafe fn Initialize(&self, wbaseentrylevel: u16, wclusterentrylevel: u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Initialize(&self, wbaseentrylevel: super::WORD, wclusterentrylevel: super::WORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), wbaseentrylevel, wclusterentrylevel) }
     }
-    pub unsafe fn Detect<P3>(&self, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: P3) -> windows_core::Result<IToc>
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub unsafe fn Detect<P3>(&self, dwmaxnumclusters: super::DWORD, fminclusterduration: super::FLOAT, fmaxclusterduration: super::FLOAT, psrctoc: P3) -> windows_core::Result<IToc>
     where
         P3: windows_core::Param<IToc>,
     {
@@ -159,22 +162,30 @@ impl IClusterDetector {
 #[doc(hidden)]
 pub struct IClusterDetector_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16) -> windows_core::HRESULT,
-    pub Detect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, f32, f32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Initialize: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared"))]
+    pub Detect: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, super::FLOAT, super::FLOAT, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared")))]
+    Detect: usize,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub trait IClusterDetector_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, wbaseentrylevel: u16, wclusterentrylevel: u16) -> windows_core::Result<()>;
-    fn Detect(&self, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: windows_core::Ref<IToc>) -> windows_core::Result<IToc>;
+    fn Initialize(&self, wbaseentrylevel: super::WORD, wclusterentrylevel: super::WORD) -> windows_core::Result<()>;
+    fn Detect(&self, dwmaxnumclusters: super::DWORD, fminclusterduration: super::FLOAT, fmaxclusterduration: super::FLOAT, psrctoc: windows_core::Ref<IToc>) -> windows_core::Result<IToc>;
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl IClusterDetector_Vtbl {
     pub const fn new<Identity: IClusterDetector_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Initialize<Identity: IClusterDetector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wbaseentrylevel: u16, wclusterentrylevel: u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn Initialize<Identity: IClusterDetector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wbaseentrylevel: super::WORD, wclusterentrylevel: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IClusterDetector_Impl::Initialize(this, core::mem::transmute_copy(&wbaseentrylevel), core::mem::transmute_copy(&wclusterentrylevel)).into()
             }
         }
-        unsafe extern "system" fn Detect<Identity: IClusterDetector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: *mut core::ffi::c_void, ppdsttoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Detect<Identity: IClusterDetector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxnumclusters: super::DWORD, fminclusterduration: super::FLOAT, fmaxclusterduration: super::FLOAT, psrctoc: *mut core::ffi::c_void, ppdsttoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IClusterDetector_Impl::Detect(this, core::mem::transmute_copy(&dwmaxnumclusters), core::mem::transmute_copy(&fminclusterduration), core::mem::transmute_copy(&fmaxclusterduration), core::mem::transmute_copy(&psrctoc)) {
@@ -192,11 +203,13 @@ impl IClusterDetector_Vtbl {
         iid == &<IClusterDetector as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl windows_core::RuntimeName for IClusterDetector {}
 windows_core::imp::define_interface!(IFileClient, IFileClient_Vtbl, 0xbfccd196_1244_4840_ab44_480975c4ffe4);
 windows_core::imp::interface_hierarchy!(IFileClient, windows_core::IUnknown);
 impl IFileClient {
-    pub unsafe fn GetObjectDiskSize(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetObjectDiskSize(&self) -> windows_core::Result<super::QWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetObjectDiskSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -219,18 +232,23 @@ impl IFileClient {
 #[doc(hidden)]
 pub struct IFileClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetObjectDiskSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetObjectDiskSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::QWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetObjectDiskSize: usize,
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IFileClient_Impl: windows_core::IUnknownImpl {
-    fn GetObjectDiskSize(&self) -> windows_core::Result<u64>;
+    fn GetObjectDiskSize(&self) -> windows_core::Result<super::QWORD>;
     fn Write(&self, pfio: windows_core::Ref<IFileIo>) -> windows_core::Result<()>;
     fn Read(&self, pfio: windows_core::Ref<IFileIo>) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IFileClient_Vtbl {
     pub const fn new<Identity: IFileClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetObjectDiskSize<Identity: IFileClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwsize: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObjectDiskSize<Identity: IFileClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwsize: *mut super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileClient_Impl::GetObjectDiskSize(this) {
@@ -265,6 +283,7 @@ impl IFileClient_Vtbl {
         iid == &<IFileClient as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IFileClient {}
 windows_core::imp::define_interface!(IFileIo, IFileIo_Vtbl, 0x11993196_1244_4840_ab44_480975c4ffe4);
 windows_core::imp::interface_hierarchy!(IFileIo, windows_core::IUnknown);
@@ -275,22 +294,26 @@ impl IFileIo {
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), eaccessmode, eopenmode, pwszfilename.param().abi()) }
     }
-    pub unsafe fn GetLength(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetLength(&self) -> windows_core::Result<super::QWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLength(&self, qwlength: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetLength(&self, qwlength: super::QWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLength)(windows_core::Interface::as_raw(self), qwlength) }
     }
-    pub unsafe fn GetCurrentPosition(&self) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCurrentPosition(&self) -> windows_core::Result<super::QWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurrentPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCurrentPosition(&self, qwposition: u64) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetCurrentPosition(&self, qwposition: super::QWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), qwposition) }
     }
     pub unsafe fn IsEndOfStream(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -299,19 +322,22 @@ impl IFileIo {
             (windows_core::Interface::vtable(self).IsEndOfStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Read(&self, pbt: *const u8, ul: u32) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Read(&self, pbt: *const super::BYTE, ul: super::ULONG) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pbt, ul, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Write(&self, pbt: *const u8, ul: u32) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Write(&self, pbt: *const super::BYTE, ul: super::ULONG) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pbt, ul, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Seek(&self, eseekorigin: SEEK_ORIGIN, qwseekoffset: u64, dwseekflags: u32) -> windows_core::Result<u64> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Seek(&self, eseekorigin: SEEK_ORIGIN, qwseekoffset: super::QWORD, dwseekflags: super::DWORD) -> windows_core::Result<super::QWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), eseekorigin, qwseekoffset, dwseekflags, &mut result__).map(|| result__)
@@ -326,28 +352,51 @@ impl IFileIo {
 pub struct IFileIo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, FILE_ACCESSMODE, FILE_OPENMODE, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub GetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
-    pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::QWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetLength: usize,
+    #[cfg(feature = "shared")]
+    pub SetLength: unsafe extern "system" fn(*mut core::ffi::c_void, super::QWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetLength: usize,
+    #[cfg(feature = "shared")]
+    pub GetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::QWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCurrentPosition: usize,
+    #[cfg(feature = "shared")]
+    pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::QWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetCurrentPosition: usize,
     pub IsEndOfStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u32) -> windows_core::HRESULT,
-    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut u32) -> windows_core::HRESULT,
-    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, SEEK_ORIGIN, u64, u32, *mut u64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::BYTE, super::ULONG, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Read: usize,
+    #[cfg(feature = "shared")]
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::BYTE, super::ULONG, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Write: usize,
+    #[cfg(feature = "shared")]
+    pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, SEEK_ORIGIN, super::QWORD, super::DWORD, *mut super::QWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Seek: usize,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IFileIo_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, eaccessmode: FILE_ACCESSMODE, eopenmode: FILE_OPENMODE, pwszfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetLength(&self) -> windows_core::Result<u64>;
-    fn SetLength(&self, qwlength: u64) -> windows_core::Result<()>;
-    fn GetCurrentPosition(&self) -> windows_core::Result<u64>;
-    fn SetCurrentPosition(&self, qwposition: u64) -> windows_core::Result<()>;
+    fn GetLength(&self) -> windows_core::Result<super::QWORD>;
+    fn SetLength(&self, qwlength: super::QWORD) -> windows_core::Result<()>;
+    fn GetCurrentPosition(&self) -> windows_core::Result<super::QWORD>;
+    fn SetCurrentPosition(&self, qwposition: super::QWORD) -> windows_core::Result<()>;
     fn IsEndOfStream(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn Read(&self, pbt: *const u8, ul: u32) -> windows_core::Result<u32>;
-    fn Write(&self, pbt: *const u8, ul: u32) -> windows_core::Result<u32>;
-    fn Seek(&self, eseekorigin: SEEK_ORIGIN, qwseekoffset: u64, dwseekflags: u32) -> windows_core::Result<u64>;
+    fn Read(&self, pbt: *const super::BYTE, ul: super::ULONG) -> windows_core::Result<super::ULONG>;
+    fn Write(&self, pbt: *const super::BYTE, ul: super::ULONG) -> windows_core::Result<super::ULONG>;
+    fn Seek(&self, eseekorigin: SEEK_ORIGIN, qwseekoffset: super::QWORD, dwseekflags: super::DWORD) -> windows_core::Result<super::QWORD>;
     fn Close(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IFileIo_Vtbl {
     pub const fn new<Identity: IFileIo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eaccessmode: FILE_ACCESSMODE, eopenmode: FILE_OPENMODE, pwszfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -356,7 +405,7 @@ impl IFileIo_Vtbl {
                 IFileIo_Impl::Initialize(this, core::mem::transmute_copy(&eaccessmode), core::mem::transmute_copy(&eopenmode), core::mem::transmute(&pwszfilename)).into()
             }
         }
-        unsafe extern "system" fn GetLength<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwlength: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLength<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwlength: *mut super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileIo_Impl::GetLength(this) {
@@ -368,13 +417,13 @@ impl IFileIo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLength<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, qwlength: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLength<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, qwlength: super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFileIo_Impl::SetLength(this, core::mem::transmute_copy(&qwlength)).into()
             }
         }
-        unsafe extern "system" fn GetCurrentPosition<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwposition: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrentPosition<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqwposition: *mut super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileIo_Impl::GetCurrentPosition(this) {
@@ -386,7 +435,7 @@ impl IFileIo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCurrentPosition<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, qwposition: u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCurrentPosition<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, qwposition: super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IFileIo_Impl::SetCurrentPosition(this, core::mem::transmute_copy(&qwposition)).into()
@@ -404,7 +453,7 @@ impl IFileIo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Read<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbt: *const u8, ul: u32, pulread: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbt: *const super::BYTE, ul: super::ULONG, pulread: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileIo_Impl::Read(this, core::mem::transmute_copy(&pbt), core::mem::transmute_copy(&ul)) {
@@ -416,7 +465,7 @@ impl IFileIo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Write<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbt: *const u8, ul: u32, pulwritten: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbt: *const super::BYTE, ul: super::ULONG, pulwritten: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileIo_Impl::Write(this, core::mem::transmute_copy(&pbt), core::mem::transmute_copy(&ul)) {
@@ -428,7 +477,7 @@ impl IFileIo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Seek<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eseekorigin: SEEK_ORIGIN, qwseekoffset: u64, dwseekflags: u32, pqwcurrentposition: *mut u64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Seek<Identity: IFileIo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eseekorigin: SEEK_ORIGIN, qwseekoffset: super::QWORD, dwseekflags: super::DWORD, pqwcurrentposition: *mut super::QWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IFileIo_Impl::Seek(this, core::mem::transmute_copy(&eseekorigin), core::mem::transmute_copy(&qwseekoffset), core::mem::transmute_copy(&dwseekflags)) {
@@ -464,13 +513,16 @@ impl IFileIo_Vtbl {
         iid == &<IFileIo as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IFileIo {}
 windows_core::imp::define_interface!(IToc, IToc_Vtbl, 0xd6f05441_a919_423b_91a0_89d5b4a8ab77);
 windows_core::imp::interface_hierarchy!(IToc, windows_core::IUnknown);
 impl IToc {
+    #[cfg(feature = "shared")]
     pub unsafe fn SetDescriptor(&self, pdescriptor: *const TOC_DESCRIPTOR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDescriptor)(windows_core::Interface::as_raw(self), pdescriptor) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetDescriptor(&self, pdescriptor: *mut TOC_DESCRIPTOR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDescriptor)(windows_core::Interface::as_raw(self), pdescriptor as _) }
     }
@@ -480,28 +532,34 @@ impl IToc {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pwszdescription.param().abi()) }
     }
-    pub unsafe fn GetDescription(&self, pwdescriptionsize: *mut u16, pwszdescription: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDescription(&self, pwdescriptionsize: *mut super::WORD, pwszdescription: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pwdescriptionsize as _, pwszdescription.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn SetContext(&self, dwcontextsize: u32, pbtcontext: *const u8) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetContext(&self, dwcontextsize: super::DWORD, pbtcontext: *const super::BYTE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetContext)(windows_core::Interface::as_raw(self), dwcontextsize, pbtcontext) }
     }
-    pub unsafe fn GetContext(&self, pdwcontextsize: *mut u32, pbtcontext: *mut u8) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetContext(&self, pdwcontextsize: *mut super::DWORD, pbtcontext: *mut super::BYTE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetContext)(windows_core::Interface::as_raw(self), pdwcontextsize as _, pbtcontext as _) }
     }
-    pub unsafe fn GetEntryListCount(&self) -> windows_core::Result<u16> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEntryListCount(&self) -> windows_core::Result<super::WORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntryListCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEntryListByIndex(&self, wentrylistindex: u16) -> windows_core::Result<ITocEntryList> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEntryListByIndex(&self, wentrylistindex: super::WORD) -> windows_core::Result<ITocEntryList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntryListByIndex)(windows_core::Interface::as_raw(self), wentrylistindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddEntryList<P0>(&self, pentrylist: P0) -> windows_core::Result<u16>
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddEntryList<P0>(&self, pentrylist: P0) -> windows_core::Result<super::WORD>
     where
         P0: windows_core::Param<ITocEntryList>,
     {
@@ -510,13 +568,15 @@ impl IToc {
             (windows_core::Interface::vtable(self).AddEntryList)(windows_core::Interface::as_raw(self), pentrylist.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddEntryListByIndex<P1>(&self, wentrylistindex: u16, pentrylist: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddEntryListByIndex<P1>(&self, wentrylistindex: super::WORD, pentrylist: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ITocEntryList>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddEntryListByIndex)(windows_core::Interface::as_raw(self), wentrylistindex, pentrylist.param().abi()) }
     }
-    pub unsafe fn RemoveEntryListByIndex(&self, wentrylistindex: u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveEntryListByIndex(&self, wentrylistindex: super::WORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveEntryListByIndex)(windows_core::Interface::as_raw(self), wentrylistindex) }
     }
 }
@@ -524,31 +584,63 @@ impl IToc {
 #[doc(hidden)]
 pub struct IToc_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "shared")]
     pub SetDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *const TOC_DESCRIPTOR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetDescriptor: usize,
+    #[cfg(feature = "shared")]
     pub GetDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TOC_DESCRIPTOR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDescriptor: usize,
     pub SetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, windows_core::PWSTR) -> windows_core::HRESULT,
-    pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
-    pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u8) -> windows_core::HRESULT,
-    pub GetEntryListCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub GetEntryListByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddEntryList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
-    pub AddEntryListByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveEntryListByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u16) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WORD, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDescription: usize,
+    #[cfg(feature = "shared")]
+    pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *const super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetContext: usize,
+    #[cfg(feature = "shared")]
+    pub GetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut super::BYTE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetContext: usize,
+    #[cfg(feature = "shared")]
+    pub GetEntryListCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEntryListCount: usize,
+    #[cfg(feature = "shared")]
+    pub GetEntryListByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEntryListByIndex: usize,
+    #[cfg(feature = "shared")]
+    pub AddEntryList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddEntryList: usize,
+    #[cfg(feature = "shared")]
+    pub AddEntryListByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddEntryListByIndex: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveEntryListByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveEntryListByIndex: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IToc_Impl: windows_core::IUnknownImpl {
     fn SetDescriptor(&self, pdescriptor: *const TOC_DESCRIPTOR) -> windows_core::Result<()>;
     fn GetDescriptor(&self, pdescriptor: *mut TOC_DESCRIPTOR) -> windows_core::Result<()>;
     fn SetDescription(&self, pwszdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetDescription(&self, pwdescriptionsize: *mut u16, pwszdescription: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn SetContext(&self, dwcontextsize: u32, pbtcontext: *const u8) -> windows_core::Result<()>;
-    fn GetContext(&self, pdwcontextsize: *mut u32, pbtcontext: *mut u8) -> windows_core::Result<()>;
-    fn GetEntryListCount(&self) -> windows_core::Result<u16>;
-    fn GetEntryListByIndex(&self, wentrylistindex: u16) -> windows_core::Result<ITocEntryList>;
-    fn AddEntryList(&self, pentrylist: windows_core::Ref<ITocEntryList>) -> windows_core::Result<u16>;
-    fn AddEntryListByIndex(&self, wentrylistindex: u16, pentrylist: windows_core::Ref<ITocEntryList>) -> windows_core::Result<()>;
-    fn RemoveEntryListByIndex(&self, wentrylistindex: u16) -> windows_core::Result<()>;
+    fn GetDescription(&self, pwdescriptionsize: *mut super::WORD, pwszdescription: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SetContext(&self, dwcontextsize: super::DWORD, pbtcontext: *const super::BYTE) -> windows_core::Result<()>;
+    fn GetContext(&self, pdwcontextsize: *mut super::DWORD, pbtcontext: *mut super::BYTE) -> windows_core::Result<()>;
+    fn GetEntryListCount(&self) -> windows_core::Result<super::WORD>;
+    fn GetEntryListByIndex(&self, wentrylistindex: super::WORD) -> windows_core::Result<ITocEntryList>;
+    fn AddEntryList(&self, pentrylist: windows_core::Ref<ITocEntryList>) -> windows_core::Result<super::WORD>;
+    fn AddEntryListByIndex(&self, wentrylistindex: super::WORD, pentrylist: windows_core::Ref<ITocEntryList>) -> windows_core::Result<()>;
+    fn RemoveEntryListByIndex(&self, wentrylistindex: super::WORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IToc_Vtbl {
     pub const fn new<Identity: IToc_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDescriptor<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdescriptor: *const TOC_DESCRIPTOR) -> windows_core::HRESULT {
@@ -569,25 +661,25 @@ impl IToc_Vtbl {
                 IToc_Impl::SetDescription(this, core::mem::transmute(&pwszdescription)).into()
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwdescriptionsize: *mut u16, pwszdescription: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwdescriptionsize: *mut super::WORD, pwszdescription: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IToc_Impl::GetDescription(this, core::mem::transmute_copy(&pwdescriptionsize), core::mem::transmute_copy(&pwszdescription)).into()
             }
         }
-        unsafe extern "system" fn SetContext<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcontextsize: u32, pbtcontext: *const u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetContext<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwcontextsize: super::DWORD, pbtcontext: *const super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IToc_Impl::SetContext(this, core::mem::transmute_copy(&dwcontextsize), core::mem::transmute_copy(&pbtcontext)).into()
             }
         }
-        unsafe extern "system" fn GetContext<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcontextsize: *mut u32, pbtcontext: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContext<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcontextsize: *mut super::DWORD, pbtcontext: *mut super::BYTE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IToc_Impl::GetContext(this, core::mem::transmute_copy(&pdwcontextsize), core::mem::transmute_copy(&pbtcontext)).into()
             }
         }
-        unsafe extern "system" fn GetEntryListCount<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcount: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEntryListCount<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwcount: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IToc_Impl::GetEntryListCount(this) {
@@ -599,7 +691,7 @@ impl IToc_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetEntryListByIndex<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wentrylistindex: u16, ppentrylist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEntryListByIndex<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wentrylistindex: super::WORD, ppentrylist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IToc_Impl::GetEntryListByIndex(this, core::mem::transmute_copy(&wentrylistindex)) {
@@ -611,7 +703,7 @@ impl IToc_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddEntryList<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentrylist: *mut core::ffi::c_void, pwentrylistindex: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEntryList<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentrylist: *mut core::ffi::c_void, pwentrylistindex: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IToc_Impl::AddEntryList(this, core::mem::transmute_copy(&pentrylist)) {
@@ -623,13 +715,13 @@ impl IToc_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddEntryListByIndex<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wentrylistindex: u16, pentrylist: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEntryListByIndex<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wentrylistindex: super::WORD, pentrylist: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IToc_Impl::AddEntryListByIndex(this, core::mem::transmute_copy(&wentrylistindex), core::mem::transmute_copy(&pentrylist)).into()
             }
         }
-        unsafe extern "system" fn RemoveEntryListByIndex<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wentrylistindex: u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveEntryListByIndex<Identity: IToc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wentrylistindex: super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IToc_Impl::RemoveEntryListByIndex(this, core::mem::transmute_copy(&wentrylistindex)).into()
@@ -654,23 +746,27 @@ impl IToc_Vtbl {
         iid == &<IToc as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IToc {}
 windows_core::imp::define_interface!(ITocCollection, ITocCollection_Vtbl, 0x23fee831_ae96_42df_b170_25a04847a3ca);
 windows_core::imp::interface_hierarchy!(ITocCollection, windows_core::IUnknown);
 impl ITocCollection {
-    pub unsafe fn GetEntryCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEntryCount(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntryCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<IToc> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::Result<IToc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddEntry<P0>(&self, ptoc: P0) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddEntry<P0>(&self, ptoc: P0) -> windows_core::Result<super::DWORD>
     where
         P0: windows_core::Param<IToc>,
     {
@@ -679,13 +775,15 @@ impl ITocCollection {
             (windows_core::Interface::vtable(self).AddEntry)(windows_core::Interface::as_raw(self), ptoc.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddEntryByIndex<P1>(&self, dwentryindex: u32, ptoc: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddEntryByIndex<P1>(&self, dwentryindex: super::DWORD, ptoc: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<IToc>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, ptoc.param().abi()) }
     }
-    pub unsafe fn RemoveEntryByIndex(&self, dwentryindex: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex) }
     }
 }
@@ -693,22 +791,39 @@ impl ITocCollection {
 #[doc(hidden)]
 pub struct ITocCollection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub AddEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEntryCount: usize,
+    #[cfg(feature = "shared")]
+    pub GetEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEntryByIndex: usize,
+    #[cfg(feature = "shared")]
+    pub AddEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddEntry: usize,
+    #[cfg(feature = "shared")]
+    pub AddEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddEntryByIndex: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveEntryByIndex: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ITocCollection_Impl: windows_core::IUnknownImpl {
-    fn GetEntryCount(&self) -> windows_core::Result<u32>;
-    fn GetEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<IToc>;
-    fn AddEntry(&self, ptoc: windows_core::Ref<IToc>) -> windows_core::Result<u32>;
-    fn AddEntryByIndex(&self, dwentryindex: u32, ptoc: windows_core::Ref<IToc>) -> windows_core::Result<()>;
-    fn RemoveEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<()>;
+    fn GetEntryCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::Result<IToc>;
+    fn AddEntry(&self, ptoc: windows_core::Ref<IToc>) -> windows_core::Result<super::DWORD>;
+    fn AddEntryByIndex(&self, dwentryindex: super::DWORD, ptoc: windows_core::Ref<IToc>) -> windows_core::Result<()>;
+    fn RemoveEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ITocCollection_Vtbl {
     pub const fn new<Identity: ITocCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEntryCount<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwentrycount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEntryCount<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwentrycount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocCollection_Impl::GetEntryCount(this) {
@@ -720,7 +835,7 @@ impl ITocCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetEntryByIndex<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: u32, pptoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEntryByIndex<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: super::DWORD, pptoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocCollection_Impl::GetEntryByIndex(this, core::mem::transmute_copy(&dwentryindex)) {
@@ -732,7 +847,7 @@ impl ITocCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddEntry<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptoc: *mut core::ffi::c_void, pdwentryindex: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEntry<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptoc: *mut core::ffi::c_void, pdwentryindex: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocCollection_Impl::AddEntry(this, core::mem::transmute_copy(&ptoc)) {
@@ -744,13 +859,13 @@ impl ITocCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddEntryByIndex<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: u32, ptoc: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEntryByIndex<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: super::DWORD, ptoc: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocCollection_Impl::AddEntryByIndex(this, core::mem::transmute_copy(&dwentryindex), core::mem::transmute_copy(&ptoc)).into()
             }
         }
-        unsafe extern "system" fn RemoveEntryByIndex<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveEntryByIndex<Identity: ITocCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocCollection_Impl::RemoveEntryByIndex(this, core::mem::transmute_copy(&dwentryindex)).into()
@@ -769,6 +884,7 @@ impl ITocCollection_Vtbl {
         iid == &<ITocCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ITocCollection {}
 windows_core::imp::define_interface!(ITocEntry, ITocEntry_Vtbl, 0xf22f5e06_585c_4def_8523_6555cfbc0cb3);
 windows_core::imp::interface_hierarchy!(ITocEntry, windows_core::IUnknown);
@@ -779,25 +895,32 @@ impl ITocEntry {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTitle)(windows_core::Interface::as_raw(self), pwsztitle.param().abi()) }
     }
-    pub unsafe fn GetTitle(&self, pwtitlesize: *mut u16, pwsztitle: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetTitle(&self, pwtitlesize: *mut super::WORD, pwsztitle: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), pwtitlesize as _, pwsztitle.unwrap_or(core::mem::zeroed()) as _) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn SetDescriptor(&self, pdescriptor: *const TOC_ENTRY_DESCRIPTOR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDescriptor)(windows_core::Interface::as_raw(self), pdescriptor) }
     }
+    #[cfg(feature = "shared")]
     pub unsafe fn GetDescriptor(&self, pdescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDescriptor)(windows_core::Interface::as_raw(self), pdescriptor as _) }
     }
-    pub unsafe fn SetSubEntries(&self, dwnumsubentries: u32, pwsubentryindices: *const u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSubEntries(&self, dwnumsubentries: super::DWORD, pwsubentryindices: *const super::WORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSubEntries)(windows_core::Interface::as_raw(self), dwnumsubentries, pwsubentryindices) }
     }
-    pub unsafe fn GetSubEntries(&self, pdwnumsubentries: *mut u32, pwsubentryindices: *mut u16) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSubEntries(&self, pdwnumsubentries: *mut super::DWORD, pwsubentryindices: *mut super::WORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSubEntries)(windows_core::Interface::as_raw(self), pdwnumsubentries as _, pwsubentryindices as _) }
     }
-    pub unsafe fn SetDescriptionData(&self, dwdescriptiondatasize: u32, pbtdescriptiondata: *const u8, pguidtype: *const windows_core::GUID) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetDescriptionData(&self, dwdescriptiondatasize: super::DWORD, pbtdescriptiondata: *const super::BYTE, pguidtype: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDescriptionData)(windows_core::Interface::as_raw(self), dwdescriptiondatasize, pbtdescriptiondata, pguidtype) }
     }
-    pub unsafe fn GetDescriptionData(&self, pdwdescriptiondatasize: *mut u32, pbtdescriptiondata: *mut u8, pguidtype: *mut windows_core::GUID) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetDescriptionData(&self, pdwdescriptiondatasize: *mut super::DWORD, pbtdescriptiondata: *mut super::BYTE, pguidtype: *mut windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDescriptionData)(windows_core::Interface::as_raw(self), pdwdescriptiondatasize as _, pbtdescriptiondata as _, pguidtype as _) }
     }
 }
@@ -806,24 +929,47 @@ impl ITocEntry {
 pub struct ITocEntry_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetTitle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WORD, windows_core::PWSTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetTitle: usize,
+    #[cfg(feature = "shared")]
     pub SetDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *const TOC_ENTRY_DESCRIPTOR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetDescriptor: usize,
+    #[cfg(feature = "shared")]
     pub GetDescriptor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TOC_ENTRY_DESCRIPTOR) -> windows_core::HRESULT,
-    pub SetSubEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u16) -> windows_core::HRESULT,
-    pub GetSubEntries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u16) -> windows_core::HRESULT,
-    pub SetDescriptionData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub GetDescriptionData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u8, *mut windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDescriptor: usize,
+    #[cfg(feature = "shared")]
+    pub SetSubEntries: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *const super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSubEntries: usize,
+    #[cfg(feature = "shared")]
+    pub GetSubEntries: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut super::WORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSubEntries: usize,
+    #[cfg(feature = "shared")]
+    pub SetDescriptionData: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *const super::BYTE, *const windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetDescriptionData: usize,
+    #[cfg(feature = "shared")]
+    pub GetDescriptionData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut super::BYTE, *mut windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetDescriptionData: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ITocEntry_Impl: windows_core::IUnknownImpl {
     fn SetTitle(&self, pwsztitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetTitle(&self, pwtitlesize: *mut u16, pwsztitle: windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetTitle(&self, pwtitlesize: *mut super::WORD, pwsztitle: windows_core::PWSTR) -> windows_core::Result<()>;
     fn SetDescriptor(&self, pdescriptor: *const TOC_ENTRY_DESCRIPTOR) -> windows_core::Result<()>;
     fn GetDescriptor(&self, pdescriptor: *mut TOC_ENTRY_DESCRIPTOR) -> windows_core::Result<()>;
-    fn SetSubEntries(&self, dwnumsubentries: u32, pwsubentryindices: *const u16) -> windows_core::Result<()>;
-    fn GetSubEntries(&self, pdwnumsubentries: *mut u32, pwsubentryindices: *mut u16) -> windows_core::Result<()>;
-    fn SetDescriptionData(&self, dwdescriptiondatasize: u32, pbtdescriptiondata: *const u8, pguidtype: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetDescriptionData(&self, pdwdescriptiondatasize: *mut u32, pbtdescriptiondata: *mut u8, pguidtype: *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn SetSubEntries(&self, dwnumsubentries: super::DWORD, pwsubentryindices: *const super::WORD) -> windows_core::Result<()>;
+    fn GetSubEntries(&self, pdwnumsubentries: *mut super::DWORD, pwsubentryindices: *mut super::WORD) -> windows_core::Result<()>;
+    fn SetDescriptionData(&self, dwdescriptiondatasize: super::DWORD, pbtdescriptiondata: *const super::BYTE, pguidtype: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetDescriptionData(&self, pdwdescriptiondatasize: *mut super::DWORD, pbtdescriptiondata: *mut super::BYTE, pguidtype: *mut windows_core::GUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ITocEntry_Vtbl {
     pub const fn new<Identity: ITocEntry_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetTitle<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztitle: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -832,7 +978,7 @@ impl ITocEntry_Vtbl {
                 ITocEntry_Impl::SetTitle(this, core::mem::transmute(&pwsztitle)).into()
             }
         }
-        unsafe extern "system" fn GetTitle<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwtitlesize: *mut u16, pwsztitle: windows_core::PWSTR) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTitle<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwtitlesize: *mut super::WORD, pwsztitle: windows_core::PWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocEntry_Impl::GetTitle(this, core::mem::transmute_copy(&pwtitlesize), core::mem::transmute_copy(&pwsztitle)).into()
@@ -850,25 +996,25 @@ impl ITocEntry_Vtbl {
                 ITocEntry_Impl::GetDescriptor(this, core::mem::transmute_copy(&pdescriptor)).into()
             }
         }
-        unsafe extern "system" fn SetSubEntries<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnumsubentries: u32, pwsubentryindices: *const u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSubEntries<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnumsubentries: super::DWORD, pwsubentryindices: *const super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocEntry_Impl::SetSubEntries(this, core::mem::transmute_copy(&dwnumsubentries), core::mem::transmute_copy(&pwsubentryindices)).into()
             }
         }
-        unsafe extern "system" fn GetSubEntries<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwnumsubentries: *mut u32, pwsubentryindices: *mut u16) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSubEntries<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwnumsubentries: *mut super::DWORD, pwsubentryindices: *mut super::WORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocEntry_Impl::GetSubEntries(this, core::mem::transmute_copy(&pdwnumsubentries), core::mem::transmute_copy(&pwsubentryindices)).into()
             }
         }
-        unsafe extern "system" fn SetDescriptionData<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdescriptiondatasize: u32, pbtdescriptiondata: *const u8, pguidtype: *const windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDescriptionData<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdescriptiondatasize: super::DWORD, pbtdescriptiondata: *const super::BYTE, pguidtype: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocEntry_Impl::SetDescriptionData(this, core::mem::transmute_copy(&dwdescriptiondatasize), core::mem::transmute_copy(&pbtdescriptiondata), core::mem::transmute_copy(&pguidtype)).into()
             }
         }
-        unsafe extern "system" fn GetDescriptionData<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwdescriptiondatasize: *mut u32, pbtdescriptiondata: *mut u8, pguidtype: *mut windows_core::GUID) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDescriptionData<Identity: ITocEntry_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwdescriptiondatasize: *mut super::DWORD, pbtdescriptiondata: *mut super::BYTE, pguidtype: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocEntry_Impl::GetDescriptionData(this, core::mem::transmute_copy(&pdwdescriptiondatasize), core::mem::transmute_copy(&pbtdescriptiondata), core::mem::transmute_copy(&pguidtype)).into()
@@ -890,23 +1036,27 @@ impl ITocEntry_Vtbl {
         iid == &<ITocEntry as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ITocEntry {}
 windows_core::imp::define_interface!(ITocEntryList, ITocEntryList_Vtbl, 0x3a8cccbd_0efd_43a3_b838_f38a552ba237);
 windows_core::imp::interface_hierarchy!(ITocEntryList, windows_core::IUnknown);
 impl ITocEntryList {
-    pub unsafe fn GetEntryCount(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEntryCount(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntryCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<ITocEntry> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::Result<ITocEntry> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddEntry<P0>(&self, pentry: P0) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddEntry<P0>(&self, pentry: P0) -> windows_core::Result<super::DWORD>
     where
         P0: windows_core::Param<ITocEntry>,
     {
@@ -915,13 +1065,15 @@ impl ITocEntryList {
             (windows_core::Interface::vtable(self).AddEntry)(windows_core::Interface::as_raw(self), pentry.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddEntryByIndex<P1>(&self, dwentryindex: u32, pentry: P1) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddEntryByIndex<P1>(&self, dwentryindex: super::DWORD, pentry: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<ITocEntry>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex, pentry.param().abi()) }
     }
-    pub unsafe fn RemoveEntryByIndex(&self, dwentryindex: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveEntryByIndex)(windows_core::Interface::as_raw(self), dwentryindex) }
     }
 }
@@ -929,22 +1081,39 @@ impl ITocEntryList {
 #[doc(hidden)]
 pub struct ITocEntryList_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub AddEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RemoveEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetEntryCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEntryCount: usize,
+    #[cfg(feature = "shared")]
+    pub GetEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEntryByIndex: usize,
+    #[cfg(feature = "shared")]
+    pub AddEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddEntry: usize,
+    #[cfg(feature = "shared")]
+    pub AddEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddEntryByIndex: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveEntryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveEntryByIndex: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ITocEntryList_Impl: windows_core::IUnknownImpl {
-    fn GetEntryCount(&self) -> windows_core::Result<u32>;
-    fn GetEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<ITocEntry>;
-    fn AddEntry(&self, pentry: windows_core::Ref<ITocEntry>) -> windows_core::Result<u32>;
-    fn AddEntryByIndex(&self, dwentryindex: u32, pentry: windows_core::Ref<ITocEntry>) -> windows_core::Result<()>;
-    fn RemoveEntryByIndex(&self, dwentryindex: u32) -> windows_core::Result<()>;
+    fn GetEntryCount(&self) -> windows_core::Result<super::DWORD>;
+    fn GetEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::Result<ITocEntry>;
+    fn AddEntry(&self, pentry: windows_core::Ref<ITocEntry>) -> windows_core::Result<super::DWORD>;
+    fn AddEntryByIndex(&self, dwentryindex: super::DWORD, pentry: windows_core::Ref<ITocEntry>) -> windows_core::Result<()>;
+    fn RemoveEntryByIndex(&self, dwentryindex: super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ITocEntryList_Vtbl {
     pub const fn new<Identity: ITocEntryList_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetEntryCount<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwentrycount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEntryCount<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwentrycount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocEntryList_Impl::GetEntryCount(this) {
@@ -956,7 +1125,7 @@ impl ITocEntryList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetEntryByIndex<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: u32, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEntryByIndex<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: super::DWORD, ppentry: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocEntryList_Impl::GetEntryByIndex(this, core::mem::transmute_copy(&dwentryindex)) {
@@ -968,7 +1137,7 @@ impl ITocEntryList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddEntry<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentry: *mut core::ffi::c_void, pdwentryindex: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEntry<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentry: *mut core::ffi::c_void, pdwentryindex: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocEntryList_Impl::AddEntry(this, core::mem::transmute_copy(&pentry)) {
@@ -980,13 +1149,13 @@ impl ITocEntryList_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddEntryByIndex<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: u32, pentry: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddEntryByIndex<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: super::DWORD, pentry: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocEntryList_Impl::AddEntryByIndex(this, core::mem::transmute_copy(&dwentryindex), core::mem::transmute_copy(&pentry)).into()
             }
         }
-        unsafe extern "system" fn RemoveEntryByIndex<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveEntryByIndex<Identity: ITocEntryList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwentryindex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocEntryList_Impl::RemoveEntryByIndex(this, core::mem::transmute_copy(&dwentryindex)).into()
@@ -1005,6 +1174,7 @@ impl ITocEntryList_Vtbl {
         iid == &<ITocEntryList as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ITocEntryList {}
 windows_core::imp::define_interface!(ITocParser, ITocParser_Vtbl, 0xecfb9a55_9298_4f49_887f_0b36206599d2);
 windows_core::imp::interface_hierarchy!(ITocParser, windows_core::IUnknown);
@@ -1015,13 +1185,15 @@ impl ITocParser {
     {
         unsafe { (windows_core::Interface::vtable(self).Init)(windows_core::Interface::as_raw(self), pwszfilename.param().abi()) }
     }
-    pub unsafe fn GetTocCount(&self, enumtocpostype: TOC_POS_TYPE) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetTocCount(&self, enumtocpostype: TOC_POS_TYPE) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTocCount)(windows_core::Interface::as_raw(self), enumtocpostype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> windows_core::Result<IToc> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: super::DWORD) -> windows_core::Result<IToc> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTocByIndex)(windows_core::Interface::as_raw(self), enumtocpostype, dwtocindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
@@ -1033,7 +1205,8 @@ impl ITocParser {
             (windows_core::Interface::vtable(self).GetTocByType)(windows_core::Interface::as_raw(self), enumtocpostype, guidtoctype, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddToc<P1>(&self, enumtocpostype: TOC_POS_TYPE, ptoc: P1) -> windows_core::Result<u32>
+    #[cfg(feature = "shared")]
+    pub unsafe fn AddToc<P1>(&self, enumtocpostype: TOC_POS_TYPE, ptoc: P1) -> windows_core::Result<super::DWORD>
     where
         P1: windows_core::Param<IToc>,
     {
@@ -1042,7 +1215,8 @@ impl ITocParser {
             (windows_core::Interface::vtable(self).AddToc)(windows_core::Interface::as_raw(self), enumtocpostype, ptoc.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemoveTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RemoveTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveTocByIndex)(windows_core::Interface::as_raw(self), enumtocpostype, dwtocindex) }
     }
     pub unsafe fn RemoveTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: windows_core::GUID) -> windows_core::HRESULT {
@@ -1057,24 +1231,38 @@ impl ITocParser {
 pub struct ITocParser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Init: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
-    pub GetTocCount: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, *mut u32) -> windows_core::HRESULT,
-    pub GetTocByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetTocCount: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetTocCount: usize,
+    #[cfg(feature = "shared")]
+    pub GetTocByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetTocByIndex: usize,
     pub GetTocByType: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddToc: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub RemoveTocByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub AddToc: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, *mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    AddToc: usize,
+    #[cfg(feature = "shared")]
+    pub RemoveTocByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RemoveTocByIndex: usize,
     pub RemoveTocByType: unsafe extern "system" fn(*mut core::ffi::c_void, TOC_POS_TYPE, windows_core::GUID) -> windows_core::HRESULT,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait ITocParser_Impl: windows_core::IUnknownImpl {
     fn Init(&self, pwszfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetTocCount(&self, enumtocpostype: TOC_POS_TYPE) -> windows_core::Result<u32>;
-    fn GetTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> windows_core::Result<IToc>;
+    fn GetTocCount(&self, enumtocpostype: TOC_POS_TYPE) -> windows_core::Result<super::DWORD>;
+    fn GetTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: super::DWORD) -> windows_core::Result<IToc>;
     fn GetTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: &windows_core::GUID) -> windows_core::Result<ITocCollection>;
-    fn AddToc(&self, enumtocpostype: TOC_POS_TYPE, ptoc: windows_core::Ref<IToc>) -> windows_core::Result<u32>;
-    fn RemoveTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> windows_core::Result<()>;
+    fn AddToc(&self, enumtocpostype: TOC_POS_TYPE, ptoc: windows_core::Ref<IToc>) -> windows_core::Result<super::DWORD>;
+    fn RemoveTocByIndex(&self, enumtocpostype: TOC_POS_TYPE, dwtocindex: super::DWORD) -> windows_core::Result<()>;
     fn RemoveTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: &windows_core::GUID) -> windows_core::Result<()>;
     fn Commit(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ITocParser_Vtbl {
     pub const fn new<Identity: ITocParser_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Init<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszfilename: windows_core::PCWSTR) -> windows_core::HRESULT {
@@ -1083,7 +1271,7 @@ impl ITocParser_Vtbl {
                 ITocParser_Impl::Init(this, core::mem::transmute(&pwszfilename)).into()
             }
         }
-        unsafe extern "system" fn GetTocCount<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, pdwtoccount: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTocCount<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, pdwtoccount: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocParser_Impl::GetTocCount(this, core::mem::transmute_copy(&enumtocpostype)) {
@@ -1095,7 +1283,7 @@ impl ITocParser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetTocByIndex<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32, pptoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTocByIndex<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, dwtocindex: super::DWORD, pptoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocParser_Impl::GetTocByIndex(this, core::mem::transmute_copy(&enumtocpostype), core::mem::transmute_copy(&dwtocindex)) {
@@ -1119,7 +1307,7 @@ impl ITocParser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddToc<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, ptoc: *mut core::ffi::c_void, pdwtocindex: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddToc<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, ptoc: *mut core::ffi::c_void, pdwtocindex: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITocParser_Impl::AddToc(this, core::mem::transmute_copy(&enumtocpostype), core::mem::transmute_copy(&ptoc)) {
@@ -1131,7 +1319,7 @@ impl ITocParser_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveTocByIndex<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, dwtocindex: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveTocByIndex<Identity: ITocParser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, dwtocindex: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITocParser_Impl::RemoveTocByIndex(this, core::mem::transmute_copy(&enumtocpostype), core::mem::transmute_copy(&dwtocindex)).into()
@@ -1165,26 +1353,33 @@ impl ITocParser_Vtbl {
         iid == &<ITocParser as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ITocParser {}
 windows_core::imp::define_interface!(IValidateBinding, IValidateBinding_Vtbl, 0x04a578b2_e778_422a_a805_b3ee54d90bd9);
 windows_core::imp::interface_hierarchy!(IValidateBinding, windows_core::IUnknown);
 impl IValidateBinding {
-    pub unsafe fn GetIdentifier(&self, guidlicensorid: windows_core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), guidlicensorid, pbephemeron, cbephemeron, ppbblobvalidationid as _, pcbblobsize as _) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetIdentifier(&self, guidlicensorid: windows_core::GUID, pbephemeron: &[super::BYTE], ppbblobvalidationid: *mut *mut super::BYTE, pcbblobsize: *mut super::DWORD) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), guidlicensorid, pbephemeron.as_ptr(), pbephemeron.len().try_into().unwrap(), ppbblobvalidationid as _, pcbblobsize as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IValidateBinding_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const super::BYTE, super::DWORD, *mut *mut super::BYTE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetIdentifier: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IValidateBinding_Impl: windows_core::IUnknownImpl {
-    fn GetIdentifier(&self, guidlicensorid: &windows_core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> windows_core::Result<()>;
+    fn GetIdentifier(&self, guidlicensorid: &windows_core::GUID, pbephemeron: *const super::BYTE, cbephemeron: super::DWORD, ppbblobvalidationid: *mut *mut super::BYTE, pcbblobsize: *mut super::DWORD) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IValidateBinding_Vtbl {
     pub const fn new<Identity: IValidateBinding_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIdentifier<Identity: IValidateBinding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidlicensorid: windows_core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetIdentifier<Identity: IValidateBinding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidlicensorid: windows_core::GUID, pbephemeron: *const super::BYTE, cbephemeron: super::DWORD, ppbblobvalidationid: *mut *mut super::BYTE, pcbblobsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IValidateBinding_Impl::GetIdentifier(this, core::mem::transmute(&guidlicensorid), core::mem::transmute_copy(&pbephemeron), core::mem::transmute_copy(&cbephemeron), core::mem::transmute_copy(&ppbblobvalidationid), core::mem::transmute_copy(&pcbblobsize)).into()
@@ -1196,23 +1391,28 @@ impl IValidateBinding_Vtbl {
         iid == &<IValidateBinding as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IValidateBinding {}
 windows_core::imp::define_interface!(IWMCodecLeakyBucket, IWMCodecLeakyBucket_Vtbl, 0xa81ba647_6227_43b7_b231_c7b15135dd7d);
 windows_core::imp::interface_hierarchy!(IWMCodecLeakyBucket, windows_core::IUnknown);
 impl IWMCodecLeakyBucket {
-    pub unsafe fn SetBufferSizeBits(&self, ulbuffersize: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetBufferSizeBits(&self, ulbuffersize: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBufferSizeBits)(windows_core::Interface::as_raw(self), ulbuffersize) }
     }
-    pub unsafe fn GetBufferSizeBits(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBufferSizeBits(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBufferSizeBits)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBufferFullnessBits(&self, ulbufferfullness: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetBufferFullnessBits(&self, ulbufferfullness: super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBufferFullnessBits)(windows_core::Interface::as_raw(self), ulbufferfullness) }
     }
-    pub unsafe fn GetBufferFullnessBits(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetBufferFullnessBits(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBufferFullnessBits)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1223,26 +1423,40 @@ impl IWMCodecLeakyBucket {
 #[doc(hidden)]
 pub struct IWMCodecLeakyBucket_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetBufferSizeBits: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetBufferSizeBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetBufferFullnessBits: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetBufferFullnessBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetBufferSizeBits: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetBufferSizeBits: usize,
+    #[cfg(feature = "shared")]
+    pub GetBufferSizeBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBufferSizeBits: usize,
+    #[cfg(feature = "shared")]
+    pub SetBufferFullnessBits: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetBufferFullnessBits: usize,
+    #[cfg(feature = "shared")]
+    pub GetBufferFullnessBits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetBufferFullnessBits: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IWMCodecLeakyBucket_Impl: windows_core::IUnknownImpl {
-    fn SetBufferSizeBits(&self, ulbuffersize: u32) -> windows_core::Result<()>;
-    fn GetBufferSizeBits(&self) -> windows_core::Result<u32>;
-    fn SetBufferFullnessBits(&self, ulbufferfullness: u32) -> windows_core::Result<()>;
-    fn GetBufferFullnessBits(&self) -> windows_core::Result<u32>;
+    fn SetBufferSizeBits(&self, ulbuffersize: super::ULONG) -> windows_core::Result<()>;
+    fn GetBufferSizeBits(&self) -> windows_core::Result<super::ULONG>;
+    fn SetBufferFullnessBits(&self, ulbufferfullness: super::ULONG) -> windows_core::Result<()>;
+    fn GetBufferFullnessBits(&self) -> windows_core::Result<super::ULONG>;
 }
+#[cfg(feature = "shared")]
 impl IWMCodecLeakyBucket_Vtbl {
     pub const fn new<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetBufferSizeBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulbuffersize: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBufferSizeBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulbuffersize: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMCodecLeakyBucket_Impl::SetBufferSizeBits(this, core::mem::transmute_copy(&ulbuffersize)).into()
             }
         }
-        unsafe extern "system" fn GetBufferSizeBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulbuffersize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBufferSizeBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulbuffersize: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMCodecLeakyBucket_Impl::GetBufferSizeBits(this) {
@@ -1254,13 +1468,13 @@ impl IWMCodecLeakyBucket_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBufferFullnessBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulbufferfullness: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBufferFullnessBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ulbufferfullness: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMCodecLeakyBucket_Impl::SetBufferFullnessBits(this, core::mem::transmute_copy(&ulbufferfullness)).into()
             }
         }
-        unsafe extern "system" fn GetBufferFullnessBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulbufferfullness: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBufferFullnessBits<Identity: IWMCodecLeakyBucket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pulbufferfullness: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMCodecLeakyBucket_Impl::GetBufferFullnessBits(this) {
@@ -1284,11 +1498,12 @@ impl IWMCodecLeakyBucket_Vtbl {
         iid == &<IWMCodecLeakyBucket as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMCodecLeakyBucket {}
 windows_core::imp::define_interface!(IWMCodecOutputTimestamp, IWMCodecOutputTimestamp_Vtbl, 0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
 windows_core::imp::interface_hierarchy!(IWMCodecOutputTimestamp, windows_core::IUnknown);
 impl IWMCodecOutputTimestamp {
-    #[cfg(feature = "mediaobj")]
+    #[cfg(feature = "shared")]
     pub unsafe fn GetNextOutputTime(&self) -> windows_core::Result<super::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1300,16 +1515,16 @@ impl IWMCodecOutputTimestamp {
 #[doc(hidden)]
 pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "mediaobj")]
+    #[cfg(feature = "shared")]
     pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(not(feature = "shared"))]
     GetNextOutputTime: usize,
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 pub trait IWMCodecOutputTimestamp_Impl: windows_core::IUnknownImpl {
     fn GetNextOutputTime(&self) -> windows_core::Result<super::REFERENCE_TIME>;
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 impl IWMCodecOutputTimestamp_Vtbl {
     pub const fn new<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNextOutputTime<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prttime: *mut super::REFERENCE_TIME) -> windows_core::HRESULT {
@@ -1330,16 +1545,17 @@ impl IWMCodecOutputTimestamp_Vtbl {
         iid == &<IWMCodecOutputTimestamp as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMCodecOutputTimestamp {}
 windows_core::imp::define_interface!(IWMCodecPrivateData, IWMCodecPrivateData_Vtbl, 0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
 windows_core::imp::interface_hierarchy!(IWMCodecPrivateData, windows_core::IUnknown);
 impl IWMCodecPrivateData {
-    #[cfg(feature = "mediaobj")]
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
     pub unsafe fn SetPartialOutputType(&self, pmt: *const super::DMO_MEDIA_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetPartialOutputType)(windows_core::Interface::as_raw(self), pmt) }
     }
-    pub unsafe fn GetPrivateData(&self, pbdata: *mut u8, pcbdata: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPrivateData(&self, pbdata: *mut super::BYTE, pcbdata: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), pbdata as _, pcbdata as _) }
     }
 }
@@ -1347,18 +1563,21 @@ impl IWMCodecPrivateData {
 #[doc(hidden)]
 pub struct IWMCodecPrivateData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "mediaobj")]
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
     pub SetPartialOutputType: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DMO_MEDIA_TYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(not(all(feature = "mediaobj", feature = "shared")))]
     SetPartialOutputType: usize,
-    pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::BYTE, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPrivateData: usize,
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 pub trait IWMCodecPrivateData_Impl: windows_core::IUnknownImpl {
     fn SetPartialOutputType(&self, pmt: *const super::DMO_MEDIA_TYPE) -> windows_core::Result<()>;
-    fn GetPrivateData(&self, pbdata: *mut u8, pcbdata: *mut u32) -> windows_core::Result<()>;
+    fn GetPrivateData(&self, pbdata: *mut super::BYTE, pcbdata: *mut super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl IWMCodecPrivateData_Vtbl {
     pub const fn new<Identity: IWMCodecPrivateData_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPartialOutputType<Identity: IWMCodecPrivateData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE) -> windows_core::HRESULT {
@@ -1367,7 +1586,7 @@ impl IWMCodecPrivateData_Vtbl {
                 IWMCodecPrivateData_Impl::SetPartialOutputType(this, core::mem::transmute_copy(&pmt)).into()
             }
         }
-        unsafe extern "system" fn GetPrivateData<Identity: IWMCodecPrivateData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdata: *mut u8, pcbdata: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrivateData<Identity: IWMCodecPrivateData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdata: *mut super::BYTE, pcbdata: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMCodecPrivateData_Impl::GetPrivateData(this, core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&pcbdata)).into()
@@ -1383,19 +1602,20 @@ impl IWMCodecPrivateData_Vtbl {
         iid == &<IWMCodecPrivateData as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl windows_core::RuntimeName for IWMCodecPrivateData {}
 windows_core::imp::define_interface!(IWMCodecProps, IWMCodecProps_Vtbl, 0x2573e11a_f01a_4fdd_a98d_63b8e0ba9589);
 windows_core::imp::interface_hierarchy!(IWMCodecProps, windows_core::IUnknown);
 impl IWMCodecProps {
-    #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetFormatProp<P1>(&self, pmt: *const super::DMO_MEDIA_TYPE, pszname: P1, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
+    pub unsafe fn GetFormatProp<P1>(&self, pmt: *const super::DMO_MEDIA_TYPE, pszname: P1, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetFormatProp)(windows_core::Interface::as_raw(self), pmt, pszname.param().abi(), ptype as _, pvalue as _, pdwsize as _) }
     }
-    pub unsafe fn GetCodecProp<P1>(&self, dwformat: u32, pszname: P1, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetCodecProp<P1>(&self, dwformat: super::DWORD, pszname: P1, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1406,27 +1626,30 @@ impl IWMCodecProps {
 #[doc(hidden)]
 pub struct IWMCodecProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "mediaobj")]
-    pub GetFormatProp: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DMO_MEDIA_TYPE, windows_core::PCWSTR, *mut WMT_PROP_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
+    pub GetFormatProp: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DMO_MEDIA_TYPE, windows_core::PCWSTR, *mut WMT_PROP_DATATYPE, *mut super::BYTE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mediaobj", feature = "shared")))]
     GetFormatProp: usize,
-    pub GetCodecProp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut WMT_PROP_DATATYPE, *mut u8, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetCodecProp: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD, windows_core::PCWSTR, *mut WMT_PROP_DATATYPE, *mut super::BYTE, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetCodecProp: usize,
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 pub trait IWMCodecProps_Impl: windows_core::IUnknownImpl {
-    fn GetFormatProp(&self, pmt: *const super::DMO_MEDIA_TYPE, pszname: &windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
-    fn GetCodecProp(&self, dwformat: u32, pszname: &windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+    fn GetFormatProp(&self, pmt: *const super::DMO_MEDIA_TYPE, pszname: &windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetCodecProp(&self, dwformat: super::DWORD, pszname: &windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl IWMCodecProps_Vtbl {
     pub const fn new<Identity: IWMCodecProps_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetFormatProp<Identity: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE, pszname: windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFormatProp<Identity: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE, pszname: windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMCodecProps_Impl::GetFormatProp(this, core::mem::transmute_copy(&pmt), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize)).into()
             }
         }
-        unsafe extern "system" fn GetCodecProp<Identity: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwformat: u32, pszname: windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCodecProp<Identity: IWMCodecProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwformat: super::DWORD, pszname: windows_core::PCWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut super::BYTE, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMCodecProps_Impl::GetCodecProp(this, core::mem::transmute_copy(&dwformat), core::mem::transmute(&pszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pdwsize)).into()
@@ -1442,17 +1665,17 @@ impl IWMCodecProps_Vtbl {
         iid == &<IWMCodecProps as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl windows_core::RuntimeName for IWMCodecProps {}
 windows_core::imp::define_interface!(IWMCodecStrings, IWMCodecStrings_Vtbl, 0xa7b2504b_e58a_47fb_958b_cac7165a057d);
 windows_core::imp::interface_hierarchy!(IWMCodecStrings, windows_core::IUnknown);
 impl IWMCodecStrings {
-    #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, szname: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
+    pub unsafe fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, szname: Option<&mut [u16]>, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
     }
-    #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, szdescription: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
+    pub unsafe fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, szdescription: Option<&mut [u16]>, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
     }
 }
@@ -1460,30 +1683,30 @@ impl IWMCodecStrings {
 #[doc(hidden)]
 pub struct IWMCodecStrings_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "mediaobj")]
-    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DMO_MEDIA_TYPE, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DMO_MEDIA_TYPE, super::ULONG, windows_core::PWSTR, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mediaobj", feature = "shared")))]
     GetName: usize,
-    #[cfg(feature = "mediaobj")]
-    pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DMO_MEDIA_TYPE, u32, windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(all(feature = "mediaobj", feature = "shared"))]
+    pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::DMO_MEDIA_TYPE, super::ULONG, windows_core::PWSTR, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "mediaobj", feature = "shared")))]
     GetDescription: usize,
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 pub trait IWMCodecStrings_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szname: windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::Result<()>;
-    fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szdescription: windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::Result<()>;
+    fn GetName(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: super::ULONG, szname: windows_core::PWSTR, pcchlength: *mut super::ULONG) -> windows_core::Result<()>;
+    fn GetDescription(&self, pmt: *const super::DMO_MEDIA_TYPE, cchlength: super::ULONG, szdescription: windows_core::PWSTR, pcchlength: *mut super::ULONG) -> windows_core::Result<()>;
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl IWMCodecStrings_Vtbl {
     pub const fn new<Identity: IWMCodecStrings_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetName<Identity: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szname: windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetName<Identity: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE, cchlength: super::ULONG, szname: windows_core::PWSTR, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMCodecStrings_Impl::GetName(this, core::mem::transmute_copy(&pmt), core::mem::transmute_copy(&cchlength), core::mem::transmute_copy(&szname), core::mem::transmute_copy(&pcchlength)).into()
             }
         }
-        unsafe extern "system" fn GetDescription<Identity: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE, cchlength: u32, szdescription: windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDescription<Identity: IWMCodecStrings_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmt: *const super::DMO_MEDIA_TYPE, cchlength: super::ULONG, szdescription: windows_core::PWSTR, pcchlength: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMCodecStrings_Impl::GetDescription(this, core::mem::transmute_copy(&pmt), core::mem::transmute_copy(&cchlength), core::mem::transmute_copy(&szdescription), core::mem::transmute_copy(&pcchlength)).into()
@@ -1499,15 +1722,17 @@ impl IWMCodecStrings_Vtbl {
         iid == &<IWMCodecStrings as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl windows_core::RuntimeName for IWMCodecStrings {}
 windows_core::imp::define_interface!(IWMColorConvProps, IWMColorConvProps_Vtbl, 0xe6a49e22_c099_421d_aad3_c061fb4ae85b);
 windows_core::imp::interface_hierarchy!(IWMColorConvProps, windows_core::IUnknown);
 impl IWMColorConvProps {
-    pub unsafe fn SetMode(&self, lmode: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetMode(&self, lmode: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), lmode) }
     }
-    pub unsafe fn SetFullCroppingParam(&self, lsrccropleft: i32, lsrccroptop: i32, ldstcropleft: i32, ldstcroptop: i32, lcropwidth: i32, lcropheight: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetFullCroppingParam(&self, lsrccropleft: super::LONG, lsrccroptop: super::LONG, ldstcropleft: super::LONG, ldstcroptop: super::LONG, lcropwidth: super::LONG, lcropheight: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFullCroppingParam)(windows_core::Interface::as_raw(self), lsrccropleft, lsrccroptop, ldstcropleft, ldstcroptop, lcropwidth, lcropheight) }
     }
 }
@@ -1515,22 +1740,30 @@ impl IWMColorConvProps {
 #[doc(hidden)]
 pub struct IWMColorConvProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetFullCroppingParam: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetMode: usize,
+    #[cfg(feature = "shared")]
+    pub SetFullCroppingParam: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, super::LONG, super::LONG, super::LONG, super::LONG, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetFullCroppingParam: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IWMColorConvProps_Impl: windows_core::IUnknownImpl {
-    fn SetMode(&self, lmode: i32) -> windows_core::Result<()>;
-    fn SetFullCroppingParam(&self, lsrccropleft: i32, lsrccroptop: i32, ldstcropleft: i32, ldstcroptop: i32, lcropwidth: i32, lcropheight: i32) -> windows_core::Result<()>;
+    fn SetMode(&self, lmode: super::LONG) -> windows_core::Result<()>;
+    fn SetFullCroppingParam(&self, lsrccropleft: super::LONG, lsrccroptop: super::LONG, ldstcropleft: super::LONG, ldstcroptop: super::LONG, lcropwidth: super::LONG, lcropheight: super::LONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWMColorConvProps_Vtbl {
     pub const fn new<Identity: IWMColorConvProps_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMode<Identity: IWMColorConvProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmode: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMode<Identity: IWMColorConvProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmode: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMColorConvProps_Impl::SetMode(this, core::mem::transmute_copy(&lmode)).into()
             }
         }
-        unsafe extern "system" fn SetFullCroppingParam<Identity: IWMColorConvProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrccropleft: i32, lsrccroptop: i32, ldstcropleft: i32, ldstcroptop: i32, lcropwidth: i32, lcropheight: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFullCroppingParam<Identity: IWMColorConvProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lsrccropleft: super::LONG, lsrccroptop: super::LONG, ldstcropleft: super::LONG, ldstcroptop: super::LONG, lcropwidth: super::LONG, lcropheight: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMColorConvProps_Impl::SetFullCroppingParam(this, core::mem::transmute_copy(&lsrccropleft), core::mem::transmute_copy(&lsrccroptop), core::mem::transmute_copy(&ldstcropleft), core::mem::transmute_copy(&ldstcroptop), core::mem::transmute_copy(&lcropwidth), core::mem::transmute_copy(&lcropheight)).into()
@@ -1546,11 +1779,13 @@ impl IWMColorConvProps_Vtbl {
         iid == &<IWMColorConvProps as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMColorConvProps {}
 windows_core::imp::define_interface!(IWMColorLegalizerProps, IWMColorLegalizerProps_Vtbl, 0x776c93b3_b72d_4508_b6d0_208785f553e7);
 windows_core::imp::interface_hierarchy!(IWMColorLegalizerProps, windows_core::IUnknown);
 impl IWMColorLegalizerProps {
-    pub unsafe fn SetColorLegalizerQuality(&self, lquality: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetColorLegalizerQuality(&self, lquality: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColorLegalizerQuality)(windows_core::Interface::as_raw(self), lquality) }
     }
 }
@@ -1558,14 +1793,19 @@ impl IWMColorLegalizerProps {
 #[doc(hidden)]
 pub struct IWMColorLegalizerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetColorLegalizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetColorLegalizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetColorLegalizerQuality: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IWMColorLegalizerProps_Impl: windows_core::IUnknownImpl {
-    fn SetColorLegalizerQuality(&self, lquality: i32) -> windows_core::Result<()>;
+    fn SetColorLegalizerQuality(&self, lquality: super::LONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWMColorLegalizerProps_Vtbl {
     pub const fn new<Identity: IWMColorLegalizerProps_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetColorLegalizerQuality<Identity: IWMColorLegalizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquality: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColorLegalizerQuality<Identity: IWMColorLegalizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquality: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMColorLegalizerProps_Impl::SetColorLegalizerQuality(this, core::mem::transmute_copy(&lquality)).into()
@@ -1577,14 +1817,17 @@ impl IWMColorLegalizerProps_Vtbl {
         iid == &<IWMColorLegalizerProps as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMColorLegalizerProps {}
 windows_core::imp::define_interface!(IWMFrameInterpProps, IWMFrameInterpProps_Vtbl, 0x4c06bb9b_626c_4614_8329_cc6a21b93fa0);
 windows_core::imp::interface_hierarchy!(IWMFrameInterpProps, windows_core::IUnknown);
 impl IWMFrameInterpProps {
-    pub unsafe fn SetFrameRateIn(&self, lframerate: i32, lscale: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetFrameRateIn(&self, lframerate: super::LONG, lscale: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFrameRateIn)(windows_core::Interface::as_raw(self), lframerate, lscale) }
     }
-    pub unsafe fn SetFrameRateOut(&self, lframerate: i32, lscale: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetFrameRateOut(&self, lframerate: super::LONG, lscale: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFrameRateOut)(windows_core::Interface::as_raw(self), lframerate, lscale) }
     }
     pub unsafe fn SetFrameInterpEnabled(&self, bfienabled: bool) -> windows_core::HRESULT {
@@ -1598,26 +1841,34 @@ impl IWMFrameInterpProps {
 #[doc(hidden)]
 pub struct IWMFrameInterpProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetFrameRateIn: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    pub SetFrameRateOut: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetFrameRateIn: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetFrameRateIn: usize,
+    #[cfg(feature = "shared")]
+    pub SetFrameRateOut: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetFrameRateOut: usize,
     pub SetFrameInterpEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
     pub SetComplexityLevel: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IWMFrameInterpProps_Impl: windows_core::IUnknownImpl {
-    fn SetFrameRateIn(&self, lframerate: i32, lscale: i32) -> windows_core::Result<()>;
-    fn SetFrameRateOut(&self, lframerate: i32, lscale: i32) -> windows_core::Result<()>;
+    fn SetFrameRateIn(&self, lframerate: super::LONG, lscale: super::LONG) -> windows_core::Result<()>;
+    fn SetFrameRateOut(&self, lframerate: super::LONG, lscale: super::LONG) -> windows_core::Result<()>;
     fn SetFrameInterpEnabled(&self, bfienabled: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetComplexityLevel(&self, icomplexity: i32) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWMFrameInterpProps_Vtbl {
     pub const fn new<Identity: IWMFrameInterpProps_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetFrameRateIn<Identity: IWMFrameInterpProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lframerate: i32, lscale: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFrameRateIn<Identity: IWMFrameInterpProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lframerate: super::LONG, lscale: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMFrameInterpProps_Impl::SetFrameRateIn(this, core::mem::transmute_copy(&lframerate), core::mem::transmute_copy(&lscale)).into()
             }
         }
-        unsafe extern "system" fn SetFrameRateOut<Identity: IWMFrameInterpProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lframerate: i32, lscale: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFrameRateOut<Identity: IWMFrameInterpProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lframerate: super::LONG, lscale: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMFrameInterpProps_Impl::SetFrameRateOut(this, core::mem::transmute_copy(&lframerate), core::mem::transmute_copy(&lscale)).into()
@@ -1647,6 +1898,7 @@ impl IWMFrameInterpProps_Vtbl {
         iid == &<IWMFrameInterpProps as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMFrameInterpProps {}
 windows_core::imp::define_interface!(IWMInterlaceProps, IWMInterlaceProps_Vtbl, 0x7b12e5d1_bd22_48ea_bc06_98e893221c89);
 windows_core::imp::interface_hierarchy!(IWMInterlaceProps, windows_core::IUnknown);
@@ -1709,7 +1961,8 @@ impl windows_core::RuntimeName for IWMInterlaceProps {}
 windows_core::imp::define_interface!(IWMResamplerProps, IWMResamplerProps_Vtbl, 0xe7e9984f_f09f_4da4_903f_6e2e0efe56b5);
 windows_core::imp::interface_hierarchy!(IWMResamplerProps, windows_core::IUnknown);
 impl IWMResamplerProps {
-    pub unsafe fn SetHalfFilterLength(&self, lhalffilterlen: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetHalfFilterLength(&self, lhalffilterlen: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHalfFilterLength)(windows_core::Interface::as_raw(self), lhalffilterlen) }
     }
     pub unsafe fn SetUserChannelMtx(&self, userchannelmtx: *const ChMtxType) -> windows_core::HRESULT {
@@ -1720,16 +1973,21 @@ impl IWMResamplerProps {
 #[doc(hidden)]
 pub struct IWMResamplerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetHalfFilterLength: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetHalfFilterLength: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetHalfFilterLength: usize,
     pub SetUserChannelMtx: unsafe extern "system" fn(*mut core::ffi::c_void, *const ChMtxType) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IWMResamplerProps_Impl: windows_core::IUnknownImpl {
-    fn SetHalfFilterLength(&self, lhalffilterlen: i32) -> windows_core::Result<()>;
+    fn SetHalfFilterLength(&self, lhalffilterlen: super::LONG) -> windows_core::Result<()>;
     fn SetUserChannelMtx(&self, userchannelmtx: *const ChMtxType) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWMResamplerProps_Vtbl {
     pub const fn new<Identity: IWMResamplerProps_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetHalfFilterLength<Identity: IWMResamplerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhalffilterlen: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHalfFilterLength<Identity: IWMResamplerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhalffilterlen: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMResamplerProps_Impl::SetHalfFilterLength(this, core::mem::transmute_copy(&lhalffilterlen)).into()
@@ -1751,23 +2009,29 @@ impl IWMResamplerProps_Vtbl {
         iid == &<IWMResamplerProps as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMResamplerProps {}
 windows_core::imp::define_interface!(IWMResizerProps, IWMResizerProps_Vtbl, 0x57665d4c_0414_4faa_905b_10e546f81c33);
 windows_core::imp::interface_hierarchy!(IWMResizerProps, windows_core::IUnknown);
 impl IWMResizerProps {
-    pub unsafe fn SetResizerQuality(&self, lquality: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetResizerQuality(&self, lquality: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetResizerQuality)(windows_core::Interface::as_raw(self), lquality) }
     }
-    pub unsafe fn SetInterlaceMode(&self, lmode: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetInterlaceMode(&self, lmode: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetInterlaceMode)(windows_core::Interface::as_raw(self), lmode) }
     }
-    pub unsafe fn SetClipRegion(&self, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetClipRegion(&self, lcliporixsrc: super::LONG, lcliporiysrc: super::LONG, lclipwidthsrc: super::LONG, lclipheightsrc: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipRegion)(windows_core::Interface::as_raw(self), lcliporixsrc, lcliporiysrc, lclipwidthsrc, lclipheightsrc) }
     }
-    pub unsafe fn SetFullCropRegion(&self, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32, lcliporixdst: i32, lcliporiydst: i32, lclipwidthdst: i32, lclipheightdst: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetFullCropRegion(&self, lcliporixsrc: super::LONG, lcliporiysrc: super::LONG, lclipwidthsrc: super::LONG, lclipheightsrc: super::LONG, lcliporixdst: super::LONG, lcliporiydst: super::LONG, lclipwidthdst: super::LONG, lclipheightdst: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFullCropRegion)(windows_core::Interface::as_raw(self), lcliporixsrc, lcliporiysrc, lclipwidthsrc, lclipheightsrc, lcliporixdst, lcliporiydst, lclipwidthdst, lclipheightdst) }
     }
-    pub unsafe fn GetFullCropRegion(&self, lcliporixsrc: *mut i32, lcliporiysrc: *mut i32, lclipwidthsrc: *mut i32, lclipheightsrc: *mut i32, lcliporixdst: *mut i32, lcliporiydst: *mut i32, lclipwidthdst: *mut i32, lclipheightdst: *mut i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFullCropRegion(&self, lcliporixsrc: *mut super::LONG, lcliporiysrc: *mut super::LONG, lclipwidthsrc: *mut super::LONG, lclipheightsrc: *mut super::LONG, lcliporixdst: *mut super::LONG, lcliporiydst: *mut super::LONG, lclipwidthdst: *mut super::LONG, lclipheightdst: *mut super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFullCropRegion)(windows_core::Interface::as_raw(self), lcliporixsrc as _, lcliporiysrc as _, lclipwidthsrc as _, lclipheightsrc as _, lcliporixdst as _, lcliporiydst as _, lclipwidthdst as _, lclipheightdst as _) }
     }
 }
@@ -1775,46 +2039,63 @@ impl IWMResizerProps {
 #[doc(hidden)]
 pub struct IWMResizerProps_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetResizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetInterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SetClipRegion: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
-    pub SetFullCropRegion: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32, i32, i32, i32, i32) -> windows_core::HRESULT,
-    pub GetFullCropRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetResizerQuality: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetResizerQuality: usize,
+    #[cfg(feature = "shared")]
+    pub SetInterlaceMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetInterlaceMode: usize,
+    #[cfg(feature = "shared")]
+    pub SetClipRegion: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, super::LONG, super::LONG, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetClipRegion: usize,
+    #[cfg(feature = "shared")]
+    pub SetFullCropRegion: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, super::LONG, super::LONG, super::LONG, super::LONG, super::LONG, super::LONG, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetFullCropRegion: usize,
+    #[cfg(feature = "shared")]
+    pub GetFullCropRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG, *mut super::LONG, *mut super::LONG, *mut super::LONG, *mut super::LONG, *mut super::LONG, *mut super::LONG, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFullCropRegion: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IWMResizerProps_Impl: windows_core::IUnknownImpl {
-    fn SetResizerQuality(&self, lquality: i32) -> windows_core::Result<()>;
-    fn SetInterlaceMode(&self, lmode: i32) -> windows_core::Result<()>;
-    fn SetClipRegion(&self, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32) -> windows_core::Result<()>;
-    fn SetFullCropRegion(&self, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32, lcliporixdst: i32, lcliporiydst: i32, lclipwidthdst: i32, lclipheightdst: i32) -> windows_core::Result<()>;
-    fn GetFullCropRegion(&self, lcliporixsrc: *mut i32, lcliporiysrc: *mut i32, lclipwidthsrc: *mut i32, lclipheightsrc: *mut i32, lcliporixdst: *mut i32, lcliporiydst: *mut i32, lclipwidthdst: *mut i32, lclipheightdst: *mut i32) -> windows_core::Result<()>;
+    fn SetResizerQuality(&self, lquality: super::LONG) -> windows_core::Result<()>;
+    fn SetInterlaceMode(&self, lmode: super::LONG) -> windows_core::Result<()>;
+    fn SetClipRegion(&self, lcliporixsrc: super::LONG, lcliporiysrc: super::LONG, lclipwidthsrc: super::LONG, lclipheightsrc: super::LONG) -> windows_core::Result<()>;
+    fn SetFullCropRegion(&self, lcliporixsrc: super::LONG, lcliporiysrc: super::LONG, lclipwidthsrc: super::LONG, lclipheightsrc: super::LONG, lcliporixdst: super::LONG, lcliporiydst: super::LONG, lclipwidthdst: super::LONG, lclipheightdst: super::LONG) -> windows_core::Result<()>;
+    fn GetFullCropRegion(&self, lcliporixsrc: *mut super::LONG, lcliporiysrc: *mut super::LONG, lclipwidthsrc: *mut super::LONG, lclipheightsrc: *mut super::LONG, lcliporixdst: *mut super::LONG, lcliporiydst: *mut super::LONG, lclipwidthdst: *mut super::LONG, lclipheightdst: *mut super::LONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IWMResizerProps_Vtbl {
     pub const fn new<Identity: IWMResizerProps_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetResizerQuality<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquality: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetResizerQuality<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lquality: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMResizerProps_Impl::SetResizerQuality(this, core::mem::transmute_copy(&lquality)).into()
             }
         }
-        unsafe extern "system" fn SetInterlaceMode<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmode: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetInterlaceMode<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lmode: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMResizerProps_Impl::SetInterlaceMode(this, core::mem::transmute_copy(&lmode)).into()
             }
         }
-        unsafe extern "system" fn SetClipRegion<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClipRegion<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcliporixsrc: super::LONG, lcliporiysrc: super::LONG, lclipwidthsrc: super::LONG, lclipheightsrc: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMResizerProps_Impl::SetClipRegion(this, core::mem::transmute_copy(&lcliporixsrc), core::mem::transmute_copy(&lcliporiysrc), core::mem::transmute_copy(&lclipwidthsrc), core::mem::transmute_copy(&lclipheightsrc)).into()
             }
         }
-        unsafe extern "system" fn SetFullCropRegion<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32, lcliporixdst: i32, lcliporiydst: i32, lclipwidthdst: i32, lclipheightdst: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetFullCropRegion<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcliporixsrc: super::LONG, lcliporiysrc: super::LONG, lclipwidthsrc: super::LONG, lclipheightsrc: super::LONG, lcliporixdst: super::LONG, lcliporiydst: super::LONG, lclipwidthdst: super::LONG, lclipheightdst: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMResizerProps_Impl::SetFullCropRegion(this, core::mem::transmute_copy(&lcliporixsrc), core::mem::transmute_copy(&lcliporiysrc), core::mem::transmute_copy(&lclipwidthsrc), core::mem::transmute_copy(&lclipheightsrc), core::mem::transmute_copy(&lcliporixdst), core::mem::transmute_copy(&lcliporiydst), core::mem::transmute_copy(&lclipwidthdst), core::mem::transmute_copy(&lclipheightdst)).into()
             }
         }
-        unsafe extern "system" fn GetFullCropRegion<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcliporixsrc: *mut i32, lcliporiysrc: *mut i32, lclipwidthsrc: *mut i32, lclipheightsrc: *mut i32, lcliporixdst: *mut i32, lcliporiydst: *mut i32, lclipwidthdst: *mut i32, lclipheightdst: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFullCropRegion<Identity: IWMResizerProps_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcliporixsrc: *mut super::LONG, lcliporiysrc: *mut super::LONG, lclipwidthsrc: *mut super::LONG, lclipheightsrc: *mut super::LONG, lcliporixdst: *mut super::LONG, lcliporiydst: *mut super::LONG, lclipwidthdst: *mut super::LONG, lclipheightdst: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMResizerProps_Impl::GetFullCropRegion(this, core::mem::transmute_copy(&lcliporixsrc), core::mem::transmute_copy(&lcliporiysrc), core::mem::transmute_copy(&lclipwidthsrc), core::mem::transmute_copy(&lclipheightsrc), core::mem::transmute_copy(&lcliporixdst), core::mem::transmute_copy(&lcliporiydst), core::mem::transmute_copy(&lclipwidthdst), core::mem::transmute_copy(&lclipheightdst)).into()
@@ -1833,12 +2114,13 @@ impl IWMResizerProps_Vtbl {
         iid == &<IWMResizerProps as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMResizerProps {}
 windows_core::imp::define_interface!(IWMSampleExtensionSupport, IWMSampleExtensionSupport_Vtbl, 0x9bca9884_0604_4c2a_87da_793ff4d586c3);
 windows_core::imp::interface_hierarchy!(IWMSampleExtensionSupport, windows_core::IUnknown);
 impl IWMSampleExtensionSupport {
-    pub unsafe fn SetUseSampleExtensions(&self, fuseextensions: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetUseSampleExtensions)(windows_core::Interface::as_raw(self), fuseextensions.into()) }
+    pub unsafe fn SetUseSampleExtensions(&self, fuseextensions: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetUseSampleExtensions)(windows_core::Interface::as_raw(self), fuseextensions) }
     }
 }
 #[repr(C)]
@@ -1899,10 +2181,12 @@ impl windows_core::RuntimeName for IWMValidate {}
 windows_core::imp::define_interface!(IWMVideoDecoderHurryup, IWMVideoDecoderHurryup_Vtbl, 0x352bb3bd_2d4d_4323_9e71_dcdcfbd53ca6);
 windows_core::imp::interface_hierarchy!(IWMVideoDecoderHurryup, windows_core::IUnknown);
 impl IWMVideoDecoderHurryup {
-    pub unsafe fn SetHurryup(&self, lhurryup: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetHurryup(&self, lhurryup: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetHurryup)(windows_core::Interface::as_raw(self), lhurryup) }
     }
-    pub unsafe fn GetHurryup(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetHurryup(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHurryup)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1913,22 +2197,30 @@ impl IWMVideoDecoderHurryup {
 #[doc(hidden)]
 pub struct IWMVideoDecoderHurryup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetHurryup: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub GetHurryup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetHurryup: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetHurryup: usize,
+    #[cfg(feature = "shared")]
+    pub GetHurryup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetHurryup: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IWMVideoDecoderHurryup_Impl: windows_core::IUnknownImpl {
-    fn SetHurryup(&self, lhurryup: i32) -> windows_core::Result<()>;
-    fn GetHurryup(&self) -> windows_core::Result<i32>;
+    fn SetHurryup(&self, lhurryup: super::LONG) -> windows_core::Result<()>;
+    fn GetHurryup(&self) -> windows_core::Result<super::LONG>;
 }
+#[cfg(feature = "shared")]
 impl IWMVideoDecoderHurryup_Vtbl {
     pub const fn new<Identity: IWMVideoDecoderHurryup_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetHurryup<Identity: IWMVideoDecoderHurryup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhurryup: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetHurryup<Identity: IWMVideoDecoderHurryup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhurryup: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWMVideoDecoderHurryup_Impl::SetHurryup(this, core::mem::transmute_copy(&lhurryup)).into()
             }
         }
-        unsafe extern "system" fn GetHurryup<Identity: IWMVideoDecoderHurryup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhurryup: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHurryup<Identity: IWMVideoDecoderHurryup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plhurryup: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMVideoDecoderHurryup_Impl::GetHurryup(this) {
@@ -1950,11 +2242,13 @@ impl IWMVideoDecoderHurryup_Vtbl {
         iid == &<IWMVideoDecoderHurryup as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IWMVideoDecoderHurryup {}
 windows_core::imp::define_interface!(IWMVideoDecoderReconBuffer, IWMVideoDecoderReconBuffer_Vtbl, 0x45bda2ac_88e2_4923_98ba_3949080711a3);
 windows_core::imp::interface_hierarchy!(IWMVideoDecoderReconBuffer, windows_core::IUnknown);
 impl IWMVideoDecoderReconBuffer {
-    pub unsafe fn GetReconstructedVideoFrameSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetReconstructedVideoFrameSize(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetReconstructedVideoFrameSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1979,7 +2273,10 @@ impl IWMVideoDecoderReconBuffer {
 #[doc(hidden)]
 pub struct IWMVideoDecoderReconBuffer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetReconstructedVideoFrameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetReconstructedVideoFrameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetReconstructedVideoFrameSize: usize,
     #[cfg(feature = "mediaobj")]
     pub GetReconstructedVideoFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "mediaobj"))]
@@ -1989,16 +2286,16 @@ pub struct IWMVideoDecoderReconBuffer_Vtbl {
     #[cfg(not(feature = "mediaobj"))]
     SetReconstructedVideoFrame: usize,
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 pub trait IWMVideoDecoderReconBuffer_Impl: windows_core::IUnknownImpl {
-    fn GetReconstructedVideoFrameSize(&self) -> windows_core::Result<u32>;
+    fn GetReconstructedVideoFrameSize(&self) -> windows_core::Result<super::DWORD>;
     fn GetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<super::IMediaBuffer>) -> windows_core::Result<()>;
     fn SetReconstructedVideoFrame(&self, pbuf: windows_core::Ref<super::IMediaBuffer>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl IWMVideoDecoderReconBuffer_Vtbl {
     pub const fn new<Identity: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetReconstructedVideoFrameSize<Identity: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsize: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetReconstructedVideoFrameSize<Identity: IWMVideoDecoderReconBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsize: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMVideoDecoderReconBuffer_Impl::GetReconstructedVideoFrameSize(this) {
@@ -2033,7 +2330,7 @@ impl IWMVideoDecoderReconBuffer_Vtbl {
         iid == &<IWMVideoDecoderReconBuffer as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(all(feature = "mediaobj", feature = "shared"))]
 impl windows_core::RuntimeName for IWMVideoDecoderReconBuffer {}
 windows_core::imp::define_interface!(IWMVideoForceKeyFrame, IWMVideoForceKeyFrame_Vtbl, 0x9f8496be_5b9a_41b9_a9e8_f21cd80596c2);
 windows_core::imp::interface_hierarchy!(IWMVideoForceKeyFrame, windows_core::IUnknown);
@@ -2131,6 +2428,616 @@ pub const MFAMRNBByteStreamHandler: windows_core::GUID = windows_core::GUID::fro
 pub const MFAMRNBSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0xb0271158_70d2_4c5b_9f94_76f549d90fdf);
 pub const MFFLACBytestreamHandler: windows_core::GUID = windows_core::GUID::from_u128(0x0e41cfb8_0506_40f4_a516_77cc23642d91);
 pub const MFFLACSinkClassFactory: windows_core::GUID = windows_core::GUID::from_u128(0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5);
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ADAPTIVERESOLUTION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 86 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ASFOVERHEADPERFRAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x0eac7502_1957_4beb_914d_885f85e75436), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_DOHRTFREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_DOPOSTREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_LFWEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_POSTREVERB_LEN: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_POSTREVERB_START: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_ROOMMODEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x73ae880e_8258_4e57_b85f_7daa6b7d5ef0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_SKIPHRTFREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AUVRHP_SKIPPOSTREVERB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x30bbfebf_24b4_4198_89ba_ad11a2acd601), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AVDecVideoSWPowerLevel: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xfb5d2347_4dd8_4509_aed0_db5fa9aa93f4), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AVGCONSTRAINED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_AVGFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x41d700d6_95b1_4e3f_b759_2d66d8c7ada2), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_BIGROOM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xc816a1a7_a119_48a5_9ad2_85451f4b5a2e), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_CROSSOVER_FREQ: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x61e8acb9_f04f_4f40_a65f_8f49fab3ba10), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_INVERT_SUB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb1103003_c191_4275_9fa0_8c282c724bce), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_NO_SUB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x5c3fd32e_0d40_4e2d_99fb_c91e96420be7), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASSMGMT_SPKRBASSCONFIG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bfd170d_4770_4dc5_924d_0b7b252ee918), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BASS_BOOST_AMOUNT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xae7f0b2a_96fc_493a_9247_a019f1f701e1), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x10174e76_e0ca_4a39_948c_8510c2323276), pid: 23 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BDELTAQP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 50 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xff365211_21b6_4134_ab7c_52393a8f80f6), pid: 25 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_BUFFERFULLNESSINFIRSTBYTE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb69dc3c5_64c4_4757_99cb_5d580fd5659e), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CHECKDATACONSISTENCY2P: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_XORIG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLIP_YORIG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x716fe5c8_755c_482f_8df3_b31d5359f0d6), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLOSEDENTRYPOINT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 63 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLUSTERDETECTOR_MAXCLUSTERDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb79a666d_8a9d_463c_9d97_e1b10045c13a), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLUSTERDETECTOR_MAXCLUSTERS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb79a666d_8a9d_463c_9d97_e1b10045c13a), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CLUSTERDETECTOR_MINCLUSTERDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb79a666d_8a9d_463c_9d97_e1b10045c13a), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CODEDFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x62872b55_fe0e_4930_a6d2_ccaa37e8f535), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CODEDNONZEROFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7adf5b69_1e3f_42d3_991d_f81e0cebe93e), pid: 30 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_DSTLEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_DSTTOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_SRCLEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_SRCTOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORCONV_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xdc9100be_1228_416c_9948_6f38f479654f), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYLIVE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_COMPLEXITYOFFLINE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLORLEGALIZER_bSVideo: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xadd0e6c1_cc30_475d_9e5a_f1b19f587be0), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_BRIGHTNESS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_CONTRAST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_HUE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COLOR_SATURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x174fb0ec_2695_476c_88aa_d2b41ce75e67), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x44fa08c7_92f5_45dc_8376_8d1d324c652a), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COMPLEXITYEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd6e48f93_fd47_47a3_9262_8aefb5530332), pid: 17 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_COMPRESSIONOPTIMIZATIONTYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 67 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAINDECLATENCY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAINENCCOMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAINENCLATENCY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONSTRAIN_ENUMERATED_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 26 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONV_INPUTFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x52f8d29b_2e76_43f7_a4f6_1717904e35df), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONV_OUTPUTFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x52f8d29b_2e76_43f7_a4f6_1717904e35df), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CONV_REVERSEPLAYBACK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x52f8d29b_2e76_43f7_a4f6_1717904e35df), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_BASS_MANAGEMENT_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1864a4e0_efc1_45e6_a675_5786cbf3b9f0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_HEADPHONE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x445f3559_b43f_4b67_b0f8_32b67cf94b48), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_LOUDNESS_EQUALIZATION_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xfc52a749_4be9_4510_896e_966ba6525980), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_MULTICHANNEL_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x1b5c2483_0839_4523_ba87_95f89d27bd8c), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_NORMALIZATION_GAIN: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd61b266c_5aee_456b_8424_7225477dae77), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_ROOM_CORRECTION_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x01fb17e3_796c_4451_8163_68cdc1321a60), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CORR_SPKRMASK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd328d8fb_d49f_4aa9_b721_e171e93ad563), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_CRISP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x2985f772_3af2_4d15_8cfa_8a962ff32040), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DATARATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xe0db0807_8003_4880_ac11_61b73f33dc60), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DECODERCOMPLEXITYPROFILE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xc0d912d6_14da_4d31_8d83_d108915e8d77), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DECODERCOMPLEXITYREQUESTED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb0d7d4a7_422b_44c3_97b4_b9760cceeea9), pid: 28 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DECODER_DEINTERLACING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_DETELECINE_FLAG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_EDGETHRESHOLD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_LASTFRAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_PROCESSTYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_SMOOTHLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DEINTERLACE_TELECINEPATTERN: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6141f4c3_d3a2_48a9_96ac_2f0014176c26), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DELTAMVRANGEINDEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 47 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISEOPTION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 38 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_CACHEFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_CAUSAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_FILTER: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_ITERATIVE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA1: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA2: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA3: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA4: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PARA5: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DENOISE_PROCFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7213c6ef_cdd4_4d09_a89e_f3ebebe5f565), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DESIRED_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 25 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DQUANTOPTION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 78 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DQUANTSTRENGTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 79 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DROPPEDFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xbdb5afd3_4027_4882_806c_4162e4a7a3f0), pid: 29 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DVDEC_SIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x75f2421a_e73a_45b3_aef0_913c66846461), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DVENC_FORMAT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf449a927_7b22_46ef_b2e7_4d2b728b699c), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DXVA_ENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x58e28605_1d51_48ed_a3eb_0f9baf785fbd), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYNCOMPLEXLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 82 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYNENCMODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 84 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_ALLOW_NOISESUB: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_ALLOW_PCMRANGELIMITING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 27 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNCATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_BWCEIL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_BWFLOOR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_QCEIL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_BANDTRUNC_QFLOOR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_SIMPLEMASK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_STEREO_PREPROC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_VBR_BAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_DYN_VBR_RAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_Decoder_MaxNumPCMSamplesWithPaddedSilence: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xc678ba85_1212_43da_5ac3_e748b92449ec), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENCCOMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENCODERCOMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 71 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENDOFPASS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb2030f2a_8bbc_46f8_a64b_a98ff7fcf02a), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ENHANCED_WMA: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FACEDETECTOR_SKIPFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xe1a124a6_4fa8_4ba5_a2d8_dc34536f7426), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_ALLOWED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_COMPLEXITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_ENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xe020c4ca_3bdd_40ec_bcf4_4039b1450eb8), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_SCAL_DST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_SCAL_SRC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_VALU_DST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_FRAMERATE_VALU_SRC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x305bca55_1e5b_428e_a94c_65b94d0264ed), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FI_SUPPORTED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x5ce18788_b992_49a7_a4f1_60ea21caa55f), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEFRAMEHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 52 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEFRAMEWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 51 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEMEDIANSETTING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 57 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FORCEOVERLAP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 80 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FOURCC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x593e3f2e_f84d_4e85_b68d_f669400edabc), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FRAMECOUNT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x75028eb4_4853_44d3_88a3_e499f89d227f), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_FULLFRAMERATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 45 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_INTERLACEDCODINGENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x56976073_06c3_4b3b_ad41_b7417fce8474), pid: 26 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_KEYDIST: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x18d6f8c5_2416_4d7b_90d7_9f3f21e752b4), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LETTERBOXPRESENT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 73 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LIVEENCODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x3ffa1e60_5514_4634_86e6_1f3b7c545143), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOOKAHEAD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 54 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOOKAHEADRC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 77 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOOPFILTER: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 59 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_LOUDNESS_EQUALIZATION_RELEASE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x9c00eeed_edce_4cd8_ae08_cb05e8ef57a0), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MACROBLOCKMODECOSTMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 66 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MAXDECLATENCYMS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MAXENCLATENCYMS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOST_RECENTLY_ENUMERATED_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 24 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONMATCHMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 65 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONSEARCHLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 64 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONSEARCHRANGE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 46 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_MOTIONVECTORCOSTMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 81 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NOISEEDGEREMOVAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 60 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NUMBFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 48 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NUMTHREADS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 58 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_NUMTHREADSDEC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PASSESRECOMMENDED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x38bdceea_393e_4f9a_8dc3_802cc405838f), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PASSESUSED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xb1653ac1_cb7d_43ee_8454_3f9d811b0331), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PEAKCONSTRAINED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PERCEPTUALOPTLEVEL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 56 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PERIODICALSPDISTANCE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 70 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PHANTOMING_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x12b53cb2_e12e_4579_8ac3_d02f94f1e89e), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PIXELASPECTRATIO: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 23 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_POSTPROCESSMODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x00c6281f_4be6_4e44_9ed8_9ec5422316e4), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PREFERRED_FRAMESIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 22 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PRODUCEDUMMYFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x61714bc6_08a1_49d1_b827_a33aada95526), pid: 27 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_PROGRESS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x5cefee10_e210_45c6_9e28_f5a8731c96c7), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_QPPERFRAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 31 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RANGEREDUX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 53 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x14b2aae6_2987_460a_8b22_9c077c55d05e), pid: 22 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RDSUBPIXELSEARCH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 49 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 34 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCENDBUFFERSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 36 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCQPREF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 37 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REENCSTARTBUFFERSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 35 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_REQUESTING_A_FRAMESIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_LEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_TOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_DST_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 17 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_GEOMAPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_INTERLACE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 22 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_MINAPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_PANSCANAPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_QUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_HEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_LEFT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_TOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RESIZE_SRC_WIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6612a6bc_e57d_407d_a958_285df0d9b400), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_RMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7d8dd246_aaf4_4a24_8166_19396b06ef69), pid: 24 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ROOMCORR_PROFILE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf311cdc7_f45f_4eb7_a864_9dc1aeeb7e6d), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SCENECHANGE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 74 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SCENECHANGEI: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 76 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SETDYNVIDRES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 87 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_ADAPTIVETHRESHOLD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_ADAPTIVEWINDOWSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_CLASSIFICATIONMETHOD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_GLOBALTHRESHOLD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MAXCLIPDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MAXCLIPSPERHOUR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MINCLIPDURATION: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_MINCLIPWEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_PRESERVEMONOCLIPS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SHOTDETECTOR_TYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7bcc7b0f_dedf_4a68_96a2_fce019ed956f), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_BORDERCOLOR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_BORDERSOFTNESS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_BORDERWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_MASKNUM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_OFFSETX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_OFFSETY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_REPLICATEX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_REPLICATEY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_SMPTE_REVERSE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x427ce859_d55c_4f8e_b00e_9cdf761548a6), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STARTTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x5cefee10_e210_45c6_9e28_f5a8731c96c7), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_BAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x036f6b60_ad43_485c_86c6_21a6db2c1ba3), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_BMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xcd95e5b7_9143_47fb_a9d2_9db75f2e74be), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_RAVG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x23a0e3b5_fc62_4ab8_b77c_6e0c28ab3016), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STAT_RMAX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x82ff7c67_6554_4749_a32b_3690dd1ae8de), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_STOPTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x5cefee10_e210_45c6_9e28_f5a8731c96c7), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TARGETENCDELTA: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 85 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TARGETENCRATE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 83 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_MAXMOTIONACTIVITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_MINCOLORENTROPY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_SEARCHWINDOWSIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILFILENAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 255 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILHEIGHT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILREADY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_THUMBNAILGENERATOR_THUMBNAILWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9d7473f_7d68_4226_985c_31852c4c9e74), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_CLUSTERDETECTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_CURRENTTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 253 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_ENDSIGNAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 251 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_ENDTIME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 252 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_FACEDETECTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_FEATUREEXTRACTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_INDEXFILENAME: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 255 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_PROCESSEDFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 254 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_SHOTDETECTOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_THUMBNAILGENERATOR_ON: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_TOCOBJECT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_TOCREADY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOCGENERATOR_USEENDSIGNAL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7c109759_3c27_42ef_a6a3_cedef75a35e9), pid: 250 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_TOTALFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xce5f1e3c_d3d4_4c3f_88c8_01e989d998d2), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_USERDATASIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 72 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VARIABLEGOP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 75 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VBRENABLED: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xe48d9459_6abe_4eb5_9211_60080c1ab984), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VBRQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf97b3f3a_9eff_4ac9_8247_35b30eb925f4), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VIDEOSCALING: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 55 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VIDEOWINDOW: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xc1c96060_76f0_47d4_a875_5bdda90df5e9), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VOLHEADERFORREENCODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 33 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_VTYPE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x4e91bf89_665a_49da_bb94_88c550cfcd28), pid: 61 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_DEVICEPAIR_GUID: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 17 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_DEVICE_INDEXES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_DMO_SOURCE_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_AES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 10 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_AGC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_CENTER_CLIP: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 12 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_ECHO_LENGTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_FRAME_SIZE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_MICARR_BEAM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 19 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_MICARR_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 18 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_MICARR_PREPROC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 20 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_NOISE_FILL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 13 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_NS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATR_VAD: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 11 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_FEATURE_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_MICARRAY_DESCPTR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 16 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_MIC_GAIN_BOUNDER: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 21 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_QUALITY_METRICS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 15 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_RETRIEVE_TS_STATS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 14 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAAECMA_SYSTEM_MODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6f52c567_0360_4bd2_9617_ccbf1421c939), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_DRCMODE: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_FOLDDOWN_MATRIX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x51647e9b_6a7f_4739_9e0b_294b278969eb), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_HIRESOUTPUT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8d3fe592_eecc_4f4e_9aff_5af1679d38d2), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_LTRTOUTPUT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADEC_SPKRCFG: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8fff67be_977f_41dc_8faf_23bac9a6df73), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_AVGREF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_AVGTARGET: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_PEAKREF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMADRC_PEAKTARGET: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x7b613713_3d38_4cda_aa61_0478b1bcfc42), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_AVGBYTESPERSEC: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x11caf780_921b_42ef_b755_f3a053ea1a41), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_BUFFERLESSCBR: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 29 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_GENERATE_DRC_PARAMS: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 28 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_ORIGWAVEFORMAT: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf5c760a2_3635_48e1_8fbd_0e498124e0a2), pid: 0 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAENC_RTSPDIF: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 30 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_DEC_RT_JitterControl: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_DEC_RT_JitterMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_DEC_RT_PacketLossMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x0165f69b_80a1_4ef8_a4a9_ada3b8a689dd), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_BufferWindow: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_DecoderDelay: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 4 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_EDL: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 5 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_MusicSpeechClassMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_BandWidth: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 7 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_MinBufferSize: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 9 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_PacketLossMode: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 8 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMAVOICE_ENC_RT_VariableRate: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xd9c8f5fe_8682_4347_8507_60a3f51f33f1), pid: 6 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMA_ELEMENTARY_STREAM: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x6dbdf03b_b05c_4a03_8ec1_bbe63db10cb4), pid: 23 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMRESAMP_CHANNELMTX: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xaf1adc73_a210_4b05_966e_5491cff48b1d), pid: 2 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMRESAMP_FILTERQUALITY: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xaf1adc73_a210_4b05_966e_5491cff48b1d), pid: 1 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_WMRESAMP_LOWPASS_BANDWIDTH: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xaf1adc73_a210_4b05_966e_5491cff48b1d), pid: 3 };
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const MFPKEY_ZEROBYTEFRAMES: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0x8f04aba4_313d_40fb_8031_31517813d9ef), pid: 7 };
 pub const MFSampleExtension_VideoDSPMode: windows_core::GUID = windows_core::GUID::from_u128(0xc12d55cb_d7d9_476d_81f3_69117f163ea0);
 pub type MFVideoDSPMode = i32;
 pub const MFVideoDSPMode_Passthrough: MFVideoDSPMode = 1;
@@ -2155,6 +3062,8 @@ pub const OPENMODE_FAIL_IF_NOT_EXIST: FILE_OPENMODE = 0;
 pub const OPENMODE_RESET_IF_EXIST: FILE_OPENMODE = 2;
 pub const OPTIBEAM_ARRAY_AND_AEC: AEC_SYSTEM_MODE = 4;
 pub const OPTIBEAM_ARRAY_ONLY: AEC_SYSTEM_MODE = 2;
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub const PKEY_SYSFXUI_HIDE_MASK: super::PROPERTYKEY = super::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xcb9c6bce_7a25_47aa_b2be_6ad84431edde), pid: 2 };
 pub type SEEK_ORIGIN = i32;
 pub const SINGLE_CHANNEL_AEC: AEC_SYSTEM_MODE = 0;
 pub const SINGLE_CHANNEL_NSAGC: AEC_SYSTEM_MODE = 5;
@@ -2167,21 +3076,23 @@ pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: i32 = 2;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: i32 = 64;
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOC_DESCRIPTOR {
     pub guidID: windows_core::GUID,
-    pub wStreamNumber: u16,
+    pub wStreamNumber: super::WORD,
     pub guidType: windows_core::GUID,
-    pub wLanguageIndex: u16,
+    pub wLanguageIndex: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOC_ENTRY_DESCRIPTOR {
-    pub qwStartTime: u64,
-    pub qwEndTime: u64,
-    pub qwStartPacketOffset: u64,
-    pub qwEndPacketOffset: u64,
-    pub qwRepresentativeFrameTime: u64,
+    pub qwStartTime: super::QWORD,
+    pub qwEndTime: super::QWORD,
+    pub qwStartPacketOffset: super::QWORD,
+    pub qwEndPacketOffset: super::QWORD,
+    pub qwRepresentativeFrameTime: super::QWORD,
 }
 pub const TOC_ENTRY_MAX_TITLE_SIZE: i32 = 65535;
 pub const TOC_MAX_DESCRIPTION_SIZE: i32 = 65535;
@@ -2213,7 +3124,6 @@ pub const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: i32 = 16;
 pub const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: i32 = 8;
 pub const _msoBegin: SEEK_ORIGIN = 0;
 pub const _msoCurrent: SEEK_ORIGIN = 1;
-pub const g_wszSpeechFormatCaps: windows_core::PCWSTR = windows_core::w!("SpeechFormatCap");
 pub const g_wszWMACAvgBytesPerSec: windows_core::PCWSTR = windows_core::w!("AvgBytesPerSec");
 pub const g_wszWMACAvgPCMValue: windows_core::PCWSTR = windows_core::w!("AverageLevel");
 pub const g_wszWMACDRCSetting: windows_core::PCWSTR = windows_core::w!("DynamicRangeControl");

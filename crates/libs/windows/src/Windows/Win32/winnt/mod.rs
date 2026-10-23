@@ -1,161 +1,182 @@
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[RUNTIME_FUNCTION], baseaddress: u64) -> BOOLEAN {
-    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : u32, baseaddress : u64) -> BOOLEAN);
+pub unsafe fn RtlAddFunctionTable(functiontable: &[_IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: super::DWORD64) -> super::BOOLEAN {
+    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : super::DWORD, baseaddress : super::DWORD64) -> super::BOOLEAN);
     unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlAddFunctionTable(functiontable: &[RUNTIME_FUNCTION], baseaddress: usize) -> BOOLEAN {
-    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : u32, baseaddress : usize) -> BOOLEAN);
+pub unsafe fn RtlAddFunctionTable(functiontable: &[_IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: super::ULONG_PTR) -> super::BOOLEAN {
+    windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : PRUNTIME_FUNCTION, entrycount : super::DWORD, baseaddress : super::ULONG_PTR) -> super::BOOLEAN);
     unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[RUNTIME_FUNCTION], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : PRUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
+pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut PVOID, functiontable: &[_IMAGE_RUNTIME_FUNCTION_ENTRY], entrycount: super::DWORD, rangebase: super::ULONG_PTR, rangeend: super::ULONG_PTR) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut PVOID, functiontable : PRUNTIME_FUNCTION, entrycount : super::DWORD, maximumentrycount : super::DWORD, rangebase : super::ULONG_PTR, rangeend : super::ULONG_PTR) -> super::DWORD);
     unsafe { RtlAddGrowableFunctionTable(dynamictable as _, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlCaptureContext(contextrecord: PCONTEXT) {
     windows_core::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : PCONTEXT));
     unsafe { RtlCaptureContext(contextrecord as _) }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlCaptureContext2(contextrecord: PCONTEXT) {
     windows_core::link!("ntdll.dll" "system" fn RtlCaptureContext2(contextrecord : PCONTEXT));
     unsafe { RtlCaptureContext2(contextrecord as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, backtrace: *mut *mut core::ffi::c_void, backtracehash: Option<super::PDWORD>) -> u16 {
-    windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : super::PDWORD) -> u16);
+pub unsafe fn RtlCaptureStackBackTrace(framestoskip: super::DWORD, framestocapture: super::DWORD, backtrace: *mut PVOID, backtracehash: Option<super::PDWORD>) -> super::WORD {
+    windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : super::DWORD, framestocapture : super::DWORD, backtrace : *mut PVOID, backtracehash : super::PDWORD) -> super::WORD);
     unsafe { RtlCaptureStackBackTrace(framestoskip, framestocapture, backtrace as _, backtracehash.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: usize) -> usize {
-    windows_core::link!("kernel32.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : usize) -> usize);
+pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: super::SIZE_T) -> super::SIZE_T {
+    windows_core::link!("kernel32.dll" "system" fn RtlCompareMemory(source1 : *const core::ffi::c_void, source2 : *const core::ffi::c_void, length : super::SIZE_T) -> super::SIZE_T);
     unsafe { RtlCompareMemory(source1, source2, length) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: super::PDWORD, puldeviceformbuffersize: super::PDWORD, devicefamily: windows_core::PWSTR, deviceform: windows_core::PWSTR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : super::PDWORD, puldeviceformbuffersize : super::PDWORD, devicefamily : windows_core::PWSTR, deviceform : windows_core::PWSTR) -> u32);
+pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: super::PDWORD, puldeviceformbuffersize: super::PDWORD, devicefamily: windows_core::PWSTR, deviceform: windows_core::PWSTR) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : super::PDWORD, puldeviceformbuffersize : super::PDWORD, devicefamily : windows_core::PWSTR, deviceform : windows_core::PWSTR) -> super::DWORD);
     unsafe { RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize as _, puldeviceformbuffersize as _, devicefamily, deviceform) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlCrc32(buffer: *const core::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlCrc32(buffer : *const core::ffi::c_void, size : usize, initialcrc : u32) -> u32);
+pub unsafe fn RtlCrc32(buffer: *const core::ffi::c_void, size: super::size_t, initialcrc: super::DWORD) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlCrc32(buffer : *const core::ffi::c_void, size : super::size_t, initialcrc : super::DWORD) -> super::DWORD);
     unsafe { RtlCrc32(buffer, size, initialcrc) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlCrc64(buffer: *const core::ffi::c_void, size: usize, initialcrc: u64) -> u64 {
-    windows_core::link!("ntdll.dll" "system" fn RtlCrc64(buffer : *const core::ffi::c_void, size : usize, initialcrc : u64) -> u64);
+pub unsafe fn RtlCrc64(buffer: *const core::ffi::c_void, size: super::size_t, initialcrc: super::ULONGLONG) -> super::ULONGLONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlCrc64(buffer : *const core::ffi::c_void, size : super::size_t, initialcrc : super::ULONGLONG) -> super::ULONGLONG);
     unsafe { RtlCrc64(buffer, size, initialcrc) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlDeleteFunctionTable(functiontable: PRUNTIME_FUNCTION) -> BOOLEAN {
-    windows_core::link!("kernel32.dll" "C" fn RtlDeleteFunctionTable(functiontable : PRUNTIME_FUNCTION) -> BOOLEAN);
+pub unsafe fn RtlDeleteFunctionTable(functiontable: PRUNTIME_FUNCTION) -> super::BOOLEAN {
+    windows_core::link!("kernel32.dll" "C" fn RtlDeleteFunctionTable(functiontable : PRUNTIME_FUNCTION) -> super::BOOLEAN);
     unsafe { RtlDeleteFunctionTable(functiontable) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const core::ffi::c_void) {
-    windows_core::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : *const core::ffi::c_void));
+pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: PVOID) {
+    windows_core::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : PVOID));
     unsafe { RtlDeleteGrowableFunctionTable(dynamictable) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const core::ffi::c_void) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlDrainNonVolatileFlush(nvtoken : *const core::ffi::c_void) -> u32);
+pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: PVOID) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlDrainNonVolatileFlush(nvtoken : PVOID) -> super::DWORD);
     unsafe { RtlDrainNonVolatileFlush(nvtoken) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlExtendCorrelationVector(correlationvector: PCORRELATION_VECTOR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlExtendCorrelationVector(correlationvector : PCORRELATION_VECTOR) -> u32);
+pub unsafe fn RtlExtendCorrelationVector(correlationvector: PCORRELATION_VECTOR) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlExtendCorrelationVector(correlationvector : PCORRELATION_VECTOR) -> super::DWORD);
     unsafe { RtlExtendCorrelationVector(correlationvector as _) }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvdestination: *mut core::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFillNonVolatileMemory(nvtoken : *const core::ffi::c_void, nvdestination : *mut core::ffi::c_void, size : usize, value : u8, flags : u32) -> u32);
-    unsafe { RtlFillNonVolatileMemory(nvtoken, nvdestination as _, size, value, flags) }
-}
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> PSLIST_ENTRY {
     windows_core::link!("ntdll.dll" "system" fn RtlFirstEntrySList(listhead : *const SLIST_HEADER) -> PSLIST_ENTRY);
     unsafe { RtlFirstEntrySList(listhead) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvbuffer: *const core::ffi::c_void, size: usize, flags: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemory(nvtoken : *const core::ffi::c_void, nvbuffer : *const core::ffi::c_void, size : usize, flags : u32) -> u32);
+pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: PVOID, nvbuffer: PVOID, size: super::SIZE_T, flags: super::DWORD) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemory(nvtoken : PVOID, nvbuffer : PVOID, size : super::SIZE_T, flags : super::DWORD) -> super::DWORD);
     unsafe { RtlFlushNonVolatileMemory(nvtoken, nvbuffer, size, flags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const core::ffi::c_void, nvranges: &[NV_MEMORY_RANGE], flags: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : *const core::ffi::c_void, nvranges : PNV_MEMORY_RANGE, numranges : usize, flags : u32) -> u32);
+pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: PVOID, nvranges: &[NV_MEMORY_RANGE], flags: super::DWORD) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : PVOID, nvranges : PNV_MEMORY_RANGE, numranges : super::SIZE_T, flags : super::DWORD) -> super::DWORD);
     unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, core::mem::transmute(nvranges.as_ptr()), nvranges.len().try_into().unwrap(), flags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const core::ffi::c_void) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlFreeNonVolatileToken(nvtoken : *const core::ffi::c_void) -> u32);
+pub unsafe fn RtlFreeNonVolatileToken(nvtoken: PVOID) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlFreeNonVolatileToken(nvtoken : PVOID) -> super::DWORD);
     unsafe { RtlFreeNonVolatileToken(nvtoken) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: Option<*mut u64>, puldevicefamily: Option<*mut u32>, puldeviceform: Option<*mut u32>) {
-    windows_core::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut u64, puldevicefamily : *mut u32, puldeviceform : *mut u32));
+pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: Option<*mut super::ULONGLONG>, puldevicefamily: Option<*mut super::DWORD>, puldeviceform: Option<*mut super::DWORD>) {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut super::ULONGLONG, puldevicefamily : *mut super::DWORD, puldeviceform : *mut super::DWORD));
     unsafe { RtlGetDeviceFamilyInfoEnum(pulluapinfo.unwrap_or(core::mem::zeroed()) as _, puldevicefamily.unwrap_or(core::mem::zeroed()) as _, puldeviceform.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlGetImageFileMachines<P0>(dosfilename: P0, machinetypeflags: *mut IMAGE_FILE_MACHINES) -> u32
+pub unsafe fn RtlGetImageFileMachines<P0>(dosfilename: P0, machinetypeflags: *mut IMAGE_FILE_MACHINES) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "C" fn RtlGetImageFileMachines(dosfilename : windows_core::PCWSTR, machinetypeflags : *mut IMAGE_FILE_MACHINES) -> u32);
+    windows_core::link!("ntdll.dll" "C" fn RtlGetImageFileMachines(dosfilename : windows_core::PCWSTR, machinetypeflags : *mut IMAGE_FILE_MACHINES) -> super::DWORD);
     unsafe { RtlGetImageFileMachines(dosfilename.param().abi(), machinetypeflags as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const core::ffi::c_void, size: usize, nvtoken: *mut *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlGetNonVolatileToken(nvbuffer : *const core::ffi::c_void, size : usize, nvtoken : *mut *mut core::ffi::c_void) -> u32);
+pub unsafe fn RtlGetNonVolatileToken(nvbuffer: PVOID, size: super::SIZE_T, nvtoken: *mut PVOID) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetNonVolatileToken(nvbuffer : PVOID, size : super::SIZE_T, nvtoken : *mut PVOID) -> super::DWORD);
     unsafe { RtlGetNonVolatileToken(nvbuffer, size, nvtoken as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: super::PDWORD) -> BOOLEAN {
-    windows_core::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : u32, osminorversion : u32, spmajorversion : u32, spminorversion : u32, returnedproducttype : super::PDWORD) -> BOOLEAN);
+pub unsafe fn RtlGetProductInfo(osmajorversion: super::DWORD, osminorversion: super::DWORD, spmajorversion: super::DWORD, spminorversion: super::DWORD, returnedproducttype: super::PDWORD) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetProductInfo(osmajorversion : super::DWORD, osminorversion : super::DWORD, spmajorversion : super::DWORD, spminorversion : super::DWORD, returnedproducttype : super::PDWORD) -> super::BOOLEAN);
     unsafe { RtlGetProductInfo(osmajorversion, osminorversion, spmajorversion, spminorversion, returnedproducttype as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
-    windows_core::link!("ntdll.dll" "system" fn RtlGetReturnAddressHijackTarget() -> usize);
+pub unsafe fn RtlGetReturnAddressHijackTarget() -> super::ULONG_PTR {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetReturnAddressHijackTarget() -> super::ULONG_PTR);
     unsafe { RtlGetReturnAddressHijackTarget() }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: *mut core::ffi::c_void, size: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlGetSystemGlobalData(dataid : RTL_SYSTEM_GLOBAL_DATA_ID, buffer : *mut core::ffi::c_void, size : u32) -> u32);
+pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: PVOID, size: super::DWORD) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetSystemGlobalData(dataid : RTL_SYSTEM_GLOBAL_DATA_ID, buffer : PVOID, size : super::DWORD) -> super::DWORD);
     unsafe { RtlGetSystemGlobalData(dataid, buffer as _, size) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut core::ffi::c_void, newentrycount: u32) {
-    windows_core::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : *mut core::ffi::c_void, newentrycount : u32));
+pub unsafe fn RtlGrowFunctionTable(dynamictable: PVOID, newentrycount: super::DWORD) {
+    windows_core::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : PVOID, newentrycount : super::DWORD));
     unsafe { RtlGrowFunctionTable(dynamictable as _, newentrycount) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlIncrementCorrelationVector(correlationvector: PCORRELATION_VECTOR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIncrementCorrelationVector(correlationvector : PCORRELATION_VECTOR) -> u32);
+pub unsafe fn RtlIncrementCorrelationVector(correlationvector: PCORRELATION_VECTOR) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlIncrementCorrelationVector(correlationvector : PCORRELATION_VECTOR) -> super::DWORD);
     unsafe { RtlIncrementCorrelationVector(correlationvector as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlInitializeCorrelationVector(correlationvector: PCORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : PCORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> u32);
+pub unsafe fn RtlInitializeCorrelationVector(correlationvector: PCORRELATION_VECTOR, version: i32, guid: Option<*const windows_core::GUID>) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlInitializeCorrelationVector(correlationvector : PCORRELATION_VECTOR, version : i32, guid : *const windows_core::GUID) -> super::DWORD);
     unsafe { RtlInitializeCorrelationVector(correlationvector as _, version, guid.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
     windows_core::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : PSLIST_HEADER));
@@ -166,228 +187,248 @@ pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> BOOLEAN
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: super::DWORD64, baseaddress: super::DWORD64, length: super::DWORD, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<PVOID>, outofprocesscallbackdll: P5) -> super::BOOLEAN
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> BOOLEAN);
+    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : super::DWORD64, baseaddress : super::DWORD64, length : super::DWORD, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : PVOID, outofprocesscallbackdll : windows_core::PCWSTR) -> super::BOOLEAN);
     unsafe { RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, context.unwrap_or(core::mem::zeroed()) as _, outofprocesscallbackdll.param().abi()) }
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: usize, baseaddress: usize, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P5) -> BOOLEAN
+pub unsafe fn RtlInstallFunctionTableCallback<P5>(tableidentifier: super::ULONG_PTR, baseaddress: super::ULONG_PTR, length: super::DWORD, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<PVOID>, outofprocesscallbackdll: P5) -> super::BOOLEAN
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : usize, baseaddress : usize, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> BOOLEAN);
+    windows_core::link!("kernel32.dll" "C" fn RtlInstallFunctionTableCallback(tableidentifier : super::ULONG_PTR, baseaddress : super::ULONG_PTR, length : super::DWORD, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : PVOID, outofprocesscallbackdll : windows_core::PCWSTR) -> super::BOOLEAN);
     unsafe { RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, context.unwrap_or(core::mem::zeroed()) as _, outofprocesscallbackdll.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlInterlockedFlushSList(listhead: PSLIST_HEADER) -> PSLIST_ENTRY {
     windows_core::link!("ntdll.dll" "system" fn RtlInterlockedFlushSList(listhead : PSLIST_HEADER) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedFlushSList(listhead as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlInterlockedPopEntrySList(listhead: PSLIST_HEADER) -> PSLIST_ENTRY {
     windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPopEntrySList(listhead : PSLIST_HEADER) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedPopEntrySList(listhead as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlInterlockedPushEntrySList(listhead: PSLIST_HEADER, listentry: PSLIST_ENTRY) -> PSLIST_ENTRY {
     windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushEntrySList(listhead : PSLIST_HEADER, listentry : PSLIST_ENTRY) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedPushEntrySList(listhead as _, listentry as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlInterlockedPushListSListEx(listhead: PSLIST_HEADER, list: PSLIST_ENTRY, listend: PSLIST_ENTRY, count: u32) -> PSLIST_ENTRY {
-    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : PSLIST_HEADER, list : PSLIST_ENTRY, listend : PSLIST_ENTRY, count : u32) -> PSLIST_ENTRY);
+pub unsafe fn RtlInterlockedPushListSListEx(listhead: PSLIST_HEADER, list: PSLIST_ENTRY, listend: PSLIST_ENTRY, count: super::DWORD) -> PSLIST_ENTRY {
+    windows_core::link!("ntdll.dll" "system" fn RtlInterlockedPushListSListEx(listhead : PSLIST_HEADER, list : PSLIST_ENTRY, listend : PSLIST_ENTRY, count : super::DWORD) -> PSLIST_ENTRY);
     unsafe { RtlInterlockedPushListSListEx(listhead as _, list as _, listend as _, count) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlIsZeroMemory(buffer: *const core::ffi::c_void, length: usize) -> BOOLEAN {
-    windows_core::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : *const core::ffi::c_void, length : usize) -> BOOLEAN);
+pub unsafe fn RtlIsZeroMemory(buffer: PVOID, length: super::SIZE_T) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsZeroMemory(buffer : PVOID, length : super::SIZE_T) -> super::BOOLEAN);
     unsafe { RtlIsZeroMemory(buffer, length) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: super::PDWORD64, historytable: Option<PUNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
-    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : super::PDWORD64, historytable : PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
+pub unsafe fn RtlLookupFunctionEntry(controlpc: super::DWORD64, imagebase: super::PDWORD64, historytable: Option<PUNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
+    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : super::DWORD64, imagebase : super::PDWORD64, historytable : PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
     unsafe { RtlLookupFunctionEntry(controlpc, imagebase as _, historytable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "basetsd")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: super::PULONG_PTR, historytable: Option<PUNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
-    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : super::PULONG_PTR, historytable : PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
+pub unsafe fn RtlLookupFunctionEntry(controlpc: super::ULONG_PTR, imagebase: super::PULONG_PTR, historytable: Option<PUNWIND_HISTORY_TABLE>) -> PRUNTIME_FUNCTION {
+    windows_core::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : super::ULONG_PTR, imagebase : super::PULONG_PTR, historytable : PUNWIND_HISTORY_TABLE) -> PRUNTIME_FUNCTION);
     unsafe { RtlLookupFunctionEntry(controlpc, imagebase as _, historytable.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<super::PDWORD>, checkonly: BOOLEAN) -> BOOLEAN {
-    windows_core::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut PSECURITY_DESCRIPTOR, securitydescriptorlength : u32, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : super::PDWORD, checkonly : BOOLEAN) -> BOOLEAN);
+pub unsafe fn RtlNormalizeSecurityDescriptor(securitydescriptor: *mut PSECURITY_DESCRIPTOR, securitydescriptorlength: super::DWORD, newsecuritydescriptor: Option<*mut PSECURITY_DESCRIPTOR>, newsecuritydescriptorlength: Option<super::PDWORD>, checkonly: super::BOOLEAN) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlNormalizeSecurityDescriptor(securitydescriptor : *mut PSECURITY_DESCRIPTOR, securitydescriptorlength : super::DWORD, newsecuritydescriptor : *mut PSECURITY_DESCRIPTOR, newsecuritydescriptorlength : super::PDWORD, checkonly : super::BOOLEAN) -> super::BOOLEAN);
     unsafe { RtlNormalizeSecurityDescriptor(securitydescriptor as _, securitydescriptorlength, newsecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, newsecuritydescriptorlength.unwrap_or(core::mem::zeroed()) as _, checkonly) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
-    windows_core::link!("ntdll.dll" "system" fn RtlOsDeploymentState(flags : u32) -> OS_DEPLOYEMENT_STATE_VALUES);
+pub unsafe fn RtlOsDeploymentState(flags: super::DWORD) -> OS_DEPLOYEMENT_STATE_VALUES {
+    windows_core::link!("ntdll.dll" "system" fn RtlOsDeploymentState(flags : super::DWORD) -> OS_DEPLOYEMENT_STATE_VALUES);
     unsafe { RtlOsDeploymentState(flags) }
 }
 #[inline]
-pub unsafe fn RtlPcToFileHeader(pcvalue: *const core::ffi::c_void, baseofimage: *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void {
-    windows_core::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : *const core::ffi::c_void, baseofimage : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+pub unsafe fn RtlPcToFileHeader(pcvalue: PVOID, baseofimage: *mut PVOID) -> PVOID {
+    windows_core::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : PVOID, baseofimage : *mut PVOID) -> PVOID);
     unsafe { RtlPcToFileHeader(pcvalue, baseofimage as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlQueryDepthSList(listhead: PSLIST_HEADER) -> u16 {
-    windows_core::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : PSLIST_HEADER) -> u16);
+pub unsafe fn RtlQueryDepthSList(listhead: PSLIST_HEADER) -> super::WORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryDepthSList(listhead : PSLIST_HEADER) -> super::WORD);
     unsafe { RtlQueryDepthSList(listhead) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlRaiseCustomSystemEventTrigger(triggerconfig : PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32);
+pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlRaiseCustomSystemEventTrigger(triggerconfig : PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> super::DWORD);
     unsafe { RtlRaiseCustomSystemEventTrigger(triggerconfig) }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: PEXCEPTION_RECORD) {
     windows_core::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : PEXCEPTION_RECORD));
     unsafe { RtlRaiseException(exceptionrecord) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RtlRestoreContext(contextrecord: PCONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
     windows_core::link!("kernel32.dll" "C" fn RtlRestoreContext(contextrecord : PCONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
     unsafe { RtlRestoreContext(contextrecord, exceptionrecord.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlSwitchedVVI(versioninfo: PRTL_OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : PRTL_OSVERSIONINFOEXW, typemask : u32, conditionmask : u64) -> u32);
+pub unsafe fn RtlSwitchedVVI(versioninfo: PRTL_OSVERSIONINFOEXW, typemask: super::DWORD, conditionmask: super::ULONGLONG) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlSwitchedVVI(versioninfo : PRTL_OSVERSIONINFOEXW, typemask : super::DWORD, conditionmask : super::ULONGLONG) -> super::DWORD);
     unsafe { RtlSwitchedVVI(versioninfo, typemask, conditionmask) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlUnwind(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<PEXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void) {
-    windows_core::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : PEXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
+pub unsafe fn RtlUnwind(targetframe: Option<PVOID>, targetip: Option<PVOID>, exceptionrecord: Option<PEXCEPTION_RECORD>, returnvalue: PVOID) {
+    windows_core::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : PVOID, targetip : PVOID, exceptionrecord : PEXCEPTION_RECORD, returnvalue : PVOID));
     unsafe { RtlUnwind(targetframe.unwrap_or(core::mem::zeroed()) as _, targetip.unwrap_or(core::mem::zeroed()) as _, exceptionrecord.unwrap_or(core::mem::zeroed()) as _, returnvalue) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<PEXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void, contextrecord: PCONTEXT, historytable: Option<PUNWIND_HISTORY_TABLE>) {
-    windows_core::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : PEXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : PCONTEXT, historytable : PUNWIND_HISTORY_TABLE));
+pub unsafe fn RtlUnwindEx(targetframe: Option<PVOID>, targetip: Option<PVOID>, exceptionrecord: Option<PEXCEPTION_RECORD>, returnvalue: PVOID, contextrecord: PCONTEXT, historytable: Option<PUNWIND_HISTORY_TABLE>) {
+    windows_core::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : PVOID, targetip : PVOID, exceptionrecord : PEXCEPTION_RECORD, returnvalue : PVOID, contextrecord : PCONTEXT, historytable : PUNWIND_HISTORY_TABLE));
     unsafe { RtlUnwindEx(targetframe.unwrap_or(core::mem::zeroed()) as _, targetip.unwrap_or(core::mem::zeroed()) as _, exceptionrecord.unwrap_or(core::mem::zeroed()) as _, returnvalue, contextrecord, historytable.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RtlValidateCorrelationVector(vector: PCORRELATION_VECTOR) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : PCORRELATION_VECTOR) -> u32);
+pub unsafe fn RtlValidateCorrelationVector(vector: PCORRELATION_VECTOR) -> super::DWORD {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidateCorrelationVector(vector : PCORRELATION_VECTOR) -> super::DWORD);
     unsafe { RtlValidateCorrelationVector(vector) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: PRUNTIME_FUNCTION, contextrecord: PCONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PDWORD64, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PDWORD64, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
+pub unsafe fn RtlVirtualUnwind(handlertype: super::DWORD, imagebase: super::DWORD64, controlpc: super::DWORD64, functionentry: PRUNTIME_FUNCTION, contextrecord: PCONTEXT, handlerdata: *mut PVOID, establisherframe: super::PDWORD64, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : super::DWORD, imagebase : super::DWORD64, controlpc : super::DWORD64, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, handlerdata : *mut PVOID, establisherframe : super::PDWORD64, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
     unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "basetsd", feature = "excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: PRUNTIME_FUNCTION, contextrecord: PCONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PULONG_PTR, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PULONG_PTR, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
+pub unsafe fn RtlVirtualUnwind(handlertype: super::DWORD, imagebase: super::ULONG_PTR, controlpc: super::ULONG_PTR, functionentry: PRUNTIME_FUNCTION, contextrecord: PCONTEXT, handlerdata: *mut PVOID, establisherframe: super::PULONG_PTR, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>) -> PEXCEPTION_ROUTINE {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : super::DWORD, imagebase : super::ULONG_PTR, controlpc : super::ULONG_PTR, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, handlerdata : *mut PVOID, establisherframe : super::PULONG_PTR, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS) -> PEXCEPTION_ROUTINE);
     unsafe { RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: u64, controlpc: u64, functionentry: Option<PRUNTIME_FUNCTION>, contextrecord: PCONTEXT, machineframeunwound: Option<PBOOLEAN>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PDWORD64, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<super::PDWORD64>, highlimit: Option<super::PDWORD64>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : u64, controlpc : u64, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, machineframeunwound : PBOOLEAN, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PDWORD64, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS, lowlimit : super::PDWORD64, highlimit : super::PDWORD64, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
-    unsafe { RtlVirtualUnwind2(handlertype, imagebase, controlpc, functionentry.unwrap_or(core::mem::zeroed()) as _, contextrecord as _, machineframeunwound.unwrap_or(core::mem::zeroed()) as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _, lowlimit.unwrap_or(core::mem::zeroed()) as _, highlimit.unwrap_or(core::mem::zeroed()) as _, handlerroutine as _, unwindflags) }
+pub unsafe fn RtlVirtualUnwind2(handlertype: super::DWORD, imagebase: super::DWORD64, controlpc: super::DWORD64, functionentry: Option<PRUNTIME_FUNCTION>, contextrecord: PCONTEXT, machineframeunwound: Option<PBOOLEAN>, handlerdata: *mut PVOID, establisherframe: super::PDWORD64, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<super::PDWORD64>, highlimit: Option<super::PDWORD64>, handlerroutine: Option<*mut PEXCEPTION_ROUTINE>, unwindflags: super::DWORD) -> super::DWORD {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : super::DWORD, imagebase : super::DWORD64, controlpc : super::DWORD64, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, machineframeunwound : PBOOLEAN, handlerdata : *mut PVOID, establisherframe : super::PDWORD64, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS, lowlimit : super::PDWORD64, highlimit : super::PDWORD64, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : super::DWORD) -> super::DWORD);
+    unsafe { RtlVirtualUnwind2(handlertype, imagebase, controlpc, functionentry.unwrap_or(core::mem::zeroed()) as _, contextrecord as _, machineframeunwound.unwrap_or(core::mem::zeroed()) as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _, lowlimit.unwrap_or(core::mem::zeroed()) as _, highlimit.unwrap_or(core::mem::zeroed()) as _, handlerroutine.unwrap_or(core::mem::zeroed()) as _, unwindflags) }
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "basetsd", feature = "excpt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "shared"))]
 #[inline]
-pub unsafe fn RtlVirtualUnwind2(handlertype: u32, imagebase: usize, controlpc: usize, functionentry: Option<PRUNTIME_FUNCTION>, contextrecord: PCONTEXT, machineframeunwound: Option<PBOOLEAN>, handlerdata: *mut *mut core::ffi::c_void, establisherframe: super::PULONG_PTR, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<super::PULONG_PTR>, highlimit: Option<super::PULONG_PTR>, handlerroutine: *mut PEXCEPTION_ROUTINE, unwindflags: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : u32, imagebase : usize, controlpc : usize, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, machineframeunwound : PBOOLEAN, handlerdata : *mut *mut core::ffi::c_void, establisherframe : super::PULONG_PTR, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS, lowlimit : super::PULONG_PTR, highlimit : super::PULONG_PTR, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : u32) -> u32);
-    unsafe { RtlVirtualUnwind2(handlertype, imagebase, controlpc, functionentry.unwrap_or(core::mem::zeroed()) as _, contextrecord as _, machineframeunwound.unwrap_or(core::mem::zeroed()) as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _, lowlimit.unwrap_or(core::mem::zeroed()) as _, highlimit.unwrap_or(core::mem::zeroed()) as _, handlerroutine as _, unwindflags) }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvdestination: *mut core::ffi::c_void, source: *const core::ffi::c_void, size: usize, flags: u32) -> u32 {
-    windows_core::link!("ntdll.dll" "system" fn RtlWriteNonVolatileMemory(nvtoken : *const core::ffi::c_void, nvdestination : *mut core::ffi::c_void, source : *const core::ffi::c_void, size : usize, flags : u32) -> u32);
-    unsafe { RtlWriteNonVolatileMemory(nvtoken, nvdestination as _, source, size, flags) }
+pub unsafe fn RtlVirtualUnwind2(handlertype: super::DWORD, imagebase: super::ULONG_PTR, controlpc: super::ULONG_PTR, functionentry: Option<PRUNTIME_FUNCTION>, contextrecord: PCONTEXT, machineframeunwound: Option<PBOOLEAN>, handlerdata: *mut PVOID, establisherframe: super::PULONG_PTR, contextpointers: Option<PKNONVOLATILE_CONTEXT_POINTERS>, lowlimit: Option<super::PULONG_PTR>, highlimit: Option<super::PULONG_PTR>, handlerroutine: Option<*mut PEXCEPTION_ROUTINE>, unwindflags: super::DWORD) -> super::DWORD {
+    windows_core::link!("kernel32.dll" "system" fn RtlVirtualUnwind2(handlertype : super::DWORD, imagebase : super::ULONG_PTR, controlpc : super::ULONG_PTR, functionentry : PRUNTIME_FUNCTION, contextrecord : PCONTEXT, machineframeunwound : PBOOLEAN, handlerdata : *mut PVOID, establisherframe : super::PULONG_PTR, contextpointers : PKNONVOLATILE_CONTEXT_POINTERS, lowlimit : super::PULONG_PTR, highlimit : super::PULONG_PTR, handlerroutine : *mut PEXCEPTION_ROUTINE, unwindflags : super::DWORD) -> super::DWORD);
+    unsafe { RtlVirtualUnwind2(handlertype, imagebase, controlpc, functionentry.unwrap_or(core::mem::zeroed()) as _, contextrecord as _, machineframeunwound.unwrap_or(core::mem::zeroed()) as _, handlerdata as _, establisherframe as _, contextpointers.unwrap_or(core::mem::zeroed()) as _, lowlimit.unwrap_or(core::mem::zeroed()) as _, highlimit.unwrap_or(core::mem::zeroed()) as _, handlerroutine.unwrap_or(core::mem::zeroed()) as _, unwindflags) }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_ALLOWED_ACE_TYPE: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_ALLOWED_CALLBACK_ACE_TYPE: i32 = 9;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: i32 = 11;
 pub const ACCESS_ALLOWED_COMPOUND_ACE_TYPE: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_ALLOWED_OBJECT_ACE_TYPE: i32 = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_DENIED_ACE_TYPE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_DENIED_CALLBACK_ACE_TYPE: i32 = 10;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: i32 = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const ACCESS_DENIED_OBJECT_ACE_TYPE: i32 = 6;
 pub const ACCESS_DS_OBJECT_TYPE_NAME_A: windows_core::PCSTR = windows_core::s!("Directory Service Object");
@@ -395,7 +436,6 @@ pub const ACCESS_DS_OBJECT_TYPE_NAME_W: windows_core::PCWSTR = windows_core::w!(
 pub const ACCESS_DS_SOURCE_A: windows_core::PCSTR = windows_core::s!("DS");
 pub const ACCESS_DS_SOURCE_W: windows_core::PCWSTR = windows_core::w!("DS");
 pub const ACCESS_FILTER_SECURITY_INFORMATION: i32 = 256;
-pub type ACCESS_MASK = u32;
 pub const ACCESS_MAX_LEVEL: i32 = 4;
 pub const ACCESS_MAX_MS_ACE_TYPE: i32 = 8;
 pub const ACCESS_MAX_MS_OBJECT_ACE_TYPE: i32 = 8;
@@ -426,22 +466,24 @@ pub type ACCESS_REASON_TYPE = i32;
 pub const ACCESS_REASON_TYPE_MASK: i32 = 16711680;
 pub const ACCESS_SYSTEM_SECURITY: i32 = 16777216;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACE_HEADER {
-    pub AceType: u8,
-    pub AceFlags: u8,
-    pub AceSize: u16,
+    pub AceType: super::BYTE,
+    pub AceFlags: super::BYTE,
+    pub AceSize: super::WORD,
 }
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: i32 = 2;
 pub const ACE_OBJECT_TYPE_PRESENT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL {
-    pub AclRevision: u8,
-    pub Sbz1: u8,
-    pub AclSize: u16,
-    pub AceCount: u16,
-    pub Sbz2: u16,
+    pub AclRevision: super::BYTE,
+    pub Sbz1: super::BYTE,
+    pub AclSize: super::WORD,
+    pub AceCount: super::WORD,
+    pub Sbz2: super::WORD,
 }
 pub type ACL_INFORMATION_CLASS = i32;
 pub const ACL_REVISION: i32 = 2;
@@ -451,16 +493,18 @@ pub const ACL_REVISION3: i32 = 3;
 pub const ACL_REVISION4: i32 = 4;
 pub const ACL_REVISION_DS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL_REVISION_INFORMATION {
-    pub AclRevision: u32,
+    pub AclRevision: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL_SIZE_INFORMATION {
-    pub AceCount: u32,
-    pub AclBytesInUse: u32,
-    pub AclBytesFree: u32,
+    pub AceCount: super::DWORD,
+    pub AclBytesInUse: super::DWORD,
+    pub AclBytesFree: super::DWORD,
 }
 pub const ACPI_PPM_HARDWARE_ALL: i32 = 254;
 pub const ACPI_PPM_SOFTWARE_ALL: i32 = 252;
@@ -477,56 +521,48 @@ pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = 4;
 pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = 3;
 pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
-    pub ulFlags: u32,
-    pub ulEncodedAssemblyIdentityLength: u32,
-    pub ulManifestPathType: u32,
-    pub ulManifestPathLength: u32,
+    pub ulFlags: super::DWORD,
+    pub ulEncodedAssemblyIdentityLength: super::DWORD,
+    pub ulManifestPathType: super::DWORD,
+    pub ulManifestPathLength: super::DWORD,
     pub liManifestLastWriteTime: LARGE_INTEGER,
-    pub ulPolicyPathType: u32,
-    pub ulPolicyPathLength: u32,
+    pub ulPolicyPathType: super::DWORD,
+    pub ulPolicyPathLength: super::DWORD,
     pub liPolicyLastWriteTime: LARGE_INTEGER,
-    pub ulMetadataSatelliteRosterIndex: u32,
-    pub ulManifestVersionMajor: u32,
-    pub ulManifestVersionMinor: u32,
-    pub ulPolicyVersionMajor: u32,
-    pub ulPolicyVersionMinor: u32,
-    pub ulAssemblyDirectoryNameLength: u32,
+    pub ulMetadataSatelliteRosterIndex: super::DWORD,
+    pub ulManifestVersionMajor: super::DWORD,
+    pub ulManifestVersionMinor: super::DWORD,
+    pub ulPolicyVersionMajor: super::DWORD,
+    pub ulPolicyVersionMinor: super::DWORD,
+    pub ulAssemblyDirectoryNameLength: super::DWORD,
     pub lpAssemblyEncodedAssemblyIdentity: windows_core::PCWSTR,
     pub lpAssemblyManifestPath: windows_core::PCWSTR,
     pub lpAssemblyPolicyPath: windows_core::PCWSTR,
     pub lpAssemblyDirectoryName: windows_core::PCWSTR,
-    pub ulFileCount: u32,
+    pub ulFileCount: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
-    pub ElementCount: u32,
-    pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 0],
-}
-impl Default for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
-    pub dwFlags: u32,
-    pub ulFormatVersion: u32,
-    pub ulAssemblyCount: u32,
-    pub ulRootManifestPathType: u32,
-    pub ulRootManifestPathChars: u32,
-    pub ulRootConfigurationPathType: u32,
-    pub ulRootConfigurationPathChars: u32,
-    pub ulAppDirPathType: u32,
-    pub ulAppDirPathChars: u32,
+    pub dwFlags: super::DWORD,
+    pub ulFormatVersion: super::DWORD,
+    pub ulAssemblyCount: super::DWORD,
+    pub ulRootManifestPathType: super::DWORD,
+    pub ulRootManifestPathChars: super::DWORD,
+    pub ulRootConfigurationPathType: super::DWORD,
+    pub ulRootConfigurationPathChars: super::DWORD,
+    pub ulAppDirPathType: super::DWORD,
+    pub ulAppDirPathChars: super::DWORD,
     pub lpRootManifestPath: windows_core::PCWSTR,
     pub lpRootConfigurationPath: windows_core::PCWSTR,
     pub lpAppDirPath: windows_core::PCWSTR,
@@ -537,17 +573,19 @@ pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: i32 = 1;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_URL: i32 = 3;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_WIN32_FILE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
-    pub ulAssemblyIndex: u32,
-    pub ulFileIndexInAssembly: u32,
+    pub ulAssemblyIndex: super::DWORD,
+    pub ulFileIndexInAssembly: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
-    pub ulFlags: u32,
+    pub ulFlags: super::DWORD,
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
-    pub UiAccess: u32,
+    pub UiAccess: super::DWORD,
 }
 pub const ACTIVATION_CONTEXT_SECTION_APPLICATION_SETTINGS: i32 = 10;
 pub const ACTIVATION_CONTEXT_SECTION_ASSEMBLY_INFORMATION: i32 = 1;
@@ -562,14 +600,15 @@ pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: i32 = 8;
 pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: i32 = 3;
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: i32 = 12;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSleep: SYSTEM_POWER_STATE,
     pub MaxSleep: SYSTEM_POWER_STATE,
-    pub MinVideoTimeout: u32,
-    pub MaxVideoTimeout: u32,
-    pub MinSpindownTimeout: u32,
-    pub MaxSpindownTimeout: u32,
+    pub MinVideoTimeout: super::DWORD,
+    pub MaxVideoTimeout: super::DWORD,
+    pub MinSpindownTimeout: super::DWORD,
+    pub MaxSpindownTimeout: super::DWORD,
 }
 pub const ALL_POWERSCHEMES_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 pub const ALL_PROCESSOR_GROUPS: i32 = 65535;
@@ -580,58 +619,65 @@ pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = 6;
 pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = 3;
 pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = 2;
 pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct ANON_OBJECT_HEADER {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub ClassID: windows_core::GUID,
-    pub SizeOfData: u32,
+    pub Sig1: super::WORD,
+    pub Sig2: super::WORD,
+    pub Version: super::WORD,
+    pub Machine: super::WORD,
+    pub TimeDateStamp: super::DWORD,
+    pub ClassID: super::CLSID,
+    pub SizeOfData: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct ANON_OBJECT_HEADER_BIGOBJ {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub ClassID: windows_core::GUID,
-    pub SizeOfData: u32,
-    pub Flags: u32,
-    pub MetaDataSize: u32,
-    pub MetaDataOffset: u32,
-    pub NumberOfSections: u32,
-    pub PointerToSymbolTable: u32,
-    pub NumberOfSymbols: u32,
+    pub Sig1: super::WORD,
+    pub Sig2: super::WORD,
+    pub Version: super::WORD,
+    pub Machine: super::WORD,
+    pub TimeDateStamp: super::DWORD,
+    pub ClassID: super::CLSID,
+    pub SizeOfData: super::DWORD,
+    pub Flags: super::DWORD,
+    pub MetaDataSize: super::DWORD,
+    pub MetaDataOffset: super::DWORD,
+    pub NumberOfSections: super::DWORD,
+    pub PointerToSymbolTable: super::DWORD,
+    pub NumberOfSymbols: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct ANON_OBJECT_HEADER_V2 {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub ClassID: windows_core::GUID,
-    pub SizeOfData: u32,
-    pub Flags: u32,
-    pub MetaDataSize: u32,
-    pub MetaDataOffset: u32,
+    pub Sig1: super::WORD,
+    pub Sig2: super::WORD,
+    pub Version: super::WORD,
+    pub Machine: super::WORD,
+    pub TimeDateStamp: super::DWORD,
+    pub ClassID: super::CLSID,
+    pub SizeOfData: super::DWORD,
+    pub Flags: super::DWORD,
+    pub MetaDataSize: super::DWORD,
+    pub MetaDataOffset: super::DWORD,
 }
-pub const ANSI_NULL: i8 = 0;
+#[cfg(feature = "shared")]
+pub const ANSI_NULL: super::CHAR = 0;
 pub const ANYSIZE_ARRAY: i32 = 1;
-pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void)>;
+#[cfg(feature = "shared")]
+pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: super::DWORD, param1: PVOID, param2: PVOID)>;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub ActivationTime: LARGE_INTEGER,
-    pub Flags: u32,
-    pub ButtonInstanceID: u32,
+    pub Flags: super::DWORD,
+    pub ButtonInstanceID: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for APPLICATIONLAUNCH_SETTING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -639,131 +685,139 @@ impl Default for APPLICATIONLAUNCH_SETTING_VALUE {
 }
 pub const APPLICATION_ERROR_MASK: i32 = 536870912;
 #[repr(C, align(16))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ARM64EC_NT_CONTEXT {
     pub Anonymous: ARM64EC_NT_CONTEXT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for ARM64EC_NT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ARM64EC_NT_CONTEXT_0 {
     pub Anonymous: ARM64EC_NT_CONTEXT_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for ARM64EC_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ARM64EC_NT_CONTEXT_0_0 {
-    pub AMD64_P1Home: u64,
-    pub AMD64_P2Home: u64,
-    pub AMD64_P3Home: u64,
-    pub AMD64_P4Home: u64,
-    pub AMD64_P5Home: u64,
-    pub AMD64_P6Home: u64,
-    pub ContextFlags: u32,
-    pub AMD64_MxCsr_copy: u32,
-    pub AMD64_SegCs: u16,
-    pub AMD64_SegDs: u16,
-    pub AMD64_SegEs: u16,
-    pub AMD64_SegFs: u16,
-    pub AMD64_SegGs: u16,
-    pub AMD64_SegSs: u16,
-    pub AMD64_EFlags: u32,
-    pub AMD64_Dr0: u64,
-    pub AMD64_Dr1: u64,
-    pub AMD64_Dr2: u64,
-    pub AMD64_Dr3: u64,
-    pub AMD64_Dr6: u64,
-    pub AMD64_Dr7: u64,
-    pub X8: u64,
-    pub X0: u64,
-    pub X1: u64,
-    pub X27: u64,
-    pub Sp: u64,
-    pub Fp: u64,
-    pub X25: u64,
-    pub X26: u64,
-    pub X2: u64,
-    pub X3: u64,
-    pub X4: u64,
-    pub X5: u64,
-    pub X19: u64,
-    pub X20: u64,
-    pub X21: u64,
-    pub X22: u64,
-    pub Pc: u64,
+    pub AMD64_P1Home: super::DWORD64,
+    pub AMD64_P2Home: super::DWORD64,
+    pub AMD64_P3Home: super::DWORD64,
+    pub AMD64_P4Home: super::DWORD64,
+    pub AMD64_P5Home: super::DWORD64,
+    pub AMD64_P6Home: super::DWORD64,
+    pub ContextFlags: super::DWORD,
+    pub AMD64_MxCsr_copy: super::DWORD,
+    pub AMD64_SegCs: super::WORD,
+    pub AMD64_SegDs: super::WORD,
+    pub AMD64_SegEs: super::WORD,
+    pub AMD64_SegFs: super::WORD,
+    pub AMD64_SegGs: super::WORD,
+    pub AMD64_SegSs: super::WORD,
+    pub AMD64_EFlags: super::DWORD,
+    pub AMD64_Dr0: super::DWORD64,
+    pub AMD64_Dr1: super::DWORD64,
+    pub AMD64_Dr2: super::DWORD64,
+    pub AMD64_Dr3: super::DWORD64,
+    pub AMD64_Dr6: super::DWORD64,
+    pub AMD64_Dr7: super::DWORD64,
+    pub X8: super::DWORD64,
+    pub X0: super::DWORD64,
+    pub X1: super::DWORD64,
+    pub X27: super::DWORD64,
+    pub Sp: super::DWORD64,
+    pub Fp: super::DWORD64,
+    pub X25: super::DWORD64,
+    pub X26: super::DWORD64,
+    pub X2: super::DWORD64,
+    pub X3: super::DWORD64,
+    pub X4: super::DWORD64,
+    pub X5: super::DWORD64,
+    pub X19: super::DWORD64,
+    pub X20: super::DWORD64,
+    pub X21: super::DWORD64,
+    pub X22: super::DWORD64,
+    pub Pc: super::DWORD64,
     pub Anonymous: ARM64EC_NT_CONTEXT_0_0_0,
     pub AMD64_VectorRegister: [ARM64_NT_NEON128; 26],
-    pub AMD64_VectorControl: u64,
-    pub AMD64_DebugControl: u64,
-    pub AMD64_LastBranchToRip: u64,
-    pub AMD64_LastBranchFromRip: u64,
-    pub AMD64_LastExceptionToRip: u64,
-    pub AMD64_LastExceptionFromRip: u64,
+    pub AMD64_VectorControl: super::DWORD64,
+    pub AMD64_DebugControl: super::DWORD64,
+    pub AMD64_LastBranchToRip: super::DWORD64,
+    pub AMD64_LastBranchFromRip: super::DWORD64,
+    pub AMD64_LastExceptionToRip: super::DWORD64,
+    pub AMD64_LastExceptionFromRip: super::DWORD64,
 }
+#[cfg(feature = "shared")]
 impl Default for ARM64EC_NT_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ARM64EC_NT_CONTEXT_0_0_0 {
-    pub AMD64_ControlWord: u16,
-    pub AMD64_StatusWord: u16,
-    pub AMD64_TagWord: u8,
-    pub AMD64_Reserved1: u8,
-    pub AMD64_ErrorOpcode: u16,
-    pub AMD64_ErrorOffset: u32,
-    pub AMD64_ErrorSelector: u16,
-    pub AMD64_Reserved2: u16,
-    pub AMD64_DataOffset: u32,
-    pub AMD64_DataSelector: u16,
-    pub AMD64_Reserved3: u16,
-    pub AMD64_MxCsr: u32,
-    pub AMD64_MxCsr_Mask: u32,
-    pub Lr: u64,
-    pub X16_0: u16,
-    pub AMD64_St0_Reserved1: u16,
-    pub AMD64_St0_Reserved2: u32,
-    pub X6: u64,
-    pub X16_1: u16,
-    pub AMD64_St1_Reserved1: u16,
-    pub AMD64_St1_Reserved2: u32,
-    pub X7: u64,
-    pub X16_2: u16,
-    pub AMD64_St2_Reserved1: u16,
-    pub AMD64_St2_Reserved2: u32,
-    pub X9: u64,
-    pub X16_3: u16,
-    pub AMD64_St3_Reserved1: u16,
-    pub AMD64_St3_Reserved2: u32,
-    pub X10: u64,
-    pub X17_0: u16,
-    pub AMD64_St4_Reserved1: u16,
-    pub AMD64_St4_Reserved2: u32,
-    pub X11: u64,
-    pub X17_1: u16,
-    pub AMD64_St5_Reserved1: u16,
-    pub AMD64_St5_Reserved2: u32,
-    pub X12: u64,
-    pub X17_2: u16,
-    pub AMD64_St6_Reserved1: u16,
-    pub AMD64_St6_Reserved2: u32,
-    pub X15: u64,
-    pub X17_3: u16,
-    pub AMD64_St7_Reserved1: u16,
-    pub AMD64_St7_Reserved2: u32,
+    pub AMD64_ControlWord: super::WORD,
+    pub AMD64_StatusWord: super::WORD,
+    pub AMD64_TagWord: super::BYTE,
+    pub AMD64_Reserved1: super::BYTE,
+    pub AMD64_ErrorOpcode: super::WORD,
+    pub AMD64_ErrorOffset: super::DWORD,
+    pub AMD64_ErrorSelector: super::WORD,
+    pub AMD64_Reserved2: super::WORD,
+    pub AMD64_DataOffset: super::DWORD,
+    pub AMD64_DataSelector: super::WORD,
+    pub AMD64_Reserved3: super::WORD,
+    pub AMD64_MxCsr: super::DWORD,
+    pub AMD64_MxCsr_Mask: super::DWORD,
+    pub Lr: super::DWORD64,
+    pub X16_0: super::WORD,
+    pub AMD64_St0_Reserved1: super::WORD,
+    pub AMD64_St0_Reserved2: super::DWORD,
+    pub X6: super::DWORD64,
+    pub X16_1: super::WORD,
+    pub AMD64_St1_Reserved1: super::WORD,
+    pub AMD64_St1_Reserved2: super::DWORD,
+    pub X7: super::DWORD64,
+    pub X16_2: super::WORD,
+    pub AMD64_St2_Reserved1: super::WORD,
+    pub AMD64_St2_Reserved2: super::DWORD,
+    pub X9: super::DWORD64,
+    pub X16_3: super::WORD,
+    pub AMD64_St3_Reserved1: super::WORD,
+    pub AMD64_St3_Reserved2: super::DWORD,
+    pub X10: super::DWORD64,
+    pub X17_0: super::WORD,
+    pub AMD64_St4_Reserved1: super::WORD,
+    pub AMD64_St4_Reserved2: super::DWORD,
+    pub X11: super::DWORD64,
+    pub X17_1: super::WORD,
+    pub AMD64_St5_Reserved1: super::WORD,
+    pub AMD64_St5_Reserved2: super::DWORD,
+    pub X12: super::DWORD64,
+    pub X17_2: super::WORD,
+    pub AMD64_St6_Reserved1: super::WORD,
+    pub AMD64_St6_Reserved2: super::DWORD,
+    pub X15: super::DWORD64,
+    pub X17_3: super::WORD,
+    pub AMD64_St7_Reserved1: super::WORD,
+    pub AMD64_St7_Reserved2: super::DWORD,
     pub V: [ARM64_NT_NEON128; 16],
-    pub AMD64_XSAVE_FORMAT_Reserved4: [u8; 96],
+    pub AMD64_XSAVE_FORMAT_Reserved4: [super::BYTE; 96],
 }
+#[cfg(feature = "shared")]
 impl Default for ARM64EC_NT_CONTEXT_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -781,22 +835,24 @@ pub const ARM64_MAX_BREAKPOINTS: i32 = 8;
 pub const ARM64_MAX_WATCHPOINTS: i32 = 2;
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ARM64_NT_CONTEXT {
-    pub ContextFlags: u32,
-    pub Cpsr: u32,
+    pub ContextFlags: super::DWORD,
+    pub Cpsr: super::DWORD,
     pub Anonymous: ARM64_NT_CONTEXT_0,
-    pub Sp: u64,
-    pub Pc: u64,
+    pub Sp: super::DWORD64,
+    pub Pc: super::DWORD64,
     pub V: [ARM64_NT_NEON128; 32],
-    pub Fpcr: u32,
-    pub Fpsr: u32,
-    pub Bcr: [u32; 8],
-    pub Bvr: [u64; 8],
-    pub Wcr: [u32; 2],
-    pub Wvr: [u64; 2],
+    pub Fpcr: super::DWORD,
+    pub Fpsr: super::DWORD,
+    pub Bcr: [super::DWORD; 8],
+    pub Bvr: [super::DWORD64; 8],
+    pub Wcr: [super::DWORD; 2],
+    pub Wvr: [super::DWORD64; 2],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for ARM64_NT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -804,12 +860,14 @@ impl Default for ARM64_NT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
-    pub X: [u64; 31],
+    pub X: [super::DWORD64; 31],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for ARM64_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -817,58 +875,61 @@ impl Default for ARM64_NT_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
-    pub X0: u64,
-    pub X1: u64,
-    pub X2: u64,
-    pub X3: u64,
-    pub X4: u64,
-    pub X5: u64,
-    pub X6: u64,
-    pub X7: u64,
-    pub X8: u64,
-    pub X9: u64,
-    pub X10: u64,
-    pub X11: u64,
-    pub X12: u64,
-    pub X13: u64,
-    pub X14: u64,
-    pub X15: u64,
-    pub X16: u64,
-    pub X17: u64,
-    pub X18: u64,
-    pub X19: u64,
-    pub X20: u64,
-    pub X21: u64,
-    pub X22: u64,
-    pub X23: u64,
-    pub X24: u64,
-    pub X25: u64,
-    pub X26: u64,
-    pub X27: u64,
-    pub X28: u64,
-    pub Fp: u64,
-    pub Lr: u64,
+    pub X0: super::DWORD64,
+    pub X1: super::DWORD64,
+    pub X2: super::DWORD64,
+    pub X3: super::DWORD64,
+    pub X4: super::DWORD64,
+    pub X5: super::DWORD64,
+    pub X6: super::DWORD64,
+    pub X7: super::DWORD64,
+    pub X8: super::DWORD64,
+    pub X9: super::DWORD64,
+    pub X10: super::DWORD64,
+    pub X11: super::DWORD64,
+    pub X12: super::DWORD64,
+    pub X13: super::DWORD64,
+    pub X14: super::DWORD64,
+    pub X15: super::DWORD64,
+    pub X16: super::DWORD64,
+    pub X17: super::DWORD64,
+    pub X18: super::DWORD64,
+    pub X19: super::DWORD64,
+    pub X20: super::DWORD64,
+    pub X21: super::DWORD64,
+    pub X22: super::DWORD64,
+    pub X23: super::DWORD64,
+    pub X24: super::DWORD64,
+    pub X25: super::DWORD64,
+    pub X26: super::DWORD64,
+    pub X27: super::DWORD64,
+    pub X28: super::DWORD64,
+    pub Fp: super::DWORD64,
+    pub Lr: super::DWORD64,
 }
 #[repr(C, align(16))]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ARM64_NT_CONTEXT {
-    pub ContextFlags: u32,
-    pub Cpsr: u32,
+    pub ContextFlags: super::DWORD,
+    pub Cpsr: super::DWORD,
     pub Anonymous: ARM64_NT_CONTEXT_0,
-    pub Sp: u64,
-    pub Pc: u64,
+    pub Sp: super::DWORD64,
+    pub Pc: super::DWORD64,
     pub V: [NEON128; 32],
-    pub Fpcr: u32,
-    pub Fpsr: u32,
-    pub Bcr: [u32; 8],
-    pub Bvr: [u64; 8],
-    pub Wcr: [u32; 2],
-    pub Wvr: [u64; 2],
+    pub Fpcr: super::DWORD,
+    pub Fpsr: super::DWORD,
+    pub Bcr: [super::DWORD; 8],
+    pub Bvr: [super::DWORD64; 8],
+    pub Wcr: [super::DWORD; 2],
+    pub Wvr: [super::DWORD64; 2],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for ARM64_NT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -876,12 +937,14 @@ impl Default for ARM64_NT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
-    pub X: [u64; 31],
+    pub X: [super::DWORD64; 31],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for ARM64_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -889,59 +952,63 @@ impl Default for ARM64_NT_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
-    pub X0: u64,
-    pub X1: u64,
-    pub X2: u64,
-    pub X3: u64,
-    pub X4: u64,
-    pub X5: u64,
-    pub X6: u64,
-    pub X7: u64,
-    pub X8: u64,
-    pub X9: u64,
-    pub X10: u64,
-    pub X11: u64,
-    pub X12: u64,
-    pub X13: u64,
-    pub X14: u64,
-    pub X15: u64,
-    pub X16: u64,
-    pub X17: u64,
-    pub X18: u64,
-    pub X19: u64,
-    pub X20: u64,
-    pub X21: u64,
-    pub X22: u64,
-    pub X23: u64,
-    pub X24: u64,
-    pub X25: u64,
-    pub X26: u64,
-    pub X27: u64,
-    pub X28: u64,
-    pub Fp: u64,
-    pub Lr: u64,
+    pub X0: super::DWORD64,
+    pub X1: super::DWORD64,
+    pub X2: super::DWORD64,
+    pub X3: super::DWORD64,
+    pub X4: super::DWORD64,
+    pub X5: super::DWORD64,
+    pub X6: super::DWORD64,
+    pub X7: super::DWORD64,
+    pub X8: super::DWORD64,
+    pub X9: super::DWORD64,
+    pub X10: super::DWORD64,
+    pub X11: super::DWORD64,
+    pub X12: super::DWORD64,
+    pub X13: super::DWORD64,
+    pub X14: super::DWORD64,
+    pub X15: super::DWORD64,
+    pub X16: super::DWORD64,
+    pub X17: super::DWORD64,
+    pub X18: super::DWORD64,
+    pub X19: super::DWORD64,
+    pub X20: super::DWORD64,
+    pub X21: super::DWORD64,
+    pub X22: super::DWORD64,
+    pub X23: super::DWORD64,
+    pub X24: super::DWORD64,
+    pub X25: super::DWORD64,
+    pub X26: super::DWORD64,
+    pub X27: super::DWORD64,
+    pub X28: super::DWORD64,
+    pub Fp: super::DWORD64,
+    pub Lr: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,
     pub D: [f64; 2],
     pub S: [f32; 4],
-    pub H: [u16; 8],
-    pub B: [u8; 16],
+    pub H: [super::WORD; 8],
+    pub B: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for ARM64_NT_NEON128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_NT_NEON128_0 {
-    pub Low: u64,
-    pub High: i64,
+    pub Low: super::ULONGLONG,
+    pub High: super::LONGLONG,
 }
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_PMCCNTR_EL0: i32 = 23784;
@@ -965,6 +1032,7 @@ pub const ARM64_PREFETCH_PLI: i32 = 8;
 pub const ARM64_PREFETCH_PST: i32 = 16;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_PREFETCH_STRM: i32 = 1;
+#[cfg(feature = "shared")]
 pub type ARM64_RUNTIME_FUNCTION = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_SVCR: i32 = 23058;
@@ -973,12 +1041,13 @@ pub const ARM64_SVCR_SM: i32 = 1;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_SVCR_ZA: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_TPIDR2_BLOCK {
-    pub ZaSaveBuffer: *mut core::ffi::c_void,
-    pub NumZaSaveSlices: u16,
-    pub Reserved1: u16,
-    pub Reserved2: u32,
+    pub ZaSaveBuffer: PVOID,
+    pub NumZaSaveSlices: super::WORD,
+    pub Reserved1: super::WORD,
+    pub Reserved2: super::DWORD,
 }
 pub const ARM64_TPIDR2_BLOCK_ALIGN: i32 = 16;
 #[cfg(target_arch = "aarch64")]
@@ -991,19 +1060,21 @@ pub const ARM64_TPIDR_EL0: i32 = 24194;
 pub const ARM64_TPIDR_EL1: i32 = 18052;
 pub const ARM_CACHE_ALIGNMENT_SIZE: i32 = 128;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
-    pub ulFlags: u32,
-    pub ulFilenameLength: u32,
-    pub ulPathLength: u32,
+    pub ulFlags: super::DWORD,
+    pub ulFilenameLength: super::DWORD,
+    pub ulPathLength: super::DWORD,
     pub lpFileName: windows_core::PCWSTR,
     pub lpFilePath: windows_core::PCWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTES_AND_SID {
-    pub Attributes: u32,
-    pub SidStart: u32,
+    pub Attributes: super::UINT32,
+    pub SidStart: super::DWORD,
 }
 pub const ATTRIBUTE_SECURITY_INFORMATION: i32 = 32;
 pub const AUDIT_ALLOW_NO_PRIVILEGE: i32 = 1;
@@ -1042,52 +1113,53 @@ pub const BACKUP_SECURITY_INFORMATION: i32 = 65536;
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648;
 pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: i32 = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_REPORTING_SCALE {
-    pub Granularity: u32,
-    pub Capacity: u32,
+    pub Granularity: super::DWORD,
+    pub Capacity: super::DWORD,
 }
-pub type BOOLEAN = u8;
 pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = 86;
 pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = 97;
 pub const BootLoad: SERVICE_LOAD_TYPE = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CACHE_DESCRIPTOR {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub Size: u32,
+    pub Level: super::BYTE,
+    pub Associativity: super::BYTE,
+    pub LineSize: super::WORD,
+    pub Size: super::DWORD,
     pub Type: PROCESSOR_CACHE_TYPE,
 }
 pub const CACHE_FULLY_ASSOCIATIVE: i32 = 255;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct CACHE_RELATIONSHIP {
-    pub Level: u8,
-    pub Associativity: u8,
-    pub LineSize: u16,
-    pub CacheSize: u32,
+    pub Level: super::BYTE,
+    pub Associativity: super::BYTE,
+    pub LineSize: super::WORD,
+    pub CacheSize: super::DWORD,
     pub Type: PROCESSOR_CACHE_TYPE,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
+    pub Reserved: [super::BYTE; 18],
+    pub GroupCount: super::WORD,
     pub Anonymous: CACHE_RELATIONSHIP_0,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CACHE_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union CACHE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CACHE_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1097,36 +1169,37 @@ pub type CCHAR = i8;
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: i32 = 4;
 pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CFG_CALL_TARGET_INFO {
-    pub Offset: usize,
-    pub Flags: usize,
+    pub Offset: super::ULONG_PTR,
+    pub Flags: super::ULONG_PTR,
 }
 pub const CFG_CALL_TARGET_PROCESSED: i32 = 2;
 pub const CFG_CALL_TARGET_VALID: i32 = 1;
 pub const CFG_CALL_TARGET_VALID_XFG: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub AttributeCount: u32,
+    pub Version: super::WORD,
+    pub Reserved: super::WORD,
+    pub AttributeCount: super::DWORD,
     pub Attribute: CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: PCLAIM_SECURITY_ATTRIBUTE_V1,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1138,43 +1211,49 @@ pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760;
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: i32 = 16;
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    pub Version: u64,
+    pub Version: super::DWORD64,
     pub Name: windows_core::PWSTR,
 }
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: i32 = 32;
 pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub pValue: *mut core::ffi::c_void,
-    pub ValueLength: u32,
+    pub pValue: PVOID,
+    pub ValueLength: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
-    pub Name: u32,
-    pub ValueType: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub ValueCount: u32,
+    pub Name: super::DWORD,
+    pub ValueType: super::WORD,
+    pub Reserved: super::WORD,
+    pub Flags: super::DWORD,
+    pub ValueCount: super::DWORD,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0,
 }
+#[cfg(feature = "shared")]
 impl Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
-    pub pInt64: [u32; 1],
-    pub pUint64: [u32; 1],
-    pub ppString: [u32; 1],
-    pub pFqbn: [u32; 1],
-    pub pOctetString: [u32; 1],
+    pub pInt64: [super::DWORD; 1],
+    pub pUint64: [super::DWORD; 1],
+    pub ppString: [super::DWORD; 1],
+    pub pFqbn: [super::DWORD; 1],
+    pub pOctetString: [super::DWORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1190,24 +1269,24 @@ pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: i32 = 3;
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: i32 = 2;
 pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: i32 = 4;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub Name: windows_core::PWSTR,
-    pub ValueType: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub ValueCount: u32,
+    pub ValueType: super::WORD,
+    pub Reserved: super::WORD,
+    pub Flags: super::DWORD,
+    pub ValueCount: super::DWORD,
     pub Values: CLAIM_SECURITY_ATTRIBUTE_V1_0,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CLAIM_SECURITY_ATTRIBUTE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: super::PLONG64,
@@ -1216,7 +1295,7 @@ pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pFqbn: PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE,
     pub pOctetString: PCLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1225,17 +1304,19 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
 pub const CLAIM_SECURITY_ATTRIBUTE_VALID_FLAGS: i32 = 63;
 pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_POWER_DATA {
-    pub PD_Size: u32,
+    pub PD_Size: super::DWORD,
     pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
-    pub PD_Capabilities: u32,
-    pub PD_D1Latency: u32,
-    pub PD_D2Latency: u32,
-    pub PD_D3Latency: u32,
+    pub PD_Capabilities: super::DWORD,
+    pub PD_D1Latency: super::DWORD,
+    pub PD_D2Latency: super::DWORD,
+    pub PD_D3Latency: super::DWORD,
     pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
     pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
 }
+#[cfg(feature = "shared")]
 impl Default for CM_POWER_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1252,29 +1333,32 @@ pub const CM_SERVICE_VERIFIER_BOOT_LOAD: i32 = 64;
 pub const CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: i32 = 2;
 pub const CM_SERVICE_WINPE_BOOT_LOAD: i32 = 128;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_REPORT_GENERATION_HEADER {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub RecordSize: u32,
-    pub CommitTime: u64,
+    pub Version: super::UINT16,
+    pub Reserved: super::UINT16,
+    pub RecordSize: super::UINT32,
+    pub CommitTime: super::UINT64,
 }
 pub const CODE_INTEGRITY_REPORT_GENERATION_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_REPORT_RECORD_HEADER {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub RecordSize: u32,
-    pub SipaEventCode: u32,
+    pub Version: super::UINT16,
+    pub Reserved: super::UINT16,
+    pub RecordSize: super::UINT32,
+    pub SipaEventCode: super::UINT32,
 }
 pub const CODE_INTEGRITY_REPORT_RECORD_VERSION_CURRENT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_RUNTIME_REPORT {
     pub Header: RUNTIME_REPORT_HEADER,
-    pub CurrentGeneration: u64,
-    pub NumberOfGenerations: u32,
+    pub CurrentGeneration: super::UINT64,
+    pub NumberOfGenerations: super::UINT32,
 }
 pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = 131072;
 pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = 2;
@@ -1285,16 +1369,18 @@ pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = 8;
 pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = 65536;
 pub type COMPARTMENT_ID = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: windows_core::GUID,
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
-    pub MaxVersionTested: u64,
+    pub MaxVersionTested: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPONENT_FILTER {
-    pub ComponentFlags: u32,
+    pub ComponentFlags: super::DWORD,
 }
 pub const COMPONENT_KTM: i32 = 1;
 pub const COMPONENT_VALID_FLAGS: i32 = 1;
@@ -1311,94 +1397,98 @@ pub const COMPRESSION_FORMAT_XPRESS: i32 = 3;
 pub const COMPRESSION_FORMAT_XPRESS_HUFF: i32 = 4;
 pub const COMPRESSION_FORMAT_ZLIB: i32 = 8;
 pub const CONTAINER_INHERIT_ACE: i32 = 2;
-#[repr(C)]
+#[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CONTEXT {
-    pub ContextFlags: u32,
-    pub Dr0: u32,
-    pub Dr1: u32,
-    pub Dr2: u32,
-    pub Dr3: u32,
-    pub Dr6: u32,
-    pub Dr7: u32,
-    pub FloatSave: FLOATING_SAVE_AREA,
-    pub SegGs: u32,
-    pub SegFs: u32,
-    pub SegEs: u32,
-    pub SegDs: u32,
-    pub Edi: u32,
-    pub Esi: u32,
-    pub Ebx: u32,
-    pub Edx: u32,
-    pub Ecx: u32,
-    pub Eax: u32,
-    pub Ebp: u32,
-    pub Eip: u32,
-    pub SegCs: u32,
-    pub EFlags: u32,
-    pub Esp: u32,
-    pub SegSs: u32,
-    pub ExtendedRegisters: [u8; 512],
-}
-#[cfg(target_arch = "x86")]
-impl Default for CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CONTEXT {
-    pub P1Home: u64,
-    pub P2Home: u64,
-    pub P3Home: u64,
-    pub P4Home: u64,
-    pub P5Home: u64,
-    pub P6Home: u64,
-    pub ContextFlags: u32,
-    pub MxCsr: u32,
-    pub SegCs: u16,
-    pub SegDs: u16,
-    pub SegEs: u16,
-    pub SegFs: u16,
-    pub SegGs: u16,
-    pub SegSs: u16,
-    pub EFlags: u32,
-    pub Dr0: u64,
-    pub Dr1: u64,
-    pub Dr2: u64,
-    pub Dr3: u64,
-    pub Dr6: u64,
-    pub Dr7: u64,
-    pub Rax: u64,
-    pub Rcx: u64,
-    pub Rdx: u64,
-    pub Rbx: u64,
-    pub Rsp: u64,
-    pub Rbp: u64,
-    pub Rsi: u64,
-    pub Rdi: u64,
-    pub R8: u64,
-    pub R9: u64,
-    pub R10: u64,
-    pub R11: u64,
-    pub R12: u64,
-    pub R13: u64,
-    pub R14: u64,
-    pub R15: u64,
-    pub Rip: u64,
+    pub ContextFlags: super::DWORD,
+    pub Dr0: super::DWORD,
+    pub Dr1: super::DWORD,
+    pub Dr2: super::DWORD,
+    pub Dr3: super::DWORD,
+    pub Dr6: super::DWORD,
+    pub Dr7: super::DWORD,
+    pub FloatSave: FLOATING_SAVE_AREA,
+    pub SegGs: super::DWORD,
+    pub SegFs: super::DWORD,
+    pub SegEs: super::DWORD,
+    pub SegDs: super::DWORD,
+    pub Edi: super::DWORD,
+    pub Esi: super::DWORD,
+    pub Ebx: super::DWORD,
+    pub Edx: super::DWORD,
+    pub Ecx: super::DWORD,
+    pub Eax: super::DWORD,
+    pub Ebp: super::DWORD,
+    pub Eip: super::DWORD,
+    pub SegCs: super::DWORD,
+    pub EFlags: super::DWORD,
+    pub Esp: super::DWORD,
+    pub SegSs: super::DWORD,
+    pub ExtendedRegisters: [super::BYTE; 512],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, align(16))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct CONTEXT {
+    pub P1Home: super::DWORD64,
+    pub P2Home: super::DWORD64,
+    pub P3Home: super::DWORD64,
+    pub P4Home: super::DWORD64,
+    pub P5Home: super::DWORD64,
+    pub P6Home: super::DWORD64,
+    pub ContextFlags: super::DWORD,
+    pub MxCsr: super::DWORD,
+    pub SegCs: super::WORD,
+    pub SegDs: super::WORD,
+    pub SegEs: super::WORD,
+    pub SegFs: super::WORD,
+    pub SegGs: super::WORD,
+    pub SegSs: super::WORD,
+    pub EFlags: super::DWORD,
+    pub Dr0: super::DWORD64,
+    pub Dr1: super::DWORD64,
+    pub Dr2: super::DWORD64,
+    pub Dr3: super::DWORD64,
+    pub Dr6: super::DWORD64,
+    pub Dr7: super::DWORD64,
+    pub Rax: super::DWORD64,
+    pub Rcx: super::DWORD64,
+    pub Rdx: super::DWORD64,
+    pub Rbx: super::DWORD64,
+    pub Rsp: super::DWORD64,
+    pub Rbp: super::DWORD64,
+    pub Rsi: super::DWORD64,
+    pub Rdi: super::DWORD64,
+    pub R8: super::DWORD64,
+    pub R9: super::DWORD64,
+    pub R10: super::DWORD64,
+    pub R11: super::DWORD64,
+    pub R12: super::DWORD64,
+    pub R13: super::DWORD64,
+    pub R14: super::DWORD64,
+    pub R15: super::DWORD64,
+    pub Rip: super::DWORD64,
     pub Anonymous: CONTEXT_0,
     pub VectorRegister: [M128A; 26],
-    pub VectorControl: u64,
-    pub DebugControl: u64,
-    pub LastBranchToRip: u64,
-    pub LastBranchFromRip: u64,
-    pub LastExceptionToRip: u64,
-    pub LastExceptionFromRip: u64,
+    pub VectorControl: super::DWORD64,
+    pub DebugControl: super::DWORD64,
+    pub LastBranchToRip: super::DWORD64,
+    pub LastBranchFromRip: super::DWORD64,
+    pub LastExceptionToRip: super::DWORD64,
+    pub LastExceptionFromRip: super::DWORD64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1406,12 +1496,14 @@ impl Default for CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub FltSave: XMM_SAVE_AREA32,
     pub Anonymous: CONTEXT_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1419,6 +1511,7 @@ impl Default for CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
@@ -1441,12 +1534,14 @@ pub struct CONTEXT_0_0 {
     pub Xmm15: M128A,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type CONTEXT = ARM64_NT_CONTEXT;
 #[cfg(target_arch = "x86")]
 pub const CONTEXT_ALL: i32 = 65599;
@@ -1530,11 +1625,13 @@ pub const CORE_PARKING_POLICY_CHANGE_MULTISTEP: i32 = 3;
 pub const CORE_PARKING_POLICY_CHANGE_ROCKET: i32 = 2;
 pub const CORE_PARKING_POLICY_CHANGE_SINGLE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORRELATION_VECTOR {
-    pub Version: i8,
-    pub Vector: [i8; 129],
+    pub Version: super::CHAR,
+    pub Vector: [super::CHAR; 129],
 }
+#[cfg(feature = "shared")]
 impl Default for CORRELATION_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1558,9 +1655,10 @@ pub const CTMF_INCLUDE_APPCONTAINER: u32 = 1;
 pub const CTMF_INCLUDE_LPAC: u32 = 2;
 pub const CTMF_VALID_FLAGS: u32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    pub Size: u32,
+    pub Size: super::DWORD,
     pub TriggerId: windows_core::PCWSTR,
 }
 pub const CacheData: PROCESSOR_CACHE_TYPE = 2;
@@ -1658,77 +1756,81 @@ pub const DISCHARGE_POLICY_CRITICAL: i32 = 0;
 pub const DISCHARGE_POLICY_LOW: i32 = 1;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DISPATCHER_CONTEXT {
-    pub ControlPc: u64,
-    pub ImageBase: u64,
+    pub ControlPc: super::DWORD64,
+    pub ImageBase: super::DWORD64,
     pub FunctionEntry: PRUNTIME_FUNCTION,
-    pub EstablisherFrame: u64,
-    pub TargetIp: u64,
+    pub EstablisherFrame: super::DWORD64,
+    pub TargetIp: super::DWORD64,
     pub ContextRecord: PCONTEXT,
     pub LanguageHandler: PEXCEPTION_ROUTINE,
-    pub HandlerData: *mut core::ffi::c_void,
+    pub HandlerData: PVOID,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
-    pub ScopeIndex: u32,
-    pub Fill0: u32,
+    pub ScopeIndex: super::DWORD,
+    pub Fill0: super::DWORD,
 }
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 pub type DISPATCHER_CONTEXT = DISPATCHER_CONTEXT_ARM64;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DISPATCHER_CONTEXT_ARM64 {
-    pub ControlPc: usize,
-    pub ImageBase: usize,
+    pub ControlPc: super::ULONG_PTR,
+    pub ImageBase: super::ULONG_PTR,
     pub FunctionEntry: PARM64_RUNTIME_FUNCTION,
-    pub EstablisherFrame: usize,
-    pub TargetPc: usize,
+    pub EstablisherFrame: super::ULONG_PTR,
+    pub TargetPc: super::ULONG_PTR,
     pub ContextRecord: PARM64_NT_CONTEXT,
     pub LanguageHandler: PEXCEPTION_ROUTINE,
-    pub HandlerData: *mut core::ffi::c_void,
+    pub HandlerData: PVOID,
     pub HistoryTable: *mut _UNWIND_HISTORY_TABLE,
-    pub ScopeIndex: u32,
-    pub ControlPcIsUnwound: BOOLEAN,
+    pub ScopeIndex: super::DWORD,
+    pub ControlPcIsUnwound: super::BOOLEAN,
     pub NonVolatileRegisters: super::PBYTE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DISPATCHER_CONTEXT_ARM64 {
-    pub ControlPc: usize,
-    pub ImageBase: usize,
+    pub ControlPc: super::ULONG_PTR,
+    pub ImageBase: super::ULONG_PTR,
     pub FunctionEntry: PARM64_RUNTIME_FUNCTION,
-    pub EstablisherFrame: usize,
-    pub TargetPc: usize,
+    pub EstablisherFrame: super::ULONG_PTR,
+    pub TargetPc: super::ULONG_PTR,
     pub ContextRecord: PARM64_NT_CONTEXT,
     pub LanguageHandler: PEXCEPTION_ROUTINE,
-    pub HandlerData: *mut core::ffi::c_void,
+    pub HandlerData: PVOID,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
-    pub ScopeIndex: u32,
-    pub ControlPcIsUnwound: BOOLEAN,
+    pub ScopeIndex: super::DWORD,
+    pub ControlPcIsUnwound: super::BOOLEAN,
     pub NonVolatileRegisters: super::PBYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
-    pub Buffer: [u8; 152],
+    pub Buffer: [super::BYTE; 152],
     pub Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0,
 }
+#[cfg(feature = "shared")]
 impl Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
-    pub GpNvRegs: [u64; 11],
+    pub GpNvRegs: [super::DWORD64; 11],
     pub FpNvRegs: [f64; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1802,126 +1904,137 @@ pub const DOMAIN_USER_RID_KRBTGT: i32 = 502;
 pub const DOMAIN_USER_RID_MAX: i32 = 999;
 pub const DOMAIN_USER_RID_WDAG_ACCOUNT: i32 = 504;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DRIVER_INFO_ENTRY {
-    pub InternalName: [i8; 32],
-    pub ImageHashAlgorithm: u16,
-    pub PublisherThumbprintHashAlgorithm: u16,
-    pub ImageHashOffset: u32,
-    pub PublisherThumbprintOffset: u32,
-    pub NumberOfLoadingTimes: u16,
-    pub OemNameSize: u16,
-    pub OemNameOffset: u32,
+    pub InternalName: [super::CHAR; 32],
+    pub ImageHashAlgorithm: super::UINT16,
+    pub PublisherThumbprintHashAlgorithm: super::UINT16,
+    pub ImageHashOffset: super::UINT32,
+    pub PublisherThumbprintOffset: super::UINT32,
+    pub NumberOfLoadingTimes: super::UINT16,
+    pub OemNameSize: super::UINT16,
+    pub OemNameOffset: super::UINT32,
     pub Flags: DRIVER_INFO_ENTRY_0,
-    pub Padding: u16,
+    pub Padding: super::UINT16,
 }
+#[cfg(feature = "shared")]
 impl Default for DRIVER_INFO_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DRIVER_INFO_ENTRY_0 {
     pub Anonymous: DRIVER_INFO_ENTRY_0_0,
-    pub AsUInt16: u16,
+    pub AsUInt16: super::UINT16,
 }
+#[cfg(feature = "shared")]
 impl Default for DRIVER_INFO_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_ENTRY_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl DRIVER_INFO_ENTRY_0_0 {
-    pub fn Unloaded(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Unloaded(&self) -> super::UINT16 {
+        (self._bitfield) & 1
     }
-    pub fn set_Unloaded(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u16);
+    pub fn set_Unloaded(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn BootDriver(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn BootDriver(&self) -> super::UINT16 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_BootDriver(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    pub fn set_BootDriver(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn HotPatch(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn HotPatch(&self) -> super::UINT16 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_HotPatch(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    pub fn set_HotPatch(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u16 {
+    pub fn Reserved(&self) -> super::UINT16 {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u16) {
+    pub fn set_Reserved(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
     }
 }
 pub const DRIVER_REPORT_DIGEST_MAX_SIZE: i32 = 64;
 pub const DRIVER_REPORT_NAME_MAX_LENGTH: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct DRIVER_RUNTIME_REPORT {
     pub Header: RUNTIME_REPORT_HEADER,
-    pub NumberOfDrivers: u16,
+    pub NumberOfDrivers: super::UINT16,
     pub Flags: DRIVER_RUNTIME_REPORT_0,
     pub DriverEntries: [DRIVER_INFO_ENTRY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for DRIVER_RUNTIME_REPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union DRIVER_RUNTIME_REPORT_0 {
     pub Anonymous: DRIVER_RUNTIME_REPORT_0_0,
-    pub AsUInt16: u16,
+    pub AsUInt16: super::UINT16,
 }
+#[cfg(feature = "shared")]
 impl Default for DRIVER_RUNTIME_REPORT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_RUNTIME_REPORT_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl DRIVER_RUNTIME_REPORT_0_0 {
-    pub fn ReportOverflowed(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ReportOverflowed(&self) -> super::UINT16 {
+        (self._bitfield) & 1
     }
-    pub fn set_ReportOverflowed(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u16);
+    pub fn set_ReportOverflowed(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn PartialReport(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn PartialReport(&self) -> super::UINT16 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_PartialReport(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    pub fn set_PartialReport(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn IncludeBootDrivers(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn IncludeBootDrivers(&self) -> super::UINT16 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_IncludeBootDrivers(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    pub fn set_IncludeBootDrivers(&mut self, value: super::UINT16) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Reserved(&self) -> u16 {
+    pub fn Reserved(&self) -> super::UINT16 {
         self._bitfield >> 3
     }
-    pub fn set_Reserved(&mut self, value: u16) {
+    pub fn set_Reserved(&mut self, value: super::UINT16) {
         self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
     }
 }
 pub const DUPLICATE_CLOSE_SOURCE: i32 = 1;
 pub const DUPLICATE_SAME_ACCESS: i32 = 2;
-pub type DWORDLONG = u64;
 pub const DYNAMIC_EH_CONTINUATION_TARGET_ADD: i32 = 1;
 pub const DYNAMIC_EH_CONTINUATION_TARGET_PROCESSED: i32 = 2;
 pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: i32 = 1;
@@ -1963,90 +2076,104 @@ pub const EMARCH_ENC_I17_SIGN_INST_WORD_X: i32 = 3;
 pub const EMARCH_ENC_I17_SIGN_SIZE_X: i32 = 1;
 pub const EMARCH_ENC_I17_SIGN_VAL_POS_X: i32 = 63;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_CREATE_INFO_SGX {
-    pub Secs: [u8; 4096],
+    pub Secs: [super::BYTE; 4096],
 }
+#[cfg(feature = "shared")]
 impl Default for ENCLAVE_CREATE_INFO_SGX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_CREATE_INFO_VBS {
-    pub Flags: u32,
-    pub OwnerID: [u8; 32],
+    pub Flags: super::DWORD,
+    pub OwnerID: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for ENCLAVE_CREATE_INFO_VBS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_CREATE_INFO_VBS_BASIC {
-    pub Flags: u32,
-    pub OwnerID: [u8; 32],
+    pub Flags: super::DWORD,
+    pub OwnerID: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for ENCLAVE_CREATE_INFO_VBS_BASIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_INIT_INFO_SGX {
-    pub SigStruct: [u8; 1808],
-    pub Reserved1: [u8; 240],
-    pub EInitToken: [u8; 304],
-    pub Reserved2: [u8; 1744],
+    pub SigStruct: [super::BYTE; 1808],
+    pub Reserved1: [super::BYTE; 240],
+    pub EInitToken: [super::BYTE; 304],
+    pub Reserved2: [super::BYTE; 1744],
 }
+#[cfg(feature = "shared")]
 impl Default for ENCLAVE_INIT_INFO_SGX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_INIT_INFO_VBS {
-    pub Length: u32,
-    pub ThreadCount: u32,
+    pub Length: super::DWORD,
+    pub ThreadCount: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct ENCLAVE_INIT_INFO_VBS_BASIC {
-    pub FamilyId: [u8; 16],
-    pub ImageId: [u8; 16],
-    pub EnclaveSize: u64,
-    pub EnclaveSvn: u32,
-    pub Reserved: u32,
+    pub FamilyId: [super::BYTE; 16],
+    pub ImageId: [super::BYTE; 16],
+    pub EnclaveSize: super::ULONGLONG,
+    pub EnclaveSvn: super::DWORD,
+    pub Reserved: super::DWORD,
     pub Anonymous: ENCLAVE_INIT_INFO_VBS_BASIC_0,
 }
+#[cfg(feature = "shared")]
 impl Default for ENCLAVE_INIT_INFO_VBS_BASIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ENCLAVE_INIT_INFO_VBS_BASIC_0 {
     pub SignatureInfoHandle: HANDLE,
-    pub Unused: u64,
+    pub Unused: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for ENCLAVE_INIT_INFO_VBS_BASIC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_LOAD_DATA_VBS_BASIC {
-    pub PageType: u32,
+    pub PageType: super::DWORD,
 }
 pub const ENCLAVE_LONG_ID_LENGTH: i32 = 32;
 pub const ENCLAVE_SHORT_ID_LENGTH: i32 = 16;
-pub type ENCLAVE_TARGET_FUNCTION = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
+pub type ENCLAVE_TARGET_FUNCTION = Option<unsafe extern "C" fn(param0: PVOID) -> PVOID>;
 pub const ENCLAVE_TYPE_SGX: i32 = 1;
 pub const ENCLAVE_TYPE_SGX2: i32 = 2;
 pub const ENCLAVE_TYPE_VBS: i32 = 16;
@@ -2084,30 +2211,36 @@ pub const ERROR_SEVERITY_ERROR: u32 = 3221225472;
 pub const ERROR_SEVERITY_INFORMATIONAL: i32 = 1073741824;
 pub const ERROR_SEVERITY_SUCCESS: i32 = 0;
 pub const ERROR_SEVERITY_WARNING: u32 = 2147483648;
-pub const ES_AWAYMODE_REQUIRED: u32 = 64;
-pub const ES_CONTINUOUS: u32 = 2147483648;
-pub const ES_DISPLAY_REQUIRED: u32 = 2;
-pub const ES_SYSTEM_REQUIRED: u32 = 1;
-pub const ES_USER_PRESENT: u32 = 4;
+#[cfg(feature = "shared")]
+pub const ES_AWAYMODE_REQUIRED: super::DWORD = 64;
+#[cfg(feature = "shared")]
+pub const ES_CONTINUOUS: super::DWORD = 2147483648;
+#[cfg(feature = "shared")]
+pub const ES_DISPLAY_REQUIRED: super::DWORD = 2;
+#[cfg(feature = "shared")]
+pub const ES_SYSTEM_REQUIRED: super::DWORD = 1;
+#[cfg(feature = "shared")]
+pub const ES_USER_PRESENT: super::DWORD = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTLOGRECORD {
-    pub Length: u32,
-    pub Reserved: u32,
-    pub RecordNumber: u32,
-    pub TimeGenerated: u32,
-    pub TimeWritten: u32,
-    pub EventID: u32,
-    pub EventType: u16,
-    pub NumStrings: u16,
-    pub EventCategory: u16,
-    pub ReservedFlags: u16,
-    pub ClosingRecordNumber: u32,
-    pub StringOffset: u32,
-    pub UserSidLength: u32,
-    pub UserSidOffset: u32,
-    pub DataLength: u32,
-    pub DataOffset: u32,
+    pub Length: super::DWORD,
+    pub Reserved: super::DWORD,
+    pub RecordNumber: super::DWORD,
+    pub TimeGenerated: super::DWORD,
+    pub TimeWritten: super::DWORD,
+    pub EventID: super::DWORD,
+    pub EventType: super::WORD,
+    pub NumStrings: super::WORD,
+    pub EventCategory: super::WORD,
+    pub ReservedFlags: super::WORD,
+    pub ClosingRecordNumber: super::DWORD,
+    pub StringOffset: super::DWORD,
+    pub UserSidLength: super::DWORD,
+    pub UserSidOffset: super::DWORD,
+    pub DataLength: super::DWORD,
+    pub DataOffset: super::DWORD,
 }
 pub const EVENTLOG_AUDIT_FAILURE: i32 = 16;
 pub const EVENTLOG_AUDIT_SUCCESS: i32 = 8;
@@ -2124,19 +2257,6 @@ pub const EVENTLOG_SEQUENTIAL_READ: i32 = 1;
 pub const EVENTLOG_START_PAIRED_EVENT: i32 = 1;
 pub const EVENTLOG_SUCCESS: i32 = 0;
 pub const EVENTLOG_WARNING_TYPE: i32 = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EVENTSFORLOGFILE {
-    pub ulSize: u32,
-    pub szLogicalLogFile: [u16; 256],
-    pub ulNumRecords: u32,
-    pub pEventLogRecords: [EVENTLOGRECORD; 0],
-}
-impl Default for EVENTSFORLOGFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const EVENT_ALL_ACCESS: i32 = 2031619;
 pub const EVENT_MODIFY_STATE: i32 = 2;
 pub const EXCEPTION_COLLIDED_UNWIND: i32 = 64;
@@ -2146,6 +2266,7 @@ pub const EXCEPTION_MAXIMUM_PARAMETERS: i32 = 15;
 pub const EXCEPTION_NESTED_CALL: i32 = 16;
 pub const EXCEPTION_NONCONTINUABLE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: PEXCEPTION_RECORD,
@@ -2153,64 +2274,70 @@ pub struct EXCEPTION_POINTERS {
 }
 pub const EXCEPTION_READ_FAULT: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD {
-    pub ExceptionCode: u32,
-    pub ExceptionFlags: u32,
+    pub ExceptionCode: super::DWORD,
+    pub ExceptionFlags: super::DWORD,
     pub ExceptionRecord: *mut Self,
-    pub ExceptionAddress: *mut core::ffi::c_void,
-    pub NumberParameters: u32,
-    pub ExceptionInformation: [usize; 15],
+    pub ExceptionAddress: PVOID,
+    pub NumberParameters: super::DWORD,
+    pub ExceptionInformation: [super::ULONG_PTR; 15],
 }
+#[cfg(feature = "shared")]
 impl Default for EXCEPTION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD32 {
-    pub ExceptionCode: u32,
-    pub ExceptionFlags: u32,
-    pub ExceptionRecord: u32,
-    pub ExceptionAddress: u32,
-    pub NumberParameters: u32,
-    pub ExceptionInformation: [u32; 15],
+    pub ExceptionCode: super::DWORD,
+    pub ExceptionFlags: super::DWORD,
+    pub ExceptionRecord: super::DWORD,
+    pub ExceptionAddress: super::DWORD,
+    pub NumberParameters: super::DWORD,
+    pub ExceptionInformation: [super::DWORD; 15],
 }
+#[cfg(feature = "shared")]
 impl Default for EXCEPTION_RECORD32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD64 {
-    pub ExceptionCode: u32,
-    pub ExceptionFlags: u32,
-    pub ExceptionRecord: u64,
-    pub ExceptionAddress: u64,
-    pub NumberParameters: u32,
-    pub __unusedAlignment: u32,
-    pub ExceptionInformation: [u64; 15],
+    pub ExceptionCode: super::DWORD,
+    pub ExceptionFlags: super::DWORD,
+    pub ExceptionRecord: super::DWORD64,
+    pub ExceptionAddress: super::DWORD64,
+    pub NumberParameters: super::DWORD,
+    pub __unusedAlignment: super::DWORD,
+    pub ExceptionInformation: [super::DWORD64; 15],
 }
+#[cfg(feature = "shared")]
 impl Default for EXCEPTION_RECORD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct EXCEPTION_REGISTRATION_RECORD {
     pub Next: *mut Self,
     pub Handler: PEXCEPTION_ROUTINE,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "excpt")]
-pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::EXCEPTION_DISPOSITION>;
+#[cfg(all(feature = "excpt", feature = "shared"))]
+pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: PVOID, contextrecord: *mut CONTEXT, dispatchercontext: PVOID) -> super::EXCEPTION_DISPOSITION>;
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "excpt")]
-pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut ARM64_NT_CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::EXCEPTION_DISPOSITION>;
+#[cfg(all(feature = "excpt", feature = "shared"))]
+pub type EXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: PVOID, contextrecord: *mut ARM64_NT_CONTEXT, dispatchercontext: PVOID) -> super::EXCEPTION_DISPOSITION>;
 pub const EXCEPTION_SOFTWARE_ORIGINATE: i32 = 128;
 pub const EXCEPTION_STACK_INVALID: i32 = 8;
 pub const EXCEPTION_TARGET_UNWIND: i32 = 32;
@@ -2357,9 +2484,10 @@ pub const FILE_ATTRIBUTE_UNPINNED: i32 = 1048576;
 pub const FILE_ATTRIBUTE_VIRTUAL: i32 = 65536;
 pub const FILE_CASE_PRESERVED_NAMES: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_CASE_SENSITIVE_INFORMATION {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
 }
 pub const FILE_CASE_SENSITIVE_SEARCH: i32 = 1;
 pub const FILE_CREATE_PIPE_INSTANCE: i32 = 4;
@@ -2372,16 +2500,19 @@ pub const FILE_GENERIC_EXECUTE: i32 = 1179808;
 pub const FILE_GENERIC_READ: i32 = 1179785;
 pub const FILE_GENERIC_WRITE: i32 = 1179926;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_128 {
-    pub Identifier: [u8; 16],
+    pub Identifier: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_ID_128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const FILE_INVALID_FILE_ID: i64 = -1;
+#[cfg(feature = "shared")]
+pub const FILE_INVALID_FILE_ID: super::LONGLONG = -1;
 pub const FILE_LIST_DIRECTORY: i32 = 1;
 pub const FILE_NAMED_STREAMS: i32 = 262144;
 pub const FILE_NAME_FLAGS_UNSPECIFIED: i32 = 128;
@@ -2398,83 +2529,93 @@ pub const FILE_NOTIFY_CHANGE_LAST_WRITE: i32 = 16;
 pub const FILE_NOTIFY_CHANGE_SECURITY: i32 = 256;
 pub const FILE_NOTIFY_CHANGE_SIZE: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: u32,
+    pub NextEntryOffset: super::DWORD,
+    pub Action: super::DWORD,
     pub CreationTime: LARGE_INTEGER,
     pub LastModificationTime: LARGE_INTEGER,
     pub LastChangeTime: LARGE_INTEGER,
     pub LastAccessTime: LARGE_INTEGER,
     pub AllocatedLength: LARGE_INTEGER,
     pub FileSize: LARGE_INTEGER,
-    pub FileAttributes: u32,
+    pub FileAttributes: super::DWORD,
     pub Anonymous: FILE_NOTIFY_EXTENDED_INFORMATION_0,
     pub FileId: LARGE_INTEGER,
     pub ParentFileId: LARGE_INTEGER,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
+    pub FileNameLength: super::DWORD,
+    pub FileName: [WCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_NOTIFY_EXTENDED_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union FILE_NOTIFY_EXTENDED_INFORMATION_0 {
-    pub ReparsePointTag: u32,
-    pub EaSize: u32,
+    pub ReparsePointTag: super::DWORD,
+    pub EaSize: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_NOTIFY_EXTENDED_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_NOTIFY_FULL_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: u32,
+    pub NextEntryOffset: super::DWORD,
+    pub Action: super::DWORD,
     pub CreationTime: LARGE_INTEGER,
     pub LastModificationTime: LARGE_INTEGER,
     pub LastChangeTime: LARGE_INTEGER,
     pub LastAccessTime: LARGE_INTEGER,
     pub AllocatedLength: LARGE_INTEGER,
     pub FileSize: LARGE_INTEGER,
-    pub FileAttributes: u32,
+    pub FileAttributes: super::DWORD,
     pub Anonymous: FILE_NOTIFY_FULL_INFORMATION_0,
     pub FileId: LARGE_INTEGER,
     pub ParentFileId: LARGE_INTEGER,
-    pub FileNameLength: u16,
-    pub FileNameFlags: u8,
-    pub Reserved: u8,
-    pub FileName: [u16; 1],
+    pub FileNameLength: super::WORD,
+    pub FileNameFlags: super::BYTE,
+    pub Reserved: super::BYTE,
+    pub FileName: [WCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_NOTIFY_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union FILE_NOTIFY_FULL_INFORMATION_0 {
-    pub ReparsePointTag: u32,
-    pub EaSize: u32,
+    pub ReparsePointTag: super::DWORD,
+    pub EaSize: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_NOTIFY_FULL_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NOTIFY_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub Action: u32,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
+    pub NextEntryOffset: super::DWORD,
+    pub Action: super::DWORD,
+    pub FileNameLength: super::DWORD,
+    pub FileName: [WCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_NOTIFY_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2487,11 +2628,13 @@ pub const FILE_READ_EA: i32 = 8;
 pub const FILE_READ_ONLY_VOLUME: i32 = 524288;
 pub const FILE_RETURNS_CLEANUP_RESULT_INFO: i32 = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union FILE_SEGMENT_ELEMENT {
-    pub Buffer: *mut core::ffi::c_void,
-    pub Alignment: u64,
+    pub Buffer: PVOID64,
+    pub Alignment: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_SEGMENT_ELEMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2502,6 +2645,7 @@ pub const FILE_SHARE_DELETE: i32 = 4;
 pub const FILE_SHARE_READ: i32 = 1;
 pub const FILE_SHARE_WRITE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_STAT_BASIC_INFORMATION {
     pub FileId: LARGE_INTEGER,
@@ -2511,21 +2655,23 @@ pub struct FILE_STAT_BASIC_INFORMATION {
     pub ChangeTime: LARGE_INTEGER,
     pub AllocationSize: LARGE_INTEGER,
     pub EndOfFile: LARGE_INTEGER,
-    pub FileAttributes: u32,
-    pub ReparseTag: u32,
-    pub NumberOfLinks: u32,
-    pub DeviceType: u32,
-    pub DeviceCharacteristics: u32,
-    pub Reserved: u32,
+    pub FileAttributes: super::DWORD,
+    pub ReparseTag: super::DWORD,
+    pub NumberOfLinks: super::DWORD,
+    pub DeviceType: super::DWORD,
+    pub DeviceCharacteristics: super::DWORD,
+    pub Reserved: super::DWORD,
     pub VolumeSerialNumber: LARGE_INTEGER,
     pub FileId128: FILE_ID_128,
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_STAT_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_STAT_INFORMATION {
     pub FileId: LARGE_INTEGER,
@@ -2535,17 +2681,19 @@ pub struct FILE_STAT_INFORMATION {
     pub ChangeTime: LARGE_INTEGER,
     pub AllocationSize: LARGE_INTEGER,
     pub EndOfFile: LARGE_INTEGER,
-    pub FileAttributes: u32,
-    pub ReparseTag: u32,
-    pub NumberOfLinks: u32,
-    pub EffectiveAccess: ACCESS_MASK,
+    pub FileAttributes: super::DWORD,
+    pub ReparseTag: super::DWORD,
+    pub NumberOfLinks: super::DWORD,
+    pub EffectiveAccess: super::ACCESS_MASK,
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_STAT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_STAT_LX_INFORMATION {
     pub FileId: LARGE_INTEGER,
@@ -2555,17 +2703,18 @@ pub struct FILE_STAT_LX_INFORMATION {
     pub ChangeTime: LARGE_INTEGER,
     pub AllocationSize: LARGE_INTEGER,
     pub EndOfFile: LARGE_INTEGER,
-    pub FileAttributes: u32,
-    pub ReparseTag: u32,
-    pub NumberOfLinks: u32,
-    pub EffectiveAccess: ACCESS_MASK,
-    pub LxFlags: u32,
-    pub LxUid: u32,
-    pub LxGid: u32,
-    pub LxMode: u32,
-    pub LxDeviceIdMajor: u32,
-    pub LxDeviceIdMinor: u32,
+    pub FileAttributes: super::DWORD,
+    pub ReparseTag: super::DWORD,
+    pub NumberOfLinks: super::DWORD,
+    pub EffectiveAccess: super::ACCESS_MASK,
+    pub LxFlags: super::DWORD,
+    pub LxUid: super::DWORD,
+    pub LxGid: super::DWORD,
+    pub LxMode: super::DWORD,
+    pub LxDeviceIdMajor: super::DWORD,
+    pub LxDeviceIdMinor: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_STAT_LX_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2609,19 +2758,21 @@ pub struct FLOAT128 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
-    pub ControlWord: u32,
-    pub StatusWord: u32,
-    pub TagWord: u32,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u32,
-    pub DataOffset: u32,
-    pub DataSelector: u32,
-    pub RegisterArea: [u8; 80],
-    pub Spare0: u32,
+    pub ControlWord: super::DWORD,
+    pub StatusWord: super::DWORD,
+    pub TagWord: super::DWORD,
+    pub ErrorOffset: super::DWORD,
+    pub ErrorSelector: super::DWORD,
+    pub DataOffset: super::DWORD,
+    pub DataSelector: super::DWORD,
+    pub RegisterArea: [super::BYTE; 80],
+    pub Spare0: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for FLOATING_SAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2634,55 +2785,59 @@ pub const FLUSH_FLAGS_FILE_DATA_SYNC_ONLY: i32 = 4;
 pub const FLUSH_FLAGS_FLUSH_AND_PURGE: i32 = 8;
 pub const FLUSH_FLAGS_NO_SYNC: i32 = 2;
 #[cfg(target_arch = "x86")]
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 4294967295;
+#[cfg(feature = "shared")]
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: super::ULONG_PTR = 4294967295u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: usize = 18446744073709551615u64 as usize;
+#[cfg(feature = "shared")]
+pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: super::ULONG_PTR = 18446744073709551615u64 as _;
 pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: i32 = 1;
 pub const FOREST_USER_RID_MAX: i32 = 499;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct FPO_DATA {
-    pub ulOffStart: u32,
-    pub cbProcSize: u32,
-    pub cdwLocals: u32,
-    pub cdwParams: u16,
+    pub ulOffStart: super::DWORD,
+    pub cbProcSize: super::DWORD,
+    pub cdwLocals: super::DWORD,
+    pub cdwParams: super::WORD,
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl FPO_DATA {
-    pub fn cbProlog(&self) -> u16 {
-        (self._bitfield << 8) >> 8
+    pub fn cbProlog(&self) -> super::WORD {
+        (self._bitfield) & 255
     }
-    pub fn set_cbProlog(&mut self, value: u16) {
+    pub fn set_cbProlog(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !255) | (value & 255);
     }
-    pub fn cbRegs(&self) -> u16 {
-        (self._bitfield << 5) >> 13
+    pub fn cbRegs(&self) -> super::WORD {
+        (self._bitfield >> 8) & 7
     }
-    pub fn set_cbRegs(&mut self, value: u16) {
+    pub fn set_cbRegs(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !(7 << 8)) | ((value & 7) << 8);
     }
-    pub fn fHasSEH(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn fHasSEH(&self) -> super::WORD {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_fHasSEH(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    pub fn set_fHasSEH(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn fUseBP(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn fUseBP(&self) -> super::WORD {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_fUseBP(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    pub fn set_fUseBP(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn reserved(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
+    pub fn reserved(&self) -> super::WORD {
+        (self._bitfield >> 13) & 1
     }
-    pub fn set_reserved(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    pub fn set_reserved(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
     }
-    pub fn cbFrame(&self) -> u16 {
+    pub fn cbFrame(&self) -> super::WORD {
         self._bitfield >> 14
     }
-    pub fn set_cbFrame(&mut self, value: u16) {
+    pub fn set_cbFrame(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
     }
 }
@@ -2702,67 +2857,74 @@ pub const FirmwareTypeUnknown: FIRMWARE_TYPE = 0;
 pub const GENERIC_ALL: i32 = 268435456;
 pub const GENERIC_EXECUTE: i32 = 536870912;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GENERIC_MAPPING {
-    pub GenericRead: ACCESS_MASK,
-    pub GenericWrite: ACCESS_MASK,
-    pub GenericExecute: ACCESS_MASK,
-    pub GenericAll: ACCESS_MASK,
+    pub GenericRead: super::ACCESS_MASK,
+    pub GenericWrite: super::ACCESS_MASK,
+    pub GenericExecute: super::ACCESS_MASK,
+    pub GenericAll: super::ACCESS_MASK,
 }
 pub const GENERIC_READ: u32 = 2147483648;
 pub const GENERIC_WRITE: i32 = 1073741824;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: u64, context: *const core::ffi::c_void) -> PRUNTIME_FUNCTION>;
+#[cfg(feature = "shared")]
+pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: super::DWORD64, context: PVOID) -> PRUNTIME_FUNCTION>;
 #[cfg(target_arch = "aarch64")]
-pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: u64, context: *const core::ffi::c_void) -> PARM64_RUNTIME_FUNCTION>;
+#[cfg(feature = "shared")]
+pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: super::DWORD64, context: PVOID) -> PARM64_RUNTIME_FUNCTION>;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_AFFINITY {
     pub Mask: super::KAFFINITY,
-    pub Group: u16,
-    pub Reserved: [u16; 3],
+    pub Group: super::WORD,
+    pub Reserved: [super::WORD; 3],
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for GROUP_AFFINITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_AFFINITY32 {
-    pub Mask: u32,
-    pub Group: u16,
-    pub Reserved: [u16; 3],
+    pub Mask: super::DWORD,
+    pub Group: super::WORD,
+    pub Reserved: [super::WORD; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for GROUP_AFFINITY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_AFFINITY64 {
     pub Mask: u64,
-    pub Group: u16,
-    pub Reserved: [u16; 3],
+    pub Group: super::WORD,
+    pub Reserved: [super::WORD; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for GROUP_AFFINITY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_RELATIONSHIP {
-    pub MaximumGroupCount: u16,
-    pub ActiveGroupCount: u16,
-    pub Reserved: [u8; 20],
+    pub MaximumGroupCount: super::WORD,
+    pub ActiveGroupCount: super::WORD,
+    pub Reserved: [super::BYTE; 20],
     pub GroupInfo: [PROCESSOR_GROUP_INFO; 1],
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for GROUP_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3040,11 +3202,12 @@ pub const GlobalDataIdUnknown: RTL_SYSTEM_GLOBAL_DATA_ID = 0;
 pub const GroupPark: POWER_INFORMATION_LEVEL = 48;
 pub type HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
-    pub Reserved: u32,
-    pub Value: u64,
+    pub Reserved: super::DWORD,
+    pub Value: super::DWORD64,
 }
 pub type HARDWARE_COUNTER_TYPE = i32;
 pub const HEAP_CREATE_ALIGN_16: i32 = 65536;
@@ -3059,19 +3222,22 @@ pub const HEAP_GROWABLE: i32 = 2;
 pub type HEAP_INFORMATION_CLASS = i32;
 pub const HEAP_MAXIMUM_TAG: i32 = 4095;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_MEMORY_USAGE_ENTRY {
-    pub HeapHandle: *mut core::ffi::c_void,
-    pub TotalCommittedBytes: usize,
-    pub TotalReservedBytes: usize,
+    pub HeapHandle: PVOID,
+    pub TotalCommittedBytes: super::SIZE_T,
+    pub TotalReservedBytes: super::SIZE_T,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAP_MEMORY_USAGE_INFORMATION {
-    pub Version: u16,
-    pub EntryCount: usize,
+    pub Version: super::WORD,
+    pub EntryCount: super::SIZE_T,
     pub Entries: [HEAP_MEMORY_USAGE_ENTRY; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for HEAP_MEMORY_USAGE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3081,10 +3247,11 @@ pub const HEAP_MEMORY_USAGE_INFO_CURRENT_VERSION: i32 = 1;
 pub const HEAP_NO_SERIALIZE: i32 = 1;
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
-    pub Version: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const HEAP_PSEUDO_TAG_FLAG: i32 = 32768;
 pub const HEAP_REALLOC_IN_PLACE_ONLY: i32 = 16;
@@ -3092,11 +3259,13 @@ pub const HEAP_TAG_SHIFT: i32 = 18;
 pub const HEAP_TAIL_CHECKING_ENABLED: i32 = 32;
 pub const HEAP_ZERO_MEMORY: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIBERFILE_BUCKET {
-    pub MaxPhysicalMemory: u64,
-    pub PhysicalMemoryPercent: [u32; 3],
+    pub MaxPhysicalMemory: super::DWORD64,
+    pub PhysicalMemoryPercent: [super::DWORD; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for HIBERFILE_BUCKET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3121,48 +3290,51 @@ pub const HiberFileBucket8GB: HIBERFILE_BUCKET_SIZE = 3;
 pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = 7;
 pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = 6;
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u64,
-    pub EndAddress: u64,
-    pub ExceptionHandler: u64,
-    pub HandlerData: u64,
-    pub PrologEndAddress: u64,
+    pub BeginAddress: super::ULONGLONG,
+    pub EndAddress: super::ULONGLONG,
+    pub ExceptionHandler: super::ULONGLONG,
+    pub HandlerData: super::ULONGLONG,
+    pub PrologEndAddress: super::ULONGLONG,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub ExceptionHandler: u32,
-    pub HandlerData: u32,
-    pub PrologEndAddress: u32,
+    pub BeginAddress: super::DWORD,
+    pub EndAddress: super::DWORD,
+    pub ExceptionHandler: super::DWORD,
+    pub HandlerData: super::DWORD,
+    pub PrologEndAddress: super::DWORD,
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARCHITECTURE_ENTRY {
-    pub FixupInstRVA: u32,
-    pub NewInst: u32,
+    pub FixupInstRVA: super::DWORD,
+    pub NewInst: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
-    pub FirstEntryRVA: u32,
+    pub FirstEntryRVA: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_ARCHITECTURE_HEADER {
-    pub fn AmaskValue(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn AmaskValue(&self) -> u32 {
+        (self._bitfield) & 1
     }
-    pub fn set_AmaskValue(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_AmaskValue(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
     pub fn AmaskShift(&self) -> u32 {
-        (self._bitfield << 16) >> 24
+        (self._bitfield >> 8) & 255
     }
     pub fn set_AmaskShift(&mut self, value: u32) {
         self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
@@ -3172,17 +3344,19 @@ pub const IMAGE_ARCHIVE_END: windows_core::PCSTR = windows_core::s!("`\n");
 pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: windows_core::PCSTR = windows_core::s!("/<HYBRIDMAP>/   ");
 pub const IMAGE_ARCHIVE_LINKER_MEMBER: windows_core::PCSTR = windows_core::s!("/               ");
 pub const IMAGE_ARCHIVE_LONGNAMES_MEMBER: windows_core::PCSTR = windows_core::s!("//              ");
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
-    pub Name: [u8; 16],
-    pub Date: [u8; 12],
-    pub UserID: [u8; 6],
-    pub GroupID: [u8; 6],
-    pub Mode: [u8; 8],
-    pub Size: [u8; 10],
-    pub EndHeader: [u8; 2],
+    pub Name: [super::BYTE; 16],
+    pub Date: [super::BYTE; 12],
+    pub UserID: [super::BYTE; 6],
+    pub GroupID: [super::BYTE; 6],
+    pub Mode: [super::BYTE; 8],
+    pub Size: [super::BYTE; 10],
+    pub EndHeader: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARCHIVE_MEMBER_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3191,281 +3365,306 @@ impl Default for IMAGE_ARCHIVE_MEMBER_HEADER {
 pub const IMAGE_ARCHIVE_PAD: windows_core::PCSTR = windows_core::s!("\n");
 pub const IMAGE_ARCHIVE_START: windows_core::PCSTR = windows_core::s!("!<arch>\n");
 pub const IMAGE_ARCHIVE_START_SIZE: i32 = 8;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u32,
+    pub BeginAddress: super::DWORD,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
-    pub UnwindData: u32,
+    pub UnwindData: super::DWORD,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
-    pub fn Flag(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn Flag(&self) -> super::DWORD {
+        (self._bitfield) & 3
     }
-    pub fn set_Flag(&mut self, value: u32) {
+    pub fn set_Flag(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn FunctionLength(&self) -> u32 {
-        (self._bitfield << 19) >> 21
+    pub fn FunctionLength(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 2047
     }
-    pub fn set_FunctionLength(&mut self, value: u32) {
+    pub fn set_FunctionLength(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2047 << 2)) | ((value & 2047) << 2);
     }
-    pub fn RegF(&self) -> u32 {
-        (self._bitfield << 16) >> 29
+    pub fn RegF(&self) -> super::DWORD {
+        (self._bitfield >> 13) & 7
     }
-    pub fn set_RegF(&mut self, value: u32) {
+    pub fn set_RegF(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
     }
-    pub fn RegI(&self) -> u32 {
-        (self._bitfield << 12) >> 28
+    pub fn RegI(&self) -> super::DWORD {
+        (self._bitfield >> 16) & 15
     }
-    pub fn set_RegI(&mut self, value: u32) {
+    pub fn set_RegI(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
     }
-    pub fn H(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn H(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_H(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    pub fn set_H(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn CR(&self) -> u32 {
-        (self._bitfield << 9) >> 30
+    pub fn CR(&self) -> super::DWORD {
+        (self._bitfield >> 21) & 3
     }
-    pub fn set_CR(&mut self, value: u32) {
+    pub fn set_CR(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(3 << 21)) | ((value & 3) << 21);
     }
-    pub fn FrameSize(&self) -> u32 {
+    pub fn FrameSize(&self) -> super::DWORD {
         self._bitfield >> 23
     }
-    pub fn set_FrameSize(&mut self, value: u32) {
+    pub fn set_FrameSize(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(511 << 23)) | ((value & 511) << 23);
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
-    pub HeaderData: u32,
+    pub HeaderData: super::DWORD,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
-    pub fn FunctionLength(&self) -> u32 {
-        (self._bitfield << 14) >> 14
+    pub fn FunctionLength(&self) -> super::DWORD {
+        (self._bitfield) & 262143
     }
-    pub fn set_FunctionLength(&mut self, value: u32) {
+    pub fn set_FunctionLength(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !262143) | (value & 262143);
     }
-    pub fn Version(&self) -> u32 {
-        (self._bitfield << 12) >> 30
+    pub fn Version(&self) -> super::DWORD {
+        (self._bitfield >> 18) & 3
     }
-    pub fn set_Version(&mut self, value: u32) {
+    pub fn set_Version(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(3 << 18)) | ((value & 3) << 18);
     }
-    pub fn ExceptionDataPresent(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn ExceptionDataPresent(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_ExceptionDataPresent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    pub fn set_ExceptionDataPresent(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn EpilogInHeader(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
+    pub fn EpilogInHeader(&self) -> super::DWORD {
+        (self._bitfield >> 21) & 1
     }
-    pub fn set_EpilogInHeader(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    pub fn set_EpilogInHeader(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
     }
-    pub fn EpilogCount(&self) -> u32 {
-        (self._bitfield << 5) >> 27
+    pub fn EpilogCount(&self) -> super::DWORD {
+        (self._bitfield >> 22) & 31
     }
-    pub fn set_EpilogCount(&mut self, value: u32) {
+    pub fn set_EpilogCount(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(31 << 22)) | ((value & 31) << 22);
     }
-    pub fn CodeWords(&self) -> u32 {
+    pub fn CodeWords(&self) -> super::DWORD {
         self._bitfield >> 27
     }
-    pub fn set_CodeWords(&mut self, value: u32) {
+    pub fn set_CodeWords(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
-    pub EpilogScopeData: u32,
+    pub EpilogScopeData: super::DWORD,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0 {
-    pub fn EpilogStartOffset(&self) -> u32 {
-        (self._bitfield << 14) >> 14
+    pub fn EpilogStartOffset(&self) -> super::DWORD {
+        (self._bitfield) & 262143
     }
-    pub fn set_EpilogStartOffset(&mut self, value: u32) {
+    pub fn set_EpilogStartOffset(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !262143) | (value & 262143);
     }
-    pub fn Res0(&self) -> u32 {
-        (self._bitfield << 10) >> 28
+    pub fn Res0(&self) -> super::DWORD {
+        (self._bitfield >> 18) & 15
     }
-    pub fn set_Res0(&mut self, value: u32) {
+    pub fn set_Res0(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(15 << 18)) | ((value & 15) << 18);
     }
-    pub fn EpilogStartIndex(&self) -> u32 {
+    pub fn EpilogStartIndex(&self) -> super::DWORD {
         self._bitfield >> 22
     }
-    pub fn set_EpilogStartIndex(&mut self, value: u32) {
+    pub fn set_EpilogStartIndex(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
-    pub ExtendedHeaderData: u32,
+    pub ExtendedHeaderData: super::DWORD,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0 {
-    pub fn ExtendedEpilogCount(&self) -> u32 {
-        (self._bitfield << 16) >> 16
+    pub fn ExtendedEpilogCount(&self) -> super::DWORD {
+        (self._bitfield) & 65535
     }
-    pub fn set_ExtendedEpilogCount(&mut self, value: u32) {
+    pub fn set_ExtendedEpilogCount(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !65535) | (value & 65535);
     }
-    pub fn ExtendedCodeWords(&self) -> u32 {
-        (self._bitfield << 8) >> 24
+    pub fn ExtendedCodeWords(&self) -> super::DWORD {
+        (self._bitfield >> 16) & 255
     }
-    pub fn set_ExtendedCodeWords(&mut self, value: u32) {
+    pub fn set_ExtendedCodeWords(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u32,
+    pub BeginAddress: super::DWORD,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
-    pub UnwindData: u32,
+    pub UnwindData: super::DWORD,
     pub Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
-    pub fn Flag(&self) -> u32 {
-        (self._bitfield << 30) >> 30
+    pub fn Flag(&self) -> super::DWORD {
+        (self._bitfield) & 3
     }
-    pub fn set_Flag(&mut self, value: u32) {
+    pub fn set_Flag(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn FunctionLength(&self) -> u32 {
-        (self._bitfield << 19) >> 21
+    pub fn FunctionLength(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 2047
     }
-    pub fn set_FunctionLength(&mut self, value: u32) {
+    pub fn set_FunctionLength(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2047 << 2)) | ((value & 2047) << 2);
     }
-    pub fn Ret(&self) -> u32 {
-        (self._bitfield << 17) >> 30
+    pub fn Ret(&self) -> super::DWORD {
+        (self._bitfield >> 13) & 3
     }
-    pub fn set_Ret(&mut self, value: u32) {
+    pub fn set_Ret(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
     }
-    pub fn H(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn H(&self) -> super::DWORD {
+        (self._bitfield >> 15) & 1
     }
-    pub fn set_H(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    pub fn set_H(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
-    pub fn Reg(&self) -> u32 {
-        (self._bitfield << 13) >> 29
+    pub fn Reg(&self) -> super::DWORD {
+        (self._bitfield >> 16) & 7
     }
-    pub fn set_Reg(&mut self, value: u32) {
+    pub fn set_Reg(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(7 << 16)) | ((value & 7) << 16);
     }
-    pub fn R(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
+    pub fn R(&self) -> super::DWORD {
+        (self._bitfield >> 19) & 1
     }
-    pub fn set_R(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    pub fn set_R(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
     }
-    pub fn L(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn L(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_L(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    pub fn set_L(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn C(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
+    pub fn C(&self) -> super::DWORD {
+        (self._bitfield >> 21) & 1
     }
-    pub fn set_C(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    pub fn set_C(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
     }
-    pub fn StackAdjust(&self) -> u32 {
+    pub fn StackAdjust(&self) -> super::DWORD {
         self._bitfield >> 22
     }
-    pub fn set_StackAdjust(&mut self, value: u32) {
+    pub fn set_StackAdjust(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL {
     pub Sym: IMAGE_AUX_SYMBOL_0,
@@ -3474,102 +3673,119 @@ pub union IMAGE_AUX_SYMBOL {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub CRC: IMAGE_AUX_SYMBOL_3,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_0 {
-    pub TagIndex: u32,
+    pub TagIndex: super::DWORD,
     pub Misc: IMAGE_AUX_SYMBOL_0_0,
     pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
-    pub TvIndex: u16,
+    pub TvIndex: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_0_0 {
     pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
-    pub TotalSize: u32,
+    pub TotalSize: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_AUX_SYMBOL_0_0_0 {
-    pub Linenumber: u16,
-    pub Size: u16,
+    pub Linenumber: super::WORD,
+    pub Size: super::WORD,
 }
-#[repr(C)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_0_1 {
     pub Function: IMAGE_AUX_SYMBOL_0_1_0,
     pub Array: IMAGE_AUX_SYMBOL_0_1_1,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_AUX_SYMBOL_0_1_0 {
-    pub PointerToLinenumber: u32,
-    pub PointerToNextFunction: u32,
+    pub PointerToLinenumber: super::DWORD,
+    pub PointerToNextFunction: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_0_1_1 {
-    pub Dimension: [u16; 4],
+    pub Dimension: [super::WORD; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_1 {
-    pub Name: [u8; 18],
+    pub Name: [super::BYTE; 18],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_AUX_SYMBOL_2 {
-    pub Length: u32,
-    pub NumberOfRelocations: u16,
-    pub NumberOfLinenumbers: u16,
-    pub CheckSum: u32,
-    pub Number: i16,
-    pub Selection: u8,
-    pub bReserved: u8,
-    pub HighNumber: i16,
+    pub Length: super::DWORD,
+    pub NumberOfRelocations: super::WORD,
+    pub NumberOfLinenumbers: super::WORD,
+    pub CheckSum: super::DWORD,
+    pub Number: super::SHORT,
+    pub Selection: super::BYTE,
+    pub bReserved: super::BYTE,
+    pub HighNumber: super::SHORT,
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_3 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 14],
+    pub crc: super::DWORD,
+    pub rgbReserved: [super::BYTE; 14],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_EX {
     pub Sym: IMAGE_AUX_SYMBOL_EX_0,
@@ -3578,81 +3794,94 @@ pub union IMAGE_AUX_SYMBOL_EX {
     pub Anonymous: IMAGE_AUX_SYMBOL_EX_3,
     pub CRC: IMAGE_AUX_SYMBOL_EX_4,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_0 {
-    pub WeakDefaultSymIndex: u32,
-    pub WeakSearchType: u32,
-    pub rgbReserved: [u8; 12],
+    pub WeakDefaultSymIndex: super::DWORD,
+    pub WeakSearchType: super::DWORD,
+    pub rgbReserved: [super::BYTE; 12],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_1 {
-    pub Name: [u8; 20],
+    pub Name: [super::BYTE; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_EX_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_2 {
-    pub Length: u32,
-    pub NumberOfRelocations: u16,
-    pub NumberOfLinenumbers: u16,
-    pub CheckSum: u32,
-    pub Number: i16,
-    pub Selection: u8,
-    pub bReserved: u8,
-    pub HighNumber: i16,
-    pub rgbReserved: [u8; 2],
+    pub Length: super::DWORD,
+    pub NumberOfRelocations: super::WORD,
+    pub NumberOfLinenumbers: super::WORD,
+    pub CheckSum: super::DWORD,
+    pub Number: super::SHORT,
+    pub Selection: super::BYTE,
+    pub bReserved: super::BYTE,
+    pub HighNumber: super::SHORT,
+    pub rgbReserved: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_EX_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub rgbReserved: [u8; 2],
+    pub rgbReserved: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_EX_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_4 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 16],
+    pub crc: super::DWORD,
+    pub rgbReserved: [super::BYTE; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_EX_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_TOKEN_DEF {
-    pub bAuxType: u8,
-    pub bReserved: u8,
-    pub SymbolTableIndex: u32,
-    pub rgbReserved: [u8; 12],
+    pub bAuxType: super::BYTE,
+    pub bReserved: super::BYTE,
+    pub SymbolTableIndex: super::DWORD,
+    pub rgbReserved: [super::BYTE; 12],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3660,82 +3889,90 @@ impl Default for IMAGE_AUX_SYMBOL_TOKEN_DEF {
 }
 pub type IMAGE_AUX_SYMBOL_TYPE = i32;
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BASE_RELOCATION {
-    pub VirtualAddress: u32,
-    pub SizeOfBlock: u32,
+    pub VirtualAddress: super::DWORD,
+    pub SizeOfBlock: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_BDD_DYNAMIC_RELOCATION {
-    pub Left: u16,
-    pub Right: u16,
-    pub Value: u32,
+    pub Left: super::WORD,
+    pub Right: super::WORD,
+    pub Value: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_BDD_INFO {
-    pub Version: u32,
-    pub BDDSize: u32,
+    pub Version: super::DWORD,
+    pub BDDSize: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BOUND_FORWARDER_REF {
-    pub TimeDateStamp: u32,
-    pub OffsetModuleName: u16,
-    pub Reserved: u16,
+    pub TimeDateStamp: super::DWORD,
+    pub OffsetModuleName: super::WORD,
+    pub Reserved: super::WORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
-    pub TimeDateStamp: u32,
-    pub OffsetModuleName: u16,
-    pub NumberOfModuleForwarderRefs: u16,
+    pub TimeDateStamp: super::DWORD,
+    pub OffsetModuleName: super::WORD,
+    pub NumberOfModuleForwarderRefs: super::WORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
-    pub FuncStart: u32,
+    pub FuncStart: super::DWORD,
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
-    pub fn PrologLen(&self) -> u32 {
-        (self._bitfield << 24) >> 24
+    pub fn PrologLen(&self) -> super::DWORD {
+        (self._bitfield) & 255
     }
-    pub fn set_PrologLen(&mut self, value: u32) {
+    pub fn set_PrologLen(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !255) | (value & 255);
     }
-    pub fn FuncLen(&self) -> u32 {
-        (self._bitfield << 2) >> 10
+    pub fn FuncLen(&self) -> super::DWORD {
+        (self._bitfield >> 8) & 4194303
     }
-    pub fn set_FuncLen(&mut self, value: u32) {
+    pub fn set_FuncLen(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(4194303 << 8)) | ((value & 4194303) << 8);
     }
-    pub fn ThirtyTwoBit(&self) -> bool {
-        (self._bitfield >> 30) & 1 != 0
+    pub fn ThirtyTwoBit(&self) -> super::DWORD {
+        (self._bitfield >> 30) & 1
     }
-    pub fn set_ThirtyTwoBit(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    pub fn set_ThirtyTwoBit(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value & 1) << 30);
     }
-    pub fn ExceptionFlag(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn ExceptionFlag(&self) -> super::DWORD {
+        self._bitfield >> 31
     }
-    pub fn set_ExceptionFlag(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_ExceptionFlag(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
-    pub NumberOfSymbols: u32,
-    pub LvaToFirstSymbol: u32,
-    pub NumberOfLinenumbers: u32,
-    pub LvaToFirstLinenumber: u32,
-    pub RvaToFirstByteOfCode: u32,
-    pub RvaToLastByteOfCode: u32,
-    pub RvaToFirstByteOfData: u32,
-    pub RvaToLastByteOfData: u32,
+    pub NumberOfSymbols: super::DWORD,
+    pub LvaToFirstSymbol: super::DWORD,
+    pub NumberOfLinenumbers: super::DWORD,
+    pub LvaToFirstLinenumber: super::DWORD,
+    pub RvaToFirstByteOfCode: super::DWORD,
+    pub RvaToLastByteOfCode: super::DWORD,
+    pub RvaToFirstByteOfData: super::DWORD,
+    pub RvaToLastByteOfData: super::DWORD,
 }
 pub const IMAGE_COMDAT_SELECT_ANY: i32 = 2;
 pub const IMAGE_COMDAT_SELECT_ASSOCIATIVE: i32 = 5;
@@ -3745,13 +3982,14 @@ pub const IMAGE_COMDAT_SELECT_NEWEST: i32 = 7;
 pub const IMAGE_COMDAT_SELECT_NODUPLICATES: i32 = 1;
 pub const IMAGE_COMDAT_SELECT_SAME_SIZE: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_COR20_HEADER {
-    pub cb: u32,
-    pub MajorRuntimeVersion: u16,
-    pub MinorRuntimeVersion: u16,
+    pub cb: super::DWORD,
+    pub MajorRuntimeVersion: super::WORD,
+    pub MinorRuntimeVersion: super::WORD,
     pub MetaData: IMAGE_DATA_DIRECTORY,
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: IMAGE_COR20_HEADER_0,
     pub Resources: IMAGE_DATA_DIRECTORY,
     pub StrongNameSignature: IMAGE_DATA_DIRECTORY,
@@ -3760,17 +3998,20 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_COR20_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_COR20_HEADER_0 {
-    pub EntryPointToken: u32,
-    pub EntryPointRVA: u32,
+    pub EntryPointToken: super::DWORD,
+    pub EntryPointRVA: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_COR20_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3780,33 +4021,37 @@ pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = 32;
 pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = 8;
 pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = 2;
 pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DATA_DIRECTORY {
-    pub VirtualAddress: u32,
-    pub Size: u32,
+    pub VirtualAddress: super::DWORD,
+    pub Size: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DEBUG_DIRECTORY {
-    pub Characteristics: u32,
-    pub TimeDateStamp: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub Type: u32,
-    pub SizeOfData: u32,
-    pub AddressOfRawData: u32,
-    pub PointerToRawData: u32,
+    pub Characteristics: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub Type: super::DWORD,
+    pub SizeOfData: super::DWORD,
+    pub AddressOfRawData: super::DWORD,
+    pub PointerToRawData: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_DEBUG_MISC {
-    pub DataType: u32,
-    pub Length: u32,
-    pub Unicode: BOOLEAN,
-    pub Reserved: [u8; 3],
-    pub Data: [u8; 1],
+    pub DataType: super::DWORD,
+    pub Length: super::DWORD,
+    pub Unicode: super::BOOLEAN,
+    pub Reserved: [super::BYTE; 3],
+    pub Data: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_DEBUG_MISC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3833,50 +4078,56 @@ pub const IMAGE_DEBUG_TYPE_RESERVED10: i32 = 10;
 pub const IMAGE_DEBUG_TYPE_SPGO: i32 = 18;
 pub const IMAGE_DEBUG_TYPE_UNKNOWN: i32 = 0;
 pub const IMAGE_DEBUG_TYPE_VC_FEATURE: i32 = 12;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
     pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
-    pub DllNameRVA: u32,
-    pub ModuleHandleRVA: u32,
-    pub ImportAddressTableRVA: u32,
-    pub ImportNameTableRVA: u32,
-    pub BoundImportAddressTableRVA: u32,
-    pub UnloadInformationTableRVA: u32,
-    pub TimeDateStamp: u32,
+    pub DllNameRVA: super::DWORD,
+    pub ModuleHandleRVA: super::DWORD,
+    pub ImportAddressTableRVA: super::DWORD,
+    pub ImportNameTableRVA: super::DWORD,
+    pub BoundImportAddressTableRVA: super::DWORD,
+    pub UnloadInformationTableRVA: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_DELAYLOAD_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
-    pub AllAttributes: u32,
+    pub AllAttributes: super::DWORD,
     pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
-    pub fn RvaBased(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn RvaBased(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_RvaBased(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_RvaBased(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ReservedAttributes(&self) -> u32 {
+    pub fn ReservedAttributes(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_ReservedAttributes(&mut self, value: u32) {
+    pub fn set_ReservedAttributes(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
@@ -3915,28 +4166,30 @@ pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: i32 = 256;
 pub const IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE: i32 = 32768;
 pub const IMAGE_DLLCHARACTERISTICS_WDM_DRIVER: i32 = 8192;
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_DOS_HEADER {
-    pub e_magic: u16,
-    pub e_cblp: u16,
-    pub e_cp: u16,
-    pub e_crlc: u16,
-    pub e_cparhdr: u16,
-    pub e_minalloc: u16,
-    pub e_maxalloc: u16,
-    pub e_ss: u16,
-    pub e_sp: u16,
-    pub e_csum: u16,
-    pub e_ip: u16,
-    pub e_cs: u16,
-    pub e_lfarlc: u16,
-    pub e_ovno: u16,
-    pub e_res: [u16; 4],
-    pub e_oemid: u16,
-    pub e_oeminfo: u16,
-    pub e_res2: [u16; 10],
-    pub e_lfanew: i32,
+    pub e_magic: super::WORD,
+    pub e_cblp: super::WORD,
+    pub e_cp: super::WORD,
+    pub e_crlc: super::WORD,
+    pub e_cparhdr: super::WORD,
+    pub e_minalloc: super::WORD,
+    pub e_maxalloc: super::WORD,
+    pub e_ss: super::WORD,
+    pub e_sp: super::WORD,
+    pub e_csum: super::WORD,
+    pub e_ip: super::WORD,
+    pub e_cs: super::WORD,
+    pub e_lfarlc: super::WORD,
+    pub e_ovno: super::WORD,
+    pub e_res: [super::WORD; 4],
+    pub e_oemid: super::WORD,
+    pub e_oeminfo: super::WORD,
+    pub e_res2: [super::WORD; 10],
+    pub e_lfanew: super::LONG,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_DOS_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3944,38 +4197,44 @@ impl Default for IMAGE_DOS_HEADER {
 }
 pub const IMAGE_DOS_SIGNATURE: i32 = 23117;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_DYNAMIC_RELOCATION = IMAGE_DYNAMIC_RELOCATION32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_DYNAMIC_RELOCATION = IMAGE_DYNAMIC_RELOCATION64;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION32 {
-    pub Symbol: u32,
-    pub BaseRelocSize: u32,
+    pub Symbol: super::DWORD,
+    pub BaseRelocSize: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION32_V2 {
-    pub HeaderSize: u32,
-    pub FixupInfoSize: u32,
-    pub Symbol: u32,
-    pub SymbolGroup: u32,
-    pub Flags: u32,
+    pub HeaderSize: super::DWORD,
+    pub FixupInfoSize: super::DWORD,
+    pub Symbol: super::DWORD,
+    pub SymbolGroup: super::DWORD,
+    pub Flags: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION64 {
-    pub Symbol: u64,
-    pub BaseRelocSize: u32,
+    pub Symbol: super::ULONGLONG,
+    pub BaseRelocSize: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION64_V2 {
-    pub HeaderSize: u32,
-    pub FixupInfoSize: u32,
-    pub Symbol: u64,
-    pub SymbolGroup: u32,
-    pub Flags: u32,
+    pub HeaderSize: super::DWORD,
+    pub FixupInfoSize: super::DWORD,
+    pub Symbol: super::ULONGLONG,
+    pub SymbolGroup: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const IMAGE_DYNAMIC_RELOCATION_ARM64_KERNEL_IMPORT_CALL_TRANSFER: i32 = 8;
 pub const IMAGE_DYNAMIC_RELOCATION_FUNCTION_OVERRIDE: i32 = 7;
@@ -3988,76 +4247,87 @@ pub const IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH: i32 = 5;
 pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: i32 = 3;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: i32 = 8;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_DYNAMIC_RELOCATION_V2 = IMAGE_DYNAMIC_RELOCATION32_V2;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_DYNAMIC_RELOCATION_V2 = IMAGE_DYNAMIC_RELOCATION64_V2;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_ENCLAVE_CONFIG = IMAGE_ENCLAVE_CONFIG32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_ENCLAVE_CONFIG = IMAGE_ENCLAVE_CONFIG64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_ENCLAVE_CONFIG32 {
-    pub Size: u32,
-    pub MinimumRequiredConfigSize: u32,
-    pub PolicyFlags: u32,
-    pub NumberOfImports: u32,
-    pub ImportList: u32,
-    pub ImportEntrySize: u32,
-    pub FamilyID: [u8; 16],
-    pub ImageID: [u8; 16],
-    pub ImageVersion: u32,
-    pub SecurityVersion: u32,
-    pub EnclaveSize: u32,
-    pub NumberOfThreads: u32,
-    pub EnclaveFlags: u32,
+    pub Size: super::DWORD,
+    pub MinimumRequiredConfigSize: super::DWORD,
+    pub PolicyFlags: super::DWORD,
+    pub NumberOfImports: super::DWORD,
+    pub ImportList: super::DWORD,
+    pub ImportEntrySize: super::DWORD,
+    pub FamilyID: [super::BYTE; 16],
+    pub ImageID: [super::BYTE; 16],
+    pub ImageVersion: super::DWORD,
+    pub SecurityVersion: super::DWORD,
+    pub EnclaveSize: super::DWORD,
+    pub NumberOfThreads: super::DWORD,
+    pub EnclaveFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ENCLAVE_CONFIG32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_ENCLAVE_CONFIG64 {
-    pub Size: u32,
-    pub MinimumRequiredConfigSize: u32,
-    pub PolicyFlags: u32,
-    pub NumberOfImports: u32,
-    pub ImportList: u32,
-    pub ImportEntrySize: u32,
-    pub FamilyID: [u8; 16],
-    pub ImageID: [u8; 16],
-    pub ImageVersion: u32,
-    pub SecurityVersion: u32,
-    pub EnclaveSize: u64,
-    pub NumberOfThreads: u32,
-    pub EnclaveFlags: u32,
+    pub Size: super::DWORD,
+    pub MinimumRequiredConfigSize: super::DWORD,
+    pub PolicyFlags: super::DWORD,
+    pub NumberOfImports: super::DWORD,
+    pub ImportList: super::DWORD,
+    pub ImportEntrySize: super::DWORD,
+    pub FamilyID: [super::BYTE; 16],
+    pub ImageID: [super::BYTE; 16],
+    pub ImageVersion: super::DWORD,
+    pub SecurityVersion: super::DWORD,
+    pub EnclaveSize: super::ULONGLONG,
+    pub NumberOfThreads: super::DWORD,
+    pub EnclaveFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ENCLAVE_CONFIG64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_ENCLAVE_IMPORT {
-    pub MatchType: u32,
-    pub MinimumSecurityVersion: u32,
-    pub UniqueOrAuthorID: [u8; 32],
-    pub FamilyID: [u8; 16],
-    pub ImageID: [u8; 16],
-    pub ImportName: u32,
-    pub Reserved: u32,
+    pub MatchType: super::DWORD,
+    pub MinimumSecurityVersion: super::DWORD,
+    pub UniqueOrAuthorID: [super::BYTE; 32],
+    pub FamilyID: [super::BYTE; 16],
+    pub ImageID: [super::BYTE; 16],
+    pub ImportName: super::DWORD,
+    pub Reserved: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ENCLAVE_IMPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4070,34 +4340,38 @@ pub const IMAGE_ENCLAVE_IMPORT_MATCH_NONE: i32 = 0;
 pub const IMAGE_ENCLAVE_IMPORT_MATCH_UNIQUE_ID: i32 = 1;
 pub const IMAGE_ENCLAVE_LONG_ID_LENGTH: i32 = 32;
 #[cfg(target_arch = "x86")]
-pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: i32 = 72;
+#[cfg(feature = "shared")]
+pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: super::LONG = 0x48_u32 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: i32 = 76;
+#[cfg(feature = "shared")]
+pub const IMAGE_ENCLAVE_MINIMUM_CONFIG_SIZE: super::LONG = 0x4C_u32 as _;
 pub const IMAGE_ENCLAVE_POLICY_DEBUGGABLE: i32 = 1;
 pub const IMAGE_ENCLAVE_POLICY_STRICT_MEMORY: i32 = 2;
 pub const IMAGE_ENCLAVE_SHORT_ID_LENGTH: i32 = 16;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
-    pub EpilogueCount: u32,
-    pub EpilogueByteCount: u8,
-    pub BranchDescriptorElementSize: u8,
-    pub BranchDescriptorCount: u16,
+    pub EpilogueCount: super::DWORD,
+    pub EpilogueByteCount: super::BYTE,
+    pub BranchDescriptorElementSize: super::BYTE,
+    pub BranchDescriptorCount: super::WORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_EXPORT_DIRECTORY {
-    pub Characteristics: u32,
-    pub TimeDateStamp: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub Name: u32,
-    pub Base: u32,
-    pub NumberOfFunctions: u32,
-    pub NumberOfNames: u32,
-    pub AddressOfFunctions: u32,
-    pub AddressOfNames: u32,
-    pub AddressOfNameOrdinals: u32,
+    pub Characteristics: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub Name: super::DWORD,
+    pub Base: super::DWORD,
+    pub NumberOfFunctions: super::DWORD,
+    pub NumberOfNames: super::DWORD,
+    pub AddressOfFunctions: super::DWORD,
+    pub AddressOfNames: super::DWORD,
+    pub AddressOfNameOrdinals: super::DWORD,
 }
 pub const IMAGE_FILE_32BIT_MACHINE: i32 = 256;
 pub const IMAGE_FILE_AGGRESIVE_WS_TRIM: i32 = 16;
@@ -4106,76 +4380,83 @@ pub const IMAGE_FILE_BYTES_REVERSED_LO: i32 = 128;
 pub const IMAGE_FILE_DEBUG_STRIPPED: i32 = 512;
 pub const IMAGE_FILE_DLL: i32 = 8192;
 pub const IMAGE_FILE_EXECUTABLE_IMAGE: i32 = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FILE_HEADER {
-    pub Machine: u16,
-    pub NumberOfSections: u16,
-    pub TimeDateStamp: u32,
-    pub PointerToSymbolTable: u32,
-    pub NumberOfSymbols: u32,
-    pub SizeOfOptionalHeader: u16,
-    pub Characteristics: u16,
+    pub Machine: super::WORD,
+    pub NumberOfSections: super::WORD,
+    pub TimeDateStamp: super::DWORD,
+    pub PointerToSymbolTable: super::DWORD,
+    pub NumberOfSymbols: super::DWORD,
+    pub SizeOfOptionalHeader: super::WORD,
+    pub Characteristics: super::WORD,
 }
 pub const IMAGE_FILE_LARGE_ADDRESS_AWARE: i32 = 32;
 pub const IMAGE_FILE_LINE_NUMS_STRIPPED: i32 = 4;
 pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_FILE_MACHINES {
     pub Anonymous: IMAGE_FILE_MACHINES_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_FILE_MACHINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_FILE_MACHINES_0 {
-    pub Value: u32,
+    pub Value: super::DWORD,
     pub Anonymous: IMAGE_FILE_MACHINES_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_FILE_MACHINES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_MACHINES_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_FILE_MACHINES_0_0 {
-    pub fn MachineX86(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn MachineX86(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_MachineX86(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_MachineX86(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn MachineAmd64(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn MachineAmd64(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_MachineAmd64(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_MachineAmd64(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn MachineArm(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn MachineArm(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_MachineArm(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_MachineArm(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn MachineArm64(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn MachineArm64(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_MachineArm64(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_MachineArm64(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn MachineArm64EC(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn MachineArm64EC(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_MachineArm64EC(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_MachineArm64EC(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
 }
 pub const IMAGE_FILE_MACHINE_ALPHA: i32 = 388;
@@ -4215,31 +4496,36 @@ pub const IMAGE_FILE_RELOCS_STRIPPED: i32 = 1;
 pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP: i32 = 1024;
 pub const IMAGE_FILE_SYSTEM: i32 = 4096;
 pub const IMAGE_FILE_UP_SYSTEM_ONLY: i32 = 16384;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_ENTRY {
-    pub StartingAddress: u32,
-    pub EndingAddress: u32,
-    pub EndOfPrologue: u32,
+    pub StartingAddress: super::DWORD,
+    pub EndingAddress: super::DWORD,
+    pub EndOfPrologue: super::DWORD,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_FUNCTION_ENTRY64 {
-    pub StartingAddress: u64,
-    pub EndingAddress: u64,
+    pub StartingAddress: super::ULONGLONG,
+    pub EndingAddress: super::ULONGLONG,
     pub Anonymous: IMAGE_FUNCTION_ENTRY64_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_FUNCTION_ENTRY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
-    pub EndOfPrologue: u64,
-    pub UnwindInfoAddress: u64,
+    pub EndOfPrologue: super::ULONGLONG,
+    pub UnwindInfoAddress: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_FUNCTION_ENTRY64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4248,17 +4534,19 @@ impl Default for IMAGE_FUNCTION_ENTRY64_0 {
 pub const IMAGE_FUNCTION_OVERRIDE_ARM64_BRANCH26: i32 = 2;
 pub const IMAGE_FUNCTION_OVERRIDE_ARM64_THUNK: i32 = 3;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION {
-    pub OriginalRva: u32,
-    pub BDDOffset: u32,
-    pub RvaSize: u32,
-    pub BaseRelocSize: u32,
+    pub OriginalRva: super::DWORD,
+    pub BDDOffset: super::DWORD,
+    pub RvaSize: super::DWORD,
+    pub BaseRelocSize: super::DWORD,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_FUNCTION_OVERRIDE_HEADER {
-    pub FuncOverrideSize: u32,
+    pub FuncOverrideSize: super::DWORD,
 }
 pub const IMAGE_FUNCTION_OVERRIDE_INVALID: i32 = 0;
 pub const IMAGE_FUNCTION_OVERRIDE_X64_REL32: i32 = 1;
@@ -4286,70 +4574,78 @@ pub const IMAGE_GUARD_RF_STRICT: i32 = 524288;
 pub const IMAGE_GUARD_SECURITY_COOKIE_UNUSED: i32 = 2048;
 pub const IMAGE_GUARD_XFG_ENABLED: i32 = 8388608;
 pub type IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_CC_RETURN = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON,
-    pub IntArgs: u32,
-    pub FloatArgs: u32,
-    pub ArgStackSize: u32,
+    pub IntArgs: super::DWORD,
+    pub FloatArgs: super::DWORD,
+    pub ArgStackSize: super::DWORD,
     pub ReturnType: IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_CC_RETURN,
-    pub Name: [u8; 1],
+    pub Name: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON {
-    pub Size: u32,
-    pub Rva: u32,
-    pub NameSize: u32,
-    pub NameOffset: u32,
+    pub Size: super::DWORD,
+    pub Rva: super::DWORD,
+    pub NameSize: super::DWORD,
+    pub NameOffset: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON {
-    pub Version: u32,
-    pub Size: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON,
-    pub Count: u32,
+    pub Count: super::DWORD,
 }
 pub const IMAGE_HOTSWAP_ENDPOINT_INFO_V2: i32 = 2;
 pub const IMAGE_HOTSWAP_ENDPOINT_TABLE_SECTION: windows_core::PCSTR = windows_core::s!(".shsept");
 pub type IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON,
     pub ArgRegs: [IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG; 4],
-    pub ArgStackSize: u32,
+    pub ArgStackSize: super::DWORD,
     pub RetReg: IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG,
-    pub Name: [u8; 1],
+    pub Name: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const IMAGE_HOT_PATCH_ABSOLUTE: i32 = 180224;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOT_PATCH_BASE {
-    pub SequenceNumber: u32,
-    pub Flags: u32,
-    pub OriginalTimeDateStamp: u32,
-    pub OriginalCheckSum: u32,
-    pub CodeIntegrityInfo: u32,
-    pub CodeIntegritySize: u32,
-    pub PatchTable: u32,
-    pub BufferOffset: u32,
+    pub SequenceNumber: super::DWORD,
+    pub Flags: super::DWORD,
+    pub OriginalTimeDateStamp: super::DWORD,
+    pub OriginalCheckSum: super::DWORD,
+    pub CodeIntegrityInfo: super::DWORD,
+    pub CodeIntegritySize: super::DWORD,
+    pub PatchTable: super::DWORD,
+    pub BufferOffset: super::DWORD,
 }
 pub const IMAGE_HOT_PATCH_BASE_CAN_ROLL_BACK: i32 = 2;
 pub const IMAGE_HOT_PATCH_BASE_MACHINE_AMD64: i32 = 16;
@@ -4366,372 +4662,403 @@ pub const IMAGE_HOT_PATCH_CHUNK_TARGET_RVA: i32 = 16384;
 pub const IMAGE_HOT_PATCH_CHUNK_TYPE: i32 = 1032192;
 pub const IMAGE_HOT_PATCH_DYNAMIC_VALUE: i32 = 491520;
 pub const IMAGE_HOT_PATCH_FUNCTION: i32 = 114688;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_HOT_PATCH_HASHES {
-    pub SHA256: [u8; 32],
-    pub SHA1: [u8; 20],
+    pub SHA256: [super::BYTE; 32],
+    pub SHA1: [super::BYTE; 20],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_HOT_PATCH_HASHES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const IMAGE_HOT_PATCH_INDIRECT: i32 = 376832;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOT_PATCH_INFO {
-    pub Version: u32,
-    pub Size: u32,
-    pub SequenceNumber: u32,
-    pub BaseImageList: u32,
-    pub BaseImageCount: u32,
-    pub BufferOffset: u32,
-    pub ExtraPatchSize: u32,
-    pub MinSequenceNumber: u32,
-    pub Flags: u32,
+    pub Version: super::DWORD,
+    pub Size: super::DWORD,
+    pub SequenceNumber: super::DWORD,
+    pub BaseImageList: super::DWORD,
+    pub BaseImageCount: super::DWORD,
+    pub BufferOffset: super::DWORD,
+    pub ExtraPatchSize: super::DWORD,
+    pub MinSequenceNumber: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const IMAGE_HOT_PATCH_INFO_FLAG_HOTSWAP: i32 = 2;
 pub const IMAGE_HOT_PATCH_INFO_FLAG_PATCHORDERCRITICAL: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOT_PATCH_MACHINE {
     pub Anonymous: IMAGE_HOT_PATCH_MACHINE_0,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_HOT_PATCH_MACHINE_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_HOT_PATCH_MACHINE_0 {
-    pub fn _x86(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn _x86(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set__x86(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set__x86(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Amd64(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Amd64(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Amd64(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Amd64(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Arm64(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn Arm64(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_Arm64(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_Arm64(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn Amd64EC(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn Amd64EC(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_Amd64EC(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_Amd64EC(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
 }
 pub const IMAGE_HOT_PATCH_NONE: i32 = 0;
 pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: i32 = 409600;
 pub const IMAGE_HOT_PATCH_REL32: i32 = 245760;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_IMPORT_BY_NAME {
-    pub Hint: u16,
-    pub Name: [i8; 1],
+    pub Hint: super::WORD,
+    pub Name: [super::CHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_IMPORT_BY_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
-    pub fn PageRelativeOffset(&self) -> u32 {
-        (self._bitfield << 22) >> 22
+    pub fn PageRelativeOffset(&self) -> super::DWORD {
+        (self._bitfield) & 1023
     }
-    pub fn set_PageRelativeOffset(&mut self, value: u32) {
+    pub fn set_PageRelativeOffset(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !1023) | (value & 1023);
     }
-    pub fn IndirectCall(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn IndirectCall(&self) -> super::DWORD {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_IndirectCall(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    pub fn set_IndirectCall(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn RegisterIndex(&self) -> u32 {
-        (self._bitfield << 16) >> 27
+    pub fn RegisterIndex(&self) -> super::DWORD {
+        (self._bitfield >> 11) & 31
     }
-    pub fn set_RegisterIndex(&mut self, value: u32) {
+    pub fn set_RegisterIndex(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(31 << 11)) | ((value & 31) << 11);
     }
-    pub fn ImportType(&self) -> bool {
-        (self._bitfield >> 16) & 1 != 0
+    pub fn ImportType(&self) -> super::DWORD {
+        (self._bitfield >> 16) & 1
     }
-    pub fn set_ImportType(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    pub fn set_ImportType(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
     }
-    pub fn IATIndex(&self) -> u32 {
+    pub fn IATIndex(&self) -> super::DWORD {
         self._bitfield >> 17
     }
-    pub fn set_IATIndex(&mut self, value: u32) {
+    pub fn set_IATIndex(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(32767 << 17)) | ((value & 32767) << 17);
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    pub fn PageRelativeOffset(&self) -> u32 {
-        (self._bitfield << 20) >> 20
+    pub fn PageRelativeOffset(&self) -> super::DWORD {
+        (self._bitfield) & 4095
     }
-    pub fn set_PageRelativeOffset(&mut self, value: u32) {
+    pub fn set_PageRelativeOffset(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !4095) | (value & 4095);
     }
-    pub fn IndirectCall(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn IndirectCall(&self) -> super::DWORD {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_IndirectCall(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    pub fn set_IndirectCall(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn IATIndex(&self) -> u32 {
+    pub fn IATIndex(&self) -> super::DWORD {
         self._bitfield >> 13
     }
-    pub fn set_IATIndex(&mut self, value: u32) {
+    pub fn set_IATIndex(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(524287 << 13)) | ((value & 524287) << 13);
     }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_IMPORT_CONTROL_TRANSFER_RELOCATION = IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_IMPORT_CONTROL_TRANSFER_RELOCATION = IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_IMPORT_DESCRIPTOR {
     pub Anonymous: IMAGE_IMPORT_DESCRIPTOR_0,
-    pub TimeDateStamp: u32,
-    pub ForwarderChain: u32,
-    pub Name: u32,
-    pub FirstThunk: u32,
+    pub TimeDateStamp: super::DWORD,
+    pub ForwarderChain: super::DWORD,
+    pub Name: super::DWORD,
+    pub FirstThunk: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_IMPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_IMPORT_DESCRIPTOR_0 {
-    pub Characteristics: u32,
-    pub OriginalFirstThunk: u32,
+    pub Characteristics: super::DWORD,
+    pub OriginalFirstThunk: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_IMPORT_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
-    pub fn PageRelativeOffset(&self) -> u16 {
-        (self._bitfield << 4) >> 4
+    pub fn PageRelativeOffset(&self) -> super::WORD {
+        (self._bitfield) & 4095
     }
-    pub fn set_PageRelativeOffset(&mut self, value: u16) {
+    pub fn set_PageRelativeOffset(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !4095) | (value & 4095);
     }
-    pub fn IndirectCall(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn IndirectCall(&self) -> super::WORD {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_IndirectCall(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    pub fn set_IndirectCall(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
-    pub fn RexWPrefix(&self) -> bool {
-        (self._bitfield >> 13) & 1 != 0
+    pub fn RexWPrefix(&self) -> super::WORD {
+        (self._bitfield >> 13) & 1
     }
-    pub fn set_RexWPrefix(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    pub fn set_RexWPrefix(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value & 1) << 13);
     }
-    pub fn CfgCheck(&self) -> bool {
-        (self._bitfield >> 14) & 1 != 0
+    pub fn CfgCheck(&self) -> super::WORD {
+        (self._bitfield >> 14) & 1
     }
-    pub fn set_CfgCheck(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u16) << 14);
+    pub fn set_CfgCheck(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value & 1) << 14);
     }
-    pub fn Reserved(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn Reserved(&self) -> super::WORD {
+        self._bitfield >> 15
     }
-    pub fn set_Reserved(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    pub fn set_Reserved(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
 }
-#[repr(C)]
+#[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_LINENUMBER {
     pub Type: IMAGE_LINENUMBER_0,
-    pub Linenumber: u16,
+    pub Linenumber: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_LINENUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_LINENUMBER_0 {
-    pub SymbolTableIndex: u32,
-    pub VirtualAddress: u32,
+    pub SymbolTableIndex: super::DWORD,
+    pub VirtualAddress: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_LINENUMBER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
-    pub Flags: u16,
-    pub Catalog: u16,
-    pub CatalogOffset: u32,
-    pub Reserved: u32,
+    pub Flags: super::WORD,
+    pub Catalog: super::WORD,
+    pub CatalogOffset: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_LOAD_CONFIG_DIRECTORY = IMAGE_LOAD_CONFIG_DIRECTORY32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_LOAD_CONFIG_DIRECTORY = IMAGE_LOAD_CONFIG_DIRECTORY64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
-    pub Size: u32,
-    pub TimeDateStamp: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub GlobalFlagsClear: u32,
-    pub GlobalFlagsSet: u32,
-    pub CriticalSectionDefaultTimeout: u32,
-    pub DeCommitFreeBlockThreshold: u32,
-    pub DeCommitTotalFreeThreshold: u32,
-    pub LockPrefixTable: u32,
-    pub MaximumAllocationSize: u32,
-    pub VirtualMemoryThreshold: u32,
-    pub ProcessHeapFlags: u32,
-    pub ProcessAffinityMask: u32,
-    pub CSDVersion: u16,
-    pub DependentLoadFlags: u16,
-    pub EditList: u32,
-    pub SecurityCookie: u32,
-    pub SEHandlerTable: u32,
-    pub SEHandlerCount: u32,
-    pub GuardCFCheckFunctionPointer: u32,
-    pub GuardCFDispatchFunctionPointer: u32,
-    pub GuardCFFunctionTable: u32,
-    pub GuardCFFunctionCount: u32,
-    pub GuardFlags: u32,
+    pub Size: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub GlobalFlagsClear: super::DWORD,
+    pub GlobalFlagsSet: super::DWORD,
+    pub CriticalSectionDefaultTimeout: super::DWORD,
+    pub DeCommitFreeBlockThreshold: super::DWORD,
+    pub DeCommitTotalFreeThreshold: super::DWORD,
+    pub LockPrefixTable: super::DWORD,
+    pub MaximumAllocationSize: super::DWORD,
+    pub VirtualMemoryThreshold: super::DWORD,
+    pub ProcessHeapFlags: super::DWORD,
+    pub ProcessAffinityMask: super::DWORD,
+    pub CSDVersion: super::WORD,
+    pub DependentLoadFlags: super::WORD,
+    pub EditList: super::DWORD,
+    pub SecurityCookie: super::DWORD,
+    pub SEHandlerTable: super::DWORD,
+    pub SEHandlerCount: super::DWORD,
+    pub GuardCFCheckFunctionPointer: super::DWORD,
+    pub GuardCFDispatchFunctionPointer: super::DWORD,
+    pub GuardCFFunctionTable: super::DWORD,
+    pub GuardCFFunctionCount: super::DWORD,
+    pub GuardFlags: super::DWORD,
     pub CodeIntegrity: IMAGE_LOAD_CONFIG_CODE_INTEGRITY,
-    pub GuardAddressTakenIatEntryTable: u32,
-    pub GuardAddressTakenIatEntryCount: u32,
-    pub GuardLongJumpTargetTable: u32,
-    pub GuardLongJumpTargetCount: u32,
-    pub DynamicValueRelocTable: u32,
-    pub CHPEMetadataPointer: u32,
-    pub GuardRFFailureRoutine: u32,
-    pub GuardRFFailureRoutineFunctionPointer: u32,
-    pub DynamicValueRelocTableOffset: u32,
-    pub DynamicValueRelocTableSection: u16,
-    pub Reserved2: u16,
-    pub GuardRFVerifyStackPointerFunctionPointer: u32,
-    pub HotPatchTableOffset: u32,
-    pub Reserved3: u32,
-    pub EnclaveConfigurationPointer: u32,
-    pub VolatileMetadataPointer: u32,
-    pub GuardEHContinuationTable: u32,
-    pub GuardEHContinuationCount: u32,
-    pub GuardXFGCheckFunctionPointer: u32,
-    pub GuardXFGDispatchFunctionPointer: u32,
-    pub GuardXFGTableDispatchFunctionPointer: u32,
-    pub CastGuardOsDeterminedFailureMode: u32,
-    pub GuardMemcpyFunctionPointer: u32,
-    pub UmaFunctionPointers: u32,
+    pub GuardAddressTakenIatEntryTable: super::DWORD,
+    pub GuardAddressTakenIatEntryCount: super::DWORD,
+    pub GuardLongJumpTargetTable: super::DWORD,
+    pub GuardLongJumpTargetCount: super::DWORD,
+    pub DynamicValueRelocTable: super::DWORD,
+    pub CHPEMetadataPointer: super::DWORD,
+    pub GuardRFFailureRoutine: super::DWORD,
+    pub GuardRFFailureRoutineFunctionPointer: super::DWORD,
+    pub DynamicValueRelocTableOffset: super::DWORD,
+    pub DynamicValueRelocTableSection: super::WORD,
+    pub Reserved2: super::WORD,
+    pub GuardRFVerifyStackPointerFunctionPointer: super::DWORD,
+    pub HotPatchTableOffset: super::DWORD,
+    pub Reserved3: super::DWORD,
+    pub EnclaveConfigurationPointer: super::DWORD,
+    pub VolatileMetadataPointer: super::DWORD,
+    pub GuardEHContinuationTable: super::DWORD,
+    pub GuardEHContinuationCount: super::DWORD,
+    pub GuardXFGCheckFunctionPointer: super::DWORD,
+    pub GuardXFGDispatchFunctionPointer: super::DWORD,
+    pub GuardXFGTableDispatchFunctionPointer: super::DWORD,
+    pub CastGuardOsDeterminedFailureMode: super::DWORD,
+    pub GuardMemcpyFunctionPointer: super::DWORD,
+    pub UmaFunctionPointers: super::DWORD,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
-    pub Size: u32,
-    pub TimeDateStamp: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub GlobalFlagsClear: u32,
-    pub GlobalFlagsSet: u32,
-    pub CriticalSectionDefaultTimeout: u32,
-    pub DeCommitFreeBlockThreshold: u64,
-    pub DeCommitTotalFreeThreshold: u64,
-    pub LockPrefixTable: u64,
-    pub MaximumAllocationSize: u64,
-    pub VirtualMemoryThreshold: u64,
-    pub ProcessAffinityMask: u64,
-    pub ProcessHeapFlags: u32,
-    pub CSDVersion: u16,
-    pub DependentLoadFlags: u16,
-    pub EditList: u64,
-    pub SecurityCookie: u64,
-    pub SEHandlerTable: u64,
-    pub SEHandlerCount: u64,
-    pub GuardCFCheckFunctionPointer: u64,
-    pub GuardCFDispatchFunctionPointer: u64,
-    pub GuardCFFunctionTable: u64,
-    pub GuardCFFunctionCount: u64,
-    pub GuardFlags: u32,
+    pub Size: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub GlobalFlagsClear: super::DWORD,
+    pub GlobalFlagsSet: super::DWORD,
+    pub CriticalSectionDefaultTimeout: super::DWORD,
+    pub DeCommitFreeBlockThreshold: super::ULONGLONG,
+    pub DeCommitTotalFreeThreshold: super::ULONGLONG,
+    pub LockPrefixTable: super::ULONGLONG,
+    pub MaximumAllocationSize: super::ULONGLONG,
+    pub VirtualMemoryThreshold: super::ULONGLONG,
+    pub ProcessAffinityMask: super::ULONGLONG,
+    pub ProcessHeapFlags: super::DWORD,
+    pub CSDVersion: super::WORD,
+    pub DependentLoadFlags: super::WORD,
+    pub EditList: super::ULONGLONG,
+    pub SecurityCookie: super::ULONGLONG,
+    pub SEHandlerTable: super::ULONGLONG,
+    pub SEHandlerCount: super::ULONGLONG,
+    pub GuardCFCheckFunctionPointer: super::ULONGLONG,
+    pub GuardCFDispatchFunctionPointer: super::ULONGLONG,
+    pub GuardCFFunctionTable: super::ULONGLONG,
+    pub GuardCFFunctionCount: super::ULONGLONG,
+    pub GuardFlags: super::DWORD,
     pub CodeIntegrity: IMAGE_LOAD_CONFIG_CODE_INTEGRITY,
-    pub GuardAddressTakenIatEntryTable: u64,
-    pub GuardAddressTakenIatEntryCount: u64,
-    pub GuardLongJumpTargetTable: u64,
-    pub GuardLongJumpTargetCount: u64,
-    pub DynamicValueRelocTable: u64,
-    pub CHPEMetadataPointer: u64,
-    pub GuardRFFailureRoutine: u64,
-    pub GuardRFFailureRoutineFunctionPointer: u64,
-    pub DynamicValueRelocTableOffset: u32,
-    pub DynamicValueRelocTableSection: u16,
-    pub Reserved2: u16,
-    pub GuardRFVerifyStackPointerFunctionPointer: u64,
-    pub HotPatchTableOffset: u32,
-    pub Reserved3: u32,
-    pub EnclaveConfigurationPointer: u64,
-    pub VolatileMetadataPointer: u64,
-    pub GuardEHContinuationTable: u64,
-    pub GuardEHContinuationCount: u64,
-    pub GuardXFGCheckFunctionPointer: u64,
-    pub GuardXFGDispatchFunctionPointer: u64,
-    pub GuardXFGTableDispatchFunctionPointer: u64,
-    pub CastGuardOsDeterminedFailureMode: u64,
-    pub GuardMemcpyFunctionPointer: u64,
-    pub UmaFunctionPointers: u64,
+    pub GuardAddressTakenIatEntryTable: super::ULONGLONG,
+    pub GuardAddressTakenIatEntryCount: super::ULONGLONG,
+    pub GuardLongJumpTargetTable: super::ULONGLONG,
+    pub GuardLongJumpTargetCount: super::ULONGLONG,
+    pub DynamicValueRelocTable: super::ULONGLONG,
+    pub CHPEMetadataPointer: super::ULONGLONG,
+    pub GuardRFFailureRoutine: super::ULONGLONG,
+    pub GuardRFFailureRoutineFunctionPointer: super::ULONGLONG,
+    pub DynamicValueRelocTableOffset: super::DWORD,
+    pub DynamicValueRelocTableSection: super::WORD,
+    pub Reserved2: super::WORD,
+    pub GuardRFVerifyStackPointerFunctionPointer: super::ULONGLONG,
+    pub HotPatchTableOffset: super::DWORD,
+    pub Reserved3: super::DWORD,
+    pub EnclaveConfigurationPointer: super::ULONGLONG,
+    pub VolatileMetadataPointer: super::ULONGLONG,
+    pub GuardEHContinuationTable: super::ULONGLONG,
+    pub GuardEHContinuationCount: super::ULONGLONG,
+    pub GuardXFGCheckFunctionPointer: super::ULONGLONG,
+    pub GuardXFGDispatchFunctionPointer: super::ULONGLONG,
+    pub GuardXFGTableDispatchFunctionPointer: super::ULONGLONG,
+    pub CastGuardOsDeterminedFailureMode: super::ULONGLONG,
+    pub GuardMemcpyFunctionPointer: super::ULONGLONG,
+    pub UmaFunctionPointers: super::ULONGLONG,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_NT_HEADERS = IMAGE_NT_HEADERS32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_NT_HEADERS = IMAGE_NT_HEADERS64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_NT_HEADERS32 {
-    pub Signature: u32,
+    pub Signature: super::DWORD,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER32,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_NT_HEADERS64 {
-    pub Signature: u32,
+    pub Signature: super::DWORD,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER64,
 }
@@ -4744,83 +5071,89 @@ pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: i32 = 523;
 pub const IMAGE_NT_SIGNATURE: i32 = 17744;
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES: i32 = 16;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_OPTIONAL_HEADER = IMAGE_OPTIONAL_HEADER32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_OPTIONAL_HEADER = IMAGE_OPTIONAL_HEADER64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
-    pub Magic: u16,
-    pub MajorLinkerVersion: u8,
-    pub MinorLinkerVersion: u8,
-    pub SizeOfCode: u32,
-    pub SizeOfInitializedData: u32,
-    pub SizeOfUninitializedData: u32,
-    pub AddressOfEntryPoint: u32,
-    pub BaseOfCode: u32,
-    pub BaseOfData: u32,
-    pub ImageBase: u32,
-    pub SectionAlignment: u32,
-    pub FileAlignment: u32,
-    pub MajorOperatingSystemVersion: u16,
-    pub MinorOperatingSystemVersion: u16,
-    pub MajorImageVersion: u16,
-    pub MinorImageVersion: u16,
-    pub MajorSubsystemVersion: u16,
-    pub MinorSubsystemVersion: u16,
-    pub Win32VersionValue: u32,
-    pub SizeOfImage: u32,
-    pub SizeOfHeaders: u32,
-    pub CheckSum: u32,
-    pub Subsystem: u16,
-    pub DllCharacteristics: u16,
-    pub SizeOfStackReserve: u32,
-    pub SizeOfStackCommit: u32,
-    pub SizeOfHeapReserve: u32,
-    pub SizeOfHeapCommit: u32,
-    pub LoaderFlags: u32,
-    pub NumberOfRvaAndSizes: u32,
+    pub Magic: super::WORD,
+    pub MajorLinkerVersion: super::BYTE,
+    pub MinorLinkerVersion: super::BYTE,
+    pub SizeOfCode: super::DWORD,
+    pub SizeOfInitializedData: super::DWORD,
+    pub SizeOfUninitializedData: super::DWORD,
+    pub AddressOfEntryPoint: super::DWORD,
+    pub BaseOfCode: super::DWORD,
+    pub BaseOfData: super::DWORD,
+    pub ImageBase: super::DWORD,
+    pub SectionAlignment: super::DWORD,
+    pub FileAlignment: super::DWORD,
+    pub MajorOperatingSystemVersion: super::WORD,
+    pub MinorOperatingSystemVersion: super::WORD,
+    pub MajorImageVersion: super::WORD,
+    pub MinorImageVersion: super::WORD,
+    pub MajorSubsystemVersion: super::WORD,
+    pub MinorSubsystemVersion: super::WORD,
+    pub Win32VersionValue: super::DWORD,
+    pub SizeOfImage: super::DWORD,
+    pub SizeOfHeaders: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub Subsystem: super::WORD,
+    pub DllCharacteristics: super::WORD,
+    pub SizeOfStackReserve: super::DWORD,
+    pub SizeOfStackCommit: super::DWORD,
+    pub SizeOfHeapReserve: super::DWORD,
+    pub SizeOfHeapCommit: super::DWORD,
+    pub LoaderFlags: super::DWORD,
+    pub NumberOfRvaAndSizes: super::DWORD,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_OPTIONAL_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
-    pub Magic: u16,
-    pub MajorLinkerVersion: u8,
-    pub MinorLinkerVersion: u8,
-    pub SizeOfCode: u32,
-    pub SizeOfInitializedData: u32,
-    pub SizeOfUninitializedData: u32,
-    pub AddressOfEntryPoint: u32,
-    pub BaseOfCode: u32,
-    pub ImageBase: u64,
-    pub SectionAlignment: u32,
-    pub FileAlignment: u32,
-    pub MajorOperatingSystemVersion: u16,
-    pub MinorOperatingSystemVersion: u16,
-    pub MajorImageVersion: u16,
-    pub MinorImageVersion: u16,
-    pub MajorSubsystemVersion: u16,
-    pub MinorSubsystemVersion: u16,
-    pub Win32VersionValue: u32,
-    pub SizeOfImage: u32,
-    pub SizeOfHeaders: u32,
-    pub CheckSum: u32,
-    pub Subsystem: u16,
-    pub DllCharacteristics: u16,
-    pub SizeOfStackReserve: u64,
-    pub SizeOfStackCommit: u64,
-    pub SizeOfHeapReserve: u64,
-    pub SizeOfHeapCommit: u64,
-    pub LoaderFlags: u32,
-    pub NumberOfRvaAndSizes: u32,
+    pub Magic: super::WORD,
+    pub MajorLinkerVersion: super::BYTE,
+    pub MinorLinkerVersion: super::BYTE,
+    pub SizeOfCode: super::DWORD,
+    pub SizeOfInitializedData: super::DWORD,
+    pub SizeOfUninitializedData: super::DWORD,
+    pub AddressOfEntryPoint: super::DWORD,
+    pub BaseOfCode: super::DWORD,
+    pub ImageBase: super::ULONGLONG,
+    pub SectionAlignment: super::DWORD,
+    pub FileAlignment: super::DWORD,
+    pub MajorOperatingSystemVersion: super::WORD,
+    pub MinorOperatingSystemVersion: super::WORD,
+    pub MajorImageVersion: super::WORD,
+    pub MinorImageVersion: super::WORD,
+    pub MajorSubsystemVersion: super::WORD,
+    pub MinorSubsystemVersion: super::WORD,
+    pub Win32VersionValue: super::DWORD,
+    pub SizeOfImage: super::DWORD,
+    pub SizeOfHeaders: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub Subsystem: super::WORD,
+    pub DllCharacteristics: super::WORD,
+    pub SizeOfStackReserve: super::ULONGLONG,
+    pub SizeOfStackCommit: super::ULONGLONG,
+    pub SizeOfHeapReserve: super::ULONGLONG,
+    pub SizeOfHeapCommit: super::ULONGLONG,
+    pub LoaderFlags: super::DWORD,
+    pub NumberOfRvaAndSizes: super::DWORD,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_OPTIONAL_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4833,69 +5166,74 @@ pub const IMAGE_ORDINAL_FLAG: u64 = 9223372036854775808;
 pub const IMAGE_ORDINAL_FLAG32: u32 = 2147483648;
 pub const IMAGE_ORDINAL_FLAG64: u64 = 9223372036854775808;
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_OS2_HEADER {
-    pub ne_magic: u16,
-    pub ne_ver: i8,
-    pub ne_rev: i8,
-    pub ne_enttab: u16,
-    pub ne_cbenttab: u16,
-    pub ne_crc: i32,
-    pub ne_flags: u16,
-    pub ne_autodata: u16,
-    pub ne_heap: u16,
-    pub ne_stack: u16,
-    pub ne_csip: i32,
-    pub ne_sssp: i32,
-    pub ne_cseg: u16,
-    pub ne_cmod: u16,
-    pub ne_cbnrestab: u16,
-    pub ne_segtab: u16,
-    pub ne_rsrctab: u16,
-    pub ne_restab: u16,
-    pub ne_modtab: u16,
-    pub ne_imptab: u16,
-    pub ne_nrestab: i32,
-    pub ne_cmovent: u16,
-    pub ne_align: u16,
-    pub ne_cres: u16,
-    pub ne_exetyp: u8,
-    pub ne_flagsothers: u8,
-    pub ne_pretthunks: u16,
-    pub ne_psegrefbytes: u16,
-    pub ne_swaparea: u16,
-    pub ne_expver: u16,
+    pub ne_magic: super::WORD,
+    pub ne_ver: super::CHAR,
+    pub ne_rev: super::CHAR,
+    pub ne_enttab: super::WORD,
+    pub ne_cbenttab: super::WORD,
+    pub ne_crc: super::LONG,
+    pub ne_flags: super::WORD,
+    pub ne_autodata: super::WORD,
+    pub ne_heap: super::WORD,
+    pub ne_stack: super::WORD,
+    pub ne_csip: super::LONG,
+    pub ne_sssp: super::LONG,
+    pub ne_cseg: super::WORD,
+    pub ne_cmod: super::WORD,
+    pub ne_cbnrestab: super::WORD,
+    pub ne_segtab: super::WORD,
+    pub ne_rsrctab: super::WORD,
+    pub ne_restab: super::WORD,
+    pub ne_modtab: super::WORD,
+    pub ne_imptab: super::WORD,
+    pub ne_nrestab: super::LONG,
+    pub ne_cmovent: super::WORD,
+    pub ne_align: super::WORD,
+    pub ne_cres: super::WORD,
+    pub ne_exetyp: super::BYTE,
+    pub ne_flagsothers: super::BYTE,
+    pub ne_pretthunks: super::WORD,
+    pub ne_psegrefbytes: super::WORD,
+    pub ne_swaparea: super::WORD,
+    pub ne_expver: super::WORD,
 }
 pub const IMAGE_OS2_SIGNATURE: i32 = 17742;
 pub const IMAGE_OS2_SIGNATURE_LE: i32 = 17740;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_POLICY_ENTRY {
     pub Type: IMAGE_POLICY_ENTRY_TYPE,
     pub PolicyId: IMAGE_POLICY_ID,
     pub u: IMAGE_POLICY_ENTRY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_POLICY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_POLICY_ENTRY_0 {
     pub None: *const core::ffi::c_void,
-    pub BoolValue: BOOLEAN,
-    pub Int8Value: i8,
-    pub UInt8Value: u8,
-    pub Int16Value: i16,
-    pub UInt16Value: u16,
-    pub Int32Value: i32,
-    pub UInt32Value: u32,
-    pub Int64Value: i64,
-    pub UInt64Value: u64,
+    pub BoolValue: super::BOOLEAN,
+    pub Int8Value: super::INT8,
+    pub UInt8Value: super::UINT8,
+    pub Int16Value: super::INT16,
+    pub UInt16Value: super::UINT16,
+    pub Int32Value: super::INT32,
+    pub UInt32Value: super::UINT32,
+    pub Int64Value: super::INT64,
+    pub UInt64Value: super::UINT64,
     pub AnsiStringValue: windows_core::PCSTR,
     pub UnicodeStringValue: windows_core::PCWSTR,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_POLICY_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4903,44 +5241,36 @@ impl Default for IMAGE_POLICY_ENTRY_0 {
 }
 pub type IMAGE_POLICY_ENTRY_TYPE = i32;
 pub type IMAGE_POLICY_ID = i32;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct IMAGE_POLICY_METADATA {
-    pub Version: u8,
-    pub Reserved0: [u8; 7],
-    pub ApplicationId: u64,
-    pub Policies: [IMAGE_POLICY_ENTRY; 0],
-}
-impl Default for IMAGE_POLICY_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IMAGE_POLICY_METADATA_VERSION: i32 = 1;
 pub const IMAGE_POLICY_SECTION_NAME: windows_core::PCSTR = windows_core::s!(".tPolicy");
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
-    pub PrologueByteCount: u8,
+    pub PrologueByteCount: super::BYTE,
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_RELOCATION {
     pub Anonymous: IMAGE_RELOCATION_0,
-    pub SymbolTableIndex: u32,
-    pub Type: u16,
+    pub SymbolTableIndex: super::DWORD,
+    pub Type: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_RELOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_RELOCATION_0 {
-    pub VirtualAddress: u32,
-    pub RelocCount: u32,
+    pub VirtualAddress: super::DWORD,
+    pub RelocCount: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_RELOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5206,154 +5536,173 @@ pub const IMAGE_REL_THUMB_BLX23: i32 = 21;
 pub const IMAGE_REL_THUMB_BRANCH20: i32 = 18;
 pub const IMAGE_REL_THUMB_BRANCH24: i32 = 20;
 pub const IMAGE_REL_THUMB_MOV32: i32 = 17;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DATA_ENTRY {
-    pub OffsetToData: u32,
-    pub Size: u32,
-    pub CodePage: u32,
-    pub Reserved: u32,
+    pub OffsetToData: super::DWORD,
+    pub Size: super::DWORD,
+    pub CodePage: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub const IMAGE_RESOURCE_DATA_IS_DIRECTORY: u32 = 2147483648;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DIRECTORY {
-    pub Characteristics: u32,
-    pub TimeDateStamp: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub NumberOfNamedEntries: u16,
-    pub NumberOfIdEntries: u16,
+    pub Characteristics: super::DWORD,
+    pub TimeDateStamp: super::DWORD,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
+    pub NumberOfNamedEntries: super::WORD,
+    pub NumberOfIdEntries: super::WORD,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY {
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_0,
     pub Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0,
-    pub Name: u32,
-    pub Id: u16,
+    pub Name: super::DWORD,
+    pub Id: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
-    pub fn NameOffset(&self) -> u32 {
-        (self._bitfield << 1) >> 1
+    pub fn NameOffset(&self) -> super::DWORD {
+        (self._bitfield) & 2147483647
     }
-    pub fn set_NameOffset(&mut self, value: u32) {
+    pub fn set_NameOffset(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !2147483647) | (value & 2147483647);
     }
-    pub fn NameIsString(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn NameIsString(&self) -> super::DWORD {
+        self._bitfield >> 31
     }
-    pub fn set_NameIsString(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_NameIsString(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
-    pub OffsetToData: u32,
+    pub OffsetToData: super::DWORD,
     pub Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
-    pub fn OffsetToDirectory(&self) -> u32 {
-        (self._bitfield << 1) >> 1
+    pub fn OffsetToDirectory(&self) -> super::DWORD {
+        (self._bitfield) & 2147483647
     }
-    pub fn set_OffsetToDirectory(&mut self, value: u32) {
+    pub fn set_OffsetToDirectory(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !2147483647) | (value & 2147483647);
     }
-    pub fn DataIsDirectory(&self) -> bool {
-        (self._bitfield >> 31) & 1 != 0
+    pub fn DataIsDirectory(&self) -> super::DWORD {
+        self._bitfield >> 31
     }
-    pub fn set_DataIsDirectory(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    pub fn set_DataIsDirectory(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value & 1) << 31);
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
-    pub Length: u16,
-    pub NameString: [i8; 1],
+    pub Length: super::WORD,
+    pub NameString: [super::CHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_RESOURCE_DIRECTORY_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_RESOURCE_DIR_STRING_U {
-    pub Length: u16,
-    pub NameString: [u16; 1],
+    pub Length: super::WORD,
+    pub NameString: [WCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_RESOURCE_DIR_STRING_U {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const IMAGE_RESOURCE_NAME_IS_STRING: u32 = 2147483648;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
 }
 pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: i32 = 263;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
-    pub Magic: u16,
-    pub MajorLinkerVersion: u8,
-    pub MinorLinkerVersion: u8,
-    pub SizeOfCode: u32,
-    pub SizeOfInitializedData: u32,
-    pub SizeOfUninitializedData: u32,
-    pub AddressOfEntryPoint: u32,
-    pub BaseOfCode: u32,
-    pub BaseOfData: u32,
-    pub BaseOfBss: u32,
-    pub GprMask: u32,
-    pub CprMask: [u32; 4],
-    pub GpValue: u32,
+    pub Magic: super::WORD,
+    pub MajorLinkerVersion: super::BYTE,
+    pub MinorLinkerVersion: super::BYTE,
+    pub SizeOfCode: super::DWORD,
+    pub SizeOfInitializedData: super::DWORD,
+    pub SizeOfUninitializedData: super::DWORD,
+    pub AddressOfEntryPoint: super::DWORD,
+    pub BaseOfCode: super::DWORD,
+    pub BaseOfData: super::DWORD,
+    pub BaseOfBss: super::DWORD,
+    pub GprMask: super::DWORD,
+    pub CprMask: [super::DWORD; 4],
+    pub GpValue: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_ROM_OPTIONAL_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type IMAGE_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type IMAGE_RUNTIME_FUNCTION_ENTRY = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 pub const IMAGE_SCN_ALIGN_1024BYTES: i32 = 11534336;
 pub const IMAGE_SCN_ALIGN_128BYTES: i32 = 8388608;
@@ -5394,54 +5743,60 @@ pub const IMAGE_SCN_MEM_WRITE: u32 = 2147483648;
 pub const IMAGE_SCN_NO_DEFER_SPEC_EXC: i32 = 16384;
 pub const IMAGE_SCN_SCALE_INDEX: i32 = 1;
 pub const IMAGE_SCN_TYPE_NO_PAD: i32 = 8;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SECTION_HEADER {
-    pub Name: [u8; 8],
+    pub Name: [super::BYTE; 8],
     pub Misc: IMAGE_SECTION_HEADER_0,
-    pub VirtualAddress: u32,
-    pub SizeOfRawData: u32,
-    pub PointerToRawData: u32,
-    pub PointerToRelocations: u32,
-    pub PointerToLinenumbers: u32,
-    pub NumberOfRelocations: u16,
-    pub NumberOfLinenumbers: u16,
-    pub Characteristics: u32,
+    pub VirtualAddress: super::DWORD,
+    pub SizeOfRawData: super::DWORD,
+    pub PointerToRawData: super::DWORD,
+    pub PointerToRelocations: super::DWORD,
+    pub PointerToLinenumbers: super::DWORD,
+    pub NumberOfRelocations: super::WORD,
+    pub NumberOfLinenumbers: super::WORD,
+    pub Characteristics: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_SECTION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_SECTION_HEADER_0 {
-    pub PhysicalAddress: u32,
-    pub VirtualSize: u32,
+    pub PhysicalAddress: super::DWORD,
+    pub VirtualSize: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_SECTION_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: i32 = 32768;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SEPARATE_DEBUG_HEADER {
-    pub Signature: u16,
-    pub Flags: u16,
-    pub Machine: u16,
-    pub Characteristics: u16,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub ImageBase: u32,
-    pub SizeOfImage: u32,
-    pub NumberOfSections: u32,
-    pub ExportedNamesSize: u32,
-    pub DebugDirectorySize: u32,
-    pub SectionAlignment: u32,
-    pub Reserved: [u32; 2],
+    pub Signature: super::WORD,
+    pub Flags: super::WORD,
+    pub Machine: super::WORD,
+    pub Characteristics: super::WORD,
+    pub TimeDateStamp: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub ImageBase: super::DWORD,
+    pub SizeOfImage: super::DWORD,
+    pub NumberOfSections: super::DWORD,
+    pub ExportedNamesSize: super::DWORD,
+    pub DebugDirectorySize: super::DWORD,
+    pub SectionAlignment: super::DWORD,
+    pub Reserved: [super::DWORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_SEPARATE_DEBUG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5470,97 +5825,111 @@ pub const IMAGE_SUBSYSTEM_WINDOWS_GUI: i32 = 2;
 pub const IMAGE_SUBSYSTEM_XBOX: i32 = 14;
 pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: i32 = 17;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
-    pub fn PageRelativeOffset(&self) -> u16 {
-        (self._bitfield << 4) >> 4
+    pub fn PageRelativeOffset(&self) -> super::WORD {
+        (self._bitfield) & 4095
     }
-    pub fn set_PageRelativeOffset(&mut self, value: u16) {
+    pub fn set_PageRelativeOffset(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !4095) | (value & 4095);
     }
-    pub fn RegisterNumber(&self) -> u16 {
+    pub fn RegisterNumber(&self) -> super::WORD {
         self._bitfield >> 12
     }
-    pub fn set_RegisterNumber(&mut self, value: u16) {
+    pub fn set_RegisterNumber(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL {
     pub N: IMAGE_SYMBOL_0,
-    pub Value: u32,
-    pub SectionNumber: i16,
-    pub Type: u16,
-    pub StorageClass: u8,
-    pub NumberOfAuxSymbols: u8,
+    pub Value: super::DWORD,
+    pub SectionNumber: super::SHORT,
+    pub Type: super::WORD,
+    pub StorageClass: super::BYTE,
+    pub NumberOfAuxSymbols: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_0 {
-    pub ShortName: [u8; 8],
+    pub ShortName: [super::BYTE; 8],
     pub Name: IMAGE_SYMBOL_0_0,
-    pub LongName: [u32; 2],
+    pub LongName: [super::DWORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_SYMBOL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_SYMBOL_0_0 {
-    pub Short: u32,
-    pub Long: u32,
+    pub Short: super::DWORD,
+    pub Long: super::DWORD,
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_SYMBOL_EX {
     pub N: IMAGE_SYMBOL_EX_0,
-    pub Value: u32,
-    pub SectionNumber: i32,
-    pub Type: u16,
-    pub StorageClass: u8,
-    pub NumberOfAuxSymbols: u8,
+    pub Value: super::DWORD,
+    pub SectionNumber: super::LONG,
+    pub Type: super::WORD,
+    pub StorageClass: super::BYTE,
+    pub NumberOfAuxSymbols: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_SYMBOL_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_SYMBOL_EX_0 {
-    pub ShortName: [u8; 8],
+    pub ShortName: [super::BYTE; 8],
     pub Name: IMAGE_SYMBOL_EX_0_0,
-    pub LongName: [u32; 2],
+    pub LongName: [super::DWORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_SYMBOL_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_SYMBOL_EX_0_0 {
-    pub Short: u32,
-    pub Long: u32,
+    pub Short: super::DWORD,
+    pub Long: super::DWORD,
 }
-pub const IMAGE_SYM_ABSOLUTE: i16 = -1;
+#[cfg(feature = "shared")]
+pub const IMAGE_SYM_ABSOLUTE: super::SHORT = -1;
 pub const IMAGE_SYM_CLASS_ARGUMENT: i32 = 9;
 pub const IMAGE_SYM_CLASS_AUTOMATIC: i32 = 1;
 pub const IMAGE_SYM_CLASS_BIT_FIELD: i32 = 18;
 pub const IMAGE_SYM_CLASS_BLOCK: i32 = 100;
 pub const IMAGE_SYM_CLASS_CLR_TOKEN: i32 = 107;
-pub const IMAGE_SYM_CLASS_END_OF_FUNCTION: u8 = 255;
+#[cfg(feature = "shared")]
+pub const IMAGE_SYM_CLASS_END_OF_FUNCTION: super::BYTE = 255;
 pub const IMAGE_SYM_CLASS_END_OF_STRUCT: i32 = 102;
 pub const IMAGE_SYM_CLASS_ENUM_TAG: i32 = 15;
 pub const IMAGE_SYM_CLASS_EXTERNAL: i32 = 2;
@@ -5583,7 +5952,8 @@ pub const IMAGE_SYM_CLASS_UNDEFINED_LABEL: i32 = 7;
 pub const IMAGE_SYM_CLASS_UNDEFINED_STATIC: i32 = 14;
 pub const IMAGE_SYM_CLASS_UNION_TAG: i32 = 12;
 pub const IMAGE_SYM_CLASS_WEAK_EXTERNAL: i32 = 105;
-pub const IMAGE_SYM_DEBUG: i16 = -2;
+#[cfg(feature = "shared")]
+pub const IMAGE_SYM_DEBUG: super::SHORT = -2;
 pub const IMAGE_SYM_DTYPE_ARRAY: i32 = 3;
 pub const IMAGE_SYM_DTYPE_FUNCTION: i32 = 2;
 pub const IMAGE_SYM_DTYPE_NULL: i32 = 0;
@@ -5607,218 +5977,245 @@ pub const IMAGE_SYM_TYPE_UINT: i32 = 14;
 pub const IMAGE_SYM_TYPE_UNION: i32 = 9;
 pub const IMAGE_SYM_TYPE_VOID: i32 = 1;
 pub const IMAGE_SYM_TYPE_WORD: i32 = 13;
-pub const IMAGE_SYM_UNDEFINED: i16 = 0;
+#[cfg(feature = "shared")]
+pub const IMAGE_SYM_UNDEFINED: super::SHORT = 0;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_THUNK_DATA = IMAGE_THUNK_DATA32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_THUNK_DATA = IMAGE_THUNK_DATA64;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_THUNK_DATA32 {
     pub u1: IMAGE_THUNK_DATA32_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_THUNK_DATA32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_THUNK_DATA32_0 {
-    pub ForwarderString: u32,
-    pub Function: u32,
-    pub Ordinal: u32,
-    pub AddressOfData: u32,
+    pub ForwarderString: super::DWORD,
+    pub Function: super::DWORD,
+    pub Ordinal: super::DWORD,
+    pub AddressOfData: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_THUNK_DATA32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_THUNK_DATA64 {
     pub u1: IMAGE_THUNK_DATA64_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_THUNK_DATA64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_THUNK_DATA64_0 {
-    pub ForwarderString: u64,
-    pub Function: u64,
-    pub Ordinal: u64,
-    pub AddressOfData: u64,
+    pub ForwarderString: super::ULONGLONG,
+    pub Function: super::ULONGLONG,
+    pub Ordinal: super::ULONGLONG,
+    pub AddressOfData: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_THUNK_DATA64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type IMAGE_TLS_DIRECTORY = IMAGE_TLS_DIRECTORY32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type IMAGE_TLS_DIRECTORY = IMAGE_TLS_DIRECTORY64;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_TLS_DIRECTORY32 {
-    pub StartAddressOfRawData: u32,
-    pub EndAddressOfRawData: u32,
-    pub AddressOfIndex: u32,
-    pub AddressOfCallBacks: u32,
-    pub SizeOfZeroFill: u32,
+    pub StartAddressOfRawData: super::DWORD,
+    pub EndAddressOfRawData: super::DWORD,
+    pub AddressOfIndex: super::DWORD,
+    pub AddressOfCallBacks: super::DWORD,
+    pub SizeOfZeroFill: super::DWORD,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_TLS_DIRECTORY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_TLS_DIRECTORY32_0 {
-    pub Characteristics: u32,
+    pub Characteristics: super::DWORD,
     pub Anonymous: IMAGE_TLS_DIRECTORY32_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_TLS_DIRECTORY32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_TLS_DIRECTORY32_0_0 {
-    pub fn Reserved0(&self) -> u32 {
-        (self._bitfield << 12) >> 12
+    pub fn Reserved0(&self) -> super::DWORD {
+        (self._bitfield) & 1048575
     }
-    pub fn set_Reserved0(&mut self, value: u32) {
+    pub fn set_Reserved0(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !1048575) | (value & 1048575);
     }
-    pub fn Alignment(&self) -> u32 {
-        (self._bitfield << 8) >> 28
+    pub fn Alignment(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 15
     }
-    pub fn set_Alignment(&mut self, value: u32) {
+    pub fn set_Alignment(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
     }
-    pub fn Reserved1(&self) -> u32 {
+    pub fn Reserved1(&self) -> super::DWORD {
         self._bitfield >> 24
     }
-    pub fn set_Reserved1(&mut self, value: u32) {
+    pub fn set_Reserved1(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
     }
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_TLS_DIRECTORY64 {
-    pub StartAddressOfRawData: u64,
-    pub EndAddressOfRawData: u64,
-    pub AddressOfIndex: u64,
-    pub AddressOfCallBacks: u64,
-    pub SizeOfZeroFill: u32,
+    pub StartAddressOfRawData: super::ULONGLONG,
+    pub EndAddressOfRawData: super::ULONGLONG,
+    pub AddressOfIndex: super::ULONGLONG,
+    pub AddressOfCallBacks: super::ULONGLONG,
+    pub SizeOfZeroFill: super::DWORD,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_TLS_DIRECTORY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMAGE_TLS_DIRECTORY64_0 {
-    pub Characteristics: u32,
+    pub Characteristics: super::DWORD,
     pub Anonymous: IMAGE_TLS_DIRECTORY64_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_TLS_DIRECTORY64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl IMAGE_TLS_DIRECTORY64_0_0 {
-    pub fn Reserved0(&self) -> u32 {
-        (self._bitfield << 12) >> 12
+    pub fn Reserved0(&self) -> super::DWORD {
+        (self._bitfield) & 1048575
     }
-    pub fn set_Reserved0(&mut self, value: u32) {
+    pub fn set_Reserved0(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !1048575) | (value & 1048575);
     }
-    pub fn Alignment(&self) -> u32 {
-        (self._bitfield << 8) >> 28
+    pub fn Alignment(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 15
     }
-    pub fn set_Alignment(&mut self, value: u32) {
+    pub fn set_Alignment(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
     }
-    pub fn Reserved1(&self) -> u32 {
+    pub fn Reserved1(&self) -> super::DWORD {
         self._bitfield >> 24
     }
-    pub fn set_Reserved1(&mut self, value: u32) {
+    pub fn set_Reserved1(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
     }
 }
 #[repr(C, packed(2))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMAGE_VXD_HEADER {
-    pub e32_magic: u16,
-    pub e32_border: u8,
-    pub e32_worder: u8,
-    pub e32_level: u32,
-    pub e32_cpu: u16,
-    pub e32_os: u16,
-    pub e32_ver: u32,
-    pub e32_mflags: u32,
-    pub e32_mpages: u32,
-    pub e32_startobj: u32,
-    pub e32_eip: u32,
-    pub e32_stackobj: u32,
-    pub e32_esp: u32,
-    pub e32_pagesize: u32,
-    pub e32_lastpagesize: u32,
-    pub e32_fixupsize: u32,
-    pub e32_fixupsum: u32,
-    pub e32_ldrsize: u32,
-    pub e32_ldrsum: u32,
-    pub e32_objtab: u32,
-    pub e32_objcnt: u32,
-    pub e32_objmap: u32,
-    pub e32_itermap: u32,
-    pub e32_rsrctab: u32,
-    pub e32_rsrccnt: u32,
-    pub e32_restab: u32,
-    pub e32_enttab: u32,
-    pub e32_dirtab: u32,
-    pub e32_dircnt: u32,
-    pub e32_fpagetab: u32,
-    pub e32_frectab: u32,
-    pub e32_impmod: u32,
-    pub e32_impmodcnt: u32,
-    pub e32_impproc: u32,
-    pub e32_pagesum: u32,
-    pub e32_datapage: u32,
-    pub e32_preload: u32,
-    pub e32_nrestab: u32,
-    pub e32_cbnrestab: u32,
-    pub e32_nressum: u32,
-    pub e32_autodata: u32,
-    pub e32_debuginfo: u32,
-    pub e32_debuglen: u32,
-    pub e32_instpreload: u32,
-    pub e32_instdemand: u32,
-    pub e32_heapsize: u32,
-    pub e32_res3: [u8; 12],
-    pub e32_winresoff: u32,
-    pub e32_winreslen: u32,
-    pub e32_devid: u16,
-    pub e32_ddkver: u16,
+    pub e32_magic: super::WORD,
+    pub e32_border: super::BYTE,
+    pub e32_worder: super::BYTE,
+    pub e32_level: super::DWORD,
+    pub e32_cpu: super::WORD,
+    pub e32_os: super::WORD,
+    pub e32_ver: super::DWORD,
+    pub e32_mflags: super::DWORD,
+    pub e32_mpages: super::DWORD,
+    pub e32_startobj: super::DWORD,
+    pub e32_eip: super::DWORD,
+    pub e32_stackobj: super::DWORD,
+    pub e32_esp: super::DWORD,
+    pub e32_pagesize: super::DWORD,
+    pub e32_lastpagesize: super::DWORD,
+    pub e32_fixupsize: super::DWORD,
+    pub e32_fixupsum: super::DWORD,
+    pub e32_ldrsize: super::DWORD,
+    pub e32_ldrsum: super::DWORD,
+    pub e32_objtab: super::DWORD,
+    pub e32_objcnt: super::DWORD,
+    pub e32_objmap: super::DWORD,
+    pub e32_itermap: super::DWORD,
+    pub e32_rsrctab: super::DWORD,
+    pub e32_rsrccnt: super::DWORD,
+    pub e32_restab: super::DWORD,
+    pub e32_enttab: super::DWORD,
+    pub e32_dirtab: super::DWORD,
+    pub e32_dircnt: super::DWORD,
+    pub e32_fpagetab: super::DWORD,
+    pub e32_frectab: super::DWORD,
+    pub e32_impmod: super::DWORD,
+    pub e32_impmodcnt: super::DWORD,
+    pub e32_impproc: super::DWORD,
+    pub e32_pagesum: super::DWORD,
+    pub e32_datapage: super::DWORD,
+    pub e32_preload: super::DWORD,
+    pub e32_nrestab: super::DWORD,
+    pub e32_cbnrestab: super::DWORD,
+    pub e32_nressum: super::DWORD,
+    pub e32_autodata: super::DWORD,
+    pub e32_debuginfo: super::DWORD,
+    pub e32_debuglen: super::DWORD,
+    pub e32_instpreload: super::DWORD,
+    pub e32_instdemand: super::DWORD,
+    pub e32_heapsize: super::DWORD,
+    pub e32_res3: [super::BYTE; 12],
+    pub e32_winresoff: super::DWORD,
+    pub e32_winreslen: super::DWORD,
+    pub e32_devid: super::WORD,
+    pub e32_ddkver: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMAGE_VXD_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5834,48 +6231,53 @@ pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = 2;
 pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = 1;
 pub const IMPORT_OBJECT_HDR_SIG2: i32 = 65535;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct IMPORT_OBJECT_HEADER {
-    pub Sig1: u16,
-    pub Sig2: u16,
-    pub Version: u16,
-    pub Machine: u16,
-    pub TimeDateStamp: u32,
-    pub SizeOfData: u32,
+    pub Sig1: super::WORD,
+    pub Sig2: super::WORD,
+    pub Version: super::WORD,
+    pub Machine: super::WORD,
+    pub TimeDateStamp: super::DWORD,
+    pub SizeOfData: super::DWORD,
     pub Anonymous: IMPORT_OBJECT_HEADER_0,
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl IMPORT_OBJECT_HEADER {
-    pub fn Type(&self) -> u16 {
-        (self._bitfield << 14) >> 14
+    pub fn Type(&self) -> super::WORD {
+        (self._bitfield) & 3
     }
-    pub fn set_Type(&mut self, value: u16) {
+    pub fn set_Type(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !3) | (value & 3);
     }
-    pub fn NameType(&self) -> u16 {
-        (self._bitfield << 11) >> 13
+    pub fn NameType(&self) -> super::WORD {
+        (self._bitfield >> 2) & 7
     }
-    pub fn set_NameType(&mut self, value: u16) {
+    pub fn set_NameType(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
     }
-    pub fn Reserved(&self) -> u16 {
+    pub fn Reserved(&self) -> super::WORD {
         self._bitfield >> 5
     }
-    pub fn set_Reserved(&mut self, value: u16) {
+    pub fn set_Reserved(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for IMPORT_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union IMPORT_OBJECT_HEADER_0 {
-    pub Ordinal: u16,
-    pub Hint: u16,
+    pub Ordinal: super::WORD,
+    pub Hint: super::WORD,
 }
+#[cfg(feature = "shared")]
 impl Default for IMPORT_OBJECT_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5901,14 +6303,15 @@ pub const INITIAL_MXCSR: i32 = 8064;
 pub const IO_COMPLETION_ALL_ACCESS: i32 = 2031619;
 pub const IO_COMPLETION_MODIFY_STATE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_COUNTERS {
-    pub ReadOperationCount: u64,
-    pub WriteOperationCount: u64,
-    pub OtherOperationCount: u64,
-    pub ReadTransferCount: u64,
-    pub WriteTransferCount: u64,
-    pub OtherTransferCount: u64,
+    pub ReadOperationCount: super::ULONGLONG,
+    pub WriteOperationCount: super::ULONGLONG,
+    pub OtherOperationCount: super::ULONGLONG,
+    pub ReadTransferCount: super::ULONGLONG,
+    pub WriteTransferCount: super::ULONGLONG,
+    pub OtherTransferCount: super::ULONGLONG,
 }
 pub const IO_QOS_MAX_RESERVATION: u64 = 1000000000;
 pub const IO_REPARSE_TAG_AF_UNIX: u32 = 2147483683;
@@ -6013,116 +6416,133 @@ pub type JOBOBJECTINFOCLASS = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
-    pub CompletionKey: *mut core::ffi::c_void,
+    pub CompletionKey: PVOID,
     pub CompletionPort: HANDLE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub TotalUserTime: LARGE_INTEGER,
     pub TotalKernelTime: LARGE_INTEGER,
     pub ThisPeriodTotalUserTime: LARGE_INTEGER,
     pub ThisPeriodTotalKernelTime: LARGE_INTEGER,
-    pub TotalPageFaultCount: u32,
-    pub TotalProcesses: u32,
-    pub ActiveProcesses: u32,
-    pub TotalTerminatedProcesses: u32,
+    pub TotalPageFaultCount: super::DWORD,
+    pub TotalProcesses: super::DWORD,
+    pub ActiveProcesses: super::DWORD,
+    pub TotalTerminatedProcesses: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     pub BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION,
     pub IoInfo: IO_COUNTERS,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub PerProcessUserTimeLimit: LARGE_INTEGER,
     pub PerJobUserTimeLimit: LARGE_INTEGER,
-    pub LimitFlags: u32,
-    pub MinimumWorkingSetSize: usize,
-    pub MaximumWorkingSetSize: usize,
-    pub ActiveProcessLimit: u32,
-    pub Affinity: usize,
-    pub PriorityClass: u32,
-    pub SchedulingClass: u32,
+    pub LimitFlags: super::DWORD,
+    pub MinimumWorkingSetSize: super::SIZE_T,
+    pub MaximumWorkingSetSize: super::SIZE_T,
+    pub ActiveProcessLimit: super::DWORD,
+    pub Affinity: super::ULONG_PTR,
+    pub PriorityClass: super::DWORD,
+    pub SchedulingClass: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_BASIC_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST {
-    pub NumberOfAssignedProcesses: u32,
-    pub NumberOfProcessIdsInList: u32,
-    pub ProcessIdList: [usize; 1],
+    pub NumberOfAssignedProcesses: super::DWORD,
+    pub NumberOfProcessIdsInList: super::DWORD,
+    pub ProcessIdList: [super::ULONG_PTR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS {
-    pub UIRestrictionsClass: u32,
+    pub UIRestrictionsClass: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
-    pub ControlFlags: u32,
+    pub ControlFlags: super::DWORD,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
-    pub CpuRate: u32,
-    pub Weight: u32,
+    pub CpuRate: super::DWORD,
+    pub Weight: super::DWORD,
     pub Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
-    pub MinRate: u16,
-    pub MaxRate: u16,
+    pub MinRate: super::WORD,
+    pub MaxRate: super::WORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
-    pub EndOfJobTimeAction: u32,
+    pub EndOfJobTimeAction: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION,
     pub IoInfo: IO_COUNTERS,
-    pub ProcessMemoryLimit: usize,
-    pub JobMemoryLimit: usize,
-    pub PeakProcessMemoryUsed: usize,
-    pub PeakJobMemoryUsed: usize,
+    pub ProcessMemoryLimit: super::SIZE_T,
+    pub JobMemoryLimit: super::SIZE_T,
+    pub PeakProcessMemoryUsed: super::SIZE_T,
+    pub PeakJobMemoryUsed: super::SIZE_T,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6133,235 +6553,264 @@ pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONT
 pub type JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = i32;
 pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
-    pub ControlFlags: u32,
+    pub ControlFlags: super::DWORD,
     pub ReadStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
     pub WriteStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
-    pub IoCount: usize,
-    pub TotalNonOverlappedQueueTime: u64,
-    pub TotalNonOverlappedServiceTime: u64,
-    pub TotalSize: u64,
+    pub IoCount: super::ULONG_PTR,
+    pub TotalNonOverlappedQueueTime: super::ULONGLONG,
+    pub TotalNonOverlappedServiceTime: super::ULONGLONG,
+    pub TotalSize: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
-    pub MaxIops: i64,
-    pub MaxBandwidth: i64,
-    pub ReservationIops: i64,
+    pub MaxIops: super::LONG64,
+    pub MaxBandwidth: super::LONG64,
+    pub ReservationIops: super::LONG64,
     pub VolumeName: windows_core::PWSTR,
-    pub BaseIoSize: u32,
+    pub BaseIoSize: super::DWORD,
     pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
-    pub VolumeNameLength: u16,
+    pub VolumeNameLength: super::WORD,
 }
+#[cfg(feature = "shared")]
 pub type JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 = JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
-    pub MaxIops: i64,
-    pub MaxBandwidth: i64,
-    pub ReservationIops: i64,
+    pub MaxIops: super::LONG64,
+    pub MaxBandwidth: super::LONG64,
+    pub ReservationIops: super::LONG64,
     pub VolumeName: windows_core::PWSTR,
-    pub BaseIoSize: u32,
+    pub BaseIoSize: super::DWORD,
     pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
-    pub VolumeNameLength: u16,
-    pub CriticalReservationIops: i64,
-    pub ReservationBandwidth: i64,
-    pub CriticalReservationBandwidth: i64,
-    pub MaxTimePercent: i64,
-    pub ReservationTimePercent: i64,
-    pub CriticalReservationTimePercent: i64,
+    pub VolumeNameLength: super::WORD,
+    pub CriticalReservationIops: super::LONG64,
+    pub ReservationBandwidth: super::LONG64,
+    pub CriticalReservationBandwidth: super::LONG64,
+    pub MaxTimePercent: super::LONG64,
+    pub ReservationTimePercent: super::LONG64,
+    pub CriticalReservationTimePercent: super::LONG64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
-    pub MaxIops: i64,
-    pub MaxBandwidth: i64,
-    pub ReservationIops: i64,
+    pub MaxIops: super::LONG64,
+    pub MaxBandwidth: super::LONG64,
+    pub ReservationIops: super::LONG64,
     pub VolumeName: windows_core::PWSTR,
-    pub BaseIoSize: u32,
+    pub BaseIoSize: super::DWORD,
     pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
-    pub VolumeNameLength: u16,
-    pub CriticalReservationIops: i64,
-    pub ReservationBandwidth: i64,
-    pub CriticalReservationBandwidth: i64,
-    pub MaxTimePercent: i64,
-    pub ReservationTimePercent: i64,
-    pub CriticalReservationTimePercent: i64,
-    pub SoftMaxIops: i64,
-    pub SoftMaxBandwidth: i64,
-    pub SoftMaxTimePercent: i64,
-    pub LimitExcessNotifyIops: i64,
-    pub LimitExcessNotifyBandwidth: i64,
-    pub LimitExcessNotifyTimePercent: i64,
+    pub VolumeNameLength: super::WORD,
+    pub CriticalReservationIops: super::LONG64,
+    pub ReservationBandwidth: super::LONG64,
+    pub CriticalReservationBandwidth: super::LONG64,
+    pub MaxTimePercent: super::LONG64,
+    pub ReservationTimePercent: super::LONG64,
+    pub CriticalReservationTimePercent: super::LONG64,
+    pub SoftMaxIops: super::LONG64,
+    pub SoftMaxBandwidth: super::LONG64,
+    pub SoftMaxTimePercent: super::LONG64,
+    pub LimitExcessNotifyIops: super::LONG64,
+    pub LimitExcessNotifyBandwidth: super::LONG64,
+    pub LimitExcessNotifyTimePercent: super::LONG64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_JOBSET_INFORMATION {
-    pub MemberLevel: u32,
+    pub MemberLevel: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
-    pub LimitFlags: u32,
-    pub ViolationLimitFlags: u32,
-    pub IoReadBytes: u64,
-    pub IoReadBytesLimit: u64,
-    pub IoWriteBytes: u64,
-    pub IoWriteBytesLimit: u64,
+    pub LimitFlags: super::DWORD,
+    pub ViolationLimitFlags: super::DWORD,
+    pub IoReadBytes: super::DWORD64,
+    pub IoReadBytesLimit: super::DWORD64,
+    pub IoWriteBytes: super::DWORD64,
+    pub IoWriteBytesLimit: super::DWORD64,
     pub PerJobUserTime: LARGE_INTEGER,
     pub PerJobUserTimeLimit: LARGE_INTEGER,
-    pub JobMemory: u64,
-    pub JobMemoryLimit: u64,
+    pub JobMemory: super::DWORD64,
+    pub JobMemoryLimit: super::DWORD64,
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
-    pub LimitFlags: u32,
-    pub ViolationLimitFlags: u32,
-    pub IoReadBytes: u64,
-    pub IoReadBytesLimit: u64,
-    pub IoWriteBytes: u64,
-    pub IoWriteBytesLimit: u64,
+    pub LimitFlags: super::DWORD,
+    pub ViolationLimitFlags: super::DWORD,
+    pub IoReadBytes: super::DWORD64,
+    pub IoReadBytesLimit: super::DWORD64,
+    pub IoWriteBytes: super::DWORD64,
+    pub IoWriteBytesLimit: super::DWORD64,
     pub PerJobUserTime: LARGE_INTEGER,
     pub PerJobUserTimeLimit: LARGE_INTEGER,
-    pub JobMemory: u64,
+    pub JobMemory: super::DWORD64,
     pub Anonymous: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0,
     pub Anonymous2: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1,
     pub Anonymous3: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2,
-    pub JobLowMemoryLimit: u64,
+    pub JobLowMemoryLimit: super::DWORD64,
     pub IoRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub IoRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
-    pub JobHighMemoryLimit: u64,
-    pub JobMemoryLimit: u64,
+    pub JobHighMemoryLimit: super::DWORD64,
+    pub JobMemoryLimit: super::DWORD64,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_NETWORK_ACCOUNTING_INFORMATION {
-    pub DataBytesIn: u64,
-    pub DataBytesOut: u64,
+    pub DataBytesIn: super::DWORD64,
+    pub DataBytesOut: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
-    pub MaxBandwidth: u64,
+    pub MaxBandwidth: super::DWORD64,
     pub ControlFlags: JOB_OBJECT_NET_RATE_CONTROL_FLAGS,
-    pub DscpTag: u8,
+    pub DscpTag: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
-    pub IoReadBytesLimit: u64,
-    pub IoWriteBytesLimit: u64,
+    pub IoReadBytesLimit: super::DWORD64,
+    pub IoWriteBytesLimit: super::DWORD64,
     pub PerJobUserTimeLimit: LARGE_INTEGER,
-    pub JobMemoryLimit: u64,
+    pub JobMemoryLimit: super::DWORD64,
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
-    pub LimitFlags: u32,
+    pub LimitFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
-    pub IoReadBytesLimit: u64,
-    pub IoWriteBytesLimit: u64,
+    pub IoReadBytesLimit: super::DWORD64,
+    pub IoWriteBytesLimit: super::DWORD64,
     pub PerJobUserTimeLimit: LARGE_INTEGER,
     pub Anonymous: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0,
     pub Anonymous2: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1,
     pub Anonymous3: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2,
-    pub LimitFlags: u32,
+    pub LimitFlags: super::DWORD,
     pub IoRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
-    pub JobLowMemoryLimit: u64,
+    pub JobLowMemoryLimit: super::DWORD64,
     pub IoRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub NetRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
-    pub JobHighMemoryLimit: u64,
-    pub JobMemoryLimit: u64,
+    pub JobHighMemoryLimit: super::DWORD64,
+    pub JobMemoryLimit: super::DWORD64,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub CpuRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
+#[cfg(feature = "shared")]
 impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6370,9 +6819,10 @@ impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
 pub type JOBOBJECT_RATE_CONTROL_TOLERANCE = i32;
 pub type JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
-    pub SecurityLimitFlags: u32,
+    pub SecurityLimitFlags: super::DWORD,
     pub JobToken: HANDLE,
     pub SidsToDisable: PTOKEN_GROUPS,
     pub PrivilegesToDelete: PTOKEN_PRIVILEGES,
@@ -6391,7 +6841,7 @@ pub const JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED: i32 = 2;
 pub const JOB_OBJECT_EXTENDED_LIMIT_VALID_FLAGS: i32 = 32767;
 pub const JOB_OBJECT_IMPERSONATE: i32 = 32;
 pub const JOB_OBJECT_IO_RATE_CONTROL_ENABLE: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 1;
-pub type JOB_OBJECT_IO_RATE_CONTROL_FLAGS = u32;
+pub type JOB_OBJECT_IO_RATE_CONTROL_FLAGS = i32;
 pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ALL: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 4;
 pub const JOB_OBJECT_IO_RATE_CONTROL_FORCE_UNIT_ACCESS_ON_SOFT_CAP: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 8;
 pub const JOB_OBJECT_IO_RATE_CONTROL_STANDALONE_VOLUME: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 2;
@@ -6436,7 +6886,7 @@ pub const JOB_OBJECT_MSG_PROCESS_MEMORY_LIMIT: i32 = 9;
 pub const JOB_OBJECT_MSG_SILO_TERMINATED: i32 = 13;
 pub const JOB_OBJECT_NET_RATE_CONTROL_DSCP_TAG: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 4;
 pub const JOB_OBJECT_NET_RATE_CONTROL_ENABLE: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 1;
-pub type JOB_OBJECT_NET_RATE_CONTROL_FLAGS = u32;
+pub type JOB_OBJECT_NET_RATE_CONTROL_FLAGS = i32;
 pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_BANDWIDTH: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 2;
 pub const JOB_OBJECT_NET_RATE_CONTROL_MAX_DSCP_TAG: i32 = 64;
 pub const JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 7;
@@ -6467,11 +6917,12 @@ pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: i32 = 4;
 pub const JOB_OBJECT_UI_VALID_FLAGS: i32 = 1023;
 pub const JOB_OBJECT_VALID_COMPLETION_FILTER: u32 = 16382;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_SET_ARRAY {
     pub JobHandle: HANDLE,
-    pub MemberLevel: u32,
-    pub Flags: u32,
+    pub MemberLevel: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const JobObjectAssociateCompletionPortInformation: JOBOBJECTINFOCLASS = 7;
 pub const JobObjectBasicAccountingInformation: JOBOBJECTINFOCLASS = 1;
@@ -6526,52 +6977,58 @@ pub const JobObjectReserved9Information: JOBOBJECTINFOCLASS = 26;
 pub const JobObjectSecurityLimitInformation: JOBOBJECTINFOCLASS = 5;
 pub const JobObjectSiloBasicInformation: JOBOBJECTINFOCLASS = 36;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct KERNEL_CET_CONTEXT {
-    pub Ssp: u64,
-    pub Rip: u64,
-    pub SegCs: u16,
+    pub Ssp: super::DWORD64,
+    pub Rip: super::DWORD64,
+    pub SegCs: super::WORD,
     pub Anonymous: KERNEL_CET_CONTEXT_0,
-    pub Fill: [u16; 2],
+    pub Fill: [super::WORD; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for KERNEL_CET_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union KERNEL_CET_CONTEXT_0 {
-    pub AllFlags: u16,
+    pub AllFlags: super::WORD,
     pub Anonymous: KERNEL_CET_CONTEXT_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for KERNEL_CET_CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERNEL_CET_CONTEXT_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl KERNEL_CET_CONTEXT_0_0 {
-    pub fn UseWrss(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn UseWrss(&self) -> super::WORD {
+        (self._bitfield) & 1
     }
-    pub fn set_UseWrss(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u16);
+    pub fn set_UseWrss(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn PopShadowStackOne(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn PopShadowStackOne(&self) -> super::WORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_PopShadowStackOne(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    pub fn set_PopShadowStackOne(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Unused(&self) -> u16 {
+    pub fn Unused(&self) -> super::WORD {
         self._bitfield >> 2
     }
-    pub fn set_Unused(&mut self, value: u16) {
+    pub fn set_Unused(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
     }
 }
@@ -6590,20 +7047,21 @@ pub const KEY_WOW64_RES: i32 = 768;
 pub const KEY_WRITE: i32 = 131078;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
-    pub Dummy: u32,
+    pub Dummy: super::DWORD,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6611,14 +7069,14 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [PM128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6626,7 +7084,7 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: PM128A,
@@ -6648,14 +7106,14 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [super::PDWORD64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6663,7 +7121,7 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: super::PDWORD64,
@@ -6711,14 +7169,19 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub D14: super::PDWORD64,
     pub D15: super::PDWORD64,
 }
-pub type KSPIN_LOCK = usize;
+#[cfg(target_arch = "x86")]
+pub type KSPIN_LOCK = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type KSPIN_LOCK = u64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KTMOBJECT_CURSOR {
     pub LastQuery: windows_core::GUID,
-    pub ObjectIdCount: u32,
+    pub ObjectIdCount: super::DWORD,
     pub ObjectIds: [windows_core::GUID; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for KTMOBJECT_CURSOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6731,7 +7194,6 @@ pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = 0;
 pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = 1;
 pub type KTMOBJECT_TYPE = i32;
 pub const LABEL_SECURITY_INFORMATION: i32 = 16;
-pub type LANGID = u16;
 pub const LANG_AFRIKAANS: i32 = 54;
 pub const LANG_ALBANIAN: i32 = 28;
 pub const LANG_ALSATIAN: i32 = 132;
@@ -6875,126 +7337,136 @@ pub const LANG_YI: i32 = 120;
 pub const LANG_YORUBA: i32 = 106;
 pub const LANG_ZULU: i32 = 53;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union LARGE_INTEGER {
     pub Anonymous: LARGE_INTEGER_0,
     pub u: LARGE_INTEGER_1,
-    pub QuadPart: i64,
+    pub QuadPart: super::LONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for LARGE_INTEGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LARGE_INTEGER_0 {
-    pub LowPart: u32,
-    pub HighPart: i32,
+    pub LowPart: super::DWORD,
+    pub HighPart: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LARGE_INTEGER_1 {
-    pub LowPart: u32,
-    pub HighPart: i32,
+    pub LowPart: super::DWORD,
+    pub HighPart: super::LONG,
 }
 pub type LATENCY_TIME = i32;
-pub type LCID = u32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct LDT_ENTRY {
-    pub LimitLow: u16,
-    pub BaseLow: u16,
+    pub LimitLow: super::WORD,
+    pub BaseLow: super::WORD,
     pub HighWord: LDT_ENTRY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for LDT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union LDT_ENTRY_0 {
     pub Bytes: LDT_ENTRY_0_0,
     pub Bits: LDT_ENTRY_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for LDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDT_ENTRY_0_0 {
-    pub BaseMid: u8,
-    pub Flags1: u8,
-    pub Flags2: u8,
-    pub BaseHi: u8,
+    pub BaseMid: super::BYTE,
+    pub Flags1: super::BYTE,
+    pub Flags2: super::BYTE,
+    pub BaseHi: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl LDT_ENTRY_0_1 {
-    pub fn BaseMid(&self) -> u32 {
-        (self._bitfield << 24) >> 24
+    pub fn BaseMid(&self) -> super::DWORD {
+        (self._bitfield) & 255
     }
-    pub fn set_BaseMid(&mut self, value: u32) {
+    pub fn set_BaseMid(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !255) | (value & 255);
     }
-    pub fn Type(&self) -> u32 {
-        (self._bitfield << 19) >> 27
+    pub fn Type(&self) -> super::DWORD {
+        (self._bitfield >> 8) & 31
     }
-    pub fn set_Type(&mut self, value: u32) {
+    pub fn set_Type(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(31 << 8)) | ((value & 31) << 8);
     }
-    pub fn Dpl(&self) -> u32 {
-        (self._bitfield << 17) >> 30
+    pub fn Dpl(&self) -> super::DWORD {
+        (self._bitfield >> 13) & 3
     }
-    pub fn set_Dpl(&mut self, value: u32) {
+    pub fn set_Dpl(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
     }
-    pub fn Pres(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn Pres(&self) -> super::DWORD {
+        (self._bitfield >> 15) & 1
     }
-    pub fn set_Pres(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    pub fn set_Pres(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
-    pub fn LimitHi(&self) -> u32 {
-        (self._bitfield << 12) >> 28
+    pub fn LimitHi(&self) -> super::DWORD {
+        (self._bitfield >> 16) & 15
     }
-    pub fn set_LimitHi(&mut self, value: u32) {
+    pub fn set_LimitHi(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
     }
-    pub fn Sys(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn Sys(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_Sys(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    pub fn set_Sys(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn Reserved_0(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
+    pub fn Reserved_0(&self) -> super::DWORD {
+        (self._bitfield >> 21) & 1
     }
-    pub fn set_Reserved_0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    pub fn set_Reserved_0(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
     }
-    pub fn Default_Big(&self) -> bool {
-        (self._bitfield >> 22) & 1 != 0
+    pub fn Default_Big(&self) -> super::DWORD {
+        (self._bitfield >> 22) & 1
     }
-    pub fn set_Default_Big(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    pub fn set_Default_Big(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
     }
-    pub fn Granularity(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
+    pub fn Granularity(&self) -> super::DWORD {
+        (self._bitfield >> 23) & 1
     }
-    pub fn set_Granularity(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    pub fn set_Granularity(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
     }
-    pub fn BaseHi(&self) -> u32 {
+    pub fn BaseHi(&self) -> super::DWORD {
         self._bitfield >> 24
     }
-    pub fn set_BaseHi(&mut self, value: u32) {
+    pub fn set_BaseHi(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
     }
 }
@@ -7005,69 +7477,86 @@ pub struct LIST_ENTRY {
     pub Blink: *mut Self,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_ENTRY32 {
-    pub Flink: u32,
-    pub Blink: u32,
+    pub Flink: super::DWORD,
+    pub Blink: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_ENTRY64 {
-    pub Flink: u64,
-    pub Blink: u64,
+    pub Flink: super::ULONGLONG,
+    pub Blink: super::ULONGLONG,
 }
-pub const LOCALE_CUSTOM_DEFAULT: u32 = 3072;
-pub const LOCALE_CUSTOM_UI_DEFAULT: u32 = 5120;
-pub const LOCALE_CUSTOM_UNSPECIFIED: u32 = 4096;
-pub const LOCALE_INVARIANT: u32 = 127;
+#[cfg(feature = "shared")]
+pub const LOCALE_CUSTOM_DEFAULT: super::DWORD = 3072;
+#[cfg(feature = "shared")]
+pub const LOCALE_CUSTOM_UI_DEFAULT: super::DWORD = 5120;
+#[cfg(feature = "shared")]
+pub const LOCALE_CUSTOM_UNSPECIFIED: super::DWORD = 4096;
+#[cfg(feature = "shared")]
+pub const LOCALE_INVARIANT: super::DWORD = 127;
 pub const LOCALE_NAME_MAX_LENGTH: i32 = 85;
-pub const LOCALE_NEUTRAL: u32 = 0;
-pub const LOCALE_SYSTEM_DEFAULT: u32 = 2048;
+#[cfg(feature = "shared")]
+pub const LOCALE_NEUTRAL: super::DWORD = 0;
+#[cfg(feature = "shared")]
+pub const LOCALE_SYSTEM_DEFAULT: super::DWORD = 2048;
 pub const LOCALE_TRANSIENT_KEYBOARD1: i32 = 8192;
 pub const LOCALE_TRANSIENT_KEYBOARD2: i32 = 9216;
 pub const LOCALE_TRANSIENT_KEYBOARD3: i32 = 10240;
 pub const LOCALE_TRANSIENT_KEYBOARD4: i32 = 11264;
-pub const LOCALE_UNASSIGNED_LCID: u32 = 4096;
-pub const LOCALE_USER_DEFAULT: u32 = 1024;
+#[cfg(feature = "shared")]
+pub const LOCALE_UNASSIGNED_LCID: super::DWORD = 4096;
+#[cfg(feature = "shared")]
+pub const LOCALE_USER_DEFAULT: super::DWORD = 1024;
 pub type LOGICAL_PROCESSOR_RELATIONSHIP = i32;
 pub type LPCCH = *const i8;
 pub type LPCH = *mut i8;
-pub type LPCTCH = LPCCH;
-pub type LPCTSTR = windows_core::PCSTR;
-pub type LPCUTSTR = windows_core::PCSTR;
-pub type LPCUWCHAR = *const u16;
-pub type LPCUWSTR = *const u16;
+pub type LPCTCH = *const i8;
+pub type LPCTSTR = *const i8;
+pub type LPCUTSTR = *const i8;
 pub type LPCWCH = *const u16;
 pub type LPCWCHAR = *const u16;
-pub type LPENCLAVE_TARGET_FUNCTION = PENCLAVE_TARGET_FUNCTION;
-pub type LPOSVERSIONINFO = LPOSVERSIONINFOA;
+pub type LPENCLAVE_TARGET_FUNCTION = Option<unsafe extern "C" fn(param0: PVOID) -> PVOID>;
+#[cfg(feature = "shared")]
+pub type LPOSVERSIONINFO = *mut OSVERSIONINFOA;
+#[cfg(feature = "shared")]
 pub type LPOSVERSIONINFOA = *mut OSVERSIONINFOA;
-pub type LPOSVERSIONINFOEX = LPOSVERSIONINFOEXA;
+#[cfg(feature = "shared")]
+pub type LPOSVERSIONINFOEX = *mut OSVERSIONINFOEXA;
+#[cfg(feature = "shared")]
 pub type LPOSVERSIONINFOEXA = *mut OSVERSIONINFOEXA;
-pub type LPOSVERSIONINFOEXW = *mut OSVERSIONINFOEXW;
-pub type LPOSVERSIONINFOW = *mut OSVERSIONINFOW;
+#[cfg(feature = "shared")]
+pub type LPOSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
+#[cfg(feature = "shared")]
+pub type LPOSVERSIONINFOW = *mut _OSVERSIONINFOW;
+#[cfg(feature = "shared")]
 pub type LPSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
-pub type LPTCH = LPCH;
-pub type LPTSTR = windows_core::PSTR;
-pub type LPUTSTR = windows_core::PSTR;
-pub type LPUWSTR = *mut u16;
+pub type LPTCH = *mut i8;
+pub type LPTSTR = *mut i8;
+pub type LPUTSTR = *mut i8;
 pub type LPWCH = *mut u16;
 pub const LTP_PC_SMT: i32 = 1;
 pub const LT_DONT_CARE: LATENCY_TIME = 0;
 pub const LT_LOWEST_LATENCY: LATENCY_TIME = 1;
 pub const LUA_TOKEN: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LUID {
-    pub LowPart: u32,
-    pub HighPart: i32,
+    pub LowPart: super::DWORD,
+    pub HighPart: super::LONG,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct LUID_AND_ATTRIBUTES {
     pub Luid: LUID,
-    pub Attributes: u32,
+    pub Attributes: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type LUID_AND_ATTRIBUTES_ARRAY = [LUID_AND_ATTRIBUTES; 1];
 pub const LX_FILE_CASE_SENSITIVE_DIR: i32 = 16;
 pub const LX_FILE_METADATA_HAS_DEVICE_ID: i32 = 8;
@@ -7079,13 +7568,16 @@ pub const LastSleepTime: POWER_INFORMATION_LEVEL = 15;
 pub const LastWakeTime: POWER_INFORMATION_LEVEL = 14;
 pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = 56;
 #[repr(C, align(16))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct M128A {
-    pub Low: u64,
-    pub High: i64,
+    pub Low: super::ULONGLONG,
+    pub High: super::LONGLONG,
 }
-pub const MAILSLOT_NO_MESSAGE: u32 = 4294967295;
-pub const MAILSLOT_WAIT_FOREVER: u32 = 4294967295;
+#[cfg(feature = "shared")]
+pub const MAILSLOT_NO_MESSAGE: super::DWORD = 4294967295;
+#[cfg(feature = "shared")]
+pub const MAILSLOT_WAIT_FOREVER: super::DWORD = 4294967295;
 pub type MANDATORY_LEVEL = i32;
 pub const MAXBYTE: i32 = 255;
 pub const MAXCHAR: i32 = 127;
@@ -7110,9 +7602,10 @@ pub const MAXLONG: i32 = 2147483647;
 pub const MAXLONGLONG: i64 = 9223372036854775807;
 pub const MAXSHORT: i32 = 32767;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAXVERSIONTESTED_INFO {
-    pub MaxVersionTested: u64,
+    pub MaxVersionTested: super::ULONGLONG,
 }
 pub const MAXWORD: i32 = 65535;
 pub const MAX_ACL_REVISION: i32 = 4;
@@ -7130,73 +7623,79 @@ pub const MEMORY_ALLOCATION_ALIGNMENT: i32 = 8;
 pub const MEMORY_ALLOCATION_ALIGNMENT: i32 = 16;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
-    pub BaseAddress: *mut core::ffi::c_void,
-    pub AllocationBase: *mut core::ffi::c_void,
-    pub AllocationProtect: u32,
-    pub RegionSize: usize,
-    pub State: u32,
-    pub Protect: u32,
-    pub Type: u32,
+    pub BaseAddress: PVOID,
+    pub AllocationBase: PVOID,
+    pub AllocationProtect: super::DWORD,
+    pub RegionSize: super::SIZE_T,
+    pub State: super::DWORD,
+    pub Protect: super::DWORD,
+    pub Type: super::DWORD,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
-    pub BaseAddress: *mut core::ffi::c_void,
-    pub AllocationBase: *mut core::ffi::c_void,
-    pub AllocationProtect: u32,
-    pub PartitionId: u16,
-    pub RegionSize: usize,
-    pub State: u32,
-    pub Protect: u32,
-    pub Type: u32,
+    pub BaseAddress: PVOID,
+    pub AllocationBase: PVOID,
+    pub AllocationProtect: super::DWORD,
+    pub PartitionId: super::WORD,
+    pub RegionSize: super::SIZE_T,
+    pub State: super::DWORD,
+    pub Protect: super::DWORD,
+    pub Type: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION32 {
-    pub BaseAddress: u32,
-    pub AllocationBase: u32,
-    pub AllocationProtect: u32,
-    pub RegionSize: u32,
-    pub State: u32,
-    pub Protect: u32,
-    pub Type: u32,
+    pub BaseAddress: super::DWORD,
+    pub AllocationBase: super::DWORD,
+    pub AllocationProtect: super::DWORD,
+    pub RegionSize: super::DWORD,
+    pub State: super::DWORD,
+    pub Protect: super::DWORD,
+    pub Type: super::DWORD,
 }
 #[repr(C, align(16))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION64 {
-    pub BaseAddress: u64,
-    pub AllocationBase: u64,
-    pub AllocationProtect: u32,
-    pub __alignment1: u32,
-    pub RegionSize: u64,
-    pub State: u32,
-    pub Protect: u32,
-    pub Type: u32,
-    pub __alignment2: u32,
+    pub BaseAddress: super::ULONGLONG,
+    pub AllocationBase: super::ULONGLONG,
+    pub AllocationProtect: super::DWORD,
+    pub __alignment1: super::DWORD,
+    pub RegionSize: super::ULONGLONG,
+    pub State: super::DWORD,
+    pub Protect: super::DWORD,
+    pub Type: super::DWORD,
+    pub __alignment2: super::DWORD,
 }
 pub const MEMORY_CURRENT_PARTITION_HANDLE: HANDLE = -1 as _;
 pub const MEMORY_EXISTING_VAD_PARTITION_HANDLE: HANDLE = -3 as _;
 pub const MEMORY_PARTITION_ALL_ACCESS: i32 = 2031619;
-#[repr(C)]
+#[repr(C, align(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
-    pub Reserved: u32,
-    pub Value: u64,
+    pub Reserved: super::DWORD,
+    pub Value: super::DWORD64,
 }
-#[repr(C)]
+#[repr(C, align(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
-    pub NextEntryOffset: u32,
-    pub SizeOfInformation: u32,
-    pub Flags: u32,
-    pub AttributesOffset: u32,
-    pub AttributeCount: u32,
-    pub Reserved: u32,
-    pub TypeId: u64,
+    pub NextEntryOffset: super::DWORD,
+    pub SizeOfInformation: super::DWORD,
+    pub Flags: super::DWORD,
+    pub AttributesOffset: super::DWORD,
+    pub AttributeCount: super::DWORD,
+    pub Reserved: super::DWORD,
+    pub TypeId: super::DWORD64,
 }
 pub const MEMORY_PARTITION_MODIFY_ACCESS: i32 = 2;
 pub const MEMORY_PARTITION_QUERY_ACCESS: i32 = 1;
@@ -7210,57 +7709,65 @@ pub const MEMORY_SYSTEM_PARTITION_HANDLE: HANDLE = -2 as _;
 pub const MEM_4MB_PAGES: u32 = 2147483648;
 pub const MEM_64K_PAGES: i32 = 541065216;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
-    pub LowestStartingAddress: *mut core::ffi::c_void,
-    pub HighestEndingAddress: *mut core::ffi::c_void,
-    pub Alignment: usize,
+    pub LowestStartingAddress: PVOID,
+    pub HighestEndingAddress: PVOID,
+    pub Alignment: super::SIZE_T,
 }
 pub const MEM_COALESCE_PLACEHOLDERS: i32 = 1;
 pub const MEM_COMMIT: i32 = 4096;
 pub const MEM_DECOMMIT: i32 = 16384;
-pub const MEM_DEDICATED_ATTRIBUTE_NOT_SPECIFIED: u64 = 18446744073709551615;
+#[cfg(feature = "shared")]
+pub const MEM_DEDICATED_ATTRIBUTE_NOT_SPECIFIED: super::DWORD64 = 18446744073709551615;
 pub type MEM_DEDICATED_ATTRIBUTE_TYPE = i32;
 pub const MEM_DIFFERENT_IMAGE_BASE_OK: i32 = 8388608;
-#[repr(C)]
+#[repr(C, align(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MEM_EXTENDED_PARAMETER {
     pub Anonymous: MEM_EXTENDED_PARAMETER_0,
     pub Anonymous2: MEM_EXTENDED_PARAMETER_1,
 }
+#[cfg(feature = "shared")]
 impl Default for MEM_EXTENDED_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "shared")]
 impl MEM_EXTENDED_PARAMETER_0 {
-    pub fn Type(&self) -> u64 {
-        (self._bitfield << 56) >> 56
+    pub fn Type(&self) -> super::DWORD64 {
+        (self._bitfield) & 255
     }
-    pub fn set_Type(&mut self, value: u64) {
+    pub fn set_Type(&mut self, value: super::DWORD64) {
         self._bitfield = (self._bitfield & !255) | (value & 255);
     }
-    pub fn Reserved(&self) -> u64 {
+    pub fn Reserved(&self) -> super::DWORD64 {
         self._bitfield >> 8
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::DWORD64) {
         self._bitfield = (self._bitfield & !(72057594037927935 << 8)) | ((value & 72057594037927935) << 8);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union MEM_EXTENDED_PARAMETER_1 {
-    pub ULong64: u64,
-    pub Pointer: *mut core::ffi::c_void,
-    pub Size: usize,
+    pub ULong64: super::DWORD64,
+    pub Pointer: PVOID,
+    pub Size: super::SIZE_T,
     pub Handle: HANDLE,
-    pub ULong: u32,
+    pub ULong: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for MEM_EXTENDED_PARAMETER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7271,7 +7778,8 @@ pub const MEM_EXTENDED_PARAMETER_GRAPHICS: i32 = 1;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED: i32 = 2;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_HUGE: i32 = 16;
 pub const MEM_EXTENDED_PARAMETER_NONPAGED_LARGE: i32 = 8;
-pub const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: i64 = -9223372036854775808;
+#[cfg(feature = "shared")]
+pub const MEM_EXTENDED_PARAMETER_NUMA_NODE_MANDATORY: super::LONG64 = -9223372036854775808;
 pub const MEM_EXTENDED_PARAMETER_SECURE_PAGES: i32 = 128;
 pub const MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES: i32 = 32;
 pub const MEM_EXTENDED_PARAMETER_TAGGED: i32 = 256;
@@ -7298,30 +7806,35 @@ pub const MEM_TOP_DOWN: i32 = 1048576;
 pub const MEM_UNMAP_WITH_TRANSIENT_BOOST: i32 = 1;
 pub const MEM_WRITE_WATCH: i32 = 2097152;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MESSAGE_RESOURCE_BLOCK {
-    pub LowId: u32,
-    pub HighId: u32,
-    pub OffsetToEntries: u32,
+    pub LowId: super::DWORD,
+    pub HighId: super::DWORD,
+    pub OffsetToEntries: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MESSAGE_RESOURCE_DATA {
-    pub NumberOfBlocks: u32,
+    pub NumberOfBlocks: super::DWORD,
     pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MESSAGE_RESOURCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MESSAGE_RESOURCE_ENTRY {
-    pub Length: u16,
-    pub Flags: u16,
-    pub Text: [u8; 1],
+    pub Length: super::WORD,
+    pub Flags: super::WORD,
+    pub Text: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for MESSAGE_RESOURCE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7435,13 +7948,15 @@ pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = 1;
 pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = 2;
 pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = 1;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type NEON128 = ARM64_NT_NEON128;
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_EA {
     pub AppInstanceID: windows_core::GUID,
-    pub CsvFlags: u32,
+    pub CsvFlags: super::DWORD,
 }
 pub const NLS_VALID_LOCALE_MASK: i32 = 1048575;
 pub const NONVOL_FP_NUMREG_ARM64: i32 = 8;
@@ -7455,17 +7970,18 @@ pub const NONVOL_INT_SIZE_ARM64: u32 = 88;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const NONVOL_INT_SIZE_ARM64: u64 = 88;
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NON_PAGED_DEBUG_INFO {
-    pub Signature: u16,
-    pub Flags: u16,
-    pub Size: u32,
-    pub Machine: u16,
-    pub Characteristics: u16,
-    pub TimeDateStamp: u32,
-    pub CheckSum: u32,
-    pub SizeOfImage: u32,
-    pub ImageBase: u64,
+    pub Signature: super::WORD,
+    pub Flags: super::WORD,
+    pub Size: super::DWORD,
+    pub Machine: super::WORD,
+    pub Characteristics: super::WORD,
+    pub TimeDateStamp: super::DWORD,
+    pub CheckSum: super::DWORD,
+    pub SizeOfImage: super::DWORD,
+    pub ImageBase: super::ULONGLONG,
 }
 pub const NON_PAGED_DEBUG_SIGNATURE: i32 = 18766;
 pub const NOP_FUNCTION: i32 = 0;
@@ -7478,113 +7994,121 @@ pub const NO_PROPAGATE_INHERIT_ACE: i32 = 4;
 pub const NO_SUBGROUP_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xfea3413e_7e05_4911_9a71_700331f1c294);
 pub type NPSTR = *mut i8;
 #[repr(C)]
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct NT_TIB {
     pub ExceptionList: *mut EXCEPTION_REGISTRATION_RECORD,
-    pub StackBase: *mut core::ffi::c_void,
-    pub StackLimit: *mut core::ffi::c_void,
-    pub SubSystemTib: *mut core::ffi::c_void,
+    pub StackBase: PVOID,
+    pub StackLimit: PVOID,
+    pub SubSystemTib: PVOID,
     pub Anonymous: NT_TIB_0,
-    pub ArbitraryUserPointer: *mut core::ffi::c_void,
+    pub ArbitraryUserPointer: PVOID,
     pub Self_: *mut Self,
 }
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 impl Default for NT_TIB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union NT_TIB_0 {
-    pub FiberData: *mut core::ffi::c_void,
-    pub Version: u32,
+    pub FiberData: PVOID,
+    pub Version: super::DWORD,
 }
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 impl Default for NT_TIB_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NT_TIB32 {
-    pub ExceptionList: u32,
-    pub StackBase: u32,
-    pub StackLimit: u32,
-    pub SubSystemTib: u32,
+    pub ExceptionList: super::DWORD,
+    pub StackBase: super::DWORD,
+    pub StackLimit: super::DWORD,
+    pub SubSystemTib: super::DWORD,
     pub Anonymous: NT_TIB32_0,
-    pub ArbitraryUserPointer: u32,
-    pub Self_: u32,
+    pub ArbitraryUserPointer: super::DWORD,
+    pub Self_: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for NT_TIB32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NT_TIB32_0 {
-    pub FiberData: u32,
-    pub Version: u32,
+    pub FiberData: super::DWORD,
+    pub Version: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for NT_TIB32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct NT_TIB64 {
-    pub ExceptionList: u64,
-    pub StackBase: u64,
-    pub StackLimit: u64,
-    pub SubSystemTib: u64,
+    pub ExceptionList: super::DWORD64,
+    pub StackBase: super::DWORD64,
+    pub StackLimit: super::DWORD64,
+    pub SubSystemTib: super::DWORD64,
     pub Anonymous: NT_TIB64_0,
-    pub ArbitraryUserPointer: u64,
-    pub Self_: u64,
+    pub ArbitraryUserPointer: super::DWORD64,
+    pub Self_: super::DWORD64,
 }
+#[cfg(feature = "shared")]
 impl Default for NT_TIB64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union NT_TIB64_0 {
-    pub FiberData: u64,
-    pub Version: u32,
+    pub FiberData: super::DWORD64,
+    pub Version: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for NT_TIB64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct NUMA_NODE_RELATIONSHIP {
-    pub NodeNumber: u32,
-    pub Reserved: [u8; 18],
-    pub GroupCount: u16,
+    pub NodeNumber: super::DWORD,
+    pub Reserved: [super::BYTE; 18],
+    pub GroupCount: super::WORD,
     pub Anonymous: NUMA_NODE_RELATIONSHIP_0,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for NUMA_NODE_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union NUMA_NODE_RELATIONSHIP_0 {
     pub GroupMask: GROUP_AFFINITY,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for NUMA_NODE_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7592,10 +8116,11 @@ impl Default for NUMA_NODE_RELATIONSHIP_0 {
 }
 pub const NUM_DISCHARGE_POLICIES: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut core::ffi::c_void,
-    pub Length: usize,
+    pub Length: super::SIZE_T,
 }
 pub type NWPSTR = *mut u16;
 pub const N_BTMASK: i32 = 15;
@@ -7608,135 +8133,116 @@ pub const NormalError: SERVICE_ERROR_TYPE = 1;
 pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = 47;
 pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = 26;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTID {
     pub Lineage: windows_core::GUID,
-    pub Uniquifier: u32,
+    pub Uniquifier: super::DWORD,
 }
 pub const OBJECT_INHERIT_ACE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_TYPE_LIST {
-    pub Level: u16,
-    pub Sbz: u16,
+    pub Level: super::WORD,
+    pub Sbz: super::WORD,
     pub ObjectType: *mut windows_core::GUID,
 }
+#[cfg(feature = "shared")]
 pub type OSVERSIONINFO = OSVERSIONINFOA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OSVERSIONINFOA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
+    pub dwOSVersionInfoSize: super::DWORD,
+    pub dwMajorVersion: super::DWORD,
+    pub dwMinorVersion: super::DWORD,
+    pub dwBuildNumber: super::DWORD,
+    pub dwPlatformId: super::DWORD,
+    pub szCSDVersion: [super::CHAR; 128],
 }
+#[cfg(feature = "shared")]
 impl Default for OSVERSIONINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "shared")]
 pub type OSVERSIONINFOEX = OSVERSIONINFOEXA;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OSVERSIONINFOEXA {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [i8; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
+    pub dwOSVersionInfoSize: super::DWORD,
+    pub dwMajorVersion: super::DWORD,
+    pub dwMinorVersion: super::DWORD,
+    pub dwBuildNumber: super::DWORD,
+    pub dwPlatformId: super::DWORD,
+    pub szCSDVersion: [super::CHAR; 128],
+    pub wServicePackMajor: super::WORD,
+    pub wServicePackMinor: super::WORD,
+    pub wSuiteMask: super::WORD,
+    pub wProductType: super::BYTE,
+    pub wReserved: super::BYTE,
 }
+#[cfg(feature = "shared")]
 impl Default for OSVERSIONINFOEXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OSVERSIONINFOEXW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-    pub wServicePackMajor: u16,
-    pub wServicePackMinor: u16,
-    pub wSuiteMask: u16,
-    pub wProductType: u8,
-    pub wReserved: u8,
-}
-impl Default for OSVERSIONINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct OSVERSIONINFOW {
-    pub dwOSVersionInfoSize: u32,
-    pub dwMajorVersion: u32,
-    pub dwMinorVersion: u32,
-    pub dwBuildNumber: u32,
-    pub dwPlatformId: u32,
-    pub szCSDVersion: [u16; 128],
-}
-impl Default for OSVERSIONINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type OSVERSIONINFOEXW = _OSVERSIONINFOEXW;
+#[cfg(feature = "shared")]
+pub type OSVERSIONINFOW = _OSVERSIONINFOW;
 pub type OS_DEPLOYEMENT_STATE_VALUES = i32;
 pub const OS_DEPLOYMENT_COMPACT: OS_DEPLOYEMENT_STATE_VALUES = 2;
 pub const OS_DEPLOYMENT_STANDARD: OS_DEPLOYEMENT_STATE_VALUES = 1;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "minwindef")]
-pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: *const core::ffi::c_void, entries: super::PDWORD, functions: *mut PRUNTIME_FUNCTION) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: PVOID, entries: super::PDWORD, functions: *mut PRUNTIME_FUNCTION) -> super::DWORD>;
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "minwindef")]
-pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: *const core::ffi::c_void, entries: super::PDWORD, functions: *mut PARM64_RUNTIME_FUNCTION) -> u32>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: PVOID, entries: super::PDWORD, functions: *mut PARM64_RUNTIME_FUNCTION) -> super::DWORD>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: windows_core::PCSTR = windows_core::s!("OutOfProcessFunctionTableCallback");
 pub const OWNER_SECURITY_INFORMATION: i32 = 1;
+#[cfg(feature = "shared")]
 pub type PACCESS_ALLOWED_ACE = *mut ACCESS_ALLOWED_ACE;
+#[cfg(feature = "shared")]
 pub type PACCESS_ALLOWED_CALLBACK_ACE = *mut ACCESS_ALLOWED_CALLBACK_ACE;
+#[cfg(feature = "shared")]
 pub type PACCESS_ALLOWED_CALLBACK_OBJECT_ACE = *mut ACCESS_ALLOWED_CALLBACK_OBJECT_ACE;
+#[cfg(feature = "shared")]
 pub type PACCESS_ALLOWED_OBJECT_ACE = *mut ACCESS_ALLOWED_OBJECT_ACE;
+#[cfg(feature = "shared")]
 pub type PACCESS_DENIED_ACE = *mut ACCESS_DENIED_ACE;
+#[cfg(feature = "shared")]
 pub type PACCESS_DENIED_CALLBACK_ACE = *mut ACCESS_DENIED_CALLBACK_ACE;
+#[cfg(feature = "shared")]
 pub type PACCESS_DENIED_CALLBACK_OBJECT_ACE = *mut ACCESS_DENIED_CALLBACK_OBJECT_ACE;
+#[cfg(feature = "shared")]
 pub type PACCESS_DENIED_OBJECT_ACE = *mut ACCESS_DENIED_OBJECT_ACE;
-pub type PACCESS_MASK = *mut ACCESS_MASK;
+pub type PACCESS_MASK = *mut u32;
 pub type PACCESS_REASONS = *mut ACCESS_REASONS;
 pub type PACCESS_TOKEN = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PACE_HEADER = *mut ACE_HEADER;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PACKEDEVENTINFO {
-    pub ulSize: u32,
-    pub ulNumEventsForLogFile: u32,
-    pub ulOffsets: [u32; 0],
-}
-impl Default for PACKEDEVENTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
 pub type PACL = *mut ACL;
+#[cfg(feature = "shared")]
 pub type PACL_REVISION_INFORMATION = *mut ACL_REVISION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PACL_SIZE_INFORMATION = *mut ACL_SIZE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION = *mut ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION;
-pub type PACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION = *mut ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PACTIVATION_CONTEXT_DETAILED_INFORMATION = *mut ACTIVATION_CONTEXT_DETAILED_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PACTIVATION_CONTEXT_QUERY_INDEX = *mut ACTIVATION_CONTEXT_QUERY_INDEX;
+#[cfg(feature = "shared")]
 pub type PACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION = *mut ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PADMINISTRATOR_POWER_POLICY = *mut ADMINISTRATOR_POWER_POLICY;
 pub const PAGE_ENCLAVE_DECOMMIT: i32 = 268435456;
 pub const PAGE_ENCLAVE_MASK: i32 = 268435456;
@@ -7766,7 +8272,9 @@ pub const PAGE_TARGETS_INVALID: i32 = 1073741824;
 pub const PAGE_TARGETS_NO_UPDATE: i32 = 1073741824;
 pub const PAGE_WRITECOMBINE: i32 = 1024;
 pub const PAGE_WRITECOPY: i32 = 8;
-pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: usize)>;
+#[cfg(feature = "shared")]
+pub type PAPCFUNC = Option<unsafe extern "system" fn(parameter: super::ULONG_PTR)>;
+#[cfg(feature = "shared")]
 pub type PAPPLICATIONLAUNCH_SETTING_VALUE = *mut APPLICATIONLAUNCH_SETTING_VALUE;
 pub const PARKING_TOPOLOGY_POLICY_DISABLED: i32 = 0;
 pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN: i32 = 1;
@@ -7775,76 +8283,96 @@ pub const PARKING_TOPOLOGY_POLICY_ROUNDROBIN_P_SEQUENTIAL_E: i32 = 5;
 pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL: i32 = 2;
 pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL_P_ROUNDROBIN_E: i32 = 6;
 pub const PARKING_TOPOLOGY_POLICY_SEQUENTIAL_P_SEQUENTIAL_E: i32 = 4;
+#[cfg(feature = "shared")]
 pub type PARM64EC_NT_CONTEXT = *mut ARM64EC_NT_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PARM64_NT_CONTEXT = *mut ARM64_NT_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PARM64_NT_NEON128 = *mut ARM64_NT_NEON128;
+#[cfg(feature = "shared")]
 pub type PARM64_RUNTIME_FUNCTION = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PARM64_TPIDR2_BLOCK = *mut ARM64_TPIDR2_BLOCK;
+#[cfg(feature = "shared")]
 pub type PASSEMBLY_FILE_DETAILED_INFORMATION = *mut ASSEMBLY_FILE_DETAILED_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PATTRIBUTES_AND_SID = *mut ATTRIBUTES_AND_SID;
 pub type PAUDIT_EVENT_TYPE = *mut AUDIT_EVENT_TYPE;
+#[cfg(feature = "shared")]
 pub type PBATTERY_REPORTING_SCALE = *mut BATTERY_REPORTING_SCALE;
-pub type PBOOLEAN = *mut BOOLEAN;
+pub type PBOOLEAN = *mut u8;
+#[cfg(feature = "shared")]
 pub type PCACHE_DESCRIPTOR = *mut CACHE_DESCRIPTOR;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PCACHE_RELATIONSHIP = *mut CACHE_RELATIONSHIP;
+#[cfg(feature = "shared")]
 pub type PCACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION = *const ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION;
-pub type PCACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION = *const ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PCACTIVATION_CONTEXT_DETAILED_INFORMATION = *const ACTIVATION_CONTEXT_DETAILED_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PCACTIVATION_CONTEXT_QUERY_INDEX = *const ACTIVATION_CONTEXT_QUERY_INDEX;
+#[cfg(feature = "shared")]
 pub type PCACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION = *const ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PCASSEMBLY_FILE_DETAILED_INFORMATION = *const ASSEMBLY_FILE_DETAILED_INFORMATION;
 pub type PCCH = *const i8;
+#[cfg(feature = "shared")]
 pub type PCCOMPATIBILITY_CONTEXT_ELEMENT = *const COMPATIBILITY_CONTEXT_ELEMENT;
+#[cfg(feature = "shared")]
 pub type PCFG_CALL_TARGET_INFO = *mut CFG_CALL_TARGET_INFO;
 pub type PCH = *mut i8;
 pub type PCHAR = *mut i8;
+#[cfg(feature = "shared")]
 pub type PCIMAGE_DELAYLOAD_DESCRIPTOR = *const IMAGE_DELAYLOAD_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PCIMAGE_POLICY_ENTRY = *const IMAGE_POLICY_ENTRY;
-pub type PCIMAGE_POLICY_METADATA = *const IMAGE_POLICY_METADATA;
 pub type PCLAIMS_BLOB = *mut core::ffi::c_void;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PCLAIM_SECURITY_ATTRIBUTES_INFORMATION = *mut CLAIM_SECURITY_ATTRIBUTES_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE = *mut CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE;
+#[cfg(feature = "shared")]
 pub type PCLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE = *mut CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE;
+#[cfg(feature = "shared")]
 pub type PCLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 = *mut CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PCLAIM_SECURITY_ATTRIBUTE_V1 = *mut CLAIM_SECURITY_ATTRIBUTE_V1;
+#[cfg(feature = "shared")]
 pub type PCM_POWER_DATA = *mut CM_POWER_DATA;
 pub type PCNZCH = *const i8;
-pub type PCNZTCH = PCNZCH;
+pub type PCNZTCH = *const i8;
 pub type PCNZWCH = *const u16;
 pub type PCOMPARTMENT_ID = *mut COMPARTMENT_ID;
+#[cfg(feature = "shared")]
 pub type PCOMPATIBILITY_CONTEXT_ELEMENT = *mut COMPATIBILITY_CONTEXT_ELEMENT;
+#[cfg(feature = "shared")]
 pub type PCOMPONENT_FILTER = *mut COMPONENT_FILTER;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PCONTEXT = *mut CONTEXT;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type PCONTEXT = *mut ARM64_NT_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PCORRELATION_VECTOR = *mut CORRELATION_VECTOR;
 pub type PCPU_SET_INFORMATION_TYPE = *mut CPU_SET_INFORMATION_TYPE;
-pub type PCTCH = LPCCH;
-pub type PCTSTR = windows_core::PCSTR;
-pub type PCUCSCHAR = *const UCSCHAR;
-pub type PCUCSSTR = *const UCSCHAR;
-pub type PCUNZTCH = PCNZCH;
-pub type PCUNZWCH = *const u16;
+pub type PCTCH = *const i8;
+pub type PCTSTR = *const i8;
+pub type PCUCSCHAR = *const u32;
+pub type PCUCSSTR = *const u32;
+pub type PCUNZTCH = *const i8;
+#[cfg(feature = "shared")]
 pub type PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG = *mut CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG;
-pub type PCUTSTR = windows_core::PCSTR;
-pub type PCUUCSCHAR = *const UCSCHAR;
-pub type PCUUCSSTR = *const UCSCHAR;
-pub type PCUWCHAR = *const u16;
-pub type PCUWSTR = *const u16;
-pub type PCUZZTSTR = PCZZSTR;
-pub type PCUZZWSTR = *const u16;
+pub type PCUTSTR = *const i8;
+pub type PCUZZTSTR = *const i8;
 pub type PCWCH = *const u16;
 pub type PCWCHAR = *const u16;
-pub type PCZPCSTR = *const windows_core::PCSTR;
-pub type PCZPCWSTR = *const windows_core::PCWSTR;
-pub type PCZPSTR = *const windows_core::PSTR;
-pub type PCZPWSTR = *const windows_core::PWSTR;
+pub type PCZPCSTR = *const *const i8;
+pub type PCZPCWSTR = *const *const u16;
+pub type PCZPSTR = *const *mut i8;
+pub type PCZPWSTR = *const *mut u16;
 pub type PCZZSTR = *const i8;
-pub type PCZZTSTR = PCZZSTR;
+pub type PCZZTSTR = *const i8;
 pub type PCZZWSTR = *const u16;
 pub const PDCAP_D0_SUPPORTED: i32 = 1;
 pub const PDCAP_D1_SUPPORTED: i32 = 2;
@@ -7857,40 +8385,51 @@ pub const PDCAP_WAKE_FROM_D3_SUPPORTED: i32 = 128;
 pub const PDCAP_WARM_EJECT_SUPPORTED: i32 = 256;
 pub type PDEVICE_POWER_STATE = *mut DEVICE_POWER_STATE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 pub type PDISPATCHER_CONTEXT = *mut DISPATCHER_CONTEXT;
 #[cfg(target_arch = "aarch64")]
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 pub type PDISPATCHER_CONTEXT = *mut DISPATCHER_CONTEXT_ARM64;
-#[cfg(all(feature = "excpt", feature = "minwindef"))]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 pub type PDISPATCHER_CONTEXT_ARM64 = *mut DISPATCHER_CONTEXT_ARM64;
+#[cfg(feature = "shared")]
 pub type PDRIVER_INFO_ENTRY = *mut DRIVER_INFO_ENTRY;
+#[cfg(feature = "shared")]
 pub type PDRIVER_RUNTIME_REPORT = *mut DRIVER_RUNTIME_REPORT;
-pub type PDWORDLONG = *mut DWORDLONG;
+pub type PDWORDLONG = *mut u64;
+#[cfg(feature = "shared")]
 pub type PENCLAVE_CREATE_INFO_SGX = *mut ENCLAVE_CREATE_INFO_SGX;
+#[cfg(feature = "shared")]
 pub type PENCLAVE_CREATE_INFO_VBS = *mut ENCLAVE_CREATE_INFO_VBS;
+#[cfg(feature = "shared")]
 pub type PENCLAVE_CREATE_INFO_VBS_BASIC = *mut ENCLAVE_CREATE_INFO_VBS_BASIC;
+#[cfg(feature = "shared")]
 pub type PENCLAVE_INIT_INFO_SGX = *mut ENCLAVE_INIT_INFO_SGX;
+#[cfg(feature = "shared")]
 pub type PENCLAVE_INIT_INFO_VBS = *mut ENCLAVE_INIT_INFO_VBS;
+#[cfg(feature = "shared")]
 pub type PENCLAVE_INIT_INFO_VBS_BASIC = *mut ENCLAVE_INIT_INFO_VBS_BASIC;
+#[cfg(feature = "shared")]
 pub type PENCLAVE_LOAD_DATA_VBS_BASIC = *mut ENCLAVE_LOAD_DATA_VBS_BASIC;
-pub type PENCLAVE_TARGET_FUNCTION = *mut u8;
+pub type PENCLAVE_TARGET_FUNCTION = Option<unsafe extern "C" fn(param0: PVOID) -> PVOID>;
 pub type PENERGY_SAVER_STATUS = *mut ENERGY_SAVER_STATUS;
 pub type PENLISTMENT_BASIC_INFORMATION = *mut ENLISTMENT_BASIC_INFORMATION;
 pub type PENLISTMENT_CRM_INFORMATION = *mut ENLISTMENT_CRM_INFORMATION;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERFORMANCE_DATA {
-    pub Size: u16,
-    pub Version: u8,
-    pub HwCountersCount: u8,
-    pub ContextSwitchCount: u32,
-    pub WaitReasonBitMap: u64,
-    pub CycleTime: u64,
-    pub RetryCount: u32,
-    pub Reserved: u32,
+    pub Size: super::WORD,
+    pub Version: super::BYTE,
+    pub HwCountersCount: super::BYTE,
+    pub ContextSwitchCount: super::DWORD,
+    pub WaitReasonBitMap: super::DWORD64,
+    pub CycleTime: super::DWORD64,
+    pub RetryCount: super::DWORD,
+    pub Reserved: super::DWORD,
     pub HwCounters: [HARDWARE_COUNTER_DATA; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for PERFORMANCE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7903,39 +8442,56 @@ pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: i32 = 3;
 pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: i32 = 3;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: i32 = 2;
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: i32 = 1;
+#[cfg(feature = "shared")]
 pub type PEVENTLOGRECORD = *mut EVENTLOGRECORD;
-pub type PEVENTSFORLOGFILE = *mut EVENTSFORLOGFILE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PEXCEPTION_FILTER = Option<unsafe extern "C" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: *mut core::ffi::c_void) -> i32>;
+#[cfg(feature = "shared")]
+pub type PEXCEPTION_FILTER = Option<unsafe extern "C" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: PVOID) -> super::LONG>;
 #[cfg(target_arch = "aarch64")]
-pub type PEXCEPTION_FILTER = Option<unsafe extern "C" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: u64) -> i32>;
+#[cfg(feature = "shared")]
+pub type PEXCEPTION_FILTER = Option<unsafe extern "C" fn(exceptionpointers: *mut EXCEPTION_POINTERS, establisherframe: super::DWORD64) -> super::LONG>;
+#[cfg(feature = "shared")]
 pub type PEXCEPTION_POINTERS = *mut EXCEPTION_POINTERS;
+#[cfg(feature = "shared")]
 pub type PEXCEPTION_RECORD = *mut EXCEPTION_RECORD;
+#[cfg(feature = "shared")]
 pub type PEXCEPTION_RECORD32 = *mut EXCEPTION_RECORD32;
+#[cfg(feature = "shared")]
 pub type PEXCEPTION_RECORD64 = *mut EXCEPTION_RECORD64;
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 pub type PEXCEPTION_REGISTRATION_RECORD = *mut EXCEPTION_REGISTRATION_RECORD;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "excpt")]
-pub type PEXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::EXCEPTION_DISPOSITION>;
+#[cfg(all(feature = "excpt", feature = "shared"))]
+pub type PEXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: PVOID, contextrecord: *mut CONTEXT, dispatchercontext: PVOID) -> super::EXCEPTION_DISPOSITION>;
 #[cfg(target_arch = "aarch64")]
-#[cfg(feature = "excpt")]
-pub type PEXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: *const core::ffi::c_void, contextrecord: *mut ARM64_NT_CONTEXT, dispatchercontext: *const core::ffi::c_void) -> super::EXCEPTION_DISPOSITION>;
+#[cfg(all(feature = "excpt", feature = "shared"))]
+pub type PEXCEPTION_ROUTINE = Option<unsafe extern "system" fn(exceptionrecord: *mut EXCEPTION_RECORD, establisherframe: PVOID, contextrecord: *mut ARM64_NT_CONTEXT, dispatchercontext: PVOID) -> super::EXCEPTION_DISPOSITION>;
 pub type PEXECUTION_STATE = *mut u32;
+#[cfg(feature = "shared")]
 pub type PFILE_CASE_SENSITIVE_INFORMATION = *mut FILE_CASE_SENSITIVE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_ID_128 = *mut FILE_ID_128;
+#[cfg(feature = "shared")]
 pub type PFILE_NOTIFY_EXTENDED_INFORMATION = *mut FILE_NOTIFY_EXTENDED_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_NOTIFY_FULL_INFORMATION = *mut FILE_NOTIFY_FULL_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_NOTIFY_INFORMATION = *mut FILE_NOTIFY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_SEGMENT_ELEMENT = *mut FILE_SEGMENT_ELEMENT;
+#[cfg(feature = "shared")]
 pub type PFILE_STAT_BASIC_INFORMATION = *mut FILE_STAT_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_STAT_INFORMATION = *mut FILE_STAT_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PFILE_STAT_LX_INFORMATION = *mut FILE_STAT_LX_INFORMATION;
 pub type PFIRMWARE_TYPE = *mut FIRMWARE_TYPE;
 pub type PFLOAT128 = *mut FLOAT128;
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 pub type PFLOATING_SAVE_AREA = *mut FLOATING_SAVE_AREA;
-pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: *const core::ffi::c_void)>;
+pub type PFLS_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(lpflsdata: PVOID)>;
+#[cfg(feature = "shared")]
 pub type PFPO_DATA = *mut FPO_DATA;
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: i32 = 7;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: i32 = 5;
@@ -8043,237 +8599,393 @@ pub const PF_VIRT_FIRMWARE_ENABLED: i32 = 21;
 pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: i32 = 10;
 pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: i32 = 6;
 pub const PF_XSAVE_ENABLED: i32 = 17;
+#[cfg(feature = "shared")]
 pub type PGENERIC_MAPPING = *mut GENERIC_MAPPING;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PGET_RUNTIME_FUNCTION_CALLBACK = *mut u8;
-#[cfg(feature = "basetsd")]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: super::DWORD64, context: PVOID) -> PRUNTIME_FUNCTION>;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "C" fn(controlpc: super::DWORD64, context: PVOID) -> PARM64_RUNTIME_FUNCTION>;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PGROUP_AFFINITY = *mut GROUP_AFFINITY;
+#[cfg(feature = "shared")]
 pub type PGROUP_AFFINITY32 = *mut GROUP_AFFINITY32;
+#[cfg(feature = "shared")]
 pub type PGROUP_AFFINITY64 = *mut GROUP_AFFINITY64;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PGROUP_RELATIONSHIP = *mut GROUP_RELATIONSHIP;
-pub type PHANDLE = *mut HANDLE;
+pub type PHANDLE = *mut *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PHARDWARE_COUNTER_DATA = *mut HARDWARE_COUNTER_DATA;
 pub type PHARDWARE_COUNTER_TYPE = *mut HARDWARE_COUNTER_TYPE;
+#[cfg(feature = "shared")]
 pub type PHEAP_MEMORY_USAGE_ENTRY = *mut HEAP_MEMORY_USAGE_ENTRY;
+#[cfg(feature = "shared")]
 pub type PHEAP_MEMORY_USAGE_INFORMATION = *mut HEAP_MEMORY_USAGE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PHEAP_OPTIMIZE_RESOURCES_INFORMATION = *mut HEAP_OPTIMIZE_RESOURCES_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PHIBERFILE_BUCKET = *mut HIBERFILE_BUCKET;
 pub type PHIBERFILE_BUCKET_SIZE = *mut HIBERFILE_BUCKET_SIZE;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY;
-pub type PIMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = _PIMAGE_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
+pub type PIMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ARCHITECTURE_ENTRY = *mut IMAGE_ARCHITECTURE_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ARCHITECTURE_HEADER = *mut IMAGE_ARCHITECTURE_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ARCHIVE_MEMBER_HEADER = *mut IMAGE_ARCHIVE_MEMBER_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ARM_RUNTIME_FUNCTION_ENTRY;
-pub type PIMAGE_AUX_SYMBOL = *mut IMAGE_AUX_SYMBOL;
-pub type PIMAGE_AUX_SYMBOL_EX = *mut IMAGE_AUX_SYMBOL_EX;
-pub type PIMAGE_AUX_SYMBOL_TOKEN_DEF = *mut IMAGE_AUX_SYMBOL_TOKEN_DEF;
-pub type PIMAGE_BASE_RELOCATION = *mut IMAGE_BASE_RELOCATION;
+#[cfg(feature = "shared")]
 pub type PIMAGE_BDD_DYNAMIC_RELOCATION = *mut IMAGE_BDD_DYNAMIC_RELOCATION;
+#[cfg(feature = "shared")]
 pub type PIMAGE_BDD_INFO = *mut IMAGE_BDD_INFO;
+#[cfg(feature = "shared")]
 pub type PIMAGE_BOUND_FORWARDER_REF = *mut IMAGE_BOUND_FORWARDER_REF;
+#[cfg(feature = "shared")]
 pub type PIMAGE_BOUND_IMPORT_DESCRIPTOR = *mut IMAGE_BOUND_IMPORT_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PIMAGE_CE_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_CE_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_COFF_SYMBOLS_HEADER = *mut IMAGE_COFF_SYMBOLS_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_COR20_HEADER = *mut IMAGE_COR20_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DATA_DIRECTORY = *mut IMAGE_DATA_DIRECTORY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DEBUG_DIRECTORY = *mut IMAGE_DEBUG_DIRECTORY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DEBUG_MISC = *mut IMAGE_DEBUG_MISC;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DELAYLOAD_DESCRIPTOR = *mut IMAGE_DELAYLOAD_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DOS_HEADER = *mut IMAGE_DOS_HEADER;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_DYNAMIC_RELOCATION = PIMAGE_DYNAMIC_RELOCATION32;
+#[cfg(feature = "shared")]
+pub type PIMAGE_DYNAMIC_RELOCATION = *mut IMAGE_DYNAMIC_RELOCATION32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_DYNAMIC_RELOCATION = PIMAGE_DYNAMIC_RELOCATION64;
+#[cfg(feature = "shared")]
+pub type PIMAGE_DYNAMIC_RELOCATION = *mut IMAGE_DYNAMIC_RELOCATION64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DYNAMIC_RELOCATION32 = *mut IMAGE_DYNAMIC_RELOCATION32;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DYNAMIC_RELOCATION32_V2 = *mut IMAGE_DYNAMIC_RELOCATION32_V2;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DYNAMIC_RELOCATION64 = *mut IMAGE_DYNAMIC_RELOCATION64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DYNAMIC_RELOCATION64_V2 = *mut IMAGE_DYNAMIC_RELOCATION64_V2;
+#[cfg(feature = "shared")]
 pub type PIMAGE_DYNAMIC_RELOCATION_TABLE = *mut IMAGE_DYNAMIC_RELOCATION_TABLE;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_DYNAMIC_RELOCATION_V2 = PIMAGE_DYNAMIC_RELOCATION32_V2;
+#[cfg(feature = "shared")]
+pub type PIMAGE_DYNAMIC_RELOCATION_V2 = *mut IMAGE_DYNAMIC_RELOCATION32_V2;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_DYNAMIC_RELOCATION_V2 = PIMAGE_DYNAMIC_RELOCATION64_V2;
+#[cfg(feature = "shared")]
+pub type PIMAGE_DYNAMIC_RELOCATION_V2 = *mut IMAGE_DYNAMIC_RELOCATION64_V2;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_ENCLAVE_CONFIG = PIMAGE_ENCLAVE_CONFIG32;
+#[cfg(feature = "shared")]
+pub type PIMAGE_ENCLAVE_CONFIG = *mut IMAGE_ENCLAVE_CONFIG32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_ENCLAVE_CONFIG = PIMAGE_ENCLAVE_CONFIG64;
+#[cfg(feature = "shared")]
+pub type PIMAGE_ENCLAVE_CONFIG = *mut IMAGE_ENCLAVE_CONFIG64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ENCLAVE_CONFIG32 = *mut IMAGE_ENCLAVE_CONFIG32;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ENCLAVE_CONFIG64 = *mut IMAGE_ENCLAVE_CONFIG64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ENCLAVE_IMPORT = *mut IMAGE_ENCLAVE_IMPORT;
+#[cfg(feature = "shared")]
 pub type PIMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER = *mut IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_EXPORT_DIRECTORY = *mut IMAGE_EXPORT_DIRECTORY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_FILE_HEADER = *mut IMAGE_FILE_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_FUNCTION_ENTRY = *mut IMAGE_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_FUNCTION_ENTRY64 = *mut IMAGE_FUNCTION_ENTRY64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION = *mut IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION;
+#[cfg(feature = "shared")]
 pub type PIMAGE_FUNCTION_OVERRIDE_HEADER = *mut IMAGE_FUNCTION_OVERRIDE_HEADER;
 pub type PIMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_CC_RETURN = *mut IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_CC_RETURN;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2 = *mut IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON = *mut IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON = *mut IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_V2 = *mut IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_V2;
 pub type PIMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = *mut IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 = *mut IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOT_PATCH_BASE = *mut IMAGE_HOT_PATCH_BASE;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOT_PATCH_HASHES = *mut IMAGE_HOT_PATCH_HASHES;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOT_PATCH_INFO = *mut IMAGE_HOT_PATCH_INFO;
+#[cfg(feature = "shared")]
 pub type PIMAGE_HOT_PATCH_MACHINE = *mut IMAGE_HOT_PATCH_MACHINE;
-pub type PIMAGE_IA64_RUNTIME_FUNCTION_ENTRY = _PIMAGE_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
+pub type PIMAGE_IA64_RUNTIME_FUNCTION_ENTRY = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_IMPORT_BY_NAME = *mut IMAGE_IMPORT_BY_NAME;
+#[cfg(feature = "shared")]
 pub type PIMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION = *mut IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION;
+#[cfg(feature = "shared")]
 pub type PIMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION = *mut IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PIMAGE_IMPORT_CONTROL_TRANSFER_RELOCATION = *mut IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
 pub type PIMAGE_IMPORT_CONTROL_TRANSFER_RELOCATION = *mut IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION;
-pub type PIMAGE_IMPORT_DESCRIPTOR = *mut IMAGE_IMPORT_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PIMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION = *mut IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION;
-pub type PIMAGE_LINENUMBER = *mut IMAGE_LINENUMBER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_LOAD_CONFIG_CODE_INTEGRITY = *mut IMAGE_LOAD_CONFIG_CODE_INTEGRITY;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_LOAD_CONFIG_DIRECTORY = PIMAGE_LOAD_CONFIG_DIRECTORY32;
+#[cfg(feature = "shared")]
+pub type PIMAGE_LOAD_CONFIG_DIRECTORY = *mut IMAGE_LOAD_CONFIG_DIRECTORY32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_LOAD_CONFIG_DIRECTORY = PIMAGE_LOAD_CONFIG_DIRECTORY64;
+#[cfg(feature = "shared")]
+pub type PIMAGE_LOAD_CONFIG_DIRECTORY = *mut IMAGE_LOAD_CONFIG_DIRECTORY64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_LOAD_CONFIG_DIRECTORY32 = *mut IMAGE_LOAD_CONFIG_DIRECTORY32;
+#[cfg(feature = "shared")]
 pub type PIMAGE_LOAD_CONFIG_DIRECTORY64 = *mut IMAGE_LOAD_CONFIG_DIRECTORY64;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_NT_HEADERS = PIMAGE_NT_HEADERS32;
+#[cfg(feature = "shared")]
+pub type PIMAGE_NT_HEADERS = *mut IMAGE_NT_HEADERS32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_NT_HEADERS = PIMAGE_NT_HEADERS64;
+#[cfg(feature = "shared")]
+pub type PIMAGE_NT_HEADERS = *mut IMAGE_NT_HEADERS64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_NT_HEADERS32 = *mut IMAGE_NT_HEADERS32;
+#[cfg(feature = "shared")]
 pub type PIMAGE_NT_HEADERS64 = *mut IMAGE_NT_HEADERS64;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_OPTIONAL_HEADER = PIMAGE_OPTIONAL_HEADER32;
+#[cfg(feature = "shared")]
+pub type PIMAGE_OPTIONAL_HEADER = *mut IMAGE_OPTIONAL_HEADER32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_OPTIONAL_HEADER = PIMAGE_OPTIONAL_HEADER64;
+#[cfg(feature = "shared")]
+pub type PIMAGE_OPTIONAL_HEADER = *mut IMAGE_OPTIONAL_HEADER64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_OPTIONAL_HEADER32 = *mut IMAGE_OPTIONAL_HEADER32;
+#[cfg(feature = "shared")]
 pub type PIMAGE_OPTIONAL_HEADER64 = *mut IMAGE_OPTIONAL_HEADER64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_OS2_HEADER = *mut IMAGE_OS2_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER = *mut IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER;
-pub type PIMAGE_RELOCATION = *mut IMAGE_RELOCATION;
+#[cfg(feature = "shared")]
 pub type PIMAGE_RESOURCE_DATA_ENTRY = *mut IMAGE_RESOURCE_DATA_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_RESOURCE_DIRECTORY = *mut IMAGE_RESOURCE_DIRECTORY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_RESOURCE_DIRECTORY_ENTRY = *mut IMAGE_RESOURCE_DIRECTORY_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_RESOURCE_DIRECTORY_STRING = *mut IMAGE_RESOURCE_DIRECTORY_STRING;
+#[cfg(feature = "shared")]
 pub type PIMAGE_RESOURCE_DIR_STRING_U = *mut IMAGE_RESOURCE_DIR_STRING_U;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ROM_HEADERS = *mut IMAGE_ROM_HEADERS;
+#[cfg(feature = "shared")]
 pub type PIMAGE_ROM_OPTIONAL_HEADER = *mut IMAGE_ROM_OPTIONAL_HEADER;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-pub type PIMAGE_RUNTIME_FUNCTION_ENTRY = _PIMAGE_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
+pub type PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[cfg(target_arch = "aarch64")]
-pub type PIMAGE_RUNTIME_FUNCTION_ENTRY = PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
+pub type PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PIMAGE_SECTION_HEADER = *mut IMAGE_SECTION_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_SEPARATE_DEBUG_HEADER = *mut IMAGE_SEPARATE_DEBUG_HEADER;
+#[cfg(feature = "shared")]
 pub type PIMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION = *mut IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION;
-pub type PIMAGE_SYMBOL = *mut IMAGE_SYMBOL;
-pub type PIMAGE_SYMBOL_EX = *mut IMAGE_SYMBOL_EX;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_THUNK_DATA = PIMAGE_THUNK_DATA32;
+#[cfg(feature = "shared")]
+pub type PIMAGE_THUNK_DATA = *mut IMAGE_THUNK_DATA32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_THUNK_DATA = PIMAGE_THUNK_DATA64;
+#[cfg(feature = "shared")]
+pub type PIMAGE_THUNK_DATA = *mut IMAGE_THUNK_DATA64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_THUNK_DATA32 = *mut IMAGE_THUNK_DATA32;
+#[cfg(feature = "shared")]
 pub type PIMAGE_THUNK_DATA64 = *mut IMAGE_THUNK_DATA64;
-pub type PIMAGE_TLS_CALLBACK = Option<unsafe extern "system" fn(dllhandle: *mut core::ffi::c_void, reason: u32, reserved: *mut core::ffi::c_void)>;
+#[cfg(feature = "shared")]
+pub type PIMAGE_TLS_CALLBACK = Option<unsafe extern "system" fn(dllhandle: PVOID, reason: super::DWORD, reserved: PVOID)>;
 #[cfg(target_arch = "x86")]
-pub type PIMAGE_TLS_DIRECTORY = PIMAGE_TLS_DIRECTORY32;
+#[cfg(feature = "shared")]
+pub type PIMAGE_TLS_DIRECTORY = *mut IMAGE_TLS_DIRECTORY32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PIMAGE_TLS_DIRECTORY = PIMAGE_TLS_DIRECTORY64;
+#[cfg(feature = "shared")]
+pub type PIMAGE_TLS_DIRECTORY = *mut IMAGE_TLS_DIRECTORY64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_TLS_DIRECTORY32 = *mut IMAGE_TLS_DIRECTORY32;
+#[cfg(feature = "shared")]
 pub type PIMAGE_TLS_DIRECTORY64 = *mut IMAGE_TLS_DIRECTORY64;
+#[cfg(feature = "shared")]
 pub type PIMAGE_VXD_HEADER = *mut IMAGE_VXD_HEADER;
+#[cfg(feature = "shared")]
 pub type PIO_COUNTERS = *mut IO_COUNTERS;
+#[cfg(feature = "shared")]
 pub type PISECURITY_DESCRIPTOR = *mut SECURITY_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PISECURITY_DESCRIPTOR_RELATIVE = *mut SECURITY_DESCRIPTOR_RELATIVE;
+#[cfg(feature = "shared")]
 pub type PISID = *mut SID;
 pub type PJOBOBJECT_ASSOCIATE_COMPLETION_PORT = *mut JOBOBJECT_ASSOCIATE_COMPLETION_PORT;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_BASIC_ACCOUNTING_INFORMATION = *mut JOBOBJECT_BASIC_ACCOUNTING_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION = *mut JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_BASIC_LIMIT_INFORMATION = *mut JOBOBJECT_BASIC_LIMIT_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_BASIC_PROCESS_ID_LIST = *mut JOBOBJECT_BASIC_PROCESS_ID_LIST;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_BASIC_UI_RESTRICTIONS = *mut JOBOBJECT_BASIC_UI_RESTRICTIONS;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_CPU_RATE_CONTROL_INFORMATION = *mut JOBOBJECT_CPU_RATE_CONTROL_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_END_OF_JOB_TIME_INFORMATION = *mut JOBOBJECT_END_OF_JOB_TIME_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_EXTENDED_LIMIT_INFORMATION = *mut JOBOBJECT_EXTENDED_LIMIT_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_IO_ATTRIBUTION_INFORMATION = *mut JOBOBJECT_IO_ATTRIBUTION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_IO_ATTRIBUTION_STATS = *mut JOBOBJECT_IO_ATTRIBUTION_STATS;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_JOBSET_INFORMATION = *mut JOBOBJECT_JOBSET_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_LIMIT_VIOLATION_INFORMATION = *mut JOBOBJECT_LIMIT_VIOLATION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_NOTIFICATION_LIMIT_INFORMATION = *mut JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION;
 pub type PJOBOBJECT_RATE_CONTROL_TOLERANCE = *mut JOBOBJECT_RATE_CONTROL_TOLERANCE;
 pub type PJOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = *mut JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL;
+#[cfg(feature = "shared")]
 pub type PJOBOBJECT_SECURITY_LIMIT_INFORMATION = *mut JOBOBJECT_SECURITY_LIMIT_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PJOB_SET_ARRAY = *mut JOB_SET_ARRAY;
+#[cfg(feature = "shared")]
 pub type PKERNEL_CET_CONTEXT = *mut KERNEL_CET_CONTEXT;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PKNONVOLATILE_CONTEXT_POINTERS = *mut KNONVOLATILE_CONTEXT_POINTERS;
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "basetsd")]
 pub type PKNONVOLATILE_CONTEXT_POINTERS = *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64;
 #[cfg(feature = "basetsd")]
 pub type PKNONVOLATILE_CONTEXT_POINTERS_ARM64 = *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64;
-pub type PKSPIN_LOCK = *mut KSPIN_LOCK;
+#[cfg(target_arch = "x86")]
+pub type PKSPIN_LOCK = *mut u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type PKSPIN_LOCK = *mut u64;
+#[cfg(feature = "shared")]
 pub type PKTMOBJECT_CURSOR = *mut KTMOBJECT_CURSOR;
 pub type PKTMOBJECT_TYPE = *mut KTMOBJECT_TYPE;
+#[cfg(feature = "shared")]
 pub type PLARGE_INTEGER = *mut LARGE_INTEGER;
-#[cfg(feature = "minwindef")]
-pub type PLCID = super::PDWORD;
+pub type PLCID = *mut u32;
+#[cfg(feature = "shared")]
 pub type PLDT_ENTRY = *mut LDT_ENTRY;
 pub type PLIST_ENTRY = *mut LIST_ENTRY;
+#[cfg(feature = "shared")]
 pub type PLIST_ENTRY32 = *mut LIST_ENTRY32;
+#[cfg(feature = "shared")]
 pub type PLIST_ENTRY64 = *mut LIST_ENTRY64;
 pub type PLONG = *mut i32;
 pub type PLONGLONG = *mut i64;
+#[cfg(feature = "shared")]
 pub type PLUID = *mut LUID;
+#[cfg(feature = "shared")]
 pub type PLUID_AND_ATTRIBUTES = *mut LUID_AND_ATTRIBUTES;
-pub type PLUID_AND_ATTRIBUTES_ARRAY = *mut LUID_AND_ATTRIBUTES_ARRAY;
+#[cfg(feature = "shared")]
+pub type PLUID_AND_ATTRIBUTES_ARRAY = *mut [LUID_AND_ATTRIBUTES; 1];
+#[cfg(feature = "shared")]
 pub type PM128A = *mut M128A;
 pub type PMANDATORY_LEVEL = *mut MANDATORY_LEVEL;
+#[cfg(feature = "shared")]
 pub type PMAXVERSIONTESTED_INFO = *mut MAXVERSIONTESTED_INFO;
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = 0;
+#[cfg(feature = "shared")]
 pub type PMEMORY_BASIC_INFORMATION = *mut MEMORY_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PMEMORY_BASIC_INFORMATION32 = *mut MEMORY_BASIC_INFORMATION32;
+#[cfg(feature = "shared")]
 pub type PMEMORY_BASIC_INFORMATION64 = *mut MEMORY_BASIC_INFORMATION64;
+#[cfg(feature = "shared")]
 pub type PMEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE = *mut MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE;
+#[cfg(feature = "shared")]
 pub type PMEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION = *mut MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PMEM_ADDRESS_REQUIREMENTS = *mut MEM_ADDRESS_REQUIREMENTS;
 pub type PMEM_DEDICATED_ATTRIBUTE_TYPE = *mut MEM_DEDICATED_ATTRIBUTE_TYPE;
+#[cfg(feature = "shared")]
 pub type PMEM_EXTENDED_PARAMETER = *mut MEM_EXTENDED_PARAMETER;
 pub type PMEM_EXTENDED_PARAMETER_TYPE = *mut MEM_EXTENDED_PARAMETER_TYPE;
 pub type PMEM_SECTION_EXTENDED_PARAMETER_TYPE = *mut MEM_SECTION_EXTENDED_PARAMETER_TYPE;
+#[cfg(feature = "shared")]
 pub type PMESSAGE_RESOURCE_BLOCK = *mut MESSAGE_RESOURCE_BLOCK;
+#[cfg(feature = "shared")]
 pub type PMESSAGE_RESOURCE_DATA = *mut MESSAGE_RESOURCE_DATA;
+#[cfg(feature = "shared")]
 pub type PMESSAGE_RESOURCE_ENTRY = *mut MESSAGE_RESOURCE_ENTRY;
 pub type PMONITOR_DISPLAY_STATE = *mut MONITOR_DISPLAY_STATE;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type PNEON128 = *mut ARM64_NT_NEON128;
+#[cfg(feature = "shared")]
 pub type PNETWORK_APP_INSTANCE_EA = *mut NETWORK_APP_INSTANCE_EA;
+#[cfg(feature = "shared")]
 pub type PNON_PAGED_DEBUG_INFO = *mut NON_PAGED_DEBUG_INFO;
 pub type PNOTIFY_USER_POWER_SETTING = *mut NOTIFY_USER_POWER_SETTING;
-#[cfg(feature = "excpt")]
+#[cfg(all(feature = "excpt", feature = "shared"))]
 pub type PNT_TIB = *mut NT_TIB;
+#[cfg(feature = "shared")]
 pub type PNT_TIB32 = *mut NT_TIB32;
+#[cfg(feature = "shared")]
 pub type PNT_TIB64 = *mut NT_TIB64;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PNUMA_NODE_RELATIONSHIP = *mut NUMA_NODE_RELATIONSHIP;
+#[cfg(feature = "shared")]
 pub type PNV_MEMORY_RANGE = *mut NV_MEMORY_RANGE;
 pub type PNZCH = *mut i8;
-pub type PNZTCH = PNZCH;
+pub type PNZTCH = *mut i8;
 pub type PNZWCH = *mut u16;
+#[cfg(feature = "shared")]
 pub type POBJECT_TYPE_LIST = *mut OBJECT_TYPE_LIST;
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: i32 = 60;
-pub type POSVERSIONINFO = POSVERSIONINFOA;
+#[cfg(feature = "shared")]
+pub type POSVERSIONINFO = *mut OSVERSIONINFOA;
+#[cfg(feature = "shared")]
 pub type POSVERSIONINFOA = *mut OSVERSIONINFOA;
-pub type POSVERSIONINFOEX = POSVERSIONINFOEXA;
+#[cfg(feature = "shared")]
+pub type POSVERSIONINFOEX = *mut OSVERSIONINFOEXA;
+#[cfg(feature = "shared")]
 pub type POSVERSIONINFOEXA = *mut OSVERSIONINFOEXA;
-pub type POSVERSIONINFOEXW = *mut OSVERSIONINFOEXW;
-pub type POSVERSIONINFOW = *mut OSVERSIONINFOW;
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = *mut u8;
+#[cfg(feature = "shared")]
+pub type POSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
+#[cfg(feature = "shared")]
+pub type POSVERSIONINFOW = *mut _OSVERSIONINFOW;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: PVOID, entries: super::PDWORD, functions: *mut PRUNTIME_FUNCTION) -> super::DWORD>;
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = Option<unsafe extern "C" fn(process: HANDLE, tableaddress: PVOID, entries: super::PDWORD, functions: *mut PARM64_RUNTIME_FUNCTION) -> super::DWORD>;
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: i32 = 2;
 pub const POWERBUTTON_ACTION_INDEX_NOTHING: i32 = 0;
 pub const POWERBUTTON_ACTION_INDEX_SHUTDOWN: i32 = 3;
@@ -8296,11 +9008,12 @@ pub const POWER_ACTION_LIGHTEST_FIRST: i32 = 268435456;
 pub const POWER_ACTION_LOCK_CONSOLE: i32 = 536870912;
 pub const POWER_ACTION_OVERRIDE_APPS: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ACTION_POLICY {
     pub Action: POWER_ACTION,
-    pub Flags: u32,
-    pub EventCode: u32,
+    pub Flags: super::DWORD,
+    pub EventCode: super::DWORD,
 }
 pub const POWER_ACTION_PSEUDO_TRANSITION: i32 = 134217728;
 pub const POWER_ACTION_QUERY_ALLOWED: i32 = 1;
@@ -8315,85 +9028,95 @@ pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: i32 = 1;
 pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: i32 = 0;
 pub const POWER_FORCE_TRIGGER_RESET: u32 = 2147483648;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_IDLE_RESILIENCY {
-    pub CoalescingTimeout: u32,
-    pub IdleResiliencyPeriod: u32,
+    pub CoalescingTimeout: super::DWORD,
+    pub IdleResiliencyPeriod: super::DWORD,
 }
 pub type POWER_INFORMATION_LEVEL = i32;
 pub const POWER_LEVEL_USER_NOTIFY_EXEC: i32 = 4;
 pub const POWER_LEVEL_USER_NOTIFY_SOUND: i32 = 2;
 pub const POWER_LEVEL_USER_NOTIFY_TEXT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct POWER_LIMIT_ATTRIBUTES {
     pub Type: POWER_LIMIT_TYPES,
-    pub DomainId: u32,
-    pub MaxValue: u32,
-    pub MinValue: u32,
-    pub MinTimeParameter: u32,
-    pub MaxTimeParameter: u32,
-    pub DefaultACValue: u32,
-    pub DefaultDCValue: u32,
+    pub DomainId: super::DWORD,
+    pub MaxValue: super::DWORD,
+    pub MinValue: super::DWORD,
+    pub MinTimeParameter: super::DWORD,
+    pub MaxTimeParameter: super::DWORD,
+    pub DefaultACValue: super::DWORD,
+    pub DefaultDCValue: super::DWORD,
     pub Flags: POWER_LIMIT_ATTRIBUTES_0,
 }
+#[cfg(feature = "shared")]
 impl Default for POWER_LIMIT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union POWER_LIMIT_ATTRIBUTES_0 {
     pub Anonymous: POWER_LIMIT_ATTRIBUTES_0_0,
-    pub AsUlong: u32,
+    pub AsUlong: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for POWER_LIMIT_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_LIMIT_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl POWER_LIMIT_ATTRIBUTES_0_0 {
-    pub fn SupportTimeParameter(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SupportTimeParameter(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_SupportTimeParameter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SupportTimeParameter(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 pub type POWER_LIMIT_TYPES = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_LIMIT_VALUE {
     pub Type: POWER_LIMIT_TYPES,
-    pub DomainId: u32,
-    pub TargetValue: u32,
-    pub TimeParameter: u32,
+    pub DomainId: super::DWORD,
+    pub TargetValue: super::DWORD,
+    pub TimeParameter: super::DWORD,
 }
 pub const POWER_LIMIT_VALUE_NO_CONTROL: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
-    pub Console: BOOLEAN,
+    pub Console: super::BOOLEAN,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
 pub type POWER_MONITOR_REQUEST_REASON = i32;
 pub type POWER_MONITOR_REQUEST_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
-    pub AoAc: BOOLEAN,
+    pub AoAc: super::BOOLEAN,
 }
 pub type POWER_PLATFORM_ROLE = i32;
 pub const POWER_PLATFORM_ROLE_V1: i32 = 1;
@@ -8407,34 +9130,39 @@ pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: i32 = 1;
 pub const POWER_REQUEST_CONTEXT_VERSION: i32 = 0;
 pub type POWER_REQUEST_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    pub IsAllowed: BOOLEAN,
+    pub IsAllowed: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
-    pub Connected: BOOLEAN,
-    pub Console: BOOLEAN,
+    pub Connected: super::BOOLEAN,
+    pub Console: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
-    pub Active: BOOLEAN,
-    pub LastInputTime: u64,
+    pub Active: super::BOOLEAN,
+    pub LastInputTime: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_TIMEOUTS {
-    pub InputTimeout: u32,
-    pub DisplayTimeout: u32,
+    pub InputTimeout: super::DWORD,
+    pub DisplayTimeout: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
-    pub SessionId: u32,
-    pub Console: BOOLEAN,
-    pub Locked: BOOLEAN,
+    pub SessionId: super::DWORD,
+    pub Console: super::BOOLEAN,
+    pub Locked: super::BOOLEAN,
 }
 pub type POWER_SETTING_ALTITUDE = i32;
 pub const POWER_SETTING_VALUE_VERSION: i32 = 1;
@@ -8453,7 +9181,7 @@ pub const PO_THROTTLE_CONSTANT: i32 = 1;
 pub const PO_THROTTLE_DEGRADE: i32 = 2;
 pub const PO_THROTTLE_MAXIMUM: i32 = 4;
 pub const PO_THROTTLE_NONE: i32 = 0;
-pub type PPACKEDEVENTINFO = *mut PACKEDEVENTINFO;
+#[cfg(feature = "shared")]
 pub type PPERFORMANCE_DATA = *mut PERFORMANCE_DATA;
 pub const PPM_FIRMWARE_ACPI1C2: i32 = 1;
 pub const PPM_FIRMWARE_ACPI1C3: i32 = 2;
@@ -8478,36 +9206,41 @@ pub const PPM_FIRMWARE_XPSS: i32 = 128;
 pub const PPM_IDLESTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
 pub const PPM_IDLESTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_IDLESTATE_EVENT {
-    pub NewState: u32,
-    pub OldState: u32,
-    pub Processors: u64,
+    pub NewState: super::DWORD,
+    pub OldState: super::DWORD,
+    pub Processors: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING {
-    pub StateCount: u32,
-    pub TotalTransitions: u32,
-    pub ResetCount: u32,
-    pub StartTime: u64,
+    pub StateCount: super::DWORD,
+    pub TotalTransitions: super::DWORD,
+    pub ResetCount: super::DWORD,
+    pub StartTime: super::DWORD64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_IDLE_ACCOUNTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING_EX {
-    pub StateCount: u32,
-    pub TotalTransitions: u32,
-    pub ResetCount: u32,
-    pub AbortCount: u32,
-    pub StartTime: u64,
+    pub StateCount: super::DWORD,
+    pub TotalTransitions: super::DWORD,
+    pub ResetCount: super::DWORD,
+    pub AbortCount: super::DWORD,
+    pub StartTime: super::DWORD64,
     pub State: [PPM_IDLE_STATE_ACCOUNTING_EX; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_IDLE_ACCOUNTING_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8521,43 +9254,48 @@ pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: i32 = 3;
 pub const PPM_IDLE_IMPLEMENTATION_NONE: i32 = 0;
 pub const PPM_IDLE_IMPLEMENTATION_PEP: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING {
-    pub IdleTransitions: u32,
-    pub FailedTransitions: u32,
-    pub InvalidBucketIndex: u32,
-    pub TotalTime: u64,
-    pub IdleTimeBuckets: [u32; 6],
+    pub IdleTransitions: super::DWORD,
+    pub FailedTransitions: super::DWORD,
+    pub InvalidBucketIndex: super::DWORD,
+    pub TotalTime: super::DWORD64,
+    pub IdleTimeBuckets: [super::DWORD; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_IDLE_STATE_ACCOUNTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
-    pub TotalTime: u64,
-    pub IdleTransitions: u32,
-    pub FailedTransitions: u32,
-    pub InvalidBucketIndex: u32,
-    pub MinTimeUs: u32,
-    pub MaxTimeUs: u32,
-    pub CancelledTransitions: u32,
+    pub TotalTime: super::DWORD64,
+    pub IdleTransitions: super::DWORD,
+    pub FailedTransitions: super::DWORD,
+    pub InvalidBucketIndex: super::DWORD,
+    pub MinTimeUs: super::DWORD,
+    pub MaxTimeUs: super::DWORD,
+    pub CancelledTransitions: super::DWORD,
     pub IdleTimeBuckets: [PPM_IDLE_STATE_BUCKET_EX; 16],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_IDLE_STATE_ACCOUNTING_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_BUCKET_EX {
-    pub TotalTimeUs: u64,
-    pub MinTimeUs: u32,
-    pub MaxTimeUs: u32,
-    pub Count: u32,
+    pub TotalTimeUs: super::DWORD64,
+    pub MinTimeUs: super::DWORD,
+    pub MaxTimeUs: super::DWORD,
+    pub Count: super::DWORD,
 }
 pub const PPM_PERFMON_PERFSTATE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x7fd18652_0cfe_40d2_b0a1_0b066a87759e);
 pub const PPM_PERFORMANCE_IMPLEMENTATION_CPPC: i32 = 3;
@@ -8569,256 +9307,340 @@ pub const PPM_PERFSTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::fro
 pub const PPM_PERFSTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
 pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
-    pub State: u32,
-    pub Latency: u32,
-    pub Speed: u32,
-    pub Processors: u64,
+    pub State: super::DWORD,
+    pub Latency: super::DWORD,
+    pub Speed: super::DWORD,
+    pub Processors: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_EVENT {
-    pub State: u32,
-    pub Status: u32,
-    pub Latency: u32,
-    pub Speed: u32,
-    pub Processor: u32,
+    pub State: super::DWORD,
+    pub Status: super::DWORD,
+    pub Latency: super::DWORD,
+    pub Speed: super::DWORD,
+    pub Processor: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_THERMALCHANGE_EVENT {
-    pub ThermalConstraint: u32,
-    pub Processors: u64,
+    pub ThermalConstraint: super::DWORD,
+    pub Processors: super::DWORD64,
 }
 pub const PPM_THERMALCONSTRAINT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
 pub const PPM_THERMAL_POLICY_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_THERMAL_POLICY_EVENT {
-    pub Mode: u8,
-    pub Processors: u64,
+    pub Mode: super::BYTE,
+    pub Processors: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATE {
-    pub Latency: u32,
-    pub Power: u32,
-    pub TimeCheck: u32,
-    pub PromotePercent: u8,
-    pub DemotePercent: u8,
-    pub StateType: u8,
-    pub Reserved: u8,
-    pub StateFlags: u32,
-    pub Context: u32,
-    pub IdleHandler: u32,
-    pub Reserved1: u32,
+    pub Latency: super::DWORD,
+    pub Power: super::DWORD,
+    pub TimeCheck: super::DWORD,
+    pub PromotePercent: super::BYTE,
+    pub DemotePercent: super::BYTE,
+    pub StateType: super::BYTE,
+    pub Reserved: super::BYTE,
+    pub StateFlags: super::DWORD,
+    pub Context: super::DWORD,
+    pub IdleHandler: super::DWORD,
+    pub Reserved1: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES {
-    pub Type: u32,
-    pub Count: u32,
-    pub TargetState: u32,
-    pub OldState: u32,
-    pub TargetProcessors: u64,
+    pub Type: super::DWORD,
+    pub Count: super::DWORD,
+    pub TargetState: super::DWORD,
+    pub OldState: super::DWORD,
+    pub TargetProcessors: super::DWORD64,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_WMI_IDLE_STATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES_EX {
-    pub Type: u32,
-    pub Count: u32,
-    pub TargetState: u32,
-    pub OldState: u32,
-    pub TargetProcessors: *mut core::ffi::c_void,
+    pub Type: super::DWORD,
+    pub Count: super::DWORD,
+    pub TargetState: super::DWORD,
+    pub OldState: super::DWORD,
+    pub TargetProcessors: PVOID,
     pub State: [PPM_WMI_IDLE_STATE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_WMI_IDLE_STATES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_WMI_LEGACY_PERFSTATE {
-    pub Frequency: u32,
-    pub Flags: u32,
-    pub PercentFrequency: u32,
+    pub Frequency: super::DWORD,
+    pub Flags: super::DWORD,
+    pub PercentFrequency: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATE {
-    pub Frequency: u32,
-    pub Power: u32,
-    pub PercentFrequency: u8,
-    pub IncreaseLevel: u8,
-    pub DecreaseLevel: u8,
-    pub Type: u8,
-    pub IncreaseTime: u32,
-    pub DecreaseTime: u32,
-    pub Control: u64,
-    pub Status: u64,
-    pub HitCount: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u64,
-    pub Reserved3: u64,
+    pub Frequency: super::DWORD,
+    pub Power: super::DWORD,
+    pub PercentFrequency: super::BYTE,
+    pub IncreaseLevel: super::BYTE,
+    pub DecreaseLevel: super::BYTE,
+    pub Type: super::BYTE,
+    pub IncreaseTime: super::DWORD,
+    pub DecreaseTime: super::DWORD,
+    pub Control: super::DWORD64,
+    pub Status: super::DWORD64,
+    pub HitCount: super::DWORD,
+    pub Reserved1: super::DWORD,
+    pub Reserved2: super::DWORD64,
+    pub Reserved3: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES {
-    pub Count: u32,
-    pub MaxFrequency: u32,
-    pub CurrentState: u32,
-    pub MaxPerfState: u32,
-    pub MinPerfState: u32,
-    pub LowestPerfState: u32,
-    pub ThermalConstraint: u32,
-    pub BusyAdjThreshold: u8,
-    pub PolicyType: u8,
-    pub Type: u8,
-    pub Reserved: u8,
-    pub TimerInterval: u32,
-    pub TargetProcessors: u64,
-    pub PStateHandler: u32,
-    pub PStateContext: u32,
-    pub TStateHandler: u32,
-    pub TStateContext: u32,
-    pub FeedbackHandler: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u64,
+    pub Count: super::DWORD,
+    pub MaxFrequency: super::DWORD,
+    pub CurrentState: super::DWORD,
+    pub MaxPerfState: super::DWORD,
+    pub MinPerfState: super::DWORD,
+    pub LowestPerfState: super::DWORD,
+    pub ThermalConstraint: super::DWORD,
+    pub BusyAdjThreshold: super::BYTE,
+    pub PolicyType: super::BYTE,
+    pub Type: super::BYTE,
+    pub Reserved: super::BYTE,
+    pub TimerInterval: super::DWORD,
+    pub TargetProcessors: super::DWORD64,
+    pub PStateHandler: super::DWORD,
+    pub PStateContext: super::DWORD,
+    pub TStateHandler: super::DWORD,
+    pub TStateContext: super::DWORD,
+    pub FeedbackHandler: super::DWORD,
+    pub Reserved1: super::DWORD,
+    pub Reserved2: super::DWORD64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_WMI_PERF_STATES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES_EX {
-    pub Count: u32,
-    pub MaxFrequency: u32,
-    pub CurrentState: u32,
-    pub MaxPerfState: u32,
-    pub MinPerfState: u32,
-    pub LowestPerfState: u32,
-    pub ThermalConstraint: u32,
-    pub BusyAdjThreshold: u8,
-    pub PolicyType: u8,
-    pub Type: u8,
-    pub Reserved: u8,
-    pub TimerInterval: u32,
-    pub TargetProcessors: *mut core::ffi::c_void,
-    pub PStateHandler: u32,
-    pub PStateContext: u32,
-    pub TStateHandler: u32,
-    pub TStateContext: u32,
-    pub FeedbackHandler: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u64,
+    pub Count: super::DWORD,
+    pub MaxFrequency: super::DWORD,
+    pub CurrentState: super::DWORD,
+    pub MaxPerfState: super::DWORD,
+    pub MinPerfState: super::DWORD,
+    pub LowestPerfState: super::DWORD,
+    pub ThermalConstraint: super::DWORD,
+    pub BusyAdjThreshold: super::BYTE,
+    pub PolicyType: super::BYTE,
+    pub Type: super::BYTE,
+    pub Reserved: super::BYTE,
+    pub TimerInterval: super::DWORD,
+    pub TargetProcessors: PVOID,
+    pub PStateHandler: super::DWORD,
+    pub PStateContext: super::DWORD,
+    pub TStateHandler: super::DWORD,
+    pub TStateContext: super::DWORD,
+    pub FeedbackHandler: super::DWORD,
+    pub Reserved1: super::DWORD,
+    pub Reserved2: super::DWORD64,
     pub State: [PPM_WMI_PERF_STATE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PPM_WMI_PERF_STATES_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub type PPOWER_ACTION = *mut POWER_ACTION;
+#[cfg(feature = "shared")]
 pub type PPOWER_ACTION_POLICY = *mut POWER_ACTION_POLICY;
+#[cfg(feature = "shared")]
 pub type PPOWER_IDLE_RESILIENCY = *mut POWER_IDLE_RESILIENCY;
+#[cfg(feature = "shared")]
 pub type PPOWER_LIMIT_ATTRIBUTES = *mut POWER_LIMIT_ATTRIBUTES;
 pub type PPOWER_LIMIT_TYPES = *mut POWER_LIMIT_TYPES;
+#[cfg(feature = "shared")]
 pub type PPOWER_LIMIT_VALUE = *mut POWER_LIMIT_VALUE;
+#[cfg(feature = "shared")]
 pub type PPOWER_MONITOR_INVOCATION = *mut POWER_MONITOR_INVOCATION;
+#[cfg(feature = "shared")]
 pub type PPOWER_PLATFORM_INFORMATION = *mut POWER_PLATFORM_INFORMATION;
 pub type PPOWER_PLATFORM_ROLE = *mut POWER_PLATFORM_ROLE;
 pub type PPOWER_REQUEST_TYPE = *mut POWER_REQUEST_TYPE;
+#[cfg(feature = "shared")]
 pub type PPOWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES = *mut POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES;
+#[cfg(feature = "shared")]
 pub type PPOWER_SESSION_CONNECT = *mut POWER_SESSION_CONNECT;
+#[cfg(feature = "shared")]
 pub type PPOWER_SESSION_RIT_STATE = *mut POWER_SESSION_RIT_STATE;
+#[cfg(feature = "shared")]
 pub type PPOWER_SESSION_TIMEOUTS = *mut POWER_SESSION_TIMEOUTS;
+#[cfg(feature = "shared")]
 pub type PPOWER_SESSION_WINLOGON = *mut POWER_SESSION_WINLOGON;
 pub type PPOWER_SETTING_ALTITUDE = *mut POWER_SETTING_ALTITUDE;
 pub type PPOWER_USER_PRESENCE = *mut POWER_USER_PRESENCE;
 pub type PPOWER_USER_PRESENCE_TYPE = *mut POWER_USER_PRESENCE_TYPE;
+#[cfg(feature = "shared")]
 pub type PPPM_IDLESTATE_EVENT = *mut PPM_IDLESTATE_EVENT;
+#[cfg(feature = "shared")]
 pub type PPPM_IDLE_ACCOUNTING = *mut PPM_IDLE_ACCOUNTING;
+#[cfg(feature = "shared")]
 pub type PPPM_IDLE_ACCOUNTING_EX = *mut PPM_IDLE_ACCOUNTING_EX;
+#[cfg(feature = "shared")]
 pub type PPPM_IDLE_STATE_ACCOUNTING = *mut PPM_IDLE_STATE_ACCOUNTING;
+#[cfg(feature = "shared")]
 pub type PPPM_IDLE_STATE_ACCOUNTING_EX = *mut PPM_IDLE_STATE_ACCOUNTING_EX;
+#[cfg(feature = "shared")]
 pub type PPPM_IDLE_STATE_BUCKET_EX = *mut PPM_IDLE_STATE_BUCKET_EX;
+#[cfg(feature = "shared")]
 pub type PPPM_PERFSTATE_DOMAIN_EVENT = *mut PPM_PERFSTATE_DOMAIN_EVENT;
+#[cfg(feature = "shared")]
 pub type PPPM_PERFSTATE_EVENT = *mut PPM_PERFSTATE_EVENT;
+#[cfg(feature = "shared")]
 pub type PPPM_THERMALCHANGE_EVENT = *mut PPM_THERMALCHANGE_EVENT;
+#[cfg(feature = "shared")]
 pub type PPPM_THERMAL_POLICY_EVENT = *mut PPM_THERMAL_POLICY_EVENT;
+#[cfg(feature = "shared")]
 pub type PPPM_WMI_IDLE_STATE = *mut PPM_WMI_IDLE_STATE;
+#[cfg(feature = "shared")]
 pub type PPPM_WMI_IDLE_STATES = *mut PPM_WMI_IDLE_STATES;
+#[cfg(feature = "shared")]
 pub type PPPM_WMI_IDLE_STATES_EX = *mut PPM_WMI_IDLE_STATES_EX;
+#[cfg(feature = "shared")]
 pub type PPPM_WMI_LEGACY_PERFSTATE = *mut PPM_WMI_LEGACY_PERFSTATE;
+#[cfg(feature = "shared")]
 pub type PPPM_WMI_PERF_STATE = *mut PPM_WMI_PERF_STATE;
+#[cfg(feature = "shared")]
 pub type PPPM_WMI_PERF_STATES = *mut PPM_WMI_PERF_STATES;
+#[cfg(feature = "shared")]
 pub type PPPM_WMI_PERF_STATES_EX = *mut PPM_WMI_PERF_STATES_EX;
+#[cfg(feature = "shared")]
 pub type PPRIVILEGE_SET = *mut PRIVILEGE_SET;
 pub type PPROCESSOR_CACHE_TYPE = *mut PROCESSOR_CACHE_TYPE;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PPROCESSOR_GROUP_INFO = *mut PROCESSOR_GROUP_INFO;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_IDLESTATE_INFO = *mut PROCESSOR_IDLESTATE_INFO;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_IDLESTATE_POLICY = *mut PROCESSOR_IDLESTATE_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_NUMBER = *mut PROCESSOR_NUMBER;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_PERFSTATE_POLICY = *mut PROCESSOR_PERFSTATE_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_POWER_POLICY = *mut PROCESSOR_POWER_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESSOR_POWER_POLICY_INFO = *mut PROCESSOR_POWER_POLICY_INFO;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PPROCESSOR_RELATIONSHIP = *mut PROCESSOR_RELATIONSHIP;
 pub type PPROCESSOR_SHARED_COMPUTE_UNIT_TYPE = *mut PROCESSOR_SHARED_COMPUTE_UNIT_TYPE;
+#[cfg(feature = "shared")]
 pub type PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET = *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET;
+#[cfg(feature = "shared")]
 pub type PPROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION = *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE = *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE;
+#[cfg(feature = "shared")]
 pub type PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION = *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_ASLR_POLICY = *mut PROCESS_MITIGATION_ASLR_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_BINARY_SIGNATURE_POLICY = *mut PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_CHILD_PROCESS_POLICY = *mut PROCESS_MITIGATION_CHILD_PROCESS_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY = *mut PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_DEP_POLICY = *mut PROCESS_MITIGATION_DEP_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_DYNAMIC_CODE_POLICY = *mut PROCESS_MITIGATION_DYNAMIC_CODE_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY = *mut PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_FONT_DISABLE_POLICY = *mut PROCESS_MITIGATION_FONT_DISABLE_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_IMAGE_LOAD_POLICY = *mut PROCESS_MITIGATION_IMAGE_LOAD_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY = *mut PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY;
 pub type PPROCESS_MITIGATION_POLICY = *mut PROCESS_MITIGATION_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_REDIRECTION_TRUST_POLICY = *mut PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_SEHOP_POLICY = *mut PROCESS_MITIGATION_SEHOP_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY = *mut PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY = *mut PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY = *mut PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY = *mut PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_USER_POINTER_AUTH_POLICY = *mut PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY = *mut PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY;
+#[cfg(feature = "shared")]
 pub type PPROCESS_NETWORK_COUNTERS = *mut PROCESS_NETWORK_COUNTERS;
+#[cfg(feature = "shared")]
 pub type PQUOTA_LIMITS = *mut QUOTA_LIMITS;
+#[cfg(feature = "shared")]
 pub type PQUOTA_LIMITS_EX = *mut QUOTA_LIMITS_EX;
 pub const PRAGMA_DEPRECATED_DDK: i32 = 0;
+#[cfg(feature = "shared")]
 pub type PRATE_QUOTA_LIMIT = *mut RATE_QUOTA_LIMIT;
+#[cfg(feature = "shared")]
 pub type PREARRANGE_FILE_DATA = *mut REARRANGE_FILE_DATA;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PREARRANGE_FILE_DATA32 = *mut REARRANGE_FILE_DATA32;
+#[cfg(feature = "shared")]
 pub type PREPARSE_GUID_DATA_BUFFER = *mut REPARSE_GUID_DATA_BUFFER;
+#[cfg(feature = "shared")]
 pub type PRESOURCEMANAGER_BASIC_INFORMATION = *mut RESOURCEMANAGER_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PRESOURCEMANAGER_COMPLETION_INFORMATION = *mut RESOURCEMANAGER_COMPLETION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PRESUME_PERFORMANCE = *mut RESUME_PERFORMANCE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct PRIVILEGE_SET {
-    pub PrivilegeCount: u32,
-    pub Control: u32,
+    pub PrivilegeCount: super::DWORD,
+    pub Control: super::DWORD,
     pub Privilege: [LUID_AND_ATTRIBUTES; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PRIVILEGE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8852,15 +9674,15 @@ pub type PROCESSOR_CACHE_TYPE = i32;
 pub const PROCESSOR_DUTY_CYCLING_DISABLED: i32 = 0;
 pub const PROCESSOR_DUTY_CYCLING_ENABLED: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_GROUP_INFO {
-    pub MaximumProcessorCount: u8,
-    pub ActiveProcessorCount: u8,
-    pub Reserved: [u8; 38],
+    pub MaximumProcessorCount: super::BYTE,
+    pub ActiveProcessorCount: super::BYTE,
+    pub Reserved: [super::BYTE; 38],
     pub ActiveProcessorMask: super::KAFFINITY,
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for PROCESSOR_GROUP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8870,64 +9692,72 @@ pub const PROCESSOR_HITACHI_SH3: i32 = 10003;
 pub const PROCESSOR_HITACHI_SH3E: i32 = 10004;
 pub const PROCESSOR_HITACHI_SH4: i32 = 10005;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_IDLESTATE_INFO {
-    pub TimeCheck: u32,
-    pub DemotePercent: u8,
-    pub PromotePercent: u8,
-    pub Spare: [u8; 2],
+    pub TimeCheck: super::DWORD,
+    pub DemotePercent: super::BYTE,
+    pub PromotePercent: super::BYTE,
+    pub Spare: [super::BYTE; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_IDLESTATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESSOR_IDLESTATE_POLICY {
-    pub Revision: u16,
+    pub Revision: super::WORD,
     pub Flags: PROCESSOR_IDLESTATE_POLICY_0,
-    pub PolicyCount: u32,
+    pub PolicyCount: super::DWORD,
     pub Policy: [PROCESSOR_IDLESTATE_INFO; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_IDLESTATE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESSOR_IDLESTATE_POLICY_0 {
-    pub AsWORD: u16,
+    pub AsWORD: super::WORD,
     pub Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_IDLESTATE_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl PROCESSOR_IDLESTATE_POLICY_0_0 {
-    pub fn AllowScaling(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn AllowScaling(&self) -> super::WORD {
+        (self._bitfield) & 1
     }
-    pub fn set_AllowScaling(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u16);
+    pub fn set_AllowScaling(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Disabled(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Disabled(&self) -> super::WORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Disabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    pub fn set_Disabled(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u16 {
+    pub fn Reserved(&self) -> super::WORD {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u16) {
+    pub fn set_Reserved(&mut self, value: super::WORD) {
         self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
     }
 }
@@ -8939,82 +9769,91 @@ pub const PROCESSOR_INTEL_PENTIUM: i32 = 586;
 pub const PROCESSOR_MIPS_R4000: i32 = 4000;
 pub const PROCESSOR_MOTOROLA_821: i32 = 821;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_NUMBER {
-    pub Group: u16,
-    pub Number: u8,
-    pub Reserved: u8,
+    pub Group: super::WORD,
+    pub Number: super::BYTE,
+    pub Reserved: super::BYTE,
 }
 pub const PROCESSOR_OPTIL: i32 = 18767;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESSOR_PERFSTATE_POLICY {
-    pub Revision: u32,
-    pub MaxThrottle: u8,
-    pub MinThrottle: u8,
-    pub BusyAdjThreshold: u8,
+    pub Revision: super::DWORD,
+    pub MaxThrottle: super::BYTE,
+    pub MinThrottle: super::BYTE,
+    pub BusyAdjThreshold: super::BYTE,
     pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0,
-    pub TimeCheck: u32,
-    pub IncreaseTime: u32,
-    pub DecreaseTime: u32,
-    pub IncreasePercent: u32,
-    pub DecreasePercent: u32,
+    pub TimeCheck: super::DWORD,
+    pub IncreaseTime: super::DWORD,
+    pub DecreaseTime: super::DWORD,
+    pub IncreasePercent: super::DWORD,
+    pub DecreasePercent: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_PERFSTATE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESSOR_PERFSTATE_POLICY_0 {
-    pub Spare: u8,
+    pub Spare: super::BYTE,
     pub Flags: PROCESSOR_PERFSTATE_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_PERFSTATE_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESSOR_PERFSTATE_POLICY_0_0 {
-    pub AsBYTE: u8,
+    pub AsBYTE: super::BYTE,
     pub Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_PERFSTATE_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "shared")]
 impl PROCESSOR_PERFSTATE_POLICY_0_0_0 {
-    pub fn NoDomainAccounting(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn NoDomainAccounting(&self) -> super::BYTE {
+        (self._bitfield) & 1
     }
-    pub fn set_NoDomainAccounting(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
+    pub fn set_NoDomainAccounting(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn IncreasePolicy(&self) -> u8 {
-        (self._bitfield << 5) >> 6
+    pub fn IncreasePolicy(&self) -> super::BYTE {
+        (self._bitfield >> 1) & 3
     }
-    pub fn set_IncreasePolicy(&mut self, value: u8) {
+    pub fn set_IncreasePolicy(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
     }
-    pub fn DecreasePolicy(&self) -> u8 {
-        (self._bitfield << 3) >> 6
+    pub fn DecreasePolicy(&self) -> super::BYTE {
+        (self._bitfield >> 3) & 3
     }
-    pub fn set_DecreasePolicy(&mut self, value: u8) {
+    pub fn set_DecreasePolicy(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(3 << 3)) | ((value & 3) << 3);
     }
-    pub fn Reserved(&self) -> u8 {
+    pub fn Reserved(&self) -> super::BYTE {
         self._bitfield >> 5
     }
-    pub fn set_Reserved(&mut self, value: u8) {
+    pub fn set_Reserved(&mut self, value: super::BYTE) {
         self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
     }
 }
@@ -9035,65 +9874,71 @@ pub const PROCESSOR_PERF_MAXIMUM_ACTIVITY_WINDOW: i32 = 1270000000;
 pub const PROCESSOR_PERF_MINIMUM_ACTIVITY_WINDOW: i32 = 0;
 pub const PROCESSOR_PERF_PERFORMANCE_PREFERENCE: i32 = 255;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY {
-    pub Revision: u32,
-    pub DynamicThrottle: u8,
-    pub Spare: [u8; 3],
+    pub Revision: super::DWORD,
+    pub DynamicThrottle: super::BYTE,
+    pub Spare: [super::BYTE; 3],
     pub _bitfield: u32,
-    pub PolicyCount: u32,
+    pub PolicyCount: super::DWORD,
     pub Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
 }
+#[cfg(feature = "shared")]
 impl PROCESSOR_POWER_POLICY {
-    pub fn DisableCStates(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DisableCStates(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_DisableCStates(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DisableCStates(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY_INFO {
-    pub TimeCheck: u32,
-    pub DemoteLimit: u32,
-    pub PromoteLimit: u32,
-    pub DemotePercent: u8,
-    pub PromotePercent: u8,
-    pub Spare: [u8; 2],
+    pub TimeCheck: super::DWORD,
+    pub DemoteLimit: super::DWORD,
+    pub PromoteLimit: super::DWORD,
+    pub DemotePercent: super::BYTE,
+    pub PromotePercent: super::BYTE,
+    pub Spare: [super::BYTE; 2],
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESSOR_POWER_POLICY_INFO {
-    pub fn AllowDemotion(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn AllowDemotion(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_AllowDemotion(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_AllowDemotion(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AllowPromotion(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AllowPromotion(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AllowPromotion(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AllowPromotion(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Reserved(&self) -> u32 {
+    pub fn Reserved(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_Reserved(&mut self, value: u32) {
+    pub fn set_Reserved(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESSOR_POWER_POLICY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9104,16 +9949,16 @@ pub const PROCESSOR_PPC_603: i32 = 603;
 pub const PROCESSOR_PPC_604: i32 = 604;
 pub const PROCESSOR_PPC_620: i32 = 620;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_RELATIONSHIP {
-    pub Flags: u8,
-    pub EfficiencyClass: u8,
-    pub Reserved: [u8; 20],
-    pub GroupCount: u16,
+    pub Flags: super::BYTE,
+    pub EfficiencyClass: super::BYTE,
+    pub Reserved: [super::BYTE; 20],
+    pub GroupCount: super::WORD,
     pub GroupMask: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for PROCESSOR_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9131,1067 +9976,1180 @@ pub const PROCESS_CREATE_PROCESS: i32 = 128;
 pub const PROCESS_CREATE_THREAD: i32 = 2;
 pub const PROCESS_DUP_HANDLE: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    pub TargetAddress: usize,
-    pub Flags: usize,
+    pub TargetAddress: super::ULONG_PTR,
+    pub Flags: super::ULONG_PTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    pub NumberOfTargets: u16,
-    pub Reserved: u16,
-    pub Reserved2: u32,
+    pub NumberOfTargets: super::WORD,
+    pub Reserved: super::WORD,
+    pub Reserved2: super::DWORD,
     pub Targets: PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    pub BaseAddress: usize,
-    pub Size: usize,
-    pub Flags: u32,
+    pub BaseAddress: super::ULONG_PTR,
+    pub Size: super::SIZE_T,
+    pub Flags: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    pub NumberOfRanges: u16,
-    pub Reserved: u16,
-    pub Reserved2: u32,
+    pub NumberOfRanges: super::WORD,
+    pub Reserved: super::WORD,
+    pub Reserved2: super::DWORD,
     pub Ranges: PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY {
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_ASLR_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_ASLR_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_ASLR_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_ASLR_POLICY_0_0 {
-    pub fn EnableBottomUpRandomization(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnableBottomUpRandomization(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_EnableBottomUpRandomization(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EnableBottomUpRandomization(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EnableForceRelocateImages(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn EnableForceRelocateImages(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_EnableForceRelocateImages(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_EnableForceRelocateImages(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn EnableHighEntropy(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn EnableHighEntropy(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_EnableHighEntropy(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_EnableHighEntropy(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn DisallowStrippedImages(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn DisallowStrippedImages(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_DisallowStrippedImages(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_DisallowStrippedImages(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 4
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
-    pub fn MicrosoftSignedOnly(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn MicrosoftSignedOnly(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_MicrosoftSignedOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_MicrosoftSignedOnly(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn StoreSignedOnly(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn StoreSignedOnly(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_StoreSignedOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_StoreSignedOnly(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn MitigationOptIn(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn MitigationOptIn(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_MitigationOptIn(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_MitigationOptIn(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AuditMicrosoftSignedOnly(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AuditMicrosoftSignedOnly(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AuditMicrosoftSignedOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_AuditMicrosoftSignedOnly(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn AuditStoreSignedOnly(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn AuditStoreSignedOnly(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_AuditStoreSignedOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_AuditStoreSignedOnly(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 5
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
-    pub fn NoChildProcessCreation(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn NoChildProcessCreation(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_NoChildProcessCreation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_NoChildProcessCreation(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AuditNoChildProcessCreation(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AuditNoChildProcessCreation(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AuditNoChildProcessCreation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AuditNoChildProcessCreation(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn AllowSecureProcessCreation(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn AllowSecureProcessCreation(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_AllowSecureProcessCreation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_AllowSecureProcessCreation(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 3
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
-    pub fn EnableControlFlowGuard(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnableControlFlowGuard(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_EnableControlFlowGuard(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EnableControlFlowGuard(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn EnableExportSuppression(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn EnableExportSuppression(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_EnableExportSuppression(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_EnableExportSuppression(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn StrictMode(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn StrictMode(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_StrictMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_StrictMode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn EnableXfg(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn EnableXfg(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_EnableXfg(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_EnableXfg(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn EnableXfgAuditMode(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn EnableXfgAuditMode(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_EnableXfgAuditMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_EnableXfgAuditMode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 5
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
-    pub Permanent: BOOLEAN,
+    pub Permanent: super::BOOLEAN,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_DEP_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_DEP_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_DEP_POLICY_0_0 {
-    pub fn Enable(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Enable(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_Enable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Enable(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn DisableAtlThunkEmulation(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn DisableAtlThunkEmulation(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_DisableAtlThunkEmulation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_DisableAtlThunkEmulation(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
-    pub fn ProhibitDynamicCode(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn ProhibitDynamicCode(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_ProhibitDynamicCode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_ProhibitDynamicCode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AllowThreadOptOut(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AllowThreadOptOut(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AllowThreadOptOut(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AllowThreadOptOut(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn AllowRemoteDowngrade(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn AllowRemoteDowngrade(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_AllowRemoteDowngrade(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_AllowRemoteDowngrade(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AuditProhibitDynamicCode(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AuditProhibitDynamicCode(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AuditProhibitDynamicCode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_AuditProhibitDynamicCode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 4
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
-    pub fn DisableExtensionPoints(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DisableExtensionPoints(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_DisableExtensionPoints(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DisableExtensionPoints(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
-    pub fn DisableNonSystemFonts(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DisableNonSystemFonts(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_DisableNonSystemFonts(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DisableNonSystemFonts(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AuditNonSystemFontLoading(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AuditNonSystemFontLoading(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AuditNonSystemFontLoading(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AuditNonSystemFontLoading(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
-    pub fn NoRemoteImages(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn NoRemoteImages(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_NoRemoteImages(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_NoRemoteImages(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn NoLowMandatoryLabelImages(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn NoLowMandatoryLabelImages(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_NoLowMandatoryLabelImages(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_NoLowMandatoryLabelImages(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn PreferSystem32Images(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn PreferSystem32Images(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_PreferSystem32Images(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_PreferSystem32Images(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AuditNoRemoteImages(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AuditNoRemoteImages(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AuditNoRemoteImages(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_AuditNoRemoteImages(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn AuditNoLowMandatoryLabelImages(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn AuditNoLowMandatoryLabelImages(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_AuditNoLowMandatoryLabelImages(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_AuditNoLowMandatoryLabelImages(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 5
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
-    pub fn EnableExportAddressFilter(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnableExportAddressFilter(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_EnableExportAddressFilter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EnableExportAddressFilter(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AuditExportAddressFilter(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AuditExportAddressFilter(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AuditExportAddressFilter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AuditExportAddressFilter(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn EnableExportAddressFilterPlus(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn EnableExportAddressFilterPlus(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_EnableExportAddressFilterPlus(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_EnableExportAddressFilterPlus(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AuditExportAddressFilterPlus(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AuditExportAddressFilterPlus(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AuditExportAddressFilterPlus(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_AuditExportAddressFilterPlus(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn EnableImportAddressFilter(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn EnableImportAddressFilter(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_EnableImportAddressFilter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_EnableImportAddressFilter(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn AuditImportAddressFilter(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn AuditImportAddressFilter(&self) -> super::DWORD {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_AuditImportAddressFilter(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_AuditImportAddressFilter(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn EnableRopStackPivot(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn EnableRopStackPivot(&self) -> super::DWORD {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_EnableRopStackPivot(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_EnableRopStackPivot(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn AuditRopStackPivot(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn AuditRopStackPivot(&self) -> super::DWORD {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_AuditRopStackPivot(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_AuditRopStackPivot(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn EnableRopCallerCheck(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn EnableRopCallerCheck(&self) -> super::DWORD {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_EnableRopCallerCheck(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_EnableRopCallerCheck(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn AuditRopCallerCheck(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn AuditRopCallerCheck(&self) -> super::DWORD {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_AuditRopCallerCheck(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_AuditRopCallerCheck(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn EnableRopSimExec(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn EnableRopSimExec(&self) -> super::DWORD {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_EnableRopSimExec(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    pub fn set_EnableRopSimExec(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn AuditRopSimExec(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn AuditRopSimExec(&self) -> super::DWORD {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_AuditRopSimExec(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    pub fn set_AuditRopSimExec(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 12
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
     }
 }
 pub type PROCESS_MITIGATION_POLICY = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
-    pub fn EnforceRedirectionTrust(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnforceRedirectionTrust(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_EnforceRedirectionTrust(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EnforceRedirectionTrust(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AuditRedirectionTrust(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AuditRedirectionTrust(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AuditRedirectionTrust(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AuditRedirectionTrust(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SEHOP_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SEHOP_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SEHOP_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
-    pub fn EnableSehop(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnableSehop(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_EnableSehop(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EnableSehop(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
-    pub fn SmtBranchTargetIsolation(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SmtBranchTargetIsolation(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_SmtBranchTargetIsolation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_SmtBranchTargetIsolation(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn IsolateSecurityDomain(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn IsolateSecurityDomain(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_IsolateSecurityDomain(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_IsolateSecurityDomain(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn DisablePageCombine(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn DisablePageCombine(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_DisablePageCombine(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_DisablePageCombine(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn SpeculativeStoreBypassDisable(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn SpeculativeStoreBypassDisable(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_SpeculativeStoreBypassDisable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_SpeculativeStoreBypassDisable(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn RestrictCoreSharing(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn RestrictCoreSharing(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_RestrictCoreSharing(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_RestrictCoreSharing(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 5
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
-    pub fn RaiseExceptionOnInvalidHandleReference(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn RaiseExceptionOnInvalidHandleReference(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_RaiseExceptionOnInvalidHandleReference(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_RaiseExceptionOnInvalidHandleReference(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn HandleExceptionsPermanentlyEnabled(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn HandleExceptionsPermanentlyEnabled(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_HandleExceptionsPermanentlyEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_HandleExceptionsPermanentlyEnabled(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
-    pub fn DisallowWin32kSystemCalls(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn DisallowWin32kSystemCalls(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_DisallowWin32kSystemCalls(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_DisallowWin32kSystemCalls(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AuditDisallowWin32kSystemCalls(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AuditDisallowWin32kSystemCalls(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AuditDisallowWin32kSystemCalls(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AuditDisallowWin32kSystemCalls(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn DisallowFsctlSystemCalls(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn DisallowFsctlSystemCalls(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_DisallowFsctlSystemCalls(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_DisallowFsctlSystemCalls(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AuditDisallowFsctlSystemCalls(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AuditDisallowFsctlSystemCalls(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AuditDisallowFsctlSystemCalls(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_AuditDisallowFsctlSystemCalls(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 4
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
-    pub fn FilterId(&self) -> u32 {
-        (self._bitfield << 28) >> 28
+    pub fn FilterId(&self) -> super::DWORD {
+        (self._bitfield) & 15
     }
-    pub fn set_FilterId(&mut self, value: u32) {
+    pub fn set_FilterId(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !15) | (value & 15);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 4
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
-    pub fn EnablePointerAuthUserIp(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnablePointerAuthUserIp(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_EnablePointerAuthUserIp(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EnablePointerAuthUserIp(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
-    pub fn EnableUserShadowStack(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn EnableUserShadowStack(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_EnableUserShadowStack(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_EnableUserShadowStack(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn AuditUserShadowStack(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn AuditUserShadowStack(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_AuditUserShadowStack(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_AuditUserShadowStack(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn SetContextIpValidation(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn SetContextIpValidation(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_SetContextIpValidation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_SetContextIpValidation(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn AuditSetContextIpValidation(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn AuditSetContextIpValidation(&self) -> super::DWORD {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_AuditSetContextIpValidation(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_AuditSetContextIpValidation(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn EnableUserShadowStackStrictMode(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn EnableUserShadowStackStrictMode(&self) -> super::DWORD {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_EnableUserShadowStackStrictMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_EnableUserShadowStackStrictMode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn BlockNonCetBinaries(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn BlockNonCetBinaries(&self) -> super::DWORD {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_BlockNonCetBinaries(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_BlockNonCetBinaries(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn BlockNonCetBinariesNonEhcont(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn BlockNonCetBinariesNonEhcont(&self) -> super::DWORD {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_BlockNonCetBinariesNonEhcont(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_BlockNonCetBinariesNonEhcont(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn AuditBlockNonCetBinaries(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn AuditBlockNonCetBinaries(&self) -> super::DWORD {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_AuditBlockNonCetBinaries(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_AuditBlockNonCetBinaries(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn CetDynamicApisOutOfProcOnly(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn CetDynamicApisOutOfProcOnly(&self) -> super::DWORD {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_CetDynamicApisOutOfProcOnly(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_CetDynamicApisOutOfProcOnly(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn SetContextIpValidationRelaxedMode(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn SetContextIpValidationRelaxedMode(&self) -> super::DWORD {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_SetContextIpValidationRelaxedMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_SetContextIpValidationRelaxedMode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 10
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_NETWORK_COUNTERS {
-    pub BytesIn: u64,
-    pub BytesOut: u64,
+    pub BytesIn: super::DWORD64,
+    pub BytesOut: super::DWORD64,
 }
 pub const PROCESS_QUERY_INFORMATION: i32 = 1024;
 pub const PROCESS_QUERY_LIMITED_INFORMATION: i32 = 4096;
@@ -10386,228 +11344,351 @@ pub const PRODUCT_XBOX_SCARLETTHOSTOS: i32 = 197;
 pub const PRODUCT_XBOX_SYSTEMOS: i32 = 192;
 pub const PROTECTED_DACL_SECURITY_INFORMATION: u32 = 2147483648;
 pub const PROTECTED_SACL_SECURITY_INFORMATION: i32 = 1073741824;
+#[cfg(feature = "shared")]
 pub type PRTL_BARRIER = *mut RTL_BARRIER;
 pub type PRTL_CONDITION_VARIABLE = *mut RTL_CONDITION_VARIABLE;
+#[cfg(feature = "shared")]
 pub type PRTL_CRITICAL_SECTION = *mut RTL_CRITICAL_SECTION;
-pub type PRTL_CRITICAL_SECTION_DEBUG = *mut RTL_CRITICAL_SECTION_DEBUG;
-pub type PRTL_OSVERSIONINFOEXW = *mut OSVERSIONINFOEXW;
-pub type PRTL_OSVERSIONINFOW = *mut OSVERSIONINFOW;
-pub type PRTL_REFERENCE_COUNT = *mut isize;
+#[cfg(feature = "shared")]
+pub type PRTL_CRITICAL_SECTION_DEBUG = *mut _RTL_CRITICAL_SECTION_DEBUG;
+#[cfg(feature = "shared")]
+pub type PRTL_OSVERSIONINFOEXW = *mut _OSVERSIONINFOEXW;
+#[cfg(feature = "shared")]
+pub type PRTL_OSVERSIONINFOW = *mut _OSVERSIONINFOW;
+#[cfg(target_arch = "x86")]
+pub type PRTL_REFERENCE_COUNT = *mut i32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type PRTL_REFERENCE_COUNT = *mut i64;
 pub type PRTL_REFERENCE_COUNT32 = *mut i32;
-pub type PRTL_RESOURCE_DEBUG = *mut RTL_CRITICAL_SECTION_DEBUG;
+#[cfg(feature = "shared")]
+pub type PRTL_RESOURCE_DEBUG = *mut _RTL_CRITICAL_SECTION_DEBUG;
 pub type PRTL_RUN_ONCE = *mut RTL_RUN_ONCE;
 pub type PRTL_SRWLOCK = *mut RTL_SRWLOCK;
 pub type PRTL_SYSTEM_GLOBAL_DATA_ID = *mut RTL_SYSTEM_GLOBAL_DATA_ID;
-pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
+#[cfg(feature = "shared")]
+pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: super::ULONG_PTR, schedulerparam: PVOID)>;
 pub type PRTL_UMS_SCHEDULER_REASON = *mut RTL_UMS_SCHEDULER_REASON;
 pub type PRTL_UMS_THREAD_INFO_CLASS = *mut RTL_UMS_THREAD_INFO_CLASS;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PRUNTIME_FUNCTION = *mut RUNTIME_FUNCTION;
+#[cfg(feature = "shared")]
+pub type PRUNTIME_FUNCTION = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type PRUNTIME_FUNCTION = *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+#[cfg(feature = "shared")]
 pub type PRUNTIME_REPORT_DIGEST_HEADER = *mut RUNTIME_REPORT_DIGEST_HEADER;
+#[cfg(feature = "shared")]
 pub type PRUNTIME_REPORT_HEADER = *mut RUNTIME_REPORT_HEADER;
+#[cfg(feature = "shared")]
 pub type PRUNTIME_REPORT_PACKAGE_HEADER = *mut RUNTIME_REPORT_PACKAGE_HEADER;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PSCOPE_TABLE = *mut SCOPE_TABLE_AMD64;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type PSCOPE_TABLE = *mut SCOPE_TABLE_ARM64;
+#[cfg(feature = "shared")]
 pub type PSCOPE_TABLE_AMD64 = *mut SCOPE_TABLE_AMD64;
+#[cfg(feature = "shared")]
 pub type PSCOPE_TABLE_ARM = *mut SCOPE_TABLE_ARM;
+#[cfg(feature = "shared")]
 pub type PSCOPE_TABLE_ARM64 = *mut SCOPE_TABLE_ARM64;
+#[cfg(feature = "shared")]
 pub type PSCRUB_DATA_INPUT = *mut SCRUB_DATA_INPUT;
+#[cfg(feature = "shared")]
 pub type PSCRUB_DATA_OUTPUT = *mut SCRUB_DATA_OUTPUT;
+#[cfg(feature = "shared")]
 pub type PSCRUB_PARITY_EXTENT = *mut SCRUB_PARITY_EXTENT;
+#[cfg(feature = "shared")]
 pub type PSCRUB_PARITY_EXTENT_DATA = *mut SCRUB_PARITY_EXTENT_DATA;
-pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: *const core::ffi::c_void, range: usize) -> BOOLEAN>;
+#[cfg(feature = "shared")]
+pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: PVOID, range: super::SIZE_T) -> super::BOOLEAN>;
 pub type PSECURITY_ATTRIBUTES_OPAQUE = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PSECURITY_CAPABILITIES = *mut SECURITY_CAPABILITIES;
-pub type PSECURITY_CONTEXT_TRACKING_MODE = *mut BOOLEAN;
+pub type PSECURITY_CONTEXT_TRACKING_MODE = *mut u8;
 pub type PSECURITY_DESCRIPTOR = *mut core::ffi::c_void;
 pub type PSECURITY_DESCRIPTOR_CONTROL = *mut u16;
 pub type PSECURITY_IMPERSONATION_LEVEL = *mut SECURITY_IMPERSONATION_LEVEL;
 pub type PSECURITY_INFORMATION = *mut u32;
+#[cfg(feature = "shared")]
 pub type PSECURITY_OBJECT_AI_PARAMS = *mut SECURITY_OBJECT_AI_PARAMS;
+#[cfg(feature = "shared")]
 pub type PSECURITY_QUALITY_OF_SERVICE = *mut SECURITY_QUALITY_OF_SERVICE;
+#[cfg(feature = "shared")]
 pub type PSERVERSILO_BASIC_INFORMATION = *mut SERVERSILO_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PSERVERSILO_DIAGNOSTIC_INFORMATION = *mut SERVERSILO_DIAGNOSTIC_INFORMATION;
 pub type PSERVERSILO_STATE = *mut SERVERSILO_STATE;
+#[cfg(feature = "shared")]
 pub type PSET_POWER_SETTING_VALUE = *mut SET_POWER_SETTING_VALUE;
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PSE_ACCESS_REPLY = *mut SE_ACCESS_REPLY;
+#[cfg(feature = "shared")]
 pub type PSE_ACCESS_REQUEST = *mut SE_ACCESS_REQUEST;
 pub type PSE_IMAGE_SIGNATURE_TYPE = *mut SE_IMAGE_SIGNATURE_TYPE;
+#[cfg(feature = "shared")]
 pub type PSE_IMPERSONATION_STATE = *mut SE_IMPERSONATION_STATE;
+#[cfg(feature = "shared")]
 pub type PSE_SECURITY_DESCRIPTOR = *mut SE_SECURITY_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PSE_SID = *mut SE_SID;
 pub type PSE_SIGNING_LEVEL = *mut u8;
+#[cfg(feature = "shared")]
 pub type PSE_TOKEN_USER = _SE_TOKEN_USER;
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PSHARED_COMPUTE_UNIT_RELATIONSHIP = *mut SHARED_COMPUTE_UNIT_RELATIONSHIP;
 pub type PSHARED_VIRTUAL_DISK_SUPPORT = *mut SHARED_VIRTUAL_DISK_SUPPORT;
 pub type PSHORT = *mut i16;
+#[cfg(feature = "shared")]
 pub type PSHUFFLE_FILE_DATA = *mut SHUFFLE_FILE_DATA;
 pub type PSID = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type PSID_AND_ATTRIBUTES = *mut SID_AND_ATTRIBUTES;
-pub type PSID_AND_ATTRIBUTES_ARRAY = *mut SID_AND_ATTRIBUTES_ARRAY;
+#[cfg(feature = "shared")]
+pub type PSID_AND_ATTRIBUTES_ARRAY = *mut [SID_AND_ATTRIBUTES; 1];
+#[cfg(feature = "shared")]
 pub type PSID_AND_ATTRIBUTES_HASH = *mut SID_AND_ATTRIBUTES_HASH;
-pub type PSID_HASH_ENTRY = *mut usize;
+#[cfg(target_arch = "x86")]
+pub type PSID_HASH_ENTRY = *mut u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type PSID_HASH_ENTRY = *mut u64;
+#[cfg(feature = "shared")]
 pub type PSID_IDENTIFIER_AUTHORITY = *mut SID_IDENTIFIER_AUTHORITY;
 pub type PSID_NAME_USE = *mut SID_NAME_USE;
+#[cfg(feature = "shared")]
 pub type PSILOOBJECT_BASIC_INFORMATION = *mut SILOOBJECT_BASIC_INFORMATION;
 pub type PSINGLE_LIST_ENTRY = *mut SINGLE_LIST_ENTRY;
 #[cfg(target_arch = "x86")]
 pub type PSLIST_ENTRY = *mut SINGLE_LIST_ENTRY;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type PSLIST_ENTRY = *mut SLIST_ENTRY;
+#[cfg(feature = "shared")]
 pub type PSLIST_HEADER = *mut SLIST_HEADER;
+#[cfg(feature = "shared")]
 pub type PSUPPORTED_OS_INFO = *mut SUPPORTED_OS_INFO;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_ACCESS_FILTER_ACE = *mut SYSTEM_ACCESS_FILTER_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_ALARM_ACE = *mut SYSTEM_ALARM_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_ALARM_CALLBACK_ACE = *mut SYSTEM_ALARM_CALLBACK_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_ALARM_CALLBACK_OBJECT_ACE = *mut SYSTEM_ALARM_CALLBACK_OBJECT_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_ALARM_OBJECT_ACE = *mut SYSTEM_ALARM_OBJECT_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_AUDIT_ACE = *mut SYSTEM_AUDIT_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_AUDIT_CALLBACK_ACE = *mut SYSTEM_AUDIT_CALLBACK_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_AUDIT_CALLBACK_OBJECT_ACE = *mut SYSTEM_AUDIT_CALLBACK_OBJECT_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_AUDIT_OBJECT_ACE = *mut SYSTEM_AUDIT_OBJECT_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_BATTERY_STATE = *mut SYSTEM_BATTERY_STATE;
-pub type PSYSTEM_CPU_SET_INFORMATION = *mut SYSTEM_CPU_SET_INFORMATION;
+#[cfg(feature = "shared")]
+pub type PSYSTEM_CPU_SET_INFORMATION = *mut _SYSTEM_CPU_SET_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_LOGICAL_PROCESSOR_INFORMATION = *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION;
-#[cfg(feature = "basetsd")]
-pub type PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX = *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+pub type PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX = *mut _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_MANDATORY_LABEL_ACE = *mut SYSTEM_MANDATORY_LABEL_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_POOL_ZEROING_INFORMATION = *mut SYSTEM_POOL_ZEROING_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_POWER_CAPABILITIES = *mut SYSTEM_POWER_CAPABILITIES;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_POWER_LEVEL = *mut SYSTEM_POWER_LEVEL;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_POWER_POLICY = *mut SYSTEM_POWER_POLICY;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_POWER_SOURCE_STATE = *mut SYSTEM_POWER_SOURCE_STATE;
 pub type PSYSTEM_POWER_STATE = *mut SYSTEM_POWER_STATE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION = *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_PROCESS_TRUST_LABEL_ACE = *mut SYSTEM_PROCESS_TRUST_LABEL_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_RESOURCE_ATTRIBUTE_ACE = *mut SYSTEM_RESOURCE_ATTRIBUTE_ACE;
+#[cfg(feature = "shared")]
 pub type PSYSTEM_SCOPED_POLICY_ID_ACE = *mut SYSTEM_SCOPED_POLICY_ID_ACE;
+#[cfg(feature = "shared")]
 pub type PTAPE_CREATE_PARTITION = *mut TAPE_CREATE_PARTITION;
+#[cfg(feature = "shared")]
 pub type PTAPE_ERASE = *mut TAPE_ERASE;
+#[cfg(feature = "shared")]
 pub type PTAPE_GET_DRIVE_PARAMETERS = *mut TAPE_GET_DRIVE_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PTAPE_GET_MEDIA_PARAMETERS = *mut TAPE_GET_MEDIA_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PTAPE_GET_POSITION = *mut TAPE_GET_POSITION;
+#[cfg(feature = "shared")]
 pub type PTAPE_PREPARE = *mut TAPE_PREPARE;
+#[cfg(feature = "shared")]
 pub type PTAPE_SET_DRIVE_PARAMETERS = *mut TAPE_SET_DRIVE_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PTAPE_SET_MEDIA_PARAMETERS = *mut TAPE_SET_MEDIA_PARAMETERS;
+#[cfg(feature = "shared")]
 pub type PTAPE_SET_POSITION = *mut TAPE_SET_POSITION;
+#[cfg(feature = "shared")]
 pub type PTAPE_WMI_OPERATIONS = *mut TAPE_WMI_OPERATIONS;
+#[cfg(feature = "shared")]
 pub type PTAPE_WRITE_MARKS = *mut TAPE_WRITE_MARKS;
 pub type PTBYTE = *mut u8;
-pub type PTCH = LPCH;
+pub type PTCH = *mut i8;
 pub type PTCHAR = *mut i8;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "C" fn(_abnormal_termination: BOOLEAN, establisherframe: *mut core::ffi::c_void)>;
+#[cfg(feature = "shared")]
+pub type PTERMINATION_HANDLER = Option<unsafe extern "C" fn(_abnormal_termination: super::BOOLEAN, establisherframe: PVOID)>;
 #[cfg(target_arch = "aarch64")]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "C" fn(_abnormal_termination: BOOLEAN, establisherframe: u64)>;
+#[cfg(feature = "shared")]
+pub type PTERMINATION_HANDLER = Option<unsafe extern "C" fn(_abnormal_termination: super::BOOLEAN, establisherframe: super::DWORD64)>;
+#[cfg(feature = "shared")]
 pub type PTOKEN_ACCESS_INFORMATION = *mut TOKEN_ACCESS_INFORMATION;
 pub type PTOKEN_APPCONTAINER_INFORMATION = *mut TOKEN_APPCONTAINER_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTOKEN_AUDIT_POLICY = *mut TOKEN_AUDIT_POLICY;
+#[cfg(feature = "shared")]
 pub type PTOKEN_BNO_ISOLATION_INFORMATION = *mut TOKEN_BNO_ISOLATION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTOKEN_CONTROL = *mut TOKEN_CONTROL;
+#[cfg(feature = "shared")]
 pub type PTOKEN_DEFAULT_DACL = *mut TOKEN_DEFAULT_DACL;
 pub type PTOKEN_DEVICE_CLAIMS = *mut TOKEN_DEVICE_CLAIMS;
+#[cfg(feature = "shared")]
 pub type PTOKEN_ELEVATION = *mut TOKEN_ELEVATION;
 pub type PTOKEN_ELEVATION_TYPE = *mut TOKEN_ELEVATION_TYPE;
+#[cfg(feature = "shared")]
 pub type PTOKEN_GROUPS = *mut TOKEN_GROUPS;
+#[cfg(feature = "shared")]
 pub type PTOKEN_GROUPS_AND_PRIVILEGES = *mut TOKEN_GROUPS_AND_PRIVILEGES;
 pub type PTOKEN_INFORMATION_CLASS = *mut TOKEN_INFORMATION_CLASS;
 pub type PTOKEN_LINKED_TOKEN = *mut TOKEN_LINKED_TOKEN;
+#[cfg(feature = "shared")]
 pub type PTOKEN_LOGGING_INFORMATION = *mut TOKEN_LOGGING_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTOKEN_MANDATORY_LABEL = *mut TOKEN_MANDATORY_LABEL;
+#[cfg(feature = "shared")]
 pub type PTOKEN_MANDATORY_POLICY = *mut TOKEN_MANDATORY_POLICY;
+#[cfg(feature = "shared")]
 pub type PTOKEN_ORIGIN = *mut TOKEN_ORIGIN;
 pub type PTOKEN_OWNER = *mut TOKEN_OWNER;
 pub type PTOKEN_PRIMARY_GROUP = *mut TOKEN_PRIMARY_GROUP;
+#[cfg(feature = "shared")]
 pub type PTOKEN_PRIVILEGES = *mut TOKEN_PRIVILEGES;
 pub type PTOKEN_SID_INFORMATION = *mut TOKEN_SID_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTOKEN_SOURCE = *mut TOKEN_SOURCE;
+#[cfg(feature = "shared")]
 pub type PTOKEN_STATISTICS = *mut TOKEN_STATISTICS;
 pub type PTOKEN_TYPE = *mut TOKEN_TYPE;
+#[cfg(feature = "shared")]
 pub type PTOKEN_USER = *mut TOKEN_USER;
 pub type PTOKEN_USER_CLAIMS = *mut TOKEN_USER_CLAIMS;
+#[cfg(feature = "shared")]
 pub type PTP_CALLBACK_ENVIRON = *mut TP_CALLBACK_ENVIRON_V3;
-pub type PTP_CALLBACK_INSTANCE = *mut TP_CALLBACK_INSTANCE;
-pub type PTP_CLEANUP_GROUP = *mut TP_CLEANUP_GROUP;
-pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
-pub type PTP_IO = *mut TP_IO;
-pub type PTP_POOL = *mut TP_POOL;
+pub type PTP_CALLBACK_INSTANCE = *mut _TP_CALLBACK_INSTANCE;
+pub type PTP_CLEANUP_GROUP = *mut _TP_CLEANUP_GROUP;
+pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: PVOID, cleanupcontext: PVOID)>;
+pub type PTP_IO = *mut _TP_IO;
+pub type PTP_POOL = *mut _TP_POOL;
+#[cfg(feature = "shared")]
 pub type PTP_POOL_STACK_INFORMATION = *mut TP_POOL_STACK_INFORMATION;
-pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
-pub type PTP_TIMER = *mut TP_TIMER;
-pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: PTP_TIMER)>;
+pub type PTP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID)>;
+pub type PTP_TIMER = *mut _TP_TIMER;
+pub type PTP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID, timer: PTP_TIMER)>;
 pub type PTP_VERSION = *mut u32;
-pub type PTP_WAIT = *mut TP_WAIT;
-pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: PTP_WAIT, waitresult: TP_WAIT_RESULT)>;
-pub type PTP_WORK = *mut TP_WORK;
-pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: PTP_WORK)>;
+pub type PTP_WAIT = *mut _TP_WAIT;
+pub type PTP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID, wait: PTP_WAIT, waitresult: TP_WAIT_RESULT)>;
+pub type PTP_WORK = *mut _TP_WORK;
+pub type PTP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID, work: PTP_WORK)>;
+#[cfg(feature = "shared")]
 pub type PTRANSACTIONMANAGER_BASIC_INFORMATION = *mut TRANSACTIONMANAGER_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTRANSACTIONMANAGER_LOGPATH_INFORMATION = *mut TRANSACTIONMANAGER_LOGPATH_INFORMATION;
 pub type PTRANSACTIONMANAGER_LOG_INFORMATION = *mut TRANSACTIONMANAGER_LOG_INFORMATION;
 pub type PTRANSACTIONMANAGER_OLDEST_INFORMATION = *mut TRANSACTIONMANAGER_OLDEST_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTRANSACTIONMANAGER_RECOVERY_INFORMATION = *mut TRANSACTIONMANAGER_RECOVERY_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTRANSACTION_BASIC_INFORMATION = *mut TRANSACTION_BASIC_INFORMATION;
 pub type PTRANSACTION_BIND_INFORMATION = *mut TRANSACTION_BIND_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTRANSACTION_ENLISTMENTS_INFORMATION = *mut TRANSACTION_ENLISTMENTS_INFORMATION;
 pub type PTRANSACTION_ENLISTMENT_PAIR = *mut TRANSACTION_ENLISTMENT_PAIR;
 #[cfg(feature = "ktmtypes")]
 pub type PTRANSACTION_LIST_ENTRY = *mut TRANSACTION_LIST_ENTRY;
-#[cfg(feature = "ktmtypes")]
+#[cfg(all(feature = "ktmtypes", feature = "shared"))]
 pub type PTRANSACTION_LIST_INFORMATION = *mut TRANSACTION_LIST_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PTRANSACTION_PROPERTIES_INFORMATION = *mut TRANSACTION_PROPERTIES_INFORMATION;
 pub type PTRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION = *mut TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION;
-pub type PTSTR = windows_core::PSTR;
-pub type PUCSCHAR = *mut UCSCHAR;
-pub type PUCSSTR = *mut UCSCHAR;
+pub type PTSTR = *mut i8;
+pub type PUCSCHAR = *mut u32;
+pub type PUCSSTR = *mut u32;
+#[cfg(feature = "shared")]
 pub type PULARGE_INTEGER = *mut ULARGE_INTEGER;
 pub type PULONGLONG = *mut u64;
+#[cfg(feature = "shared")]
 pub type PUMS_CREATE_THREAD_ATTRIBUTES = *mut UMS_CREATE_THREAD_ATTRIBUTES;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PUNWIND_HISTORY_TABLE = *mut UNWIND_HISTORY_TABLE;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PUNWIND_HISTORY_TABLE_ENTRY = *mut UNWIND_HISTORY_TABLE_ENTRY;
-pub type PUNZTCH = PNZCH;
-pub type PUNZWCH = *mut u16;
+pub type PUNZTCH = *mut i8;
 pub type PUSER_ACTIVITY_PRESENCE = *mut USER_ACTIVITY_PRESENCE;
-pub type PUTSTR = windows_core::PSTR;
-pub type PUUCSCHAR = *mut UCSCHAR;
-pub type PUUCSSTR = *mut UCSCHAR;
-pub type PUWSTR = *mut u16;
-pub type PUZZTSTR = PZZSTR;
-pub type PUZZWSTR = *mut u16;
-pub type PVECTORED_EXCEPTION_HANDLER = Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
-pub type PVOID64 = *mut core::ffi::c_void;
+pub type PUTSTR = *mut i8;
+pub type PUZZTSTR = *mut i8;
+#[cfg(feature = "shared")]
+pub type PVECTORED_EXCEPTION_HANDLER = Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> super::LONG>;
+pub type PVOID = *mut core::ffi::c_void;
+pub type PVOID64 = super::__windows_bindgen_Pointer64<*mut core::ffi::c_void>;
 pub type PWCH = *mut u16;
 pub type PWCHAR = *mut u16;
+#[cfg(feature = "shared")]
 pub type PWOW64_CONTEXT = *mut WOW64_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PWOW64_DESCRIPTOR_TABLE_ENTRY = *mut WOW64_DESCRIPTOR_TABLE_ENTRY;
+#[cfg(feature = "shared")]
 pub type PWOW64_FLOATING_SAVE_AREA = *mut WOW64_FLOATING_SAVE_AREA;
+#[cfg(feature = "shared")]
 pub type PWOW64_LDT_ENTRY = *mut WOW64_LDT_ENTRY;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type PXMM_SAVE_AREA32 = *mut XSAVE_FORMAT;
+#[cfg(feature = "shared")]
 pub type PXSAVE_AREA = *mut XSAVE_AREA;
+#[cfg(feature = "shared")]
 pub type PXSAVE_AREA_HEADER = *mut XSAVE_AREA_HEADER;
+#[cfg(feature = "shared")]
 pub type PXSAVE_ARM64_SME_TPIDR2_HEADER = *mut XSAVE_ARM64_SME_TPIDR2_HEADER;
+#[cfg(feature = "shared")]
 pub type PXSAVE_ARM64_SME_ZA_HEADER = *mut XSAVE_ARM64_SME_ZA_HEADER;
+#[cfg(feature = "shared")]
 pub type PXSAVE_ARM64_SME_ZT_HEADER = *mut XSAVE_ARM64_SME_ZT_HEADER;
+#[cfg(feature = "shared")]
 pub type PXSAVE_ARM64_SVE_HEADER = *mut XSAVE_ARM64_SVE_HEADER;
+#[cfg(feature = "shared")]
 pub type PXSAVE_CET_U_FORMAT = *mut XSAVE_CET_U_FORMAT;
+#[cfg(feature = "shared")]
 pub type PXSAVE_FORMAT = *mut XSAVE_FORMAT;
+#[cfg(feature = "shared")]
 pub type PXSTATE_CONFIGURATION = *mut XSTATE_CONFIGURATION;
+#[cfg(feature = "shared")]
 pub type PXSTATE_CONTEXT = *mut XSTATE_CONTEXT;
+#[cfg(feature = "shared")]
 pub type PXSTATE_FEATURE = *mut XSTATE_FEATURE;
-pub type PZPCSTR = *mut windows_core::PCSTR;
-pub type PZPCWSTR = *mut windows_core::PCWSTR;
-pub type PZPSTR = *mut windows_core::PSTR;
-pub type PZPTSTR = PZPSTR;
-pub type PZPWSTR = *mut windows_core::PWSTR;
+pub type PZPCSTR = *mut *const i8;
+pub type PZPCWSTR = *mut *const u16;
+pub type PZPSTR = *mut *mut i8;
+pub type PZPTSTR = *mut *mut i8;
+pub type PZPWSTR = *mut *mut u16;
 pub type PZZSTR = *mut i8;
-pub type PZZTSTR = PZZSTR;
+pub type PZZTSTR = *mut i8;
 pub type PZZWSTR = *mut u16;
 #[cfg(target_arch = "x86")]
 pub const PcTeb: i32 = 24;
@@ -10730,36 +11811,40 @@ pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = 55;
 pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = 7;
 pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = 13;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct QUOTA_LIMITS {
-    pub PagedPoolLimit: usize,
-    pub NonPagedPoolLimit: usize,
-    pub MinimumWorkingSetSize: usize,
-    pub MaximumWorkingSetSize: usize,
-    pub PagefileLimit: usize,
+    pub PagedPoolLimit: super::SIZE_T,
+    pub NonPagedPoolLimit: super::SIZE_T,
+    pub MinimumWorkingSetSize: super::SIZE_T,
+    pub MaximumWorkingSetSize: super::SIZE_T,
+    pub PagefileLimit: super::SIZE_T,
     pub TimeLimit: LARGE_INTEGER,
 }
+#[cfg(feature = "shared")]
 impl Default for QUOTA_LIMITS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct QUOTA_LIMITS_EX {
-    pub PagedPoolLimit: usize,
-    pub NonPagedPoolLimit: usize,
-    pub MinimumWorkingSetSize: usize,
-    pub MaximumWorkingSetSize: usize,
-    pub PagefileLimit: usize,
+    pub PagedPoolLimit: super::SIZE_T,
+    pub NonPagedPoolLimit: super::SIZE_T,
+    pub MinimumWorkingSetSize: super::SIZE_T,
+    pub MaximumWorkingSetSize: super::SIZE_T,
+    pub PagefileLimit: super::SIZE_T,
     pub TimeLimit: LARGE_INTEGER,
-    pub WorkingSetLimit: usize,
-    pub Reserved2: usize,
-    pub Reserved3: usize,
-    pub Reserved4: usize,
-    pub Flags: u32,
+    pub WorkingSetLimit: super::SIZE_T,
+    pub Reserved2: super::SIZE_T,
+    pub Reserved3: super::SIZE_T,
+    pub Reserved4: super::SIZE_T,
+    pub Flags: super::DWORD,
     pub CpuRateLimit: RATE_QUOTA_LIMIT,
 }
+#[cfg(feature = "shared")]
 impl Default for QUOTA_LIMITS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10772,32 +11857,36 @@ pub const QUOTA_LIMITS_HARDWS_MIN_ENABLE: i32 = 1;
 pub const QUOTA_LIMITS_USE_DEFAULT_LIMITS: i32 = 16;
 pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = 91;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union RATE_QUOTA_LIMIT {
-    pub RateData: u32,
+    pub RateData: super::DWORD,
     pub Anonymous: RATE_QUOTA_LIMIT_0,
 }
+#[cfg(feature = "shared")]
 impl Default for RATE_QUOTA_LIMIT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RATE_QUOTA_LIMIT_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl RATE_QUOTA_LIMIT_0 {
-    pub fn RatePercent(&self) -> u32 {
-        (self._bitfield << 25) >> 25
+    pub fn RatePercent(&self) -> super::DWORD {
+        (self._bitfield) & 127
     }
-    pub fn set_RatePercent(&mut self, value: u32) {
+    pub fn set_RatePercent(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !127) | (value & 127);
     }
-    pub fn Reserved0(&self) -> u32 {
+    pub fn Reserved0(&self) -> super::DWORD {
         self._bitfield >> 7
     }
-    pub fn set_Reserved0(&mut self, value: u32) {
+    pub fn set_Reserved0(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
     }
 }
@@ -10805,23 +11894,25 @@ pub const READ_CONTROL: i32 = 131072;
 pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: i32 = 1;
 pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REARRANGE_FILE_DATA {
-    pub SourceStartingOffset: u64,
-    pub TargetOffset: u64,
+    pub SourceStartingOffset: super::ULONGLONG,
+    pub TargetOffset: super::ULONGLONG,
     pub SourceFileHandle: HANDLE,
-    pub Length: u32,
-    pub Flags: u32,
+    pub Length: super::DWORD,
+    pub Flags: super::DWORD,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REARRANGE_FILE_DATA32 {
-    pub SourceStartingOffset: u64,
-    pub TargetOffset: u64,
-    pub SourceFileHandle: u32,
-    pub Length: u32,
-    pub Flags: u32,
+    pub SourceStartingOffset: super::ULONGLONG,
+    pub TargetOffset: super::ULONGLONG,
+    pub SourceFileHandle: super::UINT32,
+    pub Length: super::DWORD,
+    pub Flags: super::DWORD,
 }
 pub const REG_APP_HIVE: i32 = 16;
 pub const REG_APP_HIVE_OPEN_READ_ONLY: i32 = 8192;
@@ -10877,33 +11968,39 @@ pub const REG_SZ: u32 = 1;
 pub const REG_UNLOAD_LEGAL_FLAGS: i32 = 1;
 pub const REG_WHOLE_HIVE_VOLATILE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER {
-    pub ReparseTag: u32,
-    pub ReparseDataLength: u16,
-    pub Reserved: u16,
+    pub ReparseTag: super::DWORD,
+    pub ReparseDataLength: super::WORD,
+    pub Reserved: super::WORD,
     pub ReparseGuid: windows_core::GUID,
     pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
-    pub DataBuffer: [u8; 1],
+    pub DataBuffer: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for REPARSE_GUID_DATA_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const REPARSE_GUID_DATA_BUFFER_HEADER_SIZE: u32 = 24;
+#[cfg(feature = "shared")]
+pub const REPARSE_GUID_DATA_BUFFER_HEADER_SIZE: super::DWORD = 24;
 pub const RESOURCEMANAGER_ALL_ACCESS: i32 = 2031743;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION {
     pub ResourceManagerId: windows_core::GUID,
-    pub DescriptionLength: u32,
-    pub Description: [u16; 1],
+    pub DescriptionLength: super::DWORD,
+    pub Description: [WCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for RESOURCEMANAGER_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10911,10 +12008,11 @@ impl Default for RESOURCEMANAGER_BASIC_INFORMATION {
 }
 pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
     pub IoCompletionPortHandle: HANDLE,
-    pub CompletionKey: usize,
+    pub CompletionKey: super::ULONG_PTR,
 }
 pub const RESOURCEMANAGER_ENLIST: i32 = 8;
 pub const RESOURCEMANAGER_GENERIC_EXECUTE: i32 = 1179740;
@@ -10927,21 +12025,24 @@ pub const RESOURCEMANAGER_RECOVER: i32 = 4;
 pub const RESOURCEMANAGER_REGISTER_PROTOCOL: i32 = 32;
 pub const RESOURCEMANAGER_SET_INFORMATION: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESUME_PERFORMANCE {
-    pub PostTimeMs: u32,
-    pub TotalResumeTimeMs: u64,
-    pub ResumeCompleteTimestamp: u64,
+    pub PostTimeMs: super::DWORD,
+    pub TotalResumeTimeMs: super::ULONGLONG,
+    pub ResumeCompleteTimestamp: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_BARRIER {
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: [usize; 2],
-    pub Reserved4: u32,
-    pub Reserved5: u32,
+    pub Reserved1: super::DWORD,
+    pub Reserved2: super::DWORD,
+    pub Reserved3: [super::ULONG_PTR; 2],
+    pub Reserved4: super::DWORD,
+    pub Reserved5: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for RTL_BARRIER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -10950,7 +12051,7 @@ impl Default for RTL_BARRIER {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_CONDITION_VARIABLE {
-    pub Ptr: *mut core::ffi::c_void,
+    pub Ptr: PVOID,
 }
 pub const RTL_CONDITION_VARIABLE_LOCKMODE_SHARED: i32 = 1;
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: i32 = 129;
@@ -10958,33 +12059,26 @@ pub const RTL_CORRELATION_VECTOR_V1_LENGTH: i32 = 64;
 pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: i32 = 16;
 pub const RTL_CORRELATION_VECTOR_V2_LENGTH: i32 = 128;
 pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: i32 = 22;
-pub const RTL_CORRELATION_VECTOR_VERSION_1: i8 = 1;
-pub const RTL_CORRELATION_VECTOR_VERSION_2: i8 = 2;
-pub const RTL_CORRELATION_VECTOR_VERSION_CURRENT: i8 = 2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+pub const RTL_CORRELATION_VECTOR_VERSION_1: super::CHAR = 1;
+#[cfg(feature = "shared")]
+pub const RTL_CORRELATION_VECTOR_VERSION_2: super::CHAR = 2;
+#[cfg(feature = "shared")]
+pub const RTL_CORRELATION_VECTOR_VERSION_CURRENT: super::CHAR = 2;
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct RTL_CRITICAL_SECTION {
     pub DebugInfo: PRTL_CRITICAL_SECTION_DEBUG,
-    pub LockCount: i32,
-    pub RecursionCount: i32,
+    pub LockCount: super::LONG,
+    pub RecursionCount: super::LONG,
     pub OwningThread: HANDLE,
     pub LockSemaphore: HANDLE,
-    pub SpinCount: usize,
+    pub SpinCount: super::ULONG_PTR,
 }
 pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct RTL_CRITICAL_SECTION_DEBUG {
-    pub Type: u16,
-    pub CreatorBackTraceIndex: u16,
-    pub CriticalSection: *mut RTL_CRITICAL_SECTION,
-    pub ProcessLocksList: LIST_ENTRY,
-    pub EntryCount: u32,
-    pub ContentionCount: u32,
-    pub Flags: u32,
-    pub CreatorBackTraceIndexHigh: u16,
-    pub Identifier: u16,
-}
+#[cfg(feature = "shared")]
+pub type RTL_CRITICAL_SECTION_DEBUG = _RTL_CRITICAL_SECTION_DEBUG;
 pub const RTL_CRITICAL_SECTION_DEBUG_FLAG_STATIC_INIT: i32 = 1;
 pub const RTL_CRITICAL_SECTION_FLAG_DYNAMIC_SPIN: i32 = 33554432;
 pub const RTL_CRITICAL_SECTION_FLAG_FORCE_DEBUG_INFO: i32 = 268435456;
@@ -10992,15 +12086,21 @@ pub const RTL_CRITICAL_SECTION_FLAG_NO_DEBUG_INFO: i32 = 16777216;
 pub const RTL_CRITICAL_SECTION_FLAG_RESERVED: u32 = 3758096384;
 pub const RTL_CRITICAL_SECTION_FLAG_RESOURCE_TYPE: i32 = 134217728;
 pub const RTL_CRITICAL_SECTION_FLAG_STATIC_INIT: i32 = 67108864;
-pub type RTL_OSVERSIONINFOEXW = OSVERSIONINFOEXW;
-pub type RTL_OSVERSIONINFOW = OSVERSIONINFOW;
-pub type RTL_REFERENCE_COUNT = isize;
+#[cfg(feature = "shared")]
+pub type RTL_OSVERSIONINFOEXW = _OSVERSIONINFOEXW;
+#[cfg(feature = "shared")]
+pub type RTL_OSVERSIONINFOW = _OSVERSIONINFOW;
+#[cfg(target_arch = "x86")]
+pub type RTL_REFERENCE_COUNT = i32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type RTL_REFERENCE_COUNT = i64;
 pub type RTL_REFERENCE_COUNT32 = i32;
-pub type RTL_RESOURCE_DEBUG = RTL_CRITICAL_SECTION_DEBUG;
+#[cfg(feature = "shared")]
+pub type RTL_RESOURCE_DEBUG = _RTL_CRITICAL_SECTION_DEBUG;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union RTL_RUN_ONCE {
-    pub Ptr: *mut core::ffi::c_void,
+    pub Ptr: PVOID,
 }
 impl Default for RTL_RUN_ONCE {
     fn default() -> Self {
@@ -11014,52 +12114,32 @@ pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_SRWLOCK {
-    pub Ptr: *mut core::ffi::c_void,
+    pub Ptr: PVOID,
 }
 pub type RTL_SYSTEM_GLOBAL_DATA_ID = i32;
-pub type RTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
+#[cfg(feature = "shared")]
+pub type RTL_UMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: super::ULONG_PTR, schedulerparam: PVOID)>;
 pub type RTL_UMS_SCHEDULER_REASON = i32;
 pub type RTL_UMS_THREAD_INFO_CLASS = i32;
 pub const RTL_UMS_VERSION: i32 = 256;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1;
-#[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct RUNTIME_FUNCTION {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub Anonymous: RUNTIME_FUNCTION_0,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for RUNTIME_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub union RUNTIME_FUNCTION_0 {
-    pub UnwindInfoAddress: u32,
-    pub UnwindData: u32,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for RUNTIME_FUNCTION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type RUNTIME_FUNCTION = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type RUNTIME_FUNCTION = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const RUNTIME_FUNCTION_INDIRECT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_DIGEST_HEADER {
-    pub ReportType: u16,
-    pub Reserved: u16,
-    pub ReportDigest: [u8; 64],
+    pub ReportType: super::UINT16,
+    pub Reserved: super::UINT16,
+    pub ReportDigest: [super::UINT8; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for RUNTIME_REPORT_DIGEST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11067,27 +12147,29 @@ impl Default for RUNTIME_REPORT_DIGEST_HEADER {
 }
 pub const RUNTIME_REPORT_DIGEST_MAX_SIZE: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_HEADER {
-    pub ReportType: u16,
-    pub Reserved: u16,
-    pub ReportSize: u32,
+    pub ReportType: super::UINT16,
+    pub Reserved: super::UINT16,
+    pub ReportSize: super::UINT32,
 }
 pub const RUNTIME_REPORT_NONCE_SIZE: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_PACKAGE_HEADER {
-    pub Magic: u32,
-    pub PackageVersion: u16,
-    pub NumberOfReports: u16,
-    pub ReportTypesBitmap: u64,
-    pub PackageSize: u32,
-    pub ReportDigestType: u16,
-    pub TotalReportDigestsSize: u16,
-    pub Reserved: u16,
-    pub SignatureScheme: u16,
-    pub SignatureSize: u32,
-    pub TotalAuthenticatedReportsSize: u32,
+    pub Magic: super::UINT32,
+    pub PackageVersion: super::UINT16,
+    pub NumberOfReports: super::UINT16,
+    pub ReportTypesBitmap: super::UINT64,
+    pub PackageSize: super::UINT32,
+    pub ReportDigestType: super::UINT16,
+    pub TotalReportDigestsSize: super::UINT16,
+    pub Reserved: super::UINT16,
+    pub SignatureScheme: super::UINT16,
+    pub SignatureSize: super::UINT32,
+    pub TotalAuthenticatedReportsSize: super::UINT32,
 }
 pub const RUNTIME_REPORT_PACKAGE_MAGIC: i32 = 1381257808;
 pub const RUNTIME_REPORT_PACKAGE_VERSION_CURRENT: i32 = 1;
@@ -11117,78 +12199,91 @@ pub const SACL_SECURITY_INFORMATION: i32 = 8;
 pub const SANDBOX_INERT: i32 = 2;
 pub const SCOPE_SECURITY_INFORMATION: i32 = 64;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type SCOPE_TABLE = SCOPE_TABLE_AMD64;
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 pub type SCOPE_TABLE = SCOPE_TABLE_ARM64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_AMD64 {
-    pub Count: u32,
+    pub Count: super::DWORD,
     pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCOPE_TABLE_AMD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_TABLE_AMD64_0 {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub HandlerAddress: u32,
-    pub JumpTarget: u32,
+    pub BeginAddress: super::DWORD,
+    pub EndAddress: super::DWORD,
+    pub HandlerAddress: super::DWORD,
+    pub JumpTarget: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM {
-    pub Count: u32,
+    pub Count: super::DWORD,
     pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCOPE_TABLE_ARM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SCOPE_TABLE_ARM_0 {
+    pub BeginAddress: super::DWORD,
+    pub EndAddress: super::DWORD,
+    pub HandlerAddress: super::DWORD,
+    pub JumpTarget: super::DWORD,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM64 {
-    pub Count: u32,
+    pub Count: super::DWORD,
     pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCOPE_TABLE_ARM64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM64_0 {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub HandlerAddress: u32,
-    pub JumpTarget: u32,
+    pub BeginAddress: super::DWORD,
+    pub EndAddress: super::DWORD,
+    pub HandlerAddress: super::DWORD,
+    pub JumpTarget: super::DWORD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SCOPE_TABLE_ARM_0 {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
-    pub HandlerAddress: u32,
-    pub JumpTarget: u32,
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_DATA_INPUT {
-    pub Size: u32,
-    pub Flags: u32,
-    pub MaximumIos: u32,
-    pub ObjectId: [u32; 4],
-    pub StartingByteOffset: u64,
-    pub ByteCount: u64,
-    pub Reserved: [u32; 36],
-    pub ResumeContext: [u8; 1040],
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub MaximumIos: super::DWORD,
+    pub ObjectId: [super::DWORD; 4],
+    pub StartingByteOffset: super::ULONGLONG,
+    pub ByteCount: super::ULONGLONG,
+    pub Reserved: [super::DWORD; 36],
+    pub ResumeContext: [super::BYTE; 1040],
 }
+#[cfg(feature = "shared")]
 impl Default for SCRUB_DATA_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11202,35 +12297,37 @@ pub const SCRUB_DATA_INPUT_FLAG_SKIP_DATA: i32 = 16;
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC: i32 = 2;
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_DATA_OUTPUT {
-    pub Size: u32,
-    pub Flags: u32,
-    pub Status: u32,
-    pub ErrorFileOffset: u64,
-    pub ErrorLength: u64,
-    pub NumberOfBytesRepaired: u64,
-    pub NumberOfBytesFailed: u64,
-    pub InternalFileReference: u64,
-    pub ResumeContextLength: u16,
-    pub ParityExtentDataOffset: u16,
-    pub NextStartingByteOffset: u64,
-    pub ValidDataLength: u64,
-    pub Reserved: [u32; 4],
-    pub NumberOfMetadataBytesProcessed: u64,
-    pub NumberOfDataBytesProcessed: u64,
-    pub TotalNumberOfMetadataBytesInUse: u64,
-    pub TotalNumberOfDataBytesInUse: u64,
-    pub DataBytesSkippedDueToNoAllocation: u64,
-    pub DataBytesSkippedDueToInvalidRun: u64,
-    pub DataBytesSkippedDueToIntegrityStream: u64,
-    pub DataBytesSkippedDueToRegionBeingClean: u64,
-    pub DataBytesSkippedDueToLockConflict: u64,
-    pub DataBytesSkippedDueToNoScrubDataFlag: u64,
-    pub DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag: u64,
-    pub DataBytesScrubbed: u64,
-    pub ResumeContext: [u8; 1040],
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
+    pub Status: super::DWORD,
+    pub ErrorFileOffset: super::ULONGLONG,
+    pub ErrorLength: super::ULONGLONG,
+    pub NumberOfBytesRepaired: super::ULONGLONG,
+    pub NumberOfBytesFailed: super::ULONGLONG,
+    pub InternalFileReference: super::ULONGLONG,
+    pub ResumeContextLength: super::WORD,
+    pub ParityExtentDataOffset: super::WORD,
+    pub NextStartingByteOffset: super::ULONGLONG,
+    pub ValidDataLength: super::ULONGLONG,
+    pub Reserved: [super::DWORD; 4],
+    pub NumberOfMetadataBytesProcessed: super::ULONGLONG,
+    pub NumberOfDataBytesProcessed: super::ULONGLONG,
+    pub TotalNumberOfMetadataBytesInUse: super::ULONGLONG,
+    pub TotalNumberOfDataBytesInUse: super::ULONGLONG,
+    pub DataBytesSkippedDueToNoAllocation: super::ULONGLONG,
+    pub DataBytesSkippedDueToInvalidRun: super::ULONGLONG,
+    pub DataBytesSkippedDueToIntegrityStream: super::ULONGLONG,
+    pub DataBytesSkippedDueToRegionBeingClean: super::ULONGLONG,
+    pub DataBytesSkippedDueToLockConflict: super::ULONGLONG,
+    pub DataBytesSkippedDueToNoScrubDataFlag: super::ULONGLONG,
+    pub DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag: super::ULONGLONG,
+    pub DataBytesScrubbed: super::ULONGLONG,
+    pub ResumeContext: [super::BYTE; 1040],
 }
+#[cfg(feature = "shared")]
 impl Default for SCRUB_DATA_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11241,20 +12338,23 @@ pub const SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE: i32 = 65536;
 pub const SCRUB_DATA_OUTPUT_FLAG_PARITY_EXTENT_DATA_RETURNED: i32 = 131072;
 pub const SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED: i32 = 262144;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRUB_PARITY_EXTENT {
-    pub Offset: i64,
-    pub Length: u64,
+    pub Offset: super::LONGLONG,
+    pub Length: super::ULONGLONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_PARITY_EXTENT_DATA {
-    pub Size: u16,
-    pub Flags: u16,
-    pub NumberOfParityExtents: u16,
-    pub MaximumNumberOfParityExtents: u16,
+    pub Size: super::WORD,
+    pub Flags: super::WORD,
+    pub NumberOfParityExtents: super::WORD,
+    pub MaximumNumberOfParityExtents: super::WORD,
     pub ParityExtents: [SCRUB_PARITY_EXTENT; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SCRUB_PARITY_EXTENT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11288,12 +12388,13 @@ pub const SECURITY_BUILTIN_DOMAIN_RID: i32 = 32;
 pub const SECURITY_BUILTIN_PACKAGE_ANY_PACKAGE: i32 = 1;
 pub const SECURITY_BUILTIN_PACKAGE_ANY_RESTRICTED_PACKAGE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_CAPABILITIES {
     pub AppContainerSid: PSID,
     pub Capabilities: PSID_AND_ATTRIBUTES,
-    pub CapabilityCount: u32,
-    pub Reserved: u32,
+    pub CapabilityCount: super::DWORD,
+    pub Reserved: super::DWORD,
 }
 pub const SECURITY_CAPABILITY_APPOINTMENTS: i32 = 11;
 pub const SECURITY_CAPABILITY_APP_RID: i32 = 1024;
@@ -11317,7 +12418,7 @@ pub const SECURITY_CHILD_PACKAGE_RID_COUNT: i32 = 12;
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_BASE_RID: i32 = 85;
 pub const SECURITY_CLOUD_INFRASTRUCTURE_SERVICES_ID_RID_COUNT: i32 = 6;
 pub const SECURITY_COM_ID_BASE_RID: i32 = 89;
-pub type SECURITY_CONTEXT_TRACKING_MODE = BOOLEAN;
+pub type SECURITY_CONTEXT_TRACKING_MODE = u8;
 pub const SECURITY_CREATOR_GROUP_RID: i32 = 1;
 pub const SECURITY_CREATOR_GROUP_SERVER_RID: i32 = 3;
 pub const SECURITY_CREATOR_OWNER_RID: i32 = 0;
@@ -11329,10 +12430,11 @@ pub const SECURITY_CRED_TYPE_THIS_ORG_CERT_RID: i32 = 1;
 pub const SECURITY_DASHOST_ID_BASE_RID: i32 = 92;
 pub const SECURITY_DASHOST_ID_RID_COUNT: i32 = 6;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR {
-    pub Revision: u8,
-    pub Sbz1: u8,
+    pub Revision: super::BYTE,
+    pub Sbz1: super::BYTE,
     pub Control: SECURITY_DESCRIPTOR_CONTROL,
     pub Owner: PSID,
     pub Group: PSID,
@@ -11345,15 +12447,16 @@ pub const SECURITY_DESCRIPTOR_MIN_LENGTH: u32 = 20;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const SECURITY_DESCRIPTOR_MIN_LENGTH: u64 = 40;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR_RELATIVE {
-    pub Revision: u8,
-    pub Sbz1: u8,
+    pub Revision: super::BYTE,
+    pub Sbz1: super::BYTE,
     pub Control: SECURITY_DESCRIPTOR_CONTROL,
-    pub Owner: u32,
-    pub Group: u32,
-    pub Sacl: u32,
-    pub Dacl: u32,
+    pub Owner: super::DWORD,
+    pub Group: super::DWORD,
+    pub Sacl: super::DWORD,
+    pub Dacl: super::DWORD,
 }
 pub const SECURITY_DESCRIPTOR_REVISION: i32 = 1;
 pub const SECURITY_DESCRIPTOR_REVISION1: i32 = 1;
@@ -11404,10 +12507,11 @@ pub const SECURITY_NT_NON_UNIQUE: i32 = 21;
 pub const SECURITY_NT_NON_UNIQUE_SUB_AUTH_COUNT: i32 = 3;
 pub const SECURITY_NULL_RID: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_OBJECT_AI_PARAMS {
-    pub Size: u32,
-    pub ConstraintMask: u32,
+    pub Size: super::DWORD,
+    pub ConstraintMask: super::DWORD,
 }
 pub const SECURITY_OTHER_ORGANIZATION_RID: i32 = 1000;
 pub const SECURITY_PACKAGE_BASE_RID: i32 = 64;
@@ -11429,12 +12533,13 @@ pub const SECURITY_PROCESS_PROTECTION_TYPE_NONE_RID: i32 = 0;
 pub const SECURITY_PROCESS_TRUST_AUTHORITY_RID_COUNT: i32 = 2;
 pub const SECURITY_PROXY_RID: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_QUALITY_OF_SERVICE {
-    pub Length: u32,
+    pub Length: super::DWORD,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
     pub ContextTrackingMode: SECURITY_CONTEXT_TRACKING_MODE,
-    pub EffectiveOnly: BOOLEAN,
+    pub EffectiveOnly: super::BOOLEAN,
 }
 pub const SECURITY_RDV_GFX_BASE_RID: i32 = 91;
 pub const SECURITY_REMOTE_LOGON_RID: i32 = 14;
@@ -11503,24 +12608,27 @@ pub const SEF_SACL_AUTO_INHERIT: i32 = 2;
 pub const SEMAPHORE_ALL_ACCESS: i32 = 2031619;
 pub const SEMAPHORE_MODIFY_STATE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVERSILO_BASIC_INFORMATION {
-    pub ServiceSessionId: u32,
+    pub ServiceSessionId: super::DWORD,
     pub State: SERVERSILO_STATE,
-    pub ExitStatus: u32,
-    pub Reserved: BOOLEAN,
-    pub ApiSetSchema: *mut core::ffi::c_void,
-    pub HostApiSetSchema: *mut core::ffi::c_void,
-    pub ContainerBuildNumber: u32,
-    pub HostBuildNumber: u32,
+    pub ExitStatus: super::DWORD,
+    pub Reserved: super::BOOLEAN,
+    pub ApiSetSchema: PVOID,
+    pub HostApiSetSchema: PVOID,
+    pub ContainerBuildNumber: super::DWORD,
+    pub HostBuildNumber: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVERSILO_DIAGNOSTIC_INFORMATION {
     pub ReportId: windows_core::GUID,
-    pub ExitStatus: u32,
-    pub CriticalProcessName: [u16; 15],
+    pub ExitStatus: super::DWORD,
+    pub CriticalProcessName: [WCHAR; 15],
 }
+#[cfg(feature = "shared")]
 impl Default for SERVERSILO_DIAGNOSTIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11563,14 +12671,16 @@ pub const SESSION_ALL_ACCESS: i32 = 983043;
 pub const SESSION_MODIFY_ACCESS: i32 = 2;
 pub const SESSION_QUERY_ACCESS: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_POWER_SETTING_VALUE {
-    pub Version: u32,
+    pub Version: super::DWORD,
     pub Guid: windows_core::GUID,
     pub PowerCondition: SYSTEM_POWER_CONDITION,
-    pub DataLength: u32,
-    pub Data: [u8; 1],
+    pub DataLength: super::DWORD,
+    pub Data: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SET_POWER_SETTING_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11579,26 +12689,27 @@ impl Default for SET_POWER_SETTING_VALUE {
 pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: i32 = 8;
 pub const SE_ACCESS_CHECK_VALID_FLAGS: i32 = 8;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_ACCESS_REPLY {
-    pub Size: u32,
-    pub ResultListCount: u32,
+    pub Size: super::DWORD,
+    pub ResultListCount: super::DWORD,
     pub GrantedAccess: PACCESS_MASK,
     pub AccessStatus: super::PDWORD,
     pub AccessReason: PACCESS_REASONS,
     pub Privileges: *mut PPRIVILEGE_SET,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_ACCESS_REQUEST {
-    pub Size: u32,
+    pub Size: super::DWORD,
     pub SeSecurityDescriptor: PSE_SECURITY_DESCRIPTOR,
-    pub DesiredAccess: ACCESS_MASK,
-    pub PreviouslyGrantedAccess: ACCESS_MASK,
+    pub DesiredAccess: super::ACCESS_MASK,
+    pub PreviouslyGrantedAccess: super::ACCESS_MASK,
     pub PrincipalSelfSid: PSID,
     pub GenericMapping: PGENERIC_MAPPING,
-    pub ObjectTypeListCount: u32,
+    pub ObjectTypeListCount: super::DWORD,
     pub ObjectTypeList: POBJECT_TYPE_LIST,
 }
 pub const SE_ACTIVATE_AS_USER_CAPABILITY: windows_core::PCWSTR = windows_core::w!("activateAsUser");
@@ -11609,13 +12720,25 @@ pub const SE_APP_SILO_PROMPT_FOR_ACCESS_CAPABILITY: windows_core::PCWSTR = windo
 pub const SE_APP_SILO_SCANNER_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-scanner");
 pub const SE_APP_SILO_USER_PROFILE_MINIMAL_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-userProfileMinimal");
 pub const SE_APP_SILO_VOLUME_ROOT_MINIMAL_CAPABILITY: windows_core::PCWSTR = windows_core::w!("isolatedWin32-volumeRootMinimal");
+pub const SE_ASSIGNPRIMARYTOKEN_NAME: windows_core::PCSTR = windows_core::s!("SeAssignPrimaryTokenPrivilege");
+pub const SE_AUDIT_NAME: windows_core::PCSTR = windows_core::s!("SeAuditPrivilege");
+pub const SE_BACKUP_NAME: windows_core::PCSTR = windows_core::s!("SeBackupPrivilege");
+pub const SE_CHANGE_NOTIFY_NAME: windows_core::PCSTR = windows_core::s!("SeChangeNotifyPrivilege");
 pub const SE_CONSTRAINED_IMPERSONATION_CAPABILITY: windows_core::PCWSTR = windows_core::w!("constrainedImpersonation");
+pub const SE_CREATE_GLOBAL_NAME: windows_core::PCSTR = windows_core::s!("SeCreateGlobalPrivilege");
+pub const SE_CREATE_PAGEFILE_NAME: windows_core::PCSTR = windows_core::s!("SeCreatePagefilePrivilege");
+pub const SE_CREATE_PERMANENT_NAME: windows_core::PCSTR = windows_core::s!("SeCreatePermanentPrivilege");
+pub const SE_CREATE_SYMBOLIC_LINK_NAME: windows_core::PCSTR = windows_core::s!("SeCreateSymbolicLinkPrivilege");
+pub const SE_CREATE_TOKEN_NAME: windows_core::PCSTR = windows_core::s!("SeCreateTokenPrivilege");
 pub const SE_DACL_AUTO_INHERITED: i32 = 1024;
 pub const SE_DACL_AUTO_INHERIT_REQ: i32 = 256;
 pub const SE_DACL_DEFAULTED: i32 = 8;
 pub const SE_DACL_PRESENT: i32 = 4;
 pub const SE_DACL_PROTECTED: i32 = 4096;
+pub const SE_DEBUG_NAME: windows_core::PCSTR = windows_core::s!("SeDebugPrivilege");
+pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: windows_core::PCSTR = windows_core::s!("SeDelegateSessionUserImpersonatePrivilege");
 pub const SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY: windows_core::PCWSTR = windows_core::w!("developmentModeNetwork");
+pub const SE_ENABLE_DELEGATION_NAME: windows_core::PCSTR = windows_core::s!("SeEnableDelegationPrivilege");
 pub const SE_GROUP_DEFAULTED: i32 = 2;
 pub const SE_GROUP_ENABLED: i32 = 4;
 pub const SE_GROUP_ENABLED_BY_DEFAULT: i32 = 2;
@@ -11628,15 +12751,24 @@ pub const SE_GROUP_RESOURCE: i32 = 536870912;
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16;
 pub const SE_GROUP_VALID_ATTRIBUTES: u32 = 3758096511;
 pub type SE_IMAGE_SIGNATURE_TYPE = i32;
+pub const SE_IMPERSONATE_NAME: windows_core::PCSTR = windows_core::s!("SeImpersonatePrivilege");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: PACCESS_TOKEN,
-    pub CopyOnOpen: BOOLEAN,
-    pub EffectiveOnly: BOOLEAN,
+    pub CopyOnOpen: super::BOOLEAN,
+    pub EffectiveOnly: super::BOOLEAN,
     pub Level: SECURITY_IMPERSONATION_LEVEL,
 }
+pub const SE_INCREASE_QUOTA_NAME: windows_core::PCSTR = windows_core::s!("SeIncreaseQuotaPrivilege");
+pub const SE_INC_BASE_PRIORITY_NAME: windows_core::PCSTR = windows_core::s!("SeIncreaseBasePriorityPrivilege");
+pub const SE_INC_WORKING_SET_NAME: windows_core::PCSTR = windows_core::s!("SeIncreaseWorkingSetPrivilege");
 pub const SE_LEARNING_MODE_LOGGING_CAPABILITY: windows_core::PCWSTR = windows_core::w!("learningModeLogging");
+pub const SE_LOAD_DRIVER_NAME: windows_core::PCSTR = windows_core::s!("SeLoadDriverPrivilege");
+pub const SE_LOCK_MEMORY_NAME: windows_core::PCSTR = windows_core::s!("SeLockMemoryPrivilege");
+pub const SE_MACHINE_ACCOUNT_NAME: windows_core::PCSTR = windows_core::s!("SeMachineAccountPrivilege");
+pub const SE_MANAGE_VOLUME_NAME: windows_core::PCSTR = windows_core::s!("SeManageVolumePrivilege");
 pub const SE_MUMA_CAPABILITY: windows_core::PCWSTR = windows_core::w!("muma");
 pub const SE_OWNER_DEFAULTED: i32 = 1;
 pub const SE_PERMISSIVE_LEARNING_MODE_CAPABILITY: windows_core::PCWSTR = windows_core::w!("permissiveLearningMode");
@@ -11645,6 +12777,10 @@ pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: i32 = 1;
 pub const SE_PRIVILEGE_REMOVED: i32 = 4;
 pub const SE_PRIVILEGE_USED_FOR_ACCESS: u32 = 2147483648;
 pub const SE_PRIVILEGE_VALID_ATTRIBUTES: u32 = 2147483655;
+pub const SE_PROF_SINGLE_PROCESS_NAME: windows_core::PCSTR = windows_core::s!("SeProfileSingleProcessPrivilege");
+pub const SE_RELABEL_NAME: windows_core::PCSTR = windows_core::s!("SeRelabelPrivilege");
+pub const SE_REMOTE_SHUTDOWN_NAME: windows_core::PCSTR = windows_core::s!("SeRemoteShutdownPrivilege");
+pub const SE_RESTORE_NAME: windows_core::PCSTR = windows_core::s!("SeRestorePrivilege");
 pub const SE_RM_CONTROL_VALID: i32 = 16384;
 pub const SE_SACL_AUTO_INHERITED: i32 = 2048;
 pub const SE_SACL_AUTO_INHERIT_REQ: i32 = 512;
@@ -11652,24 +12788,29 @@ pub const SE_SACL_DEFAULTED: i32 = 32;
 pub const SE_SACL_PRESENT: i32 = 16;
 pub const SE_SACL_PROTECTED: i32 = 8192;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_SECURITY_DESCRIPTOR {
-    pub Size: u32,
-    pub Flags: u32,
+    pub Size: super::DWORD,
+    pub Flags: super::DWORD,
     pub SecurityDescriptor: PSECURITY_DESCRIPTOR,
 }
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_ACCESS_FILTER_ACE: i32 = 4;
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_LABEL_ACE: i32 = 2;
 pub const SE_SECURITY_DESCRIPTOR_FLAG_NO_OWNER_ACE: i32 = 1;
 pub const SE_SECURITY_DESCRIPTOR_VALID_FLAGS: i32 = 7;
+pub const SE_SECURITY_NAME: windows_core::PCSTR = windows_core::s!("SeSecurityPrivilege");
 pub const SE_SELF_RELATIVE: i32 = 32768;
 pub const SE_SESSION_IMPERSONATION_CAPABILITY: windows_core::PCWSTR = windows_core::w!("sessionImpersonation");
+pub const SE_SHUTDOWN_NAME: windows_core::PCSTR = windows_core::s!("SeShutdownPrivilege");
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SE_SID {
     pub Sid: SID,
-    pub Buffer: [u8; 68],
+    pub Buffer: [super::BYTE; 68],
 }
+#[cfg(feature = "shared")]
 impl Default for SE_SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11694,18 +12835,29 @@ pub const SE_SIGNING_LEVEL_UNCHECKED: i32 = 0;
 pub const SE_SIGNING_LEVEL_UNSIGNED: i32 = 1;
 pub const SE_SIGNING_LEVEL_WINDOWS: i32 = 12;
 pub const SE_SIGNING_LEVEL_WINDOWS_TCB: i32 = 14;
+pub const SE_SYNC_AGENT_NAME: windows_core::PCSTR = windows_core::s!("SeSyncAgentPrivilege");
+pub const SE_SYSTEMTIME_NAME: windows_core::PCSTR = windows_core::s!("SeSystemtimePrivilege");
+pub const SE_SYSTEM_ENVIRONMENT_NAME: windows_core::PCSTR = windows_core::s!("SeSystemEnvironmentPrivilege");
+pub const SE_SYSTEM_PROFILE_NAME: windows_core::PCSTR = windows_core::s!("SeSystemProfilePrivilege");
+pub const SE_TAKE_OWNERSHIP_NAME: windows_core::PCSTR = windows_core::s!("SeTakeOwnershipPrivilege");
+pub const SE_TCB_NAME: windows_core::PCSTR = windows_core::s!("SeTcbPrivilege");
+pub const SE_TIME_ZONE_NAME: windows_core::PCSTR = windows_core::s!("SeTimeZonePrivilege");
+#[cfg(feature = "shared")]
 pub type SE_TOKEN_USER = _SE_TOKEN_USER;
+pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: windows_core::PCSTR = windows_core::s!("SeTrustedCredManAccessPrivilege");
+pub const SE_UNDOCK_NAME: windows_core::PCSTR = windows_core::s!("SeUndockPrivilege");
+pub const SE_UNSOLICITED_INPUT_NAME: windows_core::PCSTR = windows_core::s!("SeUnsolicitedInputPrivilege");
 #[repr(C)]
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHARED_COMPUTE_UNIT_RELATIONSHIP {
-    pub Type: u32,
-    pub ComputeUnitCount: u32,
-    pub Reserved: [u8; 14],
-    pub GroupCount: u16,
+    pub Type: super::DWORD,
+    pub ComputeUnitCount: super::DWORD,
+    pub Reserved: [super::BYTE; 14],
+    pub GroupCount: super::WORD,
     pub GroupMasks: [GROUP_AFFINITY; 1],
 }
-#[cfg(feature = "basetsd")]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for SHARED_COMPUTE_UNIT_RELATIONSHIP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11718,52 +12870,64 @@ pub struct SHARED_VIRTUAL_DISK_SUPPORT {
     pub HandleState: SharedVirtualDiskHandleState,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHUFFLE_FILE_DATA {
-    pub StartingOffset: i64,
-    pub Length: i64,
-    pub Flags: u32,
+    pub StartingOffset: super::LONGLONG,
+    pub Length: super::LONGLONG,
+    pub Flags: super::DWORD,
 }
 pub const SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID {
-    pub Revision: u8,
-    pub SubAuthorityCount: u8,
+    pub Revision: super::BYTE,
+    pub SubAuthorityCount: super::BYTE,
     pub IdentifierAuthority: SID_IDENTIFIER_AUTHORITY,
-    pub SubAuthority: [u32; 1],
+    pub SubAuthority: [super::DWORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SID_AND_ATTRIBUTES {
     pub Sid: PSID,
-    pub Attributes: u32,
+    pub Attributes: super::DWORD,
 }
+#[cfg(feature = "shared")]
 pub type SID_AND_ATTRIBUTES_ARRAY = [SID_AND_ATTRIBUTES; 1];
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_AND_ATTRIBUTES_HASH {
-    pub SidCount: u32,
+    pub SidCount: super::DWORD,
     pub SidAttr: PSID_AND_ATTRIBUTES,
     pub Hash: [SID_HASH_ENTRY; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for SID_AND_ATTRIBUTES_HASH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type SID_HASH_ENTRY = usize;
+#[cfg(target_arch = "x86")]
+pub type SID_HASH_ENTRY = u32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type SID_HASH_ENTRY = u64;
 pub const SID_HASH_SIZE: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_IDENTIFIER_AUTHORITY {
-    pub Value: [u8; 6],
+    pub Value: [super::BYTE; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for SID_IDENTIFIER_AUTHORITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11774,14 +12938,16 @@ pub type SID_NAME_USE = i32;
 pub const SID_RECOMMENDED_SUB_AUTHORITIES: i32 = 1;
 pub const SID_REVISION: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SILOOBJECT_BASIC_INFORMATION {
-    pub SiloId: u32,
-    pub SiloParentId: u32,
-    pub NumberOfProcesses: u32,
-    pub IsInServerSilo: BOOLEAN,
-    pub Reserved: [u8; 3],
+    pub SiloId: super::DWORD,
+    pub SiloParentId: super::DWORD,
+    pub NumberOfProcesses: super::DWORD,
+    pub IsInServerSilo: super::BOOLEAN,
+    pub Reserved: [super::BYTE; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for SILOOBJECT_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11805,12 +12971,14 @@ pub struct SLIST_ENTRY {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SLIST_HEADER {
-    pub Alignment: u64,
+    pub Alignment: super::ULONGLONG,
     pub Anonymous: SLIST_HEADER_0,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11818,20 +12986,23 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Next: SLIST_ENTRY,
-    pub Depth: u16,
-    pub CpuId: u16,
+    pub Depth: super::WORD,
+    pub CpuId: super::WORD,
 }
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderX64: SLIST_HEADER_1,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11839,53 +13010,58 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_0 {
-    pub Alignment: u64,
-    pub Region: u64,
+    pub Alignment: super::ULONGLONG,
+    pub Region: super::ULONGLONG,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl SLIST_HEADER_1 {
-    pub fn Depth(&self) -> u64 {
-        (self._bitfield1 << 48) >> 48
+    pub fn Depth(&self) -> super::ULONGLONG {
+        (self._bitfield1) & 65535
     }
-    pub fn set_Depth(&mut self, value: u64) {
+    pub fn set_Depth(&mut self, value: super::ULONGLONG) {
         self._bitfield1 = (self._bitfield1 & !65535) | (value & 65535);
     }
-    pub fn Sequence(&self) -> u64 {
+    pub fn Sequence(&self) -> super::ULONGLONG {
         self._bitfield1 >> 16
     }
-    pub fn set_Sequence(&mut self, value: u64) {
+    pub fn set_Sequence(&mut self, value: super::ULONGLONG) {
         self._bitfield1 = (self._bitfield1 & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
     }
-    pub fn Reserved(&self) -> u64 {
-        (self._bitfield2 << 60) >> 60
+    pub fn Reserved(&self) -> super::ULONGLONG {
+        (self._bitfield2) & 15
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::ULONGLONG) {
         self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
     }
-    pub fn NextEntry(&self) -> u64 {
+    pub fn NextEntry(&self) -> super::ULONGLONG {
         self._bitfield2 >> 4
     }
-    pub fn set_NextEntry(&mut self, value: u64) {
+    pub fn set_NextEntry(&mut self, value: super::ULONGLONG) {
         self._bitfield2 = (self._bitfield2 & !(1152921504606846975 << 4)) | ((value & 1152921504606846975) << 4);
     }
 }
 #[repr(C, align(16))]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderArm64: SLIST_HEADER_1,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11893,42 +13069,45 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_0 {
-    pub Alignment: u64,
-    pub Region: u64,
+    pub Alignment: super::ULONGLONG,
+    pub Region: super::ULONGLONG,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "shared")]
 impl SLIST_HEADER_1 {
-    pub fn Depth(&self) -> u64 {
-        (self._bitfield1 << 48) >> 48
+    pub fn Depth(&self) -> super::ULONGLONG {
+        (self._bitfield1) & 65535
     }
-    pub fn set_Depth(&mut self, value: u64) {
+    pub fn set_Depth(&mut self, value: super::ULONGLONG) {
         self._bitfield1 = (self._bitfield1 & !65535) | (value & 65535);
     }
-    pub fn Sequence(&self) -> u64 {
+    pub fn Sequence(&self) -> super::ULONGLONG {
         self._bitfield1 >> 16
     }
-    pub fn set_Sequence(&mut self, value: u64) {
+    pub fn set_Sequence(&mut self, value: super::ULONGLONG) {
         self._bitfield1 = (self._bitfield1 & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
     }
-    pub fn Reserved(&self) -> u64 {
-        (self._bitfield2 << 60) >> 60
+    pub fn Reserved(&self) -> super::ULONGLONG {
+        (self._bitfield2) & 15
     }
-    pub fn set_Reserved(&mut self, value: u64) {
+    pub fn set_Reserved(&mut self, value: super::ULONGLONG) {
         self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
     }
-    pub fn NextEntry(&self) -> u64 {
+    pub fn NextEntry(&self) -> super::ULONGLONG {
         self._bitfield2 >> 4
     }
-    pub fn set_NextEntry(&mut self, value: u64) {
+    pub fn set_NextEntry(&mut self, value: super::ULONGLONG) {
         self._bitfield2 = (self._bitfield2 & !(1152921504606846975 << 4)) | ((value & 1152921504606846975) << 4);
     }
 }
@@ -12207,114 +13386,126 @@ pub const SUBLANG_YORUBA_NIGERIA: i32 = 1;
 pub const SUBLANG_ZULU_SOUTH_AFRICA: i32 = 1;
 pub const SUCCESSFUL_ACCESS_ACE_FLAG: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUPPORTED_OS_INFO {
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
+    pub MajorVersion: super::WORD,
+    pub MinorVersion: super::WORD,
 }
 pub const SYNCHRONIZE: i32 = 1048576;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_ACCESS_FILTER_ACE_TYPE: i32 = 21;
 pub const SYSTEM_ACCESS_FILTER_NOCONSTRAINT_MASK: u32 = 4294967295;
 pub const SYSTEM_ACCESS_FILTER_VALID_MASK: i32 = 16777215;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_ALARM_ACE_TYPE: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_ALARM_CALLBACK_ACE_TYPE: i32 = 14;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_ALARM_CALLBACK_OBJECT_ACE_TYPE: i32 = 16;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_ALARM_OBJECT_ACE_TYPE: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_AUDIT_ACE_TYPE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_AUDIT_CALLBACK_ACE_TYPE: i32 = 13;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_AUDIT_CALLBACK_OBJECT_ACE_TYPE: i32 = 15;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub Flags: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub Flags: super::DWORD,
     pub ObjectType: windows_core::GUID,
     pub InheritedObjectType: windows_core::GUID,
-    pub SidStart: u32,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_AUDIT_OBJECT_ACE_TYPE: i32 = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BATTERY_STATE {
-    pub AcOnLine: BOOLEAN,
-    pub BatteryPresent: BOOLEAN,
-    pub Charging: BOOLEAN,
-    pub Discharging: BOOLEAN,
-    pub Spare1: [BOOLEAN; 3],
-    pub Tag: u8,
-    pub MaxCapacity: u32,
-    pub RemainingCapacity: u32,
-    pub Rate: u32,
-    pub EstimatedTime: u32,
-    pub DefaultAlert1: u32,
-    pub DefaultAlert2: u32,
+    pub AcOnLine: super::BOOLEAN,
+    pub BatteryPresent: super::BOOLEAN,
+    pub Charging: super::BOOLEAN,
+    pub Discharging: super::BOOLEAN,
+    pub Spare1: [super::BOOLEAN; 3],
+    pub Tag: super::BYTE,
+    pub MaxCapacity: super::DWORD,
+    pub RemainingCapacity: super::DWORD,
+    pub Rate: super::DWORD,
+    pub EstimatedTime: super::DWORD,
+    pub DefaultAlert1: super::DWORD,
+    pub DefaultAlert2: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for SYSTEM_BATTERY_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12324,181 +13515,62 @@ impl Default for SYSTEM_BATTERY_STATE {
 pub const SYSTEM_CACHE_ALIGNMENT_SIZE: i32 = 64;
 #[cfg(target_arch = "aarch64")]
 pub const SYSTEM_CACHE_ALIGNMENT_SIZE: i32 = 128;
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CPU_SET_INFORMATION {
-    pub Size: u32,
-    pub Type: CPU_SET_INFORMATION_TYPE,
-    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0,
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0 {
-    pub CpuSet: SYSTEM_CPU_SET_INFORMATION_0_0,
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_CPU_SET_INFORMATION_0_0 {
-    pub Id: u32,
-    pub Group: u16,
-    pub LogicalProcessorIndex: u8,
-    pub CoreIndex: u8,
-    pub LastLevelCacheIndex: u8,
-    pub NumaNodeIndex: u8,
-    pub EfficiencyClass: u8,
-    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0,
-    pub Anonymous2: SYSTEM_CPU_SET_INFORMATION_0_0_1,
-    pub AllocationTag: u64,
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    pub AllFlags: u8,
-    pub Anonymous: SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    pub _bitfield: u8,
-}
-impl SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
-    pub fn Parked(&self) -> bool {
-        self._bitfield & 1 != 0
-    }
-    pub fn set_Parked(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u8);
-    }
-    pub fn Allocated(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
-    }
-    pub fn set_Allocated(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
-    }
-    pub fn AllocatedToTargetProcess(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
-    }
-    pub fn set_AllocatedToTargetProcess(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
-    }
-    pub fn RealTime(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
-    }
-    pub fn set_RealTime(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
-    }
-    pub fn ReservedFlags(&self) -> u8 {
-        self._bitfield >> 4
-    }
-    pub fn set_ReservedFlags(&mut self, value: u8) {
-        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    pub Reserved: u32,
-    pub SchedulingClass: u8,
-}
-impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+#[cfg(feature = "shared")]
+pub type SYSTEM_CPU_SET_INFORMATION = _SYSTEM_CPU_SET_INFORMATION;
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED: i32 = 2;
 pub const SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS: i32 = 4;
 pub const SYSTEM_CPU_SET_INFORMATION_PARKED: i32 = 1;
 pub const SYSTEM_CPU_SET_INFORMATION_REALTIME: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
-    pub ProcessorMask: usize,
+    pub ProcessorMask: super::ULONG_PTR,
     pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
     pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0,
 }
+#[cfg(feature = "shared")]
 impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
     pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
     pub Cache: CACHE_DESCRIPTOR,
-    pub Reserved: [u64; 2],
+    pub Reserved: [super::ULONGLONG; 2],
 }
+#[cfg(feature = "shared")]
 impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
-    pub Flags: u8,
+    pub Flags: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
-    pub NodeNumber: u32,
+    pub NodeNumber: super::DWORD,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+pub type SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX = _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX;
 #[repr(C)]
-#[cfg(feature = "basetsd")]
-#[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
-    pub Size: u32,
-    pub Anonymous: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
-}
-#[cfg(feature = "basetsd")]
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "basetsd")]
-#[derive(Clone, Copy)]
-pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    pub Processor: PROCESSOR_RELATIONSHIP,
-    pub NumaNode: NUMA_NODE_RELATIONSHIP,
-    pub Cache: CACHE_RELATIONSHIP,
-    pub Group: GROUP_RELATIONSHIP,
-    pub SharedComputeUnit: SHARED_COMPUTE_UNIT_RELATIONSHIP,
-}
-#[cfg(feature = "basetsd")]
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_MANDATORY_LABEL_ACE_TYPE: i32 = 17;
 pub const SYSTEM_MANDATORY_LABEL_NO_EXECUTE_UP: i32 = 4;
@@ -12506,40 +13578,42 @@ pub const SYSTEM_MANDATORY_LABEL_NO_READ_UP: i32 = 2;
 pub const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: i32 = 1;
 pub const SYSTEM_MANDATORY_LABEL_VALID_MASK: i32 = 7;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
-    pub PoolZeroingSupportPresent: BOOLEAN,
+    pub PoolZeroingSupportPresent: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CAPABILITIES {
-    pub PowerButtonPresent: BOOLEAN,
-    pub SleepButtonPresent: BOOLEAN,
-    pub LidPresent: BOOLEAN,
-    pub SystemS1: BOOLEAN,
-    pub SystemS2: BOOLEAN,
-    pub SystemS3: BOOLEAN,
-    pub SystemS4: BOOLEAN,
-    pub SystemS5: BOOLEAN,
-    pub HiberFilePresent: BOOLEAN,
-    pub FullWake: BOOLEAN,
-    pub VideoDimPresent: BOOLEAN,
-    pub ApmPresent: BOOLEAN,
-    pub UpsPresent: BOOLEAN,
-    pub ThermalControl: BOOLEAN,
-    pub ProcessorThrottle: BOOLEAN,
-    pub ProcessorMinThrottle: u8,
-    pub ProcessorMaxThrottle: u8,
-    pub FastSystemS4: BOOLEAN,
-    pub Hiberboot: BOOLEAN,
-    pub WakeAlarmPresent: BOOLEAN,
-    pub AoAc: BOOLEAN,
-    pub DiskSpinDown: BOOLEAN,
-    pub HiberFileType: u8,
-    pub AoAcConnectivitySupported: BOOLEAN,
-    pub spare3: [u8; 6],
-    pub SystemBatteriesPresent: BOOLEAN,
-    pub BatteriesAreShortTerm: BOOLEAN,
+    pub PowerButtonPresent: super::BOOLEAN,
+    pub SleepButtonPresent: super::BOOLEAN,
+    pub LidPresent: super::BOOLEAN,
+    pub SystemS1: super::BOOLEAN,
+    pub SystemS2: super::BOOLEAN,
+    pub SystemS3: super::BOOLEAN,
+    pub SystemS4: super::BOOLEAN,
+    pub SystemS5: super::BOOLEAN,
+    pub HiberFilePresent: super::BOOLEAN,
+    pub FullWake: super::BOOLEAN,
+    pub VideoDimPresent: super::BOOLEAN,
+    pub ApmPresent: super::BOOLEAN,
+    pub UpsPresent: super::BOOLEAN,
+    pub ThermalControl: super::BOOLEAN,
+    pub ProcessorThrottle: super::BOOLEAN,
+    pub ProcessorMinThrottle: super::BYTE,
+    pub ProcessorMaxThrottle: super::BYTE,
+    pub FastSystemS4: super::BOOLEAN,
+    pub Hiberboot: super::BOOLEAN,
+    pub WakeAlarmPresent: super::BOOLEAN,
+    pub AoAc: super::BOOLEAN,
+    pub DiskSpinDown: super::BOOLEAN,
+    pub HiberFileType: super::BYTE,
+    pub AoAcConnectivitySupported: super::BOOLEAN,
+    pub spare3: [super::BYTE; 6],
+    pub SystemBatteriesPresent: super::BOOLEAN,
+    pub BatteriesAreShortTerm: super::BOOLEAN,
     pub BatteryScale: [BATTERY_REPORTING_SCALE; 3],
     pub AcOnLineWake: SYSTEM_POWER_STATE,
     pub SoftLidWake: SYSTEM_POWER_STATE,
@@ -12547,6 +13621,7 @@ pub struct SYSTEM_POWER_CAPABILITIES {
     pub MinDeviceWakeState: SYSTEM_POWER_STATE,
     pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
 }
+#[cfg(feature = "shared")]
 impl Default for SYSTEM_POWER_CAPABILITIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12554,148 +13629,159 @@ impl Default for SYSTEM_POWER_CAPABILITIES {
 }
 pub type SYSTEM_POWER_CONDITION = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_LEVEL {
-    pub Enable: BOOLEAN,
-    pub Spare: [u8; 3],
-    pub BatteryLevel: u32,
+    pub Enable: super::BOOLEAN,
+    pub Spare: [super::BYTE; 3],
+    pub BatteryLevel: super::DWORD,
     pub PowerPolicy: POWER_ACTION_POLICY,
     pub MinSystemState: SYSTEM_POWER_STATE,
 }
+#[cfg(feature = "shared")]
 impl Default for SYSTEM_POWER_LEVEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_POLICY {
-    pub Revision: u32,
+    pub Revision: super::DWORD,
     pub PowerButton: POWER_ACTION_POLICY,
     pub SleepButton: POWER_ACTION_POLICY,
     pub LidClose: POWER_ACTION_POLICY,
     pub LidOpenWake: SYSTEM_POWER_STATE,
-    pub Reserved: u32,
+    pub Reserved: super::DWORD,
     pub Idle: POWER_ACTION_POLICY,
-    pub IdleTimeout: u32,
-    pub IdleSensitivity: u8,
-    pub DynamicThrottle: u8,
-    pub Spare2: [u8; 2],
+    pub IdleTimeout: super::DWORD,
+    pub IdleSensitivity: super::BYTE,
+    pub DynamicThrottle: super::BYTE,
+    pub Spare2: [super::BYTE; 2],
     pub MinSleep: SYSTEM_POWER_STATE,
     pub MaxSleep: SYSTEM_POWER_STATE,
     pub ReducedLatencySleep: SYSTEM_POWER_STATE,
-    pub WinLogonFlags: u32,
-    pub Spare3: u32,
-    pub DozeS4Timeout: u32,
-    pub BroadcastCapacityResolution: u32,
+    pub WinLogonFlags: super::DWORD,
+    pub Spare3: super::DWORD,
+    pub DozeS4Timeout: super::DWORD,
+    pub BroadcastCapacityResolution: super::DWORD,
     pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
-    pub VideoTimeout: u32,
-    pub VideoDimDisplay: BOOLEAN,
-    pub VideoReserved: [u32; 3],
-    pub SpindownTimeout: u32,
-    pub OptimizeForPower: BOOLEAN,
-    pub FanThrottleTolerance: u8,
-    pub ForcedThrottle: u8,
-    pub MinThrottle: u8,
+    pub VideoTimeout: super::DWORD,
+    pub VideoDimDisplay: super::BOOLEAN,
+    pub VideoReserved: [super::DWORD; 3],
+    pub SpindownTimeout: super::DWORD,
+    pub OptimizeForPower: super::BOOLEAN,
+    pub FanThrottleTolerance: super::BYTE,
+    pub ForcedThrottle: super::BYTE,
+    pub MinThrottle: super::BYTE,
     pub OverThrottled: POWER_ACTION_POLICY,
 }
+#[cfg(feature = "shared")]
 impl Default for SYSTEM_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_SOURCE_STATE {
     pub BatteryState: SYSTEM_BATTERY_STATE,
-    pub InstantaneousPeakPower: u32,
-    pub InstantaneousPeakPeriod: u32,
-    pub SustainablePeakPower: u32,
-    pub SustainablePeakPeriod: u32,
-    pub PeakPower: u32,
-    pub MaxOutputPower: u32,
-    pub MaxInputPower: u32,
-    pub BatteryRateInCurrent: i32,
-    pub BatteryVoltage: u32,
+    pub InstantaneousPeakPower: super::DWORD,
+    pub InstantaneousPeakPeriod: super::DWORD,
+    pub SustainablePeakPower: super::DWORD,
+    pub SustainablePeakPeriod: super::DWORD,
+    pub PeakPower: super::DWORD,
+    pub MaxOutputPower: super::DWORD,
+    pub MaxInputPower: super::DWORD,
+    pub BatteryRateInCurrent: super::LONG,
+    pub BatteryVoltage: super::DWORD,
 }
 pub type SYSTEM_POWER_STATE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
-    pub CycleTime: u64,
+    pub CycleTime: super::DWORD64,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_PROCESS_TRUST_LABEL_ACE_TYPE: i32 = 20;
 pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: i32 = 16777215;
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: i32 = 18;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Header: ACE_HEADER,
-    pub Mask: ACCESS_MASK,
-    pub SidStart: u32,
+    pub Mask: super::ACCESS_MASK,
+    pub SidStart: super::DWORD,
 }
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: i32 = 19;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
-    pub fn Machine(&self) -> u32 {
-        (self._bitfield << 16) >> 16
+    pub fn Machine(&self) -> super::DWORD {
+        (self._bitfield) & 65535
     }
-    pub fn set_Machine(&mut self, value: u32) {
+    pub fn set_Machine(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !65535) | (value & 65535);
     }
-    pub fn KernelMode(&self) -> bool {
-        (self._bitfield >> 16) & 1 != 0
+    pub fn KernelMode(&self) -> super::DWORD {
+        (self._bitfield >> 16) & 1
     }
-    pub fn set_KernelMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    pub fn set_KernelMode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value & 1) << 16);
     }
-    pub fn UserMode(&self) -> bool {
-        (self._bitfield >> 17) & 1 != 0
+    pub fn UserMode(&self) -> super::DWORD {
+        (self._bitfield >> 17) & 1
     }
-    pub fn set_UserMode(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    pub fn set_UserMode(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value & 1) << 17);
     }
-    pub fn Native(&self) -> bool {
-        (self._bitfield >> 18) & 1 != 0
+    pub fn Native(&self) -> super::DWORD {
+        (self._bitfield >> 18) & 1
     }
-    pub fn set_Native(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    pub fn set_Native(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value & 1) << 18);
     }
-    pub fn Process(&self) -> bool {
-        (self._bitfield >> 19) & 1 != 0
+    pub fn Process(&self) -> super::DWORD {
+        (self._bitfield >> 19) & 1
     }
-    pub fn set_Process(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    pub fn set_Process(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value & 1) << 19);
     }
-    pub fn WoW64Container(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn WoW64Container(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_WoW64Container(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    pub fn set_WoW64Container(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn ReservedZero0(&self) -> u32 {
+    pub fn ReservedZero0(&self) -> super::DWORD {
         self._bitfield >> 21
     }
-    pub fn set_ReservedZero0(&mut self, value: u32) {
+    pub fn set_ReservedZero0(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2047 << 21)) | ((value & 2047) << 21);
     }
 }
@@ -12771,11 +13857,12 @@ pub const TAPE_ABSOLUTE_BLOCK: i32 = 1;
 pub const TAPE_ABSOLUTE_POSITION: i32 = 0;
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_CREATE_PARTITION {
-    pub Method: u32,
-    pub Count: u32,
-    pub Size: u32,
+    pub Method: super::DWORD,
+    pub Count: super::DWORD,
+    pub Size: super::DWORD,
 }
 pub const TAPE_DRIVE_ABSOLUTE_BLK: u32 = 2147487744;
 pub const TAPE_DRIVE_ABS_BLK_IMMED: u32 = 2147491840;
@@ -12835,10 +13922,11 @@ pub const TAPE_DRIVE_WRITE_PROTECT: i32 = 4096;
 pub const TAPE_DRIVE_WRITE_SETMARKS: u32 = 2164260864;
 pub const TAPE_DRIVE_WRITE_SHORT_FMKS: u32 = 2214592512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_ERASE {
-    pub Type: u32,
-    pub Immediate: BOOLEAN,
+    pub Type: super::DWORD,
+    pub Immediate: super::BOOLEAN,
 }
 pub const TAPE_ERASE_LONG: i32 = 1;
 pub const TAPE_ERASE_SHORT: i32 = 0;
@@ -12846,41 +13934,46 @@ pub const TAPE_FILEMARKS: i32 = 1;
 pub const TAPE_FIXED_PARTITIONS: i32 = 0;
 pub const TAPE_FORMAT: i32 = 5;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
-    pub ECC: BOOLEAN,
-    pub Compression: BOOLEAN,
-    pub DataPadding: BOOLEAN,
-    pub ReportSetmarks: BOOLEAN,
-    pub DefaultBlockSize: u32,
-    pub MaximumBlockSize: u32,
-    pub MinimumBlockSize: u32,
-    pub MaximumPartitionCount: u32,
-    pub FeaturesLow: u32,
-    pub FeaturesHigh: u32,
-    pub EOTWarningZoneSize: u32,
+    pub ECC: super::BOOLEAN,
+    pub Compression: super::BOOLEAN,
+    pub DataPadding: super::BOOLEAN,
+    pub ReportSetmarks: super::BOOLEAN,
+    pub DefaultBlockSize: super::DWORD,
+    pub MaximumBlockSize: super::DWORD,
+    pub MinimumBlockSize: super::DWORD,
+    pub MaximumPartitionCount: super::DWORD,
+    pub FeaturesLow: super::DWORD,
+    pub FeaturesHigh: super::DWORD,
+    pub EOTWarningZoneSize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub Capacity: LARGE_INTEGER,
     pub Remaining: LARGE_INTEGER,
-    pub BlockSize: u32,
-    pub PartitionCount: u32,
-    pub WriteProtected: BOOLEAN,
+    pub BlockSize: super::DWORD,
+    pub PartitionCount: super::DWORD,
+    pub WriteProtected: super::BOOLEAN,
 }
+#[cfg(feature = "shared")]
 impl Default for TAPE_GET_MEDIA_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TAPE_GET_POSITION {
-    pub Type: u32,
-    pub Partition: u32,
+    pub Type: super::DWORD,
+    pub Partition: super::DWORD,
     pub Offset: LARGE_INTEGER,
 }
+#[cfg(feature = "shared")]
 impl Default for TAPE_GET_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12893,10 +13986,11 @@ pub const TAPE_LOGICAL_BLOCK: i32 = 2;
 pub const TAPE_LOGICAL_POSITION: i32 = 1;
 pub const TAPE_LONG_FILEMARKS: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_PREPARE {
-    pub Operation: u32,
-    pub Immediate: BOOLEAN,
+    pub Operation: super::DWORD,
+    pub Immediate: super::BOOLEAN,
 }
 pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3;
 pub const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2;
@@ -12908,27 +14002,31 @@ pub const TAPE_REWIND: i32 = 0;
 pub const TAPE_SELECT_PARTITIONS: i32 = 1;
 pub const TAPE_SETMARKS: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
-    pub ECC: BOOLEAN,
-    pub Compression: BOOLEAN,
-    pub DataPadding: BOOLEAN,
-    pub ReportSetmarks: BOOLEAN,
-    pub EOTWarningZoneSize: u32,
+    pub ECC: super::BOOLEAN,
+    pub Compression: super::BOOLEAN,
+    pub DataPadding: super::BOOLEAN,
+    pub ReportSetmarks: super::BOOLEAN,
+    pub EOTWarningZoneSize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_SET_MEDIA_PARAMETERS {
-    pub BlockSize: u32,
+    pub BlockSize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TAPE_SET_POSITION {
-    pub Method: u32,
-    pub Partition: u32,
+    pub Method: super::DWORD,
+    pub Partition: super::DWORD,
     pub Offset: LARGE_INTEGER,
-    pub Immediate: BOOLEAN,
+    pub Immediate: super::BOOLEAN,
 }
+#[cfg(feature = "shared")]
 impl Default for TAPE_SET_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12945,18 +14043,20 @@ pub const TAPE_TENSION: i32 = 2;
 pub const TAPE_UNLOAD: i32 = 1;
 pub const TAPE_UNLOCK: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_WMI_OPERATIONS {
-    pub Method: u32,
-    pub DataBufferSize: u32,
-    pub DataBuffer: *mut core::ffi::c_void,
+    pub Method: super::DWORD,
+    pub DataBufferSize: super::DWORD,
+    pub DataBuffer: PVOID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_WRITE_MARKS {
-    pub Type: u32,
-    pub Count: u32,
-    pub Immediate: BOOLEAN,
+    pub Type: super::DWORD,
+    pub Count: super::DWORD,
+    pub Immediate: super::BOOLEAN,
 }
 pub type TBYTE = u8;
 pub type TCHAR = i8;
@@ -12987,6 +14087,7 @@ pub const TIME_ZONE_ID_STANDARD: i32 = 1;
 pub const TIME_ZONE_ID_UNKNOWN: i32 = 0;
 pub const TLS_MINIMUM_AVAILABLE: i32 = 64;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ACCESS_INFORMATION {
     pub SidHash: PSID_AND_ATTRIBUTES_HASH,
@@ -12996,8 +14097,8 @@ pub struct TOKEN_ACCESS_INFORMATION {
     pub TokenType: TOKEN_TYPE,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
     pub MandatoryPolicy: TOKEN_MANDATORY_POLICY,
-    pub Flags: u32,
-    pub AppContainerNumber: u32,
+    pub Flags: super::DWORD,
+    pub AppContainerNumber: super::DWORD,
     pub PackageSid: PSID,
     pub CapabilitiesHash: PSID_AND_ATTRIBUTES_HASH,
     pub TrustLevelSid: PSID,
@@ -13022,22 +14123,26 @@ pub const TOKEN_APPCONTAINER_SID_MAX_SIZE: u32 = 72;
 pub const TOKEN_APPCONTAINER_SID_MAX_SIZE: u64 = 76;
 pub const TOKEN_ASSIGN_PRIMARY: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_AUDIT_POLICY {
-    pub PerUserPolicy: [u8; 31],
+    pub PerUserPolicy: [super::BYTE; 31],
 }
+#[cfg(feature = "shared")]
 impl Default for TOKEN_AUDIT_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_core::PWSTR,
-    pub IsolationEnabled: BOOLEAN,
+    pub IsolationEnabled: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_CONTROL {
     pub TokenId: LUID,
@@ -13046,6 +14151,7 @@ pub struct TOKEN_CONTROL {
     pub TokenSource: TOKEN_SOURCE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: PACL,
@@ -13057,41 +14163,46 @@ pub struct TOKEN_DEVICE_CLAIMS {
 }
 pub const TOKEN_DUPLICATE: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ELEVATION {
-    pub TokenIsElevated: u32,
+    pub TokenIsElevated: super::DWORD,
 }
 pub type TOKEN_ELEVATION_TYPE = i32;
 pub const TOKEN_EXECUTE: i32 = 131072;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_GROUPS {
-    pub GroupCount: u32,
+    pub GroupCount: super::DWORD,
     pub Groups: [SID_AND_ATTRIBUTES; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TOKEN_GROUPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_GROUPS_AND_PRIVILEGES {
-    pub SidCount: u32,
-    pub SidLength: u32,
+    pub SidCount: super::DWORD,
+    pub SidLength: super::DWORD,
     pub Sids: PSID_AND_ATTRIBUTES,
-    pub RestrictedSidCount: u32,
-    pub RestrictedSidLength: u32,
+    pub RestrictedSidCount: super::DWORD,
+    pub RestrictedSidLength: super::DWORD,
     pub RestrictedSids: PSID_AND_ATTRIBUTES,
-    pub PrivilegeCount: u32,
-    pub PrivilegeLength: u32,
+    pub PrivilegeCount: super::DWORD,
+    pub PrivilegeLength: super::DWORD,
     pub Privileges: PLUID_AND_ATTRIBUTES,
     pub AuthenticationId: LUID,
 }
 pub const TOKEN_IMPERSONATE: i32 = 4;
 pub type TOKEN_INFORMATION_CLASS = i32;
 #[cfg(target_arch = "x86")]
-pub const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: u32 = 76;
+#[cfg(feature = "shared")]
+pub const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: super::DWORD = 76;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const TOKEN_INTEGRITY_LEVEL_MAX_SIZE: u64 = 84;
 #[repr(C)]
@@ -13100,37 +14211,41 @@ pub struct TOKEN_LINKED_TOKEN {
     pub LinkedToken: HANDLE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_LOGGING_INFORMATION {
     pub TokenType: TOKEN_TYPE,
     pub TokenElevation: TOKEN_ELEVATION,
     pub TokenElevationType: TOKEN_ELEVATION_TYPE,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
-    pub IntegrityLevel: u32,
+    pub IntegrityLevel: super::DWORD,
     pub User: SID_AND_ATTRIBUTES,
     pub TrustLevelSid: PSID,
-    pub SessionId: u32,
-    pub AppContainerNumber: u32,
+    pub SessionId: super::DWORD,
+    pub AppContainerNumber: super::DWORD,
     pub AuthenticationId: LUID,
-    pub GroupCount: u32,
-    pub GroupsLength: u32,
+    pub GroupCount: super::DWORD,
+    pub GroupsLength: super::DWORD,
     pub Groups: PSID_AND_ATTRIBUTES,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_MANDATORY_LABEL {
     pub Label: SID_AND_ATTRIBUTES,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_MANDATORY_POLICY {
-    pub Policy: u32,
+    pub Policy: super::DWORD,
 }
 pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: i32 = 2;
 pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: i32 = 1;
 pub const TOKEN_MANDATORY_POLICY_OFF: i32 = 0;
 pub const TOKEN_MANDATORY_POLICY_VALID_MASK: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ORIGIN {
     pub OriginatingLogonSession: LUID,
@@ -13150,11 +14265,13 @@ pub struct TOKEN_PRIMARY_GROUP {
     pub PrimaryGroup: PSID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct TOKEN_PRIVILEGES {
-    pub PrivilegeCount: u32,
+    pub PrivilegeCount: super::DWORD,
     pub Privileges: [LUID_AND_ATTRIBUTES; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TOKEN_PRIVILEGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13169,11 +14286,13 @@ pub struct TOKEN_SID_INFORMATION {
     pub Sid: PSID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_SOURCE {
-    pub SourceName: [i8; 8],
+    pub SourceName: [super::CHAR; 8],
     pub SourceIdentifier: LUID,
 }
+#[cfg(feature = "shared")]
 impl Default for TOKEN_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13181,6 +14300,7 @@ impl Default for TOKEN_SOURCE {
 }
 pub const TOKEN_SOURCE_LENGTH: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TOKEN_STATISTICS {
     pub TokenId: LUID,
@@ -13188,12 +14308,13 @@ pub struct TOKEN_STATISTICS {
     pub ExpirationTime: LARGE_INTEGER,
     pub TokenType: TOKEN_TYPE,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
-    pub DynamicCharged: u32,
-    pub DynamicAvailable: u32,
-    pub GroupCount: u32,
-    pub PrivilegeCount: u32,
+    pub DynamicCharged: super::DWORD,
+    pub DynamicAvailable: super::DWORD,
+    pub GroupCount: super::DWORD,
+    pub PrivilegeCount: super::DWORD,
     pub ModifiedId: LUID,
 }
+#[cfg(feature = "shared")]
 impl Default for TOKEN_STATISTICS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13203,6 +14324,7 @@ pub const TOKEN_TRUST_ALLOWED_MASK: i32 = 131102;
 pub const TOKEN_TRUST_CONSTRAINT_MASK: i32 = 131096;
 pub type TOKEN_TYPE = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_USER {
     pub User: SID_AND_ATTRIBUTES,
@@ -13217,109 +14339,105 @@ pub const TOKEN_USER_MAX_SIZE: u32 = 76;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const TOKEN_USER_MAX_SIZE: u64 = 84;
 pub const TOKEN_WRITE: i32 = 131296;
+#[cfg(feature = "shared")]
 pub type TP_CALLBACK_ENVIRON = TP_CALLBACK_ENVIRON_V3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: TP_VERSION,
     pub Pool: PTP_POOL,
     pub CleanupGroup: PTP_CLEANUP_GROUP,
     pub CleanupGroupCancelCallback: PTP_CLEANUP_GROUP_CANCEL_CALLBACK,
-    pub RaceDll: *mut core::ffi::c_void,
+    pub RaceDll: PVOID,
     pub ActivationContext: *mut _ACTIVATION_CONTEXT,
     pub FinalizationCallback: PTP_SIMPLE_CALLBACK,
     pub u: TP_CALLBACK_ENVIRON_V3_0,
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
-    pub Size: u32,
+    pub Size: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for TP_CALLBACK_ENVIRON_V3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union TP_CALLBACK_ENVIRON_V3_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub s: TP_CALLBACK_ENVIRON_V3_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for TP_CALLBACK_ENVIRON_V3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl TP_CALLBACK_ENVIRON_V3_0_0 {
-    pub fn LongFunction(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn LongFunction(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_LongFunction(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_LongFunction(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn Persistent(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn Persistent(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_Persistent(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_Persistent(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn Private(&self) -> u32 {
+    pub fn Private(&self) -> super::DWORD {
         self._bitfield >> 2
     }
-    pub fn set_Private(&mut self, value: u32) {
+    pub fn set_Private(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_CALLBACK_INSTANCE(pub u8);
+pub type TP_CALLBACK_INSTANCE = _TP_CALLBACK_INSTANCE;
 pub type TP_CALLBACK_PRIORITY = i32;
 pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = 3;
 pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = 0;
 pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3;
 pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2;
 pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1;
+pub type TP_CLEANUP_GROUP = _TP_CLEANUP_GROUP;
+pub type TP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: PVOID, cleanupcontext: PVOID)>;
+pub type TP_IO = _TP_IO;
+pub type TP_POOL = _TP_POOL;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_CLEANUP_GROUP(pub u8);
-pub type TP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_IO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_POOL(pub u8);
-#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_POOL_STACK_INFORMATION {
-    pub StackReserve: usize,
-    pub StackCommit: usize,
+    pub StackReserve: super::SIZE_T,
+    pub StackCommit: super::SIZE_T,
 }
-pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_TIMER(pub u8);
-pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: PTP_TIMER)>;
+pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID)>;
+pub type TP_TIMER = _TP_TIMER;
+pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID, timer: PTP_TIMER)>;
 pub type TP_VERSION = u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_WAIT(pub u8);
-pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: PTP_WAIT, waitresult: TP_WAIT_RESULT)>;
+pub type TP_WAIT = _TP_WAIT;
+pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID, wait: PTP_WAIT, waitresult: TP_WAIT_RESULT)>;
 pub type TP_WAIT_RESULT = u32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TP_WORK(pub u8);
-pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: PTP_WORK)>;
+pub type TP_WORK = _TP_WORK;
+pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: PTP_CALLBACK_INSTANCE, context: PVOID, work: PTP_WORK)>;
 pub const TRANSACTIONMANAGER_ALL_ACCESS: i32 = 983103;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
     pub TmIdentity: windows_core::GUID,
     pub VirtualClock: LARGE_INTEGER,
 }
+#[cfg(feature = "shared")]
 impl Default for TRANSACTIONMANAGER_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13332,11 +14450,13 @@ pub const TRANSACTIONMANAGER_GENERIC_READ: i32 = 131073;
 pub const TRANSACTIONMANAGER_GENERIC_WRITE: i32 = 131102;
 pub type TRANSACTIONMANAGER_INFORMATION_CLASS = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
-    pub LogPathLength: u32,
-    pub LogPath: [u16; 1],
+    pub LogPathLength: super::DWORD,
+    pub LogPath: [WCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13355,19 +14475,21 @@ pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
 pub const TRANSACTIONMANAGER_QUERY_INFORMATION: i32 = 1;
 pub const TRANSACTIONMANAGER_RECOVER: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
-    pub LastRecoveredLsn: u64,
+    pub LastRecoveredLsn: super::ULONGLONG,
 }
 pub const TRANSACTIONMANAGER_RENAME: i32 = 8;
 pub const TRANSACTIONMANAGER_SET_INFORMATION: i32 = 2;
 pub const TRANSACTION_ALL_ACCESS: i32 = 2031679;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_BASIC_INFORMATION {
     pub TransactionId: windows_core::GUID,
-    pub State: u32,
-    pub Outcome: u32,
+    pub State: super::DWORD,
+    pub Outcome: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -13377,11 +14499,13 @@ pub struct TRANSACTION_BIND_INFORMATION {
 pub const TRANSACTION_COMMIT: i32 = 8;
 pub const TRANSACTION_ENLIST: i32 = 4;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
-    pub NumberOfEnlistments: u32,
+    pub NumberOfEnlistments: super::DWORD,
     pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TRANSACTION_ENLISTMENTS_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13404,13 +14528,13 @@ pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: super::UOW,
 }
 #[repr(C)]
-#[cfg(feature = "ktmtypes")]
+#[cfg(all(feature = "ktmtypes", feature = "shared"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_LIST_INFORMATION {
-    pub NumberOfTransactions: u32,
+    pub NumberOfTransactions: super::DWORD,
     pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
 }
-#[cfg(feature = "ktmtypes")]
+#[cfg(all(feature = "ktmtypes", feature = "shared"))]
 impl Default for TRANSACTION_LIST_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13419,15 +14543,17 @@ impl Default for TRANSACTION_LIST_INFORMATION {
 pub type TRANSACTION_OUTCOME = i32;
 pub const TRANSACTION_PROPAGATE: i32 = 32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct TRANSACTION_PROPERTIES_INFORMATION {
-    pub IsolationLevel: u32,
-    pub IsolationFlags: u32,
+    pub IsolationLevel: super::DWORD,
+    pub IsolationFlags: super::DWORD,
     pub Timeout: LARGE_INTEGER,
-    pub Outcome: u32,
-    pub DescriptionLength: u32,
-    pub Description: [u16; 1],
+    pub Outcome: super::DWORD,
+    pub DescriptionLength: super::DWORD,
+    pub Description: [WCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for TRANSACTION_PROPERTIES_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13552,38 +14678,44 @@ pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLAS
 pub type UCSCHAR = u32;
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union ULARGE_INTEGER {
     pub Anonymous: ULARGE_INTEGER_0,
     pub u: ULARGE_INTEGER_1,
-    pub QuadPart: u64,
+    pub QuadPart: super::ULONGLONG,
 }
+#[cfg(feature = "shared")]
 impl Default for ULARGE_INTEGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ULARGE_INTEGER_0 {
-    pub LowPart: u32,
-    pub HighPart: u32,
+    pub LowPart: super::DWORD,
+    pub HighPart: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ULARGE_INTEGER_1 {
-    pub LowPart: u32,
-    pub HighPart: u32,
+    pub LowPart: super::DWORD,
+    pub HighPart: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES {
-    pub UmsVersion: u32,
-    pub UmsContext: *mut core::ffi::c_void,
-    pub UmsCompletionList: *mut core::ffi::c_void,
+    pub UmsVersion: super::DWORD,
+    pub UmsContext: PVOID,
+    pub UmsCompletionList: PVOID,
 }
-pub const UNICODE_NULL: u16 = 0;
-pub const UNICODE_STRING_MAX_BYTES: u16 = 65534;
+pub const UNICODE_NULL: WCHAR = 0;
+#[cfg(feature = "shared")]
+pub const UNICODE_STRING_MAX_BYTES: super::WORD = 65534;
 pub const UNICODE_STRING_MAX_CHARS: i32 = 32767;
 pub const UNIFIEDBUILDREVISION_KEY: windows_core::PCWSTR = windows_core::w!("\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion");
 pub const UNIFIEDBUILDREVISION_MIN: i32 = 0;
@@ -13595,18 +14727,20 @@ pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = 0;
 pub const UNWIND_CHAIN_LIMIT: i32 = 32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE {
-    pub Count: u32,
-    pub LocalHint: u8,
-    pub GlobalHint: u8,
-    pub Search: u8,
-    pub Once: u8,
-    pub LowAddress: usize,
-    pub HighAddress: usize,
+    pub Count: super::DWORD,
+    pub LocalHint: super::BYTE,
+    pub GlobalHint: super::BYTE,
+    pub Search: super::BYTE,
+    pub Once: super::BYTE,
+    pub LowAddress: super::ULONG_PTR,
+    pub HighAddress: super::ULONG_PTR,
     pub Entry: [UNWIND_HISTORY_TABLE_ENTRY; 12],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for UNWIND_HISTORY_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13614,9 +14748,10 @@ impl Default for UNWIND_HISTORY_TABLE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
-    pub ImageBase: usize,
+    pub ImageBase: super::ULONG_PTR,
     pub FunctionEntry: PRUNTIME_FUNCTION,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -13703,39 +14838,44 @@ pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 20;
 pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 21;
 pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = 2;
 pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = 3;
-pub type WAITORTIMERCALLBACK = WAITORTIMERCALLBACKFUNC;
-pub type WAITORTIMERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: BOOLEAN)>;
+#[cfg(feature = "shared")]
+pub type WAITORTIMERCALLBACK = Option<unsafe extern "system" fn(param0: PVOID, param1: super::BOOLEAN)>;
+#[cfg(feature = "shared")]
+pub type WAITORTIMERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: PVOID, param1: super::BOOLEAN)>;
+pub type WCHAR = u16;
 pub type WELL_KNOWN_SID_TYPE = i32;
-pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: PVOID)>;
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
 pub struct WOW64_CONTEXT {
-    pub ContextFlags: u32,
-    pub Dr0: u32,
-    pub Dr1: u32,
-    pub Dr2: u32,
-    pub Dr3: u32,
-    pub Dr6: u32,
-    pub Dr7: u32,
+    pub ContextFlags: super::DWORD,
+    pub Dr0: super::DWORD,
+    pub Dr1: super::DWORD,
+    pub Dr2: super::DWORD,
+    pub Dr3: super::DWORD,
+    pub Dr6: super::DWORD,
+    pub Dr7: super::DWORD,
     pub FloatSave: WOW64_FLOATING_SAVE_AREA,
-    pub SegGs: u32,
-    pub SegFs: u32,
-    pub SegEs: u32,
-    pub SegDs: u32,
-    pub Edi: u32,
-    pub Esi: u32,
-    pub Ebx: u32,
-    pub Edx: u32,
-    pub Ecx: u32,
-    pub Eax: u32,
-    pub Ebp: u32,
-    pub Eip: u32,
-    pub SegCs: u32,
-    pub EFlags: u32,
-    pub Esp: u32,
-    pub SegSs: u32,
-    pub ExtendedRegisters: [u8; 512],
+    pub SegGs: super::DWORD,
+    pub SegFs: super::DWORD,
+    pub SegEs: super::DWORD,
+    pub SegDs: super::DWORD,
+    pub Edi: super::DWORD,
+    pub Esi: super::DWORD,
+    pub Ebx: super::DWORD,
+    pub Edx: super::DWORD,
+    pub Ecx: super::DWORD,
+    pub Eax: super::DWORD,
+    pub Ebp: super::DWORD,
+    pub Eip: super::DWORD,
+    pub SegCs: super::DWORD,
+    pub EFlags: super::DWORD,
+    pub Esp: super::DWORD,
+    pub SegSs: super::DWORD,
+    pub ExtendedRegisters: [super::BYTE; 512],
 }
+#[cfg(feature = "shared")]
 impl Default for WOW64_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13757,129 +14897,140 @@ pub const WOW64_CONTEXT_XSTATE: i32 = 65600;
 pub const WOW64_CONTEXT_i386: i32 = 65536;
 pub const WOW64_CONTEXT_i486: i32 = 65536;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
-    pub Selector: u32,
+    pub Selector: super::DWORD,
     pub Descriptor: WOW64_LDT_ENTRY,
 }
+#[cfg(feature = "shared")]
 impl Default for WOW64_DESCRIPTOR_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_FLOATING_SAVE_AREA {
-    pub ControlWord: u32,
-    pub StatusWord: u32,
-    pub TagWord: u32,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u32,
-    pub DataOffset: u32,
-    pub DataSelector: u32,
-    pub RegisterArea: [u8; 80],
-    pub Cr0NpxState: u32,
+    pub ControlWord: super::DWORD,
+    pub StatusWord: super::DWORD,
+    pub TagWord: super::DWORD,
+    pub ErrorOffset: super::DWORD,
+    pub ErrorSelector: super::DWORD,
+    pub DataOffset: super::DWORD,
+    pub DataSelector: super::DWORD,
+    pub RegisterArea: [super::BYTE; 80],
+    pub Cr0NpxState: super::DWORD,
 }
+#[cfg(feature = "shared")]
 impl Default for WOW64_FLOATING_SAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct WOW64_LDT_ENTRY {
-    pub LimitLow: u16,
-    pub BaseLow: u16,
+    pub LimitLow: super::WORD,
+    pub BaseLow: super::WORD,
     pub HighWord: WOW64_LDT_ENTRY_0,
 }
+#[cfg(feature = "shared")]
 impl Default for WOW64_LDT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union WOW64_LDT_ENTRY_0 {
     pub Bytes: WOW64_LDT_ENTRY_0_0,
     pub Bits: WOW64_LDT_ENTRY_0_1,
 }
+#[cfg(feature = "shared")]
 impl Default for WOW64_LDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_0 {
-    pub BaseMid: u8,
-    pub Flags1: u8,
-    pub Flags2: u8,
-    pub BaseHi: u8,
+    pub BaseMid: super::BYTE,
+    pub Flags1: super::BYTE,
+    pub Flags2: super::BYTE,
+    pub BaseHi: super::BYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl WOW64_LDT_ENTRY_0_1 {
-    pub fn BaseMid(&self) -> u32 {
-        (self._bitfield << 24) >> 24
+    pub fn BaseMid(&self) -> super::DWORD {
+        (self._bitfield) & 255
     }
-    pub fn set_BaseMid(&mut self, value: u32) {
+    pub fn set_BaseMid(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !255) | (value & 255);
     }
-    pub fn Type(&self) -> u32 {
-        (self._bitfield << 19) >> 27
+    pub fn Type(&self) -> super::DWORD {
+        (self._bitfield >> 8) & 31
     }
-    pub fn set_Type(&mut self, value: u32) {
+    pub fn set_Type(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(31 << 8)) | ((value & 31) << 8);
     }
-    pub fn Dpl(&self) -> u32 {
-        (self._bitfield << 17) >> 30
+    pub fn Dpl(&self) -> super::DWORD {
+        (self._bitfield >> 13) & 3
     }
-    pub fn set_Dpl(&mut self, value: u32) {
+    pub fn set_Dpl(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
     }
-    pub fn Pres(&self) -> bool {
-        (self._bitfield >> 15) & 1 != 0
+    pub fn Pres(&self) -> super::DWORD {
+        (self._bitfield >> 15) & 1
     }
-    pub fn set_Pres(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    pub fn set_Pres(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value & 1) << 15);
     }
-    pub fn LimitHi(&self) -> u32 {
-        (self._bitfield << 12) >> 28
+    pub fn LimitHi(&self) -> super::DWORD {
+        (self._bitfield >> 16) & 15
     }
-    pub fn set_LimitHi(&mut self, value: u32) {
+    pub fn set_LimitHi(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
     }
-    pub fn Sys(&self) -> bool {
-        (self._bitfield >> 20) & 1 != 0
+    pub fn Sys(&self) -> super::DWORD {
+        (self._bitfield >> 20) & 1
     }
-    pub fn set_Sys(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    pub fn set_Sys(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value & 1) << 20);
     }
-    pub fn Reserved_0(&self) -> bool {
-        (self._bitfield >> 21) & 1 != 0
+    pub fn Reserved_0(&self) -> super::DWORD {
+        (self._bitfield >> 21) & 1
     }
-    pub fn set_Reserved_0(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    pub fn set_Reserved_0(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value & 1) << 21);
     }
-    pub fn Default_Big(&self) -> bool {
-        (self._bitfield >> 22) & 1 != 0
+    pub fn Default_Big(&self) -> super::DWORD {
+        (self._bitfield >> 22) & 1
     }
-    pub fn set_Default_Big(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    pub fn set_Default_Big(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value & 1) << 22);
     }
-    pub fn Granularity(&self) -> bool {
-        (self._bitfield >> 23) & 1 != 0
+    pub fn Granularity(&self) -> super::DWORD {
+        (self._bitfield >> 23) & 1
     }
-    pub fn set_Granularity(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    pub fn set_Granularity(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value & 1) << 23);
     }
-    pub fn BaseHi(&self) -> u32 {
+    pub fn BaseHi(&self) -> super::DWORD {
         self._bitfield >> 24
     }
-    pub fn set_BaseHi(&mut self, value: u32) {
+    pub fn set_BaseHi(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
     }
 }
@@ -14073,187 +15224,212 @@ pub const X3_TMPLT_SIGN_VAL_POS_X: i32 = 0;
 pub const X3_TMPLT_SIZE_X: i32 = 4;
 pub const X86_CACHE_ALIGNMENT_SIZE: i32 = 64;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 pub type XMM_SAVE_AREA32 = XSAVE_FORMAT;
-#[repr(C)]
+#[repr(C, align(16))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
 }
-#[repr(C)]
+#[repr(C, align(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_AREA_HEADER {
-    pub Mask: u64,
-    pub CompactionMask: u64,
-    pub Reserved2: [u64; 6],
+    pub Mask: super::DWORD64,
+    pub CompactionMask: super::DWORD64,
+    pub Reserved2: [super::DWORD64; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for XSAVE_AREA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SME_TPIDR2_HEADER {
-    pub Reserved: [u32; 8],
+    pub Reserved: [super::DWORD; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for XSAVE_ARM64_SME_TPIDR2_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct XSAVE_ARM64_SME_ZA_HEADER {
-    pub VectorLength: u32,
+    pub VectorLength: super::DWORD,
     pub Anonymous: XSAVE_ARM64_SME_ZA_HEADER_0,
-    pub Reserved: [u32; 6],
+    pub Reserved: [super::DWORD; 6],
 }
+#[cfg(feature = "shared")]
 impl Default for XSAVE_ARM64_SME_ZA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union XSAVE_ARM64_SME_ZA_HEADER_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: XSAVE_ARM64_SME_ZA_HEADER_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for XSAVE_ARM64_SME_ZA_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SME_ZA_HEADER_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl XSAVE_ARM64_SME_ZA_HEADER_0_0 {
-    pub fn Za(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Za(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_Za(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Za(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SME_ZT_HEADER {
-    pub RegisterCount: u32,
-    pub Reserved: [u32; 7],
+    pub RegisterCount: super::DWORD,
+    pub Reserved: [super::DWORD; 7],
 }
+#[cfg(feature = "shared")]
 impl Default for XSAVE_ARM64_SME_ZT_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct XSAVE_ARM64_SVE_HEADER {
-    pub VectorLength: u32,
-    pub VectorRegisterOffset: u32,
-    pub PredicateRegisterOffset: u32,
+    pub VectorLength: super::DWORD,
+    pub VectorRegisterOffset: super::DWORD,
+    pub PredicateRegisterOffset: super::DWORD,
     pub Anonymous: XSAVE_ARM64_SVE_HEADER_0,
-    pub Reserved: [u32; 4],
+    pub Reserved: [super::DWORD; 4],
 }
+#[cfg(feature = "shared")]
 impl Default for XSAVE_ARM64_SVE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union XSAVE_ARM64_SVE_HEADER_0 {
-    pub Flags: u32,
+    pub Flags: super::DWORD,
     pub Anonymous: XSAVE_ARM64_SVE_HEADER_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for XSAVE_ARM64_SVE_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SVE_HEADER_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl XSAVE_ARM64_SVE_HEADER_0_0 {
-    pub fn Sm(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn Sm(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_Sm(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_Sm(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn ReservedFlags(&self) -> u32 {
+    pub fn ReservedFlags(&self) -> super::DWORD {
         self._bitfield >> 1
     }
-    pub fn set_ReservedFlags(&mut self, value: u32) {
+    pub fn set_ReservedFlags(&mut self, value: super::DWORD) {
         self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_CET_U_FORMAT {
-    pub Ia32CetUMsr: u64,
-    pub Ia32Pl3SspMsr: u64,
+    pub Ia32CetUMsr: super::DWORD64,
+    pub Ia32Pl3SspMsr: super::DWORD64,
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_FORMAT {
-    pub ControlWord: u16,
-    pub StatusWord: u16,
-    pub TagWord: u8,
-    pub Reserved1: u8,
-    pub ErrorOpcode: u16,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u16,
-    pub Reserved2: u16,
-    pub DataOffset: u32,
-    pub DataSelector: u16,
-    pub Reserved3: u16,
-    pub MxCsr: u32,
-    pub MxCsr_Mask: u32,
+    pub ControlWord: super::WORD,
+    pub StatusWord: super::WORD,
+    pub TagWord: super::BYTE,
+    pub Reserved1: super::BYTE,
+    pub ErrorOpcode: super::WORD,
+    pub ErrorOffset: super::DWORD,
+    pub ErrorSelector: super::WORD,
+    pub Reserved2: super::WORD,
+    pub DataOffset: super::DWORD,
+    pub DataSelector: super::WORD,
+    pub Reserved3: super::WORD,
+    pub MxCsr: super::DWORD,
+    pub MxCsr_Mask: super::DWORD,
     pub FloatRegisters: [M128A; 8],
     pub XmmRegisters: [M128A; 8],
-    pub Reserved4: [u8; 224],
+    pub Reserved4: [super::BYTE; 224],
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, align(16))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_FORMAT {
-    pub ControlWord: u16,
-    pub StatusWord: u16,
-    pub TagWord: u8,
-    pub Reserved1: u8,
-    pub ErrorOpcode: u16,
-    pub ErrorOffset: u32,
-    pub ErrorSelector: u16,
-    pub Reserved2: u16,
-    pub DataOffset: u32,
-    pub DataSelector: u16,
-    pub Reserved3: u16,
-    pub MxCsr: u32,
-    pub MxCsr_Mask: u32,
+    pub ControlWord: super::WORD,
+    pub StatusWord: super::WORD,
+    pub TagWord: super::BYTE,
+    pub Reserved1: super::BYTE,
+    pub ErrorOpcode: super::WORD,
+    pub ErrorOffset: super::DWORD,
+    pub ErrorSelector: super::WORD,
+    pub Reserved2: super::WORD,
+    pub DataOffset: super::DWORD,
+    pub DataSelector: super::WORD,
+    pub Reserved3: super::WORD,
+    pub MxCsr: super::DWORD,
+    pub MxCsr_Mask: super::DWORD,
     pub FloatRegisters: [M128A; 8],
     pub XmmRegisters: [M128A; 16],
-    pub Reserved4: [u8; 96],
+    pub Reserved4: [super::BYTE; 96],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14276,138 +15452,156 @@ pub const XSTATE_CET_U: i32 = 11;
 pub const XSTATE_COMPACTION_ENABLE: i32 = 63;
 pub const XSTATE_COMPACTION_ENABLE_MASK: u64 = 9223372036854775808;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIGURATION {
-    pub EnabledFeatures: u64,
-    pub EnabledVolatileFeatures: u64,
-    pub Size: u32,
+    pub EnabledFeatures: super::DWORD64,
+    pub EnabledVolatileFeatures: super::DWORD64,
+    pub Size: super::DWORD,
     pub Anonymous: XSTATE_CONFIGURATION_0,
     pub Features: [XSTATE_FEATURE; 64],
-    pub EnabledSupervisorFeatures: u64,
-    pub AlignedFeatures: u64,
-    pub AllFeatureSize: u32,
-    pub AllFeatures: [u32; 64],
-    pub EnabledUserVisibleSupervisorFeatures: u64,
-    pub ExtendedFeatureDisableFeatures: u64,
-    pub AllNonLargeFeatureSize: u32,
+    pub EnabledSupervisorFeatures: super::DWORD64,
+    pub AlignedFeatures: super::DWORD64,
+    pub AllFeatureSize: super::DWORD,
+    pub AllFeatures: [super::DWORD; 64],
+    pub EnabledUserVisibleSupervisorFeatures: super::DWORD64,
+    pub ExtendedFeatureDisableFeatures: super::DWORD64,
+    pub AllNonLargeFeatureSize: super::DWORD,
     pub Anonymous2: XSTATE_CONFIGURATION_1,
-    pub Spare: u64,
+    pub Spare: super::DWORD64,
 }
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union XSTATE_CONFIGURATION_0 {
-    pub ControlFlags: u32,
+    pub ControlFlags: super::DWORD,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "shared")]
 impl XSTATE_CONFIGURATION_0_0 {
-    pub fn OptimizedSave(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn OptimizedSave(&self) -> super::DWORD {
+        (self._bitfield) & 1
     }
-    pub fn set_OptimizedSave(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_OptimizedSave(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn CompactionEnabled(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn CompactionEnabled(&self) -> super::DWORD {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_CompactionEnabled(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_CompactionEnabled(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn ExtendedFeatureDisable(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn ExtendedFeatureDisable(&self) -> super::DWORD {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_ExtendedFeatureDisable(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_ExtendedFeatureDisable(&mut self, value: super::DWORD) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union XSTATE_CONFIGURATION_1 {
     pub Anonymous: XSTATE_CONFIGURATION_1_0,
     pub Anonymous2: XSTATE_CONFIGURATION_1_1,
 }
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONFIGURATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_1_0 {
-    pub Amd64Spare1: [u32; 3],
+    pub Amd64Spare1: [super::DWORD; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONFIGURATION_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIGURATION_1_1 {
-    pub MaxSveVectorLength: u16,
-    pub MaxSmeVectorLength: u16,
-    pub SmeZTRegisterCount: u16,
+    pub MaxSveVectorLength: super::WORD,
+    pub MaxSmeVectorLength: super::WORD,
+    pub SmeZTRegisterCount: super::WORD,
     pub Anonymous: XSTATE_CONFIGURATION_1_1_0,
-    pub SupportedSmeVectorLengths: u8,
-    pub Arm64Spare: [u8; 3],
+    pub SupportedSmeVectorLengths: super::BYTE,
+    pub Arm64Spare: [super::BYTE; 3],
 }
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONFIGURATION_1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union XSTATE_CONFIGURATION_1_1_0 {
-    pub Arm64Flags: u16,
+    pub Arm64Flags: super::WORD,
     pub Anonymous: XSTATE_CONFIGURATION_1_1_0_0,
 }
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONFIGURATION_1_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_1_1_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "shared")]
 impl XSTATE_CONFIGURATION_1_1_0_0 {
-    pub fn SmeFa64(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn SmeFa64(&self) -> super::WORD {
+        (self._bitfield) & 1
     }
-    pub fn set_SmeFa64(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u16);
+    pub fn set_SmeFa64(&mut self, value: super::WORD) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONTEXT {
-    pub Mask: u64,
-    pub Length: u32,
-    pub Flags: u8,
-    pub Reserved0: [u8; 3],
+    pub Mask: super::DWORD64,
+    pub Length: super::DWORD,
+    pub Flags: super::BYTE,
+    pub Reserved0: [super::BYTE; 3],
     pub Area: PXSAVE_AREA,
-    pub Reserved2: u32,
-    pub Buffer: *mut core::ffi::c_void,
-    pub Reserved3: u32,
+    pub Reserved2: super::DWORD,
+    pub Buffer: PVOID,
+    pub Reserved3: super::DWORD,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14415,16 +15609,18 @@ impl Default for XSTATE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONTEXT {
-    pub Mask: u64,
-    pub Length: u32,
-    pub Flags: u8,
-    pub Reserved0: [u8; 3],
+    pub Mask: super::DWORD64,
+    pub Length: super::DWORD,
+    pub Flags: super::BYTE,
+    pub Reserved0: [super::BYTE; 3],
     pub Area: PXSAVE_AREA,
-    pub Buffer: *mut core::ffi::c_void,
+    pub Buffer: PVOID,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14436,10 +15632,11 @@ pub const XSTATE_CONTROLFLAG_XFD_MASK: i32 = 4;
 pub const XSTATE_CONTROLFLAG_XSAVEC_MASK: i32 = 2;
 pub const XSTATE_CONTROLFLAG_XSAVEOPT_MASK: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_FEATURE {
-    pub Offset: u32,
-    pub Size: u32,
+    pub Offset: super::DWORD,
+    pub Size: super::DWORD,
 }
 pub const XSTATE_FIRST_NON_LEGACY_FEATURE: i32 = 2;
 pub const XSTATE_GSSE: i32 = 2;
@@ -14495,33 +15692,28 @@ pub const XSTATE_XFD_MASK: u64 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ACTIVATION_CONTEXT(pub u8);
-#[cfg(target_arch = "aarch64")]
-pub const _ARM64_MULT_INTRINS_SUPPORTED: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _ENUM_FLAG_INTEGER_FOR_SIZE(pub u8);
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct _IMAGE_RUNTIME_FUNCTION_ENTRY {
-    pub BeginAddress: u32,
-    pub EndAddress: u32,
+    pub BeginAddress: super::DWORD,
+    pub EndAddress: super::DWORD,
     pub Anonymous: _IMAGE_RUNTIME_FUNCTION_ENTRY_0,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
 impl Default for _IMAGE_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union _IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
-    pub UnwindInfoAddress: u32,
-    pub UnwindData: u32,
+    pub UnwindInfoAddress: super::DWORD,
+    pub UnwindData: super::DWORD,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(feature = "shared")]
 impl Default for _IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14535,45 +15727,264 @@ pub const _MM_HINT_T0: i32 = 1;
 pub const _MM_HINT_T1: i32 = 2;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const _MM_HINT_T2: i32 = 3;
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut RUNTIME_FUNCTION;
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _OSVERSIONINFOEXW {
+    pub dwOSVersionInfoSize: super::DWORD,
+    pub dwMajorVersion: super::DWORD,
+    pub dwMinorVersion: super::DWORD,
+    pub dwBuildNumber: super::DWORD,
+    pub dwPlatformId: super::DWORD,
+    pub szCSDVersion: [WCHAR; 128],
+    pub wServicePackMajor: super::WORD,
+    pub wServicePackMinor: super::WORD,
+    pub wSuiteMask: super::WORD,
+    pub wProductType: super::BYTE,
+    pub wReserved: super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for _OSVERSIONINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct _OSVERSIONINFOW {
+    pub dwOSVersionInfoSize: super::DWORD,
+    pub dwMajorVersion: super::DWORD,
+    pub dwMinorVersion: super::DWORD,
+    pub dwBuildNumber: super::DWORD,
+    pub dwPlatformId: super::DWORD,
+    pub szCSDVersion: [WCHAR; 128],
+}
+#[cfg(feature = "shared")]
+impl Default for _OSVERSIONINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _RTL_CRITICAL_SECTION_DEBUG {
+    pub Type: super::WORD,
+    pub CreatorBackTraceIndex: super::WORD,
+    pub CriticalSection: *mut RTL_CRITICAL_SECTION,
+    pub ProcessLocksList: LIST_ENTRY,
+    pub EntryCount: super::DWORD,
+    pub ContentionCount: super::DWORD,
+    pub Flags: super::DWORD,
+    pub CreatorBackTraceIndexHigh: super::WORD,
+    pub Identifier: super::WORD,
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct _SE_TOKEN_USER {
     pub Anonymous: _SE_TOKEN_USER_0,
     pub Anonymous2: _SE_TOKEN_USER_1,
 }
+#[cfg(feature = "shared")]
 impl Default for _SE_TOKEN_USER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union _SE_TOKEN_USER_0 {
     pub TokenUser: TOKEN_USER,
     pub User: SID_AND_ATTRIBUTES,
 }
+#[cfg(feature = "shared")]
 impl Default for _SE_TOKEN_USER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union _SE_TOKEN_USER_1 {
     pub Sid: SID,
-    pub Buffer: [u8; 68],
+    pub Buffer: [super::BYTE; 68],
 }
+#[cfg(feature = "shared")]
 impl Default for _SE_TOKEN_USER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct _SYSTEM_CPU_SET_INFORMATION {
+    pub Size: super::DWORD,
+    pub Type: CPU_SET_INFORMATION_TYPE,
+    pub Anonymous: _SYSTEM_CPU_SET_INFORMATION_0,
+}
+#[cfg(feature = "shared")]
+impl Default for _SYSTEM_CPU_SET_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union _SYSTEM_CPU_SET_INFORMATION_0 {
+    pub CpuSet: _SYSTEM_CPU_SET_INFORMATION_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for _SYSTEM_CPU_SET_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct _SYSTEM_CPU_SET_INFORMATION_0_0 {
+    pub Id: super::DWORD,
+    pub Group: super::WORD,
+    pub LogicalProcessorIndex: super::BYTE,
+    pub CoreIndex: super::BYTE,
+    pub LastLevelCacheIndex: super::BYTE,
+    pub NumaNodeIndex: super::BYTE,
+    pub EfficiencyClass: super::BYTE,
+    pub Anonymous: _SYSTEM_CPU_SET_INFORMATION_0_0_0,
+    pub Anonymous2: _SYSTEM_CPU_SET_INFORMATION_0_0_1,
+    pub AllocationTag: super::DWORD64,
+}
+#[cfg(feature = "shared")]
+impl Default for _SYSTEM_CPU_SET_INFORMATION_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union _SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    pub AllFlags: super::BYTE,
+    pub Anonymous: _SYSTEM_CPU_SET_INFORMATION_0_0_0_0,
+}
+#[cfg(feature = "shared")]
+impl Default for _SYSTEM_CPU_SET_INFORMATION_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    pub _bitfield: u8,
+}
+#[cfg(feature = "shared")]
+impl _SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    pub fn Parked(&self) -> super::BYTE {
+        (self._bitfield) & 1
+    }
+    pub fn set_Parked(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
+    }
+    pub fn Allocated(&self) -> super::BYTE {
+        (self._bitfield >> 1) & 1
+    }
+    pub fn set_Allocated(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
+    }
+    pub fn AllocatedToTargetProcess(&self) -> super::BYTE {
+        (self._bitfield >> 2) & 1
+    }
+    pub fn set_AllocatedToTargetProcess(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
+    }
+    pub fn RealTime(&self) -> super::BYTE {
+        (self._bitfield >> 3) & 1
+    }
+    pub fn set_RealTime(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
+    }
+    pub fn ReservedFlags(&self) -> super::BYTE {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedFlags(&mut self, value: super::BYTE) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
+#[repr(C)]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union _SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    pub Reserved: super::DWORD,
+    pub SchedulingClass: super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for _SYSTEM_CPU_SET_INFORMATION_0_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    pub Relationship: LOGICAL_PROCESSOR_RELATIONSHIP,
+    pub Size: super::DWORD,
+    pub Anonymous: _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0,
+}
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+impl Default for _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    pub Processor: PROCESSOR_RELATIONSHIP,
+    pub NumaNode: NUMA_NODE_RELATIONSHIP,
+    pub Cache: CACHE_RELATIONSHIP,
+    pub Group: GROUP_RELATIONSHIP,
+    pub SharedComputeUnit: SHARED_COMPUTE_UNIT_RELATIONSHIP,
+}
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+impl Default for _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _TP_CALLBACK_INSTANCE(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _TP_CLEANUP_GROUP(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _TP_IO(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _TP_POOL(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _TP_TIMER(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _TP_WAIT(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _TP_WORK(pub u8);
+#[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _UNWIND_HISTORY_TABLE(pub u8);
-pub type __C_ASSERT__ = [i8; 1];

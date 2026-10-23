@@ -10,32 +10,36 @@ pub const ENLISTMENT_OBJECT_NAME_LENGTH_IN_BYTES: u64 = 102;
 pub const ENLISTMENT_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Enlistment\\");
 pub const ENLISTMENT_SUPERIOR: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KCRM_MARSHAL_HEADER {
-    pub VersionMajor: u32,
-    pub VersionMinor: u32,
-    pub NumProtocols: u32,
-    pub Unused: u32,
+    pub VersionMajor: super::ULONG,
+    pub VersionMinor: super::ULONG,
+    pub NumProtocols: super::ULONG,
+    pub Unused: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: CRM_PROTOCOL_ID,
-    pub StaticInfoLength: u32,
-    pub TransactionIdInfoLength: u32,
-    pub Unused1: u32,
-    pub Unused2: u32,
+    pub StaticInfoLength: super::ULONG,
+    pub TransactionIdInfoLength: super::ULONG,
+    pub Unused1: super::ULONG,
+    pub Unused2: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: UOW,
     pub TmIdentity: windows_core::GUID,
-    pub IsolationLevel: u32,
-    pub IsolationFlags: u32,
-    pub Timeout: u32,
-    pub Description: [u16; 64],
+    pub IsolationLevel: super::ULONG,
+    pub IsolationFlags: super::ULONG,
+    pub Timeout: super::ULONG,
+    pub Description: [super::WCHAR; 64],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for KCRM_TRANSACTION_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -47,20 +51,30 @@ pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: i32 = 64;
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: i32 = 64;
 pub type NOTIFICATION_MASK = u32;
 pub type PCRM_PROTOCOL_ID = *mut windows_core::GUID;
+#[cfg(feature = "shared")]
 pub type PKCRM_MARSHAL_HEADER = *mut KCRM_MARSHAL_HEADER;
+#[cfg(feature = "shared")]
 pub type PKCRM_PROTOCOL_BLOB = *mut KCRM_PROTOCOL_BLOB;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PKCRM_TRANSACTION_BLOB = *mut KCRM_TRANSACTION_BLOB;
+#[cfg(feature = "shared")]
 pub type PRKCRM_MARSHAL_HEADER = *mut KCRM_MARSHAL_HEADER;
+#[cfg(feature = "shared")]
 pub type PRKCRM_PROTOCOL_BLOB = *mut KCRM_PROTOCOL_BLOB;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PRKCRM_TRANSACTION_BLOB = *mut KCRM_TRANSACTION_BLOB;
 pub type PSAVEPOINT_ID = *mut u32;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTRANSACTION_NOTIFICATION = *mut TRANSACTION_NOTIFICATION;
+#[cfg(feature = "shared")]
 pub type PTRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT = *mut TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT;
+#[cfg(feature = "shared")]
 pub type PTRANSACTION_NOTIFICATION_PROMOTE_ARGUMENT = *mut TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
+#[cfg(feature = "shared")]
 pub type PTRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT = *mut TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
 pub type PTRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT = *mut TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT;
 pub type PTRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT = *mut TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT;
+#[cfg(feature = "shared")]
 pub type PTRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT = *mut TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT;
 pub type PUOW = *mut windows_core::GUID;
 pub const RESOURCE_MANAGER_COMMUNICATION: i32 = 2;
@@ -88,34 +102,37 @@ pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: i32 = 63;
 pub const TRANSACTION_MANAGER_VOLATILE: i32 = 1;
 pub const TRANSACTION_MAXIMUM_OPTION: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct TRANSACTION_NOTIFICATION {
-    pub TransactionKey: *mut core::ffi::c_void,
-    pub TransactionNotification: u32,
+    pub TransactionKey: super::PVOID,
+    pub TransactionNotification: super::ULONG,
     pub TmVirtualClock: super::LARGE_INTEGER,
-    pub ArgumentLength: u32,
+    pub ArgumentLength: super::ULONG,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for TRANSACTION_NOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
-    pub MarshalCookie: u32,
+    pub MarshalCookie: super::ULONG,
     pub UOW: windows_core::GUID,
 }
+#[cfg(feature = "shared")]
 pub type TRANSACTION_NOTIFICATION_PROMOTE_ARGUMENT = TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
-    pub PropagationCookie: u32,
+    pub PropagationCookie: super::ULONG,
     pub UOW: windows_core::GUID,
     pub TmIdentity: windows_core::GUID,
-    pub BufferLength: u32,
+    pub BufferLength: super::ULONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -129,10 +146,11 @@ pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: SAVEPOINT_ID,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: windows_core::GUID,
-    pub Flags: u32,
+    pub Flags: super::ULONG,
 }
 pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: i32 = 1;
 pub const TRANSACTION_NOTIFY_COMMIT: i32 = 4;

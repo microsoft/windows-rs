@@ -15,10 +15,6 @@ pub use aclapi::*;
 pub mod activation;
 #[cfg(feature = "activation")]
 pub use activation::*;
-#[cfg(feature = "activationregistration")]
-pub mod activationregistration;
-#[cfg(feature = "activationregistration")]
-pub use activationregistration::*;
 #[cfg(feature = "adshlp")]
 pub mod adshlp;
 #[cfg(feature = "adshlp")]
@@ -747,6 +743,10 @@ pub use inspectable::*;
 pub mod interlockedapi;
 #[cfg(feature = "interlockedapi")]
 pub use interlockedapi::*;
+#[cfg(feature = "intsafe")]
+pub mod intsafe;
+#[cfg(feature = "intsafe")]
+pub use intsafe::*;
 #[cfg(feature = "intshcut")]
 pub mod intshcut;
 #[cfg(feature = "intshcut")]
@@ -819,6 +819,10 @@ pub use ks::*;
 pub mod ksmedia;
 #[cfg(feature = "ksmedia")]
 pub use ksmedia::*;
+#[cfg(feature = "ksuuids")]
+pub mod ksuuids;
+#[cfg(feature = "ksuuids")]
+pub use ksuuids::*;
 #[cfg(feature = "ktmtypes")]
 pub mod ktmtypes;
 #[cfg(feature = "ktmtypes")]
@@ -879,6 +883,10 @@ pub use lmserver::*;
 pub mod lmshare;
 #[cfg(feature = "lmshare")]
 pub use lmshare::*;
+#[cfg(feature = "lmsname")]
+pub mod lmsname;
+#[cfg(feature = "lmsname")]
+pub use lmsname::*;
 #[cfg(feature = "lmstats")]
 pub mod lmstats;
 #[cfg(feature = "lmstats")]
@@ -1575,6 +1583,10 @@ pub use servprov::*;
 pub mod setupapi;
 #[cfg(feature = "setupapi")]
 pub use setupapi::*;
+#[cfg(feature = "shared")]
+pub mod shared;
+#[cfg(feature = "shared")]
+pub use shared::*;
 #[cfg(feature = "sharewindowcommandsourceinterop")]
 pub mod sharewindowcommandsourceinterop;
 #[cfg(feature = "sharewindowcommandsourceinterop")]
@@ -1679,6 +1691,10 @@ pub use sqlucode::*;
 pub mod sspi;
 #[cfg(feature = "sspi")]
 pub use sspi::*;
+#[cfg(feature = "stdint")]
+pub mod stdint;
+#[cfg(feature = "stdint")]
+pub use stdint::*;
 #[cfg(feature = "stgprop")]
 pub mod stgprop;
 #[cfg(feature = "stgprop")]
@@ -1847,6 +1863,10 @@ pub use uiautomationclient::*;
 pub mod uiautomationcore;
 #[cfg(feature = "uiautomationcore")]
 pub use uiautomationcore::*;
+#[cfg(feature = "uiautomationcoreapi")]
+pub mod uiautomationcoreapi;
+#[cfg(feature = "uiautomationcoreapi")]
+pub use uiautomationcoreapi::*;
 #[cfg(feature = "uiviewsettingsinterop")]
 pub mod uiviewsettingsinterop;
 #[cfg(feature = "uiviewsettingsinterop")]
@@ -1895,14 +1915,14 @@ pub use usp10::*;
 pub mod utilapiset;
 #[cfg(feature = "utilapiset")]
 pub use utilapiset::*;
+#[cfg(feature = "uuids")]
+pub mod uuids;
+#[cfg(feature = "uuids")]
+pub use uuids::*;
 #[cfg(feature = "uxtheme")]
 pub mod uxtheme;
 #[cfg(feature = "uxtheme")]
 pub use uxtheme::*;
-#[cfg(feature = "vadefs")]
-pub mod vadefs;
-#[cfg(feature = "vadefs")]
-pub use vadefs::*;
 #[cfg(feature = "vds")]
 pub mod vds;
 #[cfg(feature = "vds")]
@@ -2075,10 +2095,6 @@ pub use windowsdatapdfinterop::*;
 pub mod windowsdevicesdisplaycoreinterop;
 #[cfg(feature = "windowsdevicesdisplaycoreinterop")]
 pub use windowsdevicesdisplaycoreinterop::*;
-#[cfg(feature = "windowsfoundation")]
-pub mod windowsfoundation;
-#[cfg(feature = "windowsfoundation")]
-pub use windowsfoundation::*;
 #[cfg(feature = "windowsgraphicscaptureinterop")]
 pub mod windowsgraphicscaptureinterop;
 #[cfg(feature = "windowsgraphicscaptureinterop")]
@@ -2154,10 +2170,12 @@ pub use winhttp::*;
 #[cfg(feature = "winhvplatform")]
 pub mod winhvplatform;
 #[cfg(feature = "winhvplatform")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub use winhvplatform::*;
 #[cfg(feature = "winhvplatformdefs")]
 pub mod winhvplatformdefs;
 #[cfg(feature = "winhvplatformdefs")]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub use winhvplatformdefs::*;
 #[cfg(feature = "wininet")]
 pub mod wininet;
@@ -2341,7 +2359,44 @@ pub mod xmllite;
 pub use xmllite::*;
 #[cfg(feature = "xps")]
 pub mod xps;
-#[cfg(any(feature = "ro", feature = "xamlom"))]
+#[cfg(feature = "xamlom")]
 pub use core::option::Option::None;
 #[cfg(feature = "xps")]
 pub use xps::*;
+#[doc = r" A fixed 64-bit address, not a native Rust pointer."]
+#[doc(hidden)]
+#[repr(C)]
+pub struct __windows_bindgen_Pointer64<P> {
+    address: u64,
+    pointer: core::marker::PhantomData<fn() -> P>,
+}
+impl<P> __windows_bindgen_Pointer64<P> {
+    pub const fn from_address(address: u64) -> Self {
+        Self { address, pointer: core::marker::PhantomData }
+    }
+    pub const fn address(self) -> u64 {
+        self.address
+    }
+}
+impl<P> Copy for __windows_bindgen_Pointer64<P> {}
+impl<P> Clone for __windows_bindgen_Pointer64<P> {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl<P> Default for __windows_bindgen_Pointer64<P> {
+    fn default() -> Self {
+        Self::from_address(0)
+    }
+}
+impl<P> PartialEq for __windows_bindgen_Pointer64<P> {
+    fn eq(&self, other: &Self) -> bool {
+        self.address == other.address
+    }
+}
+impl<P> Eq for __windows_bindgen_Pointer64<P> {}
+impl<P> core::fmt::Debug for __windows_bindgen_Pointer64<P> {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("Pointer64").field(&self.address).finish()
+    }
+}

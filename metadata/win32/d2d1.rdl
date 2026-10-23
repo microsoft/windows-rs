@@ -377,7 +377,7 @@ mod Windows {
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetDescription(&self, #[out] stateDescription: *mut D2D1_DRAWING_STATE_DESCRIPTION);
             fn SetDescription(&self, #[in] stateDescription: *const D2D1_DRAWING_STATE_DESCRIPTION);
-            fn SetTextRenderingParams(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRenderingParams: IDWriteRenderingParams);
+            fn SetTextRenderingParams(&self, #[in] #[opt] textRenderingParams: IDWriteRenderingParams);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetTextRenderingParams(&self, #[out] #[out_ptr(nullable)] textRenderingParams: *mut IDWriteRenderingParams);
         }
@@ -540,21 +540,21 @@ mod Windows {
             fn CreateCompatibleRenderTarget(&self, #[in] #[opt] desiredSize: *const D2D1_SIZE_F, #[in] #[opt] desiredPixelSize: *const D2D1_SIZE_U, #[in] #[opt] desiredFormat: *const D2D1_PIXEL_FORMAT, options: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS, #[out] #[out_ptr(null_on_failure)] bitmapRenderTarget: *mut ID2D1BitmapRenderTarget) -> HRESULT;
             fn CreateLayer(&self, #[in] #[opt] size: *const D2D1_SIZE_F, #[out] #[out_ptr(null_on_failure)] layer: *mut ID2D1Layer) -> HRESULT;
             fn CreateMesh(&self, #[out] #[out_ptr(null_on_failure)] mesh: *mut ID2D1Mesh) -> HRESULT;
-            fn DrawLine(&self, point0: D2D1_POINT_2F, point1: D2D1_POINT_2F, #[in] brush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("1.F")] strokeWidth: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] strokeStyle: ID2D1StrokeStyle);
-            fn DrawRectangle(&self, #[in] rect: *const D2D1_RECT_F, #[in] brush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("1.F")] strokeWidth: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] strokeStyle: ID2D1StrokeStyle);
+            fn DrawLine(&self, point0: D2D1_POINT_2F, point1: D2D1_POINT_2F, #[in] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn DrawRectangle(&self, #[in] rect: *const D2D1_RECT_F, #[in] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle);
             fn FillRectangle(&self, #[in] rect: *const D2D1_RECT_F, #[in] brush: ID2D1Brush);
-            fn DrawRoundedRectangle(&self, #[in] roundedRect: *const D2D1_ROUNDED_RECT, #[in] brush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("1.F")] strokeWidth: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] strokeStyle: ID2D1StrokeStyle);
+            fn DrawRoundedRectangle(&self, #[in] roundedRect: *const D2D1_ROUNDED_RECT, #[in] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle);
             fn FillRoundedRectangle(&self, #[in] roundedRect: *const D2D1_ROUNDED_RECT, #[in] brush: ID2D1Brush);
-            fn DrawEllipse(&self, #[in] ellipse: *const D2D1_ELLIPSE, #[in] brush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("1.F")] strokeWidth: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] strokeStyle: ID2D1StrokeStyle);
+            fn DrawEllipse(&self, #[in] ellipse: *const D2D1_ELLIPSE, #[in] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle);
             fn FillEllipse(&self, #[in] ellipse: *const D2D1_ELLIPSE, #[in] brush: ID2D1Brush);
-            fn DrawGeometry(&self, #[in] geometry: ID2D1Geometry, #[in] brush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("1.F")] strokeWidth: FLOAT, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] strokeStyle: ID2D1StrokeStyle);
-            fn FillGeometry(&self, #[in] geometry: ID2D1Geometry, #[in] brush: ID2D1Brush, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] opacityBrush: ID2D1Brush);
+            fn DrawGeometry(&self, #[in] geometry: ID2D1Geometry, #[in] brush: ID2D1Brush, strokeWidth: FLOAT, #[in] #[opt] strokeStyle: ID2D1StrokeStyle);
+            fn FillGeometry(&self, #[in] geometry: ID2D1Geometry, #[in] brush: ID2D1Brush, #[in] #[opt] opacityBrush: ID2D1Brush);
             fn FillMesh(&self, #[in] mesh: ID2D1Mesh, #[in] brush: ID2D1Brush);
-            fn FillOpacityMask(&self, #[in] opacityMask: ID2D1Bitmap, #[in] brush: ID2D1Brush, content: D2D1_OPACITY_MASK_CONTENT, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] destinationRectangle: *const D2D1_RECT_F, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] sourceRectangle: *const D2D1_RECT_F);
-            fn DrawBitmap(&self, #[in] bitmap: ID2D1Bitmap, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] destinationRectangle: *const D2D1_RECT_F, #[Windows::Win32::Metadata::NativeDefaultArgument("1.F")] opacity: FLOAT, #[Windows::Win32::Metadata::NativeDefaultArgument("D2D1_BITMAP_INTERPOLATION_MODE_LINEAR")] interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] sourceRectangle: *const D2D1_RECT_F);
-            fn DrawTextA(&self, #[in] #[readable(entry, stringLength)] string: *const WCHAR, stringLength: UINT32, #[in] textFormat: IDWriteTextFormat, #[in] layoutRect: *const D2D1_RECT_F, #[in] defaultFillBrush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("D2D1_DRAW_TEXT_OPTIONS_NONE")] options: D2D1_DRAW_TEXT_OPTIONS, #[Windows::Win32::Metadata::NativeDefaultArgument("DWRITE_MEASURING_MODE_NATURAL")] measuringMode: DWRITE_MEASURING_MODE);
-            fn DrawTextLayout(&self, origin: D2D1_POINT_2F, #[in] textLayout: IDWriteTextLayout, #[in] defaultFillBrush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("D2D1_DRAW_TEXT_OPTIONS_NONE")] options: D2D1_DRAW_TEXT_OPTIONS);
-            fn DrawGlyphRun(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] foregroundBrush: ID2D1Brush, #[Windows::Win32::Metadata::NativeDefaultArgument("DWRITE_MEASURING_MODE_NATURAL")] measuringMode: DWRITE_MEASURING_MODE);
+            fn FillOpacityMask(&self, #[in] opacityMask: ID2D1Bitmap, #[in] brush: ID2D1Brush, content: D2D1_OPACITY_MASK_CONTENT, #[in] #[opt] destinationRectangle: *const D2D1_RECT_F, #[in] #[opt] sourceRectangle: *const D2D1_RECT_F);
+            fn DrawBitmap(&self, #[in] bitmap: ID2D1Bitmap, #[in] #[opt] destinationRectangle: *const D2D1_RECT_F, opacity: FLOAT, interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE, #[in] #[opt] sourceRectangle: *const D2D1_RECT_F);
+            fn DrawTextA(&self, #[in] #[readable(entry, stringLength)] string: *const WCHAR, stringLength: UINT32, #[in] textFormat: IDWriteTextFormat, #[in] layoutRect: *const D2D1_RECT_F, #[in] defaultFillBrush: ID2D1Brush, options: D2D1_DRAW_TEXT_OPTIONS, measuringMode: DWRITE_MEASURING_MODE);
+            fn DrawTextLayout(&self, origin: D2D1_POINT_2F, #[in] textLayout: IDWriteTextLayout, #[in] defaultFillBrush: ID2D1Brush, options: D2D1_DRAW_TEXT_OPTIONS);
+            fn DrawGlyphRun(&self, baselineOrigin: D2D1_POINT_2F, #[in] glyphRun: *const DWRITE_GLYPH_RUN, #[in] foregroundBrush: ID2D1Brush, measuringMode: DWRITE_MEASURING_MODE);
             fn SetTransform(&self, #[in] transform: *const D2D1_MATRIX_3X2_F);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetTransform(&self, #[out] transform: *mut D2D1_MATRIX_3X2_F);
@@ -564,23 +564,23 @@ mod Windows {
             fn SetTextAntialiasMode(&self, textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetTextAntialiasMode(&self) -> D2D1_TEXT_ANTIALIAS_MODE;
-            fn SetTextRenderingParams(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRenderingParams: IDWriteRenderingParams);
+            fn SetTextRenderingParams(&self, #[in] #[opt] textRenderingParams: IDWriteRenderingParams);
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetTextRenderingParams(&self, #[out] #[out_ptr(nullable)] textRenderingParams: *mut IDWriteRenderingParams);
             fn SetTags(&self, tag1: D2D1_TAG, tag2: D2D1_TAG);
             #[Windows::Win32::Metadata::NativeConstMethod]
-            fn GetTags(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag1: *mut D2D1_TAG, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag2: *mut D2D1_TAG);
+            fn GetTags(&self, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG);
             fn PushLayer(&self, #[in] layerParameters: *const D2D1_LAYER_PARAMETERS, #[in] #[opt] layer: ID2D1Layer);
             fn PopLayer(&self);
-            fn Flush(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag1: *mut D2D1_TAG, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn Flush(&self, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn SaveDrawingState(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] drawingStateBlock: ID2D1DrawingStateBlock);
             fn RestoreDrawingState(&self, #[in] drawingStateBlock: ID2D1DrawingStateBlock);
             fn PushAxisAlignedClip(&self, #[in] clipRect: *const D2D1_RECT_F, antialiasMode: D2D1_ANTIALIAS_MODE);
             fn PopAxisAlignedClip(&self);
-            fn Clear(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] clearColor: *const D2D1_COLOR_F);
+            fn Clear(&self, #[in] #[opt] clearColor: *const D2D1_COLOR_F);
             fn BeginDraw(&self);
-            fn EndDraw(&self, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag1: *mut D2D1_TAG, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] tag2: *mut D2D1_TAG) -> HRESULT;
+            fn EndDraw(&self, #[out] #[opt] tag1: *mut D2D1_TAG, #[out] #[opt] tag2: *mut D2D1_TAG) -> HRESULT;
             #[Windows::Win32::Metadata::NativeConstMethod]
             fn GetPixelFormat(&self) -> D2D1_PIXEL_FORMAT;
             fn SetDpi(&self, dpiX: FLOAT, dpiY: FLOAT);

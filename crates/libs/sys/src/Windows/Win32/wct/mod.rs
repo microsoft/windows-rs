@@ -1,67 +1,68 @@
 windows_link::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : HWCT));
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : HWCT, context : usize, flags : u32, threadid : u32, nodecount : super::LPDWORD, nodeinfoarray : PWAITCHAIN_NODE_INFO, iscycle : super::LPBOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : u32, callback : PWAITCHAINCALLBACK) -> HWCT);
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : HWCT, context : super::DWORD_PTR, flags : super::DWORD, threadid : super::DWORD, nodecount : super::LPDWORD, nodeinfoarray : PWAITCHAIN_NODE_INFO, iscycle : super::LPBOOL) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : super::DWORD, callback : PWAITCHAINCALLBACK) -> HWCT);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 windows_link::link!("advapi32.dll" "system" fn RegisterWaitChainCOMCallback(callstatecallback : PCOGETCALLSTATE, activationstatecallback : PCOGETACTIVATIONSTATE));
 pub type HWCT = *mut core::ffi::c_void;
-pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "C" fn(param0: windows_sys::core::GUID, param1: u32, param2: *mut u32) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "shared")]
+pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "C" fn(param0: windows_sys::core::GUID, param1: super::DWORD, param2: *mut super::DWORD) -> windows_sys::core::HRESULT>;
 #[cfg(feature = "minwindef")]
 pub type PCOGETCALLSTATE = Option<unsafe extern "C" fn(param0: i32, param1: super::PULONG) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: HWCT, context: usize, callbackstatus: u32, nodecount: super::LPDWORD, nodeinfoarray: PWAITCHAIN_NODE_INFO, iscycle: super::LPBOOL)>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: HWCT, context: super::DWORD_PTR, callbackstatus: super::DWORD, nodecount: super::LPDWORD, nodeinfoarray: PWAITCHAIN_NODE_INFO, iscycle: super::LPBOOL)>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PWAITCHAIN_NODE_INFO = *mut WAITCHAIN_NODE_INFO;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WAITCHAIN_NODE_INFO {
     pub ObjectType: WCT_OBJECT_TYPE,
     pub ObjectStatus: WCT_OBJECT_STATUS,
     pub Anonymous: WAITCHAIN_NODE_INFO_0,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WAITCHAIN_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
     pub ThreadObject: WAITCHAIN_NODE_INFO_0_1,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WAITCHAIN_NODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct WAITCHAIN_NODE_INFO_0_0 {
-    pub ObjectName: [u16; 128],
+    pub ObjectName: [super::WCHAR; 128],
     pub Timeout: super::LARGE_INTEGER,
     pub Alertable: windows_sys::core::BOOL,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for WAITCHAIN_NODE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
-    pub ProcessId: u32,
-    pub ThreadId: u32,
-    pub WaitTime: u32,
-    pub ContextSwitches: u32,
+    pub ProcessId: super::DWORD,
+    pub ThreadId: super::DWORD,
+    pub WaitTime: super::DWORD,
+    pub ContextSwitches: super::DWORD,
 }
 pub const WCTP_GETINFO_ALL_FLAGS: i32 = 7;
 pub const WCTP_OPEN_ALL_FLAGS: i32 = 1;

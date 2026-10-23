@@ -19,21 +19,18 @@ where
     unsafe { BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk as _) }
 }
 #[inline]
-pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn LoadIFilter<P1>(pwcspath: &windows_core::PCWSTR, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("query.dll" "system" fn LoadIFilter(pwcspath : windows_core::PCWSTR, punkouter : *mut core::ffi::c_void, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk as _) }
+    unsafe { LoadIFilter(core::mem::transmute_copy(pwcspath), punkouter.param().abi(), ppiunk as _) }
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[inline]
-pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
-where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-{
-    windows_core::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk as _) }
+pub unsafe fn LoadIFilterEx(pwcspath: &windows_core::PCWSTR, dwflags: super::DWORD, riid: *const super::IID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    windows_core::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : super::DWORD, riid : *const super::IID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe { LoadIFilterEx(core::mem::transmute_copy(pwcspath), dwflags, riid as _, ppiunk as _) }
 }
 pub const CIADMIN: windows_core::PCWSTR = windows_core::w!("::_nodocstore_::");
 pub const CICAT_ALL_OPENED: i32 = 32;
@@ -46,24 +43,25 @@ pub const CINULLCATALOG: windows_core::PCWSTR = windows_core::w!("::_noindex_::"
 pub const CI_PROVIDER_ALL: u32 = 4294967295;
 pub const CI_PROVIDER_INDEXING_SERVICE: i32 = 2;
 pub const CI_PROVIDER_MSSEARCH: i32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct CI_STATE {
-    pub cbStruct: u32,
-    pub cWordList: u32,
-    pub cPersistentIndex: u32,
-    pub cQueries: u32,
-    pub cDocuments: u32,
-    pub cFreshTest: u32,
-    pub dwMergeProgress: u32,
-    pub eState: u32,
-    pub cFilteredDocuments: u32,
-    pub cTotalDocuments: u32,
-    pub cPendingScans: u32,
-    pub dwIndexSize: u32,
-    pub cUniqueKeys: u32,
-    pub cSecQDocuments: u32,
-    pub dwPropCacheSize: u32,
+    pub cbStruct: super::DWORD,
+    pub cWordList: super::DWORD,
+    pub cPersistentIndex: super::DWORD,
+    pub cQueries: super::DWORD,
+    pub cDocuments: super::DWORD,
+    pub cFreshTest: super::DWORD,
+    pub dwMergeProgress: super::DWORD,
+    pub eState: super::DWORD,
+    pub cFilteredDocuments: super::DWORD,
+    pub cTotalDocuments: super::DWORD,
+    pub cPendingScans: super::DWORD,
+    pub dwIndexSize: super::DWORD,
+    pub cUniqueKeys: super::DWORD,
+    pub cSecQDocuments: super::DWORD,
+    pub dwPropCacheSize: super::DWORD,
 }
 pub const CI_STATE_ANNEALING_MERGE: i32 = 8;
 pub const CI_STATE_BATTERY_POLICY: i32 = 262144;

@@ -283,18 +283,19 @@ impl ICOMAdminCatalog {
             (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcatalogservername), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MajorVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MajorVersion(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MajorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MajorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MinorVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_MinorVersion(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MinorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MinorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetCollectionByQuery(&self, bstrcollname: &windows_core::BSTR, ppsavarquery: *const *const super::SAFEARRAY) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -313,8 +314,8 @@ impl ICOMAdminCatalog {
     pub unsafe fn ExportApplication(&self, bstrapplidorname: &windows_core::BSTR, bstrapplicationfile: &windows_core::BSTR, loptions: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ExportApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname), core::mem::transmute_copy(bstrapplicationfile), loptions) }
     }
-    pub unsafe fn InstallApplication(&self, bstrapplicationfile: &windows_core::BSTR, bstrdestinationdirectory: &windows_core::BSTR, loptions: Option<i32>, bstruserid: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrrsn: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InstallApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationfile), core::mem::transmute_copy(bstrdestinationdirectory), loptions.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute_copy(bstruserid), core::mem::transmute_copy(bstrpassword), core::mem::transmute_copy(bstrrsn)) }
+    pub unsafe fn InstallApplication(&self, bstrapplicationfile: &windows_core::BSTR, bstrdestinationdirectory: &windows_core::BSTR, loptions: i32, bstruserid: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrrsn: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).InstallApplication)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationfile), core::mem::transmute_copy(bstrdestinationdirectory), loptions, core::mem::transmute_copy(bstruserid), core::mem::transmute_copy(bstrpassword), core::mem::transmute_copy(bstrrsn)) }
     }
     pub unsafe fn StopRouter(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StopRouter)(windows_core::Interface::as_raw(self)) }
@@ -331,9 +332,11 @@ impl ICOMAdminCatalog {
     pub unsafe fn Reserved2(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reserved2)(windows_core::Interface::as_raw(self)) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn InstallMultipleComponents(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InstallMultipleComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname), ppsavarfilenames, ppsavarclsids) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetMultipleComponentsInfo(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarclassnames: *mut *mut super::SAFEARRAY, ppsavarfileflags: *mut *mut super::SAFEARRAY, ppsavarcomponentflags: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMultipleComponentsInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname), ppsavarfilenames, ppsavarclsids as _, ppsavarclassnames as _, ppsavarfileflags as _, ppsavarcomponentflags as _) }
     }
@@ -346,7 +349,7 @@ impl ICOMAdminCatalog {
     pub unsafe fn RestoreREGDB(&self, bstrbackupfilepath: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RestoreREGDB)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrbackupfilepath)) }
     }
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn QueryApplicationFile(&self, bstrapplicationfile: &windows_core::BSTR, pbstrapplicationname: *mut windows_core::BSTR, pbstrapplicationdescription: *mut windows_core::BSTR, pbhasusers: *mut super::VARIANT_BOOL, pbisproxy: *mut super::VARIANT_BOOL, ppsavarfilenames: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryApplicationFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationfile), core::mem::transmute(pbstrapplicationname), core::mem::transmute(pbstrapplicationdescription), pbhasusers as _, pbisproxy as _, ppsavarfilenames as _) }
     }
@@ -359,12 +362,14 @@ impl ICOMAdminCatalog {
             (windows_core::Interface::vtable(self).ServiceCheck)(windows_core::Interface::as_raw(self), lservice, &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn InstallMultipleEventClasses(&self, bstrapplidorname: &windows_core::BSTR, ppsavarfilenames: *const *const super::SAFEARRAY, ppsavarclsids: *const *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InstallMultipleEventClasses)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname), ppsavarfilenames, ppsavarclsids) }
     }
     pub unsafe fn InstallEventClass(&self, bstrapplidorname: &windows_core::BSTR, bstrdll: &windows_core::BSTR, bstrtlb: &windows_core::BSTR, bstrpsdll: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InstallEventClass)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplidorname), core::mem::transmute_copy(bstrdll), core::mem::transmute_copy(bstrtlb), core::mem::transmute_copy(bstrpsdll)) }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn GetEventClassesForIID(&self, bstriid: &windows_core::BSTR, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarprogids: *mut *mut super::SAFEARRAY, ppsavardescriptions: *mut *mut super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEventClassesForIID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstriid), ppsavarclsids as _, ppsavarprogids as _, ppsavardescriptions as _) }
     }
@@ -376,9 +381,12 @@ pub struct ICOMAdminCatalog_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub GetCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MajorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub MinorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_MajorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_MinorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetCollectionByQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const *const super::SAFEARRAY, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    GetCollectionByQuery: usize,
     pub ImportComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub InstallComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ShutdownApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -389,27 +397,39 @@ pub struct ICOMAdminCatalog_Vtbl {
     pub StartRouter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reserved1: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reserved2: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub InstallMultipleComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const *const super::SAFEARRAY, *const *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    InstallMultipleComponents: usize,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetMultipleComponentsInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const *const super::SAFEARRAY, *mut *mut super::SAFEARRAY, *mut *mut super::SAFEARRAY, *mut *mut super::SAFEARRAY, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    GetMultipleComponentsInfo: usize,
     pub RefreshComponents: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BackupREGDB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub RestoreREGDB: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "wtypes")]
+    #[cfg(all(feature = "shared", feature = "winnt", feature = "wtypes"))]
     pub QueryApplicationFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::VARIANT_BOOL, *mut super::VARIANT_BOOL, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
-    #[cfg(not(feature = "wtypes"))]
+    #[cfg(not(all(feature = "shared", feature = "winnt", feature = "wtypes")))]
     QueryApplicationFile: usize,
     pub StartApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ServiceCheck: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub InstallMultipleEventClasses: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const *const super::SAFEARRAY, *const *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    InstallMultipleEventClasses: usize,
     pub InstallEventClass: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub GetEventClassesForIID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut super::SAFEARRAY, *mut *mut super::SAFEARRAY, *mut *mut super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    GetEventClassesForIID: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICOMAdminCatalog_Impl: super::IDispatch_Impl {
     fn GetCollection(&self, bstrcollname: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
     fn Connect(&self, bstrcatalogservername: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
-    fn MajorVersion(&self) -> windows_core::Result<i32>;
-    fn MinorVersion(&self) -> windows_core::Result<i32>;
+    fn get_MajorVersion(&self) -> windows_core::Result<i32>;
+    fn get_MinorVersion(&self) -> windows_core::Result<i32>;
     fn GetCollectionByQuery(&self, bstrcollname: &windows_core::BSTR, ppsavarquery: *const *const super::SAFEARRAY) -> windows_core::Result<super::IDispatch>;
     fn ImportComponent(&self, bstrapplidorname: &windows_core::BSTR, bstrclsidorprogid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn InstallComponent(&self, bstrapplidorname: &windows_core::BSTR, bstrdll: &windows_core::BSTR, bstrtlb: &windows_core::BSTR, bstrpsdll: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -433,7 +453,7 @@ pub trait ICOMAdminCatalog_Impl: super::IDispatch_Impl {
     fn InstallEventClass(&self, bstrapplidorname: &windows_core::BSTR, bstrdll: &windows_core::BSTR, bstrtlb: &windows_core::BSTR, bstrpsdll: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetEventClassesForIID(&self, bstriid: &windows_core::BSTR, ppsavarclsids: *mut *mut super::SAFEARRAY, ppsavarprogids: *mut *mut super::SAFEARRAY, ppsavardescriptions: *mut *mut super::SAFEARRAY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICOMAdminCatalog_Vtbl {
     pub const fn new<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCollection<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcollname: *mut core::ffi::c_void, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -460,10 +480,10 @@ impl ICOMAdminCatalog_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MajorVersion<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmajorversion: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MajorVersion<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmajorversion: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog_Impl::MajorVersion(this) {
+                match ICOMAdminCatalog_Impl::get_MajorVersion(this) {
                     Ok(ok__) => {
                         plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
@@ -472,10 +492,10 @@ impl ICOMAdminCatalog_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MinorVersion<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plminorversion: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MinorVersion<Identity: ICOMAdminCatalog_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plminorversion: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog_Impl::MinorVersion(this) {
+                match ICOMAdminCatalog_Impl::get_MinorVersion(this) {
                     Ok(ok__) => {
                         plminorversion.write(ok__);
                         windows_core::HRESULT(0)
@@ -632,8 +652,8 @@ impl ICOMAdminCatalog_Vtbl {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
             GetCollection: GetCollection::<Identity, OFFSET>,
             Connect: Connect::<Identity, OFFSET>,
-            MajorVersion: MajorVersion::<Identity, OFFSET>,
-            MinorVersion: MinorVersion::<Identity, OFFSET>,
+            get_MajorVersion: get_MajorVersion::<Identity, OFFSET>,
+            get_MinorVersion: get_MinorVersion::<Identity, OFFSET>,
             GetCollectionByQuery: GetCollectionByQuery::<Identity, OFFSET>,
             ImportComponent: ImportComponent::<Identity, OFFSET>,
             InstallComponent: InstallComponent::<Identity, OFFSET>,
@@ -662,7 +682,7 @@ impl ICOMAdminCatalog_Vtbl {
         iid == &<ICOMAdminCatalog as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICOMAdminCatalog {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICOMAdminCatalog2, ICOMAdminCatalog2_Vtbl, 0x790c6e0b_9194_4cc9_9426_a48a63185696);
@@ -677,7 +697,7 @@ impl core::ops::Deref for ICOMAdminCatalog2 {
 windows_core::imp::interface_hierarchy!(ICOMAdminCatalog2, windows_core::IUnknown, super::IDispatch, ICOMAdminCatalog);
 #[cfg(feature = "oaidl")]
 impl ICOMAdminCatalog2 {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCollectionByQuery2(&self, bstrcollectionname: &windows_core::BSTR, pvarquerystrings: *const super::VARIANT) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -690,23 +710,23 @@ impl ICOMAdminCatalog2 {
             (windows_core::Interface::vtable(self).GetApplicationInstanceIDFromProcessID)(windows_core::Interface::as_raw(self), lprocessid, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ShutdownApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ShutdownApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PauseApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PauseApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ResumeApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResumeApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RecycleApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT, lreasoncode: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RecycleApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid, lreasoncode) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AreApplicationInstancesPaused(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -720,10 +740,10 @@ impl ICOMAdminCatalog2 {
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn IsApplicationInstanceDumpSupported(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_IsApplicationInstanceDumpSupported(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsApplicationInstanceDumpSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_IsApplicationInstanceDumpSupported)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
@@ -745,39 +765,39 @@ impl ICOMAdminCatalog2 {
             (windows_core::Interface::vtable(self).GetPartitionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetCurrentPartition(&self, bstrpartitionidorname: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCurrentPartition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpartitionidorname)) }
+    pub unsafe fn put_CurrentPartition(&self, bstrpartitionidorname: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_CurrentPartition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpartitionidorname)) }
     }
-    pub unsafe fn CurrentPartitionID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_CurrentPartitionID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentPartitionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_CurrentPartitionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CurrentPartitionName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_CurrentPartitionName(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentPartitionName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_CurrentPartitionName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GlobalPartitionID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_GlobalPartitionID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GlobalPartitionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_GlobalPartitionID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub unsafe fn FlushPartitionCache(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FlushPartitionCache)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CopyApplications(&self, bstrsourcepartitionidorname: &windows_core::BSTR, pvarapplicationid: *const super::VARIANT, bstrdestinationpartitionidorname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CopyApplications)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourcepartitionidorname), pvarapplicationid, core::mem::transmute_copy(bstrdestinationpartitionidorname)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CopyComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CopyComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceapplicationidorname), pvarclsidorprogid, core::mem::transmute_copy(bstrdestinationapplicationidorname)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MoveComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MoveComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceapplicationidorname), pvarclsidorprogid, core::mem::transmute_copy(bstrdestinationapplicationidorname)) }
     }
@@ -790,23 +810,23 @@ impl ICOMAdminCatalog2 {
             (windows_core::Interface::vtable(self).IsSafeToDelete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdllname), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn ImportUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: Option<*const super::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ImportUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn ImportUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ImportUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn PromoteUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: Option<*const super::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PromoteUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn PromoteUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PromoteUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn ImportComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: Option<*const super::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ImportComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn ImportComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ImportComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype) }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Is64BitCatalogServer(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_Is64BitCatalogServer(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Is64BitCatalogServer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Is64BitCatalogServer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn ExportPartition(&self, bstrpartitionidorname: &windows_core::BSTR, bstrpartitionfilename: &windows_core::BSTR, loptions: i32) -> windows_core::HRESULT {
@@ -833,36 +853,36 @@ impl ICOMAdminCatalog2 {
 #[doc(hidden)]
 pub struct ICOMAdminCatalog2_Vtbl {
     pub base__: ICOMAdminCatalog_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCollectionByQuery2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCollectionByQuery2: usize,
     pub GetApplicationInstanceIDFromProcessID: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ShutdownApplicationInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ShutdownApplicationInstances: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub PauseApplicationInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     PauseApplicationInstances: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ResumeApplicationInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ResumeApplicationInstances: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub RecycleApplicationInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     RecycleApplicationInstances: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub AreApplicationInstancesPaused: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::VARIANT, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     AreApplicationInstancesPaused: usize,
     pub DumpApplicationInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wtypes")]
-    pub IsApplicationInstanceDumpSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_IsApplicationInstanceDumpSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    IsApplicationInstanceDumpSupported: usize,
+    get_IsApplicationInstanceDumpSupported: usize,
     #[cfg(feature = "wtypes")]
     pub CreateServiceForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
@@ -870,47 +890,47 @@ pub struct ICOMAdminCatalog2_Vtbl {
     pub DeleteServiceForApplication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPartitionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetPartitionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCurrentPartition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentPartitionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CurrentPartitionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GlobalPartitionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_CurrentPartition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_CurrentPartitionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_CurrentPartitionName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_GlobalPartitionID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FlushPartitionCache: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CopyApplications: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CopyApplications: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub CopyComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     CopyComponents: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub MoveComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     MoveComponents: usize,
     pub AliasComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsSafeToDelete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut COMAdminInUse) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ImportUnconfiguredComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ImportUnconfiguredComponents: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub PromoteUnconfiguredComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     PromoteUnconfiguredComponents: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub ImportComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::VARIANT, *const super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     ImportComponents: usize,
     #[cfg(feature = "wtypes")]
-    pub Is64BitCatalogServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Is64BitCatalogServer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Is64BitCatalogServer: usize,
+    get_Is64BitCatalogServer: usize,
     pub ExportPartition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub InstallPartition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueryApplicationFile2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetComponentVersionCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICOMAdminCatalog2_Impl: ICOMAdminCatalog_Impl {
     fn GetCollectionByQuery2(&self, bstrcollectionname: &windows_core::BSTR, pvarquerystrings: *const super::VARIANT) -> windows_core::Result<super::IDispatch>;
     fn GetApplicationInstanceIDFromProcessID(&self, lprocessid: i32) -> windows_core::Result<windows_core::BSTR>;
@@ -920,15 +940,15 @@ pub trait ICOMAdminCatalog2_Impl: ICOMAdminCatalog_Impl {
     fn RecycleApplicationInstances(&self, pvarapplicationinstanceid: *const super::VARIANT, lreasoncode: i32) -> windows_core::Result<()>;
     fn AreApplicationInstancesPaused(&self, pvarapplicationinstanceid: *const super::VARIANT) -> windows_core::Result<super::VARIANT_BOOL>;
     fn DumpApplicationInstance(&self, bstrapplicationinstanceid: &windows_core::BSTR, bstrdirectory: &windows_core::BSTR, lmaximages: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn IsApplicationInstanceDumpSupported(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_IsApplicationInstanceDumpSupported(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn CreateServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR, bstrservicename: &windows_core::BSTR, bstrstarttype: &windows_core::BSTR, bstrerrorcontrol: &windows_core::BSTR, bstrdependencies: &windows_core::BSTR, bstrrunas: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bdesktopok: super::VARIANT_BOOL) -> windows_core::Result<()>;
     fn DeleteServiceForApplication(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetPartitionID(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
     fn GetPartitionName(&self, bstrapplicationidorname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCurrentPartition(&self, bstrpartitionidorname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CurrentPartitionID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CurrentPartitionName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GlobalPartitionID(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn put_CurrentPartition(&self, bstrpartitionidorname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_CurrentPartitionID(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_CurrentPartitionName(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_GlobalPartitionID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn FlushPartitionCache(&self) -> windows_core::Result<()>;
     fn CopyApplications(&self, bstrsourcepartitionidorname: &windows_core::BSTR, pvarapplicationid: *const super::VARIANT, bstrdestinationpartitionidorname: &windows_core::BSTR) -> windows_core::Result<()>;
     fn CopyComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -938,13 +958,13 @@ pub trait ICOMAdminCatalog2_Impl: ICOMAdminCatalog_Impl {
     fn ImportUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::Result<()>;
     fn PromoteUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::Result<()>;
     fn ImportComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::VARIANT, pvarcomponenttype: *const super::VARIANT) -> windows_core::Result<()>;
-    fn Is64BitCatalogServer(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_Is64BitCatalogServer(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn ExportPartition(&self, bstrpartitionidorname: &windows_core::BSTR, bstrpartitionfilename: &windows_core::BSTR, loptions: i32) -> windows_core::Result<()>;
     fn InstallPartition(&self, bstrfilename: &windows_core::BSTR, bstrdestdirectory: &windows_core::BSTR, loptions: i32, bstruserid: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, bstrrsn: &windows_core::BSTR) -> windows_core::Result<()>;
     fn QueryApplicationFile2(&self, bstrapplicationfile: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
     fn GetComponentVersionCount(&self, bstrclsidorprogid: &windows_core::BSTR) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICOMAdminCatalog2_Vtbl {
     pub const fn new<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCollectionByQuery2<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcollectionname: *mut core::ffi::c_void, pvarquerystrings: *const super::VARIANT, ppcatalogcollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1019,10 +1039,10 @@ impl ICOMAdminCatalog2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsApplicationInstanceDumpSupported<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbooldumpsupported: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_IsApplicationInstanceDumpSupported<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbooldumpsupported: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::IsApplicationInstanceDumpSupported(this) {
+                match ICOMAdminCatalog2_Impl::get_IsApplicationInstanceDumpSupported(this) {
                     Ok(ok__) => {
                         pvarbooldumpsupported.write(ok__);
                         windows_core::HRESULT(0)
@@ -1067,16 +1087,16 @@ impl ICOMAdminCatalog2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCurrentPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpartitionidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_CurrentPartition<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpartitionidorname: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICOMAdminCatalog2_Impl::SetCurrentPartition(this, core::mem::transmute(&bstrpartitionidorname)).into()
+                ICOMAdminCatalog2_Impl::put_CurrentPartition(this, core::mem::transmute(&bstrpartitionidorname)).into()
             }
         }
-        unsafe extern "system" fn CurrentPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CurrentPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::CurrentPartitionID(this) {
+                match ICOMAdminCatalog2_Impl::get_CurrentPartitionID(this) {
                     Ok(ok__) => {
                         pbstrpartitionid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1085,10 +1105,10 @@ impl ICOMAdminCatalog2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CurrentPartitionName<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpartitionname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CurrentPartitionName<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpartitionname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::CurrentPartitionName(this) {
+                match ICOMAdminCatalog2_Impl::get_CurrentPartitionName(this) {
                     Ok(ok__) => {
                         pbstrpartitionname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1097,10 +1117,10 @@ impl ICOMAdminCatalog2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GlobalPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrglobalpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_GlobalPartitionID<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrglobalpartitionid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::GlobalPartitionID(this) {
+                match ICOMAdminCatalog2_Impl::get_GlobalPartitionID(this) {
                     Ok(ok__) => {
                         pbstrglobalpartitionid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1169,10 +1189,10 @@ impl ICOMAdminCatalog2_Vtbl {
                 ICOMAdminCatalog2_Impl::ImportComponents(this, core::mem::transmute(&bstrapplicationidorname), core::mem::transmute_copy(&pvarclsidorprogid), core::mem::transmute_copy(&pvarcomponenttype)).into()
             }
         }
-        unsafe extern "system" fn Is64BitCatalogServer<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbis64bit: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Is64BitCatalogServer<Identity: ICOMAdminCatalog2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbis64bit: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICOMAdminCatalog2_Impl::Is64BitCatalogServer(this) {
+                match ICOMAdminCatalog2_Impl::get_Is64BitCatalogServer(this) {
                     Ok(ok__) => {
                         pbis64bit.write(ok__);
                         windows_core::HRESULT(0)
@@ -1227,15 +1247,15 @@ impl ICOMAdminCatalog2_Vtbl {
             RecycleApplicationInstances: RecycleApplicationInstances::<Identity, OFFSET>,
             AreApplicationInstancesPaused: AreApplicationInstancesPaused::<Identity, OFFSET>,
             DumpApplicationInstance: DumpApplicationInstance::<Identity, OFFSET>,
-            IsApplicationInstanceDumpSupported: IsApplicationInstanceDumpSupported::<Identity, OFFSET>,
+            get_IsApplicationInstanceDumpSupported: get_IsApplicationInstanceDumpSupported::<Identity, OFFSET>,
             CreateServiceForApplication: CreateServiceForApplication::<Identity, OFFSET>,
             DeleteServiceForApplication: DeleteServiceForApplication::<Identity, OFFSET>,
             GetPartitionID: GetPartitionID::<Identity, OFFSET>,
             GetPartitionName: GetPartitionName::<Identity, OFFSET>,
-            SetCurrentPartition: SetCurrentPartition::<Identity, OFFSET>,
-            CurrentPartitionID: CurrentPartitionID::<Identity, OFFSET>,
-            CurrentPartitionName: CurrentPartitionName::<Identity, OFFSET>,
-            GlobalPartitionID: GlobalPartitionID::<Identity, OFFSET>,
+            put_CurrentPartition: put_CurrentPartition::<Identity, OFFSET>,
+            get_CurrentPartitionID: get_CurrentPartitionID::<Identity, OFFSET>,
+            get_CurrentPartitionName: get_CurrentPartitionName::<Identity, OFFSET>,
+            get_GlobalPartitionID: get_GlobalPartitionID::<Identity, OFFSET>,
             FlushPartitionCache: FlushPartitionCache::<Identity, OFFSET>,
             CopyApplications: CopyApplications::<Identity, OFFSET>,
             CopyComponents: CopyComponents::<Identity, OFFSET>,
@@ -1245,7 +1265,7 @@ impl ICOMAdminCatalog2_Vtbl {
             ImportUnconfiguredComponents: ImportUnconfiguredComponents::<Identity, OFFSET>,
             PromoteUnconfiguredComponents: PromoteUnconfiguredComponents::<Identity, OFFSET>,
             ImportComponents: ImportComponents::<Identity, OFFSET>,
-            Is64BitCatalogServer: Is64BitCatalogServer::<Identity, OFFSET>,
+            get_Is64BitCatalogServer: get_Is64BitCatalogServer::<Identity, OFFSET>,
             ExportPartition: ExportPartition::<Identity, OFFSET>,
             InstallPartition: InstallPartition::<Identity, OFFSET>,
             QueryApplicationFile2: QueryApplicationFile2::<Identity, OFFSET>,
@@ -1256,7 +1276,7 @@ impl ICOMAdminCatalog2_Vtbl {
         iid == &<ICOMAdminCatalog2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<ICOMAdminCatalog as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICOMAdminCatalog2 {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICatalogCollection, ICatalogCollection_Vtbl, 0x6eb22872_8a19_11d0_81b6_00a0c9231c29);
@@ -1271,22 +1291,22 @@ impl core::ops::Deref for ICatalogCollection {
 windows_core::imp::interface_hierarchy!(ICatalogCollection, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ICatalogCollection {
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Item(&self, lindex: i32) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_Item(&self, lindex: i32) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), lindex, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Count(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Remove(&self, lindex: i32) -> windows_core::HRESULT {
@@ -1307,32 +1327,32 @@ impl ICatalogCollection {
             (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCollection(&self, bstrcollname: &windows_core::BSTR, varobjectkey: &super::VARIANT) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCollection)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcollname), core::mem::transmute_copy(varobjectkey), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Name(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Name(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn AddEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_AddEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AddEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn RemoveEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_RemoveEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemoveEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_RemoveEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetUtilInterface(&self) -> windows_core::Result<super::IDispatch> {
@@ -1341,18 +1361,19 @@ impl ICatalogCollection {
             (windows_core::Interface::vtable(self).GetUtilInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DataStoreMajorVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_DataStoreMajorVersion(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DataStoreMajorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DataStoreMajorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DataStoreMinorVersion(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_DataStoreMinorVersion(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DataStoreMinorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DataStoreMinorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub unsafe fn PopulateByKey(&self, psakeys: *const super::SAFEARRAY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).PopulateByKey)(windows_core::Interface::as_raw(self), psakeys) }
     }
@@ -1365,61 +1386,64 @@ impl ICatalogCollection {
 #[doc(hidden)]
 pub struct ICatalogCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Populate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SaveChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub GetCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     GetCollection: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Name: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Name: usize,
     #[cfg(feature = "wtypes")]
-    pub AddEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_AddEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    AddEnabled: usize,
+    get_AddEnabled: usize,
     #[cfg(feature = "wtypes")]
-    pub RemoveEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_RemoveEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    RemoveEnabled: usize,
+    get_RemoveEnabled: usize,
     pub GetUtilInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DataStoreMajorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub DataStoreMinorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_DataStoreMajorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_DataStoreMinorVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(all(feature = "shared", feature = "winnt"))]
     pub PopulateByKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::SAFEARRAY) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "winnt")))]
+    PopulateByKey: usize,
     pub PopulateByQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICatalogCollection_Impl: super::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, lindex: i32) -> windows_core::Result<super::IDispatch>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Item(&self, lindex: i32) -> windows_core::Result<super::IDispatch>;
+    fn get_Count(&self) -> windows_core::Result<i32>;
     fn Remove(&self, lindex: i32) -> windows_core::Result<()>;
     fn Add(&self) -> windows_core::Result<super::IDispatch>;
     fn Populate(&self) -> windows_core::Result<()>;
     fn SaveChanges(&self) -> windows_core::Result<i32>;
     fn GetCollection(&self, bstrcollname: &windows_core::BSTR, varobjectkey: &super::VARIANT) -> windows_core::Result<super::IDispatch>;
-    fn Name(&self) -> windows_core::Result<super::VARIANT>;
-    fn AddEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn RemoveEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_Name(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_AddEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_RemoveEnabled(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn GetUtilInterface(&self) -> windows_core::Result<super::IDispatch>;
-    fn DataStoreMajorVersion(&self) -> windows_core::Result<i32>;
-    fn DataStoreMinorVersion(&self) -> windows_core::Result<i32>;
+    fn get_DataStoreMajorVersion(&self) -> windows_core::Result<i32>;
+    fn get_DataStoreMinorVersion(&self) -> windows_core::Result<i32>;
     fn PopulateByKey(&self, psakeys: *const super::SAFEARRAY) -> windows_core::Result<()>;
     fn PopulateByQuery(&self, bstrquerystring: &windows_core::BSTR, lquerytype: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICatalogCollection_Vtbl {
     pub const fn new<Identity: ICatalogCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn _NewEnum<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvariant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumvariant: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::_NewEnum(this) {
+                match ICatalogCollection_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         ppenumvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1428,10 +1452,10 @@ impl ICatalogCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Item<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, ppcatalogobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lindex: i32, ppcatalogobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::Item(this, core::mem::transmute_copy(&lindex)) {
+                match ICatalogCollection_Impl::get_Item(this, core::mem::transmute_copy(&lindex)) {
                     Ok(ok__) => {
                         ppcatalogobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1440,10 +1464,10 @@ impl ICatalogCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Count<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plobjectcount: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plobjectcount: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::Count(this) {
+                match ICatalogCollection_Impl::get_Count(this) {
                     Ok(ok__) => {
                         plobjectcount.write(ok__);
                         windows_core::HRESULT(0)
@@ -1500,10 +1524,10 @@ impl ICatalogCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Name<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarnamel: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarnamel: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::Name(this) {
+                match ICatalogCollection_Impl::get_Name(this) {
                     Ok(ok__) => {
                         pvarnamel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1512,10 +1536,10 @@ impl ICatalogCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AddEnabled<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbool: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AddEnabled<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbool: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::AddEnabled(this) {
+                match ICatalogCollection_Impl::get_AddEnabled(this) {
                     Ok(ok__) => {
                         pvarbool.write(ok__);
                         windows_core::HRESULT(0)
@@ -1524,10 +1548,10 @@ impl ICatalogCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveEnabled<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbool: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_RemoveEnabled<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbool: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::RemoveEnabled(this) {
+                match ICatalogCollection_Impl::get_RemoveEnabled(this) {
                     Ok(ok__) => {
                         pvarbool.write(ok__);
                         windows_core::HRESULT(0)
@@ -1548,10 +1572,10 @@ impl ICatalogCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DataStoreMajorVersion<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmajorversion: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DataStoreMajorVersion<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plmajorversion: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::DataStoreMajorVersion(this) {
+                match ICatalogCollection_Impl::get_DataStoreMajorVersion(this) {
                     Ok(ok__) => {
                         plmajorversion.write(ok__);
                         windows_core::HRESULT(0)
@@ -1560,10 +1584,10 @@ impl ICatalogCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn DataStoreMinorVersion<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plminorversionl: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DataStoreMinorVersion<Identity: ICatalogCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plminorversionl: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogCollection_Impl::DataStoreMinorVersion(this) {
+                match ICatalogCollection_Impl::get_DataStoreMinorVersion(this) {
                     Ok(ok__) => {
                         plminorversionl.write(ok__);
                         windows_core::HRESULT(0)
@@ -1586,20 +1610,20 @@ impl ICatalogCollection_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
-            Item: Item::<Identity, OFFSET>,
-            Count: Count::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
+            get_Item: get_Item::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
             Remove: Remove::<Identity, OFFSET>,
             Add: Add::<Identity, OFFSET>,
             Populate: Populate::<Identity, OFFSET>,
             SaveChanges: SaveChanges::<Identity, OFFSET>,
             GetCollection: GetCollection::<Identity, OFFSET>,
-            Name: Name::<Identity, OFFSET>,
-            AddEnabled: AddEnabled::<Identity, OFFSET>,
-            RemoveEnabled: RemoveEnabled::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
+            get_AddEnabled: get_AddEnabled::<Identity, OFFSET>,
+            get_RemoveEnabled: get_RemoveEnabled::<Identity, OFFSET>,
             GetUtilInterface: GetUtilInterface::<Identity, OFFSET>,
-            DataStoreMajorVersion: DataStoreMajorVersion::<Identity, OFFSET>,
-            DataStoreMinorVersion: DataStoreMinorVersion::<Identity, OFFSET>,
+            get_DataStoreMajorVersion: get_DataStoreMajorVersion::<Identity, OFFSET>,
+            get_DataStoreMinorVersion: get_DataStoreMinorVersion::<Identity, OFFSET>,
             PopulateByKey: PopulateByKey::<Identity, OFFSET>,
             PopulateByQuery: PopulateByQuery::<Identity, OFFSET>,
         }
@@ -1608,7 +1632,7 @@ impl ICatalogCollection_Vtbl {
         iid == &<ICatalogCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICatalogCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(ICatalogObject, ICatalogObject_Vtbl, 0x6eb22871_8a19_11d0_81b6_00a0c9231c29);
@@ -1623,29 +1647,29 @@ impl core::ops::Deref for ICatalogObject {
 windows_core::imp::interface_hierarchy!(ICatalogObject, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl ICatalogObject {
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Value(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Value(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Value)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn SetValue(&self, bstrpropname: &windows_core::BSTR, val: &super::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), core::mem::transmute_copy(val)) }
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn put_Value(&self, bstrpropname: &windows_core::BSTR, val: &super::VARIANT) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Value)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), core::mem::transmute_copy(val)) }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Key(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Key(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Key)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Key)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Name(&self) -> windows_core::Result<super::VARIANT> {
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub unsafe fn get_Name(&self) -> windows_core::Result<super::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -1656,10 +1680,10 @@ impl ICatalogObject {
         }
     }
     #[cfg(feature = "wtypes")]
-    pub unsafe fn Valid(&self) -> windows_core::Result<super::VARIANT_BOOL> {
+    pub unsafe fn get_Valid(&self) -> windows_core::Result<super::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Valid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Valid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
@@ -1675,52 +1699,52 @@ impl ICatalogObject {
 #[doc(hidden)]
 pub struct ICatalogObject_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Value: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    SetValue: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Key: usize,
-    #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "wtypes", feature = "wtypesbase")))]
-    Name: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Value: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub put_Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    put_Value: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Key: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Key: usize,
+    #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
+    get_Name: usize,
     #[cfg(feature = "wtypes")]
     pub IsPropertyReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     IsPropertyReadOnly: usize,
     #[cfg(feature = "wtypes")]
-    pub Valid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub get_Valid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
-    Valid: usize,
+    get_Valid: usize,
     #[cfg(feature = "wtypes")]
     pub IsPropertyWriteOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(feature = "wtypes"))]
     IsPropertyWriteOnly: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ICatalogObject_Impl: super::IDispatch_Impl {
-    fn Value(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
-    fn SetValue(&self, bstrpropname: &windows_core::BSTR, val: &super::VARIANT) -> windows_core::Result<()>;
-    fn Key(&self) -> windows_core::Result<super::VARIANT>;
-    fn Name(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Value(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT>;
+    fn put_Value(&self, bstrpropname: &windows_core::BSTR, val: &super::VARIANT) -> windows_core::Result<()>;
+    fn get_Key(&self) -> windows_core::Result<super::VARIANT>;
+    fn get_Name(&self) -> windows_core::Result<super::VARIANT>;
     fn IsPropertyReadOnly(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
-    fn Valid(&self) -> windows_core::Result<super::VARIANT_BOOL>;
+    fn get_Valid(&self) -> windows_core::Result<super::VARIANT_BOOL>;
     fn IsPropertyWriteOnly(&self, bstrpropname: &windows_core::BSTR) -> windows_core::Result<super::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl ICatalogObject_Vtbl {
     pub const fn new<Identity: ICatalogObject_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Value<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Value<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogObject_Impl::Value(this, core::mem::transmute(&bstrpropname)) {
+                match ICatalogObject_Impl::get_Value(this, core::mem::transmute(&bstrpropname)) {
                     Ok(ok__) => {
                         pvarretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1729,16 +1753,16 @@ impl ICatalogObject_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, val: super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Value<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrpropname: *mut core::ffi::c_void, val: super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICatalogObject_Impl::SetValue(this, core::mem::transmute(&bstrpropname), core::mem::transmute(&val)).into()
+                ICatalogObject_Impl::put_Value(this, core::mem::transmute(&bstrpropname), core::mem::transmute(&val)).into()
             }
         }
-        unsafe extern "system" fn Key<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Key<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogObject_Impl::Key(this) {
+                match ICatalogObject_Impl::get_Key(this) {
                     Ok(ok__) => {
                         pvarretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1747,10 +1771,10 @@ impl ICatalogObject_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Name<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarretval: *mut super::VARIANT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogObject_Impl::Name(this) {
+                match ICatalogObject_Impl::get_Name(this) {
                     Ok(ok__) => {
                         pvarretval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1771,10 +1795,10 @@ impl ICatalogObject_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Valid<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbretval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Valid<Identity: ICatalogObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbretval: *mut super::VARIANT_BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match ICatalogObject_Impl::Valid(this) {
+                match ICatalogObject_Impl::get_Valid(this) {
                     Ok(ok__) => {
                         pbretval.write(ok__);
                         windows_core::HRESULT(0)
@@ -1797,12 +1821,12 @@ impl ICatalogObject_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Value: Value::<Identity, OFFSET>,
-            SetValue: SetValue::<Identity, OFFSET>,
-            Key: Key::<Identity, OFFSET>,
-            Name: Name::<Identity, OFFSET>,
+            get_Value: get_Value::<Identity, OFFSET>,
+            put_Value: put_Value::<Identity, OFFSET>,
+            get_Key: get_Key::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
             IsPropertyReadOnly: IsPropertyReadOnly::<Identity, OFFSET>,
-            Valid: Valid::<Identity, OFFSET>,
+            get_Valid: get_Valid::<Identity, OFFSET>,
             IsPropertyWriteOnly: IsPropertyWriteOnly::<Identity, OFFSET>,
         }
     }
@@ -1810,5 +1834,5 @@ impl ICatalogObject_Vtbl {
         iid == &<ICatalogObject as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICatalogObject {}

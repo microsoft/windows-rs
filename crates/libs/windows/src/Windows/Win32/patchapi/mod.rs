@@ -1,109 +1,117 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ApplyPatchToFileA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: super::ULONG) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : u32) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : super::ULONG) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: Option<&[u8]>, newfilebuffer: *mut super::PBYTE, newfilebuffersize: u32, newfileactualsize: Option<*mut u32>, newfiletime: Option<*mut super::FILETIME>, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : super::PBYTE, patchfilesize : u32, oldfilemapped : super::PBYTE, oldfilesize : u32, newfilebuffer : *mut super::PBYTE, newfilebuffersize : u32, newfileactualsize : *mut u32, newfiletime : *mut super::FILETIME, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn ApplyPatchToFileByBuffers(patchfilemapped: &[u8], oldfilemapped: Option<&[u8]>, newfilebuffer: *mut super::PBYTE, newfilebuffersize: super::ULONG, newfileactualsize: Option<*mut super::ULONG>, newfiletime: Option<*mut super::FILETIME>, applyoptionflags: super::ULONG, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<super::PVOID>) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByBuffers(patchfilemapped : super::PBYTE, patchfilesize : super::ULONG, oldfilemapped : super::PBYTE, oldfilesize : super::ULONG, newfilebuffer : *mut super::PBYTE, newfilebuffersize : super::ULONG, newfileactualsize : *mut super::ULONG, newfiletime : *mut super::FILETIME, applyoptionflags : super::ULONG, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileByBuffers(core::mem::transmute(patchfilemapped.as_ptr()), patchfilemapped.len().try_into().unwrap(), core::mem::transmute(oldfilemapped.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilemapped.map_or(0, |slice| slice.len().try_into().unwrap()), newfilebuffer as _, newfilebuffersize, newfileactualsize.unwrap_or(core::mem::zeroed()) as _, newfiletime.unwrap_or(core::mem::zeroed()) as _, applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ApplyPatchToFileByHandles(patchfilehandle: super::HANDLE, oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandles(patchfilehandle : super::HANDLE, oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
+pub unsafe fn ApplyPatchToFileByHandles(patchfilehandle: super::HANDLE, oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, applyoptionflags: super::ULONG) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandles(patchfilehandle : super::HANDLE, oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, applyoptionflags : super::ULONG) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileByHandles(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::HANDLE, oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::HANDLE, oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn ApplyPatchToFileByHandlesEx(patchfilehandle: super::HANDLE, oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, applyoptionflags: super::ULONG, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<super::PVOID>) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileByHandlesEx(patchfilehandle : super::HANDLE, oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, applyoptionflags : super::ULONG, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileByHandlesEx(patchfilehandle, oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ApplyPatchToFileExA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileExA<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: super::ULONG, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<super::PVOID>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, applyoptionflags : super::ULONG, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileExA(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn ApplyPatchToFileExW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileExW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: super::ULONG, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<super::PVOID>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, applyoptionflags : u32, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileExW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, applyoptionflags : super::ULONG, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileExW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn ApplyPatchToFileW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: u32) -> windows_core::BOOL
+pub unsafe fn ApplyPatchToFileW<P0, P1, P2>(patchfilename: P0, oldfilename: P1, newfilename: P2, applyoptionflags: super::ULONG) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, applyoptionflags : u32) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn ApplyPatchToFileW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, applyoptionflags : super::ULONG) -> windows_core::BOOL);
     unsafe { ApplyPatchToFileW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePatchFileA<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileA<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: super::ULONG, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileA(oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileA(oldfilename : windows_core::PCSTR, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : super::ULONG, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileA(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePatchFileByHandles(oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : u32, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
+pub unsafe fn CreatePatchFileByHandles(oldfilehandle: Option<super::HANDLE>, newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: super::ULONG, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandles(oldfilehandle : super::HANDLE, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : super::ULONG, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileByHandles(oldfilehandle.unwrap_or(core::mem::zeroed()) as _, newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : u32, oldfileinfoarray : PPATCH_OLD_FILE_INFO_H, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : u32, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+pub unsafe fn CreatePatchFileByHandlesEx(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_H], newfilehandle: super::HANDLE, patchfilehandle: super::HANDLE, optionflags: super::ULONG, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<super::PVOID>) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileByHandlesEx(oldfilecount : super::ULONG, oldfileinfoarray : PPATCH_OLD_FILE_INFO_H, newfilehandle : super::HANDLE, patchfilehandle : super::HANDLE, optionflags : super::ULONG, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { CreatePatchFileByHandlesEx(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilehandle, patchfilehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePatchFileExA<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileExA<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_A], newfilename: P2, patchfilename: P3, optionflags: super::ULONG, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<super::PVOID>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : u32, oldfileinfoarray : PPATCH_OLD_FILE_INFO_A, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExA(oldfilecount : super::ULONG, oldfileinfoarray : PPATCH_OLD_FILE_INFO_A, newfilename : windows_core::PCSTR, patchfilename : windows_core::PCSTR, optionflags : super::ULONG, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { CreatePatchFileExA(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePatchFileExW<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: P2, patchfilename: P3, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<*const core::ffi::c_void>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileExW<P2, P3>(oldfileinfoarray: &[PATCH_OLD_FILE_INFO_W], newfilename: P2, patchfilename: P3, optionflags: super::ULONG, optiondata: Option<PPATCH_OPTION_DATA>, progresscallback: PPATCH_PROGRESS_CALLBACK, callbackcontext: Option<super::PVOID>) -> windows_core::BOOL
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExW(oldfilecount : u32, oldfileinfoarray : PPATCH_OLD_FILE_INFO_W, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : *const core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileExW(oldfilecount : super::ULONG, oldfileinfoarray : PPATCH_OLD_FILE_INFO_W, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : super::ULONG, optiondata : PPATCH_OPTION_DATA, progresscallback : PPATCH_PROGRESS_CALLBACK, callbackcontext : super::PVOID) -> windows_core::BOOL);
     unsafe { CreatePatchFileExW(oldfileinfoarray.len().try_into().unwrap(), core::mem::transmute(oldfileinfoarray.as_ptr()), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, progresscallback, callbackcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreatePatchFileW<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: u32, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL
+pub unsafe fn CreatePatchFileW<P0, P1, P2>(oldfilename: P0, newfilename: P1, patchfilename: P2, optionflags: super::ULONG, optiondata: Option<PPATCH_OPTION_DATA>) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : u32, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn CreatePatchFileW(oldfilename : windows_core::PCWSTR, newfilename : windows_core::PCWSTR, patchfilename : windows_core::PCWSTR, optionflags : super::ULONG, optiondata : PPATCH_OPTION_DATA) -> windows_core::BOOL);
     unsafe { CreatePatchFileW(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -130,18 +138,19 @@ where
     windows_core::link!("mspatchc.dll" "system" fn ExtractPatchHeaderToFileW(patchfilename : windows_core::PCWSTR, patchheaderfilename : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ExtractPatchHeaderToFileW(patchfilename.param().abi(), patchheaderfilename.param().abi()) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetFilePatchSignatureA<P0>(filename: P0, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL
+pub unsafe fn GetFilePatchSignatureA<P0>(filename: P0, optionflags: super::ULONG, optiondata: Option<super::PVOID>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: super::ULONG, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureA(filename : windows_core::PCSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureA(filename : windows_core::PCSTR, optionflags : super::ULONG, optiondata : super::PVOID, ignorerangecount : super::ULONG, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : super::ULONG, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : super::ULONG, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
     unsafe { GetFilePatchSignatureA(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffersize, signaturebuffer) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByBuffer(filebufferwritable : super::PBYTE, filesize : u32, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optionflags: super::ULONG, optiondata: Option<super::PVOID>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: super::ULONG, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByBuffer(filebufferwritable : super::PBYTE, filesize : super::ULONG, optionflags : super::ULONG, optiondata : super::PVOID, ignorerangecount : super::ULONG, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : super::ULONG, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : super::ULONG, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
     unsafe {
         GetFilePatchSignatureByBuffer(
             core::mem::transmute(filebufferwritable.as_mut_ptr()),
@@ -157,53 +166,57 @@ pub unsafe fn GetFilePatchSignatureByBuffer(filebufferwritable: &mut [u8], optio
         )
     }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::HANDLE, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::HANDLE, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
+pub unsafe fn GetFilePatchSignatureByHandle(filehandle: super::HANDLE, optionflags: super::ULONG, optiondata: Option<super::PVOID>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: super::ULONG, signaturebuffer: windows_core::PSTR) -> windows_core::BOOL {
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureByHandle(filehandle : super::HANDLE, optionflags : super::ULONG, optiondata : super::PVOID, ignorerangecount : super::ULONG, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : super::ULONG, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : super::ULONG, signaturebuffer : windows_core::PSTR) -> windows_core::BOOL);
     unsafe { GetFilePatchSignatureByHandle(filehandle, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffersize, signaturebuffer) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn GetFilePatchSignatureW<P0>(filename: P0, optionflags: u32, optiondata: Option<*const core::ffi::c_void>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: u32, signaturebuffer: windows_core::PWSTR) -> windows_core::BOOL
+pub unsafe fn GetFilePatchSignatureW<P0>(filename: P0, optionflags: super::ULONG, optiondata: Option<super::PVOID>, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>, signaturebuffersize: super::ULONG, signaturebuffer: windows_core::PWSTR) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureW(filename : windows_core::PCWSTR, optionflags : u32, optiondata : *const core::ffi::c_void, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : u32, signaturebuffer : windows_core::PWSTR) -> windows_core::BOOL);
+    windows_core::link!("mspatchc.dll" "system" fn GetFilePatchSignatureW(filename : windows_core::PCWSTR, optionflags : super::ULONG, optiondata : super::PVOID, ignorerangecount : super::ULONG, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : super::ULONG, retainrangearray : PPATCH_RETAIN_RANGE, signaturebuffersize : super::ULONG, signaturebuffer : windows_core::PWSTR) -> windows_core::BOOL);
     unsafe { GetFilePatchSignatureW(filename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), signaturebuffersize, signaturebuffer) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut core::ffi::c_void, filesize: u32, optionflags: u32, optiondata: Option<*const PATCH_OPTION_DATA>, newfilecoffbase: u32, newfilecofftime: u32, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>) -> i32 {
-    windows_core::link!("mspatchc.dll" "system" fn NormalizeFileForPatchSignature(filebuffer : *mut core::ffi::c_void, filesize : u32, optionflags : u32, optiondata : *const PATCH_OPTION_DATA, newfilecoffbase : u32, newfilecofftime : u32, ignorerangecount : u32, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : u32, retainrangearray : PPATCH_RETAIN_RANGE) -> i32);
+pub unsafe fn NormalizeFileForPatchSignature(filebuffer: super::PVOID, filesize: super::ULONG, optionflags: super::ULONG, optiondata: Option<*const PATCH_OPTION_DATA>, newfilecoffbase: super::ULONG, newfilecofftime: super::ULONG, ignorerangearray: Option<&[PATCH_IGNORE_RANGE]>, retainrangearray: Option<&[PATCH_RETAIN_RANGE]>) -> super::INT {
+    windows_core::link!("mspatchc.dll" "system" fn NormalizeFileForPatchSignature(filebuffer : super::PVOID, filesize : super::ULONG, optionflags : super::ULONG, optiondata : *const PATCH_OPTION_DATA, newfilecoffbase : super::ULONG, newfilecofftime : super::ULONG, ignorerangecount : super::ULONG, ignorerangearray : PPATCH_IGNORE_RANGE, retainrangecount : super::ULONG, retainrangearray : PPATCH_RETAIN_RANGE) -> super::INT);
     unsafe { NormalizeFileForPatchSignature(filebuffer as _, filesize, optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _, newfilecoffbase, newfilecofftime, ignorerangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ignorerangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), retainrangearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(retainrangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn TestApplyPatchToFileA<P0, P1>(patchfilename: P0, oldfilename: P1, applyoptionflags: u32) -> windows_core::BOOL
+pub unsafe fn TestApplyPatchToFileA<P0, P1>(patchfilename: P0, oldfilename: P1, applyoptionflags: super::ULONG) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, applyoptionflags : u32) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileA(patchfilename : windows_core::PCSTR, oldfilename : windows_core::PCSTR, applyoptionflags : super::ULONG) -> windows_core::BOOL);
     unsafe { TestApplyPatchToFileA(patchfilename.param().abi(), oldfilename.param().abi(), applyoptionflags) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &[u8], oldfilebuffer: Option<&[u8]>, newfilesize: Option<*mut u32>, applyoptionflags: u32) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : super::PBYTE, patchfilesize : u32, oldfilebuffer : super::PBYTE, oldfilesize : u32, newfilesize : *mut u32, applyoptionflags : u32) -> windows_core::BOOL);
+pub unsafe fn TestApplyPatchToFileByBuffers(patchfilebuffer: &[u8], oldfilebuffer: Option<&[u8]>, newfilesize: Option<*mut super::ULONG>, applyoptionflags: super::ULONG) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByBuffers(patchfilebuffer : super::PBYTE, patchfilesize : super::ULONG, oldfilebuffer : super::PBYTE, oldfilesize : super::ULONG, newfilesize : *mut super::ULONG, applyoptionflags : super::ULONG) -> windows_core::BOOL);
     unsafe { TestApplyPatchToFileByBuffers(core::mem::transmute(patchfilebuffer.as_ptr()), patchfilebuffer.len().try_into().unwrap(), core::mem::transmute(oldfilebuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), oldfilebuffer.map_or(0, |slice| slice.len().try_into().unwrap()), newfilesize.unwrap_or(core::mem::zeroed()) as _, applyoptionflags) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn TestApplyPatchToFileByHandles(patchfilehandle: super::HANDLE, oldfilehandle: super::HANDLE, applyoptionflags: u32) -> windows_core::BOOL {
-    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::HANDLE, oldfilehandle : super::HANDLE, applyoptionflags : u32) -> windows_core::BOOL);
+pub unsafe fn TestApplyPatchToFileByHandles(patchfilehandle: super::HANDLE, oldfilehandle: super::HANDLE, applyoptionflags: super::ULONG) -> windows_core::BOOL {
+    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileByHandles(patchfilehandle : super::HANDLE, oldfilehandle : super::HANDLE, applyoptionflags : super::ULONG) -> windows_core::BOOL);
     unsafe { TestApplyPatchToFileByHandles(patchfilehandle, oldfilehandle, applyoptionflags) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn TestApplyPatchToFileW<P0, P1>(patchfilename: P0, oldfilename: P1, applyoptionflags: u32) -> windows_core::BOOL
+pub unsafe fn TestApplyPatchToFileW<P0, P1>(patchfilename: P0, oldfilename: P1, applyoptionflags: super::ULONG) -> windows_core::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, applyoptionflags : u32) -> windows_core::BOOL);
+    windows_core::link!("mspatcha.dll" "system" fn TestApplyPatchToFileW(patchfilename : windows_core::PCWSTR, oldfilename : windows_core::PCWSTR, applyoptionflags : super::ULONG) -> windows_core::BOOL);
     unsafe { TestApplyPatchToFileW(patchfilename.param().abi(), oldfilename.param().abi(), applyoptionflags) }
 }
 pub const APPLY_OPTION_FAIL_IF_CLOSE: i32 = 2;
@@ -223,103 +236,110 @@ pub const ERROR_PATCH_RETAIN_RANGES_DIFFER: u32 = 3222155524;
 pub const ERROR_PATCH_SAME_FILE: u32 = 3222155523;
 pub const ERROR_PATCH_WRONG_FILE: u32 = 3222159620;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_IGNORE_RANGE {
-    pub OffsetInOldFile: u32,
-    pub LengthInBytes: u32,
+    pub OffsetInOldFile: super::ULONG,
+    pub LengthInBytes: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PATCH_INTERLEAVE_MAP {
-    pub CountRanges: u32,
+    pub CountRanges: super::ULONG,
     pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PATCH_INTERLEAVE_MAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_INTERLEAVE_MAP_0 {
-    pub OldOffset: u32,
-    pub OldLength: u32,
-    pub NewLength: u32,
+    pub OldOffset: super::ULONG,
+    pub OldLength: super::ULONG,
+    pub NewLength: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct PATCH_OLD_FILE_INFO {
-    pub SizeOfThisStruct: u32,
+    pub SizeOfThisStruct: super::ULONG,
     pub Anonymous: PATCH_OLD_FILE_INFO_0,
-    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeCount: super::ULONG,
     pub IgnoreRangeArray: PPATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
+    pub RetainRangeCount: super::ULONG,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PATCH_OLD_FILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union PATCH_OLD_FILE_INFO_0 {
     pub OldFileNameA: windows_core::PCSTR,
     pub OldFileNameW: windows_core::PCWSTR,
     pub OldFileHandle: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for PATCH_OLD_FILE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_A {
-    pub SizeOfThisStruct: u32,
+    pub SizeOfThisStruct: super::ULONG,
     pub OldFileName: windows_core::PCSTR,
-    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeCount: super::ULONG,
     pub IgnoreRangeArray: PPATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
+    pub RetainRangeCount: super::ULONG,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_H {
-    pub SizeOfThisStruct: u32,
+    pub SizeOfThisStruct: super::ULONG,
     pub OldFileHandle: super::HANDLE,
-    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeCount: super::ULONG,
     pub IgnoreRangeArray: PPATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
+    pub RetainRangeCount: super::ULONG,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_W {
-    pub SizeOfThisStruct: u32,
+    pub SizeOfThisStruct: super::ULONG,
     pub OldFileName: windows_core::PCWSTR,
-    pub IgnoreRangeCount: u32,
+    pub IgnoreRangeCount: super::ULONG,
     pub IgnoreRangeArray: PPATCH_IGNORE_RANGE,
-    pub RetainRangeCount: u32,
+    pub RetainRangeCount: super::ULONG,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct PATCH_OPTION_DATA {
-    pub SizeOfThisStruct: u32,
-    pub SymbolOptionFlags: u32,
+    pub SizeOfThisStruct: super::ULONG,
+    pub SymbolOptionFlags: super::ULONG,
     pub NewFileSymbolPath: windows_core::PCSTR,
     pub OldFileSymbolPathArray: *mut windows_core::PCSTR,
-    pub ExtendedOptionFlags: u32,
+    pub ExtendedOptionFlags: super::ULONG,
     pub SymLoadCallback: PPATCH_SYMLOAD_CALLBACK,
-    pub SymLoadContext: *mut core::ffi::c_void,
+    pub SymLoadContext: super::PVOID,
     pub InterleaveMapArray: *mut PPATCH_INTERLEAVE_MAP,
-    pub MaxLzxWindowSize: u32,
+    pub MaxLzxWindowSize: super::ULONG,
 }
 pub const PATCH_OPTION_FAIL_IF_BIGGER: i32 = 1048576;
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: i32 = 524288;
@@ -338,30 +358,41 @@ pub const PATCH_OPTION_USE_LZX_B: i32 = 2;
 pub const PATCH_OPTION_USE_LZX_BEST: i32 = 3;
 pub const PATCH_OPTION_USE_LZX_LARGE: i32 = 4;
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159;
-pub type PATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, currentposition: super::ULONG, maximumposition: super::ULONG) -> windows_core::BOOL>;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_RETAIN_RANGE {
-    pub OffsetInOldFile: u32,
-    pub LengthInBytes: u32,
-    pub OffsetInNewFile: u32,
+    pub OffsetInOldFile: super::ULONG,
+    pub LengthInBytes: super::ULONG,
+    pub OffsetInNewFile: super::ULONG,
 }
 pub const PATCH_SYMBOL_NO_FAILURES: i32 = 2;
 pub const PATCH_SYMBOL_NO_IMAGEHLP: i32 = 1;
 pub const PATCH_SYMBOL_RESERVED1: u32 = 2147483648;
 pub const PATCH_SYMBOL_UNDECORATED_TOO: i32 = 4;
-pub type PATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: super::ULONG, symbolfilename: windows_core::PCSTR, symtype: super::ULONG, symbolfilechecksum: super::ULONG, symbolfiletimedate: super::ULONG, imagefilechecksum: super::ULONG, imagefiletimedate: super::ULONG, callbackcontext: super::PVOID) -> windows_core::BOOL>;
 pub const PATCH_TRANSFORM_PE_IRELOC_2: i32 = 512;
 pub const PATCH_TRANSFORM_PE_RESOURCE_2: i32 = 256;
+#[cfg(feature = "shared")]
 pub type PPATCH_IGNORE_RANGE = *mut PATCH_IGNORE_RANGE;
+#[cfg(feature = "shared")]
 pub type PPATCH_INTERLEAVE_MAP = *mut PATCH_INTERLEAVE_MAP;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPATCH_OLD_FILE_INFO = *mut PATCH_OLD_FILE_INFO;
+#[cfg(feature = "shared")]
 pub type PPATCH_OLD_FILE_INFO_A = *mut PATCH_OLD_FILE_INFO_A;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPATCH_OLD_FILE_INFO_H = *mut PATCH_OLD_FILE_INFO_H;
+#[cfg(feature = "shared")]
 pub type PPATCH_OLD_FILE_INFO_W = *mut PATCH_OLD_FILE_INFO_W;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPATCH_OPTION_DATA = *mut PATCH_OPTION_DATA;
-pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::PVOID, currentposition: super::ULONG, maximumposition: super::ULONG) -> windows_core::BOOL>;
+#[cfg(feature = "shared")]
 pub type PPATCH_RETAIN_RANGE = *mut PATCH_RETAIN_RANGE;
-pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL>;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: super::ULONG, symbolfilename: windows_core::PCSTR, symtype: super::ULONG, symbolfilechecksum: super::ULONG, symbolfiletimedate: super::ULONG, imagefilechecksum: super::ULONG, imagefiletimedate: super::ULONG, callbackcontext: super::PVOID) -> windows_core::BOOL>;

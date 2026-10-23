@@ -213,15 +213,11 @@ fn sdk_interfaces() {
                         "{name}.{}",
                         method.name(),
                     );
-                    for (parameter, native) in method.params().zip(parameters) {
-                        assert_eq!(
+                    for parameter in method.params() {
+                        assert!(
                             parameter
                                 .find_attribute("NativeDefaultArgumentAttribute")
-                                .map(|attribute| attribute.value()[0].1.clone()),
-                            native
-                                .default
-                                .as_ref()
-                                .map(|value| Value::Utf8(value.expression.clone())),
+                                .is_none(),
                             "{name}.{}({})",
                             method.name(),
                             parameter.name(),

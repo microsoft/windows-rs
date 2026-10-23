@@ -3,7 +3,7 @@ mod Fixture {
     #[guid(0x12345678_1234_5678_1234_567812345678)]
     interface ICppMembers: IDerived {
         #[Windows::Win32::Metadata::NativeConstMethod]
-        fn Inspect(&self, #[Windows::Win32::Metadata::NativeDefaultArgument("7")] count: i32, #[Windows::Win32::Metadata::NativeDefaultArgument("nullptr")] pointer: *const i32, #[Windows::Win32::Metadata::NativeDefaultArgument("nullptr")] slots: *mut i32, #[Windows::Win32::Metadata::NativeDefaultArgument("RuntimeDefault()")] runtime: i32) -> i32;
+        fn Inspect(&self, count: i32, pointer: *const i32, slots: *mut i32, runtime: i32) -> i32;
     }
 }
 #[win32]

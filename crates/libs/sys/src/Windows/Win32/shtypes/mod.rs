@@ -8,23 +8,32 @@ pub type DEVICE_SCALE_FACTOR = i32;
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = 0;
 pub type ELEMENTID = windows_sys::core::GUID;
 pub type FOLDERTYPEID = windows_sys::core::GUID;
-#[repr(C)]
+#[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct ITEMIDLIST {
     pub mkid: SHITEMID,
 }
+#[cfg(feature = "shared")]
 pub type ITEMIDLIST_ABSOLUTE = ITEMIDLIST;
+#[cfg(feature = "shared")]
 pub type ITEMIDLIST_RELATIVE = ITEMIDLIST;
+#[cfg(feature = "shared")]
 pub type ITEMID_CHILD = ITEMIDLIST;
-pub type KF_REDIRECT_FLAGS = u32;
 pub type KNOWNFOLDERID = windows_sys::core::GUID;
+#[cfg(feature = "shared")]
 pub type LPCITEMIDLIST = *const ITEMIDLIST;
-#[cfg(feature = "wtypes")]
-pub type LPCSHCOLUMNID = *const SHCOLUMNID;
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+pub type LPCSHCOLUMNID = *const super::PROPERTYKEY;
+#[cfg(feature = "shared")]
 pub type LPCSHITEMID = *const SHITEMID;
+#[cfg(feature = "shared")]
 pub type LPITEMIDLIST = *mut ITEMIDLIST;
+#[cfg(feature = "shared")]
 pub type LPSHELLDETAILS = *mut SHELLDETAILS;
+#[cfg(feature = "shared")]
 pub type LPSHITEMID = *mut SHITEMID;
+#[cfg(feature = "shared")]
 pub type LPSTRRET = *mut STRRET;
 pub type PERCEIVED = i32;
 pub type PERCEIVEDFLAG = u32;
@@ -89,49 +98,57 @@ pub const SHCOLSTATE_TYPE_DATE: SHCOLSTATE = 3;
 pub const SHCOLSTATE_TYPE_INT: SHCOLSTATE = 2;
 pub const SHCOLSTATE_TYPE_STR: SHCOLSTATE = 1;
 pub const SHCOLSTATE_VIEWONLY: SHCOLSTATE = 65536;
-#[cfg(feature = "wtypes")]
+#[cfg(all(feature = "shared", feature = "wtypes"))]
 pub type SHCOLUMNID = super::PROPERTYKEY;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SHELLDETAILS {
     pub fmt: i32,
     pub cxChar: i32,
     pub str: STRRET,
 }
+#[cfg(feature = "shared")]
 impl Default for SHELLDETAILS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SHITEMID {
-    pub cb: u16,
-    pub abID: [u8; 1],
+    pub cb: super::USHORT,
+    pub abID: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SHITEMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct STRRET {
-    pub uType: u32,
+    pub uType: super::UINT,
     pub Anonymous: STRRET_0,
 }
+#[cfg(feature = "shared")]
 impl Default for STRRET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union STRRET_0 {
     pub pOleStr: windows_sys::core::PWSTR,
-    pub uOffset: u32,
+    pub uOffset: super::UINT,
     pub cStr: [i8; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for STRRET_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -142,5 +159,5 @@ pub const STRRET_OFFSET: STRRET_TYPE = 1;
 pub type STRRET_TYPE = i32;
 pub const STRRET_WSTR: STRRET_TYPE = 0;
 pub type TASKOWNERID = windows_sys::core::GUID;
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "wtypesbase"))]
 pub type wirePIDL = *mut super::BYTE_BLOB;

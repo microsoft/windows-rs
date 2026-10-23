@@ -11,7 +11,7 @@ pub unsafe fn glAlphaFunc(func: GLenum, r#ref: GLclampf) {
 #[inline]
 pub unsafe fn glAreTexturesResident(n: GLsizei, textures: *const GLuint, residences: *mut GLboolean) -> GLboolean {
     windows_core::link!("opengl32.dll" "system" fn glAreTexturesResident(n : GLsizei, textures : *const GLuint, residences : *mut GLboolean) -> GLboolean);
-    unsafe { glAreTexturesResident(n, textures, residences as _) }
+    unsafe { glAreTexturesResident(n, textures as _, residences as _) }
 }
 #[inline]
 pub unsafe fn glArrayElement(i: GLint) {
@@ -31,7 +31,7 @@ pub unsafe fn glBindTexture(target: GLenum, texture: GLuint) {
 #[inline]
 pub unsafe fn glBitmap(width: GLsizei, height: GLsizei, xorig: GLfloat, yorig: GLfloat, xmove: GLfloat, ymove: GLfloat, bitmap: *const GLubyte) {
     windows_core::link!("opengl32.dll" "system" fn glBitmap(width : GLsizei, height : GLsizei, xorig : GLfloat, yorig : GLfloat, xmove : GLfloat, ymove : GLfloat, bitmap : *const GLubyte));
-    unsafe { glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap) }
+    unsafe { glBitmap(width, height, xorig, yorig, xmove, ymove, bitmap as _) }
 }
 #[inline]
 pub unsafe fn glBlendFunc(sfactor: GLenum, dfactor: GLenum) {
@@ -44,9 +44,9 @@ pub unsafe fn glCallList(list: GLuint) {
     unsafe { glCallList(list) }
 }
 #[inline]
-pub unsafe fn glCallLists(n: GLsizei, r#type: GLenum, lists: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glCallLists(n : GLsizei, r#type : GLenum, lists : *const GLvoid));
-    unsafe { glCallLists(n, r#type, lists) }
+pub unsafe fn glCallLists(n: GLsizei, r#type: GLenum, lists: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glCallLists(n : GLsizei, r#type : GLenum, lists : *const core::ffi::c_void));
+    unsafe { glCallLists(n, r#type, lists as _) }
 }
 #[inline]
 pub unsafe fn glClear(mask: GLbitfield) {
@@ -81,7 +81,7 @@ pub unsafe fn glClearStencil(s: GLint) {
 #[inline]
 pub unsafe fn glClipPlane(plane: GLenum, equation: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glClipPlane(plane : GLenum, equation : *const GLdouble));
-    unsafe { glClipPlane(plane, equation) }
+    unsafe { glClipPlane(plane, equation as _) }
 }
 #[inline]
 pub unsafe fn glColor3b(red: GLbyte, green: GLbyte, blue: GLbyte) {
@@ -91,7 +91,7 @@ pub unsafe fn glColor3b(red: GLbyte, green: GLbyte, blue: GLbyte) {
 #[inline]
 pub unsafe fn glColor3bv(v: *const GLbyte) {
     windows_core::link!("opengl32.dll" "system" fn glColor3bv(v : *const GLbyte));
-    unsafe { glColor3bv(v) }
+    unsafe { glColor3bv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor3d(red: GLdouble, green: GLdouble, blue: GLdouble) {
@@ -101,7 +101,7 @@ pub unsafe fn glColor3d(red: GLdouble, green: GLdouble, blue: GLdouble) {
 #[inline]
 pub unsafe fn glColor3dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glColor3dv(v : *const GLdouble));
-    unsafe { glColor3dv(v) }
+    unsafe { glColor3dv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor3f(red: GLfloat, green: GLfloat, blue: GLfloat) {
@@ -111,7 +111,7 @@ pub unsafe fn glColor3f(red: GLfloat, green: GLfloat, blue: GLfloat) {
 #[inline]
 pub unsafe fn glColor3fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glColor3fv(v : *const GLfloat));
-    unsafe { glColor3fv(v) }
+    unsafe { glColor3fv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor3i(red: GLint, green: GLint, blue: GLint) {
@@ -121,7 +121,7 @@ pub unsafe fn glColor3i(red: GLint, green: GLint, blue: GLint) {
 #[inline]
 pub unsafe fn glColor3iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glColor3iv(v : *const GLint));
-    unsafe { glColor3iv(v) }
+    unsafe { glColor3iv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor3s(red: GLshort, green: GLshort, blue: GLshort) {
@@ -131,7 +131,7 @@ pub unsafe fn glColor3s(red: GLshort, green: GLshort, blue: GLshort) {
 #[inline]
 pub unsafe fn glColor3sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glColor3sv(v : *const GLshort));
-    unsafe { glColor3sv(v) }
+    unsafe { glColor3sv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor3ub(red: GLubyte, green: GLubyte, blue: GLubyte) {
@@ -141,7 +141,7 @@ pub unsafe fn glColor3ub(red: GLubyte, green: GLubyte, blue: GLubyte) {
 #[inline]
 pub unsafe fn glColor3ubv(v: *const GLubyte) {
     windows_core::link!("opengl32.dll" "system" fn glColor3ubv(v : *const GLubyte));
-    unsafe { glColor3ubv(v) }
+    unsafe { glColor3ubv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor3ui(red: GLuint, green: GLuint, blue: GLuint) {
@@ -151,7 +151,7 @@ pub unsafe fn glColor3ui(red: GLuint, green: GLuint, blue: GLuint) {
 #[inline]
 pub unsafe fn glColor3uiv(v: *const GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glColor3uiv(v : *const GLuint));
-    unsafe { glColor3uiv(v) }
+    unsafe { glColor3uiv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor3us(red: GLushort, green: GLushort, blue: GLushort) {
@@ -161,7 +161,7 @@ pub unsafe fn glColor3us(red: GLushort, green: GLushort, blue: GLushort) {
 #[inline]
 pub unsafe fn glColor3usv(v: *const GLushort) {
     windows_core::link!("opengl32.dll" "system" fn glColor3usv(v : *const GLushort));
-    unsafe { glColor3usv(v) }
+    unsafe { glColor3usv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4b(red: GLbyte, green: GLbyte, blue: GLbyte, alpha: GLbyte) {
@@ -171,7 +171,7 @@ pub unsafe fn glColor4b(red: GLbyte, green: GLbyte, blue: GLbyte, alpha: GLbyte)
 #[inline]
 pub unsafe fn glColor4bv(v: *const GLbyte) {
     windows_core::link!("opengl32.dll" "system" fn glColor4bv(v : *const GLbyte));
-    unsafe { glColor4bv(v) }
+    unsafe { glColor4bv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4d(red: GLdouble, green: GLdouble, blue: GLdouble, alpha: GLdouble) {
@@ -181,7 +181,7 @@ pub unsafe fn glColor4d(red: GLdouble, green: GLdouble, blue: GLdouble, alpha: G
 #[inline]
 pub unsafe fn glColor4dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glColor4dv(v : *const GLdouble));
-    unsafe { glColor4dv(v) }
+    unsafe { glColor4dv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4f(red: GLfloat, green: GLfloat, blue: GLfloat, alpha: GLfloat) {
@@ -191,7 +191,7 @@ pub unsafe fn glColor4f(red: GLfloat, green: GLfloat, blue: GLfloat, alpha: GLfl
 #[inline]
 pub unsafe fn glColor4fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glColor4fv(v : *const GLfloat));
-    unsafe { glColor4fv(v) }
+    unsafe { glColor4fv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4i(red: GLint, green: GLint, blue: GLint, alpha: GLint) {
@@ -201,7 +201,7 @@ pub unsafe fn glColor4i(red: GLint, green: GLint, blue: GLint, alpha: GLint) {
 #[inline]
 pub unsafe fn glColor4iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glColor4iv(v : *const GLint));
-    unsafe { glColor4iv(v) }
+    unsafe { glColor4iv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4s(red: GLshort, green: GLshort, blue: GLshort, alpha: GLshort) {
@@ -211,7 +211,7 @@ pub unsafe fn glColor4s(red: GLshort, green: GLshort, blue: GLshort, alpha: GLsh
 #[inline]
 pub unsafe fn glColor4sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glColor4sv(v : *const GLshort));
-    unsafe { glColor4sv(v) }
+    unsafe { glColor4sv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4ub(red: GLubyte, green: GLubyte, blue: GLubyte, alpha: GLubyte) {
@@ -221,7 +221,7 @@ pub unsafe fn glColor4ub(red: GLubyte, green: GLubyte, blue: GLubyte, alpha: GLu
 #[inline]
 pub unsafe fn glColor4ubv(v: *const GLubyte) {
     windows_core::link!("opengl32.dll" "system" fn glColor4ubv(v : *const GLubyte));
-    unsafe { glColor4ubv(v) }
+    unsafe { glColor4ubv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4ui(red: GLuint, green: GLuint, blue: GLuint, alpha: GLuint) {
@@ -231,7 +231,7 @@ pub unsafe fn glColor4ui(red: GLuint, green: GLuint, blue: GLuint, alpha: GLuint
 #[inline]
 pub unsafe fn glColor4uiv(v: *const GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glColor4uiv(v : *const GLuint));
-    unsafe { glColor4uiv(v) }
+    unsafe { glColor4uiv(v as _) }
 }
 #[inline]
 pub unsafe fn glColor4us(red: GLushort, green: GLushort, blue: GLushort, alpha: GLushort) {
@@ -241,7 +241,7 @@ pub unsafe fn glColor4us(red: GLushort, green: GLushort, blue: GLushort, alpha: 
 #[inline]
 pub unsafe fn glColor4usv(v: *const GLushort) {
     windows_core::link!("opengl32.dll" "system" fn glColor4usv(v : *const GLushort));
-    unsafe { glColor4usv(v) }
+    unsafe { glColor4usv(v as _) }
 }
 #[inline]
 pub unsafe fn glColorMask(red: GLboolean, green: GLboolean, blue: GLboolean, alpha: GLboolean) {
@@ -254,9 +254,9 @@ pub unsafe fn glColorMaterial(face: GLenum, mode: GLenum) {
     unsafe { glColorMaterial(face, mode) }
 }
 #[inline]
-pub unsafe fn glColorPointer(size: GLint, r#type: GLenum, stride: GLsizei, pointer: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glColorPointer(size : GLint, r#type : GLenum, stride : GLsizei, pointer : *const GLvoid));
-    unsafe { glColorPointer(size, r#type, stride, pointer) }
+pub unsafe fn glColorPointer(size: GLint, r#type: GLenum, stride: GLsizei, pointer: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glColorPointer(size : GLint, r#type : GLenum, stride : GLsizei, pointer : *const core::ffi::c_void));
+    unsafe { glColorPointer(size, r#type, stride, pointer as _) }
 }
 #[inline]
 pub unsafe fn glCopyPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, r#type: GLenum) {
@@ -296,7 +296,7 @@ pub unsafe fn glDeleteLists(list: GLuint, range: GLsizei) {
 #[inline]
 pub unsafe fn glDeleteTextures(n: GLsizei, textures: *const GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glDeleteTextures(n : GLsizei, textures : *const GLuint));
-    unsafe { glDeleteTextures(n, textures) }
+    unsafe { glDeleteTextures(n, textures as _) }
 }
 #[inline]
 pub unsafe fn glDepthFunc(func: GLenum) {
@@ -334,14 +334,14 @@ pub unsafe fn glDrawBuffer(mode: GLenum) {
     unsafe { glDrawBuffer(mode) }
 }
 #[inline]
-pub unsafe fn glDrawElements(mode: GLenum, count: GLsizei, r#type: GLenum, indices: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glDrawElements(mode : GLenum, count : GLsizei, r#type : GLenum, indices : *const GLvoid));
-    unsafe { glDrawElements(mode, count, r#type, indices) }
+pub unsafe fn glDrawElements(mode: GLenum, count: GLsizei, r#type: GLenum, indices: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glDrawElements(mode : GLenum, count : GLsizei, r#type : GLenum, indices : *const core::ffi::c_void));
+    unsafe { glDrawElements(mode, count, r#type, indices as _) }
 }
 #[inline]
-pub unsafe fn glDrawPixels(width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glDrawPixels(width : GLsizei, height : GLsizei, format : GLenum, r#type : GLenum, pixels : *const GLvoid));
-    unsafe { glDrawPixels(width, height, format, r#type, pixels) }
+pub unsafe fn glDrawPixels(width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glDrawPixels(width : GLsizei, height : GLsizei, format : GLenum, r#type : GLenum, pixels : *const core::ffi::c_void));
+    unsafe { glDrawPixels(width, height, format, r#type, pixels as _) }
 }
 #[inline]
 pub unsafe fn glEdgeFlag(flag: GLboolean) {
@@ -349,14 +349,14 @@ pub unsafe fn glEdgeFlag(flag: GLboolean) {
     unsafe { glEdgeFlag(flag) }
 }
 #[inline]
-pub unsafe fn glEdgeFlagPointer(stride: GLsizei, pointer: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glEdgeFlagPointer(stride : GLsizei, pointer : *const GLvoid));
-    unsafe { glEdgeFlagPointer(stride, pointer) }
+pub unsafe fn glEdgeFlagPointer(stride: GLsizei, pointer: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glEdgeFlagPointer(stride : GLsizei, pointer : *const core::ffi::c_void));
+    unsafe { glEdgeFlagPointer(stride, pointer as _) }
 }
 #[inline]
 pub unsafe fn glEdgeFlagv(flag: *const GLboolean) {
     windows_core::link!("opengl32.dll" "system" fn glEdgeFlagv(flag : *const GLboolean));
-    unsafe { glEdgeFlagv(flag) }
+    unsafe { glEdgeFlagv(flag as _) }
 }
 #[inline]
 pub unsafe fn glEnable(cap: GLenum) {
@@ -386,7 +386,7 @@ pub unsafe fn glEvalCoord1d(u: GLdouble) {
 #[inline]
 pub unsafe fn glEvalCoord1dv(u: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glEvalCoord1dv(u : *const GLdouble));
-    unsafe { glEvalCoord1dv(u) }
+    unsafe { glEvalCoord1dv(u as _) }
 }
 #[inline]
 pub unsafe fn glEvalCoord1f(u: GLfloat) {
@@ -396,7 +396,7 @@ pub unsafe fn glEvalCoord1f(u: GLfloat) {
 #[inline]
 pub unsafe fn glEvalCoord1fv(u: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glEvalCoord1fv(u : *const GLfloat));
-    unsafe { glEvalCoord1fv(u) }
+    unsafe { glEvalCoord1fv(u as _) }
 }
 #[inline]
 pub unsafe fn glEvalCoord2d(u: GLdouble, v: GLdouble) {
@@ -406,7 +406,7 @@ pub unsafe fn glEvalCoord2d(u: GLdouble, v: GLdouble) {
 #[inline]
 pub unsafe fn glEvalCoord2dv(u: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glEvalCoord2dv(u : *const GLdouble));
-    unsafe { glEvalCoord2dv(u) }
+    unsafe { glEvalCoord2dv(u as _) }
 }
 #[inline]
 pub unsafe fn glEvalCoord2f(u: GLfloat, v: GLfloat) {
@@ -416,7 +416,7 @@ pub unsafe fn glEvalCoord2f(u: GLfloat, v: GLfloat) {
 #[inline]
 pub unsafe fn glEvalCoord2fv(u: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glEvalCoord2fv(u : *const GLfloat));
-    unsafe { glEvalCoord2fv(u) }
+    unsafe { glEvalCoord2fv(u as _) }
 }
 #[inline]
 pub unsafe fn glEvalMesh1(mode: GLenum, i1: GLint, i2: GLint) {
@@ -439,13 +439,9 @@ pub unsafe fn glEvalPoint2(i: GLint, j: GLint) {
     unsafe { glEvalPoint2(i, j) }
 }
 #[inline]
-pub unsafe fn glFeedbackBuffer(size: GLsizei, r#type: GLenum) -> GLfloat {
+pub unsafe fn glFeedbackBuffer(size: GLsizei, r#type: GLenum, buffer: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glFeedbackBuffer(size : GLsizei, r#type : GLenum, buffer : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glFeedbackBuffer(size, r#type, &mut result__);
-        result__
-    }
+    unsafe { glFeedbackBuffer(size, r#type, buffer as _) }
 }
 #[inline]
 pub unsafe fn glFinish() {
@@ -465,7 +461,7 @@ pub unsafe fn glFogf(pname: GLenum, param: GLfloat) {
 #[inline]
 pub unsafe fn glFogfv(pname: GLenum, params: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glFogfv(pname : GLenum, params : *const GLfloat));
-    unsafe { glFogfv(pname, params) }
+    unsafe { glFogfv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glFogi(pname: GLenum, param: GLint) {
@@ -475,7 +471,7 @@ pub unsafe fn glFogi(pname: GLenum, param: GLint) {
 #[inline]
 pub unsafe fn glFogiv(pname: GLenum, params: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glFogiv(pname : GLenum, params : *const GLint));
-    unsafe { glFogiv(pname, params) }
+    unsafe { glFogiv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glFrontFace(mode: GLenum) {
@@ -493,40 +489,24 @@ pub unsafe fn glGenLists(range: GLsizei) -> GLuint {
     unsafe { glGenLists(range) }
 }
 #[inline]
-pub unsafe fn glGenTextures(n: GLsizei) -> GLuint {
+pub unsafe fn glGenTextures(n: GLsizei, textures: *mut GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glGenTextures(n : GLsizei, textures : *mut GLuint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGenTextures(n, &mut result__);
-        result__
-    }
+    unsafe { glGenTextures(n, textures as _) }
 }
 #[inline]
-pub unsafe fn glGetBooleanv(pname: GLenum) -> GLboolean {
+pub unsafe fn glGetBooleanv(pname: GLenum, params: *mut GLboolean) {
     windows_core::link!("opengl32.dll" "system" fn glGetBooleanv(pname : GLenum, params : *mut GLboolean));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetBooleanv(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetBooleanv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetClipPlane(plane: GLenum) -> GLdouble {
+pub unsafe fn glGetClipPlane(plane: GLenum, equation: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetClipPlane(plane : GLenum, equation : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetClipPlane(plane, &mut result__);
-        result__
-    }
+    unsafe { glGetClipPlane(plane, equation as _) }
 }
 #[inline]
-pub unsafe fn glGetDoublev(pname: GLenum) -> GLdouble {
+pub unsafe fn glGetDoublev(pname: GLenum, params: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetDoublev(pname : GLenum, params : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetDoublev(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetDoublev(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glGetError() -> GLenum {
@@ -534,126 +514,74 @@ pub unsafe fn glGetError() -> GLenum {
     unsafe { glGetError() }
 }
 #[inline]
-pub unsafe fn glGetFloatv(pname: GLenum) -> GLfloat {
+pub unsafe fn glGetFloatv(pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetFloatv(pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetFloatv(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetFloatv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetIntegerv(pname: GLenum) -> GLint {
+pub unsafe fn glGetIntegerv(pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetIntegerv(pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetIntegerv(pname, &mut result__);
-        result__
-    }
+    unsafe { glGetIntegerv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetLightfv(light: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetLightfv(light: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetLightfv(light : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetLightfv(light, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetLightfv(light, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetLightiv(light: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetLightiv(light: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetLightiv(light : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetLightiv(light, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetLightiv(light, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetMapdv(target: GLenum, query: GLenum) -> GLdouble {
+pub unsafe fn glGetMapdv(target: GLenum, query: GLenum, v: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetMapdv(target : GLenum, query : GLenum, v : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMapdv(target, query, &mut result__);
-        result__
-    }
+    unsafe { glGetMapdv(target, query, v as _) }
 }
 #[inline]
-pub unsafe fn glGetMapfv(target: GLenum, query: GLenum) -> GLfloat {
+pub unsafe fn glGetMapfv(target: GLenum, query: GLenum, v: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetMapfv(target : GLenum, query : GLenum, v : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMapfv(target, query, &mut result__);
-        result__
-    }
+    unsafe { glGetMapfv(target, query, v as _) }
 }
 #[inline]
-pub unsafe fn glGetMapiv(target: GLenum, query: GLenum) -> GLint {
+pub unsafe fn glGetMapiv(target: GLenum, query: GLenum, v: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetMapiv(target : GLenum, query : GLenum, v : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMapiv(target, query, &mut result__);
-        result__
-    }
+    unsafe { glGetMapiv(target, query, v as _) }
 }
 #[inline]
-pub unsafe fn glGetMaterialfv(face: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetMaterialfv(face: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetMaterialfv(face : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMaterialfv(face, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetMaterialfv(face, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetMaterialiv(face: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetMaterialiv(face: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetMaterialiv(face : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetMaterialiv(face, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetMaterialiv(face, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetPixelMapfv(map: GLenum) -> GLfloat {
+pub unsafe fn glGetPixelMapfv(map: GLenum, values: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetPixelMapfv(map : GLenum, values : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPixelMapfv(map, &mut result__);
-        result__
-    }
+    unsafe { glGetPixelMapfv(map, values as _) }
 }
 #[inline]
-pub unsafe fn glGetPixelMapuiv(map: GLenum) -> GLuint {
+pub unsafe fn glGetPixelMapuiv(map: GLenum, values: *mut GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glGetPixelMapuiv(map : GLenum, values : *mut GLuint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPixelMapuiv(map, &mut result__);
-        result__
-    }
+    unsafe { glGetPixelMapuiv(map, values as _) }
 }
 #[inline]
-pub unsafe fn glGetPixelMapusv(map: GLenum) -> GLushort {
+pub unsafe fn glGetPixelMapusv(map: GLenum, values: *mut GLushort) {
     windows_core::link!("opengl32.dll" "system" fn glGetPixelMapusv(map : GLenum, values : *mut GLushort));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPixelMapusv(map, &mut result__);
-        result__
-    }
+    unsafe { glGetPixelMapusv(map, values as _) }
 }
 #[inline]
-pub unsafe fn glGetPointerv(pname: GLenum, params: *mut *mut GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glGetPointerv(pname : GLenum, params : *mut *mut GLvoid));
+pub unsafe fn glGetPointerv(pname: GLenum, params: *mut *mut core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glGetPointerv(pname : GLenum, params : *mut *mut core::ffi::c_void));
     unsafe { glGetPointerv(pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetPolygonStipple() -> GLubyte {
+pub unsafe fn glGetPolygonStipple(mask: *mut GLubyte) {
     windows_core::link!("opengl32.dll" "system" fn glGetPolygonStipple(mask : *mut GLubyte));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetPolygonStipple(&mut result__);
-        result__
-    }
+    unsafe { glGetPolygonStipple(mask as _) }
 }
 #[inline]
 pub unsafe fn glGetString(name: GLenum) -> *const GLubyte {
@@ -661,90 +589,54 @@ pub unsafe fn glGetString(name: GLenum) -> *const GLubyte {
     unsafe { glGetString(name) }
 }
 #[inline]
-pub unsafe fn glGetTexEnvfv(target: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexEnvfv(target: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexEnvfv(target : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexEnvfv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexEnvfv(target, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexEnviv(target: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexEnviv(target: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexEnviv(target : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexEnviv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexEnviv(target, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexGendv(coord: GLenum, pname: GLenum) -> GLdouble {
+pub unsafe fn glGetTexGendv(coord: GLenum, pname: GLenum, params: *mut GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexGendv(coord : GLenum, pname : GLenum, params : *mut GLdouble));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexGendv(coord, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexGendv(coord, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexGenfv(coord: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexGenfv(coord: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexGenfv(coord : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexGenfv(coord, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexGenfv(coord, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexGeniv(coord: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexGeniv(coord: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexGeniv(coord : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexGeniv(coord, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexGeniv(coord, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexImage(target: GLenum, level: GLint, format: GLenum, r#type: GLenum, pixels: *mut GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glGetTexImage(target : GLenum, level : GLint, format : GLenum, r#type : GLenum, pixels : *mut GLvoid));
+pub unsafe fn glGetTexImage(target: GLenum, level: GLint, format: GLenum, r#type: GLenum, pixels: *mut core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glGetTexImage(target : GLenum, level : GLint, format : GLenum, r#type : GLenum, pixels : *mut core::ffi::c_void));
     unsafe { glGetTexImage(target, level, format, r#type, pixels as _) }
 }
 #[inline]
-pub unsafe fn glGetTexLevelParameterfv(target: GLenum, level: GLint, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexLevelParameterfv(target: GLenum, level: GLint, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexLevelParameterfv(target : GLenum, level : GLint, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexLevelParameterfv(target, level, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexLevelParameterfv(target, level, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexLevelParameteriv(target: GLenum, level: GLint, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexLevelParameteriv(target: GLenum, level: GLint, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexLevelParameteriv(target : GLenum, level : GLint, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexLevelParameteriv(target, level, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexLevelParameteriv(target, level, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexParameterfv(target: GLenum, pname: GLenum) -> GLfloat {
+pub unsafe fn glGetTexParameterfv(target: GLenum, pname: GLenum, params: *mut GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexParameterfv(target : GLenum, pname : GLenum, params : *mut GLfloat));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexParameterfv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexParameterfv(target, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glGetTexParameteriv(target: GLenum, pname: GLenum) -> GLint {
+pub unsafe fn glGetTexParameteriv(target: GLenum, pname: GLenum, params: *mut GLint) {
     windows_core::link!("opengl32.dll" "system" fn glGetTexParameteriv(target : GLenum, pname : GLenum, params : *mut GLint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glGetTexParameteriv(target, pname, &mut result__);
-        result__
-    }
+    unsafe { glGetTexParameteriv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glHint(target: GLenum, mode: GLenum) {
@@ -757,9 +649,9 @@ pub unsafe fn glIndexMask(mask: GLuint) {
     unsafe { glIndexMask(mask) }
 }
 #[inline]
-pub unsafe fn glIndexPointer(r#type: GLenum, stride: GLsizei, pointer: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glIndexPointer(r#type : GLenum, stride : GLsizei, pointer : *const GLvoid));
-    unsafe { glIndexPointer(r#type, stride, pointer) }
+pub unsafe fn glIndexPointer(r#type: GLenum, stride: GLsizei, pointer: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glIndexPointer(r#type : GLenum, stride : GLsizei, pointer : *const core::ffi::c_void));
+    unsafe { glIndexPointer(r#type, stride, pointer as _) }
 }
 #[inline]
 pub unsafe fn glIndexd(c: GLdouble) {
@@ -769,7 +661,7 @@ pub unsafe fn glIndexd(c: GLdouble) {
 #[inline]
 pub unsafe fn glIndexdv(c: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glIndexdv(c : *const GLdouble));
-    unsafe { glIndexdv(c) }
+    unsafe { glIndexdv(c as _) }
 }
 #[inline]
 pub unsafe fn glIndexf(c: GLfloat) {
@@ -779,7 +671,7 @@ pub unsafe fn glIndexf(c: GLfloat) {
 #[inline]
 pub unsafe fn glIndexfv(c: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glIndexfv(c : *const GLfloat));
-    unsafe { glIndexfv(c) }
+    unsafe { glIndexfv(c as _) }
 }
 #[inline]
 pub unsafe fn glIndexi(c: GLint) {
@@ -789,7 +681,7 @@ pub unsafe fn glIndexi(c: GLint) {
 #[inline]
 pub unsafe fn glIndexiv(c: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glIndexiv(c : *const GLint));
-    unsafe { glIndexiv(c) }
+    unsafe { glIndexiv(c as _) }
 }
 #[inline]
 pub unsafe fn glIndexs(c: GLshort) {
@@ -799,7 +691,7 @@ pub unsafe fn glIndexs(c: GLshort) {
 #[inline]
 pub unsafe fn glIndexsv(c: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glIndexsv(c : *const GLshort));
-    unsafe { glIndexsv(c) }
+    unsafe { glIndexsv(c as _) }
 }
 #[inline]
 pub unsafe fn glIndexub(c: GLubyte) {
@@ -809,7 +701,7 @@ pub unsafe fn glIndexub(c: GLubyte) {
 #[inline]
 pub unsafe fn glIndexubv(c: *const GLubyte) {
     windows_core::link!("opengl32.dll" "system" fn glIndexubv(c : *const GLubyte));
-    unsafe { glIndexubv(c) }
+    unsafe { glIndexubv(c as _) }
 }
 #[inline]
 pub unsafe fn glInitNames() {
@@ -817,9 +709,9 @@ pub unsafe fn glInitNames() {
     unsafe { glInitNames() }
 }
 #[inline]
-pub unsafe fn glInterleavedArrays(format: GLenum, stride: GLsizei, pointer: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glInterleavedArrays(format : GLenum, stride : GLsizei, pointer : *const GLvoid));
-    unsafe { glInterleavedArrays(format, stride, pointer) }
+pub unsafe fn glInterleavedArrays(format: GLenum, stride: GLsizei, pointer: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glInterleavedArrays(format : GLenum, stride : GLsizei, pointer : *const core::ffi::c_void));
+    unsafe { glInterleavedArrays(format, stride, pointer as _) }
 }
 #[inline]
 pub unsafe fn glIsEnabled(cap: GLenum) -> GLboolean {
@@ -844,7 +736,7 @@ pub unsafe fn glLightModelf(pname: GLenum, param: GLfloat) {
 #[inline]
 pub unsafe fn glLightModelfv(pname: GLenum, params: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glLightModelfv(pname : GLenum, params : *const GLfloat));
-    unsafe { glLightModelfv(pname, params) }
+    unsafe { glLightModelfv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glLightModeli(pname: GLenum, param: GLint) {
@@ -854,7 +746,7 @@ pub unsafe fn glLightModeli(pname: GLenum, param: GLint) {
 #[inline]
 pub unsafe fn glLightModeliv(pname: GLenum, params: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glLightModeliv(pname : GLenum, params : *const GLint));
-    unsafe { glLightModeliv(pname, params) }
+    unsafe { glLightModeliv(pname, params as _) }
 }
 #[inline]
 pub unsafe fn glLightf(light: GLenum, pname: GLenum, param: GLfloat) {
@@ -864,7 +756,7 @@ pub unsafe fn glLightf(light: GLenum, pname: GLenum, param: GLfloat) {
 #[inline]
 pub unsafe fn glLightfv(light: GLenum, pname: GLenum, params: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glLightfv(light : GLenum, pname : GLenum, params : *const GLfloat));
-    unsafe { glLightfv(light, pname, params) }
+    unsafe { glLightfv(light, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glLighti(light: GLenum, pname: GLenum, param: GLint) {
@@ -874,7 +766,7 @@ pub unsafe fn glLighti(light: GLenum, pname: GLenum, param: GLint) {
 #[inline]
 pub unsafe fn glLightiv(light: GLenum, pname: GLenum, params: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glLightiv(light : GLenum, pname : GLenum, params : *const GLint));
-    unsafe { glLightiv(light, pname, params) }
+    unsafe { glLightiv(light, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glLineStipple(factor: GLint, pattern: GLushort) {
@@ -899,12 +791,12 @@ pub unsafe fn glLoadIdentity() {
 #[inline]
 pub unsafe fn glLoadMatrixd(m: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glLoadMatrixd(m : *const GLdouble));
-    unsafe { glLoadMatrixd(m) }
+    unsafe { glLoadMatrixd(m as _) }
 }
 #[inline]
 pub unsafe fn glLoadMatrixf(m: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glLoadMatrixf(m : *const GLfloat));
-    unsafe { glLoadMatrixf(m) }
+    unsafe { glLoadMatrixf(m as _) }
 }
 #[inline]
 pub unsafe fn glLoadName(name: GLuint) {
@@ -919,22 +811,22 @@ pub unsafe fn glLogicOp(opcode: GLenum) {
 #[inline]
 pub unsafe fn glMap1d(target: GLenum, u1: GLdouble, u2: GLdouble, stride: GLint, order: GLint, points: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glMap1d(target : GLenum, u1 : GLdouble, u2 : GLdouble, stride : GLint, order : GLint, points : *const GLdouble));
-    unsafe { glMap1d(target, u1, u2, stride, order, points) }
+    unsafe { glMap1d(target, u1, u2, stride, order, points as _) }
 }
 #[inline]
 pub unsafe fn glMap1f(target: GLenum, u1: GLfloat, u2: GLfloat, stride: GLint, order: GLint, points: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glMap1f(target : GLenum, u1 : GLfloat, u2 : GLfloat, stride : GLint, order : GLint, points : *const GLfloat));
-    unsafe { glMap1f(target, u1, u2, stride, order, points) }
+    unsafe { glMap1f(target, u1, u2, stride, order, points as _) }
 }
 #[inline]
 pub unsafe fn glMap2d(target: GLenum, u1: GLdouble, u2: GLdouble, ustride: GLint, uorder: GLint, v1: GLdouble, v2: GLdouble, vstride: GLint, vorder: GLint, points: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glMap2d(target : GLenum, u1 : GLdouble, u2 : GLdouble, ustride : GLint, uorder : GLint, v1 : GLdouble, v2 : GLdouble, vstride : GLint, vorder : GLint, points : *const GLdouble));
-    unsafe { glMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points) }
+    unsafe { glMap2d(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points as _) }
 }
 #[inline]
 pub unsafe fn glMap2f(target: GLenum, u1: GLfloat, u2: GLfloat, ustride: GLint, uorder: GLint, v1: GLfloat, v2: GLfloat, vstride: GLint, vorder: GLint, points: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glMap2f(target : GLenum, u1 : GLfloat, u2 : GLfloat, ustride : GLint, uorder : GLint, v1 : GLfloat, v2 : GLfloat, vstride : GLint, vorder : GLint, points : *const GLfloat));
-    unsafe { glMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points) }
+    unsafe { glMap2f(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points as _) }
 }
 #[inline]
 pub unsafe fn glMapGrid1d(un: GLint, u1: GLdouble, u2: GLdouble) {
@@ -964,7 +856,7 @@ pub unsafe fn glMaterialf(face: GLenum, pname: GLenum, param: GLfloat) {
 #[inline]
 pub unsafe fn glMaterialfv(face: GLenum, pname: GLenum, params: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glMaterialfv(face : GLenum, pname : GLenum, params : *const GLfloat));
-    unsafe { glMaterialfv(face, pname, params) }
+    unsafe { glMaterialfv(face, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glMateriali(face: GLenum, pname: GLenum, param: GLint) {
@@ -974,7 +866,7 @@ pub unsafe fn glMateriali(face: GLenum, pname: GLenum, param: GLint) {
 #[inline]
 pub unsafe fn glMaterialiv(face: GLenum, pname: GLenum, params: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glMaterialiv(face : GLenum, pname : GLenum, params : *const GLint));
-    unsafe { glMaterialiv(face, pname, params) }
+    unsafe { glMaterialiv(face, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glMatrixMode(mode: GLenum) {
@@ -984,12 +876,12 @@ pub unsafe fn glMatrixMode(mode: GLenum) {
 #[inline]
 pub unsafe fn glMultMatrixd(m: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glMultMatrixd(m : *const GLdouble));
-    unsafe { glMultMatrixd(m) }
+    unsafe { glMultMatrixd(m as _) }
 }
 #[inline]
 pub unsafe fn glMultMatrixf(m: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glMultMatrixf(m : *const GLfloat));
-    unsafe { glMultMatrixf(m) }
+    unsafe { glMultMatrixf(m as _) }
 }
 #[inline]
 pub unsafe fn glNewList(list: GLuint, mode: GLenum) {
@@ -1004,7 +896,7 @@ pub unsafe fn glNormal3b(nx: GLbyte, ny: GLbyte, nz: GLbyte) {
 #[inline]
 pub unsafe fn glNormal3bv(v: *const GLbyte) {
     windows_core::link!("opengl32.dll" "system" fn glNormal3bv(v : *const GLbyte));
-    unsafe { glNormal3bv(v) }
+    unsafe { glNormal3bv(v as _) }
 }
 #[inline]
 pub unsafe fn glNormal3d(nx: GLdouble, ny: GLdouble, nz: GLdouble) {
@@ -1014,7 +906,7 @@ pub unsafe fn glNormal3d(nx: GLdouble, ny: GLdouble, nz: GLdouble) {
 #[inline]
 pub unsafe fn glNormal3dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glNormal3dv(v : *const GLdouble));
-    unsafe { glNormal3dv(v) }
+    unsafe { glNormal3dv(v as _) }
 }
 #[inline]
 pub unsafe fn glNormal3f(nx: GLfloat, ny: GLfloat, nz: GLfloat) {
@@ -1024,7 +916,7 @@ pub unsafe fn glNormal3f(nx: GLfloat, ny: GLfloat, nz: GLfloat) {
 #[inline]
 pub unsafe fn glNormal3fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glNormal3fv(v : *const GLfloat));
-    unsafe { glNormal3fv(v) }
+    unsafe { glNormal3fv(v as _) }
 }
 #[inline]
 pub unsafe fn glNormal3i(nx: GLint, ny: GLint, nz: GLint) {
@@ -1034,7 +926,7 @@ pub unsafe fn glNormal3i(nx: GLint, ny: GLint, nz: GLint) {
 #[inline]
 pub unsafe fn glNormal3iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glNormal3iv(v : *const GLint));
-    unsafe { glNormal3iv(v) }
+    unsafe { glNormal3iv(v as _) }
 }
 #[inline]
 pub unsafe fn glNormal3s(nx: GLshort, ny: GLshort, nz: GLshort) {
@@ -1044,12 +936,12 @@ pub unsafe fn glNormal3s(nx: GLshort, ny: GLshort, nz: GLshort) {
 #[inline]
 pub unsafe fn glNormal3sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glNormal3sv(v : *const GLshort));
-    unsafe { glNormal3sv(v) }
+    unsafe { glNormal3sv(v as _) }
 }
 #[inline]
-pub unsafe fn glNormalPointer(r#type: GLenum, stride: GLsizei, pointer: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glNormalPointer(r#type : GLenum, stride : GLsizei, pointer : *const GLvoid));
-    unsafe { glNormalPointer(r#type, stride, pointer) }
+pub unsafe fn glNormalPointer(r#type: GLenum, stride: GLsizei, pointer: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glNormalPointer(r#type : GLenum, stride : GLsizei, pointer : *const core::ffi::c_void));
+    unsafe { glNormalPointer(r#type, stride, pointer as _) }
 }
 #[inline]
 pub unsafe fn glOrtho(left: GLdouble, right: GLdouble, bottom: GLdouble, top: GLdouble, znear: GLdouble, zfar: GLdouble) {
@@ -1064,17 +956,17 @@ pub unsafe fn glPassThrough(token: GLfloat) {
 #[inline]
 pub unsafe fn glPixelMapfv(map: GLenum, mapsize: GLsizei, values: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glPixelMapfv(map : GLenum, mapsize : GLsizei, values : *const GLfloat));
-    unsafe { glPixelMapfv(map, mapsize, values) }
+    unsafe { glPixelMapfv(map, mapsize, values as _) }
 }
 #[inline]
 pub unsafe fn glPixelMapuiv(map: GLenum, mapsize: GLsizei, values: *const GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glPixelMapuiv(map : GLenum, mapsize : GLsizei, values : *const GLuint));
-    unsafe { glPixelMapuiv(map, mapsize, values) }
+    unsafe { glPixelMapuiv(map, mapsize, values as _) }
 }
 #[inline]
 pub unsafe fn glPixelMapusv(map: GLenum, mapsize: GLsizei, values: *const GLushort) {
     windows_core::link!("opengl32.dll" "system" fn glPixelMapusv(map : GLenum, mapsize : GLsizei, values : *const GLushort));
-    unsafe { glPixelMapusv(map, mapsize, values) }
+    unsafe { glPixelMapusv(map, mapsize, values as _) }
 }
 #[inline]
 pub unsafe fn glPixelStoref(pname: GLenum, param: GLfloat) {
@@ -1119,7 +1011,7 @@ pub unsafe fn glPolygonOffset(factor: GLfloat, units: GLfloat) {
 #[inline]
 pub unsafe fn glPolygonStipple(mask: *const GLubyte) {
     windows_core::link!("opengl32.dll" "system" fn glPolygonStipple(mask : *const GLubyte));
-    unsafe { glPolygonStipple(mask) }
+    unsafe { glPolygonStipple(mask as _) }
 }
 #[inline]
 pub unsafe fn glPopAttrib() {
@@ -1144,7 +1036,7 @@ pub unsafe fn glPopName() {
 #[inline]
 pub unsafe fn glPrioritizeTextures(n: GLsizei, textures: *const GLuint, priorities: *const GLclampf) {
     windows_core::link!("opengl32.dll" "system" fn glPrioritizeTextures(n : GLsizei, textures : *const GLuint, priorities : *const GLclampf));
-    unsafe { glPrioritizeTextures(n, textures, priorities) }
+    unsafe { glPrioritizeTextures(n, textures as _, priorities as _) }
 }
 #[inline]
 pub unsafe fn glPushAttrib(mask: GLbitfield) {
@@ -1174,7 +1066,7 @@ pub unsafe fn glRasterPos2d(x: GLdouble, y: GLdouble) {
 #[inline]
 pub unsafe fn glRasterPos2dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos2dv(v : *const GLdouble));
-    unsafe { glRasterPos2dv(v) }
+    unsafe { glRasterPos2dv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos2f(x: GLfloat, y: GLfloat) {
@@ -1184,7 +1076,7 @@ pub unsafe fn glRasterPos2f(x: GLfloat, y: GLfloat) {
 #[inline]
 pub unsafe fn glRasterPos2fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos2fv(v : *const GLfloat));
-    unsafe { glRasterPos2fv(v) }
+    unsafe { glRasterPos2fv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos2i(x: GLint, y: GLint) {
@@ -1194,7 +1086,7 @@ pub unsafe fn glRasterPos2i(x: GLint, y: GLint) {
 #[inline]
 pub unsafe fn glRasterPos2iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos2iv(v : *const GLint));
-    unsafe { glRasterPos2iv(v) }
+    unsafe { glRasterPos2iv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos2s(x: GLshort, y: GLshort) {
@@ -1204,7 +1096,7 @@ pub unsafe fn glRasterPos2s(x: GLshort, y: GLshort) {
 #[inline]
 pub unsafe fn glRasterPos2sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos2sv(v : *const GLshort));
-    unsafe { glRasterPos2sv(v) }
+    unsafe { glRasterPos2sv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos3d(x: GLdouble, y: GLdouble, z: GLdouble) {
@@ -1214,7 +1106,7 @@ pub unsafe fn glRasterPos3d(x: GLdouble, y: GLdouble, z: GLdouble) {
 #[inline]
 pub unsafe fn glRasterPos3dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos3dv(v : *const GLdouble));
-    unsafe { glRasterPos3dv(v) }
+    unsafe { glRasterPos3dv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos3f(x: GLfloat, y: GLfloat, z: GLfloat) {
@@ -1224,7 +1116,7 @@ pub unsafe fn glRasterPos3f(x: GLfloat, y: GLfloat, z: GLfloat) {
 #[inline]
 pub unsafe fn glRasterPos3fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos3fv(v : *const GLfloat));
-    unsafe { glRasterPos3fv(v) }
+    unsafe { glRasterPos3fv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos3i(x: GLint, y: GLint, z: GLint) {
@@ -1234,7 +1126,7 @@ pub unsafe fn glRasterPos3i(x: GLint, y: GLint, z: GLint) {
 #[inline]
 pub unsafe fn glRasterPos3iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos3iv(v : *const GLint));
-    unsafe { glRasterPos3iv(v) }
+    unsafe { glRasterPos3iv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos3s(x: GLshort, y: GLshort, z: GLshort) {
@@ -1244,7 +1136,7 @@ pub unsafe fn glRasterPos3s(x: GLshort, y: GLshort, z: GLshort) {
 #[inline]
 pub unsafe fn glRasterPos3sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos3sv(v : *const GLshort));
-    unsafe { glRasterPos3sv(v) }
+    unsafe { glRasterPos3sv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos4d(x: GLdouble, y: GLdouble, z: GLdouble, w: GLdouble) {
@@ -1254,7 +1146,7 @@ pub unsafe fn glRasterPos4d(x: GLdouble, y: GLdouble, z: GLdouble, w: GLdouble) 
 #[inline]
 pub unsafe fn glRasterPos4dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos4dv(v : *const GLdouble));
-    unsafe { glRasterPos4dv(v) }
+    unsafe { glRasterPos4dv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos4f(x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat) {
@@ -1264,7 +1156,7 @@ pub unsafe fn glRasterPos4f(x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat) {
 #[inline]
 pub unsafe fn glRasterPos4fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos4fv(v : *const GLfloat));
-    unsafe { glRasterPos4fv(v) }
+    unsafe { glRasterPos4fv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos4i(x: GLint, y: GLint, z: GLint, w: GLint) {
@@ -1274,7 +1166,7 @@ pub unsafe fn glRasterPos4i(x: GLint, y: GLint, z: GLint, w: GLint) {
 #[inline]
 pub unsafe fn glRasterPos4iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos4iv(v : *const GLint));
-    unsafe { glRasterPos4iv(v) }
+    unsafe { glRasterPos4iv(v as _) }
 }
 #[inline]
 pub unsafe fn glRasterPos4s(x: GLshort, y: GLshort, z: GLshort, w: GLshort) {
@@ -1284,7 +1176,7 @@ pub unsafe fn glRasterPos4s(x: GLshort, y: GLshort, z: GLshort, w: GLshort) {
 #[inline]
 pub unsafe fn glRasterPos4sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glRasterPos4sv(v : *const GLshort));
-    unsafe { glRasterPos4sv(v) }
+    unsafe { glRasterPos4sv(v as _) }
 }
 #[inline]
 pub unsafe fn glReadBuffer(mode: GLenum) {
@@ -1292,8 +1184,8 @@ pub unsafe fn glReadBuffer(mode: GLenum) {
     unsafe { glReadBuffer(mode) }
 }
 #[inline]
-pub unsafe fn glReadPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *mut GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glReadPixels(x : GLint, y : GLint, width : GLsizei, height : GLsizei, format : GLenum, r#type : GLenum, pixels : *mut GLvoid));
+pub unsafe fn glReadPixels(x: GLint, y: GLint, width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *mut core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glReadPixels(x : GLint, y : GLint, width : GLsizei, height : GLsizei, format : GLenum, r#type : GLenum, pixels : *mut core::ffi::c_void));
     unsafe { glReadPixels(x, y, width, height, format, r#type, pixels as _) }
 }
 #[inline]
@@ -1304,7 +1196,7 @@ pub unsafe fn glRectd(x1: GLdouble, y1: GLdouble, x2: GLdouble, y2: GLdouble) {
 #[inline]
 pub unsafe fn glRectdv(v1: *const GLdouble, v2: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glRectdv(v1 : *const GLdouble, v2 : *const GLdouble));
-    unsafe { glRectdv(v1, v2) }
+    unsafe { glRectdv(v1 as _, v2 as _) }
 }
 #[inline]
 pub unsafe fn glRectf(x1: GLfloat, y1: GLfloat, x2: GLfloat, y2: GLfloat) {
@@ -1314,7 +1206,7 @@ pub unsafe fn glRectf(x1: GLfloat, y1: GLfloat, x2: GLfloat, y2: GLfloat) {
 #[inline]
 pub unsafe fn glRectfv(v1: *const GLfloat, v2: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glRectfv(v1 : *const GLfloat, v2 : *const GLfloat));
-    unsafe { glRectfv(v1, v2) }
+    unsafe { glRectfv(v1 as _, v2 as _) }
 }
 #[inline]
 pub unsafe fn glRecti(x1: GLint, y1: GLint, x2: GLint, y2: GLint) {
@@ -1324,7 +1216,7 @@ pub unsafe fn glRecti(x1: GLint, y1: GLint, x2: GLint, y2: GLint) {
 #[inline]
 pub unsafe fn glRectiv(v1: *const GLint, v2: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glRectiv(v1 : *const GLint, v2 : *const GLint));
-    unsafe { glRectiv(v1, v2) }
+    unsafe { glRectiv(v1 as _, v2 as _) }
 }
 #[inline]
 pub unsafe fn glRects(x1: GLshort, y1: GLshort, x2: GLshort, y2: GLshort) {
@@ -1334,7 +1226,7 @@ pub unsafe fn glRects(x1: GLshort, y1: GLshort, x2: GLshort, y2: GLshort) {
 #[inline]
 pub unsafe fn glRectsv(v1: *const GLshort, v2: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glRectsv(v1 : *const GLshort, v2 : *const GLshort));
-    unsafe { glRectsv(v1, v2) }
+    unsafe { glRectsv(v1 as _, v2 as _) }
 }
 #[inline]
 pub unsafe fn glRenderMode(mode: GLenum) -> GLint {
@@ -1367,13 +1259,9 @@ pub unsafe fn glScissor(x: GLint, y: GLint, width: GLsizei, height: GLsizei) {
     unsafe { glScissor(x, y, width, height) }
 }
 #[inline]
-pub unsafe fn glSelectBuffer(size: GLsizei) -> GLuint {
+pub unsafe fn glSelectBuffer(size: GLsizei, buffer: *mut GLuint) {
     windows_core::link!("opengl32.dll" "system" fn glSelectBuffer(size : GLsizei, buffer : *mut GLuint));
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        glSelectBuffer(size, &mut result__);
-        result__
-    }
+    unsafe { glSelectBuffer(size, buffer as _) }
 }
 #[inline]
 pub unsafe fn glShadeModel(mode: GLenum) {
@@ -1403,7 +1291,7 @@ pub unsafe fn glTexCoord1d(s: GLdouble) {
 #[inline]
 pub unsafe fn glTexCoord1dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord1dv(v : *const GLdouble));
-    unsafe { glTexCoord1dv(v) }
+    unsafe { glTexCoord1dv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord1f(s: GLfloat) {
@@ -1413,7 +1301,7 @@ pub unsafe fn glTexCoord1f(s: GLfloat) {
 #[inline]
 pub unsafe fn glTexCoord1fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord1fv(v : *const GLfloat));
-    unsafe { glTexCoord1fv(v) }
+    unsafe { glTexCoord1fv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord1i(s: GLint) {
@@ -1423,7 +1311,7 @@ pub unsafe fn glTexCoord1i(s: GLint) {
 #[inline]
 pub unsafe fn glTexCoord1iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord1iv(v : *const GLint));
-    unsafe { glTexCoord1iv(v) }
+    unsafe { glTexCoord1iv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord1s(s: GLshort) {
@@ -1433,7 +1321,7 @@ pub unsafe fn glTexCoord1s(s: GLshort) {
 #[inline]
 pub unsafe fn glTexCoord1sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord1sv(v : *const GLshort));
-    unsafe { glTexCoord1sv(v) }
+    unsafe { glTexCoord1sv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord2d(s: GLdouble, t: GLdouble) {
@@ -1443,7 +1331,7 @@ pub unsafe fn glTexCoord2d(s: GLdouble, t: GLdouble) {
 #[inline]
 pub unsafe fn glTexCoord2dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord2dv(v : *const GLdouble));
-    unsafe { glTexCoord2dv(v) }
+    unsafe { glTexCoord2dv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord2f(s: GLfloat, t: GLfloat) {
@@ -1453,7 +1341,7 @@ pub unsafe fn glTexCoord2f(s: GLfloat, t: GLfloat) {
 #[inline]
 pub unsafe fn glTexCoord2fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord2fv(v : *const GLfloat));
-    unsafe { glTexCoord2fv(v) }
+    unsafe { glTexCoord2fv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord2i(s: GLint, t: GLint) {
@@ -1463,7 +1351,7 @@ pub unsafe fn glTexCoord2i(s: GLint, t: GLint) {
 #[inline]
 pub unsafe fn glTexCoord2iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord2iv(v : *const GLint));
-    unsafe { glTexCoord2iv(v) }
+    unsafe { glTexCoord2iv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord2s(s: GLshort, t: GLshort) {
@@ -1473,7 +1361,7 @@ pub unsafe fn glTexCoord2s(s: GLshort, t: GLshort) {
 #[inline]
 pub unsafe fn glTexCoord2sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord2sv(v : *const GLshort));
-    unsafe { glTexCoord2sv(v) }
+    unsafe { glTexCoord2sv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord3d(s: GLdouble, t: GLdouble, r: GLdouble) {
@@ -1483,7 +1371,7 @@ pub unsafe fn glTexCoord3d(s: GLdouble, t: GLdouble, r: GLdouble) {
 #[inline]
 pub unsafe fn glTexCoord3dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord3dv(v : *const GLdouble));
-    unsafe { glTexCoord3dv(v) }
+    unsafe { glTexCoord3dv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord3f(s: GLfloat, t: GLfloat, r: GLfloat) {
@@ -1493,7 +1381,7 @@ pub unsafe fn glTexCoord3f(s: GLfloat, t: GLfloat, r: GLfloat) {
 #[inline]
 pub unsafe fn glTexCoord3fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord3fv(v : *const GLfloat));
-    unsafe { glTexCoord3fv(v) }
+    unsafe { glTexCoord3fv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord3i(s: GLint, t: GLint, r: GLint) {
@@ -1503,7 +1391,7 @@ pub unsafe fn glTexCoord3i(s: GLint, t: GLint, r: GLint) {
 #[inline]
 pub unsafe fn glTexCoord3iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord3iv(v : *const GLint));
-    unsafe { glTexCoord3iv(v) }
+    unsafe { glTexCoord3iv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord3s(s: GLshort, t: GLshort, r: GLshort) {
@@ -1513,7 +1401,7 @@ pub unsafe fn glTexCoord3s(s: GLshort, t: GLshort, r: GLshort) {
 #[inline]
 pub unsafe fn glTexCoord3sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord3sv(v : *const GLshort));
-    unsafe { glTexCoord3sv(v) }
+    unsafe { glTexCoord3sv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord4d(s: GLdouble, t: GLdouble, r: GLdouble, q: GLdouble) {
@@ -1523,7 +1411,7 @@ pub unsafe fn glTexCoord4d(s: GLdouble, t: GLdouble, r: GLdouble, q: GLdouble) {
 #[inline]
 pub unsafe fn glTexCoord4dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord4dv(v : *const GLdouble));
-    unsafe { glTexCoord4dv(v) }
+    unsafe { glTexCoord4dv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord4f(s: GLfloat, t: GLfloat, r: GLfloat, q: GLfloat) {
@@ -1533,7 +1421,7 @@ pub unsafe fn glTexCoord4f(s: GLfloat, t: GLfloat, r: GLfloat, q: GLfloat) {
 #[inline]
 pub unsafe fn glTexCoord4fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord4fv(v : *const GLfloat));
-    unsafe { glTexCoord4fv(v) }
+    unsafe { glTexCoord4fv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord4i(s: GLint, t: GLint, r: GLint, q: GLint) {
@@ -1543,7 +1431,7 @@ pub unsafe fn glTexCoord4i(s: GLint, t: GLint, r: GLint, q: GLint) {
 #[inline]
 pub unsafe fn glTexCoord4iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord4iv(v : *const GLint));
-    unsafe { glTexCoord4iv(v) }
+    unsafe { glTexCoord4iv(v as _) }
 }
 #[inline]
 pub unsafe fn glTexCoord4s(s: GLshort, t: GLshort, r: GLshort, q: GLshort) {
@@ -1553,12 +1441,12 @@ pub unsafe fn glTexCoord4s(s: GLshort, t: GLshort, r: GLshort, q: GLshort) {
 #[inline]
 pub unsafe fn glTexCoord4sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glTexCoord4sv(v : *const GLshort));
-    unsafe { glTexCoord4sv(v) }
+    unsafe { glTexCoord4sv(v as _) }
 }
 #[inline]
-pub unsafe fn glTexCoordPointer(size: GLint, r#type: GLenum, stride: GLsizei, pointer: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glTexCoordPointer(size : GLint, r#type : GLenum, stride : GLsizei, pointer : *const GLvoid));
-    unsafe { glTexCoordPointer(size, r#type, stride, pointer) }
+pub unsafe fn glTexCoordPointer(size: GLint, r#type: GLenum, stride: GLsizei, pointer: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glTexCoordPointer(size : GLint, r#type : GLenum, stride : GLsizei, pointer : *const core::ffi::c_void));
+    unsafe { glTexCoordPointer(size, r#type, stride, pointer as _) }
 }
 #[inline]
 pub unsafe fn glTexEnvf(target: GLenum, pname: GLenum, param: GLfloat) {
@@ -1568,7 +1456,7 @@ pub unsafe fn glTexEnvf(target: GLenum, pname: GLenum, param: GLfloat) {
 #[inline]
 pub unsafe fn glTexEnvfv(target: GLenum, pname: GLenum, params: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glTexEnvfv(target : GLenum, pname : GLenum, params : *const GLfloat));
-    unsafe { glTexEnvfv(target, pname, params) }
+    unsafe { glTexEnvfv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glTexEnvi(target: GLenum, pname: GLenum, param: GLint) {
@@ -1578,7 +1466,7 @@ pub unsafe fn glTexEnvi(target: GLenum, pname: GLenum, param: GLint) {
 #[inline]
 pub unsafe fn glTexEnviv(target: GLenum, pname: GLenum, params: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glTexEnviv(target : GLenum, pname : GLenum, params : *const GLint));
-    unsafe { glTexEnviv(target, pname, params) }
+    unsafe { glTexEnviv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glTexGend(coord: GLenum, pname: GLenum, param: GLdouble) {
@@ -1588,7 +1476,7 @@ pub unsafe fn glTexGend(coord: GLenum, pname: GLenum, param: GLdouble) {
 #[inline]
 pub unsafe fn glTexGendv(coord: GLenum, pname: GLenum, params: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glTexGendv(coord : GLenum, pname : GLenum, params : *const GLdouble));
-    unsafe { glTexGendv(coord, pname, params) }
+    unsafe { glTexGendv(coord, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glTexGenf(coord: GLenum, pname: GLenum, param: GLfloat) {
@@ -1598,7 +1486,7 @@ pub unsafe fn glTexGenf(coord: GLenum, pname: GLenum, param: GLfloat) {
 #[inline]
 pub unsafe fn glTexGenfv(coord: GLenum, pname: GLenum, params: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glTexGenfv(coord : GLenum, pname : GLenum, params : *const GLfloat));
-    unsafe { glTexGenfv(coord, pname, params) }
+    unsafe { glTexGenfv(coord, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glTexGeni(coord: GLenum, pname: GLenum, param: GLint) {
@@ -1608,17 +1496,17 @@ pub unsafe fn glTexGeni(coord: GLenum, pname: GLenum, param: GLint) {
 #[inline]
 pub unsafe fn glTexGeniv(coord: GLenum, pname: GLenum, params: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glTexGeniv(coord : GLenum, pname : GLenum, params : *const GLint));
-    unsafe { glTexGeniv(coord, pname, params) }
+    unsafe { glTexGeniv(coord, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glTexImage1D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, r#type: GLenum, pixels: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glTexImage1D(target : GLenum, level : GLint, internalformat : GLint, width : GLsizei, border : GLint, format : GLenum, r#type : GLenum, pixels : *const GLvoid));
-    unsafe { glTexImage1D(target, level, internalformat, width, border, format, r#type, pixels) }
+pub unsafe fn glTexImage1D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, border: GLint, format: GLenum, r#type: GLenum, pixels: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glTexImage1D(target : GLenum, level : GLint, internalformat : GLint, width : GLsizei, border : GLint, format : GLenum, r#type : GLenum, pixels : *const core::ffi::c_void));
+    unsafe { glTexImage1D(target, level, internalformat, width, border, format, r#type, pixels as _) }
 }
 #[inline]
-pub unsafe fn glTexImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, r#type: GLenum, pixels: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glTexImage2D(target : GLenum, level : GLint, internalformat : GLint, width : GLsizei, height : GLsizei, border : GLint, format : GLenum, r#type : GLenum, pixels : *const GLvoid));
-    unsafe { glTexImage2D(target, level, internalformat, width, height, border, format, r#type, pixels) }
+pub unsafe fn glTexImage2D(target: GLenum, level: GLint, internalformat: GLint, width: GLsizei, height: GLsizei, border: GLint, format: GLenum, r#type: GLenum, pixels: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glTexImage2D(target : GLenum, level : GLint, internalformat : GLint, width : GLsizei, height : GLsizei, border : GLint, format : GLenum, r#type : GLenum, pixels : *const core::ffi::c_void));
+    unsafe { glTexImage2D(target, level, internalformat, width, height, border, format, r#type, pixels as _) }
 }
 #[inline]
 pub unsafe fn glTexParameterf(target: GLenum, pname: GLenum, param: GLfloat) {
@@ -1628,7 +1516,7 @@ pub unsafe fn glTexParameterf(target: GLenum, pname: GLenum, param: GLfloat) {
 #[inline]
 pub unsafe fn glTexParameterfv(target: GLenum, pname: GLenum, params: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glTexParameterfv(target : GLenum, pname : GLenum, params : *const GLfloat));
-    unsafe { glTexParameterfv(target, pname, params) }
+    unsafe { glTexParameterfv(target, pname, params as _) }
 }
 #[inline]
 pub unsafe fn glTexParameteri(target: GLenum, pname: GLenum, param: GLint) {
@@ -1638,17 +1526,17 @@ pub unsafe fn glTexParameteri(target: GLenum, pname: GLenum, param: GLint) {
 #[inline]
 pub unsafe fn glTexParameteriv(target: GLenum, pname: GLenum, params: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glTexParameteriv(target : GLenum, pname : GLenum, params : *const GLint));
-    unsafe { glTexParameteriv(target, pname, params) }
+    unsafe { glTexParameteriv(target, pname, params as _) }
 }
 #[inline]
-pub unsafe fn glTexSubImage1D(target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, r#type: GLenum, pixels: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glTexSubImage1D(target : GLenum, level : GLint, xoffset : GLint, width : GLsizei, format : GLenum, r#type : GLenum, pixels : *const GLvoid));
-    unsafe { glTexSubImage1D(target, level, xoffset, width, format, r#type, pixels) }
+pub unsafe fn glTexSubImage1D(target: GLenum, level: GLint, xoffset: GLint, width: GLsizei, format: GLenum, r#type: GLenum, pixels: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glTexSubImage1D(target : GLenum, level : GLint, xoffset : GLint, width : GLsizei, format : GLenum, r#type : GLenum, pixels : *const core::ffi::c_void));
+    unsafe { glTexSubImage1D(target, level, xoffset, width, format, r#type, pixels as _) }
 }
 #[inline]
-pub unsafe fn glTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glTexSubImage2D(target : GLenum, level : GLint, xoffset : GLint, yoffset : GLint, width : GLsizei, height : GLsizei, format : GLenum, r#type : GLenum, pixels : *const GLvoid));
-    unsafe { glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, r#type, pixels) }
+pub unsafe fn glTexSubImage2D(target: GLenum, level: GLint, xoffset: GLint, yoffset: GLint, width: GLsizei, height: GLsizei, format: GLenum, r#type: GLenum, pixels: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glTexSubImage2D(target : GLenum, level : GLint, xoffset : GLint, yoffset : GLint, width : GLsizei, height : GLsizei, format : GLenum, r#type : GLenum, pixels : *const core::ffi::c_void));
+    unsafe { glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, r#type, pixels as _) }
 }
 #[inline]
 pub unsafe fn glTranslated(x: GLdouble, y: GLdouble, z: GLdouble) {
@@ -1668,7 +1556,7 @@ pub unsafe fn glVertex2d(x: GLdouble, y: GLdouble) {
 #[inline]
 pub unsafe fn glVertex2dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glVertex2dv(v : *const GLdouble));
-    unsafe { glVertex2dv(v) }
+    unsafe { glVertex2dv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex2f(x: GLfloat, y: GLfloat) {
@@ -1678,7 +1566,7 @@ pub unsafe fn glVertex2f(x: GLfloat, y: GLfloat) {
 #[inline]
 pub unsafe fn glVertex2fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glVertex2fv(v : *const GLfloat));
-    unsafe { glVertex2fv(v) }
+    unsafe { glVertex2fv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex2i(x: GLint, y: GLint) {
@@ -1688,7 +1576,7 @@ pub unsafe fn glVertex2i(x: GLint, y: GLint) {
 #[inline]
 pub unsafe fn glVertex2iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glVertex2iv(v : *const GLint));
-    unsafe { glVertex2iv(v) }
+    unsafe { glVertex2iv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex2s(x: GLshort, y: GLshort) {
@@ -1698,7 +1586,7 @@ pub unsafe fn glVertex2s(x: GLshort, y: GLshort) {
 #[inline]
 pub unsafe fn glVertex2sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glVertex2sv(v : *const GLshort));
-    unsafe { glVertex2sv(v) }
+    unsafe { glVertex2sv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex3d(x: GLdouble, y: GLdouble, z: GLdouble) {
@@ -1708,7 +1596,7 @@ pub unsafe fn glVertex3d(x: GLdouble, y: GLdouble, z: GLdouble) {
 #[inline]
 pub unsafe fn glVertex3dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glVertex3dv(v : *const GLdouble));
-    unsafe { glVertex3dv(v) }
+    unsafe { glVertex3dv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex3f(x: GLfloat, y: GLfloat, z: GLfloat) {
@@ -1718,7 +1606,7 @@ pub unsafe fn glVertex3f(x: GLfloat, y: GLfloat, z: GLfloat) {
 #[inline]
 pub unsafe fn glVertex3fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glVertex3fv(v : *const GLfloat));
-    unsafe { glVertex3fv(v) }
+    unsafe { glVertex3fv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex3i(x: GLint, y: GLint, z: GLint) {
@@ -1728,7 +1616,7 @@ pub unsafe fn glVertex3i(x: GLint, y: GLint, z: GLint) {
 #[inline]
 pub unsafe fn glVertex3iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glVertex3iv(v : *const GLint));
-    unsafe { glVertex3iv(v) }
+    unsafe { glVertex3iv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex3s(x: GLshort, y: GLshort, z: GLshort) {
@@ -1738,7 +1626,7 @@ pub unsafe fn glVertex3s(x: GLshort, y: GLshort, z: GLshort) {
 #[inline]
 pub unsafe fn glVertex3sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glVertex3sv(v : *const GLshort));
-    unsafe { glVertex3sv(v) }
+    unsafe { glVertex3sv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex4d(x: GLdouble, y: GLdouble, z: GLdouble, w: GLdouble) {
@@ -1748,7 +1636,7 @@ pub unsafe fn glVertex4d(x: GLdouble, y: GLdouble, z: GLdouble, w: GLdouble) {
 #[inline]
 pub unsafe fn glVertex4dv(v: *const GLdouble) {
     windows_core::link!("opengl32.dll" "system" fn glVertex4dv(v : *const GLdouble));
-    unsafe { glVertex4dv(v) }
+    unsafe { glVertex4dv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex4f(x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat) {
@@ -1758,7 +1646,7 @@ pub unsafe fn glVertex4f(x: GLfloat, y: GLfloat, z: GLfloat, w: GLfloat) {
 #[inline]
 pub unsafe fn glVertex4fv(v: *const GLfloat) {
     windows_core::link!("opengl32.dll" "system" fn glVertex4fv(v : *const GLfloat));
-    unsafe { glVertex4fv(v) }
+    unsafe { glVertex4fv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex4i(x: GLint, y: GLint, z: GLint, w: GLint) {
@@ -1768,7 +1656,7 @@ pub unsafe fn glVertex4i(x: GLint, y: GLint, z: GLint, w: GLint) {
 #[inline]
 pub unsafe fn glVertex4iv(v: *const GLint) {
     windows_core::link!("opengl32.dll" "system" fn glVertex4iv(v : *const GLint));
-    unsafe { glVertex4iv(v) }
+    unsafe { glVertex4iv(v as _) }
 }
 #[inline]
 pub unsafe fn glVertex4s(x: GLshort, y: GLshort, z: GLshort, w: GLshort) {
@@ -1778,12 +1666,12 @@ pub unsafe fn glVertex4s(x: GLshort, y: GLshort, z: GLshort, w: GLshort) {
 #[inline]
 pub unsafe fn glVertex4sv(v: *const GLshort) {
     windows_core::link!("opengl32.dll" "system" fn glVertex4sv(v : *const GLshort));
-    unsafe { glVertex4sv(v) }
+    unsafe { glVertex4sv(v as _) }
 }
 #[inline]
-pub unsafe fn glVertexPointer(size: GLint, r#type: GLenum, stride: GLsizei, pointer: *const GLvoid) {
-    windows_core::link!("opengl32.dll" "system" fn glVertexPointer(size : GLint, r#type : GLenum, stride : GLsizei, pointer : *const GLvoid));
-    unsafe { glVertexPointer(size, r#type, stride, pointer) }
+pub unsafe fn glVertexPointer(size: GLint, r#type: GLenum, stride: GLsizei, pointer: *const core::ffi::c_void) {
+    windows_core::link!("opengl32.dll" "system" fn glVertexPointer(size : GLint, r#type : GLenum, stride : GLsizei, pointer : *const core::ffi::c_void));
+    unsafe { glVertexPointer(size, r#type, stride, pointer as _) }
 }
 #[inline]
 pub unsafe fn glViewport(x: GLint, y: GLint, width: GLsizei, height: GLsizei) {
@@ -2392,21 +2280,20 @@ pub type GLsizei = i32;
 pub type GLubyte = u8;
 pub type GLuint = u32;
 pub type GLushort = u16;
-pub type GLvoid = core::ffi::c_void;
 pub type PFNGLADDSWAPHINTRECTWINPROC = Option<unsafe extern "system" fn(x: GLint, y: GLint, width: GLsizei, height: GLsizei)>;
-pub type PFNGLARRAYELEMENTARRAYEXTPROC = Option<unsafe extern "system" fn(mode: GLenum, count: GLsizei, pi: *const GLvoid)>;
+pub type PFNGLARRAYELEMENTARRAYEXTPROC = Option<unsafe extern "system" fn(mode: GLenum, count: GLsizei, pi: *const core::ffi::c_void)>;
 pub type PFNGLARRAYELEMENTEXTPROC = Option<unsafe extern "system" fn(i: GLint)>;
-pub type PFNGLCOLORPOINTEREXTPROC = Option<unsafe extern "system" fn(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid)>;
-pub type PFNGLCOLORSUBTABLEEXTPROC = Option<unsafe extern "system" fn(target: GLenum, start: GLsizei, count: GLsizei, format: GLenum, r#type: GLenum, data: *const GLvoid)>;
-pub type PFNGLCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: GLenum, internalformat: GLenum, width: GLsizei, format: GLenum, r#type: GLenum, data: *const GLvoid)>;
+pub type PFNGLCOLORPOINTEREXTPROC = Option<unsafe extern "system" fn(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const core::ffi::c_void)>;
+pub type PFNGLCOLORSUBTABLEEXTPROC = Option<unsafe extern "system" fn(target: GLenum, start: GLsizei, count: GLsizei, format: GLenum, r#type: GLenum, data: *const core::ffi::c_void)>;
+pub type PFNGLCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: GLenum, internalformat: GLenum, width: GLsizei, format: GLenum, r#type: GLenum, data: *const core::ffi::c_void)>;
 pub type PFNGLDRAWARRAYSEXTPROC = Option<unsafe extern "system" fn(mode: GLenum, first: GLint, count: GLsizei)>;
-pub type PFNGLDRAWRANGEELEMENTSWINPROC = Option<unsafe extern "system" fn(mode: GLenum, start: GLuint, end: GLuint, count: GLsizei, r#type: GLenum, indices: *const GLvoid)>;
+pub type PFNGLDRAWRANGEELEMENTSWINPROC = Option<unsafe extern "system" fn(mode: GLenum, start: GLuint, end: GLuint, count: GLsizei, r#type: GLenum, indices: *const core::ffi::c_void)>;
 pub type PFNGLEDGEFLAGPOINTEREXTPROC = Option<unsafe extern "system" fn(stride: GLsizei, count: GLsizei, pointer: *const GLboolean)>;
-pub type PFNGLGETCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: GLenum, format: GLenum, r#type: GLenum, data: *mut GLvoid)>;
+pub type PFNGLGETCOLORTABLEEXTPROC = Option<unsafe extern "system" fn(target: GLenum, format: GLenum, r#type: GLenum, data: *mut core::ffi::c_void)>;
 pub type PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = Option<unsafe extern "system" fn(target: GLenum, pname: GLenum, params: *mut GLfloat)>;
 pub type PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = Option<unsafe extern "system" fn(target: GLenum, pname: GLenum, params: *mut GLint)>;
-pub type PFNGLGETPOINTERVEXTPROC = Option<unsafe extern "system" fn(pname: GLenum, params: *mut *mut GLvoid)>;
-pub type PFNGLINDEXPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid)>;
-pub type PFNGLNORMALPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid)>;
-pub type PFNGLTEXCOORDPOINTEREXTPROC = Option<unsafe extern "system" fn(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid)>;
-pub type PFNGLVERTEXPOINTEREXTPROC = Option<unsafe extern "system" fn(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const GLvoid)>;
+pub type PFNGLGETPOINTERVEXTPROC = Option<unsafe extern "system" fn(pname: GLenum, params: *mut *mut core::ffi::c_void)>;
+pub type PFNGLINDEXPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const core::ffi::c_void)>;
+pub type PFNGLNORMALPOINTEREXTPROC = Option<unsafe extern "system" fn(r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const core::ffi::c_void)>;
+pub type PFNGLTEXCOORDPOINTEREXTPROC = Option<unsafe extern "system" fn(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const core::ffi::c_void)>;
+pub type PFNGLVERTEXPOINTEREXTPROC = Option<unsafe extern "system" fn(size: GLint, r#type: GLenum, stride: GLsizei, count: GLsizei, pointer: *const core::ffi::c_void)>;

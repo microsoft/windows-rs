@@ -1,27 +1,27 @@
 #[cfg(feature = "ncrypt")]
 windows_link::link!("ncrypt.dll" "system" fn NCryptCloseProtectionDescriptor(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE) -> super::SECURITY_STATUS);
-#[cfg(feature = "ncrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptCreateProtectionDescriptor(pwszdescriptorstring : windows_sys::core::PCWSTR, dwflags : u32, phdescriptor : *mut NCRYPT_DESCRIPTOR_HANDLE) -> super::SECURITY_STATUS);
-#[cfg(feature = "ncrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptGetProtectionDescriptorInfo(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE, pmempara : *const super::NCRYPT_ALLOC_PARA, dwinfotype : u32, ppvinfo : *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS);
-#[cfg(all(feature = "ncrypt", feature = "windef"))]
-windows_link::link!("ncrypt.dll" "system" fn NCryptProtectSecret(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, pbdata : *const u8, cbdata : u32, pmempara : *const super::NCRYPT_ALLOC_PARA, hwnd : super::HWND, ppbprotectedblob : *mut *mut u8, pcbprotectedblob : *mut u32) -> super::SECURITY_STATUS);
-#[cfg(feature = "ncrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptQueryProtectionDescriptorName(pwszname : windows_sys::core::PCWSTR, pwszdescriptorstring : windows_sys::core::PWSTR, pcdescriptorstring : *mut usize, dwflags : u32) -> super::SECURITY_STATUS);
-#[cfg(feature = "ncrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptRegisterProtectionDescriptorName(pwszname : windows_sys::core::PCWSTR, pwszdescriptorstring : windows_sys::core::PCWSTR, dwflags : u32) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptCreateProtectionDescriptor(pwszdescriptorstring : windows_sys::core::PCWSTR, dwflags : super::DWORD, phdescriptor : *mut NCRYPT_DESCRIPTOR_HANDLE) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptGetProtectionDescriptorInfo(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE, pmempara : *const super::NCRYPT_ALLOC_PARA, dwinfotype : super::DWORD, ppvinfo : *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared", feature = "windef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptProtectSecret(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE, dwflags : super::DWORD, pbdata : *const super::BYTE, cbdata : super::ULONG, pmempara : *const super::NCRYPT_ALLOC_PARA, hwnd : super::HWND, ppbprotectedblob : *mut *mut super::BYTE, pcbprotectedblob : *mut super::ULONG) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptQueryProtectionDescriptorName(pwszname : windows_sys::core::PCWSTR, pwszdescriptorstring : windows_sys::core::PWSTR, pcdescriptorstring : *mut super::SIZE_T, dwflags : super::DWORD) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptRegisterProtectionDescriptorName(pwszname : windows_sys::core::PCWSTR, pwszdescriptorstring : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> super::SECURITY_STATUS);
 #[cfg(feature = "ncrypt")]
 windows_link::link!("ncrypt.dll" "system" fn NCryptStreamClose(hstream : NCRYPT_STREAM_HANDLE) -> super::SECURITY_STATUS);
-#[cfg(all(feature = "ncrypt", feature = "windef"))]
-windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToProtect(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, hwnd : super::HWND, pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, phstream : *mut NCRYPT_STREAM_HANDLE) -> super::SECURITY_STATUS);
-#[cfg(all(feature = "ncrypt", feature = "windef"))]
-windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotect(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, dwflags : u32, hwnd : super::HWND, phstream : *mut NCRYPT_STREAM_HANDLE) -> super::SECURITY_STATUS);
-#[cfg(all(feature = "ncrypt", feature = "windef"))]
-windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotectEx(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags : u32, hwnd : super::HWND, phstream : *mut NCRYPT_STREAM_HANDLE) -> super::SECURITY_STATUS);
-#[cfg(feature = "ncrypt")]
-windows_link::link!("ncrypt.dll" "system" fn NCryptStreamUpdate(hstream : NCRYPT_STREAM_HANDLE, pbdata : *const u8, cbdata : usize, ffinal : windows_sys::core::BOOL) -> super::SECURITY_STATUS);
-#[cfg(all(feature = "ncrypt", feature = "windef"))]
-windows_link::link!("ncrypt.dll" "system" fn NCryptUnprotectSecret(phdescriptor : *mut NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, pbprotectedblob : *const u8, cbprotectedblob : u32, pmempara : *const super::NCRYPT_ALLOC_PARA, hwnd : super::HWND, ppbdata : *mut *mut u8, pcbdata : *mut u32) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "windef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToProtect(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE, dwflags : super::DWORD, hwnd : super::HWND, pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, phstream : *mut NCRYPT_STREAM_HANDLE) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "windef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotect(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, dwflags : super::DWORD, hwnd : super::HWND, phstream : *mut NCRYPT_STREAM_HANDLE) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "windef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotectEx(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags : super::DWORD, hwnd : super::HWND, phstream : *mut NCRYPT_STREAM_HANDLE) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptStreamUpdate(hstream : NCRYPT_STREAM_HANDLE, pbdata : *const super::BYTE, cbdata : super::SIZE_T, ffinal : windows_sys::core::BOOL) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared", feature = "windef"))]
+windows_link::link!("ncrypt.dll" "system" fn NCryptUnprotectSecret(phdescriptor : *mut NCRYPT_DESCRIPTOR_HANDLE, dwflags : super::DWORD, pbprotectedblob : *const super::BYTE, cbprotectedblob : super::ULONG, pmempara : *const super::NCRYPT_ALLOC_PARA, hwnd : super::HWND, ppbdata : *mut *mut super::BYTE, pcbdata : *mut super::ULONG) -> super::SECURITY_STATUS);
 pub const MS_KEY_PROTECTION_PROVIDER: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft Key Protection Provider");
 pub type NCRYPT_DESCRIPTOR_HANDLE = *mut NCRYPT_DESCRIPTOR_HANDLE__;
 #[repr(C)]
@@ -46,14 +46,14 @@ pub const NCRYPT_KEY_PROTECTION_LOCAL_USER: windows_sys::core::PCWSTR = windows_
 pub const NCRYPT_NAMED_DESCRIPTOR_FLAG: i32 = 1;
 pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: i32 = 1;
 #[repr(C)]
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
@@ -66,7 +66,7 @@ pub struct NCRYPT_STREAM_HANDLE__ {
     pub unused: i32,
 }
 pub const NCRYPT_UNPROTECT_NO_DECRYPT: i32 = 1;
-#[cfg(feature = "ncrypt")]
-pub type PFNCryptStreamOutputCallback = Option<unsafe extern "system" fn(pvcallbackctxt: *const core::ffi::c_void, pbdata: *const u8, cbdata: usize, ffinal: windows_sys::core::BOOL) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
-pub type PFNCryptStreamOutputCallbackEx = Option<unsafe extern "system" fn(pvcallbackctxt: *const core::ffi::c_void, pbdata: *const u8, cbdata: usize, hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, ffinal: windows_sys::core::BOOL) -> super::SECURITY_STATUS>;
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+pub type PFNCryptStreamOutputCallback = Option<unsafe extern "system" fn(pvcallbackctxt: *const core::ffi::c_void, pbdata: *const super::BYTE, cbdata: super::SIZE_T, ffinal: windows_sys::core::BOOL) -> super::SECURITY_STATUS>;
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+pub type PFNCryptStreamOutputCallbackEx = Option<unsafe extern "system" fn(pvcallbackctxt: *const core::ffi::c_void, pbdata: *const super::BYTE, cbdata: super::SIZE_T, hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, ffinal: windows_sys::core::BOOL) -> super::SECURITY_STATUS>;

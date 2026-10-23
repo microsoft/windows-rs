@@ -126,7 +126,8 @@ impl windows_core::RuntimeName for ILanguageExceptionErrorInfo2 {}
 windows_core::imp::define_interface!(ILanguageExceptionStackBackTrace, ILanguageExceptionStackBackTrace_Vtbl, 0xcbe53fb5_f967_4258_8d34_42f5e25833de);
 windows_core::imp::interface_hierarchy!(ILanguageExceptionStackBackTrace, windows_core::IUnknown);
 impl ILanguageExceptionStackBackTrace {
-    pub unsafe fn GetStackBackTrace(&self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetStackBackTrace(&self, maxframestocapture: super::ULONG, stackbacktrace: *mut super::UINT_PTR, framescaptured: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStackBackTrace)(windows_core::Interface::as_raw(self), maxframestocapture, stackbacktrace as _, framescaptured as _) }
     }
 }
@@ -134,14 +135,19 @@ impl ILanguageExceptionStackBackTrace {
 #[doc(hidden)]
 pub struct ILanguageExceptionStackBackTrace_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetStackBackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut usize, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetStackBackTrace: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::UINT_PTR, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetStackBackTrace: usize,
 }
+#[cfg(feature = "shared")]
 pub trait ILanguageExceptionStackBackTrace_Impl: windows_core::IUnknownImpl {
-    fn GetStackBackTrace(&self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> windows_core::Result<()>;
+    fn GetStackBackTrace(&self, maxframestocapture: super::ULONG, stackbacktrace: *mut super::UINT_PTR, framescaptured: *mut super::ULONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl ILanguageExceptionStackBackTrace_Vtbl {
     pub const fn new<Identity: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetStackBackTrace<Identity: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetStackBackTrace<Identity: ILanguageExceptionStackBackTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxframestocapture: super::ULONG, stackbacktrace: *mut super::UINT_PTR, framescaptured: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ILanguageExceptionStackBackTrace_Impl::GetStackBackTrace(this, core::mem::transmute_copy(&maxframestocapture), core::mem::transmute_copy(&stackbacktrace), core::mem::transmute_copy(&framescaptured)).into()
@@ -153,6 +159,7 @@ impl ILanguageExceptionStackBackTrace_Vtbl {
         iid == &<ILanguageExceptionStackBackTrace as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for ILanguageExceptionStackBackTrace {}
 windows_core::imp::define_interface!(ILanguageExceptionTransform, ILanguageExceptionTransform_Vtbl, 0xfeb5a271_a6cd_45ce_880a_696706badc65);
 windows_core::imp::interface_hierarchy!(ILanguageExceptionTransform, windows_core::IUnknown);

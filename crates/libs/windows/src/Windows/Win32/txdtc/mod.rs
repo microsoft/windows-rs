@@ -37,43 +37,43 @@ pub const DTCLUXLN_WARM: DTCLUXLN = 2;
 windows_core::imp::define_interface!(IDtcLuConfigure, IDtcLuConfigure_Vtbl, 0x4131e760_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuConfigure, windows_core::IUnknown);
 impl IDtcLuConfigure {
-    #[cfg(feature = "rpc")]
-    pub unsafe fn Add(&self, puclupair: *const super::byte, cblupair: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), puclupair, cblupair) }
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn Add(&self, puclupair: &[super::byte]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), puclupair.as_ptr(), puclupair.len().try_into().unwrap()) }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn Delete(&self, puclupair: *const super::byte, cblupair: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), puclupair, cblupair) }
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn Delete(&self, puclupair: &[super::byte]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), puclupair.as_ptr(), puclupair.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtcLuConfigure_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "rpc")]
-    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     Add: usize,
-    #[cfg(feature = "rpc")]
-    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     Delete: usize,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IDtcLuConfigure_Impl: windows_core::IUnknownImpl {
-    fn Add(&self, puclupair: *const super::byte, cblupair: u32) -> windows_core::Result<()>;
-    fn Delete(&self, puclupair: *const super::byte, cblupair: u32) -> windows_core::Result<()>;
+    fn Add(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::Result<()>;
+    fn Delete(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl IDtcLuConfigure_Vtbl {
     pub const fn new<Identity: IDtcLuConfigure_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Add<Identity: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuConfigure_Impl::Add(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair)).into()
             }
         }
-        unsafe extern "system" fn Delete<Identity: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Delete<Identity: IDtcLuConfigure_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuConfigure_Impl::Delete(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair)).into()
@@ -85,7 +85,7 @@ impl IDtcLuConfigure_Vtbl {
         iid == &<IDtcLuConfigure as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for IDtcLuConfigure {}
 windows_core::imp::define_interface!(IDtcLuRecovery, IDtcLuRecovery_Vtbl, 0xac2b8ad2_d6f0_11d0_b386_00a0c9083365);
 windows_core::imp::interface_hierarchy!(IDtcLuRecovery, windows_core::IUnknown);
@@ -107,11 +107,11 @@ impl windows_core::RuntimeName for IDtcLuRecovery {}
 windows_core::imp::define_interface!(IDtcLuRecoveryFactory, IDtcLuRecoveryFactory_Vtbl, 0x4131e762_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryFactory, windows_core::IUnknown);
 impl IDtcLuRecoveryFactory {
-    #[cfg(feature = "rpc")]
-    pub unsafe fn Create(&self, puclupair: *const super::byte, cblupair: u32) -> windows_core::Result<IDtcLuRecovery> {
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn Create(&self, puclupair: &[super::byte]) -> windows_core::Result<IDtcLuRecovery> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), puclupair, cblupair, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), puclupair.as_ptr(), puclupair.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -119,19 +119,19 @@ impl IDtcLuRecoveryFactory {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "rpc")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, super::DWORD, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     Create: usize,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IDtcLuRecoveryFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, puclupair: *const super::byte, cblupair: u32) -> windows_core::Result<IDtcLuRecovery>;
+    fn Create(&self, puclupair: *const super::byte, cblupair: super::DWORD) -> windows_core::Result<IDtcLuRecovery>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl IDtcLuRecoveryFactory_Vtbl {
     pub const fn new<Identity: IDtcLuRecoveryFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Create<Identity: IDtcLuRecoveryFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: u32, pprecovery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IDtcLuRecoveryFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const super::byte, cblupair: super::DWORD, pprecovery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcLuRecoveryFactory_Impl::Create(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair)) {
@@ -149,7 +149,7 @@ impl IDtcLuRecoveryFactory_Vtbl {
         iid == &<IDtcLuRecoveryFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for IDtcLuRecoveryFactory {}
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtc, IDtcLuRecoveryInitiatedByDtc_Vtbl, 0x4131e764_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtc, windows_core::IUnknown);
@@ -185,7 +185,8 @@ impl windows_core::RuntimeName for IDtcLuRecoveryInitiatedByDtc {}
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtcStatusWork, IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl, 0x4131e766_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcStatusWork, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcStatusWork {
-    pub unsafe fn HandleCheckLuStatus(&self, lrecoveryseqnum: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn HandleCheckLuStatus(&self, lrecoveryseqnum: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HandleCheckLuStatus)(windows_core::Interface::as_raw(self), lrecoveryseqnum) }
     }
 }
@@ -193,14 +194,19 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub HandleCheckLuStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub HandleCheckLuStatus: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    HandleCheckLuStatus: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IDtcLuRecoveryInitiatedByDtcStatusWork_Impl: windows_core::IUnknownImpl {
-    fn HandleCheckLuStatus(&self, lrecoveryseqnum: i32) -> windows_core::Result<()>;
+    fn HandleCheckLuStatus(&self, lrecoveryseqnum: super::LONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
     pub const fn new<Identity: IDtcLuRecoveryInitiatedByDtcStatusWork_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn HandleCheckLuStatus<Identity: IDtcLuRecoveryInitiatedByDtcStatusWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrecoveryseqnum: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn HandleCheckLuStatus<Identity: IDtcLuRecoveryInitiatedByDtcStatusWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrecoveryseqnum: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByDtcStatusWork_Impl::HandleCheckLuStatus(this, core::mem::transmute_copy(&lrecoveryseqnum)).into()
@@ -212,20 +218,24 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
         iid == &<IDtcLuRecoveryInitiatedByDtcStatusWork as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IDtcLuRecoveryInitiatedByDtcStatusWork {}
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByDtcTransWork, IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl, 0x4131e765_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByDtcTransWork, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcTransWork {
-    pub unsafe fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetLogNameSizes(&self, pcbourlogname: *mut super::DWORD, pcbremotelogname: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLogNameSizes)(windows_core::Interface::as_raw(self), pcbourlogname as _, pcbremotelogname as _) }
     }
-    pub unsafe fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOurXln)(windows_core::Interface::as_raw(self), pxln as _, pourlogname as _, premotelogname as _, pdwprotocol as _) }
     }
     pub unsafe fn HandleConfirmationFromOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HandleConfirmationFromOurXln)(windows_core::Interface::as_raw(self), confirmation) }
     }
-    pub unsafe fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: u32, dwprotocol: u32) -> windows_core::Result<DTCLUXLNCONFIRMATION> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, dwprotocol: super::DWORD) -> windows_core::Result<DTCLUXLNCONFIRMATION> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HandleTheirXlnResponse)(windows_core::Interface::as_raw(self), xln, premotelogname, cbremotelogname, dwprotocol, &mut result__).map(|| result__)
@@ -240,7 +250,8 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
             (windows_core::Interface::vtable(self).CheckForCompareStates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetOurTransIdSize(&self, pcbourtransid: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOurTransIdSize(&self, pcbourtransid: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOurTransIdSize)(windows_core::Interface::as_raw(self), pcbourtransid as _) }
     }
     pub unsafe fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT {
@@ -258,13 +269,15 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
     pub unsafe fn ConversationLost(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ConversationLost)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetRecoverySeqNum(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetRecoverySeqNum(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRecoverySeqNum)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: super::LONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ObsoleteRecoverySeqNum)(windows_core::Interface::as_raw(self), lnewrecoveryseqnum) }
     }
 }
@@ -272,44 +285,64 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetLogNameSizes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
-    pub GetOurXln: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DTCLUXLN, *mut u8, *mut u8, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetLogNameSizes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetLogNameSizes: usize,
+    #[cfg(feature = "shared")]
+    pub GetOurXln: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DTCLUXLN, *mut u8, *mut u8, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOurXln: usize,
     pub HandleConfirmationFromOurXln: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUXLNCONFIRMATION) -> windows_core::HRESULT,
-    pub HandleTheirXlnResponse: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUXLN, *const u8, u32, u32, *mut DTCLUXLNCONFIRMATION) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub HandleTheirXlnResponse: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUXLN, *const u8, super::DWORD, super::DWORD, *mut DTCLUXLNCONFIRMATION) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    HandleTheirXlnResponse: usize,
     pub HandleErrorFromOurXln: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUXLNERROR) -> windows_core::HRESULT,
     pub CheckForCompareStates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
-    pub GetOurTransIdSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetOurTransIdSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOurTransIdSize: usize,
     pub GetOurCompareStates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT,
     pub HandleTheirCompareStatesResponse: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUCOMPARESTATE, *mut DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::HRESULT,
     pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUCOMPARESTATESERROR) -> windows_core::HRESULT,
     pub ConversationLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetRecoverySeqNum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub ObsoleteRecoverySeqNum: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetRecoverySeqNum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetRecoverySeqNum: usize,
+    #[cfg(feature = "shared")]
+    pub ObsoleteRecoverySeqNum: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    ObsoleteRecoverySeqNum: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: windows_core::IUnknownImpl {
-    fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> windows_core::Result<()>;
-    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> windows_core::Result<()>;
+    fn GetLogNameSizes(&self, pcbourlogname: *mut super::DWORD, pcbremotelogname: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::Result<()>;
     fn HandleConfirmationFromOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::Result<()>;
-    fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: u32, dwprotocol: u32) -> windows_core::Result<DTCLUXLNCONFIRMATION>;
+    fn HandleTheirXlnResponse(&self, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, dwprotocol: super::DWORD) -> windows_core::Result<DTCLUXLNCONFIRMATION>;
     fn HandleErrorFromOurXln(&self, error: DTCLUXLNERROR) -> windows_core::Result<()>;
     fn CheckForCompareStates(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetOurTransIdSize(&self, pcbourtransid: *mut u32) -> windows_core::Result<()>;
+    fn GetOurTransIdSize(&self, pcbourtransid: *mut super::DWORD) -> windows_core::Result<()>;
     fn GetOurCompareStates(&self, pourtransid: *mut u8, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::Result<()>;
     fn HandleTheirCompareStatesResponse(&self, comparestate: DTCLUCOMPARESTATE) -> windows_core::Result<DTCLUCOMPARESTATESCONFIRMATION>;
     fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> windows_core::Result<()>;
     fn ConversationLost(&self) -> windows_core::Result<()>;
-    fn GetRecoverySeqNum(&self) -> windows_core::Result<i32>;
-    fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: i32) -> windows_core::Result<()>;
+    fn GetRecoverySeqNum(&self) -> windows_core::Result<super::LONG>;
+    fn ObsoleteRecoverySeqNum(&self, lnewrecoveryseqnum: super::LONG) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
     pub const fn new<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetLogNameSizes<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLogNameSizes<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourlogname: *mut super::DWORD, pcbremotelogname: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetLogNameSizes(this, core::mem::transmute_copy(&pcbourlogname), core::mem::transmute_copy(&pcbremotelogname)).into()
             }
         }
-        unsafe extern "system" fn GetOurXln<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOurXln<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, premotelogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurXln(this, core::mem::transmute_copy(&pxln), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&pdwprotocol)).into()
@@ -321,7 +354,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
                 IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleConfirmationFromOurXln(this, core::mem::transmute_copy(&confirmation)).into()
             }
         }
-        unsafe extern "system" fn HandleTheirXlnResponse<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: u32, dwprotocol: u32, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> windows_core::HRESULT {
+        unsafe extern "system" fn HandleTheirXlnResponse<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, dwprotocol: super::DWORD, pconfirmation: *mut DTCLUXLNCONFIRMATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcLuRecoveryInitiatedByDtcTransWork_Impl::HandleTheirXlnResponse(this, core::mem::transmute_copy(&xln), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&cbremotelogname), core::mem::transmute_copy(&dwprotocol)) {
@@ -351,7 +384,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOurTransIdSize<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourtransid: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOurTransIdSize<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourtransid: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetOurTransIdSize(this, core::mem::transmute_copy(&pcbourtransid)).into()
@@ -387,7 +420,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
                 IDtcLuRecoveryInitiatedByDtcTransWork_Impl::ConversationLost(this).into()
             }
         }
-        unsafe extern "system" fn GetRecoverySeqNum<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plrecoveryseqnum: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRecoverySeqNum<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plrecoveryseqnum: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcLuRecoveryInitiatedByDtcTransWork_Impl::GetRecoverySeqNum(this) {
@@ -399,7 +432,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ObsoleteRecoverySeqNum<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnewrecoveryseqnum: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ObsoleteRecoverySeqNum<Identity: IDtcLuRecoveryInitiatedByDtcTransWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lnewrecoveryseqnum: super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByDtcTransWork_Impl::ObsoleteRecoverySeqNum(this, core::mem::transmute_copy(&lnewrecoveryseqnum)).into()
@@ -426,6 +459,7 @@ impl IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
         iid == &<IDtcLuRecoveryInitiatedByDtcTransWork as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IDtcLuRecoveryInitiatedByDtcTransWork {}
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByLu, IDtcLuRecoveryInitiatedByLu_Vtbl, 0x4131e768_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLu, windows_core::IUnknown);
@@ -470,22 +504,26 @@ impl windows_core::RuntimeName for IDtcLuRecoveryInitiatedByLu {}
 windows_core::imp::define_interface!(IDtcLuRecoveryInitiatedByLuWork, IDtcLuRecoveryInitiatedByLuWork_Vtbl, 0xac2b8ad1_d6f0_11d0_b386_00a0c9083365);
 windows_core::imp::interface_hierarchy!(IDtcLuRecoveryInitiatedByLuWork, windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
-    pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: u32, pourlogname: *const u8, cbourlogname: u32, dwprotocol: u32) -> windows_core::Result<DTCLUXLNRESPONSE> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn HandleTheirXln(&self, lrecoveryseqnum: super::LONG, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, pourlogname: *const u8, cbourlogname: super::DWORD, dwprotocol: super::DWORD) -> windows_core::Result<DTCLUXLNRESPONSE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HandleTheirXln)(windows_core::Interface::as_raw(self), lrecoveryseqnum, xln, premotelogname, cbremotelogname, pourlogname, cbourlogname, dwprotocol, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetOurLogNameSize(&self, pcbourlogname: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOurLogNameSize(&self, pcbourlogname: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOurLogNameSize)(windows_core::Interface::as_raw(self), pcbourlogname as _) }
     }
-    pub unsafe fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetOurXln)(windows_core::Interface::as_raw(self), pxln as _, pourlogname as _, pdwprotocol as _) }
     }
     pub unsafe fn HandleConfirmationOfOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HandleConfirmationOfOurXln)(windows_core::Interface::as_raw(self), confirmation) }
     }
-    pub unsafe fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: super::DWORD, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).HandleTheirCompareStates)(windows_core::Interface::as_raw(self), premotetransid as _, cbremotetransid, comparestate, presponse as _, pcomparestate as _) }
     }
     pub unsafe fn HandleConfirmationOfOurCompareStates(&self, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::HRESULT {
@@ -502,28 +540,42 @@ impl IDtcLuRecoveryInitiatedByLuWork {
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByLuWork_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub HandleTheirXln: unsafe extern "system" fn(*mut core::ffi::c_void, i32, DTCLUXLN, *const u8, u32, *const u8, u32, u32, *mut DTCLUXLNRESPONSE) -> windows_core::HRESULT,
-    pub GetOurLogNameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub GetOurXln: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DTCLUXLN, *mut u8, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub HandleTheirXln: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, DTCLUXLN, *const u8, super::DWORD, *const u8, super::DWORD, super::DWORD, *mut DTCLUXLNRESPONSE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    HandleTheirXln: usize,
+    #[cfg(feature = "shared")]
+    pub GetOurLogNameSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOurLogNameSize: usize,
+    #[cfg(feature = "shared")]
+    pub GetOurXln: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DTCLUXLN, *mut u8, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetOurXln: usize,
     pub HandleConfirmationOfOurXln: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUXLNCONFIRMATION) -> windows_core::HRESULT,
-    pub HandleTheirCompareStates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, u32, DTCLUCOMPARESTATE, *mut DTCLUCOMPARESTATESRESPONSE, *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub HandleTheirCompareStates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, super::DWORD, DTCLUCOMPARESTATE, *mut DTCLUCOMPARESTATESRESPONSE, *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    HandleTheirCompareStates: usize,
     pub HandleConfirmationOfOurCompareStates: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::HRESULT,
     pub HandleErrorFromOurCompareStates: unsafe extern "system" fn(*mut core::ffi::c_void, DTCLUCOMPARESTATESERROR) -> windows_core::HRESULT,
     pub ConversationLost: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IDtcLuRecoveryInitiatedByLuWork_Impl: windows_core::IUnknownImpl {
-    fn HandleTheirXln(&self, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: u32, pourlogname: *const u8, cbourlogname: u32, dwprotocol: u32) -> windows_core::Result<DTCLUXLNRESPONSE>;
-    fn GetOurLogNameSize(&self, pcbourlogname: *mut u32) -> windows_core::Result<()>;
-    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> windows_core::Result<()>;
+    fn HandleTheirXln(&self, lrecoveryseqnum: super::LONG, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, pourlogname: *const u8, cbourlogname: super::DWORD, dwprotocol: super::DWORD) -> windows_core::Result<DTCLUXLNRESPONSE>;
+    fn GetOurLogNameSize(&self, pcbourlogname: *mut super::DWORD) -> windows_core::Result<()>;
+    fn GetOurXln(&self, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::Result<()>;
     fn HandleConfirmationOfOurXln(&self, confirmation: DTCLUXLNCONFIRMATION) -> windows_core::Result<()>;
-    fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::Result<()>;
+    fn HandleTheirCompareStates(&self, premotetransid: *mut u8, cbremotetransid: super::DWORD, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::Result<()>;
     fn HandleConfirmationOfOurCompareStates(&self, confirmation: DTCLUCOMPARESTATESCONFIRMATION) -> windows_core::Result<()>;
     fn HandleErrorFromOurCompareStates(&self, error: DTCLUCOMPARESTATESERROR) -> windows_core::Result<()>;
     fn ConversationLost(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
     pub const fn new<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn HandleTheirXln<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrecoveryseqnum: i32, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: u32, pourlogname: *const u8, cbourlogname: u32, dwprotocol: u32, presponse: *mut DTCLUXLNRESPONSE) -> windows_core::HRESULT {
+        unsafe extern "system" fn HandleTheirXln<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lrecoveryseqnum: super::LONG, xln: DTCLUXLN, premotelogname: *const u8, cbremotelogname: super::DWORD, pourlogname: *const u8, cbourlogname: super::DWORD, dwprotocol: super::DWORD, presponse: *mut DTCLUXLNRESPONSE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDtcLuRecoveryInitiatedByLuWork_Impl::HandleTheirXln(this, core::mem::transmute_copy(&lrecoveryseqnum), core::mem::transmute_copy(&xln), core::mem::transmute_copy(&premotelogname), core::mem::transmute_copy(&cbremotelogname), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&cbourlogname), core::mem::transmute_copy(&dwprotocol)) {
@@ -535,13 +587,13 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetOurLogNameSize<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourlogname: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOurLogNameSize<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbourlogname: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByLuWork_Impl::GetOurLogNameSize(this, core::mem::transmute_copy(&pcbourlogname)).into()
             }
         }
-        unsafe extern "system" fn GetOurXln<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetOurXln<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxln: *mut DTCLUXLN, pourlogname: *mut u8, pdwprotocol: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByLuWork_Impl::GetOurXln(this, core::mem::transmute_copy(&pxln), core::mem::transmute_copy(&pourlogname), core::mem::transmute_copy(&pdwprotocol)).into()
@@ -553,7 +605,7 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
                 IDtcLuRecoveryInitiatedByLuWork_Impl::HandleConfirmationOfOurXln(this, core::mem::transmute_copy(&confirmation)).into()
             }
         }
-        unsafe extern "system" fn HandleTheirCompareStates<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: u32, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT {
+        unsafe extern "system" fn HandleTheirCompareStates<Identity: IDtcLuRecoveryInitiatedByLuWork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, premotetransid: *mut u8, cbremotetransid: super::DWORD, comparestate: DTCLUCOMPARESTATE, presponse: *mut DTCLUCOMPARESTATESRESPONSE, pcomparestate: *mut DTCLUCOMPARESTATE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRecoveryInitiatedByLuWork_Impl::HandleTheirCompareStates(this, core::mem::transmute_copy(&premotetransid), core::mem::transmute_copy(&cbremotetransid), core::mem::transmute_copy(&comparestate), core::mem::transmute_copy(&presponse), core::mem::transmute_copy(&pcomparestate)).into()
@@ -593,6 +645,7 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
         iid == &<IDtcLuRecoveryInitiatedByLuWork as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IDtcLuRecoveryInitiatedByLuWork {}
 windows_core::imp::define_interface!(IDtcLuRmEnlistment, IDtcLuRmEnlistment_Vtbl, 0x4131e769_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistment, windows_core::IUnknown);
@@ -691,8 +744,8 @@ impl windows_core::RuntimeName for IDtcLuRmEnlistment {}
 windows_core::imp::define_interface!(IDtcLuRmEnlistmentFactory, IDtcLuRmEnlistmentFactory_Vtbl, 0x4131e771_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentFactory, windows_core::IUnknown);
 impl IDtcLuRmEnlistmentFactory {
-    #[cfg(feature = "transact")]
-    pub unsafe fn Create<P2, P5>(&self, puclupair: *const u8, cblupair: u32, pitransaction: P2, ptransid: *const u8, cbtransid: u32, prmenlistmentsink: P5, pprmenlistment: *mut Option<IDtcLuRmEnlistment>) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub unsafe fn Create<P2, P5>(&self, puclupair: *const u8, cblupair: super::DWORD, pitransaction: P2, ptransid: *const u8, cbtransid: super::DWORD, prmenlistmentsink: P5, pprmenlistment: *mut Option<IDtcLuRmEnlistment>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<super::ITransaction>,
         P5: windows_core::Param<IDtcLuRmEnlistmentSink>,
@@ -704,19 +757,19 @@ impl IDtcLuRmEnlistmentFactory {
 #[doc(hidden)]
 pub struct IDtcLuRmEnlistmentFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "transact")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "transact"))]
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, super::DWORD, *mut core::ffi::c_void, *const u8, super::DWORD, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "transact")))]
     Create: usize,
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 pub trait IDtcLuRmEnlistmentFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, puclupair: *const u8, cblupair: u32, pitransaction: windows_core::Ref<super::ITransaction>, ptransid: *const u8, cbtransid: u32, prmenlistmentsink: windows_core::Ref<IDtcLuRmEnlistmentSink>, pprmenlistment: windows_core::OutRef<IDtcLuRmEnlistment>) -> windows_core::Result<()>;
+    fn Create(&self, puclupair: *const u8, cblupair: super::DWORD, pitransaction: windows_core::Ref<super::ITransaction>, ptransid: *const u8, cbtransid: super::DWORD, prmenlistmentsink: windows_core::Ref<IDtcLuRmEnlistmentSink>, pprmenlistment: windows_core::OutRef<IDtcLuRmEnlistment>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl IDtcLuRmEnlistmentFactory_Vtbl {
     pub const fn new<Identity: IDtcLuRmEnlistmentFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Create<Identity: IDtcLuRmEnlistmentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const u8, cblupair: u32, pitransaction: *mut core::ffi::c_void, ptransid: *const u8, cbtransid: u32, prmenlistmentsink: *mut core::ffi::c_void, pprmenlistment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IDtcLuRmEnlistmentFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const u8, cblupair: super::DWORD, pitransaction: *mut core::ffi::c_void, ptransid: *const u8, cbtransid: super::DWORD, prmenlistmentsink: *mut core::ffi::c_void, pprmenlistment: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuRmEnlistmentFactory_Impl::Create(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair), core::mem::transmute_copy(&pitransaction), core::mem::transmute_copy(&ptransid), core::mem::transmute_copy(&cbtransid), core::mem::transmute_copy(&prmenlistmentsink), core::mem::transmute_copy(&pprmenlistment)).into()
@@ -728,7 +781,7 @@ impl IDtcLuRmEnlistmentFactory_Vtbl {
         iid == &<IDtcLuRmEnlistmentFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for IDtcLuRmEnlistmentFactory {}
 windows_core::imp::define_interface!(IDtcLuRmEnlistmentSink, IDtcLuRmEnlistmentSink_Vtbl, 0x4131e770_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuRmEnlistmentSink, windows_core::IUnknown);
@@ -969,8 +1022,8 @@ impl windows_core::RuntimeName for IDtcLuSubordinateDtc {}
 windows_core::imp::define_interface!(IDtcLuSubordinateDtcFactory, IDtcLuSubordinateDtcFactory_Vtbl, 0x4131e775_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcFactory, windows_core::IUnknown);
 impl IDtcLuSubordinateDtcFactory {
-    #[cfg(feature = "transact")]
-    pub unsafe fn Create<P2, P5, P9>(&self, puclupair: *const u8, cblupair: u32, punktransactionouter: P2, isolevel: super::ISOLEVEL, isoflags: u32, poptions: P5, pptransaction: *mut Option<super::ITransaction>, ptransid: *const u8, cbtransid: u32, psubordinatedtcsink: P9, ppsubordinatedtc: *mut Option<IDtcLuSubordinateDtc>) -> windows_core::HRESULT
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub unsafe fn Create<P2, P5, P9>(&self, puclupair: *const u8, cblupair: super::DWORD, punktransactionouter: P2, isolevel: super::ISOLEVEL, isoflags: super::ULONG, poptions: P5, pptransaction: *mut Option<super::ITransaction>, ptransid: *const u8, cbtransid: super::DWORD, psubordinatedtcsink: P9, ppsubordinatedtc: *mut Option<IDtcLuSubordinateDtc>) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
         P5: windows_core::Param<super::ITransactionOptions>,
@@ -983,19 +1036,19 @@ impl IDtcLuSubordinateDtcFactory {
 #[doc(hidden)]
 pub struct IDtcLuSubordinateDtcFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "transact")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, super::ISOLEVEL, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "transact"))]
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, super::DWORD, *mut core::ffi::c_void, super::ISOLEVEL, super::ULONG, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *const u8, super::DWORD, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "transact")))]
     Create: usize,
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 pub trait IDtcLuSubordinateDtcFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, puclupair: *const u8, cblupair: u32, punktransactionouter: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: u32, poptions: windows_core::Ref<super::ITransactionOptions>, pptransaction: windows_core::OutRef<super::ITransaction>, ptransid: *const u8, cbtransid: u32, psubordinatedtcsink: windows_core::Ref<IDtcLuSubordinateDtcSink>, ppsubordinatedtc: windows_core::OutRef<IDtcLuSubordinateDtc>) -> windows_core::Result<()>;
+    fn Create(&self, puclupair: *const u8, cblupair: super::DWORD, punktransactionouter: windows_core::Ref<windows_core::IUnknown>, isolevel: super::ISOLEVEL, isoflags: super::ULONG, poptions: windows_core::Ref<super::ITransactionOptions>, pptransaction: windows_core::OutRef<super::ITransaction>, ptransid: *const u8, cbtransid: super::DWORD, psubordinatedtcsink: windows_core::Ref<IDtcLuSubordinateDtcSink>, ppsubordinatedtc: windows_core::OutRef<IDtcLuSubordinateDtc>) -> windows_core::Result<()>;
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl IDtcLuSubordinateDtcFactory_Vtbl {
     pub const fn new<Identity: IDtcLuSubordinateDtcFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Create<Identity: IDtcLuSubordinateDtcFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const u8, cblupair: u32, punktransactionouter: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: u32, poptions: *mut core::ffi::c_void, pptransaction: *mut *mut core::ffi::c_void, ptransid: *const u8, cbtransid: u32, psubordinatedtcsink: *mut core::ffi::c_void, ppsubordinatedtc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IDtcLuSubordinateDtcFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, puclupair: *const u8, cblupair: super::DWORD, punktransactionouter: *mut core::ffi::c_void, isolevel: super::ISOLEVEL, isoflags: super::ULONG, poptions: *mut core::ffi::c_void, pptransaction: *mut *mut core::ffi::c_void, ptransid: *const u8, cbtransid: super::DWORD, psubordinatedtcsink: *mut core::ffi::c_void, ppsubordinatedtc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDtcLuSubordinateDtcFactory_Impl::Create(this, core::mem::transmute_copy(&puclupair), core::mem::transmute_copy(&cblupair), core::mem::transmute_copy(&punktransactionouter), core::mem::transmute_copy(&isolevel), core::mem::transmute_copy(&isoflags), core::mem::transmute_copy(&poptions), core::mem::transmute_copy(&pptransaction), core::mem::transmute_copy(&ptransid), core::mem::transmute_copy(&cbtransid), core::mem::transmute_copy(&psubordinatedtcsink), core::mem::transmute_copy(&ppsubordinatedtc)).into()
@@ -1007,7 +1060,7 @@ impl IDtcLuSubordinateDtcFactory_Vtbl {
         iid == &<IDtcLuSubordinateDtcFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "transact")]
+#[cfg(all(feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for IDtcLuSubordinateDtcFactory {}
 windows_core::imp::define_interface!(IDtcLuSubordinateDtcSink, IDtcLuSubordinateDtcSink_Vtbl, 0x4131e774_1aea_11d0_944b_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IDtcLuSubordinateDtcSink, windows_core::IUnknown);
@@ -1130,6 +1183,7 @@ impl windows_core::RuntimeName for IDtcLuSubordinateDtcSink {}
 windows_core::imp::define_interface!(IGetDispenser, IGetDispenser_Vtbl, 0xc23cc370_87ef_11ce_8081_0080c758527e);
 windows_core::imp::interface_hierarchy!(IGetDispenser, windows_core::IUnknown);
 impl IGetDispenser {
+    #[cfg(feature = "guiddef")]
     pub unsafe fn GetDispenser<T>(&self) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -1142,14 +1196,19 @@ impl IGetDispenser {
 #[doc(hidden)]
 pub struct IGetDispenser_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetDispenser: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "guiddef")]
+    pub GetDispenser: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "guiddef"))]
+    GetDispenser: usize,
 }
+#[cfg(feature = "guiddef")]
 pub trait IGetDispenser_Impl: windows_core::IUnknownImpl {
-    fn GetDispenser(&self, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetDispenser(&self, iid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
+#[cfg(feature = "guiddef")]
 impl IGetDispenser_Vtbl {
     pub const fn new<Identity: IGetDispenser_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDispenser<Identity: IGetDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDispenser<Identity: IGetDispenser_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const super::IID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGetDispenser_Impl::GetDispenser(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppvobject)).into()
@@ -1161,13 +1220,53 @@ impl IGetDispenser_Vtbl {
         iid == &<IGetDispenser as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "guiddef")]
 impl windows_core::RuntimeName for IGetDispenser {}
+pub const IID_IDtcLuConfigure: windows_core::GUID = windows_core::GUID::from_u128(0x4131e760_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRecovery: windows_core::GUID = windows_core::GUID::from_u128(0xac2b8ad2_d6f0_11d0_b386_00a0c9083365);
+pub const IID_IDtcLuRecoveryFactory: windows_core::GUID = windows_core::GUID::from_u128(0x4131e762_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRecoveryInitiatedByDtc: windows_core::GUID = windows_core::GUID::from_u128(0x4131e764_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRecoveryInitiatedByDtcStatusWork: windows_core::GUID = windows_core::GUID::from_u128(0x4131e766_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRecoveryInitiatedByDtcTransWork: windows_core::GUID = windows_core::GUID::from_u128(0x4131e765_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRecoveryInitiatedByLu: windows_core::GUID = windows_core::GUID::from_u128(0x4131e768_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRecoveryInitiatedByLuWork: windows_core::GUID = windows_core::GUID::from_u128(0xac2b8ad1_d6f0_11d0_b386_00a0c9083365);
+pub const IID_IDtcLuRmEnlistment: windows_core::GUID = windows_core::GUID::from_u128(0x4131e769_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRmEnlistmentFactory: windows_core::GUID = windows_core::GUID::from_u128(0x4131e771_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuRmEnlistmentSink: windows_core::GUID = windows_core::GUID::from_u128(0x4131e770_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuSubordinateDtc: windows_core::GUID = windows_core::GUID::from_u128(0x4131e773_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuSubordinateDtcFactory: windows_core::GUID = windows_core::GUID::from_u128(0x4131e775_1aea_11d0_944b_00a0c905416e);
+pub const IID_IDtcLuSubordinateDtcSink: windows_core::GUID = windows_core::GUID::from_u128(0x4131e774_1aea_11d0_944b_00a0c905416e);
+pub const IID_IGetDispenser: windows_core::GUID = windows_core::GUID::from_u128(0xc23cc370_87ef_11ce_8081_0080c758527e);
+pub const IID_ILastResourceManager: windows_core::GUID = windows_core::GUID::from_u128(0x4d964ad4_5b33_11d3_8a91_00c04f79eb6d);
+pub const IID_IPrepareInfo: windows_core::GUID = windows_core::GUID::from_u128(0x80c7bfd0_87ee_11ce_8081_0080c758527e);
+pub const IID_IPrepareInfo2: windows_core::GUID = windows_core::GUID::from_u128(0x5fab2547_9779_11d1_b886_00c04fb9618a);
+pub const IID_IRMHelper: windows_core::GUID = windows_core::GUID::from_u128(0xe793f6d1_f53d_11cf_a60d_00a0c905416e);
+pub const IID_IResourceManager: windows_core::GUID = windows_core::GUID::from_u128(0x56a868ac_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IResourceManager2: windows_core::GUID = windows_core::GUID::from_u128(0xd136c69a_f749_11d1_8f47_00c04f8ee57d);
+pub const IID_IResourceManagerFactory: windows_core::GUID = windows_core::GUID::from_u128(0x13741d20_87eb_11ce_8081_0080c758527e);
+pub const IID_IResourceManagerFactory2: windows_core::GUID = windows_core::GUID::from_u128(0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d);
+pub const IID_IResourceManagerRejoinable: windows_core::GUID = windows_core::GUID::from_u128(0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b);
+pub const IID_IResourceManagerSink: windows_core::GUID = windows_core::GUID::from_u128(0x0d563181_defb_11ce_aed1_00aa0051e2c4);
+pub const IID_ITransactionPhase0EnlistmentAsync: windows_core::GUID = windows_core::GUID::from_u128(0x82dc88e1_a954_11d1_8f88_00600895e7d5);
+pub const IID_ITransactionPhase0Factory: windows_core::GUID = windows_core::GUID::from_u128(0x82dc88e0_a954_11d1_8f88_00600895e7d5);
+pub const IID_ITransactionPhase0NotifyAsync: windows_core::GUID = windows_core::GUID::from_u128(0xef081809_0c76_11d2_87a6_00c04f990f34);
+pub const IID_ITransactionReceiver: windows_core::GUID = windows_core::GUID::from_u128(0x59313e03_b36c_11cf_a539_00aa006887c3);
+pub const IID_ITransactionReceiverFactory: windows_core::GUID = windows_core::GUID::from_u128(0x59313e02_b36c_11cf_a539_00aa006887c3);
+pub const IID_ITransactionTransmitter: windows_core::GUID = windows_core::GUID::from_u128(0x59313e01_b36c_11cf_a539_00aa006887c3);
+pub const IID_ITransactionTransmitterFactory: windows_core::GUID = windows_core::GUID::from_u128(0x59313e00_b36c_11cf_a539_00aa006887c3);
+pub const IID_ITransactionVoterBallotAsync2: windows_core::GUID = windows_core::GUID::from_u128(0x5433376c_414d_11d3_b206_00c04fc2f3ef);
+pub const IID_ITransactionVoterFactory2: windows_core::GUID = windows_core::GUID::from_u128(0x5433376a_414d_11d3_b206_00c04fc2f3ef);
+pub const IID_ITransactionVoterNotifyAsync2: windows_core::GUID = windows_core::GUID::from_u128(0x5433376b_414d_11d3_b206_00c04fc2f3ef);
+pub const IID_IXAConfig: windows_core::GUID = windows_core::GUID::from_u128(0xc8a6e3a1_9a8c_11cf_a308_00a0c905416e);
+pub const IID_IXAObtainRMInfo: windows_core::GUID = windows_core::GUID::from_u128(0xe793f6d2_f53d_11cf_a60d_00a0c905416e);
+pub const IID_IXATransLookup: windows_core::GUID = windows_core::GUID::from_u128(0xf3b1f131_eeda_11ce_aed4_00aa0051e2c4);
+pub const IID_IXATransLookup2: windows_core::GUID = windows_core::GUID::from_u128(0xbf193c85_0d1a_4290_b88f_d2cb8873d1e7);
 windows_core::imp::define_interface!(ILastResourceManager, ILastResourceManager_Vtbl, 0x4d964ad4_5b33_11d3_8a91_00c04f79eb6d);
 windows_core::imp::interface_hierarchy!(ILastResourceManager, windows_core::IUnknown);
 impl ILastResourceManager {
-    #[cfg(feature = "rpc")]
-    pub unsafe fn TransactionCommitted(&self, pprepinfo: *const super::byte, cbprepinfo: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).TransactionCommitted)(windows_core::Interface::as_raw(self), pprepinfo, cbprepinfo) }
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn TransactionCommitted(&self, pprepinfo: &[super::byte]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TransactionCommitted)(windows_core::Interface::as_raw(self), pprepinfo.as_ptr(), pprepinfo.len().try_into().unwrap()) }
     }
     pub unsafe fn RecoveryDone(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RecoveryDone)(windows_core::Interface::as_raw(self)) }
@@ -1177,21 +1276,21 @@ impl ILastResourceManager {
 #[doc(hidden)]
 pub struct ILastResourceManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "rpc")]
-    pub TransactionCommitted: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub TransactionCommitted: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     TransactionCommitted: usize,
     pub RecoveryDone: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait ILastResourceManager_Impl: windows_core::IUnknownImpl {
-    fn TransactionCommitted(&self, pprepinfo: *const super::byte, cbprepinfo: u32) -> windows_core::Result<()>;
+    fn TransactionCommitted(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG) -> windows_core::Result<()>;
     fn RecoveryDone(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl ILastResourceManager_Vtbl {
     pub const fn new<Identity: ILastResourceManager_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TransactionCommitted<Identity: ILastResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprepinfo: *const super::byte, cbprepinfo: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransactionCommitted<Identity: ILastResourceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprepinfo: *const super::byte, cbprepinfo: super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ILastResourceManager_Impl::TransactionCommitted(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo)).into()
@@ -1213,12 +1312,13 @@ impl ILastResourceManager_Vtbl {
         iid == &<ILastResourceManager as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for ILastResourceManager {}
 windows_core::imp::define_interface!(IPrepareInfo, IPrepareInfo_Vtbl, 0x80c7bfd0_87ee_11ce_8081_0080c758527e);
 windows_core::imp::interface_hierarchy!(IPrepareInfo, windows_core::IUnknown);
 impl IPrepareInfo {
-    pub unsafe fn GetPrepareInfoSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPrepareInfoSize(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPrepareInfoSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1236,21 +1336,24 @@ impl IPrepareInfo {
 #[doc(hidden)]
 pub struct IPrepareInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetPrepareInfoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetPrepareInfoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPrepareInfoSize: usize,
     #[cfg(feature = "rpc")]
     pub GetPrepareInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::byte) -> windows_core::HRESULT,
     #[cfg(not(feature = "rpc"))]
     GetPrepareInfo: usize,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IPrepareInfo_Impl: windows_core::IUnknownImpl {
-    fn GetPrepareInfoSize(&self) -> windows_core::Result<u32>;
+    fn GetPrepareInfoSize(&self) -> windows_core::Result<super::ULONG>;
     fn GetPrepareInfo(&self) -> windows_core::Result<super::byte>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl IPrepareInfo_Vtbl {
     pub const fn new<Identity: IPrepareInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPrepareInfoSize<Identity: IPrepareInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbprepinfo: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrepareInfoSize<Identity: IPrepareInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbprepinfo: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrepareInfo_Impl::GetPrepareInfoSize(this) {
@@ -1284,44 +1387,45 @@ impl IPrepareInfo_Vtbl {
         iid == &<IPrepareInfo as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for IPrepareInfo {}
 windows_core::imp::define_interface!(IPrepareInfo2, IPrepareInfo2_Vtbl, 0x5fab2547_9779_11d1_b886_00c04fb9618a);
 windows_core::imp::interface_hierarchy!(IPrepareInfo2, windows_core::IUnknown);
 impl IPrepareInfo2 {
-    pub unsafe fn GetPrepareInfoSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPrepareInfoSize(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPrepareInfoSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn GetPrepareInfo(&self, cbprepareinfo: u32) -> windows_core::Result<super::byte> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPrepareInfo)(windows_core::Interface::as_raw(self), cbprepareinfo, &mut result__).map(|| result__)
-        }
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn GetPrepareInfo(&self, cbprepareinfo: super::ULONG, pprepinfo: *mut super::byte) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPrepareInfo)(windows_core::Interface::as_raw(self), cbprepareinfo, pprepinfo as _) }
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrepareInfo2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetPrepareInfoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "rpc")]
-    pub GetPrepareInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::byte) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(feature = "shared")]
+    pub GetPrepareInfoSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPrepareInfoSize: usize,
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub GetPrepareInfo: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::byte) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     GetPrepareInfo: usize,
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 pub trait IPrepareInfo2_Impl: windows_core::IUnknownImpl {
-    fn GetPrepareInfoSize(&self) -> windows_core::Result<u32>;
-    fn GetPrepareInfo(&self, cbprepareinfo: u32) -> windows_core::Result<super::byte>;
+    fn GetPrepareInfoSize(&self) -> windows_core::Result<super::ULONG>;
+    fn GetPrepareInfo(&self, cbprepareinfo: super::ULONG, pprepinfo: *mut super::byte) -> windows_core::Result<()>;
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl IPrepareInfo2_Vtbl {
     pub const fn new<Identity: IPrepareInfo2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetPrepareInfoSize<Identity: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbprepinfo: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrepareInfoSize<Identity: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbprepinfo: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPrepareInfo2_Impl::GetPrepareInfoSize(this) {
@@ -1333,16 +1437,10 @@ impl IPrepareInfo2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPrepareInfo<Identity: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbprepareinfo: u32, pprepinfo: *mut super::byte) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPrepareInfo<Identity: IPrepareInfo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbprepareinfo: super::ULONG, pprepinfo: *mut super::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPrepareInfo2_Impl::GetPrepareInfo(this, core::mem::transmute_copy(&cbprepareinfo)) {
-                    Ok(ok__) => {
-                        pprepinfo.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
+                IPrepareInfo2_Impl::GetPrepareInfo(this, core::mem::transmute_copy(&cbprepareinfo), core::mem::transmute_copy(&pprepinfo)).into()
             }
         }
         Self {
@@ -1355,12 +1453,13 @@ impl IPrepareInfo2_Vtbl {
         iid == &<IPrepareInfo2 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "rpc")]
+#[cfg(all(feature = "rpc", feature = "shared"))]
 impl windows_core::RuntimeName for IPrepareInfo2 {}
 windows_core::imp::define_interface!(IRMHelper, IRMHelper_Vtbl, 0xe793f6d1_f53d_11cf_a60d_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IRMHelper, windows_core::IUnknown);
 impl IRMHelper {
-    pub unsafe fn RMCount(&self, dwctotalnumberofrms: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn RMCount(&self, dwctotalnumberofrms: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RMCount)(windows_core::Interface::as_raw(self), dwctotalnumberofrms) }
     }
     pub unsafe fn RMInfo(&self, pxa_switch: *const xa_switch_t, fcdeclcallingconv: bool, pszopenstring: *const i8, pszclosestring: *const i8, guidrmrecovery: windows_core::GUID) -> windows_core::HRESULT {
@@ -1371,16 +1470,21 @@ impl IRMHelper {
 #[doc(hidden)]
 pub struct IRMHelper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub RMCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub RMCount: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    RMCount: usize,
     pub RMInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const xa_switch_t, windows_core::BOOL, *const i8, *const i8, windows_core::GUID) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IRMHelper_Impl: windows_core::IUnknownImpl {
-    fn RMCount(&self, dwctotalnumberofrms: u32) -> windows_core::Result<()>;
+    fn RMCount(&self, dwctotalnumberofrms: super::DWORD) -> windows_core::Result<()>;
     fn RMInfo(&self, pxa_switch: *const xa_switch_t, fcdeclcallingconv: windows_core::BOOL, pszopenstring: *const i8, pszclosestring: *const i8, guidrmrecovery: &windows_core::GUID) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IRMHelper_Vtbl {
     pub const fn new<Identity: IRMHelper_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn RMCount<Identity: IRMHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwctotalnumberofrms: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn RMCount<Identity: IRMHelper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwctotalnumberofrms: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IRMHelper_Impl::RMCount(this, core::mem::transmute_copy(&dwctotalnumberofrms)).into()
@@ -1398,6 +1502,7 @@ impl IRMHelper_Vtbl {
         iid == &<IRMHelper as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IRMHelper {}
 #[cfg(feature = "strmif")]
 windows_core::imp::define_interface!(IResourceManager2, IResourceManager2_Vtbl, 0xd136c69a_f749_11d1_8f47_00c04f8ee57d);
@@ -1412,16 +1517,16 @@ impl core::ops::Deref for IResourceManager2 {
 windows_core::imp::interface_hierarchy!(IResourceManager2, windows_core::IUnknown, super::IResourceManager);
 #[cfg(feature = "strmif")]
 impl IResourceManager2 {
-    #[cfg(all(feature = "rpc", feature = "transact", feature = "txcoord"))]
-    pub unsafe fn Enlist2<P0, P1>(&self, ptransaction: P0, presasync: P1, puow: *mut super::XACTUOW, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut Option<super::ITransactionEnlistmentAsync>) -> windows_core::HRESULT
+    #[cfg(all(feature = "rpc", feature = "shared", feature = "transact", feature = "txcoord"))]
+    pub unsafe fn Enlist2<P0, P1>(&self, ptransaction: P0, presasync: P1, puow: *mut super::XACTUOW, pisolevel: *mut super::LONG, pxid: *mut XID, ppenlist: *mut Option<super::ITransactionEnlistmentAsync>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<super::ITransaction>,
         P1: windows_core::Param<super::ITransactionResourceAsync>,
     {
         unsafe { (windows_core::Interface::vtable(self).Enlist2)(windows_core::Interface::as_raw(self), ptransaction.param().abi(), presasync.param().abi(), puow as _, pisolevel as _, pxid as _, core::mem::transmute(ppenlist)) }
     }
-    #[cfg(feature = "transact")]
-    pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> windows_core::Result<super::XACTSTAT> {
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: super::DWORD) -> windows_core::Result<super::XACTSTAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Reenlist2)(windows_core::Interface::as_raw(self), pxid, dwtimeout, &mut result__).map(|| result__)
@@ -1433,30 +1538,30 @@ impl IResourceManager2 {
 #[doc(hidden)]
 pub struct IResourceManager2_Vtbl {
     pub base__: super::IResourceManager_Vtbl,
-    #[cfg(all(feature = "rpc", feature = "transact", feature = "txcoord"))]
-    pub Enlist2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::XACTUOW, *mut i32, *mut XID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "rpc", feature = "transact", feature = "txcoord")))]
+    #[cfg(all(feature = "rpc", feature = "shared", feature = "transact", feature = "txcoord"))]
+    pub Enlist2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::XACTUOW, *mut super::LONG, *mut XID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared", feature = "transact", feature = "txcoord")))]
     Enlist2: usize,
-    #[cfg(feature = "transact")]
-    pub Reenlist2: unsafe extern "system" fn(*mut core::ffi::c_void, *const XID, u32, *mut super::XACTSTAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "transact"))]
+    #[cfg(all(feature = "shared", feature = "transact"))]
+    pub Reenlist2: unsafe extern "system" fn(*mut core::ffi::c_void, *const XID, super::DWORD, *mut super::XACTSTAT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "transact")))]
     Reenlist2: usize,
 }
-#[cfg(all(feature = "rpc", feature = "strmif", feature = "transact", feature = "txcoord"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 pub trait IResourceManager2_Impl: super::IResourceManager_Impl {
-    fn Enlist2(&self, ptransaction: windows_core::Ref<super::ITransaction>, presasync: windows_core::Ref<super::ITransactionResourceAsync>, puow: *mut super::XACTUOW, pisolevel: *mut i32, pxid: *mut XID, ppenlist: windows_core::OutRef<super::ITransactionEnlistmentAsync>) -> windows_core::Result<()>;
-    fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> windows_core::Result<super::XACTSTAT>;
+    fn Enlist2(&self, ptransaction: windows_core::Ref<super::ITransaction>, presasync: windows_core::Ref<super::ITransactionResourceAsync>, puow: *mut super::XACTUOW, pisolevel: *mut super::LONG, pxid: *mut XID, ppenlist: windows_core::OutRef<super::ITransactionEnlistmentAsync>) -> windows_core::Result<()>;
+    fn Reenlist2(&self, pxid: *const XID, dwtimeout: super::DWORD) -> windows_core::Result<super::XACTSTAT>;
 }
-#[cfg(all(feature = "rpc", feature = "strmif", feature = "transact", feature = "txcoord"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 impl IResourceManager2_Vtbl {
     pub const fn new<Identity: IResourceManager2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Enlist2<Identity: IResourceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut core::ffi::c_void, presasync: *mut core::ffi::c_void, puow: *mut super::XACTUOW, pisolevel: *mut i32, pxid: *mut XID, ppenlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Enlist2<Identity: IResourceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut core::ffi::c_void, presasync: *mut core::ffi::c_void, puow: *mut super::XACTUOW, pisolevel: *mut super::LONG, pxid: *mut XID, ppenlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IResourceManager2_Impl::Enlist2(this, core::mem::transmute_copy(&ptransaction), core::mem::transmute_copy(&presasync), core::mem::transmute_copy(&puow), core::mem::transmute_copy(&pisolevel), core::mem::transmute_copy(&pxid), core::mem::transmute_copy(&ppenlist)).into()
             }
         }
-        unsafe extern "system" fn Reenlist2<Identity: IResourceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxid: *const XID, dwtimeout: u32, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reenlist2<Identity: IResourceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxid: *const XID, dwtimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IResourceManager2_Impl::Reenlist2(this, core::mem::transmute_copy(&pxid), core::mem::transmute_copy(&dwtimeout)) {
@@ -1474,13 +1579,13 @@ impl IResourceManager2_Vtbl {
         iid == &<IResourceManager2 as windows_core::Interface>::IID || iid == &<super::IResourceManager as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "rpc", feature = "strmif", feature = "transact", feature = "txcoord"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 impl windows_core::RuntimeName for IResourceManager2 {}
 windows_core::imp::define_interface!(IResourceManagerFactory, IResourceManagerFactory_Vtbl, 0x13741d20_87eb_11ce_8081_0080c758527e);
 windows_core::imp::interface_hierarchy!(IResourceManagerFactory, windows_core::IUnknown);
 impl IResourceManagerFactory {
-    #[cfg(feature = "strmif")]
-    pub unsafe fn Create<P2>(&self, pguidrm: *const windows_core::GUID, pszrmname: *const i8, piresmgrsink: P2) -> windows_core::Result<super::IResourceManager>
+    #[cfg(all(feature = "shared", feature = "strmif"))]
+    pub unsafe fn Create<P2>(&self, pguidrm: *const windows_core::GUID, pszrmname: *const super::CHAR, piresmgrsink: P2) -> windows_core::Result<super::IResourceManager>
     where
         P2: windows_core::Param<IResourceManagerSink>,
     {
@@ -1494,19 +1599,19 @@ impl IResourceManagerFactory {
 #[doc(hidden)]
 pub struct IResourceManagerFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "strmif")]
-    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const i8, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
+    #[cfg(all(feature = "shared", feature = "strmif"))]
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::CHAR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "shared", feature = "strmif")))]
     Create: usize,
 }
-#[cfg(feature = "strmif")]
+#[cfg(all(feature = "shared", feature = "strmif"))]
 pub trait IResourceManagerFactory_Impl: windows_core::IUnknownImpl {
-    fn Create(&self, pguidrm: *const windows_core::GUID, pszrmname: *const i8, piresmgrsink: windows_core::Ref<IResourceManagerSink>) -> windows_core::Result<super::IResourceManager>;
+    fn Create(&self, pguidrm: *const windows_core::GUID, pszrmname: *const super::CHAR, piresmgrsink: windows_core::Ref<IResourceManagerSink>) -> windows_core::Result<super::IResourceManager>;
 }
-#[cfg(feature = "strmif")]
+#[cfg(all(feature = "shared", feature = "strmif"))]
 impl IResourceManagerFactory_Vtbl {
     pub const fn new<Identity: IResourceManagerFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Create<Identity: IResourceManagerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidrm: *const windows_core::GUID, pszrmname: *const i8, piresmgrsink: *mut core::ffi::c_void, ppresmgr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Create<Identity: IResourceManagerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidrm: *const windows_core::GUID, pszrmname: *const super::CHAR, piresmgrsink: *mut core::ffi::c_void, ppresmgr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IResourceManagerFactory_Impl::Create(this, core::mem::transmute_copy(&pguidrm), core::mem::transmute_copy(&pszrmname), core::mem::transmute_copy(&piresmgrsink)) {
@@ -1524,7 +1629,7 @@ impl IResourceManagerFactory_Vtbl {
         iid == &<IResourceManagerFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "strmif")]
+#[cfg(all(feature = "shared", feature = "strmif"))]
 impl windows_core::RuntimeName for IResourceManagerFactory {}
 windows_core::imp::define_interface!(IResourceManagerFactory2, IResourceManagerFactory2_Vtbl, 0x6b369c21_fbd2_11d1_8f47_00c04f8ee57d);
 impl core::ops::Deref for IResourceManagerFactory2 {
@@ -1535,7 +1640,8 @@ impl core::ops::Deref for IResourceManagerFactory2 {
 }
 windows_core::imp::interface_hierarchy!(IResourceManagerFactory2, windows_core::IUnknown, IResourceManagerFactory);
 impl IResourceManagerFactory2 {
-    pub unsafe fn CreateEx<P2, T>(&self, pguidrm: *const windows_core::GUID, pszrmname: *const i8, piresmgrsink: P2) -> windows_core::Result<T>
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub unsafe fn CreateEx<P2, T>(&self, pguidrm: *const windows_core::GUID, pszrmname: *const super::CHAR, piresmgrsink: P2) -> windows_core::Result<T>
     where
         P2: windows_core::Param<IResourceManagerSink>,
         T: windows_core::Interface,
@@ -1548,16 +1654,19 @@ impl IResourceManagerFactory2 {
 #[doc(hidden)]
 pub struct IResourceManagerFactory2_Vtbl {
     pub base__: IResourceManagerFactory_Vtbl,
-    pub CreateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const i8, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(all(feature = "guiddef", feature = "shared"))]
+    pub CreateEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const super::CHAR, *mut core::ffi::c_void, *const super::IID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "guiddef", feature = "shared")))]
+    CreateEx: usize,
 }
-#[cfg(feature = "strmif")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "strmif"))]
 pub trait IResourceManagerFactory2_Impl: IResourceManagerFactory_Impl {
-    fn CreateEx(&self, pguidrm: *const windows_core::GUID, pszrmname: *const i8, piresmgrsink: windows_core::Ref<IResourceManagerSink>, riidrequested: *const windows_core::GUID, ppvresmgr: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateEx(&self, pguidrm: *const windows_core::GUID, pszrmname: *const super::CHAR, piresmgrsink: windows_core::Ref<IResourceManagerSink>, riidrequested: *const super::IID, ppvresmgr: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(feature = "strmif")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "strmif"))]
 impl IResourceManagerFactory2_Vtbl {
     pub const fn new<Identity: IResourceManagerFactory2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateEx<Identity: IResourceManagerFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidrm: *const windows_core::GUID, pszrmname: *const i8, piresmgrsink: *mut core::ffi::c_void, riidrequested: *const windows_core::GUID, ppvresmgr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateEx<Identity: IResourceManagerFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pguidrm: *const windows_core::GUID, pszrmname: *const super::CHAR, piresmgrsink: *mut core::ffi::c_void, riidrequested: *const super::IID, ppvresmgr: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IResourceManagerFactory2_Impl::CreateEx(this, core::mem::transmute_copy(&pguidrm), core::mem::transmute_copy(&pszrmname), core::mem::transmute_copy(&piresmgrsink), core::mem::transmute_copy(&riidrequested), core::mem::transmute_copy(&ppvresmgr)).into()
@@ -1569,7 +1678,7 @@ impl IResourceManagerFactory2_Vtbl {
         iid == &<IResourceManagerFactory2 as windows_core::Interface>::IID || iid == &<IResourceManagerFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "strmif")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "strmif"))]
 impl windows_core::RuntimeName for IResourceManagerFactory2 {}
 #[cfg(feature = "strmif")]
 windows_core::imp::define_interface!(IResourceManagerRejoinable, IResourceManagerRejoinable_Vtbl, 0x6f6de620_b5df_4f3e_9cfa_c8aebd05172b);
@@ -1584,11 +1693,11 @@ impl core::ops::Deref for IResourceManagerRejoinable {
 windows_core::imp::interface_hierarchy!(IResourceManagerRejoinable, windows_core::IUnknown, super::IResourceManager, IResourceManager2);
 #[cfg(feature = "strmif")]
 impl IResourceManagerRejoinable {
-    #[cfg(all(feature = "rpc", feature = "transact"))]
-    pub unsafe fn Rejoin(&self, pprepinfo: *const super::byte, cbprepinfo: u32, ltimeout: u32) -> windows_core::Result<super::XACTSTAT> {
+    #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
+    pub unsafe fn Rejoin(&self, pprepinfo: &[super::byte], ltimeout: super::DWORD) -> windows_core::Result<super::XACTSTAT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Rejoin)(windows_core::Interface::as_raw(self), pprepinfo, cbprepinfo, ltimeout, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Rejoin)(windows_core::Interface::as_raw(self), pprepinfo.as_ptr(), pprepinfo.len().try_into().unwrap(), ltimeout, &mut result__).map(|| result__)
         }
     }
 }
@@ -1597,19 +1706,19 @@ impl IResourceManagerRejoinable {
 #[doc(hidden)]
 pub struct IResourceManagerRejoinable_Vtbl {
     pub base__: IResourceManager2_Vtbl,
-    #[cfg(all(feature = "rpc", feature = "transact"))]
-    pub Rejoin: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, u32, u32, *mut super::XACTSTAT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "rpc", feature = "transact")))]
+    #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
+    pub Rejoin: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::byte, super::ULONG, super::DWORD, *mut super::XACTSTAT) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared", feature = "transact")))]
     Rejoin: usize,
 }
-#[cfg(all(feature = "rpc", feature = "strmif", feature = "transact", feature = "txcoord"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 pub trait IResourceManagerRejoinable_Impl: IResourceManager2_Impl {
-    fn Rejoin(&self, pprepinfo: *const super::byte, cbprepinfo: u32, ltimeout: u32) -> windows_core::Result<super::XACTSTAT>;
+    fn Rejoin(&self, pprepinfo: *const super::byte, cbprepinfo: super::ULONG, ltimeout: super::DWORD) -> windows_core::Result<super::XACTSTAT>;
 }
-#[cfg(all(feature = "rpc", feature = "strmif", feature = "transact", feature = "txcoord"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 impl IResourceManagerRejoinable_Vtbl {
     pub const fn new<Identity: IResourceManagerRejoinable_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Rejoin<Identity: IResourceManagerRejoinable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprepinfo: *const super::byte, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Rejoin<Identity: IResourceManagerRejoinable_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprepinfo: *const super::byte, cbprepinfo: super::ULONG, ltimeout: super::DWORD, pxactstat: *mut super::XACTSTAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IResourceManagerRejoinable_Impl::Rejoin(this, core::mem::transmute_copy(&pprepinfo), core::mem::transmute_copy(&cbprepinfo), core::mem::transmute_copy(&ltimeout)) {
@@ -1627,7 +1736,7 @@ impl IResourceManagerRejoinable_Vtbl {
         iid == &<IResourceManagerRejoinable as windows_core::Interface>::IID || iid == &<super::IResourceManager as windows_core::Interface>::IID || iid == &<IResourceManager2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "rpc", feature = "strmif", feature = "transact", feature = "txcoord"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "strmif", feature = "transact", feature = "txcoord"))]
 impl windows_core::RuntimeName for IResourceManagerRejoinable {}
 windows_core::imp::define_interface!(IResourceManagerSink, IResourceManagerSink_Vtbl, 0x0d563181_defb_11ce_aed1_00aa0051e2c4);
 windows_core::imp::interface_hierarchy!(IResourceManagerSink, windows_core::IUnknown);
@@ -1804,8 +1913,8 @@ impl windows_core::RuntimeName for ITransactionPhase0Factory {}
 windows_core::imp::define_interface!(ITransactionPhase0NotifyAsync, ITransactionPhase0NotifyAsync_Vtbl, 0xef081809_0c76_11d2_87a6_00c04f990f34);
 windows_core::imp::interface_hierarchy!(ITransactionPhase0NotifyAsync, windows_core::IUnknown);
 impl ITransactionPhase0NotifyAsync {
-    pub unsafe fn Phase0Request(&self, fabortinghint: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Phase0Request)(windows_core::Interface::as_raw(self), fabortinghint.into()) }
+    pub unsafe fn Phase0Request(&self, fabortinghint: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Phase0Request)(windows_core::Interface::as_raw(self), fabortinghint) }
     }
     pub unsafe fn EnlistCompleted(&self, status: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnlistCompleted)(windows_core::Interface::as_raw(self), status) }
@@ -1850,21 +1959,22 @@ impl windows_core::RuntimeName for ITransactionPhase0NotifyAsync {}
 windows_core::imp::define_interface!(ITransactionReceiver, ITransactionReceiver_Vtbl, 0x59313e03_b36c_11cf_a539_00aa006887c3);
 windows_core::imp::interface_hierarchy!(ITransactionReceiver, windows_core::IUnknown);
 impl ITransactionReceiver {
-    #[cfg(all(feature = "rpc", feature = "transact"))]
-    pub unsafe fn UnmarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *const super::byte) -> windows_core::Result<super::ITransaction> {
+    #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
+    pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[super::byte]) -> windows_core::Result<super::ITransaction> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).UnmarshalPropagationToken)(windows_core::Interface::as_raw(self), cbtoken, rgbtoken, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).UnmarshalPropagationToken)(windows_core::Interface::as_raw(self), rgbtoken.len().try_into().unwrap(), rgbtoken.as_ptr(), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetReturnTokenSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetReturnTokenSize(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetReturnTokenSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn MarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *mut super::byte, pcbused: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn MarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MarshalReturnToken)(windows_core::Interface::as_raw(self), cbreturntoken, rgbreturntoken as _, pcbused as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
@@ -1875,28 +1985,31 @@ impl ITransactionReceiver {
 #[doc(hidden)]
 pub struct ITransactionReceiver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "rpc", feature = "transact"))]
-    pub UnmarshalPropagationToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::byte, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "rpc", feature = "transact")))]
+    #[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
+    pub UnmarshalPropagationToken: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const super::byte, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared", feature = "transact")))]
     UnmarshalPropagationToken: usize,
-    pub GetReturnTokenSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "rpc")]
-    pub MarshalReturnToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::byte, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(feature = "shared")]
+    pub GetReturnTokenSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetReturnTokenSize: usize,
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub MarshalReturnToken: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::byte, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     MarshalReturnToken: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionReceiver_Impl: windows_core::IUnknownImpl {
-    fn UnmarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *const super::byte) -> windows_core::Result<super::ITransaction>;
-    fn GetReturnTokenSize(&self) -> windows_core::Result<u32>;
-    fn MarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *mut super::byte, pcbused: *mut u32) -> windows_core::Result<()>;
+    fn UnmarshalPropagationToken(&self, cbtoken: super::ULONG, rgbtoken: *const super::byte) -> windows_core::Result<super::ITransaction>;
+    fn GetReturnTokenSize(&self) -> windows_core::Result<super::ULONG>;
+    fn MarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionReceiver_Vtbl {
     pub const fn new<Identity: ITransactionReceiver_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn UnmarshalPropagationToken<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbtoken: u32, rgbtoken: *const super::byte, pptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnmarshalPropagationToken<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbtoken: super::ULONG, rgbtoken: *const super::byte, pptransaction: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionReceiver_Impl::UnmarshalPropagationToken(this, core::mem::transmute_copy(&cbtoken), core::mem::transmute_copy(&rgbtoken)) {
@@ -1908,7 +2021,7 @@ impl ITransactionReceiver_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetReturnTokenSize<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbreturntoken: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetReturnTokenSize<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbreturntoken: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionReceiver_Impl::GetReturnTokenSize(this) {
@@ -1920,7 +2033,7 @@ impl ITransactionReceiver_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MarshalReturnToken<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *mut super::byte, pcbused: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MarshalReturnToken<Identity: ITransactionReceiver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbreturntoken: super::ULONG, rgbreturntoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITransactionReceiver_Impl::MarshalReturnToken(this, core::mem::transmute_copy(&cbreturntoken), core::mem::transmute_copy(&rgbreturntoken), core::mem::transmute_copy(&pcbused)).into()
@@ -1944,7 +2057,7 @@ impl ITransactionReceiver_Vtbl {
         iid == &<ITransactionReceiver as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionReceiver {}
 windows_core::imp::define_interface!(ITransactionReceiverFactory, ITransactionReceiverFactory_Vtbl, 0x59313e02_b36c_11cf_a539_00aa006887c3);
 windows_core::imp::interface_hierarchy!(ITransactionReceiverFactory, windows_core::IUnknown);
@@ -1996,19 +2109,20 @@ impl ITransactionTransmitter {
     {
         unsafe { (windows_core::Interface::vtable(self).Set)(windows_core::Interface::as_raw(self), ptransaction.param().abi()) }
     }
-    pub unsafe fn GetPropagationTokenSize(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetPropagationTokenSize(&self) -> windows_core::Result<super::ULONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropagationTokenSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn MarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *mut super::byte, pcbused: *mut u32) -> windows_core::HRESULT {
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn MarshalPropagationToken(&self, cbtoken: super::ULONG, rgbtoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MarshalPropagationToken)(windows_core::Interface::as_raw(self), cbtoken, rgbtoken as _, pcbused as _) }
     }
-    #[cfg(feature = "rpc")]
-    pub unsafe fn UnmarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *const super::byte) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnmarshalReturnToken)(windows_core::Interface::as_raw(self), cbreturntoken, rgbreturntoken) }
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub unsafe fn UnmarshalReturnToken(&self, rgbreturntoken: &[super::byte]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnmarshalReturnToken)(windows_core::Interface::as_raw(self), rgbreturntoken.len().try_into().unwrap(), rgbreturntoken.as_ptr()) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
@@ -2022,26 +2136,29 @@ pub struct ITransactionTransmitter_Vtbl {
     pub Set: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "transact"))]
     Set: usize,
-    pub GetPropagationTokenSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "rpc")]
-    pub MarshalPropagationToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::byte, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(feature = "shared")]
+    pub GetPropagationTokenSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetPropagationTokenSize: usize,
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub MarshalPropagationToken: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *mut super::byte, *mut super::ULONG) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     MarshalPropagationToken: usize,
-    #[cfg(feature = "rpc")]
-    pub UnmarshalReturnToken: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::byte) -> windows_core::HRESULT,
-    #[cfg(not(feature = "rpc"))]
+    #[cfg(all(feature = "rpc", feature = "shared"))]
+    pub UnmarshalReturnToken: unsafe extern "system" fn(*mut core::ffi::c_void, super::ULONG, *const super::byte) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "rpc", feature = "shared")))]
     UnmarshalReturnToken: usize,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionTransmitter_Impl: windows_core::IUnknownImpl {
     fn Set(&self, ptransaction: windows_core::Ref<super::ITransaction>) -> windows_core::Result<()>;
-    fn GetPropagationTokenSize(&self) -> windows_core::Result<u32>;
-    fn MarshalPropagationToken(&self, cbtoken: u32, rgbtoken: *mut super::byte, pcbused: *mut u32) -> windows_core::Result<()>;
-    fn UnmarshalReturnToken(&self, cbreturntoken: u32, rgbreturntoken: *const super::byte) -> windows_core::Result<()>;
+    fn GetPropagationTokenSize(&self) -> windows_core::Result<super::ULONG>;
+    fn MarshalPropagationToken(&self, cbtoken: super::ULONG, rgbtoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::Result<()>;
+    fn UnmarshalReturnToken(&self, cbreturntoken: super::ULONG, rgbreturntoken: *const super::byte) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionTransmitter_Vtbl {
     pub const fn new<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Set<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptransaction: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2050,7 +2167,7 @@ impl ITransactionTransmitter_Vtbl {
                 ITransactionTransmitter_Impl::Set(this, core::mem::transmute_copy(&ptransaction)).into()
             }
         }
-        unsafe extern "system" fn GetPropagationTokenSize<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbtoken: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPropagationTokenSize<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcbtoken: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITransactionTransmitter_Impl::GetPropagationTokenSize(this) {
@@ -2062,13 +2179,13 @@ impl ITransactionTransmitter_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MarshalPropagationToken<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbtoken: u32, rgbtoken: *mut super::byte, pcbused: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MarshalPropagationToken<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbtoken: super::ULONG, rgbtoken: *mut super::byte, pcbused: *mut super::ULONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITransactionTransmitter_Impl::MarshalPropagationToken(this, core::mem::transmute_copy(&cbtoken), core::mem::transmute_copy(&rgbtoken), core::mem::transmute_copy(&pcbused)).into()
             }
         }
-        unsafe extern "system" fn UnmarshalReturnToken<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *const super::byte) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnmarshalReturnToken<Identity: ITransactionTransmitter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbreturntoken: super::ULONG, rgbreturntoken: *const super::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITransactionTransmitter_Impl::UnmarshalReturnToken(this, core::mem::transmute_copy(&cbreturntoken), core::mem::transmute_copy(&rgbreturntoken)).into()
@@ -2093,7 +2210,7 @@ impl ITransactionTransmitter_Vtbl {
         iid == &<ITransactionTransmitter as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionTransmitter {}
 windows_core::imp::define_interface!(ITransactionTransmitterFactory, ITransactionTransmitterFactory_Vtbl, 0x59313e00_b36c_11cf_a539_00aa006887c3);
 windows_core::imp::interface_hierarchy!(ITransactionTransmitterFactory, windows_core::IUnknown);
@@ -2139,8 +2256,8 @@ windows_core::imp::define_interface!(ITransactionVoterBallotAsync2, ITransaction
 windows_core::imp::interface_hierarchy!(ITransactionVoterBallotAsync2, windows_core::IUnknown);
 impl ITransactionVoterBallotAsync2 {
     #[cfg(all(feature = "rpc", feature = "transact"))]
-    pub unsafe fn VoteRequestDone(&self, hr: windows_core::HRESULT, pboidreason: *const super::BOID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).VoteRequestDone)(windows_core::Interface::as_raw(self), hr, pboidreason) }
+    pub unsafe fn VoteRequestDone(&self, hr: windows_core::HRESULT, pboidreason: Option<*const super::BOID>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).VoteRequestDone)(windows_core::Interface::as_raw(self), hr, pboidreason.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -2248,11 +2365,11 @@ pub struct ITransactionVoterNotifyAsync2_Vtbl {
     pub base__: super::ITransactionOutcomeEvents_Vtbl,
     pub VoteRequest: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 pub trait ITransactionVoterNotifyAsync2_Impl: super::ITransactionOutcomeEvents_Impl {
     fn VoteRequest(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl ITransactionVoterNotifyAsync2_Vtbl {
     pub const fn new<Identity: ITransactionVoterNotifyAsync2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn VoteRequest<Identity: ITransactionVoterNotifyAsync2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2267,7 +2384,7 @@ impl ITransactionVoterNotifyAsync2_Vtbl {
         iid == &<ITransactionVoterNotifyAsync2 as windows_core::Interface>::IID || iid == &<super::ITransactionOutcomeEvents as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "rpc", feature = "transact"))]
+#[cfg(all(feature = "rpc", feature = "shared", feature = "transact"))]
 impl windows_core::RuntimeName for ITransactionVoterNotifyAsync2 {}
 windows_core::imp::define_interface!(IXAConfig, IXAConfig_Vtbl, 0xc8a6e3a1_9a8c_11cf_a308_00a0c905416e);
 windows_core::imp::interface_hierarchy!(IXAConfig, windows_core::IUnknown);
@@ -2444,9 +2561,10 @@ impl IXATransLookup2_Vtbl {
 #[cfg(feature = "transact")]
 impl windows_core::RuntimeName for IXATransLookup2 {}
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_CONFIG_PARAMS {
-    pub wcThreadsMax: u16,
+    pub wcThreadsMax: super::WORD,
 }
 pub type XACT_DTC_CONSTANTS = i32;
 pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = -2147168000;
@@ -2486,21 +2604,21 @@ impl Default for XID {
 }
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug)]
 pub struct xa_switch_t {
     pub name: [i8; 32],
     pub flags: i32,
     pub version: i32,
-    pub xa_open_entry: *mut u8,
-    pub xa_close_entry: *mut u8,
-    pub xa_start_entry: *mut u8,
-    pub xa_end_entry: *mut u8,
-    pub xa_rollback_entry: *mut u8,
-    pub xa_prepare_entry: *mut u8,
-    pub xa_commit_entry: *mut u8,
-    pub xa_recover_entry: *mut u8,
-    pub xa_forget_entry: *mut u8,
-    pub xa_complete_entry: *mut u8,
+    pub xa_open_entry: Option<unsafe extern "C" fn(*mut i8, i32, i32) -> i32>,
+    pub xa_close_entry: Option<unsafe extern "C" fn(*mut i8, i32, i32) -> i32>,
+    pub xa_start_entry: Option<unsafe extern "C" fn(*mut XID, i32, i32) -> i32>,
+    pub xa_end_entry: Option<unsafe extern "C" fn(*mut XID, i32, i32) -> i32>,
+    pub xa_rollback_entry: Option<unsafe extern "C" fn(*mut XID, i32, i32) -> i32>,
+    pub xa_prepare_entry: Option<unsafe extern "C" fn(*mut XID, i32, i32) -> i32>,
+    pub xa_commit_entry: Option<unsafe extern "C" fn(*mut XID, i32, i32) -> i32>,
+    pub xa_recover_entry: Option<unsafe extern "C" fn(*mut XID, i32, i32, i32) -> i32>,
+    pub xa_forget_entry: Option<unsafe extern "C" fn(*mut XID, i32, i32) -> i32>,
+    pub xa_complete_entry: Option<unsafe extern "C" fn(*mut i32, *mut i32, i32, i32) -> i32>,
 }
 impl Default for xa_switch_t {
     fn default() -> Self {

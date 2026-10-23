@@ -542,12 +542,8 @@ impl Projector<'_, '_> {
                     &extent_names,
                 )
                 .map_err(|error| Error(format!("parameter `{name}`: {error}")))?;
-                let default = parameter.default.as_ref().map(|value| {
-                    let expression = &value.expression;
-                    quote! { #[Windows::Win32::Metadata::NativeDefaultArgument(#expression)] }
-                });
                 let ty = write_type(self.namespace, &ty);
-                Ok(quote! { #attributes #size #default #name: #ty })
+                Ok(quote! { #attributes #size #name: #ty })
             })
             .collect()
     }

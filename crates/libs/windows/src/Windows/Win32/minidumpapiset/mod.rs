@@ -1,43 +1,44 @@
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const core::ffi::c_void, streamnumber: u32, dir: *mut PMINIDUMP_DIRECTORY, streampointer: *mut *mut core::ffi::c_void, streamsize: Option<*mut u32>) -> windows_core::BOOL {
-    windows_core::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut PMINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> windows_core::BOOL);
+pub unsafe fn MiniDumpReadDumpStream(baseofdump: super::PVOID, streamnumber: super::ULONG, dir: *mut PMINIDUMP_DIRECTORY, streampointer: *mut super::PVOID, streamsize: Option<*mut super::ULONG>) -> windows_core::BOOL {
+    windows_core::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : super::PVOID, streamnumber : super::ULONG, dir : *mut PMINIDUMP_DIRECTORY, streampointer : *mut super::PVOID, streamsize : *mut super::ULONG) -> windows_core::BOOL);
     unsafe { MiniDumpReadDumpStream(baseofdump, streamnumber, dir as _, streampointer as _, streamsize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-#[inline]
-pub unsafe fn MiniDumpWriteDump(hprocess: super::HANDLE, processid: u32, hfile: super::HANDLE, dumptype: MINIDUMP_TYPE, exceptionparam: Option<PMINIDUMP_EXCEPTION_INFORMATION>, userstreamparam: Option<PMINIDUMP_USER_STREAM_INFORMATION>, callbackparam: Option<PMINIDUMP_CALLBACK_INFORMATION>) -> windows_core::BOOL {
-    windows_core::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::HANDLE, processid : u32, hfile : super::HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : PMINIDUMP_EXCEPTION_INFORMATION, userstreamparam : PMINIDUMP_USER_STREAM_INFORMATION, callbackparam : PMINIDUMP_CALLBACK_INFORMATION) -> windows_core::BOOL);
-    unsafe { MiniDumpWriteDump(hprocess, processid, hfile, dumptype, exceptionparam.unwrap_or(core::mem::zeroed()) as _, userstreamparam.unwrap_or(core::mem::zeroed()) as _, callbackparam.unwrap_or(core::mem::zeroed()) as _) }
-}
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_0,
     pub OtherCpuInfo: CPU_INFORMATION_1,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CPU_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+#[derive(Clone, Copy)]
 pub struct CPU_INFORMATION_0 {
-    pub VendorId: [u32; 3],
-    pub VersionInformation: u32,
-    pub FeatureInformation: u32,
-    pub AMDExtendedCpuFeatures: u32,
+    pub VendorId: [super::ULONG32; 3],
+    pub VersionInformation: super::ULONG32,
+    pub FeatureInformation: super::ULONG32,
+    pub AMDExtendedCpuFeatures: super::ULONG32,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CPU_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct CPU_INFORMATION_1 {
-    pub ProcessorFeatures: [u64; 2],
+    pub ProcessorFeatures: [super::ULONG64; 2],
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for CPU_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -65,130 +66,25 @@ pub const IsProcessSnapshotCallback: MINIDUMP_CALLBACK_TYPE = 16;
 pub const JavaScriptDataStream: MINIDUMP_STREAM_TYPE = 20;
 pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = 8;
 pub const LastReservedStream: MINIDUMP_STREAM_TYPE = 65535;
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
-pub struct MINIDUMP_CALLBACK_INFORMATION {
-    pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
-    pub CallbackParam: *mut core::ffi::c_void,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
-pub struct MINIDUMP_CALLBACK_INFORMATION {
-    pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
-    pub CallbackParam: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_CALLBACK_INPUT {
-    pub ProcessId: u32,
-    pub ProcessHandle: super::HANDLE,
-    pub CallbackType: u32,
-    pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy)]
-pub union MINIDUMP_CALLBACK_INPUT_0 {
-    pub Status: windows_core::HRESULT,
-    pub Thread: MINIDUMP_THREAD_CALLBACK,
-    pub ThreadEx: MINIDUMP_THREAD_EX_CALLBACK,
-    pub Module: MINIDUMP_MODULE_CALLBACK,
-    pub IncludeThread: MINIDUMP_INCLUDE_THREAD_CALLBACK,
-    pub IncludeModule: MINIDUMP_INCLUDE_MODULE_CALLBACK,
-    pub Io: MINIDUMP_IO_CALLBACK,
-    pub ReadMemoryFailure: MINIDUMP_READ_MEMORY_FAILURE_CALLBACK,
-    pub SecondaryFlags: u32,
-    pub VmQuery: MINIDUMP_VM_QUERY_CALLBACK,
-    pub VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
-    pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
-    pub CompressedMemoryStreamFinish: MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_INPUT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, align(16))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_CALLBACK_INPUT {
-    pub ProcessId: u32,
-    pub ProcessHandle: super::HANDLE,
-    pub CallbackType: u32,
-    pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-#[derive(Clone, Copy)]
-pub union MINIDUMP_CALLBACK_INPUT_0 {
-    pub Status: windows_core::HRESULT,
-    pub Thread: MINIDUMP_THREAD_CALLBACK,
-    pub ThreadEx: MINIDUMP_THREAD_EX_CALLBACK,
-    pub Module: MINIDUMP_MODULE_CALLBACK,
-    pub IncludeThread: MINIDUMP_INCLUDE_THREAD_CALLBACK,
-    pub IncludeModule: MINIDUMP_INCLUDE_MODULE_CALLBACK,
-    pub Io: MINIDUMP_IO_CALLBACK,
-    pub ReadMemoryFailure: MINIDUMP_READ_MEMORY_FAILURE_CALLBACK,
-    pub SecondaryFlags: u32,
-    pub VmQuery: MINIDUMP_VM_QUERY_CALLBACK,
-    pub VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
-    pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
-    pub CompressedMemoryStreamFinish: MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_INPUT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
-    pub ModuleWriteFlags: u32,
-    pub ThreadWriteFlags: u32,
-    pub SecondaryFlags: u32,
+    pub ModuleWriteFlags: super::ULONG,
+    pub ThreadWriteFlags: super::ULONG,
+    pub SecondaryFlags: super::ULONG,
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0_0,
     pub Anonymous2: MINIDUMP_CALLBACK_OUTPUT_0_1,
     pub Handle: super::HANDLE,
@@ -198,394 +94,316 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub CompressedMemoryStreamStart: MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK,
     pub Status: windows_core::HRESULT,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
-    pub MemoryBase: u64,
-    pub MemorySize: u32,
+    pub MemoryBase: super::ULONG64,
+    pub MemorySize: super::ULONG,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: windows_core::BOOL,
     pub Cancel: windows_core::BOOL,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
     pub Continue: windows_core::BOOL,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: windows_core::HRESULT,
     pub VmQueryResult: MINIDUMP_MEMORY_INFO,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_core::HRESULT,
-    pub VmReadBytesCompleted: u32,
+    pub VmReadBytesCompleted: super::ULONG,
 }
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_CALLBACK_OUTPUT {
-    pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy)]
-pub union MINIDUMP_CALLBACK_OUTPUT_0 {
-    pub ModuleWriteFlags: u32,
-    pub ThreadWriteFlags: u32,
-    pub SecondaryFlags: u32,
-    pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0_0,
-    pub Anonymous2: MINIDUMP_CALLBACK_OUTPUT_0_1,
-    pub Handle: super::HANDLE,
-    pub Anonymous3: MINIDUMP_CALLBACK_OUTPUT_0_2,
-    pub Anonymous4: MINIDUMP_CALLBACK_OUTPUT_0_3,
-    pub Anonymous5: MINIDUMP_CALLBACK_OUTPUT_0_4,
-    pub CompressedMemoryStreamStart: MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK,
-    pub Status: windows_core::HRESULT,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
-pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
-    pub MemoryBase: u64,
-    pub MemorySize: u32,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
-    pub CheckCancel: windows_core::BOOL,
-    pub Cancel: windows_core::BOOL,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
-pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
-    pub VmRegion: MINIDUMP_MEMORY_INFO,
-    pub Continue: windows_core::BOOL,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
-pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
-    pub VmQueryStatus: windows_core::HRESULT,
-    pub VmQueryResult: MINIDUMP_MEMORY_INFO,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
-    pub VmReadStatus: windows_core::HRESULT,
-    pub VmReadBytesCompleted: u32,
-}
-#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: PMINIDUMP_CALLBACK_INPUT, callbackoutput: PMINIDUMP_CALLBACK_OUTPUT) -> windows_core::BOOL>;
 pub type MINIDUMP_CALLBACK_TYPE = i32;
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK {
-    pub CompressedStreamSize: u64,
-    pub StreamCompressionRate: u32,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
-    pub MaxParallelism: u32,
-    pub MaxTransferSize: u32,
-    pub NumaNodeInfoArray: super::PNUMA_NODE_RELATIONSHIP,
-    pub NumaNodeInfoArraySize: u32,
-    pub Reserved: u32,
+    pub CompressedStreamSize: super::ULONG64,
+    pub StreamCompressionRate: super::ULONG32,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
-    pub MaxParallelism: u32,
-    pub MaxTransferSize: u32,
+    pub MaxParallelism: super::ULONG,
+    pub MaxTransferSize: super::ULONG,
     pub NumaNodeInfoArray: super::PNUMA_NODE_RELATIONSHIP,
-    pub NumaNodeInfoArraySize: u32,
-    pub Reserved: u32,
+    pub NumaNodeInfoArraySize: super::ULONG,
+    pub Reserved: super::ULONG,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_DIRECTORY {
-    pub StreamType: u32,
+    pub StreamType: super::ULONG32,
     pub Location: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION {
-    pub ExceptionCode: u32,
-    pub ExceptionFlags: u32,
-    pub ExceptionRecord: u64,
-    pub ExceptionAddress: u64,
-    pub NumberParameters: u32,
-    pub __unusedAlignment: u32,
-    pub ExceptionInformation: [u64; 15],
+    pub ExceptionCode: super::ULONG32,
+    pub ExceptionFlags: super::ULONG32,
+    pub ExceptionRecord: super::ULONG64,
+    pub ExceptionAddress: super::ULONG64,
+    pub NumberParameters: super::ULONG32,
+    pub __unusedAlignment: super::ULONG32,
+    pub ExceptionInformation: [super::ULONG64; 15],
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_EXCEPTION_INFORMATION {
-    pub ThreadId: u32,
-    pub ExceptionPointers: super::PEXCEPTION_POINTERS,
-    pub ClientPointers: windows_core::BOOL,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
-    pub ThreadId: u32,
+    pub ThreadId: super::DWORD,
     pub ExceptionPointers: super::PEXCEPTION_POINTERS,
     pub ClientPointers: windows_core::BOOL,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
-    pub ThreadId: u32,
-    pub ExceptionRecord: u64,
-    pub ContextRecord: u64,
+    pub ThreadId: super::DWORD,
+    pub ExceptionRecord: super::ULONG64,
+    pub ContextRecord: super::ULONG64,
     pub ClientPointers: windows_core::BOOL,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_EXCEPTION_STREAM {
-    pub ThreadId: u32,
-    pub __alignment: u32,
+    pub ThreadId: super::ULONG32,
+    pub __alignment: super::ULONG32,
     pub ExceptionRecord: MINIDUMP_EXCEPTION,
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
-    pub MinimumAddress: u64,
-    pub MaximumAddress: u64,
-    pub BaseAddress: u64,
-    pub EntryCount: u32,
-    pub SizeOfAlignPad: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
-    pub SizeOfHeader: u32,
-    pub SizeOfDescriptor: u32,
-    pub SizeOfNativeDescriptor: u32,
-    pub SizeOfFunctionEntry: u32,
-    pub NumberOfDescriptors: u32,
-    pub SizeOfAlignPad: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_HANDLE_DATA_STREAM {
-    pub SizeOfHeader: u32,
-    pub SizeOfDescriptor: u32,
-    pub NumberOfDescriptors: u32,
-    pub Reserved: u32,
+    pub MinimumAddress: super::ULONG64,
+    pub MaximumAddress: super::ULONG64,
+    pub BaseAddress: super::ULONG64,
+    pub EntryCount: super::ULONG32,
+    pub SizeOfAlignPad: super::ULONG32,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
+pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
+    pub SizeOfHeader: super::ULONG32,
+    pub SizeOfDescriptor: super::ULONG32,
+    pub SizeOfNativeDescriptor: super::ULONG32,
+    pub SizeOfFunctionEntry: super::ULONG32,
+    pub NumberOfDescriptors: super::ULONG32,
+    pub SizeOfAlignPad: super::ULONG32,
+}
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
+pub struct MINIDUMP_HANDLE_DATA_STREAM {
+    pub SizeOfHeader: super::ULONG32,
+    pub SizeOfDescriptor: super::ULONG32,
+    pub NumberOfDescriptors: super::ULONG32,
+    pub Reserved: super::ULONG32,
+}
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
-    pub Handle: u64,
+    pub Handle: super::ULONG64,
     pub TypeNameRva: RVA,
     pub ObjectNameRva: RVA,
-    pub Attributes: u32,
-    pub GrantedAccess: u32,
-    pub HandleCount: u32,
-    pub PointerCount: u32,
+    pub Attributes: super::ULONG32,
+    pub GrantedAccess: super::ULONG32,
+    pub HandleCount: super::ULONG32,
+    pub PointerCount: super::ULONG32,
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
-    pub Handle: u64,
+    pub Handle: super::ULONG64,
     pub TypeNameRva: RVA,
     pub ObjectNameRva: RVA,
-    pub Attributes: u32,
-    pub GrantedAccess: u32,
-    pub HandleCount: u32,
-    pub PointerCount: u32,
+    pub Attributes: super::ULONG32,
+    pub GrantedAccess: super::ULONG32,
+    pub HandleCount: super::ULONG32,
+    pub PointerCount: super::ULONG32,
     pub ObjectInfoRva: RVA,
-    pub Reserved0: u32,
+    pub Reserved0: super::ULONG32,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type MINIDUMP_HANDLE_DESCRIPTOR_N = MINIDUMP_HANDLE_DESCRIPTOR_2;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: RVA,
-    pub InfoType: u32,
-    pub SizeOfInfo: u32,
+    pub InfoType: super::ULONG32,
+    pub SizeOfInfo: super::ULONG32,
 }
 pub type MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
-    pub SizeOfHeader: u32,
-    pub SizeOfEntry: u32,
-    pub NumberOfEntries: u32,
-    pub Reserved: u32,
+    pub SizeOfHeader: super::ULONG32,
+    pub SizeOfEntry: super::ULONG32,
+    pub NumberOfEntries: super::ULONG32,
+    pub Reserved: super::ULONG32,
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_HEADER {
-    pub Signature: u32,
-    pub Version: u32,
-    pub NumberOfStreams: u32,
+    pub Signature: super::ULONG32,
+    pub Version: super::ULONG32,
+    pub NumberOfStreams: super::ULONG32,
     pub StreamDirectoryRva: RVA,
-    pub CheckSum: u32,
+    pub CheckSum: super::ULONG32,
     pub Anonymous: MINIDUMP_HEADER_0,
-    pub Flags: u64,
+    pub Flags: super::ULONG64,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_HEADER_0 {
-    pub Reserved: u32,
-    pub TimeDateStamp: u32,
+    pub Reserved: super::ULONG32,
+    pub TimeDateStamp: super::ULONG32,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
-    pub BaseOfImage: u64,
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
-    pub ThreadId: u32,
+    pub BaseOfImage: super::ULONG64,
 }
 #[repr(C, packed(4))]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
+    pub ThreadId: super::ULONG,
+}
+#[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::HANDLE,
-    pub Offset: u64,
-    pub Buffer: *mut core::ffi::c_void,
-    pub BufferBytes: u32,
+    pub Offset: super::ULONG64,
+    pub Buffer: super::PVOID,
+    pub BufferBytes: super::ULONG,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
-    pub DataSize: u32,
+    pub DataSize: super::ULONG32,
     pub Rva: RVA,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
-    pub DataSize: u64,
+    pub DataSize: super::ULONG64,
     pub Rva: RVA64,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY64_LIST {
-    pub NumberOfMemoryRanges: u64,
+    pub NumberOfMemoryRanges: super::ULONG64,
     pub BaseRva: RVA64,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR64; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for MINIDUMP_MEMORY64_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
-    pub StartOfMemoryRange: u64,
+    pub StartOfMemoryRange: super::ULONG64,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
-    pub StartOfMemoryRange: u64,
-    pub DataSize: u64,
+    pub StartOfMemoryRange: super::ULONG64,
+    pub DataSize: super::ULONG64,
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_INFO {
-    pub BaseAddress: u64,
-    pub AllocationBase: u64,
-    pub AllocationProtect: u32,
-    pub __alignment1: u32,
-    pub RegionSize: u64,
-    pub State: u32,
-    pub Protect: u32,
-    pub Type: u32,
-    pub __alignment2: u32,
+    pub BaseAddress: super::ULONG64,
+    pub AllocationBase: super::ULONG64,
+    pub AllocationProtect: super::ULONG32,
+    pub __alignment1: super::ULONG32,
+    pub RegionSize: super::ULONG64,
+    pub State: super::ULONG32,
+    pub Protect: super::ULONG32,
+    pub Type: super::ULONG32,
+    pub __alignment2: super::ULONG32,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
-    pub SizeOfHeader: u32,
-    pub SizeOfEntry: u32,
-    pub NumberOfEntries: u64,
+    pub SizeOfHeader: super::ULONG,
+    pub SizeOfEntry: super::ULONG,
+    pub NumberOfEntries: super::ULONG64,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_LIST {
-    pub NumberOfMemoryRanges: u32,
+    pub NumberOfMemoryRanges: super::ULONG32,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 0],
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_MEMORY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -600,152 +418,154 @@ pub const MINIDUMP_MISC3_PROTECTED_PROCESS: i32 = 128;
 pub const MINIDUMP_MISC3_TIMEZONE: i32 = 64;
 pub const MINIDUMP_MISC4_BUILDSTRING: i32 = 256;
 pub const MINIDUMP_MISC5_PROCESS_COOKIE: i32 = 512;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MISC_INFO {
-    pub SizeOfInfo: u32,
-    pub Flags1: u32,
-    pub ProcessId: u32,
-    pub ProcessCreateTime: u32,
-    pub ProcessUserTime: u32,
-    pub ProcessKernelTime: u32,
+    pub SizeOfInfo: super::ULONG32,
+    pub Flags1: super::ULONG32,
+    pub ProcessId: super::ULONG32,
+    pub ProcessCreateTime: super::ULONG32,
+    pub ProcessUserTime: super::ULONG32,
+    pub ProcessKernelTime: super::ULONG32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MISC_INFO_2 {
-    pub SizeOfInfo: u32,
-    pub Flags1: u32,
-    pub ProcessId: u32,
-    pub ProcessCreateTime: u32,
-    pub ProcessUserTime: u32,
-    pub ProcessKernelTime: u32,
-    pub ProcessorMaxMhz: u32,
-    pub ProcessorCurrentMhz: u32,
-    pub ProcessorMhzLimit: u32,
-    pub ProcessorMaxIdleState: u32,
-    pub ProcessorCurrentIdleState: u32,
+    pub SizeOfInfo: super::ULONG32,
+    pub Flags1: super::ULONG32,
+    pub ProcessId: super::ULONG32,
+    pub ProcessCreateTime: super::ULONG32,
+    pub ProcessUserTime: super::ULONG32,
+    pub ProcessKernelTime: super::ULONG32,
+    pub ProcessorMaxMhz: super::ULONG32,
+    pub ProcessorCurrentMhz: super::ULONG32,
+    pub ProcessorMhzLimit: super::ULONG32,
+    pub ProcessorMaxIdleState: super::ULONG32,
+    pub ProcessorCurrentIdleState: super::ULONG32,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MISC_INFO_3 {
-    pub SizeOfInfo: u32,
-    pub Flags1: u32,
-    pub ProcessId: u32,
-    pub ProcessCreateTime: u32,
-    pub ProcessUserTime: u32,
-    pub ProcessKernelTime: u32,
-    pub ProcessorMaxMhz: u32,
-    pub ProcessorCurrentMhz: u32,
-    pub ProcessorMhzLimit: u32,
-    pub ProcessorMaxIdleState: u32,
-    pub ProcessorCurrentIdleState: u32,
-    pub ProcessIntegrityLevel: u32,
-    pub ProcessExecuteFlags: u32,
-    pub ProtectedProcess: u32,
-    pub TimeZoneId: u32,
+    pub SizeOfInfo: super::ULONG32,
+    pub Flags1: super::ULONG32,
+    pub ProcessId: super::ULONG32,
+    pub ProcessCreateTime: super::ULONG32,
+    pub ProcessUserTime: super::ULONG32,
+    pub ProcessKernelTime: super::ULONG32,
+    pub ProcessorMaxMhz: super::ULONG32,
+    pub ProcessorCurrentMhz: super::ULONG32,
+    pub ProcessorMhzLimit: super::ULONG32,
+    pub ProcessorMaxIdleState: super::ULONG32,
+    pub ProcessorCurrentIdleState: super::ULONG32,
+    pub ProcessIntegrityLevel: super::ULONG32,
+    pub ProcessExecuteFlags: super::ULONG32,
+    pub ProtectedProcess: super::ULONG32,
+    pub TimeZoneId: super::ULONG32,
     pub TimeZone: super::TIME_ZONE_INFORMATION,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_4 {
-    pub SizeOfInfo: u32,
-    pub Flags1: u32,
-    pub ProcessId: u32,
-    pub ProcessCreateTime: u32,
-    pub ProcessUserTime: u32,
-    pub ProcessKernelTime: u32,
-    pub ProcessorMaxMhz: u32,
-    pub ProcessorCurrentMhz: u32,
-    pub ProcessorMhzLimit: u32,
-    pub ProcessorMaxIdleState: u32,
-    pub ProcessorCurrentIdleState: u32,
-    pub ProcessIntegrityLevel: u32,
-    pub ProcessExecuteFlags: u32,
-    pub ProtectedProcess: u32,
-    pub TimeZoneId: u32,
+    pub SizeOfInfo: super::ULONG32,
+    pub Flags1: super::ULONG32,
+    pub ProcessId: super::ULONG32,
+    pub ProcessCreateTime: super::ULONG32,
+    pub ProcessUserTime: super::ULONG32,
+    pub ProcessKernelTime: super::ULONG32,
+    pub ProcessorMaxMhz: super::ULONG32,
+    pub ProcessorCurrentMhz: super::ULONG32,
+    pub ProcessorMhzLimit: super::ULONG32,
+    pub ProcessorMaxIdleState: super::ULONG32,
+    pub ProcessorCurrentIdleState: super::ULONG32,
+    pub ProcessIntegrityLevel: super::ULONG32,
+    pub ProcessExecuteFlags: super::ULONG32,
+    pub ProtectedProcess: super::ULONG32,
+    pub TimeZoneId: super::ULONG32,
     pub TimeZone: super::TIME_ZONE_INFORMATION,
-    pub BuildString: [u16; 260],
-    pub DbgBldStr: [u16; 40],
+    pub BuildString: [super::WCHAR; 260],
+    pub DbgBldStr: [super::WCHAR; 40],
 }
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
 impl Default for MINIDUMP_MISC_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_5 {
-    pub SizeOfInfo: u32,
-    pub Flags1: u32,
-    pub ProcessId: u32,
-    pub ProcessCreateTime: u32,
-    pub ProcessUserTime: u32,
-    pub ProcessKernelTime: u32,
-    pub ProcessorMaxMhz: u32,
-    pub ProcessorCurrentMhz: u32,
-    pub ProcessorMhzLimit: u32,
-    pub ProcessorMaxIdleState: u32,
-    pub ProcessorCurrentIdleState: u32,
-    pub ProcessIntegrityLevel: u32,
-    pub ProcessExecuteFlags: u32,
-    pub ProtectedProcess: u32,
-    pub TimeZoneId: u32,
+    pub SizeOfInfo: super::ULONG32,
+    pub Flags1: super::ULONG32,
+    pub ProcessId: super::ULONG32,
+    pub ProcessCreateTime: super::ULONG32,
+    pub ProcessUserTime: super::ULONG32,
+    pub ProcessKernelTime: super::ULONG32,
+    pub ProcessorMaxMhz: super::ULONG32,
+    pub ProcessorCurrentMhz: super::ULONG32,
+    pub ProcessorMhzLimit: super::ULONG32,
+    pub ProcessorMaxIdleState: super::ULONG32,
+    pub ProcessorCurrentIdleState: super::ULONG32,
+    pub ProcessIntegrityLevel: super::ULONG32,
+    pub ProcessExecuteFlags: super::ULONG32,
+    pub ProtectedProcess: super::ULONG32,
+    pub TimeZoneId: super::ULONG32,
     pub TimeZone: super::TIME_ZONE_INFORMATION,
-    pub BuildString: [u16; 260],
-    pub DbgBldStr: [u16; 40],
+    pub BuildString: [super::WCHAR; 260],
+    pub DbgBldStr: [super::WCHAR; 40],
     pub XStateData: XSTATE_CONFIG_FEATURE_MSC_INFO,
-    pub ProcessCookie: u32,
+    pub ProcessCookie: super::ULONG32,
 }
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
 impl Default for MINIDUMP_MISC_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
 pub type MINIDUMP_MISC_INFO_N = MINIDUMP_MISC_INFO_5;
 #[repr(C, packed(4))]
-#[cfg(feature = "verrsrc")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MODULE {
-    pub BaseOfImage: u64,
-    pub SizeOfImage: u32,
-    pub CheckSum: u32,
-    pub TimeDateStamp: u32,
+    pub BaseOfImage: super::ULONG64,
+    pub SizeOfImage: super::ULONG32,
+    pub CheckSum: super::ULONG32,
+    pub TimeDateStamp: super::ULONG32,
     pub ModuleNameRva: RVA,
     pub VersionInfo: super::VS_FIXEDFILEINFO,
     pub CvRecord: MINIDUMP_LOCATION_DESCRIPTOR,
     pub MiscRecord: MINIDUMP_LOCATION_DESCRIPTOR,
-    pub Reserved0: u64,
-    pub Reserved1: u64,
+    pub Reserved0: super::ULONG64,
+    pub Reserved1: super::ULONG64,
 }
 #[repr(C, packed(4))]
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "verrsrc", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: super::PWCHAR,
-    pub BaseOfImage: u64,
-    pub SizeOfImage: u32,
-    pub CheckSum: u32,
-    pub TimeDateStamp: u32,
+    pub BaseOfImage: super::ULONG64,
+    pub SizeOfImage: super::ULONG,
+    pub CheckSum: super::ULONG,
+    pub TimeDateStamp: super::ULONG,
     pub VersionInfo: super::VS_FIXEDFILEINFO,
-    pub CvRecord: *mut core::ffi::c_void,
-    pub SizeOfCvRecord: u32,
-    pub MiscRecord: *mut core::ffi::c_void,
-    pub SizeOfMiscRecord: u32,
+    pub CvRecord: super::PVOID,
+    pub SizeOfCvRecord: super::ULONG,
+    pub MiscRecord: super::PVOID,
+    pub SizeOfMiscRecord: super::ULONG,
 }
-#[repr(C)]
-#[cfg(feature = "verrsrc")]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_MODULE_LIST {
-    pub NumberOfModules: u32,
+    pub NumberOfModules: super::ULONG32,
     pub Modules: [MINIDUMP_MODULE; 0],
 }
-#[cfg(feature = "verrsrc")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc"))]
 impl Default for MINIDUMP_MODULE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -753,66 +573,72 @@ impl Default for MINIDUMP_MODULE_LIST {
 }
 pub const MINIDUMP_PROCESS_VM_COUNTERS: i32 = 1;
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
-    pub Revision: u16,
-    pub PageFaultCount: u32,
-    pub PeakWorkingSetSize: u64,
-    pub WorkingSetSize: u64,
-    pub QuotaPeakPagedPoolUsage: u64,
-    pub QuotaPagedPoolUsage: u64,
-    pub QuotaPeakNonPagedPoolUsage: u64,
-    pub QuotaNonPagedPoolUsage: u64,
-    pub PagefileUsage: u64,
-    pub PeakPagefileUsage: u64,
-    pub PrivateUsage: u64,
+    pub Revision: super::USHORT,
+    pub PageFaultCount: super::ULONG,
+    pub PeakWorkingSetSize: super::ULONG64,
+    pub WorkingSetSize: super::ULONG64,
+    pub QuotaPeakPagedPoolUsage: super::ULONG64,
+    pub QuotaPagedPoolUsage: super::ULONG64,
+    pub QuotaPeakNonPagedPoolUsage: super::ULONG64,
+    pub QuotaNonPagedPoolUsage: super::ULONG64,
+    pub PagefileUsage: super::ULONG64,
+    pub PeakPagefileUsage: super::ULONG64,
+    pub PrivateUsage: super::ULONG64,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
-    pub Revision: u16,
-    pub Flags: u16,
-    pub PageFaultCount: u32,
-    pub PeakWorkingSetSize: u64,
-    pub WorkingSetSize: u64,
-    pub QuotaPeakPagedPoolUsage: u64,
-    pub QuotaPagedPoolUsage: u64,
-    pub QuotaPeakNonPagedPoolUsage: u64,
-    pub QuotaNonPagedPoolUsage: u64,
-    pub PagefileUsage: u64,
-    pub PeakPagefileUsage: u64,
-    pub PeakVirtualSize: u64,
-    pub VirtualSize: u64,
-    pub PrivateUsage: u64,
-    pub PrivateWorkingSetSize: u64,
-    pub SharedCommitUsage: u64,
-    pub JobSharedCommitUsage: u64,
-    pub JobPrivateCommitUsage: u64,
-    pub JobPeakPrivateCommitUsage: u64,
-    pub JobPrivateCommitLimit: u64,
-    pub JobTotalCommitLimit: u64,
+    pub Revision: super::USHORT,
+    pub Flags: super::USHORT,
+    pub PageFaultCount: super::ULONG,
+    pub PeakWorkingSetSize: super::ULONG64,
+    pub WorkingSetSize: super::ULONG64,
+    pub QuotaPeakPagedPoolUsage: super::ULONG64,
+    pub QuotaPagedPoolUsage: super::ULONG64,
+    pub QuotaPeakNonPagedPoolUsage: super::ULONG64,
+    pub QuotaNonPagedPoolUsage: super::ULONG64,
+    pub PagefileUsage: super::ULONG64,
+    pub PeakPagefileUsage: super::ULONG64,
+    pub PeakVirtualSize: super::ULONG64,
+    pub VirtualSize: super::ULONG64,
+    pub PrivateUsage: super::ULONG64,
+    pub PrivateWorkingSetSize: super::ULONG64,
+    pub SharedCommitUsage: super::ULONG64,
+    pub JobSharedCommitUsage: super::ULONG64,
+    pub JobPrivateCommitUsage: super::ULONG64,
+    pub JobPeakPrivateCommitUsage: super::ULONG64,
+    pub JobPrivateCommitLimit: super::ULONG64,
+    pub JobTotalCommitLimit: super::ULONG64,
 }
 pub const MINIDUMP_PROCESS_VM_COUNTERS_EX: i32 = 4;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_EX2: i32 = 8;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_JOB: i32 = 16;
+#[cfg(feature = "shared")]
 pub type MINIDUMP_PROCESS_VM_COUNTERS_N = MINIDUMP_PROCESS_VM_COUNTERS_2;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_VIRTUALSIZE: i32 = 2;
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
-    pub Offset: u64,
-    pub Bytes: u32,
+    pub Offset: super::ULONG64,
+    pub Bytes: super::ULONG,
     pub FailureStatus: windows_core::HRESULT,
 }
 pub type MINIDUMP_SECONDARY_FLAGS = i32;
 pub const MINIDUMP_SIGNATURE: i32 = 1347241037;
 pub type MINIDUMP_STREAM_TYPE = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_STRING {
-    pub Length: u32,
-    pub Buffer: [u16; 0],
+    pub Length: super::ULONG32,
+    pub Buffer: [super::WCHAR; 0],
 }
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for MINIDUMP_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -825,583 +651,481 @@ pub const MINIDUMP_SYSMEMINFO1_PERF_MDLPAGESALLOCATED_PFNDATABASECOMMITTEDPAGES:
 pub const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: i32 = 8;
 pub const MINIDUMP_SYSMEMINFO1_PERF_SYSTEMPAGETABLECOMMITTEDPAGES_CONTIGUOUSPAGESALLOCATED: i32 = 32;
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
-    pub TimerResolution: u32,
-    pub PageSize: u32,
-    pub NumberOfPhysicalPages: u32,
-    pub LowestPhysicalPageNumber: u32,
-    pub HighestPhysicalPageNumber: u32,
-    pub AllocationGranularity: u32,
-    pub MinimumUserModeAddress: u64,
-    pub MaximumUserModeAddress: u64,
-    pub ActiveProcessorsAffinityMask: u64,
-    pub NumberOfProcessors: u32,
+    pub TimerResolution: super::ULONG,
+    pub PageSize: super::ULONG,
+    pub NumberOfPhysicalPages: super::ULONG,
+    pub LowestPhysicalPageNumber: super::ULONG,
+    pub HighestPhysicalPageNumber: super::ULONG,
+    pub AllocationGranularity: super::ULONG,
+    pub MinimumUserModeAddress: super::ULONG64,
+    pub MaximumUserModeAddress: super::ULONG64,
+    pub ActiveProcessorsAffinityMask: super::ULONG64,
+    pub NumberOfProcessors: super::ULONG,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
-    pub AvailablePages: u64,
-    pub CommittedPages: u64,
-    pub CommitLimit: u64,
-    pub PeakCommitment: u64,
+    pub AvailablePages: super::ULONG64,
+    pub CommittedPages: super::ULONG64,
+    pub CommitLimit: super::ULONG64,
+    pub PeakCommitment: super::ULONG64,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
-    pub CurrentSize: u64,
-    pub PeakSize: u64,
-    pub PageFaultCount: u32,
-    pub MinimumWorkingSet: u64,
-    pub MaximumWorkingSet: u64,
-    pub CurrentSizeIncludingTransitionInPages: u64,
-    pub PeakSizeIncludingTransitionInPages: u64,
-    pub TransitionRePurposeCount: u32,
-    pub Flags: u32,
+    pub CurrentSize: super::ULONG64,
+    pub PeakSize: super::ULONG64,
+    pub PageFaultCount: super::ULONG,
+    pub MinimumWorkingSet: super::ULONG64,
+    pub MaximumWorkingSet: super::ULONG64,
+    pub CurrentSizeIncludingTransitionInPages: super::ULONG64,
+    pub PeakSizeIncludingTransitionInPages: super::ULONG64,
+    pub TransitionRePurposeCount: super::ULONG,
+    pub Flags: super::ULONG,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_INFO {
-    pub ProcessorArchitecture: u16,
-    pub ProcessorLevel: u16,
-    pub ProcessorRevision: u16,
+    pub ProcessorArchitecture: super::USHORT,
+    pub ProcessorLevel: super::USHORT,
+    pub ProcessorRevision: super::USHORT,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0,
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub BuildNumber: u32,
-    pub PlatformId: u32,
+    pub MajorVersion: super::ULONG32,
+    pub MinorVersion: super::ULONG32,
+    pub BuildNumber: super::ULONG32,
+    pub PlatformId: super::ULONG32,
     pub CSDVersionRva: RVA,
     pub Anonymous2: MINIDUMP_SYSTEM_INFO_1,
     pub Cpu: CPU_INFORMATION,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_SYSTEM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_SYSTEM_INFO_0 {
-    pub Reserved0: u16,
+    pub Reserved0: super::USHORT,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_SYSTEM_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
-    pub NumberOfProcessors: u8,
-    pub ProductType: u8,
+    pub NumberOfProcessors: super::UCHAR,
+    pub ProductType: super::UCHAR,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union MINIDUMP_SYSTEM_INFO_1 {
-    pub Reserved1: u32,
+    pub Reserved1: super::ULONG32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_SYSTEM_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
-    pub SuiteMask: u16,
-    pub Reserved2: u16,
+    pub SuiteMask: super::USHORT,
+    pub Reserved2: super::USHORT,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
-    pub Revision: u16,
-    pub Flags: u16,
+    pub Revision: super::USHORT,
+    pub Flags: super::USHORT,
     pub BasicInfo: MINIDUMP_SYSTEM_BASIC_INFORMATION,
     pub FileCacheInfo: MINIDUMP_SYSTEM_FILECACHE_INFORMATION,
     pub BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
     pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_2 {
-    pub Revision: u16,
-    pub Flags: u16,
+    pub Revision: super::USHORT,
+    pub Flags: super::USHORT,
     pub BasicInfo: MINIDUMP_SYSTEM_BASIC_INFORMATION,
     pub FileCacheInfo: MINIDUMP_SYSTEM_FILECACHE_INFORMATION,
     pub BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
     pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2,
 }
+#[cfg(feature = "shared")]
 pub type MINIDUMP_SYSTEM_MEMORY_INFO_N = MINIDUMP_SYSTEM_MEMORY_INFO_2;
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
-    pub IdleProcessTime: u64,
-    pub IoReadTransferCount: u64,
-    pub IoWriteTransferCount: u64,
-    pub IoOtherTransferCount: u64,
-    pub IoReadOperationCount: u32,
-    pub IoWriteOperationCount: u32,
-    pub IoOtherOperationCount: u32,
-    pub AvailablePages: u32,
-    pub CommittedPages: u32,
-    pub CommitLimit: u32,
-    pub PeakCommitment: u32,
-    pub PageFaultCount: u32,
-    pub CopyOnWriteCount: u32,
-    pub TransitionCount: u32,
-    pub CacheTransitionCount: u32,
-    pub DemandZeroCount: u32,
-    pub PageReadCount: u32,
-    pub PageReadIoCount: u32,
-    pub CacheReadCount: u32,
-    pub CacheIoCount: u32,
-    pub DirtyPagesWriteCount: u32,
-    pub DirtyWriteIoCount: u32,
-    pub MappedPagesWriteCount: u32,
-    pub MappedWriteIoCount: u32,
-    pub PagedPoolPages: u32,
-    pub NonPagedPoolPages: u32,
-    pub PagedPoolAllocs: u32,
-    pub PagedPoolFrees: u32,
-    pub NonPagedPoolAllocs: u32,
-    pub NonPagedPoolFrees: u32,
-    pub FreeSystemPtes: u32,
-    pub ResidentSystemCodePage: u32,
-    pub TotalSystemDriverPages: u32,
-    pub TotalSystemCodePages: u32,
-    pub NonPagedPoolLookasideHits: u32,
-    pub PagedPoolLookasideHits: u32,
-    pub AvailablePagedPoolPages: u32,
-    pub ResidentSystemCachePage: u32,
-    pub ResidentPagedPoolPage: u32,
-    pub ResidentSystemDriverPage: u32,
-    pub CcFastReadNoWait: u32,
-    pub CcFastReadWait: u32,
-    pub CcFastReadResourceMiss: u32,
-    pub CcFastReadNotPossible: u32,
-    pub CcFastMdlReadNoWait: u32,
-    pub CcFastMdlReadWait: u32,
-    pub CcFastMdlReadResourceMiss: u32,
-    pub CcFastMdlReadNotPossible: u32,
-    pub CcMapDataNoWait: u32,
-    pub CcMapDataWait: u32,
-    pub CcMapDataNoWaitMiss: u32,
-    pub CcMapDataWaitMiss: u32,
-    pub CcPinMappedDataCount: u32,
-    pub CcPinReadNoWait: u32,
-    pub CcPinReadWait: u32,
-    pub CcPinReadNoWaitMiss: u32,
-    pub CcPinReadWaitMiss: u32,
-    pub CcCopyReadNoWait: u32,
-    pub CcCopyReadWait: u32,
-    pub CcCopyReadNoWaitMiss: u32,
-    pub CcCopyReadWaitMiss: u32,
-    pub CcMdlReadNoWait: u32,
-    pub CcMdlReadWait: u32,
-    pub CcMdlReadNoWaitMiss: u32,
-    pub CcMdlReadWaitMiss: u32,
-    pub CcReadAheadIos: u32,
-    pub CcLazyWriteIos: u32,
-    pub CcLazyWritePages: u32,
-    pub CcDataFlushes: u32,
-    pub CcDataPages: u32,
-    pub ContextSwitches: u32,
-    pub FirstLevelTbFills: u32,
-    pub SecondLevelTbFills: u32,
-    pub SystemCalls: u32,
-    pub CcTotalDirtyPages: u64,
-    pub CcDirtyPageThreshold: u64,
-    pub ResidentAvailablePages: i64,
-    pub SharedCommittedPages: u64,
+    pub IdleProcessTime: super::ULONG64,
+    pub IoReadTransferCount: super::ULONG64,
+    pub IoWriteTransferCount: super::ULONG64,
+    pub IoOtherTransferCount: super::ULONG64,
+    pub IoReadOperationCount: super::ULONG,
+    pub IoWriteOperationCount: super::ULONG,
+    pub IoOtherOperationCount: super::ULONG,
+    pub AvailablePages: super::ULONG,
+    pub CommittedPages: super::ULONG,
+    pub CommitLimit: super::ULONG,
+    pub PeakCommitment: super::ULONG,
+    pub PageFaultCount: super::ULONG,
+    pub CopyOnWriteCount: super::ULONG,
+    pub TransitionCount: super::ULONG,
+    pub CacheTransitionCount: super::ULONG,
+    pub DemandZeroCount: super::ULONG,
+    pub PageReadCount: super::ULONG,
+    pub PageReadIoCount: super::ULONG,
+    pub CacheReadCount: super::ULONG,
+    pub CacheIoCount: super::ULONG,
+    pub DirtyPagesWriteCount: super::ULONG,
+    pub DirtyWriteIoCount: super::ULONG,
+    pub MappedPagesWriteCount: super::ULONG,
+    pub MappedWriteIoCount: super::ULONG,
+    pub PagedPoolPages: super::ULONG,
+    pub NonPagedPoolPages: super::ULONG,
+    pub PagedPoolAllocs: super::ULONG,
+    pub PagedPoolFrees: super::ULONG,
+    pub NonPagedPoolAllocs: super::ULONG,
+    pub NonPagedPoolFrees: super::ULONG,
+    pub FreeSystemPtes: super::ULONG,
+    pub ResidentSystemCodePage: super::ULONG,
+    pub TotalSystemDriverPages: super::ULONG,
+    pub TotalSystemCodePages: super::ULONG,
+    pub NonPagedPoolLookasideHits: super::ULONG,
+    pub PagedPoolLookasideHits: super::ULONG,
+    pub AvailablePagedPoolPages: super::ULONG,
+    pub ResidentSystemCachePage: super::ULONG,
+    pub ResidentPagedPoolPage: super::ULONG,
+    pub ResidentSystemDriverPage: super::ULONG,
+    pub CcFastReadNoWait: super::ULONG,
+    pub CcFastReadWait: super::ULONG,
+    pub CcFastReadResourceMiss: super::ULONG,
+    pub CcFastReadNotPossible: super::ULONG,
+    pub CcFastMdlReadNoWait: super::ULONG,
+    pub CcFastMdlReadWait: super::ULONG,
+    pub CcFastMdlReadResourceMiss: super::ULONG,
+    pub CcFastMdlReadNotPossible: super::ULONG,
+    pub CcMapDataNoWait: super::ULONG,
+    pub CcMapDataWait: super::ULONG,
+    pub CcMapDataNoWaitMiss: super::ULONG,
+    pub CcMapDataWaitMiss: super::ULONG,
+    pub CcPinMappedDataCount: super::ULONG,
+    pub CcPinReadNoWait: super::ULONG,
+    pub CcPinReadWait: super::ULONG,
+    pub CcPinReadNoWaitMiss: super::ULONG,
+    pub CcPinReadWaitMiss: super::ULONG,
+    pub CcCopyReadNoWait: super::ULONG,
+    pub CcCopyReadWait: super::ULONG,
+    pub CcCopyReadNoWaitMiss: super::ULONG,
+    pub CcCopyReadWaitMiss: super::ULONG,
+    pub CcMdlReadNoWait: super::ULONG,
+    pub CcMdlReadWait: super::ULONG,
+    pub CcMdlReadNoWaitMiss: super::ULONG,
+    pub CcMdlReadWaitMiss: super::ULONG,
+    pub CcReadAheadIos: super::ULONG,
+    pub CcLazyWriteIos: super::ULONG,
+    pub CcLazyWritePages: super::ULONG,
+    pub CcDataFlushes: super::ULONG,
+    pub CcDataPages: super::ULONG,
+    pub ContextSwitches: super::ULONG,
+    pub FirstLevelTbFills: super::ULONG,
+    pub SecondLevelTbFills: super::ULONG,
+    pub SystemCalls: super::ULONG,
+    pub CcTotalDirtyPages: super::ULONG64,
+    pub CcDirtyPageThreshold: super::ULONG64,
+    pub ResidentAvailablePages: super::LONG64,
+    pub SharedCommittedPages: super::ULONG64,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2 {
-    pub IdleProcessTime: u64,
-    pub IoReadTransferCount: u64,
-    pub IoWriteTransferCount: u64,
-    pub IoOtherTransferCount: u64,
-    pub IoReadOperationCount: u32,
-    pub IoWriteOperationCount: u32,
-    pub IoOtherOperationCount: u32,
-    pub AvailablePages: u32,
-    pub CommittedPages: u32,
-    pub CommitLimit: u32,
-    pub PeakCommitment: u32,
-    pub PageFaultCount: u32,
-    pub CopyOnWriteCount: u32,
-    pub TransitionCount: u32,
-    pub CacheTransitionCount: u32,
-    pub DemandZeroCount: u32,
-    pub PageReadCount: u32,
-    pub PageReadIoCount: u32,
-    pub CacheReadCount: u32,
-    pub CacheIoCount: u32,
-    pub DirtyPagesWriteCount: u32,
-    pub DirtyWriteIoCount: u32,
-    pub MappedPagesWriteCount: u32,
-    pub MappedWriteIoCount: u32,
-    pub PagedPoolPages: u32,
-    pub NonPagedPoolPages: u32,
-    pub PagedPoolAllocs: u32,
-    pub PagedPoolFrees: u32,
-    pub NonPagedPoolAllocs: u32,
-    pub NonPagedPoolFrees: u32,
-    pub FreeSystemPtes: u32,
-    pub ResidentSystemCodePage: u32,
-    pub TotalSystemDriverPages: u32,
-    pub TotalSystemCodePages: u32,
-    pub NonPagedPoolLookasideHits: u32,
-    pub PagedPoolLookasideHits: u32,
-    pub AvailablePagedPoolPages: u32,
-    pub ResidentSystemCachePage: u32,
-    pub ResidentPagedPoolPage: u32,
-    pub ResidentSystemDriverPage: u32,
-    pub CcFastReadNoWait: u32,
-    pub CcFastReadWait: u32,
-    pub CcFastReadResourceMiss: u32,
-    pub CcFastReadNotPossible: u32,
-    pub CcFastMdlReadNoWait: u32,
-    pub CcFastMdlReadWait: u32,
-    pub CcFastMdlReadResourceMiss: u32,
-    pub CcFastMdlReadNotPossible: u32,
-    pub CcMapDataNoWait: u32,
-    pub CcMapDataWait: u32,
-    pub CcMapDataNoWaitMiss: u32,
-    pub CcMapDataWaitMiss: u32,
-    pub CcPinMappedDataCount: u32,
-    pub CcPinReadNoWait: u32,
-    pub CcPinReadWait: u32,
-    pub CcPinReadNoWaitMiss: u32,
-    pub CcPinReadWaitMiss: u32,
-    pub CcCopyReadNoWait: u32,
-    pub CcCopyReadWait: u32,
-    pub CcCopyReadNoWaitMiss: u32,
-    pub CcCopyReadWaitMiss: u32,
-    pub CcMdlReadNoWait: u32,
-    pub CcMdlReadWait: u32,
-    pub CcMdlReadNoWaitMiss: u32,
-    pub CcMdlReadWaitMiss: u32,
-    pub CcReadAheadIos: u32,
-    pub CcLazyWriteIos: u32,
-    pub CcLazyWritePages: u32,
-    pub CcDataFlushes: u32,
-    pub CcDataPages: u32,
-    pub ContextSwitches: u32,
-    pub FirstLevelTbFills: u32,
-    pub SecondLevelTbFills: u32,
-    pub SystemCalls: u32,
-    pub CcTotalDirtyPages: u64,
-    pub CcDirtyPageThreshold: u64,
-    pub ResidentAvailablePages: i64,
-    pub SharedCommittedPages: u64,
-    pub MdlPagesAllocated: u64,
-    pub PfnDatabaseCommittedPages: u64,
-    pub SystemPageTableCommittedPages: u64,
-    pub ContiguousPagesAllocated: u64,
+    pub IdleProcessTime: super::ULONG64,
+    pub IoReadTransferCount: super::ULONG64,
+    pub IoWriteTransferCount: super::ULONG64,
+    pub IoOtherTransferCount: super::ULONG64,
+    pub IoReadOperationCount: super::ULONG,
+    pub IoWriteOperationCount: super::ULONG,
+    pub IoOtherOperationCount: super::ULONG,
+    pub AvailablePages: super::ULONG,
+    pub CommittedPages: super::ULONG,
+    pub CommitLimit: super::ULONG,
+    pub PeakCommitment: super::ULONG,
+    pub PageFaultCount: super::ULONG,
+    pub CopyOnWriteCount: super::ULONG,
+    pub TransitionCount: super::ULONG,
+    pub CacheTransitionCount: super::ULONG,
+    pub DemandZeroCount: super::ULONG,
+    pub PageReadCount: super::ULONG,
+    pub PageReadIoCount: super::ULONG,
+    pub CacheReadCount: super::ULONG,
+    pub CacheIoCount: super::ULONG,
+    pub DirtyPagesWriteCount: super::ULONG,
+    pub DirtyWriteIoCount: super::ULONG,
+    pub MappedPagesWriteCount: super::ULONG,
+    pub MappedWriteIoCount: super::ULONG,
+    pub PagedPoolPages: super::ULONG,
+    pub NonPagedPoolPages: super::ULONG,
+    pub PagedPoolAllocs: super::ULONG,
+    pub PagedPoolFrees: super::ULONG,
+    pub NonPagedPoolAllocs: super::ULONG,
+    pub NonPagedPoolFrees: super::ULONG,
+    pub FreeSystemPtes: super::ULONG,
+    pub ResidentSystemCodePage: super::ULONG,
+    pub TotalSystemDriverPages: super::ULONG,
+    pub TotalSystemCodePages: super::ULONG,
+    pub NonPagedPoolLookasideHits: super::ULONG,
+    pub PagedPoolLookasideHits: super::ULONG,
+    pub AvailablePagedPoolPages: super::ULONG,
+    pub ResidentSystemCachePage: super::ULONG,
+    pub ResidentPagedPoolPage: super::ULONG,
+    pub ResidentSystemDriverPage: super::ULONG,
+    pub CcFastReadNoWait: super::ULONG,
+    pub CcFastReadWait: super::ULONG,
+    pub CcFastReadResourceMiss: super::ULONG,
+    pub CcFastReadNotPossible: super::ULONG,
+    pub CcFastMdlReadNoWait: super::ULONG,
+    pub CcFastMdlReadWait: super::ULONG,
+    pub CcFastMdlReadResourceMiss: super::ULONG,
+    pub CcFastMdlReadNotPossible: super::ULONG,
+    pub CcMapDataNoWait: super::ULONG,
+    pub CcMapDataWait: super::ULONG,
+    pub CcMapDataNoWaitMiss: super::ULONG,
+    pub CcMapDataWaitMiss: super::ULONG,
+    pub CcPinMappedDataCount: super::ULONG,
+    pub CcPinReadNoWait: super::ULONG,
+    pub CcPinReadWait: super::ULONG,
+    pub CcPinReadNoWaitMiss: super::ULONG,
+    pub CcPinReadWaitMiss: super::ULONG,
+    pub CcCopyReadNoWait: super::ULONG,
+    pub CcCopyReadWait: super::ULONG,
+    pub CcCopyReadNoWaitMiss: super::ULONG,
+    pub CcCopyReadWaitMiss: super::ULONG,
+    pub CcMdlReadNoWait: super::ULONG,
+    pub CcMdlReadWait: super::ULONG,
+    pub CcMdlReadNoWaitMiss: super::ULONG,
+    pub CcMdlReadWaitMiss: super::ULONG,
+    pub CcReadAheadIos: super::ULONG,
+    pub CcLazyWriteIos: super::ULONG,
+    pub CcLazyWritePages: super::ULONG,
+    pub CcDataFlushes: super::ULONG,
+    pub CcDataPages: super::ULONG,
+    pub ContextSwitches: super::ULONG,
+    pub FirstLevelTbFills: super::ULONG,
+    pub SecondLevelTbFills: super::ULONG,
+    pub SystemCalls: super::ULONG,
+    pub CcTotalDirtyPages: super::ULONG64,
+    pub CcDirtyPageThreshold: super::ULONG64,
+    pub ResidentAvailablePages: super::LONG64,
+    pub SharedCommittedPages: super::ULONG64,
+    pub MdlPagesAllocated: super::ULONGLONG,
+    pub PfnDatabaseCommittedPages: super::ULONGLONG,
+    pub SystemPageTableCommittedPages: super::ULONGLONG,
+    pub ContiguousPagesAllocated: super::ULONGLONG,
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD {
-    pub ThreadId: u32,
-    pub SuspendCount: u32,
-    pub PriorityClass: u32,
-    pub Priority: u32,
-    pub Teb: u64,
+    pub ThreadId: super::ULONG32,
+    pub SuspendCount: super::ULONG32,
+    pub PriorityClass: super::ULONG32,
+    pub Priority: super::ULONG32,
+    pub Teb: super::ULONG64,
     pub Stack: MINIDUMP_MEMORY_DESCRIPTOR,
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_THREAD_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::HANDLE,
-    pub Context: super::CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for MINIDUMP_THREAD_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, align(16))]
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_THREAD_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::HANDLE,
-    pub Context: super::CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-impl Default for MINIDUMP_THREAD_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, align(16))]
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_THREAD_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::HANDLE,
-    pub Pad: u32,
-    pub Context: super::CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "winnt")]
-impl Default for MINIDUMP_THREAD_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_EX {
-    pub ThreadId: u32,
-    pub SuspendCount: u32,
-    pub PriorityClass: u32,
-    pub Priority: u32,
-    pub Teb: u64,
+    pub ThreadId: super::ULONG32,
+    pub SuspendCount: super::ULONG32,
+    pub PriorityClass: super::ULONG32,
+    pub Priority: super::ULONG32,
+    pub Teb: super::ULONG64,
     pub Stack: MINIDUMP_MEMORY_DESCRIPTOR,
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
     pub BackingStore: MINIDUMP_MEMORY_DESCRIPTOR,
 }
 #[repr(C, packed(4))]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_THREAD_EX_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::HANDLE,
-    pub Context: super::CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-    pub BackingStoreBase: u64,
-    pub BackingStoreEnd: u64,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for MINIDUMP_THREAD_EX_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, align(16))]
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_THREAD_EX_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::HANDLE,
-    pub Context: super::CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-    pub BackingStoreBase: u64,
-    pub BackingStoreEnd: u64,
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "winnt")]
-impl Default for MINIDUMP_THREAD_EX_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, align(16))]
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
-pub struct MINIDUMP_THREAD_EX_CALLBACK {
-    pub ThreadId: u32,
-    pub ThreadHandle: super::HANDLE,
-    pub Pad: u32,
-    pub Context: super::CONTEXT,
-    pub SizeOfContext: u32,
-    pub StackBase: u64,
-    pub StackEnd: u64,
-    pub BackingStoreBase: u64,
-    pub BackingStoreEnd: u64,
-}
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "winnt")]
-impl Default for MINIDUMP_THREAD_EX_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_LIST {
-    pub NumberOfThreads: u32,
+    pub NumberOfThreads: super::ULONG32,
     pub Threads: [MINIDUMP_THREAD_EX; 0],
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_THREAD_EX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_INFO {
-    pub ThreadId: u32,
-    pub DumpFlags: u32,
-    pub DumpError: u32,
-    pub ExitStatus: u32,
-    pub CreateTime: u64,
-    pub ExitTime: u64,
-    pub KernelTime: u64,
-    pub UserTime: u64,
-    pub StartAddress: u64,
-    pub Affinity: u64,
+    pub ThreadId: super::ULONG32,
+    pub DumpFlags: super::ULONG32,
+    pub DumpError: super::ULONG32,
+    pub ExitStatus: super::ULONG32,
+    pub CreateTime: super::ULONG64,
+    pub ExitTime: super::ULONG64,
+    pub KernelTime: super::ULONG64,
+    pub UserTime: super::ULONG64,
+    pub StartAddress: super::ULONG64,
+    pub Affinity: super::ULONG64,
 }
 pub const MINIDUMP_THREAD_INFO_ERROR_THREAD: i32 = 1;
 pub const MINIDUMP_THREAD_INFO_EXITED_THREAD: i32 = 4;
 pub const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: i32 = 16;
 pub const MINIDUMP_THREAD_INFO_INVALID_INFO: i32 = 8;
 pub const MINIDUMP_THREAD_INFO_INVALID_TEB: i32 = 32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_INFO_LIST {
-    pub SizeOfHeader: u32,
-    pub SizeOfEntry: u32,
-    pub NumberOfEntries: u32,
+    pub SizeOfHeader: super::ULONG,
+    pub SizeOfEntry: super::ULONG,
+    pub NumberOfEntries: super::ULONG,
 }
 pub const MINIDUMP_THREAD_INFO_WRITING_THREAD: i32 = 2;
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_LIST {
-    pub NumberOfThreads: u32,
+    pub NumberOfThreads: super::ULONG32,
     pub Threads: [MINIDUMP_THREAD; 0],
 }
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 impl Default for MINIDUMP_THREAD_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_THREAD_NAME {
-    pub ThreadId: u32,
+    pub ThreadId: super::ULONG,
     pub RvaOfThreadName: RVA64,
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_NAME_LIST {
-    pub NumberOfThreadNames: u32,
+    pub NumberOfThreadNames: super::ULONG,
     pub ThreadNames: [MINIDUMP_THREAD_NAME; 0],
 }
+#[cfg(feature = "shared")]
 impl Default for MINIDUMP_THREAD_NAME_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
-    pub TokenSize: u32,
-    pub TokenId: u32,
-    pub TokenHandle: u64,
+    pub TokenSize: super::ULONG,
+    pub TokenId: super::ULONG,
+    pub TokenHandle: super::ULONG64,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
-    pub TokenListSize: u32,
-    pub TokenListEntries: u32,
-    pub ListHeaderSize: u32,
-    pub ElementHeaderSize: u32,
+    pub TokenListSize: super::ULONG,
+    pub TokenListEntries: super::ULONG,
+    pub ListHeaderSize: super::ULONG,
+    pub ElementHeaderSize: super::ULONG,
 }
 pub type MINIDUMP_TYPE = i32;
 #[repr(C, packed(4))]
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_UNLOADED_MODULE {
-    pub BaseOfImage: u64,
-    pub SizeOfImage: u32,
-    pub CheckSum: u32,
-    pub TimeDateStamp: u32,
+    pub BaseOfImage: super::ULONG64,
+    pub SizeOfImage: super::ULONG32,
+    pub CheckSum: super::ULONG32,
+    pub TimeDateStamp: super::ULONG32,
     pub ModuleNameRva: RVA,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
-    pub SizeOfHeader: u32,
-    pub SizeOfEntry: u32,
-    pub NumberOfEntries: u32,
+    pub SizeOfHeader: super::ULONG32,
+    pub SizeOfEntry: super::ULONG32,
+    pub NumberOfEntries: super::ULONG32,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(4))]
+#[cfg(feature = "basetsd")]
+#[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_USER_RECORD {
-    pub Type: u32,
+    pub Type: super::ULONG32,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
 }
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_USER_STREAM {
-    pub Type: u32,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
-}
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_USER_STREAM {
-    pub Type: u32,
-    pub BufferSize: u32,
-    pub Buffer: *mut core::ffi::c_void,
-}
-#[repr(C)]
-#[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct MINIDUMP_USER_STREAM_INFORMATION {
-    pub UserStreamCount: u32,
-    pub UserStreamArray: PMINIDUMP_USER_STREAM,
+    pub Type: super::ULONG32,
+    pub BufferSize: super::ULONG,
+    pub Buffer: super::PVOID,
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
-    pub UserStreamCount: u32,
+    pub UserStreamCount: super::ULONG,
     pub UserStreamArray: PMINIDUMP_USER_STREAM,
 }
 pub const MINIDUMP_VERSION: i32 = 42899;
 #[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
-    pub Offset: u64,
-    pub Buffer: *mut core::ffi::c_void,
-    pub Size: u32,
-    pub Completed: u32,
+    pub Offset: super::ULONG64,
+    pub Buffer: super::PVOID,
+    pub Size: super::ULONG,
+    pub Completed: super::ULONG,
     pub Status: windows_core::HRESULT,
 }
 #[repr(C, packed(4))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
-    pub Offset: u64,
-    pub Buffer: *mut core::ffi::c_void,
-    pub Size: u32,
+    pub Offset: super::ULONG64,
+    pub Buffer: super::PVOID,
+    pub Size: super::ULONG,
 }
 #[repr(C, packed(4))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
-    pub Offset: u64,
+    pub Offset: super::ULONG64,
 }
 pub type MODULE_WRITE_FLAGS = i32;
 pub const Memory64ListStream: MINIDUMP_STREAM_TYPE = 9;
@@ -1460,93 +1184,141 @@ pub const ModuleWriteDataSeg: MODULE_WRITE_FLAGS = 2;
 pub const ModuleWriteMiscRecord: MODULE_WRITE_FLAGS = 4;
 pub const ModuleWriteModule: MODULE_WRITE_FLAGS = 1;
 pub const ModuleWriteTlsData: MODULE_WRITE_FLAGS = 32;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PCPU_INFORMATION = *mut CPU_INFORMATION;
-#[cfg(all(feature = "basetsd", feature = "verrsrc", feature = "winnt"))]
-pub type PMINIDUMP_CALLBACK_INFORMATION = *mut MINIDUMP_CALLBACK_INFORMATION;
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
-pub type PMINIDUMP_CALLBACK_INPUT = *mut MINIDUMP_CALLBACK_INPUT;
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_CALLBACK_OUTPUT = *mut MINIDUMP_CALLBACK_OUTPUT;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK = *mut MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK;
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK = *mut MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_DIRECTORY = *mut MINIDUMP_DIRECTORY;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_EXCEPTION = *mut MINIDUMP_EXCEPTION;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_EXCEPTION_INFORMATION = *mut MINIDUMP_EXCEPTION_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_EXCEPTION_INFORMATION64 = *mut MINIDUMP_EXCEPTION_INFORMATION64;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_EXCEPTION_STREAM = *mut MINIDUMP_EXCEPTION_STREAM;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_FUNCTION_TABLE_DESCRIPTOR = *mut MINIDUMP_FUNCTION_TABLE_DESCRIPTOR;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_FUNCTION_TABLE_STREAM = *mut MINIDUMP_FUNCTION_TABLE_STREAM;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_HANDLE_DATA_STREAM = *mut MINIDUMP_HANDLE_DATA_STREAM;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_HANDLE_DESCRIPTOR = *mut MINIDUMP_HANDLE_DESCRIPTOR;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_HANDLE_DESCRIPTOR_2 = *mut MINIDUMP_HANDLE_DESCRIPTOR_2;
-pub type PMINIDUMP_HANDLE_DESCRIPTOR_N = *mut MINIDUMP_HANDLE_DESCRIPTOR_N;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
+pub type PMINIDUMP_HANDLE_DESCRIPTOR_N = *mut MINIDUMP_HANDLE_DESCRIPTOR_2;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_HANDLE_OPERATION_LIST = *mut MINIDUMP_HANDLE_OPERATION_LIST;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_HEADER = *mut MINIDUMP_HEADER;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_INCLUDE_MODULE_CALLBACK = *mut MINIDUMP_INCLUDE_MODULE_CALLBACK;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_INCLUDE_THREAD_CALLBACK = *mut MINIDUMP_INCLUDE_THREAD_CALLBACK;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_IO_CALLBACK = *mut MINIDUMP_IO_CALLBACK;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_MEMORY64_LIST = *mut MINIDUMP_MEMORY64_LIST;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_MEMORY_DESCRIPTOR = *mut MINIDUMP_MEMORY_DESCRIPTOR;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_MEMORY_DESCRIPTOR64 = *mut MINIDUMP_MEMORY_DESCRIPTOR64;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_MEMORY_INFO = *mut MINIDUMP_MEMORY_INFO;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_MEMORY_INFO_LIST = *mut MINIDUMP_MEMORY_INFO_LIST;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_MEMORY_LIST = *mut MINIDUMP_MEMORY_LIST;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_MISC_INFO = *mut MINIDUMP_MISC_INFO;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_MISC_INFO_2 = *mut MINIDUMP_MISC_INFO_2;
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
 pub type PMINIDUMP_MISC_INFO_3 = *mut MINIDUMP_MISC_INFO_3;
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
 pub type PMINIDUMP_MISC_INFO_4 = *mut MINIDUMP_MISC_INFO_4;
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
 pub type PMINIDUMP_MISC_INFO_5 = *mut MINIDUMP_MISC_INFO_5;
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi", feature = "winnt"))]
-pub type PMINIDUMP_MISC_INFO_N = *mut MINIDUMP_MISC_INFO_N;
-#[cfg(feature = "verrsrc")]
+#[cfg(all(feature = "basetsd", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
+pub type PMINIDUMP_MISC_INFO_N = *mut MINIDUMP_MISC_INFO_5;
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc"))]
 pub type PMINIDUMP_MODULE = *mut MINIDUMP_MODULE;
-#[cfg(all(feature = "verrsrc", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "verrsrc", feature = "winnt"))]
 pub type PMINIDUMP_MODULE_CALLBACK = *mut MINIDUMP_MODULE_CALLBACK;
-#[cfg(feature = "verrsrc")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "verrsrc"))]
 pub type PMINIDUMP_MODULE_LIST = *mut MINIDUMP_MODULE_LIST;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_PROCESS_VM_COUNTERS_1 = *mut MINIDUMP_PROCESS_VM_COUNTERS_1;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_PROCESS_VM_COUNTERS_2 = *mut MINIDUMP_PROCESS_VM_COUNTERS_2;
-pub type PMINIDUMP_PROCESS_VM_COUNTERS_N = *mut MINIDUMP_PROCESS_VM_COUNTERS_N;
+#[cfg(feature = "shared")]
+pub type PMINIDUMP_PROCESS_VM_COUNTERS_N = *mut MINIDUMP_PROCESS_VM_COUNTERS_2;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_READ_MEMORY_FAILURE_CALLBACK = *mut MINIDUMP_READ_MEMORY_FAILURE_CALLBACK;
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
 pub type PMINIDUMP_STRING = *mut MINIDUMP_STRING;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_SYSTEM_BASIC_INFORMATION = *mut MINIDUMP_SYSTEM_BASIC_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION = *mut MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_SYSTEM_FILECACHE_INFORMATION = *mut MINIDUMP_SYSTEM_FILECACHE_INFORMATION;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_SYSTEM_INFO = *mut MINIDUMP_SYSTEM_INFO;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_SYSTEM_MEMORY_INFO_1 = *mut MINIDUMP_SYSTEM_MEMORY_INFO_1;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_SYSTEM_MEMORY_INFO_2 = *mut MINIDUMP_SYSTEM_MEMORY_INFO_2;
-pub type PMINIDUMP_SYSTEM_MEMORY_INFO_N = *mut MINIDUMP_SYSTEM_MEMORY_INFO_N;
+#[cfg(feature = "shared")]
+pub type PMINIDUMP_SYSTEM_MEMORY_INFO_N = *mut MINIDUMP_SYSTEM_MEMORY_INFO_2;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_SYSTEM_PERFORMANCE_INFORMATION = *mut MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2 = *mut MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION_2;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_THREAD = *mut MINIDUMP_THREAD;
-#[cfg(feature = "winnt")]
-pub type PMINIDUMP_THREAD_CALLBACK = *mut MINIDUMP_THREAD_CALLBACK;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_THREAD_EX = *mut MINIDUMP_THREAD_EX;
-#[cfg(feature = "winnt")]
-pub type PMINIDUMP_THREAD_EX_CALLBACK = *mut MINIDUMP_THREAD_EX_CALLBACK;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_THREAD_EX_LIST = *mut MINIDUMP_THREAD_EX_LIST;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_THREAD_INFO = *mut MINIDUMP_THREAD_INFO;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_THREAD_INFO_LIST = *mut MINIDUMP_THREAD_INFO_LIST;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_THREAD_LIST = *mut MINIDUMP_THREAD_LIST;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_THREAD_NAME = *mut MINIDUMP_THREAD_NAME;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_THREAD_NAME_LIST = *mut MINIDUMP_THREAD_NAME_LIST;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_TOKEN_INFO_HEADER = *mut MINIDUMP_TOKEN_INFO_HEADER;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_TOKEN_INFO_LIST = *mut MINIDUMP_TOKEN_INFO_LIST;
+#[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PMINIDUMP_UNLOADED_MODULE = *mut MINIDUMP_UNLOADED_MODULE;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_UNLOADED_MODULE_LIST = *mut MINIDUMP_UNLOADED_MODULE_LIST;
+#[cfg(feature = "basetsd")]
 pub type PMINIDUMP_USER_RECORD = *mut MINIDUMP_USER_RECORD;
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_USER_STREAM = *mut MINIDUMP_USER_STREAM;
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_USER_STREAM_INFORMATION = *mut MINIDUMP_USER_STREAM_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_VM_POST_READ_CALLBACK = *mut MINIDUMP_VM_POST_READ_CALLBACK;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMINIDUMP_VM_PRE_READ_CALLBACK = *mut MINIDUMP_VM_PRE_READ_CALLBACK;
+#[cfg(feature = "shared")]
 pub type PMINIDUMP_VM_QUERY_CALLBACK = *mut MINIDUMP_VM_QUERY_CALLBACK;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PXSTATE_CONFIG_FEATURE_MSC_INFO = *mut XSTATE_CONFIG_FEATURE_MSC_INFO;
 pub const ProcessVmCountersStream: MINIDUMP_STREAM_TYPE = 22;
 pub type RVA = u32;
@@ -1581,15 +1353,15 @@ pub const VmQueryCallback: MINIDUMP_CALLBACK_TYPE = 18;
 pub const VmStartCallback: MINIDUMP_CALLBACK_TYPE = 17;
 pub const WriteKernelMinidumpCallback: MINIDUMP_CALLBACK_TYPE = 7;
 #[repr(C, packed(4))]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
-    pub SizeOfInfo: u32,
-    pub ContextSize: u32,
-    pub EnabledFeatures: u64,
+    pub SizeOfInfo: super::ULONG32,
+    pub ContextSize: super::ULONG32,
+    pub EnabledFeatures: super::ULONG64,
     pub Features: [super::XSTATE_FEATURE; 64],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 impl Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

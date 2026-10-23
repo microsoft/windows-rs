@@ -13,10 +13,11 @@ impl core::ops::Deref for IAMCollection {
 windows_core::imp::interface_hierarchy!(IAMCollection, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IAMCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_Count(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Item(&self, litem: i32) -> windows_core::Result<windows_core::IUnknown> {
@@ -25,10 +26,10 @@ impl IAMCollection {
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), litem, &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get__NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
 }
@@ -37,23 +38,26 @@ impl IAMCollection {
 #[doc(hidden)]
 pub struct IAMCollection_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_Count: usize,
     pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get__NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAMCollection_Impl: super::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Count(&self) -> windows_core::Result<super::LONG>;
     fn Item(&self, litem: i32) -> windows_core::Result<windows_core::IUnknown>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get__NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAMCollection_Vtbl {
     pub const fn new<Identity: IAMCollection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Count<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAMCollection_Impl::Count(this) {
+                match IAMCollection_Impl::get_Count(this) {
                     Ok(ok__) => {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
@@ -74,10 +78,10 @@ impl IAMCollection_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn _NewEnum<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get__NewEnum<Identity: IAMCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAMCollection_Impl::_NewEnum(this) {
+                match IAMCollection_Impl::get__NewEnum(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -88,16 +92,16 @@ impl IAMCollection_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Count: Count::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
             Item: Item::<Identity, OFFSET>,
-            _NewEnum: _NewEnum::<Identity, OFFSET>,
+            get__NewEnum: get__NewEnum::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAMCollection as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAMCollection {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IAMStats, IAMStats_Vtbl, 0xbc9bcf80_dcd2_11d2_abf6_00a0c905f375);
@@ -115,10 +119,11 @@ impl IAMStats {
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_Count(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn GetValueByIndex(&self, lindex: i32, szname: *mut windows_core::BSTR, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::HRESULT {
@@ -143,22 +148,25 @@ impl IAMStats {
 pub struct IAMStats_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_Count: usize,
     pub GetValueByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void, *mut i32, *mut f64, *mut f64, *mut f64, *mut f64, *mut f64) -> windows_core::HRESULT,
     pub GetValueByName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, *mut i32, *mut f64, *mut f64, *mut f64, *mut f64, *mut f64) -> windows_core::HRESULT,
     pub GetIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub AddValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, f64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IAMStats_Impl: super::IDispatch_Impl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Count(&self) -> windows_core::Result<super::LONG>;
     fn GetValueByIndex(&self, lindex: i32, szname: *mut windows_core::BSTR, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::Result<()>;
     fn GetValueByName(&self, szname: &windows_core::BSTR, lindex: *mut i32, lcount: *mut i32, dlast: *mut f64, daverage: *mut f64, dstddev: *mut f64, dmin: *mut f64, dmax: *mut f64) -> windows_core::Result<()>;
     fn GetIndex(&self, szname: &windows_core::BSTR, lcreate: i32) -> windows_core::Result<i32>;
     fn AddValue(&self, lindex: i32, dvalue: f64) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IAMStats_Vtbl {
     pub const fn new<Identity: IAMStats_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Reset<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -167,10 +175,10 @@ impl IAMStats_Vtbl {
                 IAMStats_Impl::Reset(this).into()
             }
         }
-        unsafe extern "system" fn Count<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Count<Identity: IAMStats_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IAMStats_Impl::Count(this) {
+                match IAMStats_Impl::get_Count(this) {
                     Ok(ok__) => {
                         plcount.write(ok__);
                         windows_core::HRESULT(0)
@@ -212,7 +220,7 @@ impl IAMStats_Vtbl {
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
             Reset: Reset::<Identity, OFFSET>,
-            Count: Count::<Identity, OFFSET>,
+            get_Count: get_Count::<Identity, OFFSET>,
             GetValueByIndex: GetValueByIndex::<Identity, OFFSET>,
             GetValueByName: GetValueByName::<Identity, OFFSET>,
             GetIndex: GetIndex::<Identity, OFFSET>,
@@ -223,7 +231,7 @@ impl IAMStats_Vtbl {
         iid == &<IAMStats as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IAMStats {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBasicAudio, IBasicAudio_Vtbl, 0x56a868b3_0ad4_11ce_b03a_0020af0ba770);
@@ -238,22 +246,22 @@ impl core::ops::Deref for IBasicAudio {
 windows_core::imp::interface_hierarchy!(IBasicAudio, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IBasicAudio {
-    pub unsafe fn SetVolume(&self, lvolume: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetVolume)(windows_core::Interface::as_raw(self), lvolume) }
+    pub unsafe fn put_Volume(&self, lvolume: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Volume)(windows_core::Interface::as_raw(self), lvolume) }
     }
-    pub unsafe fn Volume(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Volume(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Volume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Volume)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBalance(&self, lbalance: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBalance)(windows_core::Interface::as_raw(self), lbalance) }
+    pub unsafe fn put_Balance(&self, lbalance: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Balance)(windows_core::Interface::as_raw(self), lbalance) }
     }
-    pub unsafe fn Balance(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Balance(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Balance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Balance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
 }
@@ -262,31 +270,31 @@ impl IBasicAudio {
 #[doc(hidden)]
 pub struct IBasicAudio_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub SetVolume: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Volume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetBalance: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Balance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Volume: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Volume: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Balance: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Balance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBasicAudio_Impl: super::IDispatch_Impl {
-    fn SetVolume(&self, lvolume: i32) -> windows_core::Result<()>;
-    fn Volume(&self) -> windows_core::Result<i32>;
-    fn SetBalance(&self, lbalance: i32) -> windows_core::Result<()>;
-    fn Balance(&self) -> windows_core::Result<i32>;
+    fn put_Volume(&self, lvolume: i32) -> windows_core::Result<()>;
+    fn get_Volume(&self) -> windows_core::Result<i32>;
+    fn put_Balance(&self, lbalance: i32) -> windows_core::Result<()>;
+    fn get_Balance(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBasicAudio_Vtbl {
     pub const fn new<Identity: IBasicAudio_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetVolume<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvolume: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Volume<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lvolume: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicAudio_Impl::SetVolume(this, core::mem::transmute_copy(&lvolume)).into()
+                IBasicAudio_Impl::put_Volume(this, core::mem::transmute_copy(&lvolume)).into()
             }
         }
-        unsafe extern "system" fn Volume<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plvolume: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Volume<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plvolume: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicAudio_Impl::Volume(this) {
+                match IBasicAudio_Impl::get_Volume(this) {
                     Ok(ok__) => {
                         plvolume.write(ok__);
                         windows_core::HRESULT(0)
@@ -295,16 +303,16 @@ impl IBasicAudio_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBalance<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lbalance: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Balance<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lbalance: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicAudio_Impl::SetBalance(this, core::mem::transmute_copy(&lbalance)).into()
+                IBasicAudio_Impl::put_Balance(this, core::mem::transmute_copy(&lbalance)).into()
             }
         }
-        unsafe extern "system" fn Balance<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbalance: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Balance<Identity: IBasicAudio_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plbalance: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicAudio_Impl::Balance(this) {
+                match IBasicAudio_Impl::get_Balance(this) {
                     Ok(ok__) => {
                         plbalance.write(ok__);
                         windows_core::HRESULT(0)
@@ -315,17 +323,17 @@ impl IBasicAudio_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            SetVolume: SetVolume::<Identity, OFFSET>,
-            Volume: Volume::<Identity, OFFSET>,
-            SetBalance: SetBalance::<Identity, OFFSET>,
-            Balance: Balance::<Identity, OFFSET>,
+            put_Volume: put_Volume::<Identity, OFFSET>,
+            get_Volume: get_Volume::<Identity, OFFSET>,
+            put_Balance: put_Balance::<Identity, OFFSET>,
+            get_Balance: get_Balance::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IBasicAudio as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBasicAudio {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBasicVideo, IBasicVideo_Vtbl, 0x56a868b5_0ad4_11ce_b03a_0020af0ba770);
@@ -340,107 +348,107 @@ impl core::ops::Deref for IBasicVideo {
 windows_core::imp::interface_hierarchy!(IBasicVideo, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IBasicVideo {
-    #[cfg(feature = "strmif")]
-    pub unsafe fn AvgTimePerFrame(&self) -> windows_core::Result<super::REFTIME> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_AvgTimePerFrame(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AvgTimePerFrame)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AvgTimePerFrame)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BitRate(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_BitRate(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BitRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_BitRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BitErrorRate(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_BitErrorRate(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BitErrorRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_BitErrorRate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VideoWidth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_VideoWidth(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VideoWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_VideoWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VideoHeight(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_VideoHeight(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VideoHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_VideoHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSourceLeft(&self, sourceleft: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceLeft)(windows_core::Interface::as_raw(self), sourceleft) }
+    pub unsafe fn put_SourceLeft(&self, sourceleft: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SourceLeft)(windows_core::Interface::as_raw(self), sourceleft) }
     }
-    pub unsafe fn SourceLeft(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_SourceLeft(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceLeft)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_SourceLeft)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSourceWidth(&self, sourcewidth: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceWidth)(windows_core::Interface::as_raw(self), sourcewidth) }
+    pub unsafe fn put_SourceWidth(&self, sourcewidth: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SourceWidth)(windows_core::Interface::as_raw(self), sourcewidth) }
     }
-    pub unsafe fn SourceWidth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_SourceWidth(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_SourceWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSourceTop(&self, sourcetop: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceTop)(windows_core::Interface::as_raw(self), sourcetop) }
+    pub unsafe fn put_SourceTop(&self, sourcetop: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SourceTop)(windows_core::Interface::as_raw(self), sourcetop) }
     }
-    pub unsafe fn SourceTop(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_SourceTop(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceTop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_SourceTop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSourceHeight(&self, sourceheight: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSourceHeight)(windows_core::Interface::as_raw(self), sourceheight) }
+    pub unsafe fn put_SourceHeight(&self, sourceheight: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_SourceHeight)(windows_core::Interface::as_raw(self), sourceheight) }
     }
-    pub unsafe fn SourceHeight(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_SourceHeight(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SourceHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_SourceHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDestinationLeft(&self, destinationleft: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDestinationLeft)(windows_core::Interface::as_raw(self), destinationleft) }
+    pub unsafe fn put_DestinationLeft(&self, destinationleft: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DestinationLeft)(windows_core::Interface::as_raw(self), destinationleft) }
     }
-    pub unsafe fn DestinationLeft(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_DestinationLeft(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DestinationLeft)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DestinationLeft)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDestinationWidth(&self, destinationwidth: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDestinationWidth)(windows_core::Interface::as_raw(self), destinationwidth) }
+    pub unsafe fn put_DestinationWidth(&self, destinationwidth: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DestinationWidth)(windows_core::Interface::as_raw(self), destinationwidth) }
     }
-    pub unsafe fn DestinationWidth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_DestinationWidth(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DestinationWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DestinationWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDestinationTop(&self, destinationtop: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDestinationTop)(windows_core::Interface::as_raw(self), destinationtop) }
+    pub unsafe fn put_DestinationTop(&self, destinationtop: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DestinationTop)(windows_core::Interface::as_raw(self), destinationtop) }
     }
-    pub unsafe fn DestinationTop(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_DestinationTop(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DestinationTop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DestinationTop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDestinationHeight(&self, destinationheight: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDestinationHeight)(windows_core::Interface::as_raw(self), destinationheight) }
+    pub unsafe fn put_DestinationHeight(&self, destinationheight: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_DestinationHeight)(windows_core::Interface::as_raw(self), destinationheight) }
     }
-    pub unsafe fn DestinationHeight(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_DestinationHeight(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DestinationHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_DestinationHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn SetSourcePosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT {
@@ -482,30 +490,30 @@ impl IBasicVideo {
 #[doc(hidden)]
 pub struct IBasicVideo_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(feature = "strmif")]
-    pub AvgTimePerFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    AvgTimePerFrame: usize,
-    pub BitRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub BitErrorRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub VideoWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub VideoHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetSourceLeft: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SourceLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetSourceWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SourceWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetSourceTop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SourceTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetSourceHeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SourceHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetDestinationLeft: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub DestinationLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetDestinationWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub DestinationWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetDestinationTop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub DestinationTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetDestinationHeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub DestinationHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_AvgTimePerFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_AvgTimePerFrame: usize,
+    pub get_BitRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_BitErrorRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_VideoWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub get_VideoHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_SourceLeft: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_SourceLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_SourceWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_SourceWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_SourceTop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_SourceTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_SourceHeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_SourceHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_DestinationLeft: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_DestinationLeft: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_DestinationWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_DestinationWidth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_DestinationTop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_DestinationTop: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_DestinationHeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_DestinationHeight: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetSourcePosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
     pub GetSourcePosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub SetDefaultSourcePosition: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -518,29 +526,29 @@ pub struct IBasicVideo_Vtbl {
     pub IsUsingDefaultSource: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsUsingDefaultDestination: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBasicVideo_Impl: super::IDispatch_Impl {
-    fn AvgTimePerFrame(&self) -> windows_core::Result<super::REFTIME>;
-    fn BitRate(&self) -> windows_core::Result<i32>;
-    fn BitErrorRate(&self) -> windows_core::Result<i32>;
-    fn VideoWidth(&self) -> windows_core::Result<i32>;
-    fn VideoHeight(&self) -> windows_core::Result<i32>;
-    fn SetSourceLeft(&self, sourceleft: i32) -> windows_core::Result<()>;
-    fn SourceLeft(&self) -> windows_core::Result<i32>;
-    fn SetSourceWidth(&self, sourcewidth: i32) -> windows_core::Result<()>;
-    fn SourceWidth(&self) -> windows_core::Result<i32>;
-    fn SetSourceTop(&self, sourcetop: i32) -> windows_core::Result<()>;
-    fn SourceTop(&self) -> windows_core::Result<i32>;
-    fn SetSourceHeight(&self, sourceheight: i32) -> windows_core::Result<()>;
-    fn SourceHeight(&self) -> windows_core::Result<i32>;
-    fn SetDestinationLeft(&self, destinationleft: i32) -> windows_core::Result<()>;
-    fn DestinationLeft(&self) -> windows_core::Result<i32>;
-    fn SetDestinationWidth(&self, destinationwidth: i32) -> windows_core::Result<()>;
-    fn DestinationWidth(&self) -> windows_core::Result<i32>;
-    fn SetDestinationTop(&self, destinationtop: i32) -> windows_core::Result<()>;
-    fn DestinationTop(&self) -> windows_core::Result<i32>;
-    fn SetDestinationHeight(&self, destinationheight: i32) -> windows_core::Result<()>;
-    fn DestinationHeight(&self) -> windows_core::Result<i32>;
+    fn get_AvgTimePerFrame(&self) -> windows_core::Result<super::REFTIME>;
+    fn get_BitRate(&self) -> windows_core::Result<i32>;
+    fn get_BitErrorRate(&self) -> windows_core::Result<i32>;
+    fn get_VideoWidth(&self) -> windows_core::Result<i32>;
+    fn get_VideoHeight(&self) -> windows_core::Result<i32>;
+    fn put_SourceLeft(&self, sourceleft: i32) -> windows_core::Result<()>;
+    fn get_SourceLeft(&self) -> windows_core::Result<i32>;
+    fn put_SourceWidth(&self, sourcewidth: i32) -> windows_core::Result<()>;
+    fn get_SourceWidth(&self) -> windows_core::Result<i32>;
+    fn put_SourceTop(&self, sourcetop: i32) -> windows_core::Result<()>;
+    fn get_SourceTop(&self) -> windows_core::Result<i32>;
+    fn put_SourceHeight(&self, sourceheight: i32) -> windows_core::Result<()>;
+    fn get_SourceHeight(&self) -> windows_core::Result<i32>;
+    fn put_DestinationLeft(&self, destinationleft: i32) -> windows_core::Result<()>;
+    fn get_DestinationLeft(&self) -> windows_core::Result<i32>;
+    fn put_DestinationWidth(&self, destinationwidth: i32) -> windows_core::Result<()>;
+    fn get_DestinationWidth(&self) -> windows_core::Result<i32>;
+    fn put_DestinationTop(&self, destinationtop: i32) -> windows_core::Result<()>;
+    fn get_DestinationTop(&self) -> windows_core::Result<i32>;
+    fn put_DestinationHeight(&self, destinationheight: i32) -> windows_core::Result<()>;
+    fn get_DestinationHeight(&self) -> windows_core::Result<i32>;
     fn SetSourcePosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::Result<()>;
     fn GetSourcePosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
     fn SetDefaultSourcePosition(&self) -> windows_core::Result<()>;
@@ -553,13 +561,13 @@ pub trait IBasicVideo_Impl: super::IDispatch_Impl {
     fn IsUsingDefaultSource(&self) -> windows_core::Result<()>;
     fn IsUsingDefaultDestination(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBasicVideo_Vtbl {
     pub const fn new<Identity: IBasicVideo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn AvgTimePerFrame<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pavgtimeperframe: *mut super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AvgTimePerFrame<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pavgtimeperframe: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::AvgTimePerFrame(this) {
+                match IBasicVideo_Impl::get_AvgTimePerFrame(this) {
                     Ok(ok__) => {
                         pavgtimeperframe.write(ok__);
                         windows_core::HRESULT(0)
@@ -568,10 +576,10 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BitRate<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitrate: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_BitRate<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbitrate: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::BitRate(this) {
+                match IBasicVideo_Impl::get_BitRate(this) {
                     Ok(ok__) => {
                         pbitrate.write(ok__);
                         windows_core::HRESULT(0)
@@ -580,10 +588,10 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BitErrorRate<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbiterrorrate: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_BitErrorRate<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbiterrorrate: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::BitErrorRate(this) {
+                match IBasicVideo_Impl::get_BitErrorRate(this) {
                     Ok(ok__) => {
                         pbiterrorrate.write(ok__);
                         windows_core::HRESULT(0)
@@ -592,10 +600,10 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn VideoWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideowidth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_VideoWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideowidth: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::VideoWidth(this) {
+                match IBasicVideo_Impl::get_VideoWidth(this) {
                     Ok(ok__) => {
                         pvideowidth.write(ok__);
                         windows_core::HRESULT(0)
@@ -604,10 +612,10 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn VideoHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideoheight: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_VideoHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideoheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::VideoHeight(this) {
+                match IBasicVideo_Impl::get_VideoHeight(this) {
                     Ok(ok__) => {
                         pvideoheight.write(ok__);
                         windows_core::HRESULT(0)
@@ -616,16 +624,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSourceLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceleft: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SourceLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceleft: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceLeft(this, core::mem::transmute_copy(&sourceleft)).into()
+                IBasicVideo_Impl::put_SourceLeft(this, core::mem::transmute_copy(&sourceleft)).into()
             }
         }
-        unsafe extern "system" fn SourceLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceleft: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SourceLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceleft: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::SourceLeft(this) {
+                match IBasicVideo_Impl::get_SourceLeft(this) {
                     Ok(ok__) => {
                         psourceleft.write(ok__);
                         windows_core::HRESULT(0)
@@ -634,16 +642,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSourceWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcewidth: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SourceWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcewidth: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceWidth(this, core::mem::transmute_copy(&sourcewidth)).into()
+                IBasicVideo_Impl::put_SourceWidth(this, core::mem::transmute_copy(&sourcewidth)).into()
             }
         }
-        unsafe extern "system" fn SourceWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcewidth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SourceWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcewidth: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::SourceWidth(this) {
+                match IBasicVideo_Impl::get_SourceWidth(this) {
                     Ok(ok__) => {
                         psourcewidth.write(ok__);
                         windows_core::HRESULT(0)
@@ -652,16 +660,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSourceTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcetop: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SourceTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcetop: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceTop(this, core::mem::transmute_copy(&sourcetop)).into()
+                IBasicVideo_Impl::put_SourceTop(this, core::mem::transmute_copy(&sourcetop)).into()
             }
         }
-        unsafe extern "system" fn SourceTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcetop: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SourceTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcetop: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::SourceTop(this) {
+                match IBasicVideo_Impl::get_SourceTop(this) {
                     Ok(ok__) => {
                         psourcetop.write(ok__);
                         windows_core::HRESULT(0)
@@ -670,16 +678,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSourceHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceheight: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_SourceHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourceheight: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetSourceHeight(this, core::mem::transmute_copy(&sourceheight)).into()
+                IBasicVideo_Impl::put_SourceHeight(this, core::mem::transmute_copy(&sourceheight)).into()
             }
         }
-        unsafe extern "system" fn SourceHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceheight: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_SourceHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourceheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::SourceHeight(this) {
+                match IBasicVideo_Impl::get_SourceHeight(this) {
                     Ok(ok__) => {
                         psourceheight.write(ok__);
                         windows_core::HRESULT(0)
@@ -688,16 +696,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDestinationLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationleft: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DestinationLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationleft: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationLeft(this, core::mem::transmute_copy(&destinationleft)).into()
+                IBasicVideo_Impl::put_DestinationLeft(this, core::mem::transmute_copy(&destinationleft)).into()
             }
         }
-        unsafe extern "system" fn DestinationLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationleft: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DestinationLeft<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationleft: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::DestinationLeft(this) {
+                match IBasicVideo_Impl::get_DestinationLeft(this) {
                     Ok(ok__) => {
                         pdestinationleft.write(ok__);
                         windows_core::HRESULT(0)
@@ -706,16 +714,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDestinationWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationwidth: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DestinationWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationwidth: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationWidth(this, core::mem::transmute_copy(&destinationwidth)).into()
+                IBasicVideo_Impl::put_DestinationWidth(this, core::mem::transmute_copy(&destinationwidth)).into()
             }
         }
-        unsafe extern "system" fn DestinationWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationwidth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DestinationWidth<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationwidth: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::DestinationWidth(this) {
+                match IBasicVideo_Impl::get_DestinationWidth(this) {
                     Ok(ok__) => {
                         pdestinationwidth.write(ok__);
                         windows_core::HRESULT(0)
@@ -724,16 +732,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDestinationTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationtop: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DestinationTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationtop: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationTop(this, core::mem::transmute_copy(&destinationtop)).into()
+                IBasicVideo_Impl::put_DestinationTop(this, core::mem::transmute_copy(&destinationtop)).into()
             }
         }
-        unsafe extern "system" fn DestinationTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationtop: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DestinationTop<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationtop: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::DestinationTop(this) {
+                match IBasicVideo_Impl::get_DestinationTop(this) {
                     Ok(ok__) => {
                         pdestinationtop.write(ok__);
                         windows_core::HRESULT(0)
@@ -742,16 +750,16 @@ impl IBasicVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetDestinationHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationheight: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_DestinationHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destinationheight: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBasicVideo_Impl::SetDestinationHeight(this, core::mem::transmute_copy(&destinationheight)).into()
+                IBasicVideo_Impl::put_DestinationHeight(this, core::mem::transmute_copy(&destinationheight)).into()
             }
         }
-        unsafe extern "system" fn DestinationHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationheight: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_DestinationHeight<Identity: IBasicVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdestinationheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBasicVideo_Impl::DestinationHeight(this) {
+                match IBasicVideo_Impl::get_DestinationHeight(this) {
                     Ok(ok__) => {
                         pdestinationheight.write(ok__);
                         windows_core::HRESULT(0)
@@ -828,27 +836,27 @@ impl IBasicVideo_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            AvgTimePerFrame: AvgTimePerFrame::<Identity, OFFSET>,
-            BitRate: BitRate::<Identity, OFFSET>,
-            BitErrorRate: BitErrorRate::<Identity, OFFSET>,
-            VideoWidth: VideoWidth::<Identity, OFFSET>,
-            VideoHeight: VideoHeight::<Identity, OFFSET>,
-            SetSourceLeft: SetSourceLeft::<Identity, OFFSET>,
-            SourceLeft: SourceLeft::<Identity, OFFSET>,
-            SetSourceWidth: SetSourceWidth::<Identity, OFFSET>,
-            SourceWidth: SourceWidth::<Identity, OFFSET>,
-            SetSourceTop: SetSourceTop::<Identity, OFFSET>,
-            SourceTop: SourceTop::<Identity, OFFSET>,
-            SetSourceHeight: SetSourceHeight::<Identity, OFFSET>,
-            SourceHeight: SourceHeight::<Identity, OFFSET>,
-            SetDestinationLeft: SetDestinationLeft::<Identity, OFFSET>,
-            DestinationLeft: DestinationLeft::<Identity, OFFSET>,
-            SetDestinationWidth: SetDestinationWidth::<Identity, OFFSET>,
-            DestinationWidth: DestinationWidth::<Identity, OFFSET>,
-            SetDestinationTop: SetDestinationTop::<Identity, OFFSET>,
-            DestinationTop: DestinationTop::<Identity, OFFSET>,
-            SetDestinationHeight: SetDestinationHeight::<Identity, OFFSET>,
-            DestinationHeight: DestinationHeight::<Identity, OFFSET>,
+            get_AvgTimePerFrame: get_AvgTimePerFrame::<Identity, OFFSET>,
+            get_BitRate: get_BitRate::<Identity, OFFSET>,
+            get_BitErrorRate: get_BitErrorRate::<Identity, OFFSET>,
+            get_VideoWidth: get_VideoWidth::<Identity, OFFSET>,
+            get_VideoHeight: get_VideoHeight::<Identity, OFFSET>,
+            put_SourceLeft: put_SourceLeft::<Identity, OFFSET>,
+            get_SourceLeft: get_SourceLeft::<Identity, OFFSET>,
+            put_SourceWidth: put_SourceWidth::<Identity, OFFSET>,
+            get_SourceWidth: get_SourceWidth::<Identity, OFFSET>,
+            put_SourceTop: put_SourceTop::<Identity, OFFSET>,
+            get_SourceTop: get_SourceTop::<Identity, OFFSET>,
+            put_SourceHeight: put_SourceHeight::<Identity, OFFSET>,
+            get_SourceHeight: get_SourceHeight::<Identity, OFFSET>,
+            put_DestinationLeft: put_DestinationLeft::<Identity, OFFSET>,
+            get_DestinationLeft: get_DestinationLeft::<Identity, OFFSET>,
+            put_DestinationWidth: put_DestinationWidth::<Identity, OFFSET>,
+            get_DestinationWidth: get_DestinationWidth::<Identity, OFFSET>,
+            put_DestinationTop: put_DestinationTop::<Identity, OFFSET>,
+            get_DestinationTop: get_DestinationTop::<Identity, OFFSET>,
+            put_DestinationHeight: put_DestinationHeight::<Identity, OFFSET>,
+            get_DestinationHeight: get_DestinationHeight::<Identity, OFFSET>,
             SetSourcePosition: SetSourcePosition::<Identity, OFFSET>,
             GetSourcePosition: GetSourcePosition::<Identity, OFFSET>,
             SetDefaultSourcePosition: SetDefaultSourcePosition::<Identity, OFFSET>,
@@ -866,7 +874,7 @@ impl IBasicVideo_Vtbl {
         iid == &<IBasicVideo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBasicVideo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IBasicVideo2, IBasicVideo2_Vtbl, 0x329bb360_f6ea_11d1_9038_00a0c9697298);
@@ -892,11 +900,11 @@ pub struct IBasicVideo2_Vtbl {
     pub base__: IBasicVideo_Vtbl,
     pub GetPreferredAspectRatio: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IBasicVideo2_Impl: IBasicVideo_Impl {
     fn GetPreferredAspectRatio(&self, plaspectx: *mut i32, plaspecty: *mut i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IBasicVideo2_Vtbl {
     pub const fn new<Identity: IBasicVideo2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPreferredAspectRatio<Identity: IBasicVideo2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plaspectx: *mut i32, plaspecty: *mut i32) -> windows_core::HRESULT {
@@ -911,7 +919,7 @@ impl IBasicVideo2_Vtbl {
         iid == &<IBasicVideo2 as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IBasicVideo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IBasicVideo2 {}
 windows_core::imp::define_interface!(IDeferredCommand, IDeferredCommand_Vtbl, 0x56a868b8_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IDeferredCommand, windows_core::IUnknown);
@@ -919,13 +927,14 @@ impl IDeferredCommand {
     pub unsafe fn Cancel(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Confidence(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn Confidence(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "strmif")]
+    #[cfg(feature = "shared")]
     pub unsafe fn Postpone(&self, newtime: super::REFTIME) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Postpone)(windows_core::Interface::as_raw(self), newtime) }
     }
@@ -941,21 +950,24 @@ impl IDeferredCommand {
 pub struct IDeferredCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "strmif")]
+    #[cfg(feature = "shared")]
+    pub Confidence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    Confidence: usize,
+    #[cfg(feature = "shared")]
     pub Postpone: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
+    #[cfg(not(feature = "shared"))]
     Postpone: usize,
     pub GetHResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
-#[cfg(feature = "strmif")]
+#[cfg(feature = "shared")]
 pub trait IDeferredCommand_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self) -> windows_core::Result<()>;
-    fn Confidence(&self) -> windows_core::Result<i32>;
+    fn Confidence(&self) -> windows_core::Result<super::LONG>;
     fn Postpone(&self, newtime: super::REFTIME) -> windows_core::Result<()>;
     fn GetHResult(&self) -> windows_core::Result<windows_core::HRESULT>;
 }
-#[cfg(feature = "strmif")]
+#[cfg(feature = "shared")]
 impl IDeferredCommand_Vtbl {
     pub const fn new<Identity: IDeferredCommand_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Cancel<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -964,7 +976,7 @@ impl IDeferredCommand_Vtbl {
                 IDeferredCommand_Impl::Cancel(this).into()
             }
         }
-        unsafe extern "system" fn Confidence<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconfidence: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Confidence<Identity: IDeferredCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pconfidence: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDeferredCommand_Impl::Confidence(this) {
@@ -1006,7 +1018,7 @@ impl IDeferredCommand_Vtbl {
         iid == &<IDeferredCommand as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "strmif")]
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IDeferredCommand {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IFilterInfo, IFilterInfo_Vtbl, 0x56a868ba_0ad4_11ce_b03a_0020af0ba770);
@@ -1027,44 +1039,45 @@ impl IFilterInfo {
             (windows_core::Interface::vtable(self).FindPin)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpinid), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VendorInfo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_VendorInfo(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VendorInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_VendorInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Filter(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get_Filter(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Filter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Filter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Pins(&self) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_Pins(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Pins)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Pins)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsFileSource(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_IsFileSource(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsFileSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_IsFileSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Filename(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Filename(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Filename)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Filename)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFilename(&self, strfilename: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFilename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename)) }
+    pub unsafe fn put_Filename(&self, strfilename: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Filename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename)) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -1073,26 +1086,29 @@ impl IFilterInfo {
 pub struct IFilterInfo_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub FindPin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub VendorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Filter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Pins: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub IsFileSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub Filename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetFilename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_VendorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Filter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Pins: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_IsFileSource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_IsFileSource: usize,
+    pub get_Filename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_Filename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IFilterInfo_Impl: super::IDispatch_Impl {
     fn FindPin(&self, strpinid: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VendorInfo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Filter(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Pins(&self) -> windows_core::Result<super::IDispatch>;
-    fn IsFileSource(&self) -> windows_core::Result<i32>;
-    fn Filename(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFilename(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_Name(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_VendorInfo(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Filter(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Pins(&self) -> windows_core::Result<super::IDispatch>;
+    fn get_IsFileSource(&self) -> windows_core::Result<super::LONG>;
+    fn get_Filename(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn put_Filename(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IFilterInfo_Vtbl {
     pub const fn new<Identity: IFilterInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn FindPin<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1107,10 +1123,10 @@ impl IFilterInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Name<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::Name(this) {
+                match IFilterInfo_Impl::get_Name(this) {
                     Ok(ok__) => {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1119,10 +1135,10 @@ impl IFilterInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn VendorInfo<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvendorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_VendorInfo<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strvendorinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::VendorInfo(this) {
+                match IFilterInfo_Impl::get_VendorInfo(this) {
                     Ok(ok__) => {
                         strvendorinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1131,10 +1147,10 @@ impl IFilterInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Filter<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Filter<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::Filter(this) {
+                match IFilterInfo_Impl::get_Filter(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1143,10 +1159,10 @@ impl IFilterInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Pins<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Pins<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::Pins(this) {
+                match IFilterInfo_Impl::get_Pins(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1155,10 +1171,10 @@ impl IFilterInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn IsFileSource<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbissource: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_IsFileSource<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbissource: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::IsFileSource(this) {
+                match IFilterInfo_Impl::get_IsFileSource(this) {
                     Ok(ok__) => {
                         pbissource.write(ok__);
                         windows_core::HRESULT(0)
@@ -1167,10 +1183,10 @@ impl IFilterInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Filename<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrfilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Filename<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstrfilename: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IFilterInfo_Impl::Filename(this) {
+                match IFilterInfo_Impl::get_Filename(this) {
                     Ok(ok__) => {
                         pstrfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1179,30 +1195,46 @@ impl IFilterInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFilename<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Filename<Identity: IFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strfilename: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IFilterInfo_Impl::SetFilename(this, core::mem::transmute(&strfilename)).into()
+                IFilterInfo_Impl::put_Filename(this, core::mem::transmute(&strfilename)).into()
             }
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
             FindPin: FindPin::<Identity, OFFSET>,
-            Name: Name::<Identity, OFFSET>,
-            VendorInfo: VendorInfo::<Identity, OFFSET>,
-            Filter: Filter::<Identity, OFFSET>,
-            Pins: Pins::<Identity, OFFSET>,
-            IsFileSource: IsFileSource::<Identity, OFFSET>,
-            Filename: Filename::<Identity, OFFSET>,
-            SetFilename: SetFilename::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
+            get_VendorInfo: get_VendorInfo::<Identity, OFFSET>,
+            get_Filter: get_Filter::<Identity, OFFSET>,
+            get_Pins: get_Pins::<Identity, OFFSET>,
+            get_IsFileSource: get_IsFileSource::<Identity, OFFSET>,
+            get_Filename: get_Filename::<Identity, OFFSET>,
+            put_Filename: put_Filename::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IFilterInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFilterInfo {}
+pub const IID_IAMCollection: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b9_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IAMStats: windows_core::GUID = windows_core::GUID::from_u128(0xbc9bcf80_dcd2_11d2_abf6_00a0c905f375);
+pub const IID_IBasicAudio: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b3_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IBasicVideo: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b5_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IBasicVideo2: windows_core::GUID = windows_core::GUID::from_u128(0x329bb360_f6ea_11d1_9038_00a0c9697298);
+pub const IID_IDeferredCommand: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b8_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IFilterInfo: windows_core::GUID = windows_core::GUID::from_u128(0x56a868ba_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IMediaControl: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b1_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IMediaEvent: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b6_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IMediaEventEx: windows_core::GUID = windows_core::GUID::from_u128(0x56a868c0_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IMediaPosition: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b2_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IMediaTypeInfo: windows_core::GUID = windows_core::GUID::from_u128(0x56a868bc_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IPinInfo: windows_core::GUID = windows_core::GUID::from_u128(0x56a868bd_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IQueueCommand: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b7_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IRegFilterInfo: windows_core::GUID = windows_core::GUID::from_u128(0x56a868bb_0ad4_11ce_b03a_0020af0ba770);
+pub const IID_IVideoWindow: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b4_0ad4_11ce_b03a_0020af0ba770);
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMediaControl, IMediaControl_Vtbl, 0x56a868b1_0ad4_11ce_b03a_0020af0ba770);
 #[cfg(feature = "oaidl")]
@@ -1225,7 +1257,8 @@ impl IMediaControl {
     pub unsafe fn Stop(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetState(&self, mstimeout: i32) -> windows_core::Result<OAFilterState> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetState(&self, mstimeout: super::LONG) -> windows_core::Result<OAFilterState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), mstimeout, &mut result__).map(|| result__)
@@ -1240,16 +1273,16 @@ impl IMediaControl {
             (windows_core::Interface::vtable(self).AddSourceFilter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strfilename), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FilterCollection(&self) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_FilterCollection(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FilterCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_FilterCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RegFilterCollection(&self) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_RegFilterCollection(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegFilterCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_RegFilterCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn StopWhenReady(&self) -> windows_core::HRESULT {
@@ -1264,26 +1297,29 @@ pub struct IMediaControl_Vtbl {
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut OAFilterState) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetState: unsafe extern "system" fn(*mut core::ffi::c_void, super::LONG, *mut OAFilterState) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetState: usize,
     pub RenderFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddSourceFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FilterCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub RegFilterCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_FilterCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_RegFilterCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopWhenReady: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaControl_Impl: super::IDispatch_Impl {
     fn Run(&self) -> windows_core::Result<()>;
     fn Pause(&self) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
-    fn GetState(&self, mstimeout: i32) -> windows_core::Result<OAFilterState>;
+    fn GetState(&self, mstimeout: super::LONG) -> windows_core::Result<OAFilterState>;
     fn RenderFile(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn AddSourceFilter(&self, strfilename: &windows_core::BSTR) -> windows_core::Result<super::IDispatch>;
-    fn FilterCollection(&self) -> windows_core::Result<super::IDispatch>;
-    fn RegFilterCollection(&self) -> windows_core::Result<super::IDispatch>;
+    fn get_FilterCollection(&self) -> windows_core::Result<super::IDispatch>;
+    fn get_RegFilterCollection(&self) -> windows_core::Result<super::IDispatch>;
     fn StopWhenReady(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaControl_Vtbl {
     pub const fn new<Identity: IMediaControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Run<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1304,7 +1340,7 @@ impl IMediaControl_Vtbl {
                 IMediaControl_Impl::Stop(this).into()
             }
         }
-        unsafe extern "system" fn GetState<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: i32, pfs: *mut OAFilterState) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetState<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mstimeout: super::LONG, pfs: *mut OAFilterState) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaControl_Impl::GetState(this, core::mem::transmute_copy(&mstimeout)) {
@@ -1334,10 +1370,10 @@ impl IMediaControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FilterCollection<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_FilterCollection<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaControl_Impl::FilterCollection(this) {
+                match IMediaControl_Impl::get_FilterCollection(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1346,10 +1382,10 @@ impl IMediaControl_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RegFilterCollection<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_RegFilterCollection<Identity: IMediaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaControl_Impl::RegFilterCollection(this) {
+                match IMediaControl_Impl::get_RegFilterCollection(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1372,8 +1408,8 @@ impl IMediaControl_Vtbl {
             GetState: GetState::<Identity, OFFSET>,
             RenderFile: RenderFile::<Identity, OFFSET>,
             AddSourceFilter: AddSourceFilter::<Identity, OFFSET>,
-            FilterCollection: FilterCollection::<Identity, OFFSET>,
-            RegFilterCollection: RegFilterCollection::<Identity, OFFSET>,
+            get_FilterCollection: get_FilterCollection::<Identity, OFFSET>,
+            get_RegFilterCollection: get_RegFilterCollection::<Identity, OFFSET>,
             StopWhenReady: StopWhenReady::<Identity, OFFSET>,
         }
     }
@@ -1381,7 +1417,7 @@ impl IMediaControl_Vtbl {
         iid == &<IMediaControl as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMediaControl {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMediaEvent, IMediaEvent_Vtbl, 0x56a868b6_0ad4_11ce_b03a_0020af0ba770);
@@ -1402,7 +1438,8 @@ impl IMediaEvent {
             (windows_core::Interface::vtable(self).GetEventHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut isize, lparam2: *mut isize, mstimeout: i32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), leventcode as _, lparam1 as _, lparam2 as _, mstimeout) }
     }
     pub unsafe fn WaitForCompletion(&self, mstimeout: i32) -> windows_core::Result<i32> {
@@ -1417,7 +1454,8 @@ impl IMediaEvent {
     pub unsafe fn RestoreDefaultHandling(&self, levcode: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RestoreDefaultHandling)(windows_core::Interface::as_raw(self), levcode) }
     }
-    pub unsafe fn FreeEventParams(&self, levcode: i32, lparam1: isize, lparam2: isize) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn FreeEventParams(&self, levcode: i32, lparam1: super::LONG_PTR, lparam2: super::LONG_PTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).FreeEventParams)(windows_core::Interface::as_raw(self), levcode, lparam1, lparam2) }
     }
 }
@@ -1427,22 +1465,28 @@ impl IMediaEvent {
 pub struct IMediaEvent_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub GetEventHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OAEVENT) -> windows_core::HRESULT,
-    pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut isize, *mut isize, i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut super::LONG_PTR, *mut super::LONG_PTR, i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetEvent: usize,
     pub WaitForCompletion: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
     pub CancelDefaultHandling: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub RestoreDefaultHandling: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub FreeEventParams: unsafe extern "system" fn(*mut core::ffi::c_void, i32, isize, isize) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub FreeEventParams: unsafe extern "system" fn(*mut core::ffi::c_void, i32, super::LONG_PTR, super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    FreeEventParams: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaEvent_Impl: super::IDispatch_Impl {
     fn GetEventHandle(&self) -> windows_core::Result<OAEVENT>;
-    fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut isize, lparam2: *mut isize, mstimeout: i32) -> windows_core::Result<()>;
+    fn GetEvent(&self, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::Result<()>;
     fn WaitForCompletion(&self, mstimeout: i32) -> windows_core::Result<i32>;
     fn CancelDefaultHandling(&self, levcode: i32) -> windows_core::Result<()>;
     fn RestoreDefaultHandling(&self, levcode: i32) -> windows_core::Result<()>;
-    fn FreeEventParams(&self, levcode: i32, lparam1: isize, lparam2: isize) -> windows_core::Result<()>;
+    fn FreeEventParams(&self, levcode: i32, lparam1: super::LONG_PTR, lparam2: super::LONG_PTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaEvent_Vtbl {
     pub const fn new<Identity: IMediaEvent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetEventHandle<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hevent: *mut OAEVENT) -> windows_core::HRESULT {
@@ -1457,7 +1501,7 @@ impl IMediaEvent_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetEvent<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leventcode: *mut i32, lparam1: *mut isize, lparam2: *mut isize, mstimeout: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEvent<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, leventcode: *mut i32, lparam1: *mut super::LONG_PTR, lparam2: *mut super::LONG_PTR, mstimeout: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMediaEvent_Impl::GetEvent(this, core::mem::transmute_copy(&leventcode), core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2), core::mem::transmute_copy(&mstimeout)).into()
@@ -1487,7 +1531,7 @@ impl IMediaEvent_Vtbl {
                 IMediaEvent_Impl::RestoreDefaultHandling(this, core::mem::transmute_copy(&levcode)).into()
             }
         }
-        unsafe extern "system" fn FreeEventParams<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, levcode: i32, lparam1: isize, lparam2: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn FreeEventParams<Identity: IMediaEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, levcode: i32, lparam1: super::LONG_PTR, lparam2: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMediaEvent_Impl::FreeEventParams(this, core::mem::transmute_copy(&levcode), core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2)).into()
@@ -1507,7 +1551,7 @@ impl IMediaEvent_Vtbl {
         iid == &<IMediaEvent as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMediaEvent {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMediaEventEx, IMediaEventEx_Vtbl, 0x56a868c0_0ad4_11ce_b03a_0020af0ba770);
@@ -1522,7 +1566,8 @@ impl core::ops::Deref for IMediaEventEx {
 windows_core::imp::interface_hierarchy!(IMediaEventEx, windows_core::IUnknown, super::IDispatch, IMediaEvent);
 #[cfg(feature = "oaidl")]
 impl IMediaEventEx {
-    pub unsafe fn SetNotifyWindow(&self, hwnd: OAHWND, lmsg: i32, linstancedata: isize) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetNotifyWindow(&self, hwnd: OAHWND, lmsg: i32, linstancedata: super::LONG_PTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNotifyWindow)(windows_core::Interface::as_raw(self), hwnd, lmsg, linstancedata) }
     }
     pub unsafe fn SetNotifyFlags(&self, lnonotifyflags: i32) -> windows_core::HRESULT {
@@ -1540,20 +1585,23 @@ impl IMediaEventEx {
 #[doc(hidden)]
 pub struct IMediaEventEx_Vtbl {
     pub base__: IMediaEvent_Vtbl,
-    pub SetNotifyWindow: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND, i32, isize) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub SetNotifyWindow: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND, i32, super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetNotifyWindow: usize,
     pub SetNotifyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub GetNotifyFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaEventEx_Impl: IMediaEvent_Impl {
-    fn SetNotifyWindow(&self, hwnd: OAHWND, lmsg: i32, linstancedata: isize) -> windows_core::Result<()>;
+    fn SetNotifyWindow(&self, hwnd: OAHWND, lmsg: i32, linstancedata: super::LONG_PTR) -> windows_core::Result<()>;
     fn SetNotifyFlags(&self, lnonotifyflags: i32) -> windows_core::Result<()>;
     fn GetNotifyFlags(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaEventEx_Vtbl {
     pub const fn new<Identity: IMediaEventEx_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetNotifyWindow<Identity: IMediaEventEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: OAHWND, lmsg: i32, linstancedata: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNotifyWindow<Identity: IMediaEventEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: OAHWND, lmsg: i32, linstancedata: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMediaEventEx_Impl::SetNotifyWindow(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&lmsg), core::mem::transmute_copy(&linstancedata)).into()
@@ -1588,7 +1636,7 @@ impl IMediaEventEx_Vtbl {
         iid == &<IMediaEventEx as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID || iid == &<IMediaEvent as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMediaEventEx {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMediaPosition, IMediaPosition_Vtbl, 0x56a868b2_0ad4_11ce_b03a_0020af0ba770);
@@ -1603,62 +1651,64 @@ impl core::ops::Deref for IMediaPosition {
 windows_core::imp::interface_hierarchy!(IMediaPosition, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IMediaPosition {
-    #[cfg(feature = "strmif")]
-    pub unsafe fn Duration(&self) -> windows_core::Result<super::REFTIME> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_Duration(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "strmif")]
-    pub unsafe fn SetCurrentPosition(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), lltime) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn put_CurrentPosition(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_CurrentPosition)(windows_core::Interface::as_raw(self), lltime) }
     }
-    #[cfg(feature = "strmif")]
-    pub unsafe fn CurrentPosition(&self) -> windows_core::Result<super::REFTIME> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_CurrentPosition(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CurrentPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_CurrentPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "strmif")]
-    pub unsafe fn StopTime(&self) -> windows_core::Result<super::REFTIME> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_StopTime(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StopTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_StopTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "strmif")]
-    pub unsafe fn SetStopTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetStopTime)(windows_core::Interface::as_raw(self), lltime) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn put_StopTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_StopTime)(windows_core::Interface::as_raw(self), lltime) }
     }
-    #[cfg(feature = "strmif")]
-    pub unsafe fn PrerollTime(&self) -> windows_core::Result<super::REFTIME> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_PrerollTime(&self) -> windows_core::Result<super::REFTIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrerollTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_PrerollTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "strmif")]
-    pub unsafe fn SetPrerollTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPrerollTime)(windows_core::Interface::as_raw(self), lltime) }
+    #[cfg(feature = "shared")]
+    pub unsafe fn put_PrerollTime(&self, lltime: super::REFTIME) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_PrerollTime)(windows_core::Interface::as_raw(self), lltime) }
     }
-    pub unsafe fn SetRate(&self, drate: f64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRate)(windows_core::Interface::as_raw(self), drate) }
+    pub unsafe fn put_Rate(&self, drate: f64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Rate)(windows_core::Interface::as_raw(self), drate) }
     }
-    pub unsafe fn Rate(&self) -> windows_core::Result<f64> {
+    pub unsafe fn get_Rate(&self) -> windows_core::Result<f64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Rate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Rate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanSeekForward(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CanSeekForward(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanSeekForward)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanSeekBackward(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn CanSeekBackward(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanSeekBackward)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1670,60 +1720,66 @@ impl IMediaPosition {
 #[doc(hidden)]
 pub struct IMediaPosition_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    #[cfg(feature = "strmif")]
-    pub Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    Duration: usize,
-    #[cfg(feature = "strmif")]
-    pub SetCurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    SetCurrentPosition: usize,
-    #[cfg(feature = "strmif")]
-    pub CurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    CurrentPosition: usize,
-    #[cfg(feature = "strmif")]
-    pub StopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    StopTime: usize,
-    #[cfg(feature = "strmif")]
-    pub SetStopTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    SetStopTime: usize,
-    #[cfg(feature = "strmif")]
-    pub PrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    PrerollTime: usize,
-    #[cfg(feature = "strmif")]
-    pub SetPrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "strmif"))]
-    SetPrerollTime: usize,
-    pub SetRate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub CanSeekForward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub CanSeekBackward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_Duration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_Duration: usize,
+    #[cfg(feature = "shared")]
+    pub put_CurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    put_CurrentPosition: usize,
+    #[cfg(feature = "shared")]
+    pub get_CurrentPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_CurrentPosition: usize,
+    #[cfg(feature = "shared")]
+    pub get_StopTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_StopTime: usize,
+    #[cfg(feature = "shared")]
+    pub put_StopTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    put_StopTime: usize,
+    #[cfg(feature = "shared")]
+    pub get_PrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_PrerollTime: usize,
+    #[cfg(feature = "shared")]
+    pub put_PrerollTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::REFTIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    put_PrerollTime: usize,
+    pub put_Rate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub get_Rate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub CanSeekForward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CanSeekForward: usize,
+    #[cfg(feature = "shared")]
+    pub CanSeekBackward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    CanSeekBackward: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaPosition_Impl: super::IDispatch_Impl {
-    fn Duration(&self) -> windows_core::Result<super::REFTIME>;
-    fn SetCurrentPosition(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
-    fn CurrentPosition(&self) -> windows_core::Result<super::REFTIME>;
-    fn StopTime(&self) -> windows_core::Result<super::REFTIME>;
-    fn SetStopTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
-    fn PrerollTime(&self) -> windows_core::Result<super::REFTIME>;
-    fn SetPrerollTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
-    fn SetRate(&self, drate: f64) -> windows_core::Result<()>;
-    fn Rate(&self) -> windows_core::Result<f64>;
-    fn CanSeekForward(&self) -> windows_core::Result<i32>;
-    fn CanSeekBackward(&self) -> windows_core::Result<i32>;
+    fn get_Duration(&self) -> windows_core::Result<super::REFTIME>;
+    fn put_CurrentPosition(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
+    fn get_CurrentPosition(&self) -> windows_core::Result<super::REFTIME>;
+    fn get_StopTime(&self) -> windows_core::Result<super::REFTIME>;
+    fn put_StopTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
+    fn get_PrerollTime(&self) -> windows_core::Result<super::REFTIME>;
+    fn put_PrerollTime(&self, lltime: super::REFTIME) -> windows_core::Result<()>;
+    fn put_Rate(&self, drate: f64) -> windows_core::Result<()>;
+    fn get_Rate(&self) -> windows_core::Result<f64>;
+    fn CanSeekForward(&self) -> windows_core::Result<super::LONG>;
+    fn CanSeekBackward(&self) -> windows_core::Result<super::LONG>;
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaPosition_Vtbl {
     pub const fn new<Identity: IMediaPosition_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Duration<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plength: *mut super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Duration<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plength: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaPosition_Impl::Duration(this) {
+                match IMediaPosition_Impl::get_Duration(this) {
                     Ok(ok__) => {
                         plength.write(ok__);
                         windows_core::HRESULT(0)
@@ -1732,16 +1788,16 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetCurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_CurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetCurrentPosition(this, core::mem::transmute_copy(&lltime)).into()
+                IMediaPosition_Impl::put_CurrentPosition(this, core::mem::transmute_copy(&lltime)).into()
             }
         }
-        unsafe extern "system" fn CurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_CurrentPosition<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaPosition_Impl::CurrentPosition(this) {
+                match IMediaPosition_Impl::get_CurrentPosition(this) {
                     Ok(ok__) => {
                         plltime.write(ok__);
                         windows_core::HRESULT(0)
@@ -1750,10 +1806,10 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_StopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaPosition_Impl::StopTime(this) {
+                match IMediaPosition_Impl::get_StopTime(this) {
                     Ok(ok__) => {
                         plltime.write(ok__);
                         windows_core::HRESULT(0)
@@ -1762,16 +1818,16 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetStopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_StopTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetStopTime(this, core::mem::transmute_copy(&lltime)).into()
+                IMediaPosition_Impl::put_StopTime(this, core::mem::transmute_copy(&lltime)).into()
             }
         }
-        unsafe extern "system" fn PrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plltime: *mut super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaPosition_Impl::PrerollTime(this) {
+                match IMediaPosition_Impl::get_PrerollTime(this) {
                     Ok(ok__) => {
                         plltime.write(ok__);
                         windows_core::HRESULT(0)
@@ -1780,22 +1836,22 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetPrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_PrerollTime<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lltime: super::REFTIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetPrerollTime(this, core::mem::transmute_copy(&lltime)).into()
+                IMediaPosition_Impl::put_PrerollTime(this, core::mem::transmute_copy(&lltime)).into()
             }
         }
-        unsafe extern "system" fn SetRate<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drate: f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Rate<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drate: f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMediaPosition_Impl::SetRate(this, core::mem::transmute_copy(&drate)).into()
+                IMediaPosition_Impl::put_Rate(this, core::mem::transmute_copy(&drate)).into()
             }
         }
-        unsafe extern "system" fn Rate<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdrate: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Rate<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdrate: *mut f64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaPosition_Impl::Rate(this) {
+                match IMediaPosition_Impl::get_Rate(this) {
                     Ok(ok__) => {
                         pdrate.write(ok__);
                         windows_core::HRESULT(0)
@@ -1804,7 +1860,7 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanSeekForward<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcanseekforward: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanSeekForward<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcanseekforward: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaPosition_Impl::CanSeekForward(this) {
@@ -1816,7 +1872,7 @@ impl IMediaPosition_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CanSeekBackward<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcanseekbackward: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanSeekBackward<Identity: IMediaPosition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcanseekbackward: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMediaPosition_Impl::CanSeekBackward(this) {
@@ -1830,15 +1886,15 @@ impl IMediaPosition_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Duration: Duration::<Identity, OFFSET>,
-            SetCurrentPosition: SetCurrentPosition::<Identity, OFFSET>,
-            CurrentPosition: CurrentPosition::<Identity, OFFSET>,
-            StopTime: StopTime::<Identity, OFFSET>,
-            SetStopTime: SetStopTime::<Identity, OFFSET>,
-            PrerollTime: PrerollTime::<Identity, OFFSET>,
-            SetPrerollTime: SetPrerollTime::<Identity, OFFSET>,
-            SetRate: SetRate::<Identity, OFFSET>,
-            Rate: Rate::<Identity, OFFSET>,
+            get_Duration: get_Duration::<Identity, OFFSET>,
+            put_CurrentPosition: put_CurrentPosition::<Identity, OFFSET>,
+            get_CurrentPosition: get_CurrentPosition::<Identity, OFFSET>,
+            get_StopTime: get_StopTime::<Identity, OFFSET>,
+            put_StopTime: put_StopTime::<Identity, OFFSET>,
+            get_PrerollTime: get_PrerollTime::<Identity, OFFSET>,
+            put_PrerollTime: put_PrerollTime::<Identity, OFFSET>,
+            put_Rate: put_Rate::<Identity, OFFSET>,
+            get_Rate: get_Rate::<Identity, OFFSET>,
             CanSeekForward: CanSeekForward::<Identity, OFFSET>,
             CanSeekBackward: CanSeekBackward::<Identity, OFFSET>,
         }
@@ -1847,7 +1903,7 @@ impl IMediaPosition_Vtbl {
         iid == &<IMediaPosition as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMediaPosition {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IMediaTypeInfo, IMediaTypeInfo_Vtbl, 0x56a868bc_0ad4_11ce_b03a_0020af0ba770);
@@ -1862,16 +1918,16 @@ impl core::ops::Deref for IMediaTypeInfo {
 windows_core::imp::interface_hierarchy!(IMediaTypeInfo, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IMediaTypeInfo {
-    pub unsafe fn Type(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Type(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Subtype(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Subtype(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Subtype)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Subtype)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1880,21 +1936,21 @@ impl IMediaTypeInfo {
 #[doc(hidden)]
 pub struct IMediaTypeInfo_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Subtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Subtype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IMediaTypeInfo_Impl: super::IDispatch_Impl {
-    fn Type(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Subtype(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Type(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Subtype(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IMediaTypeInfo_Vtbl {
     pub const fn new<Identity: IMediaTypeInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Type<Identity: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Type<Identity: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaTypeInfo_Impl::Type(this) {
+                match IMediaTypeInfo_Impl::get_Type(this) {
                     Ok(ok__) => {
                         strtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1903,10 +1959,10 @@ impl IMediaTypeInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Subtype<Identity: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Subtype<Identity: IMediaTypeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strtype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IMediaTypeInfo_Impl::Subtype(this) {
+                match IMediaTypeInfo_Impl::get_Subtype(this) {
                     Ok(ok__) => {
                         strtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -1915,13 +1971,13 @@ impl IMediaTypeInfo_Vtbl {
                 }
             }
         }
-        Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Type: Type::<Identity, OFFSET>, Subtype: Subtype::<Identity, OFFSET> }
+        Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), get_Type: get_Type::<Identity, OFFSET>, get_Subtype: get_Subtype::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IMediaTypeInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IMediaTypeInfo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IPinInfo, IPinInfo_Vtbl, 0x56a868bd_0ad4_11ce_b03a_0020af0ba770);
@@ -1936,52 +1992,53 @@ impl core::ops::Deref for IPinInfo {
 windows_core::imp::interface_hierarchy!(IPinInfo, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IPinInfo {
-    pub unsafe fn Pin(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn get_Pin(&self) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Pin)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_Pin)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ConnectedTo(&self) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_ConnectedTo(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectedTo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_ConnectedTo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ConnectionMediaType(&self) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_ConnectionMediaType(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ConnectionMediaType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_ConnectionMediaType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FilterInfo(&self) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_FilterInfo(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FilterInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_FilterInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Direction(&self) -> windows_core::Result<i32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn get_Direction(&self) -> windows_core::Result<super::LONG> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Direction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Direction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PinID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_PinID(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PinID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_PinID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MediaTypes(&self) -> windows_core::Result<super::IDispatch> {
+    pub unsafe fn get_MediaTypes(&self) -> windows_core::Result<super::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MediaTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).get_MediaTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
     pub unsafe fn Connect<P0>(&self, ppin: P0) -> windows_core::HRESULT
@@ -2015,43 +2072,46 @@ impl IPinInfo {
 #[doc(hidden)]
 pub struct IPinInfo_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Pin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ConnectedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ConnectionMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub FilterInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Direction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub PinID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub MediaTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Pin: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ConnectedTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_ConnectionMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_FilterInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub get_Direction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::LONG) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    get_Direction: usize,
+    pub get_PinID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_MediaTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectDirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ConnectWithType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Render: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IPinInfo_Impl: super::IDispatch_Impl {
-    fn Pin(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn ConnectedTo(&self) -> windows_core::Result<super::IDispatch>;
-    fn ConnectionMediaType(&self) -> windows_core::Result<super::IDispatch>;
-    fn FilterInfo(&self) -> windows_core::Result<super::IDispatch>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Direction(&self) -> windows_core::Result<i32>;
-    fn PinID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn MediaTypes(&self) -> windows_core::Result<super::IDispatch>;
+    fn get_Pin(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_ConnectedTo(&self) -> windows_core::Result<super::IDispatch>;
+    fn get_ConnectionMediaType(&self) -> windows_core::Result<super::IDispatch>;
+    fn get_FilterInfo(&self) -> windows_core::Result<super::IDispatch>;
+    fn get_Name(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Direction(&self) -> windows_core::Result<super::LONG>;
+    fn get_PinID(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_MediaTypes(&self) -> windows_core::Result<super::IDispatch>;
     fn Connect(&self, ppin: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ConnectDirect(&self, ppin: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn ConnectWithType(&self, ppin: windows_core::Ref<windows_core::IUnknown>, pmediatype: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
     fn Render(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IPinInfo_Vtbl {
     pub const fn new<Identity: IPinInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Pin<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Pin<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::Pin(this) {
+                match IPinInfo_Impl::get_Pin(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2060,10 +2120,10 @@ impl IPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ConnectedTo<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ConnectedTo<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::ConnectedTo(this) {
+                match IPinInfo_Impl::get_ConnectedTo(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2072,10 +2132,10 @@ impl IPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn ConnectionMediaType<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_ConnectionMediaType<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::ConnectionMediaType(this) {
+                match IPinInfo_Impl::get_ConnectionMediaType(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2084,10 +2144,10 @@ impl IPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn FilterInfo<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_FilterInfo<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::FilterInfo(this) {
+                match IPinInfo_Impl::get_FilterInfo(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2096,10 +2156,10 @@ impl IPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Name<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::Name(this) {
+                match IPinInfo_Impl::get_Name(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2108,10 +2168,10 @@ impl IPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Direction<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdirection: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Direction<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdirection: *mut super::LONG) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::Direction(this) {
+                match IPinInfo_Impl::get_Direction(this) {
                     Ok(ok__) => {
                         ppdirection.write(ok__);
                         windows_core::HRESULT(0)
@@ -2120,10 +2180,10 @@ impl IPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn PinID<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_PinID<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpinid: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::PinID(this) {
+                match IPinInfo_Impl::get_PinID(this) {
                     Ok(ok__) => {
                         strpinid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2132,10 +2192,10 @@ impl IPinInfo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn MediaTypes<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MediaTypes<Identity: IPinInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IPinInfo_Impl::MediaTypes(this) {
+                match IPinInfo_Impl::get_MediaTypes(this) {
                     Ok(ok__) => {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2176,14 +2236,14 @@ impl IPinInfo_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            Pin: Pin::<Identity, OFFSET>,
-            ConnectedTo: ConnectedTo::<Identity, OFFSET>,
-            ConnectionMediaType: ConnectionMediaType::<Identity, OFFSET>,
-            FilterInfo: FilterInfo::<Identity, OFFSET>,
-            Name: Name::<Identity, OFFSET>,
-            Direction: Direction::<Identity, OFFSET>,
-            PinID: PinID::<Identity, OFFSET>,
-            MediaTypes: MediaTypes::<Identity, OFFSET>,
+            get_Pin: get_Pin::<Identity, OFFSET>,
+            get_ConnectedTo: get_ConnectedTo::<Identity, OFFSET>,
+            get_ConnectionMediaType: get_ConnectionMediaType::<Identity, OFFSET>,
+            get_FilterInfo: get_FilterInfo::<Identity, OFFSET>,
+            get_Name: get_Name::<Identity, OFFSET>,
+            get_Direction: get_Direction::<Identity, OFFSET>,
+            get_PinID: get_PinID::<Identity, OFFSET>,
+            get_MediaTypes: get_MediaTypes::<Identity, OFFSET>,
             Connect: Connect::<Identity, OFFSET>,
             ConnectDirect: ConnectDirect::<Identity, OFFSET>,
             ConnectWithType: ConnectWithType::<Identity, OFFSET>,
@@ -2195,16 +2255,16 @@ impl IPinInfo_Vtbl {
         iid == &<IPinInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPinInfo {}
 windows_core::imp::define_interface!(IQueueCommand, IQueueCommand_Vtbl, 0x56a868b7_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IQueueCommand, windows_core::IUnknown);
 impl IQueueCommand {
-    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InvokeAtStreamTime(&self, pcmd: *mut Option<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InvokeAtStreamTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
     }
-    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InvokeAtPresentationTime(&self, pcmd: *mut Option<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InvokeAtPresentationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(pcmd), time, iid, dispidmethod, wflags, cargs, pdispparams, pvarresult, puargerr as _) }
     }
@@ -2213,21 +2273,21 @@ impl IQueueCommand {
 #[doc(hidden)]
 pub struct IQueueCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub InvokeAtStreamTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::REFTIME, *const windows_core::GUID, i32, i16, i32, *const super::VARIANT, *mut super::VARIANT, *mut i16) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     InvokeAtStreamTime: usize,
-    #[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+    #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub InvokeAtPresentationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, super::REFTIME, *const windows_core::GUID, i32, i16, i32, *const super::VARIANT, *mut super::VARIANT, *mut i16) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase")))]
+    #[cfg(not(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase")))]
     InvokeAtPresentationTime: usize,
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IQueueCommand_Impl: windows_core::IUnknownImpl {
     fn InvokeAtStreamTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
     fn InvokeAtPresentationTime(&self, pcmd: windows_core::OutRef<IDeferredCommand>, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IQueueCommand_Vtbl {
     pub const fn new<Identity: IQueueCommand_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InvokeAtStreamTime<Identity: IQueueCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcmd: *mut *mut core::ffi::c_void, time: super::REFTIME, iid: *const windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::VARIANT, pvarresult: *mut super::VARIANT, puargerr: *mut i16) -> windows_core::HRESULT {
@@ -2252,7 +2312,7 @@ impl IQueueCommand_Vtbl {
         iid == &<IQueueCommand as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "strmif", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IQueueCommand {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IRegFilterInfo, IRegFilterInfo_Vtbl, 0x56a868bb_0ad4_11ce_b03a_0020af0ba770);
@@ -2267,10 +2327,10 @@ impl core::ops::Deref for IRegFilterInfo {
 windows_core::imp::interface_hierarchy!(IRegFilterInfo, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IRegFilterInfo {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub unsafe fn Filter(&self) -> windows_core::Result<super::IDispatch> {
@@ -2285,21 +2345,21 @@ impl IRegFilterInfo {
 #[doc(hidden)]
 pub struct IRegFilterInfo_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Filter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IRegFilterInfo_Impl: super::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Filter(&self) -> windows_core::Result<super::IDispatch>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IRegFilterInfo_Vtbl {
     pub const fn new<Identity: IRegFilterInfo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IRegFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Name<Identity: IRegFilterInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IRegFilterInfo_Impl::Name(this) {
+                match IRegFilterInfo_Impl::get_Name(this) {
                     Ok(ok__) => {
                         strname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2320,13 +2380,13 @@ impl IRegFilterInfo_Vtbl {
                 }
             }
         }
-        Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, Filter: Filter::<Identity, OFFSET> }
+        Self { base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(), get_Name: get_Name::<Identity, OFFSET>, Filter: Filter::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IRegFilterInfo as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRegFilterInfo {}
 #[cfg(feature = "oaidl")]
 windows_core::imp::define_interface!(IVideoWindow, IVideoWindow_Vtbl, 0x56a868b4_0ad4_11ce_b03a_0020af0ba770);
@@ -2341,145 +2401,146 @@ impl core::ops::Deref for IVideoWindow {
 windows_core::imp::interface_hierarchy!(IVideoWindow, windows_core::IUnknown, super::IDispatch);
 #[cfg(feature = "oaidl")]
 impl IVideoWindow {
-    pub unsafe fn SetCaption(&self, strcaption: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCaption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strcaption)) }
+    pub unsafe fn put_Caption(&self, strcaption: &windows_core::BSTR) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Caption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strcaption)) }
     }
-    pub unsafe fn Caption(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Caption(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Caption)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).get_Caption)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetWindowStyle(&self, windowstyle: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowStyle)(windows_core::Interface::as_raw(self), windowstyle) }
+    pub unsafe fn put_WindowStyle(&self, windowstyle: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_WindowStyle)(windows_core::Interface::as_raw(self), windowstyle) }
     }
-    pub unsafe fn WindowStyle(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_WindowStyle(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WindowStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_WindowStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWindowStyleEx(&self, windowstyleex: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowStyleEx)(windows_core::Interface::as_raw(self), windowstyleex) }
+    pub unsafe fn put_WindowStyleEx(&self, windowstyleex: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_WindowStyleEx)(windows_core::Interface::as_raw(self), windowstyleex) }
     }
-    pub unsafe fn WindowStyleEx(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_WindowStyleEx(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WindowStyleEx)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_WindowStyleEx)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoShow(&self, autoshow: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAutoShow)(windows_core::Interface::as_raw(self), autoshow) }
+    pub unsafe fn put_AutoShow(&self, autoshow: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_AutoShow)(windows_core::Interface::as_raw(self), autoshow) }
     }
-    pub unsafe fn AutoShow(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_AutoShow(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_AutoShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWindowState(&self, windowstate: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWindowState)(windows_core::Interface::as_raw(self), windowstate) }
+    pub unsafe fn put_WindowState(&self, windowstate: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_WindowState)(windows_core::Interface::as_raw(self), windowstate) }
     }
-    pub unsafe fn WindowState(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_WindowState(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).WindowState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_WindowState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBackgroundPalette(&self, backgroundpalette: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBackgroundPalette)(windows_core::Interface::as_raw(self), backgroundpalette) }
+    pub unsafe fn put_BackgroundPalette(&self, backgroundpalette: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_BackgroundPalette)(windows_core::Interface::as_raw(self), backgroundpalette) }
     }
-    pub unsafe fn BackgroundPalette(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_BackgroundPalette(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackgroundPalette)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_BackgroundPalette)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVisible(&self, visible: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible) }
+    pub unsafe fn put_Visible(&self, visible: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Visible)(windows_core::Interface::as_raw(self), visible) }
     }
-    pub unsafe fn Visible(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Visible(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLeft(&self, left: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), left) }
+    pub unsafe fn put_Left(&self, left: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Left)(windows_core::Interface::as_raw(self), left) }
     }
-    pub unsafe fn Left(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Left(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWidth(&self, width: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), width) }
+    pub unsafe fn put_Width(&self, width: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Width)(windows_core::Interface::as_raw(self), width) }
     }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Width(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTop(&self, top: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), top) }
+    pub unsafe fn put_Top(&self, top: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Top)(windows_core::Interface::as_raw(self), top) }
     }
-    pub unsafe fn Top(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Top(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHeight(&self, height: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetHeight)(windows_core::Interface::as_raw(self), height) }
+    pub unsafe fn put_Height(&self, height: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Height)(windows_core::Interface::as_raw(self), height) }
     }
-    pub unsafe fn Height(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_Height(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOwner(&self, owner: OAHWND) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOwner)(windows_core::Interface::as_raw(self), owner) }
+    pub unsafe fn put_Owner(&self, owner: OAHWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_Owner)(windows_core::Interface::as_raw(self), owner) }
     }
-    pub unsafe fn Owner(&self) -> windows_core::Result<OAHWND> {
+    pub unsafe fn get_Owner(&self) -> windows_core::Result<OAHWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Owner)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_Owner)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMessageDrain(&self, drain: OAHWND) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), drain) }
+    pub unsafe fn put_MessageDrain(&self, drain: OAHWND) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_MessageDrain)(windows_core::Interface::as_raw(self), drain) }
     }
-    pub unsafe fn MessageDrain(&self) -> windows_core::Result<OAHWND> {
+    pub unsafe fn get_MessageDrain(&self) -> windows_core::Result<OAHWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MessageDrain)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_MessageDrain)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BorderColor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_BorderColor(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BorderColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_BorderColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBorderColor(&self, color: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBorderColor)(windows_core::Interface::as_raw(self), color) }
+    pub unsafe fn put_BorderColor(&self, color: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_BorderColor)(windows_core::Interface::as_raw(self), color) }
     }
-    pub unsafe fn FullScreenMode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn get_FullScreenMode(&self) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FullScreenMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).get_FullScreenMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFullScreenMode(&self, fullscreenmode: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFullScreenMode)(windows_core::Interface::as_raw(self), fullscreenmode) }
+    pub unsafe fn put_FullScreenMode(&self, fullscreenmode: i32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).put_FullScreenMode)(windows_core::Interface::as_raw(self), fullscreenmode) }
     }
     pub unsafe fn SetWindowForeground(&self, focus: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetWindowForeground)(windows_core::Interface::as_raw(self), focus) }
     }
-    pub unsafe fn NotifyOwnerMessage(&self, hwnd: OAHWND, umsg: i32, wparam: isize, lparam: isize) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn NotifyOwnerMessage(&self, hwnd: OAHWND, umsg: i32, wparam: super::LONG_PTR, lparam: super::LONG_PTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).NotifyOwnerMessage)(windows_core::Interface::as_raw(self), hwnd, umsg, wparam, lparam) }
     }
     pub unsafe fn SetWindowPosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::HRESULT {
@@ -2512,38 +2573,41 @@ impl IVideoWindow {
 #[doc(hidden)]
 pub struct IVideoWindow_Vtbl {
     pub base__: super::IDispatch_Vtbl,
-    pub SetCaption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetWindowStyle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub WindowStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetWindowStyleEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub WindowStyleEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetAutoShow: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub AutoShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetWindowState: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub WindowState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetBackgroundPalette: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub BackgroundPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetLeft: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Left: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetWidth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetTop: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetHeight: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetOwner: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND) -> windows_core::HRESULT,
-    pub Owner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OAHWND) -> windows_core::HRESULT,
-    pub SetMessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND) -> windows_core::HRESULT,
-    pub MessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OAHWND) -> windows_core::HRESULT,
-    pub BorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetBorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub FullScreenMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetFullScreenMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub put_Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Caption: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub put_WindowStyle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_WindowStyle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_WindowStyleEx: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_WindowStyleEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_AutoShow: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_AutoShow: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_WindowState: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_WindowState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_BackgroundPalette: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_BackgroundPalette: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Visible: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Visible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Left: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Left: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Width: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Width: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Top: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Top: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Height: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_Height: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_Owner: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND) -> windows_core::HRESULT,
+    pub get_Owner: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OAHWND) -> windows_core::HRESULT,
+    pub put_MessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND) -> windows_core::HRESULT,
+    pub get_MessageDrain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OAHWND) -> windows_core::HRESULT,
+    pub get_BorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_BorderColor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub get_FullScreenMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub put_FullScreenMode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SetWindowForeground: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub NotifyOwnerMessage: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND, i32, isize, isize) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub NotifyOwnerMessage: unsafe extern "system" fn(*mut core::ffi::c_void, OAHWND, i32, super::LONG_PTR, super::LONG_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    NotifyOwnerMessage: usize,
     pub SetWindowPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
     pub GetWindowPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     pub GetMinIdealImageSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32) -> windows_core::HRESULT,
@@ -2552,40 +2616,40 @@ pub struct IVideoWindow_Vtbl {
     pub HideCursor: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub IsCursorHidden: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IVideoWindow_Impl: super::IDispatch_Impl {
-    fn SetCaption(&self, strcaption: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Caption(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetWindowStyle(&self, windowstyle: i32) -> windows_core::Result<()>;
-    fn WindowStyle(&self) -> windows_core::Result<i32>;
-    fn SetWindowStyleEx(&self, windowstyleex: i32) -> windows_core::Result<()>;
-    fn WindowStyleEx(&self) -> windows_core::Result<i32>;
-    fn SetAutoShow(&self, autoshow: i32) -> windows_core::Result<()>;
-    fn AutoShow(&self) -> windows_core::Result<i32>;
-    fn SetWindowState(&self, windowstate: i32) -> windows_core::Result<()>;
-    fn WindowState(&self) -> windows_core::Result<i32>;
-    fn SetBackgroundPalette(&self, backgroundpalette: i32) -> windows_core::Result<()>;
-    fn BackgroundPalette(&self) -> windows_core::Result<i32>;
-    fn SetVisible(&self, visible: i32) -> windows_core::Result<()>;
-    fn Visible(&self) -> windows_core::Result<i32>;
-    fn SetLeft(&self, left: i32) -> windows_core::Result<()>;
-    fn Left(&self) -> windows_core::Result<i32>;
-    fn SetWidth(&self, width: i32) -> windows_core::Result<()>;
-    fn Width(&self) -> windows_core::Result<i32>;
-    fn SetTop(&self, top: i32) -> windows_core::Result<()>;
-    fn Top(&self) -> windows_core::Result<i32>;
-    fn SetHeight(&self, height: i32) -> windows_core::Result<()>;
-    fn Height(&self) -> windows_core::Result<i32>;
-    fn SetOwner(&self, owner: OAHWND) -> windows_core::Result<()>;
-    fn Owner(&self) -> windows_core::Result<OAHWND>;
-    fn SetMessageDrain(&self, drain: OAHWND) -> windows_core::Result<()>;
-    fn MessageDrain(&self) -> windows_core::Result<OAHWND>;
-    fn BorderColor(&self) -> windows_core::Result<i32>;
-    fn SetBorderColor(&self, color: i32) -> windows_core::Result<()>;
-    fn FullScreenMode(&self) -> windows_core::Result<i32>;
-    fn SetFullScreenMode(&self, fullscreenmode: i32) -> windows_core::Result<()>;
+    fn put_Caption(&self, strcaption: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_Caption(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn put_WindowStyle(&self, windowstyle: i32) -> windows_core::Result<()>;
+    fn get_WindowStyle(&self) -> windows_core::Result<i32>;
+    fn put_WindowStyleEx(&self, windowstyleex: i32) -> windows_core::Result<()>;
+    fn get_WindowStyleEx(&self) -> windows_core::Result<i32>;
+    fn put_AutoShow(&self, autoshow: i32) -> windows_core::Result<()>;
+    fn get_AutoShow(&self) -> windows_core::Result<i32>;
+    fn put_WindowState(&self, windowstate: i32) -> windows_core::Result<()>;
+    fn get_WindowState(&self) -> windows_core::Result<i32>;
+    fn put_BackgroundPalette(&self, backgroundpalette: i32) -> windows_core::Result<()>;
+    fn get_BackgroundPalette(&self) -> windows_core::Result<i32>;
+    fn put_Visible(&self, visible: i32) -> windows_core::Result<()>;
+    fn get_Visible(&self) -> windows_core::Result<i32>;
+    fn put_Left(&self, left: i32) -> windows_core::Result<()>;
+    fn get_Left(&self) -> windows_core::Result<i32>;
+    fn put_Width(&self, width: i32) -> windows_core::Result<()>;
+    fn get_Width(&self) -> windows_core::Result<i32>;
+    fn put_Top(&self, top: i32) -> windows_core::Result<()>;
+    fn get_Top(&self) -> windows_core::Result<i32>;
+    fn put_Height(&self, height: i32) -> windows_core::Result<()>;
+    fn get_Height(&self) -> windows_core::Result<i32>;
+    fn put_Owner(&self, owner: OAHWND) -> windows_core::Result<()>;
+    fn get_Owner(&self) -> windows_core::Result<OAHWND>;
+    fn put_MessageDrain(&self, drain: OAHWND) -> windows_core::Result<()>;
+    fn get_MessageDrain(&self) -> windows_core::Result<OAHWND>;
+    fn get_BorderColor(&self) -> windows_core::Result<i32>;
+    fn put_BorderColor(&self, color: i32) -> windows_core::Result<()>;
+    fn get_FullScreenMode(&self) -> windows_core::Result<i32>;
+    fn put_FullScreenMode(&self, fullscreenmode: i32) -> windows_core::Result<()>;
     fn SetWindowForeground(&self, focus: i32) -> windows_core::Result<()>;
-    fn NotifyOwnerMessage(&self, hwnd: OAHWND, umsg: i32, wparam: isize, lparam: isize) -> windows_core::Result<()>;
+    fn NotifyOwnerMessage(&self, hwnd: OAHWND, umsg: i32, wparam: super::LONG_PTR, lparam: super::LONG_PTR) -> windows_core::Result<()>;
     fn SetWindowPosition(&self, left: i32, top: i32, width: i32, height: i32) -> windows_core::Result<()>;
     fn GetWindowPosition(&self, pleft: *mut i32, ptop: *mut i32, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
     fn GetMinIdealImageSize(&self, pwidth: *mut i32, pheight: *mut i32) -> windows_core::Result<()>;
@@ -2594,19 +2658,19 @@ pub trait IVideoWindow_Impl: super::IDispatch_Impl {
     fn HideCursor(&self, hidecursor: i32) -> windows_core::Result<()>;
     fn IsCursorHidden(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl IVideoWindow_Vtbl {
     pub const fn new<Identity: IVideoWindow_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetCaption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Caption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetCaption(this, core::mem::transmute(&strcaption)).into()
+                IVideoWindow_Impl::put_Caption(this, core::mem::transmute(&strcaption)).into()
             }
         }
-        unsafe extern "system" fn Caption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Caption<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strcaption: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::Caption(this) {
+                match IVideoWindow_Impl::get_Caption(this) {
                     Ok(ok__) => {
                         strcaption.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
@@ -2615,16 +2679,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWindowStyle<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyle: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_WindowStyle<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyle: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowStyle(this, core::mem::transmute_copy(&windowstyle)).into()
+                IVideoWindow_Impl::put_WindowStyle(this, core::mem::transmute_copy(&windowstyle)).into()
             }
         }
-        unsafe extern "system" fn WindowStyle<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyle: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_WindowStyle<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyle: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::WindowStyle(this) {
+                match IVideoWindow_Impl::get_WindowStyle(this) {
                     Ok(ok__) => {
                         windowstyle.write(ok__);
                         windows_core::HRESULT(0)
@@ -2633,16 +2697,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWindowStyleEx<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyleex: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_WindowStyleEx<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyleex: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowStyleEx(this, core::mem::transmute_copy(&windowstyleex)).into()
+                IVideoWindow_Impl::put_WindowStyleEx(this, core::mem::transmute_copy(&windowstyleex)).into()
             }
         }
-        unsafe extern "system" fn WindowStyleEx<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyleex: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_WindowStyleEx<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstyleex: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::WindowStyleEx(this) {
+                match IVideoWindow_Impl::get_WindowStyleEx(this) {
                     Ok(ok__) => {
                         windowstyleex.write(ok__);
                         windows_core::HRESULT(0)
@@ -2651,16 +2715,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetAutoShow<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoshow: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_AutoShow<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoshow: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetAutoShow(this, core::mem::transmute_copy(&autoshow)).into()
+                IVideoWindow_Impl::put_AutoShow(this, core::mem::transmute_copy(&autoshow)).into()
             }
         }
-        unsafe extern "system" fn AutoShow<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoshow: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_AutoShow<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, autoshow: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::AutoShow(this) {
+                match IVideoWindow_Impl::get_AutoShow(this) {
                     Ok(ok__) => {
                         autoshow.write(ok__);
                         windows_core::HRESULT(0)
@@ -2669,16 +2733,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWindowState<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstate: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_WindowState<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstate: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWindowState(this, core::mem::transmute_copy(&windowstate)).into()
+                IVideoWindow_Impl::put_WindowState(this, core::mem::transmute_copy(&windowstate)).into()
             }
         }
-        unsafe extern "system" fn WindowState<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstate: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_WindowState<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, windowstate: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::WindowState(this) {
+                match IVideoWindow_Impl::get_WindowState(this) {
                     Ok(ok__) => {
                         windowstate.write(ok__);
                         windows_core::HRESULT(0)
@@ -2687,16 +2751,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBackgroundPalette<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backgroundpalette: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_BackgroundPalette<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, backgroundpalette: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetBackgroundPalette(this, core::mem::transmute_copy(&backgroundpalette)).into()
+                IVideoWindow_Impl::put_BackgroundPalette(this, core::mem::transmute_copy(&backgroundpalette)).into()
             }
         }
-        unsafe extern "system" fn BackgroundPalette<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbackgroundpalette: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_BackgroundPalette<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbackgroundpalette: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::BackgroundPalette(this) {
+                match IVideoWindow_Impl::get_BackgroundPalette(this) {
                     Ok(ok__) => {
                         pbackgroundpalette.write(ok__);
                         windows_core::HRESULT(0)
@@ -2705,16 +2769,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetVisible<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visible: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Visible<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, visible: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetVisible(this, core::mem::transmute_copy(&visible)).into()
+                IVideoWindow_Impl::put_Visible(this, core::mem::transmute_copy(&visible)).into()
             }
         }
-        unsafe extern "system" fn Visible<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvisible: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Visible<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvisible: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::Visible(this) {
+                match IVideoWindow_Impl::get_Visible(this) {
                     Ok(ok__) => {
                         pvisible.write(ok__);
                         windows_core::HRESULT(0)
@@ -2723,16 +2787,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLeft<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Left<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, left: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetLeft(this, core::mem::transmute_copy(&left)).into()
+                IVideoWindow_Impl::put_Left(this, core::mem::transmute_copy(&left)).into()
             }
         }
-        unsafe extern "system" fn Left<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Left<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pleft: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::Left(this) {
+                match IVideoWindow_Impl::get_Left(this) {
                     Ok(ok__) => {
                         pleft.write(ok__);
                         windows_core::HRESULT(0)
@@ -2741,16 +2805,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetWidth<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Width<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetWidth(this, core::mem::transmute_copy(&width)).into()
+                IVideoWindow_Impl::put_Width(this, core::mem::transmute_copy(&width)).into()
             }
         }
-        unsafe extern "system" fn Width<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Width<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidth: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::Width(this) {
+                match IVideoWindow_Impl::get_Width(this) {
                     Ok(ok__) => {
                         pwidth.write(ok__);
                         windows_core::HRESULT(0)
@@ -2759,16 +2823,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTop<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, top: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Top<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, top: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetTop(this, core::mem::transmute_copy(&top)).into()
+                IVideoWindow_Impl::put_Top(this, core::mem::transmute_copy(&top)).into()
             }
         }
-        unsafe extern "system" fn Top<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptop: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Top<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptop: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::Top(this) {
+                match IVideoWindow_Impl::get_Top(this) {
                     Ok(ok__) => {
                         ptop.write(ok__);
                         windows_core::HRESULT(0)
@@ -2777,16 +2841,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetHeight<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, height: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Height<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, height: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetHeight(this, core::mem::transmute_copy(&height)).into()
+                IVideoWindow_Impl::put_Height(this, core::mem::transmute_copy(&height)).into()
             }
         }
-        unsafe extern "system" fn Height<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheight: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Height<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheight: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::Height(this) {
+                match IVideoWindow_Impl::get_Height(this) {
                     Ok(ok__) => {
                         pheight.write(ok__);
                         windows_core::HRESULT(0)
@@ -2795,16 +2859,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetOwner<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: OAHWND) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_Owner<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: OAHWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetOwner(this, core::mem::transmute_copy(&owner)).into()
+                IVideoWindow_Impl::put_Owner(this, core::mem::transmute_copy(&owner)).into()
             }
         }
-        unsafe extern "system" fn Owner<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut OAHWND) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Owner<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, owner: *mut OAHWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::Owner(this) {
+                match IVideoWindow_Impl::get_Owner(this) {
                     Ok(ok__) => {
                         owner.write(ok__);
                         windows_core::HRESULT(0)
@@ -2813,16 +2877,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetMessageDrain<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drain: OAHWND) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_MessageDrain<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drain: OAHWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetMessageDrain(this, core::mem::transmute_copy(&drain)).into()
+                IVideoWindow_Impl::put_MessageDrain(this, core::mem::transmute_copy(&drain)).into()
             }
         }
-        unsafe extern "system" fn MessageDrain<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drain: *mut OAHWND) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_MessageDrain<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, drain: *mut OAHWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::MessageDrain(this) {
+                match IVideoWindow_Impl::get_MessageDrain(this) {
                     Ok(ok__) => {
                         drain.write(ok__);
                         windows_core::HRESULT(0)
@@ -2831,10 +2895,10 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn BorderColor<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_BorderColor<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::BorderColor(this) {
+                match IVideoWindow_Impl::get_BorderColor(this) {
                     Ok(ok__) => {
                         color.write(ok__);
                         windows_core::HRESULT(0)
@@ -2843,16 +2907,16 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetBorderColor<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_BorderColor<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetBorderColor(this, core::mem::transmute_copy(&color)).into()
+                IVideoWindow_Impl::put_BorderColor(this, core::mem::transmute_copy(&color)).into()
             }
         }
-        unsafe extern "system" fn FullScreenMode<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreenmode: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_FullScreenMode<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreenmode: *mut i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IVideoWindow_Impl::FullScreenMode(this) {
+                match IVideoWindow_Impl::get_FullScreenMode(this) {
                     Ok(ok__) => {
                         fullscreenmode.write(ok__);
                         windows_core::HRESULT(0)
@@ -2861,10 +2925,10 @@ impl IVideoWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetFullScreenMode<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreenmode: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn put_FullScreenMode<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fullscreenmode: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IVideoWindow_Impl::SetFullScreenMode(this, core::mem::transmute_copy(&fullscreenmode)).into()
+                IVideoWindow_Impl::put_FullScreenMode(this, core::mem::transmute_copy(&fullscreenmode)).into()
             }
         }
         unsafe extern "system" fn SetWindowForeground<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, focus: i32) -> windows_core::HRESULT {
@@ -2873,7 +2937,7 @@ impl IVideoWindow_Vtbl {
                 IVideoWindow_Impl::SetWindowForeground(this, core::mem::transmute_copy(&focus)).into()
             }
         }
-        unsafe extern "system" fn NotifyOwnerMessage<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: OAHWND, umsg: i32, wparam: isize, lparam: isize) -> windows_core::HRESULT {
+        unsafe extern "system" fn NotifyOwnerMessage<Identity: IVideoWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: OAHWND, umsg: i32, wparam: super::LONG_PTR, lparam: super::LONG_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVideoWindow_Impl::NotifyOwnerMessage(this, core::mem::transmute_copy(&hwnd), core::mem::transmute_copy(&umsg), core::mem::transmute_copy(&wparam), core::mem::transmute_copy(&lparam)).into()
@@ -2929,36 +2993,36 @@ impl IVideoWindow_Vtbl {
         }
         Self {
             base__: super::IDispatch_Vtbl::new::<Identity, OFFSET>(),
-            SetCaption: SetCaption::<Identity, OFFSET>,
-            Caption: Caption::<Identity, OFFSET>,
-            SetWindowStyle: SetWindowStyle::<Identity, OFFSET>,
-            WindowStyle: WindowStyle::<Identity, OFFSET>,
-            SetWindowStyleEx: SetWindowStyleEx::<Identity, OFFSET>,
-            WindowStyleEx: WindowStyleEx::<Identity, OFFSET>,
-            SetAutoShow: SetAutoShow::<Identity, OFFSET>,
-            AutoShow: AutoShow::<Identity, OFFSET>,
-            SetWindowState: SetWindowState::<Identity, OFFSET>,
-            WindowState: WindowState::<Identity, OFFSET>,
-            SetBackgroundPalette: SetBackgroundPalette::<Identity, OFFSET>,
-            BackgroundPalette: BackgroundPalette::<Identity, OFFSET>,
-            SetVisible: SetVisible::<Identity, OFFSET>,
-            Visible: Visible::<Identity, OFFSET>,
-            SetLeft: SetLeft::<Identity, OFFSET>,
-            Left: Left::<Identity, OFFSET>,
-            SetWidth: SetWidth::<Identity, OFFSET>,
-            Width: Width::<Identity, OFFSET>,
-            SetTop: SetTop::<Identity, OFFSET>,
-            Top: Top::<Identity, OFFSET>,
-            SetHeight: SetHeight::<Identity, OFFSET>,
-            Height: Height::<Identity, OFFSET>,
-            SetOwner: SetOwner::<Identity, OFFSET>,
-            Owner: Owner::<Identity, OFFSET>,
-            SetMessageDrain: SetMessageDrain::<Identity, OFFSET>,
-            MessageDrain: MessageDrain::<Identity, OFFSET>,
-            BorderColor: BorderColor::<Identity, OFFSET>,
-            SetBorderColor: SetBorderColor::<Identity, OFFSET>,
-            FullScreenMode: FullScreenMode::<Identity, OFFSET>,
-            SetFullScreenMode: SetFullScreenMode::<Identity, OFFSET>,
+            put_Caption: put_Caption::<Identity, OFFSET>,
+            get_Caption: get_Caption::<Identity, OFFSET>,
+            put_WindowStyle: put_WindowStyle::<Identity, OFFSET>,
+            get_WindowStyle: get_WindowStyle::<Identity, OFFSET>,
+            put_WindowStyleEx: put_WindowStyleEx::<Identity, OFFSET>,
+            get_WindowStyleEx: get_WindowStyleEx::<Identity, OFFSET>,
+            put_AutoShow: put_AutoShow::<Identity, OFFSET>,
+            get_AutoShow: get_AutoShow::<Identity, OFFSET>,
+            put_WindowState: put_WindowState::<Identity, OFFSET>,
+            get_WindowState: get_WindowState::<Identity, OFFSET>,
+            put_BackgroundPalette: put_BackgroundPalette::<Identity, OFFSET>,
+            get_BackgroundPalette: get_BackgroundPalette::<Identity, OFFSET>,
+            put_Visible: put_Visible::<Identity, OFFSET>,
+            get_Visible: get_Visible::<Identity, OFFSET>,
+            put_Left: put_Left::<Identity, OFFSET>,
+            get_Left: get_Left::<Identity, OFFSET>,
+            put_Width: put_Width::<Identity, OFFSET>,
+            get_Width: get_Width::<Identity, OFFSET>,
+            put_Top: put_Top::<Identity, OFFSET>,
+            get_Top: get_Top::<Identity, OFFSET>,
+            put_Height: put_Height::<Identity, OFFSET>,
+            get_Height: get_Height::<Identity, OFFSET>,
+            put_Owner: put_Owner::<Identity, OFFSET>,
+            get_Owner: get_Owner::<Identity, OFFSET>,
+            put_MessageDrain: put_MessageDrain::<Identity, OFFSET>,
+            get_MessageDrain: get_MessageDrain::<Identity, OFFSET>,
+            get_BorderColor: get_BorderColor::<Identity, OFFSET>,
+            put_BorderColor: put_BorderColor::<Identity, OFFSET>,
+            get_FullScreenMode: get_FullScreenMode::<Identity, OFFSET>,
+            put_FullScreenMode: put_FullScreenMode::<Identity, OFFSET>,
             SetWindowForeground: SetWindowForeground::<Identity, OFFSET>,
             NotifyOwnerMessage: NotifyOwnerMessage::<Identity, OFFSET>,
             SetWindowPosition: SetWindowPosition::<Identity, OFFSET>,
@@ -2974,9 +3038,15 @@ impl IVideoWindow_Vtbl {
         iid == &<IVideoWindow as windows_core::Interface>::IID || iid == &<super::IDispatch as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IVideoWindow {}
 pub const LIBID_QuartzTypeLib: windows_core::GUID = windows_core::GUID::from_u128(0x56a868b0_0ad4_11ce_b03a_0020af0ba770);
-pub type OAEVENT = isize;
+#[cfg(target_arch = "x86")]
+pub type OAEVENT = i32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type OAEVENT = i64;
 pub type OAFilterState = i32;
-pub type OAHWND = isize;
+#[cfg(target_arch = "x86")]
+pub type OAHWND = i32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+pub type OAHWND = i64;

@@ -1,25 +1,25 @@
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, dwflags: u32, lpscreenbufferdata: Option<*mut core::ffi::c_void>) -> super::HANDLE {
-    windows_core::link!("kernel32.dll" "system" fn CreateConsoleScreenBuffer(dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, dwflags : u32, lpscreenbufferdata : *mut core::ffi::c_void) -> super::HANDLE);
-    unsafe { CreateConsoleScreenBuffer(dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwflags, lpscreenbufferdata.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: super::DWORD, dwsharemode: super::DWORD, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, dwflags: super::DWORD, lpscreenbufferdata: super::LPVOID) -> super::HANDLE {
+    windows_core::link!("kernel32.dll" "system" fn CreateConsoleScreenBuffer(dwdesiredaccess : super::DWORD, dwsharemode : super::DWORD, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, dwflags : super::DWORD, lpscreenbufferdata : super::LPVOID) -> super::HANDLE);
+    unsafe { CreateConsoleScreenBuffer(dwdesiredaccess, dwsharemode, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, dwflags, lpscreenbufferdata as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn FillConsoleOutputAttribute(hconsoleoutput: super::HANDLE, wattribute: u16, nlength: u32, dwwritecoord: super::COORD, lpnumberofattrswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FillConsoleOutputAttribute(hconsoleoutput : super::HANDLE, wattribute : u16, nlength : u32, dwwritecoord : super::COORD, lpnumberofattrswritten : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn FillConsoleOutputAttribute(hconsoleoutput: super::HANDLE, wattribute: super::WORD, nlength: super::DWORD, dwwritecoord: super::COORD, lpnumberofattrswritten: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FillConsoleOutputAttribute(hconsoleoutput : super::HANDLE, wattribute : super::WORD, nlength : super::DWORD, dwwritecoord : super::COORD, lpnumberofattrswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { FillConsoleOutputAttribute(hconsoleoutput, wattribute, nlength, dwwritecoord, lpnumberofattrswritten as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn FillConsoleOutputCharacterA(hconsoleoutput: super::HANDLE, ccharacter: i8, nlength: u32, dwwritecoord: super::COORD, lpnumberofcharswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterA(hconsoleoutput : super::HANDLE, ccharacter : i8, nlength : u32, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn FillConsoleOutputCharacterA(hconsoleoutput: super::HANDLE, ccharacter: super::CHAR, nlength: super::DWORD, dwwritecoord: super::COORD, lpnumberofcharswritten: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterA(hconsoleoutput : super::HANDLE, ccharacter : super::CHAR, nlength : super::DWORD, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { FillConsoleOutputCharacterA(hconsoleoutput, ccharacter, nlength, dwwritecoord, lpnumberofcharswritten as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn FillConsoleOutputCharacterW(hconsoleoutput: super::HANDLE, ccharacter: u16, nlength: u32, dwwritecoord: super::COORD, lpnumberofcharswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterW(hconsoleoutput : super::HANDLE, ccharacter : u16, nlength : u32, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn FillConsoleOutputCharacterW(hconsoleoutput: super::HANDLE, ccharacter: super::WCHAR, nlength: super::DWORD, dwwritecoord: super::COORD, lpnumberofcharswritten: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn FillConsoleOutputCharacterW(hconsoleoutput : super::HANDLE, ccharacter : super::WCHAR, nlength : super::DWORD, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { FillConsoleOutputCharacterW(hconsoleoutput, ccharacter, nlength, dwwritecoord, lpnumberofcharswritten as _) }
 }
 #[cfg(feature = "winnt")]
@@ -28,92 +28,97 @@ pub unsafe fn FlushConsoleInputBuffer(hconsoleinput: super::HANDLE) -> windows_c
     windows_core::link!("kernel32.dll" "system" fn FlushConsoleInputBuffer(hconsoleinput : super::HANDLE) -> windows_core::BOOL);
     unsafe { FlushConsoleInputBuffer(hconsoleinput) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: u32, dwprocessgroupid: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn GenerateConsoleCtrlEvent(dwctrlevent : u32, dwprocessgroupid : u32) -> windows_core::BOOL);
+pub unsafe fn GenerateConsoleCtrlEvent(dwctrlevent: super::DWORD, dwprocessgroupid: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn GenerateConsoleCtrlEvent(dwctrlevent : super::DWORD, dwprocessgroupid : super::DWORD) -> windows_core::BOOL);
     unsafe { GenerateConsoleCtrlEvent(dwctrlevent, dwprocessgroupid) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetConsoleCursorInfo(hconsoleoutput: super::HANDLE, lpconsolecursorinfo: PCONSOLE_CURSOR_INFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleCursorInfo(hconsoleoutput : super::HANDLE, lpconsolecursorinfo : PCONSOLE_CURSOR_INFO) -> windows_core::BOOL);
     unsafe { GetConsoleCursorInfo(hconsoleoutput, lpconsolecursorinfo as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: windows_core::PSTR, nsize: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleA(lpconsoletitle : windows_core::PSTR, nsize : u32) -> u32);
+pub unsafe fn GetConsoleOriginalTitleA(lpconsoletitle: windows_core::PSTR, nsize: super::DWORD) -> super::DWORD {
+    windows_core::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleA(lpconsoletitle : windows_core::PSTR, nsize : super::DWORD) -> super::DWORD);
     unsafe { GetConsoleOriginalTitleA(lpconsoletitle, nsize) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: windows_core::PWSTR, nsize: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleW(lpconsoletitle : windows_core::PWSTR, nsize : u32) -> u32);
+pub unsafe fn GetConsoleOriginalTitleW(lpconsoletitle: windows_core::PWSTR, nsize: super::DWORD) -> super::DWORD {
+    windows_core::link!("kernel32.dll" "system" fn GetConsoleOriginalTitleW(lpconsoletitle : windows_core::PWSTR, nsize : super::DWORD) -> super::DWORD);
     unsafe { GetConsoleOriginalTitleW(lpconsoletitle, nsize) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetConsoleScreenBufferInfo(hconsoleoutput: super::HANDLE, lpconsolescreenbufferinfo: PCONSOLE_SCREEN_BUFFER_INFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleScreenBufferInfo(hconsoleoutput : super::HANDLE, lpconsolescreenbufferinfo : PCONSOLE_SCREEN_BUFFER_INFO) -> windows_core::BOOL);
     unsafe { GetConsoleScreenBufferInfo(hconsoleoutput, lpconsolescreenbufferinfo as _) }
 }
-#[cfg(all(feature = "wincontypes", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetConsoleScreenBufferInfoEx(hconsoleoutput: super::HANDLE, lpconsolescreenbufferinfoex: PCONSOLE_SCREEN_BUFFER_INFOEX) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleScreenBufferInfoEx(hconsoleoutput : super::HANDLE, lpconsolescreenbufferinfoex : PCONSOLE_SCREEN_BUFFER_INFOEX) -> windows_core::BOOL);
     unsafe { GetConsoleScreenBufferInfoEx(hconsoleoutput, lpconsolescreenbufferinfoex as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetConsoleTitleA(lpconsoletitle: windows_core::PSTR, nsize: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetConsoleTitleA(lpconsoletitle : windows_core::PSTR, nsize : u32) -> u32);
+pub unsafe fn GetConsoleTitleA(lpconsoletitle: windows_core::PSTR, nsize: super::DWORD) -> super::DWORD {
+    windows_core::link!("kernel32.dll" "system" fn GetConsoleTitleA(lpconsoletitle : windows_core::PSTR, nsize : super::DWORD) -> super::DWORD);
     unsafe { GetConsoleTitleA(lpconsoletitle, nsize) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn GetConsoleTitleW(lpconsoletitle: windows_core::PWSTR, nsize: u32) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn GetConsoleTitleW(lpconsoletitle : windows_core::PWSTR, nsize : u32) -> u32);
+pub unsafe fn GetConsoleTitleW(lpconsoletitle: windows_core::PWSTR, nsize: super::DWORD) -> super::DWORD {
+    windows_core::link!("kernel32.dll" "system" fn GetConsoleTitleW(lpconsoletitle : windows_core::PWSTR, nsize : super::DWORD) -> super::DWORD);
     unsafe { GetConsoleTitleW(lpconsoletitle, nsize) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetLargestConsoleWindowSize(hconsoleoutput: super::HANDLE) -> super::COORD {
     windows_core::link!("kernel32.dll" "system" fn GetLargestConsoleWindowSize(hconsoleoutput : super::HANDLE) -> super::COORD);
     unsafe { GetLargestConsoleWindowSize(hconsoleoutput) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadConsoleOutputA(hconsoleoutput: super::HANDLE, lpbuffer: super::PCHAR_INFO, dwbuffersize: super::COORD, dwbuffercoord: super::COORD, lpreadregion: super::PSMALL_RECT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputA(hconsoleoutput : super::HANDLE, lpbuffer : super::PCHAR_INFO, dwbuffersize : super::COORD, dwbuffercoord : super::COORD, lpreadregion : super::PSMALL_RECT) -> windows_core::BOOL);
     unsafe { ReadConsoleOutputA(hconsoleoutput, lpbuffer as _, dwbuffersize, dwbuffercoord, lpreadregion as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadConsoleOutputAttribute(hconsoleoutput: super::HANDLE, lpattribute: super::LPWORD, nlength: u32, dwreadcoord: super::COORD, lpnumberofattrsread: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputAttribute(hconsoleoutput : super::HANDLE, lpattribute : super::LPWORD, nlength : u32, dwreadcoord : super::COORD, lpnumberofattrsread : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn ReadConsoleOutputAttribute(hconsoleoutput: super::HANDLE, lpattribute: super::LPWORD, nlength: super::DWORD, dwreadcoord: super::COORD, lpnumberofattrsread: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputAttribute(hconsoleoutput : super::HANDLE, lpattribute : super::LPWORD, nlength : super::DWORD, dwreadcoord : super::COORD, lpnumberofattrsread : super::LPDWORD) -> windows_core::BOOL);
     unsafe { ReadConsoleOutputAttribute(hconsoleoutput, lpattribute as _, nlength, dwreadcoord, lpnumberofattrsread as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadConsoleOutputCharacterA(hconsoleoutput: super::HANDLE, lpcharacter: windows_core::PSTR, nlength: u32, dwreadcoord: super::COORD, lpnumberofcharsread: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterA(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PSTR, nlength : u32, dwreadcoord : super::COORD, lpnumberofcharsread : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn ReadConsoleOutputCharacterA(hconsoleoutput: super::HANDLE, lpcharacter: windows_core::PSTR, nlength: super::DWORD, dwreadcoord: super::COORD, lpnumberofcharsread: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterA(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PSTR, nlength : super::DWORD, dwreadcoord : super::COORD, lpnumberofcharsread : super::LPDWORD) -> windows_core::BOOL);
     unsafe { ReadConsoleOutputCharacterA(hconsoleoutput, lpcharacter, nlength, dwreadcoord, lpnumberofcharsread as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn ReadConsoleOutputCharacterW(hconsoleoutput: super::HANDLE, lpcharacter: windows_core::PWSTR, nlength: u32, dwreadcoord: super::COORD, lpnumberofcharsread: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterW(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PWSTR, nlength : u32, dwreadcoord : super::COORD, lpnumberofcharsread : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn ReadConsoleOutputCharacterW(hconsoleoutput: super::HANDLE, lpcharacter: windows_core::PWSTR, nlength: super::DWORD, dwreadcoord: super::COORD, lpnumberofcharsread: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputCharacterW(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PWSTR, nlength : super::DWORD, dwreadcoord : super::COORD, lpnumberofcharsread : super::LPDWORD) -> windows_core::BOOL);
     unsafe { ReadConsoleOutputCharacterW(hconsoleoutput, lpcharacter, nlength, dwreadcoord, lpnumberofcharsread as _) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadConsoleOutputW(hconsoleoutput: super::HANDLE, lpbuffer: super::PCHAR_INFO, dwbuffersize: super::COORD, dwbuffercoord: super::COORD, lpreadregion: super::PSMALL_RECT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadConsoleOutputW(hconsoleoutput : super::HANDLE, lpbuffer : super::PCHAR_INFO, dwbuffersize : super::COORD, dwbuffercoord : super::COORD, lpreadregion : super::PSMALL_RECT) -> windows_core::BOOL);
     unsafe { ReadConsoleOutputW(hconsoleoutput, lpbuffer as _, dwbuffersize, dwbuffercoord, lpreadregion as _) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn ScrollConsoleScreenBufferA(hconsoleoutput: super::HANDLE, lpscrollrectangle: *const super::SMALL_RECT, lpcliprectangle: Option<*const super::SMALL_RECT>, dwdestinationorigin: super::COORD, lpfill: *const super::CHAR_INFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferA(hconsoleoutput : super::HANDLE, lpscrollrectangle : *const super::SMALL_RECT, lpcliprectangle : *const super::SMALL_RECT, dwdestinationorigin : super::COORD, lpfill : *const super::CHAR_INFO) -> windows_core::BOOL);
     unsafe { ScrollConsoleScreenBufferA(hconsoleoutput, lpscrollrectangle, lpcliprectangle.unwrap_or(core::mem::zeroed()) as _, dwdestinationorigin, lpfill) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn ScrollConsoleScreenBufferW(hconsoleoutput: super::HANDLE, lpscrollrectangle: *const super::SMALL_RECT, lpcliprectangle: Option<*const super::SMALL_RECT>, dwdestinationorigin: super::COORD, lpfill: *const super::CHAR_INFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferW(hconsoleoutput : super::HANDLE, lpscrollrectangle : *const super::SMALL_RECT, lpcliprectangle : *const super::SMALL_RECT, dwdestinationorigin : super::COORD, lpfill : *const super::CHAR_INFO) -> windows_core::BOOL);
@@ -125,44 +130,46 @@ pub unsafe fn SetConsoleActiveScreenBuffer(hconsoleoutput: super::HANDLE) -> win
     windows_core::link!("kernel32.dll" "system" fn SetConsoleActiveScreenBuffer(hconsoleoutput : super::HANDLE) -> windows_core::BOOL);
     unsafe { SetConsoleActiveScreenBuffer(hconsoleoutput) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetConsoleCP(wcodepageid: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetConsoleCP(wcodepageid : u32) -> windows_core::BOOL);
+pub unsafe fn SetConsoleCP(wcodepageid: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetConsoleCP(wcodepageid : super::UINT) -> windows_core::BOOL);
     unsafe { SetConsoleCP(wcodepageid) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetConsoleCursorInfo(hconsoleoutput: super::HANDLE, lpconsolecursorinfo: *const CONSOLE_CURSOR_INFO) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetConsoleCursorInfo(hconsoleoutput : super::HANDLE, lpconsolecursorinfo : *const CONSOLE_CURSOR_INFO) -> windows_core::BOOL);
     unsafe { SetConsoleCursorInfo(hconsoleoutput, lpconsolecursorinfo) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetConsoleCursorPosition(hconsoleoutput: super::HANDLE, dwcursorposition: super::COORD) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetConsoleCursorPosition(hconsoleoutput : super::HANDLE, dwcursorposition : super::COORD) -> windows_core::BOOL);
     unsafe { SetConsoleCursorPosition(hconsoleoutput, dwcursorposition) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn SetConsoleOutputCP(wcodepageid: u32) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetConsoleOutputCP(wcodepageid : u32) -> windows_core::BOOL);
+pub unsafe fn SetConsoleOutputCP(wcodepageid: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetConsoleOutputCP(wcodepageid : super::UINT) -> windows_core::BOOL);
     unsafe { SetConsoleOutputCP(wcodepageid) }
 }
-#[cfg(all(feature = "wincontypes", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetConsoleScreenBufferInfoEx(hconsoleoutput: super::HANDLE, lpconsolescreenbufferinfoex: PCONSOLE_SCREEN_BUFFER_INFOEX) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetConsoleScreenBufferInfoEx(hconsoleoutput : super::HANDLE, lpconsolescreenbufferinfoex : PCONSOLE_SCREEN_BUFFER_INFOEX) -> windows_core::BOOL);
     unsafe { SetConsoleScreenBufferInfoEx(hconsoleoutput, lpconsolescreenbufferinfoex) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetConsoleScreenBufferSize(hconsoleoutput: super::HANDLE, dwsize: super::COORD) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetConsoleScreenBufferSize(hconsoleoutput : super::HANDLE, dwsize : super::COORD) -> windows_core::BOOL);
     unsafe { SetConsoleScreenBufferSize(hconsoleoutput, dwsize) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetConsoleTextAttribute(hconsoleoutput: super::HANDLE, wattributes: u16) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn SetConsoleTextAttribute(hconsoleoutput : super::HANDLE, wattributes : u16) -> windows_core::BOOL);
+pub unsafe fn SetConsoleTextAttribute(hconsoleoutput: super::HANDLE, wattributes: super::WORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn SetConsoleTextAttribute(hconsoleoutput : super::HANDLE, wattributes : super::WORD) -> windows_core::BOOL);
     unsafe { SetConsoleTextAttribute(hconsoleoutput, wattributes) }
 }
 #[inline]
@@ -181,49 +188,49 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetConsoleTitleW(lpconsoletitle : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetConsoleTitleW(lpconsoletitle.param().abi()) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn SetConsoleWindowInfo(hconsoleoutput: super::HANDLE, babsolute: bool, lpconsolewindow: *const super::SMALL_RECT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetConsoleWindowInfo(hconsoleoutput : super::HANDLE, babsolute : windows_core::BOOL, lpconsolewindow : *const super::SMALL_RECT) -> windows_core::BOOL);
     unsafe { SetConsoleWindowInfo(hconsoleoutput, babsolute.into(), lpconsolewindow) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn WriteConsoleInputA(hconsoleinput: super::HANDLE, lpbuffer: &[super::INPUT_RECORD], lpnumberofeventswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteConsoleInputA(hconsoleinput : super::HANDLE, lpbuffer : *const super::INPUT_RECORD, nlength : u32, lpnumberofeventswritten : super::LPDWORD) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn WriteConsoleInputA(hconsoleinput : super::HANDLE, lpbuffer : *const super::INPUT_RECORD, nlength : super::DWORD, lpnumberofeventswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { WriteConsoleInputA(hconsoleinput, lpbuffer.as_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventswritten as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn WriteConsoleInputW(hconsoleinput: super::HANDLE, lpbuffer: &[super::INPUT_RECORD], lpnumberofeventswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteConsoleInputW(hconsoleinput : super::HANDLE, lpbuffer : *const super::INPUT_RECORD, nlength : u32, lpnumberofeventswritten : super::LPDWORD) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn WriteConsoleInputW(hconsoleinput : super::HANDLE, lpbuffer : *const super::INPUT_RECORD, nlength : super::DWORD, lpnumberofeventswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { WriteConsoleInputW(hconsoleinput, lpbuffer.as_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventswritten as _) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn WriteConsoleOutputA(hconsoleoutput: super::HANDLE, lpbuffer: *const super::CHAR_INFO, dwbuffersize: super::COORD, dwbuffercoord: super::COORD, lpwriteregion: super::PSMALL_RECT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputA(hconsoleoutput : super::HANDLE, lpbuffer : *const super::CHAR_INFO, dwbuffersize : super::COORD, dwbuffercoord : super::COORD, lpwriteregion : super::PSMALL_RECT) -> windows_core::BOOL);
     unsafe { WriteConsoleOutputA(hconsoleoutput, lpbuffer, dwbuffersize, dwbuffercoord, lpwriteregion as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn WriteConsoleOutputAttribute(hconsoleoutput: super::HANDLE, lpattribute: &[u16], dwwritecoord: super::COORD, lpnumberofattrswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputAttribute(hconsoleoutput : super::HANDLE, lpattribute : *const u16, nlength : u32, dwwritecoord : super::COORD, lpnumberofattrswritten : super::LPDWORD) -> windows_core::BOOL);
+pub unsafe fn WriteConsoleOutputAttribute(hconsoleoutput: super::HANDLE, lpattribute: &[super::WORD], dwwritecoord: super::COORD, lpnumberofattrswritten: super::LPDWORD) -> windows_core::BOOL {
+    windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputAttribute(hconsoleoutput : super::HANDLE, lpattribute : *const super::WORD, nlength : super::DWORD, dwwritecoord : super::COORD, lpnumberofattrswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { WriteConsoleOutputAttribute(hconsoleoutput, lpattribute.as_ptr(), lpattribute.len().try_into().unwrap(), dwwritecoord, lpnumberofattrswritten as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn WriteConsoleOutputCharacterA(hconsoleoutput: super::HANDLE, lpcharacter: &[u8], dwwritecoord: super::COORD, lpnumberofcharswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterA(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PCSTR, nlength : u32, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterA(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PCSTR, nlength : super::DWORD, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { WriteConsoleOutputCharacterA(hconsoleoutput, core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len().try_into().unwrap(), dwwritecoord, lpnumberofcharswritten as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn WriteConsoleOutputCharacterW(hconsoleoutput: super::HANDLE, lpcharacter: &[u16], dwwritecoord: super::COORD, lpnumberofcharswritten: super::LPDWORD) -> windows_core::BOOL {
-    windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PCWSTR, nlength : u32, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputCharacterW(hconsoleoutput : super::HANDLE, lpcharacter : windows_core::PCWSTR, nlength : super::DWORD, dwwritecoord : super::COORD, lpnumberofcharswritten : super::LPDWORD) -> windows_core::BOOL);
     unsafe { WriteConsoleOutputCharacterW(hconsoleoutput, core::mem::transmute(lpcharacter.as_ptr()), lpcharacter.len().try_into().unwrap(), dwwritecoord, lpnumberofcharswritten as _) }
 }
-#[cfg(all(feature = "wincontypes", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn WriteConsoleOutputW(hconsoleoutput: super::HANDLE, lpbuffer: *const super::CHAR_INFO, dwbuffersize: super::COORD, dwbuffercoord: super::COORD, lpwriteregion: super::PSMALL_RECT) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn WriteConsoleOutputW(hconsoleoutput : super::HANDLE, lpbuffer : *const super::CHAR_INFO, dwbuffersize : super::COORD, dwbuffercoord : super::COORD, lpwriteregion : super::PSMALL_RECT) -> windows_core::BOOL);
@@ -242,36 +249,37 @@ pub const COMMON_LVB_SBCSDBCS: i32 = 768;
 pub const COMMON_LVB_TRAILING_BYTE: i32 = 512;
 pub const COMMON_LVB_UNDERSCORE: i32 = 32768;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_CURSOR_INFO {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub bVisible: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "wincontypes")]
+#[cfg(all(feature = "shared", feature = "wincontypes"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: super::COORD,
     pub dwCursorPosition: super::COORD,
-    pub wAttributes: u16,
+    pub wAttributes: super::WORD,
     pub srWindow: super::SMALL_RECT,
     pub dwMaximumWindowSize: super::COORD,
 }
 #[repr(C)]
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
-    pub cbSize: u32,
+    pub cbSize: super::ULONG,
     pub dwSize: super::COORD,
     pub dwCursorPosition: super::COORD,
-    pub wAttributes: u16,
+    pub wAttributes: super::WORD,
     pub srWindow: super::SMALL_RECT,
     pub dwMaximumWindowSize: super::COORD,
-    pub wPopupAttributes: u16,
+    pub wPopupAttributes: super::WORD,
     pub bFullscreenSupported: windows_core::BOOL,
     pub ColorTable: [super::COLORREF; 16],
 }
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef"))]
 impl Default for CONSOLE_SCREEN_BUFFER_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -281,8 +289,9 @@ pub const FOREGROUND_BLUE: i32 = 1;
 pub const FOREGROUND_GREEN: i32 = 2;
 pub const FOREGROUND_INTENSITY: i32 = 8;
 pub const FOREGROUND_RED: i32 = 4;
+#[cfg(feature = "shared")]
 pub type PCONSOLE_CURSOR_INFO = *mut CONSOLE_CURSOR_INFO;
-#[cfg(feature = "wincontypes")]
+#[cfg(all(feature = "shared", feature = "wincontypes"))]
 pub type PCONSOLE_SCREEN_BUFFER_INFO = *mut CONSOLE_SCREEN_BUFFER_INFO;
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef"))]
 pub type PCONSOLE_SCREEN_BUFFER_INFOEX = *mut CONSOLE_SCREEN_BUFFER_INFOEX;

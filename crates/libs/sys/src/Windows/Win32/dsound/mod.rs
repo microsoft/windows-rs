@@ -1,21 +1,21 @@
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate(pcguiddevice : super::LPCGUID, ppdsc : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate8(pcguiddevice : super::LPCGUID, ppdsc8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureEnumerateA(pdsenumcallback : LPDSENUMCALLBACKA, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureEnumerateW(pdsenumcallback : LPDSENUMCALLBACKW, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundCreate(pcguiddevice : super::LPCGUID, ppds : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundCreate8(pcguiddevice : super::LPCGUID, ppds8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateA(pdsenumcallback : LPDSENUMCALLBACKA, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "guiddef")]
-windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateW(pdsenumcallback : LPDSENUMCALLBACKW, pcontext : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "windef"))]
-windows_link::link!("dsound.dll" "system" fn DirectSoundFullDuplexCreate(pcguidcapturedevice : super::LPCGUID, pcguidrenderdevice : super::LPCGUID, pcdscbufferdesc : LPCDSCBUFFERDESC, pcdsbufferdesc : LPCDSBUFFERDESC, hwnd : super::HWND, dwlevel : u32, ppdsfd : *mut *mut core::ffi::c_void, ppdscbuffer8 : *mut *mut core::ffi::c_void, ppdsbuffer8 : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "unknwnbase"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate(pcguiddevice : super::LPCGUID, ppdsc : *mut LPDIRECTSOUNDCAPTURE, punkouter : super::LPUNKNOWN) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "unknwnbase"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureCreate8(pcguiddevice : super::LPCGUID, ppdsc8 : *mut LPDIRECTSOUNDCAPTURE8, punkouter : super::LPUNKNOWN) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureEnumerateA(pdsenumcallback : LPDSENUMCALLBACKA, pcontext : super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCaptureEnumerateW(pdsenumcallback : LPDSENUMCALLBACKW, pcontext : super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "unknwnbase"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCreate(pcguiddevice : super::LPCGUID, ppds : *mut LPDIRECTSOUND, punkouter : super::LPUNKNOWN) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "unknwnbase"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundCreate8(pcguiddevice : super::LPCGUID, ppds8 : *mut LPDIRECTSOUND8, punkouter : super::LPUNKNOWN) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateA(pdsenumcallback : LPDSENUMCALLBACKA, pcontext : super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundEnumerateW(pdsenumcallback : LPDSENUMCALLBACKW, pcontext : super::LPVOID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "mmeapi", feature = "shared", feature = "unknwnbase", feature = "windef"))]
+windows_link::link!("dsound.dll" "system" fn DirectSoundFullDuplexCreate(pcguidcapturedevice : super::LPCGUID, pcguidrenderdevice : super::LPCGUID, pcdscbufferdesc : LPCDSCBUFFERDESC, pcdsbufferdesc : LPCDSBUFFERDESC, hwnd : super::HWND, dwlevel : super::DWORD, ppdsfd : *mut LPDIRECTSOUNDFULLDUPLEX, ppdscbuffer8 : *mut LPDIRECTSOUNDCAPTUREBUFFER8, ppdsbuffer8 : *mut LPDIRECTSOUNDBUFFER8, punkouter : super::LPUNKNOWN) -> windows_sys::core::HRESULT);
 #[cfg(feature = "guiddef")]
 windows_link::link!("dsound.dll" "system" fn GetDeviceID(pguidsrc : super::LPCGUID, pguiddest : super::LPGUID) -> windows_sys::core::HRESULT);
 pub const CLSID_DirectSound: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x47d4d946_62e8_11cf_93bc_444553540000);
@@ -33,27 +33,30 @@ pub struct D3DVECTOR {
     pub z: f32,
 }
 pub const DIRECTSOUND_VERSION: i32 = 2304;
+pub const DS3DALG_DEFAULT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub const DS3DALG_HRTF_FULL: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc2413340_1c1b_11d2_94f5_00c04fc28aca);
 pub const DS3DALG_HRTF_LIGHT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc2413342_1c1b_11d2_94f5_00c04fc28aca);
 pub const DS3DALG_NO_VIRTUALIZATION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc241333f_1c1b_11d2_94f5_00c04fc28aca);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS3DBUFFER {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub vPosition: D3DVECTOR,
     pub vVelocity: D3DVECTOR,
-    pub dwInsideConeAngle: u32,
-    pub dwOutsideConeAngle: u32,
+    pub dwInsideConeAngle: super::DWORD,
+    pub dwOutsideConeAngle: super::DWORD,
     pub vConeOrientation: D3DVECTOR,
-    pub lConeOutsideVolume: i32,
+    pub lConeOutsideVolume: super::LONG,
     pub flMinDistance: D3DVALUE,
     pub flMaxDistance: D3DVALUE,
-    pub dwMode: u32,
+    pub dwMode: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DS3DLISTENER {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub vPosition: D3DVECTOR,
     pub vVelocity: D3DVECTOR,
     pub vOrientFront: D3DVECTOR,
@@ -83,13 +86,14 @@ pub const DS3D_MINDISTANCEFACTOR: f32 = 0.00000000000000000000000000000000000001
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0.0;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0.0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSBCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwUnlockTransferRate: u32,
-    pub dwPlayCpuOverhead: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwBufferBytes: super::DWORD,
+    pub dwUnlockTransferRate: super::DWORD,
+    pub dwPlayCpuOverhead: super::DWORD,
 }
 pub const DSBCAPS_CTRL3D: i32 = 16;
 pub const DSBCAPS_CTRLFREQUENCY: i32 = 32;
@@ -124,10 +128,10 @@ pub const DSBPLAY_TERMINATEBY_PRIORITY: i32 = 32;
 pub const DSBPLAY_TERMINATEBY_TIME: i32 = 8;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSBPOSITIONNOTIFY {
-    pub dwOffset: u32,
+    pub dwOffset: super::DWORD,
     pub hEventNotify: super::HANDLE,
 }
 pub const DSBSIZE_FX_MIN: i32 = 150;
@@ -140,55 +144,56 @@ pub const DSBSTATUS_LOOPING: i32 = 4;
 pub const DSBSTATUS_PLAYING: i32 = 1;
 pub const DSBSTATUS_TERMINATED: i32 = 32;
 #[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSBUFFERDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwBufferBytes: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
     pub guid3DAlgorithm: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSBUFFERDESC1 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwBufferBytes: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
 }
 pub const DSBVOLUME_MAX: i32 = 0;
 pub const DSBVOLUME_MIN: i32 = -10000;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwMinSecondarySampleRate: u32,
-    pub dwMaxSecondarySampleRate: u32,
-    pub dwPrimaryBuffers: u32,
-    pub dwMaxHwMixingAllBuffers: u32,
-    pub dwMaxHwMixingStaticBuffers: u32,
-    pub dwMaxHwMixingStreamingBuffers: u32,
-    pub dwFreeHwMixingAllBuffers: u32,
-    pub dwFreeHwMixingStaticBuffers: u32,
-    pub dwFreeHwMixingStreamingBuffers: u32,
-    pub dwMaxHw3DAllBuffers: u32,
-    pub dwMaxHw3DStaticBuffers: u32,
-    pub dwMaxHw3DStreamingBuffers: u32,
-    pub dwFreeHw3DAllBuffers: u32,
-    pub dwFreeHw3DStaticBuffers: u32,
-    pub dwFreeHw3DStreamingBuffers: u32,
-    pub dwTotalHwMemBytes: u32,
-    pub dwFreeHwMemBytes: u32,
-    pub dwMaxContigFreeHwMemBytes: u32,
-    pub dwUnlockTransferRateHwBuffers: u32,
-    pub dwPlayCpuOverheadSwBuffers: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwMinSecondarySampleRate: super::DWORD,
+    pub dwMaxSecondarySampleRate: super::DWORD,
+    pub dwPrimaryBuffers: super::DWORD,
+    pub dwMaxHwMixingAllBuffers: super::DWORD,
+    pub dwMaxHwMixingStaticBuffers: super::DWORD,
+    pub dwMaxHwMixingStreamingBuffers: super::DWORD,
+    pub dwFreeHwMixingAllBuffers: super::DWORD,
+    pub dwFreeHwMixingStaticBuffers: super::DWORD,
+    pub dwFreeHwMixingStreamingBuffers: super::DWORD,
+    pub dwMaxHw3DAllBuffers: super::DWORD,
+    pub dwMaxHw3DStaticBuffers: super::DWORD,
+    pub dwMaxHw3DStreamingBuffers: super::DWORD,
+    pub dwFreeHw3DAllBuffers: super::DWORD,
+    pub dwFreeHw3DStaticBuffers: super::DWORD,
+    pub dwFreeHw3DStreamingBuffers: super::DWORD,
+    pub dwTotalHwMemBytes: super::DWORD,
+    pub dwFreeHwMemBytes: super::DWORD,
+    pub dwMaxContigFreeHwMemBytes: super::DWORD,
+    pub dwUnlockTransferRateHwBuffers: super::DWORD,
+    pub dwPlayCpuOverheadSwBuffers: super::DWORD,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 pub const DSCAPS_CERTIFIED: i32 = 64;
 pub const DSCAPS_CONTINUOUSRATE: i32 = 16;
@@ -202,12 +207,13 @@ pub const DSCAPS_SECONDARY8BIT: i32 = 1024;
 pub const DSCAPS_SECONDARYMONO: i32 = 256;
 pub const DSCAPS_SECONDARYSTEREO: i32 = 512;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSCBCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwBufferBytes: super::DWORD,
+    pub dwReserved: super::DWORD,
 }
 pub const DSCBCAPS_CTRLFX: i32 = 512;
 pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648;
@@ -216,54 +222,57 @@ pub const DSCBSTART_LOOPING: i32 = 1;
 pub const DSCBSTATUS_CAPTURING: i32 = 1;
 pub const DSCBSTATUS_LOOPING: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSCBUFFERDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwBufferBytes: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
-    pub dwFXCount: u32,
+    pub dwFXCount: super::DWORD,
     pub lpDSCFXDesc: LPDSCEFFECTDESC,
 }
 #[repr(C)]
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSCBUFFERDESC1 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwBufferBytes: super::DWORD,
+    pub dwReserved: super::DWORD,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSCCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwFormats: u32,
-    pub dwChannels: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwFormats: super::DWORD,
+    pub dwChannels: super::DWORD,
 }
 pub const DSCCAPS_CERTIFIED: i32 = 64;
 pub const DSCCAPS_EMULDRIVER: i32 = 32;
 pub const DSCCAPS_MULTIPLECAPTURE: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSCEFFECTDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub guidDSCFXClass: windows_sys::core::GUID,
     pub guidDSCFXInstance: windows_sys::core::GUID,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
+    pub dwReserved1: super::DWORD,
+    pub dwReserved2: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSCFXAec {
     pub fEnable: windows_sys::core::BOOL,
     pub fNoiseFill: windows_sys::core::BOOL,
-    pub dwMode: u32,
+    pub dwMode: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -286,13 +295,14 @@ pub const DSDEVID_DefaultPlayback: windows_sys::core::GUID = windows_sys::core::
 pub const DSDEVID_DefaultVoiceCapture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
 pub const DSDEVID_DefaultVoicePlayback: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03);
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSEFFECTDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
+    pub dwSize: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub guidDSFXClass: windows_sys::core::GUID,
-    pub dwReserved1: usize,
-    pub dwReserved2: usize,
+    pub dwReserved1: super::DWORD_PTR,
+    pub dwReserved2: super::DWORD_PTR,
 }
 pub const DSERR_ACCESSDENIED: windows_sys::core::HRESULT = 0x80070005_u32 as _;
 pub const DSERR_ALLOCATED: windows_sys::core::HRESULT = 0x8878000A_u32 as _;
@@ -349,25 +359,27 @@ pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50.0;
 pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0.0;
 pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60.0;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXChorus {
-    pub fWetDryMix: f32,
-    pub fDepth: f32,
-    pub fFeedback: f32,
-    pub fFrequency: f32,
-    pub lWaveform: i32,
-    pub fDelay: f32,
-    pub lPhase: i32,
+    pub fWetDryMix: super::FLOAT,
+    pub fDepth: super::FLOAT,
+    pub fFeedback: super::FLOAT,
+    pub fFrequency: super::FLOAT,
+    pub lWaveform: super::LONG,
+    pub fDelay: super::FLOAT,
+    pub lPhase: super::LONG,
 }
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXCompressor {
-    pub fGain: f32,
-    pub fAttack: f32,
-    pub fRelease: f32,
-    pub fThreshold: f32,
-    pub fRatio: f32,
-    pub fPredelay: f32,
+    pub fGain: super::FLOAT,
+    pub fAttack: super::FLOAT,
+    pub fRelease: super::FLOAT,
+    pub fThreshold: super::FLOAT,
+    pub fRatio: super::FLOAT,
+    pub fPredelay: super::FLOAT,
 }
 pub const DSFXDISTORTION_EDGE_MAX: f32 = 100.0;
 pub const DSFXDISTORTION_EDGE_MIN: f32 = 0.0;
@@ -380,13 +392,14 @@ pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100.0;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000.0;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100.0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXDistortion {
-    pub fGain: f32,
-    pub fEdge: f32,
-    pub fPostEQCenterFrequency: f32,
-    pub fPostEQBandwidth: f32,
-    pub fPreLowpassCutoff: f32,
+    pub fGain: super::FLOAT,
+    pub fEdge: super::FLOAT,
+    pub fPostEQCenterFrequency: super::FLOAT,
+    pub fPostEQBandwidth: super::FLOAT,
+    pub fPreLowpassCutoff: super::FLOAT,
 }
 pub const DSFXECHO_FEEDBACK_MAX: f32 = 100.0;
 pub const DSFXECHO_FEEDBACK_MIN: f32 = 0.0;
@@ -399,13 +412,14 @@ pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1.0;
 pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100.0;
 pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0.0;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXEcho {
-    pub fWetDryMix: f32,
-    pub fFeedback: f32,
-    pub fLeftDelay: f32,
-    pub fRightDelay: f32,
-    pub lPanDelay: i32,
+    pub fWetDryMix: super::FLOAT,
+    pub fFeedback: super::FLOAT,
+    pub fLeftDelay: super::FLOAT,
+    pub fRightDelay: super::FLOAT,
+    pub lPanDelay: super::LONG,
 }
 pub const DSFXFLANGER_DELAY_MAX: f32 = 4.0;
 pub const DSFXFLANGER_DELAY_MIN: f32 = 0.0;
@@ -427,41 +441,44 @@ pub const DSFXFLANGER_WAVE_TRIANGLE: i32 = 0;
 pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100.0;
 pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0.0;
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXFlanger {
-    pub fWetDryMix: f32,
-    pub fDepth: f32,
-    pub fFeedback: f32,
-    pub fFrequency: f32,
-    pub lWaveform: i32,
-    pub fDelay: f32,
-    pub lPhase: i32,
+    pub fWetDryMix: super::FLOAT,
+    pub fDepth: super::FLOAT,
+    pub fFeedback: super::FLOAT,
+    pub fFrequency: super::FLOAT,
+    pub lWaveform: super::LONG,
+    pub fDelay: super::FLOAT,
+    pub lPhase: super::LONG,
 }
 pub const DSFXGARGLE_RATEHZ_MAX: i32 = 1000;
 pub const DSFXGARGLE_RATEHZ_MIN: i32 = 1;
 pub const DSFXGARGLE_WAVE_SQUARE: i32 = 1;
 pub const DSFXGARGLE_WAVE_TRIANGLE: i32 = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXGargle {
-    pub dwRateHz: u32,
-    pub dwWaveShape: u32,
+    pub dwRateHz: super::DWORD,
+    pub dwWaveShape: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXI3DL2Reverb {
-    pub lRoom: i32,
-    pub lRoomHF: i32,
-    pub flRoomRolloffFactor: f32,
-    pub flDecayTime: f32,
-    pub flDecayHFRatio: f32,
-    pub lReflections: i32,
-    pub flReflectionsDelay: f32,
-    pub lReverb: i32,
-    pub flReverbDelay: f32,
-    pub flDiffusion: f32,
-    pub flDensity: f32,
-    pub flHFReference: f32,
+    pub lRoom: super::LONG,
+    pub lRoomHF: super::LONG,
+    pub flRoomRolloffFactor: super::FLOAT,
+    pub flDecayTime: super::FLOAT,
+    pub flDecayHFRatio: super::FLOAT,
+    pub lReflections: super::LONG,
+    pub flReflectionsDelay: super::FLOAT,
+    pub lReverb: super::LONG,
+    pub flReverbDelay: super::FLOAT,
+    pub flDiffusion: super::FLOAT,
+    pub flDensity: super::FLOAT,
+    pub flHFReference: super::FLOAT,
 }
 pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36.0;
 pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1.0;
@@ -470,11 +487,12 @@ pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80.0;
 pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15.0;
 pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15.0;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXParamEq {
-    pub fCenter: f32,
-    pub fBandwidth: f32,
-    pub fGain: f32,
+    pub fCenter: super::FLOAT,
+    pub fBandwidth: super::FLOAT,
+    pub fGain: super::FLOAT,
 }
 pub const DSFXR_FAILED: i32 = 4;
 pub const DSFXR_LOCHARDWARE: i32 = 1;
@@ -484,12 +502,13 @@ pub const DSFXR_SENDLOOP: i32 = 6;
 pub const DSFXR_UNALLOCATED: i32 = 3;
 pub const DSFXR_UNKNOWN: i32 = 5;
 #[repr(C)]
+#[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Default)]
 pub struct DSFXWavesReverb {
-    pub fInGain: f32,
-    pub fReverbMix: f32,
-    pub fReverbTime: f32,
-    pub fHighFreqRTRatio: f32,
+    pub fInGain: super::FLOAT,
+    pub fReverbMix: super::FLOAT,
+    pub fReverbTime: super::FLOAT,
+    pub fHighFreqRTRatio: super::FLOAT,
 }
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83;
 pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2.0;
@@ -622,71 +641,170 @@ pub const GUID_DSFX_STANDARD_GARGLE: windows_sys::core::GUID = windows_sys::core
 pub const GUID_DSFX_STANDARD_I3DL2REVERB: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xef985e71_d5c7_42d4_ba4d_2d073e2e96f4);
 pub const GUID_DSFX_STANDARD_PARAMEQ: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x120ced89_3bf4_4173_a132_3cb406cf3231);
 pub const GUID_DSFX_WAVES_REVERB: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x87fc0268_9a55_4360_95aa_004a1d9de26c);
+pub const IID_IDirectSound: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x279afa83_4981_11ce_a521_0020af0be560);
+pub const IID_IDirectSound3DBuffer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x279afa86_4981_11ce_a521_0020af0be560);
+pub const IID_IDirectSound3DListener: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x279afa84_4981_11ce_a521_0020af0be560);
+pub const IID_IDirectSound8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc50a7e93_f395_4834_9ef6_7fa99de50966);
+pub const IID_IDirectSoundBuffer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x279afa85_4981_11ce_a521_0020af0be560);
+pub const IID_IDirectSoundBuffer8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6825a449_7524_4d82_920f_50e36ab3ab1e);
+pub const IID_IDirectSoundCapture: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0210781_89cd_11d0_af08_00a0c925cd16);
+pub const IID_IDirectSoundCaptureBuffer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0210782_89cd_11d0_af08_00a0c925cd16);
+pub const IID_IDirectSoundCaptureBuffer8: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00990df4_0dbb_4872_833e_6d303e80aeb6);
+pub const IID_IDirectSoundCaptureFXAec: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xad74143d_903d_4ab7_8066_28d363036d65);
+pub const IID_IDirectSoundCaptureFXNoiseSuppress: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed311e41_fbae_4175_9625_cd0854f693ca);
+pub const IID_IDirectSoundFXChorus: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x880842e3_145f_43e6_a934_a71806e50547);
+pub const IID_IDirectSoundFXCompressor: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0);
+pub const IID_IDirectSoundFXDistortion: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b);
+pub const IID_IDirectSoundFXEcho: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8bd28edf_50db_4e92_a2bd_445488d1ed42);
+pub const IID_IDirectSoundFXFlanger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x903e9878_2c92_4072_9b2c_ea68f5396783);
+pub const IID_IDirectSoundFXGargle: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd616f352_d622_11ce_aac5_0020af0b99a3);
+pub const IID_IDirectSoundFXI3DL2Reverb: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4);
+pub const IID_IDirectSoundFXParamEq: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc03ca9fe_fe90_4204_8078_82334cd177da);
+pub const IID_IDirectSoundFXWavesReverb: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x46858c3a_0dc6_45e3_b760_d4eef16cb325);
+pub const IID_IDirectSoundFullDuplex: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d);
+pub const IID_IDirectSoundNotify: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb0210783_89cd_11d0_af08_00a0c925cd16);
+pub const IID_IKsPropertySet: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
+pub const IID_IReferenceClock: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 pub const KSPROPERTY_SUPPORT_GET: i32 = 1;
 pub const KSPROPERTY_SUPPORT_SET: i32 = 2;
+#[cfg(feature = "shared")]
 pub type LPCDS3DBUFFER = *const DS3DBUFFER;
+#[cfg(feature = "shared")]
 pub type LPCDS3DLISTENER = *const DS3DLISTENER;
+#[cfg(feature = "shared")]
 pub type LPCDSBCAPS = *const DSBCAPS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCDSBPOSITIONNOTIFY = *const DSBPOSITIONNOTIFY;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCDSBUFFERDESC = *const DSBUFFERDESC;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCDSBUFFERDESC1 = *const DSBUFFERDESC1;
+#[cfg(feature = "shared")]
 pub type LPCDSCAPS = *const DSCAPS;
+#[cfg(feature = "shared")]
 pub type LPCDSCBCAPS = *const DSCBCAPS;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPCDSCBUFFERDESC = *const DSCBUFFERDESC;
+#[cfg(feature = "shared")]
 pub type LPCDSCCAPS = *const DSCCAPS;
+#[cfg(feature = "shared")]
 pub type LPCDSCEFFECTDESC = *const DSCEFFECTDESC;
+#[cfg(feature = "shared")]
 pub type LPCDSCFXAec = *const DSCFXAec;
 pub type LPCDSCFXNoiseSuppress = *const DSCFXNoiseSuppress;
+#[cfg(feature = "shared")]
 pub type LPCDSEFFECTDESC = *const DSEFFECTDESC;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDSFXChorus = *const DSFXChorus;
+#[cfg(feature = "minwindef")]
 pub type LPCDSFXCompressor = *const DSFXCompressor;
+#[cfg(feature = "minwindef")]
 pub type LPCDSFXDistortion = *const DSFXDistortion;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDSFXEcho = *const DSFXEcho;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDSFXFlanger = *const DSFXFlanger;
+#[cfg(feature = "shared")]
 pub type LPCDSFXGargle = *const DSFXGargle;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPCDSFXI3DL2Reverb = *const DSFXI3DL2Reverb;
+#[cfg(feature = "minwindef")]
 pub type LPCDSFXParamEq = *const DSFXParamEq;
+#[cfg(feature = "minwindef")]
 pub type LPCDSFXWavesReverb = *const DSFXWavesReverb;
 pub type LPD3DCOLOR = *mut u32;
 pub type LPD3DVALUE = *mut f32;
 pub type LPD3DVECTOR = *mut D3DVECTOR;
+pub type LPDIRECTSOUND = *mut core::ffi::c_void;
+pub type LPDIRECTSOUND3DBUFFER = *mut core::ffi::c_void;
+pub type LPDIRECTSOUND3DBUFFER8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUND3DLISTENER = *mut core::ffi::c_void;
+pub type LPDIRECTSOUND3DLISTENER8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUND8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDBUFFER = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDBUFFER8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTURE = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTURE8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTUREBUFFER = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTUREBUFFER8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTUREFXAEC = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTUREFXAEC8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTUREFXNOISESUPPRESS = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDCAPTUREFXNOISESUPPRESS8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFULLDUPLEX = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFULLDUPLEX8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXCHORUS = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXCHORUS8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXCOMPRESSOR = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXCOMPRESSOR8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXDISTORTION = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXDISTORTION8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXECHO = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXECHO8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXFLANGER = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXFLANGER8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXGARGLE = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXGARGLE8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXI3DL2REVERB = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXI3DL2REVERB8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXPARAMEQ = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXPARAMEQ8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXWAVESREVERB = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDFXWAVESREVERB8 = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDNOTIFY = *mut core::ffi::c_void;
+pub type LPDIRECTSOUNDNOTIFY8 = *mut core::ffi::c_void;
+#[cfg(feature = "shared")]
 pub type LPDS3DBUFFER = *mut DS3DBUFFER;
+#[cfg(feature = "shared")]
 pub type LPDS3DLISTENER = *mut DS3DLISTENER;
+#[cfg(feature = "shared")]
 pub type LPDSBCAPS = *mut DSBCAPS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPDSBPOSITIONNOTIFY = *mut DSBPOSITIONNOTIFY;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDSBUFFERDESC = *mut DSBUFFERDESC;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDSBUFFERDESC1 = *mut DSBUFFERDESC1;
+#[cfg(feature = "shared")]
 pub type LPDSCAPS = *mut DSCAPS;
+#[cfg(feature = "shared")]
 pub type LPDSCBCAPS = *mut DSCBCAPS;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDSCBUFFERDESC = *mut DSCBUFFERDESC;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
 pub type LPDSCBUFFERDESC1 = *mut DSCBUFFERDESC1;
+#[cfg(feature = "shared")]
 pub type LPDSCCAPS = *mut DSCCAPS;
+#[cfg(feature = "shared")]
 pub type LPDSCEFFECTDESC = *mut DSCEFFECTDESC;
+#[cfg(feature = "shared")]
 pub type LPDSCFXAec = *mut DSCFXAec;
 pub type LPDSCFXNoiseSuppress = *mut DSCFXNoiseSuppress;
+#[cfg(feature = "shared")]
 pub type LPDSEFFECTDESC = *mut DSEFFECTDESC;
-#[cfg(feature = "guiddef")]
-pub type LPDSENUMCALLBACKA = Option<unsafe extern "system" fn(param0: super::LPGUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
-#[cfg(feature = "guiddef")]
-pub type LPDSENUMCALLBACKW = Option<unsafe extern "system" fn(param0: super::LPGUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: *mut core::ffi::c_void) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+pub type LPDSENUMCALLBACKA = Option<unsafe extern "system" fn(param0: super::LPGUID, param1: windows_sys::core::PCSTR, param2: windows_sys::core::PCSTR, param3: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "guiddef", feature = "minwindef"))]
+pub type LPDSENUMCALLBACKW = Option<unsafe extern "system" fn(param0: super::LPGUID, param1: windows_sys::core::PCWSTR, param2: windows_sys::core::PCWSTR, param3: super::LPVOID) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDSFXChorus = *mut DSFXChorus;
+#[cfg(feature = "minwindef")]
 pub type LPDSFXCompressor = *mut DSFXCompressor;
+#[cfg(feature = "minwindef")]
 pub type LPDSFXDistortion = *mut DSFXDistortion;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDSFXEcho = *mut DSFXEcho;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDSFXFlanger = *mut DSFXFlanger;
+#[cfg(feature = "shared")]
 pub type LPDSFXGargle = *mut DSFXGargle;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type LPDSFXI3DL2Reverb = *mut DSFXI3DL2Reverb;
+#[cfg(feature = "minwindef")]
 pub type LPDSFXParamEq = *mut DSFXParamEq;
+#[cfg(feature = "minwindef")]
 pub type LPDSFXWavesReverb = *mut DSFXWavesReverb;
+pub type LPKSPROPERTYSET = *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUND = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUND3DBUFFER = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUND3DLISTENER = *mut *mut core::ffi::c_void;
@@ -698,6 +816,5 @@ pub type LPLPDIRECTSOUNDCAPTURE8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut *mut core::ffi::c_void;
 pub type LPLPDIRECTSOUNDNOTIFY = *mut *mut core::ffi::c_void;
-#[cfg(feature = "mediaobj")]
-pub type LPREFERENCE_TIME = *mut super::REFERENCE_TIME;
+pub type LPREFERENCE_TIME = *mut i64;
 pub const _FACDS: i32 = 2168;

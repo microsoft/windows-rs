@@ -576,7 +576,8 @@ SelectAny is storage evidence, not part of published constant-value equality.
 C++ member templates, nonvirtual methods, and method using declarations are retained in
 RecordDefinition::non_vtable_members; they are not exported methods or part of ABI comparison.
 Parameter defaults retain the exact compiler-owned expression cursor, printed expression, and
-location. NativeDefaultArgument preserves that expression without evaluating it or altering arity.
+location for native reconciliation. C++ default expressions are not portable publication contracts:
+do not emit NativeDefaultArgument, mark parameters optional, or alter callable arity.
 Method CVR is decoded separately from type qualifiers; NativeConstMethod preserves const methods.
 Volatile/restrict and ref-qualified methods remain rejected. DirectWrite factory7/font-set3 and
 Direct2D factory7/device-context6 closures publish. NativeDeprecated preserves message/replacement

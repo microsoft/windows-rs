@@ -3,23 +3,26 @@ windows_link::link!("comctl32.dll" "system" fn DPA_Create(citemgrow : i32) -> HD
 #[cfg(feature = "winnt")]
 windows_link::link!("comctl32.dll" "system" fn DPA_CreateEx(cpgrow : i32, hheap : super::HANDLE) -> HDPA);
 windows_link::link!("comctl32.dll" "system" fn DPA_DeleteAllPtrs(hdpa : HDPA) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> *mut core::ffi::c_void);
+#[cfg(feature = "winnt")]
+windows_link::link!("comctl32.dll" "system" fn DPA_DeletePtr(hdpa : HDPA, i : i32) -> super::PVOID);
 windows_link::link!("comctl32.dll" "system" fn DPA_Destroy(hdpa : HDPA) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn DPA_DestroyCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
 windows_link::link!("comctl32.dll" "system" fn DPA_EnumCallback(hdpa : HDPA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
-windows_link::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : isize) -> *mut core::ffi::c_void);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("comctl32.dll" "system" fn DPA_GetPtr(hdpa : HDPA, i : super::INT_PTR) -> super::PVOID);
 windows_link::link!("comctl32.dll" "system" fn DPA_GetPtrIndex(hdpa : HDPA, p : *const core::ffi::c_void) -> i32);
-windows_link::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> u64);
+#[cfg(feature = "shared")]
+windows_link::link!("comctl32.dll" "system" fn DPA_GetSize(hdpa : HDPA) -> super::ULONGLONG);
 windows_link::link!("comctl32.dll" "system" fn DPA_Grow(pdpa : HDPA, cp : i32) -> windows_sys::core::BOOL);
 windows_link::link!("comctl32.dll" "system" fn DPA_InsertPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> i32);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("comctl32.dll" "system" fn DPA_LoadStream(phdpa : *mut HDPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : u32, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::LPARAM) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("comctl32.dll" "system" fn DPA_Merge(hdpadest : HDPA, hdpasrc : HDPA, dwflags : super::DWORD, pfncompare : PFNDACOMPARE, pfnmerge : PFNDPAMERGE, lparam : super::LPARAM) -> windows_sys::core::BOOL);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("comctl32.dll" "system" fn DPA_SaveStream(hdpa : HDPA, pfn : PFNDPASTREAM, pstream : *mut core::ffi::c_void, pvinstdata : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "minwindef")]
-windows_link::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::LPARAM, options : u32) -> i32);
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+windows_link::link!("comctl32.dll" "system" fn DPA_Search(hdpa : HDPA, pfind : *const core::ffi::c_void, istart : i32, pfncompare : PFNDACOMPARE, lparam : super::LPARAM, options : super::UINT) -> i32);
 windows_link::link!("comctl32.dll" "system" fn DPA_SetPtr(hdpa : HDPA, i : i32, p : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("comctl32.dll" "system" fn DPA_Sort(hdpa : HDPA, pfncompare : PFNDACOMPARE, lparam : super::LPARAM) -> windows_sys::core::BOOL);
@@ -31,8 +34,10 @@ windows_link::link!("comctl32.dll" "system" fn DSA_Destroy(hdsa : HDSA) -> windo
 windows_link::link!("comctl32.dll" "system" fn DSA_DestroyCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
 windows_link::link!("comctl32.dll" "system" fn DSA_EnumCallback(hdsa : HDSA, pfncb : PFNDAENUMCALLBACK, pdata : *const core::ffi::c_void));
 windows_link::link!("comctl32.dll" "system" fn DSA_GetItem(hdsa : HDSA, i : i32, pitem : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> *mut core::ffi::c_void);
-windows_link::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> u64);
+#[cfg(feature = "winnt")]
+windows_link::link!("comctl32.dll" "system" fn DSA_GetItemPtr(hdsa : HDSA, i : i32) -> super::PVOID);
+#[cfg(feature = "shared")]
+windows_link::link!("comctl32.dll" "system" fn DSA_GetSize(hdsa : HDSA) -> super::ULONGLONG);
 windows_link::link!("comctl32.dll" "system" fn DSA_InsertItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> i32);
 windows_link::link!("comctl32.dll" "system" fn DSA_SetItem(hdsa : HDSA, i : i32, pitem : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
@@ -68,10 +73,10 @@ pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c
 pub type PFNDACOMPARECONST = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::LPARAM) -> i32>;
 pub type PFNDAENUMCALLBACK = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
 pub type PFNDAENUMCALLBACKCONST = Option<unsafe extern "system" fn(p: *const core::ffi::c_void, pdata: *const core::ffi::c_void) -> i32>;
-#[cfg(feature = "minwindef")]
-pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: u32, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *mut core::ffi::c_void>;
-#[cfg(feature = "minwindef")]
-pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: u32, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *const core::ffi::c_void>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PFNDPAMERGE = Option<unsafe extern "system" fn(umsg: super::UINT, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *mut core::ffi::c_void>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: super::UINT, pvdest: *const core::ffi::c_void, pvsrc: *const core::ffi::c_void, lparam: super::LPARAM) -> *const core::ffi::c_void>;
 #[cfg(feature = "objidlbase")]
 pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: *mut core::ffi::c_void, pvinstdata: *const core::ffi::c_void) -> windows_sys::core::HRESULT>;
 #[repr(C)]

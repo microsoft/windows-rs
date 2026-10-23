@@ -2,10 +2,10 @@ pub const CpAicLaunchAdminProcess: CreateProcessMethod = 2;
 pub const CpCreateProcess: CreateProcessMethod = 0;
 pub const CpCreateProcessAsUser: CreateProcessMethod = 1;
 pub type CreateProcessMethod = i32;
-pub type HANDLE_ACCESS_OPTIONS = u32;
+pub type HANDLE_ACCESS_OPTIONS = i32;
 pub type HANDLE_CREATION_OPTIONS = i32;
-pub type HANDLE_OPTIONS = u32;
-pub type HANDLE_SHARING_OPTIONS = u32;
+pub type HANDLE_OPTIONS = i32;
+pub type HANDLE_SHARING_OPTIONS = i32;
 pub const HAO_DELETE: HANDLE_ACCESS_OPTIONS = 65536;
 pub const HAO_NONE: HANDLE_ACCESS_OPTIONS = 0;
 pub const HAO_READ: HANDLE_ACCESS_OPTIONS = 1179785;
@@ -23,7 +23,7 @@ pub const HO_OPEN_REQUIRING_OPLOCK: HANDLE_OPTIONS = 262144;
 pub const HO_OVERLAPPED: HANDLE_OPTIONS = 1073741824;
 pub const HO_RANDOM_ACCESS: HANDLE_OPTIONS = 268435456;
 pub const HO_SEQUENTIAL_SCAN: HANDLE_OPTIONS = 134217728;
-pub const HO_WRITE_THROUGH: HANDLE_OPTIONS = 2147483648;
+pub const HO_WRITE_THROUGH: HANDLE_OPTIONS = -2147483648;
 pub const HSO_SHARE_DELETE: HANDLE_SHARING_OPTIONS = 4;
 pub const HSO_SHARE_NONE: HANDLE_SHARING_OPTIONS = 0;
 pub const HSO_SHARE_READ: HANDLE_SHARING_OPTIONS = 1;
@@ -110,7 +110,8 @@ impl windows_core::RuntimeName for IOplockBreakingHandler {}
 windows_core::imp::define_interface!(IRandomAccessStreamFileAccessMode, IRandomAccessStreamFileAccessMode_Vtbl, 0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
 windows_core::imp::interface_hierarchy!(IRandomAccessStreamFileAccessMode, windows_core::IUnknown);
 impl IRandomAccessStreamFileAccessMode {
-    pub unsafe fn GetMode(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetMode(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -121,14 +122,19 @@ impl IRandomAccessStreamFileAccessMode {
 #[doc(hidden)]
 pub struct IRandomAccessStreamFileAccessMode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetMode: usize,
 }
+#[cfg(feature = "shared")]
 pub trait IRandomAccessStreamFileAccessMode_Impl: windows_core::IUnknownImpl {
-    fn GetMode(&self) -> windows_core::Result<u32>;
+    fn GetMode(&self) -> windows_core::Result<super::DWORD>;
 }
+#[cfg(feature = "shared")]
 impl IRandomAccessStreamFileAccessMode_Vtbl {
     pub const fn new<Identity: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetMode<Identity: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileaccessmode: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMode<Identity: IRandomAccessStreamFileAccessMode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fileaccessmode: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IRandomAccessStreamFileAccessMode_Impl::GetMode(this) {
@@ -146,6 +152,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
         iid == &<IRandomAccessStreamFileAccessMode as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IRandomAccessStreamFileAccessMode {}
 windows_core::imp::define_interface!(IStorageFolderHandleAccess, IStorageFolderHandleAccess_Vtbl, 0xdf19938f_5462_48a0_be65_d2a3271a08d6);
 windows_core::imp::interface_hierarchy!(IStorageFolderHandleAccess, windows_core::IUnknown);
@@ -282,7 +289,8 @@ impl windows_core::RuntimeName for IUnbufferedFileHandleOplockCallback {}
 windows_core::imp::define_interface!(IUnbufferedFileHandleProvider, IUnbufferedFileHandleProvider_Vtbl, 0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);
 windows_core::imp::interface_hierarchy!(IUnbufferedFileHandleProvider, windows_core::IUnknown);
 impl IUnbufferedFileHandleProvider {
-    pub unsafe fn OpenUnbufferedFileHandle<P0>(&self, oplockbreakcallback: P0) -> windows_core::Result<usize>
+    #[cfg(feature = "shared")]
+    pub unsafe fn OpenUnbufferedFileHandle<P0>(&self, oplockbreakcallback: P0) -> windows_core::Result<super::DWORD_PTR>
     where
         P0: windows_core::Param<IUnbufferedFileHandleOplockCallback>,
     {
@@ -299,16 +307,21 @@ impl IUnbufferedFileHandleProvider {
 #[doc(hidden)]
 pub struct IUnbufferedFileHandleProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub OpenUnbufferedFileHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub OpenUnbufferedFileHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::DWORD_PTR) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    OpenUnbufferedFileHandle: usize,
     pub CloseUnbufferedFileHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "shared")]
 pub trait IUnbufferedFileHandleProvider_Impl: windows_core::IUnknownImpl {
-    fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: windows_core::Ref<IUnbufferedFileHandleOplockCallback>) -> windows_core::Result<usize>;
+    fn OpenUnbufferedFileHandle(&self, oplockbreakcallback: windows_core::Ref<IUnbufferedFileHandleOplockCallback>) -> windows_core::Result<super::DWORD_PTR>;
     fn CloseUnbufferedFileHandle(&self) -> windows_core::Result<()>;
 }
+#[cfg(feature = "shared")]
 impl IUnbufferedFileHandleProvider_Vtbl {
     pub const fn new<Identity: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn OpenUnbufferedFileHandle<Identity: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oplockbreakcallback: *mut core::ffi::c_void, filehandle: *mut usize) -> windows_core::HRESULT {
+        unsafe extern "system" fn OpenUnbufferedFileHandle<Identity: IUnbufferedFileHandleProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oplockbreakcallback: *mut core::ffi::c_void, filehandle: *mut super::DWORD_PTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUnbufferedFileHandleProvider_Impl::OpenUnbufferedFileHandle(this, core::mem::transmute_copy(&oplockbreakcallback)) {
@@ -336,4 +349,5 @@ impl IUnbufferedFileHandleProvider_Vtbl {
         iid == &<IUnbufferedFileHandleProvider as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "shared")]
 impl windows_core::RuntimeName for IUnbufferedFileHandleProvider {}

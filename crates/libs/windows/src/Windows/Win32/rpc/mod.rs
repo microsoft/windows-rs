@@ -13,13 +13,13 @@ pub unsafe fn I_RpcAllocate(size: u32) -> *mut core::ffi::c_void {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcAllocate(size : u32) -> *mut core::ffi::c_void);
     unsafe { I_RpcAllocate(size) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn I_RpcAsyncAbortCall(pasync: PRPC_ASYNC_STATE, exceptioncode: u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcAsyncAbortCall(pasync : PRPC_ASYNC_STATE, exceptioncode : u32) -> windows_core::RPC_STATUS);
     unsafe { I_RpcAsyncAbortCall(pasync, exceptioncode) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn I_RpcAsyncSetHandle(message: PRPC_MESSAGE, pasync: PRPC_ASYNC_STATE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcAsyncSetHandle(message : PRPC_MESSAGE, pasync : PRPC_ASYNC_STATE) -> windows_core::RPC_STATUS);
@@ -28,7 +28,7 @@ pub unsafe fn I_RpcAsyncSetHandle(message: PRPC_MESSAGE, pasync: PRPC_ASYNC_STAT
 #[inline]
 pub unsafe fn I_RpcBindingCopy(sourcebinding: RPC_BINDING_HANDLE, destinationbinding: *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingCopy(sourcebinding : RPC_BINDING_HANDLE, destinationbinding : *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcBindingCopy(sourcebinding, destinationbinding as _) }
+    unsafe { I_RpcBindingCopy(sourcebinding as _, destinationbinding as _) }
 }
 #[inline]
 pub unsafe fn I_RpcBindingCreateNP(servername: RPC_WSTR, servicename: RPC_WSTR, networkoptions: RPC_WSTR, binding: *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS {
@@ -38,9 +38,9 @@ pub unsafe fn I_RpcBindingCreateNP(servername: RPC_WSTR, servicename: RPC_WSTR, 
 #[inline]
 pub unsafe fn I_RpcBindingHandleToAsyncHandle(binding: RPC_BINDING_HANDLE, asynchandle: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingHandleToAsyncHandle(binding : RPC_BINDING_HANDLE, asynchandle : *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcBindingHandleToAsyncHandle(binding, asynchandle as _) }
+    unsafe { I_RpcBindingHandleToAsyncHandle(binding as _, asynchandle as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn I_RpcBindingInqClientTokenAttributes(binding: RPC_BINDING_HANDLE, tokenid: Option<*mut super::LUID>, authenticationid: Option<*mut super::LUID>, modifiedid: Option<*mut super::LUID>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingInqClientTokenAttributes(binding : RPC_BINDING_HANDLE, tokenid : *mut super::LUID, authenticationid : *mut super::LUID, modifiedid : *mut super::LUID) -> windows_core::RPC_STATUS);
@@ -59,7 +59,7 @@ pub unsafe fn I_RpcBindingInqDynamicEndpointW(binding: RPC_BINDING_HANDLE, dynam
 #[inline]
 pub unsafe fn I_RpcBindingInqLocalClientPID(binding: RPC_BINDING_HANDLE, pid: *mut u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingInqLocalClientPID(binding : RPC_BINDING_HANDLE, pid : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcBindingInqLocalClientPID(binding, pid as _) }
+    unsafe { I_RpcBindingInqLocalClientPID(binding as _, pid as _) }
 }
 #[inline]
 pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(binding: RPC_BINDING_HANDLE, marshalledtargetinfosize: *mut u32, marshalledtargetinfo: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
@@ -69,7 +69,7 @@ pub unsafe fn I_RpcBindingInqMarshalledTargetInfo(binding: RPC_BINDING_HANDLE, m
 #[inline]
 pub unsafe fn I_RpcBindingInqSecurityContext(binding: RPC_BINDING_HANDLE, securitycontexthandle: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingInqSecurityContext(binding : RPC_BINDING_HANDLE, securitycontexthandle : *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcBindingInqSecurityContext(binding, securitycontexthandle as _) }
+    unsafe { I_RpcBindingInqSecurityContext(binding as _, securitycontexthandle as _) }
 }
 #[inline]
 pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(binding: Option<RPC_BINDING_HANDLE>, keyinfo: *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
@@ -79,7 +79,7 @@ pub unsafe fn I_RpcBindingInqSecurityContextKeyInfo(binding: Option<RPC_BINDING_
 #[inline]
 pub unsafe fn I_RpcBindingInqTransportType(binding: RPC_BINDING_HANDLE, r#type: *mut u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingInqTransportType(binding : RPC_BINDING_HANDLE, r#type : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcBindingInqTransportType(binding, r#type as _) }
+    unsafe { I_RpcBindingInqTransportType(binding as _, r#type as _) }
 }
 #[inline]
 pub unsafe fn I_RpcBindingInqWireIdForSnego(binding: RPC_BINDING_HANDLE, wireid: *mut u8) -> windows_core::RPC_STATUS {
@@ -87,34 +87,47 @@ pub unsafe fn I_RpcBindingInqWireIdForSnego(binding: RPC_BINDING_HANDLE, wireid:
     unsafe { I_RpcBindingInqWireIdForSnego(binding, wireid as _) }
 }
 #[inline]
-pub unsafe fn I_RpcBindingIsClientLocal(bindinghandle: Option<RPC_BINDING_HANDLE>, clientlocalflag: *mut u32) -> windows_core::RPC_STATUS {
+pub unsafe fn I_RpcBindingIsClientLocal(bindinghandle: RPC_BINDING_HANDLE, clientlocalflag: *mut u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingIsClientLocal(bindinghandle : RPC_BINDING_HANDLE, clientlocalflag : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcBindingIsClientLocal(bindinghandle.unwrap_or(core::mem::zeroed()) as _, clientlocalflag as _) }
+    unsafe { I_RpcBindingIsClientLocal(bindinghandle as _, clientlocalflag as _) }
 }
 #[inline]
 pub unsafe fn I_RpcBindingIsServerLocal(binding: RPC_BINDING_HANDLE, serverlocalflag: *mut u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingIsServerLocal(binding : RPC_BINDING_HANDLE, serverlocalflag : *mut u32) -> windows_core::RPC_STATUS);
     unsafe { I_RpcBindingIsServerLocal(binding, serverlocalflag as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn I_RpcBindingSetPrivateOption(hbinding: RPC_BINDING_HANDLE, option: u32, optionvalue: usize) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingSetPrivateOption(hbinding : RPC_BINDING_HANDLE, option : u32, optionvalue : usize) -> windows_core::RPC_STATUS);
+pub unsafe fn I_RpcBindingSetPrivateOption(hbinding: RPC_BINDING_HANDLE, option: u32, optionvalue: super::ULONG_PTR) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingSetPrivateOption(hbinding : RPC_BINDING_HANDLE, option : u32, optionvalue : super::ULONG_PTR) -> windows_core::RPC_STATUS);
     unsafe { I_RpcBindingSetPrivateOption(hbinding, option, optionvalue) }
 }
 #[inline]
 pub unsafe fn I_RpcBindingToStaticStringBindingW(binding: RPC_BINDING_HANDLE, stringbinding: *mut *mut u16) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcBindingToStaticStringBindingW(binding : RPC_BINDING_HANDLE, stringbinding : *mut *mut u16) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcBindingToStaticStringBindingW(binding, stringbinding as _) }
+    unsafe { I_RpcBindingToStaticStringBindingW(binding as _, stringbinding as _) }
 }
 #[inline]
 pub unsafe fn I_RpcClearMutex(mutex: I_RPC_MUTEX) {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcClearMutex(mutex : I_RPC_MUTEX));
-    unsafe { I_RpcClearMutex(mutex) }
+    unsafe { I_RpcClearMutex(mutex as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn I_RpcConnectionInqSockBuffSize(recvbuffsize: *mut u32, sendbuffsize: *mut u32) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcConnectionInqSockBuffSize(recvbuffsize : *mut u32, sendbuffsize : *mut u32) -> windows_core::RPC_STATUS);
+    unsafe { I_RpcConnectionInqSockBuffSize(recvbuffsize as _, sendbuffsize as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn I_RpcConnectionSetSockBuffSize(recvbuffsize: u32, sendbuffsize: u32) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcConnectionSetSockBuffSize(recvbuffsize : u32, sendbuffsize : u32) -> windows_core::RPC_STATUS);
+    unsafe { I_RpcConnectionSetSockBuffSize(recvbuffsize, sendbuffsize) }
 }
 #[inline]
 pub unsafe fn I_RpcDeleteMutex(mutex: I_RPC_MUTEX) {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcDeleteMutex(mutex : I_RPC_MUTEX));
-    unsafe { I_RpcDeleteMutex(mutex) }
+    unsafe { I_RpcDeleteMutex(mutex as _) }
 }
 #[inline]
 pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
@@ -122,9 +135,9 @@ pub unsafe fn I_RpcExceptionFilter(exceptioncode: u32) -> i32 {
     unsafe { I_RpcExceptionFilter(exceptioncode) }
 }
 #[inline]
-pub unsafe fn I_RpcFree(object: *const core::ffi::c_void) {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcFree(object : *const core::ffi::c_void));
-    unsafe { I_RpcFree(object) }
+pub unsafe fn I_RpcFree(object: *mut core::ffi::c_void) {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcFree(object : *mut core::ffi::c_void));
+    unsafe { I_RpcFree(object as _) }
 }
 #[inline]
 pub unsafe fn I_RpcFreeBuffer(message: *mut RPC_MESSAGE) -> windows_core::RPC_STATUS {
@@ -142,9 +155,9 @@ pub unsafe fn I_RpcGetBuffer(message: *mut RPC_MESSAGE) -> windows_core::RPC_STA
     unsafe { I_RpcGetBuffer(message as _) }
 }
 #[inline]
-pub unsafe fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *const windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcGetBufferWithObject(message : *mut RPC_MESSAGE, objectuuid : *const windows_core::GUID) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcGetBufferWithObject(message as _, objectuuid) }
+pub unsafe fn I_RpcGetBufferWithObject(message: *mut RPC_MESSAGE, objectuuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcGetBufferWithObject(message : *mut RPC_MESSAGE, objectuuid : *mut UUID) -> windows_core::RPC_STATUS);
+    unsafe { I_RpcGetBufferWithObject(message as _, objectuuid as _) }
 }
 #[inline]
 pub unsafe fn I_RpcGetCurrentCallHandle() -> RPC_BINDING_HANDLE {
@@ -164,7 +177,7 @@ pub unsafe fn I_RpcGetExtendedError() -> windows_core::RPC_STATUS {
 #[inline]
 pub unsafe fn I_RpcIfInqTransferSyntaxes(rpcifhandle: RPC_IF_HANDLE, transfersyntaxes: *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize: u32, transfersyntaxcount: *mut u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcIfInqTransferSyntaxes(rpcifhandle : RPC_IF_HANDLE, transfersyntaxes : *mut RPC_TRANSFER_SYNTAX, transfersyntaxsize : u32, transfersyntaxcount : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcIfInqTransferSyntaxes(rpcifhandle, transfersyntaxes as _, transfersyntaxsize, transfersyntaxcount as _) }
+    unsafe { I_RpcIfInqTransferSyntaxes(rpcifhandle as _, transfersyntaxes as _, transfersyntaxsize, transfersyntaxcount as _) }
 }
 #[inline]
 pub unsafe fn I_RpcMapWin32Status(status: windows_core::RPC_STATUS) -> i32 {
@@ -194,27 +207,29 @@ pub unsafe fn I_RpcNsBindingSetEntryNameW(binding: RPC_BINDING_HANDLE, entryname
 #[inline]
 pub unsafe fn I_RpcNsGetBuffer(message: PRPC_MESSAGE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcns4.dll" "system" fn I_RpcNsGetBuffer(message : PRPC_MESSAGE) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcNsGetBuffer(message) }
+    unsafe { I_RpcNsGetBuffer(message as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *const u16, rpcinterfaceinformation: *const RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceExported(entrynamesyntax : u32, entryname : *const u16, rpcinterfaceinformation : *const RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcNsInterfaceExported(entrynamesyntax, entryname, rpcinterfaceinformation) }
+pub unsafe fn I_RpcNsInterfaceExported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceExported(entrynamesyntax : u32, entryname : *mut u16, rpcinterfaceinformation : *mut RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS);
+    unsafe { I_RpcNsInterfaceExported(entrynamesyntax, entryname as _, rpcinterfaceinformation as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *const u16, rpcinterfaceinformation: *const RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceUnexported(entrynamesyntax : u32, entryname : *const u16, rpcinterfaceinformation : *const RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcNsInterfaceUnexported(entrynamesyntax, entryname, rpcinterfaceinformation) }
+pub unsafe fn I_RpcNsInterfaceUnexported(entrynamesyntax: u32, entryname: *mut u16, rpcinterfaceinformation: *mut RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcNsInterfaceUnexported(entrynamesyntax : u32, entryname : *mut u16, rpcinterfaceinformation : *mut RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS);
+    unsafe { I_RpcNsInterfaceUnexported(entrynamesyntax, entryname as _, rpcinterfaceinformation as _) }
 }
 #[inline]
 pub unsafe fn I_RpcNsRaiseException(message: PRPC_MESSAGE, status: windows_core::RPC_STATUS) {
     windows_core::link!("rpcns4.dll" "system" fn I_RpcNsRaiseException(message : PRPC_MESSAGE, status : windows_core::RPC_STATUS));
-    unsafe { I_RpcNsRaiseException(message, status) }
+    unsafe { I_RpcNsRaiseException(message as _, status) }
 }
 #[inline]
 pub unsafe fn I_RpcNsSendReceive(message: PRPC_MESSAGE, handle: *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcns4.dll" "system" fn I_RpcNsSendReceive(message : PRPC_MESSAGE, handle : *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcNsSendReceive(message, handle as _) }
+    unsafe { I_RpcNsSendReceive(message as _, handle as _) }
 }
 #[inline]
 pub unsafe fn I_RpcOpenClientProcess(binding: Option<RPC_BINDING_HANDLE>, desiredaccess: u32, clientprocess: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
@@ -229,7 +244,7 @@ pub unsafe fn I_RpcPauseExecution(milliseconds: u32) {
 #[inline]
 pub unsafe fn I_RpcReBindBuffer(message: PRPC_MESSAGE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcns4.dll" "system" fn I_RpcReBindBuffer(message : PRPC_MESSAGE) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcReBindBuffer(message) }
+    unsafe { I_RpcReBindBuffer(message as _) }
 }
 #[inline]
 pub unsafe fn I_RpcReallocPipeBuffer(message: PRPC_MESSAGE, newsize: u32) -> windows_core::RPC_STATUS {
@@ -242,9 +257,9 @@ pub unsafe fn I_RpcReceive(message: PRPC_MESSAGE, size: u32) -> windows_core::RP
     unsafe { I_RpcReceive(message as _, size) }
 }
 #[inline]
-pub unsafe fn I_RpcRecordCalloutFailure(rpcstatus: windows_core::RPC_STATUS, calloutstate: *const RDR_CALLOUT_STATE, dllname: *const u16) {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcRecordCalloutFailure(rpcstatus : windows_core::RPC_STATUS, calloutstate : *const RDR_CALLOUT_STATE, dllname : *const u16));
-    unsafe { I_RpcRecordCalloutFailure(rpcstatus, calloutstate, dllname) }
+pub unsafe fn I_RpcRecordCalloutFailure(rpcstatus: windows_core::RPC_STATUS, calloutstate: *mut RDR_CALLOUT_STATE, dllname: *mut u16) {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcRecordCalloutFailure(rpcstatus : windows_core::RPC_STATUS, calloutstate : *mut RDR_CALLOUT_STATE, dllname : *mut u16));
+    unsafe { I_RpcRecordCalloutFailure(rpcstatus, calloutstate as _, dllname as _) }
 }
 #[inline]
 pub unsafe fn I_RpcRequestMutex(mutex: *mut I_RPC_MUTEX) {
@@ -264,7 +279,7 @@ pub unsafe fn I_RpcSendReceive(message: *mut RPC_MESSAGE) -> windows_core::RPC_S
 #[inline]
 pub unsafe fn I_RpcServerCheckClientRestriction(context: RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerCheckClientRestriction(context : RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcServerCheckClientRestriction(context) }
+    unsafe { I_RpcServerCheckClientRestriction(context as _) }
 }
 #[inline]
 pub unsafe fn I_RpcServerDisableExceptionFilter() -> i32 {
@@ -276,20 +291,21 @@ pub unsafe fn I_RpcServerGetAssociationID(binding: Option<RPC_BINDING_HANDLE>, a
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerGetAssociationID(binding : RPC_BINDING_HANDLE, associationid : *mut u32) -> windows_core::RPC_STATUS);
     unsafe { I_RpcServerGetAssociationID(binding.unwrap_or(core::mem::zeroed()) as _, associationid as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
-pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut u8 {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerInqAddressChangeFn() -> *mut u8);
+pub unsafe fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN {
+    windows_core::link!("rpcrt4.dll" "C" fn I_RpcServerInqAddressChangeFn() -> RPC_ADDRESS_CHANGE_FN);
     unsafe { I_RpcServerInqAddressChangeFn() }
 }
 #[inline]
 pub unsafe fn I_RpcServerInqLocalConnAddress(binding: RPC_BINDING_HANDLE, buffer: *mut core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerInqLocalConnAddress(binding : RPC_BINDING_HANDLE, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcServerInqLocalConnAddress(binding, buffer as _, buffersize as _, addressformat as _) }
+    unsafe { I_RpcServerInqLocalConnAddress(binding as _, buffer as _, buffersize as _, addressformat as _) }
 }
 #[inline]
 pub unsafe fn I_RpcServerInqRemoteConnAddress(binding: RPC_BINDING_HANDLE, buffer: *mut core::ffi::c_void, buffersize: *mut u32, addressformat: *mut u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerInqRemoteConnAddress(binding : RPC_BINDING_HANDLE, buffer : *mut core::ffi::c_void, buffersize : *mut u32, addressformat : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { I_RpcServerInqRemoteConnAddress(binding, buffer as _, buffersize as _, addressformat as _) }
+    unsafe { I_RpcServerInqRemoteConnAddress(binding as _, buffer as _, buffersize as _, addressformat as _) }
 }
 #[inline]
 pub unsafe fn I_RpcServerInqTransportType(r#type: *mut u32) -> windows_core::RPC_STATUS {
@@ -317,13 +333,13 @@ pub unsafe fn I_RpcServerSubscribeForDisconnectNotification(binding: Option<RPC_
     unsafe { I_RpcServerSubscribeForDisconnectNotification(binding.unwrap_or(core::mem::zeroed()) as _, hevent.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: Option<RPC_BINDING_HANDLE>, hevent: *const core::ffi::c_void, subscriptionid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification2(binding : RPC_BINDING_HANDLE, hevent : *const core::ffi::c_void, subscriptionid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn I_RpcServerSubscribeForDisconnectNotification2(binding: Option<RPC_BINDING_HANDLE>, hevent: *const core::ffi::c_void, subscriptionid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerSubscribeForDisconnectNotification2(binding : RPC_BINDING_HANDLE, hevent : *const core::ffi::c_void, subscriptionid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { I_RpcServerSubscribeForDisconnectNotification2(binding.unwrap_or(core::mem::zeroed()) as _, hevent, subscriptionid as _) }
 }
 #[inline]
-pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification(binding: Option<RPC_BINDING_HANDLE>, subscriptionid: windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerUnsubscribeForDisconnectNotification(binding : RPC_BINDING_HANDLE, subscriptionid : windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn I_RpcServerUnsubscribeForDisconnectNotification(binding: Option<RPC_BINDING_HANDLE>, subscriptionid: UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_RpcServerUnsubscribeForDisconnectNotification(binding : RPC_BINDING_HANDLE, subscriptionid : UUID) -> windows_core::RPC_STATUS);
     unsafe { I_RpcServerUnsubscribeForDisconnectNotification(binding.unwrap_or(core::mem::zeroed()) as _, subscriptionid) }
 }
 #[inline]
@@ -367,8 +383,8 @@ pub unsafe fn I_RpcTurnOnEEInfoPropagation() -> windows_core::RPC_STATUS {
     unsafe { I_RpcTurnOnEEInfoPropagation() }
 }
 #[inline]
-pub unsafe fn I_UuidCreate(uuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn I_UuidCreate(uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn I_UuidCreate(uuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn I_UuidCreate(uuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { I_UuidCreate(uuid as _) }
 }
 #[inline]
@@ -416,338 +432,337 @@ pub unsafe fn NDRSContextUnmarshallEx(bindinghandle: RPC_BINDING_HANDLE, pbuff: 
     windows_core::link!("rpcrt4.dll" "system" fn NDRSContextUnmarshallEx(bindinghandle : RPC_BINDING_HANDLE, pbuff : *const core::ffi::c_void, datarepresentation : u32) -> NDR_SCONTEXT);
     unsafe { NDRSContextUnmarshallEx(bindinghandle, pbuff, datarepresentation) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn Ndr64AsyncServerCall64(prpcmsg: PRPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCall64(prpcmsg : PRPC_MESSAGE));
-    unsafe { Ndr64AsyncServerCall64(prpcmsg) }
+    unsafe { Ndr64AsyncServerCall64(prpcmsg as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: PRPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn Ndr64AsyncServerCallAll(prpcmsg : PRPC_MESSAGE));
-    unsafe { Ndr64AsyncServerCallAll(prpcmsg) }
+    unsafe { Ndr64AsyncServerCallAll(prpcmsg as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn Ndr64DcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: PRPC_MESSAGE, pdwstubphase: *mut u32) -> i32
-where
-    P0: windows_core::Param<super::IRpcStubBuffer>,
-    P1: windows_core::Param<super::IRpcChannelBuffer>,
-{
+pub unsafe fn Ndr64DcomAsyncStubCall(pthis: &Option<super::IRpcStubBuffer>, pchannel: &Option<super::IRpcChannelBuffer>, prpcmsg: PRPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     windows_core::link!("rpcrt4.dll" "system" fn Ndr64DcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-    unsafe { Ndr64DcomAsyncStubCall(pthis.param().abi(), pchannel.param().abi(), prpcmsg, pdwstubphase as _) }
+    unsafe { Ndr64DcomAsyncStubCall(core::mem::transmute_copy(pthis), core::mem::transmute_copy(pchannel), prpcmsg as _, pdwstubphase as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
-pub unsafe fn NdrAllocate(pstubmsg: PMIDL_STUB_MESSAGE, len: usize) -> *mut core::ffi::c_void {
-    windows_core::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : PMIDL_STUB_MESSAGE, len : usize) -> *mut core::ffi::c_void);
-    unsafe { NdrAllocate(pstubmsg, len) }
+pub unsafe fn NdrAllocate(pstubmsg: PMIDL_STUB_MESSAGE, len: super::size_t) -> *mut core::ffi::c_void {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrAllocate(pstubmsg : PMIDL_STUB_MESSAGE, len : super::size_t) -> *mut core::ffi::c_void);
+    unsafe { NdrAllocate(pstubmsg as _, len) }
 }
 #[inline]
 pub unsafe fn NdrAsyncServerCall(prpcmsg: PRPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrAsyncServerCall(prpcmsg : PRPC_MESSAGE));
-    unsafe { NdrAsyncServerCall(prpcmsg) }
+    unsafe { NdrAsyncServerCall(prpcmsg as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrByteCountPointerBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrByteCountPointerBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrByteCountPointerBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrByteCountPointerFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrByteCountPointerFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrByteCountPointerFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrByteCountPointerMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrByteCountPointerMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrByteCountPointerMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrByteCountPointerUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrByteCountPointerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrByteCountPointerUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrByteCountPointerUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrClearOutParameters(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING, argaddr: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClearOutParameters(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING, argaddr : *mut core::ffi::c_void));
-    unsafe { NdrClearOutParameters(pstubmsg, pformat, argaddr as _) }
+    unsafe { NdrClearOutParameters(pstubmsg as _, pformat as _, argaddr as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrClientContextMarshall(pstubmsg: PMIDL_STUB_MESSAGE, contexthandle: NDR_CCONTEXT, fcheck: i32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientContextMarshall(pstubmsg : PMIDL_STUB_MESSAGE, contexthandle : NDR_CCONTEXT, fcheck : i32));
-    unsafe { NdrClientContextMarshall(pstubmsg, contexthandle, fcheck) }
+    unsafe { NdrClientContextMarshall(pstubmsg as _, contexthandle as _, fcheck) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrClientContextUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, pcontexthandle: *mut NDR_CCONTEXT, bindhandle: RPC_BINDING_HANDLE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientContextUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pcontexthandle : *mut NDR_CCONTEXT, bindhandle : RPC_BINDING_HANDLE));
-    unsafe { NdrClientContextUnmarshall(pstubmsg, pcontexthandle as _, bindhandle) }
+    unsafe { NdrClientContextUnmarshall(pstubmsg as _, pcontexthandle as _, bindhandle as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrClientInitialize(prpcmsg: PRPC_MESSAGE, pstubmsg: PMIDL_STUB_MESSAGE, pstubdescriptor: PMIDL_STUB_DESC, procnum: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientInitialize(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, procnum : u32));
-    unsafe { NdrClientInitialize(prpcmsg, pstubmsg, pstubdescriptor, procnum) }
+    unsafe { NdrClientInitialize(prpcmsg as _, pstubmsg as _, pstubdescriptor as _, procnum) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrClientInitializeNew(prpcmsg: PRPC_MESSAGE, pstubmsg: PMIDL_STUB_MESSAGE, pstubdescriptor: PMIDL_STUB_DESC, procnum: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrClientInitializeNew(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, procnum : u32));
-    unsafe { NdrClientInitializeNew(prpcmsg, pstubmsg, pstubdescriptor, procnum) }
+    unsafe { NdrClientInitializeNew(prpcmsg as _, pstubmsg as _, pstubdescriptor as _, procnum) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexArrayBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrComplexArrayBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrComplexArrayBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexArrayFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrComplexArrayFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrComplexArrayFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexArrayMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrComplexArrayMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrComplexArrayMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexArrayMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrComplexArrayMemorySize(pstubmsg, pformat) }
+    unsafe { NdrComplexArrayMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexArrayUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrComplexArrayUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrComplexArrayUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexStructBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrComplexStructBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrComplexStructBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexStructFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrComplexStructFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrComplexStructFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexStructMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrComplexStructMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrComplexStructMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexStructMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrComplexStructMemorySize(pstubmsg, pformat) }
+    unsafe { NdrComplexStructMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrComplexStructUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrComplexStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrComplexStructUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrComplexStructUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantArrayBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantArrayBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantArrayBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantArrayFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantArrayFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantArrayFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantArrayMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrConformantArrayMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantArrayMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantArrayMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrConformantArrayMemorySize(pstubmsg, pformat) }
+    unsafe { NdrConformantArrayMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantArrayUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrConformantArrayUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrConformantArrayUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStringBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantStringBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantStringBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStringMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrConformantStringMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantStringMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStringMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrConformantStringMemorySize(pstubmsg, pformat) }
+    unsafe { NdrConformantStringMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStringUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStringUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrConformantStringUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrConformantStringUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStructBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantStructBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantStructBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStructFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantStructFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantStructFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStructMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrConformantStructMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantStructMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStructMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrConformantStructMemorySize(pstubmsg, pformat) }
+    unsafe { NdrConformantStructMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantStructUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrConformantStructUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrConformantStructUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantVaryingArrayBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantVaryingArrayBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantVaryingArrayFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantVaryingArrayFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrConformantVaryingArrayMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantVaryingArrayMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrConformantVaryingArrayMemorySize(pstubmsg, pformat) }
+    unsafe { NdrConformantVaryingArrayMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingArrayUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrConformantVaryingArrayUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrConformantVaryingArrayUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantVaryingStructBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantVaryingStructBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrConformantVaryingStructFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantVaryingStructFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrConformantVaryingStructMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrConformantVaryingStructMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrConformantVaryingStructMemorySize(pstubmsg, pformat) }
+    unsafe { NdrConformantVaryingStructMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConformantVaryingStructUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConformantVaryingStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrConformantVaryingStructUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrConformantVaryingStructUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrContextHandleInitialize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> NDR_SCONTEXT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrContextHandleInitialize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> NDR_SCONTEXT);
     unsafe { NdrContextHandleInitialize(pstubmsg, pformat) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrContextHandleSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrContextHandleSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrContextHandleSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrContextHandleSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConvert(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConvert(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING));
-    unsafe { NdrConvert(pstubmsg, pformat) }
+    unsafe { NdrConvert(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrConvert2(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING, numberparams: i32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrConvert2(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING, numberparams : i32));
-    unsafe { NdrConvert2(pstubmsg, pformat, numberparams) }
+    unsafe { NdrConvert2(pstubmsg as _, pformat as _, numberparams) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrCorrelationFree(pstubmsg: PMIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrCorrelationFree(pstubmsg : PMIDL_STUB_MESSAGE));
-    unsafe { NdrCorrelationFree(pstubmsg) }
+    unsafe { NdrCorrelationFree(pstubmsg as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrCorrelationInitialize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void, cachesize: u32, flags: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrCorrelationInitialize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void, cachesize : u32, flags : u32));
-    unsafe { NdrCorrelationInitialize(pstubmsg, pmemory as _, cachesize, flags) }
+    unsafe { NdrCorrelationInitialize(pstubmsg as _, pmemory as _, cachesize, flags) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrCorrelationPass(pstubmsg: PMIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrCorrelationPass(pstubmsg : PMIDL_STUB_MESSAGE));
-    unsafe { NdrCorrelationPass(pstubmsg) }
+    unsafe { NdrCorrelationPass(pstubmsg as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
 #[inline]
 pub unsafe fn NdrCreateServerInterfaceFromStub<P0>(pstub: P0, pserverif: *mut RPC_SERVER_INTERFACE) -> windows_core::RPC_STATUS
 where
@@ -758,216 +773,210 @@ where
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn NdrDcomAsyncStubCall<P0, P1>(pthis: P0, pchannel: P1, prpcmsg: PRPC_MESSAGE, pdwstubphase: *mut u32) -> i32
-where
-    P0: windows_core::Param<super::IRpcStubBuffer>,
-    P1: windows_core::Param<super::IRpcChannelBuffer>,
-{
+pub unsafe fn NdrDcomAsyncStubCall(pthis: &Option<super::IRpcStubBuffer>, pchannel: &Option<super::IRpcChannelBuffer>, prpcmsg: PRPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrDcomAsyncStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-    unsafe { NdrDcomAsyncStubCall(pthis.param().abi(), pchannel.param().abi(), prpcmsg, pdwstubphase as _) }
+    unsafe { NdrDcomAsyncStubCall(core::mem::transmute_copy(pthis), core::mem::transmute_copy(pchannel), prpcmsg as _, pdwstubphase as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrEncapsulatedUnionBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrEncapsulatedUnionBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrEncapsulatedUnionFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrEncapsulatedUnionFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrEncapsulatedUnionMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrEncapsulatedUnionMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrEncapsulatedUnionMemorySize(pstubmsg, pformat) }
+    unsafe { NdrEncapsulatedUnionMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrEncapsulatedUnionUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrEncapsulatedUnionUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrEncapsulatedUnionUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrEncapsulatedUnionUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrFixedArrayBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrFixedArrayBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrFixedArrayBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrFixedArrayFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrFixedArrayFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrFixedArrayFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrFixedArrayMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrFixedArrayMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrFixedArrayMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrFixedArrayMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrFixedArrayMemorySize(pstubmsg, pformat) }
+    unsafe { NdrFixedArrayMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrFixedArrayUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFixedArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrFixedArrayUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrFixedArrayUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrFreeBuffer(pstubmsg: PMIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFreeBuffer(pstubmsg : PMIDL_STUB_MESSAGE));
-    unsafe { NdrFreeBuffer(pstubmsg) }
+    unsafe { NdrFreeBuffer(pstubmsg as _) }
 }
 #[inline]
 pub unsafe fn NdrFullPointerXlatFree(pxlattables: PFULL_PTR_XLAT_TABLES) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatFree(pxlattables : PFULL_PTR_XLAT_TABLES));
-    unsafe { NdrFullPointerXlatFree(pxlattables) }
+    unsafe { NdrFullPointerXlatFree(pxlattables as _) }
 }
 #[inline]
 pub unsafe fn NdrFullPointerXlatInit(numberofpointers: u32, xlatside: XLAT_SIDE) -> PFULL_PTR_XLAT_TABLES {
     windows_core::link!("rpcrt4.dll" "system" fn NdrFullPointerXlatInit(numberofpointers : u32, xlatside : XLAT_SIDE) -> PFULL_PTR_XLAT_TABLES);
     unsafe { NdrFullPointerXlatInit(numberofpointers, xlatside) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrGetBuffer(pstubmsg: PMIDL_STUB_MESSAGE, bufferlength: u32, handle: RPC_BINDING_HANDLE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrGetBuffer(pstubmsg : PMIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
-    unsafe { NdrGetBuffer(pstubmsg, bufferlength, handle) }
+    unsafe { NdrGetBuffer(pstubmsg as _, bufferlength, handle as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
-pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: PMIDL_STUB_MESSAGE) -> windows_core::Result<RPC_VERSION> {
+pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: PMIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> windows_core::HRESULT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : PMIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        NdrGetDcomProtocolVersion(pstubmsg, &mut result__).map(|| result__)
-    }
+    unsafe { NdrGetDcomProtocolVersion(pstubmsg as _, pversion as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrGetUserMarshalInfo(pflags: *const u32, informationlevel: u32, pmarshalinfo: *mut NDR_USER_MARSHAL_INFO) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn NdrGetUserMarshalInfo(pflags : *const u32, informationlevel : u32, pmarshalinfo : *mut NDR_USER_MARSHAL_INFO) -> windows_core::RPC_STATUS);
     unsafe { NdrGetUserMarshalInfo(pflags, informationlevel, pmarshalinfo) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrInterfacePointerBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrInterfacePointerBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrInterfacePointerBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrInterfacePointerFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrInterfacePointerFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrInterfacePointerFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrInterfacePointerMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrInterfacePointerMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrInterfacePointerMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrInterfacePointerMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrInterfacePointerMemorySize(pstubmsg, pformat) }
+    unsafe { NdrInterfacePointerMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrInterfacePointerUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrInterfacePointerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrInterfacePointerUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrInterfacePointerUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: PMIDL_STUB_MESSAGE, pcommstatus: *mut u32, pfaultstatus: *mut u32, status: windows_core::RPC_STATUS) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn NdrMapCommAndFaultStatus(pstubmsg : PMIDL_STUB_MESSAGE, pcommstatus : *mut u32, pfaultstatus : *mut u32, status : windows_core::RPC_STATUS) -> windows_core::RPC_STATUS);
-    unsafe { NdrMapCommAndFaultStatus(pstubmsg, pcommstatus as _, pfaultstatus as _, status) }
+    unsafe { NdrMapCommAndFaultStatus(pstubmsg as _, pcommstatus as _, pfaultstatus as _, status) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonConformantStringBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrNonConformantStringBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrNonConformantStringBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonConformantStringMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrNonConformantStringMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrNonConformantStringMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonConformantStringMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrNonConformantStringMemorySize(pstubmsg, pformat) }
+    unsafe { NdrNonConformantStringMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonConformantStringUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonConformantStringUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrNonConformantStringUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrNonConformantStringUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrNonEncapsulatedUnionBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrNonEncapsulatedUnionBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrNonEncapsulatedUnionFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrNonEncapsulatedUnionFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrNonEncapsulatedUnionMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrNonEncapsulatedUnionMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrNonEncapsulatedUnionMemorySize(pstubmsg, pformat) }
+    unsafe { NdrNonEncapsulatedUnionMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNonEncapsulatedUnionUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrNonEncapsulatedUnionUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrNonEncapsulatedUnionUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNsGetBuffer(pstubmsg: PMIDL_STUB_MESSAGE, bufferlength: u32, handle: RPC_BINDING_HANDLE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNsGetBuffer(pstubmsg : PMIDL_STUB_MESSAGE, bufferlength : u32, handle : RPC_BINDING_HANDLE) -> *mut u8);
-    unsafe { NdrNsGetBuffer(pstubmsg, bufferlength, handle) }
+    unsafe { NdrNsGetBuffer(pstubmsg as _, bufferlength, handle as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrNsSendReceive(pstubmsg: PMIDL_STUB_MESSAGE, pbufferend: *mut u8, pautohandle: *mut RPC_BINDING_HANDLE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrNsSendReceive(pstubmsg : PMIDL_STUB_MESSAGE, pbufferend : *mut u8, pautohandle : *mut RPC_BINDING_HANDLE) -> *mut u8);
-    unsafe { NdrNsSendReceive(pstubmsg, pbufferend as _, pautohandle as _) }
+    unsafe { NdrNsSendReceive(pstubmsg as _, pbufferend as _, pautohandle as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NdrOleAllocate(size: usize) -> *mut core::ffi::c_void {
-    windows_core::link!("rpcrt4.dll" "system" fn NdrOleAllocate(size : usize) -> *mut core::ffi::c_void);
+pub unsafe fn NdrOleAllocate(size: super::size_t) -> *mut core::ffi::c_void {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrOleAllocate(size : super::size_t) -> *mut core::ffi::c_void);
     unsafe { NdrOleAllocate(size) }
 }
 #[inline]
@@ -975,69 +984,70 @@ pub unsafe fn NdrOleFree(nodetofree: *const core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrOleFree(nodetofree : *const core::ffi::c_void));
     unsafe { NdrOleFree(nodetofree) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPartialIgnoreClientBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
-    unsafe { NdrPartialIgnoreClientBufferSize(pstubmsg, pmemory as _) }
+    unsafe { NdrPartialIgnoreClientBufferSize(pstubmsg as _, pmemory as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPartialIgnoreClientMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreClientMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut core::ffi::c_void));
-    unsafe { NdrPartialIgnoreClientMarshall(pstubmsg, pmemory as _) }
+    unsafe { NdrPartialIgnoreClientMarshall(pstubmsg as _, pmemory as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPartialIgnoreServerInitialize(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut core::ffi::c_void, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerInitialize(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void, pformat : PFORMAT_STRING));
-    unsafe { NdrPartialIgnoreServerInitialize(pstubmsg, ppmemory as _, pformat) }
+    unsafe { NdrPartialIgnoreServerInitialize(pstubmsg as _, ppmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPartialIgnoreServerUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPartialIgnoreServerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut core::ffi::c_void));
-    unsafe { NdrPartialIgnoreServerUnmarshall(pstubmsg, ppmemory as _) }
+    unsafe { NdrPartialIgnoreServerUnmarshall(pstubmsg as _, ppmemory as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPointerBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrPointerBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrPointerBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPointerFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrPointerFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrPointerFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPointerMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrPointerMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrPointerMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPointerMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrPointerMemorySize(pstubmsg, pformat) }
+    unsafe { NdrPointerMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrPointerUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrPointerUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrPointerUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrPointerUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrRangeUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRangeUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrRangeUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrRangeUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NdrRpcSmClientAllocate(size: usize) -> *mut core::ffi::c_void {
-    windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSmClientAllocate(size : usize) -> *mut core::ffi::c_void);
+pub unsafe fn NdrRpcSmClientAllocate(size: super::size_t) -> *mut core::ffi::c_void {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSmClientAllocate(size : super::size_t) -> *mut core::ffi::c_void);
     unsafe { NdrRpcSmClientAllocate(size) }
 }
 #[inline]
@@ -1045,15 +1055,16 @@ pub unsafe fn NdrRpcSmClientFree(nodetofree: *const core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSmClientFree(nodetofree : *const core::ffi::c_void));
     unsafe { NdrRpcSmClientFree(nodetofree) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrRpcSmSetClientToOsf(pmessage: PMIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSmSetClientToOsf(pmessage : PMIDL_STUB_MESSAGE));
-    unsafe { NdrRpcSmSetClientToOsf(pmessage) }
+    unsafe { NdrRpcSmSetClientToOsf(pmessage as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NdrRpcSsDefaultAllocate(size: usize) -> *mut core::ffi::c_void {
-    windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultAllocate(size : usize) -> *mut core::ffi::c_void);
+pub unsafe fn NdrRpcSsDefaultAllocate(size: super::size_t) -> *mut core::ffi::c_void {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultAllocate(size : super::size_t) -> *mut core::ffi::c_void);
     unsafe { NdrRpcSsDefaultAllocate(size) }
 }
 #[inline]
@@ -1061,277 +1072,306 @@ pub unsafe fn NdrRpcSsDefaultFree(nodetofree: *const core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsDefaultFree(nodetofree : *const core::ffi::c_void));
     unsafe { NdrRpcSsDefaultFree(nodetofree) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrRpcSsDisableAllocate(pmessage: PMIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsDisableAllocate(pmessage : PMIDL_STUB_MESSAGE));
-    unsafe { NdrRpcSsDisableAllocate(pmessage) }
+    unsafe { NdrRpcSsDisableAllocate(pmessage as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrRpcSsEnableAllocate(pmessage: PMIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrRpcSsEnableAllocate(pmessage : PMIDL_STUB_MESSAGE));
-    unsafe { NdrRpcSsEnableAllocate(pmessage) }
+    unsafe { NdrRpcSsEnableAllocate(pmessage as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSendReceive(pstubmsg: PMIDL_STUB_MESSAGE, pbufferend: *mut u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSendReceive(pstubmsg : PMIDL_STUB_MESSAGE, pbufferend : *mut u8) -> *mut u8);
-    unsafe { NdrSendReceive(pstubmsg, pbufferend as _) }
+    unsafe { NdrSendReceive(pstubmsg as _, pbufferend as _) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn NdrServerCall(prpcmsg: PRPC_MESSAGE) {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrServerCall(prpcmsg : PRPC_MESSAGE));
+    unsafe { NdrServerCall(prpcmsg as _) }
 }
 #[inline]
 pub unsafe fn NdrServerCall2(prpcmsg: PRPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerCall2(prpcmsg : PRPC_MESSAGE));
-    unsafe { NdrServerCall2(prpcmsg) }
+    unsafe { NdrServerCall2(prpcmsg as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn NdrServerCallAll(prpcmsg: PRPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerCallAll(prpcmsg : PRPC_MESSAGE));
-    unsafe { NdrServerCallAll(prpcmsg) }
+    unsafe { NdrServerCallAll(prpcmsg as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn NdrServerCallNdr64(prpcmsg: PRPC_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerCallNdr64(prpcmsg : PRPC_MESSAGE));
-    unsafe { NdrServerCallNdr64(prpcmsg) }
+    unsafe { NdrServerCallNdr64(prpcmsg as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerContextMarshall(pstubmsg: PMIDL_STUB_MESSAGE, contexthandle: NDR_SCONTEXT, rundownroutine: NDR_RUNDOWN) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextMarshall(pstubmsg : PMIDL_STUB_MESSAGE, contexthandle : NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN));
-    unsafe { NdrServerContextMarshall(pstubmsg, contexthandle, rundownroutine) }
+    unsafe { NdrServerContextMarshall(pstubmsg as _, contexthandle as _, rundownroutine) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerContextNewMarshall(pstubmsg: PMIDL_STUB_MESSAGE, contexthandle: NDR_SCONTEXT, rundownroutine: NDR_RUNDOWN, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextNewMarshall(pstubmsg : PMIDL_STUB_MESSAGE, contexthandle : NDR_SCONTEXT, rundownroutine : NDR_RUNDOWN, pformat : PFORMAT_STRING));
-    unsafe { NdrServerContextNewMarshall(pstubmsg, contexthandle, rundownroutine, pformat) }
+    unsafe { NdrServerContextNewMarshall(pstubmsg as _, contexthandle as _, rundownroutine, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerContextNewUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> NDR_SCONTEXT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextNewUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> NDR_SCONTEXT);
     unsafe { NdrServerContextNewUnmarshall(pstubmsg, pformat) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerContextUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE) -> NDR_SCONTEXT {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerContextUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE) -> NDR_SCONTEXT);
-    unsafe { NdrServerContextUnmarshall(pstubmsg) }
+    unsafe { NdrServerContextUnmarshall(pstubmsg as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerInitialize(prpcmsg: PRPC_MESSAGE, pstubmsg: PMIDL_STUB_MESSAGE, pstubdescriptor: PMIDL_STUB_DESC) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitialize(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC) -> *mut u8);
-    unsafe { NdrServerInitialize(prpcmsg, pstubmsg, pstubdescriptor) }
+    unsafe { NdrServerInitialize(prpcmsg as _, pstubmsg as _, pstubdescriptor as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerInitializeMarshall(prpcmsg: PRPC_MESSAGE, pstubmsg: PMIDL_STUB_MESSAGE) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializeMarshall(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE));
-    unsafe { NdrServerInitializeMarshall(prpcmsg, pstubmsg) }
+    unsafe { NdrServerInitializeMarshall(prpcmsg as _, pstubmsg as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerInitializeNew(prpcmsg: PRPC_MESSAGE, pstubmsg: PMIDL_STUB_MESSAGE, pstubdescriptor: PMIDL_STUB_DESC) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializeNew(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC) -> *mut u8);
-    unsafe { NdrServerInitializeNew(prpcmsg, pstubmsg, pstubdescriptor) }
+    unsafe { NdrServerInitializeNew(prpcmsg as _, pstubmsg as _, pstubdescriptor as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerInitializePartial(prpcmsg: PRPC_MESSAGE, pstubmsg: PMIDL_STUB_MESSAGE, pstubdescriptor: PMIDL_STUB_DESC, requestedbuffersize: u32) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializePartial(prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, requestedbuffersize : u32));
-    unsafe { NdrServerInitializePartial(prpcmsg, pstubmsg, pstubdescriptor, requestedbuffersize) }
+    unsafe { NdrServerInitializePartial(prpcmsg as _, pstubmsg as _, pstubdescriptor as _, requestedbuffersize) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrServerInitializeUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, pstubdescriptor: PMIDL_STUB_DESC, prpcmsg: PRPC_MESSAGE) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrServerInitializeUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, prpcmsg : PRPC_MESSAGE) -> *mut u8);
-    unsafe { NdrServerInitializeUnmarshall(pstubmsg, pstubdescriptor, prpcmsg) }
+    unsafe { NdrServerInitializeUnmarshall(pstubmsg as _, pstubdescriptor as _, prpcmsg as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[inline]
+pub unsafe fn NdrServerMarshall(pthis: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrServerMarshall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING));
+    unsafe { NdrServerMarshall(pthis as _, pchannel as _, pstubmsg as _, pformat as _) }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[inline]
+pub unsafe fn NdrServerUnmarshall(pchannel: *mut core::ffi::c_void, prpcmsg: PRPC_MESSAGE, pstubmsg: PMIDL_STUB_MESSAGE, pstubdescriptor: PMIDL_STUB_DESC, pformat: PFORMAT_STRING, pparamlist: *mut core::ffi::c_void) -> i32 {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrServerUnmarshall(pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pstubmsg : PMIDL_STUB_MESSAGE, pstubdescriptor : PMIDL_STUB_DESC, pformat : PFORMAT_STRING, pparamlist : *mut core::ffi::c_void) -> i32);
+    unsafe { NdrServerUnmarshall(pchannel as _, prpcmsg as _, pstubmsg as _, pstubdescriptor as _, pformat as _, pparamlist as _) }
+}
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSimpleStructBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrSimpleStructBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrSimpleStructBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSimpleStructFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrSimpleStructFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrSimpleStructFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSimpleStructMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrSimpleStructMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrSimpleStructMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSimpleStructMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrSimpleStructMemorySize(pstubmsg, pformat) }
+    unsafe { NdrSimpleStructMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSimpleStructUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleStructUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrSimpleStructUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrSimpleStructUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSimpleTypeMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleTypeMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
-    unsafe { NdrSimpleTypeMarshall(pstubmsg, pmemory as _, formatchar) }
+    unsafe { NdrSimpleTypeMarshall(pstubmsg as _, pmemory as _, formatchar) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrSimpleTypeUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, formatchar: u8) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrSimpleTypeUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, formatchar : u8));
-    unsafe { NdrSimpleTypeUnmarshall(pstubmsg, pmemory as _, formatchar) }
+    unsafe { NdrSimpleTypeUnmarshall(pstubmsg as _, pmemory as _, formatchar) }
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn NdrStubCall(pthis: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, prpcmsg: PRPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
+    windows_core::link!("rpcrt4.dll" "system" fn NdrStubCall(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
+    unsafe { NdrStubCall(pthis as _, pchannel as _, prpcmsg as _, pdwstubphase as _) }
 }
 #[inline]
 pub unsafe fn NdrStubCall2(pthis: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, prpcmsg: PRPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrStubCall2(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-    unsafe { NdrStubCall2(pthis as _, pchannel as _, prpcmsg, pdwstubphase as _) }
+    unsafe { NdrStubCall2(pthis as _, pchannel as _, prpcmsg as _, pdwstubphase as _) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn NdrStubCall3(pthis: *mut core::ffi::c_void, pchannel: *mut core::ffi::c_void, prpcmsg: PRPC_MESSAGE, pdwstubphase: *mut u32) -> i32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrStubCall3(pthis : *mut core::ffi::c_void, pchannel : *mut core::ffi::c_void, prpcmsg : PRPC_MESSAGE, pdwstubphase : *mut u32) -> i32);
-    unsafe { NdrStubCall3(pthis as _, pchannel as _, prpcmsg, pdwstubphase as _) }
+    unsafe { NdrStubCall3(pthis as _, pchannel as _, prpcmsg as _, pdwstubphase as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrUserMarshalBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrUserMarshalBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrUserMarshalBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrUserMarshalFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrUserMarshalFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrUserMarshalFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrUserMarshalMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrUserMarshalMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrUserMarshalMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrUserMarshalMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrUserMarshalMemorySize(pstubmsg, pformat) }
+    unsafe { NdrUserMarshalMemorySize(pstubmsg as _, pformat as _) }
 }
 #[inline]
 pub unsafe fn NdrUserMarshalSimpleTypeConvert(pflags: *mut u32, pbuffer: *mut u8, formatchar: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalSimpleTypeConvert(pflags : *mut u32, pbuffer : *mut u8, formatchar : u8) -> *mut u8);
     unsafe { NdrUserMarshalSimpleTypeConvert(pflags as _, pbuffer as _, formatchar) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrUserMarshalUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrUserMarshalUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrUserMarshalUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrUserMarshalUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrVaryingArrayBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrVaryingArrayBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrVaryingArrayBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrVaryingArrayFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrVaryingArrayFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrVaryingArrayFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrVaryingArrayMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrVaryingArrayMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrVaryingArrayMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrVaryingArrayMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrVaryingArrayMemorySize(pstubmsg, pformat) }
+    unsafe { NdrVaryingArrayMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrVaryingArrayUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrVaryingArrayUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrVaryingArrayUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrVaryingArrayUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsBufferSize(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsBufferSize(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrXmitOrRepAsBufferSize(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrXmitOrRepAsBufferSize(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsFree(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsFree(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING));
-    unsafe { NdrXmitOrRepAsFree(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrXmitOrRepAsFree(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsMarshall(pstubmsg: PMIDL_STUB_MESSAGE, pmemory: *mut u8, pformat: PFORMAT_STRING) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMarshall(pstubmsg : PMIDL_STUB_MESSAGE, pmemory : *mut u8, pformat : PFORMAT_STRING) -> *mut u8);
-    unsafe { NdrXmitOrRepAsMarshall(pstubmsg, pmemory as _, pformat) }
+    unsafe { NdrXmitOrRepAsMarshall(pstubmsg as _, pmemory as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsMemorySize(pstubmsg: PMIDL_STUB_MESSAGE, pformat: PFORMAT_STRING) -> u32 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsMemorySize(pstubmsg : PMIDL_STUB_MESSAGE, pformat : PFORMAT_STRING) -> u32);
-    unsafe { NdrXmitOrRepAsMemorySize(pstubmsg, pformat) }
+    unsafe { NdrXmitOrRepAsMemorySize(pstubmsg as _, pformat as _) }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[inline]
 pub unsafe fn NdrXmitOrRepAsUnmarshall(pstubmsg: PMIDL_STUB_MESSAGE, ppmemory: *mut *mut u8, pformat: PFORMAT_STRING, fmustalloc: u8) -> *mut u8 {
     windows_core::link!("rpcrt4.dll" "system" fn NdrXmitOrRepAsUnmarshall(pstubmsg : PMIDL_STUB_MESSAGE, ppmemory : *mut *mut u8, pformat : PFORMAT_STRING, fmustalloc : u8) -> *mut u8);
-    unsafe { NdrXmitOrRepAsUnmarshall(pstubmsg, ppmemory as _, pformat, fmustalloc) }
+    unsafe { NdrXmitOrRepAsUnmarshall(pstubmsg as _, ppmemory as _, pformat as _, fmustalloc) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncAbortCall(pasync: PRPC_ASYNC_STATE, exceptioncode: u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncAbortCall(pasync : PRPC_ASYNC_STATE, exceptioncode : u32) -> windows_core::RPC_STATUS);
     unsafe { RpcAsyncAbortCall(pasync as _, exceptioncode) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncCancelCall(pasync: PRPC_ASYNC_STATE, fabort: bool) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncCancelCall(pasync : PRPC_ASYNC_STATE, fabort : windows_core::BOOL) -> windows_core::RPC_STATUS);
     unsafe { RpcAsyncCancelCall(pasync as _, fabort.into()) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncCompleteCall(pasync: PRPC_ASYNC_STATE, reply: Option<*mut core::ffi::c_void>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncCompleteCall(pasync : PRPC_ASYNC_STATE, reply : *mut core::ffi::c_void) -> windows_core::RPC_STATUS);
     unsafe { RpcAsyncCompleteCall(pasync as _, reply.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncGetCallStatus(pasync: PRPC_ASYNC_STATE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncGetCallStatus(pasync : PRPC_ASYNC_STATE) -> windows_core::RPC_STATUS);
     unsafe { RpcAsyncGetCallStatus(pasync) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncInitializeHandle(pasync: PRPC_ASYNC_STATE, size: u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncInitializeHandle(pasync : PRPC_ASYNC_STATE, size : u32) -> windows_core::RPC_STATUS);
     unsafe { RpcAsyncInitializeHandle(pasync as _, size) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcAsyncRegisterInfo(pasync: PRPC_ASYNC_STATE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcAsyncRegisterInfo(pasync : PRPC_ASYNC_STATE) -> windows_core::RPC_STATUS);
     unsafe { RpcAsyncRegisterInfo(pasync) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcBindingBind(pasync: Option<PRPC_ASYNC_STATE>, binding: RPC_BINDING_HANDLE, ifspec: RPC_IF_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingBind(pasync : PRPC_ASYNC_STATE, binding : RPC_BINDING_HANDLE, ifspec : RPC_IF_HANDLE) -> windows_core::RPC_STATUS);
@@ -1368,44 +1408,44 @@ pub unsafe fn RpcBindingFromStringBindingW(stringbinding: RPC_WSTR, binding: *mu
     unsafe { RpcBindingFromStringBindingW(stringbinding, binding as _) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientA(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: *mut RPC_CSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientA(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: Option<*mut RPC_CSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientA(clientbinding : RPC_BINDING_HANDLE, privs : *mut RPC_AUTHZ_HANDLE, serverprincname : *mut RPC_CSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthClientA(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcBindingInqAuthClientA(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientExA(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: *mut RPC_CSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>, flags: u32) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientExA(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: Option<*mut RPC_CSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>, flags: u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExA(clientbinding : RPC_BINDING_HANDLE, privs : *mut RPC_AUTHZ_HANDLE, serverprincname : *mut RPC_CSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthClientExA(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { RpcBindingInqAuthClientExA(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientExW(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: *mut RPC_WSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>, flags: u32) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientExW(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: Option<*mut RPC_WSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>, flags: u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientExW(clientbinding : RPC_BINDING_HANDLE, privs : *mut RPC_AUTHZ_HANDLE, serverprincname : *mut RPC_WSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32, flags : u32) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthClientExW(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, flags) }
+    unsafe { RpcBindingInqAuthClientExW(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthClientW(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: *mut RPC_WSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthClientW(clientbinding: Option<RPC_BINDING_HANDLE>, privs: *mut RPC_AUTHZ_HANDLE, serverprincname: Option<*mut RPC_WSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthClientW(clientbinding : RPC_BINDING_HANDLE, privs : *mut RPC_AUTHZ_HANDLE, serverprincname : *mut RPC_WSTR, authnlevel : *mut u32, authnsvc : *mut u32, authzsvc : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthClientW(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcBindingInqAuthClientW(clientbinding.unwrap_or(core::mem::zeroed()) as _, privs as _, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoA(binding: RPC_BINDING_HANDLE, serverprincname: *mut RPC_CSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoA(binding: RPC_BINDING_HANDLE, serverprincname: Option<*mut RPC_CSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoA(binding : RPC_BINDING_HANDLE, serverprincname : *mut RPC_CSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut RPC_AUTH_IDENTITY_HANDLE, authzsvc : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthInfoA(binding, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcBindingInqAuthInfoA(binding, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoExA(binding: RPC_BINDING_HANDLE, serverprincname: *mut RPC_CSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>, rpcqosversion: u32, securityqos: Option<*mut RPC_SECURITY_QOS>) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoExA(binding: RPC_BINDING_HANDLE, serverprincname: Option<*mut RPC_CSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>, rpcqosversion: u32, securityqos: Option<*mut RPC_SECURITY_QOS>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoExA(binding : RPC_BINDING_HANDLE, serverprincname : *mut RPC_CSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut RPC_AUTH_IDENTITY_HANDLE, authzsvc : *mut u32, rpcqosversion : u32, securityqos : *mut RPC_SECURITY_QOS) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthInfoExA(binding, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, rpcqosversion, securityqos.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcBindingInqAuthInfoExA(binding, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, rpcqosversion, securityqos.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoExW(binding: RPC_BINDING_HANDLE, serverprincname: *mut RPC_WSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>, rpcqosversion: u32, securityqos: Option<*mut RPC_SECURITY_QOS>) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoExW(binding: RPC_BINDING_HANDLE, serverprincname: Option<*mut RPC_WSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>, rpcqosversion: u32, securityqos: Option<*mut RPC_SECURITY_QOS>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoExW(binding : RPC_BINDING_HANDLE, serverprincname : *mut RPC_WSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut RPC_AUTH_IDENTITY_HANDLE, authzsvc : *mut u32, rpcqosversion : u32, securityqos : *mut RPC_SECURITY_QOS) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthInfoExW(binding, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, rpcqosversion, securityqos.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcBindingInqAuthInfoExW(binding, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _, rpcqosversion, securityqos.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqAuthInfoW(binding: RPC_BINDING_HANDLE, serverprincname: *mut RPC_WSTR, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcBindingInqAuthInfoW(binding: RPC_BINDING_HANDLE, serverprincname: Option<*mut RPC_WSTR>, authnlevel: Option<*mut u32>, authnsvc: Option<*mut u32>, authidentity: Option<*mut RPC_AUTH_IDENTITY_HANDLE>, authzsvc: Option<*mut u32>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqAuthInfoW(binding : RPC_BINDING_HANDLE, serverprincname : *mut RPC_WSTR, authnlevel : *mut u32, authnsvc : *mut u32, authidentity : *mut RPC_AUTH_IDENTITY_HANDLE, authzsvc : *mut u32) -> windows_core::RPC_STATUS);
-    unsafe { RpcBindingInqAuthInfoW(binding, serverprincname as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RpcBindingInqAuthInfoW(binding, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel.unwrap_or(core::mem::zeroed()) as _, authnsvc.unwrap_or(core::mem::zeroed()) as _, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RpcBindingInqMaxCalls(binding: RPC_BINDING_HANDLE, maxcalls: *mut u32) -> windows_core::RPC_STATUS {
@@ -1413,13 +1453,14 @@ pub unsafe fn RpcBindingInqMaxCalls(binding: RPC_BINDING_HANDLE, maxcalls: *mut 
     unsafe { RpcBindingInqMaxCalls(binding, maxcalls as _) }
 }
 #[inline]
-pub unsafe fn RpcBindingInqObject(binding: RPC_BINDING_HANDLE, objectuuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqObject(binding : RPC_BINDING_HANDLE, objectuuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcBindingInqObject(binding: RPC_BINDING_HANDLE, objectuuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqObject(binding : RPC_BINDING_HANDLE, objectuuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { RpcBindingInqObject(binding, objectuuid as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RpcBindingInqOption(hbinding: RPC_BINDING_HANDLE, option: u32, poptionvalue: *mut usize) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqOption(hbinding : RPC_BINDING_HANDLE, option : u32, poptionvalue : *mut usize) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcBindingInqOption(hbinding: RPC_BINDING_HANDLE, option: u32, poptionvalue: *mut super::ULONG_PTR) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingInqOption(hbinding : RPC_BINDING_HANDLE, option : u32, poptionvalue : *mut super::ULONG_PTR) -> windows_core::RPC_STATUS);
     unsafe { RpcBindingInqOption(hbinding, option, poptionvalue as _) }
 }
 #[inline]
@@ -1453,13 +1494,14 @@ pub unsafe fn RpcBindingSetAuthInfoW(binding: RPC_BINDING_HANDLE, serverprincnam
     unsafe { RpcBindingSetAuthInfoW(binding, serverprincname.unwrap_or(core::mem::zeroed()) as _, authnlevel, authnsvc, authidentity.unwrap_or(core::mem::zeroed()) as _, authzsvc) }
 }
 #[inline]
-pub unsafe fn RpcBindingSetObject(binding: RPC_BINDING_HANDLE, objectuuid: *const windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingSetObject(binding : RPC_BINDING_HANDLE, objectuuid : *const windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcBindingSetObject(binding: RPC_BINDING_HANDLE, objectuuid: *const UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingSetObject(binding : RPC_BINDING_HANDLE, objectuuid : *const UUID) -> windows_core::RPC_STATUS);
     unsafe { RpcBindingSetObject(binding, objectuuid) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RpcBindingSetOption(hbinding: RPC_BINDING_HANDLE, option: u32, optionvalue: usize) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingSetOption(hbinding : RPC_BINDING_HANDLE, option : u32, optionvalue : usize) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcBindingSetOption(hbinding: RPC_BINDING_HANDLE, option: u32, optionvalue: super::ULONG_PTR) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcBindingSetOption(hbinding : RPC_BINDING_HANDLE, option : u32, optionvalue : super::ULONG_PTR) -> windows_core::RPC_STATUS);
     unsafe { RpcBindingSetOption(hbinding, option, optionvalue) }
 }
 #[inline]
@@ -1522,7 +1564,7 @@ pub unsafe fn RpcEpUnregister(ifspec: RPC_IF_HANDLE, bindingvector: *const RPC_B
     windows_core::link!("rpcrt4.dll" "system" fn RpcEpUnregister(ifspec : RPC_IF_HANDLE, bindingvector : *const RPC_BINDING_VECTOR, uuidvector : *const UUID_VECTOR) -> windows_core::RPC_STATUS);
     unsafe { RpcEpUnregister(ifspec, bindingvector, uuidvector.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RpcErrorAddRecord(errorinfo: *const RPC_EXTENDED_ERROR_INFO) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorAddRecord(errorinfo : *const RPC_EXTENDED_ERROR_INFO) -> windows_core::RPC_STATUS);
@@ -1533,37 +1575,43 @@ pub unsafe fn RpcErrorClearInformation() {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorClearInformation());
     unsafe { RpcErrorClearInformation() }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcErrorEndEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorEndEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcErrorEndEnumeration(enumhandle as _) }
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RpcErrorGetNextRecord(enumhandle: *const RPC_ERROR_ENUM_HANDLE, copystrings: bool, errorinfo: *mut RPC_EXTENDED_ERROR_INFO) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorGetNextRecord(enumhandle : *const RPC_ERROR_ENUM_HANDLE, copystrings : windows_core::BOOL, errorinfo : *mut RPC_EXTENDED_ERROR_INFO) -> windows_core::RPC_STATUS);
     unsafe { RpcErrorGetNextRecord(enumhandle, copystrings.into(), errorinfo as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcErrorGetNumberOfRecords(enumhandle: *const RPC_ERROR_ENUM_HANDLE, records: *mut i32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorGetNumberOfRecords(enumhandle : *const RPC_ERROR_ENUM_HANDLE, records : *mut i32) -> windows_core::RPC_STATUS);
     unsafe { RpcErrorGetNumberOfRecords(enumhandle, records as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RpcErrorLoadErrorInfo(errorblob: *const core::ffi::c_void, blobsize: usize, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcErrorLoadErrorInfo(errorblob : *const core::ffi::c_void, blobsize : usize, enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcErrorLoadErrorInfo(errorblob: super::PVOID, blobsize: super::size_t, enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcErrorLoadErrorInfo(errorblob : super::PVOID, blobsize : super::size_t, enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcErrorLoadErrorInfo(errorblob, blobsize, enumhandle as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcErrorResetEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorResetEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcErrorResetEnumeration(enumhandle as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn RpcErrorSaveErrorInfo(enumhandle: *const RPC_ERROR_ENUM_HANDLE, errorblob: *mut *mut core::ffi::c_void, blobsize: *mut usize) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcErrorSaveErrorInfo(enumhandle : *const RPC_ERROR_ENUM_HANDLE, errorblob : *mut *mut core::ffi::c_void, blobsize : *mut usize) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcErrorSaveErrorInfo(enumhandle: *const RPC_ERROR_ENUM_HANDLE, errorblob: *mut super::PVOID, blobsize: *mut super::size_t) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcErrorSaveErrorInfo(enumhandle : *const RPC_ERROR_ENUM_HANDLE, errorblob : *mut super::PVOID, blobsize : *mut super::size_t) -> windows_core::RPC_STATUS);
     unsafe { RpcErrorSaveErrorInfo(enumhandle, errorblob as _, blobsize as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcErrorStartEnumeration(enumhandle: *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcErrorStartEnumeration(enumhandle : *mut RPC_ERROR_ENUM_HANDLE) -> windows_core::RPC_STATUS);
@@ -1574,15 +1622,16 @@ pub unsafe fn RpcExceptionFilter(exceptioncode: u32) -> i32 {
     windows_core::link!("rpcrt4.dll" "system" fn RpcExceptionFilter(exceptioncode : u32) -> i32);
     unsafe { RpcExceptionFilter(exceptioncode) }
 }
-#[inline]
-pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS);
-    unsafe { RpcFreeAuthorizationContext(pauthzclientcontext as _) }
-}
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RpcGetAuthorizationContextForClient(clientbinding: Option<RPC_BINDING_HANDLE>, impersonateonreturn: bool, reserved1: Option<*const core::ffi::c_void>, pexpirationtime: Option<super::PLARGE_INTEGER>, reserved2: super::LUID, reserved3: u32, reserved4: Option<*const core::ffi::c_void>, pauthzclientcontext: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : RPC_BINDING_HANDLE, impersonateonreturn : windows_core::BOOL, reserved1 : *const core::ffi::c_void, pexpirationtime : super::PLARGE_INTEGER, reserved2 : super::LUID, reserved3 : u32, reserved4 : *const core::ffi::c_void, pauthzclientcontext : *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcFreeAuthorizationContext(pauthzclientcontext: *mut super::PVOID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcFreeAuthorizationContext(pauthzclientcontext : *mut super::PVOID) -> windows_core::RPC_STATUS);
+    unsafe { RpcFreeAuthorizationContext(pauthzclientcontext as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+#[inline]
+pub unsafe fn RpcGetAuthorizationContextForClient(clientbinding: Option<RPC_BINDING_HANDLE>, impersonateonreturn: bool, reserved1: Option<super::PVOID>, pexpirationtime: Option<super::PLARGE_INTEGER>, reserved2: super::LUID, reserved3: super::DWORD, reserved4: Option<super::PVOID>, pauthzclientcontext: *mut super::PVOID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcGetAuthorizationContextForClient(clientbinding : RPC_BINDING_HANDLE, impersonateonreturn : windows_core::BOOL, reserved1 : super::PVOID, pexpirationtime : super::PLARGE_INTEGER, reserved2 : super::LUID, reserved3 : super::DWORD, reserved4 : super::PVOID, pauthzclientcontext : *mut super::PVOID) -> windows_core::RPC_STATUS);
     unsafe { RpcGetAuthorizationContextForClient(clientbinding.unwrap_or(core::mem::zeroed()) as _, impersonateonreturn.into(), reserved1.unwrap_or(core::mem::zeroed()) as _, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, reserved2, reserved3, reserved4.unwrap_or(core::mem::zeroed()) as _, pauthzclientcontext as _) }
 }
 #[inline]
@@ -1616,8 +1665,8 @@ pub unsafe fn RpcMgmtEnableIdleCleanup() -> windows_core::RPC_STATUS {
     unsafe { RpcMgmtEnableIdleCleanup() }
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: Option<RPC_BINDING_HANDLE>, inquirytype: u32, ifid: Option<*const RPC_IF_ID>, versoption: Option<u32>, objectuuid: Option<*const windows_core::GUID>, inquirycontext: *mut RPC_EP_INQ_HANDLE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqBegin(epbinding : RPC_BINDING_HANDLE, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, objectuuid : *const windows_core::GUID, inquirycontext : *mut RPC_EP_INQ_HANDLE) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcMgmtEpEltInqBegin(epbinding: Option<RPC_BINDING_HANDLE>, inquirytype: u32, ifid: Option<*const RPC_IF_ID>, versoption: Option<u32>, objectuuid: Option<*const UUID>, inquirycontext: *mut RPC_EP_INQ_HANDLE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqBegin(epbinding : RPC_BINDING_HANDLE, inquirytype : u32, ifid : *const RPC_IF_ID, versoption : u32, objectuuid : *const UUID, inquirycontext : *mut RPC_EP_INQ_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcMgmtEpEltInqBegin(epbinding.unwrap_or(core::mem::zeroed()) as _, inquirytype, ifid.unwrap_or(core::mem::zeroed()) as _, versoption.unwrap_or(core::mem::zeroed()) as _, objectuuid.unwrap_or(core::mem::zeroed()) as _, inquirycontext as _) }
 }
 #[inline]
@@ -1626,18 +1675,18 @@ pub unsafe fn RpcMgmtEpEltInqDone(inquirycontext: *mut RPC_EP_INQ_HANDLE) -> win
     unsafe { RpcMgmtEpEltInqDone(inquirycontext as _) }
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: RPC_EP_INQ_HANDLE, ifid: *mut RPC_IF_ID, binding: Option<*mut RPC_BINDING_HANDLE>, objectuuid: Option<*mut windows_core::GUID>, annotation: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextA(inquirycontext : RPC_EP_INQ_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut windows_core::GUID, annotation : *mut RPC_CSTR) -> windows_core::RPC_STATUS);
-    unsafe { RpcMgmtEpEltInqNextA(inquirycontext, ifid as _, binding.unwrap_or(core::mem::zeroed()) as _, objectuuid.unwrap_or(core::mem::zeroed()) as _, annotation as _) }
+pub unsafe fn RpcMgmtEpEltInqNextA(inquirycontext: RPC_EP_INQ_HANDLE, ifid: *mut RPC_IF_ID, binding: Option<*mut RPC_BINDING_HANDLE>, objectuuid: Option<*mut UUID>, annotation: Option<*mut RPC_CSTR>) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextA(inquirycontext : RPC_EP_INQ_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut UUID, annotation : *mut RPC_CSTR) -> windows_core::RPC_STATUS);
+    unsafe { RpcMgmtEpEltInqNextA(inquirycontext, ifid as _, binding.unwrap_or(core::mem::zeroed()) as _, objectuuid.unwrap_or(core::mem::zeroed()) as _, annotation.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: RPC_EP_INQ_HANDLE, ifid: *mut RPC_IF_ID, binding: Option<*mut RPC_BINDING_HANDLE>, objectuuid: Option<*mut windows_core::GUID>, annotation: *mut RPC_WSTR) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextW(inquirycontext : RPC_EP_INQ_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut windows_core::GUID, annotation : *mut RPC_WSTR) -> windows_core::RPC_STATUS);
-    unsafe { RpcMgmtEpEltInqNextW(inquirycontext, ifid as _, binding.unwrap_or(core::mem::zeroed()) as _, objectuuid.unwrap_or(core::mem::zeroed()) as _, annotation as _) }
+pub unsafe fn RpcMgmtEpEltInqNextW(inquirycontext: RPC_EP_INQ_HANDLE, ifid: *mut RPC_IF_ID, binding: Option<*mut RPC_BINDING_HANDLE>, objectuuid: Option<*mut UUID>, annotation: Option<*mut RPC_WSTR>) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpEltInqNextW(inquirycontext : RPC_EP_INQ_HANDLE, ifid : *mut RPC_IF_ID, binding : *mut RPC_BINDING_HANDLE, objectuuid : *mut UUID, annotation : *mut RPC_WSTR) -> windows_core::RPC_STATUS);
+    unsafe { RpcMgmtEpEltInqNextW(inquirycontext, ifid as _, binding.unwrap_or(core::mem::zeroed()) as _, objectuuid.unwrap_or(core::mem::zeroed()) as _, annotation.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcMgmtEpUnregister(epbinding: Option<RPC_BINDING_HANDLE>, ifid: *const RPC_IF_ID, binding: RPC_BINDING_HANDLE, objectuuid: Option<*const windows_core::GUID>) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpUnregister(epbinding : RPC_BINDING_HANDLE, ifid : *const RPC_IF_ID, binding : RPC_BINDING_HANDLE, objectuuid : *const windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcMgmtEpUnregister(epbinding: Option<RPC_BINDING_HANDLE>, ifid: *const RPC_IF_ID, binding: RPC_BINDING_HANDLE, objectuuid: Option<*const UUID>) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEpUnregister(epbinding : RPC_BINDING_HANDLE, ifid : *const RPC_IF_ID, binding : RPC_BINDING_HANDLE, objectuuid : *const UUID) -> windows_core::RPC_STATUS);
     unsafe { RpcMgmtEpUnregister(epbinding.unwrap_or(core::mem::zeroed()) as _, ifid, binding, objectuuid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -1751,13 +1800,13 @@ pub unsafe fn RpcNsBindingExportW(entrynamesyntax: u32, entryname: Option<RPC_WS
     unsafe { RpcNsBindingExportW(entrynamesyntax, entryname.unwrap_or(core::mem::zeroed()) as _, ifspec.unwrap_or(core::mem::zeroed()) as _, bindingvec.unwrap_or(core::mem::zeroed()) as _, objectuuidvec.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: Option<RPC_CSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const windows_core::GUID>, importcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_core::GUID, importcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcNsBindingImportBeginA(entrynamesyntax: u32, entryname: Option<RPC_CSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const UUID>, importcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objuuid : *const UUID, importcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcNsBindingImportBeginA(entrynamesyntax, entryname.unwrap_or(core::mem::zeroed()) as _, ifspec.unwrap_or(core::mem::zeroed()) as _, objuuid.unwrap_or(core::mem::zeroed()) as _, importcontext as _) }
 }
 #[inline]
-pub unsafe fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: Option<RPC_WSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const windows_core::GUID>, importcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_core::GUID, importcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcNsBindingImportBeginW(entrynamesyntax: u32, entryname: Option<RPC_WSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const UUID>, importcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingImportBeginW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objuuid : *const UUID, importcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcNsBindingImportBeginW(entrynamesyntax, entryname.unwrap_or(core::mem::zeroed()) as _, ifspec.unwrap_or(core::mem::zeroed()) as _, objuuid.unwrap_or(core::mem::zeroed()) as _, importcontext as _) }
 }
 #[inline]
@@ -1768,7 +1817,7 @@ pub unsafe fn RpcNsBindingImportDone(importcontext: *mut RPC_NS_HANDLE) -> windo
 #[inline]
 pub unsafe fn RpcNsBindingImportNext(importcontext: RPC_NS_HANDLE, binding: *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingImportNext(importcontext : RPC_NS_HANDLE, binding : *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS);
-    unsafe { RpcNsBindingImportNext(importcontext, binding as _) }
+    unsafe { RpcNsBindingImportNext(importcontext as _, binding as _) }
 }
 #[inline]
 pub unsafe fn RpcNsBindingInqEntryNameA(binding: RPC_BINDING_HANDLE, entrynamesyntax: u32, entryname: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
@@ -1781,13 +1830,13 @@ pub unsafe fn RpcNsBindingInqEntryNameW(binding: RPC_BINDING_HANDLE, entrynamesy
     unsafe { RpcNsBindingInqEntryNameW(binding, entrynamesyntax, entryname as _) }
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: Option<RPC_CSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const windows_core::GUID>, bindingmaxcount: u32, lookupcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_core::GUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcNsBindingLookupBeginA(entrynamesyntax: u32, entryname: Option<RPC_CSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const UUID>, bindingmaxcount: u32, lookupcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginA(entrynamesyntax : u32, entryname : RPC_CSTR, ifspec : RPC_IF_HANDLE, objuuid : *const UUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcNsBindingLookupBeginA(entrynamesyntax, entryname.unwrap_or(core::mem::zeroed()) as _, ifspec.unwrap_or(core::mem::zeroed()) as _, objuuid.unwrap_or(core::mem::zeroed()) as _, bindingmaxcount, lookupcontext as _) }
 }
 #[inline]
-pub unsafe fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: Option<RPC_WSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const windows_core::GUID>, bindingmaxcount: u32, lookupcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objuuid : *const windows_core::GUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcNsBindingLookupBeginW(entrynamesyntax: u32, entryname: Option<RPC_WSTR>, ifspec: Option<RPC_IF_HANDLE>, objuuid: Option<*const UUID>, bindingmaxcount: u32, lookupcontext: *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingLookupBeginW(entrynamesyntax : u32, entryname : RPC_WSTR, ifspec : RPC_IF_HANDLE, objuuid : *const UUID, bindingmaxcount : u32, lookupcontext : *mut RPC_NS_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcNsBindingLookupBeginW(entrynamesyntax, entryname.unwrap_or(core::mem::zeroed()) as _, ifspec.unwrap_or(core::mem::zeroed()) as _, objuuid.unwrap_or(core::mem::zeroed()) as _, bindingmaxcount, lookupcontext as _) }
 }
 #[inline]
@@ -1798,7 +1847,7 @@ pub unsafe fn RpcNsBindingLookupDone(lookupcontext: *mut RPC_NS_HANDLE) -> windo
 #[inline]
 pub unsafe fn RpcNsBindingLookupNext(lookupcontext: RPC_NS_HANDLE, bindingvec: *mut *mut RPC_BINDING_VECTOR) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcns4.dll" "system" fn RpcNsBindingLookupNext(lookupcontext : RPC_NS_HANDLE, bindingvec : *mut *mut RPC_BINDING_VECTOR) -> windows_core::RPC_STATUS);
-    unsafe { RpcNsBindingLookupNext(lookupcontext, bindingvec as _) }
+    unsafe { RpcNsBindingLookupNext(lookupcontext as _, bindingvec as _) }
 }
 #[inline]
 pub unsafe fn RpcNsBindingSelect(bindingvec: *mut RPC_BINDING_VECTOR, binding: *mut RPC_BINDING_HANDLE) -> windows_core::RPC_STATUS {
@@ -1851,9 +1900,9 @@ pub unsafe fn RpcNsEntryObjectInqDone(inquirycontext: *mut RPC_NS_HANDLE) -> win
     unsafe { RpcNsEntryObjectInqDone(inquirycontext as _) }
 }
 #[inline]
-pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: RPC_NS_HANDLE, objuuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqNext(inquirycontext : RPC_NS_HANDLE, objuuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
-    unsafe { RpcNsEntryObjectInqNext(inquirycontext, objuuid as _) }
+pub unsafe fn RpcNsEntryObjectInqNext(inquirycontext: RPC_NS_HANDLE, objuuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcns4.dll" "system" fn RpcNsEntryObjectInqNext(inquirycontext : RPC_NS_HANDLE, objuuid : *mut UUID) -> windows_core::RPC_STATUS);
+    unsafe { RpcNsEntryObjectInqNext(inquirycontext as _, objuuid as _) }
 }
 #[inline]
 pub unsafe fn RpcNsGroupDeleteA(groupnamesyntax: u32, groupname: Option<RPC_CSTR>) -> windows_core::RPC_STATUS {
@@ -1953,7 +2002,7 @@ pub unsafe fn RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: u32, entryname: RPC_WSTR,
 #[inline]
 pub unsafe fn RpcNsMgmtHandleSetExpAge(nshandle: RPC_NS_HANDLE, expirationage: u32) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcns4.dll" "system" fn RpcNsMgmtHandleSetExpAge(nshandle : RPC_NS_HANDLE, expirationage : u32) -> windows_core::RPC_STATUS);
-    unsafe { RpcNsMgmtHandleSetExpAge(nshandle, expirationage) }
+    unsafe { RpcNsMgmtHandleSetExpAge(nshandle as _, expirationage) }
 }
 #[inline]
 pub unsafe fn RpcNsMgmtInqExpAge(expirationage: *mut u32) -> windows_core::RPC_STATUS {
@@ -2021,8 +2070,8 @@ pub unsafe fn RpcNsProfileEltRemoveW(profilenamesyntax: u32, profilename: RPC_WS
     unsafe { RpcNsProfileEltRemoveW(profilenamesyntax, profilename, ifid.unwrap_or(core::mem::zeroed()) as _, membernamesyntax, membername) }
 }
 #[inline]
-pub unsafe fn RpcObjectInqType(objuuid: *const windows_core::GUID, typeuuid: Option<*mut windows_core::GUID>) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcObjectInqType(objuuid : *const windows_core::GUID, typeuuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcObjectInqType(objuuid: *const UUID, typeuuid: Option<*mut UUID>) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcObjectInqType(objuuid : *const UUID, typeuuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { RpcObjectInqType(objuuid, typeuuid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -2031,8 +2080,8 @@ pub unsafe fn RpcObjectSetInqFn(inquiryfn: RPC_OBJECT_INQ_FN) -> windows_core::R
     unsafe { RpcObjectSetInqFn(inquiryfn) }
 }
 #[inline]
-pub unsafe fn RpcObjectSetType(objuuid: *const windows_core::GUID, typeuuid: Option<*const windows_core::GUID>) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcObjectSetType(objuuid : *const windows_core::GUID, typeuuid : *const windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcObjectSetType(objuuid: *const UUID, typeuuid: Option<*const UUID>) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcObjectSetType(objuuid : *const UUID, typeuuid : *const UUID) -> windows_core::RPC_STATUS);
     unsafe { RpcObjectSetType(objuuid, typeuuid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -2106,8 +2155,8 @@ pub unsafe fn RpcServerInqDefaultPrincNameW(authnsvc: u32, princname: *mut RPC_W
     unsafe { RpcServerInqDefaultPrincNameW(authnsvc, princname as _) }
 }
 #[inline]
-pub unsafe fn RpcServerInqIf(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcServerInqIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, mgrepv : *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcServerInqIf(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const UUID>, mgrepv: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcServerInqIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const UUID, mgrepv : *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS);
     unsafe { RpcServerInqIf(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv as _) }
 }
 #[inline]
@@ -2156,26 +2205,26 @@ pub unsafe fn RpcServerRegisterAuthInfoW(serverprincname: Option<RPC_WSTR>, auth
     unsafe { RpcServerRegisterAuthInfoW(serverprincname.unwrap_or(core::mem::zeroed()) as _, authnsvc, getkeyfn, arg.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcServerRegisterIf(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const UUID>, mgrepv: Option<*const core::ffi::c_void>) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const UUID, mgrepv : *const core::ffi::c_void) -> windows_core::RPC_STATUS);
     unsafe { RpcServerRegisterIf(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf2(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf2(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallbackfn : RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcServerRegisterIf2(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const UUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallbackfn: RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf2(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const UUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallbackfn : RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS);
     unsafe { RpcServerRegisterIf2(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, maxrpcsize, ifcallbackfn) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIf3(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: RPC_IF_CALLBACK_FN, securitydescriptor: Option<*const core::ffi::c_void>) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf3(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallback : RPC_IF_CALLBACK_FN, securitydescriptor : *const core::ffi::c_void) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcServerRegisterIf3(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const UUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, maxrpcsize: u32, ifcallback: RPC_IF_CALLBACK_FN, securitydescriptor: Option<*const core::ffi::c_void>) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIf3(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const UUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, maxrpcsize : u32, ifcallback : RPC_IF_CALLBACK_FN, securitydescriptor : *const core::ffi::c_void) -> windows_core::RPC_STATUS);
     unsafe { RpcServerRegisterIf3(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, maxrpcsize, ifcallback, securitydescriptor.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcServerRegisterIfEx(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const windows_core::GUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, ifcallback: RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIfEx(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, ifcallback : RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcServerRegisterIfEx(ifspec: RPC_IF_HANDLE, mgrtypeuuid: Option<*const UUID>, mgrepv: Option<*const core::ffi::c_void>, flags: u32, maxcalls: u32, ifcallback: RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcServerRegisterIfEx(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const UUID, mgrepv : *const core::ffi::c_void, flags : u32, maxcalls : u32, ifcallback : RPC_IF_CALLBACK_FN) -> windows_core::RPC_STATUS);
     unsafe { RpcServerRegisterIfEx(ifspec, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, mgrepv.unwrap_or(core::mem::zeroed()) as _, flags, maxcalls, ifcallback) }
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RpcServerSubscribeForNotification(binding: Option<RPC_BINDING_HANDLE>, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: *const RPC_ASYNC_NOTIFICATION_INFO) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcServerSubscribeForNotification(binding : RPC_BINDING_HANDLE, notification : RPC_NOTIFICATIONS, notificationtype : RPC_NOTIFICATION_TYPES, notificationinfo : *const RPC_ASYNC_NOTIFICATION_INFO) -> windows_core::RPC_STATUS);
@@ -2187,13 +2236,13 @@ pub unsafe fn RpcServerTestCancel(bindinghandle: Option<RPC_BINDING_HANDLE>) -> 
     unsafe { RpcServerTestCancel(bindinghandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcServerUnregisterIf(ifspec: Option<RPC_IF_HANDLE>, mgrtypeuuid: Option<*const windows_core::GUID>, waitforcallstocomplete: u32) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, waitforcallstocomplete : u32) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcServerUnregisterIf(ifspec: Option<RPC_IF_HANDLE>, mgrtypeuuid: Option<*const UUID>, waitforcallstocomplete: u32) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIf(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const UUID, waitforcallstocomplete : u32) -> windows_core::RPC_STATUS);
     unsafe { RpcServerUnregisterIf(ifspec.unwrap_or(core::mem::zeroed()) as _, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, waitforcallstocomplete) }
 }
 #[inline]
-pub unsafe fn RpcServerUnregisterIfEx(ifspec: Option<RPC_IF_HANDLE>, mgrtypeuuid: Option<*const windows_core::GUID>, rundowncontexthandles: i32) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIfEx(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const windows_core::GUID, rundowncontexthandles : i32) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcServerUnregisterIfEx(ifspec: Option<RPC_IF_HANDLE>, mgrtypeuuid: Option<*const UUID>, rundowncontexthandles: i32) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcServerUnregisterIfEx(ifspec : RPC_IF_HANDLE, mgrtypeuuid : *const UUID, rundowncontexthandles : i32) -> windows_core::RPC_STATUS);
     unsafe { RpcServerUnregisterIfEx(ifspec.unwrap_or(core::mem::zeroed()) as _, mgrtypeuuid.unwrap_or(core::mem::zeroed()) as _, rundowncontexthandles) }
 }
 #[inline]
@@ -2286,9 +2335,10 @@ pub unsafe fn RpcServerYield() {
     windows_core::link!("rpcrt4.dll" "system" fn RpcServerYield());
     unsafe { RpcServerYield() }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RpcSmAllocate(size: usize, pstatus: *mut windows_core::RPC_STATUS) -> *mut core::ffi::c_void {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcSmAllocate(size : usize, pstatus : *mut windows_core::RPC_STATUS) -> *mut core::ffi::c_void);
+pub unsafe fn RpcSmAllocate(size: super::size_t, pstatus: *mut windows_core::RPC_STATUS) -> *mut core::ffi::c_void {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcSmAllocate(size : super::size_t, pstatus : *mut windows_core::RPC_STATUS) -> *mut core::ffi::c_void);
     unsafe { RpcSmAllocate(size, pstatus as _) }
 }
 #[inline]
@@ -2321,6 +2371,7 @@ pub unsafe fn RpcSmGetThreadHandle(pstatus: *mut windows_core::RPC_STATUS) -> RP
     windows_core::link!("rpcrt4.dll" "system" fn RpcSmGetThreadHandle(pstatus : *mut windows_core::RPC_STATUS) -> RPC_SS_THREAD_HANDLE);
     unsafe { RpcSmGetThreadHandle(pstatus as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcSmSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcSmSetClientAllocFree(clientalloc : RPC_CLIENT_ALLOC, clientfree : RPC_CLIENT_FREE) -> windows_core::RPC_STATUS);
@@ -2331,24 +2382,28 @@ pub unsafe fn RpcSmSetThreadHandle(id: RPC_SS_THREAD_HANDLE) -> windows_core::RP
     windows_core::link!("rpcrt4.dll" "system" fn RpcSmSetThreadHandle(id : RPC_SS_THREAD_HANDLE) -> windows_core::RPC_STATUS);
     unsafe { RpcSmSetThreadHandle(id) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcSmSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE, oldclientalloc: *mut RPC_CLIENT_ALLOC, oldclientfree: *mut RPC_CLIENT_FREE) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcSmSwapClientAllocFree(clientalloc : RPC_CLIENT_ALLOC, clientfree : RPC_CLIENT_FREE, oldclientalloc : *mut RPC_CLIENT_ALLOC, oldclientfree : *mut RPC_CLIENT_FREE) -> windows_core::RPC_STATUS);
     unsafe { RpcSmSwapClientAllocFree(clientalloc, clientfree, oldclientalloc as _, oldclientfree as _) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn RpcSsAllocate(size: usize) -> *mut core::ffi::c_void {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcSsAllocate(size : usize) -> *mut core::ffi::c_void);
+pub unsafe fn RpcSsAllocate(size: super::size_t) -> *mut core::ffi::c_void {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcSsAllocate(size : super::size_t) -> *mut core::ffi::c_void);
     unsafe { RpcSsAllocate(size) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RpcSsContextLockExclusive(serverbindinghandle: Option<RPC_BINDING_HANDLE>, usercontext: *const core::ffi::c_void) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcSsContextLockExclusive(serverbindinghandle : RPC_BINDING_HANDLE, usercontext : *const core::ffi::c_void) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcSsContextLockExclusive(serverbindinghandle: Option<RPC_BINDING_HANDLE>, usercontext: super::PVOID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcSsContextLockExclusive(serverbindinghandle : RPC_BINDING_HANDLE, usercontext : super::PVOID) -> windows_core::RPC_STATUS);
     unsafe { RpcSsContextLockExclusive(serverbindinghandle.unwrap_or(core::mem::zeroed()) as _, usercontext) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn RpcSsContextLockShared(serverbindinghandle: RPC_BINDING_HANDLE, usercontext: *const core::ffi::c_void) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcSsContextLockShared(serverbindinghandle : RPC_BINDING_HANDLE, usercontext : *const core::ffi::c_void) -> windows_core::RPC_STATUS);
+pub unsafe fn RpcSsContextLockShared(serverbindinghandle: RPC_BINDING_HANDLE, usercontext: super::PVOID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcSsContextLockShared(serverbindinghandle : RPC_BINDING_HANDLE, usercontext : super::PVOID) -> windows_core::RPC_STATUS);
     unsafe { RpcSsContextLockShared(serverbindinghandle, usercontext) }
 }
 #[inline]
@@ -2386,6 +2441,7 @@ pub unsafe fn RpcSsGetThreadHandle() -> RPC_SS_THREAD_HANDLE {
     windows_core::link!("rpcrt4.dll" "system" fn RpcSsGetThreadHandle() -> RPC_SS_THREAD_HANDLE);
     unsafe { RpcSsGetThreadHandle() }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcSsSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE) {
     windows_core::link!("rpcrt4.dll" "system" fn RpcSsSetClientAllocFree(clientalloc : RPC_CLIENT_ALLOC, clientfree : RPC_CLIENT_FREE));
@@ -2396,30 +2452,31 @@ pub unsafe fn RpcSsSetThreadHandle(id: RPC_SS_THREAD_HANDLE) {
     windows_core::link!("rpcrt4.dll" "system" fn RpcSsSetThreadHandle(id : RPC_SS_THREAD_HANDLE));
     unsafe { RpcSsSetThreadHandle(id) }
 }
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn RpcSsSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE, oldclientalloc: *mut RPC_CLIENT_ALLOC, oldclientfree: *mut RPC_CLIENT_FREE) {
     windows_core::link!("rpcrt4.dll" "system" fn RpcSsSwapClientAllocFree(clientalloc : RPC_CLIENT_ALLOC, clientfree : RPC_CLIENT_FREE, oldclientalloc : *mut RPC_CLIENT_ALLOC, oldclientfree : *mut RPC_CLIENT_FREE));
     unsafe { RpcSsSwapClientAllocFree(clientalloc, clientfree, oldclientalloc as _, oldclientfree as _) }
 }
 #[inline]
-pub unsafe fn RpcStringBindingComposeA(objuuid: Option<RPC_CSTR>, protseq: Option<RPC_CSTR>, networkaddr: Option<RPC_CSTR>, endpoint: Option<RPC_CSTR>, options: Option<RPC_CSTR>, stringbinding: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcStringBindingComposeA(objuuid: Option<RPC_CSTR>, protseq: Option<RPC_CSTR>, networkaddr: Option<RPC_CSTR>, endpoint: Option<RPC_CSTR>, options: Option<RPC_CSTR>, stringbinding: Option<*mut RPC_CSTR>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeA(objuuid : RPC_CSTR, protseq : RPC_CSTR, networkaddr : RPC_CSTR, endpoint : RPC_CSTR, options : RPC_CSTR, stringbinding : *mut RPC_CSTR) -> windows_core::RPC_STATUS);
-    unsafe { RpcStringBindingComposeA(objuuid.unwrap_or(core::mem::zeroed()) as _, protseq.unwrap_or(core::mem::zeroed()) as _, networkaddr.unwrap_or(core::mem::zeroed()) as _, endpoint.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, stringbinding as _) }
+    unsafe { RpcStringBindingComposeA(objuuid.unwrap_or(core::mem::zeroed()) as _, protseq.unwrap_or(core::mem::zeroed()) as _, networkaddr.unwrap_or(core::mem::zeroed()) as _, endpoint.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, stringbinding.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcStringBindingComposeW(objuuid: Option<RPC_WSTR>, protseq: Option<RPC_WSTR>, networkaddr: Option<RPC_WSTR>, endpoint: Option<RPC_WSTR>, options: Option<RPC_WSTR>, stringbinding: *mut RPC_WSTR) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcStringBindingComposeW(objuuid: Option<RPC_WSTR>, protseq: Option<RPC_WSTR>, networkaddr: Option<RPC_WSTR>, endpoint: Option<RPC_WSTR>, options: Option<RPC_WSTR>, stringbinding: Option<*mut RPC_WSTR>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcStringBindingComposeW(objuuid : RPC_WSTR, protseq : RPC_WSTR, networkaddr : RPC_WSTR, endpoint : RPC_WSTR, options : RPC_WSTR, stringbinding : *mut RPC_WSTR) -> windows_core::RPC_STATUS);
-    unsafe { RpcStringBindingComposeW(objuuid.unwrap_or(core::mem::zeroed()) as _, protseq.unwrap_or(core::mem::zeroed()) as _, networkaddr.unwrap_or(core::mem::zeroed()) as _, endpoint.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, stringbinding as _) }
+    unsafe { RpcStringBindingComposeW(objuuid.unwrap_or(core::mem::zeroed()) as _, protseq.unwrap_or(core::mem::zeroed()) as _, networkaddr.unwrap_or(core::mem::zeroed()) as _, endpoint.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, stringbinding.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcStringBindingParseA(stringbinding: RPC_CSTR, objuuid: *mut RPC_CSTR, protseq: *mut RPC_CSTR, networkaddr: *mut RPC_CSTR, endpoint: *mut RPC_CSTR, networkoptions: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcStringBindingParseA(stringbinding: RPC_CSTR, objuuid: Option<*mut RPC_CSTR>, protseq: Option<*mut RPC_CSTR>, networkaddr: Option<*mut RPC_CSTR>, endpoint: Option<*mut RPC_CSTR>, networkoptions: Option<*mut RPC_CSTR>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcStringBindingParseA(stringbinding : RPC_CSTR, objuuid : *mut RPC_CSTR, protseq : *mut RPC_CSTR, networkaddr : *mut RPC_CSTR, endpoint : *mut RPC_CSTR, networkoptions : *mut RPC_CSTR) -> windows_core::RPC_STATUS);
-    unsafe { RpcStringBindingParseA(stringbinding, objuuid as _, protseq as _, networkaddr as _, endpoint as _, networkoptions as _) }
+    unsafe { RpcStringBindingParseA(stringbinding, objuuid.unwrap_or(core::mem::zeroed()) as _, protseq.unwrap_or(core::mem::zeroed()) as _, networkaddr.unwrap_or(core::mem::zeroed()) as _, endpoint.unwrap_or(core::mem::zeroed()) as _, networkoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn RpcStringBindingParseW(stringbinding: RPC_WSTR, objuuid: *mut RPC_WSTR, protseq: *mut RPC_WSTR, networkaddr: *mut RPC_WSTR, endpoint: *mut RPC_WSTR, networkoptions: *mut RPC_WSTR) -> windows_core::RPC_STATUS {
+pub unsafe fn RpcStringBindingParseW(stringbinding: RPC_WSTR, objuuid: Option<*mut RPC_WSTR>, protseq: Option<*mut RPC_WSTR>, networkaddr: Option<*mut RPC_WSTR>, endpoint: Option<*mut RPC_WSTR>, networkoptions: Option<*mut RPC_WSTR>) -> windows_core::RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcStringBindingParseW(stringbinding : RPC_WSTR, objuuid : *mut RPC_WSTR, protseq : *mut RPC_WSTR, networkaddr : *mut RPC_WSTR, endpoint : *mut RPC_WSTR, networkoptions : *mut RPC_WSTR) -> windows_core::RPC_STATUS);
-    unsafe { RpcStringBindingParseW(stringbinding, objuuid as _, protseq as _, networkaddr as _, endpoint as _, networkoptions as _) }
+    unsafe { RpcStringBindingParseW(stringbinding, objuuid.unwrap_or(core::mem::zeroed()) as _, protseq.unwrap_or(core::mem::zeroed()) as _, networkaddr.unwrap_or(core::mem::zeroed()) as _, endpoint.unwrap_or(core::mem::zeroed()) as _, networkoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RpcStringFreeA(string: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
@@ -2439,65 +2496,65 @@ pub unsafe fn RpcTestCancel() -> windows_core::RPC_STATUS {
 #[inline]
 pub unsafe fn RpcUserFree(asynchandle: handle_t, pbuffer: *mut core::ffi::c_void) {
     windows_core::link!("rpcrt4.dll" "system" fn RpcUserFree(asynchandle : handle_t, pbuffer : *mut core::ffi::c_void));
-    unsafe { RpcUserFree(asynchandle, pbuffer as _) }
+    unsafe { RpcUserFree(asynchandle as _, pbuffer as _) }
 }
 #[inline]
-pub unsafe fn UuidCompare(uuid1: *const windows_core::GUID, uuid2: *const windows_core::GUID, status: *mut windows_core::RPC_STATUS) -> i32 {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidCompare(uuid1 : *const windows_core::GUID, uuid2 : *const windows_core::GUID, status : *mut windows_core::RPC_STATUS) -> i32);
+pub unsafe fn UuidCompare(uuid1: *const UUID, uuid2: *const UUID, status: *mut windows_core::RPC_STATUS) -> i32 {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidCompare(uuid1 : *const UUID, uuid2 : *const UUID, status : *mut windows_core::RPC_STATUS) -> i32);
     unsafe { UuidCompare(uuid1, uuid2, status as _) }
 }
 #[inline]
-pub unsafe fn UuidCreate(uuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn UuidCreate(uuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { UuidCreate(uuid as _) }
 }
 #[inline]
-pub unsafe fn UuidCreateNil(niluuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidCreateNil(niluuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn UuidCreateNil(niluuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidCreateNil(niluuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { UuidCreateNil(niluuid as _) }
 }
 #[inline]
-pub unsafe fn UuidCreateSequential(uuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidCreateSequential(uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn UuidCreateSequential(uuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidCreateSequential(uuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { UuidCreateSequential(uuid as _) }
 }
 #[inline]
-pub unsafe fn UuidEqual(uuid1: *const windows_core::GUID, uuid2: *const windows_core::GUID, status: *mut windows_core::RPC_STATUS) -> i32 {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidEqual(uuid1 : *const windows_core::GUID, uuid2 : *const windows_core::GUID, status : *mut windows_core::RPC_STATUS) -> i32);
+pub unsafe fn UuidEqual(uuid1: *const UUID, uuid2: *const UUID, status: *mut windows_core::RPC_STATUS) -> i32 {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidEqual(uuid1 : *const UUID, uuid2 : *const UUID, status : *mut windows_core::RPC_STATUS) -> i32);
     unsafe { UuidEqual(uuid1, uuid2, status as _) }
 }
 #[inline]
-pub unsafe fn UuidFromStringA(stringuuid: Option<RPC_CSTR>, uuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidFromStringA(stringuuid : RPC_CSTR, uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn UuidFromStringA(stringuuid: Option<RPC_CSTR>, uuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidFromStringA(stringuuid : RPC_CSTR, uuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { UuidFromStringA(stringuuid.unwrap_or(core::mem::zeroed()) as _, uuid as _) }
 }
 #[inline]
-pub unsafe fn UuidFromStringW(stringuuid: Option<RPC_WSTR>, uuid: *mut windows_core::GUID) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidFromStringW(stringuuid : RPC_WSTR, uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
+pub unsafe fn UuidFromStringW(stringuuid: Option<RPC_WSTR>, uuid: *mut UUID) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidFromStringW(stringuuid : RPC_WSTR, uuid : *mut UUID) -> windows_core::RPC_STATUS);
     unsafe { UuidFromStringW(stringuuid.unwrap_or(core::mem::zeroed()) as _, uuid as _) }
 }
 #[inline]
-pub unsafe fn UuidHash(uuid: *const windows_core::GUID, status: *mut windows_core::RPC_STATUS) -> u16 {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidHash(uuid : *const windows_core::GUID, status : *mut windows_core::RPC_STATUS) -> u16);
+pub unsafe fn UuidHash(uuid: *const UUID, status: *mut windows_core::RPC_STATUS) -> u16 {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidHash(uuid : *const UUID, status : *mut windows_core::RPC_STATUS) -> u16);
     unsafe { UuidHash(uuid, status as _) }
 }
 #[inline]
-pub unsafe fn UuidIsNil(uuid: *const windows_core::GUID, status: *mut windows_core::RPC_STATUS) -> i32 {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidIsNil(uuid : *const windows_core::GUID, status : *mut windows_core::RPC_STATUS) -> i32);
+pub unsafe fn UuidIsNil(uuid: *const UUID, status: *mut windows_core::RPC_STATUS) -> i32 {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidIsNil(uuid : *const UUID, status : *mut windows_core::RPC_STATUS) -> i32);
     unsafe { UuidIsNil(uuid, status as _) }
 }
 #[inline]
-pub unsafe fn UuidToStringA(uuid: *const windows_core::GUID, stringuuid: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidToStringA(uuid : *const windows_core::GUID, stringuuid : *mut RPC_CSTR) -> windows_core::RPC_STATUS);
+pub unsafe fn UuidToStringA(uuid: *const UUID, stringuuid: *mut RPC_CSTR) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidToStringA(uuid : *const UUID, stringuuid : *mut RPC_CSTR) -> windows_core::RPC_STATUS);
     unsafe { UuidToStringA(uuid, stringuuid as _) }
 }
 #[inline]
-pub unsafe fn UuidToStringW(uuid: *const windows_core::GUID, stringuuid: *mut RPC_WSTR) -> windows_core::RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn UuidToStringW(uuid : *const windows_core::GUID, stringuuid : *mut RPC_WSTR) -> windows_core::RPC_STATUS);
+pub unsafe fn UuidToStringW(uuid: *const UUID, stringuuid: *mut RPC_WSTR) -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn UuidToStringW(uuid : *const UUID, stringuuid : *mut RPC_WSTR) -> windows_core::RPC_STATUS);
     unsafe { UuidToStringW(uuid, stringuuid as _) }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct ARRAY_INFO {
     pub Dimension: i32,
     pub BufferConformanceMark: *mut u32,
@@ -2507,52 +2564,67 @@ pub struct ARRAY_INFO {
     pub ActualCountArray: *mut u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BinaryParam {
     pub Buffer: *mut core::ffi::c_void,
     pub Size: i16,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct BinaryParam {
+    pub Buffer: *mut core::ffi::c_void,
+    pub Size: i16,
+}
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union CLIENT_CALL_RETURN {
     pub Pointer: *mut core::ffi::c_void,
-    pub Simple: isize,
+    pub Simple: super::LONG_PTR,
 }
+#[cfg(feature = "shared")]
 impl Default for CLIENT_CALL_RETURN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct COMM_FAULT_OFFSETS {
     pub CommOffset: i16,
     pub FaultOffset: i16,
 }
-pub type CS_TAG_GETTING_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut error_status_t)>;
-pub type CS_TYPE_FROM_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, pnetworkdata: *mut byte, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut error_status_t)>;
-pub type CS_TYPE_LOCAL_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut error_status_t)>;
-pub type CS_TYPE_NET_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut error_status_t)>;
-pub type CS_TYPE_TO_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, plocaldata: *mut core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut byte, pulnetworkdatalength: *mut u32, pstatus: *mut error_status_t)>;
+#[cfg(feature = "shared")]
+pub type CS_TAG_GETTING_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, fserverside: i32, pulsendingtag: *mut u32, puldesiredreceivingtag: *mut u32, pulreceivingtag: *mut u32, pstatus: *mut super::error_status_t)>;
+#[cfg(feature = "shared")]
+pub type CS_TYPE_FROM_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, pnetworkdata: *mut byte, ulnetworkdatalength: u32, ullocalbuffersize: u32, plocaldata: *mut core::ffi::c_void, pullocaldatalength: *mut u32, pstatus: *mut super::error_status_t)>;
+#[cfg(feature = "shared")]
+pub type CS_TYPE_LOCAL_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, ulnetworkbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pullocalbuffersize: *mut u32, pstatus: *mut super::error_status_t)>;
+#[cfg(feature = "shared")]
+pub type CS_TYPE_NET_SIZE_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, ullocalbuffersize: u32, conversiontype: *mut IDL_CS_CONVERT, pulnetworkbuffersize: *mut u32, pstatus: *mut super::error_status_t)>;
+#[cfg(feature = "shared")]
+pub type CS_TYPE_TO_NETCS_ROUTINE = Option<unsafe extern "system" fn(hbinding: RPC_BINDING_HANDLE, ulnetworkcodeset: u32, plocaldata: *mut core::ffi::c_void, ullocaldatalength: u32, pnetworkdata: *mut byte, pulnetworkdatalength: *mut u32, pstatus: *mut super::error_status_t)>;
 pub const DCE_C_ERROR_STRING_LEN: i32 = 256;
 pub const EEInfoGCCOM: i32 = 11;
 pub const EEInfoGCFRS: i32 = 12;
 pub const EEInfoNextRecordsMissing: i32 = 2;
 pub const EEInfoPreviousRecordsMissing: i32 = 1;
 pub const EEInfoUseFileTime: i32 = 4;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type EXPR_EVAL = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub type ExtendedErrorParamTypes = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct FULL_PTR_XLAT_TABLES {
     pub RefIdToPointer: *mut core::ffi::c_void,
     pub PointerToRefId: *mut core::ffi::c_void,
     pub NextRefId: u32,
     pub XlatSide: XLAT_SIDE,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct GENERIC_BINDING_INFO {
     pub pObj: *mut core::ffi::c_void,
     pub Size: u32,
@@ -2560,8 +2632,8 @@ pub struct GENERIC_BINDING_INFO {
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
 }
 pub type GENERIC_BINDING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct GENERIC_BINDING_ROUTINE_PAIR {
     pub pfnBind: GENERIC_BINDING_ROUTINE,
     pub pfnUnbind: GENERIC_UNBIND_ROUTINE,
@@ -2577,6 +2649,7 @@ pub const I_RRPCUNINITIALIZENDROLE_EXPORT_NAME: windows_core::PCSTR = windows_co
 pub type I_RpcFreeCalloutStateFn = Option<unsafe extern "system" fn(calloutstate: *mut RDR_CALLOUT_STATE)>;
 pub type I_RpcPerformCalloutFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, calloutstate: *mut RDR_CALLOUT_STATE, stage: RPC_HTTP_REDIRECTOR_STAGE) -> windows_core::RPC_STATUS>;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct I_RpcProxyCallbackInterface {
     pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
@@ -2589,33 +2662,37 @@ pub struct I_RpcProxyCallbackInterface {
     pub RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
     pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
 }
-pub type I_RpcProxyFilterIfFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifuuid: *const windows_core::GUID, ifmajorversion: u16, fallow: *mut i32) -> windows_core::RPC_STATUS>;
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct I_RpcProxyCallbackInterface {
+    pub IsValidMachineFn: I_RpcProxyIsValidMachineFn,
+    pub GetClientAddressFn: I_RpcProxyGetClientAddressFn,
+    pub GetConnectionTimeoutFn: I_RpcProxyGetConnectionTimeoutFn,
+    pub PerformCalloutFn: I_RpcPerformCalloutFn,
+    pub FreeCalloutStateFn: I_RpcFreeCalloutStateFn,
+    pub GetClientSessionAndResourceUUIDFn: I_RpcProxyGetClientSessionAndResourceUUID,
+    pub ProxyFilterIfFn: I_RpcProxyFilterIfFn,
+    pub RpcProxyUpdatePerfCounterFn: I_RpcProxyUpdatePerfCounterFn,
+    pub RpcProxyUpdatePerfCounterBackendServerFn: I_RpcProxyUpdatePerfCounterBackendServerFn,
+}
+pub type I_RpcProxyFilterIfFn = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, ifuuid: *const UUID, ifmajorversion: u16, fallow: *mut i32) -> windows_core::RPC_STATUS>;
 pub type I_RpcProxyGetClientAddressFn = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, buffer: *mut i8, bufferlength: *mut u32) -> windows_core::RPC_STATUS>;
-pub type I_RpcProxyGetClientSessionAndResourceUUID = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut windows_core::GUID, resourceidpresent: *mut i32, resourceid: *mut windows_core::GUID) -> windows_core::RPC_STATUS>;
+pub type I_RpcProxyGetClientSessionAndResourceUUID = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, sessionidpresent: *mut i32, sessionid: *mut UUID, resourceidpresent: *mut i32, resourceid: *mut UUID) -> windows_core::RPC_STATUS>;
 pub type I_RpcProxyGetConnectionTimeoutFn = Option<unsafe extern "system" fn(connectiontimeout: *mut u32) -> windows_core::RPC_STATUS>;
 pub type I_RpcProxyIsValidMachineFn = Option<unsafe extern "system" fn(machine: RPC_WSTR, dotmachine: RPC_WSTR, portnumber: u32) -> windows_core::RPC_STATUS>;
 pub type I_RpcProxyUpdatePerfCounterBackendServerFn = Option<unsafe extern "system" fn(machinename: *const u16, isconnectevent: i32)>;
 pub type I_RpcProxyUpdatePerfCounterFn = Option<unsafe extern "system" fn(counter: RpcPerfCounters, modifytrend: i32, size: u32)>;
 pub type LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = i32;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "webauthn"))]
+#[derive(Clone, Copy, Default)]
 pub struct MALLOC_FREE_STRUCT {
-    pub pfnAllocate: *mut u8,
-    pub pfnFree: *mut u8,
+    pub pfnAllocate: Option<unsafe extern "system" fn(super::size_t) -> *mut core::ffi::c_void>,
+    pub pfnFree: super::EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MIDL_FORMAT_STRING {
-    pub Pad: i16,
-    pub Format: [u8; 0],
-}
-impl Default for MIDL_FORMAT_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_INTERCEPTION_INFO {
     pub Version: u32,
     pub ProcString: PFORMAT_STRING,
@@ -2623,27 +2700,30 @@ pub struct MIDL_INTERCEPTION_INFO {
     pub ProcCount: u32,
     pub TypeString: PFORMAT_STRING,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_INTERFACE_METHOD_PROPERTIES {
     pub MethodCount: u16,
     pub MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_METHOD_PROPERTY {
     pub Id: u32,
-    pub Value: usize,
+    pub Value: super::ULONG_PTR,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_METHOD_PROPERTY_MAP {
     pub Count: u32,
     pub Properties: *const MIDL_METHOD_PROPERTY,
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
     pub DispatchTable: *const SERVER_ROUTINE,
@@ -2651,27 +2731,27 @@ pub struct MIDL_SERVER_INFO {
     pub FmtStringOffset: *const u16,
     pub ThunkTable: *const STUB_THUNK,
     pub pTransferSyntax: PRPC_SYNTAX_IDENTIFIER,
-    pub nCount: usize,
+    pub nCount: super::ULONG_PTR,
     pub pSyntaxInfo: PMIDL_SYNTAX_INFO,
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
     pub ProcFormatString: PFORMAT_STRING,
     pub FormatStringOffset: *const u16,
     pub pTransferSyntax: PRPC_SYNTAX_IDENTIFIER,
-    pub nCount: usize,
+    pub nCount: super::ULONG_PTR,
     pub pSyntaxInfo: PMIDL_SYNTAX_INFO,
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[derive(Clone, Copy)]
 pub struct MIDL_STUB_DESC {
     pub RpcInterfaceInformation: *mut core::ffi::c_void,
-    pub pfnAllocate: *mut u8,
-    pub pfnFree: *mut u8,
+    pub pfnAllocate: Option<unsafe extern "system" fn(super::size_t) -> *mut core::ffi::c_void>,
+    pub pfnFree: super::EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
     pub IMPLICIT_HANDLE_INFO: MIDL_STUB_DESC_0,
     pub apfnNdrRundownRoutines: *const NDR_RUNDOWN,
     pub aGenericBindingRoutinePairs: *const GENERIC_BINDING_ROUTINE_PAIR,
@@ -2685,34 +2765,34 @@ pub struct MIDL_STUB_DESC {
     pub CommFaultOffsets: *const COMM_FAULT_OFFSETS,
     pub aUserMarshalQuadruple: *const USER_MARSHAL_ROUTINE_QUADRUPLE,
     pub NotifyRoutineTable: *const NDR_NOTIFY_ROUTINE,
-    pub mFlags: usize,
+    pub mFlags: super::ULONG_PTR,
     pub CsRoutineTables: *const NDR_CS_ROUTINES,
     pub ProxyServerInfo: *mut core::ffi::c_void,
     pub pExprInfo: *const NDR_EXPR_DESC,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl Default for MIDL_STUB_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 #[derive(Clone, Copy)]
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut handle_t,
     pub pPrimitiveHandle: *mut handle_t,
     pub pGenericBindingInfo: PGENERIC_BINDING_INFO,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl Default for MIDL_STUB_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[derive(Default)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: PRPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -2733,11 +2813,11 @@ pub struct MIDL_STUB_MESSAGE {
     pub CorrDespIncrement: u8,
     pub uFlags: u8,
     pub UniquePtrCount: u16,
-    pub MaxCount: usize,
+    pub MaxCount: super::ULONG_PTR,
     pub Offset: u32,
     pub ActualCount: u32,
-    pub pfnAllocate: *mut u8,
-    pub pfnFree: *mut u8,
+    pub pfnAllocate: Option<unsafe extern "system" fn(super::size_t) -> *mut core::ffi::c_void>,
+    pub pfnFree: super::EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
     pub StackTop: *mut u8,
     pub pPresentedType: *mut u8,
     pub pTransmitType: *mut u8,
@@ -2763,99 +2843,99 @@ pub struct MIDL_STUB_MESSAGE {
     pub pCorrInfo: PNDR_CORRELATION_INFO,
     pub pCorrMemory: *mut u8,
     pub pMemoryList: *mut core::ffi::c_void,
-    pub pCSInfo: isize,
+    pub pCSInfo: super::INT_PTR,
     pub ConformanceMark: *mut u8,
     pub VarianceMark: *mut u8,
-    pub Unused: isize,
+    pub Unused: super::INT_PTR,
     pub pContext: *mut _NDR_PROC_CONTEXT,
     pub ContextHandleHash: *mut core::ffi::c_void,
     pub pUserMarshalList: *mut core::ffi::c_void,
     pub pFullPtrFormat: *mut u8,
-    pub Reserved51_4: isize,
-    pub Reserved51_5: isize,
+    pub Reserved51_4: super::INT_PTR,
+    pub Reserved51_5: super::INT_PTR,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl MIDL_STUB_MESSAGE {
-    pub fn fInDontFree(&self) -> bool {
-        self._bitfield & 1 != 0
+    pub fn fInDontFree(&self) -> u32 {
+        (self._bitfield) & 1
     }
-    pub fn set_fInDontFree(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !1) | (value as u32);
+    pub fn set_fInDontFree(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !1) | (value & 1);
     }
-    pub fn fDontCallFreeInst(&self) -> bool {
-        (self._bitfield >> 1) & 1 != 0
+    pub fn fDontCallFreeInst(&self) -> u32 {
+        (self._bitfield >> 1) & 1
     }
-    pub fn set_fDontCallFreeInst(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    pub fn set_fDontCallFreeInst(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value & 1) << 1);
     }
-    pub fn fUnused1(&self) -> bool {
-        (self._bitfield >> 2) & 1 != 0
+    pub fn fUnused1(&self) -> u32 {
+        (self._bitfield >> 2) & 1
     }
-    pub fn set_fUnused1(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    pub fn set_fUnused1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value & 1) << 2);
     }
-    pub fn fHasReturn(&self) -> bool {
-        (self._bitfield >> 3) & 1 != 0
+    pub fn fHasReturn(&self) -> u32 {
+        (self._bitfield >> 3) & 1
     }
-    pub fn set_fHasReturn(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    pub fn set_fHasReturn(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value & 1) << 3);
     }
-    pub fn fHasExtensions(&self) -> bool {
-        (self._bitfield >> 4) & 1 != 0
+    pub fn fHasExtensions(&self) -> u32 {
+        (self._bitfield >> 4) & 1
     }
-    pub fn set_fHasExtensions(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    pub fn set_fHasExtensions(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value & 1) << 4);
     }
-    pub fn fHasNewCorrDesc(&self) -> bool {
-        (self._bitfield >> 5) & 1 != 0
+    pub fn fHasNewCorrDesc(&self) -> u32 {
+        (self._bitfield >> 5) & 1
     }
-    pub fn set_fHasNewCorrDesc(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    pub fn set_fHasNewCorrDesc(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value & 1) << 5);
     }
-    pub fn fIsIn(&self) -> bool {
-        (self._bitfield >> 6) & 1 != 0
+    pub fn fIsIn(&self) -> u32 {
+        (self._bitfield >> 6) & 1
     }
-    pub fn set_fIsIn(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    pub fn set_fIsIn(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value & 1) << 6);
     }
-    pub fn fIsOut(&self) -> bool {
-        (self._bitfield >> 7) & 1 != 0
+    pub fn fIsOut(&self) -> u32 {
+        (self._bitfield >> 7) & 1
     }
-    pub fn set_fIsOut(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    pub fn set_fIsOut(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value & 1) << 7);
     }
-    pub fn fIsOicf(&self) -> bool {
-        (self._bitfield >> 8) & 1 != 0
+    pub fn fIsOicf(&self) -> u32 {
+        (self._bitfield >> 8) & 1
     }
-    pub fn set_fIsOicf(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    pub fn set_fIsOicf(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value & 1) << 8);
     }
-    pub fn fBufferValid(&self) -> bool {
-        (self._bitfield >> 9) & 1 != 0
+    pub fn fBufferValid(&self) -> u32 {
+        (self._bitfield >> 9) & 1
     }
-    pub fn set_fBufferValid(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    pub fn set_fBufferValid(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value & 1) << 9);
     }
-    pub fn fHasMemoryValidateCallback(&self) -> bool {
-        (self._bitfield >> 10) & 1 != 0
+    pub fn fHasMemoryValidateCallback(&self) -> u32 {
+        (self._bitfield >> 10) & 1
     }
-    pub fn set_fHasMemoryValidateCallback(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    pub fn set_fHasMemoryValidateCallback(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value & 1) << 10);
     }
-    pub fn fInFree(&self) -> bool {
-        (self._bitfield >> 11) & 1 != 0
+    pub fn fInFree(&self) -> u32 {
+        (self._bitfield >> 11) & 1
     }
-    pub fn set_fInFree(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    pub fn set_fInFree(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value & 1) << 11);
     }
-    pub fn fNeedMCCP(&self) -> bool {
-        (self._bitfield >> 12) & 1 != 0
+    pub fn fNeedMCCP(&self) -> u32 {
+        (self._bitfield >> 12) & 1
     }
-    pub fn set_fNeedMCCP(&mut self, value: bool) {
-        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    pub fn set_fNeedMCCP(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value & 1) << 12);
     }
     pub fn fUnused2(&self) -> u32 {
-        (self._bitfield << 16) >> 29
+        (self._bitfield >> 13) & 7
     }
     pub fn set_fUnused2(&mut self, value: u32) {
         self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
@@ -2867,8 +2947,9 @@ impl MIDL_STUB_MESSAGE {
         self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
     }
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_SYNTAX_INFO {
     pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
     pub DispatchTable: *mut RPC_DISPATCH_TABLE,
@@ -2877,11 +2958,11 @@ pub struct MIDL_SYNTAX_INFO {
     pub TypeString: PFORMAT_STRING,
     pub aUserMarshalQuadruple: *const core::ffi::c_void,
     pub pMethodProperties: *const MIDL_INTERFACE_METHOD_PROPERTIES,
-    pub pReserved2: usize,
+    pub pReserved2: super::ULONG_PTR,
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[derive(Clone, Copy, Default)]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub Version: u32,
     pub TypeFormatString: PFORMAT_STRING,
@@ -2899,23 +2980,19 @@ pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
 pub const NDR_ASCII_CHAR: u32 = 0;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NDR_ASYNC_MESSAGE(pub u8);
 pub const NDR_BIG_ENDIAN: u32 = 0;
 pub type NDR_CCONTEXT = *mut core::ffi::c_void;
 pub const NDR_CHAR_REP_MASK: u32 = 15;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct NDR_CORRELATION_INFO(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
     pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
 }
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
     pub pfnNetSize: CS_TYPE_NET_SIZE_ROUTINE,
     pub pfnToNetCs: CS_TYPE_TO_NETCS_ROUTINE,
@@ -2925,8 +3002,8 @@ pub struct NDR_CS_SIZE_CONVERT_ROUTINES {
 pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456;
 pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912;
 pub const NDR_EBCDIC_CHAR: u32 = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct NDR_EXPR_DESC {
     pub pOffset: *const u16,
     pub pFormatExpr: PFORMAT_STRING,
@@ -2938,60 +3015,59 @@ pub const NDR_INT_REP_MASK: u32 = 240;
 pub const NDR_LITTLE_ENDIAN: u32 = 16;
 pub const NDR_LOCAL_DATA_REPRESENTATION: u32 = 16;
 pub const NDR_LOCAL_ENDIAN: u32 = 16;
-pub type NDR_NOTIFY2_ROUTINE = Option<unsafe extern "system" fn(flag: u8)>;
+pub type NDR_NOTIFY2_ROUTINE = Option<unsafe extern "system" fn(flag: boolean)>;
 pub type NDR_NOTIFY_ROUTINE = Option<unsafe extern "system" fn()>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
 pub type NDR_RUNDOWN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub type NDR_SCONTEXT = *mut _NDR_SCONTEXT;
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub struct NDR_USER_MARSHAL_INFO {
     pub InformationLevel: u32,
     pub Anonymous: NDR_USER_MARSHAL_INFO_0,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl Clone for NDR_USER_MARSHAL_INFO {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl Default for NDR_USER_MARSHAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: core::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl Clone for NDR_USER_MARSHAL_INFO_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl Default for NDR_USER_MARSHAL_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
-    pub pfnAllocate: *mut u8,
-    pub pfnFree: *mut u8,
+    pub pfnAllocate: Option<unsafe extern "system" fn(super::size_t) -> *mut core::ffi::c_void>,
+    pub pfnFree: super::EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK,
     pub pRpcChannelBuffer: core::mem::ManuallyDrop<Option<super::IRpcChannelBuffer>>,
-    pub Reserved: [usize; 5],
+    pub Reserved: [super::ULONG_PTR; 5],
 }
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 impl Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3001,29 +3077,32 @@ pub const NDR_VAX_FLOAT: u32 = 256;
 pub const NT351_INTERFACE_SIZE: i32 = 64;
 pub type PARAM_OFFSETTABLE = *mut u16;
 pub type PARRAY_INFO = *mut ARRAY_INFO;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 pub type PFORMAT_STRING = *const u8;
 pub type PFULL_PTR_XLAT_TABLES = *mut FULL_PTR_XLAT_TABLES;
 pub type PGENERIC_BINDING_INFO = *mut GENERIC_BINDING_INFO;
 pub type PGENERIC_BINDING_ROUTINE_PAIR = *mut GENERIC_BINDING_ROUTINE_PAIR;
 pub type PMIDL_INTERCEPTION_INFO = *mut MIDL_INTERCEPTION_INFO;
+#[cfg(feature = "shared")]
 pub type PMIDL_METHOD_PROPERTY = *mut MIDL_METHOD_PROPERTY;
+#[cfg(feature = "shared")]
 pub type PMIDL_METHOD_PROPERTY_MAP = *mut MIDL_METHOD_PROPERTY_MAP;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type PMIDL_SERVER_INFO = *mut MIDL_SERVER_INFO;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type PMIDL_STUBLESS_PROXY_INFO = *mut MIDL_STUBLESS_PROXY_INFO;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type PMIDL_STUB_DESC = *const MIDL_STUB_DESC;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type PMIDL_STUB_MESSAGE = *mut MIDL_STUB_MESSAGE;
+#[cfg(feature = "shared")]
 pub type PMIDL_SYNTAX_INFO = *mut MIDL_SYNTAX_INFO;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type PMIDL_WINRT_TYPE_SERIALIZATION_INFO = *mut MIDL_WINRT_TYPE_SERIALIZATION_INFO;
 pub type PMIDL_XMIT_TYPE = *mut core::ffi::c_void;
-pub type PNDR_ASYNC_MESSAGE = *mut NDR_ASYNC_MESSAGE;
-pub type PNDR_CORRELATION_INFO = *mut NDR_CORRELATION_INFO;
+pub type PNDR_ASYNC_MESSAGE = *mut _NDR_ASYNC_MESSAGE;
+pub type PNDR_CORRELATION_INFO = *mut _NDR_CORRELATION_INFO;
 pub type PPARAM_OFFSETTABLE = *mut u16;
 pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = 3;
 pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = 2;
@@ -3034,9 +3113,9 @@ pub const PROXY_MARSHAL: PROXY_PHASE = 2;
 pub type PROXY_PHASE = i32;
 pub const PROXY_SENDRECEIVE: PROXY_PHASE = 3;
 pub const PROXY_UNMARSHAL: PROXY_PHASE = 4;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PRPC_ASYNC_NOTIFICATION_INFO = *mut RPC_ASYNC_NOTIFICATION_INFO;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PRPC_ASYNC_STATE = *mut RPC_ASYNC_STATE;
 pub type PRPC_BINDING_HANDLE_OPTIONS_V1 = *mut RPC_BINDING_HANDLE_OPTIONS_V1;
 pub type PRPC_BINDING_HANDLE_SECURITY_V1_A = *mut RPC_BINDING_HANDLE_SECURITY_V1_A;
@@ -3045,7 +3124,9 @@ pub type PRPC_BINDING_HANDLE_TEMPLATE_V1_A = *mut RPC_BINDING_HANDLE_TEMPLATE_V1
 pub type PRPC_BINDING_HANDLE_TEMPLATE_V1_W = *mut RPC_BINDING_HANDLE_TEMPLATE_V1_W;
 pub type PRPC_CALL_LOCAL_ADDRESS_V1 = *mut RPC_CALL_LOCAL_ADDRESS_V1;
 pub type PRPC_CLIENT_INFORMATION1 = *mut RPC_CLIENT_INFORMATION1;
+#[cfg(feature = "shared")]
 pub type PRPC_CLIENT_INTERFACE = *mut RPC_CLIENT_INTERFACE;
+#[cfg(feature = "shared")]
 pub type PRPC_DISPATCH_TABLE = *mut RPC_DISPATCH_TABLE;
 pub type PRPC_ENDPOINT_TEMPLATEA = *mut RPC_ENDPOINT_TEMPLATEA;
 pub type PRPC_ENDPOINT_TEMPLATEW = *mut RPC_ENDPOINT_TEMPLATEW;
@@ -3073,15 +3154,17 @@ pub type PRPC_SECURITY_QOS_V4_W = *mut RPC_SECURITY_QOS_V4_W;
 pub type PRPC_SECURITY_QOS_V5_A = *mut RPC_SECURITY_QOS_V5_A;
 pub type PRPC_SECURITY_QOS_V5_W = *mut RPC_SECURITY_QOS_V5_W;
 pub type PRPC_SEC_CONTEXT_KEY_INFO = *mut RPC_SEC_CONTEXT_KEY_INFO;
+#[cfg(feature = "shared")]
 pub type PRPC_SERVER_INTERFACE = *mut RPC_SERVER_INTERFACE;
 pub type PRPC_SYNTAX_IDENTIFIER = *mut RPC_SYNTAX_IDENTIFIER;
 pub type PSCONTEXT_QUEUE = *mut SCONTEXT_QUEUE;
 pub type PSEC_WINNT_AUTH_IDENTITY_A = *mut SEC_WINNT_AUTH_IDENTITY_A;
 pub type PSEC_WINNT_AUTH_IDENTITY_W = *mut SEC_WINNT_AUTH_IDENTITY_W;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type PXMIT_ROUTINE_QUINTUPLE = *mut XMIT_ROUTINE_QUINTUPLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
 pub struct RDR_CALLOUT_STATE {
     pub LastError: windows_core::RPC_STATUS,
     pub LastEEInfo: *mut core::ffi::c_void,
@@ -3093,8 +3176,27 @@ pub struct RDR_CALLOUT_STATE {
     pub ResourceTypePresent: u8,
     pub SessionIdPresent: u8,
     pub InterfacePresent: u8,
-    pub ResourceType: windows_core::GUID,
-    pub SessionId: windows_core::GUID,
+    pub ResourceType: UUID,
+    pub SessionId: UUID,
+    pub Interface: RPC_SYNTAX_IDENTIFIER,
+    pub CertContext: *mut core::ffi::c_void,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RDR_CALLOUT_STATE {
+    pub LastError: windows_core::RPC_STATUS,
+    pub LastEEInfo: *mut core::ffi::c_void,
+    pub LastCalledStage: RPC_HTTP_REDIRECTOR_STAGE,
+    pub ServerName: *mut u16,
+    pub ServerPort: *mut u16,
+    pub RemoteUser: *mut u16,
+    pub AuthType: *mut u16,
+    pub ResourceTypePresent: u8,
+    pub SessionIdPresent: u8,
+    pub InterfacePresent: u8,
+    pub ResourceType: UUID,
+    pub SessionId: UUID,
     pub Interface: RPC_SYNTAX_IDENTIFIER,
     pub CertContext: *mut core::ffi::c_void,
 }
@@ -3118,14 +3220,15 @@ pub const RPCHTTP_RS_ACCESS_2: RPC_HTTP_REDIRECTOR_STAGE = 4;
 pub const RPCHTTP_RS_INTERFACE: RPC_HTTP_REDIRECTOR_STAGE = 5;
 pub const RPCHTTP_RS_REDIRECT: RPC_HTTP_REDIRECTOR_STAGE = 1;
 pub const RPCHTTP_RS_SESSION: RPC_HTTP_REDIRECTOR_STAGE = 3;
-pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "C" fn(buffer: *const core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+pub type RPCLT_PDU_FILTER_FUNC = Option<unsafe extern "C" fn(buffer: *mut core::ffi::c_void, bufferlength: u32, fdatagram: i32)>;
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
 pub type RPC_ADDRESS_CHANGE_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void)>;
 pub type RPC_ADDRESS_CHANGE_TYPE = i32;
 pub type RPC_ASYNC_EVENT = i32;
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub APC: RPC_ASYNC_NOTIFICATION_INFO_0,
@@ -3134,37 +3237,86 @@ pub union RPC_ASYNC_NOTIFICATION_INFO {
     pub hEvent: super::HANDLE,
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for RPC_ASYNC_NOTIFICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
     pub hThread: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::HANDLE,
-    pub dwNumberOfBytesTransferred: u32,
-    pub dwCompletionKey: usize,
+    pub dwNumberOfBytesTransferred: super::DWORD,
+    pub dwCompletionKey: super::DWORD_PTR,
     pub lpOverlapped: super::LPOVERLAPPED,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::HWND,
-    pub Msg: u32,
+    pub Msg: super::UINT,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union RPC_ASYNC_NOTIFICATION_INFO {
+    pub APC: RPC_ASYNC_NOTIFICATION_INFO_0,
+    pub IOC: RPC_ASYNC_NOTIFICATION_INFO_1,
+    pub HWND: RPC_ASYNC_NOTIFICATION_INFO_2,
+    pub hEvent: super::HANDLE,
+    pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for RPC_ASYNC_NOTIFICATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
+    pub NotificationRoutine: PFN_RPCNOTIFICATION_ROUTINE,
+    pub hThread: super::HANDLE,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
+    pub hIOPort: super::HANDLE,
+    pub dwNumberOfBytesTransferred: super::DWORD,
+    pub dwCompletionKey: super::DWORD_PTR,
+    pub lpOverlapped: super::LPOVERLAPPED,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
+    pub hWnd: super::HWND,
+    pub Msg: super::UINT,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct RPC_ASYNC_STATE {
     pub Size: u32,
@@ -3177,9 +3329,34 @@ pub struct RPC_ASYNC_STATE {
     pub Event: RPC_ASYNC_EVENT,
     pub NotificationType: RPC_NOTIFICATION_TYPES,
     pub u: RPC_ASYNC_NOTIFICATION_INFO,
-    pub Reserved: [isize; 4],
+    pub Reserved: [super::LONG_PTR; 4],
 }
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for RPC_ASYNC_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct RPC_ASYNC_STATE {
+    pub Size: u32,
+    pub Signature: u32,
+    pub Lock: i32,
+    pub Flags: u32,
+    pub StubInfo: *mut core::ffi::c_void,
+    pub UserInfo: *mut core::ffi::c_void,
+    pub RuntimeInfo: *mut core::ffi::c_void,
+    pub Event: RPC_ASYNC_EVENT,
+    pub NotificationType: RPC_NOTIFICATION_TYPES,
+    pub u: RPC_ASYNC_NOTIFICATION_INFO,
+    pub Reserved: [super::LONG_PTR; 4],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for RPC_ASYNC_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3196,8 +3373,9 @@ pub const RPC_BHO_DONTLINGER: i32 = 2;
 pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: i32 = 4;
 pub const RPC_BHO_NONCAUSAL: i32 = 1;
 pub const RPC_BHT_OBJECT_UUID_VALID: i32 = 1;
-pub type RPC_BINDING_HANDLE = I_RPC_HANDLE;
+pub type RPC_BINDING_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub Version: u32,
@@ -3205,7 +3383,17 @@ pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub ComTimeout: u32,
     pub CallTimeout: u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ComTimeout: u32,
+    pub CallTimeout: u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub Version: u32,
@@ -3215,7 +3403,19 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
+    pub Version: u32,
+    pub ServerPrincName: *mut u8,
+    pub AuthnLevel: u32,
+    pub AuthnSvc: u32,
+    pub AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_A,
+    pub SecurityQos: *mut RPC_SECURITY_QOS,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub Version: u32,
@@ -3225,7 +3425,19 @@ pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub SecurityQos: *mut RPC_SECURITY_QOS,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
+    pub Version: u32,
+    pub ServerPrincName: *mut u16,
+    pub AuthnLevel: u32,
+    pub AuthnSvc: u32,
+    pub AuthIdentity: *mut SEC_WINNT_AUTH_IDENTITY_W,
+    pub SecurityQos: *mut RPC_SECURITY_QOS,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub Version: u32,
@@ -3234,24 +3446,58 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     pub NetworkAddress: *mut u8,
     pub StringEndpoint: *mut u8,
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_A_0,
-    pub ObjectUuid: windows_core::GUID,
+    pub ObjectUuid: UUID,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     pub Reserved: *mut u8,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ProtocolSequence: u32,
+    pub NetworkAddress: *mut u8,
+    pub StringEndpoint: *mut u8,
+    pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_A_0,
+    pub ObjectUuid: UUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
+    pub Reserved: *mut u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub Version: u32,
@@ -3260,35 +3506,83 @@ pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     pub NetworkAddress: *mut u16,
     pub StringEndpoint: *mut u16,
     pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_W_0,
-    pub ObjectUuid: windows_core::GUID,
+    pub ObjectUuid: UUID,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     pub Reserved: *mut u16,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ProtocolSequence: u32,
+    pub NetworkAddress: *mut u16,
+    pub StringEndpoint: *mut u16,
+    pub u1: RPC_BINDING_HANDLE_TEMPLATE_V1_W_0,
+    pub ObjectUuid: UUID,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
+    pub Reserved: *mut u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_BINDING_VECTOR {
     pub Count: u32,
     pub BindingH: [RPC_BINDING_HANDLE; 1],
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_BINDING_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type RPC_BLOCKING_FN = Option<unsafe extern "C" fn(hwnd: *const core::ffi::c_void, context: *const core::ffi::c_void, hsyncevent: *const core::ffi::c_void) -> windows_core::RPC_STATUS>;
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_BINDING_VECTOR {
+    pub Count: u32,
+    pub BindingH: [RPC_BINDING_HANDLE; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_BINDING_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type RPC_BLOCKING_FN = Option<unsafe extern "C" fn(hwnd: *mut core::ffi::c_void, context: *mut core::ffi::c_void, hsyncevent: *mut core::ffi::c_void) -> windows_core::RPC_STATUS>;
 pub const RPC_BUFFER_ASYNC: i32 = 32768;
 pub const RPC_BUFFER_COMPLETE: i32 = 4096;
 pub const RPC_BUFFER_EXTRA: i32 = 16384;
@@ -3298,6 +3592,7 @@ pub type RPC_BUFPTR = *mut u8;
 #[cfg(feature = "winnt")]
 pub type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub Version: u32,
@@ -3310,7 +3605,22 @@ pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub AuthenticationService: u32,
     pub NullSession: windows_core::BOOL,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CALL_ATTRIBUTES_V1_A {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ServerPrincipalNameBufferLength: u32,
+    pub ServerPrincipalName: *mut u8,
+    pub ClientPrincipalNameBufferLength: u32,
+    pub ClientPrincipalName: *mut u8,
+    pub AuthenticationLevel: u32,
+    pub AuthenticationService: u32,
+    pub NullSession: windows_core::BOOL,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub Version: u32,
@@ -3323,7 +3633,22 @@ pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub AuthenticationService: u32,
     pub NullSession: windows_core::BOOL,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CALL_ATTRIBUTES_V1_W {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ServerPrincipalNameBufferLength: u32,
+    pub ServerPrincipalName: *mut u16,
+    pub ClientPrincipalNameBufferLength: u32,
+    pub ClientPrincipalName: *mut u16,
+    pub AuthenticationLevel: u32,
+    pub AuthenticationService: u32,
+    pub NullSession: windows_core::BOOL,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V2_A {
@@ -3344,9 +3669,34 @@ pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: windows_core::GUID,
+    pub InterfaceUuid: UUID,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CALL_ATTRIBUTES_V2_A {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ServerPrincipalNameBufferLength: u32,
+    pub ServerPrincipalName: *mut u8,
+    pub ClientPrincipalNameBufferLength: u32,
+    pub ClientPrincipalName: *mut u8,
+    pub AuthenticationLevel: u32,
+    pub AuthenticationService: u32,
+    pub NullSession: windows_core::BOOL,
+    pub KernelModeCaller: windows_core::BOOL,
+    pub ProtocolSequence: u32,
+    pub IsClientLocal: u32,
+    pub ClientPID: super::HANDLE,
+    pub CallStatus: u32,
+    pub CallType: RpcCallType,
+    pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+    pub OpNum: u16,
+    pub InterfaceUuid: UUID,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V2_W {
@@ -3367,9 +3717,34 @@ pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: windows_core::GUID,
+    pub InterfaceUuid: UUID,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CALL_ATTRIBUTES_V2_W {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ServerPrincipalNameBufferLength: u32,
+    pub ServerPrincipalName: *mut u16,
+    pub ClientPrincipalNameBufferLength: u32,
+    pub ClientPrincipalName: *mut u16,
+    pub AuthenticationLevel: u32,
+    pub AuthenticationService: u32,
+    pub NullSession: windows_core::BOOL,
+    pub KernelModeCaller: windows_core::BOOL,
+    pub ProtocolSequence: u32,
+    pub IsClientLocal: RpcCallClientLocality,
+    pub ClientPID: super::HANDLE,
+    pub CallStatus: u32,
+    pub CallType: RpcCallType,
+    pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+    pub OpNum: u16,
+    pub InterfaceUuid: UUID,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V3_A {
@@ -3390,11 +3765,38 @@ pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: windows_core::GUID,
+    pub InterfaceUuid: UUID,
+    pub ClientIdentifierBufferLength: u32,
+    pub ClientIdentifier: *mut u8,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CALL_ATTRIBUTES_V3_A {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ServerPrincipalNameBufferLength: u32,
+    pub ServerPrincipalName: *mut u8,
+    pub ClientPrincipalNameBufferLength: u32,
+    pub ClientPrincipalName: *mut u8,
+    pub AuthenticationLevel: u32,
+    pub AuthenticationService: u32,
+    pub NullSession: windows_core::BOOL,
+    pub KernelModeCaller: windows_core::BOOL,
+    pub ProtocolSequence: u32,
+    pub IsClientLocal: u32,
+    pub ClientPID: super::HANDLE,
+    pub CallStatus: u32,
+    pub CallType: RpcCallType,
+    pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+    pub OpNum: u16,
+    pub InterfaceUuid: UUID,
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V3_W {
@@ -3415,13 +3817,49 @@ pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub CallType: RpcCallType,
     pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
     pub OpNum: u16,
-    pub InterfaceUuid: windows_core::GUID,
+    pub InterfaceUuid: UUID,
+    pub ClientIdentifierBufferLength: u32,
+    pub ClientIdentifier: *mut u8,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CALL_ATTRIBUTES_V3_W {
+    pub Version: u32,
+    pub Flags: u32,
+    pub ServerPrincipalNameBufferLength: u32,
+    pub ServerPrincipalName: *mut u16,
+    pub ClientPrincipalNameBufferLength: u32,
+    pub ClientPrincipalName: *mut u16,
+    pub AuthenticationLevel: u32,
+    pub AuthenticationService: u32,
+    pub NullSession: windows_core::BOOL,
+    pub KernelModeCaller: windows_core::BOOL,
+    pub ProtocolSequence: u32,
+    pub IsClientLocal: RpcCallClientLocality,
+    pub ClientPID: super::HANDLE,
+    pub CallStatus: u32,
+    pub CallType: RpcCallType,
+    pub CallLocalAddress: *mut RPC_CALL_LOCAL_ADDRESS_V1,
+    pub OpNum: u16,
+    pub InterfaceUuid: UUID,
     pub ClientIdentifierBufferLength: u32,
     pub ClientIdentifier: *mut u8,
 }
 pub const RPC_CALL_ATTRIBUTES_VERSION: i32 = 3;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
+    pub Version: u32,
+    pub Buffer: *mut core::ffi::c_void,
+    pub BufferSize: u32,
+    pub AddressFormat: RpcLocalAddressFormat,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub Version: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -3430,9 +3868,11 @@ pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
 }
 pub const RPC_CALL_STATUS_CANCELLED: i32 = 1;
 pub const RPC_CALL_STATUS_DISCONNECTED: i32 = 2;
-pub type RPC_CLIENT_ALLOC = Option<unsafe extern "system" fn(size: usize) -> *mut core::ffi::c_void>;
+#[cfg(feature = "shared")]
+pub type RPC_CLIENT_ALLOC = Option<unsafe extern "system" fn(size: super::size_t) -> *mut core::ffi::c_void>;
 pub type RPC_CLIENT_FREE = Option<unsafe extern "system" fn(ptr: *const core::ffi::c_void)>;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_CLIENT_INFORMATION1 {
     pub UserName: *mut u8,
@@ -3440,8 +3880,19 @@ pub struct RPC_CLIENT_INFORMATION1 {
     pub Privilege: u16,
     pub AuthFlags: u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CLIENT_INFORMATION1 {
+    pub UserName: *mut u8,
+    pub ComputerName: *mut u8,
+    pub Privilege: u16,
+    pub AuthFlags: u32,
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_CLIENT_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -3449,7 +3900,22 @@ pub struct RPC_CLIENT_INTERFACE {
     pub DispatchTable: PRPC_DISPATCH_TABLE,
     pub RpcProtseqEndpointCount: u32,
     pub RpcProtseqEndpoint: PRPC_PROTSEQ_ENDPOINT,
-    pub Reserved: usize,
+    pub Reserved: super::ULONG_PTR,
+    pub InterpreterInfo: *const core::ffi::c_void,
+    pub Flags: u32,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_CLIENT_INTERFACE {
+    pub Length: u32,
+    pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
+    pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
+    pub DispatchTable: PRPC_DISPATCH_TABLE,
+    pub RpcProtseqEndpointCount: u32,
+    pub RpcProtseqEndpoint: PRPC_PROTSEQ_ENDPOINT,
+    pub Reserved: super::ULONG_PTR,
     pub InterpreterInfo: *const core::ffi::c_void,
     pub Flags: u32,
 }
@@ -3541,7 +4007,15 @@ pub const RPC_C_OPT_BINDING_NONCAUSAL: i32 = 9;
 pub const RPC_C_OPT_CALL_TIMEOUT: i32 = 12;
 pub const RPC_C_OPT_COOKIE_AUTH: i32 = 7;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
+    pub BufferSize: u32,
+    pub Buffer: *mut i8,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
     pub Buffer: *mut i8,
@@ -3604,40 +4078,94 @@ pub const RPC_C_VERS_MAJOR_ONLY: i32 = 4;
 pub const RPC_C_VERS_UPTO: i32 = 5;
 pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: PRPC_MESSAGE)>;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: *mut RPC_DISPATCH_FUNCTION,
-    pub Reserved: isize,
+    pub Reserved: super::LONG_PTR,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_DISPATCH_TABLE {
+    pub DispatchTableCount: u32,
+    pub DispatchTable: *mut RPC_DISPATCH_FUNCTION,
+    pub Reserved: super::LONG_PTR,
 }
 pub const RPC_EEINFO_VERSION: i32 = 1;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct RPC_EE_INFO_PARAM {
     pub ParameterType: ExtendedErrorParamTypes,
     pub u: RPC_EE_INFO_PARAM_0,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 impl Default for RPC_EE_INFO_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub union RPC_EE_INFO_PARAM_0 {
     pub AnsiString: windows_core::PSTR,
     pub UnicodeString: windows_core::PWSTR,
     pub LVal: i32,
     pub SVal: i16,
-    pub PVal: u64,
+    pub PVal: super::ULONGLONG,
     pub BVal: BinaryParam,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for RPC_EE_INFO_PARAM_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub struct RPC_EE_INFO_PARAM {
+    pub ParameterType: ExtendedErrorParamTypes,
+    pub u: RPC_EE_INFO_PARAM_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+impl Default for RPC_EE_INFO_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy)]
+pub union RPC_EE_INFO_PARAM_0 {
+    pub AnsiString: windows_core::PSTR,
+    pub UnicodeString: windows_core::PWSTR,
+    pub LVal: i32,
+    pub SVal: i16,
+    pub PVal: super::ULONGLONG,
+    pub BVal: BinaryParam,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
 impl Default for RPC_EE_INFO_PARAM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ENDPOINT_TEMPLATEA {
     pub Version: u32,
@@ -3646,7 +4174,18 @@ pub struct RPC_ENDPOINT_TEMPLATEA {
     pub SecurityDescriptor: *mut core::ffi::c_void,
     pub Backlog: u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_ENDPOINT_TEMPLATEA {
+    pub Version: u32,
+    pub ProtSeq: RPC_CSTR,
+    pub Endpoint: RPC_CSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
+    pub Backlog: u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ENDPOINT_TEMPLATEW {
     pub Version: u32,
@@ -3655,54 +4194,118 @@ pub struct RPC_ENDPOINT_TEMPLATEW {
     pub SecurityDescriptor: *mut core::ffi::c_void,
     pub Backlog: u32,
 }
-pub type RPC_EP_INQ_HANDLE = *mut I_RPC_HANDLE;
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_ENDPOINT_TEMPLATEW {
+    pub Version: u32,
+    pub ProtSeq: RPC_WSTR,
+    pub Endpoint: RPC_WSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
+    pub Backlog: u32,
+}
+pub type RPC_EP_INQ_HANDLE = *mut *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ERROR_ENUM_HANDLE {
-    pub Signature: u32,
+    pub Signature: super::ULONG,
+    pub CurrentPos: *mut core::ffi::c_void,
+    pub Head: *mut core::ffi::c_void,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_ERROR_ENUM_HANDLE {
+    pub Signature: super::ULONG,
     pub CurrentPos: *mut core::ffi::c_void,
     pub Head: *mut core::ffi::c_void,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct RPC_EXTENDED_ERROR_INFO {
-    pub Version: u32,
+    pub Version: super::ULONG,
     pub ComputerName: windows_core::PWSTR,
-    pub ProcessID: u32,
+    pub ProcessID: super::ULONG,
     pub u: RPC_EXTENDED_ERROR_INFO_0,
-    pub GeneratingComponent: u32,
-    pub Status: u32,
-    pub DetectionLocation: u16,
-    pub Flags: u16,
+    pub GeneratingComponent: super::ULONG,
+    pub Status: super::ULONG,
+    pub DetectionLocation: super::USHORT,
+    pub Flags: super::USHORT,
     pub NumberOfParameters: i32,
     pub Parameters: [RPC_EE_INFO_PARAM; 4],
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 impl Default for RPC_EXTENDED_ERROR_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub union RPC_EXTENDED_ERROR_INFO_0 {
     pub SystemTime: super::SYSTEMTIME,
     pub FileTime: super::FILETIME,
 }
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
+impl Default for RPC_EXTENDED_ERROR_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub struct RPC_EXTENDED_ERROR_INFO {
+    pub Version: super::ULONG,
+    pub ComputerName: windows_core::PWSTR,
+    pub ProcessID: super::ULONG,
+    pub u: RPC_EXTENDED_ERROR_INFO_0,
+    pub GeneratingComponent: super::ULONG,
+    pub Status: super::ULONG,
+    pub DetectionLocation: super::USHORT,
+    pub Flags: super::USHORT,
+    pub NumberOfParameters: i32,
+    pub Parameters: [RPC_EE_INFO_PARAM; 4],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
+impl Default for RPC_EXTENDED_ERROR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
+#[derive(Clone, Copy)]
+pub union RPC_EXTENDED_ERROR_INFO_0 {
+    pub SystemTime: super::SYSTEMTIME,
+    pub FileTime: super::FILETIME,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 impl Default for RPC_EXTENDED_ERROR_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 pub const RPC_FLAGS_VALID_BIT: i32 = 32768;
-pub type RPC_FORWARD_FUNCTION = Option<unsafe extern "system" fn(interfaceid: *mut windows_core::GUID, interfaceversion: *mut RPC_VERSION, objectid: *mut windows_core::GUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS>;
+pub type RPC_FORWARD_FUNCTION = Option<unsafe extern "system" fn(interfaceid: *mut UUID, interfaceversion: *mut RPC_VERSION, objectid: *mut UUID, rpcpro: *mut u8, ppdestendpoint: *mut *mut core::ffi::c_void) -> windows_core::RPC_STATUS>;
 pub const RPC_FW_IF_FLAG_DCOM: i32 = 1;
 pub type RPC_HTTP_PROXY_FREE_STRING = Option<unsafe extern "system" fn(string: RPC_WSTR)>;
 pub type RPC_HTTP_REDIRECTOR_STAGE = i32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
@@ -3712,7 +4315,19 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub AuthnSchemes: *mut u32,
     pub ServerCertificateSubject: *mut u8,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
+    pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
+    pub Flags: u32,
+    pub AuthenticationTarget: u32,
+    pub NumberOfAuthnSchemes: u32,
+    pub AuthnSchemes: *mut u32,
+    pub ServerCertificateSubject: *mut u8,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
@@ -3725,7 +4340,22 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
+    pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
+    pub Flags: u32,
+    pub AuthenticationTarget: u32,
+    pub NumberOfAuthnSchemes: u32,
+    pub AuthnSchemes: *mut u32,
+    pub ServerCertificateSubject: *mut u8,
+    pub ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
+    pub NumberOfProxyAuthnSchemes: u32,
+    pub ProxyAuthnSchemes: *mut u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
@@ -3738,7 +4368,22 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
+    pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+    pub Flags: u32,
+    pub AuthenticationTarget: u32,
+    pub NumberOfAuthnSchemes: u32,
+    pub AuthnSchemes: *mut u32,
+    pub ServerCertificateSubject: *mut u16,
+    pub ProxyCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+    pub NumberOfProxyAuthnSchemes: u32,
+    pub ProxyAuthnSchemes: *mut u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
@@ -3751,7 +4396,22 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
+    pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+    pub Flags: u32,
+    pub AuthenticationTarget: u32,
+    pub NumberOfAuthnSchemes: u32,
+    pub AuthnSchemes: *mut u32,
+    pub ServerCertificateSubject: *mut u8,
+    pub ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+    pub NumberOfProxyAuthnSchemes: u32,
+    pub ProxyAuthnSchemes: *mut u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
@@ -3764,8 +4424,34 @@ pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub NumberOfProxyAuthnSchemes: u32,
     pub ProxyAuthnSchemes: *mut u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
+    pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
+    pub Flags: u32,
+    pub AuthenticationTarget: u32,
+    pub NumberOfAuthnSchemes: u32,
+    pub AuthnSchemes: *mut u32,
+    pub ServerCertificateSubject: *mut u16,
+    pub ProxyCredentials: RPC_AUTH_IDENTITY_HANDLE,
+    pub NumberOfProxyAuthnSchemes: u32,
+    pub ProxyAuthnSchemes: *mut u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
+    pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
+    pub Flags: u32,
+    pub AuthenticationTarget: u32,
+    pub NumberOfAuthnSchemes: u32,
+    pub AuthnSchemes: *mut u32,
+    pub ServerCertificateSubject: *mut u16,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub Flags: u32,
@@ -3783,18 +4469,42 @@ pub const RPC_IF_AUTOLISTEN: i32 = 1;
 pub type RPC_IF_CALLBACK_FN = Option<unsafe extern "system" fn(interfaceuuid: RPC_IF_HANDLE, context: *const core::ffi::c_void) -> windows_core::RPC_STATUS>;
 pub type RPC_IF_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_IF_ID {
-    pub Uuid: windows_core::GUID,
+    pub Uuid: UUID,
+    pub VersMajor: u16,
+    pub VersMinor: u16,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_IF_ID {
+    pub Uuid: UUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_IF_ID_VECTOR {
     pub Count: u32,
     pub IfId: [*mut RPC_IF_ID; 1],
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_IF_ID_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_IF_ID_VECTOR {
+    pub Count: u32,
+    pub IfId: [*mut RPC_IF_ID; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_IF_ID_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3803,8 +4513,8 @@ impl Default for RPC_IF_ID_VECTOR {
 pub const RPC_IF_OLE: i32 = 2;
 pub const RPC_IF_SEC_CACHE_PER_PROC: i32 = 128;
 pub const RPC_IF_SEC_NO_CACHE: i32 = 64;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_IMPORT_CONTEXT_P {
     pub LookupContext: RPC_NS_HANDLE,
     pub ProposedHandle: RPC_BINDING_HANDLE,
@@ -3814,11 +4524,28 @@ pub type RPC_INTERFACE_GROUP = *mut core::ffi::c_void;
 pub type RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = Option<unsafe extern "system" fn(ifgroup: RPC_INTERFACE_GROUP, idlecallbackcontext: *const core::ffi::c_void, isgroupidle: u32)>;
 pub const RPC_INTERFACE_HAS_PIPES: i32 = 1;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct RPC_INTERFACE_TEMPLATEA {
     pub Version: u32,
     pub IfSpec: RPC_IF_HANDLE,
-    pub MgrTypeUuid: *mut windows_core::GUID,
+    pub MgrTypeUuid: *mut UUID,
+    pub MgrEpv: *mut core::ffi::c_void,
+    pub Flags: u32,
+    pub MaxCalls: u32,
+    pub MaxRpcSize: u32,
+    pub IfCallback: RPC_IF_CALLBACK_FN,
+    pub UuidVector: *mut UUID_VECTOR,
+    pub Annotation: RPC_CSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_INTERFACE_TEMPLATEA {
+    pub Version: u32,
+    pub IfSpec: RPC_IF_HANDLE,
+    pub MgrTypeUuid: *mut UUID,
     pub MgrEpv: *mut core::ffi::c_void,
     pub Flags: u32,
     pub MaxCalls: u32,
@@ -3829,11 +4556,28 @@ pub struct RPC_INTERFACE_TEMPLATEA {
     pub SecurityDescriptor: *mut core::ffi::c_void,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct RPC_INTERFACE_TEMPLATEW {
     pub Version: u32,
     pub IfSpec: RPC_IF_HANDLE,
-    pub MgrTypeUuid: *mut windows_core::GUID,
+    pub MgrTypeUuid: *mut UUID,
+    pub MgrEpv: *mut core::ffi::c_void,
+    pub Flags: u32,
+    pub MaxCalls: u32,
+    pub MaxRpcSize: u32,
+    pub IfCallback: RPC_IF_CALLBACK_FN,
+    pub UuidVector: *mut UUID_VECTOR,
+    pub Annotation: RPC_WSTR,
+    pub SecurityDescriptor: *mut core::ffi::c_void,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_INTERFACE_TEMPLATEW {
+    pub Version: u32,
+    pub IfSpec: RPC_IF_HANDLE,
+    pub MgrTypeUuid: *mut UUID,
     pub MgrEpv: *mut core::ffi::c_void,
     pub Flags: u32,
     pub MaxCalls: u32,
@@ -3845,7 +4589,24 @@ pub struct RPC_INTERFACE_TEMPLATEW {
 }
 pub type RPC_LENGTH = u32;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_MESSAGE {
+    pub Handle: RPC_BINDING_HANDLE,
+    pub DataRepresentation: u32,
+    pub Buffer: *mut core::ffi::c_void,
+    pub BufferLength: u32,
+    pub ProcNum: u32,
+    pub TransferSyntax: PRPC_SYNTAX_IDENTIFIER,
+    pub RpcInterfaceInformation: *mut core::ffi::c_void,
+    pub ReservedForRuntime: *mut core::ffi::c_void,
+    pub ManagerEpv: *mut core::ffi::c_void,
+    pub ImportContext: *mut core::ffi::c_void,
+    pub RpcFlags: u32,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_MESSAGE {
     pub Handle: RPC_BINDING_HANDLE,
     pub DataRepresentation: u32,
@@ -3868,16 +4629,33 @@ pub type RPC_NEW_HTTP_PROXY_CHANNEL = Option<unsafe extern "system" fn(redirecto
 pub type RPC_NOTIFICATIONS = i32;
 pub type RPC_NOTIFICATION_TYPES = i32;
 pub type RPC_NS_HANDLE = *mut core::ffi::c_void;
-pub type RPC_OBJECT_INQ_FN = Option<unsafe extern "system" fn(objectuuid: *const windows_core::GUID, typeuuid: *mut windows_core::GUID, status: *mut windows_core::RPC_STATUS)>;
+pub type RPC_OBJECT_INQ_FN = Option<unsafe extern "system" fn(objectuuid: *const UUID, typeuuid: *mut UUID, status: *mut windows_core::RPC_STATUS)>;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_POLICY {
     pub Length: u32,
     pub EndpointFlags: u32,
     pub NICFlags: u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_POLICY {
+    pub Length: u32,
+    pub EndpointFlags: u32,
+    pub NICFlags: u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_PROTSEQ_ENDPOINT {
+    pub RpcProtocolSequence: *mut u8,
+    pub Endpoint: *mut u8,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_PROTSEQ_ENDPOINT {
     pub RpcProtocolSequence: *mut u8,
     pub Endpoint: *mut u8,
@@ -3887,22 +4665,52 @@ pub const RPC_PROTSEQ_LRPC: i32 = 3;
 pub const RPC_PROTSEQ_NMP: i32 = 2;
 pub const RPC_PROTSEQ_TCP: i32 = 1;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_PROTSEQ_VECTORA {
     pub Count: u32,
     pub Protseq: [*mut u8; 1],
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_PROTSEQ_VECTORA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_PROTSEQ_VECTORA {
+    pub Count: u32,
+    pub Protseq: [*mut u8; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_PROTSEQ_VECTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_PROTSEQ_VECTORW {
     pub Count: u32,
     pub Protseq: [*mut u16; 1],
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_PROTSEQ_VECTORW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_PROTSEQ_VECTORW {
+    pub Count: u32,
+    pub Protseq: [*mut u16; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_PROTSEQ_VECTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3921,6 +4729,7 @@ pub const RPC_QUERY_NO_AUTH_REQUIRED: i32 = 64;
 pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: i32 = 2;
 pub type RPC_SECURITY_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_SECURITY_QOS {
     pub Version: u32,
@@ -3928,7 +4737,17 @@ pub struct RPC_SECURITY_QOS {
     pub IdentityTracking: u32,
     pub ImpersonationType: u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_SECURITY_QOS {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+}
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V2_A {
     pub Version: u32,
@@ -3938,22 +4757,55 @@ pub struct RPC_SECURITY_QOS_V2_A {
     pub AdditionalSecurityInfoType: u32,
     pub u: RPC_SECURITY_QOS_V2_A_0,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V2_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V2_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V2_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V2_A {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V2_A_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V2_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V2_A_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V2_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V2_W {
     pub Version: u32,
@@ -3963,22 +4815,55 @@ pub struct RPC_SECURITY_QOS_V2_W {
     pub AdditionalSecurityInfoType: u32,
     pub u: RPC_SECURITY_QOS_V2_W_0,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V2_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V2_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V2_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V2_W {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V2_W_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V2_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V2_W_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V2_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V3_A {
     pub Version: u32,
@@ -3989,22 +4874,56 @@ pub struct RPC_SECURITY_QOS_V3_A {
     pub u: RPC_SECURITY_QOS_V3_A_0,
     pub Sid: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V3_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V3_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V3_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V3_A {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V3_A_0,
+    pub Sid: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V3_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V3_A_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V3_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V3_W {
     pub Version: u32,
@@ -4015,22 +4934,56 @@ pub struct RPC_SECURITY_QOS_V3_W {
     pub u: RPC_SECURITY_QOS_V3_W_0,
     pub Sid: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V3_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V3_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V3_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V3_W {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V3_W_0,
+    pub Sid: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V3_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V3_W_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V3_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V4_A {
     pub Version: u32,
@@ -4042,22 +4995,57 @@ pub struct RPC_SECURITY_QOS_V4_A {
     pub Sid: *mut core::ffi::c_void,
     pub EffectiveOnly: u32,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V4_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V4_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V4_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V4_A {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V4_A_0,
+    pub Sid: *mut core::ffi::c_void,
+    pub EffectiveOnly: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V4_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V4_A_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V4_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V4_W {
     pub Version: u32,
@@ -4069,22 +5057,57 @@ pub struct RPC_SECURITY_QOS_V4_W {
     pub Sid: *mut core::ffi::c_void,
     pub EffectiveOnly: u32,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V4_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V4_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V4_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V4_W {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V4_W_0,
+    pub Sid: *mut core::ffi::c_void,
+    pub EffectiveOnly: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V4_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V4_W_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V4_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V5_A {
     pub Version: u32,
@@ -4097,22 +5120,58 @@ pub struct RPC_SECURITY_QOS_V5_A {
     pub EffectiveOnly: u32,
     pub ServerSecurityDescriptor: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V5_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V5_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V5_A_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V5_A {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V5_A_0,
+    pub Sid: *mut core::ffi::c_void,
+    pub EffectiveOnly: u32,
+    pub ServerSecurityDescriptor: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V5_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V5_A_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V5_A_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct RPC_SECURITY_QOS_V5_W {
     pub Version: u32,
@@ -4125,30 +5184,91 @@ pub struct RPC_SECURITY_QOS_V5_W {
     pub EffectiveOnly: u32,
     pub ServerSecurityDescriptor: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 impl Default for RPC_SECURITY_QOS_V5_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union RPC_SECURITY_QOS_V5_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_SECURITY_QOS_V5_W_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_SECURITY_QOS_V5_W {
+    pub Version: u32,
+    pub Capabilities: u32,
+    pub IdentityTracking: u32,
+    pub ImpersonationType: u32,
+    pub AdditionalSecurityInfoType: u32,
+    pub u: RPC_SECURITY_QOS_V5_W_0,
+    pub Sid: *mut core::ffi::c_void,
+    pub EffectiveOnly: u32,
+    pub ServerSecurityDescriptor: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for RPC_SECURITY_QOS_V5_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub union RPC_SECURITY_QOS_V5_W_0 {
+    pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_SECURITY_QOS_V5_W_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_SEC_CONTEXT_KEY_INFO {
     pub EncryptAlgorithm: u32,
     pub KeySize: u32,
     pub SignatureAlgorithm: u32,
 }
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_SEC_CONTEXT_KEY_INFO {
+    pub EncryptAlgorithm: u32,
+    pub KeySize: u32,
+    pub SignatureAlgorithm: u32,
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_SERVER_INTERFACE {
+    pub Length: u32,
+    pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
+    pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
+    pub DispatchTable: PRPC_DISPATCH_TABLE,
+    pub RpcProtseqEndpointCount: u32,
+    pub RpcProtseqEndpoint: PRPC_PROTSEQ_ENDPOINT,
+    pub DefaultManagerEpv: *mut core::ffi::c_void,
+    pub InterpreterInfo: *const core::ffi::c_void,
+    pub Flags: u32,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "shared")]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_SERVER_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -4163,18 +5283,41 @@ pub struct RPC_SERVER_INTERFACE {
 pub type RPC_SETFILTER_FUNC = Option<unsafe extern "C" fn(pfnfilter: RPCLT_PDU_FILTER_FUNC)>;
 pub type RPC_SS_THREAD_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_STATS_VECTOR {
     pub Count: u32,
     pub Stats: [u32; 1],
 }
+#[cfg(target_arch = "x86")]
+impl Default for RPC_STATS_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct RPC_STATS_VECTOR {
+    pub Count: u32,
+    pub Stats: [u32; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for RPC_STATS_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_SYNTAX_IDENTIFIER {
+    pub SyntaxGUID: windows_core::GUID,
+    pub SyntaxVersion: RPC_VERSION,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_SYNTAX_IDENTIFIER {
     pub SyntaxGUID: windows_core::GUID,
     pub SyntaxVersion: RPC_VERSION,
@@ -4198,16 +5341,33 @@ pub const RPC_S_SERVER_OUT_OF_MEMORY: i32 = 1130;
 pub const RPC_S_TIMEOUT: i32 = 1460;
 pub const RPC_S_UNKNOWN_PRINCIPAL: i32 = 1332;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_TRANSFER_SYNTAX {
-    pub Uuid: windows_core::GUID,
+    pub Uuid: UUID,
+    pub VersMajor: u16,
+    pub VersMinor: u16,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
+pub struct RPC_TRANSFER_SYNTAX {
+    pub Uuid: UUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
 pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648;
 pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RPC_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -4252,14 +5412,27 @@ pub type RpcPerfCounters = i32;
 pub const RpcReceiveComplete: RPC_ASYNC_EVENT = 2;
 pub const RpcRequestsPerSecond: RpcPerfCounters = 4;
 pub const RpcSendComplete: RPC_ASYNC_EVENT = 1;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
     pub ArrayOfObjects: *mut NDR_SCONTEXT,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEC_WINNT_AUTH_IDENTITY_A {
+    pub User: *mut u8,
+    pub UserLength: u32,
+    pub Domain: *mut u8,
+    pub DomainLength: u32,
+    pub Password: *mut u8,
+    pub PasswordLength: u32,
+    pub Flags: u32,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub User: *mut u8,
     pub UserLength: u32,
@@ -4272,7 +5445,20 @@ pub struct SEC_WINNT_AUTH_IDENTITY_A {
 pub const SEC_WINNT_AUTH_IDENTITY_ANSI: i32 = 1;
 pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: i32 = 2;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SEC_WINNT_AUTH_IDENTITY_W {
+    pub User: *mut u16,
+    pub UserLength: u32,
+    pub Domain: *mut u16,
+    pub DomainLength: u32,
+    pub Password: *mut u16,
+    pub PasswordLength: u32,
+    pub Flags: u32,
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Default)]
 pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -4287,7 +5473,7 @@ pub const STUB_CALL_SERVER: STUB_PHASE = 1;
 pub const STUB_CALL_SERVER_NO_HRESULT: STUB_PHASE = 3;
 pub const STUB_MARSHAL: STUB_PHASE = 2;
 pub type STUB_PHASE = i32;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type STUB_THUNK = Option<unsafe extern "system" fn(param0: PMIDL_STUB_MESSAGE)>;
 pub const STUB_UNMARSHAL: STUB_PHASE = 0;
 pub const SYSTEM_HANDLE_COMPOSITION_OBJECT: system_handle_t = 9;
@@ -4322,9 +5508,9 @@ pub const TRANSPORT_TYPE_LPC: i32 = 4;
 pub const TRANSPORT_TYPE_WMSG: i32 = 8;
 pub const USER_CALL_IS_ASYNC: i32 = 256;
 pub const USER_CALL_NEW_CORRELATION_DESC: i32 = 512;
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MARSHAL_CB {
     pub Flags: u32,
     pub pStubMsg: PMIDL_STUB_MESSAGE,
@@ -4354,8 +5540,8 @@ pub const USER_MARSHAL_FC_USMALL: i32 = 4;
 pub const USER_MARSHAL_FC_WCHAR: i32 = 5;
 pub type USER_MARSHAL_FREEING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut core::ffi::c_void)>;
 pub type USER_MARSHAL_MARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default)]
+#[repr(C, packed(8))]
+#[derive(Clone, Copy, Default)]
 pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
     pub pfnBufferSize: USER_MARSHAL_SIZING_ROUTINE,
     pub pfnMarshall: USER_MARSHAL_MARSHALLING_ROUTINE,
@@ -4364,12 +5550,28 @@ pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
 }
 pub type USER_MARSHAL_SIZING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
 pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
+pub type UUID = windows_core::GUID;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UUID_VECTOR {
     pub Count: u32,
-    pub Uuid: [*mut windows_core::GUID; 1],
+    pub Uuid: [*mut UUID; 1],
 }
+#[cfg(target_arch = "x86")]
+impl Default for UUID_VECTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct UUID_VECTOR {
+    pub Count: u32,
+    pub Uuid: [*mut UUID; 1],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for UUID_VECTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4378,11 +5580,11 @@ impl Default for UUID_VECTOR {
 pub const XLAT_CLIENT: XLAT_SIDE = 2;
 pub const XLAT_SERVER: XLAT_SIDE = 1;
 pub type XLAT_SIDE = i32;
-#[cfg(feature = "objidlbase")]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
 pub type XMIT_HELPER_ROUTINE = Option<unsafe extern "system" fn(param0: PMIDL_STUB_MESSAGE)>;
-#[repr(C)]
-#[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, Default)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "webauthn"))]
+#[derive(Clone, Copy, Default)]
 pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnTranslateToXmit: XMIT_HELPER_ROUTINE,
     pub pfnTranslateFromXmit: XMIT_HELPER_ROUTINE,
@@ -4391,9 +5593,15 @@ pub struct XMIT_ROUTINE_QUINTUPLE {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct _NDR_PROC_CONTEXT(pub u8);
+pub struct _NDR_ASYNC_MESSAGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _NDR_CORRELATION_INFO(pub u8);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _NDR_PROC_CONTEXT(pub u8);
+#[repr(C, packed(8))]
+#[derive(Clone, Copy)]
 pub struct _NDR_SCONTEXT {
     pub pad: [*mut core::ffi::c_void; 2],
     pub userContext: *mut core::ffi::c_void,
@@ -4404,9 +5612,10 @@ impl Default for _NDR_SCONTEXT {
     }
 }
 pub const __RPCNDR_H_VERSION__: i32 = 501;
+pub type boolean = u8;
 pub type byte = u8;
 pub const cbNDRContext: i32 = 20;
-pub type cs_byte = byte;
+pub type cs_byte = u8;
 pub const eeptAnsiString: ExtendedErrorParamTypes = 1;
 pub const eeptBinary: ExtendedErrorParamTypes = 7;
 pub const eeptLongVal: ExtendedErrorParamTypes = 3;
@@ -4414,8 +5623,7 @@ pub const eeptNone: ExtendedErrorParamTypes = 6;
 pub const eeptPointerVal: ExtendedErrorParamTypes = 5;
 pub const eeptShortVal: ExtendedErrorParamTypes = 4;
 pub const eeptUnicodeString: ExtendedErrorParamTypes = 2;
-pub type error_status_t = u32;
-pub type handle_t = RPC_BINDING_HANDLE;
+pub type handle_t = *mut core::ffi::c_void;
 pub const rcclClientUnknownLocality: RpcCallClientLocality = 3;
 pub const rcclInvalid: RpcCallClientLocality = 0;
 pub const rcclLocal: RpcCallClientLocality = 1;

@@ -1,0 +1,50 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    interface Buffers {
+        fn Input(&self, #[in] count: u32, #[in] #[readable(entry, count)] values: *const u32);
+        fn Output(&self, #[in] count: u32, #[out] #[writable(entry, count)] #[readable(success, count)] values: *mut u32) -> HRESULT;
+        fn Explicit(&self, #[out] #[retval] #[writable(entry, 4)] values: *mut u32) -> HRESULT;
+        fn Arithmetic(&self, #[in] count: u32, #[out] #[writable(entry, count + 1)] values: *mut u32) -> HRESULT;
+        fn Returned(&self, #[in] count: u32, #[out] #[readable(success, count, indirect)] values: *mut *mut u32) -> HRESULT;
+        fn OptionalCount(&self, #[in] #[opt] count: *const u32, #[out] #[writable(entry, if_present(*count))] values: *mut u32) -> HRESULT;
+        fn UnknownDirection(&self, #[in] count: u32, #[readable(entry, count)] values: *const u32);
+        fn Residual(&self, #[in] count: u32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_writes_", "count << 1", "count << 1")] #[out] values: *mut u32) -> HRESULT;
+        fn ResidualInput(&self, #[in] count: u32, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "enabled, _In_reads_(count)", "enabled, _In_reads_(count)")] #[in] #[readable(entry, count)] values: *const u32);
+        fn ResidualCount(&self, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "enabled, _In_", "enabled, _In_")] #[in] count: u32, #[in] #[readable(entry, count)] values: *const u32);
+        fn Scalar(&self, #[out] value: *mut u32) -> HRESULT;
+        fn Query(&self, #[in] riid: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn GuidBuffer(&self, #[in] count: u32, #[in] #[readable(entry, count)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn OutputBuffer(&self, #[in] riid: *const GUID, #[in] count: u32, #[out] #[writable(entry, count)] #[iid_is] results: *mut *mut void) -> HRESULT;
+        fn ResidualQuery(&self, #[Windows::Win32::Metadata::NativeSal("2", "_In_reads_", "count << 1", "count << 1")] #[in] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+        fn ResidualOutput(&self, #[in] riid: *const GUID, #[Windows::Win32::Metadata::NativeSal("2", "_When_", "enabled, _Out_", "enabled, _Out_")] #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
+    }
+    #[library("test.dll")]
+    extern fn Output(#[in] count: u32, #[out] #[writable(entry, count)] values: *mut u32) -> HRESULT;
+}
+
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            #[repr(i32)]
+            enum BufferAccess { Read = 0, Write = 1 }
+            #[repr(i32)]
+            enum BufferPhase { Entry = 0, Success = 1, Value = 2 }
+            #[repr(i32)]
+            enum BufferUnits { Elements = 0, Bytes = 1 }
+            attribute BufferExtentAttribute {
+                fn(#[in] access: BufferAccess, #[in] phase: BufferPhase, #[in] units: BufferUnits);
+                CountConst: u64,
+                CountParamIndex: u16,
+                CountExpression: String,
+                Dereference: bool,
+                CountOptional: bool,
+                Indirect: bool,
+            }
+            attribute NativeSalAttribute {
+                fn(#[in] version: String, #[in] name: String, #[in] arguments: String, #[in] expanded: String);
+            }
+        }
+    }
+}

@@ -55,7 +55,7 @@ mod Windows {
         }
         #[guid(0x0004c1c9_127e_4765_ba07_6a3147bca112)]
         interface IFsrmClassificationManager2: IFsrmClassificationManager {
-            fn ClassifyFiles(&self, #[in] filePaths: *mut SAFEARRAY, #[in] #[opt] propertyNames: *mut SAFEARRAY, #[in] #[opt] propertyValues: *mut SAFEARRAY, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("FsrmGetFilePropertyOptions_None")] options: FsrmGetFilePropertyOptions) -> HRESULT;
+            fn ClassifyFiles(&self, #[in] filePaths: *mut SAFEARRAY, #[in] #[opt] propertyNames: *mut SAFEARRAY, #[in] #[opt] propertyValues: *mut SAFEARRAY, #[in] options: FsrmGetFilePropertyOptions) -> HRESULT;
         }
         #[guid(0xafc052c2_5315_45ab_841b_c6db0e120148)]
         interface IFsrmClassificationRule: IFsrmRule {

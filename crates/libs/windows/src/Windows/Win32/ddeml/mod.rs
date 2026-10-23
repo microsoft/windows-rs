@@ -1,24 +1,25 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeAbandonTransaction(idinst: u32, hconv: HCONV, idtransaction: u32) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdeAbandonTransaction(idinst : u32, hconv : HCONV, idtransaction : u32) -> windows_core::BOOL);
+pub unsafe fn DdeAbandonTransaction(idinst: super::DWORD, hconv: HCONV, idtransaction: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdeAbandonTransaction(idinst : super::DWORD, hconv : HCONV, idtransaction : super::DWORD) -> windows_core::BOOL);
     unsafe { DdeAbandonTransaction(idinst, hconv, idtransaction) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: Option<super::LPDWORD>) -> super::LPBYTE {
     windows_core::link!("user32.dll" "system" fn DdeAccessData(hdata : HDDEDATA, pcbdatasize : super::LPDWORD) -> super::LPBYTE);
     unsafe { DdeAccessData(hdata, pcbdatasize.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: &[u8], cboff: u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : super::LPBYTE, cb : u32, cboff : u32) -> HDDEDATA);
+pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: &[u8], cboff: super::DWORD) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : super::LPBYTE, cb : super::DWORD, cboff : super::DWORD) -> HDDEDATA);
     unsafe { DdeAddData(hdata, core::mem::transmute(psrc.as_ptr()), psrc.len().try_into().unwrap(), cboff) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DdeClientTransaction(pdata: Option<super::LPBYTE>, cbdata: u32, hconv: HCONV, hszitem: Option<HSZ>, wfmt: u32, wtype: u32, dwtimeout: u32, pdwresult: Option<super::LPDWORD>) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeClientTransaction(pdata : super::LPBYTE, cbdata : u32, hconv : HCONV, hszitem : HSZ, wfmt : u32, wtype : u32, dwtimeout : u32, pdwresult : super::LPDWORD) -> HDDEDATA);
+pub unsafe fn DdeClientTransaction(pdata: Option<super::LPBYTE>, cbdata: super::DWORD, hconv: HCONV, hszitem: Option<HSZ>, wfmt: super::UINT, wtype: super::UINT, dwtimeout: super::DWORD, pdwresult: Option<super::LPDWORD>) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeClientTransaction(pdata : super::LPBYTE, cbdata : super::DWORD, hconv : HCONV, hszitem : HSZ, wfmt : super::UINT, wtype : super::UINT, dwtimeout : super::DWORD, pdwresult : super::LPDWORD) -> HDDEDATA);
     unsafe { DdeClientTransaction(pdata.unwrap_or(core::mem::zeroed()) as _, cbdata, hconv, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, wtype, dwtimeout, pdwresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -26,38 +27,40 @@ pub unsafe fn DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ) -> i32 {
     windows_core::link!("user32.dll" "system" fn DdeCmpStringHandles(hsz1 : HSZ, hsz2 : HSZ) -> i32);
     unsafe { DdeCmpStringHandles(hsz1, hsz2) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DdeConnect(idinst: u32, hszservice: HSZ, hsztopic: HSZ, pcc: Option<PCONVCONTEXT>) -> HCONV {
-    windows_core::link!("user32.dll" "system" fn DdeConnect(idinst : u32, hszservice : HSZ, hsztopic : HSZ, pcc : PCONVCONTEXT) -> HCONV);
+pub unsafe fn DdeConnect(idinst: super::DWORD, hszservice: HSZ, hsztopic: HSZ, pcc: Option<PCONVCONTEXT>) -> HCONV {
+    windows_core::link!("user32.dll" "system" fn DdeConnect(idinst : super::DWORD, hszservice : HSZ, hsztopic : HSZ, pcc : PCONVCONTEXT) -> HCONV);
     unsafe { DdeConnect(idinst, hszservice, hsztopic, pcc.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Option<PCONVCONTEXT>) -> HCONVLIST {
-    windows_core::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : PCONVCONTEXT) -> HCONVLIST);
+pub unsafe fn DdeConnectList(idinst: super::DWORD, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Option<PCONVCONTEXT>) -> HCONVLIST {
+    windows_core::link!("user32.dll" "system" fn DdeConnectList(idinst : super::DWORD, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : PCONVCONTEXT) -> HCONVLIST);
     unsafe { DdeConnectList(idinst, hszservice, hsztopic, hconvlist, pcc.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeCreateDataHandle(idinst: u32, psrc: Option<&[u8]>, cboff: u32, hszitem: Option<HSZ>, wfmt: u32, afcmd: u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : super::LPBYTE, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
+pub unsafe fn DdeCreateDataHandle(idinst: super::DWORD, psrc: Option<&[u8]>, cboff: super::DWORD, hszitem: Option<HSZ>, wfmt: super::UINT, afcmd: super::UINT) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : super::DWORD, psrc : super::LPBYTE, cb : super::DWORD, cboff : super::DWORD, hszitem : HSZ, wfmt : super::UINT, afcmd : super::UINT) -> HDDEDATA);
     unsafe { DdeCreateDataHandle(idinst, core::mem::transmute(psrc.map_or(core::ptr::null(), |slice| slice.as_ptr())), psrc.map_or(0, |slice| slice.len().try_into().unwrap()), cboff, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, afcmd) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeCreateStringHandleA<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
+pub unsafe fn DdeCreateStringHandleA<P1>(idinst: super::DWORD, psz: P1, icodepage: i32) -> HSZ
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("user32.dll" "system" fn DdeCreateStringHandleA(idinst : u32, psz : windows_core::PCSTR, icodepage : i32) -> HSZ);
+    windows_core::link!("user32.dll" "system" fn DdeCreateStringHandleA(idinst : super::DWORD, psz : windows_core::PCSTR, icodepage : i32) -> HSZ);
     unsafe { DdeCreateStringHandleA(idinst, psz.param().abi(), icodepage) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeCreateStringHandleW<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
+pub unsafe fn DdeCreateStringHandleW<P1>(idinst: super::DWORD, psz: P1, icodepage: i32) -> HSZ
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("user32.dll" "system" fn DdeCreateStringHandleW(idinst : u32, psz : windows_core::PCWSTR, icodepage : i32) -> HSZ);
+    windows_core::link!("user32.dll" "system" fn DdeCreateStringHandleW(idinst : super::DWORD, psz : windows_core::PCWSTR, icodepage : i32) -> HSZ);
     unsafe { DdeCreateStringHandleW(idinst, psz.param().abi(), icodepage) }
 }
 #[inline]
@@ -70,9 +73,10 @@ pub unsafe fn DdeDisconnectList(hconvlist: HCONVLIST) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DdeDisconnectList(hconvlist : HCONVLIST) -> windows_core::BOOL);
     unsafe { DdeDisconnectList(hconvlist) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeEnableCallback(idinst: u32, hconv: HCONV, wcmd: u32) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdeEnableCallback(idinst : u32, hconv : HCONV, wcmd : u32) -> windows_core::BOOL);
+pub unsafe fn DdeEnableCallback(idinst: super::DWORD, hconv: HCONV, wcmd: super::UINT) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdeEnableCallback(idinst : super::DWORD, hconv : HCONV, wcmd : super::UINT) -> windows_core::BOOL);
     unsafe { DdeEnableCallback(idinst, hconv, wcmd) }
 }
 #[inline]
@@ -80,20 +84,22 @@ pub unsafe fn DdeFreeDataHandle(hdata: HDDEDATA) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DdeFreeDataHandle(hdata : HDDEDATA) -> windows_core::BOOL);
     unsafe { DdeFreeDataHandle(hdata) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdeFreeStringHandle(idinst : u32, hsz : HSZ) -> windows_core::BOOL);
+pub unsafe fn DdeFreeStringHandle(idinst: super::DWORD, hsz: HSZ) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdeFreeStringHandle(idinst : super::DWORD, hsz : HSZ) -> windows_core::BOOL);
     unsafe { DdeFreeStringHandle(idinst, hsz) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeGetData(hdata: HDDEDATA, pdst: Option<super::LPBYTE>, cbmax: u32, cboff: u32) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeGetData(hdata : HDDEDATA, pdst : super::LPBYTE, cbmax : u32, cboff : u32) -> u32);
+pub unsafe fn DdeGetData(hdata: HDDEDATA, pdst: Option<super::LPBYTE>, cbmax: super::DWORD, cboff: super::DWORD) -> super::DWORD {
+    windows_core::link!("user32.dll" "system" fn DdeGetData(hdata : HDDEDATA, pdst : super::LPBYTE, cbmax : super::DWORD, cboff : super::DWORD) -> super::DWORD);
     unsafe { DdeGetData(hdata, pdst.unwrap_or(core::mem::zeroed()) as _, cbmax, cboff) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeGetLastError(idinst : u32) -> u32);
+pub unsafe fn DdeGetLastError(idinst: super::DWORD) -> super::UINT {
+    windows_core::link!("user32.dll" "system" fn DdeGetLastError(idinst : super::DWORD) -> super::UINT);
     unsafe { DdeGetLastError(idinst) }
 }
 #[inline]
@@ -101,37 +107,40 @@ pub unsafe fn DdeImpersonateClient(hconv: HCONV) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DdeImpersonateClient(hconv : HCONV) -> windows_core::BOOL);
     unsafe { DdeImpersonateClient(hconv) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DdeInitializeA(pidinst: super::LPDWORD, pfncallback: PFNCALLBACK, afcmd: u32, ulres: Option<u32>) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeInitializeA(pidinst : super::LPDWORD, pfncallback : PFNCALLBACK, afcmd : u32, ulres : u32) -> u32);
-    unsafe { DdeInitializeA(pidinst as _, pfncallback, afcmd, ulres.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn DdeInitializeA(pidinst: super::LPDWORD, pfncallback: PFNCALLBACK, afcmd: super::DWORD, ulres: super::DWORD) -> super::UINT {
+    windows_core::link!("user32.dll" "system" fn DdeInitializeA(pidinst : super::LPDWORD, pfncallback : PFNCALLBACK, afcmd : super::DWORD, ulres : super::DWORD) -> super::UINT);
+    unsafe { DdeInitializeA(pidinst as _, pfncallback, afcmd, ulres) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn DdeInitializeW(pidinst: super::LPDWORD, pfncallback: PFNCALLBACK, afcmd: u32, ulres: Option<u32>) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeInitializeW(pidinst : super::LPDWORD, pfncallback : PFNCALLBACK, afcmd : u32, ulres : u32) -> u32);
-    unsafe { DdeInitializeW(pidinst as _, pfncallback, afcmd, ulres.unwrap_or(core::mem::zeroed()) as _) }
+pub unsafe fn DdeInitializeW(pidinst: super::LPDWORD, pfncallback: PFNCALLBACK, afcmd: super::DWORD, ulres: super::DWORD) -> super::UINT {
+    windows_core::link!("user32.dll" "system" fn DdeInitializeW(pidinst : super::LPDWORD, pfncallback : PFNCALLBACK, afcmd : super::DWORD, ulres : super::DWORD) -> super::UINT);
+    unsafe { DdeInitializeW(pidinst as _, pfncallback, afcmd, ulres) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeKeepStringHandle(idinst: u32, hsz: HSZ) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdeKeepStringHandle(idinst : u32, hsz : HSZ) -> windows_core::BOOL);
+pub unsafe fn DdeKeepStringHandle(idinst: super::DWORD, hsz: HSZ) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdeKeepStringHandle(idinst : super::DWORD, hsz : HSZ) -> windows_core::BOOL);
     unsafe { DdeKeepStringHandle(idinst, hsz) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeNameService(idinst: u32, hsz1: Option<HSZ>, hsz2: Option<HSZ>, afcmd: u32) -> HDDEDATA {
-    windows_core::link!("user32.dll" "system" fn DdeNameService(idinst : u32, hsz1 : HSZ, hsz2 : HSZ, afcmd : u32) -> HDDEDATA);
+pub unsafe fn DdeNameService(idinst: super::DWORD, hsz1: Option<HSZ>, hsz2: Option<HSZ>, afcmd: super::UINT) -> HDDEDATA {
+    windows_core::link!("user32.dll" "system" fn DdeNameService(idinst : super::DWORD, hsz1 : HSZ, hsz2 : HSZ, afcmd : super::UINT) -> HDDEDATA);
     unsafe { DdeNameService(idinst, hsz1.unwrap_or(core::mem::zeroed()) as _, hsz2.unwrap_or(core::mem::zeroed()) as _, afcmd) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdePostAdvise(idinst: u32, hsztopic: HSZ, hszitem: HSZ) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdePostAdvise(idinst : u32, hsztopic : HSZ, hszitem : HSZ) -> windows_core::BOOL);
+pub unsafe fn DdePostAdvise(idinst: super::DWORD, hsztopic: HSZ, hszitem: HSZ) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdePostAdvise(idinst : super::DWORD, hsztopic : HSZ, hszitem : HSZ) -> windows_core::BOOL);
     unsafe { DdePostAdvise(idinst, hsztopic, hszitem) }
 }
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn DdeQueryConvInfo(hconv: HCONV, idtransaction: u32, pconvinfo: PCONVINFO) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeQueryConvInfo(hconv : HCONV, idtransaction : u32, pconvinfo : PCONVINFO) -> u32);
+pub unsafe fn DdeQueryConvInfo(hconv: HCONV, idtransaction: super::DWORD, pconvinfo: PCONVINFO) -> super::UINT {
+    windows_core::link!("user32.dll" "system" fn DdeQueryConvInfo(hconv : HCONV, idtransaction : super::DWORD, pconvinfo : PCONVINFO) -> super::UINT);
     unsafe { DdeQueryConvInfo(hconv, idtransaction, pconvinfo as _) }
 }
 #[inline]
@@ -139,14 +148,16 @@ pub unsafe fn DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV) -> HCON
     windows_core::link!("user32.dll" "system" fn DdeQueryNextServer(hconvlist : HCONVLIST, hconvprev : HCONV) -> HCONV);
     unsafe { DdeQueryNextServer(hconvlist, hconvprev) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: Option<windows_core::PSTR>, cchmax: u32, icodepage: i32) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeQueryStringA(idinst : u32, hsz : HSZ, psz : windows_core::PSTR, cchmax : u32, icodepage : i32) -> u32);
+pub unsafe fn DdeQueryStringA(idinst: super::DWORD, hsz: HSZ, psz: Option<windows_core::PSTR>, cchmax: super::DWORD, icodepage: i32) -> super::DWORD {
+    windows_core::link!("user32.dll" "system" fn DdeQueryStringA(idinst : super::DWORD, hsz : HSZ, psz : windows_core::PSTR, cchmax : super::DWORD, icodepage : i32) -> super::DWORD);
     unsafe { DdeQueryStringA(idinst, hsz, psz.unwrap_or(core::mem::zeroed()) as _, cchmax, icodepage) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: Option<windows_core::PWSTR>, cchmax: u32, icodepage: i32) -> u32 {
-    windows_core::link!("user32.dll" "system" fn DdeQueryStringW(idinst : u32, hsz : HSZ, psz : windows_core::PWSTR, cchmax : u32, icodepage : i32) -> u32);
+pub unsafe fn DdeQueryStringW(idinst: super::DWORD, hsz: HSZ, psz: Option<windows_core::PWSTR>, cchmax: super::DWORD, icodepage: i32) -> super::DWORD {
+    windows_core::link!("user32.dll" "system" fn DdeQueryStringW(idinst : super::DWORD, hsz : HSZ, psz : windows_core::PWSTR, cchmax : super::DWORD, icodepage : i32) -> super::DWORD);
     unsafe { DdeQueryStringW(idinst, hsz, psz.unwrap_or(core::mem::zeroed()) as _, cchmax, icodepage) }
 }
 #[inline]
@@ -154,9 +165,10 @@ pub unsafe fn DdeReconnect(hconv: HCONV) -> HCONV {
     windows_core::link!("user32.dll" "system" fn DdeReconnect(hconv : HCONV) -> HCONV);
     unsafe { DdeReconnect(hconv) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeSetUserHandle(hconv: HCONV, id: u32, huser: usize) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdeSetUserHandle(hconv : HCONV, id : u32, huser : usize) -> windows_core::BOOL);
+pub unsafe fn DdeSetUserHandle(hconv: HCONV, id: super::DWORD, huser: super::DWORD_PTR) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdeSetUserHandle(hconv : HCONV, id : super::DWORD, huser : super::DWORD_PTR) -> windows_core::BOOL);
     unsafe { DdeSetUserHandle(hconv, id, huser) }
 }
 #[inline]
@@ -164,9 +176,10 @@ pub unsafe fn DdeUnaccessData(hdata: HDDEDATA) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DdeUnaccessData(hdata : HDDEDATA) -> windows_core::BOOL);
     unsafe { DdeUnaccessData(hdata) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn DdeUninitialize(idinst: u32) -> windows_core::BOOL {
-    windows_core::link!("user32.dll" "system" fn DdeUninitialize(idinst : u32) -> windows_core::BOOL);
+pub unsafe fn DdeUninitialize(idinst: super::DWORD) -> windows_core::BOOL {
+    windows_core::link!("user32.dll" "system" fn DdeUninitialize(idinst : super::DWORD) -> windows_core::BOOL);
     unsafe { DdeUninitialize(idinst) }
 }
 pub const APPCLASS_MASK: i32 = 15;
@@ -190,33 +203,33 @@ pub const CBF_SKIP_REGISTRATIONS: i32 = 524288;
 pub const CBF_SKIP_UNREGISTRATIONS: i32 = 1048576;
 pub const CBR_BLOCK: HDDEDATA = -1 as _;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVCONTEXT {
-    pub cb: u32,
-    pub wFlags: u32,
-    pub wCountryID: u32,
+    pub cb: super::UINT,
+    pub wFlags: super::UINT,
+    pub wCountryID: super::UINT,
     pub iCodePage: i32,
-    pub dwLangID: u32,
-    pub dwSecurity: u32,
+    pub dwLangID: super::DWORD,
+    pub dwSecurity: super::DWORD,
     pub qos: super::SECURITY_QUALITY_OF_SERVICE,
 }
 #[repr(C)]
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVINFO {
-    pub cb: u32,
-    pub hUser: usize,
+    pub cb: super::DWORD,
+    pub hUser: super::DWORD_PTR,
     pub hConvPartner: HCONV,
     pub hszSvcPartner: HSZ,
     pub hszServiceReq: HSZ,
     pub hszTopic: HSZ,
     pub hszItem: HSZ,
-    pub wFmt: u32,
-    pub wType: u32,
-    pub wStatus: u32,
-    pub wConvst: u32,
-    pub wLastError: u32,
+    pub wFmt: super::UINT,
+    pub wType: super::UINT,
+    pub wStatus: super::UINT,
+    pub wConvst: super::UINT,
+    pub wLastError: super::UINT,
     pub hConvList: HCONVLIST,
     pub ConvCtxt: CONVCONTEXT,
     pub hwnd: super::HWND,
@@ -226,13 +239,15 @@ pub const CP_WINANSI: i32 = 1004;
 pub const CP_WINNEUTRAL: i32 = 1004;
 pub const CP_WINUNICODE: i32 = 1200;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEML_MSG_HOOK_DATA {
-    pub uiLo: usize,
-    pub uiHi: usize,
-    pub cbData: u32,
-    pub Data: [u32; 8],
+    pub uiLo: super::UINT_PTR,
+    pub uiHi: super::UINT_PTR,
+    pub cbData: super::DWORD,
+    pub Data: [super::DWORD; 8],
 }
+#[cfg(feature = "shared")]
 impl Default for DDEML_MSG_HOOK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -279,7 +294,8 @@ pub const EC_DISABLE: i32 = 8;
 pub const EC_ENABLEALL: i32 = 0;
 pub const EC_ENABLEONE: i32 = 128;
 pub const EC_QUERYWAITING: i32 = 2;
-pub type FNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
+#[cfg(feature = "shared")]
+pub type FNCALLBACK = Option<unsafe extern "system" fn(wtype: super::UINT, wfmt: super::UINT, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: super::ULONG_PTR, dwdata2: super::ULONG_PTR) -> HDDEDATA>;
 pub type HCONV = *mut HCONV__;
 pub type HCONVLIST = *mut HCONVLIST__;
 #[repr(C)]
@@ -325,38 +341,38 @@ pub const MH_CREATE: i32 = 1;
 pub const MH_DELETE: i32 = 3;
 pub const MH_KEEP: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONCBSTRUCT {
-    pub cb: u32,
-    pub dwTime: u32,
+    pub cb: super::UINT,
+    pub dwTime: super::DWORD,
     pub hTask: super::HANDLE,
-    pub dwRet: u32,
-    pub wType: u32,
-    pub wFmt: u32,
+    pub dwRet: super::DWORD,
+    pub wType: super::UINT,
+    pub wFmt: super::UINT,
     pub hConv: HCONV,
     pub hsz1: HSZ,
     pub hsz2: HSZ,
     pub hData: HDDEDATA,
-    pub dwData1: usize,
-    pub dwData2: usize,
+    pub dwData1: super::ULONG_PTR,
+    pub dwData2: super::ULONG_PTR,
     pub cc: CONVCONTEXT,
-    pub cbData: u32,
-    pub Data: [u32; 8],
+    pub cbData: super::DWORD,
+    pub Data: [super::DWORD; 8],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MONCBSTRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONCONVSTRUCT {
-    pub cb: u32,
+    pub cb: super::UINT,
     pub fConnect: windows_core::BOOL,
-    pub dwTime: u32,
+    pub dwTime: super::DWORD,
     pub hTask: super::HANDLE,
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
@@ -364,103 +380,105 @@ pub struct MONCONVSTRUCT {
     pub hConvServer: HCONV,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONERRSTRUCT {
-    pub cb: u32,
-    pub wLastError: u32,
-    pub dwTime: u32,
+    pub cb: super::UINT,
+    pub wLastError: super::UINT,
+    pub dwTime: super::DWORD,
     pub hTask: super::HANDLE,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type MONHSZSTRUCT = MONHSZSTRUCTA;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONHSZSTRUCTA {
-    pub cb: u32,
+    pub cb: super::UINT,
     pub fsAction: windows_core::BOOL,
-    pub dwTime: u32,
+    pub dwTime: super::DWORD,
     pub hsz: HSZ,
     pub hTask: super::HANDLE,
-    pub str: [i8; 1],
+    pub str: [super::CHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MONHSZSTRUCTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONHSZSTRUCTW {
-    pub cb: u32,
+    pub cb: super::UINT,
     pub fsAction: windows_core::BOOL,
-    pub dwTime: u32,
+    pub dwTime: super::DWORD,
     pub hsz: HSZ,
     pub hTask: super::HANDLE,
-    pub str: [u16; 1],
+    pub str: [super::WCHAR; 1],
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for MONHSZSTRUCTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONLINKSTRUCT {
-    pub cb: u32,
-    pub dwTime: u32,
+    pub cb: super::UINT,
+    pub dwTime: super::DWORD,
     pub hTask: super::HANDLE,
     pub fEstablished: windows_core::BOOL,
     pub fNoData: windows_core::BOOL,
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
     pub hszItem: HSZ,
-    pub wFmt: u32,
+    pub wFmt: super::UINT,
     pub fServer: windows_core::BOOL,
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONMSGSTRUCT {
-    pub cb: u32,
+    pub cb: super::UINT,
     pub hwndTo: super::HWND,
-    pub dwTime: u32,
+    pub dwTime: super::DWORD,
     pub hTask: super::HANDLE,
-    pub wMsg: u32,
+    pub wMsg: super::UINT,
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
     pub dmhd: DDEML_MSG_HOOK_DATA,
 }
 pub const MSGF_DDEMGR: i32 = 32769;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCONVCONTEXT = *mut CONVCONTEXT;
-#[cfg(all(feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PCONVINFO = *mut CONVINFO;
+#[cfg(feature = "shared")]
 pub type PDDEML_MSG_HOOK_DATA = *mut DDEML_MSG_HOOK_DATA;
-pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
+#[cfg(feature = "shared")]
+pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: super::UINT, wfmt: super::UINT, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: super::ULONG_PTR, dwdata2: super::ULONG_PTR) -> HDDEDATA>;
 pub type PHSZPAIR = *mut HSZPAIR;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMONCBSTRUCT = *mut MONCBSTRUCT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMONCONVSTRUCT = *mut MONCONVSTRUCT;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMONERRSTRUCT = *mut MONERRSTRUCT;
-#[cfg(feature = "winnt")]
-pub type PMONHSZSTRUCT = PMONHSZSTRUCTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PMONHSZSTRUCT = *mut MONHSZSTRUCTA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMONHSZSTRUCTA = *mut MONHSZSTRUCTA;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMONHSZSTRUCTW = *mut MONHSZSTRUCTW;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMONLINKSTRUCT = *mut MONLINKSTRUCT;
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type PMONMSGSTRUCT = *mut MONMSGSTRUCT;
 pub const QID_SYNC: u32 = 4294967295;
 pub const ST_ADVISE: i32 = 2;

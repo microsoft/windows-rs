@@ -1,10 +1,10 @@
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AcceptSecurityContext(phcredential: Option<PCredHandle>, phcontext: Option<PCtxtHandle>, pinput: Option<PSecBufferDesc>, fcontextreq: u32, targetdatarep: u32, phnewcontext: Option<PCtxtHandle>, poutput: Option<PSecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn AcceptSecurityContext(phcredential : PCredHandle, phcontext : PCtxtHandle, pinput : PSecBufferDesc, fcontextreq : u32, targetdatarep : u32, phnewcontext : PCtxtHandle, poutput : PSecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { AcceptSecurityContext(phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, pinput.unwrap_or(core::mem::zeroed()) as _, fcontextreq, targetdatarep, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AcquireCredentialsHandleA<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: u32, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: PCredHandle, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS
 where
@@ -14,7 +14,7 @@ where
     windows_core::link!("secur32.dll" "system" fn AcquireCredentialsHandleA(pszprincipal : windows_core::PCSTR, pszpackage : windows_core::PCSTR, fcredentialuse : u32, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : PCredHandle, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { AcquireCredentialsHandleA(pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AcquireCredentialsHandleW<P0, P1>(pszprincipal: P0, pszpackage: P1, fcredentialuse: u32, pvlogonid: Option<*const core::ffi::c_void>, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, phcredential: PCredHandle, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS
 where
@@ -24,7 +24,7 @@ where
     windows_core::link!("secur32.dll" "system" fn AcquireCredentialsHandleW(pszprincipal : windows_core::PCWSTR, pszpackage : windows_core::PCWSTR, fcredentialuse : u32, pvlogonid : *const core::ffi::c_void, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, phcredential : PCredHandle, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { AcquireCredentialsHandleW(pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pvlogonid.unwrap_or(core::mem::zeroed()) as _, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, phcredential as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AddCredentialsA<P1, P2>(hcredentials: PCredHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS
 where
@@ -34,7 +34,7 @@ where
     windows_core::link!("secur32.dll" "system" fn AddCredentialsA(hcredentials : PCredHandle, pszprincipal : windows_core::PCSTR, pszpackage : windows_core::PCSTR, fcredentialuse : u32, pauthdata : *const core::ffi::c_void, pgetkeyfn : SEC_GET_KEY_FN, pvgetkeyargument : *const core::ffi::c_void, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { AddCredentialsA(hcredentials, pszprincipal.param().abi(), pszpackage.param().abi(), fcredentialuse, pauthdata.unwrap_or(core::mem::zeroed()) as _, pgetkeyfn, pvgetkeyargument.unwrap_or(core::mem::zeroed()) as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn AddCredentialsW<P1, P2>(hcredentials: PCredHandle, pszprincipal: P1, pszpackage: P2, fcredentialuse: u32, pauthdata: Option<*const core::ffi::c_void>, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Option<*const core::ffi::c_void>, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS
 where
@@ -62,37 +62,37 @@ where
     windows_core::link!("secur32.dll" "system" fn AddSecurityPackageW(pszpackagename : windows_core::PCWSTR, poptions : PSECURITY_PACKAGE_OPTIONS) -> super::SECURITY_STATUS);
     unsafe { AddSecurityPackageW(pszpackagename.param().abi(), poptions.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn ApplyControlToken(phcontext: PCtxtHandle, pinput: PSecBufferDesc) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn ApplyControlToken(phcontext : PCtxtHandle, pinput : PSecBufferDesc) -> super::SECURITY_STATUS);
     unsafe { ApplyControlToken(phcontext, pinput) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn ChangeAccountPasswordA(pszpackagename: *const SEC_CHAR, pszdomainname: *const SEC_CHAR, pszaccountname: *const SEC_CHAR, pszoldpassword: *const SEC_CHAR, psznewpassword: *const SEC_CHAR, bimpersonating: super::BOOLEAN, dwreserved: u32, poutput: PSecBufferDesc) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn ChangeAccountPasswordA(pszpackagename : *const SEC_CHAR, pszdomainname : *const SEC_CHAR, pszaccountname : *const SEC_CHAR, pszoldpassword : *const SEC_CHAR, psznewpassword : *const SEC_CHAR, bimpersonating : super::BOOLEAN, dwreserved : u32, poutput : PSecBufferDesc) -> super::SECURITY_STATUS);
     unsafe { ChangeAccountPasswordA(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn ChangeAccountPasswordW(pszpackagename: *const SEC_WCHAR, pszdomainname: *const SEC_WCHAR, pszaccountname: *const SEC_WCHAR, pszoldpassword: *const SEC_WCHAR, psznewpassword: *const SEC_WCHAR, bimpersonating: super::BOOLEAN, dwreserved: u32, poutput: PSecBufferDesc) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn ChangeAccountPasswordW(pszpackagename : *const SEC_WCHAR, pszdomainname : *const SEC_WCHAR, pszaccountname : *const SEC_WCHAR, pszoldpassword : *const SEC_WCHAR, psznewpassword : *const SEC_WCHAR, bimpersonating : super::BOOLEAN, dwreserved : u32, poutput : PSecBufferDesc) -> super::SECURITY_STATUS);
     unsafe { ChangeAccountPasswordW(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn CompleteAuthToken(phcontext: PCtxtHandle, ptoken: PSecBufferDesc) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn CompleteAuthToken(phcontext : PCtxtHandle, ptoken : PSecBufferDesc) -> super::SECURITY_STATUS);
     unsafe { CompleteAuthToken(phcontext, ptoken) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn DecryptMessage(phcontext: PCtxtHandle, pmessage: PSecBufferDesc, messageseqno: u32, pfqop: Option<*mut u32>) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn DecryptMessage(phcontext : PCtxtHandle, pmessage : PSecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> super::SECURITY_STATUS);
     unsafe { DecryptMessage(phcontext, pmessage, messageseqno, pfqop.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn DeleteSecurityContext(phcontext: PCtxtHandle) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn DeleteSecurityContext(phcontext : PCtxtHandle) -> super::SECURITY_STATUS);
@@ -116,7 +116,7 @@ where
     windows_core::link!("secur32.dll" "system" fn DeleteSecurityPackageW(pszpackagename : windows_core::PCWSTR) -> super::SECURITY_STATUS);
     unsafe { DeleteSecurityPackageW(pszpackagename.param().abi()) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn EncryptMessage(phcontext: PCtxtHandle, fqop: u32, pmessage: PSecBufferDesc, messageseqno: u32) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn EncryptMessage(phcontext : PCtxtHandle, fqop : u32, pmessage : PSecBufferDesc, messageseqno : u32) -> super::SECURITY_STATUS);
@@ -134,31 +134,31 @@ pub unsafe fn EnumerateSecurityPackagesW(pcpackages: *mut u32, pppackageinfo: *m
     windows_core::link!("secur32.dll" "system" fn EnumerateSecurityPackagesW(pcpackages : *mut u32, pppackageinfo : *mut PSecPkgInfoW) -> super::SECURITY_STATUS);
     unsafe { EnumerateSecurityPackagesW(pcpackages as _, pppackageinfo as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn ExportSecurityContext(phcontext: PCtxtHandle, fflags: u32, ppackedcontext: PSecBuffer, ptoken: *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS {
-    windows_core::link!("secur32.dll" "system" fn ExportSecurityContext(phcontext : PCtxtHandle, fflags : u32, ppackedcontext : PSecBuffer, ptoken : *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS);
+pub unsafe fn ExportSecurityContext(phcontext: PCtxtHandle, fflags: super::ULONG, ppackedcontext: PSecBuffer, ptoken: *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS {
+    windows_core::link!("secur32.dll" "system" fn ExportSecurityContext(phcontext : PCtxtHandle, fflags : super::ULONG, ppackedcontext : PSecBuffer, ptoken : *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS);
     unsafe { ExportSecurityContext(phcontext, fflags, ppackedcontext as _, ptoken as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "winnt"))]
 #[inline]
-pub unsafe fn FreeContextBuffer(pvcontextbuffer: *mut core::ffi::c_void) -> super::SECURITY_STATUS {
-    windows_core::link!("secur32.dll" "system" fn FreeContextBuffer(pvcontextbuffer : *mut core::ffi::c_void) -> super::SECURITY_STATUS);
+pub unsafe fn FreeContextBuffer(pvcontextbuffer: super::PVOID) -> super::SECURITY_STATUS {
+    windows_core::link!("secur32.dll" "system" fn FreeContextBuffer(pvcontextbuffer : super::PVOID) -> super::SECURITY_STATUS);
     unsafe { FreeContextBuffer(pvcontextbuffer as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn FreeCredentialsHandle(phcredential: PCredHandle) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn FreeCredentialsHandle(phcredential : PCredHandle) -> super::SECURITY_STATUS);
     unsafe { FreeCredentialsHandle(phcredential) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn ImpersonateSecurityContext(phcontext: PCtxtHandle) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn ImpersonateSecurityContext(phcontext : PCtxtHandle) -> super::SECURITY_STATUS);
     unsafe { ImpersonateSecurityContext(phcontext) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn ImportSecurityContextA<P0>(pszpackage: P0, ppackedcontext: PSecBuffer, token: *const core::ffi::c_void, phcontext: PCtxtHandle) -> super::SECURITY_STATUS
 where
@@ -167,7 +167,7 @@ where
     windows_core::link!("secur32.dll" "system" fn ImportSecurityContextA(pszpackage : windows_core::PCSTR, ppackedcontext : PSecBuffer, token : *const core::ffi::c_void, phcontext : PCtxtHandle) -> super::SECURITY_STATUS);
     unsafe { ImportSecurityContextA(pszpackage.param().abi(), ppackedcontext, token, phcontext as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn ImportSecurityContextW<P0>(pszpackage: P0, ppackedcontext: PSecBuffer, token: *const core::ffi::c_void, phcontext: PCtxtHandle) -> super::SECURITY_STATUS
 where
@@ -176,85 +176,85 @@ where
     windows_core::link!("secur32.dll" "system" fn ImportSecurityContextW(pszpackage : windows_core::PCWSTR, ppackedcontext : PSecBuffer, token : *const core::ffi::c_void, phcontext : PCtxtHandle) -> super::SECURITY_STATUS);
     unsafe { ImportSecurityContextW(pszpackage.param().abi(), ppackedcontext, token, phcontext as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn InitSecurityInterfaceA() -> PSecurityFunctionTableA {
     windows_core::link!("secur32.dll" "system" fn InitSecurityInterfaceA() -> PSecurityFunctionTableA);
     unsafe { InitSecurityInterfaceA() }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn InitSecurityInterfaceW() -> PSecurityFunctionTableW {
     windows_core::link!("secur32.dll" "system" fn InitSecurityInterfaceW() -> PSecurityFunctionTableW);
     unsafe { InitSecurityInterfaceW() }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn InitializeSecurityContextA(phcredential: Option<PCredHandle>, phcontext: Option<PCtxtHandle>, psztargetname: Option<*const SEC_CHAR>, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<PSecBufferDesc>, reserved2: u32, phnewcontext: Option<PCtxtHandle>, poutput: Option<PSecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn InitializeSecurityContextA(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : *const SEC_CHAR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : PSecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : PSecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { InitializeSecurityContextA(phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, psztargetname.unwrap_or(core::mem::zeroed()) as _, fcontextreq, reserved1, targetdatarep, pinput.unwrap_or(core::mem::zeroed()) as _, reserved2, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn InitializeSecurityContextW(phcredential: Option<PCredHandle>, phcontext: Option<PCtxtHandle>, psztargetname: Option<*const SEC_WCHAR>, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<PSecBufferDesc>, reserved2: u32, phnewcontext: Option<PCtxtHandle>, poutput: Option<PSecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn InitializeSecurityContextW(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : *const SEC_WCHAR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : PSecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : PSecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { InitializeSecurityContextW(phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, psztargetname.unwrap_or(core::mem::zeroed()) as _, fcontextreq, reserved1, targetdatarep, pinput.unwrap_or(core::mem::zeroed()) as _, reserved2, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn MakeSignature(phcontext: PCtxtHandle, fqop: u32, pmessage: PSecBufferDesc, messageseqno: u32) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn MakeSignature(phcontext : PCtxtHandle, fqop : u32, pmessage : PSecBufferDesc, messageseqno : u32) -> super::SECURITY_STATUS);
     unsafe { MakeSignature(phcontext, fqop, pmessage, messageseqno) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryContextAttributesA(phcontext: PCtxtHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn QueryContextAttributesA(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::SECURITY_STATUS);
     unsafe { QueryContextAttributesA(phcontext, ulattribute, pbuffer as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryContextAttributesExA(phcontext: PCtxtHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("sspicli.dll" "system" fn QueryContextAttributesExA(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
     unsafe { QueryContextAttributesExA(phcontext, ulattribute, pbuffer as _, cbbuffer) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryContextAttributesExW(phcontext: PCtxtHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("sspicli.dll" "system" fn QueryContextAttributesExW(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
     unsafe { QueryContextAttributesExW(phcontext, ulattribute, pbuffer as _, cbbuffer) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryContextAttributesW(phcontext: PCtxtHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn QueryContextAttributesW(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::SECURITY_STATUS);
     unsafe { QueryContextAttributesW(phcontext, ulattribute, pbuffer as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesA(phcredential: PCredHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn QueryCredentialsAttributesA(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::SECURITY_STATUS);
     unsafe { QueryCredentialsAttributesA(phcredential, ulattribute, pbuffer as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExA(phcredential: PCredHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("sspicli.dll" "system" fn QueryCredentialsAttributesExA(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
     unsafe { QueryCredentialsAttributesExA(phcredential, ulattribute, pbuffer as _, cbbuffer) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesExW(phcredential: PCredHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("sspicli.dll" "system" fn QueryCredentialsAttributesExW(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
     unsafe { QueryCredentialsAttributesExW(phcredential, ulattribute, pbuffer as _, cbbuffer) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QueryCredentialsAttributesW(phcredential: PCredHandle, ulattribute: u32, pbuffer: *mut core::ffi::c_void) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn QueryCredentialsAttributesW(phcredential : PCredHandle, ulattribute : u32, pbuffer : *mut core::ffi::c_void) -> super::SECURITY_STATUS);
     unsafe { QueryCredentialsAttributesW(phcredential, ulattribute, pbuffer as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn QuerySecurityContextToken(phcontext: PCtxtHandle, token: *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn QuerySecurityContextToken(phcontext : PCtxtHandle, token : *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS);
@@ -278,34 +278,34 @@ where
     windows_core::link!("secur32.dll" "system" fn QuerySecurityPackageInfoW(pszpackagename : windows_core::PCWSTR, pppackageinfo : *mut PSecPkgInfoW) -> super::SECURITY_STATUS);
     unsafe { QuerySecurityPackageInfoW(pszpackagename.param().abi(), pppackageinfo as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn RevertSecurityContext(phcontext: PCtxtHandle) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn RevertSecurityContext(phcontext : PCtxtHandle) -> super::SECURITY_STATUS);
     unsafe { RevertSecurityContext(phcontext) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SaslAcceptSecurityContext(phcredential: Option<PCredHandle>, phcontext: Option<PCtxtHandle>, pinput: Option<PSecBufferDesc>, fcontextreq: u32, targetdatarep: u32, phnewcontext: Option<PCtxtHandle>, poutput: Option<PSecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn SaslAcceptSecurityContext(phcredential : PCredHandle, phcontext : PCtxtHandle, pinput : PSecBufferDesc, fcontextreq : u32, targetdatarep : u32, phnewcontext : PCtxtHandle, poutput : PSecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { SaslAcceptSecurityContext(phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, pinput.unwrap_or(core::mem::zeroed()) as _, fcontextreq, targetdatarep, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut windows_core::PSTR, profilecount: *mut u32) -> super::SECURITY_STATUS {
-    windows_core::link!("secur32.dll" "system" fn SaslEnumerateProfilesA(profilelist : *mut windows_core::PSTR, profilecount : *mut u32) -> super::SECURITY_STATUS);
+pub unsafe fn SaslEnumerateProfilesA(profilelist: *mut windows_core::PSTR, profilecount: *mut super::ULONG) -> super::SECURITY_STATUS {
+    windows_core::link!("secur32.dll" "system" fn SaslEnumerateProfilesA(profilelist : *mut windows_core::PSTR, profilecount : *mut super::ULONG) -> super::SECURITY_STATUS);
     unsafe { SaslEnumerateProfilesA(profilelist as _, profilecount as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut windows_core::PWSTR, profilecount: *mut u32) -> super::SECURITY_STATUS {
-    windows_core::link!("secur32.dll" "system" fn SaslEnumerateProfilesW(profilelist : *mut windows_core::PWSTR, profilecount : *mut u32) -> super::SECURITY_STATUS);
+pub unsafe fn SaslEnumerateProfilesW(profilelist: *mut windows_core::PWSTR, profilecount: *mut super::ULONG) -> super::SECURITY_STATUS {
+    windows_core::link!("secur32.dll" "system" fn SaslEnumerateProfilesW(profilelist : *mut windows_core::PWSTR, profilecount : *mut super::ULONG) -> super::SECURITY_STATUS);
     unsafe { SaslEnumerateProfilesW(profilelist as _, profilecount as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SaslGetContextOption(contexthandle: PCtxtHandle, option: u32, value: *mut core::ffi::c_void, size: u32, needed: Option<super::PULONG>) -> super::SECURITY_STATUS {
-    windows_core::link!("secur32.dll" "system" fn SaslGetContextOption(contexthandle : PCtxtHandle, option : u32, value : *mut core::ffi::c_void, size : u32, needed : super::PULONG) -> super::SECURITY_STATUS);
+pub unsafe fn SaslGetContextOption(contexthandle: PCtxtHandle, option: super::ULONG, value: super::PVOID, size: super::ULONG, needed: Option<super::PULONG>) -> super::SECURITY_STATUS {
+    windows_core::link!("secur32.dll" "system" fn SaslGetContextOption(contexthandle : PCtxtHandle, option : super::ULONG, value : super::PVOID, size : super::ULONG, needed : super::PULONG) -> super::SECURITY_STATUS);
     unsafe { SaslGetContextOption(contexthandle, option, value as _, size, needed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "ncrypt")]
@@ -338,7 +338,7 @@ pub unsafe fn SaslIdentifyPackageW(pinput: PSecBufferDesc, packageinfo: *mut PSe
     windows_core::link!("secur32.dll" "system" fn SaslIdentifyPackageW(pinput : PSecBufferDesc, packageinfo : *mut PSecPkgInfoW) -> super::SECURITY_STATUS);
     unsafe { SaslIdentifyPackageW(pinput, packageinfo as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SaslInitializeSecurityContextA<P2>(phcredential: Option<PCredHandle>, phcontext: Option<PCtxtHandle>, psztargetname: P2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<PSecBufferDesc>, reserved2: u32, phnewcontext: Option<PCtxtHandle>, poutput: Option<PSecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS
 where
@@ -347,7 +347,7 @@ where
     windows_core::link!("secur32.dll" "system" fn SaslInitializeSecurityContextA(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : windows_core::PCSTR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : PSecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : PSecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { SaslInitializeSecurityContextA(phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), fcontextreq, reserved1, targetdatarep, pinput.unwrap_or(core::mem::zeroed()) as _, reserved2, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn SaslInitializeSecurityContextW<P2>(phcredential: Option<PCredHandle>, phcontext: Option<PCtxtHandle>, psztargetname: P2, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: Option<PSecBufferDesc>, reserved2: u32, phnewcontext: Option<PCtxtHandle>, poutput: Option<PSecBufferDesc>, pfcontextattr: *mut u32, ptsexpiry: Option<PTimeStamp>) -> super::SECURITY_STATUS
 where
@@ -356,25 +356,25 @@ where
     windows_core::link!("secur32.dll" "system" fn SaslInitializeSecurityContextW(phcredential : PCredHandle, phcontext : PCtxtHandle, psztargetname : windows_core::PCWSTR, fcontextreq : u32, reserved1 : u32, targetdatarep : u32, pinput : PSecBufferDesc, reserved2 : u32, phnewcontext : PCtxtHandle, poutput : PSecBufferDesc, pfcontextattr : *mut u32, ptsexpiry : PTimeStamp) -> super::SECURITY_STATUS);
     unsafe { SaslInitializeSecurityContextW(phcredential.unwrap_or(core::mem::zeroed()) as _, phcontext.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), fcontextreq, reserved1, targetdatarep, pinput.unwrap_or(core::mem::zeroed()) as _, reserved2, phnewcontext.unwrap_or(core::mem::zeroed()) as _, poutput.unwrap_or(core::mem::zeroed()) as _, pfcontextattr as _, ptsexpiry.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[inline]
-pub unsafe fn SaslSetContextOption(contexthandle: PCtxtHandle, option: u32, value: *const core::ffi::c_void, size: u32) -> super::SECURITY_STATUS {
-    windows_core::link!("secur32.dll" "system" fn SaslSetContextOption(contexthandle : PCtxtHandle, option : u32, value : *const core::ffi::c_void, size : u32) -> super::SECURITY_STATUS);
+pub unsafe fn SaslSetContextOption(contexthandle: PCtxtHandle, option: super::ULONG, value: super::PVOID, size: super::ULONG) -> super::SECURITY_STATUS {
+    windows_core::link!("secur32.dll" "system" fn SaslSetContextOption(contexthandle : PCtxtHandle, option : super::ULONG, value : super::PVOID, size : super::ULONG) -> super::SECURITY_STATUS);
     unsafe { SaslSetContextOption(contexthandle, option, value, size) }
 }
-#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn SecAllocateAndSetCallTarget<P2>(lpipaddress: Option<&[u8]>, targetname: P2, freecallcontext: *mut i32) -> super::SECURITY_STATUS
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetCallTarget(lpipaddress : super::PUCHAR, cchipaddress : u32, targetname : windows_core::PCWSTR, freecallcontext : *mut i32) -> super::SECURITY_STATUS);
+    windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetCallTarget(lpipaddress : super::PUCHAR, cchipaddress : super::ULONG, targetname : windows_core::PCWSTR, freecallcontext : *mut i32) -> super::SECURITY_STATUS);
     unsafe { SecAllocateAndSetCallTarget(core::mem::transmute(lpipaddress.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpipaddress.map_or(0, |slice| slice.len().try_into().unwrap()), targetname.param().abi(), freecallcontext as _) }
 }
-#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn SecAllocateAndSetIPAddress(lpipaddress: &[u8], freecallcontext: *mut i32) -> super::SECURITY_STATUS {
-    windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetIPAddress(lpipaddress : super::PUCHAR, cchipaddress : u32, freecallcontext : *mut i32) -> super::SECURITY_STATUS);
+    windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetIPAddress(lpipaddress : super::PUCHAR, cchipaddress : super::ULONG, freecallcontext : *mut i32) -> super::SECURITY_STATUS);
     unsafe { SecAllocateAndSetIPAddress(core::mem::transmute(lpipaddress.as_ptr()), lpipaddress.len().try_into().unwrap(), freecallcontext as _) }
 }
 #[inline]
@@ -382,25 +382,25 @@ pub unsafe fn SecFreeCallContext() {
     windows_core::link!("sspicli.dll" "system" fn SecFreeCallContext());
     unsafe { SecFreeCallContext() }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn SetContextAttributesA(phcontext: PCtxtHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn SetContextAttributesA(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
     unsafe { SetContextAttributesA(phcontext, ulattribute, pbuffer, cbbuffer) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn SetContextAttributesW(phcontext: PCtxtHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn SetContextAttributesW(phcontext : PCtxtHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
     unsafe { SetContextAttributesW(phcontext, ulattribute, pbuffer, cbbuffer) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn SetCredentialsAttributesA(phcredential: PCredHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn SetCredentialsAttributesA(phcredential : PCredHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
     unsafe { SetCredentialsAttributesA(phcredential, ulattribute, pbuffer, cbbuffer) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn SetCredentialsAttributesW(phcredential: PCredHandle, ulattribute: u32, pbuffer: *const core::ffi::c_void, cbbuffer: u32) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn SetCredentialsAttributesW(phcredential : PCredHandle, ulattribute : u32, pbuffer : *const core::ffi::c_void, cbbuffer : u32) -> super::SECURITY_STATUS);
@@ -424,17 +424,17 @@ pub unsafe fn SspiDecryptAuthIdentity(encryptedauthdata: PSEC_WINNT_AUTH_IDENTIT
     windows_core::link!("secur32.dll" "system" fn SspiDecryptAuthIdentity(encryptedauthdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS);
     unsafe { SspiDecryptAuthIdentity(encryptedauthdata as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SspiDecryptAuthIdentityEx(options: u32, encryptedauthdata: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS {
-    windows_core::link!("sspicli.dll" "system" fn SspiDecryptAuthIdentityEx(options : u32, encryptedauthdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS);
+pub unsafe fn SspiDecryptAuthIdentityEx(options: super::ULONG, encryptedauthdata: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS {
+    windows_core::link!("sspicli.dll" "system" fn SspiDecryptAuthIdentityEx(options : super::ULONG, encryptedauthdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS);
     unsafe { SspiDecryptAuthIdentityEx(options, encryptedauthdata as _) }
 }
 #[cfg(feature = "ncrypt")]
 #[inline]
-pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppszusername: *mut windows_core::PCWSTR, ppszdomainname: *mut windows_core::PCWSTR, ppszpackedcredentialsstring: *mut windows_core::PCWSTR) -> super::SECURITY_STATUS {
+pub unsafe fn SspiEncodeAuthIdentityAsStrings(pauthidentity: PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppszusername: *mut windows_core::PCWSTR, ppszdomainname: *mut windows_core::PCWSTR, ppszpackedcredentialsstring: Option<*mut windows_core::PCWSTR>) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn SspiEncodeAuthIdentityAsStrings(pauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppszusername : *mut windows_core::PCWSTR, ppszdomainname : *mut windows_core::PCWSTR, ppszpackedcredentialsstring : *mut windows_core::PCWSTR) -> super::SECURITY_STATUS);
-    unsafe { SspiEncodeAuthIdentityAsStrings(pauthidentity, ppszusername as _, ppszdomainname as _, ppszpackedcredentialsstring as _) }
+    unsafe { SspiEncodeAuthIdentityAsStrings(pauthidentity, ppszusername as _, ppszdomainname as _, ppszpackedcredentialsstring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "ncrypt")]
 #[inline]
@@ -453,10 +453,10 @@ pub unsafe fn SspiEncryptAuthIdentity(authdata: PSEC_WINNT_AUTH_IDENTITY_OPAQUE)
     windows_core::link!("secur32.dll" "system" fn SspiEncryptAuthIdentity(authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS);
     unsafe { SspiEncryptAuthIdentity(authdata as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
-pub unsafe fn SspiEncryptAuthIdentityEx(options: u32, authdata: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS {
-    windows_core::link!("sspicli.dll" "system" fn SspiEncryptAuthIdentityEx(options : u32, authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS);
+pub unsafe fn SspiEncryptAuthIdentityEx(options: super::ULONG, authdata: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS {
+    windows_core::link!("sspicli.dll" "system" fn SspiEncryptAuthIdentityEx(options : super::ULONG, authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::SECURITY_STATUS);
     unsafe { SspiEncryptAuthIdentityEx(options, authdata as _) }
 }
 #[cfg(feature = "ncrypt")]
@@ -482,21 +482,22 @@ where
     windows_core::link!("secur32.dll" "system" fn SspiGetTargetHostName(psztargetname : windows_core::PCWSTR, pszhostname : *mut windows_core::PWSTR) -> super::SECURITY_STATUS);
     unsafe { SspiGetTargetHostName(psztargetname.param().abi(), pszhostname as _) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SspiIsAuthIdentityEncrypted(encryptedauthdata: PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::BOOLEAN {
     windows_core::link!("secur32.dll" "system" fn SspiIsAuthIdentityEncrypted(encryptedauthdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE) -> super::BOOLEAN);
     unsafe { SspiIsAuthIdentityEncrypted(encryptedauthdata) }
 }
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[inline]
 pub unsafe fn SspiIsPromptingNeeded(errororntstatus: u32) -> super::BOOLEAN {
     windows_core::link!("credui.dll" "system" fn SspiIsPromptingNeeded(errororntstatus : u32) -> super::BOOLEAN);
     unsafe { SspiIsPromptingNeeded(errororntstatus) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SspiLocalFree(databuffer: Option<*const core::ffi::c_void>) {
-    windows_core::link!("secur32.dll" "system" fn SspiLocalFree(databuffer : *const core::ffi::c_void));
+pub unsafe fn SspiLocalFree(databuffer: Option<super::PVOID>) {
+    windows_core::link!("secur32.dll" "system" fn SspiLocalFree(databuffer : super::PVOID));
     unsafe { SspiLocalFree(databuffer.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "ncrypt")]
@@ -523,22 +524,24 @@ where
     windows_core::link!("secur32.dll" "system" fn SspiPrepareForCredWrite(authidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, psztargetname : windows_core::PCWSTR, pcredmancredentialtype : super::PULONG, ppszcredmantargetname : *mut windows_core::PCWSTR, ppszcredmanusername : *mut windows_core::PCWSTR, ppcredentialblob : *mut super::PUCHAR, pcredentialblobsize : super::PULONG) -> super::SECURITY_STATUS);
     unsafe { SspiPrepareForCredWrite(authidentity, psztargetname.param().abi(), pcredmancredentialtype as _, ppszcredmantargetname as _, ppszcredmanusername as _, ppcredentialblob as _, pcredentialblobsize as _) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SspiPromptForCredentialsA<P0, P3>(psztargetname: P0, puiinfo: Option<*const core::ffi::c_void>, dwautherror: u32, pszpackage: P3, pinputauthidentity: Option<PSEC_WINNT_AUTH_IDENTITY_OPAQUE>, ppauthidentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave: Option<*mut i32>, dwflags: u32) -> u32
+pub unsafe fn SspiPromptForCredentialsA<P0, P3>(psztargetname: P0, puiinfo: Option<super::PVOID>, dwautherror: u32, pszpackage: P3, pinputauthidentity: Option<PSEC_WINNT_AUTH_IDENTITY_OPAQUE>, ppauthidentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave: Option<*mut i32>, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn SspiPromptForCredentialsA(psztargetname : windows_core::PCSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_core::PCSTR, pinputauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave : *mut i32, dwflags : u32) -> u32);
+    windows_core::link!("credui.dll" "system" fn SspiPromptForCredentialsA(psztargetname : windows_core::PCSTR, puiinfo : super::PVOID, dwautherror : u32, pszpackage : windows_core::PCSTR, pinputauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave : *mut i32, dwflags : u32) -> u32);
     unsafe { SspiPromptForCredentialsA(psztargetname.param().abi(), puiinfo.unwrap_or(core::mem::zeroed()) as _, dwautherror, pszpackage.param().abi(), pinputauthidentity.unwrap_or(core::mem::zeroed()) as _, ppauthidentity as _, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn SspiPromptForCredentialsW<P0, P3>(psztargetname: P0, puiinfo: Option<*const core::ffi::c_void>, dwautherror: u32, pszpackage: P3, pinputauthidentity: Option<PSEC_WINNT_AUTH_IDENTITY_OPAQUE>, ppauthidentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave: Option<*mut i32>, dwflags: u32) -> u32
+pub unsafe fn SspiPromptForCredentialsW<P0, P3>(psztargetname: P0, puiinfo: Option<super::PVOID>, dwautherror: u32, pszpackage: P3, pinputauthidentity: Option<PSEC_WINNT_AUTH_IDENTITY_OPAQUE>, ppauthidentity: *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave: Option<*mut i32>, dwflags: u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn SspiPromptForCredentialsW(psztargetname : windows_core::PCWSTR, puiinfo : *const core::ffi::c_void, dwautherror : u32, pszpackage : windows_core::PCWSTR, pinputauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave : *mut i32, dwflags : u32) -> u32);
+    windows_core::link!("credui.dll" "system" fn SspiPromptForCredentialsW(psztargetname : windows_core::PCWSTR, puiinfo : super::PVOID, dwautherror : u32, pszpackage : windows_core::PCWSTR, pinputauthidentity : PSEC_WINNT_AUTH_IDENTITY_OPAQUE, ppauthidentity : *mut PSEC_WINNT_AUTH_IDENTITY_OPAQUE, pfsave : *mut i32, dwflags : u32) -> u32);
     unsafe { SspiPromptForCredentialsW(psztargetname.param().abi(), puiinfo.unwrap_or(core::mem::zeroed()) as _, dwautherror, pszpackage.param().abi(), pinputauthidentity.unwrap_or(core::mem::zeroed()) as _, ppauthidentity as _, pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "ncrypt")]
@@ -564,23 +567,23 @@ pub unsafe fn SspiZeroAuthIdentity(authdata: Option<PSEC_WINNT_AUTH_IDENTITY_OPA
     windows_core::link!("secur32.dll" "system" fn SspiZeroAuthIdentity(authdata : PSEC_WINNT_AUTH_IDENTITY_OPAQUE));
     unsafe { SspiZeroAuthIdentity(authdata.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 #[inline]
 pub unsafe fn VerifySignature(phcontext: PCtxtHandle, pmessage: PSecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::SECURITY_STATUS {
     windows_core::link!("secur32.dll" "system" fn VerifySignature(phcontext : PCtxtHandle, pmessage : PSecBufferDesc, messageseqno : u32, pfqop : *mut u32) -> super::SECURITY_STATUS);
     unsafe { VerifySignature(phcontext, pmessage, messageseqno, pfqop as _) }
 }
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type ACCEPT_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCredHandle, param1: PCtxtHandle, param2: PSecBufferDesc, param3: u32, param4: u32, param5: PCtxtHandle, param6: PSecBufferDesc, param7: *mut u32, param8: PTimeStamp) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type ACQUIRE_CREDENTIALS_HANDLE_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: u32, param3: *mut core::ffi::c_void, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: PCredHandle, param8: PTimeStamp) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type ACQUIRE_CREDENTIALS_HANDLE_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: u32, param3: *mut core::ffi::c_void, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: PCredHandle, param8: PTimeStamp) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type ADD_CREDENTIALS_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: u32, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: PTimeStamp) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type ADD_CREDENTIALS_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: u32, param4: *mut core::ffi::c_void, param5: SEC_GET_KEY_FN, param6: *mut core::ffi::c_void, param7: PTimeStamp) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type APPLY_CONTROL_TOKEN_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: PSecBufferDesc) -> super::SECURITY_STATUS>;
 pub const ASC_REQ_ALLOCATE_MEMORY: i32 = 256;
 pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: i32 = 4194304;
@@ -636,43 +639,45 @@ pub const ASC_RET_STREAM: i32 = 65536;
 pub const ASC_RET_THIRD_LEG_FAILED: i32 = 16384;
 pub const ASC_RET_USED_DCE_STYLE: i32 = 512;
 pub const ASC_RET_USE_SESSION_KEY: i32 = 32;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type CHANGE_PASSWORD_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: *mut SEC_CHAR, param2: *mut SEC_CHAR, param3: *mut SEC_CHAR, param4: *mut SEC_CHAR, param5: super::BOOLEAN, param6: u32, param7: PSecBufferDesc) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type CHANGE_PASSWORD_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: *mut SEC_WCHAR, param2: *mut SEC_WCHAR, param3: *mut SEC_WCHAR, param4: *mut SEC_WCHAR, param5: super::BOOLEAN, param6: u32, param7: PSecBufferDesc) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type COMPLETE_AUTH_TOKEN_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: PSecBufferDesc) -> super::SECURITY_STATUS>;
+#[cfg(feature = "shared")]
 pub type CredHandle = SecHandle;
+#[cfg(feature = "shared")]
 pub type CtxtHandle = SecHandle;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type DECRYPT_MESSAGE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: PSecBufferDesc, param2: u32, param3: *mut u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type DELETE_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type ENCRYPT_MESSAGE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: PSecBufferDesc, param3: u32) -> super::SECURITY_STATUS>;
 #[cfg(feature = "ncrypt")]
 pub type ENUMERATE_SECURITY_PACKAGES_FN_A = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut PSecPkgInfoA) -> super::SECURITY_STATUS>;
 #[cfg(feature = "ncrypt")]
 pub type ENUMERATE_SECURITY_PACKAGES_FN_W = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut PSecPkgInfoW) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
-pub type EXPORT_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: PSecBuffer, param3: *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
-pub type FREE_CONTEXT_BUFFER_FN = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+pub type EXPORT_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: super::ULONG, param2: PSecBuffer, param3: *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
+#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+pub type FREE_CONTEXT_BUFFER_FN = Option<unsafe extern "system" fn(param0: super::PVOID) -> super::SECURITY_STATUS>;
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type FREE_CREDENTIALS_HANDLE_FN = Option<unsafe extern "system" fn(param0: PCredHandle) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type IMPERSONATE_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type IMPORT_SECURITY_CONTEXT_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: PSecBuffer, param2: *mut core::ffi::c_void, param3: PCtxtHandle) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type IMPORT_SECURITY_CONTEXT_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: PSecBuffer, param2: *mut core::ffi::c_void, param3: PCtxtHandle) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type INITIALIZE_SECURITY_CONTEXT_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SEC_CHAR, param3: u32, param4: u32, param5: u32, param6: PSecBufferDesc, param7: u32, param8: PCtxtHandle, param9: PSecBufferDesc, param10: *mut u32, param11: PTimeStamp) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type INITIALIZE_SECURITY_CONTEXT_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: PCtxtHandle, param2: *mut SEC_WCHAR, param3: u32, param4: u32, param5: u32, param6: PSecBufferDesc, param7: u32, param8: PCtxtHandle, param9: PSecBufferDesc, param10: *mut u32, param11: PTimeStamp) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type INIT_SECURITY_INTERFACE_A = Option<unsafe extern "system" fn() -> PSecurityFunctionTableA>;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type INIT_SECURITY_INTERFACE_W = Option<unsafe extern "system" fn() -> PSecurityFunctionTableW>;
 pub const ISC_REQ_ALLOCATE_MEMORY: i32 = 256;
 pub const ISC_REQ_CALL_LEVEL: i32 = 4096;
@@ -747,16 +752,18 @@ pub const KDC_NETWORK_SETTINGS_FLAGS_FORCEPROXY: i32 = 1;
 pub const KDC_NETWORK_SETTINGS_V2: i32 = 2;
 pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: i32 = 1;
 pub const KDC_PROXY_SETTINGS_V1: i32 = 1;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type MAKE_SIGNATURE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: PSecBufferDesc, param3: u32) -> super::SECURITY_STATUS>;
 pub const MAX_PROTOCOL_ID_SIZE: i32 = 255;
-pub type PCredHandle = PSecHandle;
-pub type PCtxtHandle = PSecHandle;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
+pub type PCredHandle = *mut SecHandle;
+#[cfg(feature = "shared")]
+pub type PCtxtHandle = *mut SecHandle;
+#[cfg(feature = "shared")]
 pub type PSECPKG_APP_MODE_INFO = *mut SECPKG_APP_MODE_INFO;
 pub type PSECPKG_ATTR_LCT_STATUS = *mut SECPKG_ATTR_LCT_STATUS;
 pub type PSECPKG_CRED_CLASS = *mut SECPKG_CRED_CLASS;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSECURITY_INTEGER = *mut super::LARGE_INTEGER;
 pub type PSECURITY_PACKAGE_OPTIONS = *mut SECURITY_PACKAGE_OPTIONS;
 pub type PSECURITY_STRING = *mut SECURITY_STRING;
@@ -789,6 +796,7 @@ pub type PSEC_WINNT_AUTH_IDENTITY_OPAQUE = *mut core::ffi::c_void;
 pub type PSecBuffer = *mut SecBuffer;
 pub type PSecBufferDesc = *mut SecBufferDesc;
 pub type PSecDelegationType = *mut SecDelegationType;
+#[cfg(feature = "shared")]
 pub type PSecHandle = *mut SecHandle;
 pub type PSecPkgContext_AccessToken = *mut SecPkgContext_AccessToken;
 pub type PSecPkgContext_ApplicationProtocol = *mut SecPkgContext_ApplicationProtocol;
@@ -800,15 +808,15 @@ pub type PSecPkgContext_ClientSpecifiedTarget = *mut SecPkgContext_ClientSpecifi
 pub type PSecPkgContext_CredInfo = *mut SecPkgContext_CredInfo;
 pub type PSecPkgContext_CredentialNameA = *mut SecPkgContext_CredentialNameA;
 pub type PSecPkgContext_CredentialNameW = *mut SecPkgContext_CredentialNameW;
-pub type PSecPkgContext_DatagramSizes = PSecPkgContext_StreamSizes;
+pub type PSecPkgContext_DatagramSizes = *mut SecPkgContext_StreamSizes;
 pub type PSecPkgContext_DceInfo = *mut SecPkgContext_DceInfo;
 pub type PSecPkgContext_Flags = *mut SecPkgContext_Flags;
 pub type PSecPkgContext_KeyInfoA = *mut SecPkgContext_KeyInfoA;
 pub type PSecPkgContext_KeyInfoW = *mut SecPkgContext_KeyInfoW;
 pub type PSecPkgContext_LastClientTokenStatus = *mut SecPkgContext_LastClientTokenStatus;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSecPkgContext_Lifespan = *mut SecPkgContext_Lifespan;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSecPkgContext_LogoffTime = *mut SecPkgContext_LogoffTime;
 pub type PSecPkgContext_NamesA = *mut SecPkgContext_NamesA;
 pub type PSecPkgContext_NamesW = *mut SecPkgContext_NamesW;
@@ -822,7 +830,7 @@ pub type PSecPkgContext_NegotiationInfoA = *mut SecPkgContext_NegotiationInfoA;
 pub type PSecPkgContext_NegotiationInfoW = *mut SecPkgContext_NegotiationInfoW;
 pub type PSecPkgContext_PackageInfoA = *mut SecPkgContext_PackageInfoA;
 pub type PSecPkgContext_PackageInfoW = *mut SecPkgContext_PackageInfoW;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSecPkgContext_PasswordExpiry = *mut SecPkgContext_PasswordExpiry;
 pub type PSecPkgContext_ProtoInfoA = *mut SecPkgContext_ProtoInfoA;
 pub type PSecPkgContext_ProtoInfoW = *mut SecPkgContext_ProtoInfoW;
@@ -834,7 +842,9 @@ pub type PSecPkgContext_Target = *mut SecPkgContext_Target;
 pub type PSecPkgContext_TargetInformation = *mut SecPkgContext_TargetInformation;
 pub type PSecPkgContext_UserFlags = *mut SecPkgContext_UserFlags;
 pub type PSecPkgCredentials_Cert = *mut SecPkgCredentials_Cert;
+#[cfg(feature = "shared")]
 pub type PSecPkgCredentials_KdcNetworkSettingsW = *mut SecPkgCredentials_KdcNetworkSettingsW;
+#[cfg(feature = "shared")]
 pub type PSecPkgCredentials_KdcProxySettingsW = *mut SecPkgCredentials_KdcProxySettingsW;
 pub type PSecPkgCredentials_NamesA = *mut SecPkgCredentials_NamesA;
 pub type PSecPkgCredentials_NamesW = *mut SecPkgCredentials_NamesW;
@@ -842,35 +852,35 @@ pub type PSecPkgCredentials_SSIProviderA = *mut SecPkgCredentials_SSIProviderA;
 pub type PSecPkgCredentials_SSIProviderW = *mut SecPkgCredentials_SSIProviderW;
 pub type PSecPkgInfoA = *mut SecPkgInfoA;
 pub type PSecPkgInfoW = *mut SecPkgInfoW;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type PSecurityFunctionTableA = *mut SecurityFunctionTableA;
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 pub type PSecurityFunctionTableW = *mut SecurityFunctionTableW;
-#[cfg(feature = "winnt")]
-pub type PTimeStamp = *mut SECURITY_INTEGER;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PTimeStamp = *mut super::LARGE_INTEGER;
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_A = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CONTEXT_ATTRIBUTES_EX_FN_W = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CONTEXT_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CONTEXT_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_CREDENTIALS_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type QUERY_SECURITY_CONTEXT_TOKEN_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: *mut *mut core::ffi::c_void) -> super::SECURITY_STATUS>;
 #[cfg(feature = "ncrypt")]
 pub type QUERY_SECURITY_PACKAGE_INFO_FN_A = Option<unsafe extern "system" fn(param0: *mut SEC_CHAR, param1: *mut PSecPkgInfoA) -> super::SECURITY_STATUS>;
 #[cfg(feature = "ncrypt")]
 pub type QUERY_SECURITY_PACKAGE_INFO_FN_W = Option<unsafe extern "system" fn(param0: *mut SEC_WCHAR, param1: *mut PSecPkgInfoW) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type REVERT_SECURITY_CONTEXT_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle) -> super::SECURITY_STATUS>;
 pub type SASL_AUTHZID_STATE = i32;
 pub const SASL_OPTION_AUTHZ_PROCESSING: i32 = 4;
@@ -916,12 +926,12 @@ pub const SECBUFFER_TOKEN_BINDING: i32 = 21;
 pub const SECBUFFER_TRAFFIC_SECRETS: i32 = 28;
 pub const SECBUFFER_VERSION: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_APP_MODE_INFO {
-    pub UserFunction: u32,
-    pub Argument1: usize,
-    pub Argument2: usize,
+    pub UserFunction: super::ULONG,
+    pub Argument1: super::ULONG_PTR,
+    pub Argument2: super::ULONG_PTR,
     pub UserData: SecBuffer,
     pub ReturnToLsa: super::BOOLEAN,
 }
@@ -1025,11 +1035,14 @@ pub const SECPKG_OPTIONS_TYPE_SSPI: i32 = 2;
 pub const SECPKG_OPTIONS_TYPE_UNKNOWN: i32 = 0;
 pub const SECQOP_WRAP_NO_ENCRYPT: u32 = 2147483649;
 pub const SECQOP_WRAP_OOB_DATA: i32 = 1073741824;
+pub const SECURITY_ENTRYPOINT: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceA");
 pub const SECURITY_ENTRYPOINT16: windows_core::PCSTR = windows_core::s!("INITSECURITYINTERFACEA");
+pub const SECURITY_ENTRYPOINTA: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceA");
+pub const SECURITY_ENTRYPOINTW: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceW");
 pub const SECURITY_ENTRYPOINT_ANSI: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceA");
 pub const SECURITY_ENTRYPOINT_ANSIA: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceA");
 pub const SECURITY_ENTRYPOINT_ANSIW: windows_core::PCSTR = windows_core::s!("InitSecurityInterfaceW");
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SECURITY_INTEGER = super::LARGE_INTEGER;
 pub const SECURITY_NATIVE_DREP: i32 = 16;
 pub const SECURITY_NETWORK_DREP: i32 = 0;
@@ -1042,8 +1055,8 @@ pub struct SECURITY_PACKAGE_OPTIONS {
     pub SignatureSize: u32,
     pub Signature: *mut core::ffi::c_void,
 }
-pub type SECURITY_PCSTR = *const SEC_CHAR;
-pub type SECURITY_PSTR = *mut SEC_CHAR;
+pub type SECURITY_PCSTR = *const i8;
+pub type SECURITY_PSTR = *mut i8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_STRING {
@@ -1150,9 +1163,11 @@ pub const SEC_CHANNEL_BINDINGS_RESULT_VALID_PROXY: i32 = 32;
 pub const SEC_CHANNEL_BINDINGS_VALID_FLAGS: i32 = 1;
 pub type SEC_CHAR = i8;
 #[cfg(target_arch = "x86")]
-pub const SEC_DELETED_HANDLE: usize = 4294967294;
+#[cfg(feature = "shared")]
+pub const SEC_DELETED_HANDLE: super::ULONG_PTR = 4294967294u64 as _;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-pub const SEC_DELETED_HANDLE: usize = 18446744073709551614u64 as usize;
+#[cfg(feature = "shared")]
+pub const SEC_DELETED_HANDLE: super::ULONG_PTR = 18446744073709551614u64 as _;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_DTLS_MTU {
@@ -1346,13 +1361,13 @@ pub const SEC_WINNT_AUTH_IDENTITY_MARSHALLED: i32 = 4;
 pub const SEC_WINNT_AUTH_IDENTITY_ONLY: i32 = 8;
 pub const SEC_WINNT_AUTH_IDENTITY_VERSION: i32 = 512;
 pub const SEC_WINNT_AUTH_IDENTITY_VERSION_2: i32 = 513;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type SET_CONTEXT_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type SET_CONTEXT_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type SET_CREDENTIALS_ATTRIBUTES_FN_A = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type SET_CREDENTIALS_ATTRIBUTES_FN_W = Option<unsafe extern "system" fn(param0: PCredHandle, param1: u32, param2: *mut core::ffi::c_void, param3: u32) -> super::SECURITY_STATUS>;
 pub const SSPIPFC_CREDPROV_DO_NOT_LOAD: i32 = 4;
 pub const SSPIPFC_CREDPROV_DO_NOT_SAVE: i32 = 1;
@@ -1360,7 +1375,6 @@ pub const SSPIPFC_NO_CHECKBOX: i32 = 2;
 pub const SSPIPFC_SAVE_CRED_BY_CALLER: i32 = 1;
 pub const SSPIPFC_USE_CREDUIBROKER: i32 = 8;
 pub const SSPIPFC_VALID_FLAGS: i32 = 15;
-pub const SZ_ALG_MAX_SIZE: i32 = 64;
 pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = 0;
 pub const Sasl_AuthZIDProcessed: SASL_AUTHZID_STATE = 1;
 pub const SecApplicationProtocolNegotiationExt_ALPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 2;
@@ -1387,10 +1401,11 @@ pub type SecDelegationType = i32;
 pub const SecDirectory: SecDelegationType = 3;
 pub const SecFull: SecDelegationType = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecHandle {
-    pub dwLower: usize,
-    pub dwUpper: usize,
+    pub dwLower: super::ULONG_PTR,
+    pub dwUpper: super::ULONG_PTR,
 }
 pub const SecObject: SecDelegationType = 4;
 pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = 2;
@@ -1495,25 +1510,25 @@ pub struct SecPkgContext_LastClientTokenStatus {
     pub LastClientTokenStatus: SECPKG_ATTR_LCT_STATUS,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SecPkgContext_Lifespan {
     pub tsStart: TimeStamp,
     pub tsExpiry: TimeStamp,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SecPkgContext_Lifespan {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SecPkgContext_LogoffTime {
     pub tsLogoffTime: TimeStamp,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SecPkgContext_LogoffTime {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1590,12 +1605,12 @@ pub struct SecPkgContext_PackageInfoW {
     pub PackageInfo: PSecPkgInfoW,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SecPkgContext_PasswordExpiry {
     pub tsPasswordExpires: TimeStamp,
 }
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SecPkgContext_PasswordExpiry {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1672,25 +1687,27 @@ pub struct SecPkgCredentials_Cert {
     pub EncodedCert: *mut u8,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCredentials_KdcNetworkSettingsW {
-    pub Version: u32,
-    pub Flags: u32,
-    pub ProxyServerOffset: u16,
-    pub ProxyServerLength: u16,
-    pub ClientTlsCredOffset: u16,
-    pub ClientTlsCredLength: u16,
-    pub DcDiscoveryFlags: u32,
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
+    pub ProxyServerOffset: super::USHORT,
+    pub ProxyServerLength: super::USHORT,
+    pub ClientTlsCredOffset: super::USHORT,
+    pub ClientTlsCredLength: super::USHORT,
+    pub DcDiscoveryFlags: super::ULONG,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCredentials_KdcProxySettingsW {
-    pub Version: u32,
-    pub Flags: u32,
-    pub ProxyServerOffset: u16,
-    pub ProxyServerLength: u16,
-    pub ClientTlsCredOffset: u16,
-    pub ClientTlsCredLength: u16,
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
+    pub ProxyServerOffset: super::USHORT,
+    pub ProxyServerLength: super::USHORT,
+    pub ClientTlsCredOffset: super::USHORT,
+    pub ClientTlsCredLength: super::USHORT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1742,7 +1759,7 @@ pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = 0;
 pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = 2;
 pub const SecTree: SecDelegationType = 2;
 #[repr(C)]
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SecurityFunctionTableA {
     pub dwVersion: u32,
@@ -1779,7 +1796,7 @@ pub struct SecurityFunctionTableA {
     pub QueryCredentialsAttributesExA: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A,
 }
 #[repr(C)]
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
+#[cfg(all(feature = "ncrypt", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct SecurityFunctionTableW {
     pub dwVersion: u32,
@@ -1815,9 +1832,9 @@ pub struct SecurityFunctionTableW {
     pub QueryContextAttributesExW: QUERY_CONTEXT_ATTRIBUTES_EX_FN_W,
     pub QueryCredentialsAttributesExW: QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W,
 }
-#[cfg(feature = "winnt")]
-pub type TimeStamp = SECURITY_INTEGER;
-#[cfg(feature = "ncrypt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type TimeStamp = super::LARGE_INTEGER;
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
 pub type VERIFY_SIGNATURE_FN = Option<unsafe extern "system" fn(param0: PCtxtHandle, param1: PSecBufferDesc, param2: u32, param3: *mut u32) -> super::SECURITY_STATUS>;
-#[cfg(feature = "winnt")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type _SECURITY_INTEGER = super::LARGE_INTEGER;

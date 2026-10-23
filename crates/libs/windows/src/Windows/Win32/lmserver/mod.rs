@@ -1,135 +1,166 @@
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServerComputerNameAdd<P0, P1, P2>(servername: P0, emulateddomainname: P1, emulatedservername: P2) -> u32
+pub unsafe fn NetServerComputerNameAdd<P0, P1, P2>(servername: P0, emulateddomainname: P1, emulatedservername: P2) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerComputerNameAdd(servername : windows_core::PCWSTR, emulateddomainname : windows_core::PCWSTR, emulatedservername : windows_core::PCWSTR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerComputerNameAdd(servername : windows_core::PCWSTR, emulateddomainname : windows_core::PCWSTR, emulatedservername : windows_core::PCWSTR) -> super::DWORD);
     unsafe { NetServerComputerNameAdd(servername.param().abi(), emulateddomainname.param().abi(), emulatedservername.param().abi()) }
 }
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServerComputerNameDel<P0, P1>(servername: P0, emulatedservername: P1) -> u32
+pub unsafe fn NetServerComputerNameDel<P0, P1>(servername: P0, emulatedservername: P1) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerComputerNameDel(servername : windows_core::PCWSTR, emulatedservername : windows_core::PCWSTR) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerComputerNameDel(servername : windows_core::PCWSTR, emulatedservername : windows_core::PCWSTR) -> super::DWORD);
     unsafe { NetServerComputerNameDel(servername.param().abi(), emulatedservername.param().abi()) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetServerDiskEnum<P0>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE, prefmaxlen: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerDiskEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerDiskEnum(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
     unsafe { NetServerDiskEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetServerEnum<P0, P7>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, servertype: u32, domain: P7, resume_handle: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetServerEnum<P0, P7>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE, prefmaxlen: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, servertype: super::DWORD, domain: P7, resume_handle: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, servertype : u32, domain : windows_core::PCWSTR, resume_handle : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerEnum(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, servertype : super::DWORD, domain : windows_core::PCWSTR, resume_handle : super::LPDWORD) -> super::DWORD);
     unsafe { NetServerEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, servertype, domain.param().abi(), resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServerGetInfo<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE) -> u32
+pub unsafe fn NetServerGetInfo<P0>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerGetInfo(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerGetInfo(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE) -> super::DWORD);
     unsafe { NetServerGetInfo(servername.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetServerSetInfo<P0>(servername: P0, level: u32, buf: super::LPBYTE, parmerror: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetServerSetInfo<P0>(servername: P0, level: super::DWORD, buf: super::LPBYTE, parmerror: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerSetInfo(servername : windows_core::PCWSTR, level : u32, buf : super::LPBYTE, parmerror : super::LPDWORD) -> u32);
-    unsafe { NetServerSetInfo(servername.param().abi(), level, buf, parmerror.unwrap_or(core::mem::zeroed()) as _) }
+    windows_core::link!("netapi32.dll" "system" fn NetServerSetInfo(servername : windows_core::PCWSTR, level : super::DWORD, buf : super::LPBYTE, parmerror : super::LPDWORD) -> super::DWORD);
+    unsafe { NetServerSetInfo(servername.param().abi(), level, buf as _, parmerror.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServerTransportAdd<P0>(servername: P0, level: u32, bufptr: super::LPBYTE) -> u32
+pub unsafe fn NetServerTransportAdd<P0>(servername: P0, level: super::DWORD, bufptr: super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAdd(servername : windows_core::PCWSTR, level : u32, bufptr : super::LPBYTE) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAdd(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : super::LPBYTE) -> super::DWORD);
     unsafe { NetServerTransportAdd(servername.param().abi(), level, bufptr) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServerTransportAddEx<P0>(servername: P0, level: u32, bufptr: super::LPBYTE) -> u32
+pub unsafe fn NetServerTransportAddEx<P0>(servername: P0, level: super::DWORD, bufptr: super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAddEx(servername : windows_core::PCWSTR, level : u32, bufptr : super::LPBYTE) -> u32);
-    unsafe { NetServerTransportAddEx(servername.param().abi(), level, bufptr) }
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportAddEx(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : super::LPBYTE) -> super::DWORD);
+    unsafe { NetServerTransportAddEx(servername.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[inline]
-pub unsafe fn NetServerTransportDel<P0>(servername: P0, level: u32, bufptr: super::LPBYTE) -> u32
+pub unsafe fn NetServerTransportDel<P0>(servername: P0, level: super::DWORD, bufptr: super::LPBYTE) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : windows_core::PCWSTR, level : u32, bufptr : super::LPBYTE) -> u32);
-    unsafe { NetServerTransportDel(servername.param().abi(), level, bufptr) }
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportDel(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : super::LPBYTE) -> super::DWORD);
+    unsafe { NetServerTransportDel(servername.param().abi(), level, bufptr as _) }
 }
-#[cfg(feature = "minwindef")]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
-pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: u32, bufptr: *mut super::LPBYTE, prefmaxlen: u32, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> u32
+pub unsafe fn NetServerTransportEnum<P0>(servername: P0, level: super::DWORD, bufptr: *mut super::LPBYTE, prefmaxlen: super::DWORD, entriesread: super::LPDWORD, totalentries: super::LPDWORD, resume_handle: Option<super::LPDWORD>) -> super::DWORD
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetServerTransportEnum(servername : windows_core::PCWSTR, level : u32, bufptr : *mut super::LPBYTE, prefmaxlen : u32, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> u32);
+    windows_core::link!("netapi32.dll" "system" fn NetServerTransportEnum(servername : windows_core::PCWSTR, level : super::DWORD, bufptr : *mut super::LPBYTE, prefmaxlen : super::DWORD, entriesread : super::LPDWORD, totalentries : super::LPDWORD, resume_handle : super::LPDWORD) -> super::DWORD);
     unsafe { NetServerTransportEnum(servername.param().abi(), level, bufptr as _, prefmaxlen, entriesread as _, totalentries as _, resume_handle.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "winsvc")]
+#[cfg(all(feature = "shared", feature = "winsvc"))]
 #[inline]
-pub unsafe fn SetServiceBits(hservicestatus: super::SERVICE_STATUS_HANDLE, dwservicebits: u32, bsetbitson: bool, bupdateimmediately: bool) -> windows_core::BOOL {
-    windows_core::link!("advapi32.dll" "system" fn SetServiceBits(hservicestatus : super::SERVICE_STATUS_HANDLE, dwservicebits : u32, bsetbitson : windows_core::BOOL, bupdateimmediately : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SetServiceBits(hservicestatus, dwservicebits, bsetbitson.into(), bupdateimmediately.into()) }
+pub unsafe fn SetServiceBits(hservicestatus: super::SERVICE_STATUS_HANDLE, dwservicebits: super::DWORD, bsetbitson: windows_core::BOOL, bupdateimmediately: windows_core::BOOL) -> windows_core::BOOL {
+    windows_core::link!("advapi32.dll" "system" fn SetServiceBits(hservicestatus : super::SERVICE_STATUS_HANDLE, dwservicebits : super::DWORD, bsetbitson : windows_core::BOOL, bupdateimmediately : windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { SetServiceBits(hservicestatus as _, dwservicebits, bsetbitson, bupdateimmediately) }
 }
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_100 = *mut SERVER_INFO_100;
 pub type LPSERVER_INFO_1005 = *mut SERVER_INFO_1005;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_101 = *mut SERVER_INFO_101;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1010 = *mut SERVER_INFO_1010;
 pub type LPSERVER_INFO_1016 = *mut SERVER_INFO_1016;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1017 = *mut SERVER_INFO_1017;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1018 = *mut SERVER_INFO_1018;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_102 = *mut SERVER_INFO_102;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_103 = *mut SERVER_INFO_103;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1107 = *mut SERVER_INFO_1107;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1501 = *mut SERVER_INFO_1501;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1502 = *mut SERVER_INFO_1502;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1503 = *mut SERVER_INFO_1503;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1506 = *mut SERVER_INFO_1506;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1509 = *mut SERVER_INFO_1509;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1510 = *mut SERVER_INFO_1510;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1511 = *mut SERVER_INFO_1511;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1512 = *mut SERVER_INFO_1512;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1513 = *mut SERVER_INFO_1513;
 pub type LPSERVER_INFO_1514 = *mut SERVER_INFO_1514;
 pub type LPSERVER_INFO_1515 = *mut SERVER_INFO_1515;
 pub type LPSERVER_INFO_1516 = *mut SERVER_INFO_1516;
 pub type LPSERVER_INFO_1518 = *mut SERVER_INFO_1518;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1520 = *mut SERVER_INFO_1520;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1521 = *mut SERVER_INFO_1521;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1522 = *mut SERVER_INFO_1522;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1523 = *mut SERVER_INFO_1523;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1524 = *mut SERVER_INFO_1524;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1525 = *mut SERVER_INFO_1525;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1528 = *mut SERVER_INFO_1528;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1529 = *mut SERVER_INFO_1529;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1530 = *mut SERVER_INFO_1530;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1533 = *mut SERVER_INFO_1533;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1534 = *mut SERVER_INFO_1534;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1535 = *mut SERVER_INFO_1535;
 pub type LPSERVER_INFO_1536 = *mut SERVER_INFO_1536;
 pub type LPSERVER_INFO_1537 = *mut SERVER_INFO_1537;
@@ -138,113 +169,199 @@ pub type LPSERVER_INFO_1539 = *mut SERVER_INFO_1539;
 pub type LPSERVER_INFO_1540 = *mut SERVER_INFO_1540;
 pub type LPSERVER_INFO_1541 = *mut SERVER_INFO_1541;
 pub type LPSERVER_INFO_1542 = *mut SERVER_INFO_1542;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1543 = *mut SERVER_INFO_1543;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1544 = *mut SERVER_INFO_1544;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1545 = *mut SERVER_INFO_1545;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1546 = *mut SERVER_INFO_1546;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1547 = *mut SERVER_INFO_1547;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1548 = *mut SERVER_INFO_1548;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1549 = *mut SERVER_INFO_1549;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1550 = *mut SERVER_INFO_1550;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1552 = *mut SERVER_INFO_1552;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1553 = *mut SERVER_INFO_1553;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1554 = *mut SERVER_INFO_1554;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1555 = *mut SERVER_INFO_1555;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1556 = *mut SERVER_INFO_1556;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1557 = *mut SERVER_INFO_1557;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1560 = *mut SERVER_INFO_1560;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1561 = *mut SERVER_INFO_1561;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1562 = *mut SERVER_INFO_1562;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1563 = *mut SERVER_INFO_1563;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1564 = *mut SERVER_INFO_1564;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1565 = *mut SERVER_INFO_1565;
 pub type LPSERVER_INFO_1566 = *mut SERVER_INFO_1566;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1567 = *mut SERVER_INFO_1567;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1568 = *mut SERVER_INFO_1568;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1569 = *mut SERVER_INFO_1569;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1570 = *mut SERVER_INFO_1570;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1571 = *mut SERVER_INFO_1571;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1572 = *mut SERVER_INFO_1572;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1573 = *mut SERVER_INFO_1573;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1574 = *mut SERVER_INFO_1574;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1575 = *mut SERVER_INFO_1575;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1576 = *mut SERVER_INFO_1576;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1577 = *mut SERVER_INFO_1577;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1578 = *mut SERVER_INFO_1578;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1579 = *mut SERVER_INFO_1579;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1580 = *mut SERVER_INFO_1580;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1581 = *mut SERVER_INFO_1581;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1582 = *mut SERVER_INFO_1582;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1583 = *mut SERVER_INFO_1583;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1584 = *mut SERVER_INFO_1584;
 pub type LPSERVER_INFO_1585 = *mut SERVER_INFO_1585;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1586 = *mut SERVER_INFO_1586;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1587 = *mut SERVER_INFO_1587;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1588 = *mut SERVER_INFO_1588;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1590 = *mut SERVER_INFO_1590;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1591 = *mut SERVER_INFO_1591;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1592 = *mut SERVER_INFO_1592;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1593 = *mut SERVER_INFO_1593;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1594 = *mut SERVER_INFO_1594;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1595 = *mut SERVER_INFO_1595;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1596 = *mut SERVER_INFO_1596;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1597 = *mut SERVER_INFO_1597;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1598 = *mut SERVER_INFO_1598;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1599 = *mut SERVER_INFO_1599;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1600 = *mut SERVER_INFO_1600;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_1601 = *mut SERVER_INFO_1601;
 pub type LPSERVER_INFO_1602 = *mut SERVER_INFO_1602;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_402 = *mut SERVER_INFO_402;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_403 = *mut SERVER_INFO_403;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_502 = *mut SERVER_INFO_502;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_503 = *mut SERVER_INFO_503;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_598 = *mut SERVER_INFO_598;
+#[cfg(feature = "shared")]
 pub type LPSERVER_INFO_599 = *mut SERVER_INFO_599;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type LPSERVER_TRANSPORT_INFO_0 = *mut SERVER_TRANSPORT_INFO_0;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type LPSERVER_TRANSPORT_INFO_1 = *mut SERVER_TRANSPORT_INFO_1;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type LPSERVER_TRANSPORT_INFO_2 = *mut SERVER_TRANSPORT_INFO_2;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type LPSERVER_TRANSPORT_INFO_3 = *mut SERVER_TRANSPORT_INFO_3;
 pub const MAJOR_VERSION_MASK: i32 = 15;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_100 = *mut SERVER_INFO_100;
 pub type PSERVER_INFO_1005 = *mut SERVER_INFO_1005;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_101 = *mut SERVER_INFO_101;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1010 = *mut SERVER_INFO_1010;
 pub type PSERVER_INFO_1016 = *mut SERVER_INFO_1016;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1017 = *mut SERVER_INFO_1017;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1018 = *mut SERVER_INFO_1018;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_102 = *mut SERVER_INFO_102;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_103 = *mut SERVER_INFO_103;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1107 = *mut SERVER_INFO_1107;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1501 = *mut SERVER_INFO_1501;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1502 = *mut SERVER_INFO_1502;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1503 = *mut SERVER_INFO_1503;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1506 = *mut SERVER_INFO_1506;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1509 = *mut SERVER_INFO_1509;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1510 = *mut SERVER_INFO_1510;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1511 = *mut SERVER_INFO_1511;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1512 = *mut SERVER_INFO_1512;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1513 = *mut SERVER_INFO_1513;
 pub type PSERVER_INFO_1514 = *mut SERVER_INFO_1514;
 pub type PSERVER_INFO_1515 = *mut SERVER_INFO_1515;
 pub type PSERVER_INFO_1516 = *mut SERVER_INFO_1516;
 pub type PSERVER_INFO_1518 = *mut SERVER_INFO_1518;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1520 = *mut SERVER_INFO_1520;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1521 = *mut SERVER_INFO_1521;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1522 = *mut SERVER_INFO_1522;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1523 = *mut SERVER_INFO_1523;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1524 = *mut SERVER_INFO_1524;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1525 = *mut SERVER_INFO_1525;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1528 = *mut SERVER_INFO_1528;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1529 = *mut SERVER_INFO_1529;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1530 = *mut SERVER_INFO_1530;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1533 = *mut SERVER_INFO_1533;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1534 = *mut SERVER_INFO_1534;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1535 = *mut SERVER_INFO_1535;
 pub type PSERVER_INFO_1536 = *mut SERVER_INFO_1536;
 pub type PSERVER_INFO_1537 = *mut SERVER_INFO_1537;
@@ -253,82 +370,140 @@ pub type PSERVER_INFO_1539 = *mut SERVER_INFO_1539;
 pub type PSERVER_INFO_1540 = *mut SERVER_INFO_1540;
 pub type PSERVER_INFO_1541 = *mut SERVER_INFO_1541;
 pub type PSERVER_INFO_1542 = *mut SERVER_INFO_1542;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1543 = *mut SERVER_INFO_1543;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1544 = *mut SERVER_INFO_1544;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1545 = *mut SERVER_INFO_1545;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1546 = *mut SERVER_INFO_1546;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1547 = *mut SERVER_INFO_1547;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1548 = *mut SERVER_INFO_1548;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1549 = *mut SERVER_INFO_1549;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1550 = *mut SERVER_INFO_1550;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1552 = *mut SERVER_INFO_1552;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1553 = *mut SERVER_INFO_1553;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1554 = *mut SERVER_INFO_1554;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1555 = *mut SERVER_INFO_1555;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1556 = *mut SERVER_INFO_1556;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1557 = *mut SERVER_INFO_1557;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1560 = *mut SERVER_INFO_1560;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1561 = *mut SERVER_INFO_1561;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1562 = *mut SERVER_INFO_1562;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1563 = *mut SERVER_INFO_1563;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1564 = *mut SERVER_INFO_1564;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1565 = *mut SERVER_INFO_1565;
 pub type PSERVER_INFO_1566 = *mut SERVER_INFO_1566;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1567 = *mut SERVER_INFO_1567;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1568 = *mut SERVER_INFO_1568;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1569 = *mut SERVER_INFO_1569;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1570 = *mut SERVER_INFO_1570;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1571 = *mut SERVER_INFO_1571;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1572 = *mut SERVER_INFO_1572;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1573 = *mut SERVER_INFO_1573;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1574 = *mut SERVER_INFO_1574;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1575 = *mut SERVER_INFO_1575;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1576 = *mut SERVER_INFO_1576;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1577 = *mut SERVER_INFO_1577;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1578 = *mut SERVER_INFO_1578;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1579 = *mut SERVER_INFO_1579;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1580 = *mut SERVER_INFO_1580;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1581 = *mut SERVER_INFO_1581;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1582 = *mut SERVER_INFO_1582;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1583 = *mut SERVER_INFO_1583;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1584 = *mut SERVER_INFO_1584;
 pub type PSERVER_INFO_1585 = *mut SERVER_INFO_1585;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1586 = *mut SERVER_INFO_1586;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1587 = *mut SERVER_INFO_1587;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1588 = *mut SERVER_INFO_1588;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1590 = *mut SERVER_INFO_1590;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1591 = *mut SERVER_INFO_1591;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1592 = *mut SERVER_INFO_1592;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1593 = *mut SERVER_INFO_1593;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1594 = *mut SERVER_INFO_1594;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1595 = *mut SERVER_INFO_1595;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1596 = *mut SERVER_INFO_1596;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1597 = *mut SERVER_INFO_1597;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1598 = *mut SERVER_INFO_1598;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1599 = *mut SERVER_INFO_1599;
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1600 = *mut SERVER_INFO_1600;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_1601 = *mut SERVER_INFO_1601;
 pub type PSERVER_INFO_1602 = *mut SERVER_INFO_1602;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_402 = *mut SERVER_INFO_402;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_403 = *mut SERVER_INFO_403;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_502 = *mut SERVER_INFO_502;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_503 = *mut SERVER_INFO_503;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_598 = *mut SERVER_INFO_598;
+#[cfg(feature = "shared")]
 pub type PSERVER_INFO_599 = *mut SERVER_INFO_599;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSERVER_TRANSPORT_INFO_0 = *mut SERVER_TRANSPORT_INFO_0;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSERVER_TRANSPORT_INFO_1 = *mut SERVER_TRANSPORT_INFO_1;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSERVER_TRANSPORT_INFO_2 = *mut SERVER_TRANSPORT_INFO_2;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSERVER_TRANSPORT_INFO_3 = *mut SERVER_TRANSPORT_INFO_3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_100 {
-    pub sv100_platform_id: u32,
+    pub sv100_platform_id: super::DWORD,
     pub sv100_name: windows_core::PWSTR,
 }
 #[repr(C)]
@@ -337,19 +512,21 @@ pub struct SERVER_INFO_1005 {
     pub sv1005_comment: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_101 {
-    pub sv101_platform_id: u32,
+    pub sv101_platform_id: super::DWORD,
     pub sv101_name: windows_core::PWSTR,
-    pub sv101_version_major: u32,
-    pub sv101_version_minor: u32,
-    pub sv101_type: u32,
+    pub sv101_version_major: super::DWORD,
+    pub sv101_version_minor: super::DWORD,
+    pub sv101_type: super::DWORD,
     pub sv101_comment: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1010 {
-    pub sv1010_disc: i32,
+    pub sv1010_disc: super::LONG,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -357,99 +534,113 @@ pub struct SERVER_INFO_1016 {
     pub sv1016_hidden: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1017 {
-    pub sv1017_announce: u32,
+    pub sv1017_announce: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1018 {
-    pub sv1018_anndelta: u32,
+    pub sv1018_anndelta: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_102 {
-    pub sv102_platform_id: u32,
+    pub sv102_platform_id: super::DWORD,
     pub sv102_name: windows_core::PWSTR,
-    pub sv102_version_major: u32,
-    pub sv102_version_minor: u32,
-    pub sv102_type: u32,
+    pub sv102_version_major: super::DWORD,
+    pub sv102_version_minor: super::DWORD,
+    pub sv102_type: super::DWORD,
     pub sv102_comment: windows_core::PWSTR,
-    pub sv102_users: u32,
-    pub sv102_disc: i32,
+    pub sv102_users: super::DWORD,
+    pub sv102_disc: super::LONG,
     pub sv102_hidden: windows_core::BOOL,
-    pub sv102_announce: u32,
-    pub sv102_anndelta: u32,
-    pub sv102_licenses: u32,
+    pub sv102_announce: super::DWORD,
+    pub sv102_anndelta: super::DWORD,
+    pub sv102_licenses: super::DWORD,
     pub sv102_userpath: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_103 {
-    pub sv103_platform_id: u32,
+    pub sv103_platform_id: super::DWORD,
     pub sv103_name: windows_core::PWSTR,
-    pub sv103_version_major: u32,
-    pub sv103_version_minor: u32,
-    pub sv103_type: u32,
+    pub sv103_version_major: super::DWORD,
+    pub sv103_version_minor: super::DWORD,
+    pub sv103_type: super::DWORD,
     pub sv103_comment: windows_core::PWSTR,
-    pub sv103_users: u32,
-    pub sv103_disc: i32,
+    pub sv103_users: super::DWORD,
+    pub sv103_disc: super::LONG,
     pub sv103_hidden: windows_core::BOOL,
-    pub sv103_announce: u32,
-    pub sv103_anndelta: u32,
-    pub sv103_licenses: u32,
+    pub sv103_announce: super::DWORD,
+    pub sv103_anndelta: super::DWORD,
+    pub sv103_licenses: super::DWORD,
     pub sv103_userpath: windows_core::PWSTR,
-    pub sv103_capabilities: u32,
+    pub sv103_capabilities: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1107 {
-    pub sv1107_users: u32,
+    pub sv1107_users: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1501 {
-    pub sv1501_sessopens: u32,
+    pub sv1501_sessopens: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1502 {
-    pub sv1502_sessvcs: u32,
+    pub sv1502_sessvcs: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1503 {
-    pub sv1503_opensearch: u32,
+    pub sv1503_opensearch: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1506 {
-    pub sv1506_maxworkitems: u32,
+    pub sv1506_maxworkitems: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1509 {
-    pub sv1509_maxrawbuflen: u32,
+    pub sv1509_maxrawbuflen: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1510 {
-    pub sv1510_sessusers: u32,
+    pub sv1510_sessusers: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1511 {
-    pub sv1511_sessconns: u32,
+    pub sv1511_sessconns: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1512 {
-    pub sv1512_maxnonpagedmemoryusage: u32,
+    pub sv1512_maxnonpagedmemoryusage: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1513 {
-    pub sv1513_maxpagedmemoryusage: u32,
+    pub sv1513_maxpagedmemoryusage: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -472,64 +663,76 @@ pub struct SERVER_INFO_1518 {
     pub sv1518_lmannounce: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1520 {
-    pub sv1520_maxcopyreadlen: u32,
+    pub sv1520_maxcopyreadlen: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1521 {
-    pub sv1521_maxcopywritelen: u32,
+    pub sv1521_maxcopywritelen: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1522 {
-    pub sv1522_minkeepsearch: u32,
+    pub sv1522_minkeepsearch: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1523 {
-    pub sv1523_maxkeepsearch: u32,
+    pub sv1523_maxkeepsearch: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1524 {
-    pub sv1524_minkeepcomplsearch: u32,
+    pub sv1524_minkeepcomplsearch: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1525 {
-    pub sv1525_maxkeepcomplsearch: u32,
+    pub sv1525_maxkeepcomplsearch: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1528 {
-    pub sv1528_scavtimeout: u32,
+    pub sv1528_scavtimeout: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1529 {
-    pub sv1529_minrcvqueue: u32,
+    pub sv1529_minrcvqueue: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1530 {
-    pub sv1530_minfreeworkitems: u32,
+    pub sv1530_minfreeworkitems: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1533 {
-    pub sv1533_maxmpxct: u32,
+    pub sv1533_maxmpxct: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1534 {
-    pub sv1534_oplockbreakwait: u32,
+    pub sv1534_oplockbreakwait: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1535 {
-    pub sv1535_oplockbreakresponsewait: u32,
+    pub sv1535_oplockbreakresponsewait: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -567,104 +770,124 @@ pub struct SERVER_INFO_1542 {
     pub sv1542_maxfreeconnections: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1543 {
-    pub sv1543_initsesstable: u32,
+    pub sv1543_initsesstable: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1544 {
-    pub sv1544_initconntable: u32,
+    pub sv1544_initconntable: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1545 {
-    pub sv1545_initfiletable: u32,
+    pub sv1545_initfiletable: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1546 {
-    pub sv1546_initsearchtable: u32,
+    pub sv1546_initsearchtable: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1547 {
-    pub sv1547_alertschedule: u32,
+    pub sv1547_alertschedule: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1548 {
-    pub sv1548_errorthreshold: u32,
+    pub sv1548_errorthreshold: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1549 {
-    pub sv1549_networkerrorthreshold: u32,
+    pub sv1549_networkerrorthreshold: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1550 {
-    pub sv1550_diskspacethreshold: u32,
+    pub sv1550_diskspacethreshold: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1552 {
-    pub sv1552_maxlinkdelay: u32,
+    pub sv1552_maxlinkdelay: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1553 {
-    pub sv1553_minlinkthroughput: u32,
+    pub sv1553_minlinkthroughput: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1554 {
-    pub sv1554_linkinfovalidtime: u32,
+    pub sv1554_linkinfovalidtime: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1555 {
-    pub sv1555_scavqosinfoupdatetime: u32,
+    pub sv1555_scavqosinfoupdatetime: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1556 {
-    pub sv1556_maxworkitemidletime: u32,
+    pub sv1556_maxworkitemidletime: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1557 {
-    pub sv1557_maxrawworkitems: u32,
+    pub sv1557_maxrawworkitems: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1560 {
-    pub sv1560_producttype: u32,
+    pub sv1560_producttype: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1561 {
-    pub sv1561_serversize: u32,
+    pub sv1561_serversize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1562 {
-    pub sv1562_connectionlessautodisc: u32,
+    pub sv1562_connectionlessautodisc: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1563 {
-    pub sv1563_sharingviolationretries: u32,
+    pub sv1563_sharingviolationretries: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1564 {
-    pub sv1564_sharingviolationdelay: u32,
+    pub sv1564_sharingviolationdelay: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1565 {
-    pub sv1565_maxglobalopensearch: u32,
+    pub sv1565_maxglobalopensearch: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -672,94 +895,112 @@ pub struct SERVER_INFO_1566 {
     pub sv1566_removeduplicatesearches: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1567 {
-    pub sv1567_lockviolationretries: u32,
+    pub sv1567_lockviolationretries: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1568 {
-    pub sv1568_lockviolationoffset: u32,
+    pub sv1568_lockviolationoffset: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1569 {
-    pub sv1569_lockviolationdelay: u32,
+    pub sv1569_lockviolationdelay: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1570 {
-    pub sv1570_mdlreadswitchover: u32,
+    pub sv1570_mdlreadswitchover: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1571 {
-    pub sv1571_cachedopenlimit: u32,
+    pub sv1571_cachedopenlimit: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1572 {
-    pub sv1572_criticalthreads: u32,
+    pub sv1572_criticalthreads: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1573 {
-    pub sv1573_restrictnullsessaccess: u32,
+    pub sv1573_restrictnullsessaccess: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1574 {
-    pub sv1574_enablewfw311directipx: u32,
+    pub sv1574_enablewfw311directipx: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1575 {
-    pub sv1575_otherqueueaffinity: u32,
+    pub sv1575_otherqueueaffinity: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1576 {
-    pub sv1576_queuesamplesecs: u32,
+    pub sv1576_queuesamplesecs: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1577 {
-    pub sv1577_balancecount: u32,
+    pub sv1577_balancecount: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1578 {
-    pub sv1578_preferredaffinity: u32,
+    pub sv1578_preferredaffinity: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1579 {
-    pub sv1579_maxfreerfcbs: u32,
+    pub sv1579_maxfreerfcbs: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1580 {
-    pub sv1580_maxfreemfcbs: u32,
+    pub sv1580_maxfreemfcbs: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1581 {
-    pub sv1581_maxfreemlcbs: u32,
+    pub sv1581_maxfreemlcbs: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1582 {
-    pub sv1582_maxfreepagedpoolchunks: u32,
+    pub sv1582_maxfreepagedpoolchunks: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1583 {
-    pub sv1583_minpagedpoolchunksize: u32,
+    pub sv1583_minpagedpoolchunksize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1584 {
-    pub sv1584_maxpagedpoolchunksize: u32,
+    pub sv1584_maxpagedpoolchunksize: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -767,81 +1008,94 @@ pub struct SERVER_INFO_1585 {
     pub sv1585_sendsfrompreferredprocessor: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1586 {
-    pub sv1586_maxthreadsperqueue: u32,
+    pub sv1586_maxthreadsperqueue: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1587 {
-    pub sv1587_cacheddirectorylimit: u32,
+    pub sv1587_cacheddirectorylimit: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1588 {
-    pub sv1588_maxcopylength: u32,
+    pub sv1588_maxcopylength: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1590 {
-    pub sv1590_enablecompression: u32,
+    pub sv1590_enablecompression: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1591 {
-    pub sv1591_autosharewks: u32,
+    pub sv1591_autosharewks: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1592 {
-    pub sv1592_autosharewks: u32,
+    pub sv1592_autosharewks: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1593 {
-    pub sv1593_enablesecuritysignature: u32,
+    pub sv1593_enablesecuritysignature: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1594 {
-    pub sv1594_requiresecuritysignature: u32,
+    pub sv1594_requiresecuritysignature: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1595 {
-    pub sv1595_minclientbuffersize: u32,
+    pub sv1595_minclientbuffersize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1596 {
-    pub sv1596_ConnectionNoSessionsTimeout: u32,
+    pub sv1596_ConnectionNoSessionsTimeout: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1597 {
-    pub sv1597_IdleThreadTimeOut: u32,
+    pub sv1597_IdleThreadTimeOut: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1598 {
-    pub sv1598_enableW9xsecuritysignature: u32,
+    pub sv1598_enableW9xsecuritysignature: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1599 {
     pub sv1598_enforcekerberosreauthentication: super::BOOLEAN,
 }
 #[repr(C)]
-#[cfg(feature = "winnt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1600 {
     pub sv1598_disabledos: super::BOOLEAN,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1601 {
-    pub sv1598_lowdiskspaceminimum: u32,
+    pub sv1598_lowdiskspaceminimum: super::DWORD,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -849,94 +1103,97 @@ pub struct SERVER_INFO_1602 {
     pub sv_1598_disablestrictnamechecking: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_402 {
-    pub sv402_ulist_mtime: u32,
-    pub sv402_glist_mtime: u32,
-    pub sv402_alist_mtime: u32,
+    pub sv402_ulist_mtime: super::DWORD,
+    pub sv402_glist_mtime: super::DWORD,
+    pub sv402_alist_mtime: super::DWORD,
     pub sv402_alerts: windows_core::PWSTR,
-    pub sv402_security: u32,
-    pub sv402_numadmin: u32,
-    pub sv402_lanmask: u32,
+    pub sv402_security: super::DWORD,
+    pub sv402_numadmin: super::DWORD,
+    pub sv402_lanmask: super::DWORD,
     pub sv402_guestacct: windows_core::PWSTR,
-    pub sv402_chdevs: u32,
-    pub sv402_chdevq: u32,
-    pub sv402_chdevjobs: u32,
-    pub sv402_connections: u32,
-    pub sv402_shares: u32,
-    pub sv402_openfiles: u32,
-    pub sv402_sessopens: u32,
-    pub sv402_sessvcs: u32,
-    pub sv402_sessreqs: u32,
-    pub sv402_opensearch: u32,
-    pub sv402_activelocks: u32,
-    pub sv402_numreqbuf: u32,
-    pub sv402_sizreqbuf: u32,
-    pub sv402_numbigbuf: u32,
-    pub sv402_numfiletasks: u32,
-    pub sv402_alertsched: u32,
-    pub sv402_erroralert: u32,
-    pub sv402_logonalert: u32,
-    pub sv402_accessalert: u32,
-    pub sv402_diskalert: u32,
-    pub sv402_netioalert: u32,
-    pub sv402_maxauditsz: u32,
+    pub sv402_chdevs: super::DWORD,
+    pub sv402_chdevq: super::DWORD,
+    pub sv402_chdevjobs: super::DWORD,
+    pub sv402_connections: super::DWORD,
+    pub sv402_shares: super::DWORD,
+    pub sv402_openfiles: super::DWORD,
+    pub sv402_sessopens: super::DWORD,
+    pub sv402_sessvcs: super::DWORD,
+    pub sv402_sessreqs: super::DWORD,
+    pub sv402_opensearch: super::DWORD,
+    pub sv402_activelocks: super::DWORD,
+    pub sv402_numreqbuf: super::DWORD,
+    pub sv402_sizreqbuf: super::DWORD,
+    pub sv402_numbigbuf: super::DWORD,
+    pub sv402_numfiletasks: super::DWORD,
+    pub sv402_alertsched: super::DWORD,
+    pub sv402_erroralert: super::DWORD,
+    pub sv402_logonalert: super::DWORD,
+    pub sv402_accessalert: super::DWORD,
+    pub sv402_diskalert: super::DWORD,
+    pub sv402_netioalert: super::DWORD,
+    pub sv402_maxauditsz: super::DWORD,
     pub sv402_srvheuristics: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_403 {
-    pub sv403_ulist_mtime: u32,
-    pub sv403_glist_mtime: u32,
-    pub sv403_alist_mtime: u32,
+    pub sv403_ulist_mtime: super::DWORD,
+    pub sv403_glist_mtime: super::DWORD,
+    pub sv403_alist_mtime: super::DWORD,
     pub sv403_alerts: windows_core::PWSTR,
-    pub sv403_security: u32,
-    pub sv403_numadmin: u32,
-    pub sv403_lanmask: u32,
+    pub sv403_security: super::DWORD,
+    pub sv403_numadmin: super::DWORD,
+    pub sv403_lanmask: super::DWORD,
     pub sv403_guestacct: windows_core::PWSTR,
-    pub sv403_chdevs: u32,
-    pub sv403_chdevq: u32,
-    pub sv403_chdevjobs: u32,
-    pub sv403_connections: u32,
-    pub sv403_shares: u32,
-    pub sv403_openfiles: u32,
-    pub sv403_sessopens: u32,
-    pub sv403_sessvcs: u32,
-    pub sv403_sessreqs: u32,
-    pub sv403_opensearch: u32,
-    pub sv403_activelocks: u32,
-    pub sv403_numreqbuf: u32,
-    pub sv403_sizreqbuf: u32,
-    pub sv403_numbigbuf: u32,
-    pub sv403_numfiletasks: u32,
-    pub sv403_alertsched: u32,
-    pub sv403_erroralert: u32,
-    pub sv403_logonalert: u32,
-    pub sv403_accessalert: u32,
-    pub sv403_diskalert: u32,
-    pub sv403_netioalert: u32,
-    pub sv403_maxauditsz: u32,
+    pub sv403_chdevs: super::DWORD,
+    pub sv403_chdevq: super::DWORD,
+    pub sv403_chdevjobs: super::DWORD,
+    pub sv403_connections: super::DWORD,
+    pub sv403_shares: super::DWORD,
+    pub sv403_openfiles: super::DWORD,
+    pub sv403_sessopens: super::DWORD,
+    pub sv403_sessvcs: super::DWORD,
+    pub sv403_sessreqs: super::DWORD,
+    pub sv403_opensearch: super::DWORD,
+    pub sv403_activelocks: super::DWORD,
+    pub sv403_numreqbuf: super::DWORD,
+    pub sv403_sizreqbuf: super::DWORD,
+    pub sv403_numbigbuf: super::DWORD,
+    pub sv403_numfiletasks: super::DWORD,
+    pub sv403_alertsched: super::DWORD,
+    pub sv403_erroralert: super::DWORD,
+    pub sv403_logonalert: super::DWORD,
+    pub sv403_accessalert: super::DWORD,
+    pub sv403_diskalert: super::DWORD,
+    pub sv403_netioalert: super::DWORD,
+    pub sv403_maxauditsz: super::DWORD,
     pub sv403_srvheuristics: windows_core::PWSTR,
-    pub sv403_auditedevents: u32,
-    pub sv403_autoprofile: u32,
+    pub sv403_auditedevents: super::DWORD,
+    pub sv403_autoprofile: super::DWORD,
     pub sv403_autopath: windows_core::PWSTR,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_502 {
-    pub sv502_sessopens: u32,
-    pub sv502_sessvcs: u32,
-    pub sv502_opensearch: u32,
-    pub sv502_sizreqbuf: u32,
-    pub sv502_initworkitems: u32,
-    pub sv502_maxworkitems: u32,
-    pub sv502_rawworkitems: u32,
-    pub sv502_irpstacksize: u32,
-    pub sv502_maxrawbuflen: u32,
-    pub sv502_sessusers: u32,
-    pub sv502_sessconns: u32,
-    pub sv502_maxpagedmemoryusage: u32,
-    pub sv502_maxnonpagedmemoryusage: u32,
+    pub sv502_sessopens: super::DWORD,
+    pub sv502_sessvcs: super::DWORD,
+    pub sv502_opensearch: super::DWORD,
+    pub sv502_sizreqbuf: super::DWORD,
+    pub sv502_initworkitems: super::DWORD,
+    pub sv502_maxworkitems: super::DWORD,
+    pub sv502_rawworkitems: super::DWORD,
+    pub sv502_irpstacksize: super::DWORD,
+    pub sv502_maxrawbuflen: super::DWORD,
+    pub sv502_sessusers: super::DWORD,
+    pub sv502_sessconns: super::DWORD,
+    pub sv502_maxpagedmemoryusage: super::DWORD,
+    pub sv502_maxnonpagedmemoryusage: super::DWORD,
     pub sv502_enablesoftcompat: windows_core::BOOL,
     pub sv502_enableforcedlogoff: windows_core::BOOL,
     pub sv502_timesource: windows_core::BOOL,
@@ -944,206 +1201,209 @@ pub struct SERVER_INFO_502 {
     pub sv502_lmannounce: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_503 {
-    pub sv503_sessopens: u32,
-    pub sv503_sessvcs: u32,
-    pub sv503_opensearch: u32,
-    pub sv503_sizreqbuf: u32,
-    pub sv503_initworkitems: u32,
-    pub sv503_maxworkitems: u32,
-    pub sv503_rawworkitems: u32,
-    pub sv503_irpstacksize: u32,
-    pub sv503_maxrawbuflen: u32,
-    pub sv503_sessusers: u32,
-    pub sv503_sessconns: u32,
-    pub sv503_maxpagedmemoryusage: u32,
-    pub sv503_maxnonpagedmemoryusage: u32,
+    pub sv503_sessopens: super::DWORD,
+    pub sv503_sessvcs: super::DWORD,
+    pub sv503_opensearch: super::DWORD,
+    pub sv503_sizreqbuf: super::DWORD,
+    pub sv503_initworkitems: super::DWORD,
+    pub sv503_maxworkitems: super::DWORD,
+    pub sv503_rawworkitems: super::DWORD,
+    pub sv503_irpstacksize: super::DWORD,
+    pub sv503_maxrawbuflen: super::DWORD,
+    pub sv503_sessusers: super::DWORD,
+    pub sv503_sessconns: super::DWORD,
+    pub sv503_maxpagedmemoryusage: super::DWORD,
+    pub sv503_maxnonpagedmemoryusage: super::DWORD,
     pub sv503_enablesoftcompat: windows_core::BOOL,
     pub sv503_enableforcedlogoff: windows_core::BOOL,
     pub sv503_timesource: windows_core::BOOL,
     pub sv503_acceptdownlevelapis: windows_core::BOOL,
     pub sv503_lmannounce: windows_core::BOOL,
     pub sv503_domain: windows_core::PWSTR,
-    pub sv503_maxcopyreadlen: u32,
-    pub sv503_maxcopywritelen: u32,
-    pub sv503_minkeepsearch: u32,
-    pub sv503_maxkeepsearch: u32,
-    pub sv503_minkeepcomplsearch: u32,
-    pub sv503_maxkeepcomplsearch: u32,
-    pub sv503_threadcountadd: u32,
-    pub sv503_numblockthreads: u32,
-    pub sv503_scavtimeout: u32,
-    pub sv503_minrcvqueue: u32,
-    pub sv503_minfreeworkitems: u32,
-    pub sv503_xactmemsize: u32,
-    pub sv503_threadpriority: u32,
-    pub sv503_maxmpxct: u32,
-    pub sv503_oplockbreakwait: u32,
-    pub sv503_oplockbreakresponsewait: u32,
+    pub sv503_maxcopyreadlen: super::DWORD,
+    pub sv503_maxcopywritelen: super::DWORD,
+    pub sv503_minkeepsearch: super::DWORD,
+    pub sv503_maxkeepsearch: super::DWORD,
+    pub sv503_minkeepcomplsearch: super::DWORD,
+    pub sv503_maxkeepcomplsearch: super::DWORD,
+    pub sv503_threadcountadd: super::DWORD,
+    pub sv503_numblockthreads: super::DWORD,
+    pub sv503_scavtimeout: super::DWORD,
+    pub sv503_minrcvqueue: super::DWORD,
+    pub sv503_minfreeworkitems: super::DWORD,
+    pub sv503_xactmemsize: super::DWORD,
+    pub sv503_threadpriority: super::DWORD,
+    pub sv503_maxmpxct: super::DWORD,
+    pub sv503_oplockbreakwait: super::DWORD,
+    pub sv503_oplockbreakresponsewait: super::DWORD,
     pub sv503_enableoplocks: windows_core::BOOL,
     pub sv503_enableoplockforceclose: windows_core::BOOL,
     pub sv503_enablefcbopens: windows_core::BOOL,
     pub sv503_enableraw: windows_core::BOOL,
     pub sv503_enablesharednetdrives: windows_core::BOOL,
-    pub sv503_minfreeconnections: u32,
-    pub sv503_maxfreeconnections: u32,
+    pub sv503_minfreeconnections: super::DWORD,
+    pub sv503_maxfreeconnections: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_598 {
-    pub sv598_maxrawworkitems: u32,
-    pub sv598_maxthreadsperqueue: u32,
-    pub sv598_producttype: u32,
-    pub sv598_serversize: u32,
-    pub sv598_connectionlessautodisc: u32,
-    pub sv598_sharingviolationretries: u32,
-    pub sv598_sharingviolationdelay: u32,
-    pub sv598_maxglobalopensearch: u32,
-    pub sv598_removeduplicatesearches: u32,
-    pub sv598_lockviolationoffset: u32,
-    pub sv598_lockviolationdelay: u32,
-    pub sv598_mdlreadswitchover: u32,
-    pub sv598_cachedopenlimit: u32,
-    pub sv598_otherqueueaffinity: u32,
+    pub sv598_maxrawworkitems: super::DWORD,
+    pub sv598_maxthreadsperqueue: super::DWORD,
+    pub sv598_producttype: super::DWORD,
+    pub sv598_serversize: super::DWORD,
+    pub sv598_connectionlessautodisc: super::DWORD,
+    pub sv598_sharingviolationretries: super::DWORD,
+    pub sv598_sharingviolationdelay: super::DWORD,
+    pub sv598_maxglobalopensearch: super::DWORD,
+    pub sv598_removeduplicatesearches: super::DWORD,
+    pub sv598_lockviolationoffset: super::DWORD,
+    pub sv598_lockviolationdelay: super::DWORD,
+    pub sv598_mdlreadswitchover: super::DWORD,
+    pub sv598_cachedopenlimit: super::DWORD,
+    pub sv598_otherqueueaffinity: super::DWORD,
     pub sv598_restrictnullsessaccess: windows_core::BOOL,
     pub sv598_enablewfw311directipx: windows_core::BOOL,
-    pub sv598_queuesamplesecs: u32,
-    pub sv598_balancecount: u32,
-    pub sv598_preferredaffinity: u32,
-    pub sv598_maxfreerfcbs: u32,
-    pub sv598_maxfreemfcbs: u32,
-    pub sv598_maxfreelfcbs: u32,
-    pub sv598_maxfreepagedpoolchunks: u32,
-    pub sv598_minpagedpoolchunksize: u32,
-    pub sv598_maxpagedpoolchunksize: u32,
+    pub sv598_queuesamplesecs: super::DWORD,
+    pub sv598_balancecount: super::DWORD,
+    pub sv598_preferredaffinity: super::DWORD,
+    pub sv598_maxfreerfcbs: super::DWORD,
+    pub sv598_maxfreemfcbs: super::DWORD,
+    pub sv598_maxfreelfcbs: super::DWORD,
+    pub sv598_maxfreepagedpoolchunks: super::DWORD,
+    pub sv598_minpagedpoolchunksize: super::DWORD,
+    pub sv598_maxpagedpoolchunksize: super::DWORD,
     pub sv598_sendsfrompreferredprocessor: windows_core::BOOL,
-    pub sv598_cacheddirectorylimit: u32,
-    pub sv598_maxcopylength: u32,
+    pub sv598_cacheddirectorylimit: super::DWORD,
+    pub sv598_maxcopylength: super::DWORD,
     pub sv598_enablecompression: windows_core::BOOL,
     pub sv598_autosharewks: windows_core::BOOL,
     pub sv598_autoshareserver: windows_core::BOOL,
     pub sv598_enablesecuritysignature: windows_core::BOOL,
     pub sv598_requiresecuritysignature: windows_core::BOOL,
-    pub sv598_minclientbuffersize: u32,
+    pub sv598_minclientbuffersize: super::DWORD,
     pub sv598_serverguid: windows_core::GUID,
-    pub sv598_ConnectionNoSessionsTimeout: u32,
-    pub sv598_IdleThreadTimeOut: u32,
+    pub sv598_ConnectionNoSessionsTimeout: super::DWORD,
+    pub sv598_IdleThreadTimeOut: super::DWORD,
     pub sv598_enableW9xsecuritysignature: windows_core::BOOL,
     pub sv598_enforcekerberosreauthentication: windows_core::BOOL,
     pub sv598_disabledos: windows_core::BOOL,
-    pub sv598_lowdiskspaceminimum: u32,
+    pub sv598_lowdiskspaceminimum: super::DWORD,
     pub sv598_disablestrictnamechecking: windows_core::BOOL,
     pub sv598_enableauthenticateusersharing: windows_core::BOOL,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_599 {
-    pub sv599_sessopens: u32,
-    pub sv599_sessvcs: u32,
-    pub sv599_opensearch: u32,
-    pub sv599_sizreqbuf: u32,
-    pub sv599_initworkitems: u32,
-    pub sv599_maxworkitems: u32,
-    pub sv599_rawworkitems: u32,
-    pub sv599_irpstacksize: u32,
-    pub sv599_maxrawbuflen: u32,
-    pub sv599_sessusers: u32,
-    pub sv599_sessconns: u32,
-    pub sv599_maxpagedmemoryusage: u32,
-    pub sv599_maxnonpagedmemoryusage: u32,
+    pub sv599_sessopens: super::DWORD,
+    pub sv599_sessvcs: super::DWORD,
+    pub sv599_opensearch: super::DWORD,
+    pub sv599_sizreqbuf: super::DWORD,
+    pub sv599_initworkitems: super::DWORD,
+    pub sv599_maxworkitems: super::DWORD,
+    pub sv599_rawworkitems: super::DWORD,
+    pub sv599_irpstacksize: super::DWORD,
+    pub sv599_maxrawbuflen: super::DWORD,
+    pub sv599_sessusers: super::DWORD,
+    pub sv599_sessconns: super::DWORD,
+    pub sv599_maxpagedmemoryusage: super::DWORD,
+    pub sv599_maxnonpagedmemoryusage: super::DWORD,
     pub sv599_enablesoftcompat: windows_core::BOOL,
     pub sv599_enableforcedlogoff: windows_core::BOOL,
     pub sv599_timesource: windows_core::BOOL,
     pub sv599_acceptdownlevelapis: windows_core::BOOL,
     pub sv599_lmannounce: windows_core::BOOL,
     pub sv599_domain: windows_core::PWSTR,
-    pub sv599_maxcopyreadlen: u32,
-    pub sv599_maxcopywritelen: u32,
-    pub sv599_minkeepsearch: u32,
-    pub sv599_maxkeepsearch: u32,
-    pub sv599_minkeepcomplsearch: u32,
-    pub sv599_maxkeepcomplsearch: u32,
-    pub sv599_threadcountadd: u32,
-    pub sv599_numblockthreads: u32,
-    pub sv599_scavtimeout: u32,
-    pub sv599_minrcvqueue: u32,
-    pub sv599_minfreeworkitems: u32,
-    pub sv599_xactmemsize: u32,
-    pub sv599_threadpriority: u32,
-    pub sv599_maxmpxct: u32,
-    pub sv599_oplockbreakwait: u32,
-    pub sv599_oplockbreakresponsewait: u32,
+    pub sv599_maxcopyreadlen: super::DWORD,
+    pub sv599_maxcopywritelen: super::DWORD,
+    pub sv599_minkeepsearch: super::DWORD,
+    pub sv599_maxkeepsearch: super::DWORD,
+    pub sv599_minkeepcomplsearch: super::DWORD,
+    pub sv599_maxkeepcomplsearch: super::DWORD,
+    pub sv599_threadcountadd: super::DWORD,
+    pub sv599_numblockthreads: super::DWORD,
+    pub sv599_scavtimeout: super::DWORD,
+    pub sv599_minrcvqueue: super::DWORD,
+    pub sv599_minfreeworkitems: super::DWORD,
+    pub sv599_xactmemsize: super::DWORD,
+    pub sv599_threadpriority: super::DWORD,
+    pub sv599_maxmpxct: super::DWORD,
+    pub sv599_oplockbreakwait: super::DWORD,
+    pub sv599_oplockbreakresponsewait: super::DWORD,
     pub sv599_enableoplocks: windows_core::BOOL,
     pub sv599_enableoplockforceclose: windows_core::BOOL,
     pub sv599_enablefcbopens: windows_core::BOOL,
     pub sv599_enableraw: windows_core::BOOL,
     pub sv599_enablesharednetdrives: windows_core::BOOL,
-    pub sv599_minfreeconnections: u32,
-    pub sv599_maxfreeconnections: u32,
-    pub sv599_initsesstable: u32,
-    pub sv599_initconntable: u32,
-    pub sv599_initfiletable: u32,
-    pub sv599_initsearchtable: u32,
-    pub sv599_alertschedule: u32,
-    pub sv599_errorthreshold: u32,
-    pub sv599_networkerrorthreshold: u32,
-    pub sv599_diskspacethreshold: u32,
-    pub sv599_reserved: u32,
-    pub sv599_maxlinkdelay: u32,
-    pub sv599_minlinkthroughput: u32,
-    pub sv599_linkinfovalidtime: u32,
-    pub sv599_scavqosinfoupdatetime: u32,
-    pub sv599_maxworkitemidletime: u32,
+    pub sv599_minfreeconnections: super::DWORD,
+    pub sv599_maxfreeconnections: super::DWORD,
+    pub sv599_initsesstable: super::DWORD,
+    pub sv599_initconntable: super::DWORD,
+    pub sv599_initfiletable: super::DWORD,
+    pub sv599_initsearchtable: super::DWORD,
+    pub sv599_alertschedule: super::DWORD,
+    pub sv599_errorthreshold: super::DWORD,
+    pub sv599_networkerrorthreshold: super::DWORD,
+    pub sv599_diskspacethreshold: super::DWORD,
+    pub sv599_reserved: super::DWORD,
+    pub sv599_maxlinkdelay: super::DWORD,
+    pub sv599_minlinkthroughput: super::DWORD,
+    pub sv599_linkinfovalidtime: super::DWORD,
+    pub sv599_scavqosinfoupdatetime: super::DWORD,
+    pub sv599_maxworkitemidletime: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_0 {
-    pub svti0_numberofvcs: u32,
+    pub svti0_numberofvcs: super::DWORD,
     pub svti0_transportname: windows_core::PWSTR,
     pub svti0_transportaddress: super::LPBYTE,
-    pub svti0_transportaddresslength: u32,
+    pub svti0_transportaddresslength: super::DWORD,
     pub svti0_networkaddress: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_1 {
-    pub svti1_numberofvcs: u32,
+    pub svti1_numberofvcs: super::DWORD,
     pub svti1_transportname: windows_core::PWSTR,
     pub svti1_transportaddress: super::LPBYTE,
-    pub svti1_transportaddresslength: u32,
+    pub svti1_transportaddresslength: super::DWORD,
     pub svti1_networkaddress: windows_core::PWSTR,
     pub svti1_domain: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_2 {
-    pub svti2_numberofvcs: u32,
+    pub svti2_numberofvcs: super::DWORD,
     pub svti2_transportname: windows_core::PWSTR,
     pub svti2_transportaddress: super::LPBYTE,
-    pub svti2_transportaddresslength: u32,
+    pub svti2_transportaddresslength: super::DWORD,
     pub svti2_networkaddress: windows_core::PWSTR,
     pub svti2_domain: windows_core::PWSTR,
-    pub svti2_flags: u32,
+    pub svti2_flags: super::ULONG,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_3 {
-    pub svti3_numberofvcs: u32,
+    pub svti3_numberofvcs: super::DWORD,
     pub svti3_transportname: windows_core::PWSTR,
     pub svti3_transportaddress: super::LPBYTE,
-    pub svti3_transportaddresslength: u32,
+    pub svti3_transportaddresslength: super::DWORD,
     pub svti3_networkaddress: windows_core::PWSTR,
     pub svti3_domain: windows_core::PWSTR,
-    pub svti3_flags: u32,
-    pub svti3_passwordlength: u32,
-    pub svti3_password: [u8; 256],
+    pub svti3_flags: super::ULONG,
+    pub svti3_passwordlength: super::DWORD,
+    pub svti3_password: [super::BYTE; 256],
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 impl Default for SERVER_TRANSPORT_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

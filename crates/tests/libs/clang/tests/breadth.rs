@@ -6159,19 +6159,13 @@ fn cpp_members() {
                 .find_attribute("NativeConstMethodAttribute")
                 .is_some()
         );
-        assert_eq!(
-            method
-                .params()
-                .map(|parameter| parameter
-                    .find_attribute("NativeDefaultArgumentAttribute")
-                    .unwrap()
-                    .value()[0]
-                    .1
-                    .clone())
-                .collect::<Vec<_>>(),
-            ["7", "nullptr", "nullptr", "RuntimeDefault()"]
-                .map(|value| windows_metadata::Value::Utf8(value.into()))
-        );
+        assert_eq!(method.signature(&[]).types.len(), 4);
+        assert!(method.params().all(|parameter| {
+            parameter
+                .find_attribute("NativeDefaultArgumentAttribute")
+                .is_none()
+                && !parameter.is_optional()
+        }));
     });
     let partial = projection::generate_partial(&[input], "Fixture").unwrap();
     assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);

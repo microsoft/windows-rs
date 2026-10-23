@@ -957,7 +957,7 @@ mod Windows {
         }
         #[guid(0xaf67f125_ab39_4e93_b4a2_cc2e66e182a7)]
         interface ISpeechFileStream: ISpeechBaseStream {
-            fn Open(&self, #[in] FileName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SSFMOpenForRead")] FileMode: SpeechStreamFileMode, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] DoEvents: VARIANT_BOOL) -> HRESULT;
+            fn Open(&self, #[in] FileName: BSTR, #[in] FileMode: SpeechStreamFileMode, #[in] DoEvents: VARIANT_BOOL) -> HRESULT;
             fn Close(&self) -> HRESULT;
         }
         #[guid(0xafe719cf_5dd1_44f2_999c_7a399f1cfccc)]
@@ -974,9 +974,9 @@ mod Windows {
         interface ISpeechGrammarRuleState: IDispatch {
             fn get_Rule(&self, #[out] #[retval] #[out_ptr] Rule: *mut ISpeechGrammarRule) -> HRESULT;
             fn get_Transitions(&self, #[out] #[retval] #[out_ptr] Transitions: *mut ISpeechGrammarRuleStateTransitions) -> HRESULT;
-            fn AddWordTransition(&self, #[in] #[opt] DestState: ISpeechGrammarRuleState, #[in] Words: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\" \"")] Separators: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SGLexical")] Type: SpeechGrammarWordType, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] PropertyName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PropertyId: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PropertyValue: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("1")] Weight: f32) -> HRESULT;
-            fn AddRuleTransition(&self, #[in] #[opt] DestinationState: ISpeechGrammarRuleState, #[in] #[opt] Rule: ISpeechGrammarRule, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] PropertyName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PropertyId: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PropertyValue: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("1")] Weight: f32) -> HRESULT;
-            fn AddSpecialTransition(&self, #[in] #[opt] DestinationState: ISpeechGrammarRuleState, #[in] Type: SpeechSpecialTransitionType, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] PropertyName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PropertyId: i32, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PropertyValue: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("1")] Weight: f32) -> HRESULT;
+            fn AddWordTransition(&self, #[in] #[opt] DestState: ISpeechGrammarRuleState, #[in] Words: BSTR, #[in] Separators: BSTR, #[in] Type: SpeechGrammarWordType, #[in] PropertyName: BSTR, #[in] PropertyId: i32, #[in] PropertyValue: *mut VARIANT, #[in] Weight: f32) -> HRESULT;
+            fn AddRuleTransition(&self, #[in] #[opt] DestinationState: ISpeechGrammarRuleState, #[in] #[opt] Rule: ISpeechGrammarRule, #[in] PropertyName: BSTR, #[in] PropertyId: i32, #[in] PropertyValue: *mut VARIANT, #[in] Weight: f32) -> HRESULT;
+            fn AddSpecialTransition(&self, #[in] #[opt] DestinationState: ISpeechGrammarRuleState, #[in] Type: SpeechSpecialTransitionType, #[in] PropertyName: BSTR, #[in] PropertyId: i32, #[in] PropertyValue: *mut VARIANT, #[in] Weight: f32) -> HRESULT;
         }
         #[guid(0xcafd1db1_41d1_4a06_9863_e2e81da17a9a)]
         interface ISpeechGrammarRuleStateTransition: IDispatch {
@@ -1010,10 +1010,10 @@ mod Windows {
         interface ISpeechLexicon: IDispatch {
             fn get_GenerationId(&self, #[out] #[retval] GenerationId: *mut i32) -> HRESULT;
             fn GetWords(&self, #[in] Flags: SpeechLexiconType, #[out] GenerationID: *mut i32, #[out] #[retval] #[out_ptr] Words: *mut ISpeechLexiconWords) -> HRESULT;
-            fn AddPronunciation(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SPSUnknown")] PartOfSpeech: SpeechPartOfSpeech, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] bstrPronunciation: BSTR) -> HRESULT;
-            fn AddPronunciationByPhoneIds(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SPSUnknown")] PartOfSpeech: SpeechPartOfSpeech, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PhoneIds: *mut VARIANT) -> HRESULT;
-            fn RemovePronunciation(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SPSUnknown")] PartOfSpeech: SpeechPartOfSpeech, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] bstrPronunciation: BSTR) -> HRESULT;
-            fn RemovePronunciationByPhoneIds(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SPSUnknown")] PartOfSpeech: SpeechPartOfSpeech, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] PhoneIds: *mut VARIANT) -> HRESULT;
+            fn AddPronunciation(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] bstrPronunciation: BSTR) -> HRESULT;
+            fn AddPronunciationByPhoneIds(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] PhoneIds: *mut VARIANT) -> HRESULT;
+            fn RemovePronunciation(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] bstrPronunciation: BSTR) -> HRESULT;
+            fn RemovePronunciationByPhoneIds(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] PartOfSpeech: SpeechPartOfSpeech, #[in] PhoneIds: *mut VARIANT) -> HRESULT;
             fn GetPronunciations(&self, #[in] bstrWord: BSTR, #[in] LangId: SpeechLanguageId, #[in] TypeFlags: SpeechLexiconType, #[out] #[retval] #[out_ptr] ppPronunciations: *mut ISpeechLexiconPronunciations) -> HRESULT;
             fn GetGenerationChange(&self, #[in] #[out] GenerationID: *mut i32, #[out] #[retval] #[out_ptr] ppWords: *mut ISpeechLexiconWords) -> HRESULT;
         }
@@ -1063,14 +1063,14 @@ mod Windows {
             fn get_DataKey(&self, #[out] #[retval] #[out_ptr] DataKey: *mut ISpeechDataKey) -> HRESULT;
             fn get_Category(&self, #[out] #[retval] #[out_ptr] Category: *mut ISpeechObjectTokenCategory) -> HRESULT;
             fn GetDescription(&self, #[in] Locale: i32, #[out] #[retval] #[out_ptr] Description: *mut BSTR) -> HRESULT;
-            fn SetId(&self, #[in] Id: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] CategoryID: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
+            fn SetId(&self, #[in] Id: BSTR, #[in] CategoryID: BSTR, #[in] CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
             fn GetAttribute(&self, #[in] AttributeName: BSTR, #[out] #[retval] #[out_ptr] AttributeValue: *mut BSTR) -> HRESULT;
             fn CreateInstance(&self, #[in] #[opt] pUnkOuter: IUnknown, #[in] ClsContext: SpeechTokenContext, #[out] #[retval] #[out_ptr] Object: *mut IUnknown) -> HRESULT;
             fn Remove(&self, #[in] ObjectStorageCLSID: BSTR) -> HRESULT;
             fn GetStorageFileName(&self, #[in] ObjectStorageCLSID: BSTR, #[in] KeyName: BSTR, #[in] FileName: BSTR, #[in] Folder: SpeechTokenShellFolder, #[out] #[retval] #[out_ptr] FilePath: *mut BSTR) -> HRESULT;
             fn RemoveStorageFileName(&self, #[in] ObjectStorageCLSID: BSTR, #[in] KeyName: BSTR, #[in] DeleteFileA: VARIANT_BOOL) -> HRESULT;
             fn IsUISupported(&self, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[in] #[opt] Object: IUnknown, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
-            fn DisplayUI(&self, #[in] hWnd: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] ExtraData: *const VARIANT, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Object: IUnknown) -> HRESULT;
+            fn DisplayUI(&self, #[in] hWnd: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[in] #[opt] Object: IUnknown) -> HRESULT;
             fn MatchesAttributes(&self, #[in] Attributes: BSTR, #[out] #[retval] Matches: *mut VARIANT_BOOL) -> HRESULT;
         }
         #[guid(0xca7eac50_2d01_4145_86d4_5ae7d70f4469)]
@@ -1078,7 +1078,7 @@ mod Windows {
             fn get_Id(&self, #[out] #[retval] #[out_ptr] Id: *mut BSTR) -> HRESULT;
             fn put_Default(&self, #[in] TokenId: BSTR) -> HRESULT;
             fn get_Default(&self, #[out] #[retval] #[out_ptr] TokenId: *mut BSTR) -> HRESULT;
-            fn SetId(&self, #[in] Id: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
+            fn SetId(&self, #[in] Id: BSTR, #[in] CreateIfNotExist: VARIANT_BOOL) -> HRESULT;
             fn GetDataKey(&self, #[in] Location: SpeechDataKeyLocation, #[out] #[retval] #[out_ptr] DataKey: *mut ISpeechDataKey) -> HRESULT;
             fn EnumerateTokens(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] Tokens: *mut ISpeechObjectTokens) -> HRESULT;
         }
@@ -1237,15 +1237,15 @@ mod Windows {
             fn put_State(&self, #[in] State: SpeechGrammarState) -> HRESULT;
             fn get_State(&self, #[out] #[retval] State: *mut SpeechGrammarState) -> HRESULT;
             fn get_Rules(&self, #[out] #[retval] #[out_ptr] Rules: *mut ISpeechGrammarRules) -> HRESULT;
-            fn Reset(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] NewLanguage: SpeechLanguageId) -> HRESULT;
-            fn CmdLoadFromFile(&self, #[in] FileName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SLOStatic")] LoadOption: SpeechLoadOption) -> HRESULT;
-            fn CmdLoadFromObject(&self, #[in] ClassId: BSTR, #[in] GrammarName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SLOStatic")] LoadOption: SpeechLoadOption) -> HRESULT;
-            fn CmdLoadFromResource(&self, #[in] hModule: i32, #[in] ResourceName: VARIANT, #[in] ResourceType: VARIANT, #[in] LanguageId: SpeechLanguageId, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SLOStatic")] LoadOption: SpeechLoadOption) -> HRESULT;
-            fn CmdLoadFromMemory(&self, #[in] GrammarData: VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SLOStatic")] LoadOption: SpeechLoadOption) -> HRESULT;
-            fn CmdLoadFromProprietaryGrammar(&self, #[in] ProprietaryGuid: BSTR, #[in] ProprietaryString: BSTR, #[in] ProprietaryData: VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SLOStatic")] LoadOption: SpeechLoadOption) -> HRESULT;
+            fn Reset(&self, #[in] NewLanguage: SpeechLanguageId) -> HRESULT;
+            fn CmdLoadFromFile(&self, #[in] FileName: BSTR, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromObject(&self, #[in] ClassId: BSTR, #[in] GrammarName: BSTR, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromResource(&self, #[in] hModule: i32, #[in] ResourceName: VARIANT, #[in] ResourceType: VARIANT, #[in] LanguageId: SpeechLanguageId, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromMemory(&self, #[in] GrammarData: VARIANT, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
+            fn CmdLoadFromProprietaryGrammar(&self, #[in] ProprietaryGuid: BSTR, #[in] ProprietaryString: BSTR, #[in] ProprietaryData: VARIANT, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
             fn CmdSetRuleState(&self, #[in] Name: BSTR, #[in] State: SpeechRuleState) -> HRESULT;
             fn CmdSetRuleIdState(&self, #[in] RuleId: i32, #[in] State: SpeechRuleState) -> HRESULT;
-            fn DictationLoad(&self, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("(BSTR)L\"\"")] TopicName: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("SLOStatic")] LoadOption: SpeechLoadOption) -> HRESULT;
+            fn DictationLoad(&self, #[in] TopicName: BSTR, #[in] LoadOption: SpeechLoadOption) -> HRESULT;
             fn DictationUnload(&self) -> HRESULT;
             fn DictationSetState(&self, #[in] State: SpeechRuleState) -> HRESULT;
             fn SetWordSequenceData(&self, #[in] Text: BSTR, #[in] TextLength: i32, #[in] #[opt] Info: ISpeechTextSelectionInformation) -> HRESULT;
@@ -1298,17 +1298,17 @@ mod Windows {
             fn get_Recognizer(&self, #[out] #[retval] #[out_ptr] Recognizer: *mut ISpeechObjectToken) -> HRESULT;
             fn put_AllowAudioInputFormatChangesOnNextSet(&self, #[in] Allow: VARIANT_BOOL) -> HRESULT;
             fn get_AllowAudioInputFormatChangesOnNextSet(&self, #[out] #[retval] Allow: *mut VARIANT_BOOL) -> HRESULT;
-            fn putref_AudioInput(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] AudioInput: ISpeechObjectToken) -> HRESULT;
+            fn putref_AudioInput(&self, #[in] #[opt] AudioInput: ISpeechObjectToken) -> HRESULT;
             fn get_AudioInput(&self, #[out] #[retval] #[out_ptr] AudioInput: *mut ISpeechObjectToken) -> HRESULT;
-            fn putref_AudioInputStream(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] AudioInputStream: ISpeechBaseStream) -> HRESULT;
+            fn putref_AudioInputStream(&self, #[in] #[opt] AudioInputStream: ISpeechBaseStream) -> HRESULT;
             fn get_AudioInputStream(&self, #[out] #[retval] #[out_ptr] AudioInputStream: *mut ISpeechBaseStream) -> HRESULT;
             fn get_IsShared(&self, #[out] #[retval] Shared: *mut VARIANT_BOOL) -> HRESULT;
             fn put_State(&self, #[in] State: SpeechRecognizerState) -> HRESULT;
             fn get_State(&self, #[out] #[retval] State: *mut SpeechRecognizerState) -> HRESULT;
             fn get_Status(&self, #[out] #[retval] #[out_ptr] Status: *mut ISpeechRecognizerStatus) -> HRESULT;
-            fn putref_Profile(&self, #[in] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] Profile: ISpeechObjectToken) -> HRESULT;
+            fn putref_Profile(&self, #[in] #[opt] Profile: ISpeechObjectToken) -> HRESULT;
             fn get_Profile(&self, #[out] #[retval] #[out_ptr] Profile: *mut ISpeechObjectToken) -> HRESULT;
-            fn EmulateRecognition(&self, #[in] TextElements: VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] ElementDisplayAttributes: *mut VARIANT, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] LanguageId: i32) -> HRESULT;
+            fn EmulateRecognition(&self, #[in] TextElements: VARIANT, #[in] ElementDisplayAttributes: *mut VARIANT, #[in] LanguageId: i32) -> HRESULT;
             fn CreateRecoContext(&self, #[out] #[retval] #[out_ptr] NewContext: *mut ISpeechRecoContext) -> HRESULT;
             fn GetFormat(&self, #[in] Type: SpeechFormatType, #[out] #[retval] #[out_ptr] Format: *mut ISpeechAudioFormat) -> HRESULT;
             fn SetPropertyNumber(&self, #[in] Name: BSTR, #[in] Value: i32, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
@@ -1316,7 +1316,7 @@ mod Windows {
             fn SetPropertyString(&self, #[in] Name: BSTR, #[in] Value: BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn GetPropertyString(&self, #[in] Name: BSTR, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__deref_inout_opt", "", "")] #[in] #[out] Value: *mut BSTR, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
             fn IsUISupported(&self, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
-            fn DisplayUI(&self, #[in] hWndParent: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] ExtraData: *const VARIANT) -> HRESULT;
+            fn DisplayUI(&self, #[in] hWndParent: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT) -> HRESULT;
             fn GetRecognizers(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
             fn GetAudioInputs(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
             fn GetProfiles(&self, #[in] RequiredAttributes: BSTR, #[in] OptionalAttributes: BSTR, #[out] #[retval] #[out_ptr] ObjectTokens: *mut ISpeechObjectTokens) -> HRESULT;
@@ -1380,7 +1380,7 @@ mod Windows {
             fn WaitUntilDone(&self, #[in] msTimeout: i32, #[out] #[retval] Done: *mut VARIANT_BOOL) -> HRESULT;
             fn SpeakCompleteEvent(&self, #[out] #[retval] Handle: *mut i32) -> HRESULT;
             fn IsUISupported(&self, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT, #[out] #[retval] Supported: *mut VARIANT_BOOL) -> HRESULT;
-            fn DisplayUI(&self, #[in] hWndParent: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] ExtraData: *const VARIANT) -> HRESULT;
+            fn DisplayUI(&self, #[in] hWndParent: i32, #[in] Title: BSTR, #[in] TypeOfUI: BSTR, #[in] ExtraData: *const VARIANT) -> HRESULT;
         }
         #[guid(0x8be47b07_57f6_11d2_9eee_00c04f797396)]
         interface ISpeechVoiceStatus: IDispatch {

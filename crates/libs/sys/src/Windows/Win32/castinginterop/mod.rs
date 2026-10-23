@@ -12,3 +12,6 @@ pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = 4;
 pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = 0;
 pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = 3;
 pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = 2;
+pub const CastingSourceInfo_Property_CastingTypes: windows_sys::core::PCWSTR = windows_sys::core::w!("CastingTypes");
+pub const CastingSourceInfo_Property_PreferredSourceUriScheme: windows_sys::core::PCWSTR = windows_sys::core::w!("PreferredSourceUriScheme");
+pub const CastingSourceInfo_Property_ProtectedMedia: windows_sys::core::PCWSTR = windows_sys::core::w!("ProtectedMedia");

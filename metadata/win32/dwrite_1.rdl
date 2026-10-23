@@ -510,7 +510,7 @@ mod Windows {
         }
         #[guid(0x30572f99_dac6_41db_a16e_0486307e606a)]
         interface IDWriteFactory1: IDWriteFactory {
-            fn GetEudcFontCollection(&self, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] checkForUpdates: BOOL) -> HRESULT;
+            fn GetEudcFontCollection(&self, #[out] #[out_ptr(null_on_failure)] fontCollection: *mut IDWriteFontCollection, checkForUpdates: BOOL) -> HRESULT;
             fn CreateCustomRenderingParams(&self, gamma: FLOAT, enhancedContrast: FLOAT, enhancedContrastGrayscale: FLOAT, clearTypeLevel: FLOAT, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE, #[out] #[out_ptr(null_on_failure)] renderingParams: *mut IDWriteRenderingParams1) -> HRESULT;
         }
         #[guid(0xacd16696_8c14_4f5d_877e_fe3fc1d32738)]
@@ -527,7 +527,7 @@ mod Windows {
             fn GetCaretMetrics(&self, #[out] caretMetrics: *mut DWRITE_CARET_METRICS);
             fn GetUnicodeRanges(&self, maxRangeCount: UINT32, #[out] #[opt] #[writable(entry, maxRangeCount)] #[readable(success, *actualRangeCount)] unicodeRanges: *mut DWRITE_UNICODE_RANGE, #[out] actualRangeCount: *mut UINT32) -> HRESULT;
             fn IsMonospacedFont(&self) -> BOOL;
-            fn GetDesignGlyphAdvances(&self, glyphCount: UINT32, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, #[out] #[writable(entry, glyphCount)] glyphAdvances: *mut INT32, #[Windows::Win32::Metadata::NativeDefaultArgument("0")] isSideways: BOOL) -> HRESULT;
+            fn GetDesignGlyphAdvances(&self, glyphCount: UINT32, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, #[out] #[writable(entry, glyphCount)] glyphAdvances: *mut INT32, isSideways: BOOL) -> HRESULT;
             fn GetGdiCompatibleGlyphAdvances(&self, emSize: FLOAT, pixelsPerDip: FLOAT, #[in] #[opt] transform: *const DWRITE_MATRIX, useGdiNatural: BOOL, isSideways: BOOL, glyphCount: UINT32, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, #[out] #[writable(entry, glyphCount)] glyphAdvances: *mut INT32) -> HRESULT;
             fn GetKerningPairAdjustments(&self, glyphCount: UINT32, #[in] #[readable(entry, glyphCount)] glyphIndices: *const UINT16, #[out] #[writable(entry, glyphCount)] glyphAdvanceAdjustments: *mut INT32) -> HRESULT;
             fn HasKerningPairs(&self) -> BOOL;
@@ -562,9 +562,9 @@ mod Windows {
         #[guid(0x9064d822_80a7_465c_a986_df65f78b8feb)]
         interface IDWriteTextLayout1: IDWriteTextLayout {
             fn SetPairKerning(&self, isPairKerningEnabled: BOOL, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetPairKerning(&self, currentPosition: UINT32, #[out] isPairKerningEnabled: *mut BOOL, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetPairKerning(&self, currentPosition: UINT32, #[out] isPairKerningEnabled: *mut BOOL, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
             fn SetCharacterSpacing(&self, leadingSpacing: FLOAT, trailingSpacing: FLOAT, minimumAdvanceWidth: FLOAT, textRange: DWRITE_TEXT_RANGE) -> HRESULT;
-            fn GetCharacterSpacing(&self, currentPosition: UINT32, #[out] leadingSpacing: *mut FLOAT, #[out] trailingSpacing: *mut FLOAT, #[out] minimumAdvanceWidth: *mut FLOAT, #[out] #[opt] #[Windows::Win32::Metadata::NativeDefaultArgument("0")] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
+            fn GetCharacterSpacing(&self, currentPosition: UINT32, #[out] leadingSpacing: *mut FLOAT, #[out] trailingSpacing: *mut FLOAT, #[out] minimumAdvanceWidth: *mut FLOAT, #[out] #[opt] textRange: *mut DWRITE_TEXT_RANGE) -> HRESULT;
         }
     }
 }

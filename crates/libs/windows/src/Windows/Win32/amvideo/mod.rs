@@ -13,9 +13,10 @@ pub const AMDDS_YUVFLP: i32 = 128;
 pub const AMDDS_YUVOFF: i32 = 32;
 pub const AMDDS_YUVOVR: i32 = 8;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_FRAMESTEP_STEP {
-    pub dwFramesToStep: u32,
+    pub dwFramesToStep: super::DWORD,
 }
 pub type AM_PROPERTY_FRAMESTEP = i32;
 pub const AM_PROPERTY_FRAMESTEP_CANCEL: AM_PROPERTY_FRAMESTEP = 2;
@@ -23,13 +24,13 @@ pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = 3;
 pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = 4;
 pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = 1;
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
-    pub dwActiveWidth: u32,
-    pub dwActiveHeight: u32,
+    pub dwActiveWidth: super::DWORD,
+    pub dwActiveHeight: super::DWORD,
     pub AvgTimePerFrame: super::REFERENCE_TIME,
 }
 windows_core::imp::define_interface!(IBaseVideoMixer, IBaseVideoMixer_Vtbl, 0);
@@ -177,45 +178,46 @@ impl windows_core::RuntimeName for IBaseVideoMixer {}
 windows_core::imp::define_interface!(IDirectDrawVideo, IDirectDrawVideo_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IDirectDrawVideo, windows_core::IUnknown);
 impl IDirectDrawVideo {
-    pub unsafe fn GetSwitches(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSwitches(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSwitches)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSwitches(&self, switches: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn SetSwitches(&self, switches: super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSwitches)(windows_core::Interface::as_raw(self), switches) }
     }
-    #[cfg(feature = "ddraw")]
+    #[cfg(all(feature = "ddraw", feature = "shared"))]
     pub unsafe fn GetCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCaps)(windows_core::Interface::as_raw(self), pcaps as _) }
     }
-    #[cfg(feature = "ddraw")]
+    #[cfg(all(feature = "ddraw", feature = "shared"))]
     pub unsafe fn GetEmulatedCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetEmulatedCaps)(windows_core::Interface::as_raw(self), pcaps as _) }
     }
-    #[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+    #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared"))]
     pub unsafe fn GetSurfaceDesc(&self, psurfacedesc: *mut super::DDSURFACEDESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSurfaceDesc)(windows_core::Interface::as_raw(self), psurfacedesc as _) }
     }
-    pub unsafe fn GetFourCCCodes(&self, pcount: *mut u32, pcodes: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetFourCCCodes(&self, pcount: *mut super::DWORD, pcodes: *mut super::DWORD) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFourCCCodes)(windows_core::Interface::as_raw(self), pcount as _, pcodes as _) }
     }
     #[cfg(feature = "ddraw")]
-    pub unsafe fn SetDirectDraw<P0>(&self, pdirectdraw: P0) -> windows_core::HRESULT
-    where
-        P0: windows_core::Param<super::IDirectDraw>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).SetDirectDraw)(windows_core::Interface::as_raw(self), pdirectdraw.param().abi()) }
+    pub unsafe fn SetDirectDraw(&self, pdirectdraw: &Option<super::LPDIRECTDRAW>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDirectDraw)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pdirectdraw)) }
     }
     #[cfg(feature = "ddraw")]
-    pub unsafe fn GetDirectDraw(&self) -> windows_core::Result<super::IDirectDraw> {
+    pub unsafe fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDirectDraw)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetSurfaceType(&self) -> windows_core::Result<u32> {
+    #[cfg(feature = "shared")]
+    pub unsafe fn GetSurfaceType(&self) -> windows_core::Result<super::DWORD> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSurfaceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -256,21 +258,30 @@ impl IDirectDrawVideo {
 #[doc(hidden)]
 pub struct IDirectDrawVideo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub GetSwitches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SetSwitches: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "ddraw")]
+    #[cfg(feature = "shared")]
+    pub GetSwitches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSwitches: usize,
+    #[cfg(feature = "shared")]
+    pub SetSwitches: unsafe extern "system" fn(*mut core::ffi::c_void, super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    SetSwitches: usize,
+    #[cfg(all(feature = "ddraw", feature = "shared"))]
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DDCAPS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ddraw"))]
+    #[cfg(not(all(feature = "ddraw", feature = "shared")))]
     GetCaps: usize,
-    #[cfg(feature = "ddraw")]
+    #[cfg(all(feature = "ddraw", feature = "shared"))]
     pub GetEmulatedCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DDCAPS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "ddraw"))]
+    #[cfg(not(all(feature = "ddraw", feature = "shared")))]
     GetEmulatedCaps: usize,
-    #[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+    #[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared"))]
     pub GetSurfaceDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DDSURFACEDESC) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "ddraw", feature = "ksmedia")))]
+    #[cfg(not(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared")))]
     GetSurfaceDesc: usize,
-    pub GetFourCCCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetFourCCCodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetFourCCCodes: usize,
     #[cfg(feature = "ddraw")]
     pub SetDirectDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ddraw"))]
@@ -279,7 +290,10 @@ pub struct IDirectDrawVideo_Vtbl {
     pub GetDirectDraw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "ddraw"))]
     GetDirectDraw: usize,
-    pub GetSurfaceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    #[cfg(feature = "shared")]
+    pub GetSurfaceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::DWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "shared"))]
+    GetSurfaceType: usize,
     pub SetDefault: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub UseScanLine: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub CanUseScanLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -288,17 +302,17 @@ pub struct IDirectDrawVideo_Vtbl {
     pub UseWhenFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub WillUseFullScreen: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
-    fn GetSwitches(&self) -> windows_core::Result<u32>;
-    fn SetSwitches(&self, switches: u32) -> windows_core::Result<()>;
+    fn GetSwitches(&self) -> windows_core::Result<super::DWORD>;
+    fn SetSwitches(&self, switches: super::DWORD) -> windows_core::Result<()>;
     fn GetCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::Result<()>;
     fn GetEmulatedCaps(&self, pcaps: *mut super::DDCAPS) -> windows_core::Result<()>;
     fn GetSurfaceDesc(&self, psurfacedesc: *mut super::DDSURFACEDESC) -> windows_core::Result<()>;
-    fn GetFourCCCodes(&self, pcount: *mut u32, pcodes: *mut u32) -> windows_core::Result<()>;
-    fn SetDirectDraw(&self, pdirectdraw: windows_core::Ref<super::IDirectDraw>) -> windows_core::Result<()>;
-    fn GetDirectDraw(&self) -> windows_core::Result<super::IDirectDraw>;
-    fn GetSurfaceType(&self) -> windows_core::Result<u32>;
+    fn GetFourCCCodes(&self, pcount: *mut super::DWORD, pcodes: *mut super::DWORD) -> windows_core::Result<()>;
+    fn SetDirectDraw(&self, pdirectdraw: Option<super::LPDIRECTDRAW>) -> windows_core::Result<()>;
+    fn GetDirectDraw(&self) -> windows_core::Result<super::LPDIRECTDRAW>;
+    fn GetSurfaceType(&self) -> windows_core::Result<super::DWORD>;
     fn SetDefault(&self) -> windows_core::Result<()>;
     fn UseScanLine(&self, usescanline: i32) -> windows_core::Result<()>;
     fn CanUseScanLine(&self) -> windows_core::Result<i32>;
@@ -307,10 +321,10 @@ pub trait IDirectDrawVideo_Impl: windows_core::IUnknownImpl {
     fn UseWhenFullScreen(&self, usewhenfullscreen: i32) -> windows_core::Result<()>;
     fn WillUseFullScreen(&self) -> windows_core::Result<i32>;
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl IDirectDrawVideo_Vtbl {
     pub const fn new<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetSwitches<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pswitches: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSwitches<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pswitches: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectDrawVideo_Impl::GetSwitches(this) {
@@ -322,7 +336,7 @@ impl IDirectDrawVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSwitches<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, switches: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSwitches<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, switches: super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDrawVideo_Impl::SetSwitches(this, core::mem::transmute_copy(&switches)).into()
@@ -346,7 +360,7 @@ impl IDirectDrawVideo_Vtbl {
                 IDirectDrawVideo_Impl::GetSurfaceDesc(this, core::mem::transmute_copy(&psurfacedesc)).into()
             }
         }
-        unsafe extern "system" fn GetFourCCCodes<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut u32, pcodes: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetFourCCCodes<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut super::DWORD, pcodes: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectDrawVideo_Impl::GetFourCCCodes(this, core::mem::transmute_copy(&pcount), core::mem::transmute_copy(&pcodes)).into()
@@ -355,7 +369,7 @@ impl IDirectDrawVideo_Vtbl {
         unsafe extern "system" fn SetDirectDraw<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirectdraw: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawVideo_Impl::SetDirectDraw(this, core::mem::transmute_copy(&pdirectdraw)).into()
+                IDirectDrawVideo_Impl::SetDirectDraw(this, core::mem::transmute(&pdirectdraw)).into()
             }
         }
         unsafe extern "system" fn GetDirectDraw<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdirectdraw: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -370,7 +384,7 @@ impl IDirectDrawVideo_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetSurfaceType<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psurfacetype: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSurfaceType<Identity: IDirectDrawVideo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psurfacetype: *mut super::DWORD) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirectDrawVideo_Impl::GetSurfaceType(this) {
@@ -466,7 +480,7 @@ impl IDirectDrawVideo_Vtbl {
         iid == &<IDirectDrawVideo as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "ddraw", feature = "ksmedia"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "minwindef", feature = "shared"))]
 impl windows_core::RuntimeName for IDirectDrawVideo {}
 windows_core::imp::define_interface!(IFullScreenVideo, IFullScreenVideo_Vtbl, 0);
 windows_core::imp::interface_hierarchy!(IFullScreenVideo, windows_core::IUnknown);
@@ -506,7 +520,7 @@ impl IFullScreenVideo {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetMessageDrain(&self, hwnd: super::HWND) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), hwnd) }
+        unsafe { (windows_core::Interface::vtable(self).SetMessageDrain)(windows_core::Interface::as_raw(self), hwnd as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn GetMessageDrain(&self) -> windows_core::Result<super::HWND> {
@@ -770,7 +784,7 @@ windows_core::imp::interface_hierarchy!(IFullScreenVideoEx, windows_core::IUnkno
 impl IFullScreenVideoEx {
     #[cfg(feature = "windef")]
     pub unsafe fn SetAcceleratorTable(&self, hwnd: super::HWND, haccel: super::HACCEL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAcceleratorTable)(windows_core::Interface::as_raw(self), hwnd, haccel) }
+        unsafe { (windows_core::Interface::vtable(self).SetAcceleratorTable)(windows_core::Interface::as_raw(self), hwnd as _, haccel as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn GetAcceleratorTable(&self, phwnd: *mut super::HWND, phaccel: *mut super::HACCEL) -> windows_core::HRESULT {
@@ -1005,15 +1019,15 @@ impl IQualProp_Vtbl {
 impl windows_core::RuntimeName for IQualProp {}
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: i32 = 140;
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
-    pub dwStartTimeCode: u32,
-    pub cbSequenceHeader: u32,
-    pub bSequenceHeader: [u8; 1],
+    pub dwStartTimeCode: super::DWORD,
+    pub cbSequenceHeader: super::DWORD,
+    pub bSequenceHeader: [super::BYTE; 1],
 }
-#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 impl Default for MPEG1VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1031,64 +1045,65 @@ pub const SIZE_MASKS: u64 = 12;
 pub const SIZE_PALETTE: u32 = 1024;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const SIZE_PALETTE: u64 = 1024;
-pub const SIZE_PREHEADER: i32 = 48;
+#[cfg(feature = "shared")]
+pub const SIZE_PREHEADER: super::LONG = 0x30_u32 as _;
 #[cfg(target_arch = "x86")]
 pub const SIZE_VIDEOHEADER: u32 = 88;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const SIZE_VIDEOHEADER: u64 = 88;
 #[repr(C)]
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUECOLORINFO {
-    pub dwBitMasks: [u32; 3],
+    pub dwBitMasks: [super::DWORD; 3],
     pub bmiColors: [super::RGBQUAD; 256],
 }
-#[cfg(feature = "wingdi")]
+#[cfg(all(feature = "shared", feature = "wingdi"))]
 impl Default for TRUECOLORINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub struct VIDEOINFO {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
+    pub dwBitRate: super::DWORD,
+    pub dwBitErrorRate: super::DWORD,
     pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: super::BITMAPINFOHEADER,
     pub Anonymous: VIDEOINFO_0,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy)]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::RGBQUAD; 256],
-    pub dwBitMasks: [u32; 3],
+    pub dwBitMasks: [super::DWORD; 3],
     pub TrueColorInfo: TRUECOLORINFO,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 impl Default for VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::RECT,
     pub rcTarget: super::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
+    pub dwBitRate: super::DWORD,
+    pub dwBitErrorRate: super::DWORD,
     pub AvgTimePerFrame: super::REFERENCE_TIME,
     pub bmiHeader: super::BITMAPINFOHEADER,
 }

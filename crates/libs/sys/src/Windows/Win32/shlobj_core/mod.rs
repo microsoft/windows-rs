@@ -1,248 +1,265 @@
-#[cfg(all(feature = "oaidl", feature = "shobjidl_core", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, pkey : *const super::PROPERTYKEY, pv : *mut super::VARIANT, pffoundpropkey : *mut windows_sys::core::BOOL) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : super::LPCITEMIDLIST, hwnd : super::HWND, cidl : u32, apidl : *const super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : super::LPCITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : super::LPCITEMIDLIST, hwnd : super::HWND, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : super::UINT, ahkeys : *const super::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : super::LPCITEMIDLIST, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DAD_AutoScroll(hwnd : super::HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::POINT) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DAD_DragEnterEx(hwndtarget : super::HWND, ptstart : super::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "objidl", feature = "windef"))]
+#[cfg(all(feature = "objidl", feature = "shared", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DAD_DragEnterEx2(hwndtarget : super::HWND, ptstart : super::POINT, pdtobject : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn DAD_DragLeave() -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DAD_DragMove(pt : super::POINT) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "commctrl", feature = "windef"))]
+#[cfg(all(feature = "commctrl", feature = "shared", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn DAD_SetDragImage(him : super::HIMAGELIST, pptoffset : *mut super::POINT) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn DAD_ShowDragImage(fshow : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILAppendID(pidl : super::LPITEMIDLIST, pmkid : super::LPCSHITEMID, fappend : windows_sys::core::BOOL) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILClone(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILCloneFirst(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILCombine(pidl1 : super::LPCITEMIDLIST, pidl2 : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILCreateFromPathA(pszpath : windows_sys::core::PCSTR) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILCreateFromPathW(pszpath : windows_sys::core::PCWSTR) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILFindChild(pidlparent : super::LPITEMIDLIST, pidlchild : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILFindLastID(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILFree(pidl : super::LPITEMIDLIST));
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILGetNext(pidl : super::LPCITEMIDLIST) -> super::LPITEMIDLIST);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn ILGetSize(pidl : super::LPCITEMIDLIST) -> u32);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn ILGetSize(pidl : super::LPCITEMIDLIST) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILIsEqual(pidl1 : super::LPCITEMIDLIST, pidl2 : super::LPCITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILIsParent(pidl1 : super::LPCITEMIDLIST, pidl2 : super::LPCITEMIDLIST, fimmediate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILLoadFromStreamEx(pstm : *mut core::ffi::c_void, pidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : super::LPITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "objidlbase", feature = "shtypes"))]
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn ILSaveToStream(pstm : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn IsNetDrive(idrive : i32) -> i32);
 windows_link::link!("shell32.dll" "system" fn IsUserAnAdmin() -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "objidlbase"))]
-windows_link::link!("shell32.dll" "system" fn OpenRegStream(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> *mut core::ffi::c_void);
+#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn OpenRegStream(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : super::DWORD) -> *mut core::ffi::c_void);
 windows_link::link!("shell32.dll" "system" fn PathCleanupSpec(pszdir : windows_sys::core::PCWSTR, pszspec : windows_sys::core::PWSTR) -> i32);
 windows_link::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : windows_sys::core::PWSTR));
 windows_link::link!("shell32.dll" "system" fn PathIsExe(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, cchmax : u32, psztemplate : windows_sys::core::PCWSTR, pszlongplate : windows_sys::core::PCWSTR, pszdir : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "winnt")]
-windows_link::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : super::PZPCWSTR, fflags : u32) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, cchmax : super::UINT, psztemplate : windows_sys::core::PCWSTR, pszlongplate : windows_sys::core::PCWSTR, pszdir : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_sys::core::PWSTR, dirs : super::PZPCWSTR, fflags : super::UINT) -> i32);
 windows_link::link!("shell32.dll" "system" fn PathYetAnotherMakeUniqueName(pszuniquename : windows_sys::core::PWSTR, pszpath : windows_sys::core::PCWSTR, pszshort : windows_sys::core::PCWSTR, pszfilespec : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::HWND, psziconpath : windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("shell32.dll" "system" fn PifMgr_CloseProperties(hprops : super::HANDLE, flopt : u32) -> super::HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("shell32.dll" "system" fn PifMgr_GetProperties(hprops : super::HANDLE, pszgroup : windows_sys::core::PCSTR, lpprops : *mut core::ffi::c_void, cbprops : i32, flopt : u32) -> i32);
-#[cfg(feature = "winnt")]
-windows_link::link!("shell32.dll" "system" fn PifMgr_OpenProperties(pszapp : windows_sys::core::PCWSTR, pszpif : windows_sys::core::PCWSTR, hinf : u32, flopt : u32) -> super::HANDLE);
-#[cfg(feature = "winnt")]
-windows_link::link!("shell32.dll" "system" fn PifMgr_SetProperties(hprops : super::HANDLE, pszgroup : windows_sys::core::PCSTR, lpprops : *const core::ffi::c_void, cbprops : i32, flopt : u32) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::HWND, psziconpath : windows_sys::core::PWSTR, cchiconpath : super::UINT, piiconindex : *mut i32) -> i32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn PifMgr_CloseProperties(hprops : super::HANDLE, flopt : super::UINT) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn PifMgr_GetProperties(hprops : super::HANDLE, pszgroup : windows_sys::core::PCSTR, lpprops : *mut core::ffi::c_void, cbprops : i32, flopt : super::UINT) -> i32);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn PifMgr_OpenProperties(pszapp : windows_sys::core::PCWSTR, pszpif : windows_sys::core::PCWSTR, hinf : super::UINT, flopt : super::UINT) -> super::HANDLE);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn PifMgr_SetProperties(hprops : super::HANDLE, pszgroup : windows_sys::core::PCSTR, lpprops : *const core::ffi::c_void, cbprops : i32, flopt : super::UINT) -> i32);
+#[cfg(feature = "shared")]
 windows_link::link!("shell32.dll" "system" fn ReadCabinetState(pcs : *mut CABINETSTATE, clength : i32) -> windows_sys::core::BOOL);
 windows_link::link!("shell32.dll" "system" fn RealDriveType(idrive : i32, foktohitnet : windows_sys::core::BOOL) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn RestartDialog(hwnd : super::HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : u32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn RestartDialogEx(hwnd : super::HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
-#[cfg(all(feature = "minwindef", feature = "prsht"))]
-windows_link::link!("shell32.dll" "system" fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::LPFNADDPROPSHEETPAGE, lparam : super::LPARAM) -> u32);
-#[cfg(feature = "minwindef")]
-windows_link::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : super::LPCVOID));
-windows_link::link!("shell32.dll" "system" fn SHAlloc(cb : usize) -> *mut core::ffi::c_void);
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, ppbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHBindToObject(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, pbc : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHBindToParent(pidl : super::LPCITEMIDLIST, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn RestartDialog(hwnd : super::HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : super::DWORD) -> i32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn RestartDialogEx(hwnd : super::HWND, pszprompt : windows_sys::core::PCWSTR, dwreturn : super::DWORD, dwreasoncode : super::DWORD) -> i32);
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::LPFNADDPROPSHEETPAGE, lparam : super::LPARAM) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : super::UINT, pv : super::LPCVOID));
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHAlloc(cb : super::SIZE_T) -> *mut core::ffi::c_void);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, ppbc : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHBindToObject(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, pbc : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHBindToParent(pidl : super::LPCITEMIDLIST, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::LPCITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderA(lpbi : LPBROWSEINFOA) -> super::LPITEMIDLIST);
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHBrowseForFolderW(lpbi : LPBROWSEINFOW) -> super::LPITEMIDLIST);
-windows_link::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : windows_sys::core::PCWSTR, pclsid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shtypes", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::HANDLE, dwprocid : u32, pppidl : *mut *mut super::LPITEMIDLIST, plevent : *mut i32) -> super::HANDLE);
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : windows_sys::core::PCWSTR, pclsid : *mut super::CLSID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::HANDLE, dwprocid : super::DWORD, pppidl : *mut *mut super::LPITEMIDLIST, plevent : *mut super::LONG) -> super::HANDLE);
 #[cfg(feature = "winnt")]
 windows_link::link!("shell32.dll" "system" fn SHChangeNotification_Unlock(hlock : super::HANDLE) -> windows_sys::core::BOOL);
-#[cfg(feature = "minwindef")]
-windows_link::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : u32, dwitem1 : super::LPCVOID, dwitem2 : super::LPCVOID));
-windows_link::link!("shell32.dll" "system" fn SHChangeNotifyDeregister(ulid : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : super::HWND, fsources : i32, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
-#[cfg(all(feature = "shtypes", feature = "windef"))]
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHChangeNotify(weventid : super::LONG, uflags : super::UINT, dwitem1 : super::LPCVOID, dwitem2 : super::LPCVOID));
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHChangeNotifyDeregister(ulid : super::ULONG) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHChangeNotifyRegister(hwnd : super::HWND, fsources : i32, fevents : super::LONG, wmsg : super::UINT, centries : i32, pshcne : *const SHChangeNotifyEntry) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCloneSpecialIDList(hwnd : super::HWND, csidl : i32, fcreate : windows_sys::core::BOOL) -> super::LPITEMIDLIST);
-windows_link::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_sys::core::PCWSTR, pclsid : *const windows_sys::core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "shtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : super::LPCITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_sys::core::PCWSTR, pclsid : *const super::CLSID, punkouter : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : super::LPCITEMIDLIST, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHCreateDirectory(hwnd : super::HWND, pszpath : windows_sys::core::PCWSTR) -> i32);
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateDirectoryExA(hwnd : super::HWND, pszpath : windows_sys::core::PCSTR, psa : *const super::SECURITY_ATTRIBUTES) -> i32);
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateDirectoryExW(hwnd : super::HWND, pszpath : windows_sys::core::PCWSTR, psa : *const super::SECURITY_ATTRIBUTES) -> i32);
-windows_link::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : windows_sys::core::PCWSTR, dwfileattributes : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : windows_sys::core::PCWSTR, dwfileattributes : super::DWORD, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : super::LPCITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, ppsi : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "wtypes"))]
-windows_link::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::FORMATETC, ppenumformatetc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : windows_sys::core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::HICON, phiconsmall : *mut super::HICON, niconsize : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHDefExtractIconW(psziconfile : windows_sys::core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::HICON, phiconsmall : *mut super::HICON, niconsize : u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "objidl", feature = "shared", feature = "wtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : super::UINT, afmt : *const super::FORMATETC, ppenumformatetc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : windows_sys::core::PCSTR, iindex : i32, uflags : super::UINT, phiconlarge : *mut super::HICON, phiconsmall : *mut super::HICON, niconsize : super::UINT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHDefExtractIconW(psziconfile : windows_sys::core::PCWSTR, iindex : i32, uflags : super::UINT, phiconlarge : *mut super::HICON, phiconsmall : *mut super::HICON, niconsize : super::UINT) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHDestroyPropSheetExtArray(hpsxa : HPSXA));
-#[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHDoDragDrop(hwnd : super::HWND, pdata : *mut core::ffi::c_void, pdsrc : *mut core::ffi::c_void, dweffect : u32, pdweffect : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "objidl", feature = "oleidl", feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHDoDragDrop(hwnd : super::HWND, pdata : *mut core::ffi::c_void, pdsrc : *mut core::ffi::c_void, dweffect : super::DWORD, pdweffect : *mut super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHFindFiles(pidlfolder : super::LPCITEMIDLIST, pidlsavefile : super::LPCITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "shobjidl_core", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : super::HMENU, hwndowner : super::HWND, idcmdfirst : u32, idcmdlast : u32) -> *mut core::ffi::c_void);
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHFind_InitMenuPopup(hmenu : super::HMENU, hwndowner : super::HWND, idcmdfirst : super::UINT, idcmdlast : super::UINT) -> *mut core::ffi::c_void);
 windows_link::link!("shell32.dll" "system" fn SHFlushSFCache());
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::HWND, drive : u32, fmtid : u32, options : u32) -> u32);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHFormatDrive(hwnd : super::HWND, drive : super::UINT, fmtid : super::UINT, options : super::UINT) -> super::DWORD);
 windows_link::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_void));
-#[cfg(feature = "objidl")]
-windows_link::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : *mut core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : *mut core::ffi::c_void, dwattributemask : super::DWORD, pdwattributes : *mut super::DWORD, pcitems : *mut super::UINT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListA(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetDataFromIDListW(psf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, nformat : i32, pv : *mut core::ffi::c_void, cb : i32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "shobjidl_core")]
 windows_link::link!("shell32.dll" "system" fn SHGetDesktopFolder(ppshf : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shtypes", feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetFolderLocation(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : u32, ppidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetFolderPathA(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : u32, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirA(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : u32, pszsubdir : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirW(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : u32, pszsubdir : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetFolderPathW(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : u32, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetFolderLocation(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : super::DWORD, ppidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetFolderPathA(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : super::DWORD, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirA(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : super::DWORD, pszsubdir : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirW(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : super::DWORD, pszsubdir : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetFolderPathW(hwnd : super::HWND, csidl : i32, htoken : super::HANDLE, dwflags : super::DWORD, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHGetIconOverlayIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32) -> i32);
 windows_link::link!("shell32.dll" "system" fn SHGetIconOverlayIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32) -> i32);
 windows_link::link!("shell32.dll" "system" fn SHGetInstanceExplorer(ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shtypes", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *const super::KNOWNFOLDERID, dwflags : u32, htoken : super::HANDLE, ppidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shtypes", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const super::KNOWNFOLDERID, flags : KNOWN_FOLDER_FLAG, htoken : super::HANDLE, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shtypes", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const super::KNOWNFOLDERID, dwflags : u32, htoken : super::HANDLE, ppszpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderIDList(rfid : *const super::KNOWNFOLDERID, dwflags : super::DWORD, htoken : super::HANDLE, ppidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "shtypes", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const super::KNOWNFOLDERID, flags : KNOWN_FOLDER_FLAG, htoken : super::HANDLE, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHGetKnownFolderPath(rfid : *const super::KNOWNFOLDERID, dwflags : super::DWORD, htoken : super::HANDLE, ppszpath : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("shell32.dll" "system" fn SHGetMalloc(ppmalloc : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : super::LPCITEMIDLIST, pszpath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : super::LPCITEMIDLIST, pszpath : windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> windows_sys::core::BOOL);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : super::LPCITEMIDLIST, pszpath : windows_sys::core::PWSTR, cchpath : super::DWORD, uopts : GPFIDL_FLAGS) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : super::LPCITEMIDLIST, pszpath : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHGetRealIDL(psf : *mut core::ffi::c_void, pidlsimple : super::LPCITEMIDLIST, ppidlreal : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
-#[cfg(feature = "shobjidl_core")]
-windows_link::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : LPSHFOLDERCUSTOMSETTINGS, pszpath : windows_sys::core::PCWSTR, dwreadwrite : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHGetSetSettings(lpss : LPSHELLSTATEA, dwmask : u32, bset : windows_sys::core::BOOL));
-windows_link::link!("shell32.dll" "system" fn SHGetSettings(psfs : *mut SHELLFLAGSTATE, dwmask : u32));
-#[cfg(all(feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shobjidl_core"))]
+windows_link::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : LPSHFOLDERCUSTOMSETTINGS, pszpath : windows_sys::core::PCWSTR, dwreadwrite : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHGetSetSettings(lpss : LPSHELLSTATEA, dwmask : super::DWORD, bset : windows_sys::core::BOOL));
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHGetSettings(psfs : *mut SHELLFLAGSTATE, dwmask : super::DWORD));
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderLocation(hwnd : super::HWND, csidl : i32, ppidl : *mut super::LPITEMIDLIST) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderPathA(hwnd : super::HWND, pszpath : windows_sys::core::PSTR, csidl : i32, fcreate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHGetSpecialFolderPathW(hwnd : super::HWND, pszpath : windows_sys::core::PWSTR, csidl : i32, fcreate : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHHandleUpdateImage(pidlextra : super::LPCITEMIDLIST) -> i32);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : windows_sys::core::PCWSTR, ppidl : *mut super::LPITEMIDLIST, rgfinout : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : windows_sys::core::PCWSTR, ppidl : *mut super::LPITEMIDLIST, rgfinout : *mut super::DWORD) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "shobjidl_core", feature = "windef"))]
 windows_link::link!("shell32.dll" "system" fn SHLimitInputEdit(hwndedit : super::HWND, psf : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
+#[cfg(feature = "guiddef")]
+windows_link::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const super::IID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : *mut core::ffi::c_void, pidl : super::LPCITEMIDLIST, piindexsel : *mut i32) -> i32);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::HWND, shopobjecttype : u32, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-#[cfg(feature = "shtypes")]
-windows_link::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : super::LPCITEMIDLIST, cidl : u32, apidl : *const super::LPCITEMIDLIST, dwflags : u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHObjectProperties(hwnd : super::HWND, shopobjecttype : super::DWORD, pszobjectname : windows_sys::core::PCWSTR, pszpropertypage : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+windows_link::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : super::LPCITEMIDLIST, cidl : super::UINT, apidl : *const super::LPCITEMIDLIST, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
 #[cfg(feature = "windef")]
 windows_link::link!("shell32.dll" "system" fn SHOpenWithDialog(hwndparent : super::HWND, poainfo : *const OPENASINFO) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
+#[cfg(all(feature = "objidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SHParseDisplayName(pszname : windows_sys::core::PCWSTR, pbc : *mut core::ffi::c_void, ppidl : *mut super::LPITEMIDLIST, sfgaoin : super::SFGAOF, psfgaoout : *mut super::SFGAOF) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : super::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "propidlbase")]
-windows_link::link!("shell32.dll" "system" fn SHPropStgCreate(psstg : *mut core::ffi::c_void, fmtid : *const windows_sys::core::GUID, pclsid : *const windows_sys::core::GUID, grfflags : u32, grfmode : u32, dwdisposition : u32, ppstg : *mut *mut core::ffi::c_void, pucodepage : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("shell32.dll" "system" fn SHPropStgReadMultiple(pps : *mut core::ffi::c_void, ucodepage : u32, cpspec : u32, rgpspec : *const super::PROPSPEC, rgvar : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-windows_link::link!("shell32.dll" "system" fn SHPropStgWriteMultiple(pps : *mut core::ffi::c_void, pucodepage : *mut u32, cpspec : u32, rgpspec : *const super::PROPSPEC, rgvar : *mut super::PROPVARIANT, propidnamefirst : super::PROPID) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "prsht"))]
-windows_link::link!("shell32.dll" "system" fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : u32, lpfnreplacewith : super::LPFNADDPROPSHEETPAGE, lparam : super::LPARAM) -> u32);
-windows_link::link!("shell32.dll" "system" fn SHRestricted(rest : RESTRICTIONS) -> u32);
-#[cfg(feature = "winnt")]
-windows_link::link!("shell32.dll" "system" fn SHSetFolderPathA(csidl : i32, htoken : super::HANDLE, dwflags : u32, pszpath : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
-#[cfg(feature = "winnt")]
-windows_link::link!("shell32.dll" "system" fn SHSetFolderPathW(csidl : i32, htoken : super::HANDLE, dwflags : u32, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteA(hwnd : super::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_sys::core::PCSTR, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHPathPrepareForWriteW(hwnd : super::HWND, punkenablemodless : *mut core::ffi::c_void, pszpath : windows_sys::core::PCWSTR, dwflags : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "propidlbase", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn SHPropStgCreate(psstg : *mut core::ffi::c_void, fmtid : *const super::IID, pclsid : *const super::CLSID, grfflags : super::DWORD, grfmode : super::DWORD, dwdisposition : super::DWORD, ppstg : *mut *mut core::ffi::c_void, pucodepage : *mut super::UINT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("shell32.dll" "system" fn SHPropStgReadMultiple(pps : *mut core::ffi::c_void, ucodepage : super::UINT, cpspec : super::ULONG, rgpspec : *const super::PROPSPEC, rgvar : *mut super::PROPVARIANT) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+windows_link::link!("shell32.dll" "system" fn SHPropStgWriteMultiple(pps : *mut core::ffi::c_void, pucodepage : *mut super::UINT, cpspec : super::ULONG, rgpspec : *const super::PROPSPEC, rgvar : *mut super::PROPVARIANT, propidnamefirst : super::PROPID) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : super::UINT, lpfnreplacewith : super::LPFNADDPROPSHEETPAGE, lparam : super::LPARAM) -> super::UINT);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHRestricted(rest : RESTRICTIONS) -> super::DWORD);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHSetFolderPathA(csidl : i32, htoken : super::HANDLE, dwflags : super::DWORD, pszpath : windows_sys::core::PCSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "shared", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHSetFolderPathW(csidl : i32, htoken : super::HANDLE, dwflags : super::DWORD, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn SHSetInstanceExplorer(punk : *mut core::ffi::c_void));
-#[cfg(all(feature = "shtypes", feature = "winnt"))]
-windows_link::link!("shell32.dll" "system" fn SHSetKnownFolderPath(rfid : *const super::KNOWNFOLDERID, dwflags : u32, htoken : super::HANDLE, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-windows_link::link!("shell32.dll" "system" fn SHShellFolderView_Message(hwndmain : super::HWND, umsg : u32, lparam : super::LPARAM) -> super::LRESULT);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHStartNetConnectionDialogW(hwnd : super::HWND, pszremotename : windows_sys::core::PCWSTR, dwtype : u32) -> windows_sys::core::HRESULT);
-windows_link::link!("shell32.dll" "system" fn SHUpdateImageA(pszhashitem : windows_sys::core::PCSTR, iindex : i32, uflags : u32, iimageindex : i32));
-windows_link::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : windows_sys::core::PCWSTR, iindex : i32, uflags : u32, iimageindex : i32));
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::HWND, pszfile : windows_sys::core::PWSTR, fconnect : u32) -> windows_sys::core::BOOL);
-windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndex(pwsziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
-windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32, uiconflags : u32) -> i32);
-windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "winnt"))]
+windows_link::link!("shell32.dll" "system" fn SHSetKnownFolderPath(rfid : *const super::KNOWNFOLDERID, dwflags : super::DWORD, htoken : super::HANDLE, pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHShellFolderView_Message(hwndmain : super::HWND, umsg : super::UINT, lparam : super::LPARAM) -> super::LRESULT);
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHStartNetConnectionDialogW(hwnd : super::HWND, pszremotename : windows_sys::core::PCWSTR, dwtype : super::DWORD) -> windows_sys::core::HRESULT);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHUpdateImageA(pszhashitem : windows_sys::core::PCSTR, iindex : i32, uflags : super::UINT, iimageindex : i32));
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : windows_sys::core::PCWSTR, iindex : i32, uflags : super::UINT, iimageindex : i32));
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::HWND, pszfile : windows_sys::core::PWSTR, fconnect : super::UINT) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndex(pwsziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : super::UINT) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexA(psziconpath : windows_sys::core::PCSTR, iiconindex : i32, uiconflags : super::UINT) -> i32);
+#[cfg(feature = "shared")]
+windows_link::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : super::UINT) -> i32);
 #[cfg(feature = "commctrl")]
 windows_link::link!("shell32.dll" "system" fn Shell_GetImageLists(phiml : *mut super::HIMAGELIST, phimlsmall : *mut super::HIMAGELIST) -> windows_sys::core::BOOL);
-#[cfg(feature = "windef")]
-windows_link::link!("shell32.dll" "system" fn Shell_MergeMenus(hmdst : super::HMENU, hmsrc : super::HMENU, uinsert : u32, uidadjust : u32, uidadjustmax : u32, uflags : u32) -> u32);
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "windef"))]
+windows_link::link!("shell32.dll" "system" fn Shell_MergeMenus(hmdst : super::HMENU, hmsrc : super::HMENU, uinsert : super::UINT, uidadjust : super::UINT, uidadjustmax : super::UINT, uflags : super::ULONG) -> super::UINT);
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 windows_link::link!("shell32.dll" "system" fn SignalFileOpen(pidl : super::LPCITEMIDLIST) -> windows_sys::core::BOOL);
-#[cfg(feature = "objidl")]
-windows_link::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : *mut core::ffi::c_void, pszfilespec : windows_sys::core::PCWSTR, grfmode : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "guiddef", feature = "objidl", feature = "shared"))]
+windows_link::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : *mut core::ffi::c_void, pszfilespec : windows_sys::core::PCWSTR, grfmode : super::DWORD, riid : *const super::IID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shell32.dll" "system" fn Win32DeleteFile(pszpath : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+#[cfg(feature = "shared")]
 windows_link::link!("shell32.dll" "system" fn WriteCabinetState(pcs : *const CABINETSTATE) -> windows_sys::core::BOOL);
 pub const ACLO_CURRENTDIR: AUTOCOMPLETELISTOPTIONS = 1;
 pub const ACLO_DESKTOP: AUTOCOMPLETELISTOPTIONS = 4;
@@ -265,23 +282,23 @@ pub const AD_GETWP_IMAGE: i32 = 1;
 pub const AD_GETWP_LAST_APPLIED: i32 = 2;
 pub type AUTOCOMPLETELISTOPTIONS = i32;
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct AUTO_SCROLL_DATA {
     pub iNextSample: i32,
-    pub dwLastScroll: u32,
+    pub dwLastScroll: super::DWORD,
     pub bFull: windows_sys::core::BOOL,
     pub pts: [super::POINT; 3],
-    pub dwTimes: [u32; 3],
+    pub dwTimes: [super::DWORD; 3],
 }
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 impl Default for AUTO_SCROLL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, umsg: u32, lparam: super::LPARAM, lpdata: super::LPARAM) -> i32>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+pub type BFFCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, umsg: super::UINT, lparam: super::LPARAM, lpdata: super::LPARAM) -> i32>;
 pub const BFFM_ENABLEOK: i32 = 1125;
 pub const BFFM_INITIALIZED: i32 = 1;
 pub const BFFM_IUNKNOWN: i32 = 5;
@@ -314,47 +331,83 @@ pub const BIF_STATUSTEXT: i32 = 4;
 pub const BIF_UAHINT: i32 = 256;
 pub const BIF_USENEWUI: i32 = 80;
 pub const BIF_VALIDATE: i32 = 32;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
     pub pszDisplayName: windows_sys::core::PSTR,
     pub lpszTitle: windows_sys::core::PCSTR,
-    pub ulFlags: u32,
+    pub ulFlags: super::UINT,
     pub lpfn: BFFCALLBACK,
     pub lParam: super::LPARAM,
     pub iImage: i32,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
     pub pszDisplayName: windows_sys::core::PWSTR,
     pub lpszTitle: windows_sys::core::PCWSTR,
-    pub ulFlags: u32,
+    pub ulFlags: super::UINT,
     pub lpfn: BFFCALLBACK,
     pub lParam: super::LPARAM,
     pub iImage: i32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct CABINETSTATE {
-    pub cLength: u16,
-    pub nVersion: u16,
-    pub _bitfield: windows_sys::core::BOOL,
-    pub fMenuEnumFilter: u32,
+    pub cLength: super::WORD,
+    pub nVersion: super::WORD,
+    pub _bitfield: i32,
+    pub fMenuEnumFilter: super::UINT,
 }
 pub const CABINETSTATE_VERSION: i32 = 2;
+pub const CFSTR_AUTOPLAY_SHELLIDLISTS: windows_sys::core::PCSTR = windows_sys::core::s!("Autoplay Enumerated IDList Array");
+pub const CFSTR_DROPDESCRIPTION: windows_sys::core::PCSTR = windows_sys::core::s!("DropDescription");
+pub const CFSTR_FILECONTENTS: windows_sys::core::PCSTR = windows_sys::core::s!("FileContents");
+pub const CFSTR_FILEDESCRIPTOR: windows_sys::core::PCSTR = windows_sys::core::s!("FileGroupDescriptor");
+pub const CFSTR_FILEDESCRIPTORA: windows_sys::core::PCSTR = windows_sys::core::s!("FileGroupDescriptor");
+pub const CFSTR_FILEDESCRIPTORW: windows_sys::core::PCSTR = windows_sys::core::s!("FileGroupDescriptorW");
+pub const CFSTR_FILENAME: windows_sys::core::PCSTR = windows_sys::core::s!("FileName");
+pub const CFSTR_FILENAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("FileName");
+pub const CFSTR_FILENAMEMAP: windows_sys::core::PCSTR = windows_sys::core::s!("FileNameMap");
+pub const CFSTR_FILENAMEMAPA: windows_sys::core::PCSTR = windows_sys::core::s!("FileNameMap");
+pub const CFSTR_FILENAMEMAPW: windows_sys::core::PCSTR = windows_sys::core::s!("FileNameMapW");
+pub const CFSTR_FILENAMEW: windows_sys::core::PCSTR = windows_sys::core::s!("FileNameW");
+pub const CFSTR_FILE_ATTRIBUTES_ARRAY: windows_sys::core::PCSTR = windows_sys::core::s!("File Attributes Array");
+pub const CFSTR_INDRAGLOOP: windows_sys::core::PCSTR = windows_sys::core::s!("InShellDragLoop");
+pub const CFSTR_INETURL: windows_sys::core::PCSTR = windows_sys::core::s!("UniformResourceLocator");
+pub const CFSTR_INETURLA: windows_sys::core::PCSTR = windows_sys::core::s!("UniformResourceLocator");
+pub const CFSTR_INETURLW: windows_sys::core::PCSTR = windows_sys::core::s!("UniformResourceLocatorW");
+pub const CFSTR_INVOKECOMMAND_DROPPARAM: windows_sys::core::PCSTR = windows_sys::core::s!("InvokeCommand DropParam");
+pub const CFSTR_LOGICALPERFORMEDDROPEFFECT: windows_sys::core::PCSTR = windows_sys::core::s!("Logical Performed DropEffect");
+pub const CFSTR_MOUNTEDVOLUME: windows_sys::core::PCSTR = windows_sys::core::s!("MountedVolume");
+pub const CFSTR_NETRESOURCES: windows_sys::core::PCSTR = windows_sys::core::s!("Net Resource");
+pub const CFSTR_PASTESUCCEEDED: windows_sys::core::PCSTR = windows_sys::core::s!("Paste Succeeded");
+pub const CFSTR_PERFORMEDDROPEFFECT: windows_sys::core::PCSTR = windows_sys::core::s!("Performed DropEffect");
+pub const CFSTR_PERSISTEDDATAOBJECT: windows_sys::core::PCSTR = windows_sys::core::s!("PersistedDataObject");
+pub const CFSTR_PREFERREDDROPEFFECT: windows_sys::core::PCSTR = windows_sys::core::s!("Preferred DropEffect");
+pub const CFSTR_PRINTERGROUP: windows_sys::core::PCSTR = windows_sys::core::s!("PrinterFriendlyName");
+pub const CFSTR_SHELLDROPHANDLER: windows_sys::core::PCSTR = windows_sys::core::s!("DropHandlerCLSID");
+pub const CFSTR_SHELLIDLIST: windows_sys::core::PCSTR = windows_sys::core::s!("Shell IDList Array");
+pub const CFSTR_SHELLIDLISTOFFSET: windows_sys::core::PCSTR = windows_sys::core::s!("Shell Object Offsets");
+pub const CFSTR_SHELLURL: windows_sys::core::PCSTR = windows_sys::core::s!("UniformResourceLocator");
+pub const CFSTR_TARGETCLSID: windows_sys::core::PCSTR = windows_sys::core::s!("TargetCLSID");
+pub const CFSTR_UNTRUSTEDDRAGDROP: windows_sys::core::PCSTR = windows_sys::core::s!("UntrustedDragDrop");
+pub const CFSTR_ZONEIDENTIFIER: windows_sys::core::PCSTR = windows_sys::core::s!("ZoneIdentifier");
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct CIDA {
-    pub cidl: u32,
-    pub aoffset: [u32; 1],
+    pub cidl: super::UINT,
+    pub aoffset: [super::UINT; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for CIDA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -362,31 +415,34 @@ impl Default for CIDA {
 }
 pub const CMDID_INTSHORTCUTCREATE: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct COMPONENT {
-    pub dwSize: u32,
-    pub dwID: u32,
+    pub dwSize: super::DWORD,
+    pub dwID: super::DWORD,
     pub iComponentType: i32,
     pub fChecked: windows_sys::core::BOOL,
     pub fDirty: windows_sys::core::BOOL,
     pub fNoScroll: windows_sys::core::BOOL,
     pub cpPos: COMPPOS,
-    pub wszFriendlyName: [u16; 260],
-    pub wszSource: [u16; 2084],
-    pub wszSubscribedURL: [u16; 2084],
-    pub dwCurItemState: u32,
+    pub wszFriendlyName: [super::WCHAR; 260],
+    pub wszSource: [super::WCHAR; 2084],
+    pub wszSubscribedURL: [super::WCHAR; 2084],
+    pub dwCurItemState: super::DWORD,
     pub csiOriginal: COMPSTATEINFO,
     pub csiRestored: COMPSTATEINFO,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for COMPONENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct COMPONENTSOPT {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub fEnableComponents: windows_sys::core::BOOL,
     pub fActiveDesktop: windows_sys::core::BOOL,
 }
@@ -394,13 +450,14 @@ pub const COMPONENT_DEFAULT_LEFT: i32 = 65535;
 pub const COMPONENT_DEFAULT_TOP: i32 = 65535;
 pub const COMPONENT_TOP: i32 = 1073741823;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct COMPPOS {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub iLeft: i32,
     pub iTop: i32,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
+    pub dwWidth: super::DWORD,
+    pub dwHeight: super::DWORD,
     pub izIndex: i32,
     pub fCanResize: windows_sys::core::BOOL,
     pub fCanResizeX: windows_sys::core::BOOL,
@@ -409,14 +466,15 @@ pub struct COMPPOS {
     pub iPreferredTopPercent: i32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct COMPSTATEINFO {
-    pub dwSize: u32,
+    pub dwSize: super::DWORD,
     pub iLeft: i32,
     pub iTop: i32,
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwItemState: u32,
+    pub dwWidth: super::DWORD,
+    pub dwHeight: super::DWORD,
+    pub dwItemState: super::DWORD,
 }
 pub const COMP_ELEM_ALL: i32 = 32767;
 pub const COMP_ELEM_CHECKED: i32 = 2;
@@ -440,15 +498,15 @@ pub const COMP_TYPE_HTMLDOC: i32 = 0;
 pub const COMP_TYPE_MAX: i32 = 4;
 pub const COMP_TYPE_PICTURE: i32 = 1;
 pub const COMP_TYPE_WEBSITE: i32 = 2;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct CSFV {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub pshf: *mut core::ffi::c_void,
     pub psvOuter: *mut core::ffi::c_void,
     pub pidl: super::LPCITEMIDLIST,
-    pub lEvents: i32,
+    pub lEvents: super::LONG,
     pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: super::FOLDERVIEWMODE,
 }
@@ -516,27 +574,28 @@ pub const CSIDL_SYSTEMX86: i32 = 41;
 pub const CSIDL_TEMPLATES: i32 = 21;
 pub const CSIDL_WINDOWS: i32 = 36;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct DATABLOCK_HEADER {
-    pub cbSize: u32,
-    pub dwSignature: u32,
+    pub cbSize: super::DWORD,
+    pub dwSignature: super::DWORD,
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::HWND,
     pub pcmcb: *mut core::ffi::c_void,
     pub pidlFolder: super::LPCITEMIDLIST,
     pub psf: *mut core::ffi::c_void,
-    pub cidl: u32,
+    pub cidl: super::UINT,
     pub apidl: *mut super::LPCITEMIDLIST,
     pub punkAssociationInfo: *mut core::ffi::c_void,
-    pub cKeys: u32,
+    pub cKeys: super::UINT,
     pub aKeys: *const super::HKEY,
 }
-#[repr(C)]
-#[cfg(feature = "shtypes")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 #[derive(Clone, Copy)]
 pub struct DETAILSINFO {
     pub pidl: super::LPCITEMIDLIST,
@@ -545,37 +604,50 @@ pub struct DETAILSINFO {
     pub str: super::STRRET,
     pub iImage: i32,
 }
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 impl Default for DETAILSINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct DFMICS {
-    pub cbSize: u32,
-    pub fMask: u32,
+    pub cbSize: super::DWORD,
+    pub fMask: super::DWORD,
     pub lParam: super::LPARAM,
-    pub idCmdFirst: u32,
-    pub idDefMax: u32,
+    pub idCmdFirst: super::UINT,
+    pub idDefMax: super::UINT,
     pub pici: super::LPCMINVOKECOMMANDINFO,
     pub punkSite: *mut core::ffi::c_void,
 }
-pub const DFM_CMD_COPY: u32 = 4294967293;
-pub const DFM_CMD_DELETE: u32 = 4294967295;
-pub const DFM_CMD_LINK: u32 = 4294967292;
-pub const DFM_CMD_MODALPROP: u32 = 4294967284;
-pub const DFM_CMD_MOVE: u32 = 4294967294;
-pub const DFM_CMD_NEWFOLDER: u32 = 4294967290;
-pub const DFM_CMD_PASTE: u32 = 4294967289;
-pub const DFM_CMD_PASTELINK: u32 = 4294967286;
-pub const DFM_CMD_PASTESPECIAL: u32 = 4294967285;
-pub const DFM_CMD_PROPERTIES: u32 = 4294967291;
-pub const DFM_CMD_RENAME: u32 = 4294967283;
-pub const DFM_CMD_VIEWDETAILS: u32 = 4294967287;
-pub const DFM_CMD_VIEWLIST: u32 = 4294967288;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_COPY: super::UINT = 4294967293;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_DELETE: super::UINT = 4294967295;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_LINK: super::UINT = 4294967292;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_MODALPROP: super::UINT = 4294967284;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_MOVE: super::UINT = 4294967294;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_NEWFOLDER: super::UINT = 4294967290;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_PASTE: super::UINT = 4294967289;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_PASTELINK: super::UINT = 4294967286;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_PASTESPECIAL: super::UINT = 4294967285;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_PROPERTIES: super::UINT = 4294967291;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_RENAME: super::UINT = 4294967283;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_VIEWDETAILS: super::UINT = 4294967287;
+#[cfg(feature = "shared")]
+pub const DFM_CMD_VIEWLIST: super::UINT = 4294967288;
 pub const DFM_GETDEFSTATICID: i32 = 14;
 pub const DFM_GETHELPTEXT: i32 = 5;
 pub const DFM_GETHELPTEXTW: i32 = 11;
@@ -593,22 +665,24 @@ pub const DFM_WM_DRAWITEM: i32 = 7;
 pub const DFM_WM_INITMENUPOPUP: i32 = 8;
 pub const DFM_WM_MEASUREITEM: i32 = 6;
 #[repr(C, packed(1))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DROPDESCRIPTION {
     pub r#type: DROPIMAGETYPE,
-    pub szMessage: [u16; 260],
-    pub szInsert: [u16; 260],
+    pub szMessage: [super::WCHAR; 260],
+    pub szInsert: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for DROPDESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct DROPFILES {
-    pub pFiles: u32,
+    pub pFiles: super::DWORD,
     pub pt: super::POINT,
     pub fNC: windows_sys::core::BOOL,
     pub fWide: windows_sys::core::BOOL,
@@ -630,24 +704,28 @@ pub const DVASPECT_LINK: i32 = 4;
 pub const DVASPECT_SHORTNAME: i32 = 2;
 pub const EXP_DARWIN_ID_SIG: u32 = 2684354566;
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EXP_DARWIN_LINK {
     pub dbh: DATABLOCK_HEADER,
-    pub szDarwinID: [i8; 260],
-    pub szwDarwinID: [u16; 260],
+    pub szDarwinID: [super::CHAR; 260],
+    pub szwDarwinID: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for EXP_DARWIN_LINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct EXP_PROPERTYSTORAGE {
-    pub cbSize: u32,
-    pub dwSignature: u32,
-    pub abPropertyStorage: [u8; 1],
+    pub cbSize: super::DWORD,
+    pub dwSignature: super::DWORD,
+    pub abPropertyStorage: [super::BYTE; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for EXP_PROPERTYSTORAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -655,23 +733,26 @@ impl Default for EXP_PROPERTYSTORAGE {
 }
 pub const EXP_PROPERTYSTORAGE_SIG: u32 = 2684354569;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct EXP_SPECIAL_FOLDER {
-    pub cbSize: u32,
-    pub dwSignature: u32,
-    pub idSpecialFolder: u32,
-    pub cbOffset: u32,
+    pub cbSize: super::DWORD,
+    pub dwSignature: super::DWORD,
+    pub idSpecialFolder: super::DWORD,
+    pub cbOffset: super::DWORD,
 }
 pub const EXP_SPECIAL_FOLDER_SIG: u32 = 2684354565;
 pub const EXP_SZ_ICON_SIG: u32 = 2684354567;
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EXP_SZ_LINK {
-    pub cbSize: u32,
-    pub dwSignature: u32,
-    pub szTarget: [i8; 260],
-    pub swzTarget: [u16; 260],
+    pub cbSize: super::DWORD,
+    pub dwSignature: super::DWORD,
+    pub szTarget: [super::CHAR; 260],
+    pub swzTarget: [super::WCHAR; 260],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for EXP_SZ_LINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -717,83 +798,85 @@ pub const FD_SIZEPOINT: FD_FLAGS = 2;
 pub const FD_UNICODE: FD_FLAGS = -2147483648;
 pub const FD_WRITESTIME: FD_FLAGS = 32;
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORA {
-    pub dwFlags: u32,
-    pub clsid: windows_sys::core::GUID,
+    pub dwFlags: super::DWORD,
+    pub clsid: super::CLSID,
     pub sizel: super::SIZEL,
     pub pointl: super::POINTL,
-    pub dwFileAttributes: u32,
+    pub dwFileAttributes: super::DWORD,
     pub ftCreationTime: super::FILETIME,
     pub ftLastAccessTime: super::FILETIME,
     pub ftLastWriteTime: super::FILETIME,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub cFileName: [i8; 260],
+    pub nFileSizeHigh: super::DWORD,
+    pub nFileSizeLow: super::DWORD,
+    pub cFileName: [super::CHAR; 260],
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for FILEDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILEDESCRIPTORW {
-    pub dwFlags: u32,
-    pub clsid: windows_sys::core::GUID,
+    pub dwFlags: super::DWORD,
+    pub clsid: super::CLSID,
     pub sizel: super::SIZEL,
     pub pointl: super::POINTL,
-    pub dwFileAttributes: u32,
+    pub dwFileAttributes: super::DWORD,
     pub ftCreationTime: super::FILETIME,
     pub ftLastAccessTime: super::FILETIME,
     pub ftLastWriteTime: super::FILETIME,
-    pub nFileSizeHigh: u32,
-    pub nFileSizeLow: u32,
-    pub cFileName: [u16; 260],
+    pub nFileSizeHigh: super::DWORD,
+    pub nFileSizeLow: super::DWORD,
+    pub cFileName: [super::WCHAR; 260],
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for FILEDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORA {
-    pub cItems: u32,
+    pub cItems: super::UINT,
     pub fgd: [FILEDESCRIPTORA; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 impl Default for FILEGROUPDESCRIPTORA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct FILEGROUPDESCRIPTORW {
-    pub cItems: u32,
+    pub cItems: super::UINT,
     pub fgd: [FILEDESCRIPTORW; 1],
 }
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 impl Default for FILEGROUPDESCRIPTORW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct FILE_ATTRIBUTES_ARRAY {
-    pub cItems: u32,
-    pub dwSumFileAttributes: u32,
-    pub dwProductFileAttributes: u32,
-    pub rgdwFileAttributes: [u32; 1],
+    pub cItems: super::UINT,
+    pub dwSumFileAttributes: super::DWORD,
+    pub dwProductFileAttributes: super::DWORD,
+    pub rgdwFileAttributes: [super::DWORD; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for FILE_ATTRIBUTES_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -827,19 +910,21 @@ pub const IDO_SHGIOI_LINK: i32 = 268435454;
 pub const IDO_SHGIOI_SHARE: i32 = 268435455;
 pub const IDO_SHGIOI_SLOWFILE: u32 = 4294967293;
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct IE4COMPONENT {
-    pub dwSize: u32,
-    pub dwID: u32,
+    pub dwSize: super::DWORD,
+    pub dwID: super::DWORD,
     pub iComponentType: i32,
     pub fChecked: windows_sys::core::BOOL,
     pub fDirty: windows_sys::core::BOOL,
     pub fNoScroll: windows_sys::core::BOOL,
     pub cpPos: COMPPOS,
-    pub wszFriendlyName: [u16; 260],
-    pub wszSource: [u16; 2084],
-    pub wszSubscribedURL: [u16; 2084],
+    pub wszFriendlyName: [super::WCHAR; 260],
+    pub wszSource: [super::WCHAR; 2084],
+    pub wszSubscribedURL: [super::WCHAR; 2084],
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for IE4COMPONENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -859,7 +944,7 @@ pub const IS_NORMAL: i32 = 1;
 pub const IS_SPLIT: i32 = 4;
 pub const IS_VALIDSIZESTATEBITS: i32 = 7;
 pub const IS_VALIDSTATEBITS: u32 = 3221225479;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[derive(Clone, Copy, Default)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
@@ -867,7 +952,7 @@ pub struct ITEMSPACING {
     pub cxLarge: i32,
     pub cyLarge: i32,
 }
-pub const KF_FLAG_ALIAS_ONLY: KNOWN_FOLDER_FLAG = 2147483648;
+pub const KF_FLAG_ALIAS_ONLY: KNOWN_FOLDER_FLAG = -2147483648;
 pub const KF_FLAG_CREATE: KNOWN_FOLDER_FLAG = 32768;
 pub const KF_FLAG_DEFAULT: KNOWN_FOLDER_FLAG = 0;
 pub const KF_FLAG_DEFAULT_PATH: KNOWN_FOLDER_FLAG = 1024;
@@ -883,108 +968,139 @@ pub const KF_FLAG_NO_APPCONTAINER_REDIRECTION: KNOWN_FOLDER_FLAG = 65536;
 pub const KF_FLAG_NO_PACKAGE_REDIRECTION: KNOWN_FOLDER_FLAG = 65536;
 pub const KF_FLAG_RETURN_FILTER_REDIRECTION_TARGET: KNOWN_FOLDER_FLAG = 262144;
 pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = 256;
-pub type KNOWN_FOLDER_FLAG = u32;
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+pub type KNOWN_FOLDER_FLAG = i32;
+pub type LPACTIVEDESKTOP = *mut core::ffi::c_void;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 pub type LPBROWSEINFOA = *mut BROWSEINFOA;
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 pub type LPBROWSEINFOW = *mut BROWSEINFOW;
+#[cfg(feature = "shared")]
 pub type LPCABINETSTATE = *mut CABINETSTATE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCCOMPONENT = *const COMPONENT;
+#[cfg(feature = "shared")]
 pub type LPCCOMPONENTSOPT = *const COMPONENTSOPT;
+#[cfg(feature = "shared")]
 pub type LPCCOMPPOS = *const COMPPOS;
+#[cfg(feature = "shared")]
 pub type LPCCOMPSTATEINFO = *const COMPSTATEINFO;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCIE4COMPONENT = *const IE4COMPONENT;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPCOMPONENT = *mut COMPONENT;
+#[cfg(feature = "shared")]
 pub type LPCOMPONENTSOPT = *mut COMPONENTSOPT;
+#[cfg(feature = "shared")]
 pub type LPCOMPPOS = *mut COMPPOS;
+#[cfg(feature = "shared")]
 pub type LPCOMPSTATEINFO = *mut COMPSTATEINFO;
+#[cfg(feature = "shared")]
 pub type LPCPROPPRG = *const PROPPRG;
-#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 pub type LPCSFV = *mut CSFV;
+#[cfg(feature = "shared")]
 pub type LPCWALLPAPEROPT = *const WALLPAPEROPT;
+#[cfg(feature = "shared")]
 pub type LPDATABLOCK_HEADER = *mut DATABLOCK_HEADER;
+#[cfg(feature = "shared")]
 pub type LPDBLIST = *mut DATABLOCK_HEADER;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPDROPFILES = *mut DROPFILES;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPEXP_DARWIN_LINK = *mut EXP_DARWIN_LINK;
+#[cfg(feature = "shared")]
 pub type LPEXP_SPECIAL_FOLDER = *mut EXP_SPECIAL_FOLDER;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPEXP_SZ_LINK = *mut EXP_SZ_LINK;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPEXTRACTICONA = *mut core::ffi::c_void;
+pub type LPEXTRACTICONW = *mut core::ffi::c_void;
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPFILEDESCRIPTORA = *mut FILEDESCRIPTORA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPFILEDESCRIPTORW = *mut FILEDESCRIPTORW;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef"))]
 pub type LPFILEGROUPDESCRIPTORA = *mut FILEGROUPDESCRIPTORA;
-#[cfg(all(feature = "minwindef", feature = "windef"))]
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type LPFILEGROUPDESCRIPTORW = *mut FILEGROUPDESCRIPTORW;
-#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "windef"))]
-pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: *mut core::ffi::c_void, hwnd: super::HWND, pdtobj: *mut core::ffi::c_void, umsg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_sys::core::HRESULT>;
-#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, hwndmain: super::HWND, umsg: u32, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "objidl", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
+pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: *mut core::ffi::c_void, hwnd: super::HWND, pdtobj: *mut core::ffi::c_void, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_sys::core::HRESULT>;
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "windef"))]
+pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: *mut core::ffi::c_void, psf: *mut core::ffi::c_void, hwndmain: super::HWND, umsg: super::UINT, wparam: super::WPARAM, lparam: super::LPARAM) -> windows_sys::core::HRESULT>;
+#[cfg(feature = "shared")]
 pub type LPIDA = *mut CIDA;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPIE4COMPONENT = *mut IE4COMPONENT;
-#[cfg(feature = "winnetwk")]
+#[cfg(all(feature = "shared", feature = "winnetwk"))]
 pub type LPNRESARRAY = *mut NRESARRAY;
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef", feature = "winnt"))]
 pub type LPNT_CONSOLE_PROPS = *mut NT_CONSOLE_PROPS;
+#[cfg(feature = "shared")]
 pub type LPNT_FE_CONSOLE_PROPS = *mut NT_FE_CONSOLE_PROPS;
+#[cfg(feature = "shared")]
 pub type LPPROPPRG = *mut PROPPRG;
-#[cfg(feature = "windef")]
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type LPQCMINFO = *mut QCMINFO;
+#[cfg(feature = "shared")]
 pub type LPSHChangeDWORDAsIDList = *mut SHChangeDWORDAsIDList;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type LPSHChangeUpdateImageIDList = *mut SHChangeUpdateImageIDList;
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 pub type LPSHDESCRIPTIONID = *mut SHDESCRIPTIONID;
+#[cfg(feature = "shared")]
 pub type LPSHELLFLAGSTATE = *mut SHELLFLAGSTATE;
+#[cfg(feature = "shared")]
 pub type LPSHELLSTATEA = *mut SHELLSTATEA;
+#[cfg(feature = "shared")]
 pub type LPSHELLSTATEW = *mut SHELLSTATEW;
-#[cfg(feature = "shobjidl_core")]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shobjidl_core"))]
 pub type LPSHFOLDERCUSTOMSETTINGS = *mut SHFOLDERCUSTOMSETTINGS;
+#[cfg(feature = "shared")]
 pub type LPWALLPAPEROPT = *mut WALLPAPEROPT;
 pub const MAX_COLUMN_DESC_LEN: i32 = 128;
 pub const MAX_COLUMN_NAME_LEN: i32 = 80;
 pub const MM_ADDSEPARATOR: i32 = 1;
 pub const MM_DONTREMOVESEPS: i32 = 4;
 pub const MM_SUBMENUSHAVEIDS: i32 = 2;
-#[repr(C)]
-#[cfg(feature = "winnetwk")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "winnetwk"))]
 #[derive(Clone, Copy)]
 pub struct NRESARRAY {
-    pub cItems: u32,
+    pub cItems: super::UINT,
     pub nr: [super::NETRESOURCE; 1],
 }
-#[cfg(feature = "winnetwk")]
+#[cfg(all(feature = "shared", feature = "winnetwk"))]
 impl Default for NRESARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct NT_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
-    pub wFillAttribute: u16,
-    pub wPopupFillAttribute: u16,
+    pub wFillAttribute: super::WORD,
+    pub wPopupFillAttribute: super::WORD,
     pub dwScreenBufferSize: super::COORD,
     pub dwWindowSize: super::COORD,
     pub dwWindowOrigin: super::COORD,
-    pub nFont: u32,
-    pub nInputBufferSize: u32,
+    pub nFont: super::DWORD,
+    pub nInputBufferSize: super::DWORD,
     pub dwFontSize: super::COORD,
-    pub uFontFamily: u32,
-    pub uFontWeight: u32,
-    pub FaceName: [u16; 32],
-    pub uCursorSize: u32,
+    pub uFontFamily: super::UINT,
+    pub uFontWeight: super::UINT,
+    pub FaceName: [super::WCHAR; 32],
+    pub uCursorSize: super::UINT,
     pub bFullScreen: windows_sys::core::BOOL,
     pub bQuickEdit: windows_sys::core::BOOL,
     pub bInsertMode: windows_sys::core::BOOL,
     pub bAutoPosition: windows_sys::core::BOOL,
-    pub uHistoryBufferSize: u32,
-    pub uNumberOfHistoryBuffers: u32,
+    pub uHistoryBufferSize: super::UINT,
+    pub uNumberOfHistoryBuffers: super::UINT,
     pub bHistoryNoDup: windows_sys::core::BOOL,
     pub ColorTable: [super::COLORREF; 16],
 }
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
+#[cfg(all(feature = "shared", feature = "wincontypes", feature = "windef", feature = "winnt"))]
 impl Default for NT_CONSOLE_PROPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -992,10 +1108,11 @@ impl Default for NT_CONSOLE_PROPS {
 }
 pub const NT_CONSOLE_PROPS_SIG: u32 = 2684354562;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct NT_FE_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
-    pub uCodePage: u32,
+    pub uCodePage: super::UINT,
 }
 pub const NT_FE_CONSOLE_PROPS_SIG: u32 = 2684354564;
 pub const NUM_POINTS: i32 = 3;
@@ -1010,7 +1127,7 @@ pub const OFASI_EDIT: i32 = 1;
 pub const OFASI_OPENDESKTOP: i32 = 2;
 pub const OI_ASYNC: u32 = 4294962926;
 pub const OI_DEFAULT: i32 = 0;
-#[repr(C)]
+#[repr(C, packed(8))]
 #[derive(Clone, Copy, Default)]
 pub struct OPENASINFO {
     pub pcszFile: windows_sys::core::PCWSTR,
@@ -1018,18 +1135,18 @@ pub struct OPENASINFO {
     pub oaifInFlags: OPEN_AS_INFO_FLAGS,
 }
 pub type OPEN_AS_INFO_FLAGS = i32;
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 pub type PBROWSEINFOA = *mut BROWSEINFOA;
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
 pub type PBROWSEINFOW = *mut BROWSEINFOW;
 pub const PCS_FATAL: u32 = 2147483648;
 pub const PCS_PATHTOOLONG: i32 = 8;
 pub const PCS_REMOVEDCHAR: i32 = 2;
 pub const PCS_REPLACEDCHAR: i32 = 1;
 pub const PCS_TRUNCATED: i32 = 4;
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 pub type PDETAILSINFO = *mut DETAILSINFO;
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 pub type PDFMICS = *mut DFMICS;
 pub const PDTIMER_PAUSE: i32 = 2;
 pub const PDTIMER_RESET: i32 = 1;
@@ -1086,6 +1203,7 @@ pub const PIFSHDATASIZE: i32 = 64;
 pub const PIFSHPROGSIZE: i32 = 64;
 pub const PIFSTARTLOCSIZE: i32 = 63;
 pub type POPENASINFO = *mut OPENASINFO;
+#[cfg(feature = "shared")]
 pub type PPROPPRG = *mut PROPPRG;
 pub const PRF_DONTFINDLNK: i32 = 8;
 pub const PRF_FIRSTDIRDEF: i32 = 4;
@@ -1101,52 +1219,57 @@ pub const PROGDLG_NOPROGRESSBAR: i32 = 16;
 pub const PROGDLG_NORMAL: i32 = 0;
 pub const PROGDLG_NOTIME: i32 = 4;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PROPPRG {
-    pub flPrg: u16,
-    pub flPrgInit: u16,
-    pub achTitle: [i8; 30],
-    pub achCmdLine: [i8; 128],
-    pub achWorkDir: [i8; 64],
-    pub wHotKey: u16,
-    pub achIconFile: [i8; 80],
-    pub wIconIndex: u16,
-    pub dwEnhModeFlags: u32,
-    pub dwRealModeFlags: u32,
-    pub achOtherFile: [i8; 80],
-    pub achPIFFile: [i8; 260],
+    pub flPrg: super::WORD,
+    pub flPrgInit: super::WORD,
+    pub achTitle: [super::CHAR; 30],
+    pub achCmdLine: [super::CHAR; 128],
+    pub achWorkDir: [super::CHAR; 64],
+    pub wHotKey: super::WORD,
+    pub achIconFile: [super::CHAR; 80],
+    pub wIconIndex: super::WORD,
+    pub dwEnhModeFlags: super::DWORD,
+    pub dwRealModeFlags: super::DWORD,
+    pub achOtherFile: [super::CHAR; 80],
+    pub achPIFFile: [super::CHAR; 260],
 }
+#[cfg(feature = "shared")]
 impl Default for PROPPRG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[cfg(feature = "windef")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "shared", feature = "windef"))]
 #[derive(Clone, Copy, Default)]
 pub struct QCMINFO {
     pub hmenu: super::HMENU,
-    pub indexMenu: u32,
-    pub idCmdFirst: u32,
-    pub idCmdLast: u32,
+    pub indexMenu: super::UINT,
+    pub idCmdFirst: super::UINT,
+    pub idCmdLast: super::UINT,
     pub pIdMap: *const QCMINFO_IDMAP,
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct QCMINFO_IDMAP {
-    pub nMaxIds: u32,
+    pub nMaxIds: super::UINT,
     pub pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for QCMINFO_IDMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct QCMINFO_IDMAP_PLACEMENT {
-    pub id: u32,
-    pub fFlags: u32,
+    pub id: super::UINT,
+    pub fFlags: super::UINT,
 }
 pub const QCMINFO_PLACE_AFTER: i32 = 1;
 pub const QCMINFO_PLACE_BEFORE: i32 = 0;
@@ -1158,6 +1281,7 @@ pub const QITIPF_LINKUSETARGET: i32 = 4;
 pub const QITIPF_SINGLELINE: i32 = 16;
 pub const QITIPF_USENAME: i32 = 1;
 pub const QITIPF_USESLOWTIP: i32 = 8;
+pub const REGSTR_PATH_SPECIAL_FOLDERS: windows_sys::core::PCSTR = windows_sys::core::s!("Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders");
 pub type RESTRICTIONS = i32;
 pub const REST_ALLOWBITBUCKDRIVES: RESTRICTIONS = 1073741905;
 pub const REST_ALLOWCOMMENTTOGGLE: RESTRICTIONS = 1090519044;
@@ -1345,12 +1469,14 @@ pub const SFVM_GETPANE: i32 = 59;
 pub const SFVM_GETSORTDEFAULTS: i32 = 53;
 pub const SFVM_GETTOOLTIPTEXT: i32 = 4;
 pub const SFVM_GETZONE: i32 = 58;
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct SFVM_HELPTOPIC_DATA {
-    pub wszHelpFile: [u16; 260],
-    pub wszHelpTopic: [u16; 260],
+    pub wszHelpFile: [super::WCHAR; 260],
+    pub wszHelpTopic: [super::WCHAR; 260],
 }
+#[cfg(feature = "winnt")]
 impl Default for SFVM_HELPTOPIC_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1359,11 +1485,11 @@ impl Default for SFVM_HELPTOPIC_DATA {
 pub const SFVM_INITMENUPOPUP: i32 = 7;
 pub const SFVM_INVOKECOMMAND: i32 = 2;
 pub const SFVM_MERGEMENU: i32 = 1;
-#[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "prsht"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SFVM_PROPPAGE_DATA {
-    pub dwReserved: u32,
+    pub dwReserved: super::DWORD,
     pub pfn: super::LPFNADDPROPSHEETPAGE,
     pub lParam: super::LPARAM,
 }
@@ -1379,11 +1505,11 @@ pub const SFVSOC_NOSCROLL: i32 = 2;
 pub const SFVS_SELECT_ALLITEMS: i32 = 1;
 pub const SFVS_SELECT_INVERT: i32 = 2;
 pub const SFVS_SELECT_NONE: i32 = 0;
-#[repr(C)]
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "shobjidl_core"))]
 #[derive(Clone, Copy, Default)]
 pub struct SFV_CREATE {
-    pub cbSize: u32,
+    pub cbSize: super::UINT,
     pub pshf: *mut core::ffi::c_void,
     pub psvOuter: *mut core::ffi::c_void,
     pub psfvcb: *mut core::ffi::c_void,
@@ -1397,7 +1523,7 @@ pub struct SHARDAPPIDINFO {
     pub pszAppID: windows_sys::core::PCWSTR,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: super::LPCITEMIDLIST,
@@ -1464,41 +1590,45 @@ pub const SHCNRF_NewDelivery: i32 = 32768;
 pub const SHCNRF_RecursiveInterrupt: i32 = 4096;
 pub const SHCNRF_ShellLevel: i32 = 2;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHChangeDWORDAsIDList {
-    pub cb: u16,
-    pub dwItem1: u32,
-    pub dwItem2: u32,
-    pub cbZero: u16,
+    pub cb: super::USHORT,
+    pub dwItem1: super::DWORD,
+    pub dwItem2: super::DWORD,
+    pub cbZero: super::USHORT,
 }
 #[repr(C, packed(1))]
-#[cfg(feature = "shtypes")]
+#[cfg(all(feature = "shared", feature = "shtypes"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHChangeNotifyEntry {
     pub pidl: super::LPCITEMIDLIST,
     pub fRecursive: windows_sys::core::BOOL,
 }
 #[repr(C, packed(1))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SHChangeUpdateImageIDList {
-    pub cb: u16,
+    pub cb: super::USHORT,
     pub iIconIndex: i32,
     pub iCurIndex: i32,
-    pub uFlags: u32,
-    pub dwProcessID: u32,
-    pub szName: [u16; 260],
-    pub cbZero: u16,
+    pub uFlags: super::UINT,
+    pub dwProcessID: super::DWORD,
+    pub szName: [super::WCHAR; 260],
+    pub cbZero: super::USHORT,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SHChangeUpdateImageIDList {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHDESCRIPTIONID {
-    pub dwDescriptionId: u32,
-    pub clsid: windows_sys::core::GUID,
+    pub dwDescriptionId: super::DWORD,
+    pub clsid: super::CLSID,
 }
 pub const SHDID_COMPUTER_AUDIO: i32 = 19;
 pub const SHDID_COMPUTER_CDROM: i32 = 10;
@@ -1523,69 +1653,75 @@ pub const SHDID_NET_SHARE: i32 = 15;
 pub const SHDID_REMOTE_DESKTOP_DRIVE: i32 = 22;
 pub const SHDID_ROOT_REGITEM: i32 = 1;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLFLAGSTATE {
-    pub _bitfield: windows_sys::core::BOOL,
+    pub _bitfield: i32,
 }
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEA {
-    pub _bitfield1: windows_sys::core::BOOL,
-    pub dwWin95Unused: u32,
-    pub uWin95Unused: u32,
-    pub lParamSort: i32,
+    pub _bitfield1: i32,
+    pub dwWin95Unused: super::DWORD,
+    pub uWin95Unused: super::UINT,
+    pub lParamSort: super::LONG,
     pub iSortDirection: i32,
-    pub version: u32,
-    pub uNotUsed: u32,
-    pub _bitfield2: windows_sys::core::BOOL,
+    pub version: super::UINT,
+    pub uNotUsed: super::UINT,
+    pub _bitfield2: i32,
 }
 pub const SHELLSTATEVERSION_IE4: i32 = 9;
 pub const SHELLSTATEVERSION_WIN2K: i32 = 10;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SHELLSTATEW {
-    pub _bitfield1: windows_sys::core::BOOL,
-    pub dwWin95Unused: u32,
-    pub uWin95Unused: u32,
-    pub lParamSort: i32,
+    pub _bitfield1: i32,
+    pub dwWin95Unused: super::DWORD,
+    pub uWin95Unused: super::UINT,
+    pub lParamSort: super::LONG,
     pub iSortDirection: i32,
-    pub version: u32,
-    pub uNotUsed: u32,
-    pub _bitfield2: windows_sys::core::BOOL,
+    pub version: super::UINT,
+    pub uNotUsed: super::UINT,
+    pub _bitfield2: i32,
 }
-pub const SHELLSTATE_SIZE_IE4: i32 = 24;
-pub const SHELLSTATE_SIZE_NT4: i32 = 20;
+#[cfg(feature = "shared")]
+pub const SHELLSTATE_SIZE_IE4: super::LONG = 0x18_u32 as _;
+#[cfg(feature = "shared")]
+pub const SHELLSTATE_SIZE_NT4: super::LONG = 0x14_u32 as _;
 #[cfg(target_arch = "x86")]
 pub const SHELLSTATE_SIZE_WIN2K: u32 = 32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const SHELLSTATE_SIZE_WIN2K: u64 = 32;
-pub const SHELLSTATE_SIZE_WIN95: i32 = 12;
-pub type SHELL_LINK_DATA_FLAGS = u32;
+#[cfg(feature = "shared")]
+pub const SHELLSTATE_SIZE_WIN95: super::LONG = 0xC_u32 as _;
+pub type SHELL_LINK_DATA_FLAGS = i32;
 pub const SHFMT_CANCEL: u32 = 4294967294;
 pub const SHFMT_ERROR: u32 = 4294967295;
 pub const SHFMT_ID_DEFAULT: i32 = 65535;
 pub const SHFMT_NOFORMAT: u32 = 4294967293;
 pub const SHFMT_OPT_FULL: i32 = 1;
 pub const SHFMT_OPT_SYSONLY: i32 = 2;
-#[repr(C)]
-#[cfg(feature = "shobjidl_core")]
+#[repr(C, packed(8))]
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shobjidl_core"))]
 #[derive(Clone, Copy, Default)]
 pub struct SHFOLDERCUSTOMSETTINGS {
-    pub dwSize: u32,
-    pub dwMask: u32,
+    pub dwSize: super::DWORD,
+    pub dwMask: super::DWORD,
     pub pvid: *mut super::SHELLVIEWID,
     pub pszWebViewTemplate: windows_sys::core::PWSTR,
-    pub cchWebViewTemplate: u32,
+    pub cchWebViewTemplate: super::DWORD,
     pub pszWebViewTemplateVersion: windows_sys::core::PWSTR,
     pub pszInfoTip: windows_sys::core::PWSTR,
-    pub cchInfoTip: u32,
-    pub pclsid: *mut windows_sys::core::GUID,
-    pub dwFlags: u32,
+    pub cchInfoTip: super::DWORD,
+    pub pclsid: *mut super::CLSID,
+    pub dwFlags: super::DWORD,
     pub pszIconFile: windows_sys::core::PWSTR,
-    pub cchIconFile: u32,
+    pub cchIconFile: super::DWORD,
     pub iIconIndex: i32,
     pub pszLogo: windows_sys::core::PWSTR,
-    pub cchLogo: u32,
+    pub cchLogo: super::DWORD,
 }
 pub const SHGDFIL_DESCRIPTIONID: i32 = 3;
 pub const SHGDFIL_FINDDATA: i32 = 1;
@@ -1632,7 +1768,7 @@ pub const SLDF_NO_KF_ALIAS: SHELL_LINK_DATA_FLAGS = 4194304;
 pub const SLDF_NO_PIDL_ALIAS: SHELL_LINK_DATA_FLAGS = 32768;
 pub const SLDF_PERSIST_VOLUME_ID_RELATIVE: SHELL_LINK_DATA_FLAGS = 134217728;
 pub const SLDF_PREFER_ENVIRONMENT_PATH: SHELL_LINK_DATA_FLAGS = 33554432;
-pub const SLDF_RESERVED: SHELL_LINK_DATA_FLAGS = 2147483648;
+pub const SLDF_RESERVED: SHELL_LINK_DATA_FLAGS = -2147483648;
 pub const SLDF_RUNAS_USER: SHELL_LINK_DATA_FLAGS = 8192;
 pub const SLDF_RUN_IN_SEPARATE: SHELL_LINK_DATA_FLAGS = 1024;
 pub const SLDF_RUN_WITH_SHIMLAYER: SHELL_LINK_DATA_FLAGS = 131072;
@@ -1674,10 +1810,11 @@ pub const VALIDATEUNC_PERSIST: i32 = 8;
 pub const VALIDATEUNC_PRINT: i32 = 4;
 pub const VALIDATEUNC_VALID: i32 = 15;
 #[repr(C, packed(1))]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct WALLPAPEROPT {
-    pub dwSize: u32,
-    pub dwStyle: u32,
+    pub dwSize: super::DWORD,
+    pub dwStyle: super::DWORD,
 }
 pub const WPSTYLE_CENTER: i32 = 0;
 pub const WPSTYLE_CROPTOFIT: i32 = 4;

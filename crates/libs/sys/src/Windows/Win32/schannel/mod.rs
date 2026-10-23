@@ -1,18 +1,9 @@
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-windows_link::link!("schannel.dll" "system" "?SslCrackCertificate@@YAHPEAEKKPEAPEAU_X509Certificate@@@Z" fn SslCrackCertificate(pbcertificate : super::PUCHAR, cbcertificate : u32, dwflags : u32, ppcertificate : *mut PX509Certificate) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared", feature = "wincrypt"))]
 windows_link::link!("schannel.dll" "system" fn SslDeserializeCertificateStore(serializedcertificatestore : super::CERT_BLOB, ppcertcontext : *mut super::PCCERT_CONTEXT) -> super::SECURITY_STATUS);
-windows_link::link!("schannel.dll" "system" "?SslEmptyCacheA@@YAHPEADK@Z" fn SslEmptyCacheA(psztargetname : windows_sys::core::PCSTR, dwflags : u32) -> windows_sys::core::BOOL);
-windows_link::link!("schannel.dll" "system" "?SslEmptyCacheW@@YAHPEA_WK@Z" fn SslEmptyCacheW(psztargetname : windows_sys::core::PCWSTR, dwflags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-windows_link::link!("schannel.dll" "system" "?SslFreeCertificate@@YAXPEAU_X509Certificate@@@Z" fn SslFreeCertificate(pcertificate : PX509Certificate));
-#[cfg(feature = "minwindef")]
-windows_link::link!("schannel.dll" "system" "?SslGenerateRandomBits@@YAXPEAEJ@Z" fn SslGenerateRandomBits(prandomdata : super::PUCHAR, crandomdata : i32));
-#[cfg(feature = "ncrypt")]
-windows_link::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const u8, clienthellobytesize : u32, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : u8, bytestoread : *mut u32, flags : SchGetExtensionsOptions) -> super::SECURITY_STATUS);
-windows_link::link!("schannel.dll" "system" "?SslGetMaximumKeySize@@YAKK@Z" fn SslGetMaximumKeySize(reserved : u32) -> u32);
-#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-windows_link::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : super::PBYTE, clienthellosize : u32, serveridentity : *mut super::PBYTE, serveridentitysize : super::PDWORD, flags : u32) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+windows_link::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const super::BYTE, clienthellobytesize : super::DWORD, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : super::BYTE, bytestoread : *mut super::DWORD, flags : SchGetExtensionsOptions) -> super::SECURITY_STATUS);
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
+windows_link::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : super::PBYTE, clienthellosize : super::DWORD, serveridentity : *mut super::PBYTE, serveridentitysize : super::PDWORD, flags : super::DWORD) -> super::SECURITY_STATUS);
 pub const DEFAULT_TLS_SSP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Default TLS SSP");
 pub const DEFAULT_TLS_SSP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Default TLS SSP");
 pub const DEFAULT_TLS_SSP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Default TLS SSP");
@@ -24,75 +15,90 @@ pub const LCRED_STATUS_UNKNOWN_ISSUER: i32 = 2;
 pub const PCT1SP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft PCT 1.0");
 pub const PCT1SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft PCT 1.0");
 pub const PCT1SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft PCT 1.0");
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
 pub type PSCHANNEL_CERT_HASH = *mut SCHANNEL_CERT_HASH;
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
 pub type PSCHANNEL_CERT_HASH_STORE = *mut SCHANNEL_CERT_HASH_STORE;
-#[cfg(feature = "wincrypt")]
+#[cfg(feature = "shared")]
 pub type PSCHANNEL_CLIENT_SIGNATURE = *mut SCHANNEL_CLIENT_SIGNATURE;
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 pub type PSCHANNEL_CRED = *mut SCHANNEL_CRED;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSCH_CRED = *mut SCH_CRED;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSCH_CRED_PUBLIC_CERTCHAIN = *mut SCH_CRED_PUBLIC_CERTCHAIN;
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
 pub type PSCH_CRED_SECRET_CAPI = *mut SCH_CRED_SECRET_CAPI;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSCH_CRED_SECRET_PRIVKEY = *mut SCH_CRED_SECRET_PRIVKEY;
+#[cfg(feature = "shared")]
 pub type PSEND_GENERIC_TLS_EXTENSION = *mut SEND_GENERIC_TLS_EXTENSION;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSSL_CREDENTIAL_CERTIFICATE = *mut SSL_CREDENTIAL_CERTIFICATE;
+#[cfg(feature = "shared")]
 pub type PSUBSCRIBE_GENERIC_TLS_EXTENSION = *mut SUBSCRIBE_GENERIC_TLS_EXTENSION;
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_CertInfo = *mut SecPkgContext_CertInfo;
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_CertificateValidationResult = *mut SecPkgContext_CertificateValidationResult;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_Certificates = *mut SecPkgContext_Certificates;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSecPkgContext_CipherInfo = *mut SecPkgContext_CipherInfo;
 pub type PSecPkgContext_ClientCertPolicyResult = *mut SecPkgContext_ClientCertPolicyResult;
-#[cfg(feature = "wincrypt")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_ConnectionInfo = *mut SecPkgContext_ConnectionInfo;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSecPkgContext_ConnectionInfoEx = *mut SecPkgContext_ConnectionInfoEx;
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_EapKeyBlock = *mut SecPkgContext_EapKeyBlock;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_EapPrfInfo = *mut SecPkgContext_EapPrfInfo;
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_EarlyStart = *mut SecPkgContext_EarlyStart;
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
 pub type PSecPkgContext_IssuerListInfoEx = *mut SecPkgContext_IssuerListInfoEx;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_KeyingMaterial = *mut SecPkgContext_KeyingMaterial;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_KeyingMaterialInfo = *mut SecPkgContext_KeyingMaterialInfo;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_KeyingMaterial_Inproc = *mut SecPkgContext_KeyingMaterial_Inproc;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_LocalCredenitalInfo = *mut SecPkgContext_LocalCredentialInfo;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_LocalCredentialInfo = *mut SecPkgContext_LocalCredentialInfo;
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSecPkgContext_MappedCredAttr = *mut SecPkgContext_MappedCredAttr;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_RemoteCredenitalInfo = *mut SecPkgContext_RemoteCredentialInfo;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_RemoteCredentialInfo = *mut SecPkgContext_RemoteCredentialInfo;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_SessionAppData = *mut SecPkgContext_SessionAppData;
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_SessionInfo = *mut SecPkgContext_SessionInfo;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_SrtpParameters = *mut SecPkgContext_SrtpParameters;
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_SupportedSignatures = *mut SecPkgContext_SupportedSignatures;
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type PSecPkgContext_TokenBinding = *mut SecPkgContext_TokenBinding;
 #[cfg(feature = "windef")]
 pub type PSecPkgContext_UiInfo = *mut SecPkgContext_UiInfo;
+#[cfg(feature = "shared")]
 pub type PTLS_EXTENSION_SUBSCRIPTION = *mut TLS_EXTENSION_SUBSCRIPTION;
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type PX509Certificate = *mut X509Certificate;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct PctPublicKey {
-    pub Type: u32,
-    pub cbKey: u32,
-    pub pKey: [u8; 1],
+    pub Type: super::DWORD,
+    pub cbKey: super::DWORD,
+    pub pKey: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for PctPublicKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -103,77 +109,78 @@ pub const RCRED_STATUS_NOCRED: i32 = 0;
 pub const RCRED_STATUS_UNKNOWN_ISSUER: i32 = 2;
 pub const SCHANNEL_ALERT: i32 = 2;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCHANNEL_ALERT_TOKEN {
-    pub dwTokenType: u32,
-    pub dwAlertType: u32,
-    pub dwAlertNumber: u32,
+    pub dwTokenType: super::DWORD,
+    pub dwAlertType: super::DWORD,
+    pub dwAlertNumber: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[derive(Clone, Copy)]
 pub struct SCHANNEL_CERT_HASH {
-    pub dwLength: u32,
-    pub dwFlags: u32,
+    pub dwLength: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub hProv: super::HCRYPTPROV,
-    pub ShaHash: [u8; 20],
+    pub ShaHash: [super::BYTE; 20],
 }
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
 impl Default for SCHANNEL_CERT_HASH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SCHANNEL_CERT_HASH_STORE {
-    pub dwLength: u32,
-    pub dwFlags: u32,
+    pub dwLength: super::DWORD,
+    pub dwFlags: super::DWORD,
     pub hProv: super::HCRYPTPROV,
-    pub ShaHash: [u8; 20],
-    pub pwszStoreName: [u16; 128],
+    pub ShaHash: [super::BYTE; 20],
+    pub pwszStoreName: [super::WCHAR; 128],
 }
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
 impl Default for SCHANNEL_CERT_HASH_STORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "wincrypt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SCHANNEL_CLIENT_SIGNATURE {
-    pub cbLength: u32,
+    pub cbLength: super::DWORD,
     pub aiHash: super::ALG_ID,
-    pub cbHash: u32,
-    pub HashValue: [u8; 36],
-    pub CertThumbprint: [u8; 20],
+    pub cbHash: super::DWORD,
+    pub HashValue: [super::BYTE; 36],
+    pub CertThumbprint: [super::BYTE; 20],
 }
-#[cfg(feature = "wincrypt")]
+#[cfg(feature = "shared")]
 impl Default for SCHANNEL_CLIENT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SCHANNEL_CRED {
-    pub dwVersion: u32,
-    pub cCreds: u32,
+    pub dwVersion: super::DWORD,
+    pub cCreds: super::DWORD,
     pub paCred: *mut super::PCCERT_CONTEXT,
     pub hRootStore: super::HCERTSTORE,
-    pub cMappers: u32,
+    pub cMappers: super::DWORD,
     pub aphMappers: *mut *mut _HMAPPER,
-    pub cSupportedAlgs: u32,
+    pub cSupportedAlgs: super::DWORD,
     pub palgSupportedAlgs: *mut super::ALG_ID,
-    pub grbitEnabledProtocols: u32,
-    pub dwMinimumCipherStrength: u32,
-    pub dwMaximumCipherStrength: u32,
-    pub dwSessionLifespan: u32,
-    pub dwFlags: u32,
-    pub dwCredFormat: u32,
+    pub grbitEnabledProtocols: super::DWORD,
+    pub dwMinimumCipherStrength: super::DWORD,
+    pub dwMaximumCipherStrength: super::DWORD,
+    pub dwSessionLifespan: super::DWORD,
+    pub dwFlags: super::DWORD,
+    pub dwCredFormat: super::DWORD,
 }
 pub const SCHANNEL_CRED_VERSION: i32 = 4;
 pub const SCHANNEL_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Schannel");
@@ -184,21 +191,23 @@ pub const SCHANNEL_SECRET_PRIVKEY: i32 = 2;
 pub const SCHANNEL_SECRET_TYPE_CAPI: i32 = 1;
 pub const SCHANNEL_SESSION: i32 = 3;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCHANNEL_SESSION_TOKEN {
-    pub dwTokenType: u32,
-    pub dwFlags: u32,
+    pub dwTokenType: super::DWORD,
+    pub dwFlags: super::DWORD,
 }
 pub const SCHANNEL_SHUTDOWN: i32 = 1;
 pub const SCH_ALLOW_NULL_ENCRYPTION: i32 = 33554432;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SCH_CRED {
-    pub dwVersion: u32,
-    pub cCreds: u32,
-    pub paSecret: *mut *mut core::ffi::c_void,
-    pub paPublic: *mut *mut core::ffi::c_void,
-    pub cMappers: u32,
+    pub dwVersion: super::DWORD,
+    pub cCreds: super::DWORD,
+    pub paSecret: *mut super::PVOID,
+    pub paPublic: *mut super::PVOID,
+    pub cMappers: super::DWORD,
     pub aphMappers: *mut *mut _HMAPPER,
 }
 pub const SCH_CREDENTIALS_VERSION: i32 = 5;
@@ -222,11 +231,11 @@ pub const SCH_CRED_NO_DEFAULT_CREDS: i32 = 16;
 pub const SCH_CRED_NO_SERVERNAME_CHECK: i32 = 4;
 pub const SCH_CRED_NO_SYSTEM_MAPPER: i32 = 2;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCH_CRED_PUBLIC_CERTCHAIN {
-    pub dwType: u32,
-    pub cbCertChain: u32,
+    pub dwType: super::DWORD,
+    pub cbCertChain: super::DWORD,
     pub pCertChain: super::PBYTE,
 }
 pub const SCH_CRED_RESTRICTED_ROOTS: i32 = 8192;
@@ -235,19 +244,19 @@ pub const SCH_CRED_REVOCATION_CHECK_CHAIN: i32 = 512;
 pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: i32 = 1024;
 pub const SCH_CRED_REVOCATION_CHECK_END_CERT: i32 = 256;
 #[repr(C)]
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SCH_CRED_SECRET_CAPI {
-    pub dwType: u32,
+    pub dwType: super::DWORD,
     pub hProv: super::HCRYPTPROV,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCH_CRED_SECRET_PRIVKEY {
-    pub dwType: u32,
+    pub dwType: super::DWORD,
     pub pPrivateKey: super::PBYTE,
-    pub cbPrivateKey: u32,
+    pub cbPrivateKey: super::DWORD,
     pub pszPassword: windows_sys::core::PSTR,
 }
 pub const SCH_CRED_SNI_CREDENTIAL: i32 = 524288;
@@ -261,11 +270,12 @@ pub const SCH_CRED_X509_CAPI: i32 = 2;
 pub const SCH_CRED_X509_CERTCHAIN: i32 = 1;
 pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SCH_EXTENSION_DATA {
-    pub ExtensionType: u16,
-    pub pExtData: *const u8,
-    pub cbExtData: u32,
+    pub ExtensionType: super::WORD,
+    pub pExtData: *const super::BYTE,
+    pub cbExtData: super::DWORD,
 }
 pub const SCH_MACHINE_CERT_HASH: i32 = 1;
 pub const SCH_MAX_EXT_SUBSCRIPTIONS: i32 = 2;
@@ -278,14 +288,16 @@ pub const SCH_USE_STRONG_CRYPTO: i32 = 4194304;
 pub const SECPKGCONTEXT_CIPHERINFO_V1: i32 = 1;
 pub const SECPKGCONTEXT_CONNECTION_INFO_EX_V1: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SEND_GENERIC_TLS_EXTENSION {
-    pub ExtensionType: u16,
-    pub HandshakeType: u16,
-    pub Flags: u32,
-    pub BufferSize: u16,
-    pub Buffer: [u8; 1],
+    pub ExtensionType: super::WORD,
+    pub HandshakeType: super::WORD,
+    pub Flags: super::DWORD,
+    pub BufferSize: super::WORD,
+    pub Buffer: [super::UCHAR; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SEND_GENERIC_TLS_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -357,81 +369,92 @@ pub const SSL2SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Micr
 pub const SSL3SP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft SSL 3.0");
 pub const SSL3SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft SSL 3.0");
 pub const SSL3SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft SSL 3.0");
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: super::PUCHAR, cbcertificate: u32, verifysignature: windows_sys::core::BOOL, ppcertificate: *mut PX509Certificate) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: super::PUCHAR, cbcertificate: super::DWORD, verifysignature: windows_sys::core::BOOL, ppcertificate: *mut PX509Certificate) -> windows_sys::core::BOOL>;
+pub const SSL_CRACK_CERTIFICATE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SslCrackCertificate");
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SSL_CREDENTIAL_CERTIFICATE {
-    pub cbPrivateKey: u32,
+    pub cbPrivateKey: super::DWORD,
     pub pPrivateKey: super::PBYTE,
-    pub cbCertificate: u32,
+    pub cbCertificate: super::DWORD,
     pub pCertificate: super::PBYTE,
     pub pszPassword: windows_sys::core::PSTR,
 }
-pub type SSL_EMPTY_CACHE_FN_A = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCSTR, dwflags: u32) -> windows_sys::core::BOOL>;
-pub type SSL_EMPTY_CACHE_FN_W = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PCWSTR, dwflags: u32) -> windows_sys::core::BOOL>;
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(feature = "shared")]
+pub type SSL_EMPTY_CACHE_FN_A = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PSTR, dwflags: super::DWORD) -> windows_sys::core::BOOL>;
+#[cfg(feature = "shared")]
+pub type SSL_EMPTY_CACHE_FN_W = Option<unsafe extern "system" fn(psztargetname: windows_sys::core::PWSTR, dwflags: super::DWORD) -> windows_sys::core::BOOL>;
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type SSL_FREE_CERTIFICATE_FN = Option<unsafe extern "system" fn(pcertificate: PX509Certificate)>;
+pub const SSL_FREE_CERTIFICATE_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("SslFreeCertificate");
 pub const SSL_SESSION_DISABLE_RECONNECTS: i32 = 2;
 pub const SSL_SESSION_ENABLE_RECONNECTS: i32 = 1;
 pub const SSL_SESSION_RECONNECT: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SUBSCRIBE_GENERIC_TLS_EXTENSION {
-    pub Flags: u32,
-    pub SubscriptionsCount: u32,
+    pub Flags: super::DWORD,
+    pub SubscriptionsCount: super::DWORD,
     pub Subscriptions: [TLS_EXTENSION_SUBSCRIPTION; 1],
 }
+#[cfg(feature = "shared")]
 impl Default for SUBSCRIBE_GENERIC_TLS_EXTENSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type SchGetExtensionsOptions = u32;
+pub const SZ_ALG_MAX_SIZE: i32 = 64;
+pub type SchGetExtensionsOptions = i32;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_CertInfo {
-    pub dwVersion: u32,
-    pub cbSubjectName: u32,
+    pub dwVersion: super::DWORD,
+    pub cbSubjectName: super::DWORD,
     pub pwszSubjectName: windows_sys::core::PWSTR,
-    pub cbIssuerName: u32,
+    pub cbIssuerName: super::DWORD,
     pub pwszIssuerName: windows_sys::core::PWSTR,
-    pub dwKeySize: u32,
+    pub dwKeySize: super::DWORD,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_CertificateValidationResult {
-    pub dwChainErrorStatus: u32,
+    pub dwChainErrorStatus: super::DWORD,
     pub hrVerifyChainStatus: windows_sys::core::HRESULT,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_Certificates {
-    pub cCertificates: u32,
-    pub cbCertificateChain: u32,
+    pub cCertificates: super::DWORD,
+    pub cbCertificateChain: super::DWORD,
     pub pbCertificateChain: super::PBYTE,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SecPkgContext_CipherInfo {
-    pub dwVersion: u32,
-    pub dwProtocol: u32,
-    pub dwCipherSuite: u32,
-    pub dwBaseCipherSuite: u32,
-    pub szCipherSuite: [u16; 64],
-    pub szCipher: [u16; 64],
-    pub dwCipherLen: u32,
-    pub dwCipherBlockLen: u32,
-    pub szHash: [u16; 64],
-    pub dwHashLen: u32,
-    pub szExchange: [u16; 64],
-    pub dwMinExchangeLen: u32,
-    pub dwMaxExchangeLen: u32,
-    pub szCertificate: [u16; 64],
-    pub dwKeyType: u32,
+    pub dwVersion: super::DWORD,
+    pub dwProtocol: super::DWORD,
+    pub dwCipherSuite: super::DWORD,
+    pub dwBaseCipherSuite: super::DWORD,
+    pub szCipherSuite: [super::WCHAR; 64],
+    pub szCipher: [super::WCHAR; 64],
+    pub dwCipherLen: super::DWORD,
+    pub dwCipherBlockLen: super::DWORD,
+    pub szHash: [super::WCHAR; 64],
+    pub dwHashLen: super::DWORD,
+    pub szExchange: [super::WCHAR; 64],
+    pub dwMinExchangeLen: super::DWORD,
+    pub dwMaxExchangeLen: super::DWORD,
+    pub szCertificate: [super::WCHAR; 64],
+    pub dwKeyType: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SecPkgContext_CipherInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -444,164 +467,173 @@ pub struct SecPkgContext_ClientCertPolicyResult {
     pub guidPolicyId: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "wincrypt")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_ConnectionInfo {
-    pub dwProtocol: u32,
+    pub dwProtocol: super::DWORD,
     pub aiCipher: super::ALG_ID,
-    pub dwCipherStrength: u32,
+    pub dwCipherStrength: super::DWORD,
     pub aiHash: super::ALG_ID,
-    pub dwHashStrength: u32,
+    pub dwHashStrength: super::DWORD,
     pub aiExch: super::ALG_ID,
-    pub dwExchStrength: u32,
+    pub dwExchStrength: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct SecPkgContext_ConnectionInfoEx {
-    pub dwVersion: u32,
-    pub dwProtocol: u32,
-    pub szCipher: [u16; 64],
-    pub dwCipherStrength: u32,
-    pub szHash: [u16; 64],
-    pub dwHashStrength: u32,
-    pub szExchange: [u16; 64],
-    pub dwExchStrength: u32,
+    pub dwVersion: super::DWORD,
+    pub dwProtocol: super::DWORD,
+    pub szCipher: [super::WCHAR; 64],
+    pub dwCipherStrength: super::DWORD,
+    pub szHash: [super::WCHAR; 64],
+    pub dwHashStrength: super::DWORD,
+    pub szExchange: [super::WCHAR; 64],
+    pub dwExchStrength: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
 impl Default for SecPkgContext_ConnectionInfoEx {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SecPkgContext_EapKeyBlock {
-    pub rgbKeys: [u8; 128],
-    pub rgbIVs: [u8; 64],
+    pub rgbKeys: [super::BYTE; 128],
+    pub rgbIVs: [super::BYTE; 64],
 }
+#[cfg(feature = "shared")]
 impl Default for SecPkgContext_EapKeyBlock {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_EapPrfInfo {
-    pub dwVersion: u32,
-    pub cbPrfData: u32,
+    pub dwVersion: super::DWORD,
+    pub cbPrfData: super::DWORD,
     pub pbPrfData: super::PBYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_EarlyStart {
-    pub dwEarlyStartFlags: u32,
+    pub dwEarlyStartFlags: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "wincrypt")]
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_IssuerListInfoEx {
     pub aIssuers: super::PCERT_NAME_BLOB,
-    pub cIssuers: u32,
+    pub cIssuers: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_KeyingMaterial {
-    pub cbKeyingMaterial: u32,
+    pub cbKeyingMaterial: super::DWORD,
     pub pbKeyingMaterial: super::PBYTE,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_KeyingMaterialInfo {
-    pub cbLabel: u16,
+    pub cbLabel: super::WORD,
     pub pszLabel: windows_sys::core::PSTR,
-    pub cbContextValue: u16,
+    pub cbContextValue: super::WORD,
     pub pbContextValue: super::PBYTE,
-    pub cbKeyingMaterial: u32,
+    pub cbKeyingMaterial: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_KeyingMaterial_Inproc {
-    pub cbLabel: u16,
+    pub cbLabel: super::WORD,
     pub pszLabel: windows_sys::core::PSTR,
-    pub cbContextValue: u16,
+    pub cbContextValue: super::WORD,
     pub pbContextValue: super::PBYTE,
-    pub cbKeyingMaterial: u32,
+    pub cbKeyingMaterial: super::DWORD,
     pub pbKeyingMaterial: super::PBYTE,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type SecPkgContext_LocalCredenitalInfo = SecPkgContext_LocalCredentialInfo;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_LocalCredentialInfo {
-    pub cbCertificateChain: u32,
+    pub cbCertificateChain: super::DWORD,
     pub pbCertificateChain: super::PBYTE,
-    pub cCertificates: u32,
-    pub fFlags: u32,
-    pub dwBits: u32,
+    pub cCertificates: super::DWORD,
+    pub fFlags: super::DWORD,
+    pub dwBits: super::DWORD,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_MappedCredAttr {
-    pub dwAttribute: u32,
-    pub pvBuffer: *mut core::ffi::c_void,
+    pub dwAttribute: super::DWORD,
+    pub pvBuffer: super::PVOID,
 }
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 pub type SecPkgContext_RemoteCredenitalInfo = SecPkgContext_RemoteCredentialInfo;
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_RemoteCredentialInfo {
-    pub cbCertificateChain: u32,
+    pub cbCertificateChain: super::DWORD,
     pub pbCertificateChain: super::PBYTE,
-    pub cCertificates: u32,
-    pub fFlags: u32,
-    pub dwBits: u32,
+    pub cCertificates: super::DWORD,
+    pub fFlags: super::DWORD,
+    pub dwBits: super::DWORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_SessionAppData {
-    pub dwFlags: u32,
-    pub cbAppData: u32,
+    pub dwFlags: super::DWORD,
+    pub cbAppData: super::DWORD,
     pub pbAppData: super::PBYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy)]
 pub struct SecPkgContext_SessionInfo {
-    pub dwFlags: u32,
-    pub cbSessionId: u32,
-    pub rgbSessionId: [u8; 32],
+    pub dwFlags: super::DWORD,
+    pub cbSessionId: super::DWORD,
+    pub rgbSessionId: [super::BYTE; 32],
 }
+#[cfg(feature = "shared")]
 impl Default for SecPkgContext_SessionInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_SrtpParameters {
-    pub ProtectionProfile: u16,
-    pub MasterKeyIdentifierSize: u8,
+    pub ProtectionProfile: super::WORD,
+    pub MasterKeyIdentifierSize: super::BYTE,
     pub MasterKeyIdentifier: super::PBYTE,
 }
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_SupportedSignatures {
-    pub cSignatureAndHashAlgorithms: u16,
-    pub pSignatureAndHashAlgorithms: *mut u16,
+    pub cSignatureAndHashAlgorithms: super::WORD,
+    pub pSignatureAndHashAlgorithms: *mut super::WORD,
 }
 #[repr(C)]
-#[cfg(feature = "minwindef")]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct SecPkgContext_TokenBinding {
-    pub MajorVersion: u8,
-    pub MinorVersion: u8,
-    pub KeyParametersSize: u16,
+    pub MajorVersion: super::BYTE,
+    pub MinorVersion: super::BYTE,
+    pub KeyParametersSize: super::WORD,
     pub KeyParameters: super::PBYTE,
 }
 #[repr(C)]
@@ -610,12 +642,12 @@ pub struct SecPkgContext_TokenBinding {
 pub struct SecPkgContext_UiInfo {
     pub hParentWindow: super::HWND,
 }
-#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared", feature = "wincrypt"))]
 pub type SslDeserializeCertificateStoreFn = Option<unsafe extern "system" fn(serializedcertificatestore: super::CERT_BLOB, ppcertcontext: *mut super::PCCERT_CONTEXT) -> super::SECURITY_STATUS>;
-#[cfg(feature = "ncrypt")]
-pub type SslGetExtensionsFn = Option<unsafe extern "system" fn(clienthello: *const u8, clienthellobytesize: u32, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: u8, bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> super::SECURITY_STATUS>;
-#[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-pub type SslGetServerIdentityFn = Option<unsafe extern "system" fn(clienthello: super::PBYTE, clienthellosize: u32, serveridentity: *mut super::PBYTE, serveridentitysize: super::PDWORD, flags: u32) -> super::SECURITY_STATUS>;
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+pub type SslGetExtensionsFn = Option<unsafe extern "system" fn(clienthello: *const super::BYTE, clienthellobytesize: super::DWORD, genericextensions: *mut SCH_EXTENSION_DATA, genericextensionscount: super::BYTE, bytestoread: *mut super::DWORD, flags: SchGetExtensionsOptions) -> super::SECURITY_STATUS>;
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
+pub type SslGetServerIdentityFn = Option<unsafe extern "system" fn(clienthello: super::PBYTE, clienthellosize: super::DWORD, serveridentity: *mut super::PBYTE, serveridentitysize: super::PDWORD, flags: super::DWORD) -> super::SECURITY_STATUS>;
 pub const TLS1SP_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft TLS 1.0");
 pub const TLS1SP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Microsoft TLS 1.0");
 pub const TLS1SP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft TLS 1.0");
@@ -648,10 +680,11 @@ pub const TLS1_ALERT_UNSUPPORTED_EXT: i32 = 110;
 pub const TLS1_ALERT_USER_CANCELED: i32 = 90;
 pub const TLS1_ALERT_WARNING: i32 = 1;
 #[repr(C)]
+#[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct TLS_EXTENSION_SUBSCRIPTION {
-    pub ExtensionType: u16,
-    pub HandshakeType: u16,
+    pub ExtensionType: super::WORD,
+    pub HandshakeType: super::WORD,
 }
 pub const TlsHashAlgorithm_Md5: eTlsHashAlgorithm = 1;
 pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = 0;
@@ -669,11 +702,11 @@ pub const UNISP_NAME_A: windows_sys::core::PCSTR = windows_sys::core::s!("Micros
 pub const UNISP_NAME_W: windows_sys::core::PCWSTR = windows_sys::core::w!("Microsoft Unified Security Protocol Provider");
 pub const UNISP_RPC_ID: i32 = 14;
 #[repr(C)]
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 #[derive(Clone, Copy)]
 pub struct X509Certificate {
-    pub Version: u32,
-    pub SerialNumber: [u32; 4],
+    pub Version: super::DWORD,
+    pub SerialNumber: [super::DWORD; 4],
     pub SignatureAlgorithm: super::ALG_ID,
     pub ValidFrom: super::FILETIME,
     pub ValidUntil: super::FILETIME,
@@ -681,7 +714,7 @@ pub struct X509Certificate {
     pub pszSubject: windows_sys::core::PSTR,
     pub pPublicKey: *mut PctPublicKey,
 }
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 impl Default for X509Certificate {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
