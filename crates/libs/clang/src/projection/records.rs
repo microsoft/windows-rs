@@ -322,7 +322,7 @@ impl Projector<'_, '_> {
                     )));
                 }
             }
-            let native = &snapshot.types[field.canonical.0];
+            let native = checked_storage_type(snapshot, field.canonical)?;
             if !field.attributes.iter().all(|attribute| {
                 matches!(
                     attribute.kind,

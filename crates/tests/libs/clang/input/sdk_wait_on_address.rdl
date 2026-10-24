@@ -1,0 +1,25 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    type SIZE_T = u64;
+    #[arch(X86)]
+    type SIZE_T = u32;
+    #[arch(X64 | Arm64)]
+    type ULONG_PTR = u64;
+    #[arch(X86)]
+    type ULONG_PTR = u32;
+}
+#[win32]
+mod Fixture {
+    type BOOL = i32;
+    type DWORD = u32;
+}
+#[win32]
+mod Fixture {
+    #[library("api-ms-win-core-synch-l1-2-0.dll")]
+    extern fn WaitOnAddress(#[in] #[readable(entry, bytes(AddressSize))] Address: *mut void, #[in] #[readable(entry, bytes(AddressSize))] CompareAddress: PVOID, #[in] AddressSize: SIZE_T, #[in] #[opt] dwMilliseconds: DWORD) -> BOOL;
+}
+#[win32]
+mod Fixture {
+    type PVOID = *mut void;
+}

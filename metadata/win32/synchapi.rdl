@@ -143,6 +143,8 @@ mod Windows {
         extern fn WaitForSingleObject(#[in] hHandle: HANDLE, #[in] dwMilliseconds: DWORD) -> DWORD;
         #[library("KERNEL32.dll")]
         extern fn WaitForSingleObjectEx(#[in] hHandle: HANDLE, #[in] dwMilliseconds: DWORD, #[in] bAlertable: BOOL) -> DWORD;
+        #[library("api-ms-win-core-synch-l1-2-0.dll")]
+        extern fn WaitOnAddress(#[in] #[readable(entry, bytes(AddressSize))] Address: *mut void, #[in] #[readable(entry, bytes(AddressSize))] CompareAddress: PVOID, #[in] AddressSize: SIZE_T, #[in] #[opt] dwMilliseconds: DWORD) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn WakeAllConditionVariable(#[in] #[out] ConditionVariable: PCONDITION_VARIABLE);
         #[library("api-ms-win-core-synch-l1-2-0.dll")]

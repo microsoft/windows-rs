@@ -393,6 +393,10 @@ Type and constant names occupy separate publication namespaces. Typedef-named en
 references to otherwise unnamed enum types are rejected rather than replaced with integers.
 Mixed const/mutable pointer chains retain per-level storage qualifiers through RDL and WinMD;
 COM object constness follows the publication rule above.
+Ordinary type publication omits volatile/restrict qualifiers while retaining them in native capture
+and reconciliation. This permits raw-pointer APIs such as `WaitOnAddress` without adding RDL
+modifiers or implying volatile accesses, atomics or exclusive references. Storage-qualified fields,
+arrays, constants and C++ reference parameters, and qualified COM objects/methods, remain unsupported.
 `char16_t` and `char32_t` project to `u16` and `u32`, while native reconciliation keeps their
 identities distinct from other equal-sized integer types.
 By-value aliases can connect distinct native records only after their definitions are checked.

@@ -1,0 +1,21 @@
+#[win32]
+mod Fixture {
+    #[library("example.dll")]
+    extern fn GetAddress() -> *const i32;
+    #[library("example.dll")]
+    extern fn Observe(address: *mut void, compare: *mut i32) -> i32;
+    extern fn PointerCallback(first: *mut i32, second: *mut i32) -> i32;
+    struct RawPointers {
+        value: *mut i32,
+        slot: *mut *mut i32,
+        readonly: ReadOnlyAddress,
+        alias: *mut VolatileInt,
+        array: *mut [i32; 2],
+        callback: PointerCallback,
+        signal: Signal,
+    }
+    type ReadOnlyAddress = *const i32;
+    extern "C" fn Signal(address: *mut void);
+    type VolatileByte = u8;
+    type VolatileInt = i32;
+}

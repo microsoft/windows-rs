@@ -1411,6 +1411,7 @@ mod Windows {
                 Ptr: PVOID,
             },
         }
+        type EX_SPIN_LOCK = LONG;
         const EX_TIMER_HIGH_RESOLUTION: i32 = 4;
         const EX_TIMER_NOTIFICATION: u32 = 2147483648;
         const EX_TIMER_NO_WAKE: i32 = 8;
@@ -5106,6 +5107,7 @@ mod Windows {
         type PEX_RCU_FREE_POOL_CONTEXT = *mut EX_RCU_FREE_POOL_CONTEXT;
         type PEX_RUNDOWN_REF = *mut EX_RUNDOWN_REF;
         type PEX_RUNDOWN_REF_CACHE_AWARE = *mut _EX_RUNDOWN_REF_CACHE_AWARE;
+        type PEX_SPIN_LOCK = *mut LONG;
         type PEX_TIMER = *mut _EX_TIMER;
         type PFAULT_INFORMATION_ARCH = *mut FAULT_INFORMATION_ARCH;
         type PFAULT_INFORMATION_ARM64_FLAGS = *mut FAULT_INFORMATION_ARM64_FLAGS;

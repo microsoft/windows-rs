@@ -8,7 +8,7 @@ private:
     int value;
 };
 #define DependencyAlias ((Broken*)0)
-#define ProjectionAlias ((volatile int*)1)
+#define ProjectionAlias ((int* __ptr64)1)
 #define PARSE_BAD unsigned int
 #define EVAL_BAD (1 / 0)
 extern "C" int NativeBad(int value) noexcept(false);

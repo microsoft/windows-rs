@@ -253,7 +253,12 @@ fn conflicts() {
 fn rejections() {
     let input = selected_fixture("callback_rejections", &[]);
     let result = projection::generate_partial(&[input], "Fixture").unwrap();
-    assert_eq!((result.output.records, result.output.aliases), (3, 5));
+    assert_eq!((result.output.records, result.output.aliases), (4, 6));
+    assert!(
+        result.output.partitions["callback_rejections"]
+            .rdl
+            .contains("extern \"C\" fn Volatile(value: *mut i32);")
+    );
     for name in [
         "Broken",
         "BadResult",
@@ -267,8 +272,6 @@ fn rejections() {
         "ZeroRegisters",
         "Registers",
         "RegisterUser",
-        "Volatile",
-        "VolatileUser",
     ] {
         assert!(
             result

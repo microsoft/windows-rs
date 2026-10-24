@@ -164,6 +164,7 @@ impl Projector<'_, '_> {
                 })
             }
             ValueKind::Constant { value, .. } => {
+                checked_storage_type(self.resolution.snapshots[snapshot], observation.canonical)?;
                 let value = value.as_ref().or(definition).ok_or_else(|| {
                     Error(format!("constant `{name}` has no captured definition"))
                 })?;

@@ -154,12 +154,25 @@ fn constant_probes_do_not_exclude_native_declarations() {
     })
     .collect();
     let generate = |targets: &[Target]| {
-        projection::project_partial_with_imports(
-            capture_partial(std::slice::from_ref(&input), targets).unwrap(),
-            "Fixture",
-            &imports,
-        )
-        .unwrap()
+        let captured = capture_partial(std::slice::from_ref(&input), targets).unwrap();
+        let x86 = captured
+            .snapshots
+            .iter()
+            .find(|snapshot| snapshot.target == Target::X86)
+            .unwrap();
+        assert!(x86.values.iter().any(|value| {
+            value.name == "ProjectionAlias"
+                && value.observations.iter().any(|observation| {
+                    matches!(
+                        observation.kind,
+                        ValueKind::Constant {
+                            value: Some(ConstantValue::Pointer(1)),
+                            ..
+                        }
+                    )
+                })
+        }));
+        projection::project_partial_with_imports(captured, "Fixture", &imports).unwrap()
     };
     let output = generate(&TARGETS);
     let golden = test_clang::input_dir().join("macro_function_aliases.rdl");

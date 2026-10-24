@@ -149,6 +149,19 @@ mod Windows {
             fn GetSkipInfo(&self, #[out] peType: *mut SPVSKIPTYPE, #[out] plNumItems: *mut i32) -> HRESULT;
             fn CompleteSkip(&self, #[in] ulNumSkipped: i32) -> HRESULT;
         }
+        interface ISpTask {
+            fn Execute(&self, pvTaskData: *mut void, pfContinueProcessing: *const BOOL) -> HRESULT;
+        }
+        #[guid(0x2baeef81_2ca3_4331_98f3_26ec5abefb03)]
+        interface ISpTaskManager: IUnknown {
+            fn SetThreadPoolInfo(&self, #[in] pPoolInfo: *const SPTMTHREADINFO) -> HRESULT;
+            fn GetThreadPoolInfo(&self, #[out] pPoolInfo: *mut SPTMTHREADINFO) -> HRESULT;
+            fn QueueTask(&self, #[in] pTask: ISpTask, #[in] pvTaskData: *mut void, #[in] hCompEvent: HANDLE, #[in] #[out] pdwGroupId: *mut DWORD, #[out] pTaskID: *mut DWORD) -> HRESULT;
+            fn CreateReoccurringTask(&self, #[in] pTask: ISpTask, #[in] pvTaskData: *mut void, #[in] hCompEvent: HANDLE, #[out] ppTaskCtrl: *mut ISpNotifySink) -> HRESULT;
+            fn CreateThreadControl(&self, #[in] pTask: ISpThreadTask, #[in] pvTaskData: *mut void, #[in] nPriority: i32, #[out] #[out_ptr] ppTaskCtrl: *mut ISpThreadControl) -> HRESULT;
+            fn TerminateTask(&self, #[in] dwTaskId: DWORD, #[in] ulWaitPeriod: ULONG) -> HRESULT;
+            fn TerminateTaskGroup(&self, #[in] dwGroupId: DWORD, #[in] ulWaitPeriod: ULONG) -> HRESULT;
+        }
         #[guid(0xa6be4d73_4403_4358_b22d_0346e23b1764)]
         interface ISpThreadControl: ISpNotifySink {
             fn StartThread(&self, #[in] dwFlags: DWORD, #[out] phwnd: *mut HWND) -> HRESULT;
@@ -160,6 +173,11 @@ mod Windows {
             fn WindowHandle(&self) -> HWND;
             fn ThreadCompleteEvent(&self) -> HANDLE;
             fn ExitThreadEvent(&self) -> HANDLE;
+        }
+        interface ISpThreadTask {
+            fn InitThread(&self, pvTaskData: *mut void, hwnd: HWND) -> HRESULT;
+            fn ThreadProc(&self, pvTaskData: *mut void, hExitThreadEvent: HANDLE, hNotifyEvent: HANDLE, hwndWorker: HWND, pfContinueProcessing: *const BOOL) -> HRESULT;
+            fn WindowMessage(&self, pvTaskData: *mut void, hWnd: HWND, Msg: UINT, wParam: WPARAM, lParam: LPARAM) -> LRESULT;
         }
         #[guid(0xf8e690f0_39cb_4843_b8d7_c84696e1119d)]
         interface ISpTokenUI: IUnknown {

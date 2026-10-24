@@ -4,13 +4,19 @@ use windows_clang::*;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
-fn fixed_pointer_rejections() {
+fn fixed_pointer_boundaries() {
     helpers::ensure_libclang();
     for case in 0..9 {
         let mut input = selected_fixture("fixed_pointers_invalid", &["Bad", "Dependent", "Safe"]);
         input.arguments.push(format!("-DCASE={case}"));
         let output = projection::generate_partial(&[input], "Fixture").unwrap();
         let rdl = &output.output.partitions["fixed_pointers_invalid"].rdl;
+        if case == 3 {
+            assert!(rdl.contains("type Bad = ptr64<*mut i32>;"), "{rdl}");
+            assert!(rdl.contains("struct Dependent"), "{rdl}");
+            assert!(output.omissions.is_empty(), "{:?}", output.omissions);
+            continue;
+        }
         assert!(!rdl.contains("Bad"), "{case}: {rdl}");
         assert!(!rdl.contains("Dependent"), "{case}: {rdl}");
         assert!(rdl.contains("struct Safe"), "{case}: {rdl}");

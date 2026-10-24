@@ -382,6 +382,7 @@ impl Projector<'_, '_> {
         let mut alignment = 1;
         let mut anonymous = 0;
         for (native, metadata_field) in definition.fields.iter().zip(fields) {
+            checked_storage_type(snapshot, native.canonical)?;
             let native_name = if native.name.is_empty() {
                 anonymous += 1;
                 if anonymous == 1 {

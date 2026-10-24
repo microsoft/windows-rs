@@ -97,7 +97,7 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 | Direction-repair generation | Package, internal binding and Reactor regeneration introduce no generated changes. Composition regeneration refreshes retained native aliases in both stacks. WebView generation retains all five loader imports after nominal COM typedef validation; its 33 live host/browser fixtures pass with regenerated bindings. Canonical SDK/WDK output is unchanged. | WebView retains 69 explicit omissions for RPC proxy/stub import ownership, LIBID definitions and C++ helper operators. Full generator qualification remains open. |
 | Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
 | CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift with a shallow checkout. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
-| Required missing APIs | The 198-pair/70-name total remains historical. Current metadata and diagnostics reconfirm WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot and RoGetActivatableClassRegistration gaps. `RtlCaptureContext2` remains x64-only. `ACCESS_STATE` is recovered with SDK-owned string contracts and matching rich/raw layouts. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
+| Required missing APIs | The 198-pair/70-name total remains historical. Current metadata and diagnostics reconfirm MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot and RoGetActivatableClassRegistration gaps. `RtlCaptureContext2` remains x64-only. `ACCESS_STATE` is recovered with SDK-owned string contracts and matching rich/raw layouts. `WaitOnAddress` publishes its address as an ordinary raw pointer. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
 | Unrecorded partition losses | `activationregistration` and `windowsfoundation` are absent. The Arm64 `__FIMapView_2_HSTRING_IInspectable_t` alias fails on an unsupported `TemplateRef IMapView`; `IActivatableClassRegistration`, its pointer alias and the RoGet import are pruned as dependents. | Add a focused canonical metadata case and decide the required surface. ActivationType, RegistrationScope and RegisteredTrustLevel are also absent with this partition; this is not an approved exclusion. |
 | UIA expansion | D23's 98 imports and 397 constants remain candidate scope. `CustomNavigationPattern_Navigate` still lacks configured import ownership. | Keep the unresolved import and acceptance boundary explicit. Defer downstream/live-provider qualification. |
 | Driver size | `main.rs` remains about 1,650 lines; the review identifies `run` and `sdk_library_policy` as the next large responsibilities. | Defer an output-neutral split until the metadata model is settled. Moving SDK contexts into data did not eliminate their semantic review obligation. |
@@ -155,12 +155,20 @@ remains a separate consumer-design obligation.
 
 | Current missing surface | Verified diagnostic boundary |
 | --- | --- |
-| `WaitOnAddress` | Volatile/restrict parameter projection |
 | `MiniDumpWriteDump` | Packed callback records containing aligned types |
 | `CfRegisterSyncRoot` | Policy-wrapper records with C++ constructors |
 | `RoGetActivatableClassRegistration` | External collection-template alias dependency |
 | `CustomNavigationPattern_Navigate` | No configured DLL/export ownership |
 | `RtlCaptureContext2` on x86/ARM64 | No configured DLL/export ownership; x64 is retained |
+
+`WaitOnAddress` retains its native `volatile VOID*` observation and publishes an ordinary pointer.
+The `sdk_wait_on_address` fixture checks the pinned header and both metadata round trips on all
+targets. Volatile/restrict qualifiers remain in native reconciliation but are omitted from ordinary
+type publication. Storage-qualified fields, arrays, constants and C++ reference parameters, and
+qualified COM objects/methods, remain rejected. The pointer fixtures also check typedefs, constness,
+callbacks and native conflicts.
+Canonical regeneration adds `WaitOnAddress`, `ISpTask`, `ISpThreadTask`, `ISpTaskManager`,
+`EX_SPIN_LOCK` and `PEX_SPIN_LOCK`, with no RDL deletions.
 
 `winternl.h` defines `UNICODE_STRING::Buffer` as `PWSTR`, retaining that typedef's
 `_Null_terminated_` evidence. The kernel uses the SDK's shared `ntdef.h`, whose field is
@@ -275,7 +283,7 @@ The current 15 missing constant names are:
 
 Remaining required function losses include volatile storage, multiple-vptr interfaces,
 packed/aligned records, variadic callbacks and unresolved import evidence. Examples include
-`WaitOnAddress`, VSS/DRM/WSD families, `MiniDumpWriteDump`, PDH raw-counter APIs,
+VSS/DRM/WSD families, `MiniDumpWriteDump`, PDH raw-counter APIs,
 `ldap_set_dbg_routine`, and both missing `RtlCaptureContext2` pairs. The generated function report
 owns the exact target/name inventory. These contracts are not approved exclusions.
 

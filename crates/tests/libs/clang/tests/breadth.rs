@@ -256,6 +256,9 @@ fn imports() -> projection::Imports {
         ("BufferFunction", "example.dll", None),
         ("GetCurrentProcessId", "kernel32.dll", None),
         ("MetaDataGetDispenser", "RoMetadata.dll", None),
+        ("Observe", "example.dll", None),
+        ("GetAddress", "example.dll", None),
+        ("WaitOnAddress", "api-ms-win-core-synch-l1-2-0.dll", None),
     ]
     .into_iter()
     .map(|(name, library, import)| {
@@ -3601,8 +3604,13 @@ fn function_typedefs_conflicts() {
         "Fixture",
     )
     .unwrap();
-    assert_eq!((output.output.records, output.output.aliases), (1, 0));
-    for name in ["Volatile", "Varargs", "Method", "RejectedFunction"] {
+    assert_eq!((output.output.records, output.output.aliases), (2, 1));
+    assert!(
+        output.output.partitions["function_typedef_rejections"]
+            .rdl
+            .contains("struct VolatileUser")
+    );
+    for name in ["Varargs", "Method"] {
         assert!(
             output.omissions.iter().any(|error| error.contains(name)),
             "{name}: {:?}",
@@ -4297,6 +4305,133 @@ fn native_enum_types() {
             assert_eq!(field.ty(), MetadataType::value_named("Fixture", ty));
             assert_eq!(field.constant().unwrap().value(), value);
         }
+    });
+}
+
+#[test]
+fn pointer_qualifiers() {
+    helpers::ensure_libclang();
+    let input = selected_fixture("pointer_qualifiers", &[]);
+    let snapshots = capture(std::slice::from_ref(&input), &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        assert!(snapshot.types.iter().any(|ty| ty.qualifiers.volatile));
+        assert!(snapshot.types.iter().any(|ty| ty.qualifiers.restrict));
+    }
+    let output =
+        projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
+            .unwrap();
+    let partial = projection::project_partial_with_imports(
+        PartialCapture {
+            snapshots,
+            omissions: Vec::new(),
+        },
+        "Fixture",
+        &imports(),
+    )
+    .unwrap();
+    assert!(partial.omissions.is_empty(), "{:?}", partial.omissions);
+    assert_eq!(partial.output, output);
+    assert_eq!((output.records, output.functions), (1, 2));
+    let mut plain = selected_fixture("pointer_qualifiers", &[]);
+    plain
+        .source
+        .insert_str(0, "#define VOLATILE\n#define RESTRICT\n");
+    assert_eq!(project(&[plain]), output);
+    roundtrip("pointer_qualifiers", &output, |index, _| {
+        assert_eq!(
+            index.expect("Fixture", "VolatileInt").underlying_type(),
+            Some(MetadataType::I32)
+        );
+        assert_eq!(
+            index.expect("Fixture", "ReadOnlyAddress").underlying_type(),
+            Some(MetadataType::PtrConst(Box::new(MetadataType::I32), 1))
+        );
+        let fields: BTreeMap<_, _> = index
+            .expect("Fixture", "RawPointers")
+            .fields()
+            .map(|field| (field.name(), field.ty()))
+            .collect();
+        assert_eq!(
+            fields["value"],
+            MetadataType::PtrMut(Box::new(MetadataType::I32), 1)
+        );
+        assert_eq!(
+            fields["slot"],
+            MetadataType::PtrMut(Box::new(MetadataType::I32), 2)
+        );
+    });
+    for qualifier in ["VOLATILE", "RESTRICT"] {
+        let mut different = selected_fixture("pointer_qualifiers", &[]);
+        different.name = "different.h".into();
+        different
+            .source
+            .insert_str(0, &format!("#define {qualifier}\n"));
+        let mut inputs = [selected_fixture("pointer_qualifiers", &[]), different];
+        for _ in 0..2 {
+            assert!(merge(&capture(&inputs, &TARGETS).unwrap()).is_err());
+            assert!(projection::generate_partial(&inputs, "Fixture").is_err());
+            inputs.reverse();
+        }
+    }
+}
+
+#[test]
+fn pointer_qualifier_storage() {
+    helpers::ensure_libclang();
+    let safe = selected_fixture("pointer_qualifier_storage", &["SafePointer"]);
+    assert_eq!(projection::generate(&[safe], "Fixture").unwrap().records, 1);
+    for name in [
+        "VolatileField",
+        "VolatileAliasField",
+        "VolatileArray",
+        "VolatilePointer",
+        "RestrictedPointer",
+        "VOLATILE_CONSTANT",
+        "UseReference",
+    ] {
+        let input = selected_fixture("pointer_qualifier_storage", &[name]);
+        let error = projection::generate(std::slice::from_ref(&input), "Fixture").unwrap_err();
+        assert!(
+            error.to_string().contains("volatile/restrict"),
+            "{name}: {error}"
+        );
+        let partial = projection::generate_partial(&[input], "Fixture").unwrap();
+        assert_eq!((partial.output.records, partial.output.constants), (0, 0));
+        assert!(!partial.omissions.is_empty(), "{name}");
+    }
+}
+
+#[test]
+#[ignore = "requires the pinned Windows SDK and clang resource headers"]
+fn sdk_wait_on_address() {
+    helpers::ensure_libclang();
+    let mut input = test_clang::annotated_sdk_fixture();
+    input.name = "sdk_wait_on_address.h".into();
+    input.source = test_clang::fixture("sdk_wait_on_address").source;
+    input.roots = vec!["WaitOnAddress".into()];
+    let snapshots = capture(&[input], &TARGETS).unwrap();
+    for snapshot in &snapshots {
+        assert!(
+            snapshot
+                .types
+                .iter()
+                .any(|ty| { ty.qualifiers.volatile && matches!(ty.kind, TypeKind::Void) })
+        );
+    }
+    let output =
+        projection::project_with_imports(&merge(&snapshots).unwrap(), "Fixture", &imports())
+            .unwrap();
+    assert_eq!(output.functions, 1);
+    roundtrip("sdk_wait_on_address", &output, |index, _| {
+        let method = index
+            .expect("Fixture", "Apis")
+            .methods()
+            .find(|method| method.name() == "WaitOnAddress")
+            .unwrap();
+        assert_eq!(
+            method.signature(&[]).types[0],
+            MetadataType::PtrMut(Box::new(MetadataType::Void), 1)
+        );
     });
 }
 
@@ -5067,7 +5202,6 @@ fn byte_aligned_qualifier_conflicts() {
         "UnalignedVoid",
         "UnalignedInt",
         "UnalignedPointer",
-        "VolatileByte",
     ] {
         let input = selected_fixture("byte_aligned_rejections", &[name]);
         assert!(

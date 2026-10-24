@@ -552,8 +552,15 @@ reachable named values are published as dependencies, so root-only removal would
 `windows_clang_getTypeQualifiers` checks qualifiers before `clang` type interning. CVR and
 supported unaligned requests are represented, including typedef inheritance. An unaligned request
 requires canonical unqualified native storage alignment one; native comparison retains the request,
-but metadata needs no additional modifier. Wider or incomplete storage and remaining qualifiers
-stay rejected. `byte_aligned_qualifiers` and the SDK fixture check this boundary on all targets.
+but metadata needs no additional modifier. Wider or incomplete unaligned storage and unknown
+qualifiers stay rejected. `byte_aligned_qualifiers` and the SDK fixture check this boundary on all
+targets.
+Ordinary type publication omits volatile/restrict qualification, including typedefs and raw-pointer
+chains, while native capture and reconciliation retain it. No RDL modifiers are emitted for these
+qualifiers; do not infer atomics, barriers or Rust exclusivity. Storage-qualified fields,
+arrays, constants and C++ reference parameters, and qualified COM objects/methods, remain rejected.
+`pointer_qualifiers`, `pointer_qualifier_storage` and `sdk_wait_on_address` cover this publication
+boundary.
 Callback naming uses target-wide candidates after public-family and alias validation. Candidate
 searches use the shared native/public type checker and discard assumed pairs after each failure.
 When no compatible callback name exists, projection emits structural C/stdcall function-pointer

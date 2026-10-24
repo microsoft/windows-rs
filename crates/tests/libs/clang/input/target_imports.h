@@ -6,4 +6,5 @@ extern "C" int __stdcall Available(unsigned value);
 #else
 #define QUALIFIER
 #endif
-extern "C" int __stdcall Unsupported(QUALIFIER int* value);
+struct UnsupportedValue { QUALIFIER int value; };
+extern "C" int __stdcall Unsupported(UnsupportedValue value);

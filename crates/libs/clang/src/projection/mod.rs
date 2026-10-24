@@ -524,11 +524,6 @@ fn checked_type(snapshot: &Snapshot, id: TypeId) -> Result<&Type, Error> {
             "unaligned type requires naturally byte-aligned storage".into(),
         ));
     }
-    if ty.qualifiers.volatile || ty.qualifiers.restrict {
-        return Err(Error(
-            "volatile/restrict type projection is not implemented".into(),
-        ));
-    }
     if let TypeKind::Pointer(pointee) | TypeKind::Pointer64(pointee) = ty.kind {
         let size = if matches!(ty.kind, TypeKind::Pointer64(_)) || snapshot.target != Target::X86 {
             8
@@ -550,6 +545,20 @@ fn checked_type(snapshot: &Snapshot, id: TypeId) -> Result<&Type, Error> {
                 "qualified function type projection is unsupported".into(),
             ));
         }
+    }
+    Ok(ty)
+}
+
+fn checked_storage_type(snapshot: &Snapshot, id: TypeId) -> Result<&Type, Error> {
+    let ty = checked_type(snapshot, id)?;
+    // Raw pointers do not perform accesses; published fields and constants do.
+    if ty.qualifiers.volatile || ty.qualifiers.restrict {
+        return Err(Error(
+            "volatile/restrict storage projection is not implemented".into(),
+        ));
+    }
+    if let TypeKind::Array { element, .. } = ty.kind {
+        checked_storage_type(snapshot, element)?;
     }
     Ok(ty)
 }
@@ -1029,6 +1038,7 @@ impl Projector<'_, '_> {
             });
         }
         if let TypeKind::LValueReference(pointee) = snapshot.types[canonical.0].kind {
+            checked_storage_type(snapshot, pointee)?;
             let TypeKind::LValueReference(written) = snapshot.types[source.0].kind else {
                 return Err(Error(
                     "written reference has a non-reference canonical type".into(),
@@ -1246,7 +1256,7 @@ impl Projector<'_, '_> {
                 if let TypeKind::Record(record) = snapshot.types[pointee.0].kind
                     && self.interface_record(snapshot_id, record)
                 {
-                    checked_type(snapshot, *pointee)?;
+                    checked_storage_type(snapshot, *pointee)?;
                     if snapshot.types[pointee.0].qualifiers.constant {
                         let reference = self
                             .resolution

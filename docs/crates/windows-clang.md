@@ -382,11 +382,19 @@ Bare vtable consumers have no automatic AddRef/Release. Bindgen's zero IID for
 GUID-less IUnknown-derived interfaces remains an unresolved consumer-identity issue. Const pointers
 to GUID-less interfaces remain unsupported.
 
+Ordinary type publication omits volatile/restrict qualification, including through typedefs and
+raw-pointer chains. Native capture and reconciliation retain both qualifiers. Raw pointers pass
+addresses without generating memory accesses; the projection does not infer atomics, barriers or
+exclusive Rust references. Constness and pointer layout checks remain unchanged.
+Storage-qualified fields, arrays, constants and C++ reference parameters remain unsupported, as do
+qualified COM objects and methods. `pointer_qualifiers`, `pointer_qualifier_storage` and
+`sdk_wait_on_address` cover these boundaries without adding RDL syntax or metadata modifiers.
+
 COM object constness remains native evidence but both `I*` and `const I*` project as interface
 references. This is not immutability: DXGI's SetPrivateDataInterface retains/releases its `const
 IUnknown*`. Outer storage constness remains: `I* const*` is `*const I`, `const I**` is `*mut I`.
-Volatile/restrict are rejected. Ordinary record pointees keep constness. Interface typedefs are
-transparent aliases; callable signatures remain canonical references.
+Volatile/restrict COM object qualification is rejected. Ordinary record pointees keep constness.
+Interface typedefs are transparent aliases; callable signatures remain canonical references.
 
 Packed interface declarations remain opaque references, not packed value records. Check
 pointer-sized fieldless layout against inherited alignment capped by local packing; vtable layout
