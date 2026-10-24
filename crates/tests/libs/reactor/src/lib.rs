@@ -305,6 +305,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "list" => App::run_component::<list::ListFixture>(())?,
         "reference" => App::run_component::<reference::ReferenceFixture>(())?,
         "repeater" => App::run_component::<repeater::RepeaterFixture>(())?,
+        "repeater_layout" => App::run_component::<repeater::RepeaterLayoutFixture>(())?,
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,

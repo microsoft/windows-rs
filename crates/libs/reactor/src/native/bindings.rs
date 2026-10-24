@@ -11963,6 +11963,39 @@ impl windows_core::RuntimeType for ILaunchActivatedEventArgs {
 pub struct ILaunchActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+windows_core::imp::define_interface!(
+    ILayoutInformation,
+    ILayoutInformation_Vtbl,
+    0xceea0a8c_5a4f_5d7a_8fea_77b5e0e0230c
+);
+impl windows_core::RuntimeType for ILayoutInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILayoutInformation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    ILayoutInformationStatics,
+    ILayoutInformationStatics_Vtbl,
+    0x8ddb192d_b7ff_5307_acf4_d4e547da5815
+);
+impl windows_core::RuntimeType for ILayoutInformationStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILayoutInformationStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    GetLayoutExceptionElement: usize,
+    GetLayoutSlot: usize,
+    pub GetAvailableSize: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut Size,
+    ) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ILine, ILine_Vtbl, 0x507b3858_af7e_559b_a87e_4cc6a5d8ba96);
 impl windows_core::RuntimeType for ILine {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -20051,6 +20084,15 @@ impl IUIElement {
             ))
         }
     }
+    pub(crate) fn Measure(&self, availablesize: Size) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).Measure)(
+                windows_core::Interface::as_raw(self),
+                availablesize,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn CapturePointer<P0>(&self, value: P0) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<Pointer>,
@@ -20077,11 +20119,11 @@ impl IUIElement {
             .ok()
         }
     }
-    pub(crate) fn UpdateLayout(&self) -> windows_core::Result<()> {
+    pub(crate) fn StartBringIntoView(&self) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).UpdateLayout)(windows_core::Interface::as_raw(
-                self,
-            ))
+            (windows_core::Interface::vtable(self).StartBringIntoView)(
+                windows_core::Interface::as_raw(self),
+            )
             .ok()
         }
     }
@@ -20414,7 +20456,7 @@ pub struct IUIElement_Vtbl {
     RemovePreviewKeyUp: usize,
     BringIntoViewRequested: usize,
     RemoveBringIntoViewRequested: usize,
-    Measure: usize,
+    pub Measure: unsafe extern "system" fn(*mut core::ffi::c_void, Size) -> windows_core::HRESULT,
     Arrange: usize,
     pub CapturePointer: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -20431,10 +20473,11 @@ pub struct IUIElement_Vtbl {
     TransformToVisual: usize,
     InvalidateMeasure: usize,
     InvalidateArrange: usize,
-    pub UpdateLayout: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    UpdateLayout: usize,
     CancelDirectManipulations: usize,
     StartDragAsync: usize,
-    StartBringIntoView: usize,
+    pub StartBringIntoView:
+        unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     StartBringIntoViewWithOptions: usize,
     TryInvokeKeyboardAccelerator: usize,
     pub Focus: unsafe extern "system" fn(
@@ -22500,6 +22543,61 @@ impl windows_core::RuntimeName for LaunchActivatedEventArgs {
 }
 unsafe impl Send for LaunchActivatedEventArgs {}
 unsafe impl Sync for LaunchActivatedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LayoutInformation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    LayoutInformation,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl LayoutInformation {
+    pub(crate) fn GetAvailableSize<P0>(element: P0) -> windows_core::Result<Size>
+    where
+        P0: windows_core::Param<UIElement>,
+    {
+        Self::ILayoutInformationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAvailableSize)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        })
+    }
+    fn ILayoutInformationStatics<
+        R,
+        F: FnOnce(&ILayoutInformationStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            LayoutInformation,
+            ILayoutInformationStatics,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for LayoutInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ILayoutInformation>();
+}
+unsafe impl windows_core::Interface for LayoutInformation {
+    type Vtable = <ILayoutInformation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILayoutInformation as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for LayoutInformation {
+    type Target = ILayoutInformation;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for LayoutInformation {
+    const NAME: &'static str = "Microsoft.UI.Xaml.Controls.Primitives.LayoutInformation";
+}
+unsafe impl Send for LayoutInformation {}
+unsafe impl Sync for LayoutInformation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Line(windows_core::IUnknown);

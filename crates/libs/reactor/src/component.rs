@@ -1872,6 +1872,17 @@ impl<A: Adapter> ComponentHost<A> {
         report
     }
 
+    /// Applies virtual realizations at the front of the native queue. Native events, messages,
+    /// and the work queued behind them are left in order for the next drain.
+    pub(crate) fn realize_pending(&mut self) -> ComponentDrain {
+        let mut report = ComponentDrain::default();
+        while let Some(work) = self.runtime.next_realization() {
+            report.mutations += self.apply_virtual_work(work).len();
+        }
+        self.rearm_wake();
+        report
+    }
+
     fn apply_virtual_work(&mut self, work: VirtualWork) -> UpdateStats {
         match work {
             VirtualWork::Realize {

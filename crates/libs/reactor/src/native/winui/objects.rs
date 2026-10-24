@@ -174,7 +174,10 @@ impl WinUiAdapter {
                     .is_some_and(|contract| contract.property == property && contract.realize_items)
                 && let Some(element) = element.as_ref()
             {
-                element.UpdateLayout()?;
+                // Measure only this control so its item containers exist. `UpdateLayout` would lay
+                // out the whole window, including virtualized repeaters elsewhere in the tree,
+                // while their element factories cannot render rows.
+                element.Measure(native::LayoutInformation::GetAvailableSize(element)?)?;
             }
             let result = self.apply_property(object, kind, element.as_ref(), property, value);
             let observation = feedback.and_then(|(event, _)| {

@@ -475,6 +475,49 @@ fn pending_virtual_work_precedes_queued_component_messages() {
 }
 
 #[test]
+fn realize_pending_applies_only_leading_realizations() {
+    let events = Rc::new(RefCell::new(Vec::new()));
+    let mut host = ComponentHost::mount(
+        RecordingAdapter::default(),
+        [component::<VirtualParent>(
+            "virtual",
+            VirtualEffectLog(Rc::clone(&events)),
+        )],
+    );
+    let root = host.runtime().graph().root().unwrap();
+    let collection = host
+        .runtime()
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()[0];
+    let realize = |container| RealizationRequest::Realize {
+        collection,
+        container: RealizedContainer(container),
+        index: container as usize,
+        source_revision: 0,
+    };
+    let sender = host.sender::<VirtualParent>(&Key::from("virtual")).unwrap();
+
+    assert!(sender.send(()));
+    host.runtime.adapter_mut().queue_realization(realize(1));
+    host.runtime.adapter_mut().queue_event(EventDispatch::new(
+        ObjectId::test(10_000),
+        EventId::Click,
+        EventValue::Unit(Callback::new(|()| {})),
+        EventPayload::Unit,
+    ));
+    host.runtime.adapter_mut().queue_realization(realize(2));
+
+    // The leading realization runs; the earlier message, the event, and the work behind it wait.
+    assert_ne!(host.realize_pending().mutations, 0);
+    assert_eq!(events.borrow().as_slice(), ["setup"]);
+    assert_eq!(host.realize_pending().mutations, 0);
+
+    assert_eq!(host.drain(10).dispatched, 1);
+    assert_eq!(events.borrow().as_slice(), ["setup", "setup"]);
+}
+
+#[test]
 fn component_update_drains_pending_virtual_work_exactly_once() {
     let events = Rc::new(RefCell::new(Vec::new()));
     let input = VirtualEffectLog(Rc::clone(&events));

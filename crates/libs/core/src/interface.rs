@@ -5,24 +5,6 @@ use core::marker::PhantomData;
 use core::mem::{MaybeUninit, forget, transmute_copy};
 use core::ptr::NonNull;
 
-/// Debug-only diagnostic helper: reports a `cast` whose `QueryInterface` returned the
-/// same interface pointer it started from - i.e. the source already exposes the target
-/// interface, so the cast is redundant (use `Deref` or `.into()` instead). Compiled in
-/// only in debug builds when `RUSTFLAGS=--cfg windows_cast_diagnostics` is set.
-#[cfg(all(debug_assertions, windows_cast_diagnostics))]
-#[cold]
-#[inline(never)]
-fn warn_redundant_cast<T: Interface>(location: &core::panic::Location<'_>) {
-    extern crate std;
-
-    std::eprintln!(
-        "windows-core: cast::<{}> at {} returned the same interface pointer; the source \
-         already exposes this interface (use Deref or .into() instead of .cast())",
-        core::any::type_name::<T>(),
-        location,
-    );
-}
-
 /// Provides low-level access to a COM interface vtable.
 ///
 /// # Safety
@@ -101,7 +83,7 @@ pub unsafe trait Interface: Sized + Clone {
     }
 
     /// Queries the object for another interface.
-    #[cfg_attr(all(debug_assertions, windows_cast_diagnostics), track_caller)]
+    #[cfg_attr(windows_cast_diagnostics, track_caller)]
     #[inline(always)]
     fn cast<T: Interface>(&self) -> Result<T> {
         // SAFETY: `result` is valid for writing an interface pointer, and casting the result
@@ -113,14 +95,22 @@ pub unsafe trait Interface: Sized + Clone {
             // does not drop its contents). This guards against COM implementations that store
             // non-null values in `result` but still return `E_NOINTERFACE`.
             let mut result = MaybeUninit::<Option<T>>::zeroed();
-            self.query(&T::IID, result.as_mut_ptr() as _).ok()?;
+            let hr = self.query(&T::IID, result.as_mut_ptr() as _);
+
+            #[cfg(windows_cast_diagnostics)]
+            imp::record_cast::<Self, T>(
+                core::panic::Location::caller(),
+                hr.is_ok()
+                    && result
+                        .assume_init_ref()
+                        .as_ref()
+                        .is_some_and(|obj| core::ptr::eq(self.as_raw(), obj.as_raw())),
+            );
+
+            hr.ok()?;
 
             // `query()` succeeded; still double-check that the output pointer is non-null.
             if let Some(obj) = result.assume_init() {
-                #[cfg(all(debug_assertions, windows_cast_diagnostics))]
-                if core::ptr::eq(self.as_raw(), obj.as_raw()) {
-                    warn_redundant_cast::<T>(core::panic::Location::caller());
-                }
                 Ok(obj)
             } else {
                 Err(imp::E_POINTER.into())

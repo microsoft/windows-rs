@@ -325,6 +325,7 @@ struct NativeEventQueue {
     feedback: RefCell<FeedbackState>,
     items: RefCell<HashMap<ObjectId, NativeItem>>,
     waker: RefCell<Option<Rc<dyn Fn()>>>,
+    realizer: RefCell<Option<Rc<dyn Fn()>>>,
     wake_pending: Cell<bool>,
     content_dialogs: RefCell<NativeContentDialogScheduler>,
 }
@@ -412,6 +413,17 @@ impl NativeEventQueue {
         });
         drop(events);
         WinUiAdapter::schedule_event_wake(self);
+    }
+
+    /// Applies the realizations at the front of the native queue before returning a realized
+    /// element so that layout measures its content. Queued native events, messages, and the
+    /// realizations behind them wait for the queued wake, as does all work when a window or
+    /// application driver is already active.
+    fn realize_now(&self) {
+        let realizer = self.realizer.borrow().clone();
+        if let Some(realizer) = realizer {
+            realizer();
+        }
     }
 }
 
@@ -1034,7 +1046,23 @@ impl IVectorChangedEventArgs_Impl for NativeVirtualChangedEventArgs_Impl {
 
 #[derive(Default)]
 struct RealizedShells {
-    pool: RefCell<ShellPool<native::ContentControl>>,
+    pool: RefCell<ShellPool<RealizedShell>>,
+}
+
+/// A pooled container and its COM identity, which `recycle` uses to find the shell that WinUI
+/// returns.
+#[derive(Clone)]
+struct RealizedShell {
+    control: native::ContentControl,
+    identity: usize,
+}
+
+impl RealizedShell {
+    fn new() -> Result<Self, windows_core::Error> {
+        let control = native::ContentControl::new()?;
+        let identity = com_identity(&control)?;
+        Ok(Self { control, identity })
+    }
 }
 
 struct ShellPool<T> {
@@ -1087,14 +1115,14 @@ impl<T: Clone> ShellPool<T> {
     }
 }
 
-impl ShellPool<native::ContentControl> {
+impl ShellPool<RealizedShell> {
     fn recycle(
         &mut self,
         element: &native::UIElement,
     ) -> Result<Option<RealizedContainer>, windows_core::Error> {
+        let identity = com_identity(element)?;
         let Some((container, shell)) = self.shells.iter().find_map(|(container, shell)| {
-            (shell.cast::<native::UIElement>().as_ref() == Ok(element))
-                .then(|| (*container, shell.clone()))
+            (shell.identity == identity).then(|| (*container, shell.control.clone()))
         }) else {
             return Ok(None);
         };
@@ -1111,8 +1139,8 @@ impl ShellPool<native::ContentControl> {
 
 impl RealizedShells {
     fn take(&self) -> Result<(RealizedContainer, native::UIElement), windows_core::Error> {
-        let (container, shell) = self.pool.borrow_mut().take(native::ContentControl::new)?;
-        Ok((container, shell.cast()?))
+        let (container, shell) = self.pool.borrow_mut().take(RealizedShell::new)?;
+        Ok((container, shell.control.cast()?))
     }
 
     fn recycle(
@@ -1139,9 +1167,9 @@ impl RealizedShells {
             };
         };
         if let Some(content) = content {
-            shell.SetContent(content)
+            shell.control.SetContent(content)
         } else {
-            shell.SetContent(None::<&IInspectable>)
+            shell.control.SetContent(None::<&IInspectable>)
         }
     }
 
@@ -1167,6 +1195,7 @@ impl native::IElementFactory_Impl for NativeElementFactory_Impl {
             index,
             source_revision: self.source_revision.get(),
         });
+        self.queue.realize_now();
         Ok(element)
     }
 

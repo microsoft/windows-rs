@@ -464,25 +464,32 @@ impl WindowDispatch {
         let wake = Rc::clone(&registration);
         let callback = context.callback(move || {
             let wake = wake.get().unwrap();
-            if dispatch.active.replace(true) {
+            dispatch.run(&work).unwrap_or_else(|| {
                 let mut deferred = dispatch.deferred.borrow_mut();
                 if !deferred.iter().any(|callback| callback.id == wake.id) {
                     deferred.push(wake.clone());
                 }
-                return Ok(());
-            }
-            // Native calls can pump a nested dispatcher loop. All window and application
-            // drivers share this boundary so a nested wake cannot reenter an active owner.
-            let result = work();
-            dispatch.active.set(false);
-            let deferred = std::mem::take(&mut *dispatch.deferred.borrow_mut());
-            for callback in deferred {
-                callback.wake();
-            }
-            result
+                Ok(())
+            })
         });
         assert!(registration.set(callback.clone()).is_ok());
         callback
+    }
+
+    /// Runs `work` unless an owner is already active, then wakes the callbacks deferred meanwhile.
+    fn run<R>(&self, work: impl FnOnce() -> R) -> Option<R> {
+        if self.active.replace(true) {
+            return None;
+        }
+        // Native calls can pump a nested dispatcher loop. All window and application drivers
+        // share this boundary so a nested wake cannot reenter an active owner.
+        let result = work();
+        self.active.set(false);
+        let deferred = std::mem::take(&mut *self.deferred.borrow_mut());
+        for callback in deferred {
+            callback.wake();
+        }
+        Some(result)
     }
 }
 
@@ -838,7 +845,36 @@ impl App {
         let fault = APP_FAULT
             .with(|fault| fault.borrow_mut().take())
             .map_or(Ok(()), Err);
+        #[cfg(windows_cast_diagnostics)]
+        report_casts();
         start.and(callback_result).and(fault)
+    }
+}
+
+/// Prints the casts made while the app ran, busiest call sites first, when building with
+/// `RUSTFLAGS=--cfg windows_cast_diagnostics`.
+#[cfg(windows_cast_diagnostics)]
+fn report_casts() {
+    let mut counts = windows_core::imp::take_cast_counts();
+    counts.sort_by_key(|count| std::cmp::Reverse(count.count));
+    let short = |name: &'static str| {
+        let end = name.find('<').unwrap_or(name.len());
+        let start = name[..end].rfind("::").map_or(0, |index| index + 2);
+        &name[start..]
+    };
+    eprintln!(
+        "windows-reactor: {} casts at {} call sites",
+        counts.iter().map(|count| count.count).sum::<u64>(),
+        counts.len()
+    );
+    for count in counts.iter().take(40) {
+        eprintln!(
+            "{:>8}  {} -> {}  {}",
+            count.count,
+            short(count.source),
+            short(count.target),
+            count.location
+        );
     }
 }
 
@@ -892,6 +928,21 @@ fn open_component_window(
     );
     let wake = drain.clone();
     host.set_continuation_waker(move || wake.wake());
+    let realize_state = Rc::downgrade(&state);
+    let realize_dispatch = Rc::clone(&services.dispatch);
+    host.set_realizer(move || {
+        let Some(state) = realize_state.upgrade() else {
+            return;
+        };
+        // Layout forced while a driver is active keeps the queued realization.
+        realize_dispatch.run(|| {
+            if let Ok(mut state) = state.try_borrow_mut()
+                && let Some(state) = state.as_mut()
+            {
+                state.host.realize_pending();
+            }
+        });
+    });
     let root = host.runtime().graph().root().unwrap();
     let mut window = match host
         .runtime()

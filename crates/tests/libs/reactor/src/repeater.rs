@@ -1,4 +1,7 @@
 use super::*;
+use std::sync::atomic::{AtomicUsize, Ordering};
+
+static ROWS_CREATED: AtomicUsize = AtomicUsize::new(0);
 
 pub(super) struct RepeaterFixture {
     values: Rc<Vec<u32>>,
@@ -54,6 +57,7 @@ impl Component for RepeaterFixture {
                         )),
                 )),
                 ScrollViewer::new()
+                    .automation_id("rows")
                     .grid_row(1)
                     .content(ItemsRepeater::new().virtual_source(VirtualSource::new(
                         0,
@@ -66,6 +70,77 @@ impl Component for RepeaterFixture {
                             })
                         },
                     ))),
+            ))
+            .into()
+    }
+}
+
+/// Loads the rows and selects a radio button in one update. Applying the `RadioButtons` selection
+/// realizes its items while Reactor is applying the update, which must not lay out the rows while
+/// the host is busy. `Count` shows how many rows have been created.
+pub(super) struct RepeaterLayoutFixture {
+    loaded: bool,
+    created: usize,
+}
+
+#[derive(Clone)]
+pub(super) enum LayoutMessage {
+    Load,
+    Count,
+}
+
+impl Component for RepeaterLayoutFixture {
+    type Input = ();
+    type Message = LayoutMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            loaded: false,
+            created: 0,
+        }
+    }
+
+    fn update(&mut self, message: LayoutMessage, _: &ComponentContext<Self>) {
+        match message {
+            LayoutMessage::Load => self.loaded = true,
+            LayoutMessage::Count => self.created = ROWS_CREATED.load(Ordering::Relaxed),
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: repeater_layout");
+        context.window_visuals(WindowVisuals::new().client_size(500.0, 360.0));
+        let count = if self.loaded { 256 } else { 0 };
+        // The repeater precedes the radio buttons so its new rows are pending when layout runs.
+        Grid::new()
+            .rows([GridLength::Auto, GridLength::Star(1.0)])
+            .children((
+                ScrollViewer::new()
+                    .automation_id("rows")
+                    .grid_row(1)
+                    .content(ItemsRepeater::new().virtual_source(VirtualSource::new(
+                        0,
+                        count,
+                        Key::from,
+                        |index| View::component::<Row>(RowInput { index, value: 0 }),
+                    ))),
+                StackPanel::new()
+                    .orientation(Orientation::Horizontal)
+                    .children((
+                        Button::new()
+                            .automation_id("load")
+                            .content("Load")
+                            .on_click(context.message(LayoutMessage::Load)),
+                        Button::new()
+                            .automation_id("count")
+                            .content(format!("Created {}", self.created))
+                            .on_click(context.message(LayoutMessage::Count)),
+                        RadioButtons::new()
+                            .automation_id("choice")
+                            .items_source(["One", "Two"])
+                            .selected_index(Some(usize::from(self.loaded)))
+                            .on_selection_changed(context.callback(|_| LayoutMessage::Count)),
+                    )),
             ))
             .into()
     }
@@ -86,6 +161,7 @@ impl Component for Row {
     type Message = ();
 
     fn create(_: &RowInput, _: &ComponentContext<Self>) -> Self {
+        ROWS_CREATED.fetch_add(1, Ordering::Relaxed);
         Self { clicks: 0 }
     }
 

@@ -1722,6 +1722,25 @@ impl<A: Adapter> Runtime<A> {
         None
     }
 
+    /// Returns the virtual work for a realization at the front of the native queue, after applying
+    /// the observations ahead of it. Returns `None` when a native event comes first.
+    pub(crate) fn next_realization(&mut self) -> Option<VirtualWork> {
+        loop {
+            if self.prepare_update() {
+                return None;
+            }
+            let next = self.adapter.peek_native_event()?;
+            if next.event.is_some() || next.realization.is_none() {
+                return None;
+            }
+            match self.pop_native_work()? {
+                NativeWork::Virtual(work) => return Some(work),
+                NativeWork::Maintenance => {}
+                NativeWork::Event(_) => unreachable!(),
+            }
+        }
+    }
+
     /// Applies queued native observations and retirement completions. Returns `false` while a
     /// native callback or virtual realization must run before the next update.
     pub(crate) fn prepare_update(&mut self) -> bool {
