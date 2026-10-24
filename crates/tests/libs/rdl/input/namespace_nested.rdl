@@ -5,6 +5,7 @@ mod Test {
             Value: i32,
         }
     }
+    #[guid(0x392e448d_5f3d_5dc2_b08c_1a9f865ab0e1)]
     interface IConsumer {
         fn Process(&self, #[in] data: Inner::Data) -> i32;
     }

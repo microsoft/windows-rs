@@ -8,6 +8,7 @@ mod Statics {
     class Widget {}
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidgetStatics {
         fn Add(&self, #[in] a: i32, #[in] b: i32) -> i32;
 

@@ -1,11 +1,13 @@
 //! --filter Test.ISource::Changed --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface ISource {
         #[special]
         fn add_Changed(&self, #[in] handler: Handler<ISource>) -> i64;
         #[special]
         fn remove_Changed(&self, #[in] token: i64);
     }
+    #[guid(auto)]
     delegate fn Handler<T>(#[in] sender: T, #[in] value: i32);
 }

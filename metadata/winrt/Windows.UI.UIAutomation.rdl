@@ -63,6 +63,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationTextRange)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x7e101b65_40d3_5994_85a9_0a0cb9a4ec98)]
             interface IAutomationTextRange {}
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(131072)]

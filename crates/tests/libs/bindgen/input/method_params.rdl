@@ -8,6 +8,7 @@ mod Test {
         y: i32,
     }
 
+    #[guid(auto)]
     interface Interface {
         fn IntoParam(&self, #[in] value: *const Struct);
         fn InputOutput(&self, #[in] #[out] value: *mut Struct);

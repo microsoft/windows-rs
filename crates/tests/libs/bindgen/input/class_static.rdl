@@ -23,10 +23,12 @@ mod Test {
         IClass,
     }
     #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+    #[guid(auto)]
     interface IClass {
         fn Method(&self) -> i32;
     }
     #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+    #[guid(auto)]
     interface IClassStatics {
         fn Create(&self, #[in] value: i32) -> Class;
     }

@@ -9,6 +9,7 @@ mod Numerics {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Negates every field, including the normal and distance of Plane.
         fn NegateVector2(&self, #[in] value: Vector2) -> Vector2;

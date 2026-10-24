@@ -15,9 +15,11 @@ mod Test {
     class Widget {
         IWidget,
     }
+    #[guid(auto)]
     interface IWidget {
         fn Read(&self) -> i32;
     }
+    #[guid(auto)]
     interface IWidgetStatics {
         fn Create(&self) -> Widget;
     }

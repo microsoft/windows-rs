@@ -23,7 +23,6 @@ mod Windows {
             fn GetPerformanceData(&self, #[out] pPerfData: *mut XAUDIO2_PERFORMANCE_DATA);
             fn SetDebugConfiguration(&self, #[in] #[opt] pDebugConfiguration: *const XAUDIO2_DEBUG_CONFIGURATION, #[reserved] pReserved: *mut void);
         }
-        #[no_guid]
         interface IXAudio2EngineCallback {
             fn OnProcessingPassStart(&self);
             fn OnProcessingPassEnd(&self);
@@ -40,7 +39,6 @@ mod Windows {
             fn GetProcessingQuantum(&self, #[out] quantumNumerator: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] quantumDenominator: *mut UINT32);
             fn GetProcessor(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] processor: *mut XAUDIO2_PROCESSOR);
         }
-        #[no_guid]
         interface IXAudio2MasteringVoice: IXAudio2Voice {
             #[override_slot(0)]
             fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
@@ -82,7 +80,6 @@ mod Windows {
             fn DestroyVoice(&self);
             fn GetChannelMask(&self, #[out] pChannelmask: *mut DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IXAudio2SourceVoice: IXAudio2Voice {
             #[override_slot(0)]
             fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
@@ -133,7 +130,6 @@ mod Windows {
             fn GetFrequencyRatio(&self, #[out] pRatio: *mut f32);
             fn SetSourceSampleRate(&self, NewSourceSampleRate: UINT32) -> HRESULT;
         }
-        #[no_guid]
         interface IXAudio2SubmixVoice: IXAudio2Voice {
             #[override_slot(0)]
             fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
@@ -174,7 +170,6 @@ mod Windows {
             #[override_slot(18)]
             fn DestroyVoice(&self);
         }
-        #[no_guid]
         interface IXAudio2Voice {
             fn GetVoiceDetails(&self, #[out] pVoiceDetails: *mut XAUDIO2_VOICE_DETAILS);
             fn SetOutputVoices(&self, #[in] #[opt] pSendList: *const XAUDIO2_VOICE_SENDS) -> HRESULT;
@@ -196,7 +191,6 @@ mod Windows {
             fn GetOutputMatrix(&self, #[in] #[opt] pDestinationVoice: IXAudio2Voice, SourceChannels: UINT32, DestinationChannels: UINT32, #[out] #[writable(entry, SourceChannels * DestinationChannels)] pLevelMatrix: *mut f32);
             fn DestroyVoice(&self);
         }
-        #[no_guid]
         interface IXAudio2VoiceCallback {
             fn OnVoiceProcessingPassStart(&self, BytesRequired: UINT32);
             fn OnVoiceProcessingPassEnd(&self);

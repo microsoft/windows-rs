@@ -3,6 +3,7 @@ mod Test {
     struct CharValue {
         Value: Char16,
     }
+    #[guid(0xee4bf571_95df_5e1f_accb_56290eff94da)]
     interface ICharTest {
         fn GetChar(&self) -> Char16;
         fn SetChar(&self, #[in] value: Char16);

@@ -148,8 +148,8 @@ Unresolved import ownership is target-local in partial mode: validated variants 
 and omissions identify each target lacking evidence. Strict mode still fails. Missing imports do
 not prove target unavailability or excuse native and public contract conflicts.
 Single-vptr interfaces support a public non-virtual base and ordered public virtual declarations
-with the platform COM convention. GUID-less hierarchies use `#[no_guid]`, including `ID3DInclude`,
-without adding COM identity or ownership. GUID-less children retain their native bases without
+with the platform COM convention. GUID-less hierarchies omit GUID attributes, including
+`ID3DInclude`, without adding COM identity or ownership. GUID-less children retain their bases without
 inheriting a UUID. Bindgen's zero-IID handling for GUID-less COM interfaces remains a separate
 consumer issue. Const pointers to GUID-less interfaces remain unsupported. C++ lvalue
 reference parameters preserve constness through metadata byrefs. Nonvirtual helpers, member templates,

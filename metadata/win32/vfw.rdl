@@ -529,7 +529,6 @@ mod Windows {
         struct HVIDEO__ {
             unused: i32,
         }
-        #[no_guid]
         interface IAVIEditStream: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -543,7 +542,6 @@ mod Windows {
             fn Clone(&self, #[out] #[out_ptr] ppResult: *mut PAVISTREAM) -> HRESULT;
             fn SetInfo(&self, #[in] #[readable(entry, bytes(cbInfo))] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
         }
-        #[no_guid]
         interface IAVIFile: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -559,11 +557,9 @@ mod Windows {
             fn EndRecord(&self) -> HRESULT;
             fn DeleteStream(&self, #[in] fccType: DWORD, #[in] lParam: LONG) -> HRESULT;
         }
-        #[no_guid]
         interface IAVIPersistFile: IPersistFile {
             fn Reserved1(&self) -> HRESULT;
         }
-        #[no_guid]
         interface IAVIStream: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -583,7 +579,6 @@ mod Windows {
             fn WriteData(&self, #[in] fcc: DWORD, #[in] #[readable(entry, bytes(cb))] lp: LPVOID, #[in] cb: LONG) -> HRESULT;
             fn SetInfo(&self, #[in] #[readable(entry, bytes(cbInfo))] lpInfo: *mut AVISTREAMINFOW, #[in] cbInfo: LONG) -> HRESULT;
         }
-        #[no_guid]
         interface IAVIStreaming: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -926,7 +921,6 @@ mod Windows {
         const IDS_CAP_WAVE_PREPARE_ERROR: i32 = 421;
         const IDS_CAP_WAVE_SIZE_ERROR: i32 = 423;
         const IDS_CAP_WRITEERROR: i32 = 414;
-        #[no_guid]
         interface IGetFrame: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;

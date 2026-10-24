@@ -3,7 +3,9 @@ mod Test {
     attribute FirstAttribute {
         fn();
     }
+    #[guid(0xff422770_ac59_5ba8_a634_6736da052534)]
     delegate fn Handler();
+    #[guid(0x9c026808_0c60_5c76_adec_fc6cea58fc94)]
     interface IInterface {
         #[First]
         Both: i32;

@@ -1,9 +1,11 @@
 //! --filter Test --flat
 #[win32]
 mod Test {
+    #[guid(auto)]
     interface IBase {
         fn BaseMethod(&self) -> HRESULT;
     }
+    #[guid(auto)]
     interface IInterface: IBase {
         fn Method(&self) -> HRESULT;
     }

@@ -1,6 +1,7 @@
 //! --flat --filter Test.IInterface::{First,Second}
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IInterface {
         fn First(&self, #[in] x: i32) -> i32;
         fn Second(&self, #[in] y: i32) -> i32;

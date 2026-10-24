@@ -1202,10 +1202,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Shadow)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x6813a583_f3b4_5fcf_8694_2cd0aefc2fad)]
                 interface IShadow {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Shadow)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x19899f25_d28b_51e6_94b0_d7e709686305)]
                 interface IShadowFactory {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SkewTransform)]

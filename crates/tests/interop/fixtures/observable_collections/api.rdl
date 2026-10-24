@@ -8,6 +8,7 @@ mod ObservableCollections {
     // Each client applies the same changes to the component's collections that the component
     // applies to the client's, and checks the events they raise.
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Returns a new empty collection.
         fn Numbers(&self) -> Windows::Foundation::Collections::IObservableVector<i32>;

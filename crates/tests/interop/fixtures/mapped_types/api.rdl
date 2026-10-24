@@ -15,6 +15,7 @@ mod MappedTypes {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // The 100-nanosecond intervals since 1601-01-01 UTC, and since `TimeSpan` zero.
         fn Ticks(&self, #[in] time: DateTime) -> i64;
@@ -26,6 +27,7 @@ mod MappedTypes {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidgetStatics {
         // The number of times `Close` was called on any widget.
         #[get]

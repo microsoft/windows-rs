@@ -1,6 +1,7 @@
 //! --filter Test --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface Interface {
         fn GetName(&self) -> String;
         fn SetName(&self, #[in] value: String);

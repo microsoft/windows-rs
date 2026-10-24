@@ -1,9 +1,11 @@
 #[winrt]
 mod Test {
+    #[guid(0xfe352eb8_7c4c_5021_979b_1a8a3d238244)]
     interface IWidget {
         fn Name(&self) -> String;
     }
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(0x5ec93d6d_877b_5190_9358_8122c9757ee0)]
     interface IWidgetInternal {
         fn InternalMethod(&self) -> i32;
     }

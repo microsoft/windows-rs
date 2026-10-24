@@ -8,10 +8,10 @@ fn structural_short_forms_preserve_metadata() {
                 #[Windows::Win32::Metadata::Alignment(16)]
                 value: u32,
             }
-            #[no_guid] interface Base {
+            interface Base {
                 fn Call(&self, #[in] value: u32);
             }
-            #[no_guid] interface Derived: Base {
+            interface Derived: Base {
                 #[Windows::Win32::Metadata::NativeOverrideSlot(0u32)]
                 fn Call(&self, #[in] value: u32);
             }

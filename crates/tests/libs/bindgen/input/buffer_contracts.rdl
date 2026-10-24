@@ -3,11 +3,13 @@
 mod Test {
     #[guid(0x6911d859_eae4_4a56_9076_76fc4227c710)]
     interface Tracked: Windows::Win32::IUnknown {}
+    #[guid(auto)]
     interface ObjectContracts {
         fn Required(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] value: Tracked);
         fn Optional(&self, #[Windows::Win32::Metadata::NativeSal("1.2", "__RPC__inout_opt", "", "")] #[in] #[opt] value: Tracked);
         fn Unspecified(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] value: Tracked);
     }
+    #[guid(auto)]
     interface Buffers {
         fn Input(&self, #[in] count: u32, #[in] #[readable(entry, count)] values: *const u32);
         fn Output(&self, #[in] count: u32, #[out] #[writable(entry, count)] #[readable(success, count)] values: *mut u32) -> HRESULT;
@@ -33,6 +35,7 @@ mod Test {
 #[win32]
 mod Windows {
     mod Win32 {
+        #[guid(auto)]
         interface IUnknown {}
         mod Metadata {
             #[repr(i32)]

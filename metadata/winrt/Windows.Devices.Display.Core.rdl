@@ -396,6 +396,7 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DisplayFence)]
+                #[guid(0x04dcf9ef_3406_5700_8fec_77eba4c5a74b)]
                 interface IDisplayFence {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DisplayManager)]
@@ -594,6 +595,7 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DisplayScanout)]
+                #[guid(0xe3051828_1ba5_50e7_8a39_bb1fd2f4f8b9)]
                 interface IDisplayScanout {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySource)]
@@ -651,6 +653,7 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DisplaySurface)]
+                #[guid(0x594f6cc6_139a_56d6_a4b1_15fe2cb76adb)]
                 interface IDisplaySurface {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DisplayTarget)]

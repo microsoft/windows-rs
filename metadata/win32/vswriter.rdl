@@ -75,7 +75,6 @@ mod Windows {
             fn SetBackupSchema(&self, #[in] dwSchemaMask: DWORD) -> HRESULT;
             fn SaveAsXML(&self, #[out] pbstrXML: *mut BSTR) -> HRESULT;
         }
-        #[no_guid]
         interface IVssCreateWriterMetadata {
             fn AddIncludeFiles(&self, wszPath: LPCWSTR, wszFilespec: LPCWSTR, bRecursive: bool, wszAlternateLocation: LPCWSTR) -> HRESULT;
             fn AddExcludeFiles(&self, wszPath: LPCWSTR, wszFilespec: LPCWSTR, bRecursive: bool) -> HRESULT;
@@ -97,13 +96,11 @@ mod Windows {
             fn Register(&self) -> HRESULT;
             fn Unregister(&self, #[in] writerId: VSS_ID) -> HRESULT;
         }
-        #[no_guid]
         interface IVssWMDependency: IUnknown {
             fn GetWriterId(&self, pWriterId: *mut VSS_ID) -> HRESULT;
             fn GetLogicalPath(&self, pbstrLogicalPath: *mut BSTR) -> HRESULT;
             fn GetComponentName(&self, pbstrComponentName: *mut BSTR) -> HRESULT;
         }
-        #[no_guid]
         interface IVssWMFiledesc: IUnknown {
             fn GetPath(&self, #[out] pbstrPath: *mut BSTR) -> HRESULT;
             fn GetFilespec(&self, #[out] pbstrFilespec: *mut BSTR) -> HRESULT;
@@ -111,7 +108,6 @@ mod Windows {
             fn GetAlternateLocation(&self, #[out] pbstrAlternateLocation: *mut BSTR) -> HRESULT;
             fn GetBackupTypeMask(&self, #[out] pdwTypeMask: *mut DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IVssWriterComponents {
             fn GetComponentCount(&self, pcComponents: *mut UINT) -> HRESULT;
             fn GetWriterInfo(&self, pidInstance: *mut VSS_ID, pidWriter: *mut VSS_ID) -> HRESULT;

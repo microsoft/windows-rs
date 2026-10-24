@@ -1,12 +1,10 @@
 #[win32]
 mod Fixture {
-    #[no_guid]
     interface Bare {
         fn Read(&self, value: u32) -> i32;
         fn Reset(&self);
     }
     type BareAlias = Bare;
-    #[no_guid]
     interface Extended: Bare {
         fn Scale(&self, value: i32) -> i32;
     }
@@ -15,6 +13,5 @@ mod Fixture {
         inherited: Inherited,
         slot: *const Bare,
     }
-    #[no_guid]
     interface Inherited: Extended {}
 }

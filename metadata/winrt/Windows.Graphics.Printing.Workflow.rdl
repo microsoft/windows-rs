@@ -432,6 +432,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintWorkflowXpsObjectModelProvider)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x97d8c1ad_96d7_56cc_b660_a71495632ceb)]
                 interface IPrintWorkflowXpsObjectModelProvider {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[flags]

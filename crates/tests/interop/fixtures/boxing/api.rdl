@@ -9,6 +9,7 @@ mod Boxing {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Unboxes a value boxed by the client: "i32 1", "String a", or "null".
         fn Describe(&self, #[in] value: Object) -> String;

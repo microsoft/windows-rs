@@ -3,6 +3,7 @@ use Windows::Foundation::Metadata::*;
 #[winrt]
 mod WeakReferences {
     // Implemented by the clients.
+    #[guid(auto)]
     interface IObserver {
         fn Notify(&self, #[in] value: i32);
     }
@@ -13,6 +14,7 @@ mod WeakReferences {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Holds a weak reference to `observer`, so the widget does not keep it alive.
         fn Observe(&self, #[in] observer: IObserver);

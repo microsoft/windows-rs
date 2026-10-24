@@ -2092,7 +2092,6 @@ mod Windows {
         const GUID_XAxis: GUID = 0xa36d02e0_c9f3_11cf_bfc7_444553540000;
         const GUID_YAxis: GUID = 0xa36d02e1_c9f3_11cf_bfc7_444553540000;
         const GUID_ZAxis: GUID = 0xa36d02e2_c9f3_11cf_bfc7_444553540000;
-        #[no_guid]
         interface IDirectInput2A: IDirectInputA {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2112,7 +2111,6 @@ mod Windows {
             fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
             fn FindDevice(&self, param0: &GUID, param1: LPCSTR, param2: LPGUID) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInput2W: IDirectInputW {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2132,7 +2130,6 @@ mod Windows {
             fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
             fn FindDevice(&self, param0: &GUID, param1: LPCWSTR, param2: LPGUID) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInput7A: IDirectInput2A {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2154,7 +2151,6 @@ mod Windows {
             fn FindDevice(&self, param0: &GUID, param1: LPCSTR, param2: LPGUID) -> HRESULT;
             fn CreateDeviceEx(&self, param0: &GUID, param1: &IID, param2: *mut LPVOID, param3: LPUNKNOWN) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInput7W: IDirectInput2W {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2176,7 +2172,6 @@ mod Windows {
             fn FindDevice(&self, param0: &GUID, param1: LPCWSTR, param2: LPGUID) -> HRESULT;
             fn CreateDeviceEx(&self, param0: &GUID, param1: &IID, param2: *mut LPVOID, param3: LPUNKNOWN) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInput8A: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2193,7 +2188,6 @@ mod Windows {
             fn EnumDevicesBySemantics(&self, param0: LPCSTR, param1: LPDIACTIONFORMATA, param2: LPDIENUMDEVICESBYSEMANTICSCBA, param3: LPVOID, param4: DWORD) -> HRESULT;
             fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSA, param2: DWORD, param3: LPVOID) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInput8W: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2210,7 +2204,6 @@ mod Windows {
             fn EnumDevicesBySemantics(&self, param0: LPCWSTR, param1: LPDIACTIONFORMATW, param2: LPDIENUMDEVICESBYSEMANTICSCBW, param3: LPVOID, param4: DWORD) -> HRESULT;
             fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: LPDICONFIGUREDEVICESPARAMSW, param2: DWORD, param3: LPVOID) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputA: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2224,7 +2217,6 @@ mod Windows {
             fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDevice2A: IDirectInputDeviceA {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2272,7 +2264,6 @@ mod Windows {
             fn Poll(&self) -> HRESULT;
             fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDevice2W: IDirectInputDeviceW {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2320,7 +2311,6 @@ mod Windows {
             fn Poll(&self) -> HRESULT;
             fn SendDeviceData(&self, param0: DWORD, param1: LPCDIDEVICEOBJECTDATA, param2: LPDWORD, param3: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDevice7A: IDirectInputDevice2A {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2379,7 +2369,6 @@ mod Windows {
             fn EnumEffectsInFile(&self, param0: LPCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: LPVOID, param3: DWORD) -> HRESULT;
             fn WriteEffectToFile(&self, param0: LPCSTR, param1: DWORD, param2: LPDIFILEEFFECT, param3: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDevice7W: IDirectInputDevice2W {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2438,7 +2427,6 @@ mod Windows {
             fn EnumEffectsInFile(&self, param0: LPCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: LPVOID, param3: DWORD) -> HRESULT;
             fn WriteEffectToFile(&self, param0: LPCWSTR, param1: DWORD, param2: LPDIFILEEFFECT, param3: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDevice8A: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2476,7 +2464,6 @@ mod Windows {
             fn SetActionMap(&self, param0: LPDIACTIONFORMATA, param1: LPCSTR, param2: DWORD) -> HRESULT;
             fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERA) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDevice8W: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2514,7 +2501,6 @@ mod Windows {
             fn SetActionMap(&self, param0: LPDIACTIONFORMATW, param1: LPCWSTR, param2: DWORD) -> HRESULT;
             fn GetImageInfo(&self, param0: LPDIDEVICEIMAGEINFOHEADERW) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDeviceA: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2538,7 +2524,6 @@ mod Windows {
             fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputDeviceW: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2562,7 +2547,6 @@ mod Windows {
             fn RunControlPanel(&self, param0: HWND, param1: DWORD) -> HRESULT;
             fn Initialize(&self, param0: HINSTANCE, param1: DWORD, param2: &GUID) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputEffect: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -2581,7 +2565,6 @@ mod Windows {
             fn Unload(&self) -> HRESULT;
             fn Escape(&self, param0: LPDIEFFESCAPE) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectInputW: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;

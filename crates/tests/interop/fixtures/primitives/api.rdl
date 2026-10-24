@@ -10,6 +10,7 @@ mod Primitives {
     // Each fundamental type in and out. Integers and characters add one, wrapping on overflow,
     // floats double, and bools negate, so both sides must agree on the value and not just the bits.
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         fn NotBool(&self, #[in] value: bool) -> bool;
         fn NextChar16(&self, #[in] value: Char16) -> Char16;

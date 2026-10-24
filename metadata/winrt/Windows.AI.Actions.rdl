@@ -234,6 +234,7 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntity)]
+            #[guid(0x9cb752a0_5bf8_5be2_916e_b00eff80088d)]
             interface IActionEntityFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
@@ -286,6 +287,7 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            #[guid(0xc9147d8f_88a0_5ec0_a564_47e2a1081412)]
             interface IActionEntityFactoryFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionFeedback)]
@@ -380,6 +382,7 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            #[guid(0xd3f366e9_8dc9_50a0_8040_e5c14fa609d6)]
             interface IActionRuntimeFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
@@ -439,6 +442,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CustomActionEntityStore)]
             #[Windows::Foundation::Metadata::Experimental]
+            #[guid(0xd8b46bdb_68a5_5e07_9113_abb9241aaab1)]
             interface ICustomActionEntityStoreFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CustomTextActionEntity)]

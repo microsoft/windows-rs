@@ -116,6 +116,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskResultAsset)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[guid(0x75d0c2b3_8a31_5f8f_bda4_bdca96e95532)]
                 interface IAppTaskResultAsset {}
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskResultAsset)]

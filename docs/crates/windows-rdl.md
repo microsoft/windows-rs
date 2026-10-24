@@ -63,6 +63,22 @@ This applies to both clang publication and metadata-to-RDL output. Equal-name at
 their relative order because some reader paths use the first occurrence. Arguments are not sorted.
 Same-name declaration variants are sorted by canonical formatted text, not raw producer token order.
 
+GUID generation is opt-in. `#[guid(auto)]` uses the existing deterministic namespace/name/method
+algorithm; `#[guid(0x...)]` writes an explicit identity. A native interface without a GUID attribute
+has no `GuidAttribute` in WinMD, including when its base has one. WinRT interfaces and delegates
+require an explicit or automatic GUID.
+
+The reader rejects duplicate GUID directives and the obsolete `#[no_guid]` spelling. Automatic
+GUIDs apply only to interfaces and delegates, not constants or property keys. The writer preserves
+absence and emits stored GUIDs as literals, even when they match the automatic algorithm. WinMD
+does not record how a GUID was authored. It rejects duplicate GUID attributes and GUID-less WinRT
+interfaces/delegates rather than losing attributes or emitting invalid RDL.
+
+When migrating authored inputs that relied on implicit generation, add `#[guid(auto)]` before
+compiling them. Keep the namespace, name and methods unchanged to retain their existing identity.
+The `test_rdl` GUID fixtures cover native absence, explicit zero, automatic and generic identities,
+duplicate/owner errors and both metadata roundtrips.
+
 Win32 parameter direction is explicit: `in`, `out`, both, or neither. No attributes means unspecified
 direction, regardless of pointer mutability or typedef spelling. `opt` is independent. The writer
 and clang share `emit::write_param_direction`, which does not inspect types or suppress flags.
@@ -216,6 +232,7 @@ mod Robotics {
     }
 
     #[ExclusiveTo(Robot)]
+    #[guid(auto)]
     interface IRobot {
         fn Speak(&self, #[in] message: String);
         Name: String;
@@ -227,6 +244,7 @@ A property is read-write unless marked `#[get]` or `#[set]`. Other attributes on
 `event` apply to each of its accessor methods, as in MIDL:
 
 ```text
+#[guid(auto)]
 interface IRobot {
     #[get]
     #[NoException]

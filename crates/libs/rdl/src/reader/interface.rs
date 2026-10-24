@@ -168,10 +168,16 @@ impl Encoder<'_> {
             );
         }
 
-        let already_has_guid = self.encode_guid_pseudo_attrs(
+        let guid_mode = self.encode_guid_pseudo_attrs(
             metadata::writer::HasAttribute::TypeDef(interface),
             &item.attrs,
         )?;
+        if item.winrt && guid_mode == GuidMode::None {
+            return self.err(
+                &item.name,
+                "WinRT interfaces require `#[guid(...)]` or `#[guid(auto)]`",
+            );
+        }
 
         if !item.winrt && item.requires.len() > 1 {
             return self.err(
@@ -240,7 +246,7 @@ impl Encoder<'_> {
                         self.validate_type_is_winrt(return_syn_ty.as_ref(), &return_type)?;
                     }
 
-                    if !already_has_guid {
+                    if guid_mode == GuidMode::Auto {
                         method_signatures.push((
                             method.sig.ident.to_string(),
                             types.clone(),
@@ -360,7 +366,7 @@ impl Encoder<'_> {
                             return_type: ty.clone(),
                             types: vec![],
                         };
-                        if !already_has_guid {
+                        if guid_mode == GuidMode::Auto {
                             method_signatures.push((get_name.clone(), vec![], ty.clone()));
                         }
                         let method = self.output.MethodDef(
@@ -385,7 +391,7 @@ impl Encoder<'_> {
                             return_type: metadata::Type::Void,
                             types: vec![ty.clone()],
                         };
-                        if !already_has_guid {
+                        if guid_mode == GuidMode::Auto {
                             method_signatures.push((
                                 put_name.clone(),
                                 vec![ty.clone()],
@@ -442,7 +448,7 @@ impl Encoder<'_> {
                         return_type: token_ty.clone(),
                         types: vec![handler_ty.clone()],
                     };
-                    if !already_has_guid {
+                    if guid_mode == GuidMode::Auto {
                         method_signatures.push((
                             add_name.clone(),
                             vec![handler_ty.clone()],
@@ -469,7 +475,7 @@ impl Encoder<'_> {
                         return_type: metadata::Type::Void,
                         types: vec![token_ty.clone()],
                     };
-                    if !already_has_guid {
+                    if guid_mode == GuidMode::Auto {
                         method_signatures.push((
                             remove_name.clone(),
                             vec![token_ty.clone()],
@@ -509,7 +515,7 @@ impl Encoder<'_> {
 
         self.encode_accessors(interface, &accessors)?;
 
-        if !already_has_guid {
+        if guid_mode == GuidMode::Auto {
             let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = method_signatures
                 .iter()
                 .map(|(name, types, ret)| (name.as_str(), types.as_slice(), ret))

@@ -37,7 +37,6 @@ mod Windows {
             fn GetExcludeFromSnapshotCount(&self, #[out] pcExcludedFromSnapshot: *mut UINT) -> HRESULT;
             fn GetExcludeFromSnapshotFile(&self, #[in] iFile: UINT, #[out] ppFiledesc: *mut IVssWMFiledesc) -> HRESULT;
         }
-        #[no_guid]
         interface IVssWMComponent: IUnknown {
             fn GetComponentInfo(&self, #[out] ppInfo: *mut PVSSCOMPONENTINFO) -> HRESULT;
             fn FreeComponentInfo(&self, #[in] pInfo: PVSSCOMPONENTINFO) -> HRESULT;

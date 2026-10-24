@@ -3,6 +3,7 @@
 mod Test {
     type IID = GUID;
 
+    #[guid(auto)]
     interface Factory {
         fn Reference(&self, #[in] count: u32, #[in] #[len_param(0)] filters: *const GUID, #[in] riid: &IID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;
         fn BufferAfterId(&self, #[in] riid: *const GUID, #[in] count: u32, #[in] #[len_param(1)] filters: *const GUID, #[out] #[iid_is] result: *mut *mut void) -> HRESULT;

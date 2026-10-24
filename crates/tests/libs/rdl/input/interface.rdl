@@ -1,5 +1,6 @@
 #[winrt]
 mod Test {
+    #[guid(0x4cac7376_063c_5868_a2a0_c4a63a058e81)]
     interface IInterface {
         fn Method(&self, #[in] value: i32) -> i32;
         Name: String;

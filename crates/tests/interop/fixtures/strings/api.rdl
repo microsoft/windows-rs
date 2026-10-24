@@ -10,6 +10,7 @@ mod Strings {
     // Strings are counted UTF-16, so they may hold embedded nulls and unpaired surrogates. WinRT does
     // not distinguish null and empty strings.
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // The number of UTF-16 code units in `value`.
         fn Length(&self, #[in] value: String) -> u32;

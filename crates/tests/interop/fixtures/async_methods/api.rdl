@@ -11,6 +11,7 @@ mod AsyncMethods {
     // The same cases for each of the four async interfaces. Progress is best effort, so clients
     // may assign progress handlers but the component never reports progress.
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // A negative value returns an already-failed async object with E_BOUNDS.
         // Otherwise they complete on another thread, and operations complete with value.

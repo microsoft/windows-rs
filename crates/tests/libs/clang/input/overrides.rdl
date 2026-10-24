@@ -1,11 +1,9 @@
 #[win32]
 mod Fixture {
-    #[no_guid]
     interface Base {
         fn Read(&self, value: u32) -> i32;
         fn Reset(&self);
     }
-    #[no_guid]
     interface Derived: Base {
         #[override_slot(0)]
         fn Read(&self, renamed: u32) -> i32;
@@ -13,7 +11,6 @@ mod Fixture {
         fn Reset(&self);
         fn Extra(&self) -> i32;
     }
-    #[no_guid]
     interface Final: Derived {
         #[override_slot(0)]
         fn Read(&self, final_name: u32) -> i32;

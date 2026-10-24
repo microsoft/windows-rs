@@ -143,6 +143,7 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
+                #[guid(0x5f5fc025_8c35_5529_8038_8cdc3634bbcd)]
                 interface IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]

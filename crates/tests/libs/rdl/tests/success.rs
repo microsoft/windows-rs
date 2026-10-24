@@ -9,7 +9,7 @@ fn success_expressions_roundtrip() {
             #[success(return == 0)] #[library("test.dll")] extern fn Zero() -> Status;
             #[success(return != 0)] #[library("test.dll")] extern fn Nonzero() -> i32;
             #[success(return == 1)] extern fn Callback() -> i32;
-            #[no_guid] interface Object {
+            interface Object {
                 #[success(return > 0)] fn Positive(&self) -> i32;
             }
         }

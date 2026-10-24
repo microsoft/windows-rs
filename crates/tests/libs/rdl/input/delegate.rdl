@@ -1,4 +1,5 @@
 #[winrt]
 mod Test {
+    #[guid(0x383d681f_3a02_577c_b363_1fa05a52f086)]
     delegate fn Handler(#[in] sender: Object, #[in] args: i32);
 }

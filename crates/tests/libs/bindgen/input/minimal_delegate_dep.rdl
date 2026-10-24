@@ -4,7 +4,9 @@
 // walked to pull in its own dependencies under the minimal closure.
 #[winrt]
 mod Test {
+    #[guid(auto)]
     delegate fn Handler(#[in] value: i32);
+    #[guid(auto)]
     interface Sink {
         fn Subscribe(&self, #[in] handler: Handler) -> i32;
     }

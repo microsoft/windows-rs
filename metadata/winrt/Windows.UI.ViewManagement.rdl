@@ -572,12 +572,15 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsAnimationsEnabledChangedEventArgs)]
+            #[guid(0x0c7b4b3d_2ea1_533e_894d_415bc5243c29)]
             interface IUISettingsAnimationsEnabledChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsAutoHideScrollBarsChangedEventArgs)]
+            #[guid(0x87afd4b2_9146_5f02_8f6b_06d454174c0f)]
             interface IUISettingsAutoHideScrollBarsChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UISettingsMessageDurationChangedEventArgs)]
+            #[guid(0x338aad52_4a5d_5b59_8002_d930f608fd6e)]
             interface IUISettingsMessageDurationChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UIViewSettings)]

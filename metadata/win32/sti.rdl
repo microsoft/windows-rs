@@ -12,7 +12,6 @@ mod Windows {
         const GUID_ScanPrintImage: GUID = 0xb441f425_8c6e_11d2_977a_0000f87a926f;
         const IID_IStiDevice: GUID = 0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c;
         const IID_IStillImageW: GUID = 0x641bd880_2dc8_11d0_90ea_00aa0060f86c;
-        #[no_guid]
         interface IStiDevice: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -39,7 +38,6 @@ mod Windows {
             fn GetLastErrorInfo(&self, #[out] pLastErrorInfo: *mut STI_ERROR_INFO) -> HRESULT;
         }
         struct IStiDeviceW {}
-        #[no_guid]
         interface IStillImageW: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, #[in] riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;

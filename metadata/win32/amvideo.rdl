@@ -32,7 +32,6 @@ mod Windows {
             dwActiveHeight: DWORD,
             AvgTimePerFrame: REFERENCE_TIME,
         }
-        #[no_guid]
         interface IBaseVideoMixer: IUnknown {
             fn SetLeadPin(&self, iPin: i32) -> HRESULT;
             fn GetLeadPin(&self, #[out] piPin: *mut i32) -> HRESULT;
@@ -42,7 +41,6 @@ mod Windows {
             fn GetClockPeriod(&self, #[out] pbValue: *mut i32) -> HRESULT;
             fn SetClockPeriod(&self, bValue: i32) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawVideo: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -67,7 +65,6 @@ mod Windows {
             fn UseWhenFullScreen(&self, UseWhenFullScreen: i32) -> HRESULT;
             fn WillUseFullScreen(&self, #[out] UseWhenFullScreen: *mut i32) -> HRESULT;
         }
-        #[no_guid]
         interface IFullScreenVideo: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -93,7 +90,6 @@ mod Windows {
             fn GetCaption(&self, #[out] #[out_ptr] pstrCaption: *mut BSTR) -> HRESULT;
             fn SetDefault(&self) -> HRESULT;
         }
-        #[no_guid]
         interface IFullScreenVideoEx: IFullScreenVideo {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;
@@ -140,7 +136,6 @@ mod Windows {
             fn KeepPixelAspectRatio(&self, KeepAspect: i32) -> HRESULT;
             fn IsKeepPixelAspectRatio(&self, #[out] pKeepAspect: *mut i32) -> HRESULT;
         }
-        #[no_guid]
         interface IQualProp: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, #[out] #[out_ptr] ppvObj: *mut LPVOID) -> HRESULT;

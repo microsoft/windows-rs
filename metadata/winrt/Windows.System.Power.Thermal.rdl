@@ -60,6 +60,7 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDiagnostics)]
+                #[guid(0x628fd5c4_49b7_508f_ad9f_2309b1168aad)]
                 interface IPowerThermalChannelDiagnostics {}
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDiagnostics)]

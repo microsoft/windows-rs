@@ -14,6 +14,10 @@ WinRT interface and delegate arguments require explicit `#[in]` or `#[out]` dire
 arguments can also be input/output or unspecified; provide directions when the contract is known.
 Missing directions never default to input.
 
+GUID generation is opt-in: `#[guid(auto)]` derives an interface or delegate identity, and
+`#[guid(0x...)]` specifies one. Native interfaces without either attribute have no GUID in WinMD.
+WinRT interfaces and delegates require a GUID. The writer emits stored GUID values explicitly.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-rdl.md)
 

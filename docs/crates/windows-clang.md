@@ -368,8 +368,9 @@ covariance/adjustments fail. NativeOverrideSlot retains parameters/defaults/anno
 NewSlot; bindgen validates the inherited name/signature and reuses its method/vtable field without
 another implementation requirement.
 
-GUID-less interfaces use `no_guid`, including children of UUID-bearing bases; they do not inherit or
-invent an IID. Bare vtable consumers have no automatic AddRef/Release. Bindgen's zero IID for
+GUID-less interfaces omit the GUID attribute, including children of UUID-bearing bases; they do not
+inherit or invent an IID. Clang never requests RDL's `guid(auto)` authoring behavior.
+Bare vtable consumers have no automatic AddRef/Release. Bindgen's zero IID for
 GUID-less IUnknown-derived interfaces remains an unresolved consumer-identity issue. Const pointers
 to GUID-less interfaces remain unsupported.
 

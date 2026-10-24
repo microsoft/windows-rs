@@ -4,6 +4,7 @@
 // setter accessors when they exist.
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface Widget {
         fn get_Value(&self) -> i32;
         fn put_Value(&self, #[in] value: i32);

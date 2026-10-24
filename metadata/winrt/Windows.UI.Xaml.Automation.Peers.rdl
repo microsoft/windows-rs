@@ -1382,6 +1382,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x4b6adcf1_f274_5592_85a8_7b099e99b320)]
                     interface IMenuBarAutomationPeer {}
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarAutomationPeer)]
@@ -1393,6 +1394,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarItemAutomationPeer)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x0fce49b4_cff5_5c4b_98ee_e75fdddf799a)]
                     interface IMenuBarItemAutomationPeer {}
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarItemAutomationPeer)]

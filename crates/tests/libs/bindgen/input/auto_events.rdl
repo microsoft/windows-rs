@@ -1,6 +1,7 @@
 //! --filter Test.IFoo --flat --minimal
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IFoo {
         fn Bar(&self) -> i32;
         #[special]
@@ -10,6 +11,8 @@ mod Test {
         fn SetCompleted(&self, #[in] callback: CompletedCallback);
     }
 
+    #[guid(auto)]
     delegate fn Handler(#[in] sender: IFoo, #[in] args: i32);
+    #[guid(auto)]
     delegate fn CompletedCallback(#[in] result: i32);
 }

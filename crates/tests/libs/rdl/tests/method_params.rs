@@ -9,11 +9,11 @@ fn winrt_parameter_directions_are_required() {
     for attrs in ["", "#[opt]", "#[in] #[out]"] {
         for (declaration, name) in [
             (
-                format!("interface I {{ fn Call(&self, {attrs} value: i32); }}"),
+                format!("#[guid(auto)] interface I {{ fn Call(&self, {attrs} value: i32); }}"),
                 "Test.I.Call.value",
             ),
             (
-                format!("delegate fn Handler<T>({attrs} value: T);"),
+                format!("#[guid(auto)] delegate fn Handler<T>({attrs} value: T);"),
                 "Test.Handler.Invoke.value",
             ),
         ] {

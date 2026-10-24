@@ -147,6 +147,12 @@ struct. Its 33 live host/browser fixtures pass. The remaining 69 omissions compr
 RPC proxy/stub import-ownership diagnostics, two LIBID declarations without definitions, and seven
 C++ flag operators. They are not interface-alias dependency cascades and remain explicit.
 
+RDL generates GUIDs only for `#[guid(auto)]`. Native GUID absence is represented without an
+attribute, not with a zero GUID or an inherited identity. The writer emits stored GUID literals
+without guessing how they were authored. Existing authored declarations retain their identities
+through explicit automatic-generation requests. GUID-less COM handling in bindgen/windows-core
+remains a separate consumer-design obligation.
+
 | Current missing surface | Verified diagnostic boundary |
 | --- | --- |
 | `WaitOnAddress` | Volatile/restrict parameter projection |
@@ -299,7 +305,7 @@ does not close the compiler bug or approve additional constants. Separately decl
 objects cannot borrow a tag's UUID without their own definition evidence.
 
 `CFunctionDiscoveryNotificationWrapper` is a C++ implementation helper with method bodies. Its
-baseline empty `no_guid` interface does not establish that restoring it is correct. Likewise,
+baseline empty GUID-less interface does not establish that restoring it is correct. Likewise,
 `__RPC_unique_pointer` and `__RPC_full_pointer` are phase-independent typedef properties, not
 blanket optional call arguments. Both need semantic dispositions, not count-driven recovery.
 

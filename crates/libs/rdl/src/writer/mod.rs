@@ -1211,64 +1211,28 @@ fn extract_guid_from_attribute(
     Ok((d1, d2, d3, d4))
 }
 
-enum GuidOutput {
-    Omit,
-    Explicit(u32, u16, u16, [u8; 8]),
-    None,
-}
-
-/// Omits derived GUIDs while preserving explicit or absent GUID state.
-fn guid_output(
-    item: &metadata::reader::TypeDef,
-    methods: &[(&str, &[metadata::Type], &metadata::Type)],
-) -> Result<GuidOutput, Error> {
-    let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return Ok(GuidOutput::None);
+fn write_guid_attribute(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
+    let mut attributes = item
+        .attributes()
+        .filter(|attribute| attribute.name() == "GuidAttribute");
+    let Some(attribute) = attributes.next() else {
+        if item
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        {
+            return Err(writer_err!("WinRT type `{}` has no GUID", item.name()));
+        }
+        return Ok(quote! {});
     };
-    let stored = extract_guid_from_attribute(attr)?;
-    let s = reader::guid::build_interface_string(
-        item.namespace(),
-        metadata::trim_tick(item.name()),
-        methods,
-    );
-    let derived = reader::guid::guid_from_interface_string(&s);
-    if stored == derived {
-        Ok(GuidOutput::Omit)
-    } else {
-        Ok(GuidOutput::Explicit(stored.0, stored.1, stored.2, stored.3))
+    if attributes.next().is_some() {
+        return Err(writer_err!(
+            "duplicate GUID attributes on `{}`",
+            item.name()
+        ));
     }
-}
-
-fn interface_guid_output(
-    item: &metadata::reader::TypeDef,
-    generics: &[metadata::Type],
-) -> Result<GuidOutput, Error> {
-    let sigs: Vec<(String, Vec<metadata::Type>, metadata::Type)> = item
-        .methods()
-        .map(|m| {
-            let sig = m.signature(generics);
-            (m.name().to_string(), sig.types, sig.return_type)
-        })
-        .collect();
-    let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = sigs
-        .iter()
-        .map(|(n, t, r)| (n.as_str(), t.as_slice(), r))
-        .collect();
-    guid_output(item, &methods)
-}
-
-fn delegate_guid_output(
-    item: &metadata::reader::TypeDef,
-    generics: &[metadata::Type],
-) -> Result<GuidOutput, Error> {
-    let (types, return_type) = item.methods().find(|m| m.name() == "Invoke").map_or_else(
-        || (vec![], metadata::Type::Void),
-        |invoke| {
-            let sig = invoke.signature(generics);
-            (sig.types, sig.return_type)
-        },
-    );
-    guid_output(item, &[("Invoke", types.as_slice(), &return_type)])
+    let (d1, d2, d3, d4) = extract_guid_from_attribute(attribute)?;
+    let lit = syn::LitInt::new(&format_guid_u128(d1, d2, d3, d4), Span::call_site());
+    Ok(quote! { #[guid(#lit)] })
 }
 
 /// Reads the raw Win32 callback ABI value.

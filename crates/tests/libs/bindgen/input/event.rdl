@@ -1,6 +1,7 @@
 //! --filter Test --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface Interface {
         fn Method(&self) -> i32;
         #[special]
@@ -8,5 +9,6 @@ mod Test {
         #[special]
         fn remove_Changed(&self, #[in] token: i64);
     }
+    #[guid(auto)]
     delegate fn Delegate(#[in] sender: i32);
 }

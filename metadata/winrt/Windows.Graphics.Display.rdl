@@ -353,6 +353,7 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]
+            #[guid(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71)]
             interface IDisplayServices {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]

@@ -1,6 +1,7 @@
 //! --filter Test.ISource::Changed --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface ISource {
         #[special]
         fn add_Changed(&self, #[in] handler: Handler) -> i64;
@@ -8,6 +9,7 @@ mod Test {
         fn remove_Changed(&self, #[in] token: i64);
         fn Unused(&self) -> i32;
     }
+    #[guid(auto)]
     delegate fn Handler(#[in] value: Value);
     struct Value {
         Number: i32,

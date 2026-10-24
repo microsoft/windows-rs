@@ -1,5 +1,6 @@
 //! --filter Test --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     delegate fn Handler<T>(#[in] sender: T, #[in] args: i32);
 }

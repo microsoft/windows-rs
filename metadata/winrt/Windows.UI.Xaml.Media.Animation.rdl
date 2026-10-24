@@ -462,6 +462,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(BasicConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xe675f9b5_a4d6_5353_83e6_c89e7cf8d456)]
                     interface IBasicConnectedAnimationConfiguration {}
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(BasicConnectedAnimationConfiguration)]
@@ -626,10 +627,12 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x00218aae_cd8c_5651_92a0_c1db95c03998)]
                     interface IConnectedAnimationConfiguration {}
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0x30f9b84b_dd7e_593e_bf75_e959dc0ec52a)]
                     interface IConnectedAnimationConfigurationFactory {}
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimationService)]
@@ -701,6 +704,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(DirectConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xee5d736f_5738_5d86_b770_151948cf365e)]
                     interface IDirectConnectedAnimationConfiguration {}
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(DirectConnectedAnimationConfiguration)]
@@ -1085,6 +1089,7 @@ mod Windows {
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(GravityConnectedAnimationConfiguration)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[guid(0xc751a4b7_0459_5142_b891_aeaac1d41822)]
                     interface IGravityConnectedAnimationConfiguration {}
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(GravityConnectedAnimationConfiguration)]

@@ -9,6 +9,7 @@ mod Overloads {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // MIDL-style names, numbered within each interface.
         #[Overload("Sum")]
@@ -25,6 +26,7 @@ mod Overloads {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget2 {
         // MIDL numbers each interface on its own, so these names repeat those in `IWidget`.
         #[Overload("Sum")]

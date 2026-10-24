@@ -6,6 +6,7 @@ mod Test {
         y: i32,
     }
 
+    #[guid(auto)]
     interface Interface {
         fn ResultVoid(&self, #[in] value: u32) -> HRESULT;
         fn ResultValue(&self, #[in] value: u32, #[out] result: *mut Struct) -> HRESULT;

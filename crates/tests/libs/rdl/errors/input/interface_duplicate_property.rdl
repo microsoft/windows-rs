@@ -1,5 +1,6 @@
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface ITest {
         foo: u32;
         foo: u32;

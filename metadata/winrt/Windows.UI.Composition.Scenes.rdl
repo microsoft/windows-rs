@@ -35,6 +35,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneComponent)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x5fbc5574_ddd8_5889_ab5b_d8fa716e7c9e)]
                 interface ISceneComponentFactory {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterial)]
@@ -44,6 +45,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterial)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x67536c19_a707_5254_a495_7fdc799893b9)]
                 interface ISceneMaterialFactory {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterialInput)]
@@ -53,6 +55,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterialInput)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xa88feb74_7d0a_5e4c_a748_1015af9ca74f)]
                 interface ISceneMaterialInputFactory {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneMesh)]
@@ -158,6 +161,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneObject)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x14fe799a_33e4_52ef_956c_44229d21f2c1)]
                 interface ISceneObjectFactory {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ScenePbrMaterial)]
@@ -177,6 +181,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ScenePbrMaterial)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x2e3f3dfe_0b85_5727_b5be_b7d3cbac37fa)]
                 interface IScenePbrMaterialFactory {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneRendererComponent)]
@@ -186,6 +191,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneRendererComponent)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x1db6ed6c_aa2c_5967_9035_56352dc69658)]
                 interface ISceneRendererComponentFactory {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SceneSurfaceMaterialInput)]

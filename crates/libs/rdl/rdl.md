@@ -16,6 +16,7 @@ files.
 mod Contoso {
     mod Sprockets {
         // Define an interface
+        #[guid(auto)]
         interface ISprocket {
             fn GetStatus(&self) -> SprocketStatus;
             fn Spin(&self, #[in] speed: f32);
@@ -141,6 +142,7 @@ mod Contoso {
             Malfunctioning = 2,
         }
 
+        #[guid(auto)]
         interface ISprocketFactory {
             fn CreateSprocket(&self, #[in] teeth: u32, #[in] diameter: f32) -> Sprocket;
             fn GetStatus(&self, #[in] s: Sprocket) -> SprocketStatus;
@@ -277,7 +279,22 @@ union SprocketHandle {
 
 #### Interfaces
 
-Interfaces define method contracts.
+Interfaces define method contracts. GUID generation is explicit:
+
+| Source | Metadata |
+| --- | --- |
+| No GUID attribute on a native interface | No `GuidAttribute`; base-interface GUIDs are not inherited |
+| `#[guid(0x...)]` | The specified 128-bit GUID |
+| `#[guid(auto)]` | A deterministic GUID derived from the namespace, name and methods |
+
+WinRT interfaces and delegates require `guid(...)` or `guid(auto)`. Native interfaces can omit
+both. `#[no_guid]` is not supported. Duplicate GUID attributes, including combinations of explicit
+and automatic GUIDs, are errors.
+
+Automatic generation is for authoring identities, not recovering identities of existing native
+APIs. Its value can change when the declaration changes. Use an explicit GUID when the identity
+must remain fixed. WinMD stores only the resulting value; the writer emits that literal and never
+infers `guid(auto)` from it. A stored zero GUID remains an explicit zero, not an absent attribute.
 
 Syntax:
 
@@ -293,6 +310,7 @@ void.
 Example:
 
 ```rust
+#[guid(auto)]
 interface ISprocket {
     fn GetStatus(&self) -> SprocketStatus;
     fn Spin(&self, #[in] speed: f32);
@@ -308,6 +326,7 @@ use them.
 Syntax:
 
 ```rust
+#[guid(auto)]
 interface InterfaceName<Type1, Type2> {
     fn MethodName(&self, #[in] Parameter: Type1) -> Type2;
 }
@@ -319,6 +338,7 @@ Example:
 #[winrt]
 mod Contoso {
     mod Sprockets {
+        #[guid(auto)]
         interface ICatalog<K, V> {
             fn Get(&self, #[in] key: K) -> V;
             fn Insert(&self, #[in] key: K, #[in] value: V);
@@ -335,6 +355,7 @@ Delegates define callable types with method-like semantics.
 Syntax:
 
 ```rust
+#[guid(auto)]
 delegate fn DelegateName(#[in] Parameter: Type) -> ReturnType;
 ```
 
@@ -344,6 +365,7 @@ Example:
 #[winrt]
 mod Contoso {
     mod Sprockets {
+        #[guid(auto)]
         delegate fn SprocketStatusChanged(#[in] status: SprocketStatus);
     }
 }
@@ -356,6 +378,7 @@ In a `#[winrt]` module, delegates can also have type parameters.
 Syntax:
 
 ```rust
+#[guid(auto)]
 delegate fn DelegateName<Type1, ...>(#[in] Parameter: Type1, ...) -> ReturnType;
 ```
 
@@ -365,6 +388,7 @@ Example:
 #[winrt]
 mod Contoso {
     mod Sprockets {
+        #[guid(auto)]
         delegate fn SprocketEventHandler<T>(#[in] sender: IObject, #[in] event: T);
     }
 }
@@ -405,8 +429,11 @@ mod Contoso {
             ISprocketStatics,
         }
 
+        #[guid(auto)]
         interface ISprocket {}
+        #[guid(auto)]
         interface ISprocketFactory {}
+        #[guid(auto)]
         interface ISprocketStatics {}
     }
 }
@@ -738,6 +765,7 @@ Example:
 #[winrt]
 mod Contoso {
     mod Sprockets {
+        #[guid(auto)]
         interface ISprocketInventory {
             // Return an array of sprocket IDs
             fn GetAllIds(&self) -> [u32];

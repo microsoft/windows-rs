@@ -22,6 +22,7 @@ mod Test {
         callback: extern fn(&Alias, &mut u32),
     }
 
+    #[guid(auto)]
     interface References {
         fn Read(&self, #[in] value: &Alias, #[out] result: &mut u32);
         fn ReadOut(&self, #[in] value: &Alias, #[out] result: &mut u32);

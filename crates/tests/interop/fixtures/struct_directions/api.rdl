@@ -14,9 +14,11 @@ mod StructDirections {
         Width: IReference<i32>,
     }
 
+    #[guid(auto)]
     delegate fn PairHandler(
         #[in] value: Pair, #[in] borrowed: &Pair, #[out] output: &mut Pair
     ) -> Pair;
+    #[guid(auto)]
     delegate fn LabelHandler(
         #[in] value: Label, #[in] borrowed: &Label, #[out] output: &mut Label
     ) -> Label;
@@ -27,6 +29,7 @@ mod StructDirections {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Output adds coordinates; the return value subtracts borrowed from value.
         // For labels, output joins value.Text + borrowed.Text and retains value.Width.

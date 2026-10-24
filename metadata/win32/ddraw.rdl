@@ -1056,7 +1056,6 @@ mod Windows {
         const FOURCC_DXT3: DWORD = 861165636;
         const FOURCC_DXT4: DWORD = 877942852;
         const FOURCC_DXT5: DWORD = 894720068;
-        #[no_guid]
         interface IDirectDraw: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1085,7 +1084,6 @@ mod Windows {
             fn SetDisplayMode(&self, param0: DWORD, param1: DWORD, param2: DWORD) -> HRESULT;
             fn WaitForVerticalBlank(&self, param0: DWORD, param1: HANDLE) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDraw2: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1115,7 +1113,6 @@ mod Windows {
             fn WaitForVerticalBlank(&self, param0: DWORD, param1: HANDLE) -> HRESULT;
             fn GetAvailableVidMem(&self, param0: LPDDSCAPS, param1: LPDWORD, param2: LPDWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDraw4: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1149,7 +1146,6 @@ mod Windows {
             fn TestCooperativeLevel(&self) -> HRESULT;
             fn GetDeviceIdentifier(&self, param0: LPDDDEVICEIDENTIFIER, param1: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDraw7: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1185,7 +1181,6 @@ mod Windows {
             fn StartModeTest(&self, param0: LPSIZE, param1: DWORD, param2: DWORD) -> HRESULT;
             fn EvaluateMode(&self, param0: DWORD, param1: *mut DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawClipper: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1200,7 +1195,6 @@ mod Windows {
             fn SetClipList(&self, param0: LPRGNDATA, param1: DWORD) -> HRESULT;
             fn SetHWnd(&self, param0: DWORD, param1: HWND) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawColorControl: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1211,7 +1205,6 @@ mod Windows {
             fn GetColorControls(&self, param0: LPDDCOLORCONTROL) -> HRESULT;
             fn SetColorControls(&self, param0: LPDDCOLORCONTROL) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawGammaControl: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1222,7 +1215,6 @@ mod Windows {
             fn GetGammaRamp(&self, param0: DWORD, param1: LPDDGAMMARAMP) -> HRESULT;
             fn SetGammaRamp(&self, param0: DWORD, param1: LPDDGAMMARAMP) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawPalette: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1235,7 +1227,6 @@ mod Windows {
             fn Initialize(&self, param0: LPDIRECTDRAW, param1: DWORD, param2: LPPALETTEENTRY) -> HRESULT;
             fn SetEntries(&self, param0: DWORD, param1: DWORD, param2: DWORD, param3: LPPALETTEENTRY) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawSurface: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1277,7 +1268,6 @@ mod Windows {
             fn UpdateOverlayDisplay(&self, param0: DWORD) -> HRESULT;
             fn UpdateOverlayZOrder(&self, param0: DWORD, param1: LPDIRECTDRAWSURFACE) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawSurface2: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1322,7 +1312,6 @@ mod Windows {
             fn PageLock(&self, param0: DWORD) -> HRESULT;
             fn PageUnlock(&self, param0: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawSurface3: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1368,7 +1357,6 @@ mod Windows {
             fn PageUnlock(&self, param0: DWORD) -> HRESULT;
             fn SetSurfaceDesc(&self, param0: LPDDSURFACEDESC, param1: DWORD) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawSurface4: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;
@@ -1419,7 +1407,6 @@ mod Windows {
             fn GetUniquenessValue(&self, param0: LPDWORD) -> HRESULT;
             fn ChangeUniquenessValue(&self) -> HRESULT;
         }
-        #[no_guid]
         interface IDirectDrawSurface7: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, ppvObj: *mut LPVOID) -> HRESULT;

@@ -8,6 +8,7 @@ mod BoxedArrays {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         fn BoxNumbers(&self, #[in] values: [i32]) -> Object;
         fn BoxBooleans(&self, #[in] values: [bool]) -> Object;

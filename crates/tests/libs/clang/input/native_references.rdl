@@ -2,7 +2,6 @@
 mod Fixture {
     #[library("reference.dll")]
     extern fn ApplyReference(value: &ReferenceAlias, total: &mut u32) -> u32;
-    #[no_guid]
     interface IReferences {
         fn Apply(&self, value: &ReferenceAlias, total: &mut u32) -> u32;
     }

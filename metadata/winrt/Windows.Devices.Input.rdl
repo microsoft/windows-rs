@@ -96,18 +96,23 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PenDockedEventArgs)]
+            #[guid(0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c)]
             interface IPenDockedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PenTailButtonClickedEventArgs)]
+            #[guid(0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390)]
             interface IPenTailButtonClickedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PenTailButtonDoubleClickedEventArgs)]
+            #[guid(0x846321a2_618a_5478_b04c_b358231da4a7)]
             interface IPenTailButtonDoubleClickedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PenTailButtonLongPressedEventArgs)]
+            #[guid(0xf37c606e_c60a_5f42_b818_a53112406c13)]
             interface IPenTailButtonLongPressedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PenUndockedEventArgs)]
+            #[guid(0xccd09150_261b_59e6_a5d4_c1964cd03feb)]
             interface IPenUndockedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PointerDevice)]

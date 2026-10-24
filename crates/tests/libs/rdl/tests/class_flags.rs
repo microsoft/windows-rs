@@ -21,7 +21,9 @@ mod Test {
         IBase,
     }
 
+    #[guid(auto)]
     interface IInstance {}
+    #[guid(auto)]
     interface IBase {}
 }
 "#,

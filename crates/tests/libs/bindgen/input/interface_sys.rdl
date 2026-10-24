@@ -1,6 +1,7 @@
 //! --filter Test --sys --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface Interface {
         fn Method(&self, #[in] value: i32) -> i32;
         Name: String;

@@ -14,6 +14,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xa4f6e665_365e_5fde_87a5_9543c3a15aa8)]
                 interface ICoreAppWindowPreview {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]

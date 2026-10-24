@@ -23,9 +23,11 @@ mod Test {
         IWidget,
     }
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         fn Value(&self) -> i32;
     }
+    #[guid(auto)]
     interface Factory {
         fn Create(&self) -> Widget;
     }

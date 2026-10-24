@@ -58,6 +58,7 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CurrentSessionChangedEventArgs)]
+            #[guid(0x6969cb39_0bfa_5fe0_8d73_09cc5e5408e1)]
             interface ICurrentSessionChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GlobalSystemMediaTransportControlsSession)]
@@ -215,15 +216,19 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MediaPropertiesChangedEventArgs)]
+            #[guid(0x7d3741cb_adf0_5cef_91ba_cfabcdd77678)]
             interface IMediaPropertiesChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackInfoChangedEventArgs)]
+            #[guid(0x786756c2_bc0d_50a5_8807_054291fef139)]
             interface IPlaybackInfoChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SessionsChangedEventArgs)]
+            #[guid(0xbbf0cd32_42c4_5a58_b317_f34bbfbd26e0)]
             interface ISessionsChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TimelinePropertiesChangedEventArgs)]
+            #[guid(0x29033a2f_c923_5a77_bcaf_055ff415ad32)]
             interface ITimelinePropertiesChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]

@@ -27,6 +27,7 @@ mod Enums {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Red -> Green -> Blue -> Red, and Unknown for any other value.
         fn Next(&self, #[in] color: Color) -> Color;

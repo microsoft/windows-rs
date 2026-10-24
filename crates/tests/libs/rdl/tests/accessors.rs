@@ -67,7 +67,9 @@ mod Windows {
 }
 #[winrt]
 mod Test {
+    #[guid(auto)]
     delegate fn Handler();
+    #[guid(auto)]
     interface IInterface {
         #[special]
         fn remove_Reversed(&self, #[in] token: Windows::Foundation::EventRegistrationToken);
@@ -79,7 +81,6 @@ mod Test {
 }
 #[win32]
 mod Native {
-    #[no_guid]
     interface IInterface {
         #[special]
         fn get_Value(&self) -> i32;

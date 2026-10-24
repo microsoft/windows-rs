@@ -1,6 +1,7 @@
 //! --filter Test --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IVector<T> {
         fn GetAt(&self, #[in] index: u32) -> T;
         fn Size(&self) -> u32;

@@ -1784,6 +1784,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTexture)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x09d9523d_471c_5ab5_b053_b568ee46ebfb)]
             interface ICompositionTextureFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTransform)]
@@ -1793,6 +1794,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTransform)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xaaaeca26_c149_517a_8f72_6bff7a65ce08)]
             interface ICompositionTransformFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionViewBox)]

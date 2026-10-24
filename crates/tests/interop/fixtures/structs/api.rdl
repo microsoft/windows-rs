@@ -30,6 +30,7 @@ mod Structs {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         fn Offset(&self, #[in] point: Point, #[in] delta: i32) -> Point;
 

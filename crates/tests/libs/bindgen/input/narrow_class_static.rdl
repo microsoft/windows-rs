@@ -19,13 +19,16 @@ mod Test {
     class Widget {
         IWidget,
     }
+    #[guid(auto)]
     interface IWidget {
         fn Read(&self) -> i32;
     }
+    #[guid(auto)]
     interface IWidgetFactory {
         fn Create(&self, #[in] value: i32) -> Widget;
         fn Unused(&self) -> Widget;
     }
+    #[guid(auto)]
     interface IWidgetStatics {
         fn GetDefault(&self) -> Widget;
     }

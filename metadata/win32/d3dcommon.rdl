@@ -752,7 +752,6 @@ mod Windows {
             fn RegisterDestructionCallback(&self, #[in] callbackFn: PFN_DESTRUCTION_CALLBACK, #[in] pData: *mut void, #[out] pCallbackID: *mut UINT) -> HRESULT;
             fn UnregisterDestructionCallback(&self, #[in] callbackID: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3DInclude {
             fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: LPCSTR, pParentData: LPCVOID, ppData: *mut LPCVOID, pBytes: *mut UINT) -> HRESULT;
             fn Close(&self, pData: LPCVOID) -> HRESULT;

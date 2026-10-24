@@ -90,10 +90,16 @@ impl Encoder<'_> {
             self.emit_arch_attribute(metadata::writer::HasAttribute::TypeDef(delegate), arch_bits);
         }
 
-        let already_has_guid = self.encode_guid_pseudo_attrs(
+        let guid_mode = self.encode_guid_pseudo_attrs(
             metadata::writer::HasAttribute::TypeDef(delegate),
             &item.attrs,
         )?;
+        if guid_mode == GuidMode::None {
+            return self.err(
+                &item.sig.ident,
+                "WinRT delegates require `#[guid(...)]` or `#[guid(auto)]`",
+            );
+        }
 
         for (number, name) in self.generics.iter().enumerate() {
             self.output.GenericParam(
@@ -125,7 +131,7 @@ impl Encoder<'_> {
             self.validate_type_is_winrt(return_syn_ty.as_ref(), &return_type)?;
         }
 
-        if !already_has_guid {
+        if guid_mode == GuidMode::Auto {
             guid::derive_and_emit_guid(
                 self.output,
                 metadata::writer::HasAttribute::TypeDef(delegate),

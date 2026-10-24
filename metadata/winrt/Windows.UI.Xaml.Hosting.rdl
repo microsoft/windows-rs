@@ -185,6 +185,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WindowsXamlManager)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x56096c31_1aa0_5288_8818_6e74a2dcaff5)]
                 interface IWindowsXamlManager {}
                 #[Windows::Foundation::Metadata::ContractVersion(HostingContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(WindowsXamlManager)]

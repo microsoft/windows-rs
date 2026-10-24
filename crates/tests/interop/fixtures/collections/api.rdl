@@ -6,6 +6,7 @@ mod Collections {
     }
 
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         fn Numbers(&self) -> Windows::Foundation::Collections::IVector<i32>;
         fn Lookup(&self, #[in] map: Windows::Foundation::Collections::IMapView<String, i32>, #[in] key: String) -> i32;

@@ -246,6 +246,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowPresentationConfiguration)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xfd3606a6_7875_5de8_84ff_6351ee13dd0d)]
             interface IAppWindowPresentationConfigurationFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AppWindowPresenter)]
@@ -311,10 +312,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompactOverlayPresentationConfiguration)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d)]
             interface ICompactOverlayPresentationConfiguration {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DefaultPresentationConfiguration)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xd8c2b53b_2168_5703_a853_d525589fe2b9)]
             interface IDefaultPresentationConfiguration {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DisplayRegion)]
@@ -370,6 +373,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironmentChangedEventArgs)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x4160cfc6_023d_5e9a_b431_350e67dc978a)]
             interface IWindowingEnvironmentChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(WindowingEnvironmentRemovedEventArgs)]

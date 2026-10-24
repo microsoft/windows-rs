@@ -8,6 +8,7 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(Compositor)]
+    #[guid(auto)]
     interface ICompositor {
         fn CreateContainerVisual(&self, #[in] children: i32) -> ContainerVisual;
         fn CreateSpriteVisual(&self, #[in] brush: i32) -> SpriteVisual;
@@ -24,6 +25,7 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(Visual)]
+    #[guid(auto)]
     interface IVisual {
         #[get]
         Compositor: Compositor;
@@ -35,6 +37,7 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(ContainerVisual)]
+    #[guid(auto)]
     interface IContainerVisual {
         #[get]
         #[NoException]
@@ -46,6 +49,7 @@ mod ClassHierarchy {
     }
 
     #[ExclusiveTo(SpriteVisual)]
+    #[guid(auto)]
     interface ISpriteVisual {
         #[get]
         #[NoException]

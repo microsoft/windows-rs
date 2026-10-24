@@ -3,6 +3,7 @@ use Windows::Foundation::Metadata::*;
 
 #[winrt]
 mod Threading {
+    #[guid(auto)]
     delegate fn Handler(#[in] value: i32);
 
     #[Activatable(1)]
@@ -12,6 +13,7 @@ mod Threading {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // The OS thread that the call runs on. An agile object is called directly from any thread
         // and apartment, so this is always the caller's thread.

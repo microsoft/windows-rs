@@ -21,6 +21,7 @@ mod union;
 
 use super::*;
 use attribute::*;
+use attribute_ref::GuidMode;
 use callback::*;
 use class::*;
 use r#const::*;

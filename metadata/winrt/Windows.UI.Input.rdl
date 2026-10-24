@@ -129,10 +129,12 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AttachableInputObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x9b822734_a3c1_542a_b2f4_0e32b773fb07)]
             interface IAttachableInputObject {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AttachableInputObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0xa4c54c4e_42bc_58fa_a640_ea1516f4c06b)]
             interface IAttachableInputObjectFactory {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CrossSlidingEventArgs)]

@@ -15,7 +15,6 @@ mod Fixture {
         persistent: BOOL,
     }
     type DWORD = u32;
-    #[no_guid]
     interface IPropertyList {
         fn Add(&self, value: &mut CProperty) -> i32;
     }

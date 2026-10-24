@@ -9,12 +9,14 @@ mod Constructors {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         #[get]
         Value: i32;
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidgetFactory {
         fn WithValue(&self, #[in] value: i32) -> Widget;
     }
@@ -29,18 +31,21 @@ mod Constructors {
 
     // The number of live `Base` objects, so clients can check that constructors do not leak.
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBaseStatics {
         #[get]
         Instances: i32;
     }
 
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBase {
         #[get]
         Value: i32;
     }
 
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBaseFactory {
         fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Base;
         fn WithValue(&self, #[in] value: i32, #[in] outer: Object, #[out] inner: &mut Object) -> Base;

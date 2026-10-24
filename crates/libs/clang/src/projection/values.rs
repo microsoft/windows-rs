@@ -831,7 +831,7 @@ impl Projector<'_, '_> {
             let uuid = write_guid(uuid);
             quote! { #[guid(#uuid)] }
         } else {
-            quote! { #[no_guid] }
+            quote! {}
         };
         let native = annotations::write(&observation.attributes)?;
         Ok(Body {

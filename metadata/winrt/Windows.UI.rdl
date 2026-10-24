@@ -341,6 +341,7 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
         #[Windows::Foundation::Metadata::ExclusiveTo(UIContext)]
         #[Windows::Foundation::Metadata::WebHostHidden]
+        #[guid(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243)]
         interface IUIContext {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]

@@ -6,6 +6,7 @@ mod Arrays {
     }
 
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // Pass: the component reads the client's array.
         fn Sum(&self, #[in] values: [i32]) -> i32;

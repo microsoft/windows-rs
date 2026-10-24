@@ -72,6 +72,7 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationChannelsRevokedEventArgs)]
+            #[guid(0x20e1a24c_1a34_5beb_aae2_40c232c8c140)]
             interface IPushNotificationChannelsRevokedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PushNotificationReceivedEventArgs)]

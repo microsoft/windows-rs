@@ -1,8 +1,10 @@
 //! --filter Test --minimal --flat
 #[win32]
 mod Test {
+    #[guid(auto)]
     interface Object {}
 
+    #[guid(auto)]
     interface Interface {
         fn OutFixed(&self, #[out] #[len_const(4)] buffer: *mut u32) -> i32;
         fn OutLen(&self, #[in] count: u32, #[out] #[len_param(0)] buffer: *mut u32) -> i32;

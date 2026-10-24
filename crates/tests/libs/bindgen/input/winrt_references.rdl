@@ -6,6 +6,7 @@ mod Test {
         high: i32,
     }
 
+    #[guid(auto)]
     interface References {
         fn Read(&self, #[in] value: &Value, #[out] result: &mut Value);
     }

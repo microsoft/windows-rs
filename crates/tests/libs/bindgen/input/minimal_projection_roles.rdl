@@ -22,9 +22,11 @@ mod Test {
     class MemberOnly {
         IMemberOnly,
     }
+    #[guid(auto)]
     interface IMemberOnly {
         Value: i32;
     }
+    #[guid(auto)]
     interface IMemberOnlyFactory {
         fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> MemberOnly;
     }
@@ -33,7 +35,9 @@ mod Test {
     class Constructed {
         IConstructed,
     }
+    #[guid(auto)]
     interface IConstructed {}
+    #[guid(auto)]
     interface IConstructedFactory {
         fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Constructed;
         fn CreateInstanceWithValue(
@@ -44,9 +48,11 @@ mod Test {
         ) -> Constructed;
     }
 
+    #[guid(auto)]
     interface Callable {
         fn Invoke(&self) -> i32;
     }
+    #[guid(auto)]
     interface Implemented {
         fn Invoke(&self) -> i32;
     }

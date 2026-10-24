@@ -1,6 +1,7 @@
 //! --filter !Projected Native --sys --flat
 #[winrt]
 mod Projected {
+    #[guid(auto)]
     interface IController {
         fn Value(&self) -> i32;
     }

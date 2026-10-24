@@ -1,6 +1,14 @@
 use super::guid;
 use super::*;
 use buffer_extent::pointee as extent_pointee;
+use syn::ext::IdentExt;
+
+#[derive(PartialEq)]
+pub(super) enum GuidMode {
+    None,
+    Explicit,
+    Auto,
+}
 
 pub struct AttributeRef {
     pub type_name: metadata::TypeName,
@@ -623,28 +631,44 @@ impl Encoder<'_> {
         &mut self,
         target: metadata::writer::HasAttribute,
         attrs: &[syn::Attribute],
-    ) -> Result<bool, Error> {
-        let already_has_guid = attrs.iter().any(|attr| {
-            self.is_guid_attribute(attr)
-                || attr.path().is_ident("guid")
-                || attr.path().is_ident("no_guid")
-        });
-
+    ) -> Result<GuidMode, Error> {
+        let mut mode = GuidMode::None;
         for attr in attrs {
+            if attr.path().is_ident("no_guid") {
+                return self.err(
+                    attr,
+                    "`#[no_guid]` is not supported; omit the GUID attribute on native interfaces",
+                );
+            }
+            if !attr.path().is_ident("guid") && !self.is_guid_attribute(attr) {
+                continue;
+            }
+            if mode != GuidMode::None {
+                return self.err(attr, "duplicate GUID attribute");
+            }
+            mode = GuidMode::Explicit;
             if attr.path().is_ident("guid") {
+                if attr
+                    .parse_args_with(syn::Ident::parse_any)
+                    .is_ok_and(|value| value == "auto")
+                {
+                    if !matches!(target, metadata::writer::HasAttribute::TypeDef(_)) {
+                        return self.err(attr, "`#[guid(auto)]` requires an interface or delegate");
+                    }
+                    mode = GuidMode::Auto;
+                    continue;
+                }
                 let lit: syn::LitInt = attr
                     .parse_args()
-                    .map_err(|_| self.error(attr, "`#[guid]` requires a single u128 literal"))?;
+                    .map_err(|_| self.error(attr, "`#[guid]` requires a u128 literal or `auto`"))?;
                 let v = parse_guid_u128(&lit)
                     .map_err(|_| self.error(attr, "invalid u128 literal in `#[guid]`"))?;
                 let (d1, d2, d3, d4) = guid::u128_to_guid(v);
                 guid::emit_guid_attribute(self.output, target, d1, d2, d3, d4);
-            } else if attr.path().is_ident("no_guid") && !matches!(attr.meta, syn::Meta::Path(_)) {
-                return self.err(attr, "`#[no_guid]` attribute does not accept arguments");
             }
         }
 
-        Ok(already_has_guid)
+        Ok(mode)
     }
 
     pub fn encode_buffer_extents(

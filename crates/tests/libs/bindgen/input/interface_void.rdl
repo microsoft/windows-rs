@@ -1,6 +1,7 @@
 //! --filter Test --flat
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface Interface {
         fn Execute(&self);
         fn Method(&self) -> i32;

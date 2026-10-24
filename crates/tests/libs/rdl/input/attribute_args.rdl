@@ -16,6 +16,7 @@ mod Test {
         Version: u32,
     }
     #[Custom("hello", Red, Write | Read, Version = 7)]
+    #[guid(0x99ebb70b_a87e_53cb_8a9f_8c1999eff0ef)]
     interface IThing {
         fn Method(&self) -> i32;
     }

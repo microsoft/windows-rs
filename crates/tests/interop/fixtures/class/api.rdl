@@ -6,6 +6,7 @@ mod Class {
     }
 
     #[Windows::Foundation::Metadata::ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         fn Add(&self, #[in] left: i32, #[in] right: i32) -> i32;
         Name: String;

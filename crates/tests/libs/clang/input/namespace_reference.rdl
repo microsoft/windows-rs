@@ -13,7 +13,6 @@ mod Fixture {
         fn AddRef(&self) -> u32;
         fn Release(&self) -> u32;
     }
-    #[no_guid]
     interface LocalHelper: IUnknown {
         fn Access(&self, value: *mut *mut u8) -> i32;
     }

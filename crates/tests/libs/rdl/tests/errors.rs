@@ -138,7 +138,7 @@ fn reference_base_class_must_be_unsealed() {
     let compile = |base: &str| {
         windows_rdl::reader()
             .input_text(&format!(
-                "#[winrt]\nmod Test {{\n    interface IWidget {{}}\n    class Widget: {base} {{\n        IWidget,\n    }}\n}}\n"
+                "#[winrt]\nmod Test {{\n    #[guid(auto)] interface IWidget {{}}\n    class Widget: {base} {{\n        IWidget,\n    }}\n}}\n"
             ))
             .output(out_path("reference_base"))
             .reference_default()

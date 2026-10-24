@@ -26,7 +26,6 @@ mod Windows {
             fn GetBoundaryRectangle(&self, pUiaRect: *mut UiaRect) -> HRESULT;
             fn IsVisible(&self) -> HRESULT;
         }
-        #[no_guid]
         interface IRicheditUiaOverrides: IUnknown {
             fn GetPropertyOverrideValue(&self, propertyId: PROPERTYID, pRetValue: *mut VARIANT) -> HRESULT;
         }

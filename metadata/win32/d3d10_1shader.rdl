@@ -140,7 +140,6 @@ mod Windows {
             ScopeVar: UINT,
             ScopeVarOffset: UINT,
         }
-        #[no_guid]
         interface ID3D10ShaderReflection1: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, iid: &IID, ppv: *mut LPVOID) -> HRESULT;

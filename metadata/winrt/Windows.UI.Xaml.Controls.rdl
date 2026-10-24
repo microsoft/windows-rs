@@ -1308,6 +1308,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppBarElementContainer)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x1d5ba067_a990_5dab_a9c3_e6be56642a1a)]
                 interface IAppBarElementContainer {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppBarElementContainer)]
@@ -3570,10 +3571,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DropDownButton)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x671f74e6_2a27_5fa8_b0a2_79b2e71ebd87)]
                 interface IDropDownButton {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DropDownButtonAutomationPeer)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x72f294f1_bff6_5d07_9db4_54134506bc80)]
                 interface IDropDownButtonAutomationPeer {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(DropDownButtonAutomationPeer)]
@@ -4188,6 +4191,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 720896)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HandwritingViewTextSubmittedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x55ac0f47_f5e4_55da_b8a3_d418b7564291)]
                 interface IHandwritingViewTextSubmittedEventArgs {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Hub)]
@@ -5942,6 +5946,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarItemFlyout)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xed00d2d8_b686_55fe_8dbb_f04a640e42ef)]
                 interface IMenuBarItemFlyout {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MenuBarItemFlyout)]
@@ -8538,6 +8543,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SplitButtonAutomationPeer)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xc46a58b8_3828_5c36_aa13_f79f02c12f34)]
                 interface ISplitButtonAutomationPeer {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SplitButtonAutomationPeer)]
@@ -8549,6 +8555,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SplitButtonClickEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0xc227c2ca_26f4_5960_98d5_919149d1b525)]
                 interface ISplitButtonClickEventArgs {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(SplitButton)]
@@ -9382,6 +9389,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextCommandBarFlyout)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x90384f66_cd3d_5325_8f40_59b076463c40)]
                 interface ITextCommandBarFlyout {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextCommandBarFlyout)]
@@ -9614,6 +9622,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ToggleSplitButtonAutomationPeer)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x538e61de_7d46_5da7_94ab_acede6a12b9e)]
                 interface IToggleSplitButtonAutomationPeer {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ToggleSplitButtonAutomationPeer)]
@@ -9632,6 +9641,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ToggleSplitButtonIsCheckedChangedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[guid(0x2138f0cf_5fcd_5dbb_99ae_359483070f6b)]
                 interface IToggleSplitButtonIsCheckedChangedEventArgs {}
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ToggleSwitch)]

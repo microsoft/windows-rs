@@ -18,7 +18,6 @@ mod Fixture {
         fn GetBufferSize(&self) -> SIZE_T;
     }
     type ID3DBlob = ID3D10Blob;
-    #[no_guid]
     interface ID3DInclude {
         fn Open(&self, IncludeType: D3D_INCLUDE_TYPE, pFileName: LPCSTR, pParentData: LPCVOID, ppData: *mut LPCVOID, pBytes: *mut UINT) -> HRESULT;
         fn Close(&self, pData: LPCVOID) -> HRESULT;
@@ -89,7 +88,6 @@ mod Fixture {
 }
 #[win32]
 mod Fixture {
-    #[no_guid]
     interface IAVIPersistFile: IPersistFile {
         fn Reserved1(&self) -> HRESULT;
     }

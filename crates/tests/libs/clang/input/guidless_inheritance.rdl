@@ -4,7 +4,6 @@ mod Fixture {
     interface Identified {
         fn Read(&self) -> i32;
     }
-    #[no_guid]
     interface MissingIdentity: Identified {
         fn Reset(&self);
     }

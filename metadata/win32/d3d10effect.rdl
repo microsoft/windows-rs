@@ -141,7 +141,6 @@ mod Windows {
             Passes: UINT,
             Annotations: UINT,
         }
-        #[no_guid]
         interface ID3D10Effect: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, iid: &IID, ppv: *mut LPVOID) -> HRESULT;
@@ -163,7 +162,6 @@ mod Windows {
             fn Optimize(&self) -> HRESULT;
             fn IsOptimized(&self) -> BOOL;
         }
-        #[no_guid]
         interface ID3D10EffectBlendVariable: ID3D10EffectVariable {
             #[override_slot(1)]
             fn GetType(&self) -> ID3D10EffectType;
@@ -216,7 +214,6 @@ mod Windows {
             fn GetBlendState(&self, Index: UINT, ppBlendState: *mut ID3D10BlendState) -> HRESULT;
             fn GetBackingStore(&self, Index: UINT, pBlendDesc: *mut D3D10_BLEND_DESC) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectConstantBuffer: ID3D10EffectVariable {
             #[override_slot(1)]
             fn GetType(&self) -> ID3D10EffectType;
@@ -271,7 +268,6 @@ mod Windows {
             fn SetTextureBuffer(&self, #[in] #[opt] pTextureBuffer: ID3D10ShaderResourceView) -> HRESULT;
             fn GetTextureBuffer(&self, #[out] ppTextureBuffer: *mut ID3D10ShaderResourceView) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectDepthStencilVariable: ID3D10EffectVariable {
             #[override_slot(1)]
             fn GetType(&self) -> ID3D10EffectType;
@@ -324,7 +320,6 @@ mod Windows {
             fn GetDepthStencilState(&self, Index: UINT, #[out] ppDepthStencilState: *mut ID3D10DepthStencilState) -> HRESULT;
             fn GetBackingStore(&self, Index: UINT, #[out] pDepthStencilDesc: *mut D3D10_DEPTH_STENCIL_DESC) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectDepthStencilViewVariable: ID3D10EffectVariable {
             #[override_slot(0)]
             fn IsValid(&self) -> BOOL;
@@ -381,7 +376,6 @@ mod Windows {
             fn SetDepthStencilArray(&self, #[in] #[readable(entry, Count)] ppResources: *mut ID3D10DepthStencilView, Offset: UINT, Count: UINT) -> HRESULT;
             fn GetDepthStencilArray(&self, #[out] #[writable(entry, Count)] ppResources: *mut ID3D10DepthStencilView, Offset: UINT, Count: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectMatrixVariable: ID3D10EffectVariable {
             #[override_slot(0)]
             fn IsValid(&self) -> BOOL;
@@ -442,7 +436,6 @@ mod Windows {
             fn SetMatrixTransposeArray(&self, pData: *mut f32, Offset: UINT, Count: UINT) -> HRESULT;
             fn GetMatrixTransposeArray(&self, pData: *mut f32, Offset: UINT, Count: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectPass {
             fn IsValid(&self) -> BOOL;
             fn GetDesc(&self, pDesc: *mut D3D10_PASS_DESC) -> HRESULT;
@@ -454,7 +447,6 @@ mod Windows {
             fn Apply(&self, Flags: UINT) -> HRESULT;
             fn ComputeStateBlockMask(&self, #[out] pStateBlockMask: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectPool: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, iid: &IID, ppv: *mut LPVOID) -> HRESULT;
@@ -464,7 +456,6 @@ mod Windows {
             fn Release(&self) -> ULONG;
             fn AsEffect(&self) -> ID3D10Effect;
         }
-        #[no_guid]
         interface ID3D10EffectRasterizerVariable: ID3D10EffectVariable {
             #[override_slot(1)]
             fn GetType(&self) -> ID3D10EffectType;
@@ -517,7 +508,6 @@ mod Windows {
             fn GetRasterizerState(&self, Index: UINT, #[out] ppRasterizerState: *mut ID3D10RasterizerState) -> HRESULT;
             fn GetBackingStore(&self, Index: UINT, #[out] pRasterizerDesc: *mut D3D10_RASTERIZER_DESC) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectRenderTargetViewVariable: ID3D10EffectVariable {
             #[override_slot(0)]
             fn IsValid(&self) -> BOOL;
@@ -574,7 +564,6 @@ mod Windows {
             fn SetRenderTargetArray(&self, #[in] #[readable(entry, Count)] ppResources: *mut ID3D10RenderTargetView, Offset: UINT, Count: UINT) -> HRESULT;
             fn GetRenderTargetArray(&self, #[out] #[writable(entry, Count)] ppResources: *mut ID3D10RenderTargetView, Offset: UINT, Count: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectSamplerVariable: ID3D10EffectVariable {
             #[override_slot(1)]
             fn GetType(&self) -> ID3D10EffectType;
@@ -627,7 +616,6 @@ mod Windows {
             fn GetSampler(&self, Index: UINT, #[out] ppSampler: *mut ID3D10SamplerState) -> HRESULT;
             fn GetBackingStore(&self, Index: UINT, #[out] pSamplerDesc: *mut D3D10_SAMPLER_DESC) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectScalarVariable: ID3D10EffectVariable {
             #[override_slot(0)]
             fn IsValid(&self) -> BOOL;
@@ -692,7 +680,6 @@ mod Windows {
             fn SetBoolArray(&self, #[in] #[readable(entry, Count)] pData: *mut BOOL, Offset: UINT, Count: UINT) -> HRESULT;
             fn GetBoolArray(&self, #[out] #[writable(entry, Count)] pData: *mut BOOL, Offset: UINT, Count: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectShaderResourceVariable: ID3D10EffectVariable {
             #[override_slot(0)]
             fn IsValid(&self) -> BOOL;
@@ -749,7 +736,6 @@ mod Windows {
             fn SetResourceArray(&self, #[in] #[readable(entry, Count)] ppResources: *mut ID3D10ShaderResourceView, Offset: UINT, Count: UINT) -> HRESULT;
             fn GetResourceArray(&self, #[out] #[writable(entry, Count)] ppResources: *mut ID3D10ShaderResourceView, Offset: UINT, Count: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectShaderVariable: ID3D10EffectVariable {
             #[override_slot(1)]
             fn GetType(&self) -> ID3D10EffectType;
@@ -806,7 +792,6 @@ mod Windows {
             fn GetInputSignatureElementDesc(&self, ShaderIndex: UINT, Element: UINT, #[out] pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
             fn GetOutputSignatureElementDesc(&self, ShaderIndex: UINT, Element: UINT, #[out] pDesc: *mut D3D10_SIGNATURE_PARAMETER_DESC) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectStringVariable: ID3D10EffectVariable {
             #[override_slot(0)]
             fn IsValid(&self) -> BOOL;
@@ -861,7 +846,6 @@ mod Windows {
             fn GetString(&self, #[out] ppString: *mut LPCSTR) -> HRESULT;
             fn GetStringArray(&self, #[out] #[writable(entry, Count)] ppStrings: *mut LPCSTR, Offset: UINT, Count: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectTechnique {
             fn IsValid(&self) -> BOOL;
             fn GetDesc(&self, pDesc: *mut D3D10_TECHNIQUE_DESC) -> HRESULT;
@@ -871,7 +855,6 @@ mod Windows {
             fn GetPassByName(&self, Name: LPCSTR) -> ID3D10EffectPass;
             fn ComputeStateBlockMask(&self, #[out] pStateBlockMask: *mut D3D10_STATE_BLOCK_MASK) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectType {
             fn IsValid(&self) -> BOOL;
             fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_TYPE_DESC) -> HRESULT;
@@ -881,7 +864,6 @@ mod Windows {
             fn GetMemberName(&self, Index: UINT) -> LPCSTR;
             fn GetMemberSemantic(&self, Index: UINT) -> LPCSTR;
         }
-        #[no_guid]
         interface ID3D10EffectVariable {
             fn IsValid(&self) -> BOOL;
             fn GetType(&self) -> ID3D10EffectType;
@@ -909,7 +891,6 @@ mod Windows {
             fn SetRawValue(&self, #[in] #[readable(entry, bytes(ByteCount))] pData: *mut void, Offset: UINT, ByteCount: UINT) -> HRESULT;
             fn GetRawValue(&self, #[out] #[writable(entry, bytes(ByteCount))] pData: *mut void, Offset: UINT, ByteCount: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10EffectVectorVariable: ID3D10EffectVariable {
             #[override_slot(0)]
             fn IsValid(&self) -> BOOL;
@@ -974,7 +955,6 @@ mod Windows {
             fn GetIntVectorArray(&self, pData: *mut i32, Offset: UINT, Count: UINT) -> HRESULT;
             fn GetFloatVectorArray(&self, pData: *mut f32, Offset: UINT, Count: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ID3D10StateBlock: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, iid: &IID, ppv: *mut LPVOID) -> HRESULT;

@@ -595,7 +595,6 @@ mod Windows {
             fn GetLineId(&self, #[out] puLineId: *mut UINT) -> HRESULT;
             fn SetLineId(&self, #[in] uLineId: UINT) -> HRESULT;
         }
-        #[no_guid]
         interface ISpNotifyCallback {
             fn NotifyCallback(&self, wParam: WPARAM, lParam: LPARAM) -> HRESULT;
         }

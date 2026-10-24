@@ -11,6 +11,7 @@ mod Windows {
 }
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface ISource {
         fn GetWidget(&self) -> Widget;
     }
@@ -18,9 +19,11 @@ mod Test {
     class Widget {
         IWidget,
     }
+    #[guid(auto)]
     interface IWidget {
         fn Read(&self) -> i32;
     }
+    #[guid(auto)]
     interface IWidgetStatics {
         fn Create(&self) -> Widget;
     }

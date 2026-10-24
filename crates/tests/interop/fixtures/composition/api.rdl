@@ -15,6 +15,7 @@ mod Composition {
     }
 
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBase {
         #[get]
         Value: i32;
@@ -27,16 +28,19 @@ mod Composition {
     }
 
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBaseOverrides {
         fn Name(&self) -> String;
     }
 
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBaseProtected {
         fn Doubled(&self) -> i32;
     }
 
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBaseFactory {
         fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Base;
         fn WithValue(
@@ -46,6 +50,7 @@ mod Composition {
 
     // The number of live `Base` objects, so clients can check that derived objects are released.
     #[ExclusiveTo(Base)]
+    #[guid(auto)]
     interface IBaseStatics {
         #[get]
         Instances: i32;

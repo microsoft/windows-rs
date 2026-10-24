@@ -19,6 +19,7 @@ mod Test {
         IClass,
     }
     #[Windows::Foundation::Metadata::ExclusiveTo(Class)]
+    #[guid(auto)]
     interface IClass {
         fn Method(&self) -> i32;
         Name: String;

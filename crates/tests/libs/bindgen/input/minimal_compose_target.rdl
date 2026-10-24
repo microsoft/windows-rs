@@ -22,9 +22,11 @@ mod Test {
     class Base {
         IOverrides,
     }
+    #[guid(auto)]
     interface IOverrides {
         fn OnSomething(&self);
     }
+    #[guid(auto)]
     interface IBaseFactory {
         fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Base;
     }
@@ -33,7 +35,9 @@ mod Test {
     class Derived: Base {
         IDerived,
     }
+    #[guid(auto)]
     interface IDerived {}
+    #[guid(auto)]
     interface IDerivedFactory {
         fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Derived;
     }

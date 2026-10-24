@@ -2230,6 +2230,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UIElementWeakCollection)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x10341223_e66d_519e_acf8_556bd244eac3)]
             interface IUIElementWeakCollection {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UIElementWeakCollection)]
@@ -2445,6 +2446,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(XamlRootChangedEventArgs)]
             #[Windows::Foundation::Metadata::WebHostHidden]
+            #[guid(0x92d71c21_d23c_5a17_bcb8_001504b6bb19)]
             interface IXamlRootChangedEventArgs {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::WebHostHidden]

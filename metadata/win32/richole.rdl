@@ -3,7 +3,6 @@ mod Windows {
     mod Win32 {
         const IID_IRichEditOle: GUID = 0x00020d00_0000_0000_c000_000000000046;
         const IID_IRichEditOleCallback: GUID = 0x00020d03_0000_0000_c000_000000000046;
-        #[no_guid]
         interface IRichEditOle: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, lplpObj: *mut LPVOID) -> HRESULT;
@@ -28,7 +27,6 @@ mod Windows {
             fn GetClipboardData(&self, lpchrg: *mut CHARRANGE, reco: DWORD, lplpdataobj: *mut LPDATAOBJECT) -> HRESULT;
             fn ImportDataObject(&self, lpdataobj: LPDATAOBJECT, cf: CLIPFORMAT, hMetaPict: HGLOBAL) -> HRESULT;
         }
-        #[no_guid]
         interface IRichEditOleCallback: IUnknown {
             #[override_slot(0)]
             fn QueryInterface(&self, riid: &IID, lplpObj: *mut LPVOID) -> HRESULT;
