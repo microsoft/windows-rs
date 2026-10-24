@@ -506,6 +506,7 @@ pub windows_reactor::WindowTheme::Dark
 pub windows_reactor::WindowTheme::Light
 pub windows_reactor::WindowTheme::System
 pub enum windows_reactor::WindowTitleBarHeight
+pub windows_reactor::WindowTitleBarHeight::Collapsed
 pub windows_reactor::WindowTitleBarHeight::Standard
 pub windows_reactor::WindowTitleBarHeight::Tall
 pub struct windows_reactor::App

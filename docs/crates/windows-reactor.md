@@ -349,6 +349,17 @@ Use `Icon::symbol`, `Icon::font`, `Icon::bitmap`, `Icon::image_*`, or `Icon::pat
 slots. Use `SymbolIcon`, `FontIcon`, `BitmapIcon`, `ImageIcon`, and `PathIcon` when the icon is a
 standalone visual that needs layout or other visual properties.
 
+## Collapse the title bar
+
+`TitleBar::preferred_height` takes a `WindowTitleBarHeight`: `Standard`, `Tall`, or `Collapsed`.
+`Collapsed` hides the system title bar and caption buttons while keeping the native window frame,
+which suits borderless windows with custom chrome:
+
+```rust,no_run
+# use windows_reactor::*;
+TitleBar::new().preferred_height(WindowTitleBarHeight::Collapsed);
+```
+
 ## Choose a deployment model
 
 A framework-dependent application uses an installed Windows App SDK framework package and needs
