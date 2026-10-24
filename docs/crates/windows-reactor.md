@@ -414,7 +414,7 @@ writes the declared value again after any change to that range, because some con
 | Key | Use |
 | --- | --- |
 | `requires_selection = true` | The control always selects an item, so an index past the end selects the first item. |
-| `realize_items = true` | The control selects only realized item containers, so the adapter runs layout before writing the index. |
+| `realize_items = true` | The control selects only realized item containers, so the adapter measures the control, not the whole window, before writing the index. |
 
 An event with `observe_only = true` records its `observes` property in the retained graph but has
 no callback. `RadioButton` uses it for `Unchecked`: WinUI unchecks the rest of a group as a side

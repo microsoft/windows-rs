@@ -57,7 +57,7 @@ pub enum IndexItems {
 /// and the native `event` raised by changing `items` is not reported when the index is applied
 /// afterwards. An index out of range is applied as no selection, or as the first item when the
 /// control `requires_selection` and has items. A control that applies the index only to realized
-/// item containers lists `realize_items`, and the index is written after a layout pass.
+/// item containers lists `realize_items`, and the index is written after measuring the control.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IndexContract {
     pub property: PropertyId,
