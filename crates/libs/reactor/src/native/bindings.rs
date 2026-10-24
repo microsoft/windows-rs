@@ -29287,6 +29287,7 @@ pub struct TitleBarHeightOption(pub i32);
 impl TitleBarHeightOption {
     pub const Standard: Self = Self(0);
     pub const Tall: Self = Self(1);
+    pub const Collapsed: Self = Self(2);
 }
 impl windows_core::imp::TypeKind for TitleBarHeightOption {
     type TypeKind = windows_core::imp::CopyType;

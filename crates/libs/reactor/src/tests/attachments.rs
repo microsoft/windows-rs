@@ -766,3 +766,18 @@ fn tooltip_clear_precedes_destruction() {
     assert_eq!(runtime.graph().tooltip(target), None);
     assert_eq!(runtime.adapter().tooltip(target), None);
 }
+
+#[test]
+fn collapsed_title_bar_height_is_forwarded() {
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(Grid::new().keyed_children([keyed(
+        "title",
+        TitleBar::new().preferred_height(WindowTitleBarHeight::Collapsed),
+    )]));
+    let (title_bar, height) = runtime.graph().window_title_bar().unwrap();
+    assert_eq!(height, WindowTitleBarHeight::Collapsed);
+    assert_eq!(
+        runtime.adapter().window_title_bar(),
+        Some((title_bar, WindowTitleBarHeight::Collapsed))
+    );
+}

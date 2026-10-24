@@ -1950,6 +1950,7 @@ pub enum WindowTitleBarHeight {
     #[default]
     Standard,
     Tall,
+    Collapsed,
 }
 
 impl Clone for NativeWindow {

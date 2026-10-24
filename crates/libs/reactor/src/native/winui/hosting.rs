@@ -331,6 +331,7 @@ impl WinUiAdapter {
             .SetPreferredHeightOption(match height {
                 WindowTitleBarHeight::Standard => native::TitleBarHeightOption::Standard,
                 WindowTitleBarHeight::Tall => native::TitleBarHeightOption::Tall,
+                WindowTitleBarHeight::Collapsed => native::TitleBarHeightOption::Collapsed,
             })?;
         state.title_bar.set(Some((object, height)));
         Ok(())
