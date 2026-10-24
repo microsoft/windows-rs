@@ -774,6 +774,10 @@ fn collapsed_title_bar_height_is_forwarded() {
         "title",
         TitleBar::new().preferred_height(WindowTitleBarHeight::Collapsed),
     )]));
-    let (_, height) = runtime.graph().window_title_bar().unwrap();
+    let (title_bar, height) = runtime.graph().window_title_bar().unwrap();
     assert_eq!(height, WindowTitleBarHeight::Collapsed);
+    assert_eq!(
+        runtime.adapter().window_title_bar(),
+        Some((title_bar, WindowTitleBarHeight::Collapsed))
+    );
 }
