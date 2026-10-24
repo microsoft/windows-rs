@@ -1,3 +1,27 @@
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtAccessCheckAndAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, objecttypename: super::PUNICODE_STRING, objectname: super::PUNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, desiredaccess: super::ACCESS_MASK, genericmapping: super::PGENERIC_MAPPING, objectcreation: super::BOOLEAN, grantedaccess: super::PACCESS_MASK, accessstatus: super::PNTSTATUS, generateonclose: super::PBOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckAndAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, objecttypename : super::PUNICODE_STRING, objectname : super::PUNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, desiredaccess : super::ACCESS_MASK, genericmapping : super::PGENERIC_MAPPING, objectcreation : super::BOOLEAN, grantedaccess : super::PACCESS_MASK, accessstatus : super::PNTSTATUS, generateonclose : super::PBOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, desiredaccess, genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtAccessCheckByTypeAndAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, objecttypename: super::PUNICODE_STRING, objectname: super::PUNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: super::ULONG, objecttypelist: Option<&[super::OBJECT_TYPE_LIST]>, genericmapping: super::PGENERIC_MAPPING, objectcreation: super::BOOLEAN, grantedaccess: super::PACCESS_MASK, accessstatus: super::PNTSTATUS, generateonclose: super::PBOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, objecttypename : super::PUNICODE_STRING, objectname : super::PUNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : super::ULONG, objecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::ULONG, genericmapping : super::PGENERIC_MAPPING, objectcreation : super::BOOLEAN, grantedaccess : super::PACCESS_MASK, accessstatus : super::PNTSTATUS, generateonclose : super::PBOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, objecttypename: super::PUNICODE_STRING, objectname: super::PUNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: super::ULONG, objecttypelist: Option<super::POBJECT_TYPE_LIST>, objecttypelistlength: super::ULONG, genericmapping: super::PGENERIC_MAPPING, objectcreation: super::BOOLEAN, grantedaccess: super::PACCESS_MASK, accessstatus: super::PNTSTATUS, generateonclose: super::PBOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, objecttypename : super::PUNICODE_STRING, objectname : super::PUNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : super::ULONG, objecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::ULONG, genericmapping : super::PGENERIC_MAPPING, objectcreation : super::BOOLEAN, grantedaccess : super::PACCESS_MASK, accessstatus : super::PNTSTATUS, generateonclose : super::PBOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, clienttoken: super::HANDLE, objecttypename: super::PUNICODE_STRING, objectname: super::PUNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: super::ULONG, objecttypelist: Option<super::POBJECT_TYPE_LIST>, objecttypelistlength: super::ULONG, genericmapping: super::PGENERIC_MAPPING, objectcreation: super::BOOLEAN, grantedaccess: super::PACCESS_MASK, accessstatus: super::PNTSTATUS, generateonclose: super::PBOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, clienttoken : super::HANDLE, objecttypename : super::PUNICODE_STRING, objectname : super::PUNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : super::ULONG, objecttypelist : super::POBJECT_TYPE_LIST, objecttypelistlength : super::ULONG, genericmapping : super::PGENERIC_MAPPING, objectcreation : super::BOOLEAN, grantedaccess : super::PACCESS_MASK, accessstatus : super::PNTSTATUS, generateonclose : super::PBOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, clienttoken, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NtAdjustGroupsToken(tokenhandle: super::HANDLE, resettodefault: super::BOOLEAN, newstate: Option<super::PTOKEN_GROUPS>, bufferlength: super::ULONG, previousstate: Option<super::PTOKEN_GROUPS>, returnlength: super::PULONG) -> windows_core::NTSTATUS {
@@ -16,11 +40,35 @@ pub unsafe fn NtAllocateVirtualMemory(processhandle: super::HANDLE, baseaddress:
     windows_core::link!("ntdll.dll" "system" fn NtAllocateVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut super::PVOID, zerobits : super::ULONG_PTR, regionsize : super::PSIZE_T, allocationtype : super::ULONG, protect : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { NtAllocateVirtualMemory(processhandle, baseaddress as _, zerobits, regionsize as _, allocationtype, protect) }
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtCloseObjectAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, generateonclose: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCloseObjectAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, generateonclose : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtCloseObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, generateonclose) }
+}
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn NtCopyFileChunk(sourcehandle: super::HANDLE, desthandle: super::HANDLE, event: Option<super::HANDLE>, iostatusblock: super::PIO_STATUS_BLOCK, length: super::ULONG, sourceoffset: super::PLARGE_INTEGER, destoffset: super::PLARGE_INTEGER, sourcekey: Option<super::PULONG>, destkey: Option<super::PULONG>, flags: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtCopyFileChunk(sourcehandle : super::HANDLE, desthandle : super::HANDLE, event : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, length : super::ULONG, sourceoffset : super::PLARGE_INTEGER, destoffset : super::PLARGE_INTEGER, sourcekey : super::PULONG, destkey : super::PULONG, flags : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { NtCopyFileChunk(sourcehandle, desthandle, event.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, length, sourceoffset, destoffset, sourcekey.unwrap_or(core::mem::zeroed()) as _, destkey.unwrap_or(core::mem::zeroed()) as _, flags) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtCreateSection(sectionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, maximumsize: Option<super::PLARGE_INTEGER>, sectionpageprotection: super::ULONG, allocationattributes: super::ULONG, filehandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateSection(sectionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, maximumsize : super::PLARGE_INTEGER, sectionpageprotection : super::ULONG, allocationattributes : super::ULONG, filehandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtCreateSection(sectionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, maximumsize.unwrap_or(core::mem::zeroed()) as _, sectionpageprotection, allocationattributes, filehandle.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtDeleteObjectAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, generateonclose: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtDeleteObjectAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, generateonclose : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtDeleteObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, generateonclose) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtDuplicateToken(existingtokenhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, effectiveonly: super::BOOLEAN, tokentype: super::TOKEN_TYPE, newtokenhandle: super::PHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtDuplicateToken(existingtokenhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, effectiveonly : super::BOOLEAN, tokentype : super::TOKEN_TYPE, newtokenhandle : super::PHANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtDuplicateToken(existingtokenhandle, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, effectiveonly, tokentype, newtokenhandle as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -58,6 +106,12 @@ pub unsafe fn NtLockFile(filehandle: super::HANDLE, event: Option<super::HANDLE>
     windows_core::link!("ntdll.dll" "system" fn NtLockFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, byteoffset : super::PLARGE_INTEGER, length : super::PLARGE_INTEGER, key : super::ULONG, failimmediately : super::BOOLEAN, exclusivelock : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { NtLockFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, byteoffset, length, key, failimmediately, exclusivelock) }
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtOpenObjectAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, objecttypename: super::PUNICODE_STRING, objectname: super::PUNICODE_STRING, securitydescriptor: Option<super::PSECURITY_DESCRIPTOR>, clienttoken: super::HANDLE, desiredaccess: super::ACCESS_MASK, grantedaccess: super::ACCESS_MASK, privileges: Option<super::PPRIVILEGE_SET>, objectcreation: super::BOOLEAN, accessgranted: super::BOOLEAN, generateonclose: super::PBOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenObjectAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, objecttypename : super::PUNICODE_STRING, objectname : super::PUNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, clienttoken : super::HANDLE, desiredaccess : super::ACCESS_MASK, grantedaccess : super::ACCESS_MASK, privileges : super::PPRIVILEGE_SET, objectcreation : super::BOOLEAN, accessgranted : super::BOOLEAN, generateonclose : super::PBOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtOpenObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, grantedaccess, privileges.unwrap_or(core::mem::zeroed()) as _, objectcreation, accessgranted, generateonclose as _) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NtOpenProcessToken(processhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, tokenhandle: super::PHANDLE) -> windows_core::NTSTATUS {
@@ -87,6 +141,36 @@ pub unsafe fn NtOpenThreadTokenEx(threadhandle: super::HANDLE, desiredaccess: su
 pub unsafe fn NtPrivilegeCheck(clienttoken: super::HANDLE, requiredprivileges: super::PPRIVILEGE_SET, result: super::PBOOLEAN) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtPrivilegeCheck(clienttoken : super::HANDLE, requiredprivileges : super::PPRIVILEGE_SET, result : super::PBOOLEAN) -> windows_core::NTSTATUS);
     unsafe { NtPrivilegeCheck(clienttoken, requiredprivileges as _, result as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtPrivilegeObjectAuditAlarm(subsystemname: super::PUNICODE_STRING, handleid: Option<super::PVOID>, clienttoken: super::HANDLE, desiredaccess: super::ACCESS_MASK, privileges: super::PPRIVILEGE_SET, accessgranted: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrivilegeObjectAuditAlarm(subsystemname : super::PUNICODE_STRING, handleid : super::PVOID, clienttoken : super::HANDLE, desiredaccess : super::ACCESS_MASK, privileges : super::PPRIVILEGE_SET, accessgranted : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtPrivilegeObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, privileges, accessgranted) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtPrivilegedServiceAuditAlarm(subsystemname: super::PUNICODE_STRING, servicename: super::PUNICODE_STRING, clienttoken: super::HANDLE, privileges: super::PPRIVILEGE_SET, accessgranted: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrivilegedServiceAuditAlarm(subsystemname : super::PUNICODE_STRING, servicename : super::PUNICODE_STRING, clienttoken : super::HANDLE, privileges : super::PPRIVILEGE_SET, accessgranted : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtPrivilegedServiceAuditAlarm(subsystemname, servicename, clienttoken, privileges, accessgranted) }
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtQueryDirectoryFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<super::PVOID>, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: super::PVOID, length: super::ULONG, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: super::BOOLEAN, filename: Option<super::PUNICODE_STRING>, restartscan: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryDirectoryFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : super::PVOID, length : super::ULONG, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : super::BOOLEAN, filename : super::PUNICODE_STRING, restartscan : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { NtQueryDirectoryFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, returnsingleentry, filename.unwrap_or(core::mem::zeroed()) as _, restartscan) }
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtQueryDirectoryFileEx(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<super::PVOID>, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: super::PVOID, length: super::ULONG, fileinformationclass: super::FILE_INFORMATION_CLASS, queryflags: super::ULONG, filename: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryDirectoryFileEx(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : super::PVOID, length : super::ULONG, fileinformationclass : super::FILE_INFORMATION_CLASS, queryflags : super::ULONG, filename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { NtQueryDirectoryFileEx(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, queryflags, filename.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtQueryInformationByName(objectattributes: super::POBJECT_ATTRIBUTES, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: super::PVOID, length: super::ULONG, fileinformationclass: super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationByName(objectattributes : super::POBJECT_ATTRIBUTES, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : super::PVOID, length : super::ULONG, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { NtQueryInformationByName(objectattributes, iostatusblock as _, fileinformation as _, length, fileinformationclass) }
 }
 #[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -242,6 +326,12 @@ pub unsafe fn RtlAppendStringToString(destination: super::PSTRING, source: *cons
     windows_core::link!("ntdll.dll" "system" fn RtlAppendStringToString(destination : super::PSTRING, source : *const super::STRING) -> windows_core::NTSTATUS);
     unsafe { RtlAppendStringToString(destination as _, source) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlCompareAltitudes(altitude1: super::PCUNICODE_STRING, altitude2: super::PCUNICODE_STRING) -> super::LONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompareAltitudes(altitude1 : super::PCUNICODE_STRING, altitude2 : super::PCUNICODE_STRING) -> super::LONG);
+    unsafe { RtlCompareAltitudes(altitude1, altitude2) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCompareMemoryUlong(source: super::PVOID, length: super::SIZE_T, pattern: super::ULONG) -> super::SIZE_T {
@@ -278,6 +368,33 @@ pub unsafe fn RtlCreateHeap(flags: super::ULONG, heapbase: Option<super::PVOID>,
     windows_core::link!("ntdll.dll" "system" fn RtlCreateHeap(flags : super::ULONG, heapbase : super::PVOID, reservesize : super::SIZE_T, commitsize : super::SIZE_T, lock : super::PVOID, parameters : PRTL_HEAP_PARAMETERS) -> super::PVOID);
     unsafe { RtlCreateHeap(flags, heapbase.unwrap_or(core::mem::zeroed()) as _, reservesize.unwrap_or(core::mem::zeroed()) as _, commitsize.unwrap_or(core::mem::zeroed()) as _, lock.unwrap_or(core::mem::zeroed()) as _, parameters as _) }
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlCreateServiceSid(servicename: super::PUNICODE_STRING, servicesid: Option<super::PSID>, servicesidlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateServiceSid(servicename : super::PUNICODE_STRING, servicesid : super::PSID, servicesidlength : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { RtlCreateServiceSid(servicename, servicesid.unwrap_or(core::mem::zeroed()) as _, servicesidlength as _) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlCreateSystemVolumeInformationFolder(volumerootpath: super::PCUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateSystemVolumeInformationFolder(volumerootpath : super::PCUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlCreateSystemVolumeInformationFolder(volumerootpath) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlCreateUnicodeString<P1>(destinationstring: super::PUNICODE_STRING, sourcestring: P1) -> super::BOOLEAN
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : windows_core::PCWSTR) -> super::BOOLEAN);
+    unsafe { RtlCreateUnicodeString(destinationstring as _, sourcestring.param().abi()) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlCreateVirtualAccountSid(name: super::PCUNICODE_STRING, basesubauthority: super::ULONG, sid: super::PSID, sidlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateVirtualAccountSid(name : super::PCUNICODE_STRING, basesubauthority : super::ULONG, sid : super::PSID, sidlength : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { RtlCreateVirtualAccountSid(name, basesubauthority, sid as _, sidlength as _) }
+}
 #[cfg(all(feature = "minwindef", feature = "ntnls", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCustomCPToUnicodeN(customcp: super::PCPTABLEINFO, unicodestring: super::PWCH, maxbytesinunicodestring: super::ULONG, bytesinunicodestring: Option<super::PULONG>, customcpstring: &[u8]) -> windows_core::NTSTATUS {
@@ -313,6 +430,18 @@ pub unsafe fn RtlDeleteAce(acl: super::PACL, aceindex: super::ULONG) -> windows_
 pub unsafe fn RtlDestroyHeap(heaphandle: super::PVOID) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlDestroyHeap(heaphandle : super::PVOID) -> super::PVOID);
     unsafe { RtlDestroyHeap(heaphandle) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlDowncaseUnicodeString(destinationstring: super::PUNICODE_STRING, sourcestring: super::PCUNICODE_STRING, allocatedestinationstring: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : super::PCUNICODE_STRING, allocatedestinationstring : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { RtlDowncaseUnicodeString(destinationstring as _, sourcestring, allocatedestinationstring) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlDuplicateUnicodeString(flags: super::ULONG, stringin: super::PCUNICODE_STRING, stringout: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDuplicateUnicodeString(flags : super::ULONG, stringin : super::PCUNICODE_STRING, stringout : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlDuplicateUnicodeString(flags, stringin, stringout as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -351,6 +480,12 @@ pub unsafe fn RtlFreeHeap(heaphandle: super::PVOID, flags: Option<super::ULONG>,
 pub unsafe fn RtlFreeSid(sid: super::PSID) -> super::PVOID {
     windows_core::link!("ntdll.dll" "system" fn RtlFreeSid(sid : super::PSID) -> super::PVOID);
     unsafe { RtlFreeSid(sid) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlGenerate8dot3Name(name: super::PCUNICODE_STRING, allowextendedcharacters: super::BOOLEAN, context: PGENERATE_NAME_CONTEXT, name8dot3: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGenerate8dot3Name(name : super::PCUNICODE_STRING, allowextendedcharacters : super::BOOLEAN, context : PGENERATE_NAME_CONTEXT, name8dot3 : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlGenerate8dot3Name(name, allowextendedcharacters, context as _, name8dot3 as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -432,6 +567,12 @@ where
 pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: super::PCPTABLEINFO) {
     windows_core::link!("ntdll.dll" "system" fn RtlInitCodePageTable(tablebase : super::PUSHORT, codepagetable : super::PCPTABLEINFO));
     unsafe { RtlInitCodePageTable(core::mem::transmute(tablebase.map_or(core::ptr::null(), |slice| slice.as_ptr())), codepagetable as _) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlInitUnicodeStringEx(destinationstring: super::PUNICODE_STRING, sourcestring: Option<windows_core::PCWSTR>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationstring : super::PUNICODE_STRING, sourcestring : windows_core::PCWSTR) -> windows_core::NTSTATUS);
+    unsafe { RtlInitUnicodeStringEx(destinationstring as _, sourcestring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -516,6 +657,12 @@ where
 pub unsafe fn RtlNtStatusToDosErrorNoTeb(status: windows_core::NTSTATUS) -> super::ULONG {
     windows_core::link!("ntdll.dll" "system" fn RtlNtStatusToDosErrorNoTeb(status : windows_core::NTSTATUS) -> super::ULONG);
     unsafe { RtlNtStatusToDosErrorNoTeb(status) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlOemStringToUnicodeString(destinationstring: super::PUNICODE_STRING, sourcestring: super::PCOEM_STRING, allocatedestinationstring: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlOemStringToUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : super::PCOEM_STRING, allocatedestinationstring : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { RtlOemStringToUnicodeString(destinationstring as _, sourcestring, allocatedestinationstring) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -639,6 +786,12 @@ pub unsafe fn RtlTimeToSecondsSince1980(time: super::PLARGE_INTEGER, elapsedseco
     windows_core::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1980(time : super::PLARGE_INTEGER, elapsedseconds : super::PULONG) -> super::BOOLEAN);
     unsafe { RtlTimeToSecondsSince1980(time, elapsedseconds as _) }
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlUnicodeStringToCountedOemString(destinationstring: super::POEM_STRING, sourcestring: super::PCUNICODE_STRING, allocatedestinationstring: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToCountedOemString(destinationstring : super::POEM_STRING, sourcestring : super::PCUNICODE_STRING, allocatedestinationstring : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { RtlUnicodeStringToCountedOemString(destinationstring as _, sourcestring, allocatedestinationstring) }
+}
 #[cfg(all(feature = "minwindef", feature = "ntnls", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlUnicodeToCustomCPN(customcp: super::PCPTABLEINFO, customcpstring: super::PCH, maxbytesincustomcpstring: super::ULONG, bytesincustomcpstring: Option<super::PULONG>, unicodestring: super::PWCH, bytesinunicodestring: super::ULONG) -> windows_core::NTSTATUS {
@@ -656,6 +809,18 @@ pub unsafe fn RtlUnicodeToMultiByteN(multibytestring: super::PCHAR, maxbytesinmu
 pub unsafe fn RtlUnicodeToOemN(oemstring: super::PCHAR, maxbytesinoemstring: super::ULONG, bytesinoemstring: Option<super::PULONG>, unicodestring: super::PCWCH, bytesinunicodestring: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToOemN(oemstring : super::PCHAR, maxbytesinoemstring : super::ULONG, bytesinoemstring : super::PULONG, unicodestring : super::PCWCH, bytesinunicodestring : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { RtlUnicodeToOemN(oemstring as _, maxbytesinoemstring, bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlUpcaseUnicodeStringToCountedOemString(destinationstring: super::POEM_STRING, sourcestring: super::PCUNICODE_STRING, allocatedestinationstring: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToCountedOemString(destinationstring : super::POEM_STRING, sourcestring : super::PCUNICODE_STRING, allocatedestinationstring : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { RtlUpcaseUnicodeStringToCountedOemString(destinationstring as _, sourcestring, allocatedestinationstring) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlUpcaseUnicodeStringToOemString(destinationstring: super::POEM_STRING, sourcestring: super::PCUNICODE_STRING, allocatedestinationstring: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToOemString(destinationstring : super::POEM_STRING, sourcestring : super::PCUNICODE_STRING, allocatedestinationstring : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { RtlUpcaseUnicodeStringToOemString(destinationstring as _, sourcestring, allocatedestinationstring) }
 }
 #[cfg(all(feature = "minwindef", feature = "ntnls", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -681,11 +846,23 @@ pub unsafe fn RtlValidSid(sid: super::PSID) -> super::BOOLEAN {
     windows_core::link!("ntdll.dll" "system" fn RtlValidSid(sid : super::PSID) -> super::BOOLEAN);
     unsafe { RtlValidSid(sid) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlValidateUnicodeString(flags: super::ULONG, string: super::PCUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidateUnicodeString(flags : super::ULONG, string : super::PCUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlValidateUnicodeString(flags, string) }
+}
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
 pub unsafe fn RtlxOemStringToUnicodeSize(oemstring: super::PCOEM_STRING) -> super::ULONG {
     windows_core::link!("ntdll.dll" "system" fn RtlxOemStringToUnicodeSize(oemstring : super::PCOEM_STRING) -> super::ULONG);
     unsafe { RtlxOemStringToUnicodeSize(oemstring) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlxUnicodeStringToOemSize(unicodestring: super::PCUNICODE_STRING) -> super::ULONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlxUnicodeStringToOemSize(unicodestring : super::PCUNICODE_STRING) -> super::ULONG);
+    unsafe { RtlxUnicodeStringToOemSize(unicodestring) }
 }
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -693,11 +870,29 @@ pub unsafe fn ZwAllocateVirtualMemory(processhandle: super::HANDLE, baseaddress:
     windows_core::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut super::PVOID, zerobits : super::ULONG_PTR, regionsize : super::PSIZE_T, allocationtype : super::ULONG, protect : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { ZwAllocateVirtualMemory(processhandle, baseaddress as _, zerobits, regionsize as _, allocationtype, protect) }
 }
+#[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateEvent(eventhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, eventtype: super::EVENT_TYPE, initialstate: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateEvent(eventhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, eventtype : super::EVENT_TYPE, initialstate : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateEvent(eventhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, eventtype, initialstate) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwDeleteFile(objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwDeleteFile(objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwDeleteFile(objectattributes) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ZwDuplicateObject(sourceprocesshandle: super::HANDLE, sourcehandle: super::HANDLE, targetprocesshandle: Option<super::HANDLE>, targethandle: Option<super::PHANDLE>, desiredaccess: super::ACCESS_MASK, handleattributes: super::ULONG, options: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwDuplicateObject(sourceprocesshandle : super::HANDLE, sourcehandle : super::HANDLE, targetprocesshandle : super::HANDLE, targethandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, handleattributes : super::ULONG, options : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { ZwDuplicateObject(sourceprocesshandle, sourcehandle, targetprocesshandle.unwrap_or(core::mem::zeroed()) as _, targethandle.unwrap_or(core::mem::zeroed()) as _, desiredaccess, handleattributes, options) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwDuplicateToken(existingtokenhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, effectiveonly: super::BOOLEAN, tokentype: super::TOKEN_TYPE, newtokenhandle: super::PHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwDuplicateToken(existingtokenhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, effectiveonly : super::BOOLEAN, tokentype : super::TOKEN_TYPE, newtokenhandle : super::PHANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwDuplicateToken(existingtokenhandle, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, effectiveonly, tokentype, newtokenhandle as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -743,6 +938,12 @@ pub unsafe fn ZwNotifyChangeKey(keyhandle: super::HANDLE, event: Option<super::H
     windows_core::link!("ntdll.dll" "system" fn ZwNotifyChangeKey(keyhandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, completionfilter : super::ULONG, watchtree : super::BOOLEAN, buffer : super::PVOID, buffersize : super::ULONG, asynchronous : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { ZwNotifyChangeKey(keyhandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, completionfilter, watchtree, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, asynchronous) }
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenDirectoryObject(directoryhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenDirectoryObject(directoryhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenDirectoryObject(directoryhandle as _, desiredaccess, objectattributes) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ZwOpenProcessTokenEx(processhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, handleattributes: super::ULONG, tokenhandle: super::PHANDLE) -> windows_core::NTSTATUS {
@@ -754,6 +955,18 @@ pub unsafe fn ZwOpenProcessTokenEx(processhandle: super::HANDLE, desiredaccess: 
 pub unsafe fn ZwOpenThreadTokenEx(threadhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, openasself: super::BOOLEAN, handleattributes: super::ULONG, tokenhandle: super::PHANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwOpenThreadTokenEx(threadhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, openasself : super::BOOLEAN, handleattributes : super::ULONG, tokenhandle : super::PHANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwOpenThreadTokenEx(threadhandle, desiredaccess, openasself, handleattributes, tokenhandle as _) }
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwQueryDirectoryFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<super::PVOID>, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: super::PVOID, length: super::ULONG, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: super::BOOLEAN, filename: Option<super::PUNICODE_STRING>, restartscan: super::BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryDirectoryFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : super::PVOID, length : super::ULONG, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : super::BOOLEAN, filename : super::PUNICODE_STRING, restartscan : super::BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryDirectoryFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, returnsingleentry, filename.unwrap_or(core::mem::zeroed()) as _, restartscan) }
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwQueryDirectoryFileEx(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<super::PVOID>, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: super::PVOID, length: super::ULONG, fileinformationclass: super::FILE_INFORMATION_CLASS, queryflags: super::ULONG, filename: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryDirectoryFileEx(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : super::PVOID, length : super::ULONG, fileinformationclass : super::FILE_INFORMATION_CLASS, queryflags : super::ULONG, filename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryDirectoryFileEx(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, queryflags, filename.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -2453,6 +2666,13 @@ pub const FSRTL_MOD_WRITE_TOP_LEVEL_IRP: super::LONG_PTR = 3 as _;
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
     pub ProviderId: super::ULONG32,
 }
+#[repr(C)]
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
+    pub ProviderId: super::ULONG32,
+    pub ProviderName: super::UNICODE_STRING,
+}
 #[cfg(feature = "shared")]
 pub const FSRTL_NETWORK1_TOP_LEVEL_IRP: super::LONG_PTR = 5 as _;
 #[cfg(feature = "shared")]
@@ -3165,11 +3385,75 @@ pub struct MSV1_0_ENUMUSERS_RESPONSE {
     pub EnumHandles: super::PULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct MSV1_0_GETCHALLENRESP_REQUEST {
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub ParameterControl: super::ULONG,
+    pub LogonId: super::LUID,
+    pub Password: super::UNICODE_STRING,
+    pub ChallengeToClient: [super::UCHAR; 8],
+    pub UserName: super::UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
+}
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for MSV1_0_GETCHALLENRESP_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub ParameterControl: super::ULONG,
+    pub LogonId: super::LUID,
+    pub Password: super::UNICODE_STRING,
+    pub ChallengeToClient: [super::UCHAR; 8],
+}
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for MSV1_0_GETCHALLENRESP_REQUEST_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub CaseSensitiveChallengeResponse: super::STRING,
+    pub CaseInsensitiveChallengeResponse: super::STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub UserSessionKey: [super::UCHAR; 16],
+    pub LanmanSessionKey: [super::UCHAR; 8],
+}
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for MSV1_0_GETCHALLENRESP_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_REQUEST {
     pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::LUID,
+}
+#[repr(C)]
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct MSV1_0_GETUSERINFO_RESPONSE {
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub UserSid: super::PSID,
+    pub UserName: super::UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub LogonServer: super::UNICODE_STRING,
+    pub LogonType: super::SECURITY_LOGON_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
@@ -3298,6 +3582,13 @@ pub type NETWORK_OPEN_IN_FLAGS = super::ULONG;
 pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
 #[cfg(feature = "shared")]
 pub type NETWORK_OPEN_OUT_FLAGS = super::ULONG;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct NFS_OPEN_ECP_CONTEXT {
+    pub ExportAlias: super::PUNICODE_STRING,
+    pub ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
+}
 pub const NO_8DOT3_NAME_PRESENT: i32 = 1;
 pub const NetworkOpenIntegrityAny: NETWORK_OPEN_INTEGRITY_QUALIFIER = 0;
 pub const NetworkOpenIntegrityEncrypted: NETWORK_OPEN_INTEGRITY_QUALIFIER = 3;
@@ -3573,6 +3864,8 @@ pub type PFSRTL_CHANGE_BACKING_TYPE = *mut FSRTL_CHANGE_BACKING_TYPE;
 pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "C" fn(ecpcontext: super::PVOID, ecptype: super::LPCGUID)>;
 #[cfg(feature = "basetsd")]
 pub type PFSRTL_MUP_PROVIDER_INFO_LEVEL_1 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_1;
+#[cfg(all(feature = "basetsd", feature = "shared", feature = "winternl"))]
+pub type PFSRTL_MUP_PROVIDER_INFO_LEVEL_2 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_2;
 #[cfg(feature = "winnt")]
 pub type PFSRTL_PER_FILEOBJECT_CONTEXT = *mut FSRTL_PER_FILEOBJECT_CONTEXT;
 #[cfg(all(feature = "wdm", feature = "winnt"))]
@@ -3682,8 +3975,16 @@ pub type PMM_PREFETCH_FLAGS = *mut MM_PREFETCH_FLAGS;
 pub type PMSV1_0_ENUMUSERS_REQUEST = *mut MSV1_0_ENUMUSERS_REQUEST;
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "shared", feature = "winnt"))]
 pub type PMSV1_0_ENUMUSERS_RESPONSE = *mut MSV1_0_ENUMUSERS_RESPONSE;
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PMSV1_0_GETCHALLENRESP_REQUEST = *mut MSV1_0_GETCHALLENRESP_REQUEST;
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PMSV1_0_GETCHALLENRESP_REQUEST_V1 = *mut MSV1_0_GETCHALLENRESP_REQUEST_V1;
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PMSV1_0_GETCHALLENRESP_RESPONSE = *mut MSV1_0_GETCHALLENRESP_RESPONSE;
 #[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt"))]
 pub type PMSV1_0_GETUSERINFO_REQUEST = *mut MSV1_0_GETUSERINFO_REQUEST;
+#[cfg(all(feature = "ntsecapi", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PMSV1_0_GETUSERINFO_RESPONSE = *mut MSV1_0_GETUSERINFO_RESPONSE;
 #[cfg(feature = "ntsecapi")]
 pub type PMSV1_0_LM20_CHALLENGE_REQUEST = *mut MSV1_0_LM20_CHALLENGE_REQUEST;
 #[cfg(all(feature = "ntsecapi", feature = "shared"))]
@@ -3698,6 +3999,8 @@ pub type PNETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT = *mut NETWORK_APP_INSTANCE_V
 pub type PNETWORK_OPEN_ECP_CONTEXT = *mut NETWORK_OPEN_ECP_CONTEXT;
 #[cfg(feature = "shared")]
 pub type PNETWORK_OPEN_ECP_CONTEXT_V0 = *mut NETWORK_OPEN_ECP_CONTEXT_V0;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PNFS_OPEN_ECP_CONTEXT = *mut NFS_OPEN_ECP_CONTEXT;
 pub type PNOTIFY_SYNC = *mut _REAL_NOTIFY_SYNC;
 #[cfg(feature = "winnt")]
 pub type POPEN_REPARSE_LIST = *mut OPEN_REPARSE_LIST;
@@ -3719,6 +4022,8 @@ pub type PPHYSICAL_EXTENTS_DESCRIPTOR = *mut PHYSICAL_EXTENTS_DESCRIPTOR;
 pub type PPHYSICAL_MEMORY_DESCRIPTOR = *mut PHYSICAL_MEMORY_DESCRIPTOR;
 #[cfg(all(feature = "shared", feature = "wdm"))]
 pub type PPHYSICAL_MEMORY_RUN = *mut PHYSICAL_MEMORY_RUN;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PPNFS_OPEN_ECP_CONTEXT = *mut *mut NFS_OPEN_ECP_CONTEXT;
 #[cfg(feature = "winnt")]
 pub type PPREFETCH_OPEN_ECP_CONTEXT = *mut PREFETCH_OPEN_ECP_CONTEXT;
 #[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -3743,6 +4048,10 @@ pub type PQUERY_ON_CREATE_FILE_STAT_INFORMATION = *mut QUERY_ON_CREATE_FILE_STAT
 pub type PQUERY_ON_CREATE_SECURITY_INFORMATION = *mut QUERY_ON_CREATE_SECURITY_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PQUERY_ON_CREATE_USN_INFORMATION = *mut QUERY_ON_CREATE_USN_INFORMATION;
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+pub type PQUERY_PATH_REQUEST = *mut QUERY_PATH_REQUEST;
+#[cfg(all(feature = "ntddk", feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+pub type PQUERY_PATH_REQUEST_EX = *mut QUERY_PATH_REQUEST_EX;
 #[cfg(feature = "shared")]
 pub type PQUERY_PATH_RESPONSE = *mut QUERY_PATH_RESPONSE;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
@@ -3856,6 +4165,8 @@ pub type PRTL_REALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numbe
 pub type PSECURITY_CLIENT_CONTEXT = *mut SECURITY_CLIENT_CONTEXT;
 #[cfg(feature = "shared")]
 pub type PSET_CACHED_RUNS_STATE_INPUT_BUFFER = *mut SET_CACHED_RUNS_STATE_INPUT_BUFFER;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PSE_AUDIT_INFO = *mut SE_AUDIT_INFO;
 pub type PSE_AUDIT_OPERATION = *mut SE_AUDIT_OPERATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSE_EXPORTS = *mut SE_EXPORTS;
@@ -3869,6 +4180,8 @@ pub type PSOCKADDR_STORAGE_NFS = *mut sockaddr_storage;
 #[cfg(feature = "shared")]
 pub type PSOV_RANGE_CHECK_DATA = *mut SOV_RANGE_CHECK_DATA;
 pub type PSRV_INSTANCE_TYPE = *mut SRV_INSTANCE_TYPE;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PSRV_OPEN_ECP_CONTEXT = *mut SRV_OPEN_ECP_CONTEXT;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy)]
@@ -3884,6 +4197,10 @@ impl Default for PUBLIC_BCB {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
+pub type PUNICODE_PREFIX_TABLE = *mut UNICODE_PREFIX_TABLE;
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
+pub type PUNICODE_PREFIX_TABLE_ENTRY = *mut UNICODE_PREFIX_TABLE_ENTRY;
 pub const PURGE_WITH_ACTIVE_VIEWS: i32 = 8;
 #[cfg(feature = "shared")]
 pub type PVBN = *mut VBN;
@@ -4010,6 +4327,33 @@ pub struct QUERY_ON_CREATE_SECURITY_INFORMATION {
 pub struct QUERY_ON_CREATE_USN_INFORMATION {
     pub Usn: super::USN,
     pub FileReferenceNumber: super::FILE_ID_128,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct QUERY_PATH_REQUEST {
+    pub PathNameLength: super::ULONG,
+    pub SecurityContext: super::PIO_SECURITY_CONTEXT,
+    pub FilePathName: [super::WCHAR; 1],
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+impl Default for QUERY_PATH_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "ntddk", feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QUERY_PATH_REQUEST_EX {
+    pub pSecurityContext: super::PIO_SECURITY_CONTEXT,
+    pub EaLength: super::ULONG,
+    pub pEaBuffer: super::PVOID,
+    pub PathName: super::UNICODE_STRING,
+    pub DomainServiceName: super::UNICODE_STRING,
+    pub EcpList: PECP_LIST,
+    pub Silo: super::PESILO,
+    pub Reserved: super::ULONG_PTR,
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4616,6 +4960,23 @@ pub const SEMAPHORE_INCREMENT: i32 = 1;
 pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
     pub Enable: super::BOOLEAN,
 }
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SE_AUDIT_INFO {
+    pub Size: super::ULONG,
+    pub AuditType: super::AUDIT_EVENT_TYPE,
+    pub AuditOperation: SE_AUDIT_OPERATION,
+    pub AuditFlags: super::ULONG,
+    pub SubsystemName: super::UNICODE_STRING,
+    pub ObjectTypeName: super::UNICODE_STRING,
+    pub ObjectName: super::UNICODE_STRING,
+    pub HandleId: super::PVOID,
+    pub TransactionId: *mut windows_core::GUID,
+    pub OperationId: *mut super::LUID,
+    pub ObjectCreation: super::BOOLEAN,
+    pub GenerateOnClose: super::BOOLEAN,
+}
 pub type SE_AUDIT_OPERATION = i32;
 pub const SE_BACKUP_PRIVILEGES_CHECKED: i32 = 256;
 pub const SE_DACL_UNTRUSTED: i32 = 64;
@@ -4722,6 +5083,18 @@ impl Default for SOV_RANGE_CHECK_DATA {
 }
 pub const SPECIAL_ENCRYPTED_OPEN: i32 = 262144;
 pub type SRV_INSTANCE_TYPE = i32;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct SRV_OPEN_ECP_CONTEXT {
+    pub ShareName: super::PUNICODE_STRING,
+    pub SocketAddress: PSOCKADDR_STORAGE_NFS,
+    pub OplockBlockState: super::BOOLEAN,
+    pub OplockAppState: super::BOOLEAN,
+    pub OplockFinalState: super::BOOLEAN,
+    pub Version: super::USHORT,
+    pub InstanceType: SRV_INSTANCE_TYPE,
+}
 pub const SRV_OPEN_ECP_CONTEXT_VERSION_2: i32 = 2;
 pub const SUPPORTED_FS_FEATURES_BYPASS_IO: i32 = 8;
 pub const SUPPORTED_FS_FEATURES_OFFLOAD_READ: i32 = 1;
@@ -4774,6 +5147,26 @@ pub const TOKEN_UIACCESS: i32 = 4096;
 pub const TOKEN_VIRTUALIZE_ALLOWED: i32 = 512;
 pub const TOKEN_VIRTUALIZE_ENABLED: i32 = 1024;
 pub const TOKEN_WRITE_RESTRICTED: i32 = 8;
+#[repr(C)]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UNICODE_PREFIX_TABLE {
+    pub NodeTypeCode: super::CSHORT,
+    pub NameLength: super::CSHORT,
+    pub NextPrefixTree: PUNICODE_PREFIX_TABLE_ENTRY,
+    pub LastNextEntry: PUNICODE_PREFIX_TABLE_ENTRY,
+}
+#[repr(C)]
+#[cfg(all(feature = "ntddk", feature = "ntdef", feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct UNICODE_PREFIX_TABLE_ENTRY {
+    pub NodeTypeCode: super::CSHORT,
+    pub NameLength: super::CSHORT,
+    pub NextPrefixTree: *mut Self,
+    pub CaseMatch: *mut Self,
+    pub Links: super::RTL_SPLAY_LINKS,
+    pub Prefix: super::PUNICODE_STRING,
+}
 pub const UNINITIALIZE_CACHE_MAPS: i32 = 1;
 pub const USE_PRIMARY_PASSWORD: i32 = 1;
 pub const VACB_MAPPING_GRANULARITY: i32 = 262144;

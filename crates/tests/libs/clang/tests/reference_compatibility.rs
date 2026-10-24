@@ -4,7 +4,7 @@ use windows_clang::*;
 const TARGETS: [Target; 3] = [Target::X86, Target::X64, Target::Arm64];
 
 #[test]
-fn callback_abi_and_direction_are_checked_positionally() {
+fn callback_references_check_abi_and_keep_metadata_contracts() {
     helpers::ensure_libclang();
     let input = "#define INPUT __attribute__((annotate(\"windows_clang:sal:2:_In_\\n()\\n()\")))\n";
     let output =
@@ -19,23 +19,25 @@ fn callback_abi_and_direction_are_checked_positionally() {
             "#define PARAMETER other\n#define INPUT __attribute__((annotate(\"windows_clang:sal:2:_In_\\n()\\n()\")))\n",
             true,
         ),
-        ("opposite", input, output, false),
+        ("opposite", input, output, true),
         (
             "inout",
             input,
             "#define INPUT __attribute__((annotate(\"windows_clang:sal:2:_Inout_\\n()\\n()\")))\n",
-            false,
+            true,
         ),
         (
             "complex",
             "",
             "#define INPUT __attribute__((annotate(\"windows_clang:sal:2:_Out_writes_\\n(2)\\n(2)\")))\n",
-            false,
+            true,
         ),
-        ("missing-direction", input, "", false),
-        ("optional", "", optional, false),
-        ("required", optional, input, false),
+        ("missing-direction", input, "", true),
+        ("optional", "", optional, true),
+        ("required", optional, input, true),
         ("convention", "", "#define CALLBACK_ABI __cdecl\n", false),
+        ("pointee", "", "#define PARAMETER_TYPE const int*\n", false),
+        ("arity", "", "#define EXTRA_PARAMETER , int second\n", false),
         (
             "result",
             "",
@@ -75,6 +77,16 @@ fn callback_abi_and_direction_are_checked_positionally() {
             "{case}"
         );
         assert_eq!(partial.omissions.is_empty(), compatible, "{case}");
+        if compatible {
+            let rdl: String = partial
+                .output
+                .partitions
+                .values()
+                .map(|part| part.rdl.as_str())
+                .collect();
+            assert!(rdl.contains("External::SharedCallback"), "{case}");
+            assert!(!rdl.contains("extern fn SharedCallback"), "{case}");
+        }
     }
 }
 
@@ -191,27 +203,26 @@ fn ambiguous_aliases_do_not_choose_an_owner() {
 }
 
 #[test]
-fn reference_contracts_require_evidence_without_inventing_new_promises() {
+fn referenced_records_keep_their_owners_contracts() {
     helpers::ensure_libclang();
     let capacity = "#define BUFFER_CONTRACT __attribute__((annotate(\"windows_clang:sal:2:_Field_size_\\n(capacity)\\n(capacity)\")))\n";
     let length = "#define BUFFER_CONTRACT __attribute__((annotate(\"windows_clang:sal:2:_Field_size_\\n(length)\\n(length)\")))\n";
-    for (case, producer_prefix, consumer_prefix, compatible) in [
-        ("additional", "", capacity, true),
-        ("matching", capacity, capacity, true),
-        ("conflicting", capacity, length, false),
-        ("missing", capacity, "", false),
-        ("typedef", "#define BUFFER_TYPE Terminated\n", "", false),
+    for (case, producer_prefix, consumer_prefix) in [
+        ("additional", "", capacity),
+        ("matching", capacity, capacity),
+        ("conflicting", capacity, length),
+        ("missing", capacity, ""),
+        ("typedef", "#define BUFFER_TYPE Terminated\n", ""),
+        ("native-typedef", "", "#define BUFFER_TYPE Terminated\n"),
         (
             "typedef-matching",
             "#define BUFFER_TYPE Terminated\n",
             "#define BUFFER_TYPE Terminated\n",
-            true,
         ),
         (
             "typedef-missing-contract",
             "#define BUFFER_TYPE Terminated\n",
             "#define BUFFER_TYPE Terminated\n#define TERMINATION\n",
-            false,
         ),
     ] {
         let mut producer = selected_fixture("reference_contracts", &["Counted"]);
@@ -230,7 +241,7 @@ fn reference_contracts_require_evidence_without_inventing_new_promises() {
         let snapshots = capture(&[consumer], &TARGETS).unwrap();
         let strict =
             projection::project_with_options(&merge(&snapshots).unwrap(), "Consumer", &options);
-        assert_eq!(strict.is_ok(), compatible, "{case}: {strict:?}");
+        let strict = strict.unwrap();
         let partial = projection::project_partial_with_options(
             PartialCapture {
                 snapshots,
@@ -240,11 +251,20 @@ fn reference_contracts_require_evidence_without_inventing_new_promises() {
             &options,
         )
         .unwrap();
-        assert_eq!(
-            partial.output.records,
-            if compatible { 2 } else { 1 },
-            "{case}"
+        assert_eq!(partial.output.records, 2, "{case}");
+        assert_eq!(partial.output, strict, "{case}");
+        assert!(
+            partial.omissions.is_empty(),
+            "{case}: {:?}",
+            partial.omissions
         );
-        assert_eq!(partial.omissions.is_empty(), compatible, "{case}");
+        let rdl: String = partial
+            .output
+            .partitions
+            .values()
+            .map(|part| part.rdl.as_str())
+            .collect();
+        assert!(!rdl.contains("struct Counted"), "{case}");
+        assert!(rdl.contains("External::Counted"), "{case}");
     }
 }

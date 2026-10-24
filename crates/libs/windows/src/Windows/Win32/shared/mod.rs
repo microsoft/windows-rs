@@ -728,11 +728,23 @@ pub unsafe fn RtlIsUntrustedObject(handle: Option<super::HANDLE>, object: Option
     windows_core::link!("ntdll.dll" "system" fn RtlIsUntrustedObject(handle : super::HANDLE, object : super::PVOID, untrustedobject : super::PBOOLEAN) -> windows_core::NTSTATUS);
     unsafe { RtlIsUntrustedObject(handle.unwrap_or(core::mem::zeroed()) as _, object.unwrap_or(core::mem::zeroed()) as _, untrustedobject as _) }
 }
+#[cfg(all(feature = "ntdef", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlUTF8StringToUnicodeString(destinationstring: super::PUNICODE_STRING, sourcestring: super::PUTF8_STRING, allocatedestinationstring: BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUTF8StringToUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : super::PUTF8_STRING, allocatedestinationstring : BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { RtlUTF8StringToUnicodeString(destinationstring as _, sourcestring, allocatedestinationstring) }
+}
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlUTF8ToUnicodeN(unicodestringdestination: windows_core::PWSTR, unicodestringmaxbytecount: ULONG, unicodestringactualbytecount: super::PULONG, utf8stringsource: &[u8]) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUTF8ToUnicodeN(unicodestringdestination : windows_core::PWSTR, unicodestringmaxbytecount : ULONG, unicodestringactualbytecount : super::PULONG, utf8stringsource : super::PCCH, utf8stringbytecount : ULONG) -> windows_core::NTSTATUS);
     unsafe { RtlUTF8ToUnicodeN(unicodestringdestination, unicodestringmaxbytecount, unicodestringactualbytecount as _, core::mem::transmute(utf8stringsource.as_ptr()), utf8stringsource.len().try_into().unwrap()) }
+}
+#[cfg(all(feature = "ntdef", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlUnicodeStringToUTF8String(destinationstring: super::PUTF8_STRING, sourcestring: super::PCUNICODE_STRING, allocatedestinationstring: BOOLEAN) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToUTF8String(destinationstring : super::PUTF8_STRING, sourcestring : super::PCUNICODE_STRING, allocatedestinationstring : BOOLEAN) -> windows_core::NTSTATUS);
+    unsafe { RtlUnicodeStringToUTF8String(destinationstring as _, sourcestring, allocatedestinationstring) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]

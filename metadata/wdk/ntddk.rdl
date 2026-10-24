@@ -143,6 +143,20 @@ mod Windows {
             BdCbClassificationEnd = 4,
         }
         const BDCB_IMAGEFLAGS_FAILED_CODE_INTEGRITY: u32 = 1;
+        struct BDCB_IMAGE_INFORMATION {
+            Classification: BDCB_CLASSIFICATION,
+            ImageFlags: ULONG,
+            ImageName: UNICODE_STRING,
+            RegistryPath: UNICODE_STRING,
+            CertificatePublisher: UNICODE_STRING,
+            CertificateIssuer: UNICODE_STRING,
+            ImageHash: PVOID,
+            CertificateThumbprint: PVOID,
+            ImageHashAlgorithm: ULONG,
+            ThumbprintHashAlgorithm: ULONG,
+            ImageHashLength: ULONG,
+            CertificateThumbprintLength: ULONG,
+        }
         struct BDCB_STATUS_UPDATE_CONTEXT {
             StatusType: BDCB_STATUS_UPDATE_TYPE,
         }
@@ -153,6 +167,7 @@ mod Windows {
             BdCbStatusPrepareForUnload = 2,
         }
         const BMC_NOTIFY_TYPE_GUID: GUID = 0x487565ba_6494_4367_95ca_4eff893522f6;
+        extern "C" fn BOOT_DRIVER_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: PVOID, #[in] Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
         const BOOT_NOTIFY_TYPE_GUID: GUID = 0x3d61a466_ab40_409a_a698_f362d464b38f;
         #[repr(i32)]
         enum BUS_DATA_TYPE {
@@ -1645,6 +1660,9 @@ mod Windows {
         const NX_SUPPORT_POLICY_ALWAYSON: i32 = 1;
         const NX_SUPPORT_POLICY_OPTIN: i32 = 2;
         const NX_SUPPORT_POLICY_OPTOUT: i32 = 3;
+        #[Windows::Win32::Metadata::NativeSal("L", "__kernel_entry", "", "")]
+        #[library("ntdll.dll")]
+        extern fn NtOpenProcess(#[out] ProcessHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] ClientId: PCLIENT_ID) -> NTSTATUS;
         struct OPLOCK_KEY_CONTEXT {
             Version: USHORT,
             Flags: USHORT,
@@ -1695,8 +1713,10 @@ mod Windows {
         type PARBITER_TEST_ALLOCATION_PARAMETERS = *mut ARBITER_TEST_ALLOCATION_PARAMETERS;
         type PBDCB_CALLBACK_TYPE = *mut BDCB_CALLBACK_TYPE;
         type PBDCB_CLASSIFICATION = *mut BDCB_CLASSIFICATION;
+        type PBDCB_IMAGE_INFORMATION = *mut BDCB_IMAGE_INFORMATION;
         type PBDCB_STATUS_UPDATE_CONTEXT = *mut BDCB_STATUS_UPDATE_CONTEXT;
         type PBDCB_STATUS_UPDATE_TYPE = *mut BDCB_STATUS_UPDATE_TYPE;
+        extern "C" fn PBOOT_DRIVER_CALLBACK_FUNCTION(#[in] #[opt] CallbackContext: PVOID, #[in] Classification: BDCB_CALLBACK_TYPE, #[in] #[out] ImageInformation: PBDCB_IMAGE_INFORMATION);
         type PBUS_DATA_TYPE = *mut BUS_DATA_TYPE;
         const PCCARD_DEVICE_PCI: i32 = 16;
         const PCCARD_DUP_LEGACY_BASE: i32 = 6;
@@ -3585,6 +3605,7 @@ mod Windows {
         type PFILE_NAME_INFORMATION = *mut FILE_NAME_INFORMATION;
         type PFILE_VALID_DATA_LENGTH_INFORMATION = *mut FILE_VALID_DATA_LENGTH_INFORMATION;
         extern "C" fn PFNFTH(#[in] #[out] SystemFirmwareTableInfo: PSYSTEM_FIRMWARE_TABLE_INFORMATION) -> NTSTATUS;
+        extern "C" fn PFN_IN_USE_PAGE_OFFLINE_NOTIFY(#[in] Page: PFN_NUMBER, #[in] Poisoned: BOOLEAN, #[in] #[out] Context: PVOID, #[out] CallbackStatus: PNTSTATUS) -> BOOLEAN;
         extern "C" fn PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER(#[in] Context: PVOID, #[in] OsSelRecord: PIPMI_OS_SEL_RECORD) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[must_use]
@@ -3653,6 +3674,7 @@ mod Windows {
         type PIO_DRIVER_CREATE_CONTEXT = *mut IO_DRIVER_CREATE_CONTEXT;
         type PIO_FOEXT_SILO_PARAMETERS = *mut IO_FOEXT_SILO_PARAMETERS;
         type PIO_QUERY_DEVICE_DATA_FORMAT = *mut IO_QUERY_DEVICE_DATA_FORMAT;
+        extern "C" fn PIO_QUERY_DEVICE_ROUTINE(#[in] Context: PVOID, #[in] PathName: PUNICODE_STRING, #[in] BusType: INTERFACE_TYPE, #[in] BusNumber: ULONG, #[in] BusInformation: *mut PKEY_VALUE_FULL_INFORMATION, #[in] ControllerType: CONFIGURATION_TYPE, #[in] ControllerNumber: ULONG, #[in] ControllerInformation: *mut PKEY_VALUE_FULL_INFORMATION, #[in] PeripheralType: CONFIGURATION_TYPE, #[in] PeripheralNumber: ULONG, #[in] PeripheralInformation: *mut PKEY_VALUE_FULL_INFORMATION) -> NTSTATUS;
         type PIPMI_OS_SEL_RECORD = *mut IPMI_OS_SEL_RECORD;
         type PIPMI_OS_SEL_RECORD_TYPE = *mut IPMI_OS_SEL_RECORD_TYPE;
         #[arch(Arm64)]
@@ -3915,6 +3937,7 @@ mod Windows {
         type PPROCESS_HANDLE_TRACING_QUERY = *mut PROCESS_HANDLE_TRACING_QUERY;
         type PPROCESS_KEEPALIVE_COUNT_INFORMATION = *mut PROCESS_KEEPALIVE_COUNT_INFORMATION;
         type PPROCESS_MEMBERSHIP_INFORMATION = *mut PROCESS_MEMBERSHIP_INFORMATION;
+        type PPROCESS_REVOKE_FILE_HANDLES_INFORMATION = *mut PROCESS_REVOKE_FILE_HANDLES_INFORMATION;
         type PPROCESS_SESSION_INFORMATION = *mut PROCESS_SESSION_INFORMATION;
         type PPROCESS_SYSCALL_PROVIDER_INFORMATION = *mut PROCESS_SYSCALL_PROVIDER_INFORMATION;
         type PPROCESS_WS_WATCH_INFORMATION = *mut PROCESS_WS_WATCH_INFORMATION;
@@ -4069,6 +4092,9 @@ mod Windows {
         struct PROCESS_MEMBERSHIP_INFORMATION {
             ServerSiloId: ULONG,
         }
+        struct PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
+            TargetDevicePath: UNICODE_STRING,
+        }
         struct PROCESS_SESSION_INFORMATION {
             SessionId: ULONG,
         }
@@ -4204,6 +4230,7 @@ mod Windows {
         }
         type PSIGNAL_REG_VALUE = *mut SIGNAL_REG_VALUE;
         type PSILO_MONITOR = *mut _SILO_MONITOR;
+        type PSILO_MONITOR_REGISTRATION = *mut SILO_MONITOR_REGISTRATION;
         type PSOC_SUBSYSTEM_FAILURE_DETAILS = *mut SOC_SUBSYSTEM_FAILURE_DETAILS;
         type PSOC_SUBSYSTEM_TYPE = *mut SOC_SUBSYSTEM_TYPE;
         type PSUBSYSTEM_INFORMATION_TYPE = *mut SUBSYSTEM_INFORMATION_TYPE;
@@ -4214,6 +4241,7 @@ mod Windows {
         #[arch(X86)]
         const PTE_PER_PAGE: i32 = 512;
         extern "C" fn PTIMER_APC_ROUTINE(#[in] TimerContext: PVOID, #[in] TimerLowValue: ULONG, #[in] TimerHighValue: LONG);
+        type PTIMER_SET_COALESCABLE_TIMER_INFO = *mut TIMER_SET_COALESCABLE_TIMER_INFO;
         #[arch(X86)]
         const PTI_SHIFT: i32 = 12;
         type PTXN_PARAMETER_BLOCK = *mut TXN_PARAMETER_BLOCK;
@@ -4783,6 +4811,13 @@ mod Windows {
         extern fn RtlNumberGenericTableElements(#[in] Table: PRTL_GENERIC_TABLE) -> ULONG;
         #[library("ntdll.dll")]
         extern fn RtlNumberGenericTableElementsAvl(#[in] Table: PRTL_AVL_TABLE) -> ULONG;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        #[must_use]
+        extern fn RtlPrefixUnicodeString(#[in] String1: PCUNICODE_STRING, #[in] String2: PCUNICODE_STRING, #[in] CaseInSensitive: BOOLEAN) -> BOOLEAN;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        extern fn RtlQueryRegistryValueWithFallback(#[in] #[opt] PrimaryHandle: HANDLE, #[in] #[opt] FallbackHandle: HANDLE, #[in] ValueName: PUNICODE_STRING, #[in] ValueLength: ULONG, #[opt] #[out] ValueType: PULONG, #[out] #[readable(success, bytes(*ResultLength))] #[writable(entry, bytes(ValueLength))] ValueData: PVOID, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "<=,ValueLength", "<=,ValueLength")] ResultLength: PULONG) -> NTSTATUS;
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlRealPredecessor(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
@@ -4816,6 +4851,10 @@ mod Windows {
         #[library("ntdll.dll")]
         #[must_use]
         extern fn RtlSubtreeSuccessor(#[in] Links: PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "AllocateDestinationString,_Must_inspect_result_", "AllocateDestinationString, _Must_inspect_result_")]
+        #[library("ntdll.dll")]
+        extern fn RtlUpcaseUnicodeString(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "!AllocateDestinationString,_Inout_", "!AllocateDestinationString, _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "AllocateDestinationString,_Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem))", "AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem))")] DestinationString: PUNICODE_STRING, #[in] SourceString: PCUNICODE_STRING, #[in] AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn RtlUpperChar(#[in] Character: CHAR) -> CHAR;
@@ -4880,6 +4919,18 @@ mod Windows {
         }
         extern fn SILO_CONTEXT_CLEANUP_CALLBACK(#[in] SiloContext: PVOID);
         extern fn SILO_MONITOR_CREATE_CALLBACK(#[in] Silo: PESILO) -> NTSTATUS;
+        struct SILO_MONITOR_REGISTRATION {
+            Version: UCHAR,
+            MonitorHost: BOOLEAN,
+            MonitorExistingSilos: BOOLEAN,
+            Reserved: [UCHAR; 5],
+            Anonymous: union {
+                DriverObjectName: PUNICODE_STRING,
+                ComponentName: PUNICODE_STRING,
+            },
+            CreateCallback: SILO_MONITOR_CREATE_CALLBACK,
+            TerminateCallback: SILO_MONITOR_TERMINATE_CALLBACK,
+        }
         const SILO_MONITOR_REGISTRATION_VERSION: i32 = 1;
         extern fn SILO_MONITOR_TERMINATE_CALLBACK(#[in] Silo: PESILO);
         const SINGLE_GROUP_LEGACY_API: i32 = 1;
@@ -4990,6 +5041,22 @@ mod Windows {
         }
         const THREAD_CSWITCH_PMU_DISABLE: i32 = 0;
         const THREAD_CSWITCH_PMU_ENABLE: i32 = 1;
+        struct TIMER_SET_COALESCABLE_TIMER_INFO {
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            DueTime: LARGE_INTEGER,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
+            TimerApcRoutine: PTIMER_APC_ROUTINE,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
+            TimerContext: PVOID,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
+            WakeContext: *mut COUNTED_REASON_CONTEXT,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_opt_", "", "")]
+            Period: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_In_", "", "")]
+            TolerableDelay: ULONG,
+            #[Windows::Win32::Metadata::NativeSal("2", "_Out_opt_", "", "")]
+            PreviousState: PBOOLEAN,
+        }
         #[repr(i32)]
         enum TIMER_SET_INFORMATION_CLASS {
             TimerSetCoalescableTimer = 0,
@@ -8630,6 +8697,21 @@ mod Windows {
         #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
         extern "C" fn ZwCancelTimer(#[in] TimerHandle: HANDLE, #[opt] #[out] CurrentState: PBOOLEAN) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "return=0,__drv_allocatesMem(TimerObject)", "return=0, __drv_allocatesMem(TimerObject)")]
+        #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
+        extern "C" fn ZwCreateTimer(#[out] TimerHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] #[opt] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] TimerType: TIMER_TYPE) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        extern fn ZwDisplayString(#[in] String: PUNICODE_STRING) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        extern fn ZwOpenProcess(#[out] ProcessHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES, #[in] #[opt] ClientId: PCLIENT_ID) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[arch(X64 | Arm64)]
+        #[library("ntdll.dll")]
+        extern "C" fn ZwOpenTimer(#[out] TimerHandle: PHANDLE, #[in] DesiredAccess: ACCESS_MASK, #[in] ObjectAttributes: POBJECT_ATTRIBUTES) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         extern fn ZwPowerInformation(#[in] InformationLevel: POWER_INFORMATION_LEVEL, #[in] #[opt] #[readable(entry, bytes(InputBufferLength))] InputBuffer: PVOID, #[in] InputBufferLength: ULONG, #[opt] #[out] #[writable(entry, bytes(OutputBufferLength))] OutputBuffer: PVOID, #[in] OutputBufferLength: ULONG) -> NTSTATUS;

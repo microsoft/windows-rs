@@ -257,8 +257,12 @@ windows_link::link!("ole32.dll" "system" fn PropVariantCopy(pvardest : *mut supe
 windows_link::link!("ntdll.dll" "system" fn RtlInitUTF8StringEx(destinationstring : super::PUTF8_STRING, sourcestring : super::PCSZ) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlIsUntrustedObject(handle : super::HANDLE, object : super::PVOID, untrustedobject : super::PBOOLEAN) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "ntdef", feature = "winnt", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn RtlUTF8StringToUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : super::PUTF8_STRING, allocatedestinationstring : BOOLEAN) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUTF8ToUnicodeN(unicodestringdestination : windows_sys::core::PWSTR, unicodestringmaxbytecount : ULONG, unicodestringactualbytecount : super::PULONG, utf8stringsource : super::PCCH, utf8stringbytecount : ULONG) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "ntdef", feature = "winnt", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToUTF8String(destinationstring : super::PUTF8_STRING, sourcestring : super::PCUNICODE_STRING, allocatedestinationstring : BOOLEAN) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToUTF8N(utf8stringdestination : super::PCHAR, utf8stringmaxbytecount : ULONG, utf8stringactualbytecount : super::PULONG, unicodestringsource : super::PCWCH, unicodestringbytecount : ULONG) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]

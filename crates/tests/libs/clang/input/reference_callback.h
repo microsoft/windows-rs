@@ -10,7 +10,13 @@
 #ifndef PARAMETER
 #define PARAMETER value
 #endif
-typedef CALLBACK_RESULT (CALLBACK_ABI* SharedCallback)(INPUT int* PARAMETER);
+#ifndef PARAMETER_TYPE
+#define PARAMETER_TYPE int*
+#endif
+#ifndef EXTRA_PARAMETER
+#define EXTRA_PARAMETER
+#endif
+typedef CALLBACK_RESULT (CALLBACK_ABI* SharedCallback)(INPUT PARAMETER_TYPE PARAMETER EXTRA_PARAMETER);
 struct CallbackConsumer {
     SharedCallback callback;
 };

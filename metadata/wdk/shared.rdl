@@ -52,7 +52,17 @@ mod Windows {
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         #[must_use]
+        extern fn RtlUTF8StringToUnicodeString(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "!AllocateDestinationString,_Inout_", "!AllocateDestinationString, _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "AllocateDestinationString,_Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem))", "AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem))")] DestinationString: PUNICODE_STRING, #[in] SourceString: PUTF8_STRING, #[in] AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[library("ntdll.dll")]
+        #[must_use]
         extern fn RtlUTF8ToUnicodeN(#[out] #[readable(success, bytes(*UnicodeStringActualByteCount))] #[writable(entry, bytes(UnicodeStringMaxByteCount))] UnicodeStringDestination: PWSTR, #[in] UnicodeStringMaxByteCount: ULONG, #[out] UnicodeStringActualByteCount: PULONG, #[in] #[readable(entry, bytes(UTF8StringByteCount))] UTF8StringSource: PCCH, #[in] UTF8StringByteCount: ULONG) -> NTSTATUS;
+        #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "!AllocateDestinationString,_At_(DestinationString->Buffer, _Const_) _At_(DestinationString->MaximumLength, _Const_)", "!AllocateDestinationString, _At_(DestinationString->Buffer, _Const_) _At_(DestinationString->MaximumLength, _Const_)")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "AllocateDestinationString,_At_(DestinationString->MaximumLength, _Out_range_(<=, (SourceString->MaximumLength / sizeof(WCHAR))))", "AllocateDestinationString, _At_(DestinationString->MaximumLength, _Out_range_(<=,(SourceString->MaximumLength / sizeof(WCHAR))))")]
+        #[Windows::Win32::Metadata::NativeSal("2", "_When_", "AllocateDestinationString,_Must_inspect_result_", "AllocateDestinationString, _Must_inspect_result_")]
+        #[library("ntdll.dll")]
+        extern fn RtlUnicodeStringToUTF8String(#[Windows::Win32::Metadata::NativeSal("2", "_When_", "!AllocateDestinationString,_Inout_", "!AllocateDestinationString, _Inout_")] #[Windows::Win32::Metadata::NativeSal("2", "_When_", "AllocateDestinationString,_Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem))", "AllocateDestinationString, _Out_ _At_(DestinationString->Buffer, __drv_allocatesMem(Mem))")] DestinationString: PUTF8_STRING, #[in] SourceString: PCUNICODE_STRING, #[in] AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[Windows::Win32::Metadata::NativeSal("2", "_IRQL_requires_max_", "0", "0")]
         #[library("ntdll.dll")]
         #[must_use]

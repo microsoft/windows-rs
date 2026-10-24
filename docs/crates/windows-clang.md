@@ -158,15 +158,23 @@ metadata owns the published contracts; native observations remain available for 
 There is no HRESULT, BOOL, or string-type normalization policy. Missing matches follow ordinary local
 publication, including its unsupported-type diagnostics.
 
-Reference reuse separates canonical ownership, ABI checks and contract checks:
+Reference reuse separates canonical ownership from native compatibility:
 
 | Boundary | Rule |
 | --- | --- |
-| Ownership | A direct record binding is stable. Alias-derived ownership requires a unique candidate when no direct binding exists. |
-| Secondary aliases | An alias may name a separate metadata record after field, type, layout and contract checks. Alias rejection does not invalidate canonical ownership. |
-| ABI | Field names/order, signedness, pointer shape, packing, alignment and layout must agree. Unsupported shared shapes, including bitfields, remain omissions. |
-| Contracts | Unannotated reference fields/typedefs stay unspecified. Existing annotation sets must match; annotated typedef identities are not erased by ABI normalization. |
-| Callbacks | Matching declarations remain valid. A bounded positional comparison also checks calling convention, result/parameter types and simple direction flags. Unspecified direction may accept native direction facts; explicit direction and optionality must agree. Complex contracts still require exact declarations. |
+| Ownership | A direct record binding is stable, including through referenced typedef chains. Alias-derived ownership requires a unique candidate when no direct binding exists. |
+| Secondary aliases | An alias may name a separate metadata record after field, type and layout checks. Alias rejection does not invalidate canonical ownership. |
+| ABI | Field names/order, signedness, pointer shape, packing, record/member alignment and layout must agree. Unsupported shared shapes, including bitfields, remain omissions. |
+| Contracts | Supplied metadata owns record, value-typedef and callback contracts. Native annotation differences do not rewrite those contracts or prevent reuse. Canonical type comparison expands typedefs without modifying either observation. |
+| Callbacks | Calling convention, parameter count and canonical result/parameter types must agree. Direction, optionality and buffer contracts come from the referenced callback. |
+
+The SDK `winternl.h` and kernel `ntdef.h` definitions of `UNICODE_STRING` have matching layouts but
+different `Buffer` contracts: typedef-owned termination evidence versus field-owned optional
+byte-counted storage. `unicode_string` preserves both header/RDL observations on all targets and
+checks reuse in both reference directions. The supplied metadata selects the publication authority;
+merging the native captures without that boundary still rejects their field-attribute disagreement.
+The fixture also checks the `ntsecapi.h` alias from `UNICODE_STRING` to `LSA_UNICODE_STRING`.
+WDK's `ACCESS_STATE` reuses the SDK-owned type without changing its published contracts.
 
 Reference metadata is not enriched or rewritten by native-only evidence. Already-owned
 functions/constants still require matching projected declarations. Native forward-enum declarations

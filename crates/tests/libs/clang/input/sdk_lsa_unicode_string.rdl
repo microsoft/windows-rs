@@ -1,0 +1,22 @@
+#[win32]
+mod Fixture {
+    struct LSA_UNICODE_STRING {
+        Length: USHORT,
+        MaximumLength: USHORT,
+        Buffer: PWSTR,
+    }
+}
+#[win32]
+mod Fixture {
+    type USHORT = u16;
+}
+#[win32]
+mod Fixture {
+    type UNICODE_STRING = LSA_UNICODE_STRING;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PWSTR = *mut u16;
+    type WCHAR = u16;
+}

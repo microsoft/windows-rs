@@ -1,5 +1,7 @@
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn DbgPrompt(prompt : super::PCCH, response : super::PCH, length : super::ULONG) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, clientid : super::PCLIENT_ID) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
 windows_link::link!("ntdll.dll" "system" fn RtlCompareString(string1 : *const super::STRING, string2 : *const super::STRING, caseinsensitive : super::BOOLEAN) -> super::LONG);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -115,6 +117,10 @@ windows_link::link!("ntdll.dll" "system" fn RtlMapGenericMask(accessmask : super
 windows_link::link!("ntdll.dll" "system" fn RtlNumberGenericTableElements(table : PRTL_GENERIC_TABLE) -> super::ULONG);
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlNumberGenericTableElementsAvl(table : PRTL_AVL_TABLE) -> super::ULONG);
+#[cfg(all(feature = "shared", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn RtlPrefixUnicodeString(string1 : super::PCUNICODE_STRING, string2 : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN) -> super::BOOLEAN);
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn RtlQueryRegistryValueWithFallback(primaryhandle : super::HANDLE, fallbackhandle : super::HANDLE, valuename : super::PUNICODE_STRING, valuelength : super::ULONG, valuetype : super::PULONG, valuedata : super::PVOID, resultlength : super::PULONG) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlRealPredecessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 windows_link::link!("ntdll.dll" "system" fn RtlRealSuccessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -132,6 +138,8 @@ windows_link::link!("ntdll.dll" "system" fn RtlSplay(links : PRTL_SPLAY_LINKS) -
 windows_link::link!("ntdll.dll" "system" fn RtlStronglyEnumerateEntryHashTable(hashtable : PRTL_DYNAMIC_HASH_TABLE, enumerator : PRTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY);
 windows_link::link!("ntdll.dll" "system" fn RtlSubtreePredecessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 windows_link::link!("ntdll.dll" "system" fn RtlSubtreeSuccessor(links : PRTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
+#[cfg(all(feature = "shared", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : super::PCUNICODE_STRING, allocatedestinationstring : super::BOOLEAN) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "shared")]
 windows_link::link!("ntdll.dll" "system" fn RtlUpperChar(character : super::CHAR) -> super::CHAR);
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
@@ -145,6 +153,16 @@ windows_link::link!("ntdll.dll" "system" fn ZwAllocateLocallyUniqueId(luid : sup
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "C" fn ZwCancelTimer(timerhandle : super::HANDLE, currentstate : super::PBOOLEAN) -> windows_sys::core::NTSTATUS);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "C" fn ZwCreateTimer(timerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, timertype : super::TIMER_TYPE) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "shared", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn ZwDisplayString(string : super::PUNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "system" fn ZwOpenProcess(processhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, clientid : super::PCLIENT_ID) -> windows_sys::core::NTSTATUS);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+windows_link::link!("ntdll.dll" "C" fn ZwOpenTimer(timerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "shared", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn ZwPowerInformation(informationlevel : super::POWER_INFORMATION_LEVEL, inputbuffer : super::PVOID, inputbufferlength : super::ULONG, outputbuffer : super::PVOID, outputbufferlength : super::ULONG) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -324,12 +342,31 @@ pub type BDCB_CALLBACK_TYPE = i32;
 pub type BDCB_CLASSIFICATION = i32;
 pub const BDCB_IMAGEFLAGS_FAILED_CODE_INTEGRITY: u32 = 1;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Default)]
+pub struct BDCB_IMAGE_INFORMATION {
+    pub Classification: BDCB_CLASSIFICATION,
+    pub ImageFlags: super::ULONG,
+    pub ImageName: super::UNICODE_STRING,
+    pub RegistryPath: super::UNICODE_STRING,
+    pub CertificatePublisher: super::UNICODE_STRING,
+    pub CertificateIssuer: super::UNICODE_STRING,
+    pub ImageHash: super::PVOID,
+    pub CertificateThumbprint: super::PVOID,
+    pub ImageHashAlgorithm: super::ULONG,
+    pub ThumbprintHashAlgorithm: super::ULONG,
+    pub ImageHashLength: super::ULONG,
+    pub CertificateThumbprintLength: super::ULONG,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct BDCB_STATUS_UPDATE_CONTEXT {
     pub StatusType: BDCB_STATUS_UPDATE_TYPE,
 }
 pub type BDCB_STATUS_UPDATE_TYPE = i32;
 pub const BMC_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x487565ba_6494_4367_95ca_4eff893522f6);
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type BOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, classification: BDCB_CALLBACK_TYPE, imageinformation: PBDCB_IMAGE_INFORMATION)>;
 pub const BOOT_NOTIFY_TYPE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x3d61a466_ab40_409a_a698_f362d464b38f);
 pub type BUS_DATA_TYPE = i32;
 pub const BadPageRange: WHEA_OFFLINE_ERRS = 6;
@@ -2605,8 +2642,12 @@ pub type PARBITER_RETEST_ALLOCATION_PARAMETERS = *mut ARBITER_RETEST_ALLOCATION_
 pub type PARBITER_TEST_ALLOCATION_PARAMETERS = *mut ARBITER_TEST_ALLOCATION_PARAMETERS;
 pub type PBDCB_CALLBACK_TYPE = *mut BDCB_CALLBACK_TYPE;
 pub type PBDCB_CLASSIFICATION = *mut BDCB_CLASSIFICATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PBDCB_IMAGE_INFORMATION = *mut BDCB_IMAGE_INFORMATION;
 pub type PBDCB_STATUS_UPDATE_CONTEXT = *mut BDCB_STATUS_UPDATE_CONTEXT;
 pub type PBDCB_STATUS_UPDATE_TYPE = *mut BDCB_STATUS_UPDATE_TYPE;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PBOOT_DRIVER_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, classification: BDCB_CALLBACK_TYPE, imageinformation: PBDCB_IMAGE_INFORMATION)>;
 pub type PBUS_DATA_TYPE = *mut BUS_DATA_TYPE;
 pub const PCCARD_DEVICE_PCI: i32 = 16;
 pub const PCCARD_DUP_LEGACY_BASE: i32 = 6;
@@ -5113,6 +5154,8 @@ pub type PFILE_NAME_INFORMATION = *mut FILE_NAME_INFORMATION;
 pub type PFILE_VALID_DATA_LENGTH_INFORMATION = *mut FILE_VALID_DATA_LENGTH_INFORMATION;
 #[cfg(feature = "shared")]
 pub type PFNFTH = Option<unsafe extern "C" fn(systemfirmwaretableinfo: PSYSTEM_FIRMWARE_TABLE_INFORMATION) -> windows_sys::core::NTSTATUS>;
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt"))]
+pub type PFN_IN_USE_PAGE_OFFLINE_NOTIFY = Option<unsafe extern "C" fn(page: super::PFN_NUMBER, poisoned: super::BOOLEAN, context: super::PVOID, callbackstatus: super::PNTSTATUS) -> super::BOOLEAN>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER = Option<unsafe extern "C" fn(context: super::PVOID, osselrecord: PIPMI_OS_SEL_RECORD) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
@@ -5235,6 +5278,8 @@ pub type PIO_DRIVER_CREATE_CONTEXT = *mut IO_DRIVER_CREATE_CONTEXT;
 #[cfg(feature = "shared")]
 pub type PIO_FOEXT_SILO_PARAMETERS = *mut IO_FOEXT_SILO_PARAMETERS;
 pub type PIO_QUERY_DEVICE_DATA_FORMAT = *mut IO_QUERY_DEVICE_DATA_FORMAT;
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+pub type PIO_QUERY_DEVICE_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID, pathname: super::PUNICODE_STRING, bustype: super::INTERFACE_TYPE, busnumber: super::ULONG, businformation: *const super::PKEY_VALUE_FULL_INFORMATION, controllertype: CONFIGURATION_TYPE, controllernumber: super::ULONG, controllerinformation: *const super::PKEY_VALUE_FULL_INFORMATION, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: super::ULONG, peripheralinformation: *const super::PKEY_VALUE_FULL_INFORMATION) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "shared")]
 pub type PIPMI_OS_SEL_RECORD = *mut IPMI_OS_SEL_RECORD;
 pub type PIPMI_OS_SEL_RECORD_TYPE = *mut IPMI_OS_SEL_RECORD_TYPE;
@@ -5678,6 +5723,8 @@ pub type PPROCESS_HANDLE_TRACING_QUERY = *mut PROCESS_HANDLE_TRACING_QUERY;
 pub type PPROCESS_KEEPALIVE_COUNT_INFORMATION = *mut PROCESS_KEEPALIVE_COUNT_INFORMATION;
 #[cfg(feature = "shared")]
 pub type PPROCESS_MEMBERSHIP_INFORMATION = *mut PROCESS_MEMBERSHIP_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PPROCESS_REVOKE_FILE_HANDLES_INFORMATION = *mut PROCESS_REVOKE_FILE_HANDLES_INFORMATION;
 #[cfg(feature = "shared")]
 pub type PPROCESS_SESSION_INFORMATION = *mut PROCESS_SESSION_INFORMATION;
 #[cfg(feature = "shared")]
@@ -5863,6 +5910,12 @@ pub struct PROCESS_MEMBERSHIP_INFORMATION {
     pub ServerSiloId: super::ULONG,
 }
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Default)]
+pub struct PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
+    pub TargetDevicePath: super::UNICODE_STRING,
+}
+#[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
 pub struct PROCESS_SESSION_INFORMATION {
@@ -5986,6 +6039,8 @@ pub struct PSHED_PLATFORM_DETAILS_VALID_BITS {
 #[cfg(feature = "shared")]
 pub type PSIGNAL_REG_VALUE = *mut SIGNAL_REG_VALUE;
 pub type PSILO_MONITOR = *mut _SILO_MONITOR;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PSILO_MONITOR_REGISTRATION = *mut SILO_MONITOR_REGISTRATION;
 #[cfg(feature = "shared")]
 pub type PSOC_SUBSYSTEM_FAILURE_DETAILS = *mut SOC_SUBSYSTEM_FAILURE_DETAILS;
 pub type PSOC_SUBSYSTEM_TYPE = *mut SOC_SUBSYSTEM_TYPE;
@@ -6000,6 +6055,8 @@ pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295;
 pub const PTE_PER_PAGE: i32 = 512;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PTIMER_APC_ROUTINE = Option<unsafe extern "C" fn(timercontext: super::PVOID, timerlowvalue: super::ULONG, timerhighvalue: super::LONG)>;
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+pub type PTIMER_SET_COALESCABLE_TIMER_INFO = *mut TIMER_SET_COALESCABLE_TIMER_INFO;
 #[cfg(target_arch = "x86")]
 pub const PTI_SHIFT: i32 = 12;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -6942,6 +6999,37 @@ impl Default for SIGNAL_REG_VALUE {
 #[cfg(feature = "winnt")]
 pub type SILO_CONTEXT_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(silocontext: super::PVOID)>;
 pub type SILO_MONITOR_CREATE_CALLBACK = Option<unsafe extern "system" fn(silo: PESILO) -> windows_sys::core::NTSTATUS>;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct SILO_MONITOR_REGISTRATION {
+    pub Version: super::UCHAR,
+    pub MonitorHost: super::BOOLEAN,
+    pub MonitorExistingSilos: super::BOOLEAN,
+    pub Reserved: [super::UCHAR; 5],
+    pub Anonymous: SILO_MONITOR_REGISTRATION_0,
+    pub CreateCallback: SILO_MONITOR_CREATE_CALLBACK,
+    pub TerminateCallback: SILO_MONITOR_TERMINATE_CALLBACK,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for SILO_MONITOR_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union SILO_MONITOR_REGISTRATION_0 {
+    pub DriverObjectName: super::PUNICODE_STRING,
+    pub ComponentName: super::PUNICODE_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for SILO_MONITOR_REGISTRATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SILO_MONITOR_REGISTRATION_VERSION: i32 = 1;
 pub type SILO_MONITOR_TERMINATE_CALLBACK = Option<unsafe extern "system" fn(silo: PESILO)>;
 pub const SINGLE_GROUP_LEGACY_API: i32 = 1;
@@ -7021,6 +7109,24 @@ pub type TABLE_SEARCH_RESULT = i32;
 pub type THREADINFOCLASS = i32;
 pub const THREAD_CSWITCH_PMU_DISABLE: i32 = 0;
 pub const THREAD_CSWITCH_PMU_ENABLE: i32 = 1;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
+    pub DueTime: super::LARGE_INTEGER,
+    pub TimerApcRoutine: PTIMER_APC_ROUTINE,
+    pub TimerContext: super::PVOID,
+    pub WakeContext: *mut super::COUNTED_REASON_CONTEXT,
+    pub Period: super::ULONG,
+    pub TolerableDelay: super::ULONG,
+    pub PreviousState: super::PBOOLEAN,
+}
+#[cfg(all(feature = "shared", feature = "wdm", feature = "winnt", feature = "winternl"))]
+impl Default for TIMER_SET_COALESCABLE_TIMER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type TIMER_SET_INFORMATION_CLASS = i32;
 pub const TXF_MINIVERSION_DEFAULT_VIEW: i32 = 65534;
 #[repr(C)]

@@ -35,6 +35,30 @@ pub unsafe fn NtCommitTransaction(transactionhandle: super::HANDLE, wait: super:
     windows_core::link!("ntdll.dll" "system" fn NtCommitTransaction(transactionhandle : super::HANDLE, wait : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { NtCommitTransaction(transactionhandle, wait) }
 }
+#[cfg(all(feature = "ktmtypes", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtCreateEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, transactionhandle: super::HANDLE, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<super::ULONG>, notificationmask: super::NOTIFICATION_MASK, enlistmentkey: Option<super::PVOID>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, transactionhandle : super::HANDLE, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : super::ULONG, notificationmask : super::NOTIFICATION_MASK, enlistmentkey : super::PVOID) -> windows_core::NTSTATUS);
+    unsafe { NtCreateEnlistment(enlistmenthandle as _, desiredaccess, resourcemanagerhandle, transactionhandle, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, notificationmask, enlistmentkey.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtCreateResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, rmguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<super::ULONG>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, rmguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : super::ULONG, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { NtCreateResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, rmguid, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtCreateTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, uow: Option<super::LPGUID>, tmhandle: Option<super::HANDLE>, createoptions: Option<super::ULONG>, isolationlevel: Option<super::ULONG>, isolationflags: Option<super::ULONG>, timeout: Option<super::PLARGE_INTEGER>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE, createoptions : super::ULONG, isolationlevel : super::ULONG, isolationflags : super::ULONG, timeout : super::PLARGE_INTEGER, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { NtCreateTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, uow.unwrap_or(core::mem::zeroed()) as _, tmhandle.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtCreateTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, createoptions: Option<super::ULONG>, commitstrength: Option<super::ULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, createoptions : super::ULONG, commitstrength : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { NtCreateTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, commitstrength.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NtEnumerateTransactionObject(rootobjecthandle: Option<super::HANDLE>, querytype: super::KTMOBJECT_TYPE, objectcursor: super::PKTMOBJECT_CURSOR, objectcursorlength: super::ULONG, returnlength: super::PULONG) -> windows_core::NTSTATUS {
@@ -52,6 +76,36 @@ pub unsafe fn NtGetNotificationResourceManager(resourcemanagerhandle: super::HAN
 pub unsafe fn NtManagePartition(targethandle: super::HANDLE, sourcehandle: Option<super::HANDLE>, partitioninformationclass: PARTITION_INFORMATION_CLASS, partitioninformation: super::PVOID, partitioninformationlength: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtManagePartition(targethandle : super::HANDLE, sourcehandle : super::HANDLE, partitioninformationclass : PARTITION_INFORMATION_CLASS, partitioninformation : super::PVOID, partitioninformationlength : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { NtManagePartition(targethandle, sourcehandle.unwrap_or(core::mem::zeroed()) as _, partitioninformationclass, partitioninformation as _, partitioninformationlength) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtOpenEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, enlistmentguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, enlistmentguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { NtOpenEnlistment(enlistmenthandle as _, desiredaccess, resourcemanagerhandle, enlistmentguid, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtOpenRegistryTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenRegistryTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { NtOpenRegistryTransaction(transactionhandle as _, desiredaccess, objectattributes) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtOpenResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: Option<super::LPGUID>, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { NtOpenResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, resourcemanagerguid.unwrap_or(core::mem::zeroed()) as _, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtOpenTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, uow: super::LPGUID, tmhandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtOpenTransaction(transactionhandle as _, desiredaccess, objectattributes, uow, tmhandle.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtOpenTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, tmidentity: Option<super::LPGUID>, openoptions: Option<super::ULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, tmidentity : super::LPGUID, openoptions : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { NtOpenTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, tmidentity.unwrap_or(core::mem::zeroed()) as _, openoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -149,6 +203,12 @@ pub unsafe fn NtRegisterProtocolAddressInformation(resourcemanager: super::HANDL
     windows_core::link!("ntdll.dll" "system" fn NtRegisterProtocolAddressInformation(resourcemanager : super::HANDLE, protocolid : super::PCRM_PROTOCOL_ID, protocolinformationsize : super::ULONG, protocolinformation : super::PVOID, createoptions : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { NtRegisterProtocolAddressInformation(resourcemanager, protocolid, protocolinformationsize, protocolinformation, createoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn NtRenameTransactionManager(logfilename: super::PUNICODE_STRING, existingtransactionmanagerguid: super::LPGUID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtRenameTransactionManager(logfilename : super::PUNICODE_STRING, existingtransactionmanagerguid : super::LPGUID) -> windows_core::NTSTATUS);
+    unsafe { NtRenameTransactionManager(logfilename, existingtransactionmanagerguid) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn NtRollbackComplete(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
@@ -208,6 +268,21 @@ pub unsafe fn NtSetInformationTransactionManager(tmhandle: Option<super::HANDLE>
 pub unsafe fn NtSinglePhaseReject(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { NtSinglePhaseReject(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlAppendUnicodeStringToString(destination: super::PUNICODE_STRING, source: super::PCUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeStringToString(destination : super::PUNICODE_STRING, source : super::PCUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlAppendUnicodeStringToString(destination as _, source) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlAppendUnicodeToString<P1>(destination: super::PUNICODE_STRING, source: P1) -> windows_core::NTSTATUS
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlAppendUnicodeToString(destination : super::PUNICODE_STRING, source : windows_core::PCWSTR) -> windows_core::NTSTATUS);
+    unsafe { RtlAppendUnicodeToString(destination as _, source.param().abi()) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
@@ -269,6 +344,12 @@ pub unsafe fn RtlCmEncodeMemIoResource(descriptor: PCM_PARTIAL_RESOURCE_DESCRIPT
     windows_core::link!("ntdll.dll" "system" fn RtlCmEncodeMemIoResource(descriptor : PCM_PARTIAL_RESOURCE_DESCRIPTOR, r#type : super::UCHAR, length : super::ULONGLONG, start : super::ULONGLONG) -> windows_core::NTSTATUS);
     unsafe { RtlCmEncodeMemIoResource(descriptor, r#type, length, start) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlCompareUnicodeString(string1: super::PCUNICODE_STRING, string2: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN) -> super::LONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeString(string1 : super::PCUNICODE_STRING, string2 : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN) -> super::LONG);
+    unsafe { RtlCompareUnicodeString(string1, string2, caseinsensitive) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseinsensitive: super::BOOLEAN) -> super::LONG {
@@ -280,6 +361,12 @@ pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseins
 pub unsafe fn RtlCopyBitMap(source: PRTL_BITMAP, destination: PRTL_BITMAP, targetbit: super::ULONG) {
     windows_core::link!("ntdll.dll" "system" fn RtlCopyBitMap(source : PRTL_BITMAP, destination : PRTL_BITMAP, targetbit : super::ULONG));
     unsafe { RtlCopyBitMap(source, destination, targetbit as _) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlCopyUnicodeString(destinationstring: super::PUNICODE_STRING, sourcestring: Option<super::PCUNICODE_STRING>) {
+    windows_core::link!("ntdll.dll" "system" fn RtlCopyUnicodeString(destinationstring : super::PUNICODE_STRING, sourcestring : super::PCUNICODE_STRING));
+    unsafe { RtlCopyUnicodeString(destinationstring as _, sourcestring.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "shared")]
 #[inline]
@@ -311,6 +398,12 @@ where
 pub unsafe fn RtlDowncaseUnicodeChar(sourcecharacter: super::WCHAR) -> super::WCHAR {
     windows_core::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeChar(sourcecharacter : super::WCHAR) -> super::WCHAR);
     unsafe { RtlDowncaseUnicodeChar(sourcecharacter) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlEqualUnicodeString(string1: super::PCUNICODE_STRING, string2: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN) -> super::BOOLEAN {
+    windows_core::link!("ntdll.dll" "system" fn RtlEqualUnicodeString(string1 : super::PCUNICODE_STRING, string2 : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN) -> super::BOOLEAN);
+    unsafe { RtlEqualUnicodeString(string1, string2, caseinsensitive) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -411,11 +504,23 @@ pub unsafe fn RtlFreeUTF8String(utf8string: super::PUTF8_STRING) {
     windows_core::link!("ntdll.dll" "system" fn RtlFreeUTF8String(utf8string : super::PUTF8_STRING));
     unsafe { RtlFreeUTF8String(utf8string as _) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlGUIDFromString(guidstring: super::PCUNICODE_STRING, guid: *mut windows_core::GUID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGUIDFromString(guidstring : super::PCUNICODE_STRING, guid : *mut windows_core::GUID) -> windows_core::NTSTATUS);
+    unsafe { RtlGUIDFromString(guidstring, guid as _) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlGetVersion(lpversioninformation: super::PRTL_OSVERSIONINFOW) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : super::PRTL_OSVERSIONINFOW) -> windows_core::NTSTATUS);
     unsafe { RtlGetVersion(lpversioninformation as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlHashUnicodeString(string: super::PCUNICODE_STRING, caseinsensitive: super::BOOLEAN, hashalgorithm: super::ULONG, hashvalue: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlHashUnicodeString(string : super::PCUNICODE_STRING, caseinsensitive : super::BOOLEAN, hashalgorithm : super::ULONG, hashvalue : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { RtlHashUnicodeString(string, caseinsensitive, hashalgorithm, hashvalue as _) }
 }
 #[cfg(all(feature = "ntdef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -428,6 +533,18 @@ pub unsafe fn RtlInitUTF8String(destinationstring: super::PUTF8_STRING, sourcest
 pub unsafe fn RtlInitializeBitMap(bitmapheader: PRTL_BITMAP, bitmapbuffer: Option<super::PULONG>, sizeofbitmap: Option<super::ULONG>) {
     windows_core::link!("ntdll.dll" "system" fn RtlInitializeBitMap(bitmapheader : PRTL_BITMAP, bitmapbuffer : super::PULONG, sizeofbitmap : super::ULONG));
     unsafe { RtlInitializeBitMap(bitmapheader as _, bitmapbuffer.unwrap_or(core::mem::zeroed()) as _, sizeofbitmap.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlInt64ToUnicodeString(value: super::ULONGLONG, base: Option<super::ULONG>, string: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlInt64ToUnicodeString(value : super::ULONGLONG, base : super::ULONG, string : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlInt64ToUnicodeString(value, base.unwrap_or(core::mem::zeroed()) as _, string as _) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlIntegerToUnicodeString(value: super::ULONG, base: Option<super::ULONG>, string: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlIntegerToUnicodeString(value : super::ULONG, base : super::ULONG, string : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlIntegerToUnicodeString(value, base.unwrap_or(core::mem::zeroed()) as _, string as _) }
 }
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -486,6 +603,12 @@ where
     windows_core::link!("ntdll.dll" "system" fn RtlQueryRegistryValues(relativeto : super::ULONG, path : windows_core::PCWSTR, querytable : PRTL_QUERY_REGISTRY_TABLE, context : super::PVOID, environment : super::PVOID) -> windows_core::NTSTATUS);
     unsafe { RtlQueryRegistryValues(relativeto, path.param().abi(), querytable as _, context.unwrap_or(core::mem::zeroed()) as _, environment.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlQueryValidationRunlevel(componentname: Option<super::PCUNICODE_STRING>) -> super::ULONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryValidationRunlevel(componentname : super::PCUNICODE_STRING) -> super::ULONG);
+    unsafe { RtlQueryValidationRunlevel(componentname.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlSetAllBits(bitmapheader: PRTL_BITMAP) {
@@ -510,6 +633,12 @@ pub unsafe fn RtlSetDaclSecurityDescriptor(securitydescriptor: super::PSECURITY_
     windows_core::link!("ntdll.dll" "system" fn RtlSetDaclSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, daclpresent : super::BOOLEAN, dacl : super::PACL, dacldefaulted : super::BOOLEAN) -> windows_core::NTSTATUS);
     unsafe { RtlSetDaclSecurityDescriptor(securitydescriptor as _, daclpresent, dacl.unwrap_or(core::mem::zeroed()) as _, dacldefaulted) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlStringFromGUID(guid: *const windows_core::GUID, guidstring: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlStringFromGUID(guid : *const windows_core::GUID, guidstring : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlStringFromGUID(guid, guidstring as _) }
+}
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 #[inline]
 pub unsafe fn RtlTestBit(bitmapheader: PRTL_BITMAP, bitnumber: super::ULONG) -> super::BOOLEAN {
@@ -531,6 +660,12 @@ pub unsafe fn RtlTimeToTimeFields(time: super::PLARGE_INTEGER) -> TIME_FIELDS {
         RtlTimeToTimeFields(time, &mut result__);
         result__
     }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlUnicodeStringToInteger(string: super::PCUNICODE_STRING, base: Option<super::ULONG>, value: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToInteger(string : super::PCUNICODE_STRING, base : super::ULONG, value : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { RtlUnicodeStringToInteger(string, base.unwrap_or(core::mem::zeroed()) as _, value as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -572,6 +707,12 @@ pub unsafe fn RtlxAnsiStringToUnicodeSize(ansistring: super::PCANSI_STRING) -> s
     windows_core::link!("ntdll.dll" "system" fn RtlxAnsiStringToUnicodeSize(ansistring : super::PCANSI_STRING) -> super::ULONG);
     unsafe { RtlxAnsiStringToUnicodeSize(ansistring) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn RtlxUnicodeStringToAnsiSize(unicodestring: super::PCUNICODE_STRING) -> super::ULONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlxUnicodeStringToAnsiSize(unicodestring : super::PCUNICODE_STRING) -> super::ULONG);
+    unsafe { RtlxUnicodeStringToAnsiSize(unicodestring) }
+}
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ZwClose(handle: super::HANDLE) -> windows_core::NTSTATUS {
@@ -608,11 +749,84 @@ pub unsafe fn ZwCopyFileChunk(sourcehandle: super::HANDLE, desthandle: super::HA
     windows_core::link!("ntdll.dll" "system" fn ZwCopyFileChunk(sourcehandle : super::HANDLE, desthandle : super::HANDLE, event : super::HANDLE, iostatusblock : super::PIO_STATUS_BLOCK, length : super::ULONG, sourceoffset : super::PLARGE_INTEGER, destoffset : super::PLARGE_INTEGER, sourcekey : super::PULONG, destkey : super::PULONG, flags : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { ZwCopyFileChunk(sourcehandle, desthandle, event.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, length, sourceoffset, destoffset, sourcekey.unwrap_or(core::mem::zeroed()) as _, destkey.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateDirectoryObject(directoryhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateDirectoryObject(directoryhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateDirectoryObject(directoryhandle as _, desiredaccess, objectattributes) }
+}
+#[cfg(all(feature = "ktmtypes", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, resourcemanagerhandle: super::HANDLE, transactionhandle: super::HANDLE, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<super::ULONG>, notificationmask: super::NOTIFICATION_MASK, enlistmentkey: Option<super::PVOID>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, resourcemanagerhandle : super::HANDLE, transactionhandle : super::HANDLE, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : super::ULONG, notificationmask : super::NOTIFICATION_MASK, enlistmentkey : super::PVOID) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateEnlistment(enlistmenthandle as _, desiredaccess, resourcemanagerhandle, transactionhandle, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, notificationmask, enlistmentkey.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateFile(filehandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, iostatusblock: super::PIO_STATUS_BLOCK, allocationsize: Option<super::PLARGE_INTEGER>, fileattributes: super::ULONG, shareaccess: super::ULONG, createdisposition: super::ULONG, createoptions: super::ULONG, eabuffer: Option<super::PVOID>, ealength: super::ULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateFile(filehandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, iostatusblock : super::PIO_STATUS_BLOCK, allocationsize : super::PLARGE_INTEGER, fileattributes : super::ULONG, shareaccess : super::ULONG, createdisposition : super::ULONG, createoptions : super::ULONG, eabuffer : super::PVOID, ealength : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateFile(filehandle as _, desiredaccess, objectattributes, iostatusblock as _, allocationsize.unwrap_or(core::mem::zeroed()) as _, fileattributes, shareaccess, createdisposition, createoptions, eabuffer.unwrap_or(core::mem::zeroed()) as _, ealength) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateIoCompletion(iocompletionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, count: Option<super::ULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateIoCompletion(iocompletionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, count : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateIoCompletion(iocompletionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, count.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateKey(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, titleindex: super::ULONG, class: Option<super::PUNICODE_STRING>, createoptions: super::ULONG, disposition: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateKey(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, titleindex : super::ULONG, class : super::PUNICODE_STRING, createoptions : super::ULONG, disposition : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateKey(keyhandle as _, desiredaccess, objectattributes, titleindex, class.unwrap_or(core::mem::zeroed()) as _, createoptions, disposition.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateKeyTransacted(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, titleindex: super::ULONG, class: Option<super::PUNICODE_STRING>, createoptions: super::ULONG, transactionhandle: super::HANDLE, disposition: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "C" fn ZwCreateKeyTransacted(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, titleindex : super::ULONG, class : super::PUNICODE_STRING, createoptions : super::ULONG, transactionhandle : super::HANDLE, disposition : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateKeyTransacted(keyhandle as _, desiredaccess, objectattributes, titleindex, class.unwrap_or(core::mem::zeroed()) as _, createoptions, transactionhandle, disposition.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateRegistryTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<super::ULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateRegistryTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateRegistryTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: Option<super::LPGUID>, objectattributes: Option<super::POBJECT_ATTRIBUTES>, createoptions: Option<super::ULONG>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES, createoptions : super::ULONG, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, resourcemanagerguid.unwrap_or(core::mem::zeroed()) as _, objectattributes.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateSection(sectionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, maximumsize: Option<super::PLARGE_INTEGER>, sectionpageprotection: super::ULONG, allocationattributes: super::ULONG, filehandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateSection(sectionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, maximumsize : super::PLARGE_INTEGER, sectionpageprotection : super::ULONG, allocationattributes : super::ULONG, filehandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateSection(sectionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, maximumsize.unwrap_or(core::mem::zeroed()) as _, sectionpageprotection, allocationattributes, filehandle.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, uow: Option<super::LPGUID>, tmhandle: Option<super::HANDLE>, createoptions: Option<super::ULONG>, isolationlevel: Option<super::ULONG>, isolationflags: Option<super::ULONG>, timeout: Option<super::PLARGE_INTEGER>, description: Option<super::PUNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE, createoptions : super::ULONG, isolationlevel : super::ULONG, isolationflags : super::ULONG, timeout : super::PLARGE_INTEGER, description : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, uow.unwrap_or(core::mem::zeroed()) as _, tmhandle.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, isolationlevel.unwrap_or(core::mem::zeroed()) as _, isolationflags.unwrap_or(core::mem::zeroed()) as _, timeout.unwrap_or(core::mem::zeroed()) as _, description.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwCreateTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, createoptions: Option<super::ULONG>, commitstrength: Option<super::ULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, createoptions : super::ULONG, commitstrength : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, createoptions.unwrap_or(core::mem::zeroed()) as _, commitstrength.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ZwDeleteKey(keyhandle: super::HANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwDeleteKey(keyhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwDeleteKey(keyhandle) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwDeleteValueKey(keyhandle: super::HANDLE, valuename: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwDeleteValueKey(keyhandle : super::HANDLE, valuename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwDeleteValueKey(keyhandle, valuename) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -644,6 +858,12 @@ pub unsafe fn ZwGetNotificationResourceManager(resourcemanagerhandle: super::HAN
     windows_core::link!("ntdll.dll" "system" fn ZwGetNotificationResourceManager(resourcemanagerhandle : super::HANDLE, transactionnotification : super::PTRANSACTION_NOTIFICATION, notificationlength : super::ULONG, timeout : super::PLARGE_INTEGER, returnlength : super::PULONG, asynchronous : super::ULONG, asynchronouscontext : super::ULONG_PTR) -> windows_core::NTSTATUS);
     unsafe { ZwGetNotificationResourceManager(resourcemanagerhandle, transactionnotification as _, notificationlength, timeout, returnlength.unwrap_or(core::mem::zeroed()) as _, asynchronous, asynchronouscontext.unwrap_or(core::mem::zeroed()) as _) }
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwLoadDriver(driverservicename: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwLoadDriver(driverservicename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwLoadDriver(driverservicename) }
+}
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ZwMakeTemporaryObject(handle: super::HANDLE) -> windows_core::NTSTATUS {
@@ -655,6 +875,78 @@ pub unsafe fn ZwMakeTemporaryObject(handle: super::HANDLE) -> windows_core::NTST
 pub unsafe fn ZwMapViewOfSection(sectionhandle: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut super::PVOID, zerobits: super::ULONG_PTR, commitsize: super::SIZE_T, sectionoffset: Option<super::PLARGE_INTEGER>, viewsize: super::PSIZE_T, inheritdisposition: SECTION_INHERIT, allocationtype: super::ULONG, win32protect: super::ULONG) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwMapViewOfSection(sectionhandle : super::HANDLE, processhandle : super::HANDLE, baseaddress : *mut super::PVOID, zerobits : super::ULONG_PTR, commitsize : super::SIZE_T, sectionoffset : super::PLARGE_INTEGER, viewsize : super::PSIZE_T, inheritdisposition : SECTION_INHERIT, allocationtype : super::ULONG, win32protect : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { ZwMapViewOfSection(sectionhandle, processhandle, baseaddress as _, zerobits, commitsize, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, inheritdisposition, allocationtype, win32protect) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenEnlistment(enlistmenthandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, rmhandle: super::HANDLE, enlistmentguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenEnlistment(enlistmenthandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, rmhandle : super::HANDLE, enlistmentguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenEnlistment(enlistmenthandle as _, desiredaccess, rmhandle, enlistmentguid, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenEvent(eventhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenEvent(eventhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenEvent(eventhandle as _, desiredaccess, objectattributes) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenFile(filehandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, iostatusblock: super::PIO_STATUS_BLOCK, shareaccess: super::ULONG, openoptions: super::ULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenFile(filehandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, iostatusblock : super::PIO_STATUS_BLOCK, shareaccess : super::ULONG, openoptions : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenFile(filehandle as _, desiredaccess, objectattributes, iostatusblock as _, shareaccess, openoptions) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenKey(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKey(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenKey(keyhandle as _, desiredaccess, objectattributes) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenKeyEx(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, openoptions: super::ULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyEx(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, openoptions : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenKeyEx(keyhandle as _, desiredaccess, objectattributes, openoptions) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenKeyTransacted(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, transactionhandle: super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyTransacted(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, transactionhandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenKeyTransacted(keyhandle as _, desiredaccess, objectattributes, transactionhandle) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenKeyTransactedEx(keyhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, openoptions: super::ULONG, transactionhandle: super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenKeyTransactedEx(keyhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, openoptions : super::ULONG, transactionhandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenKeyTransactedEx(keyhandle as _, desiredaccess, objectattributes, openoptions, transactionhandle) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenResourceManager(resourcemanagerhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, tmhandle: super::HANDLE, resourcemanagerguid: super::LPGUID, objectattributes: Option<super::POBJECT_ATTRIBUTES>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenResourceManager(resourcemanagerhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, tmhandle : super::HANDLE, resourcemanagerguid : super::LPGUID, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenResourceManager(resourcemanagerhandle as _, desiredaccess, tmhandle, resourcemanagerguid, objectattributes.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenSection(sectionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenSection(sectionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenSection(sectionhandle as _, desiredaccess, objectattributes) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenSymbolicLinkObject(linkhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenSymbolicLinkObject(linkhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenSymbolicLinkObject(linkhandle as _, desiredaccess, objectattributes) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenTransaction(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, uow: super::LPGUID, tmhandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenTransaction(transactionhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, uow : super::LPGUID, tmhandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenTransaction(transactionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, uow, tmhandle.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwOpenTransactionManager(tmhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<super::POBJECT_ATTRIBUTES>, logfilename: Option<super::PUNICODE_STRING>, tmidentity: Option<super::LPGUID>, openoptions: Option<super::ULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenTransactionManager(tmhandle : super::PHANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : super::POBJECT_ATTRIBUTES, logfilename : super::PUNICODE_STRING, tmidentity : super::LPGUID, openoptions : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenTransactionManager(tmhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, logfilename.unwrap_or(core::mem::zeroed()) as _, tmidentity.unwrap_or(core::mem::zeroed()) as _, openoptions.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -679,6 +971,18 @@ pub unsafe fn ZwPrepareComplete(enlistmenthandle: super::HANDLE, tmvirtualclock:
 pub unsafe fn ZwPrepareEnlistment(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwPrepareEnlistment(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwPrepareEnlistment(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwQueryFullAttributesFile(objectattributes: super::POBJECT_ATTRIBUTES, fileinformation: PFILE_NETWORK_OPEN_INFORMATION) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryFullAttributesFile(objectattributes : super::POBJECT_ATTRIBUTES, fileinformation : PFILE_NETWORK_OPEN_INFORMATION) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryFullAttributesFile(objectattributes, fileinformation as _) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwQueryInformationByName(objectattributes: super::POBJECT_ATTRIBUTES, iostatusblock: super::PIO_STATUS_BLOCK, fileinformation: super::PVOID, length: super::ULONG, fileinformationclass: FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationByName(objectattributes : super::POBJECT_ATTRIBUTES, iostatusblock : super::PIO_STATUS_BLOCK, fileinformation : super::PVOID, length : super::ULONG, fileinformationclass : FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryInformationByName(objectattributes, iostatusblock as _, fileinformation as _, length, fileinformationclass) }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[inline]
@@ -718,6 +1022,18 @@ pub unsafe fn ZwQueryKey(keyhandle: super::HANDLE, keyinformationclass: KEY_INFO
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
 #[inline]
+pub unsafe fn ZwQuerySymbolicLinkObject(linkhandle: super::HANDLE, linktarget: super::PUNICODE_STRING, returnedlength: Option<super::PULONG>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQuerySymbolicLinkObject(linkhandle : super::HANDLE, linktarget : super::PUNICODE_STRING, returnedlength : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwQuerySymbolicLinkObject(linkhandle, linktarget as _, returnedlength.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwQueryValueKey(keyhandle: super::HANDLE, valuename: super::PUNICODE_STRING, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Option<super::PVOID>, length: super::ULONG, resultlength: super::PULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryValueKey(keyhandle : super::HANDLE, valuename : super::PUNICODE_STRING, keyvalueinformationclass : KEY_VALUE_INFORMATION_CLASS, keyvalueinformation : super::PVOID, length : super::ULONG, resultlength : super::PULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryValueKey(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation.unwrap_or(core::mem::zeroed()) as _, length, resultlength as _) }
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
 pub unsafe fn ZwReadFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<super::PVOID>, iostatusblock: super::PIO_STATUS_BLOCK, buffer: super::PVOID, length: super::ULONG, byteoffset: Option<super::PLARGE_INTEGER>, key: Option<super::PULONG>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwReadFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : super::PVOID, iostatusblock : super::PIO_STATUS_BLOCK, buffer : super::PVOID, length : super::ULONG, byteoffset : super::PLARGE_INTEGER, key : super::PULONG) -> windows_core::NTSTATUS);
     unsafe { ZwReadFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer as _, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
@@ -745,6 +1061,12 @@ pub unsafe fn ZwRecoverResourceManager(resourcemanagerhandle: super::HANDLE) -> 
 pub unsafe fn ZwRecoverTransactionManager(transactionmanagerhandle: super::HANDLE) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwRecoverTransactionManager(transactionmanagerhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { ZwRecoverTransactionManager(transactionmanagerhandle) }
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwRenameKey(keyhandle: super::HANDLE, newname: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwRenameKey(keyhandle : super::HANDLE, newname : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwRenameKey(keyhandle, newname) }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
@@ -818,11 +1140,23 @@ pub unsafe fn ZwSetInformationTransactionManager(tmhandle: super::HANDLE, transa
     windows_core::link!("ntdll.dll" "system" fn ZwSetInformationTransactionManager(tmhandle : super::HANDLE, transactionmanagerinformationclass : super::TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation : super::PVOID, transactionmanagerinformationlength : super::ULONG) -> windows_core::NTSTATUS);
     unsafe { ZwSetInformationTransactionManager(tmhandle, transactionmanagerinformationclass, transactionmanagerinformation, transactionmanagerinformationlength) }
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwSetValueKey(keyhandle: super::HANDLE, valuename: super::PUNICODE_STRING, titleindex: Option<super::ULONG>, r#type: super::ULONG, data: Option<super::PVOID>, datasize: super::ULONG) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetValueKey(keyhandle : super::HANDLE, valuename : super::PUNICODE_STRING, titleindex : super::ULONG, r#type : super::ULONG, data : super::PVOID, datasize : super::ULONG) -> windows_core::NTSTATUS);
+    unsafe { ZwSetValueKey(keyhandle, valuename, titleindex.unwrap_or(core::mem::zeroed()) as _, r#type, data.unwrap_or(core::mem::zeroed()) as _, datasize) }
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[inline]
 pub unsafe fn ZwSinglePhaseReject(enlistmenthandle: super::HANDLE, tmvirtualclock: Option<super::PLARGE_INTEGER>) -> windows_core::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwSinglePhaseReject(enlistmenthandle : super::HANDLE, tmvirtualclock : super::PLARGE_INTEGER) -> windows_core::NTSTATUS);
     unsafe { ZwSinglePhaseReject(enlistmenthandle, tmvirtualclock.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[inline]
+pub unsafe fn ZwUnloadDriver(driverservicename: super::PUNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwUnloadDriver(driverservicename : super::PUNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwUnloadDriver(driverservicename) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -847,6 +1181,46 @@ pub unsafe fn vDbgPrintEx(componentid: super::ULONG, level: super::ULONG, format
 pub unsafe fn vDbgPrintExWithPrefix(prefix: super::PCCH, componentid: super::ULONG, level: super::ULONG, format: super::PCCH, arglist: super::va_list) -> super::ULONG {
     windows_core::link!("ntdll.dll" "system" fn vDbgPrintExWithPrefix(prefix : super::PCCH, componentid : super::ULONG, level : super::ULONG, format : super::PCCH, arglist : super::va_list) -> super::ULONG);
     unsafe { vDbgPrintExWithPrefix(prefix, componentid, level, format, arglist) }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct ACCESS_STATE {
+    pub OperationID: super::LUID,
+    pub SecurityEvaluated: super::BOOLEAN,
+    pub GenerateAudit: super::BOOLEAN,
+    pub GenerateOnClose: super::BOOLEAN,
+    pub PrivilegesAllocated: super::BOOLEAN,
+    pub Flags: super::ULONG,
+    pub RemainingDesiredAccess: super::ACCESS_MASK,
+    pub PreviouslyGrantedAccess: super::ACCESS_MASK,
+    pub OriginalDesiredAccess: super::ACCESS_MASK,
+    pub SubjectSecurityContext: SECURITY_SUBJECT_CONTEXT,
+    pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
+    pub AuxData: super::PVOID,
+    pub Privileges: ACCESS_STATE_0,
+    pub AuditPrivileges: super::BOOLEAN,
+    pub ObjectName: super::UNICODE_STRING,
+    pub ObjectTypeName: super::UNICODE_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for ACCESS_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union ACCESS_STATE_0 {
+    pub InitialPrivilegeSet: INITIAL_PRIVILEGE_SET,
+    pub PrivilegeSet: super::PRIVILEGE_SET,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for ACCESS_STATE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACPIBus: INTERFACE_TYPE = 17;
 #[repr(C)]
@@ -1939,6 +2313,42 @@ pub const CONNECT_LINE_BASED: i32 = 2;
 pub const CONNECT_MESSAGE_BASED: i32 = 3;
 pub const CONNECT_MESSAGE_BASED_PASSIVE: i32 = 5;
 #[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct COUNTED_REASON_CONTEXT {
+    pub Version: super::ULONG,
+    pub Flags: super::ULONG,
+    pub Anonymous: COUNTED_REASON_CONTEXT_0,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for COUNTED_REASON_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union COUNTED_REASON_CONTEXT_0 {
+    pub Anonymous: COUNTED_REASON_CONTEXT_0_0,
+    pub SimpleString: super::UNICODE_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for COUNTED_REASON_CONTEXT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct COUNTED_REASON_CONTEXT_0_0 {
+    pub ResourceFileName: super::UNICODE_STRING,
+    pub ResourceReasonId: super::USHORT,
+    pub StringCount: super::ULONG,
+    pub ReasonStrings: super::PUNICODE_STRING,
+}
+#[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct CRASHDUMP_FUNCTIONS_INTERFACE {
@@ -2419,6 +2829,16 @@ impl DEVICE_FLAGS {
     }
 }
 pub type DEVICE_INSTALL_STATE = i32;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
+    pub Version: super::USHORT,
+    pub Size: super::USHORT,
+    pub Event: windows_core::GUID,
+    pub InterfaceClassGuid: windows_core::GUID,
+    pub SymbolicLinkName: super::PUNICODE_STRING,
+}
 pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: i32 = 1;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, resetinfocount: super::PULONG, resetinfosupported: PDEVICE_BUS_SPECIFIC_RESET_INFO) -> windows_core::NTSTATUS>;
@@ -3904,6 +4324,8 @@ pub type GET_D3COLD_CAPABILITY = Option<unsafe extern "C" fn(context: super::PVO
 pub type GET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "C" fn(context: super::PVOID, lasttransitionstatus: PD3COLD_LAST_TRANSITION_STATUS)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type GET_DEVICE_RESET_STATUS = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, isresetting: super::PBOOLEAN, resettypeselected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PDEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type GET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, requestid: super::LONGLONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG, doestatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type GET_IDLE_WAKE_INFO = Option<unsafe extern "C" fn(context: super::PVOID, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: PDEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4833,6 +5255,15 @@ impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IO_SECURITY_CONTEXT {
+    pub SecurityQos: super::PSECURITY_QUALITY_OF_SERVICE,
+    pub AccessState: PACCESS_STATE,
+    pub DesiredAccess: super::ACCESS_MASK,
+    pub FullCreateOptions: super::ULONG,
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -6262,6 +6693,12 @@ pub struct OBJECT_HANDLE_INFORMATION {
     pub HandleAttributes: super::ULONG,
     pub GrantedAccess: super::ACCESS_MASK,
 }
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OBJECT_NAME_INFORMATION {
+    pub Name: super::UNICODE_STRING,
+}
 pub const OBJECT_TYPE_ALL_ACCESS: i32 = 983041;
 pub const OBJECT_TYPE_CREATE: i32 = 1;
 #[cfg(feature = "winnt")]
@@ -6329,6 +6766,8 @@ impl Default for OB_PRE_OPERATION_PARAMETERS {
     }
 }
 pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 2;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PACCESS_STATE = *mut ACCESS_STATE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PACPI_INTERFACE_STANDARD2 = *mut ACPI_INTERFACE_STANDARD2;
 pub type PAFFINITY_TOKEN = *mut _AFFINITY_TOKEN;
@@ -9884,6 +10323,12 @@ pub type PCM_SERIAL_DEVICE_DATA = *mut CM_SERIAL_DEVICE_DATA;
 pub type PCM_SONIC_DEVICE_DATA = *mut CM_SONIC_DEVICE_DATA;
 #[cfg(feature = "shared")]
 pub type PCM_VIDEO_DEVICE_DATA = *mut CM_VIDEO_DEVICE_DATA;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PCOUNTED_REASON_CONTEXT = *mut COUNTED_REASON_CONTEXT;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PCPOOL_CREATE_EXTENDED_PARAMETER = *const POOL_CREATE_EXTENDED_PARAMETER;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PCPOOL_CREATE_EXTENDED_PARAMS = *const POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCPOOL_EXTENDED_PARAMETER = *const POOL_EXTENDED_PARAMETER;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -9899,6 +10344,13 @@ pub struct PCW_COUNTER_DESCRIPTOR {
     pub StructIndex: super::USHORT,
     pub Offset: super::USHORT,
     pub Size: super::USHORT,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PCW_COUNTER_INFORMATION {
+    pub CounterMask: super::ULONG64,
+    pub InstanceMask: super::PCUNICODE_STRING,
 }
 pub const PCW_CURRENT_VERSION: i32 = 512;
 #[repr(C)]
@@ -9940,6 +10392,8 @@ pub type PDEVICE_DIRECTORY_TYPE = *mut DEVICE_DIRECTORY_TYPE;
 #[cfg(feature = "shared")]
 pub type PDEVICE_FLAGS = *mut DEVICE_FLAGS;
 pub type PDEVICE_INSTALL_STATE = *mut DEVICE_INSTALL_STATE;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PDEVICE_INTERFACE_CHANGE_NOTIFICATION = *mut DEVICE_INTERFACE_CHANGE_NOTIFICATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "C" fn(param0: super::PVOID, param1: super::ULONG)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -10108,6 +10562,10 @@ pub type PFILE_STANDARD_INFORMATION_EX = *mut FILE_STANDARD_INFORMATION_EX;
 pub type PFN_COUNT = super::ULONG;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PFN_NT_COMMIT_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, wait: super::BOOLEAN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PFN_NT_CREATE_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, uow: super::LPGUID, tmhandle: super::HANDLE, createoptions: super::ULONG, isolationlevel: super::ULONG, isolationflags: super::ULONG, timeout: super::PLARGE_INTEGER, description: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PFN_NT_OPEN_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::PHANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: super::POBJECT_ATTRIBUTES, uow: super::LPGUID, tmhandle: super::HANDLE) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PFN_NT_QUERY_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::HANDLE, transactioninformationclass: super::TRANSACTION_INFORMATION_CLASS, transactioninformation: super::PVOID, transactioninformationlength: super::ULONG, returnlength: super::PULONG) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -10145,6 +10603,8 @@ pub type PGET_D3COLD_CAPABILITY = Option<unsafe extern "C" fn(context: super::PV
 pub type PGET_D3COLD_LAST_TRANSITION_STATUS = Option<unsafe extern "C" fn(context: super::PVOID, lasttransitionstatus: PD3COLD_LAST_TRANSITION_STATUS)>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PGET_DEVICE_RESET_STATUS = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, isresetting: super::PBOOLEAN, resettypeselected: PDEVICE_BUS_SPECIFIC_RESET_TYPE, flags: PDEVICE_RESET_STATUS_FLAGS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+pub type PGET_DOE_PREVIOUS_RESPONSE = Option<unsafe extern "C" fn(interfacecontext: super::PVOID, requestid: super::LONGLONG, outputarraycount: super::ULONG, outputwritten: super::PULONG, outputarray: super::PULONG, doestatus: super::PNTSTATUS) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PGET_IDLE_WAKE_INFO = Option<unsafe extern "C" fn(context: super::PVOID, systempowerstate: super::SYSTEM_POWER_STATE, deepestwakeabledstate: PDEVICE_WAKE_DEPTH) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -10298,6 +10758,8 @@ pub type PIO_RESOURCE_DESCRIPTOR = *mut IO_RESOURCE_DESCRIPTOR;
 pub type PIO_RESOURCE_LIST = *mut IO_RESOURCE_LIST;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
 pub type PIO_RESOURCE_REQUIREMENTS_LIST = *mut IO_RESOURCE_REQUIREMENTS_LIST;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PIO_SECURITY_CONTEXT = *mut IO_SECURITY_CONTEXT;
 #[cfg(feature = "shared")]
 pub type PIO_SESSION_CONNECT_INFO = *mut IO_SESSION_CONNECT_INFO;
 pub type PIO_SESSION_EVENT = *mut IO_SESSION_EVENT;
@@ -10446,7 +10908,11 @@ pub type PMAILSLOT_CREATE_PARAMETERS = *mut MAILSLOT_CREATE_PARAMETERS;
 pub type PMDLX = *mut MDL;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION = *mut MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PMM_DLL_INITIALIZE = Option<unsafe extern "C" fn(registrypath: super::PUNICODE_STRING) -> windows_core::NTSTATUS>;
 pub type PMM_DLL_UNLOAD = Option<unsafe extern "C" fn() -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "C" fn(modulename: super::PUNICODE_STRING, functionname: windows_core::PCSTR) -> super::PVOID>;
 pub type PMM_MDL_PAGE_CONTENTS_STATE = _MM_MDL_PAGE_CONTENTS_STATE;
 #[cfg(feature = "winnt")]
 pub type PMM_MDL_ROUTINE = Option<unsafe extern "C" fn(drivercontext: super::PVOID, mappedva: super::PVOID)>;
@@ -10612,6 +11078,8 @@ pub const PNP_REPLACE_PROCESSOR_SUPPORTED: i32 = 2;
 pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = Option<unsafe extern "C" fn(vcb: super::PVOID, securitydescriptor: super::PSECURITY_DESCRIPTOR)>;
 #[cfg(feature = "shared")]
 pub type POBJECT_HANDLE_INFORMATION = *mut OBJECT_HANDLE_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type POBJECT_NAME_INFORMATION = *mut OBJECT_NAME_INFORMATION;
 #[cfg(feature = "shared")]
 pub type POB_POST_CREATE_HANDLE_INFORMATION = *mut OB_POST_CREATE_HANDLE_INFORMATION;
 #[cfg(feature = "shared")]
@@ -10632,7 +11100,40 @@ pub struct POHANDLE__ {
     pub unused: i32,
 }
 pub const POOL_COLD_ALLOCATION: i32 = 256;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct POOL_CREATE_EXTENDED_PARAMETER {
+    pub Type: POOL_CREATE_EXTENDED_PARAMETER_TYPE,
+    pub Anonymous: POOL_CREATE_EXTENDED_PARAMETER_0,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for POOL_CREATE_EXTENDED_PARAMETER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union POOL_CREATE_EXTENDED_PARAMETER_0 {
+    pub PoolName: super::UNICODE_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winternl"))]
+impl Default for POOL_CREATE_EXTENDED_PARAMETER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type POOL_CREATE_EXTENDED_PARAMETER_TYPE = i32;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POOL_CREATE_EXTENDED_PARAMS {
+    pub Version: super::ULONG,
+    pub ParameterCount: super::ULONG,
+    pub Parameters: PPOOL_CREATE_EXTENDED_PARAMETER,
+}
 pub const POOL_CREATE_FLG_NONPAGED_POOL: i32 = 8;
 pub const POOL_CREATE_FLG_NUMA_AWARE: i32 = 16;
 pub const POOL_CREATE_FLG_PAGED_POOL: i32 = 4;
@@ -10808,6 +11309,62 @@ pub struct PO_FX_COMPONENT_IDLE_STATE {
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, state: super::ULONG)>;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct PO_FX_COMPONENT_PERF_INFO {
+    pub PerfStateSetsCount: super::ULONG,
+    pub PerfStateSets: [PO_FX_COMPONENT_PERF_SET; 1],
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PO_FX_COMPONENT_PERF_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct PO_FX_COMPONENT_PERF_SET {
+    pub Name: super::UNICODE_STRING,
+    pub Flags: super::ULONGLONG,
+    pub Unit: PO_FX_PERF_STATE_UNIT,
+    pub Type: PO_FX_PERF_STATE_TYPE,
+    pub Anonymous: PO_FX_COMPONENT_PERF_SET_0,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PO_FX_COMPONENT_PERF_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union PO_FX_COMPONENT_PERF_SET_0 {
+    pub Discrete: PO_FX_COMPONENT_PERF_SET_0_0,
+    pub Range: PO_FX_COMPONENT_PERF_SET_0_1,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for PO_FX_COMPONENT_PERF_SET_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PO_FX_COMPONENT_PERF_SET_0_0 {
+    pub Count: super::ULONG,
+    pub States: PPO_FX_PERF_STATE,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
+    pub Minimum: super::ULONGLONG,
+    pub Maximum: super::ULONGLONG,
+}
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, succeeded: super::BOOLEAN, requestcontext: super::PVOID)>;
 #[repr(C)]
@@ -11142,6 +11699,8 @@ pub type PPCW_BUFFER = *mut _PCW_BUFFER;
 pub type PPCW_CALLBACK_TYPE = *mut PCW_CALLBACK_TYPE;
 #[cfg(feature = "shared")]
 pub type PPCW_COUNTER_DESCRIPTOR = *mut PCW_COUNTER_DESCRIPTOR;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PPCW_COUNTER_INFORMATION = *mut PCW_COUNTER_INFORMATION;
 #[cfg(feature = "shared")]
 pub type PPCW_DATA = *mut PCW_DATA;
 pub type PPCW_INSTANCE = *mut _PCW_INSTANCE;
@@ -11170,7 +11729,11 @@ pub type PPNP_REPLACE_PARAMETERS = *mut PNP_REPLACE_PARAMETERS;
 pub type PPNP_REPLACE_PROCESSOR_LIST = *mut PNP_REPLACE_PROCESSOR_LIST;
 #[cfg(all(feature = "basetsd", feature = "shared"))]
 pub type PPNP_REPLACE_PROCESSOR_LIST_V1 = *mut PNP_REPLACE_PROCESSOR_LIST_V1;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PPOOL_CREATE_EXTENDED_PARAMETER = *mut POOL_CREATE_EXTENDED_PARAMETER;
 pub type PPOOL_CREATE_EXTENDED_PARAMETER_TYPE = *mut POOL_CREATE_EXTENDED_PARAMETER_TYPE;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PPOOL_CREATE_EXTENDED_PARAMS = *mut POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPOOL_EXTENDED_PARAMETER = *mut POOL_EXTENDED_PARAMETER;
 pub type PPOOL_EXTENDED_PARAMETER_TYPE = *mut POOL_EXTENDED_PARAMETER_TYPE;
@@ -11197,6 +11760,10 @@ pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "C" fn(
 pub type PPO_FX_COMPONENT_IDLE_STATE = *mut PO_FX_COMPONENT_IDLE_STATE;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, state: super::ULONG)>;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PPO_FX_COMPONENT_PERF_INFO = *mut PO_FX_COMPONENT_PERF_INFO;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PPO_FX_COMPONENT_PERF_SET = *mut PO_FX_COMPONENT_PERF_SET;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "C" fn(context: super::PVOID, component: super::ULONG, succeeded: super::BOOLEAN, requestcontext: super::PVOID)>;
 #[cfg(feature = "shared")]
@@ -11228,6 +11795,8 @@ pub type PPO_FX_PERF_STATE_UNIT = *mut PO_FX_PERF_STATE_UNIT;
 #[cfg(all(feature = "basetsd", feature = "guiddef", feature = "shared", feature = "winnt"))]
 pub type PPO_FX_POWER_CONTROL_CALLBACK = Option<unsafe extern "C" fn(devicecontext: super::PVOID, powercontrolcode: super::LPCGUID, inbuffer: super::PVOID, inbuffersize: super::SIZE_T, outbuffer: super::PVOID, outbuffersize: super::SIZE_T, bytesreturned: super::PSIZE_T) -> windows_core::NTSTATUS>;
 pub type PPO_THERMAL_REQUEST_TYPE = *mut PO_THERMAL_REQUEST_TYPE;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PPROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, changecontext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: super::PNTSTATUS)>;
 #[cfg(feature = "winnt")]
 pub type PPROCESSOR_HALT_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -11252,8 +11821,14 @@ pub type PREENUMERATE_SELF_INTERFACE_STANDARD = *mut REENUMERATE_SELF_INTERFACE_
 pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "C" fn(context: super::PVOID, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: super::PVOID) -> windows_core::NTSTATUS>;
 #[cfg(feature = "winnt")]
 pub type PREG_CALLBACK_CONTEXT_CLEANUP_INFORMATION = *mut REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_CREATE_KEY_INFORMATION = *mut _REG_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_CREATE_KEY_INFORMATION_V1 = *mut _REG_CREATE_KEY_INFORMATION_V1;
 #[cfg(feature = "winnt")]
 pub type PREG_DELETE_KEY_INFORMATION = *mut _REG_DELETE_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_DELETE_VALUE_KEY_INFORMATION = *mut REG_DELETE_VALUE_KEY_INFORMATION;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PREG_ENUMERATE_KEY_INFORMATION = *mut REG_ENUMERATE_KEY_INFORMATION;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -11262,12 +11837,38 @@ pub type PREG_ENUMERATE_VALUE_KEY_INFORMATION = *mut REG_ENUMERATE_VALUE_KEY_INF
 pub type PREG_FLUSH_KEY_INFORMATION = *mut _REG_DELETE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_KEY_HANDLE_CLOSE_INFORMATION = *mut REG_KEY_HANDLE_CLOSE_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_LOAD_KEY_INFORMATION = *mut REG_LOAD_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_LOAD_KEY_INFORMATION_V2 = *mut REG_LOAD_KEY_INFORMATION_V2;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_OPEN_KEY_INFORMATION = *mut _REG_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_OPEN_KEY_INFORMATION_V1 = *mut _REG_CREATE_KEY_INFORMATION_V1;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_POST_CREATE_KEY_INFORMATION = *mut _REG_POST_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_POST_OPEN_KEY_INFORMATION = *mut _REG_POST_CREATE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_POST_OPERATION_INFORMATION = *mut REG_POST_OPERATION_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PREG_PRE_CREATE_KEY_INFORMATION = *mut _REG_PRE_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type PREG_PRE_OPEN_KEY_INFORMATION = *mut _REG_PRE_CREATE_KEY_INFORMATION;
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PREG_QUERY_KEY_INFORMATION = *mut REG_QUERY_KEY_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_QUERY_KEY_NAME = *mut REG_QUERY_KEY_NAME;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PREG_QUERY_KEY_SECURITY_INFORMATION = *mut REG_QUERY_KEY_SECURITY_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION = *mut REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_QUERY_VALUE_KEY_INFORMATION = *mut REG_QUERY_VALUE_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_RENAME_KEY_INFORMATION = *mut REG_RENAME_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_REPLACE_KEY_INFORMATION = *mut REG_REPLACE_KEY_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PREG_RESTORE_KEY_INFORMATION = *mut REG_RESTORE_KEY_INFORMATION;
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -11276,6 +11877,8 @@ pub type PREG_SAVE_KEY_INFORMATION = *mut REG_SAVE_KEY_INFORMATION;
 pub type PREG_SAVE_MERGED_KEY_INFORMATION = *mut REG_SAVE_MERGED_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_SET_KEY_SECURITY_INFORMATION = *mut REG_SET_KEY_SECURITY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PREG_SET_VALUE_KEY_INFORMATION = *mut REG_SET_VALUE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type PREG_UNLOAD_KEY_INFORMATION = *mut REG_UNLOAD_KEY_INFORMATION;
 #[cfg(all(feature = "basetsd", feature = "shared", feature = "winnt"))]
@@ -11317,6 +11920,8 @@ pub type PRKENLISTMENT = *mut _KENLISTMENT;
 pub type PRKRESOURCEMANAGER = *mut _KRESOURCEMANAGER;
 pub type PRKTM = *mut _KTM;
 pub type PRKTRANSACTION = *mut _KTRANSACTION;
+#[cfg(all(feature = "shared", feature = "winnt"))]
+pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, changecontext: PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: super::PNTSTATUS)>;
 pub const PROCESSOR_FEATURE_MAX: i32 = 64;
 #[cfg(feature = "winnt")]
 pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "C" fn(context: super::PVOID) -> windows_core::NTSTATUS>;
@@ -11354,6 +11959,8 @@ pub type PSET_D3COLD_SUPPORT = Option<unsafe extern "C" fn(context: super::PVOID
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PSET_VIRTUAL_DEVICE_DATA = Option<unsafe extern "C" fn(context: super::PVOID, virtualfunction: super::USHORT, buffer: super::PVOID, offset: super::ULONG, length: super::ULONG) -> super::ULONG>;
 pub type PSE_IMAGE_TYPE = *mut SE_IMAGE_TYPE;
+#[cfg(all(feature = "ntddk", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, imagetype: SE_IMAGE_TYPE, imageinformation: super::PBDCB_IMAGE_INFORMATION)>;
 #[cfg(feature = "winnt")]
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut super::PVOID;
 pub type PSE_IMAGE_VERIFICATION_CALLBACK_TYPE = *mut SE_IMAGE_VERIFICATION_CALLBACK_TYPE;
@@ -11543,8 +12150,22 @@ pub struct REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type REG_CREATE_KEY_INFORMATION = _REG_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type REG_CREATE_KEY_INFORMATION_V1 = _REG_CREATE_KEY_INFORMATION_V1;
 #[cfg(feature = "winnt")]
 pub type REG_DELETE_KEY_INFORMATION = _REG_DELETE_KEY_INFORMATION;
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_DELETE_VALUE_KEY_INFORMATION {
+    pub Object: super::PVOID,
+    pub ValueName: super::PUNICODE_STRING,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11584,7 +12205,48 @@ pub struct REG_KEY_HANDLE_CLOSE_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_LOAD_KEY_INFORMATION {
+    pub Object: super::PVOID,
+    pub KeyName: super::PUNICODE_STRING,
+    pub SourceFile: super::PUNICODE_STRING,
+    pub Flags: super::ULONG,
+    pub TrustClassObject: super::PVOID,
+    pub UserEvent: super::PVOID,
+    pub DesiredAccess: super::ACCESS_MASK,
+    pub RootHandle: super::PHANDLE,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_LOAD_KEY_INFORMATION_V2 {
+    pub Object: super::PVOID,
+    pub KeyName: super::PUNICODE_STRING,
+    pub SourceFile: super::PUNICODE_STRING,
+    pub Flags: super::ULONG,
+    pub TrustClassObject: super::PVOID,
+    pub UserEvent: super::PVOID,
+    pub DesiredAccess: super::ACCESS_MASK,
+    pub RootHandle: super::PHANDLE,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Version: super::ULONG_PTR,
+    pub FileAccessToken: super::PVOID,
+}
 pub type REG_NOTIFY_CLASS = i32;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type REG_OPEN_KEY_INFORMATION = _REG_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type REG_OPEN_KEY_INFORMATION_V1 = _REG_CREATE_KEY_INFORMATION_V1;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type REG_POST_CREATE_KEY_INFORMATION = _REG_POST_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type REG_POST_OPEN_KEY_INFORMATION = _REG_POST_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11597,6 +12259,10 @@ pub struct REG_POST_OPERATION_INFORMATION {
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type REG_PRE_CREATE_KEY_INFORMATION = _REG_PRE_CREATE_KEY_INFORMATION;
+#[cfg(all(feature = "shared", feature = "winternl"))]
+pub type REG_PRE_OPEN_KEY_INFORMATION = _REG_PRE_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -11611,6 +12277,18 @@ pub struct REG_QUERY_KEY_INFORMATION {
     pub Reserved: super::PVOID,
 }
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_QUERY_KEY_NAME {
+    pub Object: super::PVOID,
+    pub ObjectNameInfo: POBJECT_NAME_INFORMATION,
+    pub Length: super::ULONG,
+    pub ReturnLength: super::PULONG,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
@@ -11618,6 +12296,55 @@ pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub SecurityInformation: super::PSECURITY_INFORMATION,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
     pub Length: super::PULONG,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
+    pub Object: super::PVOID,
+    pub ValueEntries: super::PKEY_VALUE_ENTRY,
+    pub EntryCount: super::ULONG,
+    pub ValueBuffer: super::PVOID,
+    pub BufferLength: super::PULONG,
+    pub RequiredBufferLength: super::PULONG,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_QUERY_VALUE_KEY_INFORMATION {
+    pub Object: super::PVOID,
+    pub ValueName: super::PUNICODE_STRING,
+    pub KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS,
+    pub KeyValueInformation: super::PVOID,
+    pub Length: super::ULONG,
+    pub ResultLength: super::PULONG,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_RENAME_KEY_INFORMATION {
+    pub Object: super::PVOID,
+    pub NewName: super::PUNICODE_STRING,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_REPLACE_KEY_INFORMATION {
+    pub Object: super::PVOID,
+    pub OldFileName: super::PUNICODE_STRING,
+    pub NewFileName: super::PUNICODE_STRING,
     pub CallContext: super::PVOID,
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
@@ -11663,6 +12390,20 @@ pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub Object: super::PVOID,
     pub SecurityInformation: super::PSECURITY_INFORMATION,
     pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
+    pub CallContext: super::PVOID,
+    pub ObjectContext: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct REG_SET_VALUE_KEY_INFORMATION {
+    pub Object: super::PVOID,
+    pub ValueName: super::PUNICODE_STRING,
+    pub TitleIndex: super::ULONG,
+    pub Type: super::ULONG,
+    pub Data: super::PVOID,
+    pub DataSize: super::ULONG,
     pub CallContext: super::PVOID,
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
@@ -11917,6 +12658,8 @@ pub const SE_DEBUG_PRIVILEGE: i32 = 20;
 pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_PRIVILEGE: i32 = 36;
 pub const SE_ENABLE_DELEGATION_PRIVILEGE: i32 = 27;
 pub type SE_IMAGE_TYPE = i32;
+#[cfg(all(feature = "ntddk", feature = "shared", feature = "winnt", feature = "winternl"))]
+pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "C" fn(callbackcontext: super::PVOID, imagetype: SE_IMAGE_TYPE, imageinformation: super::PBDCB_IMAGE_INFORMATION)>;
 #[cfg(feature = "winnt")]
 pub type SE_IMAGE_VERIFICATION_CALLBACK_TOKEN = super::PVOID;
 pub type SE_IMAGE_VERIFICATION_CALLBACK_TYPE = i32;
@@ -12774,6 +13517,50 @@ pub struct _PCW_INSTANCE(pub u8);
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PCW_REGISTRATION(pub u8);
 #[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _REG_CREATE_KEY_INFORMATION {
+    pub CompleteName: super::PUNICODE_STRING,
+    pub RootObject: super::PVOID,
+    pub ObjectType: super::PVOID,
+    pub CreateOptions: super::ULONG,
+    pub Class: super::PUNICODE_STRING,
+    pub SecurityDescriptor: super::PVOID,
+    pub SecurityQualityOfService: super::PVOID,
+    pub DesiredAccess: super::ACCESS_MASK,
+    pub GrantedAccess: super::ACCESS_MASK,
+    pub Disposition: super::PULONG,
+    pub ResultObject: *mut super::PVOID,
+    pub CallContext: super::PVOID,
+    pub RootObjectContext: super::PVOID,
+    pub Transaction: super::PVOID,
+    pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _REG_CREATE_KEY_INFORMATION_V1 {
+    pub CompleteName: super::PUNICODE_STRING,
+    pub RootObject: super::PVOID,
+    pub ObjectType: super::PVOID,
+    pub Options: super::ULONG,
+    pub Class: super::PUNICODE_STRING,
+    pub SecurityDescriptor: super::PVOID,
+    pub SecurityQualityOfService: super::PVOID,
+    pub DesiredAccess: super::ACCESS_MASK,
+    pub GrantedAccess: super::ACCESS_MASK,
+    pub Disposition: super::PULONG,
+    pub ResultObject: *mut super::PVOID,
+    pub CallContext: super::PVOID,
+    pub RootObjectContext: super::PVOID,
+    pub Transaction: super::PVOID,
+    pub Version: super::ULONG_PTR,
+    pub RemainingName: super::PUNICODE_STRING,
+    pub Wow64Flags: super::ULONG,
+    pub Attributes: super::ULONG,
+    pub CheckAccessMode: KPROCESSOR_MODE,
+}
+#[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _REG_DELETE_KEY_INFORMATION {
@@ -12781,6 +13568,20 @@ pub struct _REG_DELETE_KEY_INFORMATION {
     pub CallContext: super::PVOID,
     pub ObjectContext: super::PVOID,
     pub Reserved: super::PVOID,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _REG_POST_CREATE_KEY_INFORMATION {
+    pub CompleteName: super::PUNICODE_STRING,
+    pub Object: super::PVOID,
+    pub Status: windows_core::NTSTATUS,
+}
+#[repr(C)]
+#[cfg(all(feature = "shared", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct _REG_PRE_CREATE_KEY_INFORMATION {
+    pub CompleteName: super::PUNICODE_STRING,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

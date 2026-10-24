@@ -7,6 +7,9 @@
 #ifndef PACKING
 #define PACKING 8
 #endif
+#ifndef FIELD_ALIGNMENT
+#define FIELD_ALIGNMENT
+#endif
 typedef FIELD_TYPE FieldValue;
 #ifdef SHARED_ALIAS
 typedef int SharedValue;
@@ -16,7 +19,7 @@ struct SharedValue {
 #ifdef NESTED_FIELD
     union { int value; float other; };
 #else
-    FieldValue FIELD_NAME;
+    FIELD_ALIGNMENT FieldValue FIELD_NAME;
 #endif
 #ifdef EXTRA_FIELD
     int extra;

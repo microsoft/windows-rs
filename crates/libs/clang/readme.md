@@ -411,8 +411,10 @@ observations remain distinct; shared routing never resolves a type conflict.
 target-native import symbols; shared records and enum extensions are checked before metadata reuse.
 Incompatible declarations remain explicit omissions, not copies from retained RDL.
 Shared-reference reuse keeps canonical ownership separate from alias compatibility and ABI checks.
-Unspecified reference contracts are not new guarantees; existing contracts and annotated typedefs
-remain checked. Unsupported differences stay omitted rather than being normalized away.
+Supplied metadata owns record, value-typedef and callback contracts. Native annotation differences
+do not prevent reuse or rewrite those contracts. Canonical types, layouts, alignment requests and
+callback signatures must still agree; incompatible shapes remain explicit omissions.
+Native observations remain unchanged, and native-to-native reconciliation still rejects conflicts.
 
 Review generation against the canonical metadata directories and native fixtures; no historical
 export snapshots or approval files are required.

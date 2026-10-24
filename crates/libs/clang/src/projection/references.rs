@@ -157,7 +157,26 @@ impl<'a> References<'a> {
                     }
                 }
             }
-            if let Some(definition) = definition {
+            if let Some(mut definition) = definition {
+                if let MetadataType::ValueName(name) = reference_values::normalize_type(
+                    metadata_type(definition),
+                    self.metadata,
+                    target,
+                    &mut HashSet::new(),
+                )? {
+                    let bit = match target {
+                        Target::X86 => 1,
+                        Target::X64 => 2,
+                        Target::Arm64 => 4,
+                    };
+                    definition = self
+                        .metadata
+                        .get(&name.namespace, &name.name)
+                        .find(|definition| {
+                            definition.arches() == 0 || definition.arches() & bit != 0
+                        })
+                        .ok_or_else(|| Error(format!("missing referenced record `{name:?}`")))?;
+                }
                 if com_type(definition) && groups.len() != 1 {
                     return Err(Error(format!(
                         "external type `{name}` has a local public family"

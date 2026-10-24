@@ -201,6 +201,7 @@ fn incompatible_shared_records_are_not_reused() {
         "#define FIELD_NAME other\n",
         "#define EXTRA_FIELD\n",
         "#define PACKING 1\n",
+        "#define FIELD_ALIGNMENT __declspec(align(16))\n",
         "#define NESTED_FIELD\n",
         "#define SHARED_ALIAS\n",
     ] {

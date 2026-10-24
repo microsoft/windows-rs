@@ -97,7 +97,7 @@ and cutover sequence are not approvals; downstream obligations remain deferred, 
 | Direction-repair generation | Package, internal binding and Reactor regeneration introduce no generated changes. Composition regeneration refreshes retained native aliases in both stacks. WebView generation retains all five loader imports after nominal COM typedef validation; its 33 live host/browser fixtures pass with regenerated bindings. Canonical SDK/WDK output is unchanged. | WebView retains 69 explicit omissions for RPC proxy/stub import ownership, LIBID definitions and C++ helper operators. Full generator qualification remains open. |
 | Proposed analysis-only removals | Not approved as a group. Pointer invalidation, allocation and execution-context annotations can carry useful contracts. Result inspection also has non-return owners. | Review meaning and ownership individually; lack of a consumer is not enough. SAL1 result checking remains a separate equivalence decision. |
 | CI generation input | `gen.yml` runs full SDK/WDK generation and checks tracked metadata drift with a shallow checkout. | Consumer jobs use committed metadata. Full package qualification remains separate from successful generation. |
-| Required missing APIs | The 198-pair/70-name total remains historical. Current metadata and diagnostics reconfirm WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot and RoGetActivatableClassRegistration gaps. `RtlCaptureContext2` remains x64-only. Missing `ACCESS_STATE` also breaks the rich/raw layout tests. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
+| Required missing APIs | The 198-pair/70-name total remains historical. Current metadata and diagnostics reconfirm WaitOnAddress, MiniDumpWriteDump, XAudio2Create, IsEqualGUID, CfRegisterSyncRoot and RoGetActivatableClassRegistration gaps. `RtlCaptureContext2` remains x64-only. `ACCESS_STATE` is recovered with SDK-owned string contracts and matching rich/raw layouts. | Classify native support, public requirements and baseline correctness. Fix or obtain a justified disposition; do not treat zero differences as the goal. |
 | Unrecorded partition losses | `activationregistration` and `windowsfoundation` are absent. The Arm64 `__FIMapView_2_HSTRING_IInspectable_t` alias fails on an unsupported `TemplateRef IMapView`; `IActivatableClassRegistration`, its pointer alias and the RoGet import are pruned as dependents. | Add a focused canonical metadata case and decide the required surface. ActivationType, RegistrationScope and RegisteredTrustLevel are also absent with this partition; this is not an approved exclusion. |
 | UIA expansion | D23's 98 imports and 397 constants remain candidate scope. `CustomNavigationPattern_Navigate` still lacks configured import ownership. | Keep the unresolved import and acceptance boundary explicit. Defer downstream/live-provider qualification. |
 | Driver size | `main.rs` remains about 1,650 lines; the review identifies `run` and `sdk_library_policy` as the next large responsibilities. | Defer an output-neutral split until the metadata model is settled. Moving SDK contexts into data did not eliminate their semantic review obligation. |
@@ -161,7 +161,36 @@ remains a separate consumer-design obligation.
 | `RoGetActivatableClassRegistration` | External collection-template alias dependency |
 | `CustomNavigationPattern_Navigate` | No configured DLL/export ownership |
 | `RtlCaptureContext2` on x86/ARM64 | No configured DLL/export ownership; x64 is retained |
-| `ACCESS_STATE` | WDK `UNICODE_STRING::Buffer` typedef contracts differ from referenced SDK metadata |
+
+`winternl.h` defines `UNICODE_STRING::Buffer` as `PWSTR`, retaining that typedef's
+`_Null_terminated_` evidence. The kernel uses the SDK's shared `ntdef.h`, whose field is
+`_Field_size_bytes_part_opt_(MaximumLength, Length) PWCH`. These are different native declarations,
+not a missed typedef or a layout disagreement. The
+[documented contract](https://learn.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-_unicode_string)
+describes byte-counted storage and makes termination conditional.
+
+`test_clang`'s `unicode_string` SDK case captures each header context independently on x86, x64 and
+ARM64. Its direct SDK/kernel header/RDL pairs preserve the different typedef and field owners.
+Sizes, alignments and field offsets agree. Supplied reference metadata owns the published record,
+value-typedef and callback contracts, so both reference directions succeed without combining
+annotations. Native-to-native merging still rejects the field-attribute disagreement.
+Type, layout, packing, member alignment and callback ABI checks remain required.
+
+`sdk_lsa_unicode_string` also preserves the `ntsecapi.h` route from `UNICODE_STRING` to
+`LSA_UNICODE_STRING`, whose buffer uses `PWSTR`. Reference binding follows the metadata typedef
+to its record. Excluding `winternl.h` cannot remove this shared-type dependency; the header remains
+selected. SDK RDL is unchanged, retaining `NtCreateFile`, `NtQueryInformationProcess` and
+`RtlInitUnicodeString`.
+
+`ACCESS_STATE` is recovered with SDK-owned `UNICODE_STRING` fields. WDK regeneration adds 39
+records, two enums, 68 aliases and 100 functions; omissions fall from 1,818 to 1,531. The WDK RDL
+change is additive, with no removed declarations. Generated rich/raw bindings retain the existing
+x86 and x64 `ACCESS_STATE` sizes and alignments.
+
+Master's `km::scrape_arch` likewise uses `MetadataReferences::apply_exclusions` to leave SDK-owned
+types external. That path explains why `ACCESS_STATE` does not require reconciling the two native
+buffer contracts. Explicit reference ownership is not first-input-wins selection, and does not
+permit discarding native conflicts or rewriting SDK metadata.
 
 | Repaired regression | Evidence |
 | --- | --- |

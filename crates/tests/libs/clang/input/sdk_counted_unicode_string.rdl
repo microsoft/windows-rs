@@ -1,0 +1,13 @@
+#[win32]
+mod Fixture {
+    type PWCH = *mut u16;
+    struct UNICODE_STRING {
+        Length: USHORT,
+        MaximumLength: USHORT,
+        #[readable(bytes(Length), nullable)]
+        #[writable(bytes(MaximumLength), nullable)]
+        Buffer: PWCH,
+    }
+    type USHORT = u16;
+    type WCHAR = u16;
+}
