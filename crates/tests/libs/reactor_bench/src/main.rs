@@ -230,24 +230,25 @@ fn measure_prepared<S>(
     samples: usize,
     batch: usize,
     mut prepare: impl FnMut() -> S,
-    mut operation: impl FnMut(S),
+    mut operation: impl FnMut(&mut S),
 ) -> Perf {
     for _ in 0..8 {
-        operation(prepare());
+        operation(&mut prepare());
     }
     let mut timings = Vec::with_capacity(samples * batch);
     let mut bytes = 0;
     let mut allocations = 0;
     for _ in 0..samples {
         for _ in 0..batch {
-            let state = prepare();
+            let mut state = prepare();
             let before_bytes = allocator::allocated_bytes();
             let before_allocations = allocator::ALLOCATIONS.load(Ordering::Relaxed);
             let start = Instant::now();
-            operation(state);
+            operation(&mut state);
             timings.push(start.elapsed().as_nanos() as f64);
             bytes += allocator::allocated_bytes() - before_bytes;
             allocations += allocator::ALLOCATIONS.load(Ordering::Relaxed) - before_allocations;
+            drop(state);
         }
     }
     timings.sort_by(f64::total_cmp);
@@ -377,7 +378,7 @@ fn retirement_runtime() -> (
 }
 
 fn bench_reactor_retirement_initiation(samples: usize, batch: usize) -> Row {
-    let perf = measure_prepared(samples, batch, retirement_runtime, |(mut runtime, _)| {
+    let perf = measure_prepared(samples, batch, retirement_runtime, |(runtime, _)| {
         runtime.update(retirement_view(false));
     });
     Row {
@@ -398,7 +399,7 @@ fn bench_reactor_retirement_completion(samples: usize, batch: usize) -> Row {
             assert!(runtime.complete_retirement(retiring));
             runtime
         },
-        |mut runtime| {
+        |runtime| {
             runtime.dispatch_native_events();
         },
     );
@@ -421,7 +422,7 @@ fn bench_reactor_retirement_remount(samples: usize, batch: usize) -> Row {
             runtime.dispatch_native_events();
             runtime
         },
-        |mut runtime| {
+        |runtime| {
             runtime.update(retirement_view(true));
         },
     );
@@ -478,7 +479,7 @@ fn virtual_items_realized_runtime(
 }
 
 fn bench_reactor_virtual_create(samples: usize, batch: usize) -> Row {
-    let perf = measure_prepared(samples, batch, reactor_runtime, |mut runtime| {
+    let perf = measure_prepared(samples, batch, reactor_runtime, |runtime| {
         black_box(runtime.update(virtual_items_view(0)));
     });
     Row {
@@ -498,7 +499,7 @@ fn bench_reactor_virtual_source_replace(samples: usize, batch: usize) -> Row {
             runtime.update(reactor::ItemsRepeater::new());
             runtime
         },
-        |mut runtime| {
+        |runtime| {
             black_box(runtime.update(virtual_items_view(0)));
         },
     );
@@ -524,7 +525,7 @@ fn bench_reactor_virtual_realize(samples: usize, batch: usize) -> Row {
             });
             runtime
         },
-        |mut runtime| {
+        |runtime| {
             black_box(runtime.dispatch_native_events());
         },
     );
@@ -541,7 +542,7 @@ fn bench_reactor_virtual_update(samples: usize, batch: usize) -> Row {
         samples,
         batch,
         || virtual_items_realized_runtime(8),
-        |(mut runtime, _)| {
+        |(runtime, _)| {
             black_box(runtime.update(virtual_items_view(1)));
             black_box(runtime.dispatch_native_events());
         },
@@ -567,7 +568,7 @@ fn bench_reactor_virtual_recycle(samples: usize, batch: usize) -> Row {
             });
             runtime
         },
-        |mut runtime| {
+        |runtime| {
             black_box(runtime.dispatch_native_events());
         },
     );
@@ -1124,9 +1125,8 @@ fn reactor_component_remove(count: usize, samples: usize) -> Row {
                 (0..count).map(|index| reactor::component::<BenchComponent>(index, false)),
             )
         },
-        |mut components| {
+        |components| {
             components.remove(&reactor::Key::from(count / 2));
-            black_box(components);
         },
     );
     Row {
