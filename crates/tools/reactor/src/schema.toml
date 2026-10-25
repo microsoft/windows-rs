@@ -1156,12 +1156,16 @@ name = "Severity"
 
 [[objects.properties]]
 name = "IsOpen"
+controlled = "Closed"
+feedback = "exact"
 
 [[objects.properties]]
 name = "IsClosable"
 
 [[objects.events]]
 name = "Closed"
+value = "Unit"
+observes = "IsOpen"
 
 [[objects]]
 name = "PersonPicture"
@@ -1603,6 +1607,8 @@ name = "Subtitle"
 
 [[objects.properties]]
 name = "IsOpen"
+controlled = "Closed"
+feedback = "deferred_exact"
 
 [[objects.properties]]
 name = "IsLightDismissEnabled"
@@ -1620,6 +1626,8 @@ adapter = "inspectable_string"
 
 [[objects.events]]
 name = "Closed"
+value = "Unit"
+observes = "IsOpen"
 
 [[objects.events]]
 name = "ActionButtonClick"

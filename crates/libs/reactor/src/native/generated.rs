@@ -345,7 +345,7 @@ struct GeneratedRadioButtons {
 struct GeneratedInfoBar {
     value: native::InfoBar,
     closed: Rc<RefCell<NativeUnitEvent>>,
-    _closed: Option<GeneratedRevoker>,
+    _closed: GeneratedRevoker,
 }
 struct GeneratedImage {
     value: native::Image,
@@ -404,7 +404,7 @@ struct GeneratedTabView {
 struct GeneratedTeachingTip {
     value: native::TeachingTip,
     closed: Rc<RefCell<NativeUnitEvent>>,
-    _closed: Option<GeneratedRevoker>,
+    _closed: GeneratedRevoker,
     action_button_click: Rc<RefCell<NativeUnitEvent>>,
     _action_button_click: Option<GeneratedRevoker>,
 }
@@ -1462,7 +1462,34 @@ impl GeneratedHandle {
             ObjectType::InfoBar => {
                 let value = native::InfoBar::new()?;
                 let closed = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let _closed = None;
+                let source_closed = value.clone();
+                let read_closed = move || source_closed.IsOpen();
+                let event_for_callback = Rc::clone(&closed);
+                let event_queue_closed = Rc::clone(event_queue);
+                let revoker = value.Closed(move |_, _| {
+                    let observed = read_closed().unwrap();
+                    let observation = Observation::SetProperty {
+                        object,
+                        property: Property {
+                            id: PropertyId::IsOpen,
+                            value: PropertyValue::Bool(observed),
+                        },
+                    };
+                    let dispatch =
+                        event_queue_closed.observe(object, EventId::Closed, observation.clone());
+                    let observation = dispatch.then_some(observation);
+                    if dispatch {
+                        WinUiAdapter::dispatch(
+                            &event_for_callback,
+                            &event_queue_closed,
+                            object,
+                            EventId::Closed,
+                            observation,
+                            (),
+                        );
+                    }
+                })?;
+                let _closed = GeneratedRevoker::Event(revoker);
                 Self::InfoBar(Box::new(GeneratedInfoBar {
                     value,
                     closed,
@@ -1897,7 +1924,34 @@ impl GeneratedHandle {
             ObjectType::TeachingTip => {
                 let value = native::TeachingTip::new()?;
                 let closed = Rc::new(RefCell::new(NativeUnitEvent::default()));
-                let _closed = None;
+                let source_closed = value.clone();
+                let read_closed = move || source_closed.IsOpen();
+                let event_for_callback = Rc::clone(&closed);
+                let event_queue_closed = Rc::clone(event_queue);
+                let revoker = value.Closed(move |_, _| {
+                    let observed = read_closed().unwrap();
+                    let observation = Observation::SetProperty {
+                        object,
+                        property: Property {
+                            id: PropertyId::IsOpen,
+                            value: PropertyValue::Bool(observed),
+                        },
+                    };
+                    let dispatch =
+                        event_queue_closed.observe(object, EventId::Closed, observation.clone());
+                    let observation = dispatch.then_some(observation);
+                    if dispatch {
+                        WinUiAdapter::dispatch(
+                            &event_for_callback,
+                            &event_queue_closed,
+                            object,
+                            EventId::Closed,
+                            observation,
+                            (),
+                        );
+                    }
+                })?;
+                let _closed = GeneratedRevoker::Event(revoker);
                 let action_button_click = Rc::new(RefCell::new(NativeUnitEvent::default()));
                 let _action_button_click = None;
                 Self::TeachingTip(Box::new(GeneratedTeachingTip {
@@ -4063,6 +4117,20 @@ impl GeneratedHandle {
                     value: PropertyValue::SelectionIndex(None),
                 }),
             )),
+            (ObjectType::InfoBar, PropertyId::IsOpen, Some(value)) => Some((
+                EventId::Closed,
+                FeedbackExpectation::Exact(Property {
+                    id: PropertyId::IsOpen,
+                    value: value.clone(),
+                }),
+            )),
+            (ObjectType::InfoBar, PropertyId::IsOpen, None) => Some((
+                EventId::Closed,
+                FeedbackExpectation::Exact(Property {
+                    id: PropertyId::IsOpen,
+                    value: PropertyValue::Bool(false),
+                }),
+            )),
             (ObjectType::RatingControl, PropertyId::MaxRating, _) => Some((
                 EventId::ValueChanged,
                 FeedbackExpectation::Normalized { observation: None },
@@ -4139,6 +4207,20 @@ impl GeneratedHandle {
                 FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::SelectedIndex,
                     value: PropertyValue::SelectionIndex(None),
+                }),
+            )),
+            (ObjectType::TeachingTip, PropertyId::IsOpen, Some(value)) => Some((
+                EventId::Closed,
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::IsOpen,
+                    value: value.clone(),
+                }),
+            )),
+            (ObjectType::TeachingTip, PropertyId::IsOpen, None) => Some((
+                EventId::Closed,
+                FeedbackExpectation::DeferredExact(Property {
+                    id: PropertyId::IsOpen,
+                    value: PropertyValue::Bool(false),
                 }),
             )),
             (ObjectType::ColorPicker, PropertyId::Color, Some(value)) => Some((
@@ -4962,7 +5044,6 @@ impl GeneratedHandle {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
                             object.closed.borrow_mut().set(Some(callback.clone()));
-                            object.subscribe_closed(object_id, context)?;
                         }
                         _ => return Err(WinUiError::InvalidObject(object_id)),
                     }
@@ -5165,7 +5246,6 @@ impl GeneratedHandle {
                     match (event.id, &event.value) {
                         (EventId::Closed, EventValue::Unit(callback)) => {
                             object.closed.borrow_mut().set(Some(callback.clone()));
-                            object.subscribe_closed(object_id, context)?;
                         }
                         (EventId::ActionButtonClick, EventValue::Unit(callback)) => {
                             object
@@ -6585,36 +6665,6 @@ impl GeneratedNavigationView {
         Ok(())
     }
 }
-impl GeneratedInfoBar {
-    fn subscribe_closed(
-        &mut self,
-        object: ObjectId,
-        context: EventContext,
-    ) -> Result<(), WinUiError> {
-        if self._closed.is_some() {
-            return Ok(());
-        }
-        let value = &self.value;
-        let event_for_callback = Rc::clone(&self.closed);
-        let event_queue_closed = Rc::clone(context.event_queue);
-        let revoker = value.Closed(move |_, _| {
-            let dispatch = true;
-            let observation = None;
-            if dispatch {
-                WinUiAdapter::dispatch(
-                    &event_for_callback,
-                    &event_queue_closed,
-                    object,
-                    EventId::Closed,
-                    observation,
-                    (),
-                );
-            }
-        })?;
-        self._closed = Some(GeneratedRevoker::Event(revoker));
-        Ok(())
-    }
-}
 impl GeneratedTabView {
     fn subscribe_add_tab_button_click(
         &mut self,
@@ -6685,34 +6735,6 @@ impl GeneratedTabView {
     }
 }
 impl GeneratedTeachingTip {
-    fn subscribe_closed(
-        &mut self,
-        object: ObjectId,
-        context: EventContext,
-    ) -> Result<(), WinUiError> {
-        if self._closed.is_some() {
-            return Ok(());
-        }
-        let value = &self.value;
-        let event_for_callback = Rc::clone(&self.closed);
-        let event_queue_closed = Rc::clone(context.event_queue);
-        let revoker = value.Closed(move |_, _| {
-            let dispatch = true;
-            let observation = None;
-            if dispatch {
-                WinUiAdapter::dispatch(
-                    &event_for_callback,
-                    &event_queue_closed,
-                    object,
-                    EventId::Closed,
-                    observation,
-                    (),
-                );
-            }
-        })?;
-        self._closed = Some(GeneratedRevoker::Event(revoker));
-        Ok(())
-    }
     fn subscribe_action_button_click(
         &mut self,
         object: ObjectId,

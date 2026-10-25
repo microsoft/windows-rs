@@ -352,6 +352,31 @@ impl Automation {
         Ok(())
     }
 
+    /// Waits until the element's bounds stop changing for `quiet`.
+    pub fn settled(&self, id: &str, quiet: Duration) -> Result<()> {
+        eprintln!("{id:?} bounds settle for {quiet:?}");
+        let element = self.element(id)?;
+        let deadline = Instant::now() + Duration::from_secs(5);
+        let mut last = unsafe { element.CurrentBoundingRectangle()? };
+        let mut stable = Instant::now();
+        loop {
+            self.ensure_active()?;
+            std::thread::sleep(Duration::from_millis(20));
+            let bounds = unsafe { element.CurrentBoundingRectangle()? };
+            if (bounds.left, bounds.top, bounds.right, bounds.bottom)
+                != (last.left, last.top, last.right, last.bottom)
+            {
+                last = bounds;
+                stable = Instant::now();
+            } else if stable.elapsed() >= quiet {
+                return Ok(());
+            }
+            if Instant::now() >= deadline {
+                return Err(format!("{id:?} bounds did not settle").into());
+            }
+        }
+    }
+
     pub fn invoke(&self, id: &str) -> Result<()> {
         eprintln!("invoke {id:?}");
         unsafe {

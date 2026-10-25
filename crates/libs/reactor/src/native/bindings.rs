@@ -11391,6 +11391,16 @@ impl windows_core::RuntimeType for IInfoBar {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IInfoBar {
+    pub(crate) fn IsOpen(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsOpen)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<InfoBar>, windows_core::Ref<InfoBarClosedEventArgs>) + 'static,
@@ -11424,7 +11434,8 @@ impl IInfoBar {
 #[repr(C)]
 pub struct IInfoBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    IsOpen: usize,
+    pub IsOpen:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     SetIsOpen: usize,
     Title: usize,
     SetTitle: usize,
@@ -17591,6 +17602,16 @@ impl windows_core::RuntimeType for ITeachingTip {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ITeachingTip {
+    pub(crate) fn IsOpen(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsOpen)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn ActionButtonClick<F>(
         &self,
         handler: F,
@@ -17662,7 +17683,8 @@ pub struct ITeachingTip_Vtbl {
     SetTitle: usize,
     Subtitle: usize,
     SetSubtitle: usize,
-    IsOpen: usize,
+    pub IsOpen:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     SetIsOpen: usize,
     Target: usize,
     SetTarget: usize,

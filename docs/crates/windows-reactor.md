@@ -142,6 +142,11 @@ For a choice among options, declare `RadioButtons::selected_index`, or derive ea
 checks; Reactor records the buttons WinUI unchecks without reporting them, so a rejected choice
 restores the declared button.
 
+A dismissible surface such as `InfoBar::is_open` or `TeachingTip::is_open` reports a user close
+through `on_closed`; a render that keeps declaring `true` reopens it. WinUI ignores a
+`TeachingTip` open or close that arrives during its open or close animation, without raising an
+event, so the tip keeps its previous state.
+
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 
 Item collections follow the same rule. `ListView`, `GridView`, and `TabView` report user

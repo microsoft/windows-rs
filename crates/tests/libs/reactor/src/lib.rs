@@ -18,6 +18,7 @@ mod reference;
 mod repeater;
 mod retirement;
 mod selection;
+mod surface;
 mod tab;
 mod text;
 mod timer;
@@ -290,6 +291,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "radio" => App::run_component::<controlled::RadioFixture>(())?,
         "controlled-input" => App::run_component::<controlled::InputFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
+        "surface" => App::run_component::<surface::SurfaceFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "dialog-theme-light" => {
             App::run_component::<dialog_theme::DialogThemeFixture>((WindowTheme::Light, true))?;
