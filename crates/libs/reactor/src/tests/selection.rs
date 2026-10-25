@@ -20,7 +20,7 @@ fn selection_observations_preserve_declaration_ownership() {
     let item = runtime.graph().children(owner, RelationId::Items).unwrap()[0];
     let observation = Observation::SetSelection {
         object: owner,
-        selected: Some(item),
+        selected: ObservedSelection::Item(item),
     };
     runtime.adapter_mut().queue_native_event(
         Some(observation.clone()),
@@ -79,7 +79,7 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
     runtime.adapter_mut().queue_native_event(
         Some(Observation::SetSelection {
             object: owner,
-            selected: Some(before[1]),
+            selected: ObservedSelection::Item(before[1]),
         }),
         Some(EventDispatch::new(
             owner,
@@ -163,7 +163,7 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
     runtime.adapter_mut().queue_native_event(
         Some(Observation::SetSelection {
             object: owner,
-            selected: Some(before[1]),
+            selected: ObservedSelection::Item(before[1]),
         }),
         Some(EventDispatch::new(
             owner,
@@ -205,7 +205,7 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
     let graph = runtime.graph().clone();
     runtime.adapter_mut().observe(Observation::SetSelection {
         object: owner,
-        selected: Some(before[1]),
+        selected: ObservedSelection::Item(before[1]),
     });
     runtime.prepare_update();
     assert_eq!(runtime.graph(), &graph);
@@ -233,7 +233,7 @@ fn selection_matching_declared_flags_is_not_dispatched() {
         .children(owner, RelationId::Items)
         .unwrap()
         .to_vec();
-    let report = |runtime: &mut Runtime<RecordingAdapter>, selected: Option<ObjectId>| {
+    let report = |runtime: &mut Runtime<RecordingAdapter>, selected: ObservedSelection| {
         runtime.adapter_mut().queue_native_event(
             Some(Observation::SetSelection {
                 object: owner,
@@ -244,7 +244,10 @@ fn selection_matching_declared_flags_is_not_dispatched() {
                 EventId::SelectionChanged,
                 EventValue::Selection(callback.clone()),
                 EventPayload::Selection(SelectionChange {
-                    item: selected,
+                    item: match selected {
+                        ObservedSelection::Item(item) => Some(item),
+                        _ => None,
+                    },
                     value: None,
                 }),
             )),
@@ -252,13 +255,16 @@ fn selection_matching_declared_flags_is_not_dispatched() {
         runtime.dispatch_native_events()
     };
 
-    assert_eq!(report(&mut runtime, Some(items[0])), 0);
+    assert_eq!(report(&mut runtime, ObservedSelection::Item(items[0])), 0);
     runtime.update(view(false));
-    assert_eq!(report(&mut runtime, None), 0);
+    assert_eq!(report(&mut runtime, ObservedSelection::Cleared), 0);
     assert!(values.borrow().is_empty());
 
-    assert_eq!(report(&mut runtime, Some(items[1])), 1);
-    assert_eq!(*values.borrow(), [None]);
+    // Nested or built-in items are genuine selections even though no tracked flag is set.
+    assert_eq!(report(&mut runtime, ObservedSelection::Untracked), 1);
+    assert_eq!(report(&mut runtime, ObservedSelection::Untracked), 1);
+    assert_eq!(report(&mut runtime, ObservedSelection::Item(items[1])), 1);
+    assert_eq!(*values.borrow(), [None, None, None]);
 }
 
 #[test]
