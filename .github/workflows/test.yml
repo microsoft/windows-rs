@@ -74,7 +74,7 @@ jobs:
           Invoke-WebRequest -UseBasicParsing 'https://dot.net/v1/dotnet-install.ps1' -OutFile $script
           # An explicit version downloads from the CDN feed rather than the aka.ms channel link.
           foreach ($channel in '9.0', '10.0') {
-            $version = (Invoke-RestMethod "https://builds.dotnet.microsoft.com/dotnet/Runtime/$channel/latest.version").Trim()
+            $version = (-split (Invoke-RestMethod "https://builds.dotnet.microsoft.com/dotnet/Runtime/$channel/latest.version"))[-1]
             & $script -Version $version -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
           }
       - uses: Swatinem/rust-cache@v2
