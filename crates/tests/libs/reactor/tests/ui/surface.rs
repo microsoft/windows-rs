@@ -74,14 +74,14 @@ fn teaching_tip_programmatic_close_is_not_reported() -> Result<()> {
         ui.invoke("show-tip")?;
         ui.settled("ActionButton", SETTLE)?;
 
-        // WinUI ignores the reopen during the close animation, then raises `Closed`.
+        // Depending on timing, WinUI either coalesces the two writes or ignores the reopen during
+        // its close animation and then raises `Closed`. Neither reports a user close.
         ui.invoke("hide-tip")?;
         ui.invoke("show-tip")?;
-        ui.gone("ActionButton")?;
         ui.name_stays("events", "Events []", QUIET)?;
         ui.name("state", "Info false; tip true")?;
 
-        // The next render restores the declared open state.
+        // A render keeps or restores the declared open state.
         ui.invoke("show-tip")?;
         ui.element("ActionButton")?;
         ui.name_stays("events", "Events []", QUIET)
