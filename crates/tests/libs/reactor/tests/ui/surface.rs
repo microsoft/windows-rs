@@ -67,3 +67,23 @@ fn teaching_tip_open_state_is_controlled() -> Result<()> {
         )
     })
 }
+
+#[test]
+fn teaching_tip_programmatic_close_is_not_reported() -> Result<()> {
+    process::run("surface", |ui| {
+        ui.invoke("show-tip")?;
+        ui.settled("ActionButton", SETTLE)?;
+
+        // WinUI ignores the reopen during the close animation, then raises `Closed`.
+        ui.invoke("hide-tip")?;
+        ui.invoke("show-tip")?;
+        ui.gone("ActionButton")?;
+        ui.name_stays("events", "Events []", QUIET)?;
+        ui.name("state", "Info false; tip true")?;
+
+        // The next render restores the declared open state.
+        ui.invoke("show-tip")?;
+        ui.element("ActionButton")?;
+        ui.name_stays("events", "Events []", QUIET)
+    })
+}

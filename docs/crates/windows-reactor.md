@@ -145,7 +145,7 @@ restores the declared button.
 A dismissible surface such as `InfoBar::is_open` or `TeachingTip::is_open` reports a user close
 through `on_closed`; a render that keeps declaring `true` reopens it. WinUI ignores a
 `TeachingTip` open or close that arrives during its open or close animation, without raising an
-event, so the tip keeps its previous state.
+event, so the tip keeps its previous state until the next render writes the declared value again.
 
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 
@@ -424,6 +424,12 @@ writes the declared value again after any change to that range, because some con
 An event with `observe_only = true` records its `observes` property in the retained graph but has
 no callback. `RadioButton` uses it for `Unchecked`: WinUI unchecks the rest of a group as a side
 effect, never as direct user input, but Reactor must still see it to restore a rejected choice.
+
+An event with `programmatic_reason = "<variant>"` reads the event-args `Reason`. When it reports
+that variant, the close came from Reactor's own write, so the event records its `observes`
+property without calling back the app. `InfoBar` and `TeachingTip` use it for `Closed`. The
+observed `IsOpen` value alone cannot identify Reactor's write: WinUI drops a `TeachingTip` open or
+close that lands during its animation, and later reports the earlier close.
 
 Reactor fails fast. It does not roll back the retained graph or poison the runtime after a
 failure; it panics instead. A panic on the UI thread crosses a WinUI callback and aborts the

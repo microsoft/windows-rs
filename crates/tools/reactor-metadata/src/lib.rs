@@ -742,6 +742,22 @@ impl MetadataResolver {
             .then(|| getter_ref.interface.full_path())
     }
 
+    /// Resolves an event-args property that returns an enum. Returns the enum's short name.
+    pub fn resolve_event_args_enum(
+        &self,
+        class_name: &str,
+        add_event: &str,
+        property: &str,
+    ) -> Option<&str> {
+        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
+        let Type::ValueName(name) = &getter_ref.return_type else {
+            return None;
+        };
+        self.enum_variants
+            .contains_key(&(name.namespace.clone(), name.name.clone()))
+            .then_some(name.name.as_str())
+    }
+
     fn resolve_event_args_getter(
         &self,
         class_name: &str,

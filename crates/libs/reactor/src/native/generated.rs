@@ -1466,7 +1466,7 @@ impl GeneratedHandle {
                 let read_closed = move || source_closed.IsOpen();
                 let event_for_callback = Rc::clone(&closed);
                 let event_queue_closed = Rc::clone(event_queue);
-                let revoker = value.Closed(move |_, _| {
+                let revoker = value.Closed(move |_, args| {
                     let observed = read_closed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
@@ -1478,6 +1478,12 @@ impl GeneratedHandle {
                     let dispatch =
                         event_queue_closed.observe(object, EventId::Closed, observation.clone());
                     let observation = dispatch.then_some(observation);
+                    if args.unwrap().Reason().unwrap() == native::InfoBarCloseReason::Programmatic {
+                        if let Some(observation) = observation {
+                            WinUiAdapter::record(&event_queue_closed, observation);
+                        }
+                        return;
+                    }
                     if dispatch {
                         WinUiAdapter::dispatch(
                             &event_for_callback,
@@ -1928,7 +1934,7 @@ impl GeneratedHandle {
                 let read_closed = move || source_closed.IsOpen();
                 let event_for_callback = Rc::clone(&closed);
                 let event_queue_closed = Rc::clone(event_queue);
-                let revoker = value.Closed(move |_, _| {
+                let revoker = value.Closed(move |_, args| {
                     let observed = read_closed().unwrap();
                     let observation = Observation::SetProperty {
                         object,
@@ -1940,6 +1946,14 @@ impl GeneratedHandle {
                     let dispatch =
                         event_queue_closed.observe(object, EventId::Closed, observation.clone());
                     let observation = dispatch.then_some(observation);
+                    if args.unwrap().Reason().unwrap()
+                        == native::TeachingTipCloseReason::Programmatic
+                    {
+                        if let Some(observation) = observation {
+                            WinUiAdapter::record(&event_queue_closed, observation);
+                        }
+                        return;
+                    }
                     if dispatch {
                         WinUiAdapter::dispatch(
                             &event_for_callback,
@@ -4117,20 +4131,6 @@ impl GeneratedHandle {
                     value: PropertyValue::SelectionIndex(None),
                 }),
             )),
-            (ObjectType::InfoBar, PropertyId::IsOpen, Some(value)) => Some((
-                EventId::Closed,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsOpen,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::InfoBar, PropertyId::IsOpen, None) => Some((
-                EventId::Closed,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsOpen,
-                    value: PropertyValue::Bool(false),
-                }),
-            )),
             (ObjectType::RatingControl, PropertyId::MaxRating, _) => Some((
                 EventId::ValueChanged,
                 FeedbackExpectation::Normalized { observation: None },
@@ -4207,20 +4207,6 @@ impl GeneratedHandle {
                 FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::SelectedIndex,
                     value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::TeachingTip, PropertyId::IsOpen, Some(value)) => Some((
-                EventId::Closed,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::IsOpen,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::TeachingTip, PropertyId::IsOpen, None) => Some((
-                EventId::Closed,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::IsOpen,
-                    value: PropertyValue::Bool(false),
                 }),
             )),
             (ObjectType::ColorPicker, PropertyId::Color, Some(value)) => Some((

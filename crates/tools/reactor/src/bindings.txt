@@ -107,6 +107,7 @@ Microsoft::UI::Xaml::Controls::IImage::{add_ImageFailed, add_ImageOpened, put_So
 Microsoft::UI::Xaml::Controls::IImageIcon::put_Source
 Microsoft::UI::Xaml::Controls::IImageIconSource::put_ImageSource
 Microsoft::UI::Xaml::Controls::IInfoBar::{add_Closed, get_IsOpen, remove_Closed}
+Microsoft::UI::Xaml::Controls::IInfoBarClosedEventArgs::get_Reason
 Microsoft::UI::Xaml::Controls::IItemContainer::get_IsSelected
 Microsoft::UI::Xaml::Controls::IItemsControl::{get_Items, put_ItemTemplate}
 Microsoft::UI::Xaml::Controls::IItemsRepeater::{GetOrCreateElement, put_ItemsSource, put_ItemTemplate}
@@ -127,6 +128,7 @@ Microsoft::UI::Xaml::Controls::INavigationViewItem2::get_MenuItems
 Microsoft::UI::Xaml::Controls::INavigationViewItemBase2::get_IsSelected
 Microsoft::UI::Xaml::Controls::InfoBadge::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBar::CreateInstance
+Microsoft::UI::Xaml::Controls::InfoBarCloseReason::Programmatic
 Microsoft::UI::Xaml::Controls::InfoBarSeverity
 Microsoft::UI::Xaml::Controls::INumberBox::{add_ValueChanged, get_Value, put_Header, remove_ValueChanged}
 Microsoft::UI::Xaml::Controls::INumberBoxValueChangedEventArgs::get_NewValue
@@ -152,6 +154,7 @@ Microsoft::UI::Xaml::Controls::ISymbolIconSource::put_Symbol
 Microsoft::UI::Xaml::Controls::ITabView::{add_AddTabButtonClick, add_SelectionChanged, add_TabCloseRequested, add_TabItemsChanged, get_SelectedIndex, get_TabItems, remove_AddTabButtonClick, remove_SelectionChanged, remove_TabCloseRequested, remove_TabItemsChanged}
 Microsoft::UI::Xaml::Controls::ITabViewTabCloseRequestedEventArgs::get_Tab
 Microsoft::UI::Xaml::Controls::ITeachingTip::{add_ActionButtonClick, add_Closed, get_IsOpen, remove_ActionButtonClick, remove_Closed}
+Microsoft::UI::Xaml::Controls::ITeachingTipClosedEventArgs::get_Reason
 Microsoft::UI::Xaml::Controls::ItemCollection::{}
 Microsoft::UI::Xaml::Controls::ItemsRepeater::CreateInstance
 Microsoft::UI::Xaml::Controls::ITextBox::{add_TextChanged, get_SelectionLength, get_SelectionStart, get_Text, put_Header, put_SelectionLength, put_SelectionStart, put_Text, remove_TextChanged}
@@ -229,6 +232,7 @@ Microsoft::UI::Xaml::Controls::SymbolIconSource::CreateInstance
 Microsoft::UI::Xaml::Controls::TabView::CreateInstance
 Microsoft::UI::Xaml::Controls::TabViewItem::CreateInstance
 Microsoft::UI::Xaml::Controls::TeachingTip::CreateInstance
+Microsoft::UI::Xaml::Controls::TeachingTipCloseReason::Programmatic
 Microsoft::UI::Xaml::Controls::TeachingTipPlacementMode
 Microsoft::UI::Xaml::Controls::TextBlock::CreateInstance
 Microsoft::UI::Xaml::Controls::TextBox::CreateInstance
