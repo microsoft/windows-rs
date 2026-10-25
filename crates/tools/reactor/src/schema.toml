@@ -1162,6 +1162,9 @@ name = "IsClosable"
 
 [[objects.events]]
 name = "Closed"
+value = "Unit"
+observes = "IsOpen"
+programmatic_reason = "Programmatic"
 
 [[objects]]
 name = "PersonPicture"
@@ -1620,6 +1623,15 @@ adapter = "inspectable_string"
 
 [[objects.events]]
 name = "Closed"
+value = "Unit"
+observes = "IsOpen"
+programmatic_reason = "Programmatic"
+
+[[objects.events]]
+name = "IsOpenChanged"
+property_changed = true
+observes = "IsOpen"
+observe_only = true
 
 [[objects.events]]
 name = "ActionButtonClick"

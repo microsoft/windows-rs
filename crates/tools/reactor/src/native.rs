@@ -366,6 +366,7 @@ fn emit_event(
         || event.value == Value::FocusEventInfo
         || matches!(event.value, Value::DragKind | Value::DroppedData)
         || event.payload.is_some()
+        || event.programmatic_reason.is_some()
     {
         "args"
     } else {
@@ -443,6 +444,21 @@ fn emit_event(
                          let observation = dispatch.then_some(observation);\n",
             event.name
         ));
+        if let Some(reason) = &event.programmatic_reason {
+            let reasons = metadata
+                .resolve_event_args_enum(
+                    &native_name(object),
+                    &format!("add_{}", event.name),
+                    "Reason",
+                )
+                .unwrap();
+            code.push_str(&format!(
+                "if args.unwrap().Reason().unwrap() == native::{reasons}::{reason} {{ \
+                 if let Some(observation) = observation {{ \
+                 WinUiAdapter::record(&event_queue_{field}, observation); }} \
+                 return; }}\n"
+            ));
+        }
     } else if let Some(relation) = &event.reorders {
         // The adapter reads the native order when it processes the event.
         code.push_str(&format!(

@@ -482,6 +482,12 @@ impl WinUiAdapter {
         Ok(FocusEventInfo { state, is_direct })
     }
 
+    /// Records a native change Reactor caused through its own write, without a callback.
+    fn record(event_queue: &Rc<NativeEventQueue>, observation: Observation) {
+        event_queue.queue(Some(observation), None);
+        Self::schedule_event_wake(event_queue);
+    }
+
     fn schedule_event_wake(event_queue: &Rc<NativeEventQueue>) {
         if event_queue.waker.borrow().is_none() {
             return;

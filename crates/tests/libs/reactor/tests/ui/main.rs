@@ -34,6 +34,7 @@ mod reference;
 mod repeater;
 mod retirement;
 mod selection;
+mod surface;
 mod tab;
 mod text;
 mod timer;

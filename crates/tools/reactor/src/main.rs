@@ -647,6 +647,10 @@ struct Event {
     /// never direct user input, such as a `RadioButton` unchecked by its group.
     #[serde(default)]
     observe_only: bool,
+    /// The event-args `Reason` value that reports a change made through Reactor's own write.
+    /// Such a change records the observed property without calling back the app, which matters
+    /// when the control drops a later write and reports the earlier one after it.
+    programmatic_reason: Option<String>,
 }
 
 #[derive(Clone, Deserialize)]
@@ -982,7 +986,7 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
             }
         }
         for event in &object.events {
-            if event.property_changed || event.observe_only {
+            if event.property_changed || event.observe_only || event.programmatic_reason.is_some() {
                 assert!(
                     event.observes.is_some(),
                     "{}.{} must observe a property",

@@ -11391,6 +11391,16 @@ impl windows_core::RuntimeType for IInfoBar {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IInfoBar {
+    pub(crate) fn IsOpen(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsOpen)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<InfoBar>, windows_core::Ref<InfoBarClosedEventArgs>) + 'static,
@@ -11424,7 +11434,8 @@ impl IInfoBar {
 #[repr(C)]
 pub struct IInfoBar_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    IsOpen: usize,
+    pub IsOpen:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     SetIsOpen: usize,
     Title: usize,
     SetTitle: usize,
@@ -11472,9 +11483,25 @@ impl windows_core::RuntimeType for IInfoBarClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IInfoBarClosedEventArgs {
+    pub(crate) fn Reason(&self) -> windows_core::Result<InfoBarCloseReason> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Reason)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
 #[repr(C)]
 pub struct IInfoBarClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Reason: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut InfoBarCloseReason,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IInfoBarFactory,
@@ -17591,6 +17618,16 @@ impl windows_core::RuntimeType for ITeachingTip {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ITeachingTip {
+    pub(crate) fn IsOpen(&self) -> windows_core::Result<bool> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).IsOpen)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn ActionButtonClick<F>(
         &self,
         handler: F,
@@ -17662,7 +17699,8 @@ pub struct ITeachingTip_Vtbl {
     SetTitle: usize,
     Subtitle: usize,
     SetSubtitle: usize,
-    IsOpen: usize,
+    pub IsOpen:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     SetIsOpen: usize,
     Target: usize,
     SetTarget: usize,
@@ -17727,9 +17765,25 @@ impl windows_core::RuntimeType for ITeachingTipClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl ITeachingTipClosedEventArgs {
+    pub(crate) fn Reason(&self) -> windows_core::Result<TeachingTipCloseReason> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Reason)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
 #[repr(C)]
 pub struct ITeachingTipClosedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Reason: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut TeachingTipCloseReason,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ITeachingTipFactory,
@@ -22029,6 +22083,20 @@ impl windows_core::RuntimeName for InfoBar {
 }
 unsafe impl Send for InfoBar {}
 unsafe impl Sync for InfoBar {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct InfoBarCloseReason(pub i32);
+impl InfoBarCloseReason {
+    pub const Programmatic: Self = Self(1);
+}
+impl windows_core::imp::TypeKind for InfoBarCloseReason {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for InfoBarCloseReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Controls.InfoBarCloseReason;i4)",
+    );
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct InfoBarClosedEventArgs(windows_core::IUnknown);
@@ -28413,6 +28481,20 @@ impl windows_core::RuntimeName for TeachingTip {
 }
 unsafe impl Send for TeachingTip {}
 unsafe impl Sync for TeachingTip {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TeachingTipCloseReason(pub i32);
+impl TeachingTipCloseReason {
+    pub const Programmatic: Self = Self(2);
+}
+impl windows_core::imp::TypeKind for TeachingTipCloseReason {
+    type TypeKind = windows_core::imp::CopyType;
+}
+impl windows_core::RuntimeType for TeachingTipCloseReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Xaml.Controls.TeachingTipCloseReason;i4)",
+    );
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct TeachingTipClosedEventArgs(windows_core::IUnknown);

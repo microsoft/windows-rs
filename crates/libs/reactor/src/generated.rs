@@ -311,6 +311,7 @@ pub enum EventId {
     ImageOpened,
     IsCheckedChanged,
     IsExpandedChanged,
+    IsOpenChanged,
     IsPaneOpenChanged,
     ItemClicked,
     ItemInvoked,
@@ -808,6 +809,10 @@ pub fn event_contracts(kind: ObjectType) -> &'static [EventContract] {
             EventContract {
                 id: EventId::Closed,
                 value: ValueType::Unit,
+            },
+            EventContract {
+                id: EventId::IsOpenChanged,
+                value: ValueType::Bool,
             },
             EventContract {
                 id: EventId::ActionButtonClick,
