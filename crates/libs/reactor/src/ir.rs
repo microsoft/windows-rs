@@ -127,18 +127,11 @@ pub struct RelationContract {
     pub realization: Realization,
 }
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub enum SelectionEventItemSource {
-    Owner,
-    EventArgs,
-}
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SelectionContract {
     pub relations: &'static [RelationId],
     pub item: ObjectType,
     pub selected_property: PropertyId,
     pub event: EventId,
-    pub event_item_source: SelectionEventItemSource,
-    pub event_args: Option<&'static str>,
     pub payload_property: PropertyId,
 }
 

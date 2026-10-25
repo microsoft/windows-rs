@@ -212,6 +212,56 @@ fn retained_selection_tracks_keyed_items_across_reorder_and_removal() {
 }
 
 #[test]
+fn selection_matching_declared_flags_is_not_dispatched() {
+    let (values, callback) = recorder();
+    let view = |first: bool| {
+        ListBox::new()
+            .keyed_items([
+                keyed("first", ListBoxItem::new().tag("first").is_selected(first)),
+                keyed(
+                    "second",
+                    ListBoxItem::new().tag("second").is_selected(false),
+                ),
+            ])
+            .on_selected_tag_changed(callback.clone())
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(view(true));
+    let owner = runtime.graph().root().unwrap();
+    let items = runtime
+        .graph()
+        .children(owner, RelationId::Items)
+        .unwrap()
+        .to_vec();
+    let report = |runtime: &mut Runtime<RecordingAdapter>, selected: Option<ObjectId>| {
+        runtime.adapter_mut().queue_native_event(
+            Some(Observation::SetSelection {
+                object: owner,
+                selected,
+            }),
+            Some(EventDispatch::new(
+                owner,
+                EventId::SelectionChanged,
+                EventValue::Selection(callback.clone()),
+                EventPayload::Selection(SelectionChange {
+                    item: selected,
+                    value: None,
+                }),
+            )),
+        );
+        runtime.dispatch_native_events()
+    };
+
+    assert_eq!(report(&mut runtime, Some(items[0])), 0);
+    runtime.update(view(false));
+    assert_eq!(report(&mut runtime, None), 0);
+    assert!(values.borrow().is_empty());
+
+    assert_eq!(report(&mut runtime, Some(items[1])), 1);
+    assert_eq!(*values.borrow(), [None]);
+}
+
+#[test]
 fn selection_contracts_cover_navigation_list_box_and_selector_bar() {
     for (owner, item, relations, payload) in [
         (

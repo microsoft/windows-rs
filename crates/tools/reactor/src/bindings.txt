@@ -125,7 +125,6 @@ Microsoft::UI::Xaml::Controls::INavigationViewDisplayModeChangedEventArgs::get_D
 Microsoft::UI::Xaml::Controls::INavigationViewItem::put_Icon
 Microsoft::UI::Xaml::Controls::INavigationViewItem2::get_MenuItems
 Microsoft::UI::Xaml::Controls::INavigationViewItemBase2::get_IsSelected
-Microsoft::UI::Xaml::Controls::INavigationViewSelectionChangedEventArgs::get_SelectedItem
 Microsoft::UI::Xaml::Controls::InfoBadge::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBar::CreateInstance
 Microsoft::UI::Xaml::Controls::InfoBarSeverity

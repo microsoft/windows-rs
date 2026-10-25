@@ -1161,14 +1161,14 @@ impl GeneratedHandle {
                 let selection_changed = Rc::new(RefCell::new(NativeSelectionEvent::default()));
                 let event_for_callback = Rc::clone(&selection_changed);
                 let event_queue_selection_changed = Rc::clone(event_queue);
-                let revoker = value.SelectionChanged(move |_, args| {
-                    let args = args.unwrap();
+                let source_selection_changed = value.clone();
+                let revoker = value.SelectionChanged(move |_, _| {
                     WinUiAdapter::handle_selection_changed(
                         &event_for_callback,
                         &event_queue_selection_changed,
                         object,
                         EventId::SelectionChanged,
-                        args.SelectedItem(),
+                        source_selection_changed.SelectedItem(),
                         PropertyId::Tag,
                     );
                 })?;

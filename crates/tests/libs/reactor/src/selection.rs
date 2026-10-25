@@ -149,6 +149,135 @@ impl Component for IndexSelectionFixture {
             .into()
     }
 }
+/// A ListBox, SelectorBar, and NavigationView that all declare `is_selected` from one shared
+/// selection and adopt whatever any of them reports. Buttons select, clear, insert, rotate, and
+/// remove the selected item.
+pub(super) struct ItemSelectionFixture {
+    names: Vec<&'static str>,
+    selected: Option<Rc<str>>,
+    echoes: Vec<(&'static str, Option<Rc<str>>)>,
+}
+
+#[derive(Clone)]
+pub(super) enum ItemMessage {
+    Echo(&'static str, Option<Rc<str>>),
+    SelectLast,
+    Clear,
+    InsertFirst,
+    Rotate,
+    RemoveSelected,
+}
+
+impl Component for ItemSelectionFixture {
+    type Input = ();
+    type Message = ItemMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            names: vec!["Zero", "One", "Two"],
+            selected: Some(Rc::from("One")),
+            echoes: Vec::new(),
+        }
+    }
+
+    fn update(&mut self, message: ItemMessage, _: &ComponentContext<Self>) {
+        match message {
+            ItemMessage::Echo(control, value) => {
+                self.selected.clone_from(&value);
+                self.echoes.push((control, value));
+            }
+            ItemMessage::SelectLast => {
+                self.selected = self.names.last().map(|name| Rc::from(*name));
+            }
+            ItemMessage::Clear => self.selected = None,
+            ItemMessage::InsertFirst => self.names.insert(0, "Front"),
+            ItemMessage::Rotate => self.names.rotate_right(1),
+            ItemMessage::RemoveSelected => self
+                .names
+                .retain(|name| self.selected.as_deref() != Some(*name)),
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        context.window_title("Reactor UI fixture: selection-items");
+        context.window_visuals(WindowVisuals::new().client_size(900.0, 700.0));
+        let selected = |name: &str| self.selected.as_deref() == Some(name);
+        let echo = |control: &'static str| {
+            context.callback(move |value: Option<Rc<str>>| ItemMessage::Echo(control, value))
+        };
+        let buttons: [View; 5] = [
+            ("select-last", "Select last", ItemMessage::SelectLast),
+            ("clear", "Clear", ItemMessage::Clear),
+            ("insert-first", "Insert first", ItemMessage::InsertFirst),
+            ("rotate", "Rotate", ItemMessage::Rotate),
+            (
+                "remove-selected",
+                "Remove selected",
+                ItemMessage::RemoveSelected,
+            ),
+        ]
+        .map(|(id, label, message)| {
+            Button::new()
+                .automation_id(id)
+                .content(label)
+                .on_click(context.message(message))
+                .into()
+        });
+        StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .margin(20.0)
+            .spacing(20.0)
+            .children((
+                StackPanel::new().width(500.0).spacing(8.0).children((
+                    ListBox::new()
+                        .automation_id("list-box")
+                        .keyed_items(self.names.iter().map(|name| {
+                            keyed(
+                                *name,
+                                ListBoxItem::new()
+                                    .tag(*name)
+                                    .content(*name)
+                                    .is_selected(selected(name)),
+                            )
+                        }))
+                        .on_selected_tag_changed(echo("list-box")),
+                    SelectorBar::new()
+                        .automation_id("selector-bar")
+                        .keyed_items(self.names.iter().map(|name| {
+                            keyed(
+                                *name,
+                                SelectorBarItem::new()
+                                    .text(*name)
+                                    .is_selected(selected(name)),
+                            )
+                        }))
+                        .on_selected_text_changed(echo("selector-bar")),
+                    NavigationView::new()
+                        .automation_id("navigation-view")
+                        .height(220.0)
+                        .pane_display_mode(NavigationViewPaneDisplayMode::Left)
+                        .is_pane_toggle_button_visible(false)
+                        .is_settings_visible(false)
+                        .keyed_menu_items(self.names.iter().map(|name| {
+                            keyed(
+                                *name,
+                                NavigationViewItem::new()
+                                    .tag(*name)
+                                    .content(*name)
+                                    .is_selected(selected(name)),
+                            )
+                        }))
+                        .on_selected_tag_changed(echo("navigation-view")),
+                    TextBlock::new()
+                        .automation_id("echoes")
+                        .text(format!("Echoes {:?}", self.echoes)),
+                )),
+                StackPanel::new().spacing(8.0).children(buttons),
+            ))
+            .into()
+    }
+}
+
 pub(super) struct SelectionFixture {
     selected: Option<usize>,
     generation: u32,

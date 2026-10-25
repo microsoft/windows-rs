@@ -432,8 +432,6 @@ pub fn selection_contract(kind: ObjectType) -> Option<SelectionContract> {
             item: ObjectType::NavigationViewItem,
             selected_property: PropertyId::IsSelected,
             event: EventId::SelectionChanged,
-            event_item_source: SelectionEventItemSource::EventArgs,
-            event_args: Some("NavigationViewSelectionChangedEventArgs"),
             payload_property: PropertyId::Tag,
         }),
         ObjectType::ListBox => Some(SelectionContract {
@@ -441,8 +439,6 @@ pub fn selection_contract(kind: ObjectType) -> Option<SelectionContract> {
             item: ObjectType::ListBoxItem,
             selected_property: PropertyId::IsSelected,
             event: EventId::SelectionChanged,
-            event_item_source: SelectionEventItemSource::Owner,
-            event_args: None,
             payload_property: PropertyId::Tag,
         }),
         ObjectType::SelectorBar => Some(SelectionContract {
@@ -450,8 +446,6 @@ pub fn selection_contract(kind: ObjectType) -> Option<SelectionContract> {
             item: ObjectType::SelectorBarItem,
             selected_property: PropertyId::IsSelected,
             event: EventId::SelectionChanged,
-            event_item_source: SelectionEventItemSource::Owner,
-            event_args: None,
             payload_property: PropertyId::Text,
         }),
         _ => None,

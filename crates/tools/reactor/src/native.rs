@@ -328,18 +328,16 @@ fn emit_event(
         ));
     }
     if let Some(selection) = selection {
-        if selection.event_item_source == EventItemSource::Owner {
-            let selected_interface = metadata
-                .resolve(
-                    &native_name(object),
-                    &format!("get_{}", selection.selected_item_property),
-                )
-                .unwrap()
-                .short_name();
-            let selected_target =
-                native_interface_owned("value", &native_name(object), selected_interface, metadata);
-            code.push_str(&format!("let source_{field} = {selected_target};\n"));
-        }
+        let selected_interface = metadata
+            .resolve(
+                &native_name(object),
+                &format!("get_{}", selection.selected_item_property),
+            )
+            .unwrap()
+            .short_name();
+        let selected_target =
+            native_interface_owned("value", &native_name(object), selected_interface, metadata);
+        code.push_str(&format!("let source_{field} = {selected_target};\n"));
     } else if event.value == Value::PointerEventInfo {
         code.push_str(&format!(
             "let source_{field} = value.cast::<native::UIElement>()?;\n\
@@ -368,8 +366,6 @@ fn emit_event(
         || event.value == Value::FocusEventInfo
         || matches!(event.value, Value::DragKind | Value::DroppedData)
         || event.payload.is_some()
-        || selection
-            .is_some_and(|selection| selection.event_item_source == EventItemSource::EventArgs)
     {
         "args"
     } else {
@@ -402,38 +398,17 @@ fn emit_event(
         ));
     }
     if let Some(selection) = selection {
-        let selected = match selection.event_item_source {
-            EventItemSource::Owner => {
-                let getter = format!("get_{}", selection.selected_item_property);
-                if metadata.method_returns_object(&native_name(object), &getter) {
-                    format!("source_{field}.{}()", selection.selected_item_property)
-                } else {
-                    format!(
-                        "source_{field}.{}().and_then(|selected| \
-                                     selected.cast::<IInspectable>())",
-                        selection.selected_item_property
-                    )
-                }
-            }
-            EventItemSource::EventArgs => {
-                code.push_str("let args = args.unwrap();\n");
-                if metadata
-                    .resolve_event_args_object_property(
-                        &native_name(object),
-                        &format!("add_{}", event.name),
-                        &selection.selected_item_property,
-                    )
-                    .is_some()
-                {
-                    format!("args.{}()", selection.selected_item_property)
-                } else {
-                    format!(
-                        "args.{}().and_then(|selected| \
-                                     selected.cast::<IInspectable>())",
-                        selection.selected_item_property
-                    )
-                }
-            }
+        // Read the owner rather than the event args: a control may raise a deferred notification
+        // after its selection has moved on, and only the owner reports the current selection.
+        let getter = format!("get_{}", selection.selected_item_property);
+        let selected = if metadata.method_returns_object(&native_name(object), &getter) {
+            format!("source_{field}.{}()", selection.selected_item_property)
+        } else {
+            format!(
+                "source_{field}.{}().and_then(|selected| \
+                             selected.cast::<IInspectable>())",
+                selection.selected_item_property
+            )
         };
         code.push_str(&format!(
             "WinUiAdapter::handle_selection_changed(\n\

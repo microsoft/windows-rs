@@ -793,7 +793,9 @@ impl RetainedGraph {
 
     /// Applies a native observation. Returns `false` when the paired event must not be dispatched:
     /// a native order that already matches the retained order echoes Reactor's own mutation or
-    /// a drop in place, and is not a reorder.
+    /// a drop in place, and is not a reorder. Likewise, a selection that matches every child's
+    /// retained selection flag reports nothing new, such as a control raising a deferred
+    /// notification after Reactor wrote the flags.
     fn apply_observation(&mut self, observation: Observation) -> bool {
         if !self.validate_observation(&observation) {
             return true;
@@ -825,6 +827,15 @@ impl RetainedGraph {
                             .copied()
                     })
                     .collect::<Vec<_>>();
+                let matches_retained = children.iter().all(|child| {
+                    self.get(*child).unwrap().properties.iter().any(|property| {
+                        property.id == contract.selected_property
+                            && property.value == PropertyValue::Bool(Some(*child) == selected)
+                    })
+                });
+                if matches_retained {
+                    return false;
+                }
                 for child in children {
                     let child_object = self.get_mut(child);
                     if child_object

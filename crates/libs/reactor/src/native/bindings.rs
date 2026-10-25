@@ -13228,25 +13228,9 @@ impl windows_core::RuntimeType for INavigationViewSelectionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl INavigationViewSelectionChangedEventArgs {
-    pub(crate) fn SelectedItem(&self) -> windows_core::Result<windows_core::IInspectable> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SelectedItem)(
-                windows_core::Interface::as_raw(self),
-                &mut result__,
-            )
-            .and_then(|| windows_core::imp::Type::from_abi(result__))
-        }
-    }
-}
 #[repr(C)]
 pub struct INavigationViewSelectionChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub SelectedItem: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     INavigationViewStatics,

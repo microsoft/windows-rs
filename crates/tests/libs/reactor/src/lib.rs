@@ -309,6 +309,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "retirement" => App::run_component::<retirement::RetirementFixture>(())?,
         "selection" => App::run_component::<selection::SelectionFixture>(())?,
         "selection-index" => App::run_component::<selection::IndexSelectionFixture>(())?,
+        "selection-items" => App::run_component::<selection::ItemSelectionFixture>(())?,
         "tab" => App::run_component::<tab::TabFixture>(())?,
         "timer" => App::run_component::<timer::TimerFixture>(())?,
         "tree" => App::run_component::<tree::TreeFixture>(())?,

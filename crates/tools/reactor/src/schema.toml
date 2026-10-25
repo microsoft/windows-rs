@@ -943,8 +943,6 @@ item = "NavigationViewItem"
 selected_property = "IsSelected"
 selected_item_property = "SelectedItem"
 event = "SelectionChanged"
-event_item_source = "EventArgs"
-event_args = "NavigationViewSelectionChangedEventArgs"
 payload_property = "Tag"
 
 [[objects]]
@@ -1248,7 +1246,6 @@ item = "ListBoxItem"
 selected_property = "IsSelected"
 selected_item_property = "SelectedItem"
 event = "SelectionChanged"
-event_item_source = "Owner"
 payload_property = "Tag"
 
 [[objects]]
@@ -1525,7 +1522,6 @@ item = "SelectorBarItem"
 selected_property = "IsSelected"
 selected_item_property = "SelectedItem"
 event = "SelectionChanged"
-event_item_source = "Owner"
 payload_property = "Text"
 
 [[objects]]
