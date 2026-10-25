@@ -34,6 +34,121 @@ fn declared_index_does_not_echo() -> Result<()> {
         selected("Front")
     })
 }
+/// Item-flag selectors report only user selections. Declared flags drive all three controls,
+/// including across insertion, reordering, clearing, and removal of the selected item.
+#[test]
+fn declared_item_flags_do_not_echo() -> Result<()> {
+    // SelectorBar has no automation peer of its own, so it is found through its items view.
+    const SELECTOR_BAR: &str = "PART_ItemsView";
+    const CONTROLS: [&str; 3] = ["list-box", SELECTOR_BAR, "navigation-view"];
+    process::run("selection-items", |ui| {
+        let all_selected = |name: Option<&str>, echoes: &str| -> Result<()> {
+            for id in CONTROLS {
+                selected_item(ui, id, name)?;
+            }
+            ui.name_stays("echoes", echoes, Duration::from_millis(500))
+        };
+        all_selected(Some("One"), "Echoes []")?;
+
+        select_item(ui, "list-box", "Zero")?;
+        all_selected(Some("Zero"), r#"Echoes [("list-box", Some("Zero"))]"#)?;
+        select_item(ui, SELECTOR_BAR, "Two")?;
+        all_selected(
+            Some("Two"),
+            r#"Echoes [("list-box", Some("Zero")), ("selector-bar", Some("Two"))]"#,
+        )?;
+        select_item(ui, "navigation-view", "One")?;
+        let echoes = r#"Echoes [("list-box", Some("Zero")), ("selector-bar", Some("Two")), ("navigation-view", Some("One"))]"#;
+        all_selected(Some("One"), echoes)?;
+
+        ui.invoke("select-last")?;
+        all_selected(Some("Two"), echoes)?;
+        ui.invoke("insert-first")?;
+        all_selected(Some("Two"), echoes)?;
+        ui.invoke("rotate")?;
+        all_selected(Some("Two"), echoes)?;
+        ui.invoke("clear")?;
+        all_selected(None, echoes)?;
+        ui.invoke("select-last")?;
+        all_selected(Some("One"), echoes)?;
+        ui.invoke("remove-selected")?;
+        all_selected(None, echoes)
+    })
+}
+
+const SELECTION_ITEM_PATTERN: i32 = 10010;
+
+/// Selectable descendants of `control` with their names, taken from the element or its first named
+/// descendant.
+fn selectable_items(
+    ui: &Automation,
+    control: &IUIAutomationElement,
+) -> windows_core::Result<Vec<(String, IUIAutomationSelectionItemPattern)>> {
+    let mut items = Vec::new();
+    unsafe {
+        let all = ui.client.CreateTrueCondition()?;
+        let elements = control.FindAll(TreeScope_Descendants, &all)?;
+        for index in 0..elements.Length()? {
+            let element = elements.GetElement(index)?;
+            let Ok(pattern) = element
+                .GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(SELECTION_ITEM_PATTERN)
+            else {
+                continue;
+            };
+            let mut name = element.CurrentName()?.display().to_string();
+            let content = element.FindAll(TreeScope_Descendants, &all)?;
+            for index in 0..content.Length()? {
+                if !name.is_empty() {
+                    break;
+                }
+                name = content
+                    .GetElement(index)?
+                    .CurrentName()?
+                    .display()
+                    .to_string();
+            }
+            items.push((name, pattern));
+        }
+    }
+    Ok(items)
+}
+
+fn selected_item(ui: &Automation, id: &str, expected: Option<&str>) -> Result<()> {
+    let control = ui.element(id)?;
+    ui.wait(
+        &format!("{id:?} selection becomes {expected:?}"),
+        || {
+            let mut selected = Vec::new();
+            for (name, pattern) in selectable_items(ui, &control)? {
+                if unsafe { pattern.CurrentIsSelected()? }.as_bool() {
+                    selected.push(name);
+                }
+            }
+            Ok(selected)
+        },
+        |selected| selected.iter().map(String::as_str).eq(expected),
+    )?;
+    Ok(())
+}
+
+fn select_item(ui: &Automation, id: &str, name: &str) -> Result<()> {
+    eprintln!("select {name:?} in {id:?}");
+    let control = ui.element(id)?;
+    let (_, pattern) = ui
+        .wait(
+            &format!("find selectable {name:?} in {id:?}"),
+            || {
+                Ok(selectable_items(ui, &control)?
+                    .into_iter()
+                    .find(|(item, _)| item == name))
+            },
+            Option::is_some,
+        )?
+        .unwrap();
+    unsafe { pattern.Select().ok()? };
+    Ok(())
+}
+
 #[test]
 fn list_selection_feedback_and_handler_lifetimes() -> Result<()> {
     process::run("selection", |ui| {
@@ -100,7 +215,6 @@ fn list_selection_feedback_and_handler_lifetimes() -> Result<()> {
 }
 
 fn select(item: &IUIAutomationElement) -> Result<()> {
-    const SELECTION_ITEM_PATTERN: i32 = 10010;
     unsafe {
         item.GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(SELECTION_ITEM_PATTERN)?
             .Select()

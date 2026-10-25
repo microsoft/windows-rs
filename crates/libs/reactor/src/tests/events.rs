@@ -679,7 +679,7 @@ fn suppressed_feedback_drops_selection_observations_and_keeps_expectations() {
     let selected = runtime.graph().children(owner, RelationId::Items).unwrap()[1];
     let observation = Observation::SetSelection {
         object: owner,
-        selected: Some(selected),
+        selected: ObservedSelection::Item(selected),
     };
     let mut feedback = FeedbackState::default();
     feedback.suppress(owner, EventId::SelectionChanged);

@@ -649,12 +649,6 @@ struct Event {
     observe_only: bool,
 }
 
-#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq)]
-enum EventItemSource {
-    Owner,
-    EventArgs,
-}
-
 #[derive(Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Selection {
@@ -663,8 +657,6 @@ struct Selection {
     selected_property: String,
     selected_item_property: String,
     event: String,
-    event_item_source: EventItemSource,
-    event_args: Option<String>,
     payload_property: String,
 }
 
@@ -1216,8 +1208,7 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
             output.push_str(&format!(
                 "ObjectType::{} => Some(SelectionContract {{ relations: &[{}], \
                  item: ObjectType::{}, selected_property: PropertyId::{}, \
-                 event: EventId::{}, event_item_source: SelectionEventItemSource::{:?}, \
-                 event_args: {}, payload_property: PropertyId::{} }}),\n",
+                 event: EventId::{}, payload_property: PropertyId::{} }}),\n",
                 object.name,
                 selection
                     .relations
@@ -1227,11 +1218,6 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
                 selection.item,
                 selection.selected_property,
                 selection.event,
-                selection.event_item_source,
-                selection
-                    .event_args
-                    .as_ref()
-                    .map_or_else(|| "None".to_string(), |value| format!("Some({value:?})")),
                 selection.payload_property
             ));
         }

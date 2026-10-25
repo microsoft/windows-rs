@@ -729,16 +729,6 @@ impl MetadataResolver {
             .map(|method| method.interface.full_path())
     }
 
-    pub fn resolve_event_args_object_property(
-        &self,
-        class_name: &str,
-        add_event: &str,
-        property: &str,
-    ) -> Option<String> {
-        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
-        matches!(getter_ref.return_type, Type::Object).then(|| getter_ref.interface.full_path())
-    }
-
     /// Resolves an event-args property that returns a class type (not a primitive or
     /// IInspectable). Returns the interface path for the getter on the event args.
     pub fn resolve_event_args_class_property(

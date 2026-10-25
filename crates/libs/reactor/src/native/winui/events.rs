@@ -281,7 +281,11 @@ impl WinUiAdapter {
             .and_then(|selected| event_queue.item_object(object, selected));
         let observation = Observation::SetSelection {
             object,
-            selected: selected_object,
+            selected: match (&selected, selected_object) {
+                (_, Some(item)) => ObservedSelection::Item(item),
+                (Some(_), None) => ObservedSelection::Untracked,
+                (None, None) => ObservedSelection::Cleared,
+            },
         };
         if !event_queue.observe(object, event_id, observation.clone()) {
             return;

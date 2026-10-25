@@ -240,7 +240,7 @@ pub enum Observation {
     },
     SetSelection {
         object: ObjectId,
-        selected: Option<ObjectId>,
+        selected: ObservedSelection,
     },
     /// The native control reordered a relation's children, listed in native order.
     Reorder {
@@ -248,6 +248,25 @@ pub enum Observation {
         relation: RelationId,
         children: Vec<ObjectId>,
     },
+}
+
+/// The item a native selector reports as selected.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ObservedSelection {
+    Cleared,
+    Item(ObjectId),
+    /// A selected item outside the owner's selection relations, such as a nested
+    /// `NavigationViewItem` or the built-in settings item.
+    Untracked,
+}
+
+impl ObservedSelection {
+    fn item(self) -> Option<ObjectId> {
+        match self {
+            Self::Item(item) => Some(item),
+            Self::Cleared | Self::Untracked => None,
+        }
+    }
 }
 
 impl Observation {
@@ -743,7 +762,7 @@ impl RetainedGraph {
                 let Some(contract) = selection_contract(owner.kind) else {
                     panic!("{:?} does not support selection", owner.kind);
                 };
-                selected.is_none_or(|selected| {
+                selected.item().is_none_or(|selected| {
                     self.kind(selected) == Some(contract.item)
                         && contract.relations.iter().any(|relation| {
                             self.children(*object, *relation)
@@ -793,7 +812,9 @@ impl RetainedGraph {
 
     /// Applies a native observation. Returns `false` when the paired event must not be dispatched:
     /// a native order that already matches the retained order echoes Reactor's own mutation or
-    /// a drop in place, and is not a reorder.
+    /// a drop in place, and is not a reorder. Likewise, a selection that matches every child's
+    /// retained selection flag reports nothing new, such as a control raising a deferred
+    /// notification after Reactor wrote the flags.
     fn apply_observation(&mut self, observation: Observation) -> bool {
         if !self.validate_observation(&observation) {
             return true;
@@ -825,6 +846,17 @@ impl RetainedGraph {
                             .copied()
                     })
                     .collect::<Vec<_>>();
+                let item = selected.item();
+                let matches_retained = selected != ObservedSelection::Untracked
+                    && children.iter().all(|child| {
+                        self.get(*child).unwrap().properties.iter().any(|property| {
+                            property.id == contract.selected_property
+                                && property.value == PropertyValue::Bool(Some(*child) == item)
+                        })
+                    });
+                if matches_retained {
+                    return false;
+                }
                 for child in children {
                     let child_object = self.get_mut(child);
                     if child_object
@@ -836,7 +868,7 @@ impl RetainedGraph {
                             |property| property.id == contract.selected_property,
                             Property {
                                 id: contract.selected_property,
-                                value: PropertyValue::Bool(Some(child) == selected),
+                                value: PropertyValue::Bool(Some(child) == item),
                             },
                         );
                     }
