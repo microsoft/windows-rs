@@ -1628,6 +1628,12 @@ observes = "IsOpen"
 programmatic_reason = "Programmatic"
 
 [[objects.events]]
+name = "IsOpenChanged"
+property_changed = true
+observes = "IsOpen"
+observe_only = true
+
+[[objects.events]]
 name = "ActionButtonClick"
 
 [[objects]]

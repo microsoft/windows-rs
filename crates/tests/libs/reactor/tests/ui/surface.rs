@@ -69,6 +69,25 @@ fn teaching_tip_open_state_is_controlled() -> Result<()> {
 }
 
 #[test]
+fn teaching_tip_hide_during_opening_is_restored() -> Result<()> {
+    process::run("surface", |ui| {
+        ui.invoke("show-tip")?;
+        ui.settled("ActionButton", SETTLE)?;
+        ui.invoke("hide-tip")?;
+        ui.gone("ActionButton")?;
+
+        // Depending on timing, WinUI either coalesces the two writes or ignores the hide during its
+        // opening animation. A later render that keeps declaring `false` must close it.
+        ui.invoke("show-tip")?;
+        ui.invoke("hide-tip")?;
+        ui.name_stays("events", "Events []", Duration::from_secs(1))?;
+        ui.invoke("hide-tip")?;
+        ui.gone("ActionButton")?;
+        ui.name_stays("events", "Events []", QUIET)
+    })
+}
+
+#[test]
 fn teaching_tip_programmatic_close_is_not_reported() -> Result<()> {
     process::run("surface", |ui| {
         ui.invoke("show-tip")?;
