@@ -669,6 +669,7 @@ impl WinUiAdapter {
                 .push_back(QueuedNativeEvent {
                     observation: None,
                     event: None,
+                    record: false,
                     retirement: Some(RetirementCompletion { root }),
                     realization: None,
                 });
@@ -781,7 +782,10 @@ impl WinUiAdapter {
                 order.unwrap_or_else(|| queued.payload.clone()),
             ))
         });
-        Some(NativeEvent::new(observation, event))
+        Some(match observation {
+            Some(observation) if queued.record => NativeEvent::record(observation),
+            observation => NativeEvent::new(observation, event),
+        })
     }
 
     /// Returns the registered children of a reorderable relation in native order.

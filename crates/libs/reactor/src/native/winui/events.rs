@@ -287,7 +287,7 @@ impl WinUiAdapter {
                 (None, None) => ObservedSelection::Cleared,
             },
         };
-        if !event_queue.observe(object, event_id, observation.clone()) {
+        if !event_queue.reports(object, event_id) {
             return;
         }
         let value = selected.as_ref().and_then(|selected| {
@@ -484,7 +484,13 @@ impl WinUiAdapter {
 
     /// Records a native change Reactor caused through its own write, without a callback.
     fn record(event_queue: &Rc<NativeEventQueue>, observation: Observation) {
-        event_queue.queue(Some(observation), None);
+        event_queue.events.borrow_mut().push_back(QueuedNativeEvent {
+            observation: Some(observation),
+            event: None,
+            record: true,
+            retirement: None,
+            realization: None,
+        });
         Self::schedule_event_wake(event_queue);
     }
 

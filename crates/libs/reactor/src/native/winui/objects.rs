@@ -150,12 +150,11 @@ impl WinUiAdapter {
             .chain(set.iter().map(|property| (property.id, Some(&property.value))))
             .filter(|(id, _)| !is_implicit_transition(*id));
         for (property, value) in properties {
-            let feedback = GeneratedHandle::feedback_expectation(kind, property, value);
-            if let Some((event, expectation)) = feedback.clone() {
-                self.event_queue
-                    .feedback
-                    .borrow_mut()
-                    .begin(object, event, expectation);
+            // Reactor's write raises the event that reports it; drop it and record the native
+            // value the write produced instead.
+            let feedback = reporting_event(kind, property);
+            if let Some(event) = feedback {
+                self.event_queue.feedback.borrow_mut().suppress(object, event);
             }
             let suppressed = match self.selection_feedback(object, property)? {
                 Some(feedback) => Some(feedback),
@@ -180,16 +179,21 @@ impl WinUiAdapter {
                 element.Measure(native::LayoutInformation::GetAvailableSize(element)?)?;
             }
             let result = self.apply_property(object, kind, element.as_ref(), property, value);
-            let observation = feedback.and_then(|(event, _)| {
-                self.event_queue.feedback.borrow_mut().finish(object, event)
-            });
             if let Some((owner, event)) = suppressed {
                 self.event_queue.feedback.borrow_mut().release(owner, event);
             }
+            if let Some(event) = feedback {
+                self.event_queue.feedback.borrow_mut().release(object, event);
+            }
             result?;
-            if let Some(observation) = observation {
-                self.event_queue.queue(Some(observation), None);
-                Self::schedule_event_wake(&self.event_queue);
+            if let Some(event) = feedback
+                && let Some(Handle::Generated(handle)) = self.handles.get(&object)
+            {
+                let property = handle.read_observed(event).unwrap()?;
+                Self::record(
+                    &self.event_queue,
+                    Observation::SetProperty { object, property },
+                );
             }
         }
         if initializing {
@@ -375,10 +379,6 @@ impl WinUiAdapter {
                 completion.call(Err(IntegrationError::Unavailable));
             }
         }
-        self.event_queue
-            .feedback
-            .borrow_mut()
-            .remove_object(object);
         self.event_queue.items.borrow_mut().remove(&object);
         match handle {
             Handle::TreeNode(node) => {

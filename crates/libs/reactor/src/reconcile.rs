@@ -279,86 +279,24 @@ impl Observation {
     }
 }
 
-#[derive(Clone, Debug, PartialEq)]
-pub(crate) enum FeedbackExpectation {
-    Exact(Property),
-    DeferredExact(Property),
-    Normalized { observation: Option<Observation> },
+/// The controlled event that reports a property, directly or through the property it coerces.
+pub(crate) fn reporting_event(kind: ObjectType, property: PropertyId) -> Option<EventId> {
+    controlled_event(kind, property).or_else(|| {
+        coerced_property(kind, property).and_then(|coerced| controlled_event(kind, coerced))
+    })
 }
 
+/// Native notifications dropped while Reactor writes the state they report.
 #[derive(Default)]
 pub(crate) struct FeedbackState {
-    expectations: HashMap<(ObjectId, EventId), FeedbackExpectation>,
-    /// Events dropped while Reactor writes native state they report, counted per nested write.
-    /// Suppression leaves expectations in place for notifications that arrive afterwards.
+    /// Depth of the nested writes suppressing each event.
     suppressed: HashMap<(ObjectId, EventId), usize>,
 }
 
 impl FeedbackState {
-    pub(crate) fn begin(
-        &mut self,
-        object: ObjectId,
-        event: EventId,
-        expectation: FeedbackExpectation,
-    ) {
-        self.expectations.insert((object, event), expectation);
-    }
-
-    pub(crate) fn observe(
-        &mut self,
-        object: ObjectId,
-        event: EventId,
-        observation: Observation,
-    ) -> bool {
-        let key = (object, event);
-        if self.suppressed.contains_key(&key) {
-            return false;
-        }
-        if let Some(FeedbackExpectation::DeferredExact(expected)) = self.expectations.get(&key) {
-            let suppress = matches!(
-                &observation,
-                Observation::SetProperty { property, .. } if property == expected
-            );
-            if !suppress {
-                self.expectations.remove(&key);
-            }
-            return !suppress;
-        }
-        let Some(expectation) = self.expectations.get_mut(&key) else {
-            return true;
-        };
-        match expectation {
-            FeedbackExpectation::Exact(expected)
-                if matches!(
-                    &observation,
-                    Observation::SetProperty { property, .. } if property == expected
-                ) =>
-            {
-                false
-            }
-            FeedbackExpectation::Normalized {
-                observation: pending,
-            } => {
-                *pending = Some(observation);
-                false
-            }
-            FeedbackExpectation::DeferredExact(_) => unreachable!(),
-            FeedbackExpectation::Exact(_) => true,
-        }
-    }
-
-    pub(crate) fn finish(&mut self, object: ObjectId, event: EventId) -> Option<Observation> {
-        match self.expectations.remove(&(object, event)) {
-            Some(FeedbackExpectation::Normalized { observation }) => observation,
-            Some(FeedbackExpectation::DeferredExact(property)) => {
-                self.expectations.insert(
-                    (object, event),
-                    FeedbackExpectation::DeferredExact(property),
-                );
-                None
-            }
-            Some(FeedbackExpectation::Exact(_)) | None => None,
-        }
+    /// Returns whether an event should be reported rather than dropped.
+    pub(crate) fn reports(&self, object: ObjectId, event: EventId) -> bool {
+        !self.suppressed.contains_key(&(object, event))
     }
 
     pub(crate) fn suppress(&mut self, object: ObjectId, event: EventId) {
@@ -372,11 +310,6 @@ impl FeedbackState {
         if *depth == 0 {
             self.suppressed.remove(&key);
         }
-    }
-
-    pub(crate) fn remove_object(&mut self, object: ObjectId) {
-        self.expectations
-            .retain(|(expected_object, _), _| *expected_object != object);
     }
 }
 
@@ -465,6 +398,7 @@ impl EventDispatch {
 pub struct NativeEvent {
     observation: Option<Observation>,
     event: Option<EventDispatch>,
+    record: bool,
     retirement: Option<RetirementCompletion>,
     realization: Option<RealizationRequest>,
 }
@@ -474,26 +408,32 @@ impl NativeEvent {
         Self {
             observation,
             event,
+            record: false,
             retirement: None,
             realization: None,
+        }
+    }
+
+    /// Records native state that Reactor's own write produced. For a property the declaration
+    /// omits, the recorded value becomes the baseline that later notifications compare against.
+    pub fn record(observation: Observation) -> Self {
+        Self {
+            record: true,
+            ..Self::new(Some(observation), None)
         }
     }
 
     pub fn retirement(completion: RetirementCompletion) -> Self {
         Self {
-            observation: None,
-            event: None,
             retirement: Some(completion),
-            realization: None,
+            ..Self::new(None, None)
         }
     }
 
     pub fn realization(request: RealizationRequest) -> Self {
         Self {
-            observation: None,
-            event: None,
-            retirement: None,
             realization: Some(request),
+            ..Self::new(None, None)
         }
     }
 }
@@ -545,6 +485,10 @@ struct RetainedObject {
     window_title_bar: Option<WindowTitleBarHeight>,
     attachments: Option<Box<RetainedAttachments>>,
     properties: SharedList<Property>,
+    /// The values observations are compared against where `properties` does not hold them: the
+    /// declared value of a property whose native state has departed from it, and the native value
+    /// recorded for a property the declaration omits.
+    baselines: Vec<Property>,
     events: Option<Rc<Vec<Event>>>,
     relations: Vec<RetainedRelation>,
     virtual_items: Option<Box<RetainedVirtualItems>>,
@@ -815,7 +759,7 @@ impl RetainedGraph {
     /// a drop in place, and is not a reorder. Likewise, a selection that matches every child's
     /// retained selection flag reports nothing new, such as a control raising a deferred
     /// notification after Reactor wrote the flags.
-    fn apply_observation(&mut self, observation: Observation) -> bool {
+    fn apply_observation(&mut self, observation: Observation, record: bool) -> bool {
         if !self.validate_observation(&observation) {
             return true;
         }
@@ -823,15 +767,47 @@ impl RetainedGraph {
             Observation::SetProperty { object, property } => {
                 let retained = self.get_mut(object);
                 let property_id = property.id;
+                let baseline = retained
+                    .baselines
+                    .iter()
+                    .position(|baseline| baseline.id == property_id);
                 // Observing a native value does not make the declaration own that property.
-                if retained
+                let Some(current) = retained
                     .properties
                     .iter()
-                    .any(|current| current.id == property_id)
-                {
-                    retained
-                        .properties
-                        .upsert(|current| current.id == property_id, property);
+                    .find(|current| current.id == property_id)
+                    .cloned()
+                else {
+                    match baseline {
+                        Some(index) if retained.baselines[index] == property => return false,
+                        Some(index) if record => retained.baselines[index] = property,
+                        Some(index) => {
+                            retained.baselines.swap_remove(index);
+                        }
+                        None if record => retained.baselines.push(property),
+                        None => {}
+                    }
+                    return true;
+                };
+                // Native state that matches the declaration is settled, whichever write or
+                // notification produced it, so only a departure from the declaration is reported.
+                let settled = match baseline {
+                    Some(index) if retained.baselines[index] == property => {
+                        retained.baselines.swap_remove(index);
+                        true
+                    }
+                    Some(_) => false,
+                    None if current == property => return false,
+                    None => {
+                        retained.baselines.push(current);
+                        false
+                    }
+                };
+                retained
+                    .properties
+                    .upsert(|current| current.id == property_id, property);
+                if settled {
+                    return false;
                 }
             }
             Observation::SetSelection { object, selected } => {
@@ -1203,6 +1179,14 @@ impl RetainedGraph {
             || current.window_title_bar != declaration.window_title_bar
             || current.properties.as_slice() != declaration.properties.as_slice()
             || retained_events(&current.events) != declaration.events.as_slice()
+            // A baseline for a declared property records an unsettled departure; the update
+            // path settles it even when the app accepted the native value.
+            || current.baselines.iter().any(|baseline| {
+                declaration
+                    .properties
+                    .iter()
+                    .any(|property| property.id == baseline.id)
+            })
         {
             return false;
         }
@@ -1682,9 +1666,19 @@ impl<A: Adapter> Runtime<A> {
 
     fn pop_native_work(&mut self) -> Option<NativeWork> {
         let event = self.adapter.pop_native_event()?;
+        // Only a property's controlled event reports its state; an action that also observes the
+        // property, such as `Click`, dispatches even when the state is settled.
+        let action = match (&event.observation, &event.event) {
+            (Some(Observation::SetProperty { object, property }), Some(dispatch)) => self
+                .graph
+                .kind(*object)
+                .is_some_and(|kind| controlled_event(kind, property.id) != Some(dispatch.event)),
+            _ => false,
+        };
         let dispatch = event
             .observation
-            .is_none_or(|observation| self.graph.apply_observation(observation));
+            .is_none_or(|observation| self.graph.apply_observation(observation, event.record))
+            || action;
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion);
         }
@@ -1788,7 +1782,7 @@ impl<A: Adapter> Runtime<A> {
             }
             let event = self.adapter.pop_native_event().unwrap();
             if let Some(observation) = event.observation {
-                self.graph.apply_observation(observation);
+                self.graph.apply_observation(observation, event.record);
             }
             if let Some(completion) = event.retirement {
                 self.apply_retirement_completion(completion);
@@ -2751,6 +2745,7 @@ impl Planner<'_> {
             window_title_bar: declaration.window_title_bar,
             attachments: None,
             properties: declaration.properties.clone(),
+            baselines: Vec::new(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
                 .iter()
@@ -2856,6 +2851,7 @@ impl Planner<'_> {
             window_title_bar: declaration.window_title_bar,
             attachments: None,
             properties: declaration.properties.clone(),
+            baselines: Vec::new(),
             events: retain_events(&declaration.events),
             relations: relation_contracts(declaration.kind)
                 .iter()
@@ -3105,6 +3101,22 @@ impl Planner<'_> {
                     .and_then(|attachments| attachments.content_dialog.as_ref()),
                 false,
             );
+        }
+        {
+            let RetainedObject {
+                properties: previous,
+                baselines,
+                ..
+            } = self.retained.get_mut(object);
+            if !baselines.is_empty() {
+                baselines.retain(|baseline| {
+                    !previous.iter().any(|property| property.id == baseline.id)
+                        && !declaration
+                            .properties
+                            .iter()
+                            .any(|property| property.id == baseline.id)
+                });
+            }
         }
         let properties = declaration.properties.as_slice();
         let index = index_contract(declaration.kind);

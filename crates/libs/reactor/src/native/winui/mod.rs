@@ -233,6 +233,8 @@ enum QueuedHandler {
 struct QueuedNativeEvent {
     observation: Option<Observation>,
     event: Option<QueuedEvent>,
+    /// The observation records native state that Reactor's own write produced.
+    record: bool,
     retirement: Option<RetirementCompletion>,
     realization: Option<RealizationRequest>,
 }
@@ -355,13 +357,11 @@ struct WebViewInitialization {
 }
 
 impl NativeEventQueue {
-    fn observe(&self, object: ObjectId, event: EventId, observation: Observation) -> bool {
-        self.feedback
-            .borrow_mut()
-            .observe(object, event, observation)
+    fn reports(&self, object: ObjectId, event: EventId) -> bool {
+        self.feedback.borrow().reports(object, event)
     }
 
-    /// Drops queued events, observations, and feedback for an object whose control was replaced.
+    /// Drops queued events and observations for an object whose control was replaced.
     fn discard_object(&self, object: ObjectId) {
         self.events.borrow_mut().retain(|queued| {
             queued
@@ -373,7 +373,6 @@ impl NativeEventQueue {
                     .as_ref()
                     .is_none_or(|observation| observation.object() != object)
         });
-        self.feedback.borrow_mut().remove_object(object);
     }
 
     /// Drops queued occurrences of an object's events whose source has been replaced.
@@ -397,6 +396,7 @@ impl NativeEventQueue {
         self.events.borrow_mut().push_back(QueuedNativeEvent {
             observation,
             event,
+            record: false,
             retirement: None,
             realization: None,
         });
@@ -408,6 +408,7 @@ impl NativeEventQueue {
         events.push_back(QueuedNativeEvent {
             observation: None,
             event: None,
+            record: false,
             retirement: None,
             realization: Some(request),
         });

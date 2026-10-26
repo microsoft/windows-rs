@@ -250,19 +250,32 @@ and `NavigationView`; the `surface` fixture covers `InfoBar` and `TeachingTip` o
 
 | Priority | Area | Contracts to check |
 | --- | --- | --- |
-| 3 | Selector edge cases | User selection on declared-index selectors is reported once and a rejected one restores the index; `GridView` vs `ListView` parity |
 | 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Low risk; smoke only |
+
+### WinUI bugs (for later reporting)
+
+WinUI defects found while testing Reactor. Each is reproduced without Reactor unless noted. Reactor
+documents the resulting limitation instead of adding per-control workarounds.
+
+| Area | Behavior | Repro | Reactor impact |
+| --- | --- | --- | --- |
+| `ToggleSwitch.IsOn` | Each `IsOn` change makes later ones slower: setting 200 switches takes about 105 ms, then about 400 ms after 120 rounds, at 60 ms or 500 ms cadence | Plain C# WinUI app | Live updates of many toggles slow down over time |
+| `NavigationView.IsPaneOpen` | A reopen before the next layout pass leaves the pane at compact width while `IsPaneOpen` reads true | Plain C# WinUI app | A rejected close keeps the pane narrow (see below) |
+| `TeachingTip.IsOpen` | An open or close during the open or close animation is ignored without an event | Reactor only | Reactor records the restored state and rewrites it on the next render |
+| `ListView` `ScrollIntoView` (#5146) | Access violation in `ModernCollectionBasePanel::DoScrollItemIntoView` after `Items.RemoveAt` x7, `InsertAt`, `Append`, `ScrollIntoView` on the next tick | Bare Rust WinUI, no Reactor; a C# port does not crash | App crash |
 
 ### NavigationView pane reopen
 
 WinUI leaves a `NavigationView` pane at compact width when `IsPaneOpen` goes false then true
-before the close animation finishes, in the same or the next dispatcher pass, while both
-`NavigationView.IsPaneOpen` and its inner `RootSplitView.IsPaneOpen` read true (reproduced in a
-plain C# WinUI app). A Reactor reject restore lands in that window, so the `pane` test does not
-check the pane width after a rejected toggle. A fix needs a more resilient way to apply writes
-that WinUI drops or mishandles during animations, shared with the `TeachingTip` case, rather than a
-per-control delay.
-| 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Low risk; smoke only |
+before WinUI's next layout pass, while `IsPaneOpen` reads true (reproduced in a plain C# WinUI
+app). A Reactor reject restore runs at normal dispatcher priority and lands in that window, so the
+`pane` test does not check the pane width after a rejected toggle. In the C# repro, a reopen from
+a high- or normal-priority dispatcher callback, from `PaneClosing`, `LayoutUpdated`, or
+`CompositionTarget::Rendering` fails. A reopen from a low-priority callback, after a delay, or from
+`PaneClosed` succeeds. `PaneClosing` is always paired with `PaneClosed` (about 1 s in `Left` mode,
+about 170 ms in compact and minimal modes). The only deterministic fix found holds the write
+until `PaneClosed`, which makes a rejected toggle visibly close before it reopens. It is not
+implemented.
 
 ### Repo-wide dead-code / quality audit (2026-07)
 

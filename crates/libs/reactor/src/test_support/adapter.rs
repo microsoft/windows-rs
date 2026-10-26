@@ -288,6 +288,12 @@ impl RecordingAdapter {
             .push_back(NativeEvent::new(observation, event));
     }
 
+    /// Queues the native state Reactor's own write produced, as the WinUI adapter reads it back.
+    pub fn queue_record(&mut self, observation: Observation) {
+        self.native_events
+            .push_back(NativeEvent::record(observation));
+    }
+
     pub fn queue_realization(&mut self, request: RealizationRequest) {
         let request = Self::coalesce_realization(&mut self.native_events, request);
         self.native_events

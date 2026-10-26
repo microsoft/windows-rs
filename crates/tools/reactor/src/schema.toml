@@ -201,7 +201,6 @@ focus = true
 name = "Text"
 adapter = "edit_text"
 controlled = "TextChanged"
-feedback = "deferred_exact"
 
 [[objects.properties]]
 name = "PlaceholderText"
@@ -282,7 +281,6 @@ focus = true
 name = "IsChecked"
 value = "OptionalBool"
 controlled = "IsCheckedChanged"
-feedback = "exact"
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -558,17 +556,14 @@ focus = true
 [[objects.properties]]
 name = "Minimum"
 coerces = "Value"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "Maximum"
 coerces = "Value"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "Value"
 controlled = "ValueChanged"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "IsEnabled"
@@ -656,7 +651,6 @@ name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
 indexes = "Items"
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Items"
@@ -775,7 +769,6 @@ adapter = "inspectable_string_list"
 name = "Text"
 adapter = "edit_text"
 controlled = "TextChanged"
-feedback = "deferred_exact"
 
 [[objects.properties]]
 name = "QueryIcon"
@@ -810,7 +803,6 @@ name = "IsEnabled"
 [[objects.properties]]
 name = "Password"
 controlled = "PasswordChanged"
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Header"
@@ -830,18 +822,15 @@ name = "IsEnabled"
 [[objects.properties]]
 name = "Minimum"
 coerces = "Value"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "Maximum"
 coerces = "Value"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "Value"
 adapter = "number_box_value"
 controlled = "ValueChanged"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "SmallChange"
@@ -897,8 +886,6 @@ validation = "finite_non_negative"
 [[objects.properties]]
 name = "IsPaneOpen"
 controlled = "IsPaneOpenChanged"
-feedback = "exact"
-clear_feedback = true
 
 [[objects.relations]]
 name = "Content"
@@ -987,7 +974,6 @@ name = "DisplayMode"
 [[objects.properties]]
 name = "IsPaneOpen"
 controlled = "PaneClosed"
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Pane"
@@ -1035,7 +1021,6 @@ name = "IsEnabled"
 [[objects.properties]]
 name = "IsOn"
 controlled = "Toggled"
-feedback = "exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1062,7 +1047,6 @@ name = "IsEnabled"
 name = "IsChecked"
 value = "OptionalBool"
 controlled = "IsCheckedChanged"
-feedback = "exact"
 
 [[objects.relations]]
 name = "Content"
@@ -1087,7 +1071,6 @@ name = "IsEnabled"
 name = "IsChecked"
 value = "OptionalBool"
 controlled = "Checked"
-feedback = "exact"
 
 [[objects.relations]]
 name = "Content"
@@ -1117,7 +1100,6 @@ adapter = "selection_index"
 controlled = "SelectionChanged"
 indexes = "ItemsSource"
 realize_items = true
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1386,13 +1368,11 @@ name = "IsReadOnly"
 [[objects.properties]]
 name = "MaxRating"
 coerces = "Value"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "Value"
 adapter = "rating_value"
 controlled = "ValueChanged"
-feedback = "normalized"
 
 [[objects.events]]
 name = "ValueChanged"
@@ -1404,7 +1384,6 @@ name = "Expander"
 [[objects.properties]]
 name = "IsExpanded"
 controlled = "IsExpandedChanged"
-feedback = "exact"
 
 [[objects.properties]]
 name = "HorizontalContentAlignment"
@@ -1447,7 +1426,6 @@ name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
 indexes = "ItemsSource"
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Header"
@@ -1469,7 +1447,6 @@ adapter = "selection_index"
 controlled = "SelectionChanged"
 indexes = "Items"
 requires_selection = true
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Items"
@@ -1498,7 +1475,6 @@ name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
 indexes = "Items"
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Items"
@@ -1554,7 +1530,6 @@ name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
 indexes = "TabItems"
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "TabItems"
@@ -1713,7 +1688,6 @@ enabled = true
 name = "Color"
 adapter = "native_color"
 controlled = "ColorChanged"
-feedback = "exact"
 
 [[objects.properties]]
 name = "IsAlphaEnabled"
@@ -1800,7 +1774,6 @@ adapter = "datetime"
 name = "Date"
 adapter = "optional_datetime"
 controlled = "DateChanged"
-feedback = "normalized"
 
 [[objects.properties]]
 name = "PlaceholderText"
@@ -1909,7 +1882,6 @@ name = "SelectedIndex"
 adapter = "selection_index"
 controlled = "SelectionChanged"
 indexes = "Items"
-feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Items"
@@ -1950,7 +1922,6 @@ focus = true
 name = "Document"
 adapter = "rich_edit_text"
 controlled = "TextChanged"
-feedback = "deferred_exact"
 
 [[objects.events]]
 name = "TextChanged"
