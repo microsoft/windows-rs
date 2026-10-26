@@ -391,9 +391,10 @@ fn churn_with_input(ui: &Automation, reject: bool) -> Result<()> {
             .filter_map(|call| call.strip_prefix(id)?.strip_prefix(' '))
             .collect::<Vec<_>>();
         // TextChanged is asynchronous, so a churned write can replace the entered text before it
-        // reports; the other controls report synchronously during each action.
+        // reports, and a tick can leave the Expander already in the requested state. Every other
+        // action changes its control's state and reports synchronously.
         assert!(
-            reject || id == "text" || !values.is_empty(),
+            reject || matches!(id, "text" | "expander") || !values.is_empty(),
             "{id} reported nothing for {ROUNDS} actions"
         );
         assert!(
@@ -401,6 +402,17 @@ fn churn_with_input(ui: &Automation, reject: bool) -> Result<()> {
             "{id} reported {} times for {ROUNDS} actions: {values:?}",
             values.len()
         );
+        // These inputs enter a unique value each round, so a repeat is a duplicate report.
+        if matches!(id, "slider" | "number" | "text") {
+            let mut unique = values.clone();
+            unique.sort_unstable();
+            unique.dedup();
+            assert_eq!(
+                unique.len(),
+                values.len(),
+                "{id} reported a value twice: {values:?}"
+            );
+        }
         // Programmed values are below 60, `p<n>`, and the first two items.
         let user = |value: &str| match id {
             "slider" => value.parse::<f64>().is_ok_and(|value| value >= 60.0),
