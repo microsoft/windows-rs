@@ -35,6 +35,7 @@ mod reference;
 mod repeater;
 mod retirement;
 mod selection;
+mod smoke;
 mod surface;
 mod tab;
 mod text;

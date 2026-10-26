@@ -7,6 +7,7 @@ use windows_core::{HRESULT, Interface};
 pub const ELEMENT_UNAVAILABLE: HRESULT = HRESULT(0x80040201u32 as i32);
 pub const INVOKE_PATTERN: i32 = 10000;
 pub(super) const VALUE_PATTERN: i32 = 10002;
+pub(super) const RANGE_VALUE_PATTERN: i32 = 10003;
 pub(super) const EXPAND_COLLAPSE_PATTERN: i32 = 10005;
 pub(super) const TEXT_PATTERN: i32 = 10014;
 pub(super) const SELECTION_PATTERN: i32 = 10001;
@@ -112,7 +113,7 @@ impl Automation {
     fn find(
         &self,
         selector: &str,
-        menu: bool,
+        control_type: Option<i32>,
     ) -> windows_core::Result<Option<IUIAutomationElement>> {
         unsafe {
             let roots = self.roots()?;
@@ -124,8 +125,8 @@ impl Automation {
                     .FindAll(TreeScope_Descendants, &all)?;
                 for index in 0..elements.Length()? {
                     let element = elements.GetElement(index)?;
-                    let name = if menu {
-                        if element.CurrentControlType()? != MENU_ITEM {
+                    let name = if let Some(control_type) = control_type {
+                        if element.CurrentControlType()? != control_type {
                             continue;
                         }
                         element.CurrentName()?
@@ -180,7 +181,7 @@ impl Automation {
         Ok(self
             .wait(
                 &format!("find automation ID {id:?}"),
-                || self.find(id, false),
+                || self.find(id, None),
                 Option::is_some,
             )?
             .unwrap())
@@ -208,10 +209,15 @@ impl Automation {
     }
 
     pub fn menu_item(&self, name: &str) -> Result<IUIAutomationElement> {
+        self.named(MENU_ITEM, name)
+    }
+
+    /// Finds a visible element by control type and name in any fixture window, including popups.
+    pub fn named(&self, control_type: i32, name: &str) -> Result<IUIAutomationElement> {
         Ok(self
             .wait(
-                &format!("find menu item {name:?}"),
-                || self.find(name, true),
+                &format!("find control type {control_type} named {name:?}"),
+                || self.find(name, Some(control_type)),
                 Option::is_some,
             )?
             .unwrap())
@@ -337,7 +343,7 @@ impl Automation {
     pub fn menu_gone(&self, name: &str) -> Result<()> {
         self.wait(
             &format!("menu item {name:?} disappears"),
-            || self.find(name, true),
+            || self.find(name, Some(MENU_ITEM)),
             Option::is_none,
         )?;
         Ok(())
@@ -346,7 +352,7 @@ impl Automation {
     pub fn gone(&self, id: &str) -> Result<()> {
         self.wait(
             &format!("automation ID {id:?} disappears"),
-            || self.find(id, false),
+            || self.find(id, None),
             Option::is_none,
         )?;
         Ok(())
@@ -485,7 +491,7 @@ impl Automation {
         self.wait(
             &format!("{id:?} name becomes {expected:?}"),
             || unsafe {
-                self.find(id, false)?
+                self.find(id, None)?
                     .map(|element| element.CurrentName())
                     .transpose()
             },
@@ -533,7 +539,7 @@ impl Automation {
         self.wait(
             &format!("{id:?} value becomes {expected:?}"),
             || unsafe {
-                self.find(id, false)?
+                self.find(id, None)?
                     .map(|element| {
                         element
                             .GetCurrentPatternAs::<IUIAutomationValuePattern>(VALUE_PATTERN)?
@@ -550,7 +556,7 @@ impl Automation {
         self.wait(
             &format!("{id:?} text becomes {expected:?}"),
             || unsafe {
-                self.find(id, false)?
+                self.find(id, None)?
                     .map(|element| {
                         element
                             .GetCurrentPatternAs::<IUIAutomationTextPattern>(TEXT_PATTERN)?
@@ -944,7 +950,7 @@ impl Automation {
                 let pixels = |dips: f64| (dips * f64::from(dpi) / 96.0).round() as i32;
                 let expected = (pixels(width), pixels(height));
                 let observed = self
-                    .find("size", false)?
+                    .find("size", None)?
                     .map(|element| element.CurrentName())
                     .transpose()?;
                 let expected_observed = format!(

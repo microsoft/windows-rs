@@ -208,7 +208,6 @@ fn input_changes(ui: &Automation, day: u32) -> Result<()> {
 const DATA_ITEM: i32 = 50029;
 const VK_END: i32 = 0x23;
 const VK_SPACE: i32 = 0x20;
-const RANGE_VALUE_PATTERN: i32 = 10003;
 const SELECTION_ITEM_PATTERN: i32 = 10010;
 const TOGGLE_PATTERN: i32 = 10015;
 const VK_LEFT: i32 = 0x25;
