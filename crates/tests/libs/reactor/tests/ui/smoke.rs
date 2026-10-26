@@ -56,7 +56,10 @@ fn tooltip_shows_and_updates_declared_text() -> Result<()> {
         ui.pointer_move("advance", 0.5, 0.5)?;
         ui.pointer_move("tipped", 0.5, 0.5)?;
         ui.named(TOOL_TIP, "Gen 0")?;
+        // WinUI owns how long an open tooltip stays up, so update while away and hover again.
+        ui.pointer_move("advance", 0.5, 0.5)?;
         ui.invoke("advance")?;
+        ui.pointer_move("tipped", 0.5, 0.5)?;
         ui.named(TOOL_TIP, "Gen 1")?;
         Ok(())
     })
