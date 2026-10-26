@@ -4111,14 +4111,14 @@ impl GeneratedHandle {
             )),
             (ObjectType::SplitView, PropertyId::IsPaneOpen, Some(value)) => Some((
                 EventId::PaneClosed,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::IsPaneOpen,
                     value: value.clone(),
                 }),
             )),
             (ObjectType::SplitView, PropertyId::IsPaneOpen, None) => Some((
                 EventId::PaneClosed,
-                FeedbackExpectation::Exact(Property {
+                FeedbackExpectation::DeferredExact(Property {
                     id: PropertyId::IsPaneOpen,
                     value: PropertyValue::Bool(false),
                 }),

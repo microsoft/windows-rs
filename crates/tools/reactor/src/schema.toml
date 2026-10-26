@@ -987,7 +987,7 @@ name = "DisplayMode"
 [[objects.properties]]
 name = "IsPaneOpen"
 controlled = "PaneClosed"
-feedback = "exact"
+feedback = "deferred_exact"
 
 [[objects.relations]]
 name = "Pane"
