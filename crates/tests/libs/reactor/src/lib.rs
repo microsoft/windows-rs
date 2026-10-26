@@ -28,7 +28,7 @@ mod tree;
 mod typography;
 mod window;
 
-pub use controlled::date;
+pub use controlled::{CHURN_ITEMS, date};
 
 #[derive(Clone, Copy, PartialEq)]
 enum MenuSurface {
@@ -291,6 +291,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "controlled" => App::run_component::<controlled::ControlledFixture>(())?,
         "radio" => App::run_component::<controlled::RadioFixture>(())?,
         "controlled-input" => App::run_component::<controlled::InputFixture>(())?,
+        "controlled-churn" => App::run_component::<controlled::ChurnFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "surface" => App::run_component::<surface::SurfaceFixture>(())?,
         "pane" => App::run_component::<pane::PaneFixture>(())?,

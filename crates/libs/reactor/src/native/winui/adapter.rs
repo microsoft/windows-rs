@@ -239,32 +239,28 @@ impl WinUiAdapter {
 }
 
 impl Adapter for WinUiAdapter {
+    // A reorder whose object was destroyed resolves to nothing; peek and pop skip it alike.
     fn peek_native_event(&self) -> Option<NativeEvent> {
         let events = self.event_queue.events.borrow();
-        next_queued(
-            &events,
-            |object| self.kind(object).ok(),
-            |queued| self.native_event(queued),
-        )
-        .map(|(_, event)| event)
+        events.iter().find_map(|queued| self.native_event(queued))
+    }
+
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        let events = self.event_queue.events.borrow();
+        events
+            .iter()
+            .filter(|queued| queued.event.is_some())
+            .filter_map(|queued| self.native_event(queued))
+            .find(NativeEvent::dispatches)
     }
 
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
-        let next = {
-            let events = self.event_queue.events.borrow();
-            next_queued(
-                &events,
-                |object| self.kind(object).ok(),
-                |queued| self.native_event(queued),
-            )
-        };
-        let mut events = self.event_queue.events.borrow_mut();
-        let Some((index, event)) = next else {
-            events.clear();
-            return None;
-        };
-        events.drain(..=index);
-        Some(event)
+        loop {
+            let queued = self.event_queue.events.borrow_mut().pop_front()?;
+            if let Some(event) = self.native_event(&queued) {
+                return Some(event);
+            }
+        }
     }
 
     fn apply(&mut self, mutations: &[Mutation]) {
@@ -278,37 +274,6 @@ impl Adapter for WinUiAdapter {
     fn imperative(&mut self, request: ImperativeRequest) {
         self.apply_imperative(request).unwrap();
     }
-}
-
-/// Finds the next queued entry that produces a native event, so previewing and popping the queue
-/// agree. A state report is skipped when the next queued event reports the same state again, so
-/// a control that passes through intermediate states within one interaction reports only where it
-/// settled. Action events such as `Click` always dispatch.
-fn next_queued<T>(
-    events: &VecDeque<QueuedNativeEvent>,
-    kind: impl Fn(ObjectId) -> Option<ObjectType>,
-    mut resolve: impl FnMut(&QueuedNativeEvent) -> Option<T>,
-) -> Option<(usize, T)> {
-    let superseded = |index: usize| {
-        let queued = &events[index];
-        let (Some(Observation::SetProperty { object, property }), Some(event)) =
-            (&queued.observation, &queued.event)
-        else {
-            return false;
-        };
-        kind(*object).is_some_and(|kind| controlled_event(kind, property.id) == Some(event.event))
-            && events
-                .range(index + 1..)
-                .find_map(|pending| Some((pending.observation.as_ref(), pending.event.as_ref()?)))
-                .is_some_and(|(observation, pending)| {
-                    observation.is_some()
-                        && pending.object == event.object
-                        && pending.event == event.event
-                })
-    };
-    (0..events.len())
-        .filter(|index| !superseded(*index))
-        .find_map(|index| Some((index, resolve(&events[index])?)))
 }
 
 impl WinUiAdapter {

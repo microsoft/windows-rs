@@ -124,7 +124,7 @@ fn queued_callbacks_do_not_reclaim_a_removed_property() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.update(omitted.clone().value(1.0));
     let object = runtime.graph().root().unwrap();
-    for value in [Some(2.0), None, Some(3.0)] {
+    let queue = |runtime: &mut Runtime<RecordingAdapter>, value: Option<f64>| {
         runtime.adapter_mut().queue_native_event(
             Some(Observation::SetProperty {
                 object,
@@ -140,13 +140,19 @@ fn queued_callbacks_do_not_reclaim_a_removed_property() {
                 EventPayload::OptionalF64(value),
             )),
         );
-    }
+    };
+    queue(&mut runtime, Some(2.0));
     let mut first = runtime.next_native_event().unwrap();
+    // Each later occurrence is queued after the earlier one is taken, since consecutive queued
+    // reports of one property coalesce.
+    queue(&mut runtime, None);
     first.invoke();
     runtime.update(omitted.clone());
     drop(first);
+    assert_eq!(runtime.dispatch_native_events(), 1);
+    queue(&mut runtime, Some(3.0));
+    assert_eq!(runtime.dispatch_native_events(), 1);
 
-    assert_eq!(runtime.dispatch_native_events(), 2);
     assert_eq!(*values.borrow(), [Some(2.0), None, Some(3.0)]);
     assert!(runtime.graph().properties(object).unwrap().is_empty());
     assert!(runtime.update(omitted.clone()).is_empty());
@@ -434,30 +440,40 @@ fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
         Callback::new(move |value: Rc<str>| values.borrow_mut().push(value))
     };
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(
+    let text_box = || {
         TextBox::new()
             .text("Before")
-            .on_text_changed(callback.clone()),
-    );
-    let object = runtime.graph().root().unwrap();
-    for value in ["A", "B"] {
+            .on_text_changed(callback.clone())
+    };
+    runtime.update(StackPanel::new().children([text_box().into(), text_box().into()]));
+    let root = runtime.graph().root().unwrap();
+    let objects = runtime
+        .graph()
+        .children(root, RelationId::Children)
+        .unwrap()
+        .to_vec();
+    for (object, value) in objects.iter().zip(["A", "B"]) {
         runtime.adapter_mut().queue_native_event(
             Some(Observation::SetProperty {
-                object,
+                object: *object,
                 property: Property {
                     id: PropertyId::Text,
                     value: PropertyValue::String(Rc::from(value)),
                 },
             }),
             Some(EventDispatch::new(
-                object,
+                *object,
                 EventId::TextChanged,
                 EventValue::String(callback.clone()),
                 EventPayload::String(Rc::from(value)),
             )),
         );
     }
-
+    let text = |runtime: &Runtime<RecordingAdapter>, index: usize| {
+        runtime.graph().properties(objects[index]).unwrap()[0]
+            .value
+            .clone()
+    };
     let before = runtime.graph().clone();
     let queued = runtime.adapter().clone();
     for _ in 0..2 {
@@ -468,10 +484,8 @@ fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
     let Some(NativeWork::Event(mut first)) = runtime.next_native_work() else {
         panic!("expected first text change");
     };
-    assert_eq!(
-        runtime.graph().properties(object).unwrap()[0].value,
-        PropertyValue::String(Rc::from("A"))
-    );
+    assert_eq!(text(&runtime, 0), PropertyValue::String(Rc::from("A")));
+    assert_eq!(text(&runtime, 1), PropertyValue::String(Rc::from("Before")));
     first.invoke();
     assert_eq!(&*values.borrow(), &[Rc::from("A")]);
     drop(first);
@@ -482,10 +496,7 @@ fn ordered_native_events_hide_future_observations_from_earlier_callbacks() {
     let Some(NativeWork::Event(mut second)) = runtime.next_native_work() else {
         panic!("expected second text change");
     };
-    assert_eq!(
-        runtime.graph().properties(object).unwrap()[0].value,
-        PropertyValue::String(Rc::from("B"))
-    );
+    assert_eq!(text(&runtime, 1), PropertyValue::String(Rc::from("B")));
     second.invoke();
     drop(second);
     assert_eq!(&*values.borrow(), &[Rc::from("A"), Rc::from("B")]);
@@ -505,7 +516,7 @@ fn callback_reconciliation_completes_before_the_next_native_occurrence() {
             .on_text_changed(callback.clone()),
     );
     let object = runtime.graph().root().unwrap();
-    for value in ["A", "B"] {
+    let queue = |runtime: &mut Runtime<RecordingAdapter>, value: &str| {
         runtime.adapter_mut().queue_native_event(
             Some(Observation::SetProperty {
                 object,
@@ -521,9 +532,11 @@ fn callback_reconciliation_completes_before_the_next_native_occurrence() {
                 EventPayload::String(Rc::from(value)),
             )),
         );
-    }
+    };
+    queue(&mut runtime, "A");
 
     let mut first = runtime.next_native_event().unwrap();
+    queue(&mut runtime, "B");
     first.invoke();
     assert!(rendered.get());
     runtime.update(TextBox::new().text("Rendered").on_text_changed(callback));
@@ -781,8 +794,9 @@ fn queued_event_reaches_callback_subscribed_when_it_fired() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
     runtime.update(TextBox::new().text("Text").on_text_changed(first.clone()));
     let root = runtime.graph().root().unwrap();
-    queue_text_changes(&mut runtime, root, &first, &["a", "ab"]);
+    queue_text_changes(&mut runtime, root, &first, &["a"]);
     let mut active = runtime.next_native_event().unwrap();
+    queue_text_changes(&mut runtime, root, &first, &["ab"]);
     active.invoke();
     // The render after the first change replaces the callback, as a capturing closure does.
     runtime.update(TextBox::new().text("a").on_text_changed(second.clone()));
@@ -811,8 +825,9 @@ fn queued_event_is_dropped_when_subscription_is_removed() {
             .on_text_changed(callback.clone()),
     );
     let root = runtime.graph().root().unwrap();
-    queue_text_changes(&mut runtime, root, &callback, &["a", "ab"]);
+    queue_text_changes(&mut runtime, root, &callback, &["a"]);
     let mut active = runtime.next_native_event().unwrap();
+    queue_text_changes(&mut runtime, root, &callback, &["ab"]);
     active.invoke();
     runtime.update(TextBox::new().text("a"));
     drop(active);

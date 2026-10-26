@@ -300,3 +300,217 @@ fn read(id: &str, element: &IUIAutomationElement) -> windows_core::Result<String
         })
     }
 }
+
+const CHURN: [&str; 8] = [
+    "check", "toggle", "switch", "expander", "slider", "number", "text", "list",
+];
+const ROUNDS: usize = 8;
+
+/// While the app declares new values on every timer tick, programmatic churn alone reports
+/// nothing, and once churning stops every control settles on its declared value.
+#[test]
+fn churned_values_settle_without_reports() -> Result<()> {
+    process::run("controlled-churn", |ui| {
+        ui.invoke("churn")?;
+        ui.name("mode", "churning")?;
+        std::thread::sleep(Duration::from_millis(500));
+        let calls = settle(ui)?;
+        assert_eq!(calls, "");
+        let ticks = element_name(ui, "ticks")?.parse::<u32>().unwrap();
+        assert!(ticks >= 10, "churn ran only {ticks} ticks");
+        Ok(())
+    })
+}
+
+/// User input interleaved with programmatic churn is reported at most once per action and never
+/// echoes a programmed value, and every control settles on its declared value.
+#[test]
+fn churned_user_input_settles_on_declared_values() -> Result<()> {
+    process::run("controlled-churn", |ui| churn_with_input(ui, false))
+}
+
+/// Rejected user input interleaved with programmatic churn leaves every control on the
+/// programmed value the app last declared.
+#[test]
+fn churned_rejected_input_restores_declared_values() -> Result<()> {
+    process::run("controlled-churn", |ui| churn_with_input(ui, true))
+}
+
+fn churn_with_input(ui: &Automation, reject: bool) -> Result<()> {
+    let elements = CHURN
+        .iter()
+        .map(|id| ui.element(id))
+        .collect::<Result<Vec<_>>>()?;
+    let items = test_reactor::CHURN_ITEMS[2..]
+        .iter()
+        .map(|name| ui.list_item("list", name))
+        .collect::<Result<Vec<_>>>()?;
+    if reject {
+        ui.invoke("reject")?;
+    }
+    ui.invoke("churn")?;
+    ui.name("mode", "churning")?;
+    eprintln!("drive {ROUNDS} rounds of user input while churning");
+    for round in 0..ROUNDS {
+        unsafe {
+            for element in &elements[..3] {
+                element
+                    .GetCurrentPatternAs::<IUIAutomationTogglePattern>(TOGGLE_PATTERN)?
+                    .Toggle()
+                    .ok()?;
+            }
+            let expander = elements[3].GetCurrentPatternAs::<IUIAutomationExpandCollapsePattern>(
+                EXPAND_COLLAPSE_PATTERN,
+            )?;
+            if round % 2 == 0 {
+                expander.Expand().ok()?;
+            } else {
+                expander.Collapse().ok()?;
+            }
+            for element in &elements[4..6] {
+                element
+                    .GetCurrentPatternAs::<IUIAutomationRangeValuePattern>(RANGE_VALUE_PATTERN)?
+                    .SetValue(60.0 + round as f64)
+                    .ok()?;
+            }
+            elements[6]
+                .GetCurrentPatternAs::<IUIAutomationValuePattern>(VALUE_PATTERN)?
+                .SetValue(&format!("u{round}").into())
+                .ok()?;
+            items[round % items.len()]
+                .GetCurrentPatternAs::<IUIAutomationSelectionItemPattern>(SELECTION_ITEM_PATTERN)?
+                .Select()
+                .ok()?;
+        }
+    }
+    let calls = settle(ui)?;
+    let calls = calls.split("; ").filter(|call| !call.is_empty());
+    for id in CHURN {
+        let values = calls
+            .clone()
+            .filter_map(|call| call.strip_prefix(id)?.strip_prefix(' '))
+            .collect::<Vec<_>>();
+        // TextChanged is asynchronous, so a churned write can replace the entered text before it
+        // reports; the other controls report synchronously during each action.
+        assert!(
+            reject || id == "text" || !values.is_empty(),
+            "{id} reported nothing for {ROUNDS} actions"
+        );
+        assert!(
+            values.len() <= ROUNDS,
+            "{id} reported {} times for {ROUNDS} actions: {values:?}",
+            values.len()
+        );
+        // Programmed values are below 60, `p<n>`, and the first two items.
+        let user = |value: &str| match id {
+            "slider" => value.parse::<f64>().is_ok_and(|value| value >= 60.0),
+            "number" => value
+                .strip_prefix("Some(")
+                .and_then(|value| value.strip_suffix(')'))
+                .and_then(|value| value.parse::<f64>().ok())
+                .is_some_and(|value| value >= 60.0),
+            "text" => value.starts_with('u'),
+            "list" => !matches!(value, "None" | "Some(0)" | "Some(1)"),
+            _ => true,
+        };
+        assert!(
+            values.iter().all(|value| user(value)),
+            "{id} reported a programmed value: {values:?}"
+        );
+    }
+    if reject {
+        for (id, programmed) in [
+            ("slider", ["10", "20"]),
+            ("number", ["10", "20"]),
+            ("text", ["p0", "p1"]),
+            ("list", ["Zero", "One"]),
+        ] {
+            let declared = element_name(ui, &format!("declared-{id}"))?;
+            assert!(
+                programmed.contains(&declared.as_str()),
+                "rejected input changed declared {id} to {declared}"
+            );
+        }
+    }
+    Ok(())
+}
+
+/// Stops churning, waits until every native value equals its declaration and no late report
+/// arrives, then returns the logged calls.
+fn settle(ui: &Automation) -> Result<String> {
+    ui.invoke("settle")?;
+    ui.name("mode", "settled")?;
+    let elements = CHURN
+        .iter()
+        .map(|id| ui.element(id))
+        .collect::<Result<Vec<_>>>()?;
+    let declared = CHURN
+        .iter()
+        .map(|id| ui.element(&format!("declared-{id}")))
+        .collect::<Result<Vec<_>>>()?;
+    let sample = || {
+        CHURN
+            .iter()
+            .zip(&elements)
+            .zip(&declared)
+            .map(|((id, element), declared)| {
+                Ok((churn_read(ui, id, element)?, unsafe {
+                    String::from_utf16_lossy(&declared.CurrentName()?)
+                }))
+            })
+            .collect::<windows_core::Result<Vec<_>>>()
+    };
+    let settled =
+        |values: &Vec<(String, String)>| values.iter().all(|(native, declared)| native == declared);
+    ui.wait("native values settle on declared values", sample, settled)?;
+    let calls = element_name(ui, "calls")?;
+    ui.name_stays("calls", &calls, Duration::from_millis(500))?;
+    let values = sample()?;
+    assert!(
+        settled(&values),
+        "native state departed after settling: {values:?}"
+    );
+    Ok(calls)
+}
+
+fn churn_read(
+    ui: &Automation,
+    id: &str,
+    element: &IUIAutomationElement,
+) -> windows_core::Result<String> {
+    unsafe {
+        match id {
+            "text" => Ok(String::from_utf16_lossy(
+                &element
+                    .GetCurrentPatternAs::<IUIAutomationValuePattern>(VALUE_PATTERN)?
+                    .CurrentValue()?,
+            )),
+            "list" => {
+                let selection = element
+                    .GetCurrentPatternAs::<IUIAutomationSelectionPattern>(SELECTION_PATTERN)?
+                    .GetCurrentSelection()?;
+                if selection.Length()? == 0 {
+                    return Ok("none".to_string());
+                }
+                // DataItem text belongs to the container's child peer.
+                let all = ui.client.CreateTrueCondition()?;
+                let content = selection
+                    .GetElement(0)?
+                    .FindAll(TreeScope_Descendants, &all)?;
+                for index in 0..content.Length()? {
+                    let name = content.GetElement(index)?.CurrentName()?;
+                    if !name.is_empty() {
+                        return Ok(String::from_utf16_lossy(&name));
+                    }
+                }
+                Ok(String::new())
+            }
+            _ => read(id, element),
+        }
+    }
+}
+
+fn element_name(ui: &Automation, id: &str) -> Result<String> {
+    let name = unsafe { ui.element(id)?.CurrentName()? };
+    Ok(String::from_utf16_lossy(&name))
+}

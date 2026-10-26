@@ -640,26 +640,23 @@ fn queued_messages_coalesce_host_wake() {
 fn native_callbacks_reconcile_before_the_next_native_occurrence() {
     let rendered = Rc::new(RefCell::new(String::new()));
     let seen = Rc::new(RefCell::new(Vec::new()));
+    let input = OrderedInput {
+        rendered: Rc::clone(&rendered),
+        seen: Rc::clone(&seen),
+    };
     let mut host = ComponentHost::mount(
         RecordingAdapter::default(),
-        [component::<OrderedText>(
-            "ordered",
-            OrderedInput {
-                rendered: Rc::clone(&rendered),
-                seen: Rc::clone(&seen),
-            },
-        )],
+        [
+            component::<OrderedText>("first", input.clone()),
+            component::<OrderedText>("second", input),
+        ],
     );
-    let object = host
-        .reference_at(&[Key::from("ordered")])
-        .unwrap()
-        .get()
-        .unwrap();
-    let callback = match &host.runtime().graph().events(object).unwrap()[0].value {
-        EventValue::String(callback) => callback.clone(),
-        _ => unreachable!(),
-    };
-    for value in ["A", "B"] {
+    for (key, value) in [("first", "A"), ("second", "B")] {
+        let object = host.reference_at(&[Key::from(key)]).unwrap().get().unwrap();
+        let callback = match &host.runtime().graph().events(object).unwrap()[0].value {
+            EventValue::String(callback) => callback.clone(),
+            _ => unreachable!(),
+        };
         host.runtime.adapter_mut().queue_native_event(
             Some(Observation::SetProperty {
                 object,
@@ -671,12 +668,11 @@ fn native_callbacks_reconcile_before_the_next_native_occurrence() {
             Some(EventDispatch::new(
                 object,
                 EventId::TextChanged,
-                EventValue::String(callback.clone()),
+                EventValue::String(callback),
                 EventPayload::String(Rc::from(value)),
             )),
         );
     }
-
     let report = host.drain(usize::MAX);
 
     assert_eq!(report.dispatched, 2);

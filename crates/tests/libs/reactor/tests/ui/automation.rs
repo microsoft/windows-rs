@@ -6,10 +6,10 @@ use windows_core::{HRESULT, Interface};
 
 pub const ELEMENT_UNAVAILABLE: HRESULT = HRESULT(0x80040201u32 as i32);
 pub const INVOKE_PATTERN: i32 = 10000;
-const VALUE_PATTERN: i32 = 10002;
+pub(super) const VALUE_PATTERN: i32 = 10002;
 pub(super) const EXPAND_COLLAPSE_PATTERN: i32 = 10005;
 pub(super) const TEXT_PATTERN: i32 = 10014;
-const SELECTION_PATTERN: i32 = 10001;
+pub(super) const SELECTION_PATTERN: i32 = 10001;
 const PROCESS_ID: i32 = 30002;
 pub(super) const LIST_ITEM: i32 = 50007;
 const MENU_ITEM: i32 = 50011;

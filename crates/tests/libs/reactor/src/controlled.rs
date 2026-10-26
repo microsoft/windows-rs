@@ -1,4 +1,5 @@
 use super::*;
+use std::time::Duration;
 
 /// Controlled toggles and ranged values. Every callback is logged; while rejecting, the state
 /// ignores the reported values so the next render must restore the declared ones. The range
@@ -452,6 +453,247 @@ impl Component for InputFixture {
                     .width(400.0)
                     .spacing(8.0)
                     .children(commands),
+            ))
+            .into()
+    }
+}
+
+/// Controlled values that the app declares again on a fast timer while churning, alternating
+/// between two programmed sets that never overlap the values the driver enters. Each control's
+/// declared value is shown beside it, so the driver can compare native state with the
+/// declaration once churning settles. Every callback is logged; while rejecting, the state
+/// ignores reported values.
+pub(super) struct ChurnFixture {
+    check: bool,
+    toggle: bool,
+    switch: bool,
+    expanded: bool,
+    slider: f64,
+    number: f64,
+    text: Rc<str>,
+    selected: Option<usize>,
+    accept: bool,
+    ticks: u32,
+    timer: Option<ComponentTimer>,
+    calls: Vec<String>,
+}
+
+pub const CHURN_ITEMS: [&str; 5] = ["Zero", "One", "Two", "Three", "Four"];
+
+#[derive(Clone)]
+pub(super) enum ChurnMessage {
+    Check(Option<bool>),
+    Toggle(Option<bool>),
+    Switch(bool),
+    Expanded(bool),
+    Slider(f64),
+    Number(Option<f64>),
+    Text(Rc<str>),
+    Selected(Option<usize>),
+    Churn,
+    Tick,
+    Settle,
+    Reject,
+}
+
+impl Component for ChurnFixture {
+    type Input = ();
+    type Message = ChurnMessage;
+
+    fn create(_: &(), _: &ComponentContext<Self>) -> Self {
+        Self {
+            check: false,
+            toggle: false,
+            switch: false,
+            expanded: false,
+            slider: 10.0,
+            number: 10.0,
+            text: Rc::from("p0"),
+            selected: Some(0),
+            accept: true,
+            ticks: 0,
+            timer: None,
+            calls: Vec::new(),
+        }
+    }
+
+    fn update(&mut self, message: ChurnMessage, context: &ComponentContext<Self>) {
+        use ChurnMessage as M;
+        let call = match &message {
+            M::Check(value) => format!("check {value:?}"),
+            M::Toggle(value) => format!("toggle {value:?}"),
+            M::Switch(value) => format!("switch {value}"),
+            M::Expanded(value) => format!("expander {value}"),
+            M::Slider(value) => format!("slider {value}"),
+            M::Number(value) => format!("number {value:?}"),
+            M::Text(value) => format!("text {value}"),
+            M::Selected(value) => format!("list {value:?}"),
+            M::Churn | M::Tick | M::Settle | M::Reject => String::new(),
+        };
+        if !call.is_empty() {
+            self.calls.push(call);
+            if !self.accept {
+                return;
+            }
+        }
+        match message {
+            M::Check(value) => self.check = value == Some(true),
+            M::Toggle(value) => self.toggle = value == Some(true),
+            M::Switch(value) => self.switch = value,
+            M::Expanded(value) => self.expanded = value,
+            M::Slider(value) => self.slider = value,
+            M::Number(value) => self.number = value.unwrap_or(f64::NAN),
+            M::Text(value) => self.text = value,
+            M::Selected(value) => self.selected = value,
+            M::Churn => {
+                self.timer = Some(context.set_local_timeout(Duration::from_millis(1), || M::Tick));
+            }
+            M::Tick => {
+                if self.timer.is_some() {
+                    self.ticks += 1;
+                    let odd = self.ticks % 2 == 1;
+                    self.check = odd;
+                    self.toggle = !odd;
+                    self.switch = odd;
+                    self.expanded = odd;
+                    self.slider = if odd { 20.0 } else { 10.0 };
+                    self.number = self.slider;
+                    self.text = Rc::from(if odd { "p1" } else { "p0" });
+                    self.selected = Some(usize::from(odd));
+                    self.timer =
+                        Some(context.set_local_timeout(Duration::from_millis(1), || M::Tick));
+                }
+            }
+            M::Settle => self.timer = None,
+            M::Reject => self.accept = false,
+        }
+    }
+
+    fn view(&self, _: &(), context: &mut ViewContext<Self>) -> View {
+        use ChurnMessage as M;
+        let toggle = |value: bool| if value { "on" } else { "off" };
+        let declared = |id: &str, value: String| {
+            TextBlock::new()
+                .automation_id(format!("declared-{id}"))
+                .text(value)
+                .into()
+        };
+        let controls: [View; 8] = [
+            CheckBox::new()
+                .automation_id("check")
+                .content("Check")
+                .is_checked(self.check)
+                .on_is_checked_changed(context.callback(M::Check))
+                .into(),
+            ToggleButton::new()
+                .automation_id("toggle")
+                .content("Toggle")
+                .is_checked(self.toggle)
+                .on_is_checked_changed(context.callback(M::Toggle))
+                .into(),
+            ToggleSwitch::new()
+                .automation_id("switch")
+                .is_on(self.switch)
+                .on_toggled(context.callback(M::Switch))
+                .into(),
+            Expander::new()
+                .automation_id("expander")
+                .header("Expander")
+                .content(TextBlock::new().text("Content"))
+                .is_expanded(self.expanded)
+                .on_is_expanded_changed(context.callback(M::Expanded))
+                .into(),
+            Slider::new()
+                .automation_id("slider")
+                .maximum(200.0)
+                .value(self.slider)
+                .on_value_changed(context.callback(M::Slider))
+                .into(),
+            NumberBox::new()
+                .automation_id("number")
+                .maximum(200.0)
+                .value(self.number)
+                .on_value_changed(context.callback(M::Number))
+                .into(),
+            TextBox::new()
+                .automation_id("text")
+                .text(self.text.clone())
+                .on_text_changed(context.callback(M::Text))
+                .into(),
+            ListView::new()
+                .automation_id("list")
+                .selection_mode(ListViewSelectionMode::Single)
+                .selected_index(self.selected)
+                .items(CHURN_ITEMS.iter().map(|name| DataItem::new(*name, *name)))
+                .on_selection_changed(context.callback(M::Selected))
+                .into(),
+        ];
+        let state: [View; 14] = [
+            declared("check", toggle(self.check).to_string()),
+            declared("toggle", toggle(self.toggle).to_string()),
+            declared("switch", toggle(self.switch).to_string()),
+            declared(
+                "expander",
+                (if self.expanded {
+                    "expanded"
+                } else {
+                    "collapsed"
+                })
+                .to_string(),
+            ),
+            declared("slider", self.slider.to_string()),
+            declared("number", self.number.to_string()),
+            declared("text", self.text.to_string()),
+            declared(
+                "list",
+                self.selected
+                    .map_or("none", |index| CHURN_ITEMS[index])
+                    .to_string(),
+            ),
+            Button::new()
+                .automation_id("churn")
+                .content("Churn")
+                .on_click(context.message(M::Churn))
+                .into(),
+            Button::new()
+                .automation_id("settle")
+                .content("Settle")
+                .on_click(context.message(M::Settle))
+                .into(),
+            Button::new()
+                .automation_id("reject")
+                .content("Reject")
+                .on_click(context.message(M::Reject))
+                .into(),
+            TextBlock::new()
+                .automation_id("mode")
+                .text(if self.timer.is_some() {
+                    "churning"
+                } else {
+                    "settled"
+                })
+                .into(),
+            TextBlock::new()
+                .automation_id("ticks")
+                .text(self.ticks.to_string())
+                .into(),
+            TextBlock::new()
+                .automation_id("calls")
+                .text(self.calls.join("; "))
+                .into(),
+        ];
+        context.window_title("Reactor UI fixture: controlled-churn");
+        context.window_visuals(WindowVisuals::new().client_size(900.0, 900.0));
+        StackPanel::new()
+            .orientation(Orientation::Horizontal)
+            .margin(20.0)
+            .spacing(20.0)
+            .children((
+                StackPanel::new()
+                    .width(400.0)
+                    .spacing(8.0)
+                    .children(controls),
+                StackPanel::new().width(400.0).spacing(8.0).children(state),
             ))
             .into()
     }

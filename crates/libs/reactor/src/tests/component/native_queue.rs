@@ -25,6 +25,11 @@ impl Adapter for QueueCountingAdapter {
         self.inner.pop_native_event()
     }
 
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        self.visits.set(self.visits.get() + 1);
+        self.inner.peek_native_dispatch()
+    }
+
     fn apply(&mut self, mutations: &[Mutation]) {
         self.inner.apply(mutations);
     }

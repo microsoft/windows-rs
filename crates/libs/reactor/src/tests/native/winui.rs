@@ -91,7 +91,7 @@ fn native_queue_preview_uses_current_callback_and_preserves_order() {
 }
 
 #[test]
-fn native_queue_preview_skips_reports_superseded_by_a_live_subscription() {
+fn native_queue_expired_report_keeps_only_its_observation() {
     let object = ObjectId::test(1);
     let values = Rc::new(RefCell::new(Vec::new()));
     let callback = {
@@ -121,36 +121,28 @@ fn native_queue_preview_skips_reports_superseded_by_a_live_subscription() {
         retirement: None,
         realization: None,
     };
-    let adapter = WinUiAdapter::default();
+    let mut adapter = WinUiAdapter::default();
     // `on_text_changed` was removed and added again between the two reports.
-    let events = VecDeque::from([report("Expired", false), report("Live", true)]);
-    let next = next_queued(
-        &events,
-        |_| Some(ObjectType::TextBox),
-        |queued| adapter.native_event(queued),
-    );
-    let (index, event) = next.unwrap();
-    assert_eq!(index, 1);
-    assert_eq!(
-        event,
-        NativeEvent::new(
-            events[1].observation.clone(),
-            Some(EventDispatch::new(
-                object,
-                EventId::TextChanged,
-                callback.clone(),
-                EventPayload::String(Rc::from("Live")),
-            )),
-        )
-    );
-
-    // An event that is not the property's controlled event is never superseded.
-    let next = next_queued(
-        &events,
-        |_| Some(ObjectType::TextBlock),
-        |queued| adapter.native_event(queued),
-    );
-    assert_eq!(next.unwrap().0, 0);
+    adapter
+        .event_queue
+        .events
+        .borrow_mut()
+        .extend([report("Expired", false), report("Live", true)]);
+    let expected = Some(NativeEvent::new(
+        report("Live", true).observation,
+        Some(EventDispatch::new(
+            object,
+            EventId::TextChanged,
+            callback.clone(),
+            EventPayload::String(Rc::from("Live")),
+        )),
+    ));
+    let expired = Some(NativeEvent::new(report("Expired", false).observation, None));
+    assert_eq!(adapter.peek_native_event(), expired);
+    assert_eq!(adapter.pop_native_event(), expired);
+    assert_eq!(adapter.peek_native_event(), expected);
+    assert_eq!(adapter.pop_native_event(), expected);
+    assert_eq!(adapter.pop_native_event(), None);
 }
 
 #[test]
