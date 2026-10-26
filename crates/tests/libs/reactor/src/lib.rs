@@ -19,6 +19,7 @@ mod reference;
 mod repeater;
 mod retirement;
 mod selection;
+mod smoke;
 mod surface;
 mod tab;
 mod text;
@@ -293,6 +294,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "controlled-input" => App::run_component::<controlled::InputFixture>(())?,
         "controlled-churn" => App::run_component::<controlled::ChurnFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
+        "smoke" => App::run_component::<smoke::SmokeFixture>(())?,
         "surface" => App::run_component::<surface::SurfaceFixture>(())?,
         "pane" => App::run_component::<pane::PaneFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,

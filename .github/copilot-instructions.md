@@ -237,23 +237,25 @@ Investigate `crates/libs/reactor/src/native/transient_menu.rs` `MenuThemeState::
 The cause is unconfirmed. The headless preference and callback tests do not establish native theme
 propagation; investigate the behavior before adding a focused public-API regression case.
 
-### Reactor live coverage gaps (test-reactor fixtures)
+### Reactor live coverage (test-reactor fixtures)
 
-About 29 of the 80 schema objects have no live `test-reactor` coverage; none of them has a
-controlled property. Add contract-style fixtures
-in priority order. Verify indirect coverage (for example `CommandBar` via the menu fixture) before
-adding a case. The `controlled` fixtures cover toggles, grouped `RadioButton`s, `Expander`, ranged
-values, `PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `transform` fixtures cover
-`TextBox`, `AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView` and
-`TreeNode`; the `selection-items` fixture covers the item-flag selectors `ListBox`, `SelectorBar`,
-and `NavigationView`; the `surface` fixture covers `InfoBar` and `TeachingTip` open state; the
-`pane` fixture covers `SplitView` and `NavigationView` `is_pane_open`; the `controlled-churn`
-fixture interleaves fast re-renders with user input and checks that native state settles on the
-declared values without echoes.
+Every schema object has live coverage (`SwapChainPanel` through the `canvas` fixture, `WebView2`
+through `test-webview`). The `controlled` fixtures cover toggles, grouped `RadioButton`s,
+`Expander`, ranged values, `PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `transform`
+fixtures cover `TextBox`, `AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView`
+and `TreeNode`; the `selection-items` fixture covers the item-flag selectors `ListBox`,
+`SelectorBar`, and `NavigationView`; the `surface` fixture covers `InfoBar` and `TeachingTip` open
+state; the `pane` fixture covers `SplitView` and `NavigationView` `is_pane_open`; the
+`controlled-churn` fixture interleaves fast re-renders with user input and checks that native state
+settles on the declared values without echoes; the `smoke` fixture invokes the remaining action
+controls and updates, removes, and remounts the display-only objects.
 
-| Priority | Area | Contracts to check |
-| --- | --- | --- |
-| 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Low risk; smoke only |
+Remaining gaps:
+
+| Area | Gap |
+| --- | --- |
+| `DatePicker`, `TimePicker` | Mounted only; `on_date_changed` and `on_time_changed` need a flyout-driven case |
+| `InfoBadge`, `PersonPicture`, shapes, icons | No UIA peer; lifecycle runs but property values are not observed |
 
 ### WinUI bugs (for later reporting)
 
