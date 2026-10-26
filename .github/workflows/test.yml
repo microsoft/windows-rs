@@ -77,7 +77,7 @@ jobs:
             $version = (-split (Invoke-RestMethod "https://builds.dotnet.microsoft.com/dotnet/Runtime/$channel/latest.version"))[-1]
             & $script -Version $version -Runtime dotnet -Architecture x86 -InstallDir "${env:ProgramFiles(x86)}\dotnet"
           }
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           key: ${{ matrix.target }}
       - name: Provision libclang (Windows)

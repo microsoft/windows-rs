@@ -33,6 +33,6 @@ jobs:
         run: rustup target add x86_64-pc-windows-msvc
       - name: Add miri
         run: rustup toolchain install nightly --component miri
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
       - name: Check string literals
         run:  cargo miri test -p test_strings --test literals
