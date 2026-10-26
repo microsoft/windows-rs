@@ -28,6 +28,7 @@ mod image;
 mod keyboard;
 mod list;
 mod menu;
+mod pane;
 mod pointer;
 mod process;
 mod reference;

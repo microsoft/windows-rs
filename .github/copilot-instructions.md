@@ -245,12 +245,23 @@ adding a case. The `controlled` fixtures cover toggles, grouped `RadioButton`s, 
 values, `PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `transform` fixtures cover
 `TextBox`, `AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView` and
 `TreeNode`; the `selection-items` fixture covers the item-flag selectors `ListBox`, `SelectorBar`,
-and `NavigationView`; the `surface` fixture covers `InfoBar` and `TeachingTip` open state.
+and `NavigationView`; the `surface` fixture covers `InfoBar` and `TeachingTip` open state; the
+`pane` fixture covers `SplitView` and `NavigationView` `is_pane_open`.
 
 | Priority | Area | Contracts to check |
 | --- | --- | --- |
-| 1 | Panes: `SplitView`, `NavigationView` `is_pane_open` | `SplitView` observes only `PaneClosed`; WinUI has no user-driven open, so likely fine |
-| 3 | Selector edge cases | Index reassert during retire / exit animation, async intermediate events, `GridView` vs `ListView` parity |
+| 3 | Selector edge cases | User selection on declared-index selectors is reported once and a rejected one restores the index; `GridView` vs `ListView` parity |
+| 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Low risk; smoke only |
+
+### NavigationView pane reopen
+
+WinUI leaves a `NavigationView` pane at compact width when `IsPaneOpen` goes false then true
+before the close animation finishes, in the same or the next dispatcher pass, while both
+`NavigationView.IsPaneOpen` and its inner `RootSplitView.IsPaneOpen` read true (reproduced in a
+plain C# WinUI app). A Reactor reject restore lands in that window, so the `pane` test does not
+check the pane width after a rejected toggle. A fix needs a more resilient way to apply writes
+that WinUI drops or mishandles during animations, shared with the `TeachingTip` case, rather than a
+per-control delay.
 | 5 | Display-only: shapes, icons, `ProgressBar`, `ProgressRing`, `Viewbox`, panels | Low risk; smoke only |
 
 ### Repo-wide dead-code / quality audit (2026-07)

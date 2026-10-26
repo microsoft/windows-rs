@@ -148,6 +148,12 @@ through `on_closed`; a render that keeps declaring `true` reopens it. WinUI igno
 event. Reactor records the state WinUI restores, so the next render that declares the other value
 writes it again.
 
+`SplitView::is_pane_open` reports a user close through `on_pane_closed`, and
+`NavigationView::is_pane_open` reports user toggles through `on_is_pane_open_changed`. A render
+that keeps the declared value reopens a closed pane. WinUI leaves a `NavigationView` pane at its
+compact width when it reopens during the close animation, so a rejected close keeps the pane
+narrow while `is_pane_open` reads `true`.
+
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
 
 Item collections follow the same rule. `ListView`, `GridView`, and `TabView` report user

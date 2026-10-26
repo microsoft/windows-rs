@@ -13,6 +13,7 @@ mod flyout;
 mod image;
 mod keyboard;
 mod list;
+mod pane;
 mod pointer;
 mod reference;
 mod repeater;
@@ -292,6 +293,7 @@ pub fn run(fixture: &str) -> windows_core::Result<()> {
         "controlled-input" => App::run_component::<controlled::InputFixture>(())?,
         "flyout" => App::run_component::<flyout::FlyoutFixture>(())?,
         "surface" => App::run_component::<surface::SurfaceFixture>(())?,
+        "pane" => App::run_component::<pane::PaneFixture>(())?,
         "dialog" => App::run_component::<dialog::DialogFixture>(())?,
         "dialog-theme-light" => {
             App::run_component::<dialog_theme::DialogThemeFixture>((WindowTheme::Light, true))?;
