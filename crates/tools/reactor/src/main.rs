@@ -1260,6 +1260,21 @@ fn generate(schema: &Schema, metadata: &tool_reactor_metadata::MetadataResolver)
     }
     output.push_str("_ => None,\n} }\n");
     output.push_str(
+        "pub fn controlled_event(kind: ObjectType, id: PropertyId) -> Option<EventId> { \
+         match (kind, id) {\n",
+    );
+    for object in &schema.objects {
+        for property in &object.properties {
+            if let Some(event) = &property.controlled {
+                output.push_str(&format!(
+                    "(ObjectType::{}, PropertyId::{}) => Some(EventId::{event}),\n",
+                    object.name, property.name
+                ));
+            }
+        }
+    }
+    output.push_str("_ => None,\n} }\n");
+    output.push_str(
         "pub fn reorder_contracts(kind: ObjectType) -> &'static [ReorderContract] { match kind {\n",
     );
     for object in &schema.objects {

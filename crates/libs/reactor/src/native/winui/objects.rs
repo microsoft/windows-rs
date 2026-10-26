@@ -152,7 +152,7 @@ impl WinUiAdapter {
         for (property, value) in properties {
             // Reactor's write raises the event that reports it; drop it and record the native
             // value the write produced instead.
-            let feedback = GeneratedHandle::feedback_event(kind, property);
+            let feedback = reporting_event(kind, property);
             if let Some(event) = feedback {
                 self.event_queue.feedback.borrow_mut().suppress(object, event);
             }
@@ -190,9 +190,10 @@ impl WinUiAdapter {
                 && let Some(Handle::Generated(handle)) = self.handles.get(&object)
             {
                 let property = handle.read_observed(event).unwrap()?;
-                self.event_queue
-                    .queue(Some(Observation::SetProperty { object, property }), None);
-                Self::schedule_event_wake(&self.event_queue);
+                Self::record(
+                    &self.event_queue,
+                    Observation::SetProperty { object, property },
+                );
             }
         }
         if initializing {

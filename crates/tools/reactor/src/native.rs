@@ -47,8 +47,6 @@ pub fn generate_native(
 
     emit_dependency_properties(&mut output, &dependency_properties(schema, metadata));
 
-    emit_feedback_event(&mut output, schema);
-
     emit_read_observed(&mut output, &objects, metadata);
 
     emit_set_property(&mut output, &objects, metadata);
@@ -1030,33 +1028,6 @@ fn emit_read_observed(
                  .map_err(Into::into)) }}\n",
                 object.name, event.name, property.name, property.value
             ));
-        }
-    }
-    output.push_str("_ => None,\n} }\n");
-}
-
-fn emit_feedback_event(output: &mut String, schema: &Schema) {
-    output.push_str(
-        "fn feedback_event(kind: ObjectType, property: PropertyId) -> Option<EventId> { \
-         match (kind, property) {\n",
-    );
-    for object in &schema.objects {
-        for property in &object.properties {
-            let event = property.controlled.as_ref().or_else(|| {
-                let coerced = property.coerces.as_ref()?;
-                object
-                    .properties
-                    .iter()
-                    .find(|candidate| candidate.name == *coerced)?
-                    .controlled
-                    .as_ref()
-            });
-            if let Some(event) = event {
-                output.push_str(&format!(
-                    "(ObjectType::{}, PropertyId::{}) => Some(EventId::{event}),\n",
-                    object.name, property.name
-                ));
-            }
         }
     }
     output.push_str("_ => None,\n} }\n");

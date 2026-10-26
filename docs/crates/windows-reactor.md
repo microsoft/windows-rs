@@ -422,8 +422,11 @@ rule that needs no per-property setting:
 | Event raised while Reactor writes the property | Dropped. After the write, Reactor reads the native value back and records it without a callback. |
 | Observed value equals the declared value | Recorded without a callback, so late or repeated notifications of Reactor's writes stay silent. |
 | Observed value departs from the declared value | Recorded and reported. A repeated departure is reported again. |
-| Property no longer declared | The value read back after clearing it is the baseline. Events that match the baseline stay silent; others are reported. |
+| Property no longer declared | The value read back after clearing it is the baseline. Events that match the baseline stay silent; others are reported. Callback-free notifications do not set a baseline. |
 | Consecutive undrained reports of the same event | Only the latest is kept, so a control that passes through intermediate states, such as `RadioButtons` selecting nothing before the new item, reports where it settled. |
+
+Only the controlled event is compared and coalesced. Other events that observe the property, such
+as `CheckBox` `Click`, record the value but always dispatch.
 
 A controlled index property names what it indexes with `indexes = "<relation or property>"`, where
 the property is a string list such as `ItemsSource`. Reactor writes the index after those items

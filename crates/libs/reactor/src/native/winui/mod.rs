@@ -233,6 +233,8 @@ enum QueuedHandler {
 struct QueuedNativeEvent {
     observation: Option<Observation>,
     event: Option<QueuedEvent>,
+    /// The observation records native state that Reactor's own write produced.
+    record: bool,
     retirement: Option<RetirementCompletion>,
     realization: Option<RealizationRequest>,
 }
@@ -391,22 +393,10 @@ impl NativeEventQueue {
     }
 
     fn queue(&self, observation: Option<Observation>, event: Option<QueuedEvent>) {
-        let mut events = self.events.borrow_mut();
-        // A state report supersedes an undrained report of the same event, so a control that
-        // passes through intermediate states within one interaction reports only where it settled.
-        if observation.is_some()
-            && let Some(queued) = &event
-            && let Some(index) = events.iter().rposition(|pending| pending.event.is_some())
-            && events[index].observation.is_some()
-            && events[index].event.as_ref().is_some_and(|pending| {
-                pending.object == queued.object && pending.event == queued.event
-            })
-        {
-            events.remove(index);
-        }
-        events.push_back(QueuedNativeEvent {
+        self.events.borrow_mut().push_back(QueuedNativeEvent {
             observation,
             event,
+            record: false,
             retirement: None,
             realization: None,
         });
@@ -418,6 +408,7 @@ impl NativeEventQueue {
         events.push_back(QueuedNativeEvent {
             observation: None,
             event: None,
+            record: false,
             retirement: None,
             realization: Some(request),
         });

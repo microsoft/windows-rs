@@ -279,6 +279,13 @@ impl Observation {
     }
 }
 
+/// The controlled event that reports a property, directly or through the property it coerces.
+pub(crate) fn reporting_event(kind: ObjectType, property: PropertyId) -> Option<EventId> {
+    controlled_event(kind, property).or_else(|| {
+        coerced_property(kind, property).and_then(|coerced| controlled_event(kind, coerced))
+    })
+}
+
 /// Native notifications dropped while Reactor writes the state they report.
 #[derive(Default)]
 pub(crate) struct FeedbackState {
@@ -391,6 +398,7 @@ impl EventDispatch {
 pub struct NativeEvent {
     observation: Option<Observation>,
     event: Option<EventDispatch>,
+    record: bool,
     retirement: Option<RetirementCompletion>,
     realization: Option<RealizationRequest>,
 }
@@ -400,26 +408,32 @@ impl NativeEvent {
         Self {
             observation,
             event,
+            record: false,
             retirement: None,
             realization: None,
+        }
+    }
+
+    /// Records native state that Reactor's own write produced. For a property the declaration
+    /// omits, the recorded value becomes the baseline that later notifications compare against.
+    pub fn record(observation: Observation) -> Self {
+        Self {
+            record: true,
+            ..Self::new(Some(observation), None)
         }
     }
 
     pub fn retirement(completion: RetirementCompletion) -> Self {
         Self {
-            observation: None,
-            event: None,
             retirement: Some(completion),
-            realization: None,
+            ..Self::new(None, None)
         }
     }
 
     pub fn realization(request: RealizationRequest) -> Self {
         Self {
-            observation: None,
-            event: None,
-            retirement: None,
             realization: Some(request),
+            ..Self::new(None, None)
         }
     }
 }
@@ -1165,6 +1179,14 @@ impl RetainedGraph {
             || current.window_title_bar != declaration.window_title_bar
             || current.properties.as_slice() != declaration.properties.as_slice()
             || retained_events(&current.events) != declaration.events.as_slice()
+            // A baseline for a declared property records an unsettled departure; the update
+            // path settles it even when the app accepted the native value.
+            || current.baselines.iter().any(|baseline| {
+                declaration
+                    .properties
+                    .iter()
+                    .any(|property| property.id == baseline.id)
+            })
         {
             return false;
         }
@@ -1644,10 +1666,19 @@ impl<A: Adapter> Runtime<A> {
 
     fn pop_native_work(&mut self) -> Option<NativeWork> {
         let event = self.adapter.pop_native_event()?;
-        let dispatch = event.observation.is_none_or(|observation| {
-            self.graph
-                .apply_observation(observation, event.event.is_none())
-        });
+        // Only a property's controlled event reports its state; an action that also observes the
+        // property, such as `Click`, dispatches even when the state is settled.
+        let action = match (&event.observation, &event.event) {
+            (Some(Observation::SetProperty { object, property }), Some(dispatch)) => self
+                .graph
+                .kind(*object)
+                .is_some_and(|kind| controlled_event(kind, property.id) != Some(dispatch.event)),
+            _ => false,
+        };
+        let dispatch = event
+            .observation
+            .is_none_or(|observation| self.graph.apply_observation(observation, event.record))
+            || action;
         if let Some(completion) = event.retirement {
             self.apply_retirement_completion(completion);
         }
@@ -1751,7 +1782,7 @@ impl<A: Adapter> Runtime<A> {
             }
             let event = self.adapter.pop_native_event().unwrap();
             if let Some(observation) = event.observation {
-                self.graph.apply_observation(observation, true);
+                self.graph.apply_observation(observation, event.record);
             }
             if let Some(completion) = event.retirement {
                 self.apply_retirement_completion(completion);

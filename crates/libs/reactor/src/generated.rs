@@ -516,6 +516,34 @@ pub fn coerced_property(kind: ObjectType, id: PropertyId) -> Option<PropertyId> 
         _ => None,
     }
 }
+pub fn controlled_event(kind: ObjectType, id: PropertyId) -> Option<EventId> {
+    match (kind, id) {
+        (ObjectType::TextBox, PropertyId::Text) => Some(EventId::TextChanged),
+        (ObjectType::CheckBox, PropertyId::IsChecked) => Some(EventId::IsCheckedChanged),
+        (ObjectType::Slider, PropertyId::Value) => Some(EventId::ValueChanged),
+        (ObjectType::ListView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+        (ObjectType::AutoSuggestBox, PropertyId::Text) => Some(EventId::TextChanged),
+        (ObjectType::PasswordBox, PropertyId::Password) => Some(EventId::PasswordChanged),
+        (ObjectType::NumberBox, PropertyId::Value) => Some(EventId::ValueChanged),
+        (ObjectType::NavigationView, PropertyId::IsPaneOpen) => Some(EventId::IsPaneOpenChanged),
+        (ObjectType::SplitView, PropertyId::IsPaneOpen) => Some(EventId::PaneClosed),
+        (ObjectType::ToggleSwitch, PropertyId::IsOn) => Some(EventId::Toggled),
+        (ObjectType::ToggleButton, PropertyId::IsChecked) => Some(EventId::IsCheckedChanged),
+        (ObjectType::RadioButton, PropertyId::IsChecked) => Some(EventId::Checked),
+        (ObjectType::RadioButtons, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+        (ObjectType::RatingControl, PropertyId::Value) => Some(EventId::ValueChanged),
+        (ObjectType::Expander, PropertyId::IsExpanded) => Some(EventId::IsExpandedChanged),
+        (ObjectType::ComboBox, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+        (ObjectType::Pivot, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+        (ObjectType::FlipView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+        (ObjectType::TabView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+        (ObjectType::ColorPicker, PropertyId::Color) => Some(EventId::ColorChanged),
+        (ObjectType::CalendarDatePicker, PropertyId::Date) => Some(EventId::DateChanged),
+        (ObjectType::GridView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+        (ObjectType::RichEditBox, PropertyId::Document) => Some(EventId::TextChanged),
+        _ => None,
+    }
+}
 pub fn reorder_contracts(kind: ObjectType) -> &'static [ReorderContract] {
     match kind {
         ObjectType::ListView => &[ReorderContract {

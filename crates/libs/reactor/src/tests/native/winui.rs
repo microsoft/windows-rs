@@ -666,6 +666,6 @@ fn generated_feedback_pairs_written_properties_with_their_reporting_event() {
         (ObjectType::ProgressBar, PropertyId::Value, None),
     ];
     for (kind, property, event) in cases {
-        assert_eq!(GeneratedHandle::feedback_event(kind, property), event);
+        assert_eq!(reporting_event(kind, property), event);
     }
 }

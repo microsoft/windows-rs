@@ -3909,43 +3909,6 @@ impl GeneratedHandle {
             _ => unreachable!("validated enum kind"),
         }
     }
-    fn feedback_event(kind: ObjectType, property: PropertyId) -> Option<EventId> {
-        match (kind, property) {
-            (ObjectType::TextBox, PropertyId::Text) => Some(EventId::TextChanged),
-            (ObjectType::CheckBox, PropertyId::IsChecked) => Some(EventId::IsCheckedChanged),
-            (ObjectType::Slider, PropertyId::Minimum) => Some(EventId::ValueChanged),
-            (ObjectType::Slider, PropertyId::Maximum) => Some(EventId::ValueChanged),
-            (ObjectType::Slider, PropertyId::Value) => Some(EventId::ValueChanged),
-            (ObjectType::ListView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
-            (ObjectType::AutoSuggestBox, PropertyId::Text) => Some(EventId::TextChanged),
-            (ObjectType::PasswordBox, PropertyId::Password) => Some(EventId::PasswordChanged),
-            (ObjectType::NumberBox, PropertyId::Minimum) => Some(EventId::ValueChanged),
-            (ObjectType::NumberBox, PropertyId::Maximum) => Some(EventId::ValueChanged),
-            (ObjectType::NumberBox, PropertyId::Value) => Some(EventId::ValueChanged),
-            (ObjectType::NavigationView, PropertyId::IsPaneOpen) => {
-                Some(EventId::IsPaneOpenChanged)
-            }
-            (ObjectType::SplitView, PropertyId::IsPaneOpen) => Some(EventId::PaneClosed),
-            (ObjectType::ToggleSwitch, PropertyId::IsOn) => Some(EventId::Toggled),
-            (ObjectType::ToggleButton, PropertyId::IsChecked) => Some(EventId::IsCheckedChanged),
-            (ObjectType::RadioButton, PropertyId::IsChecked) => Some(EventId::Checked),
-            (ObjectType::RadioButtons, PropertyId::SelectedIndex) => {
-                Some(EventId::SelectionChanged)
-            }
-            (ObjectType::RatingControl, PropertyId::MaxRating) => Some(EventId::ValueChanged),
-            (ObjectType::RatingControl, PropertyId::Value) => Some(EventId::ValueChanged),
-            (ObjectType::Expander, PropertyId::IsExpanded) => Some(EventId::IsExpandedChanged),
-            (ObjectType::ComboBox, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
-            (ObjectType::Pivot, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
-            (ObjectType::FlipView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
-            (ObjectType::TabView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
-            (ObjectType::ColorPicker, PropertyId::Color) => Some(EventId::ColorChanged),
-            (ObjectType::CalendarDatePicker, PropertyId::Date) => Some(EventId::DateChanged),
-            (ObjectType::GridView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
-            (ObjectType::RichEditBox, PropertyId::Document) => Some(EventId::TextChanged),
-            _ => None,
-        }
-    }
     fn read_observed(&self, event: EventId) -> Option<Result<Property, WinUiError>> {
         match (self, event) {
             (Self::TextBox(object), EventId::TextChanged) => {

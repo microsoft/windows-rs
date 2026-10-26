@@ -250,6 +250,9 @@ impl Adapter for WinUiAdapter {
     fn pop_native_event(&mut self) -> Option<NativeEvent> {
         loop {
             let queued = self.event_queue.events.borrow_mut().pop_front()?;
+            if self.superseded(&queued) {
+                continue;
+            }
             if let Some(event) = self.native_event(&queued) {
                 return Some(event);
             }
@@ -270,6 +273,33 @@ impl Adapter for WinUiAdapter {
 }
 
 impl WinUiAdapter {
+    /// A state report is superseded when the next queued event reports the same state again, so
+    /// a control that passes through intermediate states within one interaction reports only
+    /// where it settled. Action events such as `Click` always dispatch.
+    fn superseded(&self, queued: &QueuedNativeEvent) -> bool {
+        let (Some(Observation::SetProperty { object, property }), Some(event)) =
+            (&queued.observation, &queued.event)
+        else {
+            return false;
+        };
+        if !self
+            .kind(*object)
+            .is_ok_and(|kind| controlled_event(kind, property.id) == Some(event.event))
+        {
+            return false;
+        }
+        self.event_queue
+            .events
+            .borrow()
+            .iter()
+            .find_map(|pending| Some((pending.observation.as_ref(), pending.event.as_ref()?)))
+            .is_some_and(|(observation, pending)| {
+                observation.is_some()
+                    && pending.object == event.object
+                    && pending.event == event.event
+            })
+    }
+
     fn focus(&mut self, object: ObjectId) -> Result<bool, WinUiError> {
         let element = self.ui_element(object)?;
         self.pending_focus_states

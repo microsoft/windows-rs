@@ -164,13 +164,121 @@ fn recorded_value_of_an_omitted_property_is_not_dispatched() {
         runtime.dispatch_native_events()
     };
 
-    runtime
-        .adapter_mut()
-        .queue_native_event(Some(document("")), None);
+    runtime.adapter_mut().queue_record(document(""));
     assert_eq!(runtime.dispatch_native_events(), 0);
     assert_eq!(report(&mut runtime, ""), 0);
     assert_eq!(report(&mut runtime, "Typed"), 1);
     assert_eq!(&*values.borrow(), &[Rc::from("Typed")]);
+}
+
+#[test]
+fn callback_free_notification_does_not_set_a_baseline() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let values = Rc::clone(&values);
+        Callback::new(move |value: Rc<str>| values.borrow_mut().push(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(RichEditBox::new().on_text_changed(callback.clone()));
+    let object = runtime.graph().root().unwrap();
+    let document = Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::Document,
+            value: PropertyValue::String(Rc::from("Typed")),
+        },
+    };
+    runtime
+        .adapter_mut()
+        .queue_native_event(Some(document.clone()), None);
+    runtime.adapter_mut().queue_native_event(
+        Some(document),
+        Some(EventDispatch::new(
+            object,
+            EventId::TextChanged,
+            EventValue::String(callback),
+            EventPayload::String(Rc::from("Typed")),
+        )),
+    );
+    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(&*values.borrow(), &[Rc::from("Typed")]);
+}
+
+#[test]
+fn action_observing_settled_state_is_dispatched() {
+    let clicks = Rc::new(Cell::new(0));
+    let callback = {
+        let clicks = Rc::clone(&clicks);
+        Callback::new(move |()| clicks.set(clicks.get() + 1))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(CheckBox::new().on_click(callback.clone()));
+    let object = runtime.graph().root().unwrap();
+    let checked = Observation::SetProperty {
+        object,
+        property: Property {
+            id: PropertyId::IsChecked,
+            value: PropertyValue::OptionalBool(Some(true)),
+        },
+    };
+    // A callback-free `IsCheckedChanged` reports the state before the `Click` that carries it.
+    runtime
+        .adapter_mut()
+        .queue_native_event(Some(checked.clone()), None);
+    for _ in 0..2 {
+        runtime.adapter_mut().queue_native_event(
+            Some(checked.clone()),
+            Some(EventDispatch::new(
+                object,
+                EventId::Click,
+                EventValue::Unit(callback.clone()),
+                EventPayload::Unit,
+            )),
+        );
+    }
+    assert_eq!(runtime.dispatch_native_events(), 2);
+    assert_eq!(clicks.get(), 2);
+}
+
+#[test]
+fn accepted_departure_does_not_settle_a_later_edit() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let values = Rc::clone(&values);
+        Callback::new(move |value: Rc<str>| values.borrow_mut().push(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    let declare = |text: &str| {
+        RichEditBox::new()
+            .text(text)
+            .on_text_changed(callback.clone())
+    };
+    runtime.update(declare("A"));
+    let object = runtime.graph().root().unwrap();
+    let report = |runtime: &mut Runtime<RecordingAdapter>, value: &str| {
+        runtime.adapter_mut().queue_native_event(
+            Some(Observation::SetProperty {
+                object,
+                property: Property {
+                    id: PropertyId::Document,
+                    value: PropertyValue::String(Rc::from(value)),
+                },
+            }),
+            Some(EventDispatch::new(
+                object,
+                EventId::TextChanged,
+                EventValue::String(callback.clone()),
+                EventPayload::String(Rc::from(value)),
+            )),
+        );
+        runtime.dispatch_native_events()
+    };
+
+    assert_eq!(report(&mut runtime, "B"), 1);
+    // The app accepts the edit, so the declaration matches the retained native value.
+    assert!(runtime.update(declare("B")).is_empty());
+    assert_eq!(report(&mut runtime, "A"), 1);
+    assert_eq!(&*values.borrow(), &[Rc::from("B"), Rc::from("A")]);
 }
 
 #[test]
