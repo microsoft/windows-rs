@@ -31,7 +31,7 @@ pub fn yml() {
             }
 
             if first {
-                writeln!(yml, "      - uses: Swatinem/rust-cache@v2").unwrap();
+                writeln!(yml, "      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3").unwrap();
                 first = false;
             }
 
@@ -87,7 +87,7 @@ pub fn yml() {
             .unwrap();
 
             if first {
-                writeln!(yml, "      - uses: Swatinem/rust-cache@v2").unwrap();
+                writeln!(yml, "      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3").unwrap();
                 first = false;
             }
 
