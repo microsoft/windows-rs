@@ -51,6 +51,9 @@ fn display_objects_update_remove_and_remount() -> Result<()> {
 #[test]
 fn tooltip_shows_and_updates_declared_text() -> Result<()> {
     process::run("smoke", |ui| {
+        // Enter from another element: a move that ends where the cursor already rests does not
+        // raise PointerEntered, so the tooltip would never open.
+        ui.pointer_move("advance", 0.5, 0.5)?;
         ui.pointer_move("tipped", 0.5, 0.5)?;
         ui.named(TOOL_TIP, "Gen 0")?;
         ui.invoke("advance")?;
