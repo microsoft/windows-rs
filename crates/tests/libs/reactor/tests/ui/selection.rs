@@ -1,18 +1,19 @@
 use super::*;
 
+const DECLARED: [&str; 7] = [
+    "list-view",
+    "grid-view",
+    "combo-box",
+    "radio-buttons",
+    "pivot",
+    "flip-view",
+    "tab-view",
+];
+
 /// A declared index is applied after its items and kept across Reactor's own item changes without
 /// reporting those native moves; an undeclared index still reports them.
 #[test]
 fn declared_index_does_not_echo() -> Result<()> {
-    const DECLARED: [&str; 7] = [
-        "list-view",
-        "grid-view",
-        "combo-box",
-        "radio-buttons",
-        "pivot",
-        "flip-view",
-        "tab-view",
-    ];
     process::run("selection-index", |ui| {
         let selected = |name| -> Result<()> {
             for id in DECLARED {
@@ -33,6 +34,51 @@ fn declared_index_does_not_echo() -> Result<()> {
         ui.invoke("rotate")?;
         selected("Front")
     })
+}
+
+/// A user selection on a declared-index selector is reported once, and the declared index is
+/// restored when the app keeps it.
+#[test]
+fn declared_index_rejects_user_selection() -> Result<()> {
+    process::run("selection-index", |ui| {
+        let mut echoes = Vec::new();
+        for id in DECLARED {
+            ui.selected_name(id, "One")?;
+            user_select_next(ui, id)?;
+            echoes.push(format!("({id:?}, Some(2))"));
+            let expected = format!("Echoes [{}]", echoes.join(", "));
+            ui.name("echoes", &expected)?;
+            ui.selected_name(id, "One")?;
+            ui.name_stays("echoes", &expected, Duration::from_millis(500))?;
+        }
+        Ok(())
+    })
+}
+
+/// Selects "Two", the item after the declared one, as a user would.
+fn user_select_next(ui: &Automation, id: &str) -> Result<()> {
+    let expand_collapse = || -> Result<IUIAutomationExpandCollapsePattern> {
+        Ok(unsafe {
+            ui.element(id)?
+                .GetCurrentPatternAs(EXPAND_COLLAPSE_PATTERN)?
+        })
+    };
+    match id {
+        // FlipView realizes only its current item; a user hovers it and clicks its Next button.
+        "flip-view" => {
+            ui.pointer_move(id, 0.5, 0.5)?;
+            ui.pointer_move("NextButtonHorizontal", 0.5, 0.5)?;
+            ui.pointer_clicks(1)
+        }
+        // ComboBox items are in the automation tree only while its drop-down is open.
+        "combo-box" => {
+            unsafe { expand_collapse()?.Expand().ok()? };
+            select_item(ui, id, "Two")?;
+            unsafe { expand_collapse()?.Collapse().ok()? };
+            Ok(())
+        }
+        _ => select_item(ui, id, "Two"),
+    }
 }
 /// Item-flag selectors report only user selections. Declared flags drive all three controls,
 /// including across insertion, reordering, clearing, and removal of the selected item.

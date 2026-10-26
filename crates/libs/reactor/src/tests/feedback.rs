@@ -1,7 +1,7 @@
 use super::*;
 
 #[test]
-fn rich_edit_text_is_canonical_and_uses_deferred_exact_feedback() {
+fn rich_edit_text_is_canonical_and_reports_native_edits() {
     let values = Rc::new(RefCell::new(Vec::new()));
     let callback = {
         let values = Rc::clone(&values);
@@ -86,118 +86,91 @@ fn rich_edit_document_removal_clears_once_and_stays_omitted() {
 }
 
 #[test]
-fn deferred_exact_feedback_suppresses_matching_observations_until_a_difference() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(RichEditBox::new().text("Before"));
-    let object = runtime.graph().root().unwrap();
-    let property = Property {
-        id: PropertyId::Document,
-        value: PropertyValue::String(Rc::from("After")),
+fn observation_matching_declared_state_is_not_dispatched() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let values = Rc::clone(&values);
+        Callback::new(move |value: Rc<str>| values.borrow_mut().push(value))
     };
-    let mut feedback = FeedbackState::default();
-    feedback.begin(
-        object,
-        EventId::TextChanged,
-        FeedbackExpectation::DeferredExact(property.clone()),
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(
+        RichEditBox::new()
+            .text("After")
+            .on_text_changed(callback.clone()),
     );
-    assert_eq!(feedback.finish(object, EventId::TextChanged), None);
-    for _ in 0..3 {
-        assert!(!feedback.observe(
-            object,
-            EventId::TextChanged,
-            Observation::SetProperty {
+    let object = runtime.graph().root().unwrap();
+    let mut report = |value: &str| {
+        runtime.adapter_mut().queue_native_event(
+            Some(Observation::SetProperty {
                 object,
-                property: property.clone(),
-            }
-        ));
-    }
-    let different = Observation::SetProperty {
+                property: Property {
+                    id: PropertyId::Document,
+                    value: PropertyValue::String(Rc::from(value)),
+                },
+            }),
+            Some(EventDispatch::new(
+                object,
+                EventId::TextChanged,
+                EventValue::String(callback.clone()),
+                EventPayload::String(Rc::from(value)),
+            )),
+        );
+        runtime.dispatch_native_events()
+    };
+
+    assert_eq!(report("After"), 0);
+    assert_eq!(report("After"), 0);
+    assert_eq!(report("Different"), 1);
+    assert_eq!(report("Other"), 1);
+    assert_eq!(report("After"), 0);
+    assert_eq!(
+        &*values.borrow(),
+        &[Rc::from("Different"), Rc::from("Other")]
+    );
+}
+
+#[test]
+fn recorded_value_of_an_omitted_property_is_not_dispatched() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let values = Rc::clone(&values);
+        Callback::new(move |value: Rc<str>| values.borrow_mut().push(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(
+        RichEditBox::new()
+            .text("Before")
+            .on_text_changed(callback.clone()),
+    );
+    let object = runtime.graph().root().unwrap();
+    runtime.update(RichEditBox::new().on_text_changed(callback.clone()));
+    let document = |value: &str| Observation::SetProperty {
         object,
         property: Property {
             id: PropertyId::Document,
-            value: PropertyValue::String(Rc::from("Different")),
+            value: PropertyValue::String(Rc::from(value)),
         },
     };
-    assert!(feedback.observe(object, EventId::TextChanged, different.clone()));
-    assert!(feedback.observe(object, EventId::TextChanged, different));
-}
-
-#[test]
-fn newer_deferred_exact_write_replaces_the_previous_expectation() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(RichEditBox::new());
-    let object = runtime.graph().root().unwrap();
-    let mut feedback = FeedbackState::default();
-    let property = |value| Property {
-        id: PropertyId::Document,
-        value: PropertyValue::String(Rc::from(value)),
-    };
-    feedback.begin(
-        object,
-        EventId::TextChanged,
-        FeedbackExpectation::DeferredExact(property("Old")),
-    );
-    assert_eq!(feedback.finish(object, EventId::TextChanged), None);
-    feedback.begin(
-        object,
-        EventId::TextChanged,
-        FeedbackExpectation::DeferredExact(property("New")),
-    );
-    assert_eq!(feedback.finish(object, EventId::TextChanged), None);
-
-    assert!(!feedback.observe(
-        object,
-        EventId::TextChanged,
-        Observation::SetProperty {
-            object,
-            property: property("New"),
-        }
-    ));
-    assert!(feedback.observe(
-        object,
-        EventId::TextChanged,
-        Observation::SetProperty {
-            object,
-            property: property("Old"),
-        }
-    ));
-}
-
-#[test]
-fn deferred_exact_clear_suppresses_repeated_empty_observations() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(RichEditBox::new().text("Before"));
-    let object = runtime.graph().root().unwrap();
-    let empty = Property {
-        id: PropertyId::Document,
-        value: PropertyValue::String(Rc::from("")),
-    };
-    let mut feedback = FeedbackState::default();
-    feedback.begin(
-        object,
-        EventId::TextChanged,
-        FeedbackExpectation::DeferredExact(empty.clone()),
-    );
-    assert_eq!(feedback.finish(object, EventId::TextChanged), None);
-    for _ in 0..2 {
-        assert!(!feedback.observe(
-            object,
-            EventId::TextChanged,
-            Observation::SetProperty {
+    let report = |runtime: &mut Runtime<RecordingAdapter>, value: &str| {
+        runtime.adapter_mut().queue_native_event(
+            Some(document(value)),
+            Some(EventDispatch::new(
                 object,
-                property: empty.clone(),
-            }
-        ));
-    }
-    feedback.remove_object(object);
-    assert!(feedback.observe(
-        object,
-        EventId::TextChanged,
-        Observation::SetProperty {
-            object,
-            property: empty,
-        }
-    ));
+                EventId::TextChanged,
+                EventValue::String(callback.clone()),
+                EventPayload::String(Rc::from(value)),
+            )),
+        );
+        runtime.dispatch_native_events()
+    };
+
+    runtime
+        .adapter_mut()
+        .queue_native_event(Some(document("")), None);
+    assert_eq!(runtime.dispatch_native_events(), 0);
+    assert_eq!(report(&mut runtime, ""), 0);
+    assert_eq!(report(&mut runtime, "Typed"), 1);
+    assert_eq!(&*values.borrow(), &[Rc::from("Typed")]);
 }
 
 #[test]

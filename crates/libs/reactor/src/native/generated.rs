@@ -606,11 +606,7 @@ impl GeneratedHandle {
                             value: PropertyValue::String(Rc::clone(&observed)),
                         },
                     };
-                    let dispatch = event_queue_text_changed.observe(
-                        object,
-                        EventId::TextChanged,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_text_changed.reports(object, EventId::TextChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -661,8 +657,7 @@ impl GeneratedHandle {
                             value: PropertyValue::OptionalBool(observed),
                         },
                     };
-                    let dispatch =
-                        event_queue_click.observe(object, EventId::Click, observation.clone());
+                    let dispatch = event_queue_click.reports(object, EventId::Click);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -700,11 +695,8 @@ impl GeneratedHandle {
                                 value: PropertyValue::OptionalBool(observed),
                             },
                         };
-                        let dispatch = event_queue_is_checked_changed.observe(
-                            object,
-                            EventId::IsCheckedChanged,
-                            observation.clone(),
-                        );
+                        let dispatch = event_queue_is_checked_changed
+                            .reports(object, EventId::IsCheckedChanged);
                         let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch(
@@ -852,11 +844,8 @@ impl GeneratedHandle {
                                     value: PropertyValue::F64(observed),
                                 },
                             };
-                            let dispatch = event_queue_value_changed.observe(
-                                object,
-                                EventId::ValueChanged,
-                                observation.clone(),
-                            );
+                            let dispatch =
+                                event_queue_value_changed.reports(object, EventId::ValueChanged);
                             let observation = dispatch.then_some(observation);
                             let args = args.unwrap();
                             let payload = args.NewValue().unwrap();
@@ -902,11 +891,8 @@ impl GeneratedHandle {
                                     value: PropertyValue::SelectionIndex(observed),
                                 },
                             };
-                            let dispatch = event_queue_selection_changed.observe(
-                                object,
-                                EventId::SelectionChanged,
-                                observation.clone(),
-                            );
+                            let dispatch = event_queue_selection_changed
+                                .reports(object, EventId::SelectionChanged);
                             let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch(
@@ -1003,11 +989,7 @@ impl GeneratedHandle {
                             value: PropertyValue::String(Rc::clone(&observed)),
                         },
                     };
-                    let dispatch = event_queue_text_changed.observe(
-                        object,
-                        EventId::TextChanged,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_text_changed.reports(object, EventId::TextChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1048,11 +1030,8 @@ impl GeneratedHandle {
                             value: PropertyValue::String(Rc::clone(&observed)),
                         },
                     };
-                    let dispatch = event_queue_password_changed.observe(
-                        object,
-                        EventId::PasswordChanged,
-                        observation.clone(),
-                    );
+                    let dispatch =
+                        event_queue_password_changed.reports(object, EventId::PasswordChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1088,11 +1067,7 @@ impl GeneratedHandle {
                             value: PropertyValue::OptionalF64(observed),
                         },
                     };
-                    let dispatch = event_queue_value_changed.observe(
-                        object,
-                        EventId::ValueChanged,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_value_changed.reports(object, EventId::ValueChanged);
                     let observation = dispatch.then_some(observation);
                     let args = args.unwrap();
                     let payload = args.NewValue().map(number_box_value).unwrap();
@@ -1133,11 +1108,8 @@ impl GeneratedHandle {
                                 value: PropertyValue::Bool(observed),
                             },
                         };
-                        let dispatch = event_queue_is_pane_open_changed.observe(
-                            object,
-                            EventId::IsPaneOpenChanged,
-                            observation.clone(),
-                        );
+                        let dispatch = event_queue_is_pane_open_changed
+                            .reports(object, EventId::IsPaneOpenChanged);
                         let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch(
@@ -1207,11 +1179,7 @@ impl GeneratedHandle {
                             value: PropertyValue::Bool(observed),
                         },
                     };
-                    let dispatch = event_queue_pane_closed.observe(
-                        object,
-                        EventId::PaneClosed,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_pane_closed.reports(object, EventId::PaneClosed);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1248,8 +1216,7 @@ impl GeneratedHandle {
                             value: PropertyValue::Bool(observed),
                         },
                     };
-                    let dispatch =
-                        event_queue_toggled.observe(object, EventId::Toggled, observation.clone());
+                    let dispatch = event_queue_toggled.reports(object, EventId::Toggled);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1292,11 +1259,8 @@ impl GeneratedHandle {
                                 value: PropertyValue::OptionalBool(observed),
                             },
                         };
-                        let dispatch = event_queue_is_checked_changed.observe(
-                            object,
-                            EventId::IsCheckedChanged,
-                            observation.clone(),
-                        );
+                        let dispatch = event_queue_is_checked_changed
+                            .reports(object, EventId::IsCheckedChanged);
                         let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch(
@@ -1348,11 +1312,7 @@ impl GeneratedHandle {
                                 value: PropertyValue::OptionalBool(observed),
                             },
                         };
-                        let dispatch = event_queue_checked.observe(
-                            object,
-                            EventId::Checked,
-                            observation.clone(),
-                        );
+                        let dispatch = event_queue_checked.reports(object, EventId::Checked);
                         let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch(
@@ -1389,11 +1349,7 @@ impl GeneratedHandle {
                                 value: PropertyValue::OptionalBool(observed),
                             },
                         };
-                        let dispatch = event_queue_unchecked.observe(
-                            object,
-                            EventId::Unchecked,
-                            observation.clone(),
-                        );
+                        let dispatch = event_queue_unchecked.reports(object, EventId::Unchecked);
                         let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch(
@@ -1435,11 +1391,8 @@ impl GeneratedHandle {
                             value: PropertyValue::SelectionIndex(observed),
                         },
                     };
-                    let dispatch = event_queue_selection_changed.observe(
-                        object,
-                        EventId::SelectionChanged,
-                        observation.clone(),
-                    );
+                    let dispatch =
+                        event_queue_selection_changed.reports(object, EventId::SelectionChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1477,8 +1430,7 @@ impl GeneratedHandle {
                             value: PropertyValue::Bool(observed),
                         },
                     };
-                    let dispatch =
-                        event_queue_closed.observe(object, EventId::Closed, observation.clone());
+                    let dispatch = event_queue_closed.reports(object, EventId::Closed);
                     let observation = dispatch.then_some(observation);
                     if args.unwrap().Reason().unwrap() == native::InfoBarCloseReason::Programmatic {
                         if let Some(observation) = observation {
@@ -1608,11 +1560,7 @@ impl GeneratedHandle {
                             value: PropertyValue::OptionalF64(observed),
                         },
                     };
-                    let dispatch = event_queue_value_changed.observe(
-                        object,
-                        EventId::ValueChanged,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_value_changed.reports(object, EventId::ValueChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1651,11 +1599,8 @@ impl GeneratedHandle {
                                 value: PropertyValue::Bool(observed),
                             },
                         };
-                        let dispatch = event_queue_is_expanded_changed.observe(
-                            object,
-                            EventId::IsExpandedChanged,
-                            observation.clone(),
-                        );
+                        let dispatch = event_queue_is_expanded_changed
+                            .reports(object, EventId::IsExpandedChanged);
                         let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch(
@@ -1708,11 +1653,8 @@ impl GeneratedHandle {
                                     value: PropertyValue::SelectionIndex(observed),
                                 },
                             };
-                            let dispatch = event_queue_selection_changed.observe(
-                                object,
-                                EventId::SelectionChanged,
-                                observation.clone(),
-                            );
+                            let dispatch = event_queue_selection_changed
+                                .reports(object, EventId::SelectionChanged);
                             let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch(
@@ -1752,11 +1694,8 @@ impl GeneratedHandle {
                             value: PropertyValue::SelectionIndex(observed),
                         },
                     };
-                    let dispatch = event_queue_selection_changed.observe(
-                        object,
-                        EventId::SelectionChanged,
-                        observation.clone(),
-                    );
+                    let dispatch =
+                        event_queue_selection_changed.reports(object, EventId::SelectionChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1801,11 +1740,8 @@ impl GeneratedHandle {
                                     value: PropertyValue::SelectionIndex(observed),
                                 },
                             };
-                            let dispatch = event_queue_selection_changed.observe(
-                                object,
-                                EventId::SelectionChanged,
-                                observation.clone(),
-                            );
+                            let dispatch = event_queue_selection_changed
+                                .reports(object, EventId::SelectionChanged);
                             let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch(
@@ -1873,11 +1809,8 @@ impl GeneratedHandle {
                             value: PropertyValue::SelectionIndex(observed),
                         },
                     };
-                    let dispatch = event_queue_selection_changed.observe(
-                        object,
-                        EventId::SelectionChanged,
-                        observation.clone(),
-                    );
+                    let dispatch =
+                        event_queue_selection_changed.reports(object, EventId::SelectionChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -1945,8 +1878,7 @@ impl GeneratedHandle {
                             value: PropertyValue::Bool(observed),
                         },
                     };
-                    let dispatch =
-                        event_queue_closed.observe(object, EventId::Closed, observation.clone());
+                    let dispatch = event_queue_closed.reports(object, EventId::Closed);
                     let observation = dispatch.then_some(observation);
                     if args.unwrap().Reason().unwrap()
                         == native::TeachingTipCloseReason::Programmatic
@@ -1985,11 +1917,8 @@ impl GeneratedHandle {
                                 value: PropertyValue::Bool(observed),
                             },
                         };
-                        let dispatch = event_queue_is_open_changed.observe(
-                            object,
-                            EventId::IsOpenChanged,
-                            observation.clone(),
-                        );
+                        let dispatch =
+                            event_queue_is_open_changed.reports(object, EventId::IsOpenChanged);
                         let observation = dispatch.then_some(observation);
                         if dispatch {
                             WinUiAdapter::dispatch(
@@ -2075,11 +2004,7 @@ impl GeneratedHandle {
                             value: PropertyValue::Color(observed),
                         },
                     };
-                    let dispatch = event_queue_color_changed.observe(
-                        object,
-                        EventId::ColorChanged,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_color_changed.reports(object, EventId::ColorChanged);
                     let observation = dispatch.then_some(observation);
                     let args = args.unwrap();
                     let payload = args.NewColor().map(from_native_color).unwrap();
@@ -2143,11 +2068,7 @@ impl GeneratedHandle {
                             value: PropertyValue::OptionalDateTime(observed),
                         },
                     };
-                    let dispatch = event_queue_date_changed.observe(
-                        object,
-                        EventId::DateChanged,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_date_changed.reports(object, EventId::DateChanged);
                     let observation = dispatch.then_some(observation);
                     let args = args.unwrap();
                     let payload = match args.NewDate() {
@@ -2239,11 +2160,8 @@ impl GeneratedHandle {
                                     value: PropertyValue::SelectionIndex(observed),
                                 },
                             };
-                            let dispatch = event_queue_selection_changed.observe(
-                                object,
-                                EventId::SelectionChanged,
-                                observation.clone(),
-                            );
+                            let dispatch = event_queue_selection_changed
+                                .reports(object, EventId::SelectionChanged);
                             let observation = dispatch.then_some(observation);
                             if dispatch {
                                 WinUiAdapter::dispatch(
@@ -2309,11 +2227,7 @@ impl GeneratedHandle {
                             value: PropertyValue::String(Rc::clone(&observed)),
                         },
                     };
-                    let dispatch = event_queue_text_changed.observe(
-                        object,
-                        EventId::TextChanged,
-                        observation.clone(),
-                    );
+                    let dispatch = event_queue_text_changed.reports(object, EventId::TextChanged);
                     let observation = dispatch.then_some(observation);
                     if dispatch {
                         WinUiAdapter::dispatch(
@@ -3995,314 +3909,379 @@ impl GeneratedHandle {
             _ => unreachable!("validated enum kind"),
         }
     }
-    fn feedback_expectation(
-        kind: ObjectType,
-        property: PropertyId,
-        value: Option<&PropertyValue>,
-    ) -> Option<(EventId, FeedbackExpectation)> {
-        match (kind, property, value) {
-            (ObjectType::TextBox, PropertyId::Text, Some(value)) => Some((
-                EventId::TextChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Text,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::TextBox, PropertyId::Text, None) => Some((
-                EventId::TextChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Text,
-                    value: PropertyValue::String(Rc::from("")),
-                }),
-            )),
-            (ObjectType::CheckBox, PropertyId::IsChecked, Some(value)) => Some((
-                EventId::IsCheckedChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsChecked,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::CheckBox, PropertyId::IsChecked, None) => Some((
-                EventId::IsCheckedChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsChecked,
-                    value: PropertyValue::OptionalBool(Some(false)),
-                }),
-            )),
-            (ObjectType::Slider, PropertyId::Minimum, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::Slider, PropertyId::Maximum, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::Slider, PropertyId::Value, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::ListView, PropertyId::SelectedIndex, Some(value)) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::ListView, PropertyId::SelectedIndex, None) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::AutoSuggestBox, PropertyId::Text, Some(value)) => Some((
-                EventId::TextChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Text,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::AutoSuggestBox, PropertyId::Text, None) => Some((
-                EventId::TextChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Text,
-                    value: PropertyValue::String(Rc::from("")),
-                }),
-            )),
-            (ObjectType::PasswordBox, PropertyId::Password, Some(value)) => Some((
-                EventId::PasswordChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Password,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::PasswordBox, PropertyId::Password, None) => Some((
-                EventId::PasswordChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Password,
-                    value: PropertyValue::String(Rc::from("")),
-                }),
-            )),
-            (ObjectType::NumberBox, PropertyId::Minimum, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::NumberBox, PropertyId::Maximum, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::NumberBox, PropertyId::Value, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::NavigationView, PropertyId::IsPaneOpen, Some(value)) => Some((
-                EventId::IsPaneOpenChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsPaneOpen,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::NavigationView, PropertyId::IsPaneOpen, None) => Some((
-                EventId::IsPaneOpenChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsPaneOpen,
-                    value: PropertyValue::Bool(true),
-                }),
-            )),
-            (ObjectType::SplitView, PropertyId::IsPaneOpen, Some(value)) => Some((
-                EventId::PaneClosed,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::IsPaneOpen,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::SplitView, PropertyId::IsPaneOpen, None) => Some((
-                EventId::PaneClosed,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::IsPaneOpen,
-                    value: PropertyValue::Bool(false),
-                }),
-            )),
-            (ObjectType::ToggleSwitch, PropertyId::IsOn, Some(value)) => Some((
-                EventId::Toggled,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsOn,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::ToggleSwitch, PropertyId::IsOn, None) => Some((
-                EventId::Toggled,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsOn,
-                    value: PropertyValue::Bool(false),
-                }),
-            )),
-            (ObjectType::ToggleButton, PropertyId::IsChecked, Some(value)) => Some((
-                EventId::IsCheckedChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsChecked,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::ToggleButton, PropertyId::IsChecked, None) => Some((
-                EventId::IsCheckedChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsChecked,
-                    value: PropertyValue::OptionalBool(Some(false)),
-                }),
-            )),
-            (ObjectType::RadioButton, PropertyId::IsChecked, Some(value)) => Some((
-                EventId::Checked,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsChecked,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::RadioButton, PropertyId::IsChecked, None) => Some((
-                EventId::Checked,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsChecked,
-                    value: PropertyValue::OptionalBool(Some(false)),
-                }),
-            )),
-            (ObjectType::RadioButtons, PropertyId::SelectedIndex, Some(value)) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::RadioButtons, PropertyId::SelectedIndex, None) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::RatingControl, PropertyId::MaxRating, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::RatingControl, PropertyId::Value, _) => Some((
-                EventId::ValueChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::Expander, PropertyId::IsExpanded, Some(value)) => Some((
-                EventId::IsExpandedChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsExpanded,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::Expander, PropertyId::IsExpanded, None) => Some((
-                EventId::IsExpandedChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::IsExpanded,
-                    value: PropertyValue::Bool(false),
-                }),
-            )),
-            (ObjectType::ComboBox, PropertyId::SelectedIndex, Some(value)) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::ComboBox, PropertyId::SelectedIndex, None) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::Pivot, PropertyId::SelectedIndex, Some(value)) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::Pivot, PropertyId::SelectedIndex, None) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::FlipView, PropertyId::SelectedIndex, Some(value)) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::FlipView, PropertyId::SelectedIndex, None) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::TabView, PropertyId::SelectedIndex, Some(value)) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::TabView, PropertyId::SelectedIndex, None) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::ColorPicker, PropertyId::Color, Some(value)) => Some((
-                EventId::ColorChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::Color,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::ColorPicker, PropertyId::Color, None) => Some((
-                EventId::ColorChanged,
-                FeedbackExpectation::Exact(Property {
-                    id: PropertyId::Color,
-                    value: PropertyValue::Color(Color::rgb(255, 255, 255)),
-                }),
-            )),
-            (ObjectType::CalendarDatePicker, PropertyId::Date, _) => Some((
-                EventId::DateChanged,
-                FeedbackExpectation::Normalized { observation: None },
-            )),
-            (ObjectType::GridView, PropertyId::SelectedIndex, Some(value)) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::GridView, PropertyId::SelectedIndex, None) => Some((
-                EventId::SelectionChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::SelectedIndex,
-                    value: PropertyValue::SelectionIndex(None),
-                }),
-            )),
-            (ObjectType::RichEditBox, PropertyId::Document, Some(value)) => Some((
-                EventId::TextChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Document,
-                    value: value.clone(),
-                }),
-            )),
-            (ObjectType::RichEditBox, PropertyId::Document, None) => Some((
-                EventId::TextChanged,
-                FeedbackExpectation::DeferredExact(Property {
-                    id: PropertyId::Document,
-                    value: PropertyValue::String(Rc::from("")),
-                }),
-            )),
+    fn feedback_event(kind: ObjectType, property: PropertyId) -> Option<EventId> {
+        match (kind, property) {
+            (ObjectType::TextBox, PropertyId::Text) => Some(EventId::TextChanged),
+            (ObjectType::CheckBox, PropertyId::IsChecked) => Some(EventId::IsCheckedChanged),
+            (ObjectType::Slider, PropertyId::Minimum) => Some(EventId::ValueChanged),
+            (ObjectType::Slider, PropertyId::Maximum) => Some(EventId::ValueChanged),
+            (ObjectType::Slider, PropertyId::Value) => Some(EventId::ValueChanged),
+            (ObjectType::ListView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+            (ObjectType::AutoSuggestBox, PropertyId::Text) => Some(EventId::TextChanged),
+            (ObjectType::PasswordBox, PropertyId::Password) => Some(EventId::PasswordChanged),
+            (ObjectType::NumberBox, PropertyId::Minimum) => Some(EventId::ValueChanged),
+            (ObjectType::NumberBox, PropertyId::Maximum) => Some(EventId::ValueChanged),
+            (ObjectType::NumberBox, PropertyId::Value) => Some(EventId::ValueChanged),
+            (ObjectType::NavigationView, PropertyId::IsPaneOpen) => {
+                Some(EventId::IsPaneOpenChanged)
+            }
+            (ObjectType::SplitView, PropertyId::IsPaneOpen) => Some(EventId::PaneClosed),
+            (ObjectType::ToggleSwitch, PropertyId::IsOn) => Some(EventId::Toggled),
+            (ObjectType::ToggleButton, PropertyId::IsChecked) => Some(EventId::IsCheckedChanged),
+            (ObjectType::RadioButton, PropertyId::IsChecked) => Some(EventId::Checked),
+            (ObjectType::RadioButtons, PropertyId::SelectedIndex) => {
+                Some(EventId::SelectionChanged)
+            }
+            (ObjectType::RatingControl, PropertyId::MaxRating) => Some(EventId::ValueChanged),
+            (ObjectType::RatingControl, PropertyId::Value) => Some(EventId::ValueChanged),
+            (ObjectType::Expander, PropertyId::IsExpanded) => Some(EventId::IsExpandedChanged),
+            (ObjectType::ComboBox, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+            (ObjectType::Pivot, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+            (ObjectType::FlipView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+            (ObjectType::TabView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+            (ObjectType::ColorPicker, PropertyId::Color) => Some(EventId::ColorChanged),
+            (ObjectType::CalendarDatePicker, PropertyId::Date) => Some(EventId::DateChanged),
+            (ObjectType::GridView, PropertyId::SelectedIndex) => Some(EventId::SelectionChanged),
+            (ObjectType::RichEditBox, PropertyId::Document) => Some(EventId::TextChanged),
+            _ => None,
+        }
+    }
+    fn read_observed(&self, event: EventId) -> Option<Result<Property, WinUiError>> {
+        match (self, event) {
+            (Self::TextBox(object), EventId::TextChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Text,
+                            value: PropertyValue::String(source.Text().map(Rc::<str>::from)?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::CheckBox(object), EventId::IsCheckedChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::IsChecked,
+                            value: PropertyValue::OptionalBool(match source
+                                .cast::<native::IToggleButton>()?
+                                .IsChecked()
+                            {
+                                Ok(value) => Ok(Some(value)),
+                                Err(error) if error.code().is_ok() => Ok(None),
+                                Err(error) => Err(error),
+                            }?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::Slider(object), EventId::ValueChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Value,
+                            value: PropertyValue::F64(
+                                source.cast::<native::IRangeBase>()?.Value()?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::ListView(object), EventId::SelectionChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::SelectedIndex,
+                            value: PropertyValue::SelectionIndex(
+                                source
+                                    .cast::<native::ISelector>()?
+                                    .SelectedIndex()
+                                    .map(|value| usize::try_from(value).ok())?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::AutoSuggestBox(object), EventId::TextChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Text,
+                            value: PropertyValue::String(source.Text().map(Rc::<str>::from)?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::PasswordBox(object), EventId::PasswordChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Password,
+                            value: PropertyValue::String(source.Password().map(Rc::<str>::from)?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::NumberBox(object), EventId::ValueChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Value,
+                            value: PropertyValue::OptionalF64(
+                                source.Value().map(number_box_value)?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::NavigationView(object), EventId::IsPaneOpenChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::IsPaneOpen,
+                            value: PropertyValue::Bool(source.IsPaneOpen()?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::SplitView(object), EventId::PaneClosed) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::IsPaneOpen,
+                            value: PropertyValue::Bool(source.IsPaneOpen()?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::ToggleSwitch(object), EventId::Toggled) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::IsOn,
+                            value: PropertyValue::Bool(source.IsOn()?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::ToggleButton(object), EventId::IsCheckedChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::IsChecked,
+                            value: PropertyValue::OptionalBool(match source.IsChecked() {
+                                Ok(value) => Ok(Some(value)),
+                                Err(error) if error.code().is_ok() => Ok(None),
+                                Err(error) => Err(error),
+                            }?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::RadioButton(object), EventId::Checked) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::IsChecked,
+                            value: PropertyValue::OptionalBool(match source
+                                .cast::<native::IToggleButton>()?
+                                .IsChecked()
+                            {
+                                Ok(value) => Ok(Some(value)),
+                                Err(error) if error.code().is_ok() => Ok(None),
+                                Err(error) => Err(error),
+                            }?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::RadioButtons(object), EventId::SelectionChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::SelectedIndex,
+                            value: PropertyValue::SelectionIndex(
+                                source
+                                    .SelectedIndex()
+                                    .map(|value| usize::try_from(value).ok())?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::RatingControl(object), EventId::ValueChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Value,
+                            value: PropertyValue::OptionalF64(source.Value().map(rating_value)?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::Expander(object), EventId::IsExpandedChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::IsExpanded,
+                            value: PropertyValue::Bool(source.IsExpanded()?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::ComboBox(object), EventId::SelectionChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::SelectedIndex,
+                            value: PropertyValue::SelectionIndex(
+                                source
+                                    .cast::<native::ISelector>()?
+                                    .SelectedIndex()
+                                    .map(|value| usize::try_from(value).ok())?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::Pivot(object), EventId::SelectionChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::SelectedIndex,
+                            value: PropertyValue::SelectionIndex(
+                                source
+                                    .SelectedIndex()
+                                    .map(|value| usize::try_from(value).ok())?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::FlipView(object), EventId::SelectionChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::SelectedIndex,
+                            value: PropertyValue::SelectionIndex(
+                                source
+                                    .cast::<native::ISelector>()?
+                                    .SelectedIndex()
+                                    .map(|value| usize::try_from(value).ok())?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::TabView(object), EventId::SelectionChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::SelectedIndex,
+                            value: PropertyValue::SelectionIndex(
+                                source
+                                    .SelectedIndex()
+                                    .map(|value| usize::try_from(value).ok())?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::ColorPicker(object), EventId::ColorChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Color,
+                            value: PropertyValue::Color(source.Color().map(from_native_color)?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::CalendarDatePicker(object), EventId::DateChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Date,
+                            value: PropertyValue::OptionalDateTime(match source.Date() {
+                                Ok(value) => Ok(Some(value)),
+                                Err(error) if error.code().is_ok() => Ok(None),
+                                Err(error) => Err(error),
+                            }?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::GridView(object), EventId::SelectionChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::SelectedIndex,
+                            value: PropertyValue::SelectionIndex(
+                                source
+                                    .cast::<native::ISelector>()?
+                                    .SelectedIndex()
+                                    .map(|value| usize::try_from(value).ok())?,
+                            ),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
+            (Self::RichEditBox(object), EventId::TextChanged) => {
+                let source = object.value.clone();
+                Some(
+                    (move || -> windows_core::Result<_> {
+                        Ok(Property {
+                            id: PropertyId::Document,
+                            value: PropertyValue::String(read_rich_edit_text(&source)?),
+                        })
+                    })()
+                    .map_err(Into::into),
+                )
+            }
             _ => None,
         }
     }

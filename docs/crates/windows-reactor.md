@@ -151,7 +151,7 @@ writes it again.
 `SplitView::is_pane_open` reports a user close through `on_pane_closed`, and
 `NavigationView::is_pane_open` reports user toggles through `on_is_pane_open_changed`. A render
 that keeps the declared value reopens a closed pane. WinUI leaves a `NavigationView` pane at its
-compact width when it reopens during the close animation, so a rejected close keeps the pane
+compact width when it reopens before its next layout pass, so a rejected close keeps the pane
 narrow while `is_pane_open` reads `true`.
 
 The [`controlled`](../../crates/samples/reactor/controlled) sample shows the complete pattern.
@@ -413,6 +413,17 @@ such as theme brushes and image sources, use the adapters in `native/winui`.
 Use metadata names unless a shared Reactor name matches the public value, role, and behavior.
 Container names distinguish one owned visual (`content`), ordered visuals (`children`), and item
 declarations (`items`).
+
+A property with a `controlled` event, or one that `coerces` such a property, follows one feedback
+rule that needs no per-property setting:
+
+| Case | Behavior |
+| --- | --- |
+| Event raised while Reactor writes the property | Dropped. After the write, Reactor reads the native value back and records it without a callback. |
+| Observed value equals the declared value | Recorded without a callback, so late or repeated notifications of Reactor's writes stay silent. |
+| Observed value departs from the declared value | Recorded and reported. A repeated departure is reported again. |
+| Property no longer declared | The value read back after clearing it is the baseline. Events that match the baseline stay silent; others are reported. |
+| Consecutive undrained reports of the same event | Only the latest is kept, so a control that passes through intermediate states, such as `RadioButtons` selecting nothing before the new item, reports where it settled. |
 
 A controlled index property names what it indexes with `indexes = "<relation or property>"`, where
 the property is a string list such as `ItemsSource`. Reactor writes the index after those items

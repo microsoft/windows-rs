@@ -511,14 +511,6 @@ impl Value {
     }
 }
 
-#[derive(Clone, Copy, Deserialize)]
-#[serde(rename_all = "snake_case")]
-enum Feedback {
-    Exact,
-    Normalized,
-    DeferredExact,
-}
-
 #[derive(Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Object {
@@ -582,9 +574,6 @@ struct Property {
     requires_selection: bool,
     #[serde(default)]
     realize_items: bool,
-    feedback: Option<Feedback>,
-    #[serde(default)]
-    clear_feedback: bool,
     #[serde(default)]
     required: bool,
     validation: Option<Validation>,
@@ -957,9 +946,8 @@ fn normalize_schema(schema: &mut Schema, metadata: &tool_reactor_metadata::Metad
             );
             if let Some(items) = &property.indexes {
                 assert!(
-                    property.controlled.is_some()
-                        && matches!(property.feedback, Some(Feedback::DeferredExact)),
-                    "{}.{} must be controlled with deferred_exact feedback",
+                    property.controlled.is_some(),
+                    "{}.{} must be controlled",
                     object.name,
                     property.name
                 );

@@ -282,49 +282,6 @@ fn active_slot_reorder_rejects_missing_or_duplicate_active_identity() {
     assert!(simulate_active_slot_reorder(&mut current, &active, &[2, 2]).is_none());
 }
 
-#[test]
-fn controlled_property_feedback_uses_exact_incumbent_clear_values() {
-    let cases = [
-        (
-            ObjectType::CheckBox,
-            PropertyId::IsChecked,
-            EventId::IsCheckedChanged,
-            PropertyValue::OptionalBool(Some(false)),
-        ),
-        (
-            ObjectType::ToggleButton,
-            PropertyId::IsChecked,
-            EventId::IsCheckedChanged,
-            PropertyValue::OptionalBool(Some(false)),
-        ),
-        (
-            ObjectType::Expander,
-            PropertyId::IsExpanded,
-            EventId::IsExpandedChanged,
-            PropertyValue::Bool(false),
-        ),
-        (
-            ObjectType::NavigationView,
-            PropertyId::IsPaneOpen,
-            EventId::IsPaneOpenChanged,
-            PropertyValue::Bool(true),
-        ),
-    ];
-
-    for (kind, property, event, value) in cases {
-        assert_eq!(
-            GeneratedHandle::feedback_expectation(kind, property, None),
-            Some((
-                event,
-                FeedbackExpectation::Exact(Property {
-                    id: property,
-                    value,
-                }),
-            ))
-        );
-    }
-}
-
 fn virtual_index(value: IInspectable) -> i32 {
     value
         .cast::<windows_reference::IReference<i32>>()
@@ -679,59 +636,36 @@ fn selection_index_conversion_reports_overflow() {
 }
 
 #[test]
-fn generated_feedback_contracts_distinguish_exact_normalized_and_clear() {
-    let exact = GeneratedHandle::feedback_expectation(
-        ObjectType::ToggleSwitch,
-        PropertyId::IsOn,
-        Some(&PropertyValue::Bool(true)),
-    );
-    assert_eq!(
-        exact,
-        Some((
-            EventId::Toggled,
-            FeedbackExpectation::Exact(Property {
-                id: PropertyId::IsOn,
-                value: PropertyValue::Bool(true),
-            })
-        ))
-    );
-    assert_eq!(
-        GeneratedHandle::feedback_expectation(ObjectType::ToggleSwitch, PropertyId::IsOn, None,),
-        Some((
-            EventId::Toggled,
-            FeedbackExpectation::Exact(Property {
-                id: PropertyId::IsOn,
-                value: PropertyValue::Bool(false),
-            })
-        ))
-    );
-    assert_eq!(
-        GeneratedHandle::feedback_expectation(
+fn generated_feedback_pairs_written_properties_with_their_reporting_event() {
+    let cases = [
+        (
+            ObjectType::ToggleSwitch,
+            PropertyId::IsOn,
+            Some(EventId::Toggled),
+        ),
+        (
             ObjectType::Slider,
             PropertyId::Value,
-            Some(&PropertyValue::F64(0.5)),
+            Some(EventId::ValueChanged),
         ),
-        Some((
-            EventId::ValueChanged,
-            FeedbackExpectation::Normalized { observation: None }
-        ))
-    );
-    assert_eq!(
-        GeneratedHandle::feedback_expectation(
-            ObjectType::ProgressBar,
-            PropertyId::Value,
-            Some(&PropertyValue::F64(0.5)),
+        (
+            ObjectType::Slider,
+            PropertyId::Maximum,
+            Some(EventId::ValueChanged),
         ),
-        None
-    );
-    assert_eq!(
-        GeneratedHandle::feedback_expectation(ObjectType::RichEditBox, PropertyId::Document, None,),
-        Some((
-            EventId::TextChanged,
-            FeedbackExpectation::DeferredExact(Property {
-                id: PropertyId::Document,
-                value: PropertyValue::String(Rc::from("")),
-            })
-        ))
-    );
+        (
+            ObjectType::RichEditBox,
+            PropertyId::Document,
+            Some(EventId::TextChanged),
+        ),
+        (
+            ObjectType::NavigationView,
+            PropertyId::IsPaneOpen,
+            Some(EventId::IsPaneOpenChanged),
+        ),
+        (ObjectType::ProgressBar, PropertyId::Value, None),
+    ];
+    for (kind, property, event) in cases {
+        assert_eq!(GeneratedHandle::feedback_event(kind, property), event);
+    }
 }

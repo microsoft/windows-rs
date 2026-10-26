@@ -287,7 +287,7 @@ impl WinUiAdapter {
                 (None, None) => ObservedSelection::Cleared,
             },
         };
-        if !event_queue.observe(object, event_id, observation.clone()) {
+        if !event_queue.reports(object, event_id) {
             return;
         }
         let value = selected.as_ref().and_then(|selected| {

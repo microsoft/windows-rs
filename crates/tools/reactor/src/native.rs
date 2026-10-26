@@ -47,7 +47,9 @@ pub fn generate_native(
 
     emit_dependency_properties(&mut output, &dependency_properties(schema, metadata));
 
-    emit_feedback_expectation(&mut output, schema);
+    emit_feedback_event(&mut output, schema);
+
+    emit_read_observed(&mut output, &objects, metadata);
 
     emit_set_property(&mut output, &objects, metadata);
 
@@ -272,45 +274,8 @@ fn emit_event(
             .iter()
             .find(|property| property.name == *observed)
             .unwrap();
-        let observed_native = native_property(property);
-        let observed_interface = metadata
-            .resolve(&native_name(object), &format!("get_{observed_native}"))
-            .unwrap()
-            .short_name();
-        let observed_target = native_interface_value(
-            &format!("source_{field}"),
-            &native_name(object),
-            observed_interface,
-            metadata,
-        );
-        let observed_read = format!("{observed_target}.{observed_native}()");
         code.push_str(&format!("let source_{field} = value.clone();\n"));
-        let read = if property.adapter == Some(PropertyAdapter::RichEditText) {
-            format!("read_rich_edit_text(&source_{field})")
-        } else {
-            match &property.value {
-                Value::String => format!("{observed_read}.map(Rc::<str>::from)"),
-                Value::Bool | Value::F64 => observed_read,
-                Value::OptionalBool | Value::OptionalDateTime => format!(
-                    "match {observed_read} {{ Ok(value) => Ok(Some(value)), \
-                                 Err(error) if error.code().is_ok() => Ok(None), \
-                                 Err(error) => Err(error) }}"
-                ),
-                Value::OptionalF64 => format!(
-                    "{observed_read}.map({})",
-                    if property.adapter == Some(PropertyAdapter::RatingValue) {
-                        "rating_value"
-                    } else {
-                        "number_box_value"
-                    }
-                ),
-                Value::Color => format!("{observed_read}.map(from_native_color)"),
-                Value::SelectionIndex => {
-                    format!("{observed_read}.map(|value| usize::try_from(value).ok())")
-                }
-                _ => unreachable!("unsupported generated observation type"),
-            }
-        };
+        let read = observed_read(object, property, &format!("source_{field}"), metadata);
         code.push_str(&format!("let read_{field} = move || {read};\n"));
     }
     output.push_str(&format!(
@@ -439,8 +404,7 @@ fn emit_event(
                          let observation = Observation::SetProperty {{ \
                          object, property: Property {{ id: PropertyId::{observed}, \
                          value: PropertyValue::{variant}({observed_value}) }} }};\n\
-                         let dispatch = event_queue_{field}.observe(object, EventId::{}, \
-                         observation.clone());\n\
+                         let dispatch = event_queue_{field}.reports(object, EventId::{});\n\
                          let observation = dispatch.then_some(observation);\n",
             event.name
         ));
@@ -991,110 +955,107 @@ fn emit_selection_payload(
     output.push_str("_ => unreachable!(\"not a selection payload property\"),\n} }\n");
 }
 
-fn emit_feedback_expectation(output: &mut String, schema: &Schema) {
+fn observed_read(
+    object: &Object,
+    property: &Property,
+    source: &str,
+    metadata: &tool_reactor_metadata::MetadataResolver,
+) -> String {
+    let observed_native = native_property(property);
+    let observed_interface = metadata
+        .resolve(&native_name(object), &format!("get_{observed_native}"))
+        .unwrap()
+        .short_name();
+    let observed_target =
+        native_interface_value(source, &native_name(object), observed_interface, metadata);
+    let observed_read = format!("{observed_target}.{observed_native}()");
+    if property.adapter == Some(PropertyAdapter::RichEditText) {
+        return format!("read_rich_edit_text(&{source})");
+    }
+    match &property.value {
+        Value::String => format!("{observed_read}.map(Rc::<str>::from)"),
+        Value::Bool | Value::F64 => observed_read,
+        Value::OptionalBool | Value::OptionalDateTime => format!(
+            "match {observed_read} {{ Ok(value) => Ok(Some(value)), \
+                         Err(error) if error.code().is_ok() => Ok(None), \
+                         Err(error) => Err(error) }}"
+        ),
+        Value::OptionalF64 => format!(
+            "{observed_read}.map({})",
+            if property.adapter == Some(PropertyAdapter::RatingValue) {
+                "rating_value"
+            } else {
+                "number_box_value"
+            }
+        ),
+        Value::Color => format!("{observed_read}.map(from_native_color)"),
+        Value::SelectionIndex => {
+            format!("{observed_read}.map(|value| usize::try_from(value).ok())")
+        }
+        _ => unreachable!("unsupported generated observation type"),
+    }
+}
+
+fn emit_read_observed(
+    output: &mut String,
+    objects: &[&Object],
+    metadata: &tool_reactor_metadata::MetadataResolver,
+) {
     output.push_str(
-        "fn feedback_expectation(kind: ObjectType, property: PropertyId, \
-         value: Option<&PropertyValue>) -> Option<(EventId, FeedbackExpectation)> { \
-         match (kind, property, value) {\n",
+        "fn read_observed(&self, event: EventId) -> Option<Result<Property, WinUiError>> { \
+         match (self, event) {\n",
+    );
+    for object in objects {
+        for event in &object.events {
+            let Some(observed) = &event.observes else {
+                continue;
+            };
+            if !object
+                .properties
+                .iter()
+                .any(|property| property.controlled.as_ref() == Some(&event.name))
+            {
+                continue;
+            }
+            let property = object
+                .properties
+                .iter()
+                .find(|property| property.name == *observed)
+                .unwrap();
+            let read = observed_read(object, property, "source", metadata);
+            output.push_str(&format!(
+                "(Self::{}(object), EventId::{}) => {{ let source = object.value.clone(); \
+                 Some((move || -> windows_core::Result<_> {{ Ok(Property {{ \
+                 id: PropertyId::{}, value: PropertyValue::{}({read}?) }}) }})()\
+                 .map_err(Into::into)) }}\n",
+                object.name, event.name, property.name, property.value
+            ));
+        }
+    }
+    output.push_str("_ => None,\n} }\n");
+}
+
+fn emit_feedback_event(output: &mut String, schema: &Schema) {
+    output.push_str(
+        "fn feedback_event(kind: ObjectType, property: PropertyId) -> Option<EventId> { \
+         match (kind, property) {\n",
     );
     for object in &schema.objects {
         for property in &object.properties {
-            let Some(feedback) = &property.feedback else {
-                continue;
-            };
-            let event = property
-                .controlled
-                .as_ref()
-                .or_else(|| {
-                    let coerced = property.coerces.as_ref()?;
-                    object
-                        .properties
-                        .iter()
-                        .find(|candidate| candidate.name == *coerced)?
-                        .controlled
-                        .as_ref()
-                })
-                .unwrap();
-            match feedback {
-                Feedback::Exact => {
-                    output.push_str(&format!(
-                        "(ObjectType::{}, PropertyId::{}, Some(value)) => \
-                         Some((EventId::{event}, \
-                         FeedbackExpectation::Exact(Property {{ id: PropertyId::{}, \
-                         value: value.clone() }}))),\n",
-                        object.name, property.name, property.name
-                    ));
-                    let clear = match &property.value {
-                        Value::Bool => format!("PropertyValue::Bool({})", property.clear_feedback),
-                        Value::Color => {
-                            "PropertyValue::Color(Color::rgb(255, 255, 255))".to_string()
-                        }
-                        Value::String => "PropertyValue::String(Rc::from(\"\"))".to_string(),
-                        Value::F64 => "PropertyValue::F64(0.0)".to_string(),
-                        Value::I32 => "PropertyValue::I32(0)".to_string(),
-                        Value::OptionalBool => format!(
-                            "PropertyValue::OptionalBool(Some({}))",
-                            property.clear_feedback
-                        ),
-                        Value::OptionalF64 => "PropertyValue::OptionalF64(None)".to_string(),
-                        Value::SelectionIndex => {
-                            output.push_str(&format!(
-                                "(ObjectType::{}, PropertyId::{}, None) => \
-                                 Some((EventId::{event}, \
-                                 FeedbackExpectation::Normalized {{ observation: None }})),\n",
-                                object.name, property.name
-                            ));
-                            continue;
-                        }
-                        value => panic!(
-                            "{}.{} has unsupported exact feedback value {value}",
-                            object.name, property.name
-                        ),
-                    };
-                    output.push_str(&format!(
-                        "(ObjectType::{}, PropertyId::{}, None) => Some((EventId::{event}, \
-                         FeedbackExpectation::Exact(Property {{ id: PropertyId::{}, \
-                         value: {clear} }}))),\n",
-                        object.name, property.name, property.name
-                    ));
-                }
-                Feedback::Normalized => output.push_str(&format!(
-                    "(ObjectType::{}, PropertyId::{}, _) => Some((EventId::{event}, \
-                     FeedbackExpectation::Normalized {{ observation: None }})),\n",
+            let event = property.controlled.as_ref().or_else(|| {
+                let coerced = property.coerces.as_ref()?;
+                object
+                    .properties
+                    .iter()
+                    .find(|candidate| candidate.name == *coerced)?
+                    .controlled
+                    .as_ref()
+            });
+            if let Some(event) = event {
+                output.push_str(&format!(
+                    "(ObjectType::{}, PropertyId::{}) => Some(EventId::{event}),\n",
                     object.name, property.name
-                )),
-                Feedback::DeferredExact => {
-                    let clear = match &property.value {
-                        Value::Bool => format!("PropertyValue::Bool({})", property.clear_feedback),
-                        Value::String => "PropertyValue::String(Rc::from(\"\"))".to_string(),
-                        Value::OptionalBool => format!(
-                            "PropertyValue::OptionalBool(Some({}))",
-                            property.clear_feedback
-                        ),
-                        Value::OptionalF64 => "PropertyValue::OptionalF64(None)".to_string(),
-                        Value::SelectionIndex => "PropertyValue::SelectionIndex(None)".to_string(),
-                        value => panic!(
-                            "{}.{} has unsupported deferred exact feedback value {value}",
-                            object.name, property.name
-                        ),
-                    };
-                    output.push_str(&format!(
-                        "(ObjectType::{}, PropertyId::{}, Some(value)) => \
-                         Some((EventId::{event}, \
-                         FeedbackExpectation::DeferredExact(Property {{ id: PropertyId::{}, \
-                         value: value.clone() }}))),\n\
-                         (ObjectType::{}, PropertyId::{}, None) => \
-                         Some((EventId::{event}, \
-                         FeedbackExpectation::DeferredExact(Property {{ id: PropertyId::{}, \
-                         value: {clear} }}))),\n",
-                        object.name,
-                        property.name,
-                        property.name,
-                        object.name,
-                        property.name,
-                        property.name
-                    ));
-                }
+                ));
             }
         }
     }

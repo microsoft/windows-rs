@@ -596,121 +596,18 @@ fn callback_panic_releases_the_native_boundary_and_remaining_events_continue() {
 }
 
 #[test]
-fn exact_feedback_suppresses_matching_observation_until_write_finishes() {
+fn suppressed_feedback_drops_events_per_nested_write() {
     let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(TextBox::new().text("Before"));
-    let object = runtime.graph().root().unwrap();
-    let property = Property {
-        id: PropertyId::Text,
-        value: PropertyValue::String(Rc::from("After")),
-    };
-    let mut feedback = FeedbackState::default();
-    feedback.begin(
-        object,
-        EventId::TextChanged,
-        FeedbackExpectation::Exact(property.clone()),
-    );
-
-    assert!(!feedback.observe(
-        object,
-        EventId::TextChanged,
-        Observation::SetProperty {
-            object,
-            property: property.clone(),
-        }
-    ));
-    assert_eq!(feedback.finish(object, EventId::TextChanged), None);
-
-    feedback.begin(
-        object,
-        EventId::TextChanged,
-        FeedbackExpectation::Exact(property),
-    );
-    assert!(feedback.observe(
-        object,
-        EventId::TextChanged,
-        Observation::SetProperty {
-            object,
-            property: Property {
-                id: PropertyId::Text,
-                value: PropertyValue::String(Rc::from("Normalized")),
-            },
-        }
-    ));
-}
-
-#[test]
-fn normalized_feedback_defers_latest_observation_until_write_finishes() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(Slider::new());
-    let object = runtime.graph().root().unwrap();
-    let mut feedback = FeedbackState::default();
-    feedback.begin(
-        object,
-        EventId::ValueChanged,
-        FeedbackExpectation::Normalized { observation: None },
-    );
-    let observation = Observation::SetProperty {
-        object,
-        property: Property {
-            id: PropertyId::Value,
-            value: PropertyValue::F64(0.75),
-        },
-    };
-
-    assert!(!feedback.observe(object, EventId::ValueChanged, observation.clone()));
-    assert_eq!(
-        feedback.finish(object, EventId::ValueChanged),
-        Some(observation)
-    );
-}
-
-#[test]
-fn suppressed_feedback_drops_selection_observations_and_keeps_expectations() {
-    let mut runtime = Runtime::new(RecordingAdapter::default());
-    runtime.update(ListBox::new().keyed_items([
-        keyed("first", ListBoxItem::new().tag("first").is_selected(true)),
-        keyed(
-            "second",
-            ListBoxItem::new().tag("second").is_selected(false),
-        ),
-    ]));
+    runtime.update(ListBox::new());
     let owner = runtime.graph().root().unwrap();
-    let selected = runtime.graph().children(owner, RelationId::Items).unwrap()[1];
-    let observation = Observation::SetSelection {
-        object: owner,
-        selected: ObservedSelection::Item(selected),
-    };
     let mut feedback = FeedbackState::default();
     feedback.suppress(owner, EventId::SelectionChanged);
     feedback.suppress(owner, EventId::SelectionChanged);
-    assert!(!feedback.observe(owner, EventId::SelectionChanged, observation.clone()));
+    assert!(!feedback.reports(owner, EventId::SelectionChanged));
     feedback.release(owner, EventId::SelectionChanged);
-    assert!(!feedback.observe(owner, EventId::SelectionChanged, observation.clone()));
+    assert!(!feedback.reports(owner, EventId::SelectionChanged));
     feedback.release(owner, EventId::SelectionChanged);
-    assert!(feedback.observe(owner, EventId::SelectionChanged, observation));
-
-    let index = |value| Observation::SetProperty {
-        object: owner,
-        property: Property {
-            id: PropertyId::SelectedIndex,
-            value: PropertyValue::SelectionIndex(value),
-        },
-    };
-    feedback.begin(
-        owner,
-        EventId::SelectionChanged,
-        FeedbackExpectation::DeferredExact(Property {
-            id: PropertyId::SelectedIndex,
-            value: PropertyValue::SelectionIndex(Some(1)),
-        }),
-    );
-    assert_eq!(feedback.finish(owner, EventId::SelectionChanged), None);
-    feedback.suppress(owner, EventId::SelectionChanged);
-    assert!(!feedback.observe(owner, EventId::SelectionChanged, index(Some(0))));
-    feedback.release(owner, EventId::SelectionChanged);
-    assert!(!feedback.observe(owner, EventId::SelectionChanged, index(Some(1))));
-    assert!(feedback.observe(owner, EventId::SelectionChanged, index(Some(2))));
+    assert!(feedback.reports(owner, EventId::SelectionChanged));
 }
 
 #[test]

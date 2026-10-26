@@ -27,7 +27,7 @@ fn main() {
             "IUIAutomationSelectionPattern::GetCurrentSelection",
             "IUIAutomationSelectionItemPattern::{Select,CurrentIsSelected}",
             "IUIAutomationTogglePattern::{Toggle,CurrentToggleState}",
-            "IUIAutomationExpandCollapsePattern::{Expand,CurrentExpandCollapseState}",
+            "IUIAutomationExpandCollapsePattern::{Expand,Collapse,CurrentExpandCollapseState}",
             "IUIAutomationRangeValuePattern::{SetValue,CurrentValue}",
             "IUIAutomationScrollPattern::SetScrollPercent",
             "Windows.Globalization.DateTimeFormatting.DateTimeFormatter::CreateDateTimeFormatter",
