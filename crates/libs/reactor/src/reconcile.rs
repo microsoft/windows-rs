@@ -436,6 +436,10 @@ impl NativeEvent {
             ..Self::new(None, None)
         }
     }
+
+    pub(crate) fn dispatches(&self) -> bool {
+        self.event.is_some()
+    }
 }
 
 pub struct NativeEventDispatch {
@@ -1481,6 +1485,13 @@ pub trait Adapter {
         None
     }
 
+    /// Returns the first queued native event that carries a dispatch, without consuming any.
+    /// Reactor uses it to coalesce repeated state reports across the observations and
+    /// realizations queued between them; the default sees only the next event.
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        self.peek_native_event().filter(NativeEvent::dispatches)
+    }
+
     /// Applies a mutation batch in order.
     fn apply(&mut self, mutations: &[Mutation]);
 
@@ -1668,13 +1679,28 @@ impl<A: Adapter> Runtime<A> {
         let event = self.adapter.pop_native_event()?;
         // Only a property's controlled event reports its state; an action that also observes the
         // property, such as `Click`, dispatches even when the state is settled.
-        let action = match (&event.observation, &event.event) {
-            (Some(Observation::SetProperty { object, property }), Some(dispatch)) => self
-                .graph
-                .kind(*object)
-                .is_some_and(|kind| controlled_event(kind, property.id) != Some(dispatch.event)),
-            _ => false,
+        let report = match (&event.observation, &event.event) {
+            (Some(Observation::SetProperty { object, property }), Some(dispatch)) => {
+                Some(self.graph.kind(*object).is_some_and(|kind| {
+                    controlled_event(kind, property.id) == Some(dispatch.event)
+                }))
+            }
+            _ => None,
         };
+        // A report followed by another report of the same state is skipped, so a control that
+        // passes through intermediate states within one interaction reports only where it settled.
+        if report == Some(true) {
+            let current = event.event.as_ref().unwrap();
+            if self.adapter.peek_native_dispatch().is_some_and(|next| {
+                next.observation.is_some()
+                    && next.event.is_some_and(|next| {
+                        next.object == current.object && next.event == current.event
+                    })
+            }) {
+                return Some(NativeWork::Maintenance);
+            }
+        }
+        let action = report == Some(false);
         let dispatch = event
             .observation
             .is_none_or(|observation| self.graph.apply_observation(observation, event.record))

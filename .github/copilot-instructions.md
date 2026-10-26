@@ -239,14 +239,17 @@ propagation; investigate the behavior before adding a focused public-API regress
 
 ### Reactor live coverage gaps (test-reactor fixtures)
 
-About 42 of the 81 schema objects have no live `test-reactor` coverage. Add contract-style fixtures
+About 29 of the 80 schema objects have no live `test-reactor` coverage; none of them has a
+controlled property. Add contract-style fixtures
 in priority order. Verify indirect coverage (for example `CommandBar` via the menu fixture) before
 adding a case. The `controlled` fixtures cover toggles, grouped `RadioButton`s, `Expander`, ranged
 values, `PasswordBox`, `ColorPicker`, and `CalendarDatePicker`; the `transform` fixtures cover
 `TextBox`, `AutoSuggestBox`, and `RichEditBox`; the `tree` fixture covers `TreeView` and
 `TreeNode`; the `selection-items` fixture covers the item-flag selectors `ListBox`, `SelectorBar`,
 and `NavigationView`; the `surface` fixture covers `InfoBar` and `TeachingTip` open state; the
-`pane` fixture covers `SplitView` and `NavigationView` `is_pane_open`.
+`pane` fixture covers `SplitView` and `NavigationView` `is_pane_open`; the `controlled-churn`
+fixture interleaves fast re-renders with user input and checks that native state settles on the
+declared values without echoes.
 
 | Priority | Area | Contracts to check |
 | --- | --- | --- |

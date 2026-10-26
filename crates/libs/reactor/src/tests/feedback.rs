@@ -241,6 +241,46 @@ fn action_observing_settled_state_is_dispatched() {
 }
 
 #[test]
+fn repeated_state_reports_dispatch_where_the_state_settled() {
+    let values = Rc::new(RefCell::new(Vec::new()));
+    let callback = {
+        let values = Rc::clone(&values);
+        Callback::new(move |value: Rc<str>| values.borrow_mut().push(value))
+    };
+    let mut runtime = Runtime::new(RecordingAdapter::default());
+    runtime.update(
+        RichEditBox::new()
+            .text("A")
+            .on_text_changed(callback.clone()),
+    );
+    let object = runtime.graph().root().unwrap();
+    for value in ["B", "C", "D"] {
+        let observation = Observation::SetProperty {
+            object,
+            property: Property {
+                id: PropertyId::Document,
+                value: PropertyValue::String(Rc::from(value)),
+            },
+        };
+        runtime.adapter_mut().queue_native_event(
+            Some(observation.clone()),
+            Some(EventDispatch::new(
+                object,
+                EventId::TextChanged,
+                EventValue::String(callback.clone()),
+                EventPayload::String(Rc::from(value)),
+            )),
+        );
+        // A callback-free observation between reports does not stop them coalescing.
+        runtime
+            .adapter_mut()
+            .queue_native_event(Some(observation), None);
+    }
+    assert_eq!(runtime.dispatch_native_events(), 1);
+    assert_eq!(&*values.borrow(), &[Rc::from("D")]);
+}
+
+#[test]
 fn accepted_departure_does_not_settle_a_later_edit() {
     let values = Rc::new(RefCell::new(Vec::new()));
     let callback = {

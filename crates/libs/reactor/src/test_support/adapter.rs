@@ -1097,6 +1097,11 @@ impl Adapter for RecordingAdapter {
         Some(self.native_event(event))
     }
 
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        let event = self.native_events.iter().find(|event| event.dispatches())?;
+        Some(self.native_event(event.clone()))
+    }
+
     fn apply(&mut self, mutations: &[Mutation]) {
         self.apply_batch(mutations).unwrap();
         if self.record_batches {

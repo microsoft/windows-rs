@@ -203,6 +203,10 @@ impl Adapter for VirtualLifecycleAdapter {
         self.inner.pop_native_event()
     }
 
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        self.inner.peek_native_dispatch()
+    }
+
     fn apply(&mut self, mutations: &[Mutation]) {
         self.published.set(true);
         self.inner.apply(mutations);

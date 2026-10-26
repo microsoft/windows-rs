@@ -32,6 +32,10 @@ impl Adapter for HoldingImperativeAdapter {
         self.inner.pop_native_event()
     }
 
+    fn peek_native_dispatch(&self) -> Option<NativeEvent> {
+        self.inner.peek_native_dispatch()
+    }
+
     fn apply(&mut self, mutations: &[Mutation]) {
         self.inner.apply(mutations);
     }
