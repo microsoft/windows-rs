@@ -62,21 +62,22 @@ impl<'a> Blob<'a> {
     }
 
     pub fn read_modifiers(&mut self) -> Vec<TypeDefOrRef<'a>> {
-        let mut mods = vec![];
-        loop {
-            let (value, offset) = self.peek();
-            if value != ELEMENT_TYPE_CMOD_OPT as usize && value != ELEMENT_TYPE_CMOD_REQD as usize {
-                break;
-            } else {
-                self.offset(offset);
-                mods.push(TypeDefOrRef::decode(
-                    self.index,
-                    self.file,
-                    self.read_compressed(),
-                ));
-            }
+        std::iter::from_fn(|| self.read_modifier()).collect()
+    }
+
+    fn read_modifier(&mut self) -> Option<TypeDefOrRef<'a>> {
+        let (value, offset) = self.peek();
+        if value != ELEMENT_TYPE_CMOD_OPT as usize && value != ELEMENT_TYPE_CMOD_REQD as usize {
+            return None;
         }
-        mods
+        self.offset(offset);
+        Some(self.decode::<TypeDefOrRef>())
+    }
+
+    fn read_is_const(&mut self) -> bool {
+        self.read_modifiers().iter().any(|def| {
+            def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
+        })
     }
 
     pub fn read_method_signature(&mut self, generics: &[Type]) -> Signature {
@@ -99,11 +100,16 @@ impl<'a> Blob<'a> {
 
     /// Reads a field or method type signature.
     pub fn read_type_signature(&mut self, generics: &[Type]) -> Type {
-        let is_const = self.read_modifiers().iter().any(|def| {
-            def.namespace() == "System.Runtime.CompilerServices" && def.name() == "IsConst"
-        });
+        let is_const = self.read_is_const();
 
-        let is_ref = self.try_read(ELEMENT_TYPE_BYREF as usize);
+        if self.try_read(ELEMENT_TYPE_BYREF as usize) {
+            let ty = Box::new(self.read_type_signature(generics));
+            return if is_const {
+                Type::RefConst(ty)
+            } else {
+                Type::RefMut(ty)
+            };
+        }
 
         if self.try_read(ELEMENT_TYPE_VOID as usize) {
             return Type::Void;
@@ -111,37 +117,35 @@ impl<'a> Blob<'a> {
 
         let is_array = self.try_read(ELEMENT_TYPE_SZARRAY as usize);
 
-        let mut pointers = 0;
+        let mut pointers = Vec::new();
 
         while self.try_read(ELEMENT_TYPE_PTR as usize) {
-            pointers += 1;
+            // A leading IsConst applies to the entire pointer run; ECMA-335 II.23.2.12 also
+            // permits a modifier after each PTR for chains with mixed constness.
+            let constant = self.read_is_const();
+            pointers.push(is_const || constant);
         }
 
-        let ty = self.read_type_code(generics);
+        let mut ty = self.read_type_code(generics);
 
-        if pointers > 0 {
-            let ptr = if is_const {
-                Type::PtrConst(Box::new(ty), pointers)
-            } else {
-                Type::PtrMut(Box::new(ty), pointers)
-            };
+        if !pointers.is_empty() {
+            for constant in pointers.into_iter().rev() {
+                ty = match (constant, ty) {
+                    (true, Type::PtrConst(inner, count)) => Type::PtrConst(inner, count + 1),
+                    (false, Type::PtrMut(inner, count)) => Type::PtrMut(inner, count + 1),
+                    (true, inner) => Type::PtrConst(Box::new(inner), 1),
+                    (false, inner) => Type::PtrMut(Box::new(inner), 1),
+                };
+            }
             if is_array {
-                Type::Array(Box::new(ptr))
+                Type::Array(Box::new(ty))
             } else {
-                ptr
+                ty
             }
         } else if is_const {
             Type::RefConst(Box::new(ty))
         } else if is_array {
-            let ty = Type::Array(Box::new(ty));
-
-            if is_ref {
-                Type::RefMut(Box::new(ty))
-            } else {
-                ty
-            }
-        } else if is_ref {
-            Type::RefMut(Box::new(ty))
+            Type::Array(Box::new(ty))
         } else {
             ty
         }
