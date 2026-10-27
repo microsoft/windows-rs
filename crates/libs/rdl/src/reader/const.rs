@@ -1,7 +1,7 @@
 use super::guid;
 use super::*;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Const {
     pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
@@ -57,7 +57,7 @@ impl Encoder<'_> {
             _ if has_guid_attr => {
                 self.encode_const_property_key(&ty, item, &name)?;
             }
-            _ => self.encode_const_value(&ty, item, &name)?,
+            _ => self.encode_const_value(&ty, item, &name, None)?,
         }
 
         Ok(())
@@ -99,11 +99,12 @@ impl Encoder<'_> {
         Ok(())
     }
 
-    fn encode_const_value(
+    pub(super) fn encode_const_value(
         &mut self,
         ty: &windows_metadata::Type,
         item: &Const,
         name: &str,
+        enclosing_arch: Option<i32>,
     ) -> Result<(), Error> {
         let field = self.output.Field(
             name,
@@ -114,7 +115,8 @@ impl Encoder<'_> {
         );
 
         if let Some(expr) = &item.expr {
-            let value = self.encode_value(ty, expr)?;
+            let arch = self.read_arch(&item.attrs)?.or(enclosing_arch);
+            let value = self.encode_value_for_arch(ty, expr, arch)?;
             self.output
                 .Constant(metadata::writer::HasConstant::Field(field), &value);
         }
@@ -138,6 +140,13 @@ impl Encoder<'_> {
         item: &Const,
         name: &str,
     ) -> Result<(), Error> {
+        if let Some(attr) = item
+            .attrs
+            .iter()
+            .find(|attr| attr.path().is_ident("guid") || self.is_guid_attribute(attr))
+        {
+            return self.err(attr, "GUID constants specify their GUID in the initializer");
+        }
         let expr = item
             .expr
             .as_ref()
@@ -158,6 +167,15 @@ impl Encoder<'_> {
             d3,
             d4,
         );
+
+        self.encode_attrs(
+            metadata::writer::HasAttribute::Field(field),
+            &item.attrs,
+            &[],
+        )?;
+        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+            self.emit_arch_attribute(metadata::writer::HasAttribute::Field(field), arch_bits);
+        }
 
         Ok(())
     }

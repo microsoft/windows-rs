@@ -27,6 +27,7 @@ pub struct Writer {
     input: Vec<PathBuf>,
     input_default: bool,
     input_bytes: Vec<Vec<u8>>,
+    reference: Vec<PathBuf>,
     filter: Vec<String>,
     output: PathBuf,
     split: bool,
@@ -66,6 +67,24 @@ impl Writer {
     /// Adds the default Windows metadata inputs.
     pub fn input_default(&mut self) -> &mut Self {
         self.input_default = true;
+        self
+    }
+
+    /// Adds a `.winmd` reference file or directory for resolution, without emitting its definitions.
+    pub fn reference(&mut self, input: impl AsRef<Path>) -> &mut Self {
+        self.reference.push(input.as_ref().to_path_buf());
+        self
+    }
+
+    /// Adds multiple resolution-only `.winmd` reference files or directories.
+    pub fn references<I, S>(&mut self, inputs: I) -> &mut Self
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<Path>,
+    {
+        for input in inputs {
+            self.reference(input);
+        }
         self
     }
 
@@ -149,8 +168,25 @@ impl Writer {
             );
         }
 
+        let input_files = files.len();
+        for file_name in &expand_input_files(&self.reference, "winmd")? {
+            let source = file_name.to_string_lossy();
+            files.push(
+                metadata::reader::File::read(file_name)
+                    .ok_or_else(|| Error::new("invalid reference", &source, 0, 0))?,
+            );
+        }
+
         let index = metadata::reader::Index::new(files);
         let rules = resolve_filter(&self.filter, &index);
+        let is_input = |item: metadata::reader::Item<'_>| {
+            let file = match item {
+                metadata::reader::Item::Type(item) => item.to_row().file,
+                metadata::reader::Item::Fn(item) => item.to_row().file,
+                metadata::reader::Item::Const(item) => item.to_row().file,
+            };
+            file < input_files
+        };
 
         if let Some(map) = &self.partition {
             if let Ok(entries) = std::fs::read_dir(&self.output) {
@@ -171,7 +207,7 @@ impl Writer {
                     continue;
                 }
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     let Some(stem) = map.get(name) else {
@@ -221,7 +257,7 @@ impl Writer {
                 let mut layout = Layout::new();
 
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     for (item_name, tokens) in write_items(namespace, item)? {
@@ -246,7 +282,7 @@ impl Writer {
 
             for namespace in index.namespaces() {
                 for (name, item) in index.namespace_items(namespace) {
-                    if !item_included(&rules, namespace, name) {
+                    if !is_input(item) || !item_included(&rules, namespace, name) {
                         continue;
                     }
                     for (item_name, tokens) in write_items(namespace, item)? {
@@ -356,10 +392,11 @@ fn item_winrt(item: metadata::reader::Item) -> bool {
     }
 }
 
-fn write_items(
+pub(crate) fn write_items(
     namespace: &str,
     item: metadata::reader::Item,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
+    validate_item_types(item)?;
     match item {
         metadata::reader::Item::Type(ty) => write_type_def_items(namespace, &ty),
         metadata::reader::Item::Fn(ty) => {
@@ -371,10 +408,95 @@ fn write_items(
     }
 }
 
+fn validate_item_types(item: metadata::reader::Item) -> Result<(), Error> {
+    match item {
+        metadata::reader::Item::Type(def) => {
+            let winrt = def
+                .flags()
+                .contains(metadata::TypeAttributes::WindowsRuntime);
+            let generics: Vec<_> = def
+                .generic_params()
+                .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
+                .collect();
+            for field in def.fields() {
+                validate_type(&field.ty(), winrt)?;
+            }
+            for method in def.methods() {
+                validate_signature_types(&method.signature(&generics), winrt)?;
+            }
+            for nested in def.index().nested(def) {
+                validate_item_types(metadata::reader::Item::Type(nested))?;
+            }
+        }
+        metadata::reader::Item::Fn(method) => {
+            validate_signature_types(&method.signature(&[]), false)?;
+        }
+        metadata::reader::Item::Const(field) => validate_type(&field.ty(), false)?,
+    }
+    Ok(())
+}
+
+fn validate_signature_types(signature: &metadata::Signature, winrt: bool) -> Result<(), Error> {
+    validate_type(&signature.return_type, winrt)?;
+    for ty in &signature.types {
+        validate_type(ty, winrt)?;
+    }
+    Ok(())
+}
+
+fn validate_type(ty: &metadata::Type, winrt: bool) -> Result<(), Error> {
+    use metadata::Type::*;
+    match ty {
+        FnPtr(signature) => {
+            if winrt {
+                return Err(writer_err!("function pointers require Win32 metadata"));
+            }
+            if !matches!(
+                signature.flags,
+                metadata::MethodCallAttributes::C | metadata::MethodCallAttributes::STDCALL
+            ) {
+                return Err(writer_err!(
+                    "unsupported function pointer signature flags: {:?}",
+                    signature.flags
+                ));
+            }
+            if signature.types.contains(&Void) {
+                return Err(writer_err!("function pointer parameter cannot be void"));
+            }
+            validate_signature_types(signature, winrt)?;
+        }
+        Ptr64(inner, _) => {
+            if winrt {
+                return Err(writer_err!("fixed-width pointers require Win32 metadata"));
+            }
+            validate_type(inner, winrt)?;
+        }
+        PtrMut(inner, _)
+        | PtrConst(inner, _)
+        | ArrayFixed(inner, _)
+        | RefMut(inner)
+        | RefConst(inner)
+        | Array(inner) => validate_type(inner, winrt)?,
+        ClassName(name) | ValueName(name) => {
+            for ty in &name.generics {
+                validate_type(ty, winrt)?;
+            }
+        }
+        _ => {}
+    }
+    Ok(())
+}
+
 fn write_type_def_items(
     namespace: &str,
     item: &metadata::reader::TypeDef,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
+    if item
+        .flags()
+        .contains(metadata::TypeAttributes::NestedPublic)
+    {
+        return Ok(vec![]);
+    }
     if item.category() == metadata::reader::TypeCategory::Struct {
         // Native typedefs round-trip as `type NAME = TYPE;`.
         if item.attributes().any(|attr| {
@@ -387,7 +509,13 @@ fn write_type_def_items(
                 .ok_or_else(|| writer_err!("typedef `{}` has no field", item.name()))?;
             let ty = write_type(namespace, &field.ty());
             let arch_attr = write_arch_attr(item.arches());
-            let tokens = quote! { #arch_attr type #name = #ty; };
+            let attrs = write_custom_attributes_except(
+                item.attributes(),
+                namespace,
+                item.index(),
+                &["SupportedArchitectureAttribute"],
+            )?;
+            let tokens = quote! { #arch_attr #(#attrs)* type #name = #ty; };
             return Ok(vec![(item.name().to_string(), tokens)]);
         }
         write_struct_items(item)
@@ -448,14 +576,18 @@ fn write_const_value(
     })
 }
 
-fn write_const_guid(
-    _namespace: &str,
-    item: &metadata::reader::Field,
-) -> Result<TokenStream, Error> {
+fn write_const_guid(namespace: &str, item: &metadata::reader::Field) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
+    let ty = write_type(namespace, &item.ty());
     let arch_attr = write_arch_attr(item.arches());
     let literal = guid_attribute_literal(item)?;
-    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#custom_attrs)* const #name: #ty = #literal; })
 }
 
 /// Recombines a property-key constant's `fmtid` and `pid` into RDL form.
@@ -471,7 +603,13 @@ fn write_const_property_key(
         .constant()
         .ok_or_else(|| writer_err!("property key constant `{}` has no `pid` value", item.name()))?;
     let pid = write_value(namespace, &constant.value());
-    Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+    let custom_attrs = write_custom_attributes_except(
+        item.attributes(),
+        namespace,
+        item.index(),
+        &["GuidAttribute", "SupportedArchitectureAttribute"],
+    )?;
+    Ok(quote! { #arch_attr #(#custom_attrs)* #[guid(#guid)] const #name: #ty = #pid; })
 }
 
 /// Folds the 11-argument `GuidAttribute` into RDL's u128 GUID literal.
@@ -520,38 +658,30 @@ fn write_params(
             )
         })?;
 
+    let names: Vec<_> = params
+        .params()
+        .iter()
+        .enumerate()
+        .map(|(index, param)| {
+            param.map_or_else(|| format!("p{index}"), |param| param.name().to_string())
+        })
+        .collect();
+    let names: Vec<_> = names.iter().map(String::as_str).collect();
     signature_types
         .into_iter()
         .enumerate()
         .map(|(position, ty)| {
             let param = params.params()[position];
-            let is_mutable = matches!(ty, metadata::Type::RefMut(_) | metadata::Type::PtrMut(..));
-            let direction = param.map_or_else(
-                || {
-                    if is_mutable {
-                        metadata::reader::ParamDirection::Output
-                    } else {
-                        metadata::reader::ParamDirection::Input
-                    }
-                },
-                |param| param.direction(),
-            );
+            let direction = param.map_or(metadata::reader::ParamDirection::Unspecified, |param| {
+                param.direction()
+            });
             let (effective_in, has_out) = match direction {
-                metadata::reader::ParamDirection::Unspecified
-                | metadata::reader::ParamDirection::Input => (true, false),
+                metadata::reader::ParamDirection::Unspecified => (false, false),
+                metadata::reader::ParamDirection::Input => (true, false),
                 metadata::reader::ParamDirection::Output => (false, true),
                 metadata::reader::ParamDirection::InputOutput => (true, true),
             };
-            let in_attr = if effective_in && (has_out || is_mutable) {
-                quote! { #[r#in] }
-            } else {
-                quote! {}
-            };
-            let out_attr = if has_out && (effective_in || !is_mutable) {
-                quote! { #[out] }
-            } else {
-                quote! {}
-            };
+            let direction = write_param_direction(effective_in, has_out);
             let opt_attr = if param.is_some_and(|param| param.is_optional()) {
                 quote! { #[opt] }
             } else {
@@ -562,16 +692,17 @@ fn write_params(
                 |param| write_ident(param.name()),
             );
             let param_attrs = match param {
-                Some(param) => write_custom_attributes_except(
+                Some(param) => write_custom_attributes_with_names(
                     param.attributes(),
                     namespace,
                     method.index(),
                     &[],
+                    Some(ExtentOwner::Parameter(&names, &ty)),
                 )?,
                 None => Vec::new(),
             };
             let ty = write_type(namespace, &ty);
-            Ok(quote! { #(#param_attrs)* #in_attr #out_attr #opt_attr #name: #ty })
+            Ok(quote! { #(#param_attrs)* #direction #opt_attr #name: #ty })
         })
         .collect()
 }
@@ -589,9 +720,26 @@ fn write_return_type(
                 method.name()
             )
         })?;
+    let names: Vec<_> = params
+        .params()
+        .iter()
+        .enumerate()
+        .map(|(index, param)| {
+            param.map_or_else(|| format!("p{index}"), |param| param.name().to_string())
+        })
+        .collect();
+    let names: Vec<_> = names.iter().map(String::as_str).collect();
     let return_attrs: Vec<TokenStream> = params
         .return_param()
-        .map(|p| write_custom_attributes(p.attributes(), namespace, method.index()))
+        .map(|p| {
+            write_custom_attributes_with_names(
+                p.attributes(),
+                namespace,
+                method.index(),
+                &[],
+                Some(ExtentOwner::Return(&names)),
+            )
+        })
         .transpose()?
         .unwrap_or_default();
 
@@ -612,13 +760,73 @@ fn write_custom_attributes<'a>(
     write_custom_attributes_except(attributes, item_namespace, index, &[])
 }
 
+pub(crate) fn write_field_attributes(
+    field: metadata::reader::Field<'_>,
+    namespace: &str,
+) -> Result<TokenStream, Error> {
+    Ok(write_custom_attributes_with_names(
+        field.attributes(),
+        namespace,
+        field.index(),
+        &[],
+        Some(ExtentOwner::Field),
+    )?
+    .into_iter()
+    .collect())
+}
+
 fn write_custom_attributes_except<'a>(
     attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
     item_namespace: &str,
     index: &windows_metadata::reader::Index,
     exclude: &[&str],
 ) -> Result<Vec<TokenStream>, Error> {
-    let mut rendered = attributes
+    write_custom_attributes_with_names(attributes, item_namespace, index, exclude, None)
+}
+
+#[derive(Clone, Copy)]
+enum ExtentOwner<'a> {
+    Parameter(&'a [&'a str], &'a metadata::Type),
+    Field,
+    Return(&'a [&'a str]),
+}
+
+fn metadata_underlying(
+    mut ty: metadata::Type,
+    index: &metadata::reader::Index,
+) -> Option<metadata::Type> {
+    let mut seen = HashSet::new();
+    while let metadata::Type::ValueName(name) = &ty {
+        if !seen.insert((name.namespace.clone(), name.name.clone())) {
+            return None;
+        }
+        let mut definitions = index.get(&name.namespace, &name.name);
+        let Some(def) = definitions.next() else {
+            return Some(ty);
+        };
+        if !def.has_attribute("NativeTypedefAttribute") {
+            return Some(ty);
+        }
+        let underlying = def.underlying_type()?;
+        if definitions.any(|other| {
+            !other.has_attribute("NativeTypedefAttribute")
+                || other.underlying_type().as_ref() != Some(&underlying)
+        }) {
+            return None;
+        }
+        ty = underlying;
+    }
+    Some(ty)
+}
+
+fn write_custom_attributes_with_names<'a>(
+    attributes: impl Iterator<Item = windows_metadata::reader::Attribute<'a>>,
+    item_namespace: &str,
+    index: &windows_metadata::reader::Index,
+    exclude: &[&str],
+    extent_owner: Option<ExtentOwner<'_>>,
+) -> Result<Vec<TokenStream>, Error> {
+    attributes
         .filter(|attr| {
             !(namespace_starts_with(attr.namespace(), "System")
                 || exclude.contains(&attr.name())
@@ -628,6 +836,123 @@ fn write_custom_attributes_except<'a>(
         .map(|attr| {
             let attr_ns = attr.namespace();
             let values = attr.value();
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "IntegerRangeAttribute"
+                && let Some(range) = metadata::IntegerRange::from_values(&values)
+                && let Some(names) = match extent_owner {
+                    Some(ExtentOwner::Parameter(names, _))
+                        if range.phase != metadata::BufferPhase::Value =>
+                    {
+                        Some(names)
+                    }
+                    Some(ExtentOwner::Field) if range.phase == metadata::BufferPhase::Value => {
+                        Some(&[][..])
+                    }
+                    Some(ExtentOwner::Return(names))
+                        if range.phase == metadata::BufferPhase::Success && !range.indirect =>
+                    {
+                        Some(names)
+                    }
+                    _ => None,
+                }
+                && let Some(tokens) = write_integer_range(&range, names)
+            {
+                return Ok(tokens);
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "BufferExtentAttribute"
+                && let Some(extent) = metadata::BufferExtent::from_values(&values)
+                && let Some(names) = match extent_owner {
+                    Some(ExtentOwner::Parameter(names, _))
+                        if extent.phase != metadata::BufferPhase::Value =>
+                    {
+                        Some(names)
+                    }
+                    Some(ExtentOwner::Field) if extent.phase == metadata::BufferPhase::Value => {
+                        Some(&[][..])
+                    }
+                    _ => None,
+                }
+                && let Some(tokens) = write_buffer_extent(&extent, names)
+            {
+                return Ok(tokens);
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && matches!(
+                    attr.name(),
+                    "NativeNullTerminatedAttribute" | "NullableAttribute"
+                )
+            {
+                let termination = attr.name() == "NativeNullTerminatedAttribute";
+                if !termination
+                    && values.is_empty()
+                    && matches!(
+                        extent_owner,
+                        Some(ExtentOwner::Return(_) | ExtentOwner::Field)
+                    )
+                {
+                    return Ok(quote! { #[nullable] });
+                }
+                let flag = |key| {
+                    values.iter().find_map(|(name, value)| match value {
+                        metadata::Value::Bool(value) if name == key => Some(*value),
+                        _ => None,
+                    })
+                };
+                if let (Some(entry), Some(success)) = (flag("OnEntry"), flag("OnSuccess")) {
+                    let double_entry = flag("DoubleNullOnEntry") == Some(true);
+                    let double_success = flag("DoubleNullOnSuccess") == Some(true);
+                    let indirect = flag("Indirect") == Some(true);
+                    if values.len()
+                        == 2 + usize::from(double_entry)
+                            + usize::from(double_success)
+                            + usize::from(indirect)
+                        && (entry || success)
+                        && (!double_entry || entry)
+                        && (!double_success || success)
+                        && (termination || !double_entry && !double_success)
+                        && matches!(extent_owner, Some(ExtentOwner::Parameter(_, ty))
+                            if !termination || buffer_extent::is_buffer_storage(
+                                ty.clone(), indirect, |ty| metadata_underlying(ty, index)))
+                    {
+                        if !termination {
+                            return Ok(write_nullable(entry, success, indirect));
+                        }
+
+                        return Ok(write_null_terminated(
+                            entry.then_some(double_entry),
+                            success.then_some(double_success),
+                            indirect,
+                        ));
+                    }
+                }
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "NativeReturnedPointerAttribute"
+                && let [
+                    (first, metadata::Value::Bool(a)),
+                    (second, metadata::Value::Bool(b)),
+                ] = values.as_slice()
+            {
+                match (first.as_str(), second.as_str()) {
+                    ("MayBeNull", "NullOnFailure") => return Ok(write_returned_pointer(*a, *b)),
+                    ("NullOnFailure", "MayBeNull") => return Ok(write_returned_pointer(*b, *a)),
+                    _ => {}
+                }
+            }
+
+            if attr_ns == METADATA_NAMESPACE
+                && attr.name() == "SuccessConditionAttribute"
+                && let [(name, value)] = values.as_slice()
+                && name.is_empty()
+                && let Some(condition) = SuccessCondition::from_value(value)
+            {
+                return Ok(write_success(condition));
+            }
 
             // Naturalized metadata attributes render as short RDL spellings when possible.
             let pseudo = if attr_ns == METADATA_NAMESPACE {
@@ -685,11 +1010,7 @@ fn write_custom_attributes_except<'a>(
                 quote! { #[#name_ts(#(#args),*)] }
             })
         })
-        .collect::<Result<Vec<TokenStream>, Error>>()?;
-
-    // Attribute table order varies between metadata builds; sort rendered text for stable output.
-    rendered.sort_by_key(|ts| ts.to_string());
-    Ok(rendered)
+        .collect()
 }
 
 /// Renders enum-valued attribute arguments as variants, decomposing flags when needed.
@@ -703,6 +1024,11 @@ fn write_enum_value(
         metadata::Value::I32(n) => *n,
         _ => return Ok(write_value(namespace, inner)),
     };
+
+    // A name from one definition may be absent or have a different value in another.
+    if index.get(&tn.namespace, &tn.name).nth(1).is_some() {
+        return Ok(write_value(namespace, inner));
+    }
 
     let mut found_in_index = false;
     for typedef in index.get(&tn.namespace, &tn.name) {
@@ -891,64 +1217,28 @@ fn extract_guid_from_attribute(
     Ok((d1, d2, d3, d4))
 }
 
-enum GuidOutput {
-    Omit,
-    Explicit(u32, u16, u16, [u8; 8]),
-    None,
-}
-
-/// Omits derived GUIDs while preserving explicit or absent GUID state.
-fn guid_output(
-    item: &metadata::reader::TypeDef,
-    methods: &[(&str, &[metadata::Type], &metadata::Type)],
-) -> Result<GuidOutput, Error> {
-    let Some(attr) = item.find_attribute("GuidAttribute") else {
-        return Ok(GuidOutput::None);
+fn write_guid_attribute(item: &metadata::reader::TypeDef) -> Result<TokenStream, Error> {
+    let mut attributes = item
+        .attributes()
+        .filter(|attribute| attribute.name() == "GuidAttribute");
+    let Some(attribute) = attributes.next() else {
+        if item
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime)
+        {
+            return Err(writer_err!("WinRT type `{}` has no GUID", item.name()));
+        }
+        return Ok(quote! {});
     };
-    let stored = extract_guid_from_attribute(attr)?;
-    let s = reader::guid::build_interface_string(
-        item.namespace(),
-        metadata::trim_tick(item.name()),
-        methods,
-    );
-    let derived = reader::guid::guid_from_interface_string(&s);
-    if stored == derived {
-        Ok(GuidOutput::Omit)
-    } else {
-        Ok(GuidOutput::Explicit(stored.0, stored.1, stored.2, stored.3))
+    if attributes.next().is_some() {
+        return Err(writer_err!(
+            "duplicate GUID attributes on `{}`",
+            item.name()
+        ));
     }
-}
-
-fn interface_guid_output(
-    item: &metadata::reader::TypeDef,
-    generics: &[metadata::Type],
-) -> Result<GuidOutput, Error> {
-    let sigs: Vec<(String, Vec<metadata::Type>, metadata::Type)> = item
-        .methods()
-        .map(|m| {
-            let sig = m.signature(generics);
-            (m.name().to_string(), sig.types, sig.return_type)
-        })
-        .collect();
-    let methods: Vec<(&str, &[metadata::Type], &metadata::Type)> = sigs
-        .iter()
-        .map(|(n, t, r)| (n.as_str(), t.as_slice(), r))
-        .collect();
-    guid_output(item, &methods)
-}
-
-fn delegate_guid_output(
-    item: &metadata::reader::TypeDef,
-    generics: &[metadata::Type],
-) -> Result<GuidOutput, Error> {
-    let (types, return_type) = item.methods().find(|m| m.name() == "Invoke").map_or_else(
-        || (vec![], metadata::Type::Void),
-        |invoke| {
-            let sig = invoke.signature(generics);
-            (sig.types, sig.return_type)
-        },
-    );
-    guid_output(item, &[("Invoke", types.as_slice(), &return_type)])
+    let (d1, d2, d3, d4) = extract_guid_from_attribute(attribute)?;
+    let lit = syn::LitInt::new(&format_guid_u128(d1, d2, d3, d4), Span::call_site());
+    Ok(quote! { #[guid(#lit)] })
 }
 
 /// Reads the raw Win32 callback ABI value.

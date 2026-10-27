@@ -1,6 +1,11 @@
 #![doc = include_str!("../readme.md")]
 
 mod accessor;
+mod buffer_extent;
+pub use buffer_extent::write_buffer_extent;
+mod integer_expression;
+mod integer_range;
+pub use integer_range::write_integer_range;
 /// RDL source-emission primitives shared with the `windows-clang` scraper.
 pub mod emit;
 mod error;
@@ -39,6 +44,11 @@ pub(crate) struct PseudoAttr {
 /// Pseudo-attribute table; order is metadata-significant for parameters.
 pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     PseudoAttr {
+        short: "anonymous",
+        metadata: "NativeAnonymousAttribute",
+        prop: None,
+    },
+    PseudoAttr {
         short: "retval",
         metadata: "RetValAttribute",
         prop: None,
@@ -74,6 +84,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         prop: None,
     },
     PseudoAttr {
+        short: "must_use",
+        metadata: "MustUseAttribute",
+        prop: None,
+    },
+    PseudoAttr {
         short: "scoped",
         metadata: "ScopedEnumAttribute",
         prop: None,
@@ -81,6 +96,16 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
     PseudoAttr {
         short: "encoding",
         metadata: "NativeEncodingAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "override_slot",
+        metadata: "NativeOverrideSlotAttribute",
+        prop: None,
+    },
+    PseudoAttr {
+        short: "align",
+        metadata: "AlignmentAttribute",
         prop: None,
     },
 ];
@@ -111,6 +136,13 @@ pub fn reader() -> Reader {
 /// Parses one `.rdl` file and returns the items it defines under `namespace`.
 pub fn item_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
     reader::item_names(path, namespace)
+}
+
+/// Parses one `.rdl` file and returns enum member names under `namespace`.
+///
+/// Includes scoped enum members. Name matches do not establish type, scope, or value equivalence.
+pub fn enum_member_names(path: impl AsRef<Path>, namespace: &str) -> Result<Vec<String>, Error> {
+    reader::enum_member_names(path, namespace)
 }
 
 /// Creates a [`Writer`] that converts `.winmd` metadata into RDL.

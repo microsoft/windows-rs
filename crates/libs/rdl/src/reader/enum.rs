@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Enum {
     pub attrs: Vec<syn::Attribute>,
     pub token: syn::Token![enum],
@@ -35,20 +35,40 @@ impl syn::parse::Parse for Enum {
 
 impl Encoder<'_> {
     pub fn encode_enum(&mut self, item: &Enum) -> Result<(), Error> {
+        self.encode_enum_scoped(item, None)
+    }
+
+    pub(super) fn encode_enum_scoped(
+        &mut self,
+        item: &Enum,
+        enclosing: Option<Enclosing<'_>>,
+    ) -> Result<(), Error> {
         let value_type = self.output.TypeRef("System", "Enum");
 
-        let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
+        let mut flags = metadata::TypeAttributes::Sealed
+            | if enclosing.is_some() {
+                metadata::TypeAttributes::NestedPublic
+            } else {
+                metadata::TypeAttributes::Public
+            };
 
-        if item.winrt {
+        if item.winrt || enclosing.is_some_and(|parent| parent.winrt) {
             flags |= metadata::TypeAttributes::WindowsRuntime;
         }
 
         let enum_type = self.output.TypeDef(
-            self.namespace,
-            self.name,
+            if enclosing.is_some() {
+                ""
+            } else {
+                self.namespace
+            },
+            &item.name.unraw_to_string(),
             metadata::writer::TypeDefOrRef::TypeRef(value_type),
             flags,
         );
+        if let Some(parent) = enclosing {
+            self.output.NestedClass(enum_type, parent.outer);
+        }
 
         let Some(attribute) = item
             .attrs
@@ -107,7 +127,10 @@ impl Encoder<'_> {
             &["repr", "flags"],
         )?;
 
-        if let Some(arch_bits) = self.read_arch(&item.attrs)? {
+        if let Some(arch_bits) = self
+            .read_arch(&item.attrs)?
+            .or(enclosing.and_then(|parent| parent.arch))
+        {
             self.emit_arch_attribute(
                 metadata::writer::HasAttribute::TypeDef(enum_type),
                 arch_bits,
@@ -122,7 +145,10 @@ impl Encoder<'_> {
                 | metadata::FieldAttributes::RTSpecialName,
         );
 
-        let type_name = metadata::Type::value_named(self.namespace, self.name);
+        let name = item.name.unraw_to_string();
+        let full_name =
+            enclosing.map_or_else(|| name.clone(), |parent| format!("{}/{name}", parent.name));
+        let type_name = metadata::Type::value_named(self.namespace, &full_name);
 
         for variant in &item.variants {
             let name = variant.ident.unraw_to_string();
@@ -143,6 +169,11 @@ impl Encoder<'_> {
 
             self.output
                 .Constant(metadata::writer::HasConstant::Field(field), &value);
+            self.encode_attrs(
+                metadata::writer::HasAttribute::Field(field),
+                &variant.attrs,
+                &[],
+            )?;
         }
 
         Ok(())

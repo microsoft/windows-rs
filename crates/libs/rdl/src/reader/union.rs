@@ -4,7 +4,7 @@ use super::*;
 pub struct Union {
     pub attrs: Vec<syn::Attribute>,
     pub name: syn::Ident,
-    pub fields: Vec<Field>,
+    pub body: RecordBody,
 }
 
 impl syn::parse::Parse for Union {
@@ -16,23 +16,16 @@ impl syn::parse::Parse for Union {
         let content;
         syn::braced!(content in input);
 
-        let fields = content
-            .parse_terminated(Field::parse, syn::Token![,])?
-            .into_iter()
-            .collect();
+        let body = parse_record_body(&content)?;
 
-        Ok(Self {
-            attrs,
-            name,
-            fields,
-        })
+        Ok(Self { attrs, name, body })
     }
 }
 
 impl Encoder<'_> {
     pub fn encode_union(&mut self, item: &Union) -> Result<(), Error> {
         let name = item.name.to_string();
-        self.encode_record(&name, false, true, &item.fields, &item.attrs, None)?;
+        self.encode_record(&name, false, true, &item.body, &item.attrs, None)?;
         Ok(())
     }
 }

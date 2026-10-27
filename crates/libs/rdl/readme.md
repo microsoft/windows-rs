@@ -4,6 +4,20 @@ The [windows-rdl](https://crates.io/crates/windows-rdl) crate compiles **RDL** (
 Language) - a Rust-like text format for describing Windows APIs - into ECMA-335 `.winmd` metadata,
 and back again.
 
+Shared and named nested records retain owner-scoped declarations and references such as
+`Outer::Inner`; anonymous value fields can use inline structs and unions.
+
+Win32 type expressions include qualified pointer chains and inline C/system function pointers,
+such as `extern "C" fn(*const u8, u32) -> i32`, without requiring named callback declarations.
+
+WinRT interface and delegate arguments require explicit `#[in]` or `#[out]` directions. Win32
+arguments can also be input/output or unspecified; provide directions when the contract is known.
+Missing directions never default to input.
+
+GUID generation is opt-in: `#[guid(auto)]` derives an interface or delegate identity, and
+`#[guid(0x...)]` specifies one. Native interfaces without either attribute have no GUID in WinMD.
+WinRT interfaces and delegates require a GUID. The writer emits stored GUID values explicitly.
+
 * [Getting
   started](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-rdl.md)
 
@@ -30,3 +44,7 @@ windows_rdl::writer()
     .write()
     .unwrap();
 ```
+
+When writing RDL that uses external typedefs or attribute types, add their WinMD files with
+`writer.reference("dependency.winmd")`. References support resolution without emitting their
+definitions.
