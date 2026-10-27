@@ -5,7 +5,7 @@ use std::path::{Path, PathBuf};
 const WINMD: &str = "crates/tools/reactor-metadata/winmd";
 const EXTRAS_RDL: &str = "crates/tools/reactor-metadata/src/extras.rdl";
 const EXTRAS_WINMD: &str = "crates/tools/reactor-metadata/winmd/extras.winmd";
-const WINDOWS_APP_SDK_VERSION: &str = "2.5.1";
+const WINDOWS_APP_SDK_VERSION: &str = "2.6.4";
 
 fn main() {
     assert_runtime_pins();

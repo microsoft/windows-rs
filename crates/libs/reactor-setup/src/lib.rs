@@ -8,7 +8,7 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 
 const RUNTIME_PKG: &str = "Microsoft.WindowsAppSDK.Runtime";
-const RUNTIME_VER: &str = "2.5.1";
+const RUNTIME_VER: &str = "2.6.4";
 const RUNTIME_FILES: &str = include_str!("../assets/runtime.txt");
 const APP_MANIFEST: &str = include_str!("../assets/app.manifest");
 const NUGET_URL: &str = "https://www.nuget.org/api/v2/package/{name}/{version}";
