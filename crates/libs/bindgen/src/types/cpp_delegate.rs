@@ -50,7 +50,7 @@ impl CppDelegate {
         }
 
         let return_sig = config.write_return_sig(method, &signature, false);
-        let arches = write_arches(self.def);
+        let arches = config.write_reached_arches(&Type::CppDelegate(self.clone()), self.def);
         let cfg = self.write_cfg(config);
 
         let mut abi = None;

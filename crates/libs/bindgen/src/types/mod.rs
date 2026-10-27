@@ -51,10 +51,14 @@ pub enum Type {
     Generic(GenericParam),
     PtrMut(Box<Self>, usize),
     PtrConst(Box<Self>, usize),
+    Ptr64(Box<Self>, bool),
+    Pointer64Helper,
+    UnalignedHelper,
     ArrayFixed(Box<Self>, usize),
     Array(Box<Self>),
     ArrayRef(Box<Self>),
     ConstRef(Box<Self>),
+    FnPtr(Box<FunctionPointer>),
 
     Void,
     Bool,
@@ -88,6 +92,41 @@ pub enum Type {
     RPC_STATUS,
 }
 
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
+pub struct FunctionPointer {
+    flags: u8,
+    result: Type,
+    parameters: Vec<Type>,
+}
+
+impl FunctionPointer {
+    pub fn types(&self) -> impl Iterator<Item = &Type> {
+        std::iter::once(&self.result).chain(&self.parameters)
+    }
+
+    fn write(&self, config: &Config) -> TokenStream {
+        for ty in self.types() {
+            ty.assert_callable_value(config.reader);
+        }
+        let abi = match MethodCallAttributes(self.flags) {
+            MethodCallAttributes::C => "C",
+            MethodCallAttributes::STDCALL => "system",
+            _ => panic!(
+                "unsupported function pointer signature flags: {:?}",
+                self.flags
+            ),
+        };
+        let parameters = self.parameters.iter().map(|ty| ty.write_abi(config));
+        let result = if self.result == Type::Void {
+            TokenStream::new()
+        } else {
+            let ty = self.result.write_abi(config);
+            quote! { -> #ty }
+        };
+        quote! { Option<unsafe extern #abi fn(#(#parameters),*) #result> }
+    }
+}
+
 impl Ord for Type {
     fn cmp(&self, other: &Self) -> Ordering {
         self.sort_key().cmp(&(other.sort_key()))
@@ -108,23 +147,71 @@ pub enum Remap {
 }
 
 impl Type {
+    pub fn enclosing(&self) -> Option<TypeName> {
+        match self {
+            Self::CppStruct(ty) => ty.enclosing,
+            Self::CppEnum(ty) => ty.enclosing,
+            _ => None,
+        }
+    }
+    #[track_caller]
+    pub fn assert_callable_value(&self, reader: &Reader) {
+        match self {
+            Self::Ptr64(..) => panic!("fixed-width pointer values require a calling-ABI contract"),
+            Self::ArrayFixed(inner, _) => inner.assert_callable_value(reader),
+            Self::CppStruct(ty) => {
+                assert!(
+                    !ty.has_interface_bases(reader),
+                    "native objects cannot be passed by value: {}",
+                    ty.name
+                );
+                assert!(
+                    !ty.has_mixed_layout(reader),
+                    "by-value mixed packing/alignment requires a calling-ABI contract"
+                );
+                for field in ty.def.fields() {
+                    field
+                        .field_type(Some(ty), reader)
+                        .assert_callable_value(reader);
+                }
+            }
+            _ => {}
+        }
+    }
+
     /// Collects sys ABI dependencies without projected interfaces, which sys signatures erase to
     /// raw pointers.
     pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::Ptr64(inner, _) = ty {
+            dependencies.insert(Self::Pointer64Helper);
+            inner.combine_sys(dependencies, reader);
+            return;
+        }
+        if let Self::FnPtr(signature) = ty {
+            for ty in signature.types() {
+                ty.combine_sys(dependencies, reader);
+            }
+            return;
+        }
         if ty.is_intrinsic() || ty.is_interface() {
             return;
         }
 
-        let nested = matches!(ty, Self::CppStruct(s) if s.def.namespace().is_empty());
+        if let Some(owner) = ty.enclosing() {
+            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
+                owner.combine_sys(dependencies, reader);
+            }
+            return;
+        }
         let (ty, generics) = ty.split_generic(reader);
 
         for ty in generics {
             ty.combine_sys(dependencies, reader);
         }
 
-        if !nested && !dependencies.insert(ty.clone()) {
+        if !dependencies.insert(ty.clone()) {
             return;
         }
 
@@ -157,10 +244,8 @@ impl Type {
             }
             Self::CppFn(ty) => ty.combine_sys(dependencies, reader),
             Self::CppStruct(ty) => {
-                for field in ty.def.fields() {
-                    field
-                        .field_type(Some(ty), reader)
-                        .combine_sys(dependencies, reader);
+                for ty in ty.definition_types(reader) {
+                    ty.combine_sys(dependencies, reader);
                 }
             }
             _ => {}
@@ -185,16 +270,18 @@ impl Type {
             _ => -1,
         };
 
-        let arches = match self {
+        (kind != 0, self.type_name(), self.arches(), kind)
+    }
+
+    pub fn arches(&self) -> i32 {
+        match self {
             Self::CppFn(ty) => ty.method.arches(),
             Self::CppStruct(ty) => ty.def.arches(),
             Self::CppDelegate(ty) => ty.def.arches(),
             Self::CppEnum(ty) => ty.def.arches(),
-            Self::CppConst(ty) => ty.effective_arches(),
+            Self::CppConst(ty) => ty.arches,
             _ => 0,
-        };
-
-        (kind != 0, self.type_name(), arches, kind)
+        }
     }
 
     /// Stable tie-breaker for same-name `--flat` collisions.
@@ -265,10 +352,10 @@ impl Type {
             match name {
                 "GUID" => return Remap::Type(Self::GUID),
                 "HRESULT" => return Remap::Type(Self::HRESULT),
-                "PSTR" => return Remap::Type(Self::PSTR),
-                "PWSTR" => return Remap::Type(Self::PWSTR),
-                "PCSTR" => return Remap::Type(Self::PCSTR),
-                "PCWSTR" => return Remap::Type(Self::PCWSTR),
+                "PSTR" | "LPSTR" => return Remap::Type(Self::PSTR),
+                "PWSTR" | "LPWSTR" => return Remap::Type(Self::PWSTR),
+                "PCSTR" | "LPCSTR" => return Remap::Type(Self::PCSTR),
+                "PCWSTR" | "LPCWSTR" => return Remap::Type(Self::PCWSTR),
                 "BSTR" => return Remap::Type(Self::BSTR),
                 "HSTRING" => return Remap::Type(Self::String),
                 "IInspectable" => return Remap::Type(Self::Object),
@@ -365,14 +452,14 @@ impl Type {
                 if let Some(outer) = enclosing
                     && ns.is_empty()
                 {
-                    return Self::CppStruct(outer.nested[n].clone());
+                    return outer.nested_type(n).unwrap();
                 }
                 if let Some(outer) = enclosing
                     && let Some((parent, leaf)) = n.rsplit_once('/')
                 {
                     let name = outer.def.full_name();
                     if ns == name.namespace && parent == name.name {
-                        return Self::CppStruct(outer.nested[leaf].clone());
+                        return outer.nested_type(leaf).unwrap();
                     }
                 }
                 let mut bindgen_ty = reader.unwrap_type_name(ns, n);
@@ -405,6 +492,24 @@ impl Type {
                 Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
                 *pointers,
             ),
+            windows_metadata::Type::Ptr64(inner, constant) => Self::Ptr64(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                *constant,
+            ),
+            windows_metadata::Type::FnPtr(signature) => Self::FnPtr(Box::new(FunctionPointer {
+                flags: signature.flags.0,
+                result: Self::from_native_signature_type(
+                    &signature.return_type,
+                    enclosing,
+                    generics,
+                    reader,
+                ),
+                parameters: signature
+                    .types
+                    .iter()
+                    .map(|ty| Self::from_native_signature_type(ty, enclosing, generics, reader))
+                    .collect(),
+            })),
             // IsConst modifier (ELEMENT_TYPE_CMOD_REQD IsConst)
             windows_metadata::Type::RefConst(inner) => Self::ConstRef(Box::new(
                 Self::from_metadata_type(inner, enclosing, generics, reader),
@@ -420,10 +525,30 @@ impl Type {
         }
     }
 
+    pub fn from_native_signature_type(
+        ty: &windows_metadata::Type,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+        reader: &Reader,
+    ) -> Self {
+        match ty {
+            windows_metadata::Type::RefConst(inner) => Self::PtrConst(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                1,
+            ),
+            windows_metadata::Type::RefMut(inner) => Self::PtrMut(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                1,
+            ),
+            _ => Self::from_metadata_type(ty, enclosing, generics, reader),
+        }
+    }
+
     pub fn to_const_type(&self) -> Self {
         match self {
             Self::PtrMut(ty, pointers) => Self::PtrMut(Box::new(ty.to_const_type()), *pointers),
             Self::PtrConst(ty, pointers) => Self::PtrConst(Box::new(ty.to_const_type()), *pointers),
+            Self::Ptr64(ty, constant) => Self::Ptr64(Box::new(ty.to_const_type()), *constant),
             Self::PSTR => Self::PCSTR,
             Self::PWSTR => Self::PCWSTR,
             _ => self.clone(),
@@ -456,7 +581,7 @@ impl Type {
 
     pub fn has_cpp_delegate(&self, reader: &Reader) -> bool {
         match self {
-            Self::CppDelegate(..) => true,
+            Self::CppDelegate(..) | Self::FnPtr(_) => true,
             Self::CppStruct(ty) => ty.has_cpp_delegate(reader),
             _ => false,
         }
@@ -577,6 +702,7 @@ impl Type {
             Self::CppFn(ty) => ty.write_name(config),
             Self::CppConst(ty) => ty.write_name(config),
             Self::CppDelegate(ty) => ty.write_name(config),
+            Self::FnPtr(signature) => signature.write(config),
             Self::Delegate(ty) => ty.write_name(config),
             Self::Class(ty) => ty.write_name(config),
             Self::Generic(param) => to_ident(param.name()),
@@ -589,6 +715,23 @@ impl Type {
                 let pointers = write_ptr_const(*pointers);
                 let ty = ty.write_default(config);
                 quote! { #pointers #ty }
+            }
+            Self::Ptr64(ty, constant) => {
+                assert!(
+                    !matches!(
+                        ty.projection_type(config.reader),
+                        Self::FnPtr(_) | Self::CppDelegate(_)
+                    ) && !ty.is_interface_with_reader(config.reader),
+                    "fixed-width function and interface pointers are unsupported"
+                );
+                let helper = Self::Pointer64Helper.type_name().write(config, &[]);
+                let pointer = if *constant {
+                    Self::PtrConst(ty.clone(), 1)
+                } else {
+                    Self::PtrMut(ty.clone(), 1)
+                };
+                let pointer = pointer.write_name(config);
+                quote! { #helper<#pointer> }
             }
             Self::ArrayFixed(ty, len) => {
                 let name = ty.write_default(config);
@@ -723,6 +866,18 @@ impl Type {
                 (base, ty.generics.clone())
             }
             _ => (self.clone(), vec![]),
+        }
+    }
+
+    pub fn dependency_type(&self) -> &Self {
+        match self {
+            Self::PtrMut(ty, _)
+            | Self::PtrConst(ty, _)
+            | Self::Array(ty)
+            | Self::ArrayRef(ty)
+            | Self::ConstRef(ty)
+            | Self::ArrayFixed(ty, _) => ty.dependency_type(),
+            _ => self,
         }
     }
 
@@ -871,7 +1026,7 @@ impl Type {
 
     pub fn is_primitive(&self, reader: &Reader) -> bool {
         match self {
-            Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
+            Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) | Self::FnPtr(_) => true,
             Self::CppStruct(ty) => ty.is_handle(reader),
             Self::Bool
             | Self::Char
@@ -892,6 +1047,7 @@ impl Type {
             | Self::NTSTATUS
             | Self::RPC_STATUS
             | Self::PtrConst(_, _)
+            | Self::Ptr64(_, _)
             | Self::PtrMut(_, _) => true,
             _ => false,
         }
@@ -906,6 +1062,24 @@ impl Type {
 
     pub fn is_pointer(&self) -> bool {
         matches!(self, Self::PtrConst(_, _) | Self::PtrMut(_, _))
+    }
+
+    /// Returns whether an argument of this resolved type gives the callee no caller-writable
+    /// storage: values, interfaces, callbacks, and single-level pointers to const.
+    pub fn is_callee_immutable(&self) -> bool {
+        match self {
+            Self::PtrConst(_, pointers) => *pointers == 1,
+            Self::Ptr64(_, constant) => *constant,
+            Self::PtrMut(..)
+            | Self::Pointer64Helper
+            | Self::UnalignedHelper
+            | Self::Array(_)
+            | Self::ArrayRef(_)
+            | Self::PSTR
+            | Self::PWSTR
+            | Self::BSTR => false,
+            _ => true,
+        }
     }
 
     pub fn is_byte_size(&self) -> bool {
@@ -928,7 +1102,7 @@ impl Type {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
-            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::I64 | Self::U64 | Self::F64 | Self::Ptr64(..) => 8,
             Self::GUID => 16,
             Self::ArrayFixed(ty, len) => ty.size(reader) * len,
             Self::CppStruct(ty) => ty.size(reader),
@@ -942,7 +1116,7 @@ impl Type {
         match self {
             Self::I8 | Self::U8 => 1,
             Self::I16 | Self::U16 => 2,
-            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::I64 | Self::U64 | Self::F64 | Self::Ptr64(..) => 8,
             Self::ArrayFixed(ty, len) => ty.align(reader) * len,
             Self::CppStruct(ty) => ty.align(reader),
             Self::Struct(ty) => ty.align(reader),
@@ -980,6 +1154,9 @@ impl Type {
             }
             Self::PtrConst(ty, pointers) => {
                 Self::PtrConst(Box::new(ty.projection_type(reader)), *pointers)
+            }
+            Self::Ptr64(ty, constant) => {
+                Self::Ptr64(Box::new(ty.projection_type(reader)), *constant)
             }
             Self::ArrayFixed(ty, len) => {
                 Self::ArrayFixed(Box::new(ty.projection_type(reader)), *len)
@@ -1061,6 +1238,77 @@ impl Type {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         match self {
+            Self::UnalignedHelper => quote! {
+                /// Unaligned native field storage. No references to the stored value are exposed.
+                #[doc(hidden)]
+                #[repr(C)]
+                pub struct __windows_bindgen_Unaligned<T, const N: usize> {
+                    bytes: [core::mem::MaybeUninit<u8>; N],
+                    value: core::marker::PhantomData<T>,
+                }
+                impl<T, const N: usize> __windows_bindgen_Unaligned<T, N> {
+                    pub fn new(value: T) -> Self {
+                        let mut result = Self {
+                            bytes: [core::mem::MaybeUninit::uninit(); N],
+                            value: core::marker::PhantomData,
+                        };
+                        result.write(value);
+                        result
+                    }
+                    /// Copies the stored value without creating an aligned reference.
+                    ///
+                    /// # Safety
+                    ///
+                    /// Storage must contain a valid, initialized `T`. For non-`Copy` values,
+                    /// the caller must prevent duplicated ownership and subsequent reads.
+                    pub unsafe fn read(&self) -> T {
+                        assert_eq!(N, ::core::mem::size_of::<T>());
+                        unsafe { self.bytes.as_ptr().cast::<T>().read_unaligned() }
+                    }
+                    /// Writes a value without dropping the previous contents.
+                    pub fn write(&mut self, value: T) {
+                        assert_eq!(N, ::core::mem::size_of::<T>());
+                        unsafe { self.bytes.as_mut_ptr().cast::<T>().write_unaligned(value); }
+                    }
+                }
+                impl<T: Copy, const N: usize> Copy for __windows_bindgen_Unaligned<T, N> {}
+                impl<T: Copy, const N: usize> Clone for __windows_bindgen_Unaligned<T, N> {
+                    fn clone(&self) -> Self { *self }
+                }
+            },
+            Self::Pointer64Helper => quote! {
+                /// A fixed 64-bit address, not a native Rust pointer.
+                #[doc(hidden)]
+                #[repr(C)]
+                pub struct __windows_bindgen_Pointer64<P> {
+                    address: u64,
+                    pointer: core::marker::PhantomData<fn() -> P>,
+                }
+                impl<P> __windows_bindgen_Pointer64<P> {
+                    pub const fn from_address(address: u64) -> Self {
+                        Self { address, pointer: core::marker::PhantomData }
+                    }
+                    pub const fn address(self) -> u64 {
+                        self.address
+                    }
+                }
+                impl<P> Copy for __windows_bindgen_Pointer64<P> {}
+                impl<P> Clone for __windows_bindgen_Pointer64<P> {
+                    fn clone(&self) -> Self { *self }
+                }
+                impl<P> Default for __windows_bindgen_Pointer64<P> {
+                    fn default() -> Self { Self::from_address(0) }
+                }
+                impl<P> PartialEq for __windows_bindgen_Pointer64<P> {
+                    fn eq(&self, other: &Self) -> bool { self.address == other.address }
+                }
+                impl<P> Eq for __windows_bindgen_Pointer64<P> {}
+                impl<P> core::fmt::Debug for __windows_bindgen_Pointer64<P> {
+                    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                        f.debug_tuple("Pointer64").field(&self.address).finish()
+                    }
+                }
+            },
             Self::Struct(ty) => ty.write(config),
             Self::Enum(ty) => ty.write(config),
             Self::Interface(ty) => ty.write(config),
@@ -1112,6 +1360,8 @@ impl Type {
             Self::BSTR => TypeName("", "BSTR"),
             Self::String => TypeName("", "String"),
             Self::Object => TypeName("", "Object"),
+            Self::Pointer64Helper => TypeName("Windows.Win32", "__windows_bindgen_Pointer64"),
+            Self::UnalignedHelper => TypeName("Windows.Win32", "__windows_bindgen_Unaligned"),
 
             _ => TypeName("", ""),
         }
@@ -1149,18 +1399,28 @@ impl Type {
 
 impl Dependencies for Type {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::Ptr64(inner, _) = ty {
+            dependencies.insert(Self::Pointer64Helper);
+            inner.combine(dependencies, reader);
+            return;
+        }
+        if let Self::FnPtr(signature) = ty {
+            for ty in signature.types() {
+                ty.combine(dependencies, reader);
+            }
+            return;
+        }
         if ty.is_intrinsic() {
             return;
         }
 
-        let mut nested = false;
-
-        if let Self::CppStruct(ty) = ty
-            && ty.def.namespace().is_empty()
-        {
-            nested = true;
+        if let Some(owner) = ty.enclosing() {
+            for owner in reader.with_full_name(owner.namespace(), owner.name()) {
+                owner.combine(dependencies, reader);
+            }
+            return;
         }
 
         let (ty, generics) = ty.split_generic(reader);
@@ -1169,7 +1429,7 @@ impl Dependencies for Type {
             ty.combine(dependencies, reader);
         }
 
-        if !nested && !dependencies.insert(ty.clone()) {
+        if !dependencies.insert(ty.clone()) {
             return;
         }
 
@@ -1335,6 +1595,12 @@ pub(crate) fn write_newtype_wrap_for_arches(
     }
     if !config.bindgen.style.is_sys()
         && matches!(ty, Type::PCSTR | Type::PCWSTR | Type::PSTR | Type::PWSTR)
+    {
+        let name = ty.write_name(config);
+        return quote! { #name(#value) };
+    }
+    if let Type::CppEnum(enumeration) = &ty
+        && enumeration.def.has_attribute("ScopedEnumAttribute")
     {
         let name = ty.write_name(config);
         return quote! { #name(#value) };

@@ -2,7 +2,11 @@ use super::*;
 use std::sync::Arc;
 
 #[derive(Default, Clone, Debug, PartialEq, Eq)]
-pub struct TypeMap(HashMap<TypeName, HashSet<Type>>, Arc<HashSet<TypeName>>);
+pub struct TypeMap(
+    HashMap<TypeName, HashSet<Type>>,
+    Arc<HashSet<TypeName>>,
+    HashMap<Type, i32>,
+);
 
 pub trait Dependencies {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader);
@@ -55,7 +59,7 @@ impl TypeMap {
                             if referenced.contains(&TypeName(namespace, name)) {
                                 Self::new()
                             } else {
-                                Self(HashMap::new(), referenced.clone())
+                                Self(HashMap::new(), referenced.clone(), HashMap::new())
                             };
 
                         for ty in types {
@@ -87,6 +91,22 @@ impl TypeMap {
     pub fn insert(&mut self, ty: Type) -> bool {
         let name = ty.type_name();
         self.0.entry(name).or_default().insert(ty) && !self.1.contains(&name)
+    }
+
+    /// Adds `ty` as reached from items on `arches` and returns whether any architecture is new.
+    pub fn insert_reached(&mut self, ty: Type, arches: i32) -> bool {
+        let reached = self.2.entry(ty.clone()).or_default();
+        if *reached & arches == arches {
+            return false;
+        }
+        *reached |= arches;
+        self.insert(ty);
+        true
+    }
+
+    /// Returns the architectures whose selected items reach `ty`; unrecorded types are unrestricted.
+    pub fn reached_arches(&self, ty: &Type) -> i32 {
+        self.2.get(ty).copied().unwrap_or(7)
     }
 
     pub fn combine_references(&mut self, other: &Self, references: &References) {

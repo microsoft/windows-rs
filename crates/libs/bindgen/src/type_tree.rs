@@ -9,7 +9,8 @@ pub struct TypeTree {
 }
 
 impl TypeTree {
-    pub fn new(dependencies: &TypeMap) -> Self {
+    pub fn new(dependencies: &TypeMap, flat: bool) -> Self {
+        validate_nested_names(dependencies, flat);
         let mut tree = Self::with_namespace("");
 
         for (tn, types) in dependencies.iter() {
@@ -22,6 +23,66 @@ impl TypeTree {
             sorted.into_iter().for_each(|ty| {
                 tree.types.insert(ty.clone());
             });
+        }
+
+        fn validate_nested_names(dependencies: &TypeMap, flat: bool) {
+            let arches = |ty: &Type| if ty.arches() == 0 { 7 } else { ty.arches() };
+            let mut pending: Vec<_> = dependencies
+                .values()
+                .flatten()
+                .map(|ty| (ty.clone(), arches(ty)))
+                .collect();
+            let mut seen = HashSet::new();
+            let mut names: BTreeMap<_, Vec<(windows_metadata::TypeName, i32, bool)>> =
+                BTreeMap::new();
+            while let Some((ty, emitted_arches)) = pending.pop() {
+                if !seen.insert((ty.clone(), emitted_arches)) {
+                    continue;
+                }
+                let name = ty.type_name();
+                let (identity, nested) = match &ty {
+                    Type::CppStruct(record) => {
+                        pending.extend(
+                            record
+                                .nested
+                                .values()
+                                .cloned()
+                                .map(|child| (Type::CppStruct(child), emitted_arches)),
+                        );
+                        pending.extend(record.nested_enums.values().cloned().map(|child| {
+                            let child = Type::CppEnum(child);
+                            let child_arches = emitted_arches & arches(&child);
+                            (child, child_arches)
+                        }));
+                        (record.def.full_name(), record.enclosing.is_some())
+                    }
+                    Type::CppEnum(enumeration) => {
+                        (enumeration.def.full_name(), enumeration.enclosing.is_some())
+                    }
+                    Type::CppFn(_) | Type::CppConst(_) => continue,
+                    _ if name.name().is_empty() => continue,
+                    _ => (
+                        windows_metadata::TypeName::named(name.namespace(), name.name()),
+                        false,
+                    ),
+                };
+                let key = (if flat { "" } else { name.namespace() }, name.name());
+                let entries = names.entry(key).or_default();
+                for (other, other_arches, other_nested) in entries.iter() {
+                    assert!(
+                        !(nested || *other_nested)
+                            || emitted_arches & other_arches == 0
+                            || identity == *other,
+                        "nested type name collision for `{}` between `{}.{}` and `{}.{}`",
+                        name.name(),
+                        identity.namespace,
+                        identity.name,
+                        other.namespace,
+                        other.name,
+                    );
+                }
+                entries.push((identity, emitted_arches, nested));
+            }
         }
 
         tree

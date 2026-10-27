@@ -26,9 +26,14 @@ impl Signature {
         if let Some(param) = self.params.last()
             && param.is_heuristic_retval_candidate(reader)
         {
-            return self.params[..self.params.len() - 1]
-                .iter()
-                .all(Param::is_input_only);
+            // Unannotated pointers remain raw arguments; only explicit outputs and buffer
+            // contracts compete with the trailing result.
+            return self.params[..self.params.len() - 1].iter().all(|param| {
+                param.is_input_only()
+                    || !param.has_direction()
+                        && !param.has_buffer_attributes()
+                        && !param.has_unresolved_contracts()
+            });
         }
 
         false

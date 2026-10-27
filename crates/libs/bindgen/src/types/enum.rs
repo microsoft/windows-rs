@@ -25,35 +25,41 @@ pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
 }
 
 // Bitwise-operator impls shared by flag enums.
-pub fn write_enum_flags(name: &TokenStream) -> TokenStream {
+pub fn write_enum_flags(name: &TokenStream, cfg: &TokenStream) -> TokenStream {
     quote! {
+        #cfg
         impl #name {
             pub const fn contains(&self, other: Self) -> bool {
                 self.0 & other.0 == other.0
             }
         }
+        #cfg
         impl core::ops::BitOr for #name {
             type Output = Self;
             fn bitor(self, other: Self) -> Self {
                 Self(self.0 | other.0)
             }
         }
+        #cfg
         impl core::ops::BitAnd for #name {
             type Output = Self;
             fn bitand(self, other: Self) -> Self {
                 Self(self.0 & other.0)
             }
         }
+        #cfg
         impl core::ops::BitOrAssign for #name {
             fn bitor_assign(&mut self, other: Self) {
                 self.0.bitor_assign(other.0);
             }
         }
+        #cfg
         impl core::ops::BitAndAssign for #name {
             fn bitand_assign(&mut self, other: Self) {
                 self.0.bitand_assign(other.0);
             }
         }
+        #cfg
         impl core::ops::Not for #name {
             type Output = Self;
             fn not(self) -> Self {
@@ -99,7 +105,7 @@ impl Enum {
         let flags = if config.bindgen.style.is_sys() || underlying_type != Type::U32 {
             quote! {}
         } else {
-            write_enum_flags(&name)
+            write_enum_flags(&name, &quote! {})
         };
 
         let underlying_type = underlying_type.write_name(config);
