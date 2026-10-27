@@ -1321,30 +1321,63 @@ struct ImageSubscription {
     _callback: Option<Rc<dyn Fn(bool)>>,
 }
 
-struct ImageKey(ImageSourceValue);
+/// Native image sources shared by a window's controls.
+///
+/// A URI source lives while a control uses it. A source decoded from [`EncodedImage`] bytes lives
+/// while the app holds those bytes, so controls that leave and return render without decoding
+/// again. Clones of an `EncodedImage` share its allocation and therefore one source.
+struct ImageCache<T = NativeImageSource> {
+    uris: HashMap<Rc<str>, Weak<T>>,
+    bytes: HashMap<(usize, usize, bool), (Option<SyncWeak<[u8]>>, Rc<T>)>,
+}
 
-impl PartialEq for ImageKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
+impl<T> Default for ImageCache<T> {
+    fn default() -> Self {
+        Self {
+            uris: HashMap::new(),
+            bytes: HashMap::new(),
+        }
     }
 }
 
-impl Eq for ImageKey {}
-
-impl std::hash::Hash for ImageKey {
-    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
-        std::mem::discriminant(&self.0).hash(state);
-        match &self.0 {
-            ImageSourceValue::Uri(value) => value.hash(state),
-            ImageSourceValue::Encoded(value) | ImageSourceValue::Svg(value) => {
-                // Hash a bounded sample; equality compares the full bytes.
-                let bytes = value.as_bytes();
-                bytes.len().hash(state);
-                for byte in bytes.iter().step_by(bytes.len() / 64 + 1) {
-                    byte.hash(state);
+impl<T> ImageCache<T> {
+    fn get_or_insert<E>(
+        &mut self,
+        source: &ImageSourceValue,
+        create: impl FnOnce() -> Result<T, E>,
+    ) -> Result<Rc<T>, E> {
+        match source {
+            ImageSourceValue::Uri(uri) => {
+                if let Some(image) = self.uris.get(uri).and_then(Weak::upgrade) {
+                    return Ok(image);
                 }
+                let image = Rc::new(create()?);
+                self.uris.insert(Rc::clone(uri), Rc::downgrade(&image));
+                Ok(image)
+            }
+            ImageSourceValue::Encoded(bytes) | ImageSourceValue::Svg(bytes) => {
+                let key = (
+                    bytes.as_bytes().as_ptr() as usize,
+                    bytes.as_bytes().len(),
+                    matches!(source, ImageSourceValue::Svg(_)),
+                );
+                if let Some((_, image)) = self.bytes.get(&key) {
+                    return Ok(Rc::clone(image));
+                }
+                let image = Rc::new(create()?);
+                self.bytes
+                    .insert(key, (bytes.downgrade(), Rc::clone(&image)));
+                Ok(image)
             }
         }
+    }
+
+    /// Drops URI sources no control uses and byte sources whose bytes the app has released.
+    fn prune(&mut self) {
+        self.uris.retain(|_, image| image.strong_count() != 0);
+        // Holding a weak reference keeps the allocation, and so its key, from being reused.
+        self.bytes
+            .retain(|_, (owner, _)| owner.as_ref().is_none_or(|owner| owner.strong_count() != 0));
     }
 }
 
@@ -1762,7 +1795,7 @@ fn observe_xaml_scale(
 pub struct WinUiAdapter {
     handles: HashMap<ObjectId, Handle>,
     image_subscriptions: HashMap<ObjectId, ImageSubscription>,
-    images: HashMap<ImageKey, Weak<NativeImageSource>>,
+    images: ImageCache,
     released_images: Vec<Rc<NativeImageSource>>,
     owners: HashMap<ObjectId, (ObjectId, RelationId)>,
     /// Index properties written by the batch being applied. Reactor writes an index after the
@@ -1809,7 +1842,7 @@ impl Default for WinUiAdapter {
         Self {
             handles: HashMap::new(),
             image_subscriptions: HashMap::new(),
-            images: HashMap::new(),
+            images: ImageCache::default(),
             released_images: Vec::new(),
             owners: HashMap::new(),
             index_writes: HashSet::new(),

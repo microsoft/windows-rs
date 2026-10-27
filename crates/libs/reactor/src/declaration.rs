@@ -37,6 +37,14 @@ impl EncodedImage {
             EncodedImageBytes::Static(bytes) => bytes,
         }
     }
+
+    /// A weak reference to shared bytes, or `None` for static bytes, which never drop.
+    pub(crate) fn downgrade(&self) -> Option<SyncWeak<[u8]>> {
+        match &self.0 {
+            EncodedImageBytes::Shared(bytes) => Some(Arc::downgrade(bytes)),
+            EncodedImageBytes::Static(_) => None,
+        }
+    }
 }
 
 impl fmt::Debug for EncodedImage {
