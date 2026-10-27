@@ -1,25 +1,20 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        type CLONG = u32;
+        type CLONG = ULONG;
         type CSHORT = i16;
         #[repr(i32)]
         enum EVENT_TYPE {
             NotificationEvent = 0,
             SynchronizationEvent = 1,
         }
-        type KIRQL = u8;
-        type LOGICAL = u32;
-        #[repr(i32)]
-        enum NT_PRODUCT_TYPE {
-            NtProductWinNt = 1,
-            NtProductLanManNt = 2,
-            NtProductServer = 3,
-        }
+        type KIRQL = UCHAR;
+        type LOGICAL = ULONG;
         type PKIRQL = *mut KIRQL;
-        type PNT_PRODUCT_TYPE = *mut NT_PRODUCT_TYPE;
+        type PNT_PRODUCT_TYPE = *mut _NT_PRODUCT_TYPE;
         type PPHYSICAL_ADDRESS = *mut LARGE_INTEGER;
         type PUTF8_STRING = PSTRING;
+        #[arch(X64 | Arm64)]
         #[repr(i32)]
         enum TIMER_TYPE {
             NotificationTimer = 0,
@@ -32,6 +27,12 @@ mod Windows {
             WaitNotification = 2,
             WaitDequeue = 3,
             WaitDpc = 4,
+        }
+        #[repr(i32)]
+        enum _NT_PRODUCT_TYPE {
+            NtProductWinNt = 1,
+            NtProductLanManNt = 2,
+            NtProductServer = 3,
         }
     }
 }
