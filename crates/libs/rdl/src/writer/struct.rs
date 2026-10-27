@@ -292,6 +292,15 @@ fn resolve_nested(
             Box::new(resolve_nested(inner, namespace, record_name, flat_names)),
             *ptrs,
         ),
+        metadata::Type::FnPtr(signature) => metadata::Type::FnPtr(Box::new(metadata::Signature {
+            flags: signature.flags,
+            return_type: resolve_nested(&signature.return_type, namespace, record_name, flat_names),
+            types: signature
+                .types
+                .iter()
+                .map(|ty| resolve_nested(ty, namespace, record_name, flat_names))
+                .collect(),
+        })),
         _ => ty.clone(),
     }
 }

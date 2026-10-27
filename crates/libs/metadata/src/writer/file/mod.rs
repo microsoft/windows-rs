@@ -467,6 +467,10 @@ impl File {
             Type::USize => buffer.push(ELEMENT_TYPE_U),
             Type::String => buffer.push(ELEMENT_TYPE_STRING),
             Type::Object => buffer.push(ELEMENT_TYPE_OBJECT),
+            Type::FnPtr(signature) => {
+                buffer.push(ELEMENT_TYPE_FNPTR);
+                self.Signature(signature, buffer);
+            }
 
             Type::Array(ty) => {
                 buffer.push(ELEMENT_TYPE_SZARRAY);
@@ -586,15 +590,19 @@ impl File {
 
     /// Stores a method signature and returns its blob offset.
     fn MethodDefSig(&mut self, signature: &Signature) -> BlobId {
-        let mut buffer = vec![signature.flags.0];
+        let mut buffer = Vec::new();
+        self.Signature(signature, &mut buffer);
+        self.blobs.insert(&buffer)
+    }
+
+    fn Signature(&mut self, signature: &Signature, buffer: &mut Vec<u8>) {
+        buffer.push(signature.flags.0);
         buffer.write_compressed(signature.types.len());
-        self.Type(&signature.return_type, &mut buffer);
+        self.Type(&signature.return_type, buffer);
 
         for ty in &signature.types {
-            self.Type(ty, &mut buffer);
+            self.Type(ty, buffer);
         }
-
-        self.blobs.insert(&buffer)
     }
 
     fn ConstantValue(&mut self, value: &Value) -> BlobId {

@@ -360,6 +360,7 @@ fn write_items(
     namespace: &str,
     item: metadata::reader::Item,
 ) -> Result<Vec<(String, TokenStream)>, Error> {
+    validate_item_types(item)?;
     match item {
         metadata::reader::Item::Type(ty) => write_type_def_items(namespace, &ty),
         metadata::reader::Item::Fn(ty) => {
@@ -369,6 +370,79 @@ fn write_items(
             Ok(vec![(ty.name().to_string(), write_const(namespace, &ty)?)])
         }
     }
+}
+
+fn validate_item_types(item: metadata::reader::Item) -> Result<(), Error> {
+    match item {
+        metadata::reader::Item::Type(def) => {
+            let winrt = def
+                .flags()
+                .contains(metadata::TypeAttributes::WindowsRuntime);
+            let generics: Vec<_> = def
+                .generic_params()
+                .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
+                .collect();
+            for field in def.fields() {
+                validate_type(&field.ty(), winrt)?;
+            }
+            for method in def.methods() {
+                validate_signature_types(&method.signature(&generics), winrt)?;
+            }
+            for nested in def.index().nested(def) {
+                validate_item_types(metadata::reader::Item::Type(nested))?;
+            }
+        }
+        metadata::reader::Item::Fn(method) => {
+            validate_signature_types(&method.signature(&[]), false)?;
+        }
+        metadata::reader::Item::Const(field) => validate_type(&field.ty(), false)?,
+    }
+    Ok(())
+}
+
+fn validate_signature_types(signature: &metadata::Signature, winrt: bool) -> Result<(), Error> {
+    validate_type(&signature.return_type, winrt)?;
+    for ty in &signature.types {
+        validate_type(ty, winrt)?;
+    }
+    Ok(())
+}
+
+fn validate_type(ty: &metadata::Type, winrt: bool) -> Result<(), Error> {
+    use metadata::Type::*;
+    match ty {
+        FnPtr(signature) => {
+            if winrt {
+                return Err(writer_err!("function pointers require Win32 metadata"));
+            }
+            if !matches!(
+                signature.flags,
+                metadata::MethodCallAttributes::C | metadata::MethodCallAttributes::STDCALL
+            ) {
+                return Err(writer_err!(
+                    "unsupported function pointer signature flags: {:?}",
+                    signature.flags
+                ));
+            }
+            if signature.types.contains(&Void) {
+                return Err(writer_err!("function pointer parameter cannot be void"));
+            }
+            validate_signature_types(signature, winrt)?;
+        }
+        PtrMut(inner, _)
+        | PtrConst(inner, _)
+        | ArrayFixed(inner, _)
+        | RefMut(inner)
+        | RefConst(inner)
+        | Array(inner) => validate_type(inner, winrt)?,
+        ClassName(name) | ValueName(name) => {
+            for ty in &name.generics {
+                validate_type(ty, winrt)?;
+            }
+        }
+        _ => {}
+    }
+    Ok(())
 }
 
 fn write_type_def_items(

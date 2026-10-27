@@ -1,0 +1,15 @@
+//! --filter Test.Callbacks Test.Register --sys --flat
+#[win32]
+mod Test {
+    struct Callbacks {
+        c: extern "C" fn(i32, *const u8) -> i32,
+        system: extern fn(),
+        array: [extern fn(Record); 2],
+        factory: extern "C" fn(extern fn(i32)) -> extern "C" fn() -> Record,
+    }
+    struct Record {
+        value: i32,
+    }
+    #[library("test.dll")]
+    extern fn Register(callback: extern fn(&Record, &mut u32) -> i32);
+}
