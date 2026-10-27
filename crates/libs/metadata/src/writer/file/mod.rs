@@ -432,6 +432,12 @@ impl File {
         }))
     }
 
+    fn IsConst(&mut self, buffer: &mut Vec<u8>) {
+        buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
+        let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
+        buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+    }
+
     /// Encodes a class or interface reference, using a `TypeSpec` for generic instances.
     fn ClassTypeDefOrRef(&mut self, ty: &TypeName) -> TypeDefOrRef {
         if ty.generics.is_empty() {
@@ -461,6 +467,10 @@ impl File {
             Type::USize => buffer.push(ELEMENT_TYPE_U),
             Type::String => buffer.push(ELEMENT_TYPE_STRING),
             Type::Object => buffer.push(ELEMENT_TYPE_OBJECT),
+            Type::FnPtr(signature) => {
+                buffer.push(ELEMENT_TYPE_FNPTR);
+                self.Signature(signature, buffer);
+            }
 
             Type::Array(ty) => {
                 buffer.push(ELEMENT_TYPE_SZARRAY);
@@ -473,31 +483,59 @@ impl File {
             }
 
             Type::RefConst(ty) => {
-                buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
-                let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
-                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                self.IsConst(buffer);
                 buffer.push(ELEMENT_TYPE_BYREF);
                 self.Type(ty, buffer);
             }
 
-            Type::PtrMut(ty, pointers) => {
-                for _ in 0..*pointers {
-                    buffer.write_compressed(ELEMENT_TYPE_PTR as usize);
+            Type::PtrMut(..) | Type::PtrConst(..) | Type::Ptr64(..) => {
+                let mut inner = ty;
+                let mut pointers = Vec::new();
+                loop {
+                    match inner {
+                        Type::PtrMut(next, count) | Type::PtrConst(next, count) => {
+                            pointers.extend(std::iter::repeat_n(
+                                (matches!(inner, Type::PtrConst(..)), false),
+                                *count,
+                            ));
+                            inner = next;
+                        }
+                        Type::Ptr64(next, constant) => {
+                            pointers.push((*constant, true));
+                            inner = next;
+                        }
+                        _ => break,
+                    }
+                }
+                let constant = pointers[0].0;
+                let mixed = pointers
+                    .iter()
+                    .any(|(value, fixed)| *fixed || *value != constant);
+                if mixed {
+                    // ECMA-335 II.23.2.12 permits modifiers after each PTR.
+                    for (constant, fixed) in pointers {
+                        buffer.push(ELEMENT_TYPE_PTR);
+                        if fixed {
+                            buffer.push(ELEMENT_TYPE_CMOD_REQD);
+                            let pos =
+                                self.TypeRef("Windows.Win32.Metadata", "NativePointer64Attribute");
+                            buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                        }
+                        if constant {
+                            self.IsConst(buffer);
+                        }
+                    }
+                } else {
+                    // Keep the existing leading-modifier encoding for homogeneous runs.
+                    if constant {
+                        self.IsConst(buffer);
+                    }
+                    for _ in pointers {
+                        buffer.push(ELEMENT_TYPE_PTR);
+                    }
                 }
 
-                self.Type(ty, buffer);
-            }
-
-            Type::PtrConst(ty, pointers) => {
-                buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
-                let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
-                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
-
-                for _ in 0..*pointers {
-                    buffer.write_compressed(ELEMENT_TYPE_PTR as usize);
-                }
-
-                self.Type(ty, buffer);
+                self.Type(inner, buffer);
             }
 
             Type::ArrayFixed(ty, len) => {
@@ -572,15 +610,19 @@ impl File {
 
     /// Stores a method signature and returns its blob offset.
     fn MethodDefSig(&mut self, signature: &Signature) -> BlobId {
-        let mut buffer = vec![signature.flags.0];
+        let mut buffer = Vec::new();
+        self.Signature(signature, &mut buffer);
+        self.blobs.insert(&buffer)
+    }
+
+    fn Signature(&mut self, signature: &Signature, buffer: &mut Vec<u8>) {
+        buffer.push(signature.flags.0);
         buffer.write_compressed(signature.types.len());
-        self.Type(&signature.return_type, &mut buffer);
+        self.Type(&signature.return_type, buffer);
 
         for ty in &signature.types {
-            self.Type(ty, &mut buffer);
+            self.Type(ty, buffer);
         }
-
-        self.blobs.insert(&buffer)
     }
 
     fn ConstantValue(&mut self, value: &Value) -> BlobId {

@@ -944,6 +944,18 @@ fn type_sig(index: &reader::Index, def: reader::TypeDef) -> String {
     )
 }
 
+fn write_attribute(
+    file: &mut writer::File,
+    parent: writer::HasAttribute,
+    ty: &TypeName,
+    signature: &Signature,
+    values: &[(String, Value)],
+) {
+    let attribute_ref = writer::MemberRefParent::TypeRef(file.TypeRef(&ty.namespace, &ty.name));
+    let ctor_ref = file.MemberRef(".ctor", signature, attribute_ref);
+    file.Attribute(parent, writer::AttributeType::MemberRef(ctor_ref), values);
+}
+
 fn write_attributes<'a, R: HasAttributes<'a>>(
     file: &mut writer::File,
     parent: writer::HasAttribute,
@@ -970,14 +982,11 @@ fn write_attributes_with_arch<'a, R: HasAttributes<'a>>(
             continue;
         }
 
-        let attribute_ref =
-            writer::MemberRefParent::TypeRef(file.TypeRef(ty.namespace(), ty.name()));
-
-        let ctor_ref = file.MemberRef(".ctor", &ctor.signature(&[]), attribute_ref);
-
-        file.Attribute(
+        write_attribute(
+            file,
             parent,
-            writer::AttributeType::MemberRef(ctor_ref),
+            &TypeName::named(ty.namespace(), ty.name()),
+            &ctor.signature(&[]),
             &attribute.value(),
         );
     }

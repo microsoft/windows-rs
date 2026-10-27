@@ -84,6 +84,8 @@ impl MethodSemanticsAttributes {
 // These are not really ECMA-335 attributes but instead the flags found in the method signature.
 flags!(MethodCallAttributes, u8);
 impl MethodCallAttributes {
+    pub const C: Self = Self(0x01);
+    pub const STDCALL: Self = Self(0x02);
     pub const HASTHIS: Self = Self(0x20);
     pub const VARARG: Self = Self(0x05);
 }

@@ -7,6 +7,31 @@ impl std::fmt::Debug for TypeDef<'_> {
 }
 
 impl<'a> TypeDef<'a> {
+    /// Returns the first owning native field position for an anonymous record.
+    /// This can differ from its metadata field position after storage lowering.
+    pub fn anonymous_index(&self) -> Result<Option<u32>, &'static str> {
+        let mut attributes = self.attributes().filter(|attribute| {
+            attribute.namespace() == "Windows.Win32.Metadata"
+                && attribute.name() == "NativeAnonymousAttribute"
+        });
+        let Some(attribute) = attributes.next() else {
+            return Ok(None);
+        };
+        if attributes.next().is_some()
+            || !self.flags().is_nested()
+            || self.flags().contains(TypeAttributes::WindowsRuntime)
+            || self.category() != TypeCategory::Struct
+        {
+            return Err("anonymous provenance requires one attribute on a nested record");
+        }
+        match attribute.value().as_slice() {
+            [(name, Value::I32(index))] if name.is_empty() && *index >= 0 => {
+                Ok(Some(*index as u32))
+            }
+            _ => Err("anonymous provenance requires a nonnegative field position"),
+        }
+    }
+
     pub fn flags(&self) -> TypeAttributes {
         TypeAttributes(self.usize(0).try_into().unwrap())
     }

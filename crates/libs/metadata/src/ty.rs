@@ -19,15 +19,18 @@ pub enum Type {
     USize,
     String,
     Object,
-    ClassName(TypeName),          // ELEMENT_TYPE_CLASS
-    ValueName(TypeName),          // ELEMENT_TYPE_VALUETYPE
-    Array(Box<Self>),             // ELEMENT_TYPE_SZARRAY
-    Generic(String, u16),         // ELEMENT_TYPE_VAR
-    RefMut(Box<Self>),            // ELEMENT_TYPE_BYREF
-    RefConst(Box<Self>),          // ELEMENT_TYPE_CMOD_REQD (IsConst)
-    PtrMut(Box<Self>, usize),     // ELEMENT_TYPE_PTR
-    PtrConst(Box<Self>, usize),   // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR
+    ClassName(TypeName),        // ELEMENT_TYPE_CLASS
+    ValueName(TypeName),        // ELEMENT_TYPE_VALUETYPE
+    Array(Box<Self>),           // ELEMENT_TYPE_SZARRAY
+    Generic(String, u16),       // ELEMENT_TYPE_VAR
+    RefMut(Box<Self>),          // ELEMENT_TYPE_BYREF
+    RefConst(Box<Self>),        // ELEMENT_TYPE_CMOD_REQD (IsConst)
+    PtrMut(Box<Self>, usize),   // ELEMENT_TYPE_PTR
+    PtrConst(Box<Self>, usize), // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR
+    /// A fixed 64-bit data pointer and its pointee constness.
+    Ptr64(Box<Self>, bool),
     ArrayFixed(Box<Self>, usize), // ELEMENT_TYPE_ARRAY
+    FnPtr(Box<Signature>),        // ELEMENT_TYPE_FNPTR
 }
 
 impl Type {
@@ -37,6 +40,34 @@ impl Type {
 
     pub fn value_named(namespace: &str, name: &str) -> Self {
         Self::ValueName(TypeName::named(namespace, name))
+    }
+
+    /// Returns the named representation used by `System.Type` attribute values.
+    pub fn type_name(&self) -> Option<TypeName> {
+        let name = match self {
+            Self::Void => "Void",
+            Self::Bool => "Boolean",
+            Self::Char => "Char",
+            Self::I8 => "SByte",
+            Self::U8 => "Byte",
+            Self::I16 => "Int16",
+            Self::U16 => "UInt16",
+            Self::I32 => "Int32",
+            Self::U32 => "UInt32",
+            Self::I64 => "Int64",
+            Self::U64 => "UInt64",
+            Self::F32 => "Single",
+            Self::F64 => "Double",
+            Self::ISize => "IntPtr",
+            Self::USize => "UIntPtr",
+            Self::String => "String",
+            Self::Object => "Object",
+            Self::ClassName(name) | Self::ValueName(name) if name.generics.is_empty() => {
+                return Some(name.clone());
+            }
+            _ => return None,
+        };
+        Some(TypeName::named("System", name))
     }
 
     pub fn code(&self) -> u8 {

@@ -140,7 +140,11 @@ impl Remapper {
             Type::RefConst(inner) => Type::RefConst(Box::new(self.remap_type(inner))),
             Type::PtrMut(inner, n) => Type::PtrMut(Box::new(self.remap_type(inner)), *n),
             Type::PtrConst(inner, n) => Type::PtrConst(Box::new(self.remap_type(inner)), *n),
+            Type::Ptr64(inner, constant) => {
+                Type::Ptr64(Box::new(self.remap_type(inner)), *constant)
+            }
             Type::ArrayFixed(inner, n) => Type::ArrayFixed(Box::new(self.remap_type(inner)), *n),
+            Type::FnPtr(signature) => Type::FnPtr(Box::new(self.remap_signature(signature))),
             other => other.clone(),
         }
     }
@@ -151,6 +155,41 @@ impl Remapper {
             namespace: self.target(&tn.namespace, root),
             name: tn.name.clone(),
             generics: tn.generics.iter().map(|g| self.remap_type(g)).collect(),
+        }
+    }
+
+    fn remap_value(&self, value: &Value) -> Value {
+        match value {
+            Value::TypeName(name) => Value::TypeName(self.remap_type_name(name)),
+            Value::EnumValue(name, value) => Value::EnumValue(
+                self.remap_type_name(name),
+                Box::new(self.remap_value(value)),
+            ),
+            _ => value.clone(),
+        }
+    }
+
+    fn write_attributes<'a>(
+        &self,
+        file: &mut writer::File,
+        parent: writer::HasAttribute,
+        row: impl HasAttributes<'a>,
+    ) {
+        for attribute in row.attributes() {
+            let ctor = attribute.ctor();
+            let ty = ctor.parent();
+            let values: Vec<_> = attribute
+                .value()
+                .into_iter()
+                .map(|(name, value)| (name, self.remap_value(&value)))
+                .collect();
+            write_attribute(
+                file,
+                parent,
+                &self.remap_type_name(&TypeName::named(ty.namespace(), ty.name())),
+                &self.remap_signature(&ctor.signature(&[])),
+                &values,
+            );
         }
     }
 
@@ -197,7 +236,7 @@ impl Remapper {
             if let Some(constant) = field.constant() {
                 file.Constant(writer::HasConstant::Field(field_def), &constant.value());
             }
-            write_attributes(file, writer::HasAttribute::Field(field_def), field);
+            self.write_attributes(file, writer::HasAttribute::Field(field_def), field);
         }
 
         let generics: Vec<_> = def
@@ -205,12 +244,12 @@ impl Remapper {
             .map(|param| Type::Generic(param.name().to_string(), param.sequence()))
             .collect();
 
-        write_attributes(file, writer::HasAttribute::TypeDef(type_def), def);
+        self.write_attributes(file, writer::HasAttribute::TypeDef(type_def), def);
 
         for map in def.interface_impls() {
             let interface = self.remap_type(&map.interface(&generics));
             let interface_impl = file.InterfaceImpl(type_def, &interface);
-            write_attributes(
+            self.write_attributes(
                 file,
                 writer::HasAttribute::InterfaceImpl(interface_impl),
                 map,
@@ -258,9 +297,9 @@ impl Remapper {
         );
         for param_def in method.params() {
             let param = file.Param(param_def.name(), param_def.sequence(), param_def.flags());
-            write_attributes(file, writer::HasAttribute::Param(param), param_def);
+            self.write_attributes(file, writer::HasAttribute::Param(param), param_def);
         }
-        write_attributes(file, writer::HasAttribute::MethodDef(method_def), method);
+        self.write_attributes(file, writer::HasAttribute::MethodDef(method_def), method);
         if let Some(impl_map) = method.impl_map() {
             file.ImplMap(
                 method_def,
@@ -312,14 +351,14 @@ impl Remapper {
                 if let Some(constant) = field.constant() {
                     file.Constant(writer::HasConstant::Field(field_def), &constant.value());
                 }
-                write_attributes(file, writer::HasAttribute::Field(field_def), *field);
+                self.write_attributes(file, writer::HasAttribute::Field(field_def), *field);
             }
 
             for method in methods.get(namespace).into_iter().flatten() {
                 self.write_method(file, *method, &[]);
             }
 
-            write_attributes(file, writer::HasAttribute::TypeDef(type_def), template);
+            self.write_attributes(file, writer::HasAttribute::TypeDef(type_def), template);
         }
     }
 }
