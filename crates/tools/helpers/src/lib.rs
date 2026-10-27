@@ -28,23 +28,6 @@ impl Arch {
             defines: Vec::new(),
         })
     }
-
-    pub fn canonical_plus(extra: &[String], build: impl Fn(&str) -> Self) -> Vec<Self> {
-        let mut archs = vec![build("x64")];
-        for name in extra {
-            if name != "x64" {
-                archs.push(build(name));
-            }
-        }
-        archs
-    }
-}
-
-pub fn find_in_dirs(name: &str, dirs: &[String]) -> Option<String> {
-    dirs.iter()
-        .map(|dir| Path::new(dir).join(name))
-        .find(|path| path.is_file())
-        .map(|path| path.to_string_lossy().replace('\\', "/"))
 }
 
 #[derive(Deserialize)]
@@ -204,6 +187,25 @@ pub fn set_thread_ui_language() {
 #[cfg(test)]
 mod tests {
     use super::str_const;
+
+    #[cfg(windows)]
+    #[test]
+    fn native_freshness() {
+        let output = std::process::Command::new("powershell.exe")
+            .args(["-NoProfile", "-File"])
+            .arg(concat!(
+                env!("CARGO_MANIFEST_DIR"),
+                "\\tests\\native_freshness.ps1"
+            ))
+            .output()
+            .unwrap();
+        assert!(
+            output.status.success(),
+            "{}\n{}",
+            String::from_utf8_lossy(&output.stdout),
+            String::from_utf8_lossy(&output.stderr)
+        );
+    }
 
     #[test]
     fn reads_plain_and_pub_and_ignores_prefix_collisions() {

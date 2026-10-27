@@ -1,0 +1,17 @@
+[package]
+name = "tool-clang-sys"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+helpers = { workspace = true }
+windows-clang = { workspace = true, features = ["projection"] }
+windows-rdl = { workspace = true }
+windows-bindgen = { workspace = true }
+syn = { workspace = true, features = ["full", "parsing", "printing"] }
+quote = { workspace = true }
+proc-macro2 = { workspace = true }
+
+[lints]
+workspace = true

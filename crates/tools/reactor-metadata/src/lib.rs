@@ -6,7 +6,7 @@ use std::collections::HashMap;
 use std::path::Path;
 
 use windows_metadata::reader::{File, Index, TypeCategory, TypeDef, TypeDefOrRef};
-use windows_metadata::{HasAttributes, Type, Value};
+use windows_metadata::{HasAttributes, Type};
 
 fn to_snake_case(value: &str) -> String {
     let mut result = String::with_capacity(value.len() + 4);
@@ -64,21 +64,12 @@ pub enum ReadValueConversion {
     Nullable,
 }
 
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub enum EventHandlerType {
-    Inspectable,
-    Binding(String),
-}
-
 /// Pre-built lookup from `(class_short_name, method_name)` to `MethodRef`.
 pub struct MetadataResolver {
     lookup: HashMap<(String, String), MethodRef>,
     class_paths: HashMap<String, Option<String>>,
     base_classes: HashMap<(String, String), (String, String)>,
-    implemented_interfaces: HashMap<(String, String), Vec<(String, String)>>,
     default_interfaces: HashMap<(String, String), (String, String)>,
-    /// Exclusive interface -> runtime class. Ambiguous non-exclusive interfaces map to `None`.
-    interface_owners: HashMap<(String, String), Option<(String, String)>>,
     /// Runtime class and dependency-property getter -> owning static interface.
     dependency_properties: HashMap<(String, String), InterfaceRef>,
     /// Value-type structs that wrap a single primitive field.
@@ -88,7 +79,6 @@ pub struct MetadataResolver {
     enum_variants: HashMap<(String, String), Vec<String>>,
     /// Maps non-generic delegates to sender and argument types from `Invoke`.
     delegate_params: HashMap<(String, String), (Type, Type)>,
-    content_properties: HashMap<(String, String), String>,
 }
 
 impl MetadataResolver {
@@ -127,11 +117,8 @@ impl MetadataResolver {
         let index = Index::new(files);
         let mut lookup = HashMap::new();
         let mut class_paths = HashMap::new();
-        let mut interface_owners = HashMap::new();
         let mut base_classes = HashMap::new();
-        let mut implemented_interfaces = HashMap::new();
         let mut default_interfaces = HashMap::new();
-        let mut content_properties = HashMap::new();
         let mut dependency_properties = HashMap::new();
 
         // Walk all types in the index, collecting method-to-interface mappings for classes
@@ -149,19 +136,6 @@ impl MetadataResolver {
                         }
                     })
                     .or_insert(Some(path));
-                let interfaces = typedef
-                    .interface_impls()
-                    .filter_map(|implementation| match implementation.interface(&[]) {
-                        Type::ClassName(type_name) | Type::ValueName(type_name) => {
-                            Some((type_name.namespace, type_name.name))
-                        }
-                        _ => None,
-                    })
-                    .collect::<Vec<_>>();
-                if !interfaces.is_empty() {
-                    implemented_interfaces
-                        .insert((namespace.to_string(), name.to_string()), interfaces);
-                }
                 if let Some(extends) = typedef.extends() {
                     let base = match extends {
                         TypeDefOrRef::TypeDef(base) => {
@@ -176,22 +150,6 @@ impl MetadataResolver {
                         base_classes.insert((namespace.to_string(), name.to_string()), base);
                     }
                 }
-                if let Some(content) =
-                    typedef
-                        .find_attribute("ContentPropertyAttribute")
-                        .and_then(|attribute| {
-                            attribute.value().into_iter().find_map(|(name, value)| {
-                                (name == "Name")
-                                    .then_some(value)
-                                    .and_then(|value| match value {
-                                        Value::Utf8(value) => Some(value),
-                                        _ => None,
-                                    })
-                            })
-                        })
-                {
-                    content_properties.insert((namespace.to_string(), name.to_string()), content);
-                }
                 for implementation in typedef.interface_impls() {
                     let interface = implementation.interface(&[]);
                     let (interface_namespace, interface_name) = match interface {
@@ -203,18 +161,9 @@ impl MetadataResolver {
                     if implementation.has_attribute("DefaultAttribute") {
                         default_interfaces.insert(
                             (namespace.to_string(), name.to_string()),
-                            (interface_namespace.clone(), interface_name.clone()),
+                            (interface_namespace, interface_name),
                         );
                     }
-                    let owner = (namespace.to_string(), name.to_string());
-                    interface_owners
-                        .entry((interface_namespace, interface_name))
-                        .and_modify(|existing: &mut Option<(String, String)>| {
-                            if existing.as_ref() != Some(&owner) {
-                                *existing = None;
-                            }
-                        })
-                        .or_insert(Some(owner));
                 }
                 Self::collect_methods_for_class(&index, name, &typedef, &mut lookup);
             }
@@ -321,14 +270,11 @@ impl MetadataResolver {
             lookup,
             class_paths,
             base_classes,
-            implemented_interfaces,
             default_interfaces,
-            interface_owners,
             dependency_properties,
             single_field_types,
             enum_variants,
             delegate_params,
-            content_properties,
         }
     }
 
@@ -346,61 +292,6 @@ impl MetadataResolver {
         self.default_interfaces
             .get(&(namespace.to_string(), name.to_string()))
             .is_some_and(|(_, name)| name == interface)
-    }
-
-    pub fn class_derives_from(&self, class: &str, base: &str) -> bool {
-        let Some((class_namespace, class_name)) = class.rsplit_once('.') else {
-            return false;
-        };
-        let Some((base_namespace, base_name)) = base.rsplit_once('.') else {
-            return false;
-        };
-        let mut current = (class_namespace.to_string(), class_name.to_string());
-        while let Some(parent) = self.base_classes.get(&current) {
-            if parent.0 == base_namespace && parent.1 == base_name {
-                return true;
-            }
-            current.clone_from(parent);
-        }
-        false
-    }
-
-    pub fn class_is_assignable_to(&self, class: &str, target: &str) -> bool {
-        let Some((class_namespace, class_name)) = class.rsplit_once('.') else {
-            return false;
-        };
-        let Some((target_namespace, target_name)) = target.rsplit_once('.') else {
-            return false;
-        };
-        let target = (target_namespace.to_string(), target_name.to_string());
-        let mut pending = vec![(class_namespace.to_string(), class_name.to_string())];
-        let mut visited = std::collections::HashSet::new();
-        while let Some(current) = pending.pop() {
-            if current == target {
-                return true;
-            }
-            if !visited.insert(current.clone()) {
-                continue;
-            }
-            if let Some(base) = self.base_classes.get(&current) {
-                pending.push(base.clone());
-            }
-            if let Some(interfaces) = self.implemented_interfaces.get(&current) {
-                pending.extend(interfaces.iter().cloned());
-            }
-        }
-        false
-    }
-
-    pub fn content_property(&self, class: &str) -> Option<String> {
-        let (namespace, name) = class.rsplit_once('.')?;
-        let mut current = (namespace.to_string(), name.to_string());
-        loop {
-            if let Some(content) = self.content_properties.get(&current) {
-                return Some(content.clone());
-            }
-            current = self.base_classes.get(&current)?.clone();
-        }
     }
 
     /// Walk a class's interface hierarchy and record every `put_*` / `get_*` /
@@ -510,63 +401,6 @@ impl MetadataResolver {
             .is_some_and(|method| matches!(method.return_type, Type::Object))
     }
 
-    /// Resolve the sender and argument types accepted by an event delegate.
-    pub fn resolve_event_handler_types(
-        &self,
-        class_name: &str,
-        event_name: &str,
-    ) -> Option<(EventHandlerType, EventHandlerType)> {
-        let method = self
-            .lookup
-            .get(&(class_name.to_string(), format!("add_{event_name}")))?;
-        let Type::ClassName(delegate) = method.param_types.first()? else {
-            return None;
-        };
-        match delegate.generics.as_slice() {
-            [sender, args] => Some((
-                Self::event_handler_type(sender)?,
-                Self::event_handler_type(args)?,
-            )),
-            [args] if delegate.name == "EventHandler" => Some((
-                EventHandlerType::Inspectable,
-                Self::event_handler_type(args)?,
-            )),
-            [] => {
-                let key = (delegate.namespace.clone(), delegate.name.clone());
-                let (sender, args) = self.delegate_params.get(&key)?;
-                Some((
-                    Self::event_handler_type(sender)?,
-                    Self::event_handler_type(args)?,
-                ))
-            }
-            _ => None,
-        }
-    }
-
-    fn event_handler_type(ty: &Type) -> Option<EventHandlerType> {
-        match ty {
-            Type::Object => Some(EventHandlerType::Inspectable),
-            Type::ClassName(name)
-                if name.namespace == "Windows.Foundation" && name.name == "IInspectable" =>
-            {
-                Some(EventHandlerType::Inspectable)
-            }
-            Type::ClassName(name) | Type::ValueName(name) => {
-                Some(EventHandlerType::Binding(name.name.clone()))
-            }
-            _ => None,
-        }
-    }
-
-    /// Resolve an exclusive interface to the runtime class that owns its static members.
-    pub fn runtime_class(&self, interface: &InterfaceRef) -> Option<String> {
-        let (namespace, name) = self
-            .interface_owners
-            .get(&(interface.namespace.clone(), interface.name.clone()))?
-            .as_ref()?;
-        Some(format!("{namespace}.{name}"))
-    }
-
     /// Resolve the runtime class and static interface that expose a dependency property.
     pub fn dependency_property(
         &self,
@@ -635,26 +469,6 @@ impl MetadataResolver {
             .then(|| format!("{}.{}", type_name.namespace, type_name.name))
     }
 
-    pub fn single_field_param(
-        &self,
-        class_name: &str,
-        method_name: &str,
-    ) -> Option<(String, String)> {
-        let mref = self
-            .lookup
-            .get(&(class_name.to_string(), method_name.to_string()))?;
-        let Type::ValueName(type_name) = mref.param_types.first()? else {
-            return None;
-        };
-        let (field, _) = self
-            .single_field_types
-            .get(&(type_name.namespace.clone(), type_name.name.clone()))?;
-        Some((
-            format!("{}.{}", type_name.namespace, type_name.name),
-            field.clone(),
-        ))
-    }
-
     /// Infer the `PropValue` variant name and Copy-ness from a method's parameter
     /// type in metadata.
     ///
@@ -719,29 +533,6 @@ impl MetadataResolver {
         Some((value, getter_ref.interface.full_path(), conversion))
     }
 
-    pub fn resolve_event_args_property_interface(
-        &self,
-        class_name: &str,
-        add_event: &str,
-        property: &str,
-    ) -> Option<String> {
-        self.resolve_event_args_getter(class_name, add_event, property)
-            .map(|method| method.interface.full_path())
-    }
-
-    /// Resolves an event-args property that returns a class type (not a primitive or
-    /// IInspectable). Returns the interface path for the getter on the event args.
-    pub fn resolve_event_args_class_property(
-        &self,
-        class_name: &str,
-        add_event: &str,
-        property: &str,
-    ) -> Option<String> {
-        let getter_ref = self.resolve_event_args_getter(class_name, add_event, property)?;
-        matches!(getter_ref.return_type, Type::ClassName(_))
-            .then(|| getter_ref.interface.full_path())
-    }
-
     /// Resolves an event-args property that returns an enum. Returns the enum's short name.
     pub fn resolve_event_args_enum(
         &self,
@@ -786,17 +577,6 @@ impl MetadataResolver {
         };
         let getter = format!("get_{property}");
         self.lookup.get(&(args_class, getter))
-    }
-
-    pub fn resolve_property_read(
-        &self,
-        class_name: &str,
-        property: &str,
-    ) -> Option<(String, String, ReadValueConversion)> {
-        let getter = format!("get_{property}");
-        let getter_ref = self.lookup.get(&(class_name.to_string(), getter))?;
-        let (value, conversion) = self.read_value_for_type(&getter_ref.return_type)?;
-        Some((value, getter_ref.interface.full_path(), conversion))
     }
 
     /// Returns true if a metadata `Type` is Copy (primitive or value type).
