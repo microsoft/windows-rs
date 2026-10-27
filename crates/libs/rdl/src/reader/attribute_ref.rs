@@ -318,7 +318,7 @@ impl Encoder<'_> {
 
     fn enum_is_flags(&self, tn: &metadata::TypeName) -> bool {
         if let Some(reference) = self.output.reference() {
-            for typedef in reference.get(&tn.namespace, &tn.name) {
+            for typedef in get_nested(reference, &tn.namespace, &tn.name) {
                 if typedef.category() == metadata::reader::TypeCategory::Enum
                     && metadata::HasAttributes::attributes(&typedef).any(|attr| {
                         attr.name() == "FlagsAttribute"
@@ -329,14 +329,28 @@ impl Encoder<'_> {
                 }
             }
         }
-        if let Some(ns) = self.index.namespaces.get(&tn.namespace)
-            && let Some(variants) = ns.types.get(&tn.name)
-            && let Some((_, Item::Enum(enum_item))) = variants.first()
+        if let Some(enum_item) = self.local_enum(tn)
             && enum_item.attrs.iter().any(|a| a.path().is_ident("flags"))
         {
             return true;
         }
         false
+    }
+
+    fn local_enum(&self, tn: &metadata::TypeName) -> Option<&Enum> {
+        if let Some((_, Item::Enum(enum_item))) = self
+            .index
+            .namespaces
+            .get(&tn.namespace)
+            .and_then(|ns| ns.types.get(&tn.name))
+            .and_then(|variants| variants.first())
+        {
+            return Some(enum_item);
+        }
+        self.index
+            .nested_enums(&tn.namespace, &tn.name)
+            .next()
+            .map(|(enum_item, _)| enum_item)
     }
 
     fn find_enum_variant_value(
@@ -346,7 +360,7 @@ impl Encoder<'_> {
         spanned: &syn::Expr,
     ) -> Result<metadata::Value, Error> {
         if let Some(reference) = self.output.reference() {
-            for typedef in reference.get(&tn.namespace, &tn.name) {
+            for typedef in get_nested(reference, &tn.namespace, &tn.name) {
                 if typedef.category() == metadata::reader::TypeCategory::Enum {
                     for field in typedef.fields() {
                         if field.flags().contains(metadata::FieldAttributes::Literal)
@@ -369,10 +383,7 @@ impl Encoder<'_> {
             }
         }
 
-        if let Some(ns) = self.index.namespaces.get(&tn.namespace)
-            && let Some(variants) = ns.types.get(&tn.name)
-            && let Some((_, Item::Enum(enum_item))) = variants.first()
-        {
+        if let Some(enum_item) = self.local_enum(tn) {
             for variant in &enum_item.variants {
                 if variant.ident == variant_name
                     && let Some((_, discriminant)) = &variant.discriminant

@@ -1,0 +1,2 @@
+error: ambiguous type reference: Test::Outer::Inner, Outer::Inner
+ --> errors/input/nested_ambiguous.rdl:14:16

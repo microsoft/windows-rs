@@ -1,0 +1,18 @@
+#[win32]
+mod Test {
+    attribute ModeAttribute {
+        fn(mode: Options::Mode);
+    }
+    struct Options {
+        #[repr(u32)]
+        #[flags]
+        enum Mode {
+            A = 1,
+            B = 2,
+        }
+        #[Mode(A)]
+        first: u32,
+        #[Mode(B | A)]
+        second: u32,
+    }
+}

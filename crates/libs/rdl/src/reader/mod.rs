@@ -219,7 +219,6 @@ impl Reader {
                         namespace,
                         name: &name,
                         generics: vec![],
-                        record_scope: String::new(),
                     };
                     match item {
                         Item::Attribute(ty) => encoder.encode_attribute(ty),
@@ -263,7 +262,6 @@ impl Reader {
                             namespace,
                             name,
                             generics: vec![],
-                            record_scope: String::new(),
                         }
                         .encode_fn(ty)?;
                     }
@@ -281,7 +279,6 @@ impl Reader {
                             namespace,
                             name,
                             generics: vec![],
-                            record_scope: String::new(),
                         }
                         .encode_const(ty)?;
                     }
@@ -509,7 +506,6 @@ struct Encoder<'a> {
     namespace: &'a str,
     name: &'a str,
     generics: Vec<String>,
-    record_scope: String,
 }
 
 impl Encoder<'_> {
@@ -735,9 +731,7 @@ impl Encoder<'_> {
                 }
 
                 let underlying = self
-                    .output
-                    .reference()
-                    .and_then(|r| r.get(&tn.namespace, &tn.name).next())
+                    .nested_reference(&tn.namespace, &tn.name)
                     .and_then(|def| def.underlying_type());
                 let underlying = match underlying {
                     Some(underlying) => Some(underlying),
@@ -1128,20 +1122,25 @@ impl Encoder<'_> {
 
     fn encode_path(&self, ty: &syn::Path) -> Result<metadata::Type, Error> {
         let mut path = vec![];
+        // Nested type names are indexed without raw identifier prefixes.
+        let mut unraw = vec![];
 
         for segment in &ty.segments {
             if segment.ident == "super" {
                 if path.is_empty() {
                     for part in self.namespace.split('.') {
                         path.push(part.to_string());
+                        unraw.push(part.to_string());
                     }
                 }
 
                 if path.pop().is_none() {
                     return self.err(ty, "too many leading `super` keywords");
                 }
+                unraw.pop();
             } else {
                 path.push(segment.ident.to_string());
+                unraw.push(segment.ident.unraw_to_string());
             }
         }
 
@@ -1220,35 +1219,38 @@ impl Encoder<'_> {
             }
             Ok(None)
         };
-        let suffix = path.join("/");
-        let mut scope = self.record_scope.as_str();
-        while !scope.is_empty() {
-            if let Some(ty) = nested(self.namespace, &format!("{scope}/{suffix}"))? {
-                return Ok(ty);
+        // The owner keeps its spelling; nested segments use their unraw names.
+        let nested_name = |start: usize| {
+            std::iter::once(path[start].as_str())
+                .chain(unraw[start + 1..].iter().map(String::as_str))
+                .collect::<Vec<_>>()
+                .join("/")
+        };
+        let mut candidates: Vec<(String, metadata::Type)> = vec![];
+        let mut add = |namespace: &str, name: &str| -> Result<(), Error> {
+            if let Some(ty) = nested(namespace, name)?
+                && !candidates.iter().any(|(_, existing)| *existing == ty)
+            {
+                candidates.push((rdl_path(namespace, name), ty));
             }
-            scope = scope.rsplit_once('/').map_or("", |(parent, _)| parent);
-        }
+            Ok(())
+        };
         for split in 0..path.len().saturating_sub(1) {
-            let name = path[split..].join("/");
-            let namespace = if split == 0 {
-                self.namespace.to_string()
+            let name = nested_name(split);
+            if split == 0 {
+                add(self.namespace, &name)?;
             } else {
-                path[..split].join(".")
-            };
-            if let Some(ty) = nested(&namespace, &name)? {
-                return Ok(ty);
-            }
-            if split > 0
-                && let Some(ty) = nested(&format!("{}.{}", self.namespace, namespace), &name)?
-            {
-                return Ok(ty);
+                let namespace = path[..split].join(".");
+                add(&namespace, &name)?;
+                add(&format!("{}.{namespace}", self.namespace), &name)?;
             }
         }
-        for use_item in &self.file.uses {
-            if let Some(namespace) = glob_use_namespace(use_item)
-                && let Some(ty) = nested(&namespace, &suffix)?
-            {
-                return Ok(ty);
+        if !path.is_empty() {
+            let name = nested_name(0);
+            for use_item in &self.file.uses {
+                if let Some(namespace) = glob_use_namespace(use_item) {
+                    add(&namespace, &name)?;
+                }
             }
         }
 
@@ -1282,21 +1284,31 @@ impl Encoder<'_> {
             }
         };
 
-        if let Some(ty) = make_type(&namespace) {
-            return Ok(ty);
-        }
+        let relative = format!("{}.{}", self.namespace, namespace);
+        let found = make_type(&namespace)
+            .or_else(|| make_type(&relative))
+            .or_else(|| {
+                self.file
+                    .uses
+                    .iter()
+                    .filter_map(glob_use_namespace)
+                    .find_map(|ns| make_type(&ns))
+            });
 
-        let namespace = format!("{}.{}", self.namespace, namespace);
-
-        if let Some(ty) = make_type(&namespace) {
-            return Ok(ty);
-        }
-
-        for use_item in &self.file.uses {
-            if let Some(ns) = glob_use_namespace(use_item)
-                && let Some(ty) = make_type(&ns)
-            {
-                return Ok(ty);
+        match (candidates.as_slice(), found) {
+            ([(_, nested)], None) => return Ok(nested.clone()),
+            ([], Some(ty)) => return Ok(ty),
+            ([], None) => {}
+            (candidates, found) => {
+                let mut names: Vec<String> =
+                    candidates.iter().map(|(name, _)| name.clone()).collect();
+                if let Some(metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn)) = found {
+                    names.push(rdl_path(&tn.namespace, &tn.name));
+                }
+                return self.err(
+                    ty,
+                    &format!("ambiguous type reference: {}", names.join(", ")),
+                );
             }
         }
 
@@ -1320,17 +1332,9 @@ impl Encoder<'_> {
         namespace: &str,
         name: &str,
     ) -> Option<metadata::reader::TypeDef<'_>> {
-        let reference = self.output.reference()?;
-        let mut names = name.split('/');
-        let mut candidates: Vec<_> = reference.get(namespace, names.next()?).collect();
-        for name in names {
-            candidates = candidates
-                .into_iter()
-                .flat_map(|parent| reference.nested(parent))
-                .filter(|child| child.name() == name)
-                .collect();
-        }
-        candidates.into_iter().next()
+        get_nested(self.output.reference()?, namespace, name)
+            .into_iter()
+            .next()
     }
 
     fn encode_return_type(&self, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
@@ -1554,4 +1558,12 @@ mod Other {
         .output(&output)
         .write()
         .unwrap();
+}
+
+fn rdl_path(namespace: &str, name: &str) -> String {
+    format!(
+        "{}::{}",
+        namespace.replace('.', "::"),
+        name.replace('/', "::")
+    )
 }

@@ -1,0 +1,10 @@
+#[win32]
+mod Test {
+    struct Outer {
+        struct r#type {
+            value: i32,
+        }
+        value: Outer::r#type,
+        pointer: *mut Outer::r#type,
+    }
+}

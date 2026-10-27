@@ -383,19 +383,27 @@ struct Outer {
 ```
 
 Both fields reference the same nested TypeDef. Nested declarations do not occupy field positions.
-The reader supports forward references and unqualified lookup from the nearest record scope;
-canonical output uses qualified paths such as `Outer::Inner`. Nested structs and unions can
-contain further records, and references can occur inside arrays, pointers, and function signatures.
-Other references to an inline record use its generated name, such as `*mut Outer::Outer_0`.
+The reader supports forward references. A nested type is named by its owner-qualified path from
+the namespace, such as `Outer::Inner`, or through the namespace-qualified, `super::`, and glob
+`use` forms that apply to namespace types. There is no lookup relative to the enclosing record: a
+bare `Inner` inside `Outer` does not resolve, and `Outer::Inner` inside `Outer` names the same type
+as it does at namespace level. A path that matches a nested type and any other type is an
+`ambiguous type reference` error. Raw identifiers such as `Outer::r#type` name the unescaped
+nested type. Nested structs and unions can contain further records, and references can occur
+inside arrays, pointers, and function signatures. Other references to an inline record use its
+generated name, such as `*mut Outer::Outer_0`; the position counts instance fields only.
 
 Record bodies also accept `const` declarations and nested enums. Constants retain their values and
 public/static/literal flags without occupying instance storage. Nested enum signatures use the
 same enclosing-TypeRef chains. Enum-typed constants select nested backing types using their own or
-enclosing record's architecture. Record constants are unsupported in WinRT metadata.
+enclosing record's architecture. Record constants are unsupported in WinRT metadata. Nested
+enums, including those from reference metadata, can type constants and attribute arguments; enum
+variants and flag combinations resolve through the nested path.
 
 `test_rdl::nested_references` checks physical TypeRef scopes before and after the text round trip,
-shared identity, lexical lookup, reference assemblies, and name collisions, alongside the canonical
-`struct_nested_anon.rdl` and `struct_nested_named.rdl` fixtures. `test_rdl::record_constants`
+shared identity, owner-qualified lookup, ambiguity, reference assemblies, inline positions, and
+name collisions, alongside the canonical `struct_nested_anon.rdl`, `struct_nested_named.rdl`,
+`struct_nested_raw.rdl`, and `nested_enum_attribute.rdl` fixtures. `test_rdl::record_constants`
 checks constants, architecture variants, duplicate names and missing values.
 `test_metadata::nested_references` independently covers the underlying signature reader, merge,
 and namespace remapper.

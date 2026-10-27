@@ -19,7 +19,13 @@ fn write_record(
     let record_name = item.full_name();
 
     let mut uses: HashMap<String, Vec<usize>> = HashMap::new();
-    for (position, field) in item.fields().enumerate() {
+    // Positions count instance fields only, matching the reader's inline names.
+    let instance_fields = item.fields().filter(|field| {
+        let flags = field.flags();
+        !flags.contains(metadata::FieldAttributes::Static)
+            && !flags.contains(metadata::FieldAttributes::Literal)
+    });
+    for (position, field) in instance_fields.enumerate() {
         if let metadata::Type::ValueName(tn) = field.ty()
             && let Some(leaf) = nested_leaf(&tn, &record_name)
         {

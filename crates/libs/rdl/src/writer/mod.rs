@@ -830,7 +830,7 @@ fn write_enum_value(
     };
 
     let mut found_in_index = false;
-    for typedef in index.get(&tn.namespace, &tn.name) {
+    for typedef in get_nested(index, &tn.namespace, &tn.name) {
         found_in_index = true;
         if typedef.category() == metadata::reader::TypeCategory::Enum {
             for field in typedef.fields() {

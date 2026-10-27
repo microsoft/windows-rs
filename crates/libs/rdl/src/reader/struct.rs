@@ -91,7 +91,6 @@ impl Encoder<'_> {
         } else {
             name.to_string()
         };
-        let previous_scope = std::mem::replace(&mut self.record_scope, full_name.clone());
 
         if let Some(enclosing) = enclosing {
             self.output.NestedClass(type_def, enclosing.outer);
@@ -215,7 +214,6 @@ impl Encoder<'_> {
             self.encode_enum_scoped(enumeration, Some(enclosing))?;
         }
 
-        self.record_scope = previous_scope;
         Ok(type_def)
     }
 

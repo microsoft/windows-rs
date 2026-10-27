@@ -1,0 +1,16 @@
+#[win32]
+mod Outer {
+    struct Inner {
+        value: i32,
+    }
+}
+
+#[win32]
+mod Test {
+    struct Outer {
+        struct Inner {
+            value: u8,
+        }
+        value: Outer::Inner,
+    }
+}

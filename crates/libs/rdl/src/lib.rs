@@ -109,6 +109,24 @@ pub(crate) fn pseudo_for_metadata(name: &str, arg_names: &[String]) -> Option<&'
 }
 
 /// Creates a [`Reader`] that compiles RDL files into `.winmd` metadata.
+/// Finds type definitions by `/`-separated nested name, such as `Outer/Inner`.
+pub(crate) fn get_nested<'a>(
+    index: &'a metadata::reader::Index,
+    namespace: &str,
+    name: &str,
+) -> Vec<metadata::reader::TypeDef<'a>> {
+    let mut names = name.split('/');
+    let mut candidates: Vec<_> = index.get(namespace, names.next().unwrap()).collect();
+    for name in names {
+        candidates = candidates
+            .into_iter()
+            .flat_map(|parent| index.nested(parent))
+            .filter(|child| child.name() == name)
+            .collect();
+    }
+    candidates
+}
+
 pub fn reader() -> Reader {
     Reader::new()
 }
