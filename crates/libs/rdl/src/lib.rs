@@ -83,6 +83,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         metadata: "NativeEncodingAttribute",
         prop: None,
     },
+    PseudoAttr {
+        short: "align",
+        metadata: "AlignmentAttribute",
+        prop: None,
+    },
 ];
 
 pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {

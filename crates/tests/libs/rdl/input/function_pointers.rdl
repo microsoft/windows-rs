@@ -3,7 +3,7 @@ mod Test {
     struct Callbacks {
         c: extern "C" fn(i32, *const u8) -> i32,
         system: extern fn(),
-        pointers: *mut extern "C" fn() -> *mut *mut i32,
+        pointers: *mut extern "C" fn() -> *const *mut i32,
         array: [extern fn(i32); 3],
         factory: extern "C" fn(extern fn(i32)) -> extern "C" fn() -> i32,
         record: extern "C" fn(*const Record) -> *mut Record,

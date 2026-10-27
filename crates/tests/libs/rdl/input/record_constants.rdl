@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    struct Color {
+        #[repr(u32)]
+        enum Channel {
+            Red = 1,
+            Green = 2,
+        }
+        const AliceBlue: u32 = 4293982463;
+        const First: Color::Channel = 1;
+    }
+    struct Palette {
+        selected: Color::Channel,
+        value: u32,
+        const Default: u32 = 7;
+    }
+}

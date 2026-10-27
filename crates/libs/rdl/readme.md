@@ -30,3 +30,7 @@ windows_rdl::writer()
     .write()
     .unwrap();
 ```
+
+When writing RDL that names external attribute types or records, add their WinMD files with
+`writer().reference("dependency.winmd")`. References resolve names without emitting their
+definitions.

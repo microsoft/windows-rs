@@ -104,7 +104,8 @@ pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
             quote! { extern #abi fn(#(#parameters),*) #result }
         }
         ClassName(type_name) | ValueName(type_name) => {
-            let name = write_ident(&type_name.name);
+            let parts = type_name.name.split('/').map(write_ident);
+            let name = quote! { #(#parts)::* };
 
             let name = if type_name.generics.is_empty() {
                 name
@@ -209,9 +210,11 @@ pub fn write_value(namespace: &str, value: &metadata::Value) -> TokenStream {
         }
         metadata::Value::Utf8(value) => quote! { #value },
         metadata::Value::Utf16(value) => quote! { #value },
-        metadata::Value::TypeName(tn) => {
-            write_type(namespace, &metadata::Type::ClassName(tn.clone()))
-        }
+        metadata::Value::TypeName(tn) => write_type(
+            namespace,
+            &tn.primitive()
+                .unwrap_or_else(|| metadata::Type::ClassName(tn.clone())),
+        ),
         metadata::Value::EnumValue(_, inner) => write_value(namespace, inner),
     }
 }

@@ -40,6 +40,34 @@ impl Type {
         Self::ValueName(TypeName::named(namespace, name))
     }
 
+    /// Returns the named representation used by `System.Type` attribute values.
+    pub fn type_name(&self) -> Option<TypeName> {
+        let name = match self {
+            Self::Void => "Void",
+            Self::Bool => "Boolean",
+            Self::Char => "Char",
+            Self::I8 => "SByte",
+            Self::U8 => "Byte",
+            Self::I16 => "Int16",
+            Self::U16 => "UInt16",
+            Self::I32 => "Int32",
+            Self::U32 => "UInt32",
+            Self::I64 => "Int64",
+            Self::U64 => "UInt64",
+            Self::F32 => "Single",
+            Self::F64 => "Double",
+            Self::ISize => "IntPtr",
+            Self::USize => "UIntPtr",
+            Self::String => "String",
+            Self::Object => "Object",
+            Self::ClassName(name) | Self::ValueName(name) if name.generics.is_empty() => {
+                return Some(name.clone());
+            }
+            _ => return None,
+        };
+        Some(TypeName::named("System", name))
+    }
+
     pub fn code(&self) -> u8 {
         match self {
             Self::Bool => ELEMENT_TYPE_BOOLEAN,

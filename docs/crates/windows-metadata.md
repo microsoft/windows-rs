@@ -74,6 +74,10 @@ The remapper rewrites definitions and references together and splits Win32 `Apis
 their routed target namespaces. It also rewrites attribute constructors, signatures, and nominal
 `System.Type` attribute values alongside ordinary references.
 
+`System.Type` attribute values use `Value::TypeName`. `Type::type_name` and `TypeName::primitive`
+convert between primitive types and their `System` names, such as `System.Int32`, without
+requiring a type definition. The remapper leaves these `System` names unchanged.
+
 ## Integration and pitfalls
 
 - [`windows-default`](windows-default.md) supplies the standard WinRT and Win32 files as byte

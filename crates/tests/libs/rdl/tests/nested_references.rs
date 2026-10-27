@@ -106,3 +106,171 @@ fn unscoped_nested_fields_still_render_inline() {
         "#[win32]\nmod Test {\n    struct Outer {\n        Anonymous: struct {\n            value: i32,\n        },\n    }\n}\n"
     );
 }
+
+#[test]
+fn shared_nested_type_identity() {
+    for name in ["Inner", "Outer_0"] {
+        let mut file = writer::File::new("shared_nested");
+        let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
+        let flags = TypeAttributes::SequentialLayout | TypeAttributes::Sealed;
+        let outer = file.TypeDef("Test", "Outer", base, flags | TypeAttributes::Public);
+        let shared = Type::value_named("Test", &format!("Outer/{name}"));
+        for field in ["first", "second"] {
+            file.Field(field, &shared, FieldAttributes::Public);
+        }
+        let child = file.TypeDef("", name, base, flags | TypeAttributes::NestedPublic);
+        file.NestedClass(child, outer);
+        file.Field("value", &Type::I32, FieldAttributes::Public);
+        let path = std::path::Path::new(env!("OUT_DIR")).join(format!("shared-{name}.rdl"));
+        windows_rdl::writer()
+            .input_bytes(&file.into_stream())
+            .output(&path)
+            .write()
+            .unwrap();
+        windows_rdl::reader()
+            .input(&path)
+            .output(path.with_extension("winmd"))
+            .write()
+            .unwrap();
+        let index = Index::read(path.with_extension("winmd")).unwrap();
+        let outer = index.expect("Test", "Outer");
+        let children: Vec<_> = index.nested(outer).collect();
+        assert_eq!(children.len(), 1);
+        assert_eq!(children[0].name(), name);
+        assert_eq!(
+            outer.fields().map(|field| field.ty()).collect::<Vec<_>>(),
+            [shared.clone(), shared]
+        );
+    }
+}
+
+#[test]
+fn scoped_lookup_and_forward_references() {
+    let source = r#"
+        #[win32] mod Test {
+            struct Outer {
+                first: Inner,
+                second: Inner,
+                struct Inner {
+                    value: Leaf,
+                    next: *mut Inner,
+                    struct Leaf { value: i32, }
+                }
+            }
+            struct Other {
+                struct Inner { value: u16, }
+                local: Inner,
+                foreign: Outer::Inner,
+            }
+            mod Child { struct Consumer { value: super::Outer::Inner, } }
+        }
+    "#;
+    let path = std::path::Path::new(env!("OUT_DIR")).join("scoped-lookup.winmd");
+    windows_rdl::reader()
+        .input_text(source)
+        .output(&path)
+        .write()
+        .unwrap();
+    let index = Index::read(&path).unwrap();
+    let outer = index.expect("Test", "Outer");
+    let shared = Type::value_named("Test", "Outer/Inner");
+    assert!(outer.fields().all(|field| field.ty() == shared));
+    let inner = index.nested(outer).next().unwrap();
+    assert_eq!(
+        inner.fields().map(|field| field.ty()).collect::<Vec<_>>(),
+        [
+            Type::value_named("Test", "Outer/Inner/Leaf"),
+            Type::PtrMut(Box::new(shared.clone()), 1),
+        ]
+    );
+    assert_eq!(
+        index
+            .expect("Test", "Other")
+            .fields()
+            .map(|field| field.ty())
+            .collect::<Vec<_>>(),
+        [Type::value_named("Test", "Other/Inner"), shared.clone()]
+    );
+    assert_eq!(
+        index
+            .expect("Test.Child", "Consumer")
+            .fields()
+            .next()
+            .unwrap()
+            .ty(),
+        shared,
+    );
+    let reference_path = path.with_file_name("nested-reference-consumer.winmd");
+    windows_rdl::reader()
+        .reference(&path)
+        .input_text("#[win32] mod Consumer { struct Record { value: Test::Outer::Inner, } }")
+        .output(&reference_path)
+        .write()
+        .unwrap();
+    let reference = Index::read(&reference_path).unwrap();
+    assert_eq!(
+        reference
+            .expect("Consumer", "Record")
+            .fields()
+            .next()
+            .unwrap()
+            .ty(),
+        Type::value_named("Test", "Outer/Inner")
+    );
+    let rdl = reference_path.with_extension("rdl");
+    windows_rdl::writer()
+        .input(&reference_path)
+        .reference(&path)
+        .output(&rdl)
+        .write()
+        .unwrap();
+    assert_eq!(
+        std::fs::read_to_string(&rdl).unwrap(),
+        "#[win32]\nmod Consumer {\n    struct Record {\n        value: Test::Outer::Inner,\n    }\n}\n"
+    );
+    windows_rdl::writer()
+        .input(&reference_path)
+        .references([&path])
+        .filter("Test")
+        .output(&rdl)
+        .write()
+        .unwrap();
+    assert_eq!(std::fs::read_to_string(&rdl).unwrap(), "");
+}
+
+#[test]
+fn nested_name_conflicts_are_errors() {
+    for (body, message) in [
+        (
+            "struct Inner {} union Inner {}",
+            "duplicate nested type name",
+        ),
+        (
+            "struct Outer_0 {} value: struct { x: i32, },",
+            "inline nested type name collides",
+        ),
+        ("value: Outer::Missing,", "type not found"),
+        (
+            "struct Inner {} value: Inner<i32>,",
+            "nested types cannot have generic arguments",
+        ),
+        (
+            "struct Inner {} value: Outer<i32>::Inner,",
+            "nested types cannot have generic arguments",
+        ),
+        (
+            "struct Inner {} value: <Outer as Outer>::Inner,",
+            "qualified associated types are not supported",
+        ),
+    ] {
+        let path = std::path::Path::new(env!("OUT_DIR")).join("nested-name-errors.winmd");
+        let error = windows_rdl::reader()
+            .input_text(&format!(
+                "#[win32] mod Test {{ struct Outer {{ {body} }} }}"
+            ))
+            .output(path)
+            .write()
+            .unwrap_err();
+        assert!(error.message.contains(message), "{error}");
+    }
+}
