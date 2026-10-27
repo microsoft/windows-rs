@@ -425,3 +425,131 @@ fn inline_positions_skip_record_constants() {
     assert!(fields.contains(&("pointer".to_string(), pointer)));
     assert!(fields.contains(&("Count".to_string(), Type::U32)));
 }
+
+#[test]
+fn referenced_constants_use_their_architecture_backing() {
+    let dependency = std::path::Path::new(env!("OUT_DIR")).join("arch-backing-dependency.winmd");
+    windows_rdl::reader()
+        .input_text(include_str!("../input/record_constants_arch.rdl"))
+        .output(&dependency)
+        .write()
+        .unwrap();
+    let consumer = dependency.with_file_name("arch-backing-consumer.winmd");
+    windows_rdl::reader()
+        .reference(&dependency)
+        .input_text(
+            "#[win32] mod Consumer { #[arch(X86)] const Signed: Test::Holder::E = -1; #[arch(X64 | Arm64)] const Unsigned: Test::Holder::E = 4294967295; struct Holder { #[arch(X86)] const Nested: Test::Holder::E = -1; } }",
+        )
+        .output(&consumer)
+        .write()
+        .unwrap();
+    let index = Index::read(&consumer).unwrap();
+    let values: Vec<_> = index
+        .types()
+        .flat_map(|ty| ty.fields())
+        .map(|field| (field.name().to_string(), field.constant().unwrap().value()))
+        .collect();
+    assert!(values.contains(&("Signed".to_string(), Value::I32(-1))));
+    assert!(values.contains(&("Unsigned".to_string(), Value::U32(u32::MAX))));
+    assert!(values.contains(&("Nested".to_string(), Value::I32(-1))));
+
+    let error = windows_rdl::reader()
+        .reference(&dependency)
+        .input_text("#[win32] mod Consumer { const Any: Test::Holder::E = 1; }")
+        .output(consumer.with_file_name("arch-backing-conflict.winmd"))
+        .write()
+        .unwrap_err();
+    assert!(
+        error.message.contains("architecture-dependent backing"),
+        "{error}"
+    );
+}
+
+#[test]
+fn local_attributes_resolve_nested_types_in_their_namespace() {
+    let path = std::path::Path::new(env!("OUT_DIR")).join("attribute-nested-namespace.winmd");
+    windows_rdl::reader()
+        .input_text(
+            "#[win32] mod Def { attribute ModeAttribute { fn(mode: Options::Mode); kind: Options::Mode, } struct Options { #[repr(i32)] enum Mode { A = 1, B = 2, } value: u32, } }",
+        )
+        .input_text("#[win32] mod Consumer { struct Record { #[Def::Mode(A, kind = B)] value: u32, } }")
+        .output(&path)
+        .write()
+        .unwrap();
+    let index = Index::read(&path).unwrap();
+    let mode = TypeName::named("Def", "Options/Mode");
+    let field = index.expect("Consumer", "Record").fields().next().unwrap();
+    assert_eq!(
+        field.attributes().next().unwrap().value(),
+        [
+            (
+                String::new(),
+                Value::EnumValue(mode.clone(), Box::new(Value::I32(1)))
+            ),
+            (
+                "kind".to_string(),
+                Value::EnumValue(mode, Box::new(Value::I32(2)))
+            ),
+        ]
+    );
+}
+
+#[test]
+fn glob_imports_keep_qualified_prefixes() {
+    let path = std::path::Path::new(env!("OUT_DIR")).join("glob-qualified.winmd");
+    windows_rdl::reader()
+        .input_text(
+            "#[win32] mod Dep { struct Inner { value: i32, } struct Outer { struct Inner { value: u8, } value: u32, } mod Child { struct Leaf { value: u16, } } }",
+        )
+        .input_text(
+            "use Dep::*;\n#[win32] mod Consumer { struct Record { nested: Outer::Inner, plain: Inner, child: Child::Leaf, } }",
+        )
+        .output(&path)
+        .write()
+        .unwrap();
+    let index = Index::read(&path).unwrap();
+    assert_eq!(
+        index
+            .expect("Consumer", "Record")
+            .fields()
+            .map(|field| field.ty())
+            .collect::<Vec<_>>(),
+        [
+            Type::value_named("Dep", "Outer/Inner"),
+            Type::value_named("Dep", "Inner"),
+            Type::value_named("Dep.Child", "Leaf"),
+        ]
+    );
+}
+
+#[test]
+fn record_constants_with_disjoint_architectures() {
+    let index = roundtrip_nested(
+        "record-constant-variants",
+        "#[win32]\nmod Test {\n    struct Shared {\n        value: i32,\n        #[arch(X86)]\n        const Value: u32 = 1;\n        #[arch(X64 | Arm64)]\n        const Value: u32 = 2;\n    }\n}\n",
+    );
+    let values: Vec<_> = index
+        .expect("Test", "Shared")
+        .fields()
+        .filter_map(|field| field.constant().map(|c| (field.arches(), c.value())))
+        .collect();
+    assert_eq!(values, [(1, Value::U32(1)), (6, Value::U32(2))]);
+
+    for body in [
+        "#[arch(X86)] const Value: u32 = 1; #[arch(X86 | X64)] const Value: u32 = 2;",
+        "const Value: u32 = 1; #[arch(X64)] const Value: u32 = 2;",
+        "#[arch(X86)] const value: u32 = 1; value: i32,",
+    ] {
+        let error = windows_rdl::reader()
+            .input_text(&format!(
+                "#[win32] mod Test {{ struct Shared {{ {body} }} }}"
+            ))
+            .output(std::path::Path::new(env!("OUT_DIR")).join("record-constant-conflict.winmd"))
+            .write()
+            .unwrap_err();
+        assert!(
+            error.message.contains("duplicate record member name"),
+            "{error}"
+        );
+    }
+}

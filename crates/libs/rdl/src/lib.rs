@@ -115,13 +115,36 @@ pub(crate) fn get_nested<'a>(
     namespace: &str,
     name: &str,
 ) -> Vec<metadata::reader::TypeDef<'a>> {
+    get_nested_arches(index, namespace, name)
+        .into_iter()
+        .map(|(def, _)| def)
+        .collect()
+}
+
+/// Like [`get_nested`], pairing each definition with the architectures it shares with its owners.
+pub(crate) fn get_nested_arches<'a>(
+    index: &'a metadata::reader::Index,
+    namespace: &str,
+    name: &str,
+) -> Vec<(metadata::reader::TypeDef<'a>, i32)> {
+    let arches = |def: &metadata::reader::TypeDef| match metadata::HasAttributes::arches(def) {
+        0 => 7,
+        arches => arches,
+    };
     let mut names = name.split('/');
-    let mut candidates: Vec<_> = index.get(namespace, names.next().unwrap()).collect();
+    let mut candidates: Vec<_> = index
+        .get(namespace, names.next().unwrap())
+        .map(|def| (def, arches(&def)))
+        .collect();
     for name in names {
         candidates = candidates
             .into_iter()
-            .flat_map(|parent| index.nested(parent))
-            .filter(|child| child.name() == name)
+            .flat_map(|(parent, mask)| {
+                index
+                    .nested(parent)
+                    .filter(move |child| child.name() == name)
+                    .map(move |child| (child, mask & arches(&child)))
+            })
             .collect();
     }
     candidates

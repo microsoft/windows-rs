@@ -117,14 +117,20 @@ impl Encoder<'_> {
                 return self.err(&enumeration.name, "duplicate nested type name");
             }
         }
-        let mut value_names: HashSet<_> = fields
+        let field_names: HashSet<_> = fields
             .iter()
             .map(|field| field.name.unraw_to_string())
             .collect();
+        // Same-name constants are architecture variants when their architectures are disjoint.
+        let mut constant_arches: HashMap<String, i32> = HashMap::new();
         for constant in &body.constants {
-            if !value_names.insert(constant.name.unraw_to_string()) {
+            let name = constant.name.unraw_to_string();
+            let arches = self.read_arch(&constant.attrs)?.unwrap_or(7);
+            let seen = constant_arches.entry(name.clone()).or_default();
+            if field_names.contains(&name) || *seen & arches != 0 {
                 return self.err(&constant.name, "duplicate record member name");
             }
+            *seen |= arches;
         }
         for (index, field) in fields.iter().enumerate() {
             let field_name = field.name.unraw_to_string();

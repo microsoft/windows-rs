@@ -620,6 +620,7 @@ impl Encoder<'_> {
                 .collect();
 
             if !segs.is_empty() && !segs.iter().any(|s| s == "super") {
+                let mut candidates = vec![];
                 let name = segs.last().unwrap();
                 let candidate_ns = if segs.len() == 1 {
                     attr_ns.to_string()
@@ -638,11 +639,56 @@ impl Encoder<'_> {
                         name: name.clone(),
                         generics: vec![],
                     };
-                    return Ok(if self.type_is_value(&candidate_ns, name) {
+                    candidates.push(if self.type_is_value(&candidate_ns, name) {
                         metadata::Type::ValueName(tn)
                     } else {
                         metadata::Type::ClassName(tn)
                     });
+                }
+
+                // Owner-qualified nested types, such as `Options::Mode`, start at a namespace
+                // relative to the attribute's namespace.
+                let plain = type_path
+                    .path
+                    .segments
+                    .iter()
+                    .all(|s| s.arguments.is_empty());
+                for split in (0..segs.len() - 1).filter(|_| plain) {
+                    let namespace = if split == 0 {
+                        attr_ns.to_string()
+                    } else {
+                        format!("{attr_ns}.{}", segs[..split].join("."))
+                    };
+                    let nested_name = std::iter::once(segs[split].clone())
+                        .chain(
+                            type_path
+                                .path
+                                .segments
+                                .iter()
+                                .skip(split + 1)
+                                .map(|s| s.ident.unraw_to_string()),
+                        )
+                        .collect::<Vec<_>>()
+                        .join("/");
+                    if self.index.contains(&namespace, &nested_name)
+                        || self
+                            .nested_reference(&namespace, &nested_name)
+                            .is_some_and(|def| {
+                                matches!(
+                                    def.category(),
+                                    metadata::reader::TypeCategory::Struct
+                                        | metadata::reader::TypeCategory::Enum
+                                )
+                            })
+                    {
+                        candidates.push(metadata::Type::value_named(&namespace, &nested_name));
+                    }
+                }
+
+                match candidates.len() {
+                    0 => {}
+                    1 => return Ok(candidates.pop().unwrap()),
+                    _ => return self.err(ty, "ambiguous type reference"),
                 }
             }
         }
@@ -730,10 +776,7 @@ impl Encoder<'_> {
                     return self.encode_value(&metadata::Type::I32, value);
                 }
 
-                let underlying = self
-                    .nested_reference(&tn.namespace, &tn.name)
-                    .and_then(|def| def.underlying_type());
-                let underlying = match underlying {
+                let underlying = match self.referenced_underlying_type(tn, arch, value)? {
                     Some(underlying) => Some(underlying),
                     None => self
                         .rdl_nested_underlying_type(&tn.namespace, &tn.name, arch, value)?
@@ -785,6 +828,36 @@ impl Encoder<'_> {
             _ => return Ok(None),
         };
         Ok(Some(value))
+    }
+
+    /// Resolves a referenced type's backing for the constant's architectures, rejecting
+    /// architecture variants with different backings.
+    fn referenced_underlying_type(
+        &self,
+        tn: &metadata::TypeName,
+        arch: Option<i32>,
+        value: &syn::Expr,
+    ) -> Result<Option<metadata::Type>, Error> {
+        let Some(reference) = self.output.reference() else {
+            return Ok(None);
+        };
+        let mut underlying = None;
+        for (def, arches) in get_nested_arches(reference, &tn.namespace, &tn.name) {
+            if arches & arch.unwrap_or(7) == 0 {
+                continue;
+            }
+            let Some(candidate) = def.underlying_type() else {
+                continue;
+            };
+            if underlying.as_ref().is_some_and(|ty| *ty != candidate) {
+                return self.err(
+                    value,
+                    "constant type has architecture-dependent backing; restrict its architecture",
+                );
+            }
+            underlying = Some(candidate);
+        }
+        Ok(underlying)
     }
 
     fn rdl_nested_underlying_type(
@@ -1285,14 +1358,23 @@ impl Encoder<'_> {
         };
 
         let relative = format!("{}.{}", self.namespace, namespace);
+        let prefix = &path[..path.len() - 1];
         let found = make_type(&namespace)
             .or_else(|| make_type(&relative))
             .or_else(|| {
+                // A glob import brings the path's first segment into scope, so qualified paths
+                // keep their prefix relative to the imported namespace.
                 self.file
                     .uses
                     .iter()
                     .filter_map(glob_use_namespace)
-                    .find_map(|ns| make_type(&ns))
+                    .find_map(|ns| {
+                        if prefix.is_empty() {
+                            make_type(&ns)
+                        } else {
+                            make_type(&format!("{ns}.{}", prefix.join(".")))
+                        }
+                    })
             });
 
         match (candidates.as_slice(), found) {
