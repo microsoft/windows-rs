@@ -1256,7 +1256,7 @@ fn initialize_ui_thread() -> windows_core::Result<()> {
     unsafe {
         _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
     }
-    let result = unsafe { CoInitializeEx(std::ptr::null(), COINIT_APARTMENTTHREADED as u32) };
+    let result = unsafe { CoInitializeEx(std::ptr::null_mut(), COINIT_APARTMENTTHREADED as u32) };
     if result == RPC_E_CHANGED_MODE {
         return Err(windows_core::Error::new(
             RPC_E_CHANGED_MODE,

@@ -1,15 +1,16 @@
-windows_core::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : HWND, message : u32, action : u32, pchangefilterstruct : PCHANGEFILTERSTRUCT) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn ChangeWindowMessageFilterEx(hwnd : HWND, message : UINT, action : DWORD, pchangefilterstruct : PCHANGEFILTERSTRUCT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn DestroyIcon(hicon : HICON) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn GetSystemMetrics(nindex : i32) -> i32);
-windows_core::link!("user32.dll" "system" fn LoadImageW(hinst : HINSTANCE, name : windows_core::PCWSTR, r#type : u32, cx : i32, cy : i32, fuload : u32) -> HANDLE);
-windows_core::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_core::PCWSTR) -> u32);
-windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : u32, lpdata : PNOTIFYICONDATAW) -> windows_core::BOOL);
+windows_core::link!("user32.dll" "system" fn LoadImageW(hinst : HINSTANCE, name : windows_core::PCWSTR, r#type : UINT, cx : i32, cy : i32, fuload : UINT) -> HANDLE);
+windows_core::link!("user32.dll" "system" fn RegisterWindowMessageW(lpstring : windows_core::PCWSTR) -> UINT);
+windows_core::link!("shell32.dll" "system" fn Shell_NotifyIconW(dwmessage : DWORD, lpdata : PNOTIFYICONDATAW) -> windows_core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGEFILTERSTRUCT {
-    pub cbSize: u32,
-    pub ExtStatus: u32,
+    pub cbSize: DWORD,
+    pub ExtStatus: DWORD,
 }
+pub type DWORD = u32;
 pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub type HANDLE = *mut core::ffi::c_void;
@@ -32,6 +33,7 @@ pub struct HWND__ {
     pub unused: i32,
 }
 pub const IMAGE_ICON: i32 = 1;
+pub type LONG = i32;
 pub const LR_LOADFROMFILE: i32 = 16;
 pub const MSGFLT_ALLOW: i32 = 1;
 pub const NIF_ICON: i32 = 2;
@@ -48,19 +50,19 @@ pub const NIN_SELECT: i32 = 1024;
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAW {
-    pub cbSize: u32,
+    pub cbSize: DWORD,
     pub hWnd: HWND,
-    pub uID: u32,
-    pub uFlags: u32,
-    pub uCallbackMessage: u32,
+    pub uID: UINT,
+    pub uFlags: UINT,
+    pub uCallbackMessage: UINT,
     pub hIcon: HICON,
-    pub szTip: [u16; 128],
-    pub dwState: u32,
-    pub dwStateMask: u32,
-    pub szInfo: [u16; 256],
+    pub szTip: [WCHAR; 128],
+    pub dwState: DWORD,
+    pub dwStateMask: DWORD,
+    pub szInfo: [WCHAR; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
-    pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: u32,
+    pub szInfoTitle: [WCHAR; 64],
+    pub dwInfoFlags: DWORD,
     pub guidItem: windows_core::GUID,
     pub hBalloonIcon: HICON,
 }
@@ -74,8 +76,8 @@ impl Default for NOTIFYICONDATAW {
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAW_0 {
-    pub uTimeout: u32,
-    pub uVersion: u32,
+    pub uTimeout: UINT,
+    pub uVersion: UINT,
 }
 #[cfg(target_arch = "x86")]
 impl Default for NOTIFYICONDATAW_0 {
@@ -91,19 +93,19 @@ impl Default for NOTIFYICONDATAW_0 {
 ))]
 #[derive(Clone, Copy)]
 pub struct NOTIFYICONDATAW {
-    pub cbSize: u32,
+    pub cbSize: DWORD,
     pub hWnd: HWND,
-    pub uID: u32,
-    pub uFlags: u32,
-    pub uCallbackMessage: u32,
+    pub uID: UINT,
+    pub uFlags: UINT,
+    pub uCallbackMessage: UINT,
     pub hIcon: HICON,
-    pub szTip: [u16; 128],
-    pub dwState: u32,
-    pub dwStateMask: u32,
-    pub szInfo: [u16; 256],
+    pub szTip: [WCHAR; 128],
+    pub dwState: DWORD,
+    pub dwStateMask: DWORD,
+    pub szInfo: [WCHAR; 256],
     pub Anonymous: NOTIFYICONDATAW_0,
-    pub szInfoTitle: [u16; 64],
-    pub dwInfoFlags: u32,
+    pub szInfoTitle: [WCHAR; 64],
+    pub dwInfoFlags: DWORD,
     pub guidItem: windows_core::GUID,
     pub hBalloonIcon: HICON,
 }
@@ -125,8 +127,8 @@ impl Default for NOTIFYICONDATAW {
 ))]
 #[derive(Clone, Copy)]
 pub union NOTIFYICONDATAW_0 {
-    pub uTimeout: u32,
-    pub uVersion: u32,
+    pub uTimeout: UINT,
+    pub uVersion: UINT,
 }
 #[cfg(any(
     target_arch = "aarch64",
@@ -144,10 +146,12 @@ pub type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
-    pub x: i32,
-    pub y: i32,
+    pub x: LONG,
+    pub y: LONG,
 }
 pub const SM_CXSMICON: i32 = 49;
 pub const SM_CYSMICON: i32 = 50;
+pub type UINT = u32;
+pub type WCHAR = u16;
 pub const WM_CONTEXTMENU: i32 = 123;
 pub const WM_USER: i32 = 1024;
