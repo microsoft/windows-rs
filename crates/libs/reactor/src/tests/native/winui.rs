@@ -14,39 +14,36 @@ fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
     let svg = |bytes: &[u8]| ImageSourceValue::Svg(EncodedImage::new(bytes.to_vec()));
     let mut cache = ImageCache::default();
 
-    // Bytes the app holds stay decoded after their controls go away.
-    let held = svg(b"<svg/>");
-    let shown = get(&mut cache, &held);
-    drop(shown);
+    // Bytes the app holds stay decoded after their controls go away, and clones share them.
+    let bytes = EncodedImage::new(b"<svg/>".to_vec());
+    let held = ImageSourceValue::Svg(bytes.clone());
+    drop(get(&mut cache, &held));
+    cache.prune();
+    assert_eq!(*get(&mut cache, &ImageSourceValue::Svg(bytes.clone())), 1);
+
+    // Separate allocations decode separately, and dropping one does not release the other.
+    let copy = svg(b"<svg/>");
+    assert_eq!(*get(&mut cache, &copy), 2);
+    drop(copy);
     cache.prune();
     assert_eq!(*get(&mut cache, &held), 1);
 
-    // While a control uses the source, the cache keeps the bytes for content-equal images.
-    let shown = get(&mut cache, &svg(b"<svg id='a'/>"));
-    cache.prune();
-    assert_eq!(get(&mut cache, &svg(b"<svg id='a'/>")), shown);
-    assert_eq!(*shown, 2);
-
-    // Once no control uses it and the app drops the bytes, the source is released.
-    drop(shown);
-    cache.prune();
-    assert_eq!(*get(&mut cache, &svg(b"<svg id='a'/>")), 3);
-
     // The same bytes as a bitmap are a different source.
-    let bitmap = ImageSourceValue::Encoded(EncodedImage::new(b"<svg/>".to_vec()));
-    assert_eq!(*get(&mut cache, &bitmap), 4);
+    assert_eq!(
+        *get(&mut cache, &ImageSourceValue::Encoded(bytes.clone())),
+        3
+    );
+
+    // Once the app drops the bytes, the source is released.
+    drop((held, bytes));
+    cache.prune();
+    assert!(cache.bytes.is_empty());
 
     // Static bytes are always held.
     let fixed = ImageSourceValue::Encoded(EncodedImage::from_static(b"png"));
     drop(get(&mut cache, &fixed));
     cache.prune();
-    assert_eq!(
-        *get(
-            &mut cache,
-            &ImageSourceValue::Encoded(EncodedImage::from_static(b"png"))
-        ),
-        5
-    );
+    assert_eq!(*get(&mut cache, &fixed), 4);
 
     // URI sources live only while a control uses them.
     let uri = ImageSourceValue::Uri(Rc::from("ms-appx:///icon.png"));
@@ -54,7 +51,7 @@ fn image_cache_keeps_decoded_bytes_while_the_app_holds_them() {
     assert_eq!(get(&mut cache, &uri), shown);
     drop(shown);
     cache.prune();
-    assert_eq!(*get(&mut cache, &uri), 7);
+    assert_eq!(*get(&mut cache, &uri), 6);
 }
 
 #[test]

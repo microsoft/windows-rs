@@ -1323,37 +1323,21 @@ struct ImageSubscription {
 
 /// Native image sources shared by a window's controls.
 ///
-/// A URI source lives while a control uses it. A source decoded from [`EncodedImage`] bytes also
-/// lives while the app holds those bytes, so controls that leave and return render without
-/// decoding again. While a control uses it, the cache keeps the bytes alive so content-equal images
-/// can share it.
+/// A URI source lives while a control uses it. A source decoded from [`EncodedImage`] bytes lives
+/// while the app holds those bytes, so controls that leave and return render without decoding
+/// again. Clones of an `EncodedImage` share its allocation and therefore one source.
 struct ImageCache<T = NativeImageSource> {
-    entries: HashMap<u64, Vec<ImageCacheEntry<T>>>,
+    uris: HashMap<Rc<str>, Weak<T>>,
+    bytes: HashMap<(usize, usize, bool), (Option<SyncWeak<[u8]>>, Rc<T>)>,
 }
 
 impl<T> Default for ImageCache<T> {
     fn default() -> Self {
         Self {
-            entries: HashMap::new(),
+            uris: HashMap::new(),
+            bytes: HashMap::new(),
         }
     }
-}
-
-enum ImageCacheEntry<T> {
-    Uri {
-        uri: Rc<str>,
-        image: Weak<T>,
-    },
-    Bytes {
-        svg: bool,
-        bytes: ImageCacheBytes,
-        image: Rc<T>,
-    },
-}
-
-enum ImageCacheBytes {
-    Pinned(EncodedImage),
-    Released(WeakEncodedImage),
 }
 
 impl<T> ImageCache<T> {
@@ -1362,88 +1346,39 @@ impl<T> ImageCache<T> {
         source: &ImageSourceValue,
         create: impl FnOnce() -> Result<T, E>,
     ) -> Result<Rc<T>, E> {
-        let entries = self.entries.entry(image_hash(source)).or_default();
-        for entry in entries.iter_mut() {
-            match (source, entry) {
-                (ImageSourceValue::Uri(value), ImageCacheEntry::Uri { uri, image }) => {
-                    if value == uri
-                        && let Some(image) = image.upgrade()
-                    {
-                        return Ok(image);
-                    }
+        match source {
+            ImageSourceValue::Uri(uri) => {
+                if let Some(image) = self.uris.get(uri).and_then(Weak::upgrade) {
+                    return Ok(image);
                 }
-                (
-                    ImageSourceValue::Encoded(value) | ImageSourceValue::Svg(value),
-                    ImageCacheEntry::Bytes { svg, bytes, image },
-                ) => {
-                    let matches = *svg == matches!(source, ImageSourceValue::Svg(_))
-                        && match bytes {
-                            ImageCacheBytes::Pinned(bytes) => bytes == value,
-                            ImageCacheBytes::Released(bytes) => {
-                                bytes.upgrade().is_some_and(|bytes| bytes == *value)
-                            }
-                        };
-                    if matches {
-                        *bytes = ImageCacheBytes::Pinned(value.clone());
-                        return Ok(Rc::clone(image));
-                    }
-                }
-                _ => {}
+                let image = Rc::new(create()?);
+                self.uris.insert(Rc::clone(uri), Rc::downgrade(&image));
+                Ok(image)
             }
-        }
-        let image = Rc::new(create()?);
-        entries.push(match source {
-            ImageSourceValue::Uri(uri) => ImageCacheEntry::Uri {
-                uri: Rc::clone(uri),
-                image: Rc::downgrade(&image),
-            },
             ImageSourceValue::Encoded(bytes) | ImageSourceValue::Svg(bytes) => {
-                ImageCacheEntry::Bytes {
-                    svg: matches!(source, ImageSourceValue::Svg(_)),
-                    bytes: ImageCacheBytes::Pinned(bytes.clone()),
-                    image: Rc::clone(&image),
+                let key = (
+                    bytes.as_bytes().as_ptr() as usize,
+                    bytes.as_bytes().len(),
+                    matches!(source, ImageSourceValue::Svg(_)),
+                );
+                if let Some((_, image)) = self.bytes.get(&key) {
+                    return Ok(Rc::clone(image));
                 }
-            }
-        });
-        Ok(image)
-    }
-
-    /// Releases bytes no control uses and drops sources that nothing keeps alive.
-    fn prune(&mut self) {
-        self.entries.retain(|_, entries| {
-            entries.retain_mut(|entry| match entry {
-                ImageCacheEntry::Uri { image, .. } => image.strong_count() != 0,
-                ImageCacheEntry::Bytes { bytes, image, .. } => {
-                    if Rc::strong_count(image) > 1 {
-                        return true;
-                    }
-                    if let ImageCacheBytes::Pinned(pinned) = bytes {
-                        *bytes = ImageCacheBytes::Released(pinned.downgrade());
-                    }
-                    matches!(bytes, ImageCacheBytes::Released(bytes) if bytes.upgrade().is_some())
-                }
-            });
-            !entries.is_empty()
-        });
-    }
-}
-
-fn image_hash(source: &ImageSourceValue) -> u64 {
-    use std::hash::{Hash, Hasher};
-    let mut state = std::hash::DefaultHasher::new();
-    std::mem::discriminant(source).hash(&mut state);
-    match source {
-        ImageSourceValue::Uri(value) => value.hash(&mut state),
-        ImageSourceValue::Encoded(value) | ImageSourceValue::Svg(value) => {
-            // Hash a bounded sample; lookup compares the full bytes.
-            let bytes = value.as_bytes();
-            bytes.len().hash(&mut state);
-            for byte in bytes.iter().step_by(bytes.len() / 64 + 1) {
-                byte.hash(&mut state);
+                let image = Rc::new(create()?);
+                self.bytes
+                    .insert(key, (bytes.downgrade(), Rc::clone(&image)));
+                Ok(image)
             }
         }
     }
-    state.finish()
+
+    /// Drops URI sources no control uses and byte sources whose bytes the app has released.
+    fn prune(&mut self) {
+        self.uris.retain(|_, image| image.strong_count() != 0);
+        // Holding a weak reference keeps the allocation, and so its key, from being reused.
+        self.bytes
+            .retain(|_, (owner, _)| owner.as_ref().is_none_or(|owner| owner.strong_count() != 0));
+    }
 }
 
 #[derive(Default)]

@@ -38,28 +38,11 @@ impl EncodedImage {
         }
     }
 
-    pub(crate) fn downgrade(&self) -> WeakEncodedImage {
+    /// A weak reference to shared bytes, or `None` for static bytes, which never drop.
+    pub(crate) fn downgrade(&self) -> Option<SyncWeak<[u8]>> {
         match &self.0 {
-            EncodedImageBytes::Shared(bytes) => WeakEncodedImage::Shared(Arc::downgrade(bytes)),
-            EncodedImageBytes::Static(bytes) => WeakEncodedImage::Static(bytes),
-        }
-    }
-}
-
-/// An [`EncodedImage`] reference that does not keep shared bytes alive. Static bytes always
-/// upgrade.
-pub(crate) enum WeakEncodedImage {
-    Shared(SyncWeak<[u8]>),
-    Static(&'static [u8]),
-}
-
-impl WeakEncodedImage {
-    pub(crate) fn upgrade(&self) -> Option<EncodedImage> {
-        match self {
-            Self::Shared(bytes) => bytes
-                .upgrade()
-                .map(|bytes| EncodedImage(EncodedImageBytes::Shared(bytes))),
-            Self::Static(bytes) => Some(EncodedImage(EncodedImageBytes::Static(bytes))),
+            EncodedImageBytes::Shared(bytes) => Some(Arc::downgrade(bytes)),
+            EncodedImageBytes::Static(_) => None,
         }
     }
 }
