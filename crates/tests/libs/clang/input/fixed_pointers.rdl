@@ -1,0 +1,33 @@
+#[win32]
+mod Fixture {
+    type Address64 = ptr64<*mut Element>;
+    struct Addresses {
+        struct Node {
+            value: i32,
+        }
+        prefix: i32,
+        address: Address64,
+        constant: ConstAddress64,
+        inherited: InheritedAddress64,
+        array: [Address64; 2],
+        storage: *mut Address64,
+        constant_storage: *const Address64,
+        mixed_outer: *mut ptr64<*const i32>,
+        mixed_inner: ptr64<*mut *mut i32>,
+        opaque: ptr64<*mut Opaque>,
+        node: ptr64<*mut Addresses::Node>,
+    }
+    type ConstAddress64 = ptr64<*const Element>;
+    type Element = i32;
+    type InheritedAddress64 = Address64;
+    struct Opaque {}
+    #[packed(1)]
+    struct PackedAddresses {
+        prefix: i8,
+        address: Address64,
+    }
+    union Segment {
+        buffer: ptr64<*mut void>,
+        alignment: u64,
+    }
+}

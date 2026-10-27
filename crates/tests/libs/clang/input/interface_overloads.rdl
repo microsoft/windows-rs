@@ -1,0 +1,28 @@
+#[win32]
+mod Fixture {
+    #[guid(0xfedcba98_1234_5678_90ab_cdef01234567)]
+    interface IOverloaded: IBase {
+        #[Windows::Win32::Metadata::NativeConstMethod]
+        fn Read(&self, value: i32) -> i32;
+        fn Read(&self, value: f32) -> i32;
+        fn Read(&self, value: i32) -> i32;
+        fn Tail(&self) -> i32;
+    }
+}
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type HRESULT = i32;
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IBase {
+        fn QueryInterface(&self, riid: &GUID, object: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+    type ULONG = u32;
+}

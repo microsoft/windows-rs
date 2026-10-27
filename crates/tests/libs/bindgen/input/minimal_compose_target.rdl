@@ -10,7 +10,7 @@ mod Windows {
                 Public = 2,
             }
             attribute ComposableAttribute {
-                fn(factory_type: Type, composition_type: CompositionType, version: u32);
+                fn(#[in] factory_type: Type, #[in] composition_type: CompositionType, #[in] version: u32);
             }
         }
     }
@@ -22,19 +22,23 @@ mod Test {
     class Base {
         IOverrides,
     }
+    #[guid(auto)]
     interface IOverrides {
         fn OnSomething(&self);
     }
+    #[guid(auto)]
     interface IBaseFactory {
-        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Base;
+        fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Base;
     }
 
     #[Windows::Foundation::Metadata::Composable(IDerivedFactory, Public, 1)]
     class Derived: Base {
         IDerived,
     }
+    #[guid(auto)]
     interface IDerived {}
+    #[guid(auto)]
     interface IDerivedFactory {
-        fn CreateInstance(&self, outer: Object, inner: &mut Object) -> Derived;
+        fn CreateInstance(&self, #[in] outer: Object, #[out] inner: &mut Object) -> Derived;
     }
 }

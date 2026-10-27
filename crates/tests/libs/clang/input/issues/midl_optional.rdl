@@ -1,0 +1,9 @@
+#[win32]
+mod Fixture {
+    type HRESULT = i32;
+    #[guid(0x4b1f7c3e_0a6d_4c55_9e0b_2c8f6a1d7e01)]
+    interface IOptional {
+        fn Select(&self, #[in] #[opt] child: i32, #[in] flags: i32) -> HRESULT;
+        fn Find(&self, #[in] #[opt] hint: *mut i32) -> HRESULT;
+    }
+}

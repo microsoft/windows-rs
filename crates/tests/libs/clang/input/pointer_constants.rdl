@@ -1,0 +1,16 @@
+#[win32]
+mod Fixture {
+    const ALIAS: Handle = -1;
+    #[arch(X64 | Arm64)]
+    const HIGH_BIT: *mut void = -9223372036854775808;
+    #[arch(X86)]
+    const HIGH_BIT: *mut void = 0;
+    type Handle = *mut void;
+    const INVALID: Handle = -1;
+    const NOTHING: *mut void = 0;
+    const READ_ONLY: *const u8 = 2;
+    #[arch(X64 | Arm64)]
+    const TRUNCATED32: *mut void = 4294967295;
+    #[arch(X86)]
+    const TRUNCATED32: *mut void = -1;
+}

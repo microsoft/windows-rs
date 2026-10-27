@@ -7,12 +7,15 @@
 // interfaces are shallow.
 #[win32]
 mod Test {
+    #[guid(auto)]
     interface IOuter {
         fn GetInner(&self) -> IInner;
     }
+    #[guid(auto)]
     interface IInner {
         fn GetDeep(&self) -> IDeep;
     }
+    #[guid(auto)]
     interface IDeep {
         fn Value(&self) -> i32;
     }

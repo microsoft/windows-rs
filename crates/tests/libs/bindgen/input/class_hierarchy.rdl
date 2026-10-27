@@ -12,7 +12,10 @@ mod Test {
     class Leaf: Middle {
         ILeaf,
     }
+    #[guid(auto)]
     interface IBase {}
+    #[guid(auto)]
     interface IMiddle {}
+    #[guid(auto)]
     interface ILeaf {}
 }

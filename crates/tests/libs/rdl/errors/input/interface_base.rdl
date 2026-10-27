@@ -1,5 +1,6 @@
 #[win32]
 mod Test {
     struct IBase {}
+    #[guid(auto)]
     interface IDerived: IBase {}
 }

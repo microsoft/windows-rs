@@ -1,0 +1,6 @@
+#[win32]
+mod Fixture {
+    union Public {
+        value: i32,
+    }
+}

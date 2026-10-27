@@ -1,0 +1,9 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    #[library("fixture.dll")]
+    extern "C" fn Public(value: i64) -> i64;
+    #[arch(X86)]
+    #[library("fixture.dll", import = "Native")]
+    extern "C" fn Public(value: i32) -> i32;
+}

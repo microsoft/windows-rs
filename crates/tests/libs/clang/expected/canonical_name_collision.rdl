@@ -1,8 +1,0 @@
-#[win32]
-mod CanonicalNameCollision {
-    struct BYTE {
-        value: i32,
-    }
-    #[library("api.dll")]
-    extern "C" fn UseByte(value: BYTE);
-}

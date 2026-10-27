@@ -1,7 +1,7 @@
 #[win32]
 mod Test {
     #[library("test.dll")]
-    extern fn PointerChains(mutable: *mut *mut i32, deep_mutable: *mut *mut *mut i32, constant: *const *const i32, deep_constant: *const *const *const i32, mutable_reference: &mut i32, constant_reference: &i32) -> *const *const *const i32;
+    extern fn PointerChains(#[out] mutable: *mut *mut i32, #[out] deep_mutable: *mut *mut *mut i32, #[in] constant: *const *const i32, #[in] deep_constant: *const *const *const i32, #[out] mutable_reference: &mut i32, #[in] constant_reference: &i32) -> *const *const *const i32;
     struct PointerFields {
         mutable: *mut *mut i32,
         constant: *const *const *const i32,

@@ -1,6 +1,8 @@
 #[winrt]
 mod Test {
-    delegate fn ClickHandler(sender: Object, args: i32);
+    #[guid(0x77464f24_cddf_57b7_9a0a_2418f3d673af)]
+    delegate fn ClickHandler(#[in] sender: Object, #[in] args: i32);
+    #[guid(0xc2560a89_4faa_53e7_9b15_53ecc39d8fce)]
     interface IButton {
         event Click: ClickHandler;
         fn Press(&self);

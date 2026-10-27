@@ -1,0 +1,61 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    #[library("DHCPSAPI.DLL")]
+    extern "C" fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
+    #[arch(X86)]
+    #[library("DHCPSAPI.DLL")]
+    extern fn DhcpAddServer(Flags: DWORD, IdInfo: LPVOID, NewServer: LPDHCP_SERVER_INFO, CallbackFn: LPVOID, CallbackData: LPVOID) -> DWORD;
+    type LPDHCPDS_SERVER = *mut _DHCPDS_SERVER;
+    type LPDHCP_SERVER_INFO = *mut _DHCPDS_SERVER;
+    struct _DHCPDS_SERVER {
+        Version: DWORD,
+        ServerName: LPWSTR,
+        ServerAddress: DWORD,
+        Flags: DWORD,
+        State: DWORD,
+        DsLocation: LPWSTR,
+        DsLocType: DWORD,
+    }
+}
+#[win32]
+mod Fixture {
+    type LPVOID = *mut void;
+}
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    type LONG = i32;
+}
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum DNS_NAME_FORMAT {
+        DnsNameDomain = 0,
+        DnsNameDomainLabel = 1,
+        DnsNameHostnameFull = 2,
+        DnsNameHostnameLabel = 3,
+        DnsNameWildcard = 4,
+        DnsNameSrvRecord = 5,
+        DnsNameValidateTld = 6,
+    }
+    #[arch(X64 | Arm64)]
+    #[library("DNSAPI.dll")]
+    extern "C" fn DnsValidateName_W(#[in] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+    #[arch(X86)]
+    #[library("DNSAPI.dll")]
+    extern fn DnsValidateName_W(#[in] pszName: PCWSTR, #[in] Format: DNS_NAME_FORMAT) -> DNS_STATUS;
+}
+#[win32]
+mod Fixture {
+    #[success(return == 0)]
+    type DNS_STATUS = i32;
+}
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type LPWSTR = *mut u16;
+    #[Windows::Win32::Metadata::NativeSal("2", "_Null_terminated_", "", "")]
+    type PCWSTR = *const u16;
+    type WCHAR = u16;
+}

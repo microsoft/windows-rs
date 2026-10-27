@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum Mode {
+        ModeA = 0,
+        ModeB = 1,
+    }
+    type PPoint = *mut Point;
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+    #[library("fixture.dll")]
+    extern fn UsePoint(point: PPoint, mode: Mode);
+}

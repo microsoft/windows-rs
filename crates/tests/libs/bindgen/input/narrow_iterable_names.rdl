@@ -24,6 +24,7 @@ mod Test {
     class Items {
         IItems<i32>,
     }
+    #[guid(auto)]
     interface IItems<T>: Windows::Foundation::Collections::IIterable<T> {
         fn First(&self) -> u32;
     }

@@ -1,0 +1,17 @@
+#[win32]
+mod Fixture {
+    extern "C" fn AliasInput(values: *const Item);
+    extern "C" fn ArrayInput(values: *const Item);
+    extern "C" fn ArrayOutput(values: *mut Item);
+    extern "C" fn ArrayRows(rows: *mut [Count; 3]);
+    type Count = i32;
+    struct Item {
+        value: Count,
+    }
+    struct Users {
+        input: ArrayInput,
+        output: ArrayOutput,
+        rows: ArrayRows,
+        alias: AliasInput,
+    }
+}

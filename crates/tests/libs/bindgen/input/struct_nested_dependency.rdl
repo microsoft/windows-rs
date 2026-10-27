@@ -1,0 +1,71 @@
+//! --filter Consumer.Value
+#[win32]
+mod Producer {
+    struct Dependency {
+        value: i32,
+    }
+    #[arch(X86)]
+    struct Owner {
+        #[anonymous(3)]
+        struct EarlierRow {
+            value: u32,
+        }
+        tag: u32,
+        named: Owner::Owner_0,
+        anonymous: struct {
+            value: u16,
+        },
+        tail: *mut EarlierRow,
+        struct Owner_0 {
+            value: u16,
+        }
+        #[repr(i32)]
+        enum Kind {
+            First = 0,
+        }
+        struct Inner {
+            value: u32,
+            owner: *mut Owner,
+        }
+    }
+    #[arch(X64 | Arm64)]
+    struct Owner {
+        #[anonymous(3)]
+        struct EarlierRow {
+            value: u32,
+        }
+        tag: u32,
+        named: Owner::Owner_0,
+        anonymous: struct {
+            value: u16,
+        },
+        tail: *mut EarlierRow,
+        struct Owner_0 {
+            value: u16,
+        }
+        #[repr(i32)]
+        enum Kind {
+            First = 0,
+        }
+        struct Inner {
+            value: u64,
+            owner: *mut Owner,
+        }
+    }
+    struct Other {
+        tag: u32,
+        struct Inner {
+            value: Dependency,
+            struct Deep {
+                value: u16,
+            }
+        }
+    }
+}
+#[win32]
+mod Consumer {
+    struct Value {
+        first: Producer::Owner::Inner,
+        second: [Producer::Other::Inner::Deep; 2],
+    }
+}

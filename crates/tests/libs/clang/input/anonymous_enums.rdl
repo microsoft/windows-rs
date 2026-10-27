@@ -1,0 +1,28 @@
+#[win32]
+mod Fixture {
+    const Expression: i32 = 16;
+    const High: u64 = 18446744073709551615;
+    const Low: i64 = -9223372036854775808;
+    #[repr(i32)]
+    enum Named {
+        NamedValue = 5,
+    }
+    const Negative: i32 = -4;
+    struct Node {
+        Type: i32,
+        Next: *mut Node,
+        const ElementKind: i32 = 0;
+        const TextKind: i32 = 1;
+    }
+    struct SharedName {
+        value: i32,
+    }
+    const SharedName: i32 = 7;
+    const Small: u16 = 65535;
+    #[arch(X64 | Arm64)]
+    const Width: u64 = 64;
+    #[arch(X86)]
+    const Width: i32 = 32;
+    const Zero: i32 = 0;
+    const value__: i32 = 1;
+}

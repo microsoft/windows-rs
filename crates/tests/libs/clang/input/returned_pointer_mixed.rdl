@@ -1,0 +1,10 @@
+#[win32]
+mod Fixture {
+    extern "C" fn Buffer(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_", "", "")] #[in] #[opt] #[out] buffer: *mut *mut u16, capacity: u32, written: u32, other: u32);
+    #[library("example.dll")]
+    extern "C" fn BufferFunction(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_", "", "")] #[in] #[opt] #[out] buffer: *mut *mut u16, capacity: u32, written: u32, other: u32);
+    #[guid(0x11111111_2222_3333_4444_555555555555)]
+    interface IBuffer {
+        fn Read(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[Windows::Win32::Metadata::NativeSal("2", "_Outptr_opt_", "", "")] #[in] #[opt] #[out] buffer: *mut *mut u16, capacity: u32, written: u32, other: u32);
+    }
+}

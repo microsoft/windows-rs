@@ -76,7 +76,7 @@ fn automation_properties_live_regions_and_notifications() -> Result<()> {
             CoCreateInstance(
                 &CUIAutomation8,
                 std::ptr::null_mut(),
-                CLSCTX_INPROC_SERVER,
+                CLSCTX_INPROC_SERVER as u32,
                 &IUIAutomation5::IID,
                 &mut raw,
             )

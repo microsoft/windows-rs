@@ -24,7 +24,7 @@ impl Default for Variable {
 }
 
 impl ID3D10EffectBlendVariable_Impl for Variable {
-    fn GetBlendState(&self, _: u32) -> Result<ID3D10BlendState> {
+    fn GetBlendState(&self, _: u32, _: *mut Option<ID3D10BlendState>) -> Result<()> {
         unimplemented!();
     }
     fn GetBackingStore(&self, _: u32, _: *mut D3D10_BLEND_DESC) -> Result<()> {

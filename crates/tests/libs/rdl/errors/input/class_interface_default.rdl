@@ -1,6 +1,8 @@
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IA {}
+    #[guid(auto)]
     interface IB {}
     class Widget {
         IA,

@@ -1,0 +1,11 @@
+#[win32]
+mod Fixture {
+    type GUID = _GUID;
+    type IID = _GUID;
+    struct _GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+}

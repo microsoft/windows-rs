@@ -1,0 +1,23 @@
+#[win32]
+mod Component {
+    #[library("fixture.dll")]
+    extern "C" fn Consume(payload: *mut Arbitrary::Types::Payload, completion: Arbitrary::Types::Completion) -> Arbitrary::Types::HRESULT;
+    struct Consumer {
+        result: Arbitrary::Types::HRESULT,
+        count: Arbitrary::Types::CountAlias,
+        text: Arbitrary::Types::Text,
+        size: Arbitrary::Types::NativeSize,
+        state: Arbitrary::Types::State,
+        payload: Arbitrary::Types::Payload,
+        variant: Arbitrary::Types::VARIANT,
+        completion: Arbitrary::Types::Completion,
+        pointer: LocalPointer,
+        local_count: LocalCount,
+        nested: Arbitrary::Types::Envelope::Inner,
+    }
+    const LOCAL_FAILURE: Arbitrary::Types::HRESULT = -2147467259;
+    extern fn LocalCompletion(count: Arbitrary::Types::Count) -> Arbitrary::Types::HRESULT;
+    type LocalCount = Arbitrary::Types::CountAlias;
+    type LocalPointer = *mut Arbitrary::Types::Count;
+    type LocalResult = Arbitrary::Types::HRESULT;
+}

@@ -3,37 +3,39 @@ mod Test {
     attribute FirstAttribute {
         fn();
     }
+    #[guid(0xff422770_ac59_5ba8_a634_6736da052534)]
     delegate fn Handler();
+    #[guid(0x9c026808_0c60_5c76_adec_fc6cea58fc94)]
     interface IInterface {
         #[First]
         Both: i32;
-        #[get]
         #[Second(1)]
+        #[get]
         Getter: String;
-        #[set]
         #[First]
         #[Second(2)]
-        Setter: i32;
-        #[get]
-        #[First]
-        Mismatched: i32;
         #[set]
+        Setter: i32;
+        #[First]
+        #[get]
+        Mismatched: i32;
         #[Second(3)]
+        #[set]
         Mismatched: i32;
         #[First]
         event Changed: Handler;
         #[special]
-        fn get_Indexed(&self, index: i32) -> i32;
+        fn get_Indexed(&self, #[in] index: i32) -> i32;
         #[special]
         fn get_Annotated(&self) -> #[Second(4)] i32;
         #[special]
-        fn put_Annotated(&self, #[First] value: i32);
+        fn put_Annotated(&self, #[First] #[in] value: i32);
         #[special]
-        fn add_Custom(&self, handler: Handler) -> i32;
+        fn add_Custom(&self, #[in] handler: Handler) -> i32;
         #[special]
-        fn remove_Custom(&self, token: i32);
+        fn remove_Custom(&self, #[in] token: i32);
     }
     attribute SecondAttribute {
-        fn(value: i32);
+        fn(#[in] value: i32);
     }
 }

@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    #[library("native.dll")]
+    extern "C" fn Hidden(value: i32) -> i32;
+    #[library("native.dll", import = "Hidden")]
+    extern "C" fn ScopedAlias(value: i32) -> i32;
+}

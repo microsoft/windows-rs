@@ -1,0 +1,13 @@
+#[win32]
+mod Fixture {
+    type HNSTIME = u64;
+    struct Info {
+        time: HNSTIME,
+        token: mdToken,
+        signature: PCCOR_SIGNATURE,
+        thread: SCRIPTTHREADID,
+    }
+    type PCCOR_SIGNATURE = *const u8;
+    type SCRIPTTHREADID = u32;
+    type mdToken = u32;
+}

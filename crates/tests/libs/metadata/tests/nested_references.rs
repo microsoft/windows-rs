@@ -38,6 +38,23 @@ fn fixture(deep_type: &Type) -> Vec<u8> {
     );
     let deep = file.TypeDef("", "Deep", base, flags | TypeAttributes::NestedPublic);
     file.NestedClass(deep, shared);
+    let attribute = writer::MemberRefParent::TypeRef(
+        file.TypeRef("Windows.Win32.Metadata", "NativeAnonymousAttribute"),
+    );
+    let constructor = file.MemberRef(
+        ".ctor",
+        &Signature {
+            flags: MethodCallAttributes::HASTHIS,
+            types: vec![Type::I32],
+            ..Default::default()
+        },
+        attribute,
+    );
+    file.Attribute(
+        writer::HasAttribute::TypeDef(deep),
+        writer::AttributeType::MemberRef(constructor),
+        &[(String::new(), Value::I32(0))],
+    );
     file.Field("value", deep_type, FieldAttributes::Public);
     let b = file.TypeDef("Test", "B", base, flags | TypeAttributes::Public);
     file.Field(
@@ -86,6 +103,16 @@ fn assert_references(index: &Index, a_namespace: &str, b_namespace: &str, deep_t
     assert_scope(other, b_namespace, &["B"]);
     assert_eq!(other.ty(), Type::value_named(b_namespace, "B"));
     let shared = index.nested(a).next().unwrap();
+    assert_eq!(shared.anonymous_index().unwrap(), None);
+    assert_eq!(
+        index
+            .nested(shared)
+            .next()
+            .unwrap()
+            .anonymous_index()
+            .unwrap(),
+        Some(0)
+    );
     assert_scope(
         shared.fields().next().unwrap(),
         a_namespace,

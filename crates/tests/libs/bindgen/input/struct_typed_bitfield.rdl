@@ -1,0 +1,38 @@
+//! --filter Test.Bits --flat
+#[win32]
+mod Test {
+    struct Bits {
+        #[Windows::Win32::Metadata::NativeBitfield("signed", 0, 4, MemberType = Alias)]
+        #[Windows::Win32::Metadata::NativeBitfield("mode", 4, 3, MemberType = ModeAlias)]
+        #[Windows::Win32::Metadata::NativeBitfield("enabled", 7, 1, MemberType = bool)]
+        storage: u16,
+    }
+    struct Wrapped {
+        Value: i16,
+    }
+    type Alias = Wrapped;
+    #[scoped]
+    #[repr(i16)]
+    enum Mode {
+        Negative = -1,
+        Positive = 1,
+    }
+    type ModeAlias = Mode;
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeBitfieldAttribute {
+                fn(#[in] name: String, #[in] offset: i64, #[in] length: i64);
+                MemberType: Type,
+            }
+            attribute NativeTypedefAttribute {
+                fn();
+            }
+            attribute ScopedEnumAttribute {
+                fn();
+            }
+        }
+    }
+}

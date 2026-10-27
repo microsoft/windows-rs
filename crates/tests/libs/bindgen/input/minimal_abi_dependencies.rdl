@@ -1,0 +1,25 @@
+//! --filter Test.CreateValue --minimal --flat
+#[win32]
+mod Test {
+    #[guid(auto)]
+    interface IValue {
+        fn Get(&self) -> i32;
+    }
+    type Value = IValue;
+    type ValueChain = Value;
+
+    struct Holder {
+        value: ValueChain,
+    }
+
+    #[guid(auto)]
+    interface IConsumer {
+        fn Set(&self, value: ValueChain);
+    }
+
+    #[library("test.dll")]
+    extern fn CreateValue(value: *mut ValueChain);
+
+    #[library("test.dll")]
+    extern fn Get() -> ValueChain;
+}

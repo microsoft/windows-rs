@@ -1,0 +1,12 @@
+#[win32]
+mod Fixture {
+    struct GLOBAL_ITEM {
+        payload: i32,
+    }
+    type GLOBAL_PTR = *mut GLOBAL_ITEM;
+    #[library("fixture.dll")]
+    extern "C" fn Keep(value: *mut GLOBAL_ITEM, node: *mut NODE);
+    struct NODE {
+        next: *mut NODE,
+    }
+}

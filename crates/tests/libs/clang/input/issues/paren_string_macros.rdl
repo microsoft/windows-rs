@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    #[encoding("ansi")]
+    const PAREN_NARROW: String = "Dbg";
+    #[encoding("utf-16")]
+    const PAREN_WIDE: String = "Dbg";
+}

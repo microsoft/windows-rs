@@ -1,0 +1,30 @@
+#[win32]
+mod Fixture {
+    extern "C" fn AliasCallback(value: *const i32, bytes: *mut i8, multi: *mut [i32; 2]);
+    extern "C" fn ArrayCallback(value: *mut i32);
+    #[arch(X64 | Arm64)]
+    struct Arrays {
+        add: [i8; 5],
+        multiply: [i16; 6],
+        conditional: [i32; 2],
+        named: [i32; 3],
+        size: [i32; 5],
+        function: [i32; 5],
+        multi: [[i32; 2]; 3],
+        pointer: *mut [i32; 5],
+    }
+    #[arch(X86)]
+    struct Arrays {
+        add: [i8; 5],
+        multiply: [i16; 6],
+        conditional: [i32; 1],
+        named: [i32; 3],
+        size: [i32; 5],
+        function: [i32; 5],
+        multi: [[i32; 2]; 3],
+        pointer: *mut [i32; 5],
+    }
+    type Computed = [i8; 5];
+    type PointerArray = *mut [i32; 5];
+    type UsingArray = [i32; 4];
+}

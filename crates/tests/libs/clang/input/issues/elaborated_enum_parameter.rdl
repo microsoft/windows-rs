@@ -1,0 +1,10 @@
+#[win32]
+mod Fixture {
+    #[repr(i32)]
+    enum FooEnum {
+        FooA = 0,
+        FooB = 1,
+    }
+    #[library("fixture.dll")]
+    extern fn FooFunction(foo: FooEnum);
+}

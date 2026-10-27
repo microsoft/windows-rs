@@ -1,0 +1,53 @@
+#[win32]
+mod Fixture {
+    struct AlignedArray {
+        tag: i8,
+        #[align(16)]
+        values: [u16; 3],
+        tail: i8,
+    }
+    #[arch(X64 | Arm64)]
+    struct DeviceIoControl {
+        OutputBufferLength: u32,
+        #[align(8)]
+        InputBufferLength: u32,
+        #[align(8)]
+        IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+    #[arch(X86)]
+    struct DeviceIoControl {
+        OutputBufferLength: u32,
+        InputBufferLength: u32,
+        IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+}
+#[win32]
+mod Fixture {
+    #[library("fixture.dll")]
+    extern "C" fn AliasArrayParameter(values: *mut DeviceIoControl);
+    #[library("fixture.dll")]
+    extern "C" fn ArrayParameter(values: *mut DeviceIoControl);
+    #[library("fixture.dll")]
+    extern "C" fn ByPackedPointer(value: *mut PackedWhole);
+    #[library("fixture.dll")]
+    extern "C" fn ByPointer(value: *mut DeviceIoControl);
+    type Items = [DeviceIoControl; 2];
+    #[packed(1)]
+    struct PackedContainer {
+        value: AlignedArray,
+    }
+    #[packed(1)]
+    struct PackedMember {
+        tag: i8,
+        #[align(8)]
+        value: u32,
+    }
+    #[align(16)]
+    #[packed(1)]
+    struct PackedWhole {
+        tag: i8,
+        value: i64,
+    }
+}

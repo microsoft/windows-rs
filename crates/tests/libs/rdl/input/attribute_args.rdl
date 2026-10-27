@@ -1,7 +1,7 @@
 #[win32]
 mod Test {
-    #[repr(u32)]
     #[flags]
+    #[repr(u32)]
     enum Access {
         Read = 1,
         Write = 2,
@@ -12,10 +12,11 @@ mod Test {
         Green = 2,
     }
     attribute CustomAttribute {
-        fn(text: String, color: Color, access: Access);
+        fn(#[in] text: String, #[in] color: Color, #[in] access: Access);
         Version: u32,
     }
     #[Custom("hello", Red, Write | Read, Version = 7)]
+    #[guid(0x99ebb70b_a87e_53cb_8a9f_8c1999eff0ef)]
     interface IThing {
         fn Method(&self) -> i32;
     }

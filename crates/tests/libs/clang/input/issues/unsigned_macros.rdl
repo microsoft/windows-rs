@@ -1,0 +1,7 @@
+#[win32]
+mod Fixture {
+    const U16_CONST: u32 = 8000;
+    const U32_CONST: u32 = 524288836;
+    const U64_CONST: u64 = 2251803404419006464;
+    const U8_CONST: u32 = 31;
+}

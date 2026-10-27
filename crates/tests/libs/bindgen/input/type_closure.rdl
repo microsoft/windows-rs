@@ -5,9 +5,11 @@
 // of collapsing to an opaque `GetInner: usize` vtable slot.
 #[win32]
 mod Test {
+    #[guid(auto)]
     interface IOuter {
         fn GetInner(&self) -> IInner;
     }
+    #[guid(auto)]
     interface IInner {
         fn Value(&self) -> i32;
     }

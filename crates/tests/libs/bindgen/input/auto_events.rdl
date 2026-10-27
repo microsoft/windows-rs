@@ -1,15 +1,18 @@
 //! --filter Test.IFoo --flat --minimal
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IFoo {
         fn Bar(&self) -> i32;
         #[special]
-        fn add_Click(&self, handler: Handler) -> i64;
+        fn add_Click(&self, #[in] handler: Handler) -> i64;
         #[special]
-        fn remove_Click(&self, token: i64);
-        fn SetCompleted(&self, callback: CompletedCallback);
+        fn remove_Click(&self, #[in] token: i64);
+        fn SetCompleted(&self, #[in] callback: CompletedCallback);
     }
 
-    delegate fn Handler(sender: IFoo, args: i32);
-    delegate fn CompletedCallback(result: i32);
+    #[guid(auto)]
+    delegate fn Handler(#[in] sender: IFoo, #[in] args: i32);
+    #[guid(auto)]
+    delegate fn CompletedCallback(#[in] result: i32);
 }

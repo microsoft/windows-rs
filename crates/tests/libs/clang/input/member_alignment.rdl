@@ -1,0 +1,81 @@
+#[win32]
+mod Fixture {
+    struct AlignedArray {
+        tag: i8,
+        #[align(16)]
+        values: [u16; 3],
+        tail: i8,
+    }
+    struct AlignedPointer {
+        tag: i8,
+        #[align(16)]
+        value: *mut void,
+    }
+    union AlignedUnion {
+        #[align(8)]
+        value: u32,
+        bytes: [i8; 3],
+    }
+    struct AlignedValue {
+        #[align(8)]
+        Value: u32,
+    }
+    #[align(16)]
+    struct AlignmentConflict {
+        #[align(8)]
+        value: i8,
+    }
+    struct ArrayContainer {
+        values: [AlignedArray; 2],
+        tail: i8,
+    }
+    #[arch(X64 | Arm64)]
+    struct DeviceIoControl {
+        OutputBufferLength: u32,
+        #[align(8)]
+        InputBufferLength: u32,
+        #[align(8)]
+        IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+    #[arch(X86)]
+    struct DeviceIoControl {
+        OutputBufferLength: u32,
+        InputBufferLength: u32,
+        IoControlCode: u32,
+        Type3InputBuffer: *mut void,
+    }
+    struct FloatGap {
+        first: f32,
+        #[align(8)]
+        second: f32,
+    }
+    struct PaddingName {
+        __padding_1: u32,
+        #[align(8)]
+        value: u32,
+    }
+    struct PointerBefore {
+        first: *mut void,
+        #[align(16)]
+        value: u32,
+    }
+    #[arch(X64 | Arm64)]
+    struct QuerySecurity {
+        SecurityInformation: u32,
+        #[align(8)]
+        Length: u32,
+    }
+    #[arch(X86)]
+    struct QuerySecurity {
+        SecurityInformation: u32,
+        Length: u32,
+    }
+    struct Request {
+        device: DeviceIoControl,
+        security: QuerySecurity,
+    }
+    struct Survivor {
+        value: u32,
+    }
+}

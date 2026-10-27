@@ -1,3 +1,19 @@
+#[inline]
+pub unsafe fn AfterReserved(reserved: Option<usize>) -> windows_core::Result<Struct> {
+    windows_core::link!("test.dll" "system" fn AfterReserved(reserved : usize, result : *mut Struct) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        AfterReserved(reserved.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+    }
+}
+#[inline]
+pub unsafe fn AfterUnknown(value: usize) -> windows_core::Result<Struct> {
+    windows_core::link!("test.dll" "system" fn AfterUnknown(value : usize, result : *mut Struct) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        AfterUnknown(value, &mut result__).map(|| result__)
+    }
+}
 windows_core::imp::define_interface!(Interface, Interface_Vtbl);
 impl Interface {
     pub unsafe fn ResultVoid(&self, value: u32) -> windows_core::HRESULT {
@@ -63,6 +79,118 @@ impl Interface {
                 state as _,
                 result as _,
             )
+        }
+    }
+    pub unsafe fn AfterReserved(&self, reserved: Option<usize>) -> windows_core::Result<Struct> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AfterReserved)(
+                windows_core::Interface::as_raw(self),
+                reserved.unwrap_or(core::mem::zeroed()) as _,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn AfterReservedPointer(
+        &self,
+        reserved: Option<*mut core::ffi::c_void>,
+    ) -> windows_core::Result<Struct> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AfterReservedPointer)(
+                windows_core::Interface::as_raw(self),
+                reserved.unwrap_or(core::mem::zeroed()) as _,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn AfterReservedVoid(&self, reserved: Option<usize>) -> Struct {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AfterReservedVoid)(
+                windows_core::Interface::as_raw(self),
+                reserved.unwrap_or(core::mem::zeroed()) as _,
+                &mut result__,
+            );
+            result__
+        }
+    }
+    pub unsafe fn AfterUnknown(&self, value: usize) -> windows_core::Result<Struct> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AfterUnknown)(
+                windows_core::Interface::as_raw(self),
+                value,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn AfterOptional(&self, value: Option<usize>) -> windows_core::Result<Struct> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AfterOptional)(
+                windows_core::Interface::as_raw(self),
+                value.unwrap_or(core::mem::zeroed()) as _,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn AfterReservedOutput(
+        &self,
+        value: Option<*mut u32>,
+        result: *mut Struct,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).AfterReservedOutput)(
+                windows_core::Interface::as_raw(self),
+                value.unwrap_or(core::mem::zeroed()) as _,
+                result as _,
+            )
+        }
+    }
+    pub unsafe fn AfterReservedInputOutput(
+        &self,
+        value: Option<*mut u32>,
+        result: *mut Struct,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).AfterReservedInputOutput)(
+                windows_core::Interface::as_raw(self),
+                value.unwrap_or(core::mem::zeroed()) as _,
+                result as _,
+            )
+        }
+    }
+    pub unsafe fn AfterReservedArray(
+        &self,
+        value: Option<&[u32; 1]>,
+    ) -> windows_core::Result<Struct> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AfterReservedArray)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute(value.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub unsafe fn AfterReservedResidual(
+        &self,
+        value: Option<*mut u32>,
+    ) -> windows_core::Result<Struct> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).AfterReservedResidual)(
+                windows_core::Interface::as_raw(self),
+                value.unwrap_or(core::mem::zeroed()) as _,
+                &mut result__,
+            )
+            .map(|| result__)
         }
     }
     pub unsafe fn RetvalInputOutput(&self, result: *mut Struct) -> windows_core::HRESULT {
@@ -156,6 +284,47 @@ pub struct Interface_Vtbl {
         *mut u32,
         *mut Struct,
     ) -> windows_core::HRESULT,
+    pub AfterReserved: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        usize,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
+    pub AfterReservedPointer: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
+    pub AfterReservedVoid: unsafe extern "system" fn(*mut core::ffi::c_void, usize, *mut Struct),
+    pub AfterUnknown: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        usize,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
+    pub AfterOptional: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        usize,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
+    pub AfterReservedOutput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
+    pub AfterReservedInputOutput: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
+    pub AfterReservedArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
+    pub AfterReservedResidual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut Struct,
+    ) -> windows_core::HRESULT,
     pub RetvalInputOutput:
         unsafe extern "system" fn(*mut core::ffi::c_void, *mut Struct) -> windows_core::HRESULT,
     pub RetvalOptional:
@@ -188,6 +357,23 @@ pub trait Interface_Impl {
         state: *mut u32,
         result: *mut Struct,
     ) -> windows_core::Result<()>;
+    fn AfterReserved(&self, reserved: usize) -> windows_core::Result<Struct>;
+    fn AfterReservedPointer(
+        &self,
+        reserved: *mut core::ffi::c_void,
+    ) -> windows_core::Result<Struct>;
+    fn AfterReservedVoid(&self, reserved: usize, result: *mut Struct);
+    fn AfterUnknown(&self, value: usize) -> windows_core::Result<Struct>;
+    fn AfterOptional(&self, value: usize) -> windows_core::Result<Struct>;
+    fn AfterReservedOutput(&self, value: *mut u32, result: *mut Struct)
+    -> windows_core::Result<()>;
+    fn AfterReservedInputOutput(
+        &self,
+        value: *mut u32,
+        result: *mut Struct,
+    ) -> windows_core::Result<()>;
+    fn AfterReservedArray(&self, value: *mut u32) -> windows_core::Result<Struct>;
+    fn AfterReservedResidual(&self, value: *mut u32) -> windows_core::Result<Struct>;
     fn RetvalInputOutput(&self, result: *mut Struct) -> windows_core::Result<()>;
     fn RetvalOptional(&self, result: *mut Struct) -> windows_core::Result<()>;
     fn RetvalReserved(&self, result: *mut Struct) -> windows_core::Result<()>;
@@ -290,6 +476,159 @@ impl Interface_Vtbl {
                     core::mem::transmute_copy(&result),
                 )
                 .into()
+            }
+        }
+        unsafe extern "system" fn AfterReserved<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            reserved: usize,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                match Interface_Impl::AfterReserved(this, core::mem::transmute_copy(&reserved)) {
+                    Ok(ok__) => {
+                        result.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn AfterReservedPointer<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            reserved: *mut core::ffi::c_void,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                match Interface_Impl::AfterReservedPointer(
+                    this,
+                    core::mem::transmute_copy(&reserved),
+                ) {
+                    Ok(ok__) => {
+                        result.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn AfterReservedVoid<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            reserved: usize,
+            result: *mut Struct,
+        ) {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                Interface_Impl::AfterReservedVoid(
+                    this,
+                    core::mem::transmute_copy(&reserved),
+                    core::mem::transmute_copy(&result),
+                );
+            }
+        }
+        unsafe extern "system" fn AfterUnknown<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: usize,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                match Interface_Impl::AfterUnknown(this, core::mem::transmute_copy(&value)) {
+                    Ok(ok__) => {
+                        result.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn AfterOptional<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: usize,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                match Interface_Impl::AfterOptional(this, core::mem::transmute_copy(&value)) {
+                    Ok(ok__) => {
+                        result.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn AfterReservedOutput<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut u32,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                Interface_Impl::AfterReservedOutput(
+                    this,
+                    core::mem::transmute_copy(&value),
+                    core::mem::transmute_copy(&result),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn AfterReservedInputOutput<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut u32,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                Interface_Impl::AfterReservedInputOutput(
+                    this,
+                    core::mem::transmute_copy(&value),
+                    core::mem::transmute_copy(&result),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn AfterReservedArray<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut u32,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                match Interface_Impl::AfterReservedArray(this, core::mem::transmute_copy(&value)) {
+                    Ok(ok__) => {
+                        result.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn AfterReservedResidual<Identity: Interface_Impl>(
+            this: *mut core::ffi::c_void,
+            value: *mut u32,
+            result: *mut Struct,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                match Interface_Impl::AfterReservedResidual(this, core::mem::transmute_copy(&value))
+                {
+                    Ok(ok__) => {
+                        result.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
             }
         }
         unsafe extern "system" fn RetvalInputOutput<Identity: Interface_Impl>(
@@ -397,6 +736,15 @@ impl Interface_Vtbl {
             ReturnValue: ReturnValue::<Identity>,
             ExplicitAfterInputOutput: ExplicitAfterInputOutput::<Identity>,
             HeuristicAfterInputOutput: HeuristicAfterInputOutput::<Identity>,
+            AfterReserved: AfterReserved::<Identity>,
+            AfterReservedPointer: AfterReservedPointer::<Identity>,
+            AfterReservedVoid: AfterReservedVoid::<Identity>,
+            AfterUnknown: AfterUnknown::<Identity>,
+            AfterOptional: AfterOptional::<Identity>,
+            AfterReservedOutput: AfterReservedOutput::<Identity>,
+            AfterReservedInputOutput: AfterReservedInputOutput::<Identity>,
+            AfterReservedArray: AfterReservedArray::<Identity>,
+            AfterReservedResidual: AfterReservedResidual::<Identity>,
             RetvalInputOutput: RetvalInputOutput::<Identity>,
             RetvalOptional: RetvalOptional::<Identity>,
             RetvalReserved: RetvalReserved::<Identity>,

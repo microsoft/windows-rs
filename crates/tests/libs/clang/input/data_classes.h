@@ -1,7 +1,11 @@
-//! namespace DataClasses
-//! library api.dll
+// Regression for windows-rs#4932 and the legacy data_classes fixture.
 typedef unsigned long DWORD;
 typedef int BOOL;
+class Property {
+public:
+    unsigned long id;
+    void* value;
+};
 class CProperty {
 public:
     DWORD id;
@@ -14,7 +18,7 @@ public:
 typedef CProperty* LPPROP;
 class IPropertyList {
 public:
-    virtual int Add(CProperty& value) = 0;
+    virtual int __stdcall Add(CProperty& value) = 0;
 };
 class BitmapData {
 public:

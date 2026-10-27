@@ -1,0 +1,21 @@
+#[win32]
+mod Fixture {
+    extern "C" fn AReader(value: Count) -> Count;
+    type Count = u32;
+    type CountAlias = u32;
+    type CountPointer = *mut u32;
+    type Nothing = void;
+    struct PublicNames {
+        elapsed: Seconds,
+        count: Count,
+        values: *const Count,
+        pointer: CountPointer,
+        array: [CountAlias; 2],
+        reader: ZReader,
+        alias: ReaderAlias,
+        context: *mut Nothing,
+    }
+    extern "C" fn ReaderAlias(value: CountAlias) -> Count;
+    type Seconds = f64;
+    extern "C" fn ZReader(value: CountAlias) -> Count;
+}

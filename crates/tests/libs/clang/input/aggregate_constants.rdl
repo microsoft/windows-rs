@@ -1,0 +1,50 @@
+#[win32]
+mod Fixture {
+    #[arch(X64 | Arm64)]
+    #[guid(0x00000008_0000_0000_0000_000000000000)]
+    const ARCH_DEVICE_KEY: DEVPROPKEY = 8;
+    #[arch(X86)]
+    #[guid(0x00000004_0000_0000_0000_000000000000)]
+    const ARCH_DEVICE_KEY: DEVPROPKEY = 4;
+    #[arch(X64 | Arm64)]
+    const ARCH_GUID: GUID = 0x00000008_0000_0000_0000_000000000000;
+    #[arch(X86)]
+    const ARCH_GUID: GUID = 0x00000004_0000_0000_0000_000000000000;
+    #[encoding("ansi")]
+    const ASCII_TEXT: String = "a\0\0\0\0\0\0";
+    const COPIED_GUID: GUID = 0x00000000_0000_0000_0000_000000000000;
+    #[guid(0x12345678_9abc_def0_0102_030405060708)]
+    const DEVICE_KEY: DEVPROPKEY = 4294967295;
+    type DEVPROPID = u32;
+    struct DEVPROPKEY {
+        fmtid: GUID,
+        pid: DEVPROPID,
+    }
+    const FORWARD_GUID: GUID = 0xffffffff_abcd_1234_8001_0203040506ff;
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    const GUID_MACRO: GUID = 0x12345678_0000_0000_0000_000000000000;
+    type IID = GUID;
+    #[Windows::Win32::Metadata::NativeDeprecated("use another key", "")]
+    #[guid(0x12345678_9abc_def0_0102_030405060708)]
+    const KEY: PROPERTYKEY = 42;
+    #[encoding("ansi")]
+    const NARROW_MACRO: String = "macro";
+    struct PROPERTYKEY {
+        fmtid: GUID,
+        pid: u32,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("use next", "")]
+    const SELECTED_GUID: GUID = 0x00000010_0005_0006_0700_000000000000;
+    #[encoding("utf-16")]
+    const UTF16_TEXT: String = "wide";
+    #[encoding("utf-16")]
+    const WIDE_MACRO: String = "wide";
+    #[encoding("utf-16")]
+    const WIDE_TEXT: String = "A😀\0B";
+    const ZERO_GUID: GUID = 0x00000000_0000_0000_0000_000000000000;
+}

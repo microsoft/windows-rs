@@ -1,0 +1,55 @@
+#[win32]
+mod Fixture {
+    type Array = [Word; 2];
+    extern fn Callback(count: SignedWord, fixed: Fixed64) -> Word;
+    type Copy = usize;
+    type CopyStatus = Status;
+    type EnumAlias = NativeEnum;
+    type Fixed32 = u32;
+    type Fixed64 = u64;
+    #[arch(X64 | Arm64)]
+    type Floating = f64;
+    #[arch(X86)]
+    type Floating = f32;
+    struct Holder {
+        word: Word,
+        signed_word: SignedWord,
+        copy: Copy,
+        pointer: Pointer,
+        array: Array,
+        fixed32: Fixed32,
+        fixed64: Fixed64,
+        callback: Callback,
+    }
+    #[arch(X64 | Arm64)]
+    type MixedSignedness = u64;
+    #[arch(X86)]
+    type MixedSignedness = i32;
+    const NEGATIVE: SignedWord = -1;
+    #[arch(X64 | Arm64)]
+    #[repr(u64)]
+    enum NativeEnum {
+        EnumValue = 1,
+    }
+    #[arch(X86)]
+    #[repr(u32)]
+    enum NativeEnum {
+        EnumValue = 1,
+    }
+    const ONE: Word = 1;
+    #[arch(X86)]
+    type Only32 = u32;
+    #[arch(X64 | Arm64)]
+    type Only64 = u64;
+    #[arch(X64)]
+    type OnlyX64 = u64;
+    type Pointer = *mut Word;
+    type SignedWord = isize;
+    #[success(return >= 0)]
+    type Status = isize;
+    type Word = usize;
+    #[arch(X64)]
+    type WrongArm64 = u64;
+    #[arch(X86 | Arm64)]
+    type WrongArm64 = u32;
+}

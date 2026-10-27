@@ -1,0 +1,23 @@
+#[win32]
+mod Fixture {
+    type HRESULT = i32;
+    #[guid(0x981a8ac7_36ca_4b94_a186_a201ed0ed051)]
+    interface IContext {
+        fn Touch(&self);
+    }
+    #[guid(0x981a8ac7_36ca_4b94_a186_a201ed0ed052)]
+    interface ITranslator {
+        fn Mutate(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] context: IContext) -> HRESULT;
+        fn MutateOptional(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_opt_", "", "")] #[in] #[opt] context: IContext) -> HRESULT;
+        fn Fill(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_", "", "")] #[in] context: IContext) -> HRESULT;
+        fn MutateAlias(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] context: LPCONTEXT) -> HRESULT;
+        fn MutateReference(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] context: IContext) -> HRESULT;
+        fn Read(&self, #[in] context: IContext) -> HRESULT;
+        fn Create(&self, #[out] #[out_ptr] context: *mut IContext) -> HRESULT;
+        fn Replace(&self, #[in] #[out] context: *mut IContext) -> HRESULT;
+    }
+    type LPCONTEXT = IContext;
+    extern fn MUTATE_CALLBACK(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] context: IContext) -> HRESULT;
+    #[library("fixture.dll")]
+    extern fn MutateContext(#[Windows::Win32::Metadata::NativeSal("2", "_Inout_", "", "")] #[in] context: IContext, callback: MUTATE_CALLBACK) -> HRESULT;
+}

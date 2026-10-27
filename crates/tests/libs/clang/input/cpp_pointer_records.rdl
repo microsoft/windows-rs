@@ -1,0 +1,26 @@
+#[win32]
+mod Fixture {
+    struct Constructed {
+        value: i32,
+    }
+    struct DerivedEmpty {}
+    struct Empty {}
+    struct EmptyStruct {}
+    struct Forward {}
+    type Handle = Hidden;
+    struct Hidden {}
+    struct Point {
+        x: f32,
+        y: f32,
+    }
+    struct Points {
+        values: [Point; 2],
+    }
+    #[library("fixture.dll")]
+    extern "C" fn ReadPoints(points: *const Points);
+    struct Resource {}
+    #[library("fixture.dll")]
+    extern "C" fn UseConstructed(value: Constructed);
+    #[library("fixture.dll")]
+    extern "C" fn UseHandles(param0: *mut Empty, param1: *mut EmptyStruct, param2: *mut DerivedEmpty, param3: *mut Forward, param4: *mut Handle, param5: *mut Resource);
+}

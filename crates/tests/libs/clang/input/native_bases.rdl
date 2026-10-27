@@ -1,0 +1,33 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct Combined {
+            #[Windows::Win32::Metadata::NativeBase]
+            base0: Primary,
+            #[Windows::Win32::Metadata::NativeBase]
+            base1: IUnknown,
+        }
+        struct GUID {
+            Data1: u32,
+            Data2: u16,
+            Data3: u16,
+            Data4: [u8; 8],
+        }
+        #[guid(0x00000000_0000_0000_c000_000000000046)]
+        interface IUnknown {
+            fn QueryInterface(&self, iid: &GUID, result: *mut *mut void) -> i32;
+            fn AddRef(&self) -> u32;
+            fn Release(&self) -> u32;
+        }
+        #[packed(1)]
+        struct PackedCombined {
+            #[Windows::Win32::Metadata::NativeBase]
+            base0: Primary,
+            #[Windows::Win32::Metadata::NativeBase]
+            base1: IUnknown,
+        }
+        interface Primary {
+            fn Read(&self, value: u32) -> u32;
+        }
+    }
+}

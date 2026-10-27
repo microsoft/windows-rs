@@ -1,0 +1,39 @@
+#[win32]
+mod Fixture {
+    #[Windows::Win32::Metadata::NativeDeprecated("old interface", "")]
+    #[guid(0x12345678_1234_5678_1234_567812345681)]
+    interface ILegacy {
+        #[Windows::Win32::Metadata::NativeDeprecated("old method", "")]
+        fn Use(&self, value: i32) -> i32;
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("old callback", "")]
+    extern "C" fn LegacyCallback(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("", "")]
+    const LegacyConstant: i32 = 7;
+    #[Windows::Win32::Metadata::NativeDeprecated("old record", "")]
+    struct LegacyRecord {
+        value: i32,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("old anonymous", "")]
+    const LegacyValue: i32 = 4;
+    #[repr(i32)]
+    #[scoped]
+    enum Mode {
+        #[Windows::Win32::Metadata::NativeDeprecated("old mode", "")]
+        Old = 1,
+        Current = 2,
+    }
+    #[Windows::Win32::Metadata::NativeDeprecated("old function", "")]
+    #[library("example.dll")]
+    extern fn NativeSum(value: i32) -> i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("old count", "NewCount")]
+    type OldCount = i32;
+    #[Windows::Win32::Metadata::NativeDeprecated("old typedef", "", TypedefName = "Owned")]
+    struct Owned {
+        value: i32,
+    }
+    struct Uses {
+        #[Windows::Win32::Metadata::NativeDeprecated("use \"new\"\nnext", "")]
+        value: i32,
+    }
+}

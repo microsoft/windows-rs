@@ -20,7 +20,7 @@ mod Test {
     }
 
     #[library("test.dll")]
-    extern fn UseMatrix(matrix: *const Windows::Win32::dcommon::D2D1_MATRIX_3X2_F);
+    extern fn UseMatrix(#[in] matrix: *const Windows::Win32::dcommon::D2D1_MATRIX_3X2_F);
 }
 
 #[win32]

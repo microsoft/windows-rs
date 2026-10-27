@@ -15,17 +15,19 @@ mod MappedTypes {
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidget {
         // The 100-nanosecond intervals since 1601-01-01 UTC, and since `TimeSpan` zero.
-        fn Ticks(&self, time: DateTime) -> i64;
-        fn Duration(&self, span: TimeSpan) -> i64;
-        fn Add(&self, time: DateTime, span: TimeSpan) -> DateTime;
+        fn Ticks(&self, #[in] time: DateTime) -> i64;
+        fn Duration(&self, #[in] span: TimeSpan) -> i64;
+        fn Add(&self, #[in] time: DateTime, #[in] span: TimeSpan) -> DateTime;
 
-        fn Host(&self, uri: Uri) -> String;
-        fn CreateUri(&self, value: String) -> Uri;
+        fn Host(&self, #[in] uri: Uri) -> String;
+        fn CreateUri(&self, #[in] value: String) -> Uri;
     }
 
     #[ExclusiveTo(Widget)]
+    #[guid(auto)]
     interface IWidgetStatics {
         // The number of times `Close` was called on any widget.
         #[get]

@@ -1,9 +1,0 @@
-#[win32]
-mod Recursive {
-    struct LEFT {
-        right: *mut RIGHT,
-    }
-    struct RIGHT {
-        left: *mut LEFT,
-    }
-}

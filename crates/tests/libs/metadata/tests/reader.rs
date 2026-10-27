@@ -58,7 +58,14 @@ fn array() {
 
     let field = def.fields().find(|field| field.name() == "Value").unwrap();
 
-    assert_eq!(field.ty(), Type::ArrayFixed(Box::new(Type::U8), 6));
+    assert_eq!(
+        field.ty(),
+        Type::ArrayFixed(Box::new(Type::value_named("Windows.Win32", "BYTE")), 6)
+    );
+    assert_eq!(
+        index.expect("Windows.Win32", "BYTE").underlying_type(),
+        Some(Type::U8)
+    );
 }
 
 #[test]

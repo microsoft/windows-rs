@@ -1,5 +1,6 @@
 #[winrt]
 mod Test {
+    #[guid(0xfe352eb8_7c4c_5021_979b_1a8a3d238244)]
     interface IWidget {
         fn Name(&self) -> String;
     }

@@ -3,10 +3,11 @@ mod Test {
     struct CharValue {
         Value: Char16,
     }
+    #[guid(0xee4bf571_95df_5e1f_accb_56290eff94da)]
     interface ICharTest {
         fn GetChar(&self) -> Char16;
-        fn SetChar(&self, value: Char16);
-        fn GetCharArray(&self, value: &mut [Char16]);
-        fn CreateCharArray(&self, value: [Char16]) -> Object;
+        fn SetChar(&self, #[in] value: Char16);
+        fn GetCharArray(&self, #[out] value: &mut [Char16]);
+        fn CreateCharArray(&self, #[in] value: [Char16]) -> Object;
     }
 }

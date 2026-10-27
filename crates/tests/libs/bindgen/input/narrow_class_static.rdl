@@ -4,10 +4,10 @@ mod Windows {
     mod Foundation {
         mod Metadata {
             attribute ActivatableAttribute {
-                fn(r#type: Type, version: u32);
+                fn(#[in] r#type: Type, #[in] version: u32);
             }
             attribute StaticAttribute {
-                fn(r#type: Type, version: u32);
+                fn(#[in] r#type: Type, #[in] version: u32);
             }
         }
     }
@@ -19,13 +19,16 @@ mod Test {
     class Widget {
         IWidget,
     }
+    #[guid(auto)]
     interface IWidget {
         fn Read(&self) -> i32;
     }
+    #[guid(auto)]
     interface IWidgetFactory {
-        fn Create(&self, value: i32) -> Widget;
+        fn Create(&self, #[in] value: i32) -> Widget;
         fn Unused(&self) -> Widget;
     }
+    #[guid(auto)]
     interface IWidgetStatics {
         fn GetDefault(&self) -> Widget;
     }

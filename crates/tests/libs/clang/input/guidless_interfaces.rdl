@@ -1,0 +1,17 @@
+#[win32]
+mod Fixture {
+    interface Bare {
+        fn Read(&self, value: u32) -> i32;
+        fn Reset(&self);
+    }
+    type BareAlias = Bare;
+    interface Extended: Bare {
+        fn Scale(&self, value: i32) -> i32;
+    }
+    struct Holder {
+        item: Bare,
+        inherited: Inherited,
+        slot: *const Bare,
+    }
+    interface Inherited: Extended {}
+}

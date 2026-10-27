@@ -1,0 +1,42 @@
+#[win32]
+mod Fixture {
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}
+#[win32]
+mod Fixture {
+    type DWORD = u32;
+    #[success(return >= 0)]
+    type HRESULT = i32;
+    type UINT32 = u32;
+    type ULONG = u32;
+}
+#[win32]
+mod Fixture {
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, #[in] riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvObject: *mut *mut void) -> HRESULT;
+        fn AddRef(&self) -> ULONG;
+        fn Release(&self) -> ULONG;
+    }
+}
+#[win32]
+mod Fixture {
+    #[guid(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6)]
+    interface IXAudio2Extension: IUnknown {
+        #[override_slot(0)]
+        fn QueryInterface(&self, riid: &IID, #[iid_is] #[out] #[out_ptr(null_on_failure)] ppvInterface: *mut *mut void) -> HRESULT;
+        #[override_slot(1)]
+        fn AddRef(&self) -> ULONG;
+        #[override_slot(2)]
+        fn Release(&self) -> ULONG;
+        fn GetProcessingQuantum(&self, #[out] quantumNumerator: *mut UINT32, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] quantumDenominator: *mut UINT32);
+        fn GetProcessor(&self, #[Windows::Win32::Metadata::NativeSal("2", "_Out_range_", "!=,0", "!=,0")] processor: *mut XAUDIO2_PROCESSOR);
+    }
+    type XAUDIO2_PROCESSOR = u32;
+}

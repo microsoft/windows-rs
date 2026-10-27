@@ -1,5 +1,6 @@
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IInterface {
         event Changed: i32;
     }

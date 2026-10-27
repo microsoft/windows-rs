@@ -1,0 +1,52 @@
+#[win32]
+mod Fixture {
+    struct Color {
+        struct Value {
+            value: i32,
+        }
+        const Red: i32 = -65536;
+        const Blue: i32 = -16776961;
+    }
+    #[arch(X64 | Arm64)]
+    struct Palette {
+        #[repr(u32)]
+        enum Channel {
+            Red = 1,
+            Green = 2,
+        }
+        #[repr(u16)]
+        #[scoped]
+        enum Mode {
+            Normal = 0,
+            Other = 1,
+        }
+        channel: Palette::Channel,
+        const Blue: i32 = -16776961;
+        const AliceBlue: i32 = -984833;
+        const Shift: i32 = 24;
+        const Width: i32 = 8;
+    }
+    #[arch(X86)]
+    struct Palette {
+        #[repr(u32)]
+        enum Channel {
+            Red = 1,
+            Green = 2,
+        }
+        #[repr(u16)]
+        #[scoped]
+        enum Mode {
+            Normal = 0,
+            Other = 1,
+        }
+        channel: Palette::Channel,
+        const Blue: i32 = -16776961;
+        const AliceBlue: i32 = -984833;
+        const Shift: i32 = 24;
+        const Width: i32 = 4;
+    }
+    #[library("fixture.dll")]
+    extern "C" fn UseChannel(value: Palette::Channel);
+    #[library("fixture.dll")]
+    extern "C" fn UsePalette(value: *mut Palette);
+}

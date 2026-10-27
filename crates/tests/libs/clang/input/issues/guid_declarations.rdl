@@ -1,0 +1,16 @@
+#[win32]
+mod Fixture {
+    const CLSID_DxcLibrary: GUID = 0x6245d6af_66e0_48fd_80b4_4d271796748c;
+    const MF_PD_APP_CONTEXT: GUID = 0x6c990d32_bb8e_477a_8598_0d5d96fcd88a;
+}
+#[win32]
+mod Fixture {
+    type CLSID = GUID;
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    type IID = GUID;
+}

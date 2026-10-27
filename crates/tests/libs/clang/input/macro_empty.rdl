@@ -1,0 +1,6 @@
+#[win32]
+mod Fixture {
+    const REPLACED: i32 = 42;
+    const SPACED: i32 = 6;
+    const ZERO: i32 = 0;
+}

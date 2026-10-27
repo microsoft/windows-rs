@@ -56,7 +56,9 @@ fn interop() -> Result<()> {
     unsafe {
         let b: BSTR = "hello".into();
         SysAddRefString(&b).ok()?;
-        SysFreeString(&b);
+        // Release the added reference without consuming the original owner.
+        SysFreeString(BSTR::from_raw(b.as_ptr()));
+        assert_eq!(b, "hello");
         Ok(())
     }
 }

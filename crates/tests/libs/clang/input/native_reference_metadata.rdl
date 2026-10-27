@@ -1,0 +1,13 @@
+#[win32]
+mod External {
+    mod Native {
+        #[guid(0xc95a92fe_21e9_41bf_8c43_4ac63a6afc41)]
+        interface IBase {
+            fn Base(&self, value: *mut i32) -> i32;
+        }
+        #[guid(0xc95a92fe_21e9_41bf_8c43_4ac63a6afc42)]
+        interface IForeign: IBase {
+            fn Foreign(&self, value: *mut *mut u8) -> i32;
+        }
+    }
+}

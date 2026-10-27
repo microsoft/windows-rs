@@ -1,0 +1,9 @@
+#[win32]
+mod Fixture {
+    const DOBJ_CUSTOMOCX: LPDATAOBJECT = -1;
+    const DOBJ_CUSTOMWEB: LPDATAOBJECT = -2;
+    const DOBJ_NULL: LPDATAOBJECT = 0;
+    struct IDataObject {}
+    type LPDATAOBJECT = *mut IDataObject;
+    const TEXT_CALLBACK: *mut i8 = -1;
+}

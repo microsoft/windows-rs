@@ -10,7 +10,8 @@ mod Test {
         First = 0,
         Second = 1,
     }
+    #[guid(auto)]
     interface Interface {
-        fn Method(&self, value: Struct) -> Enum;
+        fn Method(&self, #[in] value: Struct) -> Enum;
     }
 }

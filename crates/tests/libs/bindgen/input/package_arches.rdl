@@ -1,0 +1,83 @@
+//! --filter Windows.Win32
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod native {
+            #[arch(X86)]
+            #[library("user32.dll", import = "GetWindowLongA")]
+            extern fn GetWindowLongPtrA() -> i32;
+            #[arch(X64 | Arm64)]
+            #[library("user32.dll")]
+            extern fn GetWindowLongPtrA() -> isize;
+            #[arch(X86)]
+            #[library("user32.dll", import = "GetWindowLongW")]
+            extern fn GetWindowLongPtrW() -> i32;
+            #[arch(X64 | Arm64)]
+            #[library("user32.dll")]
+            extern fn GetWindowLongPtrW() -> isize;
+            #[arch(X86)]
+            #[library("user32.dll", import = "SetWindowLongA")]
+            extern fn SetWindowLongPtrA() -> i32;
+            #[arch(X64 | Arm64)]
+            #[library("user32.dll")]
+            extern fn SetWindowLongPtrA() -> isize;
+            #[arch(X86)]
+            #[library("user32.dll", import = "SetWindowLongW")]
+            extern fn SetWindowLongPtrW() -> i32;
+            #[arch(X64 | Arm64)]
+            #[library("user32.dll")]
+            extern fn SetWindowLongPtrW() -> isize;
+        }
+        mod complete {
+            #[arch(X86)]
+            type CompleteValue = i32;
+            #[arch(X64 | Arm64)]
+            type CompleteValue = isize;
+            #[library("user32.dll")]
+            extern fn GetWindowLongPtrW() -> CompleteValue;
+        }
+        mod legacy {
+            #[arch(X64 | Arm64)]
+            const LEGACY: u32 = 1;
+            #[arch(X86)]
+            #[library("user32.dll")]
+            extern fn GetWindowLongA() -> i32;
+            #[arch(X64 | Arm64)]
+            #[library("user32.dll")]
+            extern fn GetWindowLongPtrA() -> isize;
+        }
+        mod split_legacy {
+            #[arch(X64 | Arm64)]
+            const SPLIT: u32 = 2;
+            #[arch(X86)]
+            #[library("user32.dll")]
+            extern fn SetWindowLongW() -> i32;
+            #[arch(X64)]
+            #[library("user32.dll")]
+            extern fn SetWindowLongPtrW() -> isize;
+            #[arch(Arm64)]
+            #[library("user32.dll")]
+            extern fn SetWindowLongPtrW() -> isize;
+        }
+        mod wide {
+            #[arch(X64 | Arm64)]
+            struct Wide { value: u64, }
+        }
+        mod narrow {
+            #[arch(X86)]
+            struct Narrow { value: u32, }
+        }
+        mod constants {
+            #[arch(Arm64)]
+            const ARM: u32 = 3;
+        }
+        mod combined {
+            #[arch(X86)]
+            const X86: u32 = 1;
+            #[arch(X64)]
+            const X64: u32 = 2;
+            #[arch(Arm64)]
+            const ARM64: u32 = 4;
+        }
+    }
+}

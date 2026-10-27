@@ -1,6 +1,8 @@
 #[winrt]
 mod Test {
+    #[guid(auto)]
     interface IBase {}
+    #[guid(auto)]
     interface IDerived {}
     class Base {
         IBase,

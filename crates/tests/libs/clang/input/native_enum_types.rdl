@@ -1,0 +1,15 @@
+#[win32]
+mod Fixture {
+    #[library("example.dll")]
+    extern fn BufferFunction(flags: Options);
+    type DWORD = u32;
+    const ENUM_VALUE: _Options = -1;
+    const INTEGER_VALUE: Options = 4294967295;
+    type Options = u32;
+    #[repr(i32)]
+    enum _Options {
+        OPTION_NONE = 0,
+        OPTION_HIGH = -2147483648,
+        OPTION_ALL = -1,
+    }
+}

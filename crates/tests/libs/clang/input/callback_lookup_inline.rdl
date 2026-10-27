@@ -1,0 +1,16 @@
+#[win32]
+mod Fixture {
+    struct CallbackArgument {
+        value: i32,
+    }
+    struct CallbackUses {
+        scalar: extern "C" fn(i32),
+        record: extern "C" fn(*mut CallbackArgument),
+        other: extern "C" fn(*mut OtherArgument),
+        nested: extern "C" fn(extern "C" fn(i32)),
+        pair: extern "C" fn(i32, i32),
+    }
+    struct OtherArgument {
+        value: i32,
+    }
+}

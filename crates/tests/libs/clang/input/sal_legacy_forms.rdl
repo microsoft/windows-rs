@@ -1,0 +1,16 @@
+#[win32]
+mod Fixture {
+    extern "C" fn DerefOptOut(#[opt] #[out] #[out_ptr] value: *mut *mut i32) -> i32;
+    extern "C" fn DerefOptOutOpt(#[opt] #[out] #[out_ptr(nullable)] value: *mut *mut i32) -> i32;
+    extern "C" fn DerefOut(#[out] #[out_ptr] value: *mut *mut i32) -> i32;
+    extern "C" fn DerefOutOpt(#[out] #[out_ptr(nullable)] value: *mut *mut i32) -> i32;
+    extern "C" fn InByteCount(#[in] #[readable(entry, bytes(count))] values: *const void, count: u32);
+    extern "C" fn InCount(#[in] #[readable(entry, count)] values: *const i32, count: u32);
+    extern "C" fn InOptByteCount(#[in] #[opt] #[readable(entry, bytes(count))] values: *const void, count: u32);
+    extern "C" fn InOptCount(#[in] #[opt] #[readable(entry, count)] values: *const i32, count: u32);
+    extern "C" fn NullOnFailure(#[out] #[out_ptr(nullable, null_on_failure)] value: *mut *mut i32) -> i32;
+    extern "C" fn NullOnFailureWithoutPointer(#[Windows::Win32::Metadata::NativeSal("2", "_Result_nullonfailure_", "", "")] #[out] value: *mut *mut i32) -> i32;
+    extern "C" fn OutCapPostCount(#[out] #[readable(success, *written)] #[writable(entry, capacity)] values: *mut i32, capacity: u32, written: *mut u32);
+    extern "C" fn OutOptByteCapPostByteCount(#[opt] #[out] #[readable(success, bytes(*written))] #[writable(entry, bytes(capacity))] values: *mut void, capacity: u32, written: *mut u32);
+    extern "C" fn OutOptCapPostCount(#[opt] #[out] #[readable(success, *written)] #[writable(entry, capacity)] values: *mut i32, capacity: u32, written: *mut u32);
+}

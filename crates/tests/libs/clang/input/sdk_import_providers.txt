@@ -1,0 +1,8 @@
+# Observed named code imports in SDK 10.0.28000.2270, not provider-change approvals.
+# Mask: X86=1, X64=2, Arm64=4. Libraries follow the driver's selection order.
+6 RtlCompareMemory kernel32.dll
+2 RtlRaiseException kernel32.dll
+6 RtlRestoreContext kernel32.dll
+7 RtlCompareMemory ntdll.dll
+7 RtlRaiseException ntdll.dll
+7 RtlRestoreContext ntdll.dll

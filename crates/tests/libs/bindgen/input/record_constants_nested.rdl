@@ -1,0 +1,57 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    struct Wrapper {
+        Value: i32,
+        #[repr(i32)]
+        enum Kind {
+            One = 1,
+        }
+    }
+    struct Consumer {
+        kind: Wrapper::Kind,
+        state: Holder::E,
+    }
+    struct Holder {
+        #[repr(u32)]
+        #[scoped]
+        enum E {
+            One = 1,
+        }
+        const Value: Holder::E = 1;
+    }
+    struct Outer {
+        data: i32,
+        #[arch(X64)]
+        #[repr(i32)]
+        enum E {
+            Enabled = 1,
+        }
+        #[arch(X64)]
+        #[repr(u32)]
+        #[scoped]
+        #[flags]
+        enum Mode {
+            Read = 1,
+            Write = 2,
+        }
+        #[arch(X64)]
+        const Default: Outer::Mode = 1;
+    }
+    #[arch(X86)]
+    struct ArchHolder {
+        #[repr(i32)]
+        enum E {
+            First = -1,
+        }
+        const Value: ArchHolder::E = -1;
+    }
+    #[arch(X64 | Arm64)]
+    struct ArchHolder {
+        #[repr(u32)]
+        enum E {
+            First = 4294967295,
+        }
+        const Value: ArchHolder::E = 4294967295;
+    }
+}

@@ -2,14 +2,14 @@
 #[win32]
 mod Test {
     #[library("test.dll")]
-    extern "system" fn VariadicFunc(count: u32, ...) -> u32;
+    extern "system" fn VariadicFunc(#[in] count: u32, ...) -> u32;
 
     #[library("test.dll")]
-    extern "C" fn VariadicC(count: u32, ...) -> u32;
+    extern "C" fn VariadicC(#[in] count: u32, ...) -> u32;
 
     #[library("test.dll")]
-    extern "fastcall" fn VariadicFastcall(count: u32, ...) -> u32;
+    extern "fastcall" fn VariadicFastcall(#[in] count: u32, ...) -> u32;
 
     #[library("test.dll")]
-    extern fn Fixed(count: u32) -> u32;
+    extern fn Fixed(#[in] count: u32) -> u32;
 }

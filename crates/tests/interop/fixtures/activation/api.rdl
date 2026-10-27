@@ -9,6 +9,7 @@ mod Activation {
     }
 
     #[ExclusiveTo(Missing)]
+    #[guid(auto)]
     interface IMissing {
         #[get]
         Value: i32;
@@ -18,6 +19,7 @@ mod Activation {
     class Settings {}
 
     #[ExclusiveTo(Settings)]
+    #[guid(auto)]
     interface ISettingsStatics {
         #[get]
         Version: i32;
@@ -31,6 +33,7 @@ mod Activation {
         }
 
         #[ExclusiveTo(Widget)]
+        #[guid(auto)]
         interface IWidget {
             #[get]
             Value: i32;

@@ -40,12 +40,12 @@ fn arch_survives_winmd_rdl_roundtrip() {
     let x64 = winmd(
         &dir,
         "x64",
-        "#[win32] mod Test { struct CTX { a: i32, b: i32 } type AL = i32; extern \"C\" fn CB(a: i64) -> i32; const X64_ONLY: i32 = 1; const CTX_ALL: i32 = 100; }",
+        "#[win32] mod Test { struct CTX { a: i32, b: i32 } type AL = i32; extern \"C\" fn CB(#[in] a: i64) -> i32; const X64_ONLY: i32 = 1; const CTX_ALL: i32 = 100; }",
     );
     let arm = winmd(
         &dir,
         "arm",
-        "#[win32] mod Test { struct CTX { x: i32 } type AL = i64; extern \"C\" fn CB(a: i32) -> i32; const ARM_ONLY: i32 = 2; const CTX_ALL: i32 = 200; }",
+        "#[win32] mod Test { struct CTX { x: i32 } type AL = i64; extern \"C\" fn CB(#[in] a: i32) -> i32; const ARM_ONLY: i32 = 2; const CTX_ALL: i32 = 200; }",
     );
 
     let merged = dir.join("merged.winmd");
