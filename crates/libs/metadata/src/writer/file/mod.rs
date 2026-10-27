@@ -432,6 +432,12 @@ impl File {
         }))
     }
 
+    fn IsConst(&mut self, buffer: &mut Vec<u8>) {
+        buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
+        let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
+        buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+    }
+
     /// Encodes a class or interface reference, using a `TypeSpec` for generic instances.
     fn ClassTypeDefOrRef(&mut self, ty: &TypeName) -> TypeDefOrRef {
         if ty.generics.is_empty() {
@@ -473,31 +479,39 @@ impl File {
             }
 
             Type::RefConst(ty) => {
-                buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
-                let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
-                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                self.IsConst(buffer);
                 buffer.push(ELEMENT_TYPE_BYREF);
                 self.Type(ty, buffer);
             }
 
-            Type::PtrMut(ty, pointers) => {
-                for _ in 0..*pointers {
-                    buffer.write_compressed(ELEMENT_TYPE_PTR as usize);
+            Type::PtrMut(..) | Type::PtrConst(..) => {
+                let mut inner = ty;
+                let mut pointers = Vec::new();
+                while let Type::PtrMut(next, count) | Type::PtrConst(next, count) = inner {
+                    let constant = matches!(inner, Type::PtrConst(..));
+                    pointers.extend(std::iter::repeat_n(constant, *count));
+                    inner = next;
+                }
+                let constant = pointers[0];
+                if pointers.iter().all(|value| *value == constant) {
+                    // Homogeneous runs keep the leading-modifier encoding.
+                    if constant {
+                        self.IsConst(buffer);
+                    }
+                    for _ in pointers {
+                        buffer.push(ELEMENT_TYPE_PTR);
+                    }
+                } else {
+                    // ECMA-335 II.23.2.12 permits modifiers after each PTR.
+                    for constant in pointers {
+                        buffer.push(ELEMENT_TYPE_PTR);
+                        if constant {
+                            self.IsConst(buffer);
+                        }
+                    }
                 }
 
-                self.Type(ty, buffer);
-            }
-
-            Type::PtrConst(ty, pointers) => {
-                buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
-                let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
-                buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
-
-                for _ in 0..*pointers {
-                    buffer.write_compressed(ELEMENT_TYPE_PTR as usize);
-                }
-
-                self.Type(ty, buffer);
+                self.Type(inner, buffer);
             }
 
             Type::ArrayFixed(ty, len) => {
