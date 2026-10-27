@@ -64,7 +64,7 @@ fn function_pointer_signatures() {
 
 #[test]
 fn function_pointer_merge_and_remap() {
-    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..\\target");
+    let root = std::path::Path::new(env!("CARGO_TARGET_TMPDIR"));
     let source = root.join("test-metadata-function-pointers-source.winmd");
     let other = root.join("test-metadata-function-pointers-other.winmd");
     let merged = root.join("test-metadata-function-pointers-merged.winmd");

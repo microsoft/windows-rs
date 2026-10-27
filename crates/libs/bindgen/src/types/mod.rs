@@ -144,7 +144,7 @@ impl Type {
     /// Collects sys ABI dependencies without projected interfaces, which sys signatures erase to
     /// raw pointers.
     pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
         if let Self::FnPtr(signature) = ty {
             for ty in signature.types() {
@@ -800,6 +800,18 @@ impl Type {
         }
     }
 
+    pub fn dependency_type(&self) -> &Self {
+        match self {
+            Self::PtrMut(ty, _)
+            | Self::PtrConst(ty, _)
+            | Self::Array(ty)
+            | Self::ArrayRef(ty)
+            | Self::ConstRef(ty)
+            | Self::ArrayFixed(ty, _) => ty.dependency_type(),
+            _ => self,
+        }
+    }
+
     pub fn decay(&self) -> &Self {
         match self {
             Self::PtrMut(ty, _)
@@ -1223,7 +1235,7 @@ impl Type {
 
 impl Dependencies for Type {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
         if let Self::FnPtr(signature) = ty {
             for ty in signature.types() {

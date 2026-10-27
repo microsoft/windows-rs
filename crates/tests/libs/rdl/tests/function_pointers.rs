@@ -1,53 +1,6 @@
 use windows_metadata::*;
 
 #[test]
-fn unsupported_function_pointers() {
-    for (index, (ty, message)) in [
-        ("fn(i32)", "requires an extern ABI"),
-        ("extern \"fastcall\" fn(i32)", "ABI is unsupported"),
-        ("unsafe extern \"C\" fn(i32)", "qualified or variadic"),
-        ("for<'a> extern \"C\" fn(&'a i32)", "qualified or variadic"),
-        ("extern \"C\" fn(i32, ...)", "qualified or variadic"),
-        ("extern \"C\" fn(value: i32)", "unnamed and unattributed"),
-        (
-            "extern \"C\" fn(#[optional] i32)",
-            "unnamed and unattributed",
-        ),
-        ("extern \"C\" fn(void)", "parameter cannot be void"),
-    ]
-    .into_iter()
-    .enumerate()
-    {
-        let error = windows_rdl::reader()
-            .input_text(&format!(
-                "#[win32] mod Test {{ struct S {{ callback: {ty} }} }}"
-            ))
-            .output(std::path::Path::new(env!("OUT_DIR")).join(format!("bad-fnptr-{index}.winmd")))
-            .write()
-            .unwrap_err();
-        assert!(error.message.contains(message), "{ty}: {error}");
-    }
-    for (index, ty) in ["extern \"C\" fn()", "*mut extern fn()", "[extern fn(); 2]"]
-        .into_iter()
-        .enumerate()
-    {
-        let error = windows_rdl::reader()
-            .input_text(&format!(
-                "#[winrt] mod Test {{ struct S {{ callback: {ty} }} }}"
-            ))
-            .output(
-                std::path::Path::new(env!("OUT_DIR")).join(format!("winrt-fnptr-{index}.winmd")),
-            )
-            .write()
-            .unwrap_err();
-        assert!(
-            error.message.contains("function pointers require Win32"),
-            "{error}"
-        );
-    }
-}
-
-#[test]
 fn unsupported_imported_signatures() {
     for flags in [
         MethodCallAttributes::HASTHIS,
@@ -86,13 +39,16 @@ fn nested_function_pointer_references() {
     let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
     let flags = TypeAttributes::SequentialLayout | TypeAttributes::Sealed;
     let outer = file.TypeDef("Test", "Outer", base, flags | TypeAttributes::Public);
-    let inner = Type::PtrMut(Box::new(Type::value_named("Test", "Outer/Inner")), 1);
+    let inner = Type::value_named("Test", "Outer/Inner");
     file.Field(
         "callback",
         &Type::FnPtr(Box::new(Signature {
             flags: MethodCallAttributes::C,
-            return_type: inner.clone(),
-            types: vec![inner],
+            return_type: Type::PtrMut(Box::new(inner.clone()), 1),
+            types: vec![
+                Type::RefConst(Box::new(inner.clone())),
+                Type::RefMut(Box::new(inner)),
+            ],
         })),
         FieldAttributes::Public,
     );
@@ -107,7 +63,7 @@ fn nested_function_pointer_references() {
         .unwrap();
     assert_eq!(
         std::fs::read_to_string(&rdl).unwrap(),
-        "#[win32]\nmod Test {\n    struct Outer {\n        callback: extern \"C\" fn(*mut Outer_0) -> *mut Outer_0,\n    }\n    struct Outer_0 {\n        value: i32,\n    }\n}\n"
+        "#[win32]\nmod Test {\n    struct Outer {\n        callback: extern \"C\" fn(&Outer_0, &mut Outer_0) -> *mut Outer_0,\n    }\n    struct Outer_0 {\n        value: i32,\n    }\n}\n"
     );
     windows_rdl::reader()
         .input(&rdl)
@@ -118,9 +74,16 @@ fn nested_function_pointer_references() {
     let Type::FnPtr(signature) = index.expect("Test", "Outer").fields().next().unwrap().ty() else {
         panic!();
     };
-    assert_eq!(signature.return_type, signature.types[0]);
+    let record = Type::value_named("Test", "Outer_0");
     assert_eq!(
         signature.return_type,
-        Type::PtrMut(Box::new(Type::value_named("Test", "Outer_0")), 1)
+        Type::PtrMut(Box::new(record.clone()), 1)
+    );
+    assert_eq!(
+        signature.types,
+        [
+            Type::RefConst(Box::new(record.clone())),
+            Type::RefMut(Box::new(record))
+        ]
     );
 }

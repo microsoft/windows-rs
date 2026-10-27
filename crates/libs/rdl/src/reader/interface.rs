@@ -185,6 +185,9 @@ impl Encoder<'_> {
             if !matches!(&ty, metadata::Type::ClassName(_)) {
                 return self.err(require, "interface base must resolve to an interface type");
             }
+            if item.winrt {
+                self.validate_type_is_winrt(require, &ty)?;
+            }
             self.output.InterfaceImpl(interface, &ty);
         }
 
@@ -327,6 +330,9 @@ impl Encoder<'_> {
                     }
 
                     let ty = self.encode_type(&prop.ty)?;
+                    if item.winrt {
+                        self.validate_type_is_winrt(&prop.ty, &ty)?;
+                    }
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;
 
                     let mut get_method = None;
@@ -412,6 +418,9 @@ impl Encoder<'_> {
                     let handler_ty = self.encode_type(&evt.handler_ty)?;
                     if !matches!(handler_ty, metadata::Type::ClassName(_)) {
                         return self.err(&evt.handler_ty, "event handler must be a delegate type");
+                    }
+                    if item.winrt {
+                        self.validate_type_is_winrt(&evt.handler_ty, &handler_ty)?;
                     }
                     let token_ty = event_token();
                     let method_flags = base_flags | metadata::MethodAttributes::SpecialName;

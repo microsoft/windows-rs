@@ -16,6 +16,7 @@ pub struct Callbacks {
             Option<unsafe extern "system" fn(i32)>,
         ) -> Option<unsafe extern "C" fn() -> Record>,
     >,
+    pub nested: Option<unsafe extern "system" fn(*const *const Point, *mut [Size; 2])>,
 }
 impl Default for Callbacks {
     fn default() -> Self {
@@ -24,6 +25,16 @@ impl Default for Callbacks {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Point {
+    pub x: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Record {
     pub value: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Size {
+    pub cx: i32,
 }

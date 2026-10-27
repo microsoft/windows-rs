@@ -1,0 +1,7 @@
+#[winrt]
+mod Test {
+    delegate fn Handler<T>(sender: Object, args: T);
+    interface IA {
+        event Changed: Handler<extern fn()>;
+    }
+}

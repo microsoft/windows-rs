@@ -1,0 +1,6 @@
+#[winrt]
+mod Test {
+    interface IA {
+        fn Method(&self, callback: extern fn());
+    }
+}

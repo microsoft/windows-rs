@@ -1,0 +1,2 @@
+error: function pointer parameter cannot be void
+ --> errors/input/fn_ptr_param_void.rdl:4:33
