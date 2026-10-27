@@ -27,7 +27,8 @@ fn main() -> windows::core::Result<()> {
         )
         .ok()?;
 
-        let locator: IWbemLocator = CoCreateInstance(&WbemLocator, None, CLSCTX_INPROC_SERVER)?;
+        let locator: IWbemLocator =
+            CoCreateInstance(&WbemLocator, None, CLSCTX_INPROC_SERVER as u32)?;
 
         let server = locator.ConnectServer(
             &BSTR::from("root\\cimv2"),

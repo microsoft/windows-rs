@@ -469,7 +469,7 @@ fn main() -> windows::core::Result<()> {
 
         unsafe {
             let mut data = std::ptr::null_mut();
-            vertex_buffer.Map(0, None, &mut data).ok()?;
+            vertex_buffer.Map(0, None, Some(&mut data)).ok()?;
             std::ptr::copy_nonoverlapping(vertices.as_ptr(), data as *mut Vertex, vertices.len());
             vertex_buffer.Unmap(0, None);
         }

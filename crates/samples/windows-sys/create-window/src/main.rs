@@ -58,7 +58,7 @@ fn main() {
             core::ptr::null_mut(),
             core::ptr::null_mut(),
             instance,
-            std::ptr::null(),
+            std::ptr::null_mut(),
         );
 
         let mut message = std::mem::zeroed();

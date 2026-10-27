@@ -27,7 +27,7 @@ fn main() -> windows::core::Result<()> {
             println!();
         }
 
-        CredFree(credentials_ptr as *const _);
+        CredFree(credentials_ptr.cast());
     }
 
     Ok(())
