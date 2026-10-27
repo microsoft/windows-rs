@@ -1,0 +1,2 @@
+error: function pointers require Win32 metadata
+ --> errors/input/winrt_fn_ptr_pointer_field.rdl:4:19

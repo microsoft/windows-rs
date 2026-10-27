@@ -1,0 +1,2 @@
+error: qualified or variadic function pointer is unsupported
+ --> errors/input/fn_ptr_lifetime.rdl:4:19

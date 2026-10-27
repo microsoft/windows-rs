@@ -1,0 +1,2 @@
+error: qualified or variadic function pointer is unsupported
+ --> errors/input/fn_ptr_unsafe.rdl:4:19

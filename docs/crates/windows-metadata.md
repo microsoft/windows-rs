@@ -120,6 +120,15 @@ Mixed chains instead place a required `IsConst` after each `PTR` whose pointee i
 permitted by ECMA-335 II.23.2.12 (`PTR CustomMod* Type`). A pointer without such a modifier has a
 mutable pointee. Older readers do not accept these per-level modifiers.
 
+### Function pointers
+
+`Type::FnPtr` encodes an unnamed function pointer as ECMA-335 `FNPTR` followed by a method
+signature (II.23.2.12). The signature's calling convention is `MethodCallAttributes::C` or
+`MethodCallAttributes::STDCALL`; the RDL writer rejects other conventions. Parameter and result
+types may themselves be function pointers. Merge and remap rewrite named types inside the signature.
+`windows-bindgen` projects these as `Option<unsafe extern "C" fn(..)>` or
+`Option<unsafe extern "system" fn(..)>`.
+
 ### Multi-arch merge
 
 `windows-metadata`'s `merge` module coalesces the per-architecture winmds that `tool-win32` scrapes

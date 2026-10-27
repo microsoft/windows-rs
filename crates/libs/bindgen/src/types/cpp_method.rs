@@ -651,7 +651,7 @@ impl CppMethod {
                     tokens.combine(&quote! { #name: #kind, });
                 }
                 ParamHint::Optional => {
-                    if matches!(param.ty, Type::CppDelegate(..)) {
+                    if matches!(param.ty, Type::CppDelegate(..) | Type::FnPtr(_)) {
                         let kind = param.write_name(config);
                         tokens.combine(&quote! { #name: #kind, });
                     } else {
@@ -788,7 +788,7 @@ impl CppMethod {
                             quote! { #name.param().abi(), }
                         }
                         ParamHint::Optional => {
-                            if matches!(param.ty, Type::CppDelegate(..)) {
+                            if matches!(param.ty, Type::CppDelegate(..) | Type::FnPtr(_)) {
                                 quote! { #name, }
                             } else {
                                 quote! { #name.unwrap_or(core::mem::zeroed()) as _, }

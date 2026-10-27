@@ -1,0 +1,27 @@
+//! --filter Test.Callbacks Test.Register Test.RegisterOptional Test.CALLBACK --sys --flat
+#[win32]
+mod Test {
+    struct Callbacks {
+        c: extern "C" fn(i32, *const u8) -> i32,
+        system: extern fn(),
+        array: [extern fn(Record); 2],
+        factory: extern "C" fn(extern fn(i32)) -> extern "C" fn() -> Record,
+        nested: extern fn(&*const Point, *mut [Size; 2]),
+    }
+    struct Record {
+        value: i32,
+    }
+    struct CALLBACK {
+        Value: extern fn(),
+    }
+    struct Point {
+        x: i32,
+    }
+    struct Size {
+        cx: i32,
+    }
+    #[library("test.dll")]
+    extern fn Register(callback: extern fn(&Record, &mut u32) -> i32);
+    #[library("test.dll")]
+    extern fn RegisterOptional(#[opt] callback: extern fn(), handle: CALLBACK);
+}

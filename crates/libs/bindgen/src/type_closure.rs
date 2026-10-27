@@ -135,8 +135,14 @@ trait CombineClosure {
 
 impl CombineClosure for Type {
     fn combine_closure(&self, types: &mut TypeMap, reader: &Reader, references: &References) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::FnPtr(signature) = ty {
+            for ty in signature.types() {
+                ty.combine_closure(types, reader, references);
+            }
+            return;
+        }
         if ty.is_intrinsic() {
             return;
         }

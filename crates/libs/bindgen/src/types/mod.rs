@@ -55,6 +55,7 @@ pub enum Type {
     Array(Box<Self>),
     ArrayRef(Box<Self>),
     ConstRef(Box<Self>),
+    FnPtr(Box<FunctionPointer>),
 
     Void,
     Bool,
@@ -88,6 +89,38 @@ pub enum Type {
     RPC_STATUS,
 }
 
+#[derive(Clone, Debug, PartialEq, Eq, Hash)]
+pub struct FunctionPointer {
+    flags: u8,
+    result: Type,
+    parameters: Vec<Type>,
+}
+
+impl FunctionPointer {
+    pub fn types(&self) -> impl Iterator<Item = &Type> {
+        std::iter::once(&self.result).chain(&self.parameters)
+    }
+
+    fn write(&self, config: &Config) -> TokenStream {
+        let abi = match MethodCallAttributes(self.flags) {
+            MethodCallAttributes::C => "C",
+            MethodCallAttributes::STDCALL => "system",
+            _ => panic!(
+                "unsupported function pointer signature flags: {:?}",
+                self.flags
+            ),
+        };
+        let parameters = self.parameters.iter().map(|ty| ty.write_abi(config));
+        let result = if self.result == Type::Void {
+            TokenStream::new()
+        } else {
+            let ty = self.result.write_abi(config);
+            quote! { -> #ty }
+        };
+        quote! { Option<unsafe extern #abi fn(#(#parameters),*) #result> }
+    }
+}
+
 impl Ord for Type {
     fn cmp(&self, other: &Self) -> Ordering {
         self.sort_key().cmp(&(other.sort_key()))
@@ -111,8 +144,14 @@ impl Type {
     /// Collects sys ABI dependencies without projected interfaces, which sys signatures erase to
     /// raw pointers.
     pub fn combine_sys(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::FnPtr(signature) = ty {
+            for ty in signature.types() {
+                ty.combine_sys(dependencies, reader);
+            }
+            return;
+        }
         if ty.is_intrinsic() || ty.is_interface() {
             return;
         }
@@ -405,6 +444,20 @@ impl Type {
                 Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
                 *pointers,
             ),
+            windows_metadata::Type::FnPtr(signature) => Self::FnPtr(Box::new(FunctionPointer {
+                flags: signature.flags.0,
+                result: Self::from_native_signature_type(
+                    &signature.return_type,
+                    enclosing,
+                    generics,
+                    reader,
+                ),
+                parameters: signature
+                    .types
+                    .iter()
+                    .map(|ty| Self::from_native_signature_type(ty, enclosing, generics, reader))
+                    .collect(),
+            })),
             // IsConst modifier (ELEMENT_TYPE_CMOD_REQD IsConst)
             windows_metadata::Type::RefConst(inner) => Self::ConstRef(Box::new(
                 Self::from_metadata_type(inner, enclosing, generics, reader),
@@ -417,6 +470,26 @@ impl Type {
                 )),
                 _ => Self::from_metadata_type(inner, enclosing, generics, reader),
             },
+        }
+    }
+
+    /// Lowers native signature references to pointers since they carry no parameter flags.
+    fn from_native_signature_type(
+        ty: &windows_metadata::Type,
+        enclosing: Option<&CppStruct>,
+        generics: &[Self],
+        reader: &Reader,
+    ) -> Self {
+        match ty {
+            windows_metadata::Type::RefConst(inner) => Self::PtrConst(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                1,
+            ),
+            windows_metadata::Type::RefMut(inner) => Self::PtrMut(
+                Box::new(Self::from_metadata_type(inner, enclosing, generics, reader)),
+                1,
+            ),
+            _ => Self::from_metadata_type(ty, enclosing, generics, reader),
         }
     }
 
@@ -456,7 +529,7 @@ impl Type {
 
     pub fn has_cpp_delegate(&self, reader: &Reader) -> bool {
         match self {
-            Self::CppDelegate(..) => true,
+            Self::CppDelegate(..) | Self::FnPtr(_) => true,
             Self::CppStruct(ty) => ty.has_cpp_delegate(reader),
             _ => false,
         }
@@ -577,6 +650,7 @@ impl Type {
             Self::CppFn(ty) => ty.write_name(config),
             Self::CppConst(ty) => ty.write_name(config),
             Self::CppDelegate(ty) => ty.write_name(config),
+            Self::FnPtr(signature) => signature.write(config),
             Self::Delegate(ty) => ty.write_name(config),
             Self::Class(ty) => ty.write_name(config),
             Self::Generic(param) => to_ident(param.name()),
@@ -726,6 +800,18 @@ impl Type {
         }
     }
 
+    pub fn dependency_type(&self) -> &Self {
+        match self {
+            Self::PtrMut(ty, _)
+            | Self::PtrConst(ty, _)
+            | Self::Array(ty)
+            | Self::ArrayRef(ty)
+            | Self::ConstRef(ty)
+            | Self::ArrayFixed(ty, _) => ty.dependency_type(),
+            _ => self,
+        }
+    }
+
     pub fn decay(&self) -> &Self {
         match self {
             Self::PtrMut(ty, _)
@@ -871,7 +957,7 @@ impl Type {
 
     pub fn is_primitive(&self, reader: &Reader) -> bool {
         match self {
-            Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
+            Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) | Self::FnPtr(_) => true,
             Self::CppStruct(ty) => ty.is_handle(reader),
             Self::Bool
             | Self::Char
@@ -1149,8 +1235,14 @@ impl Type {
 
 impl Dependencies for Type {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        let ty = self.decay();
+        let ty = self.dependency_type();
 
+        if let Self::FnPtr(signature) = ty {
+            for ty in signature.types() {
+                ty.combine(dependencies, reader);
+            }
+            return;
+        }
         if ty.is_intrinsic() {
             return;
         }

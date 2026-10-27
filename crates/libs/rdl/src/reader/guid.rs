@@ -167,6 +167,17 @@ pub fn type_to_string(ty: &Type) -> String {
         Type::RefConst(inner) => format!("RefConst({})", type_to_string(inner)),
         Type::Array(inner) => format!("Array({})", type_to_string(inner)),
         Type::ArrayFixed(inner, n) => format!("ArrayFixed({},{})", type_to_string(inner), n),
+        Type::FnPtr(signature) => format!(
+            "FnPtr({},{},{})",
+            signature.flags.0,
+            type_to_string(&signature.return_type),
+            signature
+                .types
+                .iter()
+                .map(type_to_string)
+                .collect::<Vec<_>>()
+                .join(",")
+        ),
     }
 }
 

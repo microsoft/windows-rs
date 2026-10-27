@@ -170,6 +170,7 @@ impl<'a> Blob<'a> {
             ELEMENT_TYPE_U => Type::USize,
             ELEMENT_TYPE_STRING => Type::String,
             ELEMENT_TYPE_OBJECT => Type::Object,
+            ELEMENT_TYPE_FNPTR => Type::FnPtr(Box::new(self.read_method_signature(generics))),
             ELEMENT_TYPE_VALUETYPE => {
                 let tdr = self.decode::<TypeDefOrRef>();
                 if let TypeDefOrRef::TypeSpec(def) = tdr {

@@ -86,6 +86,17 @@ Most attributes name a metadata attribute type directly. Some attributes use sho
 names. The reader expands those names to full metadata attributes. See `PSEUDO_ATTRS` in
 `windows-rdl`.
 
+Win32 types can use unnamed function pointers inline, without declaring a named callback. The ABI is
+required: `extern "C" fn` selects C and `extern fn` or `extern "system" fn` selects stdcall.
+Parameters are unnamed, unattributed, and non-void. WinRT types reject function pointers.
+
+```text
+struct Callbacks {
+    compare: extern "C" fn(*const u8, *const u8) -> i32,
+    notify: extern fn(u32),
+}
+```
+
 Struct bit fields use their own syntax. A run of bit fields packed into one backing integer is
 written as a C-like block on that field. Each member uses `Name: width`. Anonymous padding uses
 `_: width`.

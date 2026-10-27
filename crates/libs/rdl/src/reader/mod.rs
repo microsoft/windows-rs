@@ -593,6 +593,7 @@ impl Encoder<'_> {
             syn::Type::Reference(ty) => self.encode_type_reference(ty),
             syn::Type::Slice(ty) => self.encode_type_slice(ty),
             syn::Type::Array(ty) => self.encode_type_array(ty),
+            syn::Type::BareFn(ty) => self.encode_type_fn_ptr(ty),
             rest => self.err(rest, "type not supported"),
         }
     }
@@ -992,6 +993,42 @@ impl Encoder<'_> {
         value.ok_or_else(|| self.error(expr, "value not valid"))
     }
 
+    fn encode_type_fn_ptr(&self, ty: &syn::TypeBareFn) -> Result<metadata::Type, Error> {
+        if ty.lifetimes.is_some() || ty.unsafety.is_some() || ty.variadic.is_some() {
+            return self.err(ty, "qualified or variadic function pointer is unsupported");
+        }
+        let Some(abi) = &ty.abi else {
+            return self.err(ty, "function pointer requires an extern ABI");
+        };
+        let flags = match abi.name.as_ref().map(syn::LitStr::value).as_deref() {
+            None | Some("system") => metadata::MethodCallAttributes::STDCALL,
+            Some("C") => metadata::MethodCallAttributes::C,
+            _ => return self.err(abi, "function pointer ABI is unsupported"),
+        };
+        let types = ty
+            .inputs
+            .iter()
+            .map(|param| {
+                if !param.attrs.is_empty() || param.name.is_some() {
+                    return self.err(
+                        param,
+                        "function pointer parameters must be unnamed and unattributed",
+                    );
+                }
+                let encoded = self.encode_type(&param.ty)?;
+                if encoded == metadata::Type::Void {
+                    return self.err(param, "function pointer parameter cannot be void");
+                }
+                Ok(encoded)
+            })
+            .collect::<Result<_, _>>()?;
+        Ok(metadata::Type::FnPtr(Box::new(metadata::Signature {
+            flags,
+            return_type: self.encode_return_type(&ty.output)?,
+            types,
+        })))
+    }
+
     fn encode_type_reference(&self, ty: &syn::TypeReference) -> Result<metadata::Type, Error> {
         let is_mut = ty.mutability.is_some();
         let ty = self.encode_type(&ty.elem)?;
@@ -1178,6 +1215,9 @@ impl Encoder<'_> {
         ty: &metadata::Type,
     ) -> Result<(), Error> {
         match ty {
+            metadata::Type::FnPtr(_) => {
+                return self.err(span, "function pointers require Win32 metadata");
+            }
             metadata::Type::ValueName(tn) | metadata::Type::ClassName(tn) => {
                 for generic_ty in &tn.generics {
                     self.validate_type_is_winrt(span, generic_ty)?;

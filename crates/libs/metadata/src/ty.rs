@@ -28,6 +28,7 @@ pub enum Type {
     PtrMut(Box<Self>, usize),     // ELEMENT_TYPE_PTR
     PtrConst(Box<Self>, usize),   // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR
     ArrayFixed(Box<Self>, usize), // ELEMENT_TYPE_ARRAY
+    FnPtr(Box<Signature>),        // ELEMENT_TYPE_FNPTR
 }
 
 impl Type {

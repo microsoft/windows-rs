@@ -1,0 +1,2 @@
+error: function pointer parameters must be unnamed and unattributed
+ --> errors/input/fn_ptr_param_attributed.rdl:4:33

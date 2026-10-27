@@ -1,0 +1,5 @@
+#[winrt]
+mod Test {
+    interface IA<T> {}
+    interface IB : IA<extern fn()> {}
+}

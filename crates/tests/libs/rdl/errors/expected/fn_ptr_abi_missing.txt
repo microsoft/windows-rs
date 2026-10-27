@@ -1,0 +1,2 @@
+error: function pointer requires an extern ABI
+ --> errors/input/fn_ptr_abi_missing.rdl:4:19

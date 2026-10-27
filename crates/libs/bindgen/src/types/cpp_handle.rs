@@ -3,7 +3,7 @@ use super::*;
 // Callback typedef chains are transparent aliases; newtyping function pointers adds no safety.
 fn resolves_to_delegate(ty: &Type, reader: &Reader) -> bool {
     match ty {
-        Type::CppDelegate(_) => true,
+        Type::CppDelegate(_) | Type::FnPtr(_) => true,
         Type::CppStruct(inner) if inner.is_handle(reader) => {
             resolves_to_delegate(&inner.def.underlying_type_ext(reader), reader)
         }

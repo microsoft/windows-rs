@@ -1,0 +1,2 @@
+error: function pointer ABI is unsupported
+ --> errors/input/fn_ptr_abi_unsupported.rdl:4:19

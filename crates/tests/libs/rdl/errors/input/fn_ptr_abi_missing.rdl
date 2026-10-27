@@ -1,0 +1,6 @@
+#[win32]
+mod Test {
+    struct S {
+        callback: fn(i32),
+    }
+}
