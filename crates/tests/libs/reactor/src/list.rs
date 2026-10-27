@@ -3,6 +3,7 @@ use super::*;
 pub(super) struct ListFixture {
     keys: Vec<&'static str>,
     selectable: bool,
+    selected: Option<&'static str>,
 }
 
 #[derive(Clone)]
@@ -12,6 +13,8 @@ pub(super) enum Message {
     Remove,
     InsertFirst,
     EnableSelection,
+    Clicked(Option<usize>),
+    Promote(&'static str),
 }
 
 impl Component for ListFixture {
@@ -22,16 +25,31 @@ impl Component for ListFixture {
         Self {
             keys: vec!["alpha", "beta", "rich"],
             selectable: false,
+            selected: None,
         }
     }
 
-    fn update(&mut self, message: Message, _: &ComponentContext<Self>) {
+    fn update(&mut self, message: Message, context: &ComponentContext<Self>) {
         match message {
             Message::Reverse => self.keys.reverse(),
             Message::Insert => self.keys.insert(1, "delta"),
             Message::Remove => self.keys.retain(|key| *key != "beta"),
             Message::InsertFirst => self.keys.insert(0, "gamma"),
             Message::EnableSelection => self.selectable = true,
+            Message::Clicked(Some(index)) => {
+                let key = self.keys[index];
+                // Promote after a delay, as a background load would. Promoting immediately does not crash.
+                context.spawn_background(move |_| {
+                    std::thread::sleep(std::time::Duration::from_millis(300));
+                    Message::Promote(key)
+                });
+            }
+            Message::Clicked(None) => {}
+            Message::Promote(key) => {
+                self.keys.retain(|item| *item != key);
+                self.keys.insert(0, key);
+                self.selected = Some(key);
+            }
         }
     }
 
@@ -68,7 +86,14 @@ impl Component for ListFixture {
                     .selection_mode(ListViewSelectionMode::Single)
                     .selected_index(Some(1))
                     .items(["first", "second"].map(|key| DataItem::new(key, title(key)))),
-                ListView::new().automation_id("items").items(items),
+                ListView::new()
+                    .automation_id("items")
+                    .selected_index(
+                        self.selected
+                            .and_then(|selected| self.keys.iter().position(|key| *key == selected)),
+                    )
+                    .on_selection_changed(context.callback(Message::Clicked))
+                    .items(items),
                 selectable,
                 Button::new()
                     .automation_id("reverse")

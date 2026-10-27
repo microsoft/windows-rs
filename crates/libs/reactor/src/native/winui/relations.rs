@@ -266,7 +266,7 @@ impl WinUiAdapter {
         children: &[ObjectId],
     ) -> Result<(), WinUiError> {
         let selection = selection_for_relation(self.kind(parent)?, relation);
-        let selected = selection
+        let mut selected = selection
             .map(|selection| self.read_selected_item(parent, selection))
             .transpose()?
             .flatten();
@@ -355,6 +355,10 @@ impl WinUiAdapter {
                             if !values.IndexOf(&child, &mut previous)? {
                                 return Err(WinUiError::ChildNotFound(movement.child));
                             }
+                            let moved = self.reissue_data_item(movement.child)?;
+                            if selected.as_ref() == Some(&child) {
+                                selected = Some(moved.clone());
+                            }
                             values.RemoveAt(previous)?;
                             let index = if let Some(before) = movement.before {
                                 let before = self.inspectable(before)?;
@@ -366,7 +370,7 @@ impl WinUiAdapter {
                             } else {
                                 values.Size()?
                             };
-                            values.InsertAt(index, &child)?;
+                            values.InsertAt(index, &moved)?;
                         }
                     }
                 }
@@ -525,6 +529,29 @@ impl WinUiAdapter {
             Handle::TreeView(value) => Ok(value.value.cast()?),
             Handle::TreeNode(_) | Handle::Data(_) => Err(WinUiError::InvalidObject(object)),
         }
+    }
+
+    /// Replaces a data item's native object before Reactor moves it within `Items`. WinUI keeps the
+    /// removed entry's container bound to the old object until its next layout pass, and a
+    /// selection write in the same batch can prepare a container for the moved item first. The old
+    /// object releases its content so the two containers never claim the same element.
+    fn reissue_data_item(&mut self, object: ObjectId) -> Result<IInspectable, WinUiError> {
+        let Some(Handle::Data(previous)) = self.handles.get(&object) else {
+            return Err(WinUiError::InvalidObject(object));
+        };
+        let previous = previous.clone();
+        let values = previous
+            .First()?
+            .map(|pair| Ok((pair.Key()?, pair.Value().ok())))
+            .collect::<Result<BTreeMap<_, _>, WinUiError>>()?;
+        previous.Insert(&self.data_content_key, None)?;
+        let value: IObservableMap<HSTRING, IInspectable> = values.into();
+        let inspectable: IInspectable = value.cast()?;
+        if let Some(item) = self.event_queue.items.borrow_mut().get_mut(&object) {
+            item.identity = com_identity(&inspectable)?;
+        }
+        self.handles.insert(object, Handle::Data(value));
+        Ok(inspectable)
     }
 
     fn inspectable(&self, object: ObjectId) -> Result<IInspectable, WinUiError> {
