@@ -76,3 +76,18 @@ fn pointer_constness() {
         }
     }
 }
+
+#[test]
+fn leading_and_per_pointer_const() {
+    let mut file = writer::File::new("modifiers");
+    let is_const = file.TypeRef("System.Runtime.CompilerServices", "IsConst");
+    let is_const = u8::try_from(writer::TypeDefOrRef::TypeRef(is_const).encode()).unwrap();
+    let index = Index::new(vec![File::new(file.into_stream()).unwrap()]);
+    let signature = [0x1f, is_const, 0x0f, 0x1f, is_const, 0x0f, 0x08];
+    let mut blob = Blob::new(&index, 0, &signature);
+    assert_eq!(
+        blob.read_type_signature(&[]),
+        Type::PtrConst(Box::new(Type::I32), 2)
+    );
+    assert!(blob.is_empty());
+}

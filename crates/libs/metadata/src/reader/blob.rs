@@ -122,7 +122,8 @@ impl<'a> Blob<'a> {
         while self.try_read(ELEMENT_TYPE_PTR as usize) {
             // A leading IsConst applies to the entire pointer run; ECMA-335 II.23.2.12 also
             // permits a modifier after each PTR for chains with mixed constness.
-            pointers.push(is_const || self.read_is_const());
+            let constant = self.read_is_const();
+            pointers.push(is_const || constant);
         }
 
         let mut ty = self.read_type_code(generics);
