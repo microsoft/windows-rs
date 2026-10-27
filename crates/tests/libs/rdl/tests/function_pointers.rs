@@ -34,6 +34,56 @@ fn unsupported_imported_signatures() {
 }
 
 #[test]
+fn unsupported_imported_interface_generics() {
+    for (winrt, flags, expected) in [
+        (
+            true,
+            MethodCallAttributes::C,
+            "function pointers require Win32 metadata",
+        ),
+        (
+            false,
+            MethodCallAttributes::VARARG,
+            "unsupported function pointer signature flags",
+        ),
+    ] {
+        let mut file = writer::File::new("interface_generics");
+        let mut interface =
+            TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract;
+        if winrt {
+            interface |= TypeAttributes::WindowsRuntime;
+        }
+        let generic = file.TypeDef("Test", "IA`1", writer::TypeDefOrRef::default(), interface);
+        file.GenericParam(
+            "T",
+            writer::TypeOrMethodDef::TypeDef(generic),
+            0,
+            GenericParamAttributes::None,
+        );
+        let derived = file.TypeDef("Test", "IB", writer::TypeDefOrRef::default(), interface);
+        let callback = Type::FnPtr(Box::new(Signature {
+            flags,
+            return_type: Type::Void,
+            types: vec![],
+        }));
+        file.InterfaceImpl(
+            derived,
+            &Type::ClassName(TypeName {
+                namespace: "Test".to_string(),
+                name: "IA".to_string(),
+                generics: vec![callback],
+            }),
+        );
+        let error = windows_rdl::writer()
+            .input_bytes(&file.into_stream())
+            .output(std::path::Path::new(env!("OUT_DIR")).join("interface-generics.rdl"))
+            .write()
+            .unwrap_err();
+        assert!(error.message.contains(expected), "{error}");
+    }
+}
+
+#[test]
 fn nested_function_pointer_references() {
     let mut file = writer::File::new("nested_function_pointer");
     let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));

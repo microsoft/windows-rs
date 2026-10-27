@@ -382,6 +382,9 @@ fn validate_item_types(item: metadata::reader::Item) -> Result<(), Error> {
                 .generic_params()
                 .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
                 .collect();
+            for interface in def.interface_impls() {
+                validate_type(&interface.interface(&generics), winrt)?;
+            }
             for field in def.fields() {
                 validate_type(&field.ty(), winrt)?;
             }

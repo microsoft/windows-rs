@@ -1,4 +1,4 @@
-//! --filter Test.Callbacks Test.Register --sys --flat
+//! --filter Test.Callbacks Test.Register Test.RegisterOptional Test.CALLBACK --sys --flat
 #[win32]
 mod Test {
     struct Callbacks {
@@ -11,6 +11,9 @@ mod Test {
     struct Record {
         value: i32,
     }
+    struct CALLBACK {
+        Value: extern fn(),
+    }
     struct Point {
         x: i32,
     }
@@ -19,4 +22,6 @@ mod Test {
     }
     #[library("test.dll")]
     extern fn Register(callback: extern fn(&Record, &mut u32) -> i32);
+    #[library("test.dll")]
+    extern fn RegisterOptional(#[opt] callback: extern fn(), handle: CALLBACK);
 }

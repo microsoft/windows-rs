@@ -5,6 +5,12 @@ pub unsafe fn Register(
     windows_core::link!("test.dll" "system" fn Register(callback : Option < unsafe extern "system" fn(*const Record, *mut u32) -> i32 >));
     unsafe { Register(callback) }
 }
+#[inline]
+pub unsafe fn RegisterOptional(callback: Option<unsafe extern "system" fn()>, handle: CALLBACK) {
+    windows_core::link!("test.dll" "system" fn RegisterOptional(callback : Option < unsafe extern "system" fn() >, handle : CALLBACK));
+    unsafe { RegisterOptional(callback, handle) }
+}
+pub type CALLBACK = Option<unsafe extern "system" fn()>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct Callbacks {
